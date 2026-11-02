@@ -1,1 +1,1 @@
-export default "New skills · Gem Skills";
+export default "New skills · SkillHub";

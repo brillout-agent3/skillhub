@@ -1,1 +1,1 @@
-export default "Not found · Gem Skills";
+export default "Not found · SkillHub";

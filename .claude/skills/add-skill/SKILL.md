@@ -1,6 +1,6 @@
 ---
 name: add-skill
-description: Add a skill to Gem Skills' skills.json, or retag one, including whether it belongs to a bundle. Use when asked to add, tag, retag or review skills, or to record a bundle of skills.
+description: Add a skill to SkillHub's skills.json, or retag one, including whether it belongs to a bundle. Use when asked to add, tag, retag or review skills, or to record a bundle of skills.
 ---
 
 # Add or retag a skill

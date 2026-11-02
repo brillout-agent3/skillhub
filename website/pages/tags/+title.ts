@@ -1,1 +1,1 @@
-export default "Tags · Gem Skills";
+export default "Tags · SkillHub";

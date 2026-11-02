@@ -28,7 +28,7 @@ import { copyPath, rawUrl, skew } from "../website/skill-md.ts";
 import { github, skipped, type Bundle, type Skill, type SkillMd } from "../website/types.ts";
 
 const today = new Date().toISOString().slice(0, 10);
-const scratch = mkdtempSync(join(tmpdir(), "gemskills-sync-"));
+const scratch = mkdtempSync(join(tmpdir(), "skillhub-sync-"));
 const git = (args: string[]) =>
   promisify(execFile)("git", args, { env: { ...process.env, GIT_TERMINAL_PROMPT: "0" } }).then(
     ({ stdout }) => stdout.trim(),
@@ -39,7 +39,7 @@ const git = (args: string[]) =>
 /** GET a URL, or null when it isn't there (404). Network errors, 429 and 5xx are retried. */
 async function request(url: string): Promise<Response | null> {
   for (let attempt = 1; ; attempt++) {
-    const res = await fetch(url, { headers: { "user-agent": "gemskills-sync" } }).catch(
+    const res = await fetch(url, { headers: { "user-agent": "skillhub-sync" } }).catch(
       (error: Error) => error,
     );
     if (!(res instanceof Error)) {

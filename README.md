@@ -1,3 +1,3 @@
-# Gem Skills
+# SkillHub
 
-https://brillout.github.io/gemskills
+https://brillout.github.io/skillhub

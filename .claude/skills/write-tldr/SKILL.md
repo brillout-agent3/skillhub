@@ -1,6 +1,6 @@
 ---
 name: write-tldr
-description: Write or refresh the TLDRs of skills and bundles in Gem Skills' skills.json, the summaries the site shows people browsing skills. Use when asked to write, update or review TLDRs, or to catch up on the skills whose SKILL.md has drifted most from its TLDR.
+description: Write or refresh the TLDRs of skills and bundles in SkillHub's skills.json, the summaries the site shows people browsing skills. Use when asked to write, update or review TLDRs, or to catch up on the skills whose SKILL.md has drifted most from its TLDR.
 ---
 
 # Write TLDRs

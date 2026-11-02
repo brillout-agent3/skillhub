@@ -13,7 +13,7 @@
     },
     {
       "tag": "flag:tool-docs",
-      "note": "A skill that's an agent's manual for a product (how to build with it, configure it, deploy to it or operate it) only matters once you've already chosen that product, so nobody discovers anything by browsing it. That said, a skill that gives a new capability through some tool does get listed — that's what GemSkills is for."
+      "note": "A skill that's an agent's manual for a product (how to build with it, configure it, deploy to it or operate it) only matters once you've already chosen that product, so nobody discovers anything by browsing it. That said, a skill that gives a new capability through some tool does get listed — that's what SkillHub is for."
     },
     {
       "tag": "lang:zh",
@@ -2848,7 +2848,7 @@
           }
         ],
         "text": "A short security protocol for agents that install skills, aimed at the OpenClaw agent and its ClawHub skill registry. First the agent checks where the skill comes from: the author, downloads or stars, last update. Then it reads all of the skill's files for red flags: calls to unknown URLs or bare IP addresses, sending data out, asking for tokens or API keys, reading ~/.ssh, ~/.aws or the agent's own memory and identity files such as MEMORY.md and SOUL.md, base64 decoding, eval, obfuscated code, sudo, or installing packages it doesn't list. Any one of these means reject. A skill that passes is then weighed by what it reads, writes, runs and connects to, against what it claims to do, and sorted into four risk levels: low, such as notes or formatting (install); medium, such as files, browsers or APIs (full code review); high, such as credentials or trading (your approval); extreme, such as root access (don't install). Official skills and popular repos get a lighter review than unknown authors, but still a review. For skills on GitHub, it gives curl commands that check stars and fetch the files before installing.",
-        "permalink": "https://github.com/brillout/gemskills/blob/aca4fea96aada6bf2117708ec6537d44df7d91e0/data/skill-snapshots/clawhub.ai/spclaudehome/skill-vetter.md"
+        "permalink": "https://github.com/brillout/skillhub/blob/aca4fea96aada6bf2117708ec6537d44df7d91e0/data/skill-snapshots/clawhub.ai/spclaudehome/skill-vetter.md"
       },
       "tags": [
         "category:skill-tools",
@@ -2910,7 +2910,7 @@
           }
         ],
         "text": "SkillScan sets itself up as a gate: whenever a skill arrives, however it comes (a .zip, a git clone, npx skills add, a skill hub), the agent runs its Python scanner on it. A .zip is scanned before it's installed, anything else right after its files land. The scanner hashes the skill's folder and asks TokAuth's server whether that exact content has been scanned before; if not, it uploads the skill as a zip and waits up to three minutes for the verdict. Skills with no verdict, because the scan came back unknown, are let through like safe ones. It needs Python and network access to skillscan.tokauth.com.",
-        "permalink": "https://github.com/brillout/gemskills/blob/aca4fea96aada6bf2117708ec6537d44df7d91e0/data/skill-snapshots/clawhub.ai/tokauthai/skillscan.md"
+        "permalink": "https://github.com/brillout/skillhub/blob/aca4fea96aada6bf2117708ec6537d44df7d91e0/data/skill-snapshots/clawhub.ai/tokauthai/skillscan.md"
       },
       "tags": [
         "category:skill-tools",
@@ -6266,7 +6266,7 @@
           }
         ],
         "text": "An editing pass based on a guide kept by Wikipedia editors who clean up AI-written articles. Its 24 patterns come in four groups, each with a before and after example. Content: puffed-up significance (\"a pivotal moment\"), name-dropping press coverage, tacked-on clauses like \", highlighting its importance\", promotional words like \"nestled\" or \"vibrant\", vague \"experts believe\" and formulaic challenges-and-outlook sections. Language: words AI overuses such as \"delve\", \"tapestry\" and \"underscore\", \"serves as\" where \"is\" would do, \"not just X, it's Y\", forced groups of three and cycling through synonyms for the same thing. Style: em dashes, mechanical bold, bolded list headers, title-case headings, emojis and curly quotes. Communication: chatbot leftovers like \"I hope this helps\", knowledge-cutoff disclaimers, flattery, filler, hedging and upbeat generic endings. The rewrite should read naturally aloud, vary its sentences and prefer specific details to vague claims.",
-        "permalink": "https://github.com/brillout/gemskills/blob/aca4fea96aada6bf2117708ec6537d44df7d91e0/data/skill-snapshots/clawhub.ai/biostartechnology/humanizer.md"
+        "permalink": "https://github.com/brillout/skillhub/blob/aca4fea96aada6bf2117708ec6537d44df7d91e0/data/skill-snapshots/clawhub.ai/biostartechnology/humanizer.md"
       },
       "tags": [
         "category:writing",
@@ -6320,7 +6320,7 @@
           }
         ],
         "text": "Despite the name, it's a whole-book writing workflow. Its one rule is \"genre before prose\": a gothic ghost story and a Regency romance want different sentence lengths, moods and endings, so the agent first fetches Proseify's guide to the genre: its pacing, how much dialogue it uses and the style it expects. It asks you one question up front, novel (about 80,000 words in 40 chapters) or novella (the default, 30 chapters, about 48,000 words), then searches Proseify's collection of public-domain books, mainly from Project Gutenberg, for passages in the voice it wants, and plans the book. It drafts every chapter in order at full length, because summarizing the later chapters is the usual way agents fake a finished book. Between drafts it edits out \"seemed to\" and \"began to\", stacked adverbs, \"she felt\" and \"she noticed\", repeated sentences and chapters that all open the same way. Finally Proseify scores the book and flags thin chapters, and the agent rewrites the weakest.",
-        "permalink": "https://github.com/brillout/gemskills/blob/aca4fea96aada6bf2117708ec6537d44df7d91e0/data/skill-snapshots/proseify.xyz/anti-prose-slop.md"
+        "permalink": "https://github.com/brillout/skillhub/blob/aca4fea96aada6bf2117708ec6537d44df7d91e0/data/skill-snapshots/proseify.xyz/anti-prose-slop.md"
       },
       "tags": [
         "category:writing",
@@ -9846,7 +9846,7 @@
           }
         ],
         "text": "OpenClaw, once called Clawdbot, is an open-source AI assistant you run yourself, and this community skill for it, by Yossi Elkrief, teaches it Vercel Labs' agent-browser CLI. The agent opens a page and takes a snapshot of its interactive elements as JSON, where each button or field gets a short label such as @e2. It then clicks, fills or reads by label, and takes a new snapshot whenever the page changes. The command list covers navigation, waiting (for an element, some text, a URL, the network to go quiet, or a JavaScript condition), checking whether elements are visible or checked, tabs and iframes, cookies and local storage, blocking or faking network requests, and screenshots and PDFs. Named sessions run isolated browsers side by side, say an admin and a regular user at once, and saved login state skips signing in again. The skill recommends it over the assistant's built-in browser for multi-step workflows and complex web apps, and the built-in one for visual inspection or browser extensions.",
-        "permalink": "https://github.com/brillout/gemskills/blob/aca4fea96aada6bf2117708ec6537d44df7d91e0/data/skill-snapshots/clawhub.ai/matrixy/agent-browser-clawdbot.md"
+        "permalink": "https://github.com/brillout/skillhub/blob/aca4fea96aada6bf2117708ec6537d44df7d91e0/data/skill-snapshots/clawhub.ai/matrixy/agent-browser-clawdbot.md"
       },
       "tags": [
         "category:browser",
@@ -9901,7 +9901,7 @@
           }
         ],
         "text": "Instead of calling a search API, the agent fetches ordinary search-result pages, as a browser would. A query in Chinese goes to seven Chinese engines (Baidu, Bing China and international, 360, Sogou, WeChat search and Shenma); anything else goes to nine international ones (Google, Google Hong Kong, DuckDuckGo, Yahoo, Startpage, Brave, Ecosia, Qwant and WolframAlpha). Requests go out in small batches, a second or two apart, and a blocked request is retried once. The skill also lists search operators (site:, filetype:, exact phrases, exclusions), Google's time filters from the past hour to the past year, DuckDuckGo shortcuts such as !gh to search GitHub, and WolframAlpha queries for math, currency conversion and stock prices. Complying with each engine's terms of service is left to you.",
-        "permalink": "https://github.com/brillout/gemskills/blob/aca4fea96aada6bf2117708ec6537d44df7d91e0/data/skill-snapshots/clawhub.ai/gpyangyoujun/multi-search-engine.md"
+        "permalink": "https://github.com/brillout/skillhub/blob/aca4fea96aada6bf2117708ec6537d44df7d91e0/data/skill-snapshots/clawhub.ai/gpyangyoujun/multi-search-engine.md"
       },
       "tags": [
         "category:browser",
@@ -9953,7 +9953,7 @@
           }
         ],
         "text": "A small search tool packaged for OpenClaw, the open-source AI agent. The agent turns your request into one focused query, adding more only for a distinct concept, time period or kind of source, and can narrow by topic (general, news or finance), time range and domains. It treats the snippets as leads rather than evidence: before stating facts it opens the most relevant pages, prefers primary sources and cites the pages it used. If search fails, it says so instead of inventing results.",
-        "permalink": "https://github.com/brillout/gemskills/blob/aca4fea96aada6bf2117708ec6537d44df7d91e0/data/skill-snapshots/clawhub.ai/jacky1n7/openclaw-tavily-search.md"
+        "permalink": "https://github.com/brillout/skillhub/blob/aca4fea96aada6bf2117708ec6537d44df7d91e0/data/skill-snapshots/clawhub.ai/jacky1n7/openclaw-tavily-search.md"
       },
       "tags": [
         "category:browser",
@@ -10621,7 +10621,7 @@
           }
         ],
         "text": "The agent runs one Python script with uv, passing your description as the prompt, or an edit instruction plus an input image to change a picture you have: remove a person, make the sky stormier, turn it into a watercolor. It passes your words through as they are unless they're clearly too thin, and has templates for vague requests and for precise edits that say \"change only this, keep everything else identical\". Size follows what you say: nothing or \"1080p\" gives the smallest, \"medium\" the middle one, \"high-res\" or \"4K\" the largest. Files are named by date, time and a few descriptive words and saved where you're working, and the agent tells you the path rather than opening the image. It also lists quick fixes for a missing key, a wrong image path and quota errors.",
-        "permalink": "https://github.com/brillout/gemskills/blob/aca4fea96aada6bf2117708ec6537d44df7d91e0/data/skill-snapshots/clawhub.ai/steipete/nano-banana-pro.md"
+        "permalink": "https://github.com/brillout/skillhub/blob/aca4fea96aada6bf2117708ec6537d44df7d91e0/data/skill-snapshots/clawhub.ai/steipete/nano-banana-pro.md"
       },
       "tags": [
         "category:media",
@@ -11448,7 +11448,7 @@
           }
         ],
         "text": "A very short skill: it tells the agent to use the nano-pdf command-line tool to apply a natural-language edit to one page, as in nano-pdf edit deck.pdf 1 \"Change the title to 'Q3 Results'\". It warns that the tool counts pages from 0 or from 1 depending on its version, so an edit that lands on the wrong page should be retried with the other number, and that the output should be checked before it goes out. The rest is up to the tool. According to the tool's own page, it sends the page to Gemini 3 Pro Image, replaces it with the edited image, and adds the text back with OCR so it stays searchable, which is why it needs a paid Gemini key.",
-        "permalink": "https://github.com/brillout/gemskills/blob/aca4fea96aada6bf2117708ec6537d44df7d91e0/data/skill-snapshots/clawhub.ai/steipete/nano-pdf.md"
+        "permalink": "https://github.com/brillout/skillhub/blob/aca4fea96aada6bf2117708ec6537d44df7d91e0/data/skill-snapshots/clawhub.ai/steipete/nano-pdf.md"
       },
       "tags": [
         "category:documents",
@@ -12513,7 +12513,7 @@
           }
         ],
         "text": "AdMapix is an ad-intelligence service for apps; this skill is a thin client for its read API. The agent picks from over 30 endpoints: search and count ad creatives by keyword, country, channel or format; look up an app, its developer, similar apps and the SDKs it uses; pull app-store rankings (free, paid, grossing); get download and revenue estimates by date or country; and query market-level totals. It reads an endpoint's reference file before its first call, and turns plain requests (video ads, the games industry, last 30 days) into the request codes AdMapix expects. Responses come back untouched, field names and all, and download and revenue figures must be presented as third-party estimates. If the key is missing it makes no call: it shows how to sign up and set the key, and never accepts the key in chat. When AdMapix's MCP tool is installed, it searches creatives through that instead of curl.",
-        "permalink": "https://github.com/brillout/gemskills/blob/aca4fea96aada6bf2117708ec6537d44df7d91e0/data/skill-snapshots/clawhub.ai/fly0pants/admapix.md"
+        "permalink": "https://github.com/brillout/skillhub/blob/aca4fea96aada6bf2117708ec6537d44df7d91e0/data/skill-snapshots/clawhub.ai/fly0pants/admapix.md"
       },
       "tags": [
         "category:marketing",
@@ -13207,7 +13207,7 @@
           }
         ],
         "text": "The agent creates .learnings/ with LEARNINGS.md (corrections, knowledge gaps, better approaches), ERRORS.md (failed commands and integrations) and FEATURE_REQUESTS.md, and adds an entry whenever a command fails, you say \"no, that's not right\", or you ask for something it can't do. Repeats are spotted and counted instead of logged twice. A lesson that keeps recurring or applies broadly is checked, then rewritten as a short prevention rule in one of the files OpenClaw loads into every session: workflow rules in AGENTS.md, tool gotchas in TOOLS.md, behaviour in SOUL.md, the file that holds the agent's personality and principles. Old lessons are kept honest: each one notes why it could stop being true (the facts changed, a decision was replaced, a dependency was upgraded, or it no longer applies) and is rechecked before reuse, never deleted just for being old. It avoids logging secrets and never changes skills without your approval. The optional hook adds a reminder at session start and scans finished sessions for errors.",
-        "permalink": "https://github.com/brillout/gemskills/blob/aca4fea96aada6bf2117708ec6537d44df7d91e0/data/skill-snapshots/clawhub.ai/pskoett/self-improving-agent.md"
+        "permalink": "https://github.com/brillout/skillhub/blob/aca4fea96aada6bf2117708ec6537d44df7d91e0/data/skill-snapshots/clawhub.ai/pskoett/self-improving-agent.md"
       },
       "tags": [
         "category:agents",
@@ -13265,7 +13265,7 @@
           }
         ],
         "text": "It makes the agent learn from mistakes. Explicit corrections (\"no, that's wrong\", \"I prefer X\", \"stop doing Y\") go to a corrections log, and after significant work the agent notes what could have gone better. A lesson seen three times becomes a candidate rule, confirmed with you, and moves into memory.md, a file of at most 100 lines loaded before every non-trivial task. Lessons for one project or topic, such as code or writing, get their own files, loaded only when relevant. A rule unused for 30 days leaves the always-loaded file, and after 90 days goes to an archive; nothing is deleted without asking. When rules conflict, the most specific wins, and the agent cites which file a choice came from. You can ask what it has learned, export everything or have it forget something. It never stores credentials or health data and makes no network requests. Setup assumes a workspace like OpenClaw's (an open-source personal AI agent): it adds lines to AGENTS.md, SOUL.md and HEARTBEAT.md, and a periodic check keeps the memory tidy. Setup also offers a separate Proactivity skill, installed only if you agree.",
-        "permalink": "https://github.com/brillout/gemskills/blob/aca4fea96aada6bf2117708ec6537d44df7d91e0/data/skill-snapshots/clawhub.ai/ivangdavila/self-improving.md"
+        "permalink": "https://github.com/brillout/skillhub/blob/aca4fea96aada6bf2117708ec6537d44df7d91e0/data/skill-snapshots/clawhub.ai/ivangdavila/self-improving.md"
       },
       "tags": [
         "category:agents",
@@ -13322,7 +13322,7 @@
           }
         ],
         "text": "Everything the agent remembers becomes a record with a type, fields and links: a Task that belongs to a Project owned by a Person. It ships types for people, organizations, projects, tasks, goals, events, documents, messages and accounts; passwords and tokens are never stored, only a pointer to where they're kept. In memory/ontology/schema.yaml you can set rules: required fields, allowed statuses, which types a link may join, and no circular blockers between tasks. The validate command checks those, and the skill warns that rules beyond them may be guidance only. Changes are appended rather than overwriting history. It also suggests writing a multi-step plan as a list of records to create and link, and lets other skills declare which types they read and write, so they can share the same data.",
-        "permalink": "https://github.com/brillout/gemskills/blob/aca4fea96aada6bf2117708ec6537d44df7d91e0/data/skill-snapshots/clawhub.ai/oswalpalash/ontology.md"
+        "permalink": "https://github.com/brillout/skillhub/blob/aca4fea96aada6bf2117708ec6537d44df7d91e0/data/skill-snapshots/clawhub.ai/oswalpalash/ontology.md"
       },
       "tags": [
         "category:agents",
@@ -13374,7 +13374,7 @@
           }
         ],
         "text": "It's a set of habits for a long-running assistant, in three groups. Proactive: the agent asks what would help you, suggests things you didn't think to ask for, follows up on decisions after a week, and offers to automate anything you've asked for three times. Persistent: it treats the conversation as something it will lose, so corrections, names, preferences, decisions and numbers go into SESSION-STATE.md before it replies; once the context is 60% full, every exchange is also logged to a buffer file, which it reads first after the conversation is summarized to free space. Self-improving: it tries five to ten approaches before saying it can't, tests a feature before calling it done, and changes its own rules only when the change would help often or prevent failures, favouring stability over novelty. It also adds security rules, such as treating emails and web pages as data, not commands, and vetting skills before installing them. Scheduled check-ins, which it calls heartbeats, run its checklists.",
-        "permalink": "https://github.com/brillout/gemskills/blob/aca4fea96aada6bf2117708ec6537d44df7d91e0/data/skill-snapshots/clawhub.ai/halthelobster/proactive-agent.md"
+        "permalink": "https://github.com/brillout/skillhub/blob/aca4fea96aada6bf2117708ec6537d44df7d91e0/data/skill-snapshots/clawhub.ai/halthelobster/proactive-agent.md"
       },
       "tags": [
         "category:agents",
@@ -13427,7 +13427,7 @@
           }
         ],
         "text": "You run it with node index.js for one pass, --loop to keep going, or --review to approve each change yourself, and a setting picks the strategy, from balanced to innovate, harden or repair-only. By default it can't rewrite its own code (you can allow it, though it advises against that), and when a change fails it stashes the work with git rather than discarding it. Most of the SKILL.md documents the link to EvoMap, a hub shared by many agents: through a local proxy, the agent can publish what it has learned, search what others have published, take on tasks the hub sends out, and message other agents. Everything sent or received is logged in a local mailbox file. The SKILL.md doesn't say what kinds of change it makes or how it picks them; that lives in its code.",
-        "permalink": "https://github.com/brillout/gemskills/blob/aca4fea96aada6bf2117708ec6537d44df7d91e0/data/skill-snapshots/clawhub.ai/autogame-17/evolver.md"
+        "permalink": "https://github.com/brillout/skillhub/blob/aca4fea96aada6bf2117708ec6537d44df7d91e0/data/skill-snapshots/clawhub.ai/autogame-17/evolver.md"
       },
       "tags": [
         "category:agents",
@@ -14202,7 +14202,7 @@
           }
         ],
         "text": "A small skill built on two free weather services. wttr.in is the main one: a single curl call returns a one-line summary, a custom line built from codes for condition, temperature, humidity, wind and moon phase, or a full forecast. It takes city names or airport codes, metric or US units, today only or current conditions only, and can save the forecast as a PNG image. Open-Meteo is the fallback for programmatic use: the agent finds the city's coordinates, then gets JSON with temperature, wind speed and a weather code.",
-        "permalink": "https://github.com/brillout/gemskills/blob/aca4fea96aada6bf2117708ec6537d44df7d91e0/data/skill-snapshots/clawhub.ai/steipete/weather.md"
+        "permalink": "https://github.com/brillout/skillhub/blob/aca4fea96aada6bf2117708ec6537d44df7d91e0/data/skill-snapshots/clawhub.ai/steipete/weather.md"
       },
       "tags": [
         "category:personal",

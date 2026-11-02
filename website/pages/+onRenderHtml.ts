@@ -33,7 +33,7 @@ export function onRenderHtml(pageContext: PageContextServer) {
     <header id="topbar">
       <a id="brand" href="${href()}">
         <img src="${href("gem.svg")}" alt="" width="30" height="30" />
-        <span>Gem Skills</span>
+        <span>SkillHub</span>
       </a>
       <nav id="views" aria-label="Views">${dangerouslySkipEscape(nav)}</nav>
       <a id="source-link" href="${GITHUB}">GitHub</a>

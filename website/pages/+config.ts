@@ -4,13 +4,13 @@ export default {
   // Every page is HTML rendered at build time; the pages that need JavaScript add a +client.ts.
   prerender: true,
   trailingSlash: true,
-  // GitHub Pages serves the site under the repo's name, such as /gemskills/.
+  // GitHub Pages serves the site under the repo's name, such as /skillhub/.
   vite: { base: process.env.BASE ?? "/" },
   meta: {
     title: { env: { server: true } },
     description: { env: { server: true } },
   },
-  title: "Gem Skills: popular agent skills, tagged",
+  title: "SkillHub: popular agent skills, tagged",
   description:
     "Browse the most popular agent skills, ranked by installs and tagged by what they do, need and change.",
 } satisfies Config;

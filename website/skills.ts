@@ -15,7 +15,7 @@ import {
 } from "./types.ts";
 
 export const data = raw as unknown as Data;
-export const GITHUB = "https://github.com/brillout/gemskills";
+export const GITHUB = "https://github.com/brillout/skillhub";
 
 export const facetById = new Map(data.facets.map((f) => [f.id, f]));
 export const repoById = new Map(data.repos.map((r) => [r.id, r]));
