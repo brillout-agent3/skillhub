@@ -3,9 +3,7 @@ import { compact, date, esc, href } from "../../format.ts";
 import { skillsLink } from "../../list.ts";
 import { statTile } from "../../sparkline.ts";
 import {
-  DOWNLOADS,
   FACET_ORDER,
-  REGISTRIES,
   bundleHref,
   bundleOf,
   data,
@@ -28,37 +26,22 @@ import type { Data } from "./+data.ts";
 /** Where the copy of the SKILL.md came from. */
 function source(s: Skill, { version }: SkillMd): string {
   const gh = github(s);
-  if (gh)
-    return `<a href="https://github.com/${esc(gh.repo)}/blob/${version}/${esc(encodeURI(gh.dir ? `${gh.dir}/SKILL.md` : "SKILL.md"))}">${esc(gh.repo)} at ${short(version)}</a>`;
-  const host = s.id.split("/")[0];
-  const claw = s["clawhub.ai"];
-  if (host === "clawhub.ai")
-    return `${claw?.url ? `<a href="${esc(claw.url)}">ClawHub</a>` : "ClawHub"}, version ${esc(version)}`;
-  if (host === "skillhub.cn") return `Tencent SkillHub, version ${esc(version)}`;
-  return `<a href="https://${esc(host)}/.well-known/skills/index.json">${esc(host)}</a>, ${esc(short(version))}`;
+  return `<a href="https://github.com/${esc(gh.repo)}/blob/${version}/${esc(encodeURI(gh.dir ? `${gh.dir}/SKILL.md` : "SKILL.md"))}">${esc(gh.repo)} at ${short(version)}</a>`;
 }
 
 function facts(s: Skill): string {
-  const gh = github(s);
-  const repo = gh ? repoById.get(gh.repo) : undefined;
+  const repo = repoById.get(github(s).repo);
   const sh = s["skills.sh"];
   const list: string[] = [];
-  if (sh?.installs != null)
+  if (sh.installs !== null)
     list.push(
       `<div><dt>Installs</dt><dd>${sh.installs.toLocaleString("en")} <span class="muted">on skills.sh, ${date(data.asOf.installs)}</span></dd></div>`,
     );
-  for (const r of DOWNLOADS) {
-    const n = s[r]?.downloads;
-    if (n !== undefined)
-      list.push(
-        `<div><dt>Downloads</dt><dd>${n.toLocaleString("en")} <span class="muted">on ${esc(REGISTRIES[r])}, ${date(data.asOf.downloads)}</span></dd></div>`,
-      );
-  }
   if (repo?.stars != null)
     list.push(
       `<div><dt>Repo stars</dt><dd>${repo.stars.toLocaleString("en")} <span class="muted">${esc(repo.id)}</span></dd></div>`,
     );
-  if (sh?.firstSeen)
+  if (sh.firstSeen)
     list.push(
       `<div><dt>First seen</dt><dd>${date(sh.firstSeen)} <span class="muted">on skills.sh</span></dd></div>`,
     );
@@ -103,20 +86,15 @@ export default function Page(pageContext: PageContextServer): string {
   const { skill: s, copy } = pageContext.data as Data;
   const gh = github(s);
   const sh = s["skills.sh"];
-  const claw = s["clawhub.ai"];
   const state = s.skillMd;
   const removed = state?.removed;
   // A skill gone from its repo lives on at the commit its copy is from.
   const at = removed && state ? state.version : "HEAD";
   const links = [
-    sh ? `<a href="${esc(sh.url)}">skills.sh page</a>` : "",
-    claw?.url ? `<a href="${esc(claw.url)}">ClawHub page</a>` : "",
-    gh
-      ? `<a href="https://github.com/${esc(gh.repo)}${gh.dir || removed ? `/tree/${at}/${esc(encodeURI(gh.dir))}` : ""}">Source on GitHub</a>`
-      : "",
+    `<a href="${esc(sh.url)}">skills.sh page</a>`,
+    `<a href="https://github.com/${esc(gh.repo)}${gh.dir || removed ? `/tree/${at}/${esc(encodeURI(gh.dir))}` : ""}">Source on GitHub</a>`,
     `<a href="${skillsLink({ repo: repoKey(s) })}">All skills from ${esc(repoKey(s))}</a>`,
-  ].filter(Boolean);
-  const installs = [sh?.install, claw?.install].filter((c): c is string => Boolean(c));
+  ];
   const bundle = bundleOf.get(s.id)?.bundle;
   return `
     <div class="page skill-page">
@@ -133,24 +111,15 @@ export default function Page(pageContext: PageContextServer): string {
       }
       ${inBundle(s)}
       ${s.note ? `<p class="note">${esc(s.note)}</p>` : ""}
-      ${removed ? `<p class="note">Gone from ${gh ? esc(gh.repo) : "its registry"} since ${date(removed)}, so installing it no longer works. The SKILL.md below is its last version.</p>` : ""}
+      ${removed ? `<p class="note">Gone from ${esc(gh.repo)} since ${date(removed)}, so installing it no longer works. The SKILL.md below is its last version.</p>` : ""}
       ${s.tldr ? tldrHtml(s.tldr, "the skill", s.skillMd?.skew ?? 0) : ""}
       <div class="details-grid">
         <div>
-          ${
-            installs.length
-              ? installs
-                  .map(
-                    (c) =>
-                      `<div class="install"><code>${esc(c)}</code><button type="button" class="copy" data-copy="${esc(c)}">Copy</button></div>`,
-                  )
-                  .join("")
-              : `<p class="muted">No install command known for this registry.</p>`
-          }
+          <div class="install"><code>${esc(sh.install)}</code><button type="button" class="copy" data-copy="${esc(sh.install)}">Copy</button></div>
           <p class="links">${links.join(" · ")}</p>
           ${facts(s)}
         </div>
-        ${sh?.weeklyInstalls ? statTile(sh.weeklyInstalls, data.asOf.installs, compact) : ""}
+        ${sh.weeklyInstalls ? statTile(sh.weeklyInstalls, data.asOf.installs, compact) : ""}
       </div>
       ${tagTable(s)}
       <section class="skill-md" aria-labelledby="skill-md">

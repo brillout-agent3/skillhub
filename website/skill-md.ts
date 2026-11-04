@@ -3,8 +3,6 @@
 import { diffArrays } from "diff";
 import type { Skill } from "./types.ts";
 
-export const REPO = "brillout/skillhub";
-
 /** Where the copy of a skill's SKILL.md lives, from the repo root. Not `<id>/SKILL.md`, so that `npx skills` doesn't take this repo for a skill bundle. */
 export const copyPath = (skill: Skill) => `data/skill-snapshots/${skill.id}.md`;
 
@@ -17,14 +15,12 @@ export function skew(before: string, after: string): number {
   return n;
 }
 
-const PERMALINK = /^https:\/\/github\.com\/([^/]+\/[^/]+)\/(tree|blob)\/([0-9a-f]{40})(?:\/(.+))?$/;
+const PERMALINK = /^https:\/\/github\.com\/([^/]+\/[^/]+)\/tree\/([0-9a-f]{40})(?:\/(.+))?$/;
 
-/** The SKILL.md a permalink points to, as a raw file URL: a directory (`tree/`) holds a SKILL.md, a file (`blob/`) is the copy itself. */
+/** The SKILL.md in the directory a permalink points to, as a raw file URL. */
 export function rawUrl(permalink: string): string | null {
   const m = PERMALINK.exec(permalink);
   if (!m) return null;
-  const [, repo, kind, commit, path = ""] = m;
-  const raw = `https://raw.githubusercontent.com/${repo}/${commit}/`;
-  if (kind === "blob") return path ? raw + path : null;
-  return raw + (path ? `${path}/SKILL.md` : "SKILL.md");
+  const [, repo, commit, path = ""] = m;
+  return `https://raw.githubusercontent.com/${repo}/${commit}/${path ? `${path}/SKILL.md` : "SKILL.md"}`;
 }

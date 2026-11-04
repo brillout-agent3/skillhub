@@ -65,8 +65,7 @@ EOF
 
 This checks the limits, records the permalink and resets the skew to 0. The permalink points to:
 
-- **A skill on GitHub:** its directory at the commit its copy was taken from.
-- **A skill that isn't on GitHub:** its copy in this repo, at the commit that last changed it. Commit the copy before setting the TLDR.
+- **A skill:** its directory on GitHub at the commit its copy was taken from.
 - **A bundle:** its repo at the current commit. Setting it fails when a skill's copy doesn't match that commit; then run `pnpm run sync <repo>`, reread what changed, and try again.
 
 Then run `pnpm run check`, and commit and push to `main`. To see the result, `pnpm run dev` serves the site at http://localhost:3000, with each skill at `/skill/<id>/` and each bundle at `/bundle/<id>/`.

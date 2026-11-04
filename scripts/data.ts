@@ -18,8 +18,6 @@ const ORDER = [
   "tldr",
   "tags",
   "skills.sh",
-  "clawhub.ai",
-  "skillhub.cn",
   "skillMd",
   "standalone",
   "note",

@@ -8,15 +8,14 @@
  *
  * The list leaves skipped skills out (see `skip` in skills.json). Setting a TLDR resets the
  * skew to 0 and records a permalink to what the TLDR summarizes: the skill's directory at the
- * commit its copy in data/skill-snapshots/ was taken from. For a skill that isn't on GitHub, it's the copy
- * itself, at the commit of this repo that last changed it, so commit the copy before summarizing
- * it. For a bundle, it's the repo at its current commit, which its skills' copies must match.
+ * commit its copy in data/skill-snapshots/ was taken from. For a bundle, it's the repo at its
+ * current commit, which its skills' copies must match.
  */
 
 import { execFileSync } from "node:child_process";
 import { readFileSync } from "node:fs";
 import { readData, root, writeData } from "./data.ts";
-import { copyPath, rawUrl, REPO } from "../website/skill-md.ts";
+import { copyPath, rawUrl } from "../website/skill-md.ts";
 import {
   bundleRepo,
   github,
@@ -34,11 +33,7 @@ const git = (...args: string[]) =>
 function permalink(skill: Skill): string {
   if (!skill.skillMd) throw new Error(`${skill.id} has no copy yet; run pnpm run sync`);
   const gh = github(skill);
-  if (gh)
-    return `https://github.com/${gh.repo}/tree/${skill.skillMd.version}${gh.dir ? `/${gh.dir}` : ""}`;
-  const file = copyPath(skill);
-  if (git("status", "--porcelain", "--", file)) throw new Error(`commit ${file} first`);
-  return `https://github.com/${REPO}/blob/${git("log", "-1", "--format=%H", "--", file)}/${file}`;
+  return `https://github.com/${gh.repo}/tree/${skill.skillMd.version}${gh.dir ? `/${gh.dir}` : ""}`;
 }
 
 /** The permalink to a bundle's repo at its current commit, once its skills' copies are checked against it. */
@@ -48,7 +43,7 @@ async function bundlePermalink(bundle: Bundle): Promise<string> {
   const behind: string[] = [];
   for (const { id } of bundle.skills) {
     const skill = skillOf(id);
-    const dir = github(skill)?.dir;
+    const { dir } = github(skill);
     const res = await fetch(
       rawUrl(`https://github.com/${repo}/tree/${commit}${dir ? `/${dir}` : ""}`) ?? "",
     );

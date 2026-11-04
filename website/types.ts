@@ -1,13 +1,10 @@
 /** The shape of ../data/skills.json, the single data file behind the site. */
 
-/** A registry a skill can be listed on, by the domain that keys its listing on a skill. */
-export type Registry = "skills.sh" | "clawhub.ai" | "skillhub.cn";
-
 export interface Data {
   /** When the data was last edited (YYYY-MM-DD). */
   updated: string;
   /** When each kind of number was collected, and when the tags were assigned (YYYY-MM-DD). */
-  asOf: Record<"installs" | "stars" | "downloads" | "tags", string>;
+  asOf: Record<"installs" | "stars" | "tags", string>;
   /** The tags whose skills the skills list and the daily sync leave out, each with why. */
   skip: { tag: string; note: string }[];
   facets: Facet[];
@@ -54,13 +51,12 @@ export interface Repo {
   note?: string;
 }
 
+/** A skill on GitHub that skills.sh lists. SkillHub lists no other skills. */
 export interface Skill {
   /**
-   * Unique: where the skill's SKILL.md lives. On GitHub, the repo and the directory inside it,
-   * `owner/name/path/to/dir` (just `owner/name` for a SKILL.md at the root); the repo has an
-   * entry in `repos`. Otherwise a domain and the skill's name there, such as
-   * `clawhub.ai/steipete/weather`. GitHub owners can't contain a dot, so a dot in the first
-   * segment marks a skill that isn't on GitHub.
+   * Unique: where the skill's SKILL.md lives, as the GitHub repo and the directory inside it,
+   * `owner/name/path/to/dir` (just `owner/name` for a SKILL.md at the root). The repo has an
+   * entry in `repos`.
    */
   id: string;
   name: string;
@@ -68,9 +64,7 @@ export interface Skill {
   /** What the skill is and does, written from the SKILL.md its permalink points to. */
   tldr?: Tldr;
   tags: string[];
-  "skills.sh"?: SkillsSh;
-  "clawhub.ai"?: ClawHub;
-  "skillhub.cn"?: SkillHub;
+  "skills.sh": SkillsSh;
   /** The copy of the skill's SKILL.md at `data/skill-snapshots/<id>.md`, which `sync.ts` keeps current. */
   skillMd?: SkillMd;
   /** Something to know before installing. */
@@ -116,11 +110,7 @@ export interface Tldr {
   glance: { label: string; text: string }[];
   /** Prose that explains what the skill does. */
   text: string;
-  /**
-   * GitHub permalink to what the TLDR summarizes: the skill's directory at a commit, or for a
-   * skill that isn't on GitHub, its copy in this repo at a commit. For a bundle, its repo at a
-   * commit.
-   */
+  /** GitHub permalink to what the TLDR summarizes: the skill's directory at a commit. For a bundle, its repo at a commit. */
   permalink: string;
 }
 
@@ -150,7 +140,7 @@ export function tldrProblems({ glance, text }: Pick<Tldr, "glance" | "text">): s
 }
 
 export interface SkillMd {
-  /** The version the copy was taken from: the GitHub commit, or the registry's version or digest. */
+  /** The GitHub commit the copy was taken from. */
   version: string;
   /** When the copy last changed (YYYY-MM-DD). */
   updated: string;
@@ -160,15 +150,15 @@ export interface SkillMd {
   skew: number;
 }
 
-/** The GitHub repo (`owner/name`) a skill lives in, and the directory inside it, or null when it isn't on GitHub. */
-export function github(skill: Skill): { repo: string; dir: string } | null {
+/** The GitHub repo (`owner/name`) a skill lives in, and the directory inside it. */
+export function github(skill: Skill): { repo: string; dir: string } {
   const [owner, name, ...dir] = skill.id.split("/");
-  return owner.includes(".") ? null : { repo: `${owner}/${name}`, dir: dir.join("/") };
+  return { repo: `${owner}/${name}`, dir: dir.join("/") };
 }
 
 /**
  * Whether the skills list and the daily sync leave a skill out: it carries one of the `skip` tags,
- * or it's gone from its source. Its page stays.
+ * or it's gone from its repo. Its page stays.
  */
 export const skipped = (data: Pick<Data, "skip">, skill: Skill) =>
   data.skip.some(({ tag }) => skill.tags.includes(tag)) || Boolean(skill.skillMd?.removed);
@@ -183,15 +173,4 @@ export interface SkillsSh {
   weeklyInstalls: number[] | null;
   /** When skills.sh first saw the skill (YYYY-MM-DD). */
   firstSeen: string | null;
-}
-
-export interface ClawHub {
-  /** The skill's page on ClawHub, or null when its publisher is unknown. */
-  url: string | null;
-  install: string | null;
-  downloads: number;
-}
-
-export interface SkillHub {
-  downloads: number;
 }

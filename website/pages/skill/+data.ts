@@ -20,15 +20,14 @@ export async function data(pageContext: PageContextServer) {
   const gh = github(skill);
   const commit = skill.skillMd?.version;
   // Relative links and images point into the skill's directory, at the commit the copy is from.
-  const rebase =
-    gh && commit
-      ? (url: string, image: boolean) => {
-          const root = image
-            ? `https://raw.githubusercontent.com/${gh.repo}/${commit}/`
-            : `https://github.com/${gh.repo}/blob/${commit}/`;
-          if (url.startsWith("/")) return new URL(url.slice(1), root).href;
-          return new URL(url, gh.dir ? `${root}${gh.dir}/` : root).href;
-        }
-      : null;
+  const rebase = commit
+    ? (url: string, image: boolean) => {
+        const root = image
+          ? `https://raw.githubusercontent.com/${gh.repo}/${commit}/`
+          : `https://github.com/${gh.repo}/blob/${commit}/`;
+        if (url.startsWith("/")) return new URL(url.slice(1), root).href;
+        return new URL(url, gh.dir ? `${root}${gh.dir}/` : root).href;
+      }
+    : null;
   return { skill, copy: load ? renderSkillMd(await load(), rebase) : null };
 }

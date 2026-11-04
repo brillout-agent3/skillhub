@@ -1,16 +1,16 @@
 /**
  * sync.ts — keep the copy of every skill's SKILL.md in data/skill-snapshots/ current.
  *
- * For each skill it fetches the SKILL.md from where the skill lives: its GitHub repo, ClawHub,
- * Tencent SkillHub or the website that publishes it. When the text differs from the copy, it
- * rewrites the copy, records the version in the skill's `skillMd` and recomputes `skew`, how far
- * the text has moved from the SKILL.md the skill's TLDR summarizes. Skipped skills keep the copy
- * they have. When a bundle's skill changes, it recomputes the bundle's skew too.
+ * For each skill it fetches the SKILL.md from the HEAD of the skill's GitHub repo. When the text
+ * differs from the copy, it rewrites the copy, records the commit in the skill's `skillMd` and
+ * recomputes `skew`, how far the text has moved from the SKILL.md the skill's TLDR summarizes.
+ * Skipped skills keep the copy they have. When a bundle's skill changes, it recomputes the
+ * bundle's skew too.
  *
  * Run: pnpm run sync [id prefix...]
  */
 
-import { execFile, execFileSync } from "node:child_process";
+import { execFile } from "node:child_process";
 import {
   existsSync,
   mkdirSync,
@@ -36,15 +36,15 @@ const git = (args: string[]) =>
 
 // ------------------------------------------------------------------- fetching
 
-/** GET a URL, or null when it isn't there (404). Network errors, 429 and 5xx are retried. */
-async function request(url: string): Promise<Response | null> {
+/** GET a URL's text, or null when it isn't there (404). Network errors, 429 and 5xx are retried. */
+async function get(url: string): Promise<string | null> {
   for (let attempt = 1; ; attempt++) {
     const res = await fetch(url, { headers: { "user-agent": "skillhub-sync" } }).catch(
       (error: Error) => error,
     );
     if (!(res instanceof Error)) {
       if (res.status === 404) return null;
-      if (res.ok) return res;
+      if (res.ok) return res.text();
       if (res.status !== 429 && res.status < 500) throw new Error(`${url}: HTTP ${res.status}`);
     }
     if (attempt === 4)
@@ -52,11 +52,6 @@ async function request(url: string): Promise<Response | null> {
     await new Promise((resolve) => setTimeout(resolve, 1000 * 2 ** attempt));
   }
 }
-const get = async (url: string) => (await request(url))?.text() ?? null;
-const getJson = async <T>(url: string) => {
-  const text = await get(url);
-  return text === null ? null : (JSON.parse(text) as T);
-};
 
 interface Found {
   version: string;
@@ -105,54 +100,12 @@ async function deletion(repo: string, path: string): Promise<{ date: string; bef
   return { date, before: await git(["-C", dir, "rev-parse", `${commit}^`]) };
 }
 
-/** ClawHub and Tencent SkillHub share an API: the skill's latest version, and its files. */
-async function registry(base: string, query: string): Promise<Found | null> {
-  const meta = await getJson<{ latestVersion?: { version: string } }>(`${base}?${query}`);
-  if (!meta?.latestVersion) return null;
-  const text = await get(`${base}/file?path=SKILL.md${query ? `&${query}` : ""}`);
-  return text === null ? null : { version: meta.latestVersion.version, text };
-}
-
-/** A skill a website publishes in its `/.well-known/skills/index.json`, as a zip archive or as a plain SKILL.md. */
-async function website(host: string, name: string): Promise<Found | null> {
-  const index = `https://${host}/.well-known/skills/index.json`;
-  type Entry = { name: string; type?: string; url: string; digest?: string };
-  const entry = (await getJson<{ skills: Entry[] }>(index))?.skills.find((s) => s.name === name);
-  if (!entry) return null;
-  const url = new URL(entry.url, index).href;
-  const version = entry.digest ?? url;
-  if (entry.type !== "archive") {
-    const text = await get(url);
-    return text === null ? null : { version, text };
-  }
-  const res = await request(url);
-  if (!res) return null;
-  const zip = join(scratch, `${host}-${name}.zip`);
-  writeFileSync(zip, Buffer.from(await res.arrayBuffer()));
-  const [file] = execFileSync("unzip", ["-Z1", zip], { encoding: "utf8" })
-    .split("\n")
-    .filter((f) => /(^|\/)SKILL\.md$/.test(f))
-    .sort((a, b) => a.split("/").length - b.split("/").length);
-  if (!file) throw new Error(`${url}: no SKILL.md in the archive`);
-  return { version, text: execFileSync("unzip", ["-p", zip, file], { encoding: "utf8" }) };
-}
-
-/** The SKILL.md as the skill's source has it now, or null when the source no longer has it. */
+/** The SKILL.md at the HEAD of the skill's repo, or null when it's gone from there. */
 async function fetchSkillMd(skill: Skill): Promise<Found | null> {
   const gh = github(skill);
-  if (gh) {
-    const version = await head(gh.repo);
-    const text = await get(raw(gh.repo, version, skillMdIn(gh.dir)));
-    return text === null ? null : { version, text };
-  }
-  const [host, ...name] = skill.id.split("/");
-  if (host === "clawhub.ai") {
-    const [owner, slug] = name.map(encodeURIComponent);
-    return registry(`https://clawhub.ai/api/v1/skills/${slug}`, `owner=${owner}`);
-  }
-  if (host === "skillhub.cn")
-    return registry(`https://api.skillhub.cn/api/v1/skills/${encodeURIComponent(name[0])}`, "");
-  return website(host, name.join("/"));
+  const version = await head(gh.repo);
+  const text = await get(raw(gh.repo, version, skillMdIn(gh.dir)));
+  return text === null ? null : { version, text };
 }
 
 // ------------------------------------------------------------------- syncing
@@ -193,18 +146,13 @@ async function sync(skill: Skill) {
   const found = await fetchSkillMd(skill);
   if (found) await save(skill, copy, found);
   else {
-    // Gone from its source: keep the last version there was.
+    // Gone from its repo: keep the last version there was.
     const gh = github(skill);
-    if (gh) {
-      const path = skillMdIn(gh.dir);
-      const { date, before: commit } = await deletion(gh.repo, path);
-      const text = await get(raw(gh.repo, commit, path));
-      if (text === null) throw new Error(`${path} is missing at ${gh.repo}@${commit}`);
-      await save(skill, copy, { version: commit, text }, date);
-    } else if (copy !== null && skill.skillMd) {
-      const { version, updated, skew: words } = skill.skillMd;
-      skill.skillMd = { version, updated, removed: today, skew: words };
-    } else throw new Error("not found at its source");
+    const path = skillMdIn(gh.dir);
+    const { date, before: commit } = await deletion(gh.repo, path);
+    const text = await get(raw(gh.repo, commit, path));
+    if (text === null) throw new Error(`${path} is missing at ${gh.repo}@${commit}`);
+    await save(skill, copy, { version: commit, text }, date);
     removed.push(skill.id);
   }
   if (JSON.stringify(skill.skillMd) !== before) changed.add(skill.id);
@@ -216,8 +164,8 @@ async function bundleSkew(bundle: Bundle, skills: Map<string, Skill>): Promise<n
   let words = 0;
   for (const { id } of bundle.skills) {
     const skill = skills.get(id);
-    const gh = skill && github(skill);
-    if (!gh) continue;
+    if (!skill) continue;
+    const gh = github(skill);
     const text = readFileSync(join(root, copyPath(skill)), "utf8");
     // A skill that's new since that commit counts all its words.
     const summarized = commit ? ((await get(raw(gh.repo, commit, skillMdIn(gh.dir)))) ?? "") : "";
@@ -272,7 +220,7 @@ writeData(data);
 rmSync(scratch, { recursive: true, force: true });
 
 console.log(
-  `Checked ${skills.length} skills, skipped ${listed.length - skills.length}: ${changed.size} changed, ${removed.length} gone from their source, ${errors.length} failed.`,
+  `Checked ${skills.length} skills, skipped ${listed.length - skills.length}: ${changed.size} changed, ${removed.length} gone from their repo, ${errors.length} failed.`,
 );
 for (const id of changed) console.log(`  changed ${id}`);
 for (const e of errors) console.error(`  failed ${e}`);

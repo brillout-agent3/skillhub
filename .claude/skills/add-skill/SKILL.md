@@ -5,7 +5,7 @@ description: Add a skill to SkillHub's skills.json, or retag one, including whet
 
 # Add or retag a skill
 
-1. Add its entry to `skills` in `data/skills.json`. Its `id` is where its SKILL.md lives, as `Skill` in `website/types.ts` describes; a GitHub repo it comes from needs an entry in `repos`.
+1. Add its entry to `skills` in `data/skills.json`. SkillHub only lists skills that are on GitHub and on skills.sh: its `id` is where its SKILL.md lives on GitHub, as `Skill` in `website/types.ts` describes, its repo needs an entry in `repos`, and its `skills.sh` field holds its skills.sh listing.
 2. Run `pnpm run sync <id>` to save a copy of its SKILL.md in `data/skill-snapshots/`.
 3. Read that copy, not only the skill's one-line description, and tag it. Tag values and their meanings are under `facets` in `data/skills.json`.
    1. Give it every `category:` that fits. Don't add a parent such as `category:software-engineering`: it comes with the categories it `includes`.

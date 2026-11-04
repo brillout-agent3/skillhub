@@ -5,7 +5,7 @@
  */
 
 import { existsSync, readdirSync, readFileSync } from "node:fs";
-import { copyPath, REPO } from "../website/skill-md.ts";
+import { copyPath } from "../website/skill-md.ts";
 import { bundleRepo, github, tldrProblems, type Data, type Facet } from "../website/types.ts";
 
 const root = new URL("../", import.meta.url);
@@ -59,10 +59,12 @@ for (const skill of data.skills) {
   if (!skill.description) fail(at, "missing description");
   for (const t of skill.tags)
     if (parents.has(t)) fail(at, `${t} comes with the tags it includes; don't tag it directly`);
-  const repo = github(skill)?.repo;
-  if (repo && !repos.has(repo)) fail(at, `repo "${repo}" has no entry in repos`);
-  if (!skill["skills.sh"] && !skill["clawhub.ai"] && !skill["skillhub.cn"])
-    fail(at, "not listed on any registry");
+  // SkillHub only lists skills that are on GitHub and on skills.sh.
+  const gh = github(skill);
+  if (gh.repo.split("/")[0].includes("."))
+    fail(at, "not on GitHub: the id must be owner/repo/path/to/dir");
+  if (!repos.has(gh.repo)) fail(at, `repo "${gh.repo}" has no entry in repos`);
+  if (!skill["skills.sh"]) fail(at, "not on skills.sh");
   const weekly = skill["skills.sh"]?.weeklyInstalls;
   if (weekly && weekly.length !== 8) fail(at, "weeklyInstalls must have 8 weeks");
 
@@ -74,10 +76,7 @@ for (const skill of data.skills) {
     fail(at, "skew must be a whole number of words");
   if (skill.tldr) {
     for (const problem of tldrProblems(skill.tldr)) fail(at, problem);
-    const gh = github(skill);
-    const target = gh
-      ? `https://github.com/${escape(gh.repo)}/tree/[0-9a-f]{40}${gh.dir ? `/${escape(gh.dir)}` : ""}`
-      : `https://github.com/${REPO}/blob/[0-9a-f]{40}/${escape(copyPath(skill))}`;
+    const target = `https://github.com/${escape(gh.repo)}/tree/[0-9a-f]{40}${gh.dir ? `/${escape(gh.dir)}` : ""}`;
     if (!new RegExp(`^${target}$`).test(skill.tldr.permalink))
       fail(at, "the TLDR permalink must point to the skill at a commit; set it with pnpm run tldr");
   }

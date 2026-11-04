@@ -6,23 +6,19 @@
 import { compact, date, esc, href, plural } from "./format.ts";
 import {
   CAUTION,
-  DOWNLOADS,
   FACET_ORDER,
-  REGISTRIES,
   bundleHref,
   bundleOf,
   data,
   facetById,
   facetOf,
   firstSeenOf,
-  allTimeOf,
   includedBy,
   glanceHtml,
   installsOf,
   isBundle,
   ownEntry,
   parentsOf,
-  registriesOf,
   repoById,
   repoKey,
   skillById,
@@ -36,7 +32,7 @@ import {
   tagsOf,
   weekOf,
 } from "./skills.ts";
-import { skipped, type Bundle, type Registry, type Skill } from "./types.ts";
+import { skipped, type Bundle, type Skill } from "./types.ts";
 
 /** A row of the skills list: a skill, or a bundle with its skills inside. */
 type Entry = Skill | Bundle;
@@ -91,10 +87,6 @@ function monthStops(of: (s: Skill) => string | null): string[] {
   }
 }
 
-const sources = (e: Entry) =>
-  DOWNLOADS.filter((r) => (isBundle(e) ? skillsOf(e) : [e]).some((x) => x[r]))
-    .map((r) => REGISTRIES[r])
-    .join(" and ");
 // A bundle's numbers are its most popular skill's.
 const most = (e: Entry) => (isBundle(e) ? "The most of any of its skills: " : "");
 export const PROPS: Record<Prop, PropInfo> = {
@@ -114,12 +106,9 @@ export const PROPS: Record<Prop, PropInfo> = {
   },
   downloads: {
     label: "Downloads",
-    of: allTimeOf,
-    title: (e) =>
-      installsOf(e) !== null
-        ? `${most(e)}All-time installs on skills.sh, ${date(data.asOf.installs)}`
-        : `${most(e)}Downloads on ${sources(e)}, ${date(data.asOf.downloads)}`,
-    stops: countStops(allTimeOf),
+    of: installsOf,
+    title: (e) => `${most(e)}All-time installs on skills.sh, ${date(data.asOf.installs)}`,
+    stops: countStops(installsOf),
   },
   week: {
     label: "Downloads / week",
@@ -171,7 +160,6 @@ export interface State {
   view: View;
   q: string;
   tags: string[];
-  registries: string[];
   repo: string | null;
   sort: Sort;
   ranges: Record<Prop, Range>;
@@ -199,7 +187,6 @@ export function parse(search: string, view: View = "top"): State {
     view,
     q: p.get("q") ?? "",
     tags: p.getAll("tag"),
-    registries: p.getAll("registry"),
     repo: p.get("repo"),
     sort: sort && sort in PROPS ? sort : VIEWS[view].sort,
     ranges,
@@ -213,7 +200,6 @@ export function query(s: State): string {
   const p = new URLSearchParams();
   if (s.q) p.set("q", s.q);
   for (const t of s.tags) p.append("tag", t);
-  for (const r of s.registries) p.append("registry", r);
   if (s.repo) p.set("repo", s.repo);
   if (s.sort !== VIEWS[s.view].sort) p.set("sort", s.sort);
   for (const prop of PROP_IDS) {
@@ -259,7 +245,6 @@ const searchText = new Map(
       ...(s.tldr?.glance.map((g) => g.text) ?? []),
       s.tldr?.text,
       repoKey(s),
-      ...registriesOf(s).map((r) => REGISTRIES[r]),
       s.note,
       ...tagsOf(s),
       ...tagsOf(s).map(tagLabel),
@@ -302,12 +287,6 @@ function passes(s: Skill, st: State, skip: string | null = null): boolean {
     const v = PROPS[p].of(s);
     if (v === null || v < PROPS[p].stops[lo] || v >= PROPS[p].stops[hi]) return false;
   }
-  if (
-    skip !== "registry" &&
-    st.registries.length &&
-    !registriesOf(s).some((r) => st.registries.includes(r))
-  )
-    return false;
   const selected = new Map<string, string[]>();
   for (const t of st.tags) selected.set(facetOf(t), [...(selected.get(facetOf(t)) ?? []), t]);
   for (const [facet, tags] of selected)
@@ -327,7 +306,7 @@ function bundlePasses(b: Bundle, st: State): boolean {
 }
 
 const isFiltered = (st: State) =>
-  Boolean(st.q || st.tags.length || st.registries.length || st.repo || st.hide) ||
+  Boolean(st.q || st.tags.length || st.repo || st.hide) ||
   PROP_IDS.some((p) => isNarrowed(p, st.ranges[p]));
 
 /** On a tie, such as a bundle and its most installed skill, the bundle goes first. */
@@ -337,7 +316,7 @@ const descending = (a: Value | null, b: Value | null) =>
   a === b ? 0 : a === null ? 1 : b === null ? -1 : a < b ? 1 : -1;
 const order = (sort: Sort) => (a: Entry, b: Entry) =>
   descending(PROPS[sort].of(a), PROPS[sort].of(b)) ||
-  descending(allTimeOf(a), allTimeOf(b)) ||
+  descending(installsOf(a), installsOf(b)) ||
   bundleFirst(a, b) ||
   a.name.localeCompare(b.name);
 
@@ -484,28 +463,8 @@ function tagSection(st: State, facetId: string): string {
 
 export function facetsHtml(st: State, stackExpanded: boolean): string {
   const sections: string[] = [];
-  for (const f of ["category", "type", "effect", "needs", "by", "flag"])
+  for (const f of ["category", "type", "effect", "needs", "by", "flag", "lang"])
     sections.push(tagSection(st, f));
-  const regCounts = counts(st, "registry", registriesOf);
-  sections.push(
-    section(
-      "Registry",
-      "Where the skill is published.",
-      (Object.keys(REGISTRIES) as Registry[])
-        .filter((r) => regCounts.get(r) || st.registries.includes(r))
-        .map((r) =>
-          filterChip(
-            "data-registry",
-            r,
-            REGISTRIES[r],
-            regCounts.get(r) ?? 0,
-            st.registries.includes(r),
-          ),
-        )
-        .join(""),
-    ),
-  );
-  sections.push(tagSection(st, "lang"));
   // Topics, by group.
   const topic = facetById.get("topic");
   const topicCounts = counts(st, "topic", (s) => s.tags.filter((t) => facetOf(t) === "topic"));
@@ -551,7 +510,6 @@ function activeFilters(st: State): string {
     `<button type="button" class="active-chip" data-remove="${kind}" data-value="${esc(value)}" aria-label="Remove filter ${esc(label)}">${esc(label)} <span aria-hidden="true">×</span></button>`;
   if (st.q) chips.push(remove("q", st.q, `“${st.q}”`));
   for (const t of st.tags) chips.push(remove("tag", t, t));
-  for (const r of st.registries) chips.push(remove("registry", r, REGISTRIES[r as Registry] ?? r));
   if (st.repo) chips.push(remove("repo", st.repo, `from ${st.repo}`));
   for (const p of PROP_IDS)
     if (isNarrowed(p, st.ranges[p]))

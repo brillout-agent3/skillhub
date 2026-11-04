@@ -27,14 +27,12 @@ function go(patch: Partial<State>) {
   history.replaceState(null, "", query(state) || location.pathname);
   render();
 }
-const toggled = (list: string[], value: string) =>
-  list.includes(value) ? list.filter((v) => v !== value) : [...list, value];
 
 /** Re-rendering replaces the buttons; put focus back on the one that was used. */
 function focusSelector(): string | null {
   const el = document.activeElement as HTMLElement | null;
   if (!el || el.id === "q" || !app.contains(el)) return null;
-  for (const attr of ["data-tag", "data-registry", "data-action", "data-remove"]) {
+  for (const attr of ["data-tag", "data-action", "data-remove"]) {
     const v = el.getAttribute(attr);
     if (v !== null)
       return `#${el.closest("#facets") ? "facets" : "results"} [${attr}="${CSS.escape(v)}"]`;
@@ -85,24 +83,21 @@ app.addEventListener("input", (event) => {
 
 app.addEventListener("click", (event) => {
   const el = (event.target as Element).closest<HTMLElement>(
-    "[data-tag],[data-registry],[data-action],[data-remove]",
+    "[data-tag],[data-action],[data-remove]",
   );
   if (!el || el.tagName === "A") return;
   const d = el.dataset;
   if (d.tag) go({ tags: toggleTag(state.tags, d.tag) });
-  else if (d.registry) go({ registries: toggled(state.registries, d.registry) });
   else if (d.remove) {
     const v = d.value ?? "";
     if (d.remove === "q") go({ q: "" });
     else if (d.remove === "tag") go({ tags: state.tags.filter((t) => t !== v) });
-    else if (d.remove === "registry") go({ registries: state.registries.filter((r) => r !== v) });
     else if (d.remove === "repo") go({ repo: null });
     else if (d.remove === "range") go({ ranges: { ...state.ranges, [v]: fullRange(v as Prop) } });
   } else if (d.action === "clear")
     go({
       q: "",
       tags: [],
-      registries: [],
       repo: null,
       ranges: parse("", view).ranges,
       hide: false,

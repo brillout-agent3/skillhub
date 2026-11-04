@@ -9,7 +9,6 @@ import {
   type BundleSkill,
   type Data,
   type Facet,
-  type Registry,
   type Skill,
   type Tldr,
 } from "./types.ts";
@@ -29,13 +28,6 @@ for (const bundle of data.bundles)
 export const ownEntry = (s: Skill) => bundleOf.get(s.id)?.standalone ?? true;
 export const isBundle = (e: Skill | Bundle): e is Bundle => "install" in e;
 export const skillsOf = (b: Bundle) => b.skills.map(({ id }) => skillById.get(id) as Skill);
-export const REGISTRIES: Record<Registry, string> = {
-  "skills.sh": "skills.sh",
-  "clawhub.ai": "ClawHub",
-  "skillhub.cn": "Tencent SkillHub",
-};
-export const registriesOf = (s: Skill) =>
-  (Object.keys(REGISTRIES) as Registry[]).filter((r) => s[r]);
 
 /** Tags are `facet:value`, except topics, which are written without a prefix. */
 export const tagOf = (facet: Facet, value: string) =>
@@ -90,36 +82,24 @@ const most = (n: (number | null)[]) => {
   return known.length ? Math.max(...known) : null;
 };
 
-// A bundle's numbers are those of its skills: the most installs or downloads any one of them
-// has, and the first time one was seen.
+// A bundle's numbers are those of its skills: the most installs any one of them has, and the
+// first time one was seen.
 
-/** The GitHub repo a skill lives in, or else its publisher: the id without the skill's own name, such as `clawhub.ai/steipete`. */
-export const repoKey = (e: Skill | Bundle) =>
-  isBundle(e) ? bundleRepo(e) : (github(e)?.repo ?? e.id.slice(0, e.id.lastIndexOf("/")));
-export const starsOf = (e: Skill | Bundle) => {
-  const repo = isBundle(e) ? bundleRepo(e) : github(e)?.repo;
-  return repo ? (repoById.get(repo)?.stars ?? null) : null;
-};
+/** The GitHub repo a skill or bundle lives in. */
+export const repoKey = (e: Skill | Bundle) => (isBundle(e) ? bundleRepo(e) : github(e).repo);
+export const starsOf = (e: Skill | Bundle) => repoById.get(repoKey(e))?.stars ?? null;
 export const installsOf = (e: Skill | Bundle): number | null =>
-  isBundle(e) ? most(skillsOf(e).map(installsOf)) : (e["skills.sh"]?.installs ?? null);
+  isBundle(e) ? most(skillsOf(e).map(installsOf)) : e["skills.sh"].installs;
 export const firstSeenOf = (e: Skill | Bundle): string | null =>
   isBundle(e)
     ? (skillsOf(e).map(firstSeenOf).filter(Boolean).sort()[0] ?? null)
-    : (e["skills.sh"]?.firstSeen ?? null);
+    : e["skills.sh"].firstSeen;
 /** Installs on skills.sh in the latest of its 8 weeks. */
 export const weekOf = (e: Skill | Bundle): number | null => {
   if (isBundle(e)) return most(skillsOf(e).map(weekOf));
-  const weekly = e["skills.sh"]?.weeklyInstalls;
+  const weekly = e["skills.sh"].weeklyInstalls;
   return weekly?.length ? weekly[weekly.length - 1] : null;
 };
-/** The registries that count downloads rather than installs. */
-export const DOWNLOADS = ["clawhub.ai", "skillhub.cn"] as const;
-export const downloadsOf = (e: Skill | Bundle): number | null =>
-  isBundle(e)
-    ? most(skillsOf(e).map(downloadsOf))
-    : most(DOWNLOADS.map((r) => e[r]?.downloads ?? null));
-/** All-time downloads, as the skills list counts them: skills.sh installs, else ClawHub or Tencent SkillHub downloads. */
-export const allTimeOf = (e: Skill | Bundle): number | null => installsOf(e) ?? downloadsOf(e);
 
 /** Compare for a descending sort, unknown values last. */
 export const desc = (a: number | null, b: number | null) => (b ?? -1) - (a ?? -1);
@@ -152,15 +132,12 @@ export function tagChip(tag: string, link: string | null, pressed = false): stri
     : `<a ${attrs} href="${link}">${esc(tag)}</a>`;
 }
 
-/** A commit as its first 7 characters, a digest as its first 12. */
-export const short = (version: string) =>
-  /^[0-9a-f]{40}$/.test(version)
-    ? version.slice(0, 7)
-    : version.replace(/^(\w+:\w{12})\w+$/, "$1…");
+/** A commit as its first 7 characters. */
+export const short = (commit: string) => commit.slice(0, 7);
 
 /** The TLDR's prose, and what it summarizes: `what` at the permalink's commit, which has changed by `skew` words since. */
 export function tldrHtml(tldr: Tldr, what: string, skew: number): string {
-  const commit = /\/(?:tree|blob)\/([0-9a-f]{40})/.exec(tldr.permalink)?.[1] ?? "";
+  const commit = /\/tree\/([0-9a-f]{40})/.exec(tldr.permalink)?.[1] ?? "";
   return `
     <section class="tldr" aria-labelledby="tldr">
       <h2 id="tldr">TLDR</h2>
