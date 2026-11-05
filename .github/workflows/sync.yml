@@ -12,8 +12,9 @@ permissions:
   # To start the deploy workflow: a push made with the workflow's own token doesn't trigger it.
   actions: write
 
+# Shared with the leaderboard refresh, so that their commits to data/ never race.
 concurrency:
-  group: sync
+  group: data
   cancel-in-progress: false
 
 jobs:

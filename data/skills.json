@@ -1,7 +1,7 @@
 {
   "updated": "2026-11-04",
   "asOf": {
-    "installs": "2026-09-21",
+    "installs": "2026-11-05",
     "stars": "2026-09-21",
     "tags": "2026-10-19"
   },
@@ -919,7 +919,7 @@
       "kind": "skills",
       "stars": 266454,
       "description": "Skills for Real Engineers.",
-      "leaderboardSkills": 52
+      "leaderboardSkills": 53
     },
     {
       "id": "anthropics/skills",
@@ -935,7 +935,7 @@
       "kind": "skills",
       "stars": 174000,
       "description": "Four behavioral principles for coding agents, after Andrej Karpathy's observations.",
-      "leaderboardSkills": null,
+      "leaderboardSkills": 0,
       "note": "Ships as a CLAUDE.md, not a SKILL.md. Star count as reported by AWS in June 2026."
     },
     {
@@ -944,7 +944,7 @@
       "kind": "project",
       "stars": 147117,
       "description": "Anthropic's coding agent, which also ships skills such as frontend-design.",
-      "leaderboardSkills": 1
+      "leaderboardSkills": 0
     },
     {
       "id": "dietrichgebert/ponytail",
@@ -952,7 +952,7 @@
       "kind": "skills",
       "stars": 143058,
       "description": "Makes your AI agent think like the laziest senior dev in the room.",
-      "leaderboardSkills": 1
+      "leaderboardSkills": 2
     },
     {
       "id": "nextlevelbuilder/ui-ux-pro-max-skill",
@@ -984,7 +984,7 @@
       "kind": "skills",
       "stars": 110000,
       "description": "Role-based slash-command workflow for Claude Code.",
-      "leaderboardSkills": null,
+      "leaderboardSkills": 0,
       "note": "Ships as slash commands, not a SKILL.md. Star count as reported by AWS in June 2026."
     },
     {
@@ -1001,7 +1001,7 @@
       "kind": "skills",
       "stars": 97686,
       "description": "Production-grade engineering skills: TDD, debugging, review, security, performance and ADRs.",
-      "leaderboardSkills": null
+      "leaderboardSkills": 20
     },
     {
       "id": "leonxlnx/taste-skill",
@@ -1017,7 +1017,7 @@
       "kind": "skills",
       "stars": 83446,
       "description": "Turns any codebase into an interactive knowledge graph.",
-      "leaderboardSkills": null
+      "leaderboardSkills": 0
     },
     {
       "id": "bytedance/deer-flow",
@@ -1025,7 +1025,7 @@
       "kind": "project",
       "stars": 82758,
       "description": "Long-horizon super-agent harness that researches, codes and creates.",
-      "leaderboardSkills": null
+      "leaderboardSkills": 0
     },
     {
       "id": "ComposioHQ/awesome-claude-skills",
@@ -1033,7 +1033,7 @@
       "kind": "index",
       "stars": 75402,
       "description": "Curated index of more than 1,000 skills.",
-      "leaderboardSkills": null
+      "leaderboardSkills": 0
     },
     {
       "id": "stablyai/orca",
@@ -1049,7 +1049,7 @@
       "kind": "skills",
       "stars": 69394,
       "description": "The design language that makes your AI harness better at design.",
-      "leaderboardSkills": 21
+      "leaderboardSkills": 14
     },
     {
       "id": "code-yeongyu/oh-my-openagent",
@@ -1057,7 +1057,7 @@
       "kind": "project",
       "stars": 69227,
       "description": "Agent workflow tooling for OpenCode.",
-      "leaderboardSkills": null
+      "leaderboardSkills": 0
     },
     {
       "id": "tt-a1i/archify",
@@ -1073,7 +1073,7 @@
       "kind": "skills",
       "stars": 66134,
       "description": "Practices for going from vibe coding to agentic engineering.",
-      "leaderboardSkills": null
+      "leaderboardSkills": 0
     },
     {
       "id": "heygen-com/hyperframes",
@@ -1081,7 +1081,7 @@
       "kind": "project",
       "stars": 51958,
       "description": "Write HTML.",
-      "leaderboardSkills": 38
+      "leaderboardSkills": 31
     },
     {
       "id": "coreyhaines31/marketingskills",
@@ -1089,7 +1089,7 @@
       "kind": "skills",
       "stars": 51002,
       "description": "Marketing skills for Claude Code and AI agents.",
-      "leaderboardSkills": 61
+      "leaderboardSkills": 44
     },
     {
       "id": "ayghri/i-have-adhd",
@@ -1097,7 +1097,7 @@
       "kind": "skills",
       "stars": 49228,
       "description": "Stops the agent from burying the answer.",
-      "leaderboardSkills": null
+      "leaderboardSkills": 0
     },
     {
       "id": "kepano/obsidian-skills",
@@ -1113,7 +1113,7 @@
       "kind": "index",
       "stars": 46649,
       "description": "Agent-first catalog and control plane for skills.",
-      "leaderboardSkills": null
+      "leaderboardSkills": 0
     },
     {
       "id": "K-Dense-AI/scientific-agent-skills",
@@ -1121,7 +1121,7 @@
       "kind": "skills",
       "stars": 45777,
       "description": "The largest library of science skills.",
-      "leaderboardSkills": null
+      "leaderboardSkills": 0
     },
     {
       "id": "vercel-labs/agent-browser",
@@ -1153,7 +1153,7 @@
       "kind": "skills",
       "stars": 39530,
       "description": "Skills for Designers and Engineers.",
-      "leaderboardSkills": 12
+      "leaderboardSkills": 14
     },
     {
       "id": "mukul975/Anthropic-Cybersecurity-Skills",
@@ -1161,7 +1161,7 @@
       "kind": "skills",
       "stars": 33037,
       "description": "817 cybersecurity skills mapped to MITRE ATT&CK and NIST CSF.",
-      "leaderboardSkills": null
+      "leaderboardSkills": 0
     },
     {
       "id": "vercel-labs/skills",
@@ -1193,7 +1193,7 @@
       "kind": "project",
       "stars": 31076,
       "description": "Google Workspace CLI — one command-line tool for Drive, Gmail, Calendar, Sheets, Docs, Chat, Admin, and more.",
-      "leaderboardSkills": 7
+      "leaderboardSkills": 4
     },
     {
       "id": "davila7/claude-code-templates",
@@ -1201,7 +1201,7 @@
       "kind": "project",
       "stars": 30858,
       "description": "CLI for configuring and monitoring Claude Code.",
-      "leaderboardSkills": null
+      "leaderboardSkills": 0
     },
     {
       "id": "nanocoai/nanoclaw",
@@ -1209,7 +1209,7 @@
       "kind": "project",
       "stars": 30808,
       "description": "Lightweight, containerized alternative to OpenClaw.",
-      "leaderboardSkills": null
+      "leaderboardSkills": 0
     },
     {
       "id": "nutlope/hallmark",
@@ -1225,7 +1225,7 @@
       "kind": "skills",
       "stars": 27022,
       "description": "Crash-proof Markdown plans for long-running agent tasks.",
-      "leaderboardSkills": null
+      "leaderboardSkills": 0
     },
     {
       "id": "vercel/ai",
@@ -1241,7 +1241,7 @@
       "kind": "skills",
       "stars": 26464,
       "description": "More than 100 product-management skills, commands and plugins.",
-      "leaderboardSkills": null
+      "leaderboardSkills": 0
     },
     {
       "id": "EveryInc/compound-engineering-plugin",
@@ -1249,7 +1249,7 @@
       "kind": "skills",
       "stars": 25179,
       "description": "Compound Engineering plugin for Claude Code, Codex and Cursor.",
-      "leaderboardSkills": null
+      "leaderboardSkills": 0
     },
     {
       "id": "mksglu/context-mode",
@@ -1257,7 +1257,7 @@
       "kind": "project",
       "stars": 23772,
       "description": "Sandboxes tool output and persists session memory to save context.",
-      "leaderboardSkills": null
+      "leaderboardSkills": 0
     },
     {
       "id": "teng-lin/notebooklm-py",
@@ -1265,7 +1265,7 @@
       "kind": "project",
       "stars": 19402,
       "description": "Python API and agent skill for Google NotebookLM.",
-      "leaderboardSkills": null
+      "leaderboardSkills": 0
     },
     {
       "id": "cloudflare/security-audit-skill",
@@ -1273,7 +1273,7 @@
       "kind": "skills",
       "stars": 18013,
       "description": "Multi-phase security audits with verified findings.",
-      "leaderboardSkills": null
+      "leaderboardSkills": 1
     },
     {
       "id": "op7418/Humanizer-zh",
@@ -1281,7 +1281,7 @@
       "kind": "skills",
       "stars": 17616,
       "description": "Chinese version of the humanizer skill.",
-      "leaderboardSkills": null
+      "leaderboardSkills": 0
     },
     {
       "id": "larksuite/cli",
@@ -1297,7 +1297,7 @@
       "kind": "skills",
       "stars": 17310,
       "description": "SEO and GEO toolkit with 25 sub-skills and 18 sub-agents.",
-      "leaderboardSkills": null
+      "leaderboardSkills": 0
     },
     {
       "id": "vercel-labs/json-render",
@@ -1305,7 +1305,7 @@
       "kind": "project",
       "stars": 17303,
       "description": "Generative UI framework with its own skills.",
-      "leaderboardSkills": null
+      "leaderboardSkills": 0
     },
     {
       "id": "greensock/gsap-skills",
@@ -1321,7 +1321,7 @@
       "kind": "project",
       "stars": 15014,
       "description": "Turns documentation sites, repos and PDFs into skills.",
-      "leaderboardSkills": null
+      "leaderboardSkills": 0
     },
     {
       "id": "NevaMind-AI/memU",
@@ -1329,7 +1329,7 @@
       "kind": "project",
       "stars": 14418,
       "description": "Personal memory across agents.",
-      "leaderboardSkills": null
+      "leaderboardSkills": 0
     },
     {
       "id": "microsoft/playwright-cli",
@@ -1345,7 +1345,7 @@
       "kind": "skills",
       "stars": 12888,
       "description": "AI research and engineering skills.",
-      "leaderboardSkills": null
+      "leaderboardSkills": 0
     },
     {
       "id": "yizhiyanhua-ai/fireworks-tech-graph",
@@ -1353,7 +1353,7 @@
       "kind": "skills",
       "stars": 11491,
       "description": "Technical diagrams from natural language.",
-      "leaderboardSkills": null
+      "leaderboardSkills": 0
     },
     {
       "id": "google-labs-code/stitch-skills",
@@ -1361,7 +1361,7 @@
       "kind": "skills",
       "stars": 8349,
       "description": "A library of Agent Skills designed to work with the Stitch MCP server.",
-      "leaderboardSkills": 5
+      "leaderboardSkills": 1
     },
     {
       "id": "trailofbits/skills",
@@ -1369,7 +1369,7 @@
       "kind": "skills",
       "stars": 7179,
       "description": "Trail of Bits' skills for security research and audits.",
-      "leaderboardSkills": null
+      "leaderboardSkills": 0
     },
     {
       "id": "google/agents-cli",
@@ -1393,7 +1393,7 @@
       "kind": "skills",
       "stars": 5902,
       "description": "Anthony Fu's skills, including vitest and pnpm.",
-      "leaderboardSkills": null
+      "leaderboardSkills": 0
     },
     {
       "id": "remotion-dev/skills",
@@ -1417,7 +1417,7 @@
       "kind": "skills",
       "stars": 2876,
       "description": "Skills for teaching agents how to build on Cloudflare.",
-      "leaderboardSkills": 10
+      "leaderboardSkills": 13
     },
     {
       "id": "addyosmani/web-quality-skills",
@@ -1441,7 +1441,7 @@
       "kind": "skills",
       "stars": 2590,
       "description": "A collection of AI agent skills for working with Expo projects and Expo Application Services",
-      "leaderboardSkills": 3
+      "leaderboardSkills": 1
     },
     {
       "id": "mcollina/skills",
@@ -1465,7 +1465,7 @@
       "kind": "skills",
       "stars": 1489,
       "description": "Official agent plugin providing skills and MCP server configurations for Azure scenarios.",
-      "leaderboardSkills": 32
+      "leaderboardSkills": 33
     },
     {
       "id": "typesafe-ai/skills",
@@ -1473,7 +1473,7 @@
       "kind": "skills",
       "stars": 1131,
       "description": "Agent skills for building with TypeSafe's System One API",
-      "leaderboardSkills": null
+      "leaderboardSkills": 1
     },
     {
       "id": "higgsfield-ai/skills",
@@ -1489,7 +1489,7 @@
       "kind": "skills",
       "stars": 963,
       "description": "E-commerce skills for AI agents — product research, marketing automation, supply chain optimization, and business analytics for online…",
-      "leaderboardSkills": 1
+      "leaderboardSkills": 0
     },
     {
       "id": "nexscope-ai/amazon-skills",
@@ -1505,7 +1505,7 @@
       "kind": "project",
       "stars": 635,
       "description": "CLI and Agent Skill for Firecrawl - Add scrape, search, and browsing capabilities to your AI agents",
-      "leaderboardSkills": 9
+      "leaderboardSkills": 8
     },
     {
       "id": "LinklyAI/best-skills",
@@ -1513,7 +1513,7 @@
       "kind": "index",
       "stars": 580,
       "description": "Daily cross-registry rankings of agent skills.",
-      "leaderboardSkills": null
+      "leaderboardSkills": 0
     },
     {
       "id": "solana-foundation/solana-dev-skill",
@@ -1545,7 +1545,7 @@
       "kind": "skills",
       "stars": 448,
       "description": "Agent Skills for Firebase",
-      "leaderboardSkills": 14
+      "leaderboardSkills": 11
     },
     {
       "id": "currents-dev/playwright-best-practices-skill",
@@ -1561,7 +1561,7 @@
       "kind": "project",
       "stars": 328,
       "description": "Svelte's official MCP server and skills.",
-      "leaderboardSkills": null
+      "leaderboardSkills": 0
     },
     {
       "id": "intellectronica/agent-skills",
@@ -1609,7 +1609,7 @@
       "kind": "project",
       "stars": 165,
       "description": "A github issue sync tool for working with issues locally",
-      "leaderboardSkills": null
+      "leaderboardSkills": 0
     },
     {
       "id": "degausai/wonda",
@@ -1649,7 +1649,7 @@
       "kind": "skills",
       "stars": 58,
       "description": null,
-      "leaderboardSkills": 9
+      "leaderboardSkills": 10
     },
     {
       "id": "get-convex/agent-skills",
@@ -1657,7 +1657,7 @@
       "kind": "skills",
       "stars": 58,
       "description": "Convex Skills for Agents",
-      "leaderboardSkills": 6
+      "leaderboardSkills": 0
     },
     {
       "id": "autonnel/autonnel-skills",
@@ -1681,7 +1681,7 @@
       "kind": "skills",
       "stars": 38,
       "description": "28 OSINT Agent Skills that turn Cursor, Claude & AI coding agents into a full open-source intelligence platform — reconnaissance,…",
-      "leaderboardSkills": 4
+      "leaderboardSkills": 0
     },
     {
       "id": "genkit-ai/skills",
@@ -1689,7 +1689,7 @@
       "kind": "skills",
       "stars": 31,
       "description": "Agent Skills that teach AI coding agents how to build applications with the Genkit framework (JS/TS, Go, Dart).",
-      "leaderboardSkills": 1
+      "leaderboardSkills": 0
     },
     {
       "id": "nozomio-labs/nia-skill",
@@ -1697,7 +1697,7 @@
       "kind": "skills",
       "stars": 24,
       "description": "Skill for Nia AI - index and search repos, docs, papers, datasets",
-      "leaderboardSkills": 1
+      "leaderboardSkills": 0
     },
     {
       "id": "momentic-ai/skills",
@@ -1713,7 +1713,7 @@
       "kind": "skills",
       "stars": 13,
       "description": null,
-      "leaderboardSkills": 8
+      "leaderboardSkills": 0
     },
     {
       "id": "designed-by-ai/skills",
@@ -1737,7 +1737,7 @@
       "kind": "skills",
       "stars": 6,
       "description": "Includes Svelte 5 best practices.",
-      "leaderboardSkills": null
+      "leaderboardSkills": 0
     },
     {
       "id": "2dmurali/review-loop-skill",
@@ -1753,7 +1753,7 @@
       "kind": "skills",
       "stars": 4,
       "description": "Agent superpowers",
-      "leaderboardSkills": 5
+      "leaderboardSkills": 10
     },
     {
       "id": "neondatabase/agent-skills",
@@ -1777,7 +1777,7 @@
       "kind": "skills",
       "stars": null,
       "description": "RunComfy's original skills.",
-      "leaderboardSkills": null
+      "leaderboardSkills": 0
     },
     {
       "id": "inference-sh/skills",
@@ -1785,7 +1785,7 @@
       "kind": "skills",
       "stars": null,
       "description": "inference.sh's original skills.",
-      "leaderboardSkills": null
+      "leaderboardSkills": 0
     },
     {
       "id": "sleekdotdesign/agent-skills",
@@ -1793,7 +1793,7 @@
       "kind": "skills",
       "stars": null,
       "description": "Sleek's original mobile-design skill.",
-      "leaderboardSkills": null
+      "leaderboardSkills": 0
     },
     {
       "id": "doany-skills/skills",
@@ -1801,7 +1801,7 @@
       "kind": "skills",
       "stars": null,
       "description": "Original reddit-automation skill by doany.ai.",
-      "leaderboardSkills": null
+      "leaderboardSkills": 0
     },
     {
       "id": "getsentry/cli",
@@ -1809,7 +1809,7 @@
       "kind": "project",
       "stars": null,
       "description": "Sentry CLI; serves its skill at cli.sentry.dev.",
-      "leaderboardSkills": null
+      "leaderboardSkills": 0
     }
   ],
   "bundles": [
@@ -2381,8 +2381,8 @@
       "skills.sh": {
         "url": "https://skills.sh/vercel-labs/skills/find-skills",
         "install": "npx skills add https://github.com/vercel-labs/skills --skill find-skills",
-        "installs": 3495817,
-        "weeklyInstalls": [101120, 96861, 93130, 100221, 103058, 102072, 101832, 105632],
+        "installs": 4213409,
+        "weeklyInstalls": [101317, 105144, 103601, 107199, 110524, 121189, 121665, 115285],
         "firstSeen": "2026-01-26"
       },
       "skillMd": {
@@ -2429,8 +2429,8 @@
       "skills.sh": {
         "url": "https://skills.sh/mattpocock/skills/setup-matt-pocock-skills",
         "install": "npx skills add https://github.com/mattpocock/skills --skill setup-matt-pocock-skills",
-        "installs": 867591,
-        "weeklyInstalls": [48211, 61714, 49250, 52155, 48879, 46685, 41541, 38605],
+        "installs": 1110237,
+        "weeklyInstalls": [40968, 38034, 34332, 37782, 52357, 40522, 35702, 36026],
         "firstSeen": "2026-04-28"
       },
       "skillMd": {
@@ -2480,8 +2480,8 @@
       "skills.sh": {
         "url": "https://skills.sh/mattpocock/skills/ask-matt",
         "install": "npx skills add https://github.com/mattpocock/skills --skill ask-matt",
-        "installs": 590909,
-        "weeklyInstalls": [42586, 55243, 44321, 47675, 45137, 44784, 39556, 36500],
+        "installs": 816477,
+        "weeklyInstalls": [39031, 36017, 32320, 36399, 49795, 37789, 33162, 30020],
         "firstSeen": "2026-06-17"
       },
       "skillMd": {
@@ -2537,8 +2537,8 @@
       "skills.sh": {
         "url": "https://skills.sh/anthropics/skills/skill-creator",
         "install": "npx skills add https://github.com/anthropics/skills --skill skill-creator",
-        "installs": 386784,
-        "weeklyInstalls": [8627, 8460, 7468, 6875, 6880, 6908, 6006, 6341],
+        "installs": 424327,
+        "weeklyInstalls": [5922, 6261, 5820, 6399, 6513, 6124, 6146, 6097],
         "firstSeen": "2026-01-19"
       },
       "skillMd": {
@@ -2563,8 +2563,8 @@
       "skills.sh": {
         "url": "https://skills.sh/mattpocock/skills/writing-great-skills",
         "install": "npx skills add https://github.com/mattpocock/skills --skill writing-great-skills",
-        "installs": 323777,
-        "weeklyInstalls": [45601, 23217, 3017, 1990, 1262, 1164, 865, 708],
+        "installs": 306558,
+        "weeklyInstalls": [5, 12, 4, 6, 10, 9, 5, 6],
         "firstSeen": "2026-06-17"
       },
       "skillMd": {
@@ -2613,8 +2613,8 @@
       "skills.sh": {
         "url": "https://skills.sh/mattpocock/skills/writing-for-agents",
         "install": "npx skills add https://github.com/mattpocock/skills --skill writing-for-agents",
-        "installs": 293605,
-        "weeklyInstalls": [40, 36269, 42587, 46171, 43846, 43735, 40334, 38178],
+        "installs": 519923,
+        "weeklyInstalls": [39934, 37802, 33470, 33845, 44140, 37844, 34442, 31691],
         "firstSeen": "2026-07-27"
       },
       "skillMd": {
@@ -2661,8 +2661,8 @@
       "skills.sh": {
         "url": "https://skills.sh/obra/superpowers/using-superpowers",
         "install": "npx skills add https://github.com/obra/superpowers --skill using-superpowers",
-        "installs": 248737,
-        "weeklyInstalls": [7424, 6980, 6699, 6880, 6174, 6071, 5621, 5962],
+        "installs": 279628,
+        "weeklyInstalls": [5458, 5840, 5880, 5177, 4640, 5650, 5533, 5396],
         "firstSeen": "2026-01-19"
       },
       "skillMd": {
@@ -2686,8 +2686,8 @@
       "skills.sh": {
         "url": "https://skills.sh/mattpocock/skills/write-a-skill",
         "install": "npx skills add https://github.com/mattpocock/skills --skill write-a-skill",
-        "installs": 230456,
-        "weeklyInstalls": [698, 1085, 702, 583, 396, 350, 332, 269],
+        "installs": 219747,
+        "weeklyInstalls": [0, 3, 0, 2, 2, 1, 2, 1],
         "firstSeen": "2026-02-12"
       },
       "skillMd": {
@@ -2739,8 +2739,8 @@
       "skills.sh": {
         "url": "https://skills.sh/obra/superpowers/writing-skills",
         "install": "npx skills add https://github.com/obra/superpowers --skill writing-skills",
-        "installs": 195192,
-        "weeklyInstalls": [6248, 5982, 5921, 5992, 5362, 5584, 5515, 5892],
+        "installs": 227309,
+        "weeklyInstalls": [5367, 5783, 5657, 4863, 4444, 6125, 6133, 5560],
         "firstSeen": "2026-01-19"
       },
       "skillMd": {
@@ -2797,8 +2797,8 @@
       "skills.sh": {
         "url": "https://skills.sh/browser-act/skills/browser-act-skill-forge",
         "install": "npx skills add https://github.com/browser-act/skills --skill browser-act-skill-forge",
-        "installs": 85104,
-        "weeklyInstalls": [58, 37, 34, 29, 36, 22, 13, 20],
+        "installs": 85186,
+        "weeklyInstalls": [13, 19, 17, 22, 15, 13, 12, 19],
         "firstSeen": "2026-05-14"
       },
       "skillMd": {
@@ -2846,8 +2846,8 @@
       "skills.sh": {
         "url": "https://skills.sh/mattpocock/skills/grill-me",
         "install": "npx skills add https://github.com/mattpocock/skills --skill grill-me",
-        "installs": 1189452,
-        "weeklyInstalls": [64738, 75922, 65802, 71736, 66035, 63238, 57738, 54238],
+        "installs": 1498169,
+        "weeklyInstalls": [57027, 53625, 48139, 48386, 58939, 52386, 48664, 43368],
         "firstSeen": "2026-03-13"
       },
       "skillMd": {
@@ -2900,8 +2900,8 @@
       "skills.sh": {
         "url": "https://skills.sh/mattpocock/skills/grill-with-docs",
         "install": "npx skills add https://github.com/mattpocock/skills --skill grill-with-docs",
-        "installs": 1015884,
-        "weeklyInstalls": [55615, 66362, 55776, 62108, 56619, 54857, 49668, 46913],
+        "installs": 1282987,
+        "weeklyInstalls": [49063, 46332, 41794, 41959, 52205, 44944, 41171, 37516],
         "firstSeen": "2026-04-28"
       },
       "skillMd": {
@@ -2952,8 +2952,8 @@
       "skills.sh": {
         "url": "https://skills.sh/mattpocock/skills/handoff",
         "install": "npx skills add https://github.com/mattpocock/skills --skill handoff",
-        "installs": 841705,
-        "weeklyInstalls": [48113, 58162, 48859, 53593, 49569, 48555, 44434, 42284],
+        "installs": 1097810,
+        "weeklyInstalls": [43887, 41765, 37953, 38422, 54020, 43967, 39160, 35344],
         "firstSeen": "2026-05-06"
       },
       "skillMd": {
@@ -2999,8 +2999,8 @@
       "skills.sh": {
         "url": "https://skills.sh/mattpocock/skills/prototype",
         "install": "npx skills add https://github.com/mattpocock/skills --skill prototype",
-        "installs": 814884,
-        "weeklyInstalls": [47077, 60846, 48412, 52775, 48115, 45883, 41091, 39061],
+        "installs": 1040881,
+        "weeklyInstalls": [40553, 38550, 34601, 35029, 44844, 38015, 34602, 32445],
         "firstSeen": "2026-05-06"
       },
       "skillMd": {
@@ -3048,8 +3048,8 @@
       "skills.sh": {
         "url": "https://skills.sh/mattpocock/skills/grilling",
         "install": "npx skills add https://github.com/mattpocock/skills --skill grilling",
-        "installs": 744123,
-        "weeklyInstalls": [53982, 69023, 57496, 64483, 59375, 57402, 53033, 50276],
+        "installs": 1055386,
+        "weeklyInstalls": [52487, 49789, 44480, 46132, 61775, 52706, 47202, 46289],
         "firstSeen": "2026-06-04"
       },
       "skillMd": {
@@ -3095,8 +3095,8 @@
       "skills.sh": {
         "url": "https://skills.sh/mattpocock/skills/teach",
         "install": "npx skills add https://github.com/mattpocock/skills --skill teach",
-        "installs": 687409,
-        "weeklyInstalls": [44668, 53989, 44680, 48910, 46413, 45222, 40766, 38155],
+        "installs": 914564,
+        "weeklyInstalls": [40223, 37645, 33746, 33673, 47203, 39566, 35109, 31831],
         "firstSeen": "2026-05-27"
       },
       "skillMd": {
@@ -3147,8 +3147,8 @@
       "skills.sh": {
         "url": "https://skills.sh/mattpocock/skills/domain-modeling",
         "install": "npx skills add https://github.com/mattpocock/skills --skill domain-modeling",
-        "installs": 672237,
-        "weeklyInstalls": [49730, 60145, 52076, 57827, 52409, 50343, 46026, 43627],
+        "installs": 937057,
+        "weeklyInstalls": [45486, 43132, 38784, 43499, 53941, 43971, 39443, 36477],
         "firstSeen": "2026-06-04"
       },
       "skillMd": {
@@ -3194,8 +3194,8 @@
       "skills.sh": {
         "url": "https://skills.sh/mattpocock/skills/codebase-design",
         "install": "npx skills add https://github.com/mattpocock/skills --skill codebase-design",
-        "installs": 651254,
-        "weeklyInstalls": [47700, 60375, 50766, 55338, 50419, 48646, 44300, 41900],
+        "installs": 912839,
+        "weeklyInstalls": [43787, 41415, 37076, 43359, 52900, 42898, 37697, 38595],
         "firstSeen": "2026-06-04"
       },
       "skillMd": {
@@ -3251,8 +3251,8 @@
       "skills.sh": {
         "url": "https://skills.sh/mattpocock/skills/wayfinder",
         "install": "npx skills add https://github.com/mattpocock/skills --skill wayfinder",
-        "installs": 543187,
-        "weeklyInstalls": [47117, 60412, 48729, 52979, 47738, 45905, 40683, 37626],
+        "installs": 773781,
+        "weeklyInstalls": [40175, 37138, 33461, 33660, 47396, 39092, 34673, 34461],
         "firstSeen": "2026-07-01"
       },
       "skillMd": {
@@ -3303,8 +3303,8 @@
       "skills.sh": {
         "url": "https://skills.sh/mattpocock/skills/to-spec",
         "install": "npx skills add https://github.com/mattpocock/skills --skill to-spec",
-        "installs": 538272,
-        "weeklyInstalls": [47941, 61040, 49738, 52957, 49510, 47583, 42964, 40167],
+        "installs": 769154,
+        "weeklyInstalls": [42452, 39678, 35125, 35555, 45629, 38781, 34900, 32683],
         "firstSeen": "2026-07-02"
       },
       "skillMd": {
@@ -3355,8 +3355,8 @@
       "skills.sh": {
         "url": "https://skills.sh/mattpocock/skills/to-tickets",
         "install": "npx skills add https://github.com/mattpocock/skills --skill to-tickets",
-        "installs": 528635,
-        "weeklyInstalls": [47726, 57752, 47951, 53136, 48625, 46658, 42170, 39283],
+        "installs": 765746,
+        "weeklyInstalls": [41660, 38793, 34354, 34805, 49732, 40682, 35922, 33358],
         "firstSeen": "2026-07-02"
       },
       "skillMd": {
@@ -3413,8 +3413,8 @@
       "skills.sh": {
         "url": "https://skills.sh/obra/superpowers/brainstorming",
         "install": "npx skills add https://github.com/obra/superpowers --skill brainstorming",
-        "installs": 370462,
-        "weeklyInstalls": [10824, 10207, 9594, 9132, 8213, 8264, 8084, 8612],
+        "installs": 417886,
+        "weeklyInstalls": [7891, 8462, 8129, 7166, 7033, 9334, 8941, 8117],
         "firstSeen": "2026-01-19"
       },
       "skillMd": {
@@ -3439,8 +3439,8 @@
       "skills.sh": {
         "url": "https://skills.sh/mattpocock/skills/to-prd",
         "install": "npx skills add https://github.com/mattpocock/skills --skill to-prd",
-        "installs": 367921,
-        "weeklyInstalls": [1347, 2031, 1235, 1040, 715, 631, 578, 512],
+        "installs": 351589,
+        "weeklyInstalls": [5, 9, 5, 4, 1, 6, 3, 2],
         "firstSeen": "2026-04-17"
       },
       "skillMd": {
@@ -3466,8 +3466,8 @@
       "skills.sh": {
         "url": "https://skills.sh/mattpocock/skills/to-issues",
         "install": "npx skills add https://github.com/mattpocock/skills --skill to-issues",
-        "installs": 354853,
-        "weeklyInstalls": [1287, 1968, 1205, 1007, 686, 614, 538, 486],
+        "installs": 339111,
+        "weeklyInstalls": [2, 1, 4, 2, 2, 5, 2, 2],
         "firstSeen": "2026-04-17"
       },
       "skillMd": {
@@ -3518,8 +3518,8 @@
       "skills.sh": {
         "url": "https://skills.sh/mattpocock/skills/to-questionnaire",
         "install": "npx skills add https://github.com/mattpocock/skills --skill to-questionnaire",
-        "installs": 339881,
-        "weeklyInstalls": [19562, 41844, 40766, 43485, 41660, 41136, 37599, 35977],
+        "installs": 545502,
+        "weeklyInstalls": [37179, 35563, 31444, 31576, 40802, 34949, 30800, 28664],
         "firstSeen": "2026-07-14"
       },
       "skillMd": {
@@ -3570,8 +3570,8 @@
       "skills.sh": {
         "url": "https://skills.sh/mattpocock/skills/loop-me",
         "install": "npx skills add https://github.com/mattpocock/skills --skill loop-me",
-        "installs": 321586,
-        "weeklyInstalls": [20725, 23986, 20131, 29586, 32447, 31995, 29177, 27287],
+        "installs": 475368,
+        "weeklyInstalls": [28843, 26963, 24164, 23906, 29880, 25821, 23304, 21406],
         "firstSeen": "2026-06-24"
       },
       "skillMd": {
@@ -3626,8 +3626,8 @@
       "skills.sh": {
         "url": "https://skills.sh/mattpocock/skills/claude-handoff",
         "install": "npx skills add https://github.com/mattpocock/skills --skill claude-handoff",
-        "installs": 298145,
-        "weeklyInstalls": [20517, 23625, 20366, 29918, 32460, 32375, 29286, 27180],
+        "installs": 457234,
+        "weeklyInstalls": [28962, 26845, 24129, 24104, 32455, 26995, 24030, 21868],
         "firstSeen": "2026-07-02"
       },
       "skillMd": {
@@ -3678,8 +3678,8 @@
       "skills.sh": {
         "url": "https://skills.sh/obra/superpowers/writing-plans",
         "install": "npx skills add https://github.com/obra/superpowers --skill writing-plans",
-        "installs": 254600,
-        "weeklyInstalls": [7836, 7227, 7122, 6979, 6425, 6658, 6394, 6896],
+        "installs": 293950,
+        "weeklyInstalls": [6229, 6767, 6813, 6653, 5861, 7485, 6988, 6521],
         "firstSeen": "2026-01-19"
       },
       "skillMd": {
@@ -3704,8 +3704,8 @@
       "skills.sh": {
         "url": "https://skills.sh/mattpocock/skills/design-an-interface",
         "install": "npx skills add https://github.com/mattpocock/skills --skill design-an-interface",
-        "installs": 216688,
-        "weeklyInstalls": [21464, 10632, 1181, 851, 560, 511, 358, 334],
+        "installs": 208846,
+        "weeklyInstalls": [6, 12, 10, 17, 19, 12, 3, 5],
         "firstSeen": "2026-02-13"
       },
       "skillMd": {
@@ -3733,8 +3733,8 @@
       "skills.sh": {
         "url": "https://skills.sh/mattpocock/skills/request-refactor-plan",
         "install": "npx skills add https://github.com/mattpocock/skills --skill request-refactor-plan",
-        "installs": 210011,
-        "weeklyInstalls": [20704, 10190, 1139, 795, 535, 482, 319, 319],
+        "installs": 202443,
+        "weeklyInstalls": [3, 9, 3, 5, 13, 8, 3, 3],
         "firstSeen": "2026-02-13"
       },
       "skillMd": {
@@ -3760,8 +3760,8 @@
       "skills.sh": {
         "url": "https://skills.sh/mattpocock/skills/ubiquitous-language",
         "install": "npx skills add https://github.com/mattpocock/skills --skill ubiquitous-language",
-        "installs": 204571,
-        "weeklyInstalls": [20340, 10004, 1102, 774, 533, 466, 307, 307],
+        "installs": 197207,
+        "weeklyInstalls": [2, 7, 2, 4, 10, 5, 3, 2],
         "firstSeen": "2026-03-16"
       },
       "skillMd": {
@@ -3813,8 +3813,8 @@
       "skills.sh": {
         "url": "https://skills.sh/mattpocock/skills/improve-codebase-architecture",
         "install": "npx skills add https://github.com/mattpocock/skills --skill improve-codebase-architecture",
-        "installs": 967088,
-        "weeklyInstalls": [50835, 63780, 54240, 59606, 52645, 50293, 44253, 41316],
+        "installs": 1226673,
+        "weeklyInstalls": [43664, 40761, 37241, 42271, 53008, 42480, 38894, 38379],
         "firstSeen": "2026-03-13"
       },
       "skillMd": {
@@ -3865,8 +3865,8 @@
       "skills.sh": {
         "url": "https://skills.sh/mattpocock/skills/tdd",
         "install": "npx skills add https://github.com/mattpocock/skills --skill tdd",
-        "installs": 939371,
-        "weeklyInstalls": [49935, 63627, 52249, 57225, 51673, 49590, 44259, 41660],
+        "installs": 1199531,
+        "weeklyInstalls": [43678, 41124, 36998, 42084, 54986, 44593, 39153, 35932],
         "firstSeen": "2026-02-10"
       },
       "skillMd": {
@@ -3916,8 +3916,8 @@
       "skills.sh": {
         "url": "https://skills.sh/mattpocock/skills/implement",
         "install": "npx skills add https://github.com/mattpocock/skills --skill implement",
-        "installs": 589967,
-        "weeklyInstalls": [45430, 55168, 45552, 47229, 45948, 46038, 42131, 39487],
+        "installs": 828005,
+        "weeklyInstalls": [41589, 38981, 34652, 35376, 51104, 41033, 35700, 32822],
         "firstSeen": "2026-06-17"
       },
       "skillMd": {
@@ -3942,8 +3942,8 @@
       "skills.sh": {
         "url": "https://skills.sh/mattpocock/skills/resolving-merge-conflicts",
         "install": "npx skills add https://github.com/mattpocock/skills --skill resolving-merge-conflicts",
-        "installs": 516777,
-        "weeklyInstalls": [41736, 50799, 42167, 46439, 44297, 43744, 39412, 37623],
+        "installs": 551158,
+        "weeklyInstalls": [38947, 37178, 33108, 8010, 142, 96, 47, 46],
         "firstSeen": "2026-06-04"
       },
       "skillMd": {
@@ -3991,8 +3991,8 @@
       "skills.sh": {
         "url": "https://skills.sh/mattpocock/skills/wizard",
         "install": "npx skills add https://github.com/mattpocock/skills --skill wizard",
-        "installs": 390895,
-        "weeklyInstalls": [19850, 42981, 41317, 44161, 41947, 41252, 37335, 34729],
+        "installs": 601314,
+        "weeklyInstalls": [36906, 34314, 30866, 30913, 44498, 37150, 32039, 28988],
         "firstSeen": "2026-06-29"
       },
       "skillMd": {
@@ -4046,8 +4046,8 @@
       "skills.sh": {
         "url": "https://skills.sh/mattpocock/skills/git-guardrails-claude-code",
         "install": "npx skills add https://github.com/mattpocock/skills --skill git-guardrails-claude-code",
-        "installs": 381578,
-        "weeklyInstalls": [20379, 22344, 19342, 29318, 32222, 31805, 29007, 27253],
+        "installs": 535263,
+        "weeklyInstalls": [28676, 26919, 24124, 24213, 29989, 25807, 23387, 21442],
         "firstSeen": "2026-02-10"
       },
       "skillMd": {
@@ -4096,8 +4096,8 @@
       "skills.sh": {
         "url": "https://skills.sh/mattpocock/skills/setup-pre-commit",
         "install": "npx skills add https://github.com/mattpocock/skills --skill setup-pre-commit",
-        "installs": 373523,
-        "weeklyInstalls": [20084, 22024, 19043, 28983, 32011, 31492, 28713, 26821],
+        "installs": 524587,
+        "weeklyInstalls": [28394, 26499, 23656, 23203, 29074, 25681, 23223, 21314],
         "firstSeen": "2026-02-13"
       },
       "skillMd": {
@@ -4125,8 +4125,8 @@
       "skills.sh": {
         "url": "https://skills.sh/mattpocock/skills/migrate-to-shoehorn",
         "install": "npx skills add https://github.com/mattpocock/skills --skill migrate-to-shoehorn",
-        "installs": 363321,
-        "weeklyInstalls": [19743, 21591, 18622, 27898, 31108, 30773, 28164, 26337],
+        "installs": 510916,
+        "weeklyInstalls": [27841, 25997, 23103, 22681, 28413, 25063, 22748, 20924],
         "firstSeen": "2026-02-13"
       },
       "skillMd": {
@@ -4178,8 +4178,8 @@
       "skills.sh": {
         "url": "https://skills.sh/mattpocock/skills/setup-ts-deep-modules",
         "install": "npx skills add https://github.com/mattpocock/skills --skill setup-ts-deep-modules",
-        "installs": 253987,
-        "weeklyInstalls": [19373, 20981, 18497, 28319, 31287, 30957, 28222, 26285],
+        "installs": 402754,
+        "weeklyInstalls": [27915, 25969, 23066, 22668, 28434, 25170, 22748, 20889],
         "firstSeen": "2026-07-10"
       },
       "skillMd": {
@@ -4227,8 +4227,8 @@
       "skills.sh": {
         "url": "https://skills.sh/obra/superpowers/test-driven-development",
         "install": "npx skills add https://github.com/obra/superpowers --skill test-driven-development",
-        "installs": 232256,
-        "weeklyInstalls": [7263, 6699, 6400, 6748, 6286, 6481, 6441, 6754],
+        "installs": 270166,
+        "weeklyInstalls": [6275, 6629, 6383, 6060, 5605, 7253, 6777, 6482],
         "firstSeen": "2026-01-19"
       },
       "skillMd": {
@@ -4279,8 +4279,8 @@
       "skills.sh": {
         "url": "https://skills.sh/obra/superpowers/executing-plans",
         "install": "npx skills add https://github.com/obra/superpowers --skill executing-plans",
-        "installs": 217269,
-        "weeklyInstalls": [6892, 6463, 6101, 6438, 5909, 6219, 6150, 6291],
+        "installs": 253269,
+        "weeklyInstalls": [5983, 6180, 6071, 5796, 5334, 6977, 6652, 6016],
         "firstSeen": "2026-01-19"
       },
       "skillMd": {
@@ -4328,8 +4328,8 @@
       "skills.sh": {
         "url": "https://skills.sh/obra/superpowers/verification-before-completion",
         "install": "npx skills add https://github.com/obra/superpowers --skill verification-before-completion",
-        "installs": 216670,
-        "weeklyInstalls": [7401, 7587, 7030, 8295, 7178, 7254, 7274, 7096],
+        "installs": 264742,
+        "weeklyInstalls": [7118, 6983, 6740, 6749, 7799, 9884, 8571, 7960],
         "firstSeen": "2026-01-19"
       },
       "skillMd": {
@@ -4386,8 +4386,8 @@
       "skills.sh": {
         "url": "https://skills.sh/obra/superpowers/subagent-driven-development",
         "install": "npx skills add https://github.com/obra/superpowers --skill subagent-driven-development",
-        "installs": 210247,
-        "weeklyInstalls": [6841, 6305, 6380, 7614, 6025, 6237, 6203, 6306],
+        "installs": 247768,
+        "weeklyInstalls": [6035, 6189, 5887, 5565, 5730, 8506, 6632, 5982],
         "firstSeen": "2026-01-19"
       },
       "skillMd": {
@@ -4439,8 +4439,8 @@
       "skills.sh": {
         "url": "https://skills.sh/obra/superpowers/dispatching-parallel-agents",
         "install": "npx skills add https://github.com/obra/superpowers --skill dispatching-parallel-agents",
-        "installs": 195735,
-        "weeklyInstalls": [6486, 6071, 5813, 7019, 5716, 5912, 5835, 5827],
+        "installs": 227354,
+        "weeklyInstalls": [5679, 5711, 5292, 5179, 4721, 6152, 5699, 5258],
         "firstSeen": "2026-01-19"
       },
       "skillMd": {
@@ -4488,8 +4488,8 @@
       "skills.sh": {
         "url": "https://skills.sh/obra/superpowers/using-git-worktrees",
         "install": "npx skills add https://github.com/obra/superpowers --skill using-git-worktrees",
-        "installs": 195200,
-        "weeklyInstalls": [6559, 6198, 5810, 6949, 5623, 5861, 5837, 5842],
+        "installs": 226222,
+        "weeklyInstalls": [5685, 5736, 5308, 4698, 4461, 6178, 5725, 5316],
         "firstSeen": "2026-01-19"
       },
       "skillMd": {
@@ -4541,8 +4541,8 @@
       "skills.sh": {
         "url": "https://skills.sh/obra/superpowers/finishing-a-development-branch",
         "install": "npx skills add https://github.com/obra/superpowers --skill finishing-a-development-branch",
-        "installs": 191782,
-        "weeklyInstalls": [6430, 5957, 5874, 6274, 5647, 5843, 5804, 5788],
+        "installs": 223627,
+        "weeklyInstalls": [5651, 5681, 5259, 5189, 4773, 6219, 5701, 5296],
         "firstSeen": "2026-01-19"
       },
       "skillMd": {
@@ -4599,8 +4599,8 @@
       "skills.sh": {
         "url": "https://skills.sh/mattpocock/skills/implement-spec",
         "install": "npx skills add https://github.com/mattpocock/skills --skill implement-spec",
-        "installs": 129139,
-        "weeklyInstalls": [0, 0, 0, 9806, 31293, 31210, 28426, 26596],
+        "installs": 332872,
+        "weeklyInstalls": [28177, 26320, 23474, 29844, 42312, 35044, 31172, 30324],
         "firstSeen": "2026-08-21"
       },
       "skillMd": {
@@ -4647,8 +4647,8 @@
       "skills.sh": {
         "url": "https://skills.sh/wshobson/agents/typescript-advanced-types",
         "install": "npx skills add https://github.com/wshobson/agents --skill typescript-advanced-types",
-        "installs": 77787,
-        "weeklyInstalls": [1561, 1887, 1608, 3529, 4233, 2891, 3127, 2973],
+        "installs": 97174,
+        "weeklyInstalls": [3111, 2956, 3068, 2981, 2834, 3374, 3306, 3317],
         "firstSeen": "2026-01-20"
       },
       "skillMd": {
@@ -4675,8 +4675,8 @@
       "skills.sh": {
         "url": "https://skills.sh/vercel/turborepo/turborepo",
         "install": "npx skills add https://github.com/vercel/turborepo --skill turborepo",
-        "installs": 74420,
-        "weeklyInstalls": [4147, 2189, 2009, 2423, 2262, 1842, 2629, 2825],
+        "installs": 88169,
+        "weeklyInstalls": [2620, 2814, 2253, 1965, 2163, 2308, 1945, 2573],
         "firstSeen": "2026-01-22"
       },
       "skillMd": {
@@ -4731,8 +4731,8 @@
       "skills.sh": {
         "url": "https://skills.sh/dietrichgebert/ponytail/ponytail",
         "install": "npx skills add https://github.com/dietrichgebert/ponytail --skill ponytail",
-        "installs": 62043,
-        "weeklyInstalls": [4833, 5466, 5086, 6041, 5042, 4728, 4881, 4658],
+        "installs": 119286,
+        "weeklyInstalls": [4815, 4591, 4356, 5199, 10976, 14193, 9752, 9283],
         "firstSeen": "2026-06-12"
       },
       "skillMd": {
@@ -4783,8 +4783,8 @@
       "skills.sh": {
         "url": "https://skills.sh/juliusbrussee/caveman/safe-refactor",
         "install": "npx skills add https://github.com/juliusbrussee/caveman --skill safe-refactor",
-        "installs": 61972,
-        "weeklyInstalls": [0, 0, 6282, 8912, 9036, 11177, 12591, 13200],
+        "installs": 117062,
+        "weeklyInstalls": [12518, 13123, 10908, 11006, 8448, 7239, 7648, 7234],
         "firstSeen": "2026-08-11"
       },
       "skillMd": {
@@ -4835,8 +4835,8 @@
       "skills.sh": {
         "url": "https://skills.sh/juliusbrussee/caveman/surgical-patch",
         "install": "npx skills add https://github.com/juliusbrussee/caveman --skill surgical-patch",
-        "installs": 61671,
-        "weeklyInstalls": [0, 0, 6286, 8872, 8977, 11094, 12526, 13142],
+        "installs": 115301,
+        "weeklyInstalls": [12457, 13066, 10850, 10087, 8239, 7093, 7564, 7185],
         "firstSeen": "2026-08-11"
       },
       "skillMd": {
@@ -4887,8 +4887,8 @@
       "skills.sh": {
         "url": "https://skills.sh/juliusbrussee/caveman/lean-build",
         "install": "npx skills add https://github.com/juliusbrussee/caveman --skill lean-build",
-        "installs": 61411,
-        "weeklyInstalls": [0, 0, 6249, 8836, 8946, 11043, 12451, 13111],
+        "installs": 114966,
+        "weeklyInstalls": [12381, 13034, 10820, 10020, 8278, 7152, 7532, 7165],
         "firstSeen": "2026-08-11"
       },
       "skillMd": {
@@ -4938,8 +4938,8 @@
       "skills.sh": {
         "url": "https://skills.sh/juliusbrussee/caveman/migration",
         "install": "npx skills add https://github.com/juliusbrussee/caveman --skill migration",
-        "installs": 61086,
-        "weeklyInstalls": [0, 0, 6232, 8787, 8894, 10980, 12405, 13020],
+        "installs": 114281,
+        "weeklyInstalls": [12335, 12946, 10759, 9982, 8186, 7065, 7503, 7111],
         "firstSeen": "2026-08-11"
       },
       "skillMd": {
@@ -4994,8 +4994,8 @@
       "skills.sh": {
         "url": "https://skills.sh/mattpocock/skills/triage",
         "install": "npx skills add https://github.com/mattpocock/skills --skill triage",
-        "installs": 818146,
-        "weeklyInstalls": [45268, 58240, 47409, 51899, 46422, 44334, 39158, 36483],
+        "installs": 1040340,
+        "weeklyInstalls": [38590, 35937, 33093, 36289, 46500, 37352, 33488, 30497],
         "firstSeen": "2026-04-28"
       },
       "skillMd": {
@@ -5042,8 +5042,8 @@
       "skills.sh": {
         "url": "https://skills.sh/mattpocock/skills/diagnosing-bugs",
         "install": "npx skills add https://github.com/mattpocock/skills --skill diagnosing-bugs",
-        "installs": 638771,
-        "weeklyInstalls": [46765, 59214, 49914, 54939, 49004, 47088, 42585, 40737],
+        "installs": 892441,
+        "weeklyInstalls": [42055, 40276, 35844, 41316, 53687, 42643, 37477, 34921],
         "firstSeen": "2026-06-04"
       },
       "skillMd": {
@@ -5090,8 +5090,8 @@
       "skills.sh": {
         "url": "https://skills.sh/mattpocock/skills/code-review",
         "install": "npx skills add https://github.com/mattpocock/skills --skill code-review",
-        "installs": 589528,
-        "weeklyInstalls": [48107, 61595, 50927, 53156, 50671, 50175, 45993, 43036],
+        "installs": 851884,
+        "weeklyInstalls": [45428, 42525, 38032, 39868, 53340, 44784, 38605, 38125],
         "firstSeen": "2026-07-01"
       },
       "skillMd": {
@@ -5144,8 +5144,8 @@
       "skills.sh": {
         "url": "https://skills.sh/juliusbrussee/caveman/caveman-review",
         "install": "npx skills add https://github.com/juliusbrussee/caveman --skill caveman-review",
-        "installs": 365862,
-        "weeklyInstalls": [15187, 15505, 10403, 9723, 9947, 12349, 13445, 14195],
+        "installs": 423118,
+        "weeklyInstalls": [13301, 14058, 11810, 10875, 9223, 7869, 8232, 7790],
         "firstSeen": "2026-04-08"
       },
       "skillMd": {
@@ -5192,8 +5192,8 @@
       "skills.sh": {
         "url": "https://skills.sh/obra/superpowers/systematic-debugging",
         "install": "npx skills add https://github.com/obra/superpowers --skill systematic-debugging",
-        "installs": 265958,
-        "weeklyInstalls": [8547, 8663, 7721, 8000, 7653, 7675, 7739, 7926],
+        "installs": 320576,
+        "weeklyInstalls": [7573, 7805, 7836, 8538, 8901, 11211, 9353, 8558],
         "firstSeen": "2026-01-19"
       },
       "skillMd": {
@@ -5218,8 +5218,8 @@
       "skills.sh": {
         "url": "https://skills.sh/mattpocock/skills/diagnose",
         "install": "npx skills add https://github.com/mattpocock/skills --skill diagnose",
-        "installs": 239020,
-        "weeklyInstalls": [757, 1152, 733, 600, 448, 374, 358, 312],
+        "installs": 227598,
+        "weeklyInstalls": [0, 3, 0, 0, 2, 1, 1, 1],
         "firstSeen": "2026-04-28"
       },
       "skillMd": {
@@ -5272,8 +5272,8 @@
       "skills.sh": {
         "url": "https://skills.sh/obra/superpowers/requesting-code-review",
         "install": "npx skills add https://github.com/obra/superpowers --skill requesting-code-review",
-        "installs": 233838,
-        "weeklyInstalls": [7311, 6787, 6711, 6840, 6184, 6650, 6141, 6414],
+        "installs": 272148,
+        "weeklyInstalls": [5980, 6304, 6243, 5700, 5968, 8836, 6442, 5994],
         "firstSeen": "2026-01-19"
       },
       "skillMd": {
@@ -5300,8 +5300,8 @@
       "skills.sh": {
         "url": "https://skills.sh/mattpocock/skills/qa",
         "install": "npx skills add https://github.com/mattpocock/skills --skill qa",
-        "installs": 205919,
-        "weeklyInstalls": [20906, 10207, 1100, 777, 535, 458, 320, 323],
+        "installs": 198686,
+        "weeklyInstalls": [2, 9, 3, 6, 14, 8, 3, 2],
         "firstSeen": "2026-03-26"
       },
       "skillMd": {
@@ -5348,8 +5348,8 @@
       "skills.sh": {
         "url": "https://skills.sh/obra/superpowers/receiving-code-review",
         "install": "npx skills add https://github.com/obra/superpowers --skill receiving-code-review",
-        "installs": 198239,
-        "weeklyInstalls": [6502, 6062, 5689, 6830, 5627, 5823, 5810, 5819],
+        "installs": 230851,
+        "weeklyInstalls": [5661, 5708, 5291, 5227, 4871, 6391, 5894, 5544],
         "firstSeen": "2026-01-19"
       },
       "skillMd": {
@@ -5403,8 +5403,8 @@
       "skills.sh": {
         "url": "https://skills.sh/anthropics/skills/webapp-testing",
         "install": "npx skills add https://github.com/anthropics/skills --skill webapp-testing",
-        "installs": 160726,
-        "weeklyInstalls": [3930, 3937, 3968, 5961, 6475, 5006, 4740, 4572],
+        "installs": 197816,
+        "weeklyInstalls": [4704, 4539, 4848, 4968, 5518, 6132, 7142, 6780],
         "firstSeen": "2026-01-19"
       },
       "skillMd": {
@@ -5455,8 +5455,8 @@
       "skills.sh": {
         "url": "https://skills.sh/mattpocock/skills/retro",
         "install": "npx skills add https://github.com/mattpocock/skills --skill retro",
-        "installs": 115754,
-        "weeklyInstalls": [0, 0, 0, 0, 27746, 30754, 28204, 27199],
+        "installs": 324951,
+        "weeklyInstalls": [27970, 26950, 23862, 29987, 44589, 36804, 32260, 29914],
         "firstSeen": "2026-08-24"
       },
       "skillMd": {
@@ -5508,8 +5508,8 @@
       "skills.sh": {
         "url": "https://skills.sh/currents-dev/playwright-best-practices-skill/playwright-best-practices",
         "install": "npx skills add https://github.com/currents-dev/playwright-best-practices-skill --skill playwright-best-practices",
-        "installs": 84590,
-        "weeklyInstalls": [2272, 2444, 2522, 2561, 2550, 2380, 2268, 2433],
+        "installs": 102339,
+        "weeklyInstalls": [2261, 2425, 2701, 2764, 2825, 3217, 2853, 2908],
         "firstSeen": "2026-01-29"
       },
       "skillMd": {
@@ -5565,8 +5565,8 @@
       "skills.sh": {
         "url": "https://skills.sh/2dmurali/review-loop-skill/review-loop",
         "install": "npx skills add https://github.com/2dmurali/review-loop-skill --skill review-loop",
-        "installs": 72774,
-        "weeklyInstalls": [2949, 14478, 8246, 7673, 5688, 15526, 8671, 8997],
+        "installs": 110441,
+        "weeklyInstalls": [8671, 8996, 8872, 9137, 5311, 2787, 5454, 5950],
         "firstSeen": "2026-05-08"
       },
       "skillMd": {
@@ -5616,8 +5616,8 @@
       "skills.sh": {
         "url": "https://skills.sh/juliusbrussee/caveman/investigate-first",
         "install": "npx skills add https://github.com/juliusbrussee/caveman --skill investigate-first",
-        "installs": 61966,
-        "weeklyInstalls": [0, 0, 6309, 8930, 9022, 11129, 12577, 13222],
+        "installs": 115970,
+        "weeklyInstalls": [12507, 13144, 10916, 10142, 8346, 7199, 7582, 7204],
         "firstSeen": "2026-08-11"
       },
       "skillMd": {
@@ -5672,8 +5672,8 @@
       "skills.sh": {
         "url": "https://skills.sh/momentic-ai/skills/momentic-test",
         "install": "npx skills add https://github.com/momentic-ai/skills --skill momentic-test",
-        "installs": 52864,
-        "weeklyInstalls": [1688, 2079, 2464, 2446, 1888, 1841, 2659, 1972],
+        "installs": 68540,
+        "weeklyInstalls": [2659, 1972, 2229, 2925, 3449, 4264, 2819, 8],
         "firstSeen": "2026-04-08"
       },
       "skillMd": {
@@ -5720,8 +5720,8 @@
       "skills.sh": {
         "url": "https://skills.sh/juliusbrussee/caveman/caveman",
         "install": "npx skills add https://github.com/juliusbrussee/caveman --skill caveman",
-        "installs": 526347,
-        "weeklyInstalls": [19330, 19856, 14854, 15504, 14951, 17897, 19080, 19923],
+        "installs": 610871,
+        "weeklyInstalls": [18867, 19729, 16919, 15394, 14192, 12197, 12419, 11908],
         "firstSeen": "2026-04-04"
       },
       "skillMd": {
@@ -5775,8 +5775,8 @@
       "skills.sh": {
         "url": "https://skills.sh/juliusbrussee/caveman/caveman-commit",
         "install": "npx skills add https://github.com/juliusbrussee/caveman --skill caveman-commit",
-        "installs": 369532,
-        "weeklyInstalls": [15213, 15525, 10645, 10197, 10229, 12612, 13741, 14357],
+        "installs": 427154,
+        "weeklyInstalls": [13593, 14217, 12027, 10978, 9251, 7911, 8218, 7804],
         "firstSeen": "2026-04-08"
       },
       "skillMd": {
@@ -5826,8 +5826,8 @@
       "skills.sh": {
         "url": "https://skills.sh/juliusbrussee/caveman/caveman-compress",
         "install": "npx skills add https://github.com/juliusbrussee/caveman --skill caveman-compress",
-        "installs": 364482,
-        "weeklyInstalls": [15015, 15570, 10610, 10143, 10034, 12303, 13546, 14374],
+        "installs": 423919,
+        "weeklyInstalls": [13406, 14243, 11973, 11023, 9702, 8502, 8659, 8294],
         "firstSeen": "2026-04-06"
       },
       "skillMd": {
@@ -5874,8 +5874,8 @@
       "skills.sh": {
         "url": "https://skills.sh/juliusbrussee/caveman/caveman-help",
         "install": "npx skills add https://github.com/juliusbrussee/caveman --skill caveman-help",
-        "installs": 356673,
-        "weeklyInstalls": [14879, 15551, 10444, 9602, 9705, 11969, 13112, 14128],
+        "installs": 413935,
+        "weeklyInstalls": [12986, 13998, 11535, 10903, 9587, 7928, 8126, 7652],
         "firstSeen": "2026-04-11"
       },
       "skillMd": {
@@ -5900,8 +5900,8 @@
       "skills.sh": {
         "url": "https://skills.sh/leonxlnx/taste-skill/full-output-enforcement",
         "install": "npx skills add https://github.com/leonxlnx/taste-skill --skill full-output-enforcement",
-        "installs": 323333,
-        "weeklyInstalls": [12709, 15709, 13763, 16191, 19206, 16893, 15350, 15354],
+        "installs": 401078,
+        "weeklyInstalls": [15244, 15259, 17310, 20349, 19312, 22674, 32, 25],
         "firstSeen": "2026-03-01"
       },
       "skillMd": {
@@ -5954,8 +5954,8 @@
       "skills.sh": {
         "url": "https://skills.sh/juliusbrussee/caveman/cavecrew",
         "install": "npx skills add https://github.com/juliusbrussee/caveman --skill cavecrew",
-        "installs": 313658,
-        "weeklyInstalls": [14891, 15199, 10221, 9838, 9829, 11870, 12939, 13540],
+        "installs": 369908,
+        "weeklyInstalls": [12812, 13425, 11186, 10519, 9349, 7810, 7980, 7538],
         "firstSeen": "2026-05-01"
       },
       "skillMd": {
@@ -6001,8 +6001,8 @@
       "skills.sh": {
         "url": "https://skills.sh/juliusbrussee/caveman/caveman-stats",
         "install": "npx skills add https://github.com/juliusbrussee/caveman --skill caveman-stats",
-        "installs": 313086,
-        "weeklyInstalls": [14834, 15408, 10189, 9476, 9666, 11825, 13003, 13817],
+        "installs": 369297,
+        "weeklyInstalls": [12874, 13692, 11247, 10367, 8962, 7754, 7949, 7550],
         "firstSeen": "2026-04-30"
       },
       "skillMd": {
@@ -6048,8 +6048,8 @@
       "skills.sh": {
         "url": "https://skills.sh/mattpocock/skills/wait-what",
         "install": "npx skills add https://github.com/mattpocock/skills --skill wait-what",
-        "installs": 281350,
-        "weeklyInstalls": [0, 34647, 42010, 43703, 42724, 42115, 38270, 35506],
+        "installs": 496637,
+        "weeklyInstalls": [37869, 35105, 31392, 33820, 44118, 36036, 31754, 28926],
         "firstSeen": "2026-08-05"
       },
       "skillMd": {
@@ -6074,8 +6074,8 @@
       "skills.sh": {
         "url": "https://skills.sh/mattpocock/skills/zoom-out",
         "install": "npx skills add https://github.com/mattpocock/skills --skill zoom-out",
-        "installs": 229925,
-        "weeklyInstalls": [693, 1117, 707, 565, 418, 355, 337, 301],
+        "installs": 219151,
+        "weeklyInstalls": [1, 6, 1, 3, 3, 4, 1, 2],
         "firstSeen": "2026-04-17"
       },
       "skillMd": {
@@ -6101,8 +6101,8 @@
       "skills.sh": {
         "url": "https://skills.sh/mattpocock/skills/caveman",
         "install": "npx skills add https://github.com/mattpocock/skills --skill caveman",
-        "installs": 224366,
-        "weeklyInstalls": [645, 1004, 658, 514, 372, 327, 317, 261],
+        "installs": 214565,
+        "weeklyInstalls": [3, 1, 2, 2, 3, 5, 2, 2],
         "firstSeen": "2026-04-17"
       },
       "skillMd": {
@@ -6150,8 +6150,8 @@
       "skills.sh": {
         "url": "https://skills.sh/mattpocock/skills/research",
         "install": "npx skills add https://github.com/mattpocock/skills --skill research",
-        "installs": 537992,
-        "weeklyInstalls": [44940, 54803, 45018, 49782, 47095, 46507, 41398, 38641],
+        "installs": 767206,
+        "weeklyInstalls": [40902, 38186, 34526, 35076, 44719, 37348, 33920, 34879],
         "firstSeen": "2026-07-02"
       },
       "skillMd": {
@@ -6201,8 +6201,8 @@
       "skills.sh": {
         "url": "https://skills.sh/mattpocock/skills/writing-beats",
         "install": "npx skills add https://github.com/mattpocock/skills --skill writing-beats",
-        "installs": 367136,
-        "weeklyInstalls": [19890, 21833, 18862, 28819, 31891, 31496, 28524, 26764],
+        "installs": 517910,
+        "weeklyInstalls": [28193, 26428, 23646, 23327, 29010, 25521, 23114, 21295],
         "firstSeen": "2026-05-06"
       },
       "skillMd": {
@@ -6248,8 +6248,8 @@
       "skills.sh": {
         "url": "https://skills.sh/mattpocock/skills/scaffold-exercises",
         "install": "npx skills add https://github.com/mattpocock/skills --skill scaffold-exercises",
-        "installs": 366969,
-        "weeklyInstalls": [19887, 21716, 18807, 28028, 31259, 30893, 28268, 26423],
+        "installs": 514969,
+        "weeklyInstalls": [27942, 26083, 23249, 22788, 28339, 25146, 22827, 20977],
         "firstSeen": "2026-03-13"
       },
       "skillMd": {
@@ -6300,8 +6300,8 @@
       "skills.sh": {
         "url": "https://skills.sh/mattpocock/skills/writing-shape",
         "install": "npx skills add https://github.com/mattpocock/skills --skill writing-shape",
-        "installs": 366645,
-        "weeklyInstalls": [19904, 21835, 18923, 27980, 31872, 31459, 28487, 26782],
+        "installs": 517522,
+        "weeklyInstalls": [28154, 26445, 23652, 23334, 29018, 25556, 23124, 21326],
         "firstSeen": "2026-05-06"
       },
       "skillMd": {
@@ -6348,8 +6348,8 @@
       "skills.sh": {
         "url": "https://skills.sh/mattpocock/skills/writing-fragments",
         "install": "npx skills add https://github.com/mattpocock/skills --skill writing-fragments",
-        "installs": 366468,
-        "weeklyInstalls": [19882, 21793, 18856, 27984, 31901, 31483, 28501, 26734],
+        "installs": 516784,
+        "weeklyInstalls": [28171, 26398, 23622, 23194, 28887, 25480, 23063, 21227],
         "firstSeen": "2026-05-06"
       },
       "skillMd": {
@@ -6373,8 +6373,8 @@
       "skills.sh": {
         "url": "https://skills.sh/mattpocock/skills/edit-article",
         "install": "npx skills add https://github.com/mattpocock/skills --skill edit-article",
-        "installs": 198640,
-        "weeklyInstalls": [20372, 9950, 1050, 755, 506, 441, 308, 307],
+        "installs": 191787,
+        "weeklyInstalls": [4, 8, 2, 5, 11, 7, 3, 2],
         "firstSeen": "2026-02-11"
       },
       "skillMd": {
@@ -6426,8 +6426,8 @@
       "skills.sh": {
         "url": "https://skills.sh/anthropics/skills/doc-coauthoring",
         "install": "npx skills add https://github.com/anthropics/skills --skill doc-coauthoring",
-        "installs": 85409,
-        "weeklyInstalls": [1823, 1826, 1762, 1679, 1876, 1960, 1570, 1612],
+        "installs": 98039,
+        "weeklyInstalls": [1554, 1594, 1470, 1722, 1948, 2104, 2412, 2416],
         "firstSeen": "2026-01-20"
       },
       "skillMd": {
@@ -6473,8 +6473,8 @@
       "skills.sh": {
         "url": "https://skills.sh/anthropics/skills/internal-comms",
         "install": "npx skills add https://github.com/anthropics/skills --skill internal-comms",
-        "installs": 73454,
-        "weeklyInstalls": [1456, 1526, 1460, 1461, 1560, 1534, 1217, 1329],
+        "installs": 83594,
+        "weeklyInstalls": [1201, 1312, 1249, 1328, 1412, 1623, 1946, 2225],
         "firstSeen": "2026-01-19"
       },
       "skillMd": {
@@ -6526,8 +6526,8 @@
       "skills.sh": {
         "url": "https://skills.sh/vercel-labs/agent-skills/writing-guidelines",
         "install": "npx skills add https://github.com/vercel-labs/agent-skills --skill writing-guidelines",
-        "installs": 71904,
-        "weeklyInstalls": [3454, 3560, 3724, 4573, 5872, 4637, 4404, 6285],
+        "installs": 118224,
+        "weeklyInstalls": [4367, 6263, 6155, 7184, 6611, 7037, 8760, 7940],
         "firstSeen": "2026-06-01"
       },
       "skillMd": {
@@ -6580,8 +6580,8 @@
       "skills.sh": {
         "url": "https://skills.sh/nozomio-labs/nia-skill/nia",
         "install": "npx skills add https://github.com/nozomio-labs/nia-skill --skill Nia",
-        "installs": 55280,
-        "weeklyInstalls": [1095, 1261, 302, 75, 65, 41, 122, 80],
+        "installs": 56300,
+        "weeklyInstalls": [122, 80, 69, 77, 139, 582, 80, 17],
         "firstSeen": "2026-02-04"
       },
       "skillMd": {
@@ -6632,8 +6632,8 @@
       "skills.sh": {
         "url": "https://skills.sh/anthropics/skills/frontend-design",
         "install": "npx skills add https://github.com/anthropics/skills --skill frontend-design",
-        "installs": 906958,
-        "weeklyInstalls": [26152, 25773, 24760, 26482, 26382, 24200, 22533, 22545],
+        "installs": 1077251,
+        "weeklyInstalls": [22329, 22390, 23150, 24769, 25306, 27828, 29060, 30354],
         "firstSeen": "2026-01-19"
       },
       "skillMd": {
@@ -6685,8 +6685,8 @@
       "skills.sh": {
         "url": "https://skills.sh/vercel-labs/agent-skills/web-design-guidelines",
         "install": "npx skills add https://github.com/vercel-labs/agent-skills --skill web-design-guidelines",
-        "installs": 653191,
-        "weeklyInstalls": [18456, 18715, 18063, 21343, 24063, 19837, 18338, 20832],
+        "installs": 826522,
+        "weeklyInstalls": [18182, 20722, 21304, 26380, 26754, 30623, 30032, 28740],
         "firstSeen": "2026-01-19"
       },
       "skillMd": {
@@ -6741,8 +6741,8 @@
       "skills.sh": {
         "url": "https://skills.sh/leonxlnx/taste-skill/design-taste-frontend",
         "install": "npx skills add https://github.com/leonxlnx/taste-skill --skill design-taste-frontend",
-        "installs": 501369,
-        "weeklyInstalls": [22212, 26808, 24487, 26734, 30689, 26844, 24606, 24885],
+        "installs": 733801,
+        "weeklyInstalls": [24448, 24767, 28341, 33886, 32748, 41181, 42584, 39089],
         "firstSeen": "2026-02-21"
       },
       "skillMd": {
@@ -6767,8 +6767,8 @@
       "skills.sh": {
         "url": "https://skills.sh/leonxlnx/taste-skill/high-end-visual-design",
         "install": "npx skills add https://github.com/leonxlnx/taste-skill --skill high-end-visual-design",
-        "installs": 368156,
-        "weeklyInstalls": [14837, 18236, 16108, 18084, 21146, 18668, 17008, 16946],
+        "installs": 458868,
+        "weeklyInstalls": [16884, 16838, 19325, 22911, 21875, 25705, 3141, 23],
         "firstSeen": "2026-03-15"
       },
       "skillMd": {
@@ -6794,8 +6794,8 @@
       "skills.sh": {
         "url": "https://skills.sh/leonxlnx/taste-skill/redesign-existing-projects",
         "install": "npx skills add https://github.com/leonxlnx/taste-skill --skill redesign-existing-projects",
-        "installs": 364859,
-        "weeklyInstalls": [14693, 18212, 16098, 18108, 21188, 18652, 17132, 17181],
+        "installs": 458742,
+        "weeklyInstalls": [17011, 17088, 19513, 23614, 22404, 27644, 2923, 32],
         "firstSeen": "2026-03-01"
       },
       "skillMd": {
@@ -6852,8 +6852,8 @@
       "skills.sh": {
         "url": "https://skills.sh/nextlevelbuilder/ui-ux-pro-max-skill/ui-ux-pro-max",
         "install": "npx skills add https://github.com/nextlevelbuilder/ui-ux-pro-max-skill --skill ui-ux-pro-max",
-        "installs": 364739,
-        "weeklyInstalls": [11152, 10991, 9936, 9497, 9532, 9854, 8692, 8476],
+        "installs": 435161,
+        "weeklyInstalls": [8609, 8407, 9100, 9858, 10371, 11203, 12035, 14025],
         "firstSeen": "2026-01-19"
       },
       "skillMd": {
@@ -6877,8 +6877,8 @@
       "skills.sh": {
         "url": "https://skills.sh/leonxlnx/taste-skill/minimalist-ui",
         "install": "npx skills add https://github.com/leonxlnx/taste-skill --skill minimalist-ui",
-        "installs": 338896,
-        "weeklyInstalls": [13471, 16729, 14661, 16886, 19912, 17493, 16045, 16007],
+        "installs": 425139,
+        "weeklyInstalls": [15933, 15913, 18195, 21473, 20368, 25362, 2915, 19],
         "firstSeen": "2026-03-17"
       },
       "skillMd": {
@@ -6928,8 +6928,8 @@
       "skills.sh": {
         "url": "https://skills.sh/designed-by-ai/skills/design-mobile-apps",
         "install": "npx skills add https://github.com/designed-by-ai/skills --skill design-mobile-apps",
-        "installs": 334065,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 53048, 140177, 138479],
+        "installs": 1236285,
+        "weeklyInstalls": [140172, 138476, 141029, 142502, 140054, 140289, 136799, 136787],
         "firstSeen": "2026-09-04"
       },
       "skillMd": {
@@ -6985,8 +6985,8 @@
       "skills.sh": {
         "url": "https://skills.sh/pbakaus/impeccable/impeccable",
         "install": "npx skills add https://github.com/pbakaus/impeccable --skill impeccable",
-        "installs": 285759,
-        "weeklyInstalls": [9113, 9443, 9249, 9716, 9489, 10170, 10362, 10094],
+        "installs": 386546,
+        "weeklyInstalls": [10293, 10026, 12403, 14587, 15883, 16661, 17994, 18109],
         "firstSeen": "2026-04-08"
       },
       "skillMd": {
@@ -7033,8 +7033,8 @@
       "skills.sh": {
         "url": "https://skills.sh/emilkowalski/skills/emil-design-eng",
         "install": "npx skills add https://github.com/emilkowalski/skills --skill emil-design-eng",
-        "installs": 285454,
-        "weeklyInstalls": [16175, 16280, 14388, 13600, 14931, 14383, 13405, 17799],
+        "installs": 418806,
+        "weeklyInstalls": [13348, 17740, 18074, 19408, 21612, 21425, 23021, 21061],
         "firstSeen": "2026-03-16"
       },
       "skillMd": {
@@ -7085,8 +7085,8 @@
       "skills.sh": {
         "url": "https://skills.sh/emilkowalski/skills/review-animations",
         "install": "npx skills add https://github.com/emilkowalski/skills --skill review-animations",
-        "installs": 169283,
-        "weeklyInstalls": [14907, 15207, 13304, 12582, 13822, 13274, 11971, 13818],
+        "installs": 283083,
+        "weeklyInstalls": [11920, 13772, 14870, 16376, 18107, 18273, 20074, 18236],
         "firstSeen": "2026-06-18"
       },
       "skillMd": {
@@ -7133,8 +7133,8 @@
       "skills.sh": {
         "url": "https://skills.sh/emilkowalski/skills/animation-vocabulary",
         "install": "npx skills add https://github.com/emilkowalski/skills --skill animation-vocabulary",
-        "installs": 156563,
-        "weeklyInstalls": [14553, 14798, 13236, 12540, 13776, 13486, 11882, 13461],
+        "installs": 263209,
+        "weeklyInstalls": [11830, 13412, 14446, 15864, 17494, 16696, 18489, 16866],
         "firstSeen": "2026-06-29"
       },
       "skillMd": {
@@ -7181,8 +7181,8 @@
       "skills.sh": {
         "url": "https://skills.sh/emilkowalski/skills/apple-design",
         "install": "npx skills add https://github.com/emilkowalski/skills --skill apple-design",
-        "installs": 152835,
-        "weeklyInstalls": [14802, 15481, 13980, 12994, 14365, 13997, 13126, 14738],
+        "installs": 273054,
+        "weeklyInstalls": [13069, 14691, 15936, 16618, 18712, 19555, 21421, 19778],
         "firstSeen": "2026-07-09"
       },
       "skillMd": {
@@ -7232,8 +7232,8 @@
       "skills.sh": {
         "url": "https://skills.sh/arvindrk/extract-design-system/extract-design-system",
         "install": "npx skills add https://github.com/arvindrk/extract-design-system --skill extract-design-system",
-        "installs": 129321,
-        "weeklyInstalls": [455, 439, 407, 394, 404, 339, 356, 360],
+        "installs": 131084,
+        "weeklyInstalls": [352, 352, 239, 289, 281, 323, 290, 274],
         "firstSeen": "2026-03-22"
       },
       "skillMd": {
@@ -7260,8 +7260,8 @@
       "skills.sh": {
         "url": "https://skills.sh/vercel-labs/agent-skills/vercel-react-view-transitions",
         "install": "npx skills add https://github.com/vercel-labs/agent-skills --skill vercel-react-view-transitions",
-        "installs": 127703,
-        "weeklyInstalls": [4085, 4107, 4153, 4588, 5816, 5187, 4626, 7354],
+        "installs": 180984,
+        "weeklyInstalls": [4574, 7320, 7366, 8514, 7719, 7909, 9781, 9466],
         "firstSeen": "2026-03-31"
       },
       "skillMd": {
@@ -7312,8 +7312,8 @@
       "skills.sh": {
         "url": "https://skills.sh/anthropics/skills/canvas-design",
         "install": "npx skills add https://github.com/anthropics/skills --skill canvas-design",
-        "installs": 109517,
-        "weeklyInstalls": [2416, 2447, 2402, 2282, 2383, 2323, 1946, 2106],
+        "installs": 127356,
+        "weeklyInstalls": [1920, 2085, 2062, 2553, 2643, 2986, 3334, 3355],
         "firstSeen": "2026-01-19"
       },
       "skillMd": {
@@ -7367,8 +7367,8 @@
       "skills.sh": {
         "url": "https://skills.sh/anthropics/skills/web-artifacts-builder",
         "install": "npx skills add https://github.com/anthropics/skills --skill web-artifacts-builder",
-        "installs": 102559,
-        "weeklyInstalls": [2590, 2423, 2239, 2069, 2134, 1987, 1714, 2207],
+        "installs": 116191,
+        "weeklyInstalls": [1691, 2187, 1772, 1995, 2169, 2290, 2545, 2396],
         "firstSeen": "2026-01-19"
       },
       "skillMd": {
@@ -7392,8 +7392,8 @@
       "skills.sh": {
         "url": "https://skills.sh/pbakaus/impeccable/polish",
         "install": "npx skills add https://github.com/pbakaus/impeccable --skill polish",
-        "installs": 87324,
-        "weeklyInstalls": [104, 124, 90, 87, 73, 74, 48, 58],
+        "installs": 85170,
+        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
         "firstSeen": "2026-03-04"
       },
       "skillMd": {
@@ -7418,8 +7418,8 @@
       "skills.sh": {
         "url": "https://skills.sh/pbakaus/impeccable/critique",
         "install": "npx skills add https://github.com/pbakaus/impeccable --skill critique",
-        "installs": 84717,
-        "weeklyInstalls": [101, 120, 81, 84, 69, 70, 48, 57],
+        "installs": 82636,
+        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
         "firstSeen": "2026-03-04"
       },
       "skillMd": {
@@ -7446,8 +7446,8 @@
       "skills.sh": {
         "url": "https://skills.sh/pbakaus/impeccable/audit",
         "install": "npx skills add https://github.com/pbakaus/impeccable --skill audit",
-        "installs": 83935,
-        "weeklyInstalls": [96, 121, 83, 86, 67, 73, 46, 57],
+        "installs": 81858,
+        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
         "firstSeen": "2026-03-04"
       },
       "skillMd": {
@@ -7473,8 +7473,8 @@
       "skills.sh": {
         "url": "https://skills.sh/pbakaus/impeccable/animate",
         "install": "npx skills add https://github.com/pbakaus/impeccable --skill animate",
-        "installs": 83788,
-        "weeklyInstalls": [95, 114, 82, 86, 71, 70, 47, 53],
+        "installs": 81731,
+        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
         "firstSeen": "2026-03-04"
       },
       "skillMd": {
@@ -7527,8 +7527,8 @@
       "skills.sh": {
         "url": "https://skills.sh/anthropics/skills/theme-factory",
         "install": "npx skills add https://github.com/anthropics/skills --skill theme-factory",
-        "installs": 86136,
-        "weeklyInstalls": [1796, 1912, 1905, 1797, 1909, 1870, 1584, 1712],
+        "installs": 98995,
+        "weeklyInstalls": [1564, 1691, 1577, 1770, 1969, 2169, 2466, 2436],
         "firstSeen": "2026-01-19"
       },
       "skillMd": {
@@ -7556,8 +7556,8 @@
       "skills.sh": {
         "url": "https://skills.sh/google-labs-code/stitch-skills/design-md",
         "install": "npx skills add https://github.com/google-labs-code/stitch-skills --skill design-md",
-        "installs": 62173,
-        "weeklyInstalls": [1034, 1162, 824, 714, 644, 563, 610, 582],
+        "installs": 65620,
+        "weeklyInstalls": [594, 571, 660, 750, 575, 623, 670, 641],
         "firstSeen": "2026-01-22"
       },
       "skillMd": {
@@ -7583,8 +7583,8 @@
       "skills.sh": {
         "url": "https://skills.sh/greensock/gsap-skills/gsap-core",
         "install": "npx skills add https://github.com/greensock/gsap-skills --skill gsap-core",
-        "installs": 57982,
-        "weeklyInstalls": [2617, 2502, 2376, 2414, 2305, 2412, 2078, 2020],
+        "installs": 82571,
+        "weeklyInstalls": [2067, 2007, 2267, 2947, 3340, 4099, 4724, 5132],
         "firstSeen": "2026-03-20"
       },
       "skillMd": {
@@ -7639,8 +7639,8 @@
       "skills.sh": {
         "url": "https://skills.sh/jakubkrehel/make-interfaces-feel-better/make-interfaces-feel-better",
         "install": "npx skills add https://github.com/jakubkrehel/make-interfaces-feel-better --skill make-interfaces-feel-better",
-        "installs": 57629,
-        "weeklyInstalls": [1850, 1836, 1627, 1002, 924, 1104, 1197, 1403],
+        "installs": 75256,
+        "weeklyInstalls": [1178, 1386, 1686, 1827, 5002, 6371, 1330, 1408],
         "firstSeen": "2026-03-13"
       },
       "skillMd": {
@@ -7691,8 +7691,8 @@
       "skills.sh": {
         "url": "https://skills.sh/nutlope/hallmark/hallmark",
         "install": "npx skills add https://github.com/nutlope/hallmark --skill hallmark",
-        "installs": 55477,
-        "weeklyInstalls": [4905, 4507, 4473, 3255, 2933, 2677, 2162, 2067],
+        "installs": 90743,
+        "weeklyInstalls": [2143, 2047, 2162, 2165, 2094, 2555, 6181, 14378],
         "firstSeen": "2026-05-19"
       },
       "skillMd": {
@@ -7742,8 +7742,8 @@
       "skills.sh": {
         "url": "https://skills.sh/addyosmani/web-quality-skills/accessibility",
         "install": "npx skills add https://github.com/addyosmani/web-quality-skills --skill accessibility",
-        "installs": 54520,
-        "weeklyInstalls": [1957, 1910, 1706, 1827, 2080, 1917, 1947, 1775],
+        "installs": 67095,
+        "weeklyInstalls": [1936, 1769, 2156, 1902, 2016, 1773, 1923, 1925],
         "firstSeen": "2026-01-20"
       },
       "skillMd": {
@@ -7771,8 +7771,8 @@
       "skills.sh": {
         "url": "https://skills.sh/vercel-labs/agent-skills/vercel-react-best-practices",
         "install": "npx skills add https://github.com/vercel-labs/agent-skills --skill vercel-react-best-practices",
-        "installs": 730900,
-        "weeklyInstalls": [18943, 18816, 17464, 19842, 20093, 16751, 16576, 19371],
+        "installs": 872016,
+        "weeklyInstalls": [16436, 19251, 18945, 21814, 22366, 25064, 23623, 22802],
         "firstSeen": "2026-01-19"
       },
       "skillMd": {
@@ -7800,8 +7800,8 @@
       "skills.sh": {
         "url": "https://skills.sh/supabase/agent-skills/supabase-postgres-best-practices",
         "install": "npx skills add https://github.com/supabase/agent-skills --skill supabase-postgres-best-practices",
-        "installs": 410058,
-        "weeklyInstalls": [14155, 15410, 13399, 14077, 13236, 10620, 10291, 10254],
+        "installs": 474074,
+        "weeklyInstalls": [10251, 10215, 10470, 10506, 10801, 9704, 10147, 9359],
         "firstSeen": "2026-01-21"
       },
       "skillMd": {
@@ -7828,8 +7828,8 @@
       "skills.sh": {
         "url": "https://skills.sh/vercel-labs/agent-skills/vercel-composition-patterns",
         "install": "npx skills add https://github.com/vercel-labs/agent-skills --skill vercel-composition-patterns",
-        "installs": 348025,
-        "weeklyInstalls": [9049, 9577, 8857, 10073, 11731, 10384, 10362, 12772],
+        "installs": 438573,
+        "weeklyInstalls": [10276, 12709, 12319, 14369, 14523, 16042, 15399, 14209],
         "firstSeen": "2026-01-26"
       },
       "skillMd": {
@@ -7856,8 +7856,8 @@
       "skills.sh": {
         "url": "https://skills.sh/prisma/skills/prisma-database-setup",
         "install": "npx skills add https://github.com/prisma/skills --skill prisma-database-setup",
-        "installs": 301346,
-        "weeklyInstalls": [43398, 43800, 41540, 39826, 20958, 16714, 17614, 17354],
+        "installs": 410122,
+        "weeklyInstalls": [17607, 17346, 17659, 16967, 18755, 16940, 18966, 14418],
         "firstSeen": "2026-02-04"
       },
       "skillMd": {
@@ -7887,8 +7887,8 @@
       "skills.sh": {
         "url": "https://skills.sh/supabase/agent-skills/supabase",
         "install": "npx skills add https://github.com/supabase/agent-skills --skill supabase",
-        "installs": 284945,
-        "weeklyInstalls": [11600, 12652, 12852, 13225, 13138, 12429, 12490, 11883],
+        "installs": 356477,
+        "weeklyInstalls": [12464, 11860, 11925, 11904, 12605, 11747, 11380, 9462],
         "firstSeen": "2026-04-05"
       },
       "skillMd": {
@@ -7917,8 +7917,8 @@
       "skills.sh": {
         "url": "https://skills.sh/shadcn/ui/shadcn",
         "install": "npx skills add https://github.com/shadcn-ui/ui --skill shadcn",
-        "installs": 271676,
-        "weeklyInstalls": [11347, 7947, 0, 1, 0, 0, 0, 1],
+        "installs": 271099,
+        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
         "firstSeen": "2026-03-06"
       },
       "skillMd": {
@@ -7946,8 +7946,8 @@
       "skills.sh": {
         "url": "https://skills.sh/vercel-labs/agent-skills/vercel-react-native-skills",
         "install": "npx skills add https://github.com/vercel-labs/agent-skills --skill vercel-react-native-skills",
-        "installs": 217323,
-        "weeklyInstalls": [4698, 4744, 4408, 4689, 5674, 5187, 4941, 7207],
+        "installs": 267425,
+        "weeklyInstalls": [4876, 7149, 6933, 8128, 7540, 7583, 9387, 8654],
         "firstSeen": "2026-01-26"
       },
       "skillMd": {
@@ -7974,8 +7974,8 @@
       "skills.sh": {
         "url": "https://skills.sh/neondatabase/agent-skills/neon-postgres",
         "install": "npx skills add https://github.com/neondatabase/agent-skills --skill neon-postgres",
-        "installs": 177589,
-        "weeklyInstalls": [9604, 12726, 13006, 15239, 17326, 17137, 17466, 17041],
+        "installs": 302765,
+        "weeklyInstalls": [17462, 17035, 18096, 20257, 20832, 21499, 22834, 18319],
         "firstSeen": "2026-01-21"
       },
       "skillMd": {
@@ -8004,8 +8004,8 @@
       "skills.sh": {
         "url": "https://skills.sh/get-convex/agent-skills/convex-quickstart",
         "install": "npx skills add https://github.com/convex/agent-skills --skill convex-quickstart",
-        "installs": 118632,
-        "weeklyInstalls": [3382, 3822, 3356, 3156, 3632, 3495, 3238, 2623],
+        "installs": 134900,
+        "weeklyInstalls": [3230, 2614, 2521, 2568, 2574, 2649, 2291, 2663],
         "firstSeen": "2026-02-18"
       },
       "skillMd": {
@@ -8031,8 +8031,8 @@
       "skills.sh": {
         "url": "https://skills.sh/better-auth/skills/better-auth-best-practices",
         "install": "npx skills add https://github.com/better-auth/skills --skill better-auth-best-practices",
-        "installs": 112209,
-        "weeklyInstalls": [4658, 5258, 4441, 5072, 3618, 2686, 3350, 3458],
+        "installs": 130436,
+        "weeklyInstalls": [3325, 3440, 2854, 3062, 4514, 3152, 2016, 2914],
         "firstSeen": "2026-01-19"
       },
       "skillMd": {
@@ -8060,8 +8060,8 @@
       "skills.sh": {
         "url": "https://skills.sh/solana-foundation/solana-dev-skill/solana-dev",
         "install": "npx skills add https://github.com/solana-foundation/solana-dev-skill --skill solana-dev",
-        "installs": 71611,
-        "weeklyInstalls": [4016, 4111, 2587, 2618, 409, 2559, 3194, 2774],
+        "installs": 106957,
+        "weeklyInstalls": [3192, 2773, 2689, 7004, 6335, 4246, 6819, 6910],
         "firstSeen": "2026-01-20"
       },
       "skillMd": {
@@ -8088,8 +8088,8 @@
       "skills.sh": {
         "url": "https://skills.sh/wshobson/agents/tailwind-design-system",
         "install": "npx skills add https://github.com/wshobson/agents --skill tailwind-design-system",
-        "installs": 64899,
-        "weeklyInstalls": [1275, 1193, 985, 1095, 1057, 1009, 1045, 1059],
+        "installs": 72083,
+        "weeklyInstalls": [1033, 1041, 1138, 1308, 1232, 1123, 1150, 1120],
         "firstSeen": "2026-01-20"
       },
       "skillMd": {
@@ -8118,8 +8118,8 @@
       "skills.sh": {
         "url": "https://skills.sh/expo/skills/expo-dev-client",
         "install": "npx skills add https://github.com/expo/skills --skill expo-dev-client",
-        "installs": 60321,
-        "weeklyInstalls": [1660, 1819, 1686, 1654, 2048, 1989, 2054, 2045],
+        "installs": 73503,
+        "weeklyInstalls": [2038, 2020, 1991, 2390, 2067, 2004, 2135, 2333],
         "firstSeen": "2026-01-19"
       },
       "skillMd": {
@@ -8146,8 +8146,8 @@
       "skills.sh": {
         "url": "https://skills.sh/genkit-ai/skills/developing-genkit-js",
         "install": "npx skills add https://github.com/genkit-ai/skills --skill developing-genkit-js",
-        "installs": 57795,
-        "weeklyInstalls": [683, 594, 512, 517, 452, 482, 456, 517],
+        "installs": 60200,
+        "weeklyInstalls": [455, 517, 471, 422, 402, 392, 332, 317],
         "firstSeen": "2026-02-11"
       },
       "skillMd": {
@@ -8174,8 +8174,8 @@
       "skills.sh": {
         "url": "https://skills.sh/vercel/ai/ai-sdk",
         "install": "npx skills add https://github.com/vercel/ai --skill ai-sdk",
-        "installs": 57479,
-        "weeklyInstalls": [1399, 1724, 1645, 1493, 1719, 1637, 2087, 2300],
+        "installs": 68470,
+        "weeklyInstalls": [2077, 2289, 1805, 2197, 1790, 1824, 1348, 1709],
         "firstSeen": "2026-01-23"
       },
       "skillMd": {
@@ -8202,8 +8202,8 @@
       "skills.sh": {
         "url": "https://skills.sh/msmps/opentui-skill/opentui",
         "install": "npx skills add https://github.com/msmps/opentui-skill --skill opentui",
-        "installs": 55525,
-        "weeklyInstalls": [594, 789, 806, 139, 111, 95, 111, 99],
+        "installs": 64517,
+        "weeklyInstalls": [109, 97, 83, 100, 3406, 5219, 179, 37],
         "firstSeen": "2026-01-20"
       },
       "skillMd": {
@@ -8230,8 +8230,8 @@
       "skills.sh": {
         "url": "https://skills.sh/mcollina/skills/fastify-best-practices",
         "install": "npx skills add https://github.com/mcollina/skills --skill fastify-best-practices",
-        "installs": 53670,
-        "weeklyInstalls": [2878, 1255, 2554, 2945, 2930, 3775, 3959, 4051],
+        "installs": 91364,
+        "weeklyInstalls": [3958, 4050, 5382, 5024, 5719, 5110, 6470, 6291],
         "firstSeen": "2026-01-31"
       },
       "skillMd": {
@@ -8257,8 +8257,8 @@
       "skills.sh": {
         "url": "https://skills.sh/prisma/skills/prisma-client-api",
         "install": "npx skills add https://github.com/prisma/skills --skill prisma-client-api",
-        "installs": 300949,
-        "weeklyInstalls": [43439, 43897, 41584, 39910, 21003, 16786, 17657, 17389],
+        "installs": 411682,
+        "weeklyInstalls": [17649, 17382, 17721, 17191, 19307, 17450, 19206, 14660],
         "firstSeen": "2026-02-04"
       },
       "skillMd": {
@@ -8285,8 +8285,8 @@
       "skills.sh": {
         "url": "https://skills.sh/prisma/skills/prisma-cli",
         "install": "npx skills add https://github.com/prisma/skills --skill prisma-cli",
-        "installs": 298586,
-        "weeklyInstalls": [43320, 43794, 41486, 39813, 20907, 16721, 17619, 17325],
+        "installs": 408805,
+        "weeklyInstalls": [17611, 17318, 17646, 17144, 19233, 17347, 19100, 14565],
         "firstSeen": "2026-02-04"
       },
       "skillMd": {
@@ -8314,8 +8314,8 @@
       "skills.sh": {
         "url": "https://skills.sh/prisma/skills/prisma-postgres",
         "install": "npx skills add https://github.com/prisma/skills --skill prisma-postgres",
-        "installs": 294218,
-        "weeklyInstalls": [43208, 43650, 41345, 39661, 20801, 16601, 17443, 17149],
+        "installs": 402060,
+        "weeklyInstalls": [17433, 17139, 17448, 16797, 18642, 16779, 18733, 14374],
         "firstSeen": "2026-02-06"
       },
       "skillMd": {
@@ -8344,8 +8344,8 @@
       "skills.sh": {
         "url": "https://skills.sh/neondatabase/agent-skills/neon",
         "install": "npx skills add https://github.com/neondatabase/agent-skills --skill neon",
-        "installs": 131277,
-        "weeklyInstalls": [9324, 12379, 12569, 14808, 16990, 16851, 17217, 16779],
+        "installs": 255681,
+        "weeklyInstalls": [17215, 16773, 17838, 20210, 20801, 21173, 22650, 18317],
         "firstSeen": "2026-06-10"
       },
       "skillMd": {
@@ -8374,8 +8374,8 @@
       "skills.sh": {
         "url": "https://skills.sh/microsoft/azure-skills/microsoft-foundry",
         "install": "npx skills add https://github.com/microsoft/azure-skills --skill microsoft-foundry",
-        "installs": 601147,
-        "weeklyInstalls": [16759, 16823, 16117, 13880, 14506, 13000, 13502, 13218],
+        "installs": 632004,
+        "weeklyInstalls": [12086, 11809, 13054, 12467, 11845, 9841, 7630, 8608],
         "firstSeen": "2026-02-04"
       },
       "skillMd": {
@@ -8403,8 +8403,8 @@
       "skills.sh": {
         "url": "https://skills.sh/microsoft/azure-skills/azure-diagnostics",
         "install": "npx skills add https://github.com/microsoft/azure-skills --skill azure-diagnostics",
-        "installs": 592202,
-        "weeklyInstalls": [16428, 16308, 15389, 13751, 13741, 12175, 12836, 12465],
+        "installs": 622755,
+        "weeklyInstalls": [11448, 11103, 12400, 12262, 11750, 9459, 7141, 8314],
         "firstSeen": "2026-01-29"
       },
       "skillMd": {
@@ -8432,8 +8432,8 @@
       "skills.sh": {
         "url": "https://skills.sh/microsoft/azure-skills/azure-prepare",
         "install": "npx skills add https://github.com/microsoft/azure-skills --skill azure-prepare",
-        "installs": 591770,
-        "weeklyInstalls": [16404, 16114, 15245, 13731, 13726, 12152, 12960, 12513],
+        "installs": 621855,
+        "weeklyInstalls": [11573, 11150, 12418, 12255, 11669, 9157, 7082, 8327],
         "firstSeen": "2026-02-04"
       },
       "skillMd": {
@@ -8460,8 +8460,8 @@
       "skills.sh": {
         "url": "https://skills.sh/microsoft/azure-skills/azure-ai",
         "install": "npx skills add https://github.com/microsoft/azure-skills --skill azure-ai",
-        "installs": 591538,
-        "weeklyInstalls": [16417, 16165, 15011, 13462, 13635, 12153, 12842, 12485],
+        "installs": 621102,
+        "weeklyInstalls": [11452, 11121, 12410, 12245, 11716, 9206, 7099, 7791],
         "firstSeen": "2026-02-04"
       },
       "skillMd": {
@@ -8488,8 +8488,8 @@
       "skills.sh": {
         "url": "https://skills.sh/microsoft/azure-skills/azure-deploy",
         "install": "npx skills add https://github.com/microsoft/azure-skills --skill azure-deploy",
-        "installs": 591453,
-        "weeklyInstalls": [16395, 16139, 15267, 13500, 13651, 12144, 12821, 12457],
+        "installs": 620838,
+        "weeklyInstalls": [11432, 11095, 12391, 12251, 11653, 9137, 7068, 7774],
         "firstSeen": "2026-02-04"
       },
       "skillMd": {
@@ -8518,8 +8518,8 @@
       "skills.sh": {
         "url": "https://skills.sh/google/agents-cli/google-agents-cli-deploy",
         "install": "npx skills add https://github.com/google/agents-cli --skill google-agents-cli-deploy",
-        "installs": 289282,
-        "weeklyInstalls": [6883, 8912, 8784, 10654, 13002, 42963, 57889, 73303],
+        "installs": 547847,
+        "weeklyInstalls": [57879, 73298, 132542, 53192, 16184, 13273, 11134, 21581],
         "firstSeen": "2026-04-21"
       },
       "skillMd": {
@@ -8546,8 +8546,8 @@
       "skills.sh": {
         "url": "https://skills.sh/firebase/agent-skills/firebase-basics",
         "install": "npx skills add https://github.com/firebase/agent-skills --skill firebase-basics",
-        "installs": 156210,
-        "weeklyInstalls": [5040, 4991, 5262, 5222, 4964, 5081, 4775, 4226],
+        "installs": 181059,
+        "weeklyInstalls": [4771, 4222, 4538, 4115, 3814, 3685, 3632, 3742],
         "firstSeen": "2026-02-11"
       },
       "skillMd": {
@@ -8575,8 +8575,8 @@
       "skills.sh": {
         "url": "https://skills.sh/sentry/dev/sentry-cli",
         "install": "npx skills add https://cli.sentry.dev",
-        "installs": 145559,
-        "weeklyInstalls": [6446, 4195, 3594, 3156, 3728, 3544, 3223, 3461],
+        "installs": 183662,
+        "weeklyInstalls": [3223, 3461, 4191, 5528, 4405, 5386, 7997, 7116],
         "firstSeen": "2026-02-28"
       },
       "skillMd": {
@@ -8603,8 +8603,8 @@
       "skills.sh": {
         "url": "https://skills.sh/vercel-labs/agent-skills/deploy-to-vercel",
         "install": "npx skills add https://github.com/vercel-labs/agent-skills --skill deploy-to-vercel",
-        "installs": 133350,
-        "weeklyInstalls": [3462, 3600, 3405, 3831, 4662, 4325, 4201, 6619],
+        "installs": 182836,
+        "weeklyInstalls": [4158, 6576, 6385, 7506, 6664, 7687, 9550, 9054],
         "firstSeen": "2026-03-06"
       },
       "skillMd": {
@@ -8631,8 +8631,8 @@
       "skills.sh": {
         "url": "https://skills.sh/vercel-labs/agent-skills/vercel-cli-with-tokens",
         "install": "npx skills add https://github.com/vercel-labs/agent-skills --skill vercel-cli-with-tokens",
-        "installs": 104158,
-        "weeklyInstalls": [2884, 3054, 2799, 3330, 4126, 3824, 3517, 5925],
+        "installs": 146623,
+        "weeklyInstalls": [3479, 5889, 5784, 6767, 6122, 6293, 8074, 7332],
         "firstSeen": "2026-03-18"
       },
       "skillMd": {
@@ -8658,8 +8658,8 @@
       "skills.sh": {
         "url": "https://skills.sh/cloudflare/skills/cloudflare",
         "install": "npx skills add https://github.com/cloudflare/skills --skill cloudflare",
-        "installs": 95299,
-        "weeklyInstalls": [4545, 6323, 6404, 6583, 6860, 7541, 7483, 6887],
+        "installs": 148498,
+        "weeklyInstalls": [7448, 6847, 7138, 7994, 10558, 9408, 7813, 7902],
         "firstSeen": "2026-01-28"
       },
       "skillMd": {
@@ -8685,8 +8685,8 @@
       "skills.sh": {
         "url": "https://skills.sh/stripe/ai/stripe-best-practices",
         "install": "npx skills add https://github.com/stripe/ai --skill stripe-best-practices",
-        "installs": 87197,
-        "weeklyInstalls": [3099, 3467, 3234, 3345, 2843, 2688, 2485, 2406],
+        "installs": 101246,
+        "weeklyInstalls": [2475, 2396, 2247, 2240, 2253, 2408, 2395, 2130],
         "firstSeen": "2026-01-21"
       },
       "skillMd": {
@@ -8714,8 +8714,8 @@
       "skills.sh": {
         "url": "https://skills.sh/vercel-labs/agent-skills/vercel-optimize",
         "install": "npx skills add https://github.com/vercel-labs/agent-skills --skill vercel-optimize",
-        "installs": 77067,
-        "weeklyInstalls": [3362, 3489, 3586, 4461, 5609, 4348, 4231, 6072],
+        "installs": 122009,
+        "weeklyInstalls": [4189, 6042, 6068, 7062, 6437, 6681, 8484, 7746],
         "firstSeen": "2026-05-15"
       },
       "skillMd": {
@@ -8763,8 +8763,8 @@
       "skills.sh": {
         "url": "https://skills.sh/mitsuhiko/gh-issue-sync/gh-issue-sync",
         "install": "npx skills add https://github.com/mitsuhiko/gh-issue-sync --skill gh-issue-sync",
-        "installs": null,
-        "weeklyInstalls": null,
+        "installs": 26500,
+        "weeklyInstalls": [1806, 3864, 2233, 863, 2735, 677, 1084, 1827],
         "firstSeen": "2026-01-22"
       },
       "skillMd": {
@@ -8792,8 +8792,8 @@
       "skills.sh": {
         "url": "https://skills.sh/cloudflare/skills/wrangler",
         "install": "npx skills add https://github.com/cloudflare/skills --skill wrangler",
-        "installs": 92555,
-        "weeklyInstalls": [4562, 6174, 6441, 6747, 6974, 7132, 7503, 6723],
+        "installs": 139241,
+        "weeklyInstalls": [7475, 6696, 6993, 7591, 7682, 7920, 7278, 6913],
         "firstSeen": "2026-01-19"
       },
       "skillMd": {
@@ -8819,8 +8819,8 @@
       "skills.sh": {
         "url": "https://skills.sh/cloudflare/skills/workers-best-practices",
         "install": "npx skills add https://github.com/cloudflare/skills --skill workers-best-practices",
-        "installs": 85726,
-        "weeklyInstalls": [4492, 6195, 6382, 6533, 6955, 7337, 7466, 6795],
+        "installs": 136205,
+        "weeklyInstalls": [7440, 6767, 6734, 7664, 10027, 8791, 7544, 7318],
         "firstSeen": "2026-02-12"
       },
       "skillMd": {
@@ -8846,8 +8846,8 @@
       "skills.sh": {
         "url": "https://skills.sh/cloudflare/skills/durable-objects",
         "install": "npx skills add https://github.com/cloudflare/skills --skill durable-objects",
-        "installs": 78254,
-        "weeklyInstalls": [4143, 5843, 5989, 6193, 6629, 6929, 7061, 6403],
+        "installs": 119363,
+        "weeklyInstalls": [7037, 6376, 6332, 6577, 6830, 6579, 6446, 6251],
         "firstSeen": "2026-01-19"
       },
       "skillMd": {
@@ -8898,8 +8898,8 @@
       "skills.sh": {
         "url": "https://skills.sh/cloudflare/skills/web-perf",
         "install": "npx skills add https://github.com/cloudflare/skills --skill web-perf",
-        "installs": 77943,
-        "weeklyInstalls": [4176, 5911, 6057, 6083, 6442, 6529, 6726, 6323],
+        "installs": 119203,
+        "weeklyInstalls": [6700, 6297, 6138, 6486, 6681, 6702, 6686, 6449],
         "firstSeen": "2026-01-19"
       },
       "skillMd": {
@@ -8926,8 +8926,8 @@
       "skills.sh": {
         "url": "https://skills.sh/stripe/ai/upgrade-stripe",
         "install": "npx skills add https://github.com/stripe/ai --skill upgrade-stripe",
-        "installs": 67114,
-        "weeklyInstalls": [2391, 2173, 1959, 2069, 1782, 1509, 1214, 1249],
+        "installs": 74943,
+        "weeklyInstalls": [1206, 1245, 1372, 1242, 1155, 1225, 1258, 1269],
         "firstSeen": "2026-01-20"
       },
       "skillMd": {
@@ -8954,8 +8954,8 @@
       "skills.sh": {
         "url": "https://skills.sh/stripe/ai/stripe-projects",
         "install": "npx skills add https://github.com/stripe/ai --skill stripe-projects",
-        "installs": 64537,
-        "weeklyInstalls": [2450, 2229, 1999, 2143, 1796, 1605, 1283, 1225],
+        "installs": 70840,
+        "weeklyInstalls": [1275, 1217, 1186, 1067, 995, 977, 986, 876],
         "firstSeen": "2026-03-26"
       },
       "skillMd": {
@@ -9004,8 +9004,8 @@
       "skills.sh": {
         "url": "https://skills.sh/vercel-labs/agent-browser/agent-browser",
         "install": "npx skills add https://github.com/vercel-labs/agent-browser --skill agent-browser",
-        "installs": 896337,
-        "weeklyInstalls": [33671, 33224, 36656, 32899, 38886, 42640, 45317, 49445],
+        "installs": 1384895,
+        "weeklyInstalls": [45195, 49332, 64115, 70638, 67374, 75456, 78806, 86942],
         "firstSeen": "2026-01-19"
       },
       "skillMd": {
@@ -9058,8 +9058,8 @@
       "skills.sh": {
         "url": "https://skills.sh/scrapegraphai/just-scrape/just-scrape",
         "install": "npx skills add https://github.com/scrapegraphai/just-scrape --skill just-scrape",
-        "installs": 244970,
-        "weeklyInstalls": [11, 15, 17, 18, 10, 10, 6, 7],
+        "installs": 245013,
+        "weeklyInstalls": [6, 7, 8, 9, 9, 6, 6, 6],
         "firstSeen": "2026-02-13"
       },
       "skillMd": {
@@ -9106,8 +9106,8 @@
       "skills.sh": {
         "url": "https://skills.sh/stablyai/orca/computer-use",
         "install": "npx skills add https://github.com/stablyai/orca --skill computer-use",
-        "installs": 164501,
-        "weeklyInstalls": [18057, 10113, 9981, 9607, 9709, 28375, 18821, 14913],
+        "installs": 241462,
+        "weeklyInstalls": [18708, 14807, 14688, 12352, 9025, 21080, 19750, 1800],
         "firstSeen": "2026-05-12"
       },
       "skillMd": {
@@ -9165,8 +9165,8 @@
       "skills.sh": {
         "url": "https://skills.sh/microsoft/playwright-cli/playwright-cli",
         "install": "npx skills add https://github.com/microsoft/playwright-cli --skill playwright-cli",
-        "installs": 161080,
-        "weeklyInstalls": [7534, 7680, 7313, 7464, 7709, 7636, 7930, 8215],
+        "installs": 207917,
+        "weeklyInstalls": [7894, 8188, 6864, 7375, 6940, 7772, 7267, 8318],
         "firstSeen": "2026-01-23"
       },
       "skillMd": {
@@ -9219,8 +9219,8 @@
       "skills.sh": {
         "url": "https://skills.sh/browser-act/skills/browser-act",
         "install": "npx skills add https://github.com/browser-act/skills --skill browser-act",
-        "installs": 108070,
-        "weeklyInstalls": [156, 134, 124, 81, 99, 84, 61, 76],
+        "installs": 108369,
+        "weeklyInstalls": [61, 75, 53, 65, 45, 57, 44, 49],
         "firstSeen": "2026-03-31"
       },
       "skillMd": {
@@ -9274,8 +9274,8 @@
       "skills.sh": {
         "url": "https://skills.sh/firecrawl/cli/firecrawl",
         "install": "npx skills add https://github.com/firecrawl/cli --skill firecrawl",
-        "installs": 101444,
-        "weeklyInstalls": [1251, 1313, 1198, 1160, 612, 486, 516, 495],
+        "installs": 104036,
+        "weeklyInstalls": [496, 472, 608, 569, 593, 535, 587, 518],
         "firstSeen": "2026-01-21"
       },
       "skillMd": {
@@ -9329,8 +9329,8 @@
       "skills.sh": {
         "url": "https://skills.sh/browser-use/browser-use/browser-use",
         "install": "npx skills add https://github.com/browser-use/browser-use --skill browser-use",
-        "installs": 95241,
-        "weeklyInstalls": [1657, 1458, 1036, 815, 858, 849, 704, 680],
+        "installs": 99020,
+        "weeklyInstalls": [692, 668, 638, 791, 637, 725, 729, 576],
         "firstSeen": "2026-01-22"
       },
       "skillMd": {
@@ -9386,8 +9386,8 @@
       "skills.sh": {
         "url": "https://skills.sh/antibrow/anti-detect-browser-skills/anti-detect-browser",
         "install": "npx skills add https://github.com/antibrow/anti-detect-browser-skills --skill anti-detect-browser",
-        "installs": 93713,
-        "weeklyInstalls": [963, 9022, 8956, 8886, 8950, 8541, 8884, 8940],
+        "installs": 148873,
+        "weeklyInstalls": [8884, 8940, 8951, 8988, 8991, 8625, 8157, 8190],
         "firstSeen": "2026-03-18"
       },
       "skillMd": {
@@ -9438,8 +9438,8 @@
       "skills.sh": {
         "url": "https://skills.sh/kepano/obsidian-skills/defuddle",
         "install": "npx skills add https://github.com/kepano/obsidian-skills --skill defuddle",
-        "installs": 69204,
-        "weeklyInstalls": [3492, 3876, 3646, 4249, 2839, 1238, 996, 1147],
+        "installs": 76032,
+        "weeklyInstalls": [982, 1136, 1034, 999, 1091, 1010, 1570, 1040],
         "firstSeen": "2026-02-11"
       },
       "skillMd": {
@@ -9498,8 +9498,8 @@
       "skills.sh": {
         "url": "https://skills.sh/liarjsdev/liarjs-skills/browser-fingerprint-audit",
         "install": "npx skills add https://github.com/liarjsdev/liarjs-skills --skill browser-fingerprint-audit",
-        "installs": 59684,
-        "weeklyInstalls": [0, 6260, 8870, 8871, 8910, 8511, 8840, 8920],
+        "installs": 113696,
+        "weeklyInstalls": [8840, 8920, 8893, 8923, 8940, 8467, 7846, 7849],
         "firstSeen": "2026-08-05"
       },
       "skillMd": {
@@ -9550,8 +9550,8 @@
       "skills.sh": {
         "url": "https://skills.sh/101-skills/superpowers/web-search",
         "install": "npx skills add https://github.com/101-skills/superpowers --skill web-search",
-        "installs": null,
-        "weeklyInstalls": null,
+        "installs": 121104,
+        "weeklyInstalls": [8283, 26677, 30304, 16363, 9029, 8762, 8601, 7562],
         "firstSeen": "2026-08-31"
       },
       "skillMd": {
@@ -9579,8 +9579,8 @@
       "skills.sh": {
         "url": "https://skills.sh/heygen-com/hyperframes/hyperframes-cli",
         "install": "npx skills add https://github.com/heygen-com/hyperframes --skill hyperframes-cli",
-        "installs": 629361,
-        "weeklyInstalls": [42582, 28363, 38236, 35297, 32646, 36197, 46253, 85193],
+        "installs": 1423724,
+        "weeklyInstalls": [46204, 85128, 73279, 96486, 146752, 158584, 144957, 125767],
         "firstSeen": "2026-03-31"
       },
       "skillMd": {
@@ -9634,8 +9634,8 @@
       "skills.sh": {
         "url": "https://skills.sh/genmedia-labs/skills/video-edit",
         "install": "npx skills add https://github.com/genmedia-labs/skills --skill video-edit",
-        "installs": 594055,
-        "weeklyInstalls": [0, 0, 30348, 105081, 115940, 113373, 108975, 113312],
+        "installs": 13,
+        "weeklyInstalls": [11, 11, 11, 11, 10, 1, 2, 2],
         "firstSeen": "2026-08-12"
       },
       "skillMd": {
@@ -9690,8 +9690,8 @@
       "skills.sh": {
         "url": "https://skills.sh/genmedia-labs/skills/ai-music",
         "install": "npx skills add https://github.com/genmedia-labs/skills --skill ai-music",
-        "installs": 593239,
-        "weeklyInstalls": [0, 0, 30205, 104982, 115878, 113480, 108586, 113221],
+        "installs": 13,
+        "weeklyInstalls": [11, 11, 11, 11, 10, 0, 1, 0],
         "firstSeen": "2026-08-12"
       },
       "skillMd": {
@@ -9746,8 +9746,8 @@
       "skills.sh": {
         "url": "https://skills.sh/genmedia-labs/skills/ai-video-generation",
         "install": "npx skills add https://github.com/genmedia-labs/skills --skill ai-video-generation",
-        "installs": 593022,
-        "weeklyInstalls": [0, 0, 30425, 105307, 116056, 112626, 108587, 113137],
+        "installs": 13,
+        "weeklyInstalls": [11, 11, 11, 11, 10, 1, 2, 1],
         "firstSeen": "2026-08-12"
       },
       "skillMd": {
@@ -9802,8 +9802,8 @@
       "skills.sh": {
         "url": "https://skills.sh/genmedia-labs/skills/image-to-video",
         "install": "npx skills add https://github.com/genmedia-labs/skills --skill image-to-video",
-        "installs": 592793,
-        "weeklyInstalls": [0, 0, 30420, 104976, 116166, 112407, 108844, 113084],
+        "installs": 13,
+        "weeklyInstalls": [11, 11, 11, 11, 10, 1, 2, 2],
         "firstSeen": "2026-08-12"
       },
       "skillMd": {
@@ -9858,8 +9858,8 @@
       "skills.sh": {
         "url": "https://skills.sh/genmedia-labs/skills/ai-image-generation",
         "install": "npx skills add https://github.com/genmedia-labs/skills --skill ai-image-generation",
-        "installs": 592183,
-        "weeklyInstalls": [0, 0, 30291, 105180, 115944, 112485, 108359, 113065],
+        "installs": 13,
+        "weeklyInstalls": [11, 11, 11, 11, 10, 1, 2, 1],
         "firstSeen": "2026-08-12"
       },
       "skillMd": {
@@ -9888,8 +9888,8 @@
       "skills.sh": {
         "url": "https://skills.sh/remotion-dev/skills/remotion-best-practices",
         "install": "npx skills add https://github.com/remotion-dev/skills --skill remotion-best-practices",
-        "installs": 533975,
-        "weeklyInstalls": [12943, 11512, 9965, 10367, 10505, 10488, 10236, 10452],
+        "installs": 751648,
+        "weeklyInstalls": [10200, 10401, 14791, 24380, 32122, 37218, 42697, 45239],
         "firstSeen": "2026-01-19"
       },
       "skillMd": {
@@ -9943,8 +9943,8 @@
       "skills.sh": {
         "url": "https://skills.sh/101-skills/superpowers/ai-video-generation",
         "install": "npx skills add https://github.com/101-skills/superpowers --skill ai-video-generation",
-        "installs": 301174,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 13241, 64317, 213120],
+        "installs": 959546,
+        "weeklyInstalls": [64317, 213120, 240489, 130740, 72792, 67895, 67605, 58925],
         "firstSeen": "2026-08-31"
       },
       "skillMd": {
@@ -10000,8 +10000,8 @@
       "skills.sh": {
         "url": "https://skills.sh/higgsfield-ai/skills/higgsfield-generate",
         "install": "npx skills add https://github.com/higgsfield-ai/skills --skill higgsfield-generate",
-        "installs": 174825,
-        "weeklyInstalls": [11299, 10028, 8295, 8237, 8551, 8200, 10980, 9476],
+        "installs": 230981,
+        "weeklyInstalls": [10947, 9450, 8138, 7256, 9064, 9632, 9483, 8897],
         "firstSeen": "2026-05-04"
       },
       "skillMd": {
@@ -10052,8 +10052,8 @@
       "skills.sh": {
         "url": "https://skills.sh/anthropics/skills/algorithmic-art",
         "install": "npx skills add https://github.com/anthropics/skills --skill algorithmic-art",
-        "installs": 81717,
-        "weeklyInstalls": [1580, 1622, 1554, 1515, 1648, 1656, 1285, 1375],
+        "installs": 92624,
+        "weeklyInstalls": [1267, 1359, 1397, 1612, 1563, 1844, 2058, 2101],
         "firstSeen": "2026-01-20"
       },
       "skillMd": {
@@ -10112,7 +10112,7 @@
         "url": "https://skills.sh/degausai/wonda/wonda-cli",
         "install": "npx skills add https://github.com/degausai/wonda --skill wonda-cli",
         "installs": 74605,
-        "weeklyInstalls": [5187, 610, 0, 0, 0, 0, 0, 0],
+        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
         "firstSeen": "2026-04-03"
       },
       "skillMd": {
@@ -10165,8 +10165,8 @@
       "skills.sh": {
         "url": "https://skills.sh/anthropics/skills/slack-gif-creator",
         "install": "npx skills add https://github.com/anthropics/skills --skill slack-gif-creator",
-        "installs": 69254,
-        "weeklyInstalls": [1379, 1438, 1372, 1359, 1470, 1404, 1135, 1230],
+        "installs": 78316,
+        "weeklyInstalls": [1119, 1214, 1130, 1229, 1317, 1516, 1809, 1804],
         "firstSeen": "2026-01-20"
       },
       "skillMd": {
@@ -10193,8 +10193,8 @@
       "skills.sh": {
         "url": "https://skills.sh/heygen-com/hyperframes/hyperframes",
         "install": "npx skills add https://github.com/heygen-com/hyperframes --skill hyperframes",
-        "installs": 600334,
-        "weeklyInstalls": [39553, 27453, 34140, 31415, 32622, 29417, 44036, 79656],
+        "installs": 1384918,
+        "weeklyInstalls": [43983, 79588, 70843, 95609, 137375, 155691, 156397, 121306],
         "firstSeen": "2026-04-06"
       },
       "skillMd": {
@@ -10221,8 +10221,8 @@
       "skills.sh": {
         "url": "https://skills.sh/heygen-com/hyperframes/hyperframes-registry",
         "install": "npx skills add https://github.com/heygen-com/hyperframes --skill hyperframes-registry",
-        "installs": 543281,
-        "weeklyInstalls": [27688, 21925, 37717, 30958, 25304, 28936, 42493, 68443],
+        "installs": 1179059,
+        "weeklyInstalls": [42444, 68378, 65975, 78952, 115713, 99554, 111877, 117525],
         "firstSeen": "2026-04-15"
       },
       "skillMd": {
@@ -10249,8 +10249,8 @@
       "skills.sh": {
         "url": "https://skills.sh/heygen-com/hyperframes/hyperframes-core",
         "install": "npx skills add https://github.com/heygen-com/hyperframes --skill hyperframes-core",
-        "installs": 507062,
-        "weeklyInstalls": [39468, 26653, 27491, 36417, 33032, 29574, 47634, 81013],
+        "installs": 930886,
+        "weeklyInstalls": [47589, 80950, 60884, 92033, 106623, 112077, 55617, 330],
         "firstSeen": "2026-06-14"
       },
       "skillMd": {
@@ -10279,8 +10279,8 @@
       "skills.sh": {
         "url": "https://skills.sh/heygen-com/hyperframes/media-use",
         "install": "npx skills add https://github.com/heygen-com/hyperframes --skill media-use",
-        "installs": 500936,
-        "weeklyInstalls": [40022, 33673, 36304, 30738, 31683, 31601, 47488, 81708],
+        "installs": 1295990,
+        "weeklyInstalls": [47443, 81645, 76011, 98863, 146510, 147528, 150801, 125622],
         "firstSeen": "2026-06-25"
       },
       "skillMd": {
@@ -10307,8 +10307,8 @@
       "skills.sh": {
         "url": "https://skills.sh/remotion-dev/skills/remotion-render",
         "install": "npx skills add https://github.com/remotion-dev/skills --skill remotion-render",
-        "installs": 90346,
-        "weeklyInstalls": [9620, 8686, 7891, 8526, 8574, 8560, 8371, 8943],
+        "installs": 276826,
+        "weeklyInstalls": [8361, 8924, 12893, 21591, 24972, 26306, 38006, 41268],
         "firstSeen": "2026-07-11"
       },
       "skillMd": {
@@ -10335,8 +10335,8 @@
       "skills.sh": {
         "url": "https://skills.sh/remotion-dev/skills/remotion-create",
         "install": "npx skills add https://github.com/remotion-dev/skills --skill remotion-create",
-        "installs": 90078,
-        "weeklyInstalls": [9657, 8667, 7895, 8492, 8511, 8456, 8268, 8880],
+        "installs": 275102,
+        "weeklyInstalls": [8258, 8861, 12774, 21423, 24768, 26103, 37764, 40905],
         "firstSeen": "2026-07-11"
       },
       "skillMd": {
@@ -10363,8 +10363,8 @@
       "skills.sh": {
         "url": "https://skills.sh/remotion-dev/skills/remotion-captions",
         "install": "npx skills add https://github.com/remotion-dev/skills --skill remotion-captions",
-        "installs": 87915,
-        "weeklyInstalls": [9411, 8439, 7651, 8254, 8355, 8311, 8160, 8801],
+        "installs": 273195,
+        "weeklyInstalls": [8153, 8784, 12711, 21316, 24736, 26162, 37881, 41122],
         "firstSeen": "2026-07-11"
       },
       "skillMd": {
@@ -10392,8 +10392,8 @@
       "skills.sh": {
         "url": "https://skills.sh/remotion-dev/skills/remotion-markup",
         "install": "npx skills add https://github.com/remotion-dev/skills --skill remotion-markup",
-        "installs": 85033,
-        "weeklyInstalls": [9112, 8153, 7416, 7998, 8027, 8034, 7870, 8616],
+        "installs": 268414,
+        "weeklyInstalls": [7858, 8599, 12492, 21088, 24609, 25906, 37490, 40672],
         "firstSeen": "2026-07-11"
       },
       "skillMd": {
@@ -10443,8 +10443,8 @@
       "skills.sh": {
         "url": "https://skills.sh/101-skills/superpowers/ai-image-generation",
         "install": "npx skills add https://github.com/101-skills/superpowers --skill ai-image-generation",
-        "installs": 300761,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 13165, 63881, 213213],
+        "installs": 957998,
+        "weeklyInstalls": [63881, 213213, 240509, 130600, 72599, 67708, 67369, 58684],
         "firstSeen": "2026-08-31"
       },
       "skillMd": {
@@ -10499,8 +10499,8 @@
       "skills.sh": {
         "url": "https://skills.sh/101-skills/superpowers/ai-avatar-video",
         "install": "npx skills add https://github.com/101-skills/superpowers --skill ai-avatar-video",
-        "installs": 300571,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 13376, 63412, 213289],
+        "installs": 957324,
+        "weeklyInstalls": [63412, 213289, 240428, 130550, 72510, 67623, 67288, 58592],
         "firstSeen": "2026-08-31"
       },
       "skillMd": {
@@ -10550,8 +10550,8 @@
       "skills.sh": {
         "url": "https://skills.sh/higgsfield-ai/skills/higgsfield-soul-id",
         "install": "npx skills add https://github.com/higgsfield-ai/skills --skill higgsfield-soul-id",
-        "installs": 153598,
-        "weeklyInstalls": [10904, 9529, 7943, 7967, 8296, 7982, 10667, 9177],
+        "installs": 207801,
+        "weeklyInstalls": [10637, 9150, 7805, 6995, 8836, 9333, 9185, 8515],
         "firstSeen": "2026-05-04"
       },
       "skillMd": {
@@ -10578,18 +10578,18 @@
         "lang:zh"
       ],
       "skills.sh": {
-        "url": "https://skills.sh/site/open.feishu.cn/lark-doc",
-        "install": "npx skills add https://open.feishu.cn/lark-cli/skills/regular",
-        "installs": 716419,
-        "weeklyInstalls": [37271, 33810, 31236, 27535, 27775, 27303, 25498, 26023],
-        "firstSeen": null
+        "url": "https://skills.sh/larksuite/cli/lark-doc",
+        "install": "npx skills add https://github.com/larksuite/cli --skill lark-doc",
+        "installs": 487405,
+        "weeklyInstalls": [7208, 7163, 6776, 3600, 4238, 5629, 5531, 6278],
+        "firstSeen": "2026-03-28"
       },
       "skillMd": {
         "version": "017b19a793ad71794a02887ede04757f3d82e10d",
         "updated": "2026-10-20",
         "skew": 192
       },
-      "note": "skills.sh lists this skill twice, from open.feishu.cn and from larksuite/cli, which splits its install count. The numbers here are open.feishu.cn's."
+      "note": "skills.sh lists this skill twice, from open.feishu.cn and from larksuite/cli, which splits its install count. The numbers here are larksuite/cli's."
     },
     {
       "id": "anthropics/skills/skills/pptx",
@@ -10633,8 +10633,8 @@
       "skills.sh": {
         "url": "https://skills.sh/anthropics/skills/pptx",
         "install": "npx skills add https://github.com/anthropics/skills --skill pptx",
-        "installs": 224487,
-        "weeklyInstalls": [5963, 5495, 4872, 4397, 4345, 4410, 4058, 4310],
+        "installs": 248990,
+        "weeklyInstalls": [4015, 4273, 3330, 3580, 3892, 4232, 4206, 4397],
         "firstSeen": "2026-01-20"
       },
       "skillMd": {
@@ -10660,8 +10660,8 @@
       "skills.sh": {
         "url": "https://skills.sh/mattpocock/skills/obsidian-vault",
         "install": "npx skills add https://github.com/mattpocock/skills --skill obsidian-vault",
-        "installs": 202330,
-        "weeklyInstalls": [20673, 10062, 1047, 728, 499, 436, 309, 308],
+        "installs": 195522,
+        "weeklyInstalls": [4, 9, 2, 6, 12, 7, 3, 3],
         "firstSeen": "2026-03-13"
       },
       "skillMd": {
@@ -10719,8 +10719,8 @@
       "skills.sh": {
         "url": "https://skills.sh/anthropics/skills/pdf",
         "install": "npx skills add https://github.com/anthropics/skills --skill pdf",
-        "installs": 199049,
-        "weeklyInstalls": [4908, 4761, 4206, 3750, 3965, 4047, 3710, 3563],
+        "installs": 223196,
+        "weeklyInstalls": [3670, 3525, 3101, 4034, 4206, 3873, 4049, 4152],
         "firstSeen": "2026-01-20"
       },
       "skillMd": {
@@ -10771,8 +10771,8 @@
       "skills.sh": {
         "url": "https://skills.sh/anthropics/skills/docx",
         "install": "npx skills add https://github.com/anthropics/skills --skill docx",
-        "installs": 191022,
-        "weeklyInstalls": [4663, 4378, 4013, 3676, 3810, 3769, 3465, 3660],
+        "installs": 213034,
+        "weeklyInstalls": [3423, 3626, 3030, 3275, 3497, 3658, 3873, 4006],
         "firstSeen": "2026-01-19"
       },
       "skillMd": {
@@ -10823,8 +10823,8 @@
       "skills.sh": {
         "url": "https://skills.sh/anthropics/skills/xlsx",
         "install": "npx skills add https://github.com/anthropics/skills --skill xlsx",
-        "installs": 171434,
-        "weeklyInstalls": [4385, 4127, 3814, 3533, 3567, 3684, 3317, 3654],
+        "installs": 193460,
+        "weeklyInstalls": [3279, 3626, 2990, 3727, 3827, 3448, 3589, 3758],
         "firstSeen": "2026-01-19"
       },
       "skillMd": {
@@ -10850,8 +10850,8 @@
       "skills.sh": {
         "url": "https://skills.sh/kepano/obsidian-skills/obsidian-markdown",
         "install": "npx skills add https://github.com/kepano/obsidian-skills --skill obsidian-markdown",
-        "installs": 86557,
-        "weeklyInstalls": [3838, 4211, 3998, 4450, 3120, 1507, 1286, 1199],
+        "installs": 94778,
+        "weeklyInstalls": [1271, 1183, 1127, 1195, 1302, 1276, 1856, 1350],
         "firstSeen": "2026-01-20"
       },
       "skillMd": {
@@ -10878,8 +10878,8 @@
       "skills.sh": {
         "url": "https://skills.sh/intellectronica/agent-skills/notion-api",
         "install": "npx skills add https://github.com/intellectronica/agent-skills --skill notion-api",
-        "installs": 77359,
-        "weeklyInstalls": [2759, 1865, 2028, 1861, 2374, 2336, 2141, 1954],
+        "installs": 100033,
+        "weeklyInstalls": [2139, 1954, 2537, 3338, 2678, 3618, 5232, 3496],
         "firstSeen": "2026-01-28"
       },
       "skillMd": {
@@ -10906,8 +10906,8 @@
       "skills.sh": {
         "url": "https://skills.sh/googleworkspace/cli/gws-gmail",
         "install": "npx skills add https://github.com/googleworkspace/cli --skill gws-gmail",
-        "installs": 76532,
-        "weeklyInstalls": [1079, 2124, 1399, 1754, 1109, 1000, 1096, 927],
+        "installs": 83628,
+        "weeklyInstalls": [1089, 917, 1077, 1230, 1087, 1317, 1061, 1069],
         "firstSeen": "2026-03-04"
       },
       "skillMd": {
@@ -10935,18 +10935,18 @@
         "lang:zh"
       ],
       "skills.sh": {
-        "url": "https://skills.sh/site/open.feishu.cn/lark-base",
-        "install": "npx skills add https://open.feishu.cn/",
-        "installs": 716173,
-        "weeklyInstalls": [37239, 33798, 31249, 27532, 27802, 27271, 25493, 25934],
-        "firstSeen": null
+        "url": "https://skills.sh/larksuite/cli/lark-base",
+        "install": "npx skills add https://github.com/larksuite/cli --skill lark-base",
+        "installs": 484740,
+        "weeklyInstalls": [7144, 7058, 6718, 3561, 4233, 5513, 5433, 6136],
+        "firstSeen": "2026-03-28"
       },
       "skillMd": {
         "version": "017b19a793ad71794a02887ede04757f3d82e10d",
         "updated": "2026-10-20",
         "skew": 1450
       },
-      "note": "skills.sh lists this skill twice, from open.feishu.cn and from larksuite/cli, which splits its install count. The numbers here are open.feishu.cn's."
+      "note": "skills.sh lists this skill twice, from open.feishu.cn and from larksuite/cli, which splits its install count. The numbers here are larksuite/cli's."
     },
     {
       "id": "larksuite/cli/skills/lark-drive",
@@ -10966,18 +10966,18 @@
         "lang:zh"
       ],
       "skills.sh": {
-        "url": "https://skills.sh/site/open.feishu.cn/lark-drive",
-        "install": "npx skills add https://open.feishu.cn/lark-cli/skills/regular",
-        "installs": 716017,
-        "weeklyInstalls": [37238, 33779, 31172, 27520, 27877, 27275, 25485, 25955],
-        "firstSeen": null
+        "url": "https://skills.sh/larksuite/cli/lark-drive",
+        "install": "npx skills add https://github.com/larksuite/cli --skill lark-drive",
+        "installs": 481516,
+        "weeklyInstalls": [6907, 6875, 6551, 3385, 4147, 5478, 5430, 6136],
+        "firstSeen": "2026-03-28"
       },
       "skillMd": {
         "version": "017b19a793ad71794a02887ede04757f3d82e10d",
         "updated": "2026-10-20",
         "skew": 1390
       },
-      "note": "skills.sh lists this skill twice, from open.feishu.cn and from larksuite/cli, which splits its install count. The numbers here are open.feishu.cn's."
+      "note": "skills.sh lists this skill twice, from open.feishu.cn and from larksuite/cli, which splits its install count. The numbers here are larksuite/cli's."
     },
     {
       "id": "larksuite/cli/skills/lark-im",
@@ -10997,18 +10997,18 @@
         "lang:zh"
       ],
       "skills.sh": {
-        "url": "https://skills.sh/site/open.feishu.cn/lark-im",
-        "install": "npx skills add https://open.feishu.cn/",
-        "installs": 715429,
-        "weeklyInstalls": [37208, 33753, 31136, 27446, 27769, 27230, 25421, 25883],
-        "firstSeen": null
+        "url": "https://skills.sh/larksuite/cli/lark-im",
+        "install": "npx skills add https://github.com/larksuite/cli --skill lark-im",
+        "installs": 481528,
+        "weeklyInstalls": [7124, 6845, 6560, 3391, 4149, 5431, 5396, 6119],
+        "firstSeen": "2026-03-28"
       },
       "skillMd": {
         "version": "017b19a793ad71794a02887ede04757f3d82e10d",
         "updated": "2026-10-20",
         "skew": 2977
       },
-      "note": "skills.sh lists this skill twice, from open.feishu.cn and from larksuite/cli, which splits its install count. The numbers here are open.feishu.cn's."
+      "note": "skills.sh lists this skill twice, from open.feishu.cn and from larksuite/cli, which splits its install count. The numbers here are larksuite/cli's."
     },
     {
       "id": "larksuite/cli/skills/lark-calendar",
@@ -11028,18 +11028,18 @@
         "lang:zh"
       ],
       "skills.sh": {
-        "url": "https://skills.sh/site/open.feishu.cn/lark-calendar",
-        "install": "npx skills add https://open.feishu.cn/",
-        "installs": 715255,
-        "weeklyInstalls": [37203, 33729, 31126, 27423, 27723, 27209, 25393, 25820],
-        "firstSeen": null
+        "url": "https://skills.sh/larksuite/cli/lark-calendar",
+        "install": "npx skills add https://github.com/larksuite/cli --skill lark-calendar",
+        "installs": 477545,
+        "weeklyInstalls": [6812, 6707, 6477, 3372, 4105, 5407, 5347, 6067],
+        "firstSeen": "2026-03-28"
       },
       "skillMd": {
         "version": "017b19a793ad71794a02887ede04757f3d82e10d",
         "updated": "2026-10-20",
         "skew": 860
       },
-      "note": "skills.sh lists this skill twice, from open.feishu.cn and from larksuite/cli, which splits its install count. The numbers here are open.feishu.cn's."
+      "note": "skills.sh lists this skill twice, from open.feishu.cn and from larksuite/cli, which splits its install count. The numbers here are larksuite/cli's."
     },
     {
       "id": "larksuite/cli/skills/lark-sheets",
@@ -11059,18 +11059,18 @@
         "lang:zh"
       ],
       "skills.sh": {
-        "url": "https://skills.sh/site/open.feishu.cn/lark-sheets",
-        "install": "npx skills add https://open.feishu.cn/",
-        "installs": 715013,
-        "weeklyInstalls": [37202, 33736, 31121, 27391, 27718, 27221, 25388, 25884],
-        "firstSeen": null
+        "url": "https://skills.sh/larksuite/cli/lark-sheets",
+        "install": "npx skills add https://github.com/larksuite/cli --skill lark-sheets",
+        "installs": 480785,
+        "weeklyInstalls": [7055, 6964, 6691, 3534, 4174, 5419, 5368, 6068],
+        "firstSeen": "2026-03-28"
       },
       "skillMd": {
         "version": "017b19a793ad71794a02887ede04757f3d82e10d",
         "updated": "2026-10-20",
         "skew": 1293
       },
-      "note": "skills.sh lists this skill twice, from open.feishu.cn and from larksuite/cli, which splits its install count. The numbers here are open.feishu.cn's."
+      "note": "skills.sh lists this skill twice, from open.feishu.cn and from larksuite/cli, which splits its install count. The numbers here are larksuite/cli's."
     },
     {
       "id": "larksuite/cli/skills/lark-mail",
@@ -11090,18 +11090,18 @@
         "lang:zh"
       ],
       "skills.sh": {
-        "url": "https://skills.sh/site/open.feishu.cn/lark-mail",
-        "install": "npx skills add https://open.feishu.cn/",
-        "installs": 714265,
-        "weeklyInstalls": [37131, 33671, 31034, 27322, 27643, 27063, 25338, 25815],
-        "firstSeen": null
+        "url": "https://skills.sh/larksuite/cli/lark-mail",
+        "install": "npx skills add https://github.com/larksuite/cli --skill lark-mail",
+        "installs": 475925,
+        "weeklyInstalls": [6746, 6681, 6458, 3351, 4082, 5351, 5328, 6042],
+        "firstSeen": "2026-03-28"
       },
       "skillMd": {
         "version": "017b19a793ad71794a02887ede04757f3d82e10d",
         "updated": "2026-10-20",
         "skew": 1793
       },
-      "note": "skills.sh lists this skill twice, from open.feishu.cn and from larksuite/cli, which splits its install count. The numbers here are open.feishu.cn's."
+      "note": "skills.sh lists this skill twice, from open.feishu.cn and from larksuite/cli, which splits its install count. The numbers here are larksuite/cli's."
     },
     {
       "id": "larksuite/cli/skills/lark-minutes",
@@ -11123,18 +11123,18 @@
         "lang:zh"
       ],
       "skills.sh": {
-        "url": "https://skills.sh/site/open.feishu.cn/lark-minutes",
-        "install": "npx skills add https://open.feishu.cn/lark-cli/skills/regular",
-        "installs": 714288,
-        "weeklyInstalls": [37154, 33708, 31100, 27483, 27754, 27006, 25258, 25603],
-        "firstSeen": null
+        "url": "https://skills.sh/larksuite/cli/lark-minutes",
+        "install": "npx skills add https://github.com/larksuite/cli --skill lark-minutes",
+        "installs": 475453,
+        "weeklyInstalls": [6690, 6613, 6422, 3332, 4057, 5340, 5282, 6002],
+        "firstSeen": "2026-03-28"
       },
       "skillMd": {
         "version": "017b19a793ad71794a02887ede04757f3d82e10d",
         "updated": "2026-10-20",
         "skew": 25
       },
-      "note": "Deprecated. Its SKILL.md now points to lark-meeting. skills.sh lists this skill twice, from open.feishu.cn and from larksuite/cli, which splits its install count. The numbers here are open.feishu.cn's."
+      "note": "Deprecated. Its SKILL.md now points to lark-meeting. skills.sh lists this skill twice, from open.feishu.cn and from larksuite/cli, which splits its install count. The numbers here are larksuite/cli's."
     },
     {
       "id": "larksuite/cli/skills/lark-okr",
@@ -11154,18 +11154,18 @@
         "lang:zh"
       ],
       "skills.sh": {
-        "url": "https://skills.sh/site/open.feishu.cn/lark-okr",
-        "install": "npx skills add https://open.feishu.cn/lark-cli/skills/regular",
-        "installs": 694773,
-        "weeklyInstalls": [37119, 33627, 31014, 27323, 27567, 27097, 25279, 25743],
-        "firstSeen": null
+        "url": "https://skills.sh/larksuite/cli/lark-okr",
+        "install": "npx skills add https://github.com/larksuite/cli --skill lark-okr",
+        "installs": 412500,
+        "weeklyInstalls": [6675, 6600, 6418, 3326, 4059, 5324, 5266, 5999],
+        "firstSeen": "2026-04-17"
       },
       "skillMd": {
         "version": "017b19a793ad71794a02887ede04757f3d82e10d",
         "updated": "2026-10-20",
         "skew": 645
       },
-      "note": "skills.sh lists this skill twice, from open.feishu.cn and from larksuite/cli, which splits its install count. The numbers here are open.feishu.cn's."
+      "note": "skills.sh lists this skill twice, from open.feishu.cn and from larksuite/cli, which splits its install count. The numbers here are larksuite/cli's."
     },
     {
       "id": "kepano/obsidian-skills/skills/obsidian-cli",
@@ -11184,8 +11184,8 @@
       "skills.sh": {
         "url": "https://skills.sh/kepano/obsidian-skills/obsidian-cli",
         "install": "npx skills add https://github.com/kepano/obsidian-skills --skill obsidian-cli",
-        "installs": 75762,
-        "weeklyInstalls": [3606, 4011, 3777, 4238, 2891, 1344, 1117, 1053],
+        "installs": 82757,
+        "weeklyInstalls": [1102, 1040, 970, 986, 1085, 1056, 1592, 1117],
         "firstSeen": "2026-02-11"
       },
       "skillMd": {
@@ -11212,8 +11212,8 @@
       "skills.sh": {
         "url": "https://skills.sh/kepano/obsidian-skills/obsidian-bases",
         "install": "npx skills add https://github.com/kepano/obsidian-skills --skill obsidian-bases",
-        "installs": 74568,
-        "weeklyInstalls": [3586, 3974, 3752, 4219, 2864, 1267, 1040, 1027],
+        "installs": 81550,
+        "weeklyInstalls": [1027, 1011, 960, 1013, 1096, 1074, 1606, 1148],
         "firstSeen": "2026-01-20"
       },
       "skillMd": {
@@ -11240,8 +11240,8 @@
       "skills.sh": {
         "url": "https://skills.sh/kepano/obsidian-skills/json-canvas",
         "install": "npx skills add https://github.com/kepano/obsidian-skills --skill json-canvas",
-        "installs": 69636,
-        "weeklyInstalls": [3499, 3858, 3627, 4095, 2760, 1204, 1009, 948],
+        "installs": 76116,
+        "weeklyInstalls": [994, 935, 887, 923, 1016, 969, 1547, 1054],
         "firstSeen": "2026-01-20"
       },
       "skillMd": {
@@ -11294,8 +11294,8 @@
       "skills.sh": {
         "url": "https://skills.sh/flowkit-labs/skills/reddit-automation",
         "install": "npx skills add https://github.com/flowkit-labs/skills --skill reddit-automation",
-        "installs": 561759,
-        "weeklyInstalls": [0, 0, 19531, 83327, 116184, 113492, 108855, 113374],
+        "installs": 1248003,
+        "weeklyInstalls": [108855, 113373, 113916, 114322, 113172, 96986, 103833, 104996],
         "firstSeen": "2026-08-12"
       },
       "skillMd": {
@@ -11326,8 +11326,8 @@
       "skills.sh": {
         "url": "https://skills.sh/101-skills/superpowers/twitter-automation",
         "install": "npx skills add https://github.com/101-skills/superpowers --skill twitter-automation",
-        "installs": 300878,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 13446, 63653, 213285],
+        "installs": 957580,
+        "weeklyInstalls": [63653, 213285, 240418, 130536, 72507, 67614, 67281, 58589],
         "firstSeen": "2026-08-31"
       },
       "skillMd": {
@@ -11379,8 +11379,8 @@
       "skills.sh": {
         "url": "https://skills.sh/coreyhaines31/marketingskills/seo-audit",
         "install": "npx skills add https://github.com/coreyhaines31/marketingskills --skill seo-audit",
-        "installs": 211055,
-        "weeklyInstalls": [5850, 5484, 4901, 4953, 4911, 4596, 4604, 4325],
+        "installs": 246571,
+        "weeklyInstalls": [4569, 4280, 4498, 5015, 5610, 5907, 6237, 6276],
         "firstSeen": "2026-01-19"
       },
       "skillMd": {
@@ -11432,8 +11432,8 @@
       "skills.sh": {
         "url": "https://skills.sh/coreyhaines31/marketingskills/copywriting",
         "install": "npx skills add https://github.com/coreyhaines31/marketingskills --skill copywriting",
-        "installs": 204601,
-        "weeklyInstalls": [6148, 5635, 5097, 4952, 5662, 5452, 5154, 4728],
+        "installs": 246040,
+        "weeklyInstalls": [5119, 4691, 5081, 6170, 6646, 6659, 6910, 7459],
         "firstSeen": "2026-01-19"
       },
       "skillMd": {
@@ -11488,8 +11488,8 @@
       "skills.sh": {
         "url": "https://skills.sh/higgsfield-ai/skills/higgsfield-product-photoshoot",
         "install": "npx skills add https://github.com/higgsfield-ai/skills --skill higgsfield-product-photoshoot",
-        "installs": 154727,
-        "weeklyInstalls": [10947, 9564, 7963, 7979, 8311, 8003, 10675, 9190],
+        "installs": 208950,
+        "weeklyInstalls": [10644, 9162, 7817, 7005, 8827, 9323, 9174, 8538],
         "firstSeen": "2026-05-04"
       },
       "skillMd": {
@@ -11540,8 +11540,8 @@
       "skills.sh": {
         "url": "https://skills.sh/coreyhaines31/marketingskills/marketing-psychology",
         "install": "npx skills add https://github.com/coreyhaines31/marketingskills --skill marketing-psychology",
-        "installs": 145727,
-        "weeklyInstalls": [3923, 3588, 3495, 3524, 3370, 3246, 3386, 3185],
+        "installs": 171555,
+        "weeklyInstalls": [3350, 3152, 3246, 3877, 4035, 3939, 4342, 4755],
         "firstSeen": "2026-01-19"
       },
       "skillMd": {
@@ -11593,8 +11593,8 @@
       "skills.sh": {
         "url": "https://skills.sh/coreyhaines31/marketingskills/content-strategy",
         "install": "npx skills add https://github.com/coreyhaines31/marketingskills --skill content-strategy",
-        "installs": 143006,
-        "weeklyInstalls": [3925, 3646, 3442, 3679, 3939, 3874, 3714, 3356],
+        "installs": 171500,
+        "weeklyInstalls": [3687, 3323, 3469, 4241, 4772, 4330, 4666, 5239],
         "firstSeen": "2026-01-26"
       },
       "skillMd": {
@@ -11645,8 +11645,8 @@
       "skills.sh": {
         "url": "https://skills.sh/coreyhaines31/marketingskills/programmatic-seo",
         "install": "npx skills add https://github.com/coreyhaines31/marketingskills --skill programmatic-seo",
-        "installs": 134271,
-        "weeklyInstalls": [3677, 3392, 3245, 3267, 3098, 2960, 3031, 2800],
+        "installs": 156467,
+        "weeklyInstalls": [3000, 2767, 2670, 3038, 3484, 3565, 3716, 4393],
         "firstSeen": "2026-01-19"
       },
       "skillMd": {
@@ -11702,8 +11702,8 @@
       "skills.sh": {
         "url": "https://skills.sh/nexscope-ai/amazon-skills/amazon-product-research",
         "install": "npx skills add https://github.com/nexscope-ai/amazon-skills --skill amazon-product-research",
-        "installs": 77842,
-        "weeklyInstalls": [104, 166, 83, 90, 77, 73, 75, 61],
+        "installs": 78278,
+        "weeklyInstalls": [75, 60, 60, 82, 63, 68, 62, 74],
         "firstSeen": "2026-03-24"
       },
       "skillMd": {
@@ -11757,8 +11757,8 @@
       "skills.sh": {
         "url": "https://skills.sh/squirrelscan/skills/audit-website",
         "install": "npx skills add https://github.com/squirrelscan/skills --skill audit-website",
-        "installs": 71489,
-        "weeklyInstalls": [1382, 1315, 861, 560, 637, 580, 494, 484],
+        "installs": 74765,
+        "weeklyInstalls": [492, 481, 470, 336, 348, 863, 764, 773],
         "firstSeen": "2026-01-22"
       },
       "skillMd": {
@@ -11809,8 +11809,8 @@
       "skills.sh": {
         "url": "https://skills.sh/nexscope-ai/ecommerce-skills/cross-border-ecommerce",
         "install": "npx skills add https://github.com/nexscope-ai/ecommerce-skills --skill cross-border-ecommerce",
-        "installs": 62558,
-        "weeklyInstalls": [114, 160, 99, 81, 75, 70, 66, 68],
+        "installs": 63000,
+        "weeklyInstalls": [66, 67, 69, 65, 57, 63, 71, 65],
         "firstSeen": "2026-03-24"
       },
       "skillMd": {
@@ -11861,8 +11861,8 @@
       "skills.sh": {
         "url": "https://skills.sh/autonnel/autonnel-skills/landing-page-conversion-audit",
         "install": "npx skills add https://github.com/autonnel/autonnel-skills --skill landing-page-conversion-audit",
-        "installs": 60838,
-        "weeklyInstalls": [0, 6301, 9078, 9039, 9091, 8704, 9029, 9073],
+        "installs": 116484,
+        "weeklyInstalls": [9028, 9071, 9024, 9100, 9069, 8699, 8203, 8272],
         "firstSeen": "2026-08-05"
       },
       "skillMd": {
@@ -11917,8 +11917,8 @@
       "skills.sh": {
         "url": "https://skills.sh/higgsfield-ai/skills/higgsfield-marketplace-cards",
         "install": "npx skills add https://github.com/higgsfield-ai/skills --skill higgsfield-marketplace-cards",
-        "installs": 151999,
-        "weeklyInstalls": [10839, 9492, 7893, 7916, 8264, 7937, 10622, 9122],
+        "installs": 205713,
+        "weeklyInstalls": [10590, 9094, 7734, 6929, 8747, 9244, 9111, 8450],
         "firstSeen": "2026-05-04"
       },
       "skillMd": {
@@ -11968,8 +11968,8 @@
       "skills.sh": {
         "url": "https://skills.sh/lllllllama/rigorpilot-skills/paper-context-resolver",
         "install": "npx skills add https://github.com/lllllllama/rigorpilot-skills --skill paper-context-resolver",
-        "installs": 450930,
-        "weeklyInstalls": [11191, 32245, 50275, 41240, 72, 54, 58, 48],
+        "installs": 488250,
+        "weeklyInstalls": [56, 48, 39, 59, 3511, 10927, 11049, 8756],
         "firstSeen": "2026-03-30"
       },
       "skillMd": {
@@ -11997,8 +11997,8 @@
       "skills.sh": {
         "url": "https://skills.sh/wind-alice/alicemarket/wind-mcp-skill",
         "install": "npx skills add https://github.com/wind-alice/alicemarket --skill wind-mcp-skill",
-        "installs": 169005,
-        "weeklyInstalls": [13651, 13301, 13350, 14060, 13696, 14286, 13539, 13416],
+        "installs": 237312,
+        "weeklyInstalls": [13537, 13415, 11687, 9016, 8578, 10969, 11719, 12344],
         "firstSeen": "2026-04-29"
       },
       "skillMd": {
@@ -12054,8 +12054,8 @@
       "skills.sh": {
         "url": "https://skills.sh/tt-a1i/archify/archify",
         "install": "npx skills add https://github.com/tt-a1i/archify --skill archify",
-        "installs": 99708,
-        "weeklyInstalls": [1708, 1913, 2330, 2998, 12367, 27425, 23565, 20784],
+        "installs": 188471,
+        "weeklyInstalls": [23456, 20679, 17086, 16405, 15739, 13659, 13683, 11897],
         "firstSeen": "2026-05-11"
       },
       "skillMd": {
@@ -12107,8 +12107,8 @@
       "skills.sh": {
         "url": "https://skills.sh/lllllllama/rigorpilot-skills/repo-intake-and-plan",
         "install": "npx skills add https://github.com/lllllllama/rigorpilot-skills --skill repo-intake-and-plan",
-        "installs": 450138,
-        "weeklyInstalls": [11173, 32230, 50247, 41219, 47, 40, 33, 32],
+        "installs": 487435,
+        "weeklyInstalls": [31, 32, 42, 60, 3505, 10921, 11048, 8742],
         "firstSeen": "2026-03-30"
       },
       "skillMd": {
@@ -12160,8 +12160,8 @@
       "skills.sh": {
         "url": "https://skills.sh/lllllllama/rigorpilot-skills/minimal-run-and-audit",
         "install": "npx skills add https://github.com/lllllllama/rigorpilot-skills --skill minimal-run-and-audit",
-        "installs": 450051,
-        "weeklyInstalls": [11172, 32229, 50250, 41213, 41, 41, 32, 30],
+        "installs": 487361,
+        "weeklyInstalls": [30, 29, 40, 82, 3504, 10916, 11043, 8745],
         "firstSeen": "2026-03-30"
       },
       "skillMd": {
@@ -12208,8 +12208,8 @@
       "skills.sh": {
         "url": "https://skills.sh/lllllllama/rigorpilot-skills/env-and-assets-bootstrap",
         "install": "npx skills add https://github.com/lllllllama/rigorpilot-skills --skill env-and-assets-bootstrap",
-        "installs": 450018,
-        "weeklyInstalls": [11166, 32229, 50245, 41208, 41, 29, 26, 30],
+        "installs": 487240,
+        "weeklyInstalls": [24, 30, 30, 41, 3494, 10908, 11041, 8737],
         "firstSeen": "2026-03-30"
       },
       "skillMd": {
@@ -12261,8 +12261,8 @@
       "skills.sh": {
         "url": "https://skills.sh/lllllllama/rigorpilot-skills/ai-research-explore",
         "install": "npx skills add https://github.com/lllllllama/rigorpilot-skills --skill ai-research-explore",
-        "installs": 311280,
-        "weeklyInstalls": [11263, 32324, 50300, 41285, 77, 73, 64, 49],
+        "installs": 348644,
+        "weeklyInstalls": [63, 49, 55, 65, 3522, 10928, 11047, 8763],
         "firstSeen": "2026-05-26"
       },
       "skillMd": {
@@ -12289,8 +12289,8 @@
       "skills.sh": {
         "url": "https://skills.sh/google/agents-cli/google-agents-cli-adk-code",
         "install": "npx skills add https://github.com/google/agents-cli --skill google-agents-cli-adk-code",
-        "installs": 289755,
-        "weeklyInstalls": [6911, 8929, 8800, 10669, 13023, 42985, 57896, 73341],
+        "installs": 548542,
+        "weeklyInstalls": [57886, 73337, 132594, 53221, 16241, 13327, 11140, 21580],
         "firstSeen": "2026-04-21"
       },
       "skillMd": {
@@ -12317,8 +12317,8 @@
       "skills.sh": {
         "url": "https://skills.sh/stablyai/orca/orca-cli",
         "install": "npx skills add https://github.com/stablyai/orca --skill orca-cli",
-        "installs": 244397,
-        "weeklyInstalls": [23518, 17899, 37267, 28863, 22681, 19989, 16728, 16997],
+        "installs": 358538,
+        "weeklyInstalls": [16602, 16892, 18317, 16058, 14647, 31412, 30873, 3761],
         "firstSeen": "2026-04-03"
       },
       "skillMd": {
@@ -12344,8 +12344,8 @@
       "skills.sh": {
         "url": "https://skills.sh/stablyai/orca/orchestration",
         "install": "npx skills add https://github.com/stablyai/orca --skill orchestration",
-        "installs": 227921,
-        "weeklyInstalls": [23327, 14349, 14098, 13413, 14319, 39340, 26703, 21718],
+        "installs": 355514,
+        "weeklyInstalls": [26556, 21591, 21851, 19240, 16705, 33569, 33122, 4423],
         "firstSeen": "2026-04-28"
       },
       "skillMd": {
@@ -12396,8 +12396,8 @@
       "skills.sh": {
         "url": "https://skills.sh/anthropics/skills/mcp-builder",
         "install": "npx skills add https://github.com/anthropics/skills --skill mcp-builder",
-        "installs": 116814,
-        "weeklyInstalls": [2525, 2678, 2943, 3374, 3053, 2869, 2364, 2658],
+        "installs": 137203,
+        "weeklyInstalls": [2337, 2627, 2485, 3298, 3265, 3067, 3712, 3697],
         "firstSeen": "2026-01-19"
       },
       "skillMd": {
@@ -12423,8 +12423,8 @@
       "skills.sh": {
         "url": "https://skills.sh/anthropics/skills/claude-api",
         "install": "npx skills add https://github.com/anthropics/skills --skill claude-api",
-        "installs": 66030,
-        "weeklyInstalls": [1788, 1855, 1687, 1639, 1682, 1717, 1423, 1426],
+        "installs": 77540,
+        "weeklyInstalls": [1407, 1420, 1490, 1676, 1955, 1890, 2027, 1979],
         "firstSeen": "2026-03-04"
       },
       "skillMd": {
@@ -12450,8 +12450,8 @@
       "skills.sh": {
         "url": "https://skills.sh/agentix-cloud/skills/agentix-ceo",
         "install": "npx skills add https://github.com/agentix-cloud/skills --skill agentix-ceo",
-        "installs": 60631,
-        "weeklyInstalls": [1666, 1664, 1666, 1647, 1655, 1517, 1660, 1648],
+        "installs": 77934,
+        "weeklyInstalls": [1660, 1648, 1671, 1673, 2624, 3309, 3278, 3312],
         "firstSeen": "2026-03-20"
       },
       "skillMd": {
@@ -12477,8 +12477,8 @@
       "skills.sh": {
         "url": "https://skills.sh/typesafe-ai/skills/typesafe-ai",
         "install": "npx skills add https://github.com/typesafe-ai/skills --skill typesafe-ai",
-        "installs": null,
-        "weeklyInstalls": null,
+        "installs": 99252,
+        "weeklyInstalls": [10, 37180, 35975, 11762, 4847, 3438, 2655, 2616],
         "firstSeen": "2026-09-12"
       },
       "skillMd": {
@@ -12507,8 +12507,8 @@
       "skills.sh": {
         "url": "https://skills.sh/google/agents-cli/google-agents-cli-workflow",
         "install": "npx skills add https://github.com/google/agents-cli --skill google-agents-cli-workflow",
-        "installs": 289368,
-        "weeklyInstalls": [6889, 8911, 8782, 10661, 13008, 42955, 57887, 73307],
+        "installs": 546895,
+        "weeklyInstalls": [57877, 73301, 132551, 53035, 15999, 13074, 10914, 21377],
         "firstSeen": "2026-04-21"
       },
       "skillMd": {
@@ -12536,8 +12536,8 @@
       "skills.sh": {
         "url": "https://skills.sh/google/agents-cli/google-agents-cli-eval",
         "install": "npx skills add https://github.com/google/agents-cli --skill google-agents-cli-eval",
-        "installs": 289339,
-        "weeklyInstalls": [6887, 8914, 8782, 10658, 13009, 42966, 57873, 73316],
+        "installs": 546885,
+        "weeklyInstalls": [57863, 73310, 132549, 53045, 16002, 13079, 10918, 21373],
         "firstSeen": "2026-04-21"
       },
       "skillMd": {
@@ -12564,8 +12564,8 @@
       "skills.sh": {
         "url": "https://skills.sh/google/agents-cli/google-agents-cli-scaffold",
         "install": "npx skills add https://github.com/google/agents-cli --skill google-agents-cli-scaffold",
-        "installs": 289278,
-        "weeklyInstalls": [6881, 8911, 8776, 10655, 13002, 42966, 57890, 73300],
+        "installs": 546765,
+        "weeklyInstalls": [57880, 73296, 132539, 53035, 15995, 13065, 10904, 21367],
         "firstSeen": "2026-04-21"
       },
       "skillMd": {
@@ -12595,8 +12595,8 @@
       "skills.sh": {
         "url": "https://skills.sh/google/agents-cli/google-agents-cli-observability",
         "install": "npx skills add https://github.com/google/agents-cli --skill google-agents-cli-observability",
-        "installs": 289254,
-        "weeklyInstalls": [6880, 8916, 8774, 10652, 13003, 42960, 57876, 73306],
+        "installs": 546729,
+        "weeklyInstalls": [57866, 73300, 132536, 53030, 15995, 13067, 10910, 21364],
         "firstSeen": "2026-04-21"
       },
       "skillMd": {
@@ -12624,8 +12624,8 @@
       "skills.sh": {
         "url": "https://skills.sh/google/agents-cli/google-agents-cli-publish",
         "install": "npx skills add https://github.com/google/agents-cli --skill google-agents-cli-publish",
-        "installs": 289114,
-        "weeklyInstalls": [6871, 8906, 8772, 10649, 12991, 42952, 57869, 73296],
+        "installs": 547637,
+        "weeklyInstalls": [57859, 73293, 132534, 53178, 16186, 13262, 11115, 21580],
         "firstSeen": "2026-04-21"
       },
       "skillMd": {
@@ -12653,8 +12653,8 @@
       "skills.sh": {
         "url": "https://skills.sh/microsoft/azure-skills/azure-compliance",
         "install": "npx skills add https://github.com/microsoft/azure-skills --skill azure-compliance",
-        "installs": 589918,
-        "weeklyInstalls": [16376, 16120, 14978, 13444, 13617, 12121, 12955, 12509],
+        "installs": 619268,
+        "weeklyInstalls": [11567, 11146, 12391, 12251, 11647, 9132, 7049, 7772],
         "firstSeen": "2026-02-08"
       },
       "skillMd": {
@@ -12705,8 +12705,8 @@
       "skills.sh": {
         "url": "https://skills.sh/useosint/skills/is-this-photo-real",
         "install": "npx skills add https://github.com/useosint/skills --skill is-this-photo-real",
-        "installs": 58176,
-        "weeklyInstalls": [3285, 14308, 40460, 20, 31, 19, 23, 30],
+        "installs": 58300,
+        "weeklyInstalls": [23, 30, 14, 13, 20, 14, 20, 19],
         "firstSeen": "2026-08-02"
       },
       "skillMd": {
@@ -12759,8 +12759,8 @@
       "skills.sh": {
         "url": "https://skills.sh/useosint/skills/investigate-without-getting-made",
         "install": "npx skills add https://github.com/useosint/skills --skill investigate-without-getting-made",
-        "installs": 58097,
-        "weeklyInstalls": [3277, 14060, 40633, 21, 35, 22, 18, 30],
+        "installs": 58200,
+        "weeklyInstalls": [18, 30, 18, 14, 21, 11, 24, 15],
         "firstSeen": "2026-08-02"
       },
       "skillMd": {
@@ -12812,8 +12812,8 @@
       "skills.sh": {
         "url": "https://skills.sh/useosint/skills/what-leaked-about-you",
         "install": "npx skills add https://github.com/useosint/skills --skill what-leaked-about-you",
-        "installs": 57682,
-        "weeklyInstalls": [3284, 14657, 39621, 14, 34, 20, 21, 30],
+        "installs": 57800,
+        "weeklyInstalls": [21, 30, 15, 16, 20, 13, 22, 17],
         "firstSeen": "2026-08-02"
       },
       "skillMd": {
@@ -12865,8 +12865,8 @@
       "skills.sh": {
         "url": "https://skills.sh/useosint/skills/find-the-original-image",
         "install": "npx skills add https://github.com/useosint/skills --skill find-the-original-image",
-        "installs": 56446,
-        "weeklyInstalls": [3297, 13562, 39451, 22, 30, 23, 26, 35],
+        "installs": 56600,
+        "weeklyInstalls": [26, 35, 16, 17, 21, 17, 22, 20],
         "firstSeen": "2026-08-02"
       },
       "skillMd": {
@@ -12893,8 +12893,8 @@
       "skills.sh": {
         "url": "https://skills.sh/microsoft/azure-skills/entra-app-registration",
         "install": "npx skills add https://github.com/microsoft/azure-skills --skill entra-app-registration",
-        "installs": 590098,
-        "weeklyInstalls": [16403, 16119, 14985, 13440, 13622, 12123, 12813, 12458],
+        "installs": 618927,
+        "weeklyInstalls": [11427, 11092, 12384, 12234, 11545, 8861, 6986, 7721],
         "firstSeen": "2026-02-04"
       },
       "skillMd": {
@@ -12922,8 +12922,8 @@
       "skills.sh": {
         "url": "https://skills.sh/microsoft/azure-skills/azure-rbac",
         "install": "npx skills add https://github.com/microsoft/azure-skills --skill azure-rbac",
-        "installs": 491549,
-        "weeklyInstalls": [5611, 4296, 3111, 2600, 2149, 1807, 1554, 1426],
+        "installs": 396677,
+        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
         "firstSeen": "2026-02-18"
       },
       "skillMd": {
@@ -12979,8 +12979,8 @@
       "skills.sh": {
         "url": "https://skills.sh/antibrow/anti-detect-browser-skills/multi-account-isolation",
         "install": "npx skills add https://github.com/antibrow/anti-detect-browser-skills --skill multi-account-isolation",
-        "installs": 63318,
-        "weeklyInstalls": [748, 9030, 8923, 8894, 8916, 8527, 8868, 8896],
+        "installs": 118365,
+        "weeklyInstalls": [8868, 8896, 8923, 8940, 8942, 8630, 8143, 8196],
         "firstSeen": "2026-08-01"
       },
       "skillMd": {
@@ -13039,8 +13039,8 @@
       "skills.sh": {
         "url": "https://skills.sh/liarjsdev/liarjs-skills/playwright-stealth-verify",
         "install": "npx skills add https://github.com/liarjsdev/liarjs-skills --skill playwright-stealth-verify",
-        "installs": 59656,
-        "weeklyInstalls": [0, 6268, 8894, 8818, 8904, 8527, 8859, 8877],
+        "installs": 113650,
+        "weeklyInstalls": [8859, 8877, 8866, 8949, 8925, 8441, 7850, 7875],
         "firstSeen": "2026-08-05"
       },
       "skillMd": {
@@ -13098,8 +13098,8 @@
       "skills.sh": {
         "url": "https://skills.sh/liarjsdev/liarjs-skills/fingerprint-ci-gate",
         "install": "npx skills add https://github.com/liarjsdev/liarjs-skills --skill fingerprint-ci-gate",
-        "installs": 59613,
-        "weeklyInstalls": [0, 6256, 8897, 8861, 8892, 8497, 8821, 8873],
+        "installs": 113594,
+        "weeklyInstalls": [8821, 8873, 8888, 8955, 8955, 8421, 7815, 7866],
         "firstSeen": "2026-08-05"
       },
       "skillMd": {
@@ -13153,8 +13153,8 @@
       "skills.sh": {
         "url": "https://skills.sh/liarjsdev/liarjs-skills/fingerprint-failure-triage",
         "install": "npx skills add https://github.com/liarjsdev/liarjs-skills --skill fingerprint-failure-triage",
-        "installs": 59553,
-        "weeklyInstalls": [0, 6247, 8876, 8844, 8876, 8477, 8844, 8876],
+        "installs": 113579,
+        "weeklyInstalls": [8844, 8876, 8882, 8968, 8915, 8475, 7823, 7873],
         "firstSeen": "2026-08-05"
       },
       "skillMd": {

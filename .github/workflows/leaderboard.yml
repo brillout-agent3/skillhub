@@ -1,0 +1,60 @@
+# Once a day, refresh the numbers from skills.sh and GitHub and rewrite the queue of candidates in
+# data/candidates.json, then commit to the default branch and redeploy the site. Adding the
+# queued skills is an agent's job, with the add-skill skill.
+name: Refresh skills.sh numbers and candidates
+
+on:
+  schedule:
+    - cron: "23 4 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  # To start the deploy workflow: a push made with the workflow's own token doesn't trigger it.
+  actions: write
+
+# Shared with the SKILL.md sync, so that their commits to data/ never race.
+concurrency:
+  group: data
+  cancel-in-progress: false
+
+jobs:
+  leaderboard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Refresh the numbers and the queue
+        id: refresh
+        # `shell: bash` sets pipefail, so the script's failures fail the step through tee.
+        shell: bash
+        env:
+          # For the GitHub stars.
+          GITHUB_TOKEN: ${{ github.token }}
+        run: pnpm --silent run leaderboard | tee "$RUNNER_TEMP/summary.txt"
+      - name: Validate the data
+        id: validate
+        # Keep what refreshed even when some of it failed; the errors still fail the run.
+        if: ${{ !cancelled() && steps.refresh.outcome != 'skipped' }}
+        run: pnpm run check:data
+      - name: Commit, push and redeploy
+        if: ${{ !cancelled() && steps.validate.outcome == 'success' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git add data
+          if git diff --cached --quiet; then
+            echo "Nothing changed."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit --quiet -m "Refresh skills.sh numbers and candidates" -m "$(cat "$RUNNER_TEMP/summary.txt")"
+          git pull --rebase --quiet
+          git push
+          gh workflow run deploy.yml --ref "${{ github.ref_name }}"

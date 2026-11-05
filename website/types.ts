@@ -3,7 +3,7 @@
 export interface Data {
   /** When the data was last edited (YYYY-MM-DD). */
   updated: string;
-  /** When each kind of number was collected, and when the tags were assigned (YYYY-MM-DD). */
+  /** When each kind of number was collected, which leaderboard.ts does daily, and when the tags were assigned (YYYY-MM-DD). */
   asOf: Record<"installs" | "stars" | "tags", string>;
   /** The tags whose skills the skills list and the daily sync leave out, each with why. */
   skip: { tag: string; note: string }[];
@@ -43,7 +43,7 @@ export interface Repo {
   url: string;
   /** `skills`: exists to ship skills. `project`: a product that also ships a skill. `index`: a curated list or catalog. */
   kind: "skills" | "project" | "index";
-  /** GitHub stars, or null when unknown. */
+  /** GitHub stars, or null when unknown. leaderboard.ts refreshes them for the repos of listed skills and bundles. */
   stars: number | null;
   description: string | null;
   /** How many of the repo's skills were in the skills.sh all-time top 600. */
@@ -167,7 +167,10 @@ export interface SkillsSh {
   /** The skill's page on skills.sh. */
   url: string;
   install: string;
-  /** All-time installs, or null when the skill wasn't in the top 600. */
+  /**
+   * All-time installs, or null when unknown: exact for the skills.sh all-time top 600, else from
+   * the skill's skills.sh page, which rounds them to three digits (such as 26.5K).
+   */
   installs: number | null;
   /** Installs per week for the 8 weeks up to the installs snapshot, oldest first. */
   weeklyInstalls: number[] | null;

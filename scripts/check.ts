@@ -1,10 +1,12 @@
 /**
- * check.ts — validate skills.json against its own tag vocabulary.
+ * check.ts — validate skills.json against its own tag vocabulary, and candidates.json against
+ * skills.json.
  *
  * Run: pnpm run check:data
  */
 
 import { existsSync, readdirSync, readFileSync } from "node:fs";
+import { ignoring, listedPages, pageKey, readCandidates } from "./data.ts";
 import { copyPath } from "../website/skill-md.ts";
 import { bundleRepo, github, tldrProblems, type Data, type Facet } from "../website/types.ts";
 
@@ -41,6 +43,9 @@ for (const { tag, note } of data.skip) {
   if (!note) fail("skip", `"${tag}" needs a note saying why its skills are skipped`);
 }
 
+/** A skill's page on skills.sh: the repo it comes from on GitHub, then the skill. */
+const SKILL_PAGE = /^https:\/\/skills\.sh\/[^/.]+\/[^/]+\/[^/]+$/;
+
 const escape = (s: string) => s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
 const COUNTS: Record<Facet["count"], (n: number) => boolean> = {
@@ -65,6 +70,8 @@ for (const skill of data.skills) {
     fail(at, "not on GitHub: the id must be owner/repo/path/to/dir");
   if (!repos.has(gh.repo)) fail(at, `repo "${gh.repo}" has no entry in repos`);
   if (!skill["skills.sh"]) fail(at, "not on skills.sh");
+  else if (!SKILL_PAGE.test(skill["skills.sh"].url))
+    fail(at, "the skills.sh url must be its page there, https://skills.sh/owner/repo/skill");
   const weekly = skill["skills.sh"]?.weeklyInstalls;
   if (weekly && weekly.length !== 8) fail(at, "weeklyInstalls must have 8 weeks");
 
@@ -144,6 +151,37 @@ for (const bundle of data.bundles) {
   }
 }
 
+// The queue holds only skills that are neither listed nor ignored.
+const candidates = readCandidates();
+const listed = listedPages(data);
+const queued = new Set<string>();
+for (const c of candidates.queue) {
+  const url = c["skills.sh"]?.url ?? "";
+  const at = `candidate ${url}`;
+  if (!SKILL_PAGE.test(url))
+    fail(at, "the url must be a skill's page on skills.sh, https://skills.sh/owner/repo/skill");
+  if (queued.has(pageKey(url))) fail(at, "queued twice");
+  queued.add(pageKey(url));
+  if (listed.has(pageKey(url))) fail(at, "it's in skills.json, so take it out of the queue");
+  const by = ignoring(candidates, url);
+  if (by) fail(at, `${by.url} is ignored, so take it out of the queue`);
+  if (!c.name || !c.repo || !c["skills.sh"].install)
+    fail(at, "needs a name, a repo and an install command");
+  const weekly = c["skills.sh"].weeklyInstalls;
+  if (weekly && weekly.length !== 8) fail(at, "weeklyInstalls must have 8 weeks");
+}
+// An ignored repo can hold listed skills (it ignores the rest of them), but an ignored skill can't be listed.
+const ignoredPages = new Set<string>();
+for (const { url, note } of candidates.ignored) {
+  const at = `ignored ${url}`;
+  if (!/^https:\/\/skills\.sh\/[^/.]+\/[^/]+(\/[^/]+)?$/.test(url))
+    fail(at, "the url must be a skill's or a repo's page on skills.sh");
+  if (ignoredPages.has(pageKey(url))) fail(at, "ignored twice");
+  ignoredPages.add(pageKey(url));
+  if (!note) fail(at, "needs a note saying why it's ignored");
+  if (listed.has(pageKey(url))) fail(at, "it's in skills.json, so it can't be ignored");
+}
+
 const copies = new Set(data.skills.map(copyPath));
 for (const file of readdirSync(new URL("data/skill-snapshots", root), {
   recursive: true,
@@ -154,10 +192,10 @@ for (const file of readdirSync(new URL("data/skill-snapshots", root), {
 
 if (errors.length > 0) {
   console.error(
-    `skills.json has ${errors.length} problem(s):\n${errors.map((e) => `  ${e}`).join("\n")}`,
+    `The data has ${errors.length} problem(s):\n${errors.map((e) => `  ${e}`).join("\n")}`,
   );
   process.exit(1);
 }
 console.log(
-  `skills.json is valid: ${data.skills.length} skills, ${data.bundles.length} bundles, ${data.repos.length} repos.`,
+  `skills.json is valid: ${data.skills.length} skills, ${data.bundles.length} bundles, ${data.repos.length} repos. candidates.json is too: ${candidates.queue.length} queued, ${candidates.ignored.length} ignored.`,
 );

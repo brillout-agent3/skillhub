@@ -13,6 +13,8 @@
     "========= SKILL.md copies": "",
     "sync": "pnpm run node-ts scripts/sync.ts",
     "tldr": "pnpm run node-ts scripts/tldr.ts",
+    "========= skills.sh numbers and candidates": "",
+    "leaderboard": "pnpm run node-ts scripts/leaderboard.ts",
     "========= Formatting": "",
     "format": "oxfmt",
     "===== Utils": "",
