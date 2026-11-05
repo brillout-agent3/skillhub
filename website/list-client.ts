@@ -100,8 +100,6 @@ app.addEventListener("click", (event) => {
       tags: [],
       repo: null,
       ranges: parse("", view).ranges,
-      hide: false,
-      all: false,
     });
   else if (d.action === "stack") {
     stackExpanded = !stackExpanded;
@@ -113,8 +111,6 @@ app.addEventListener("change", (event) => {
   const el = event.target as HTMLInputElement | HTMLSelectElement;
   if (el.id === "sort") go({ sort: el.value as Sort });
   else if (el.id === "one") go({ one: (el as HTMLInputElement).checked });
-  else if (el.id === "hide") go({ hide: (el as HTMLInputElement).checked });
-  else if (el.id === "all") go({ all: (el as HTMLInputElement).checked });
 });
 
 // The page was pre-rendered unfiltered.

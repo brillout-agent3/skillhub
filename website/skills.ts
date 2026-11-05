@@ -63,19 +63,9 @@ const withParents = new Map(
 export const tagsOf = (s: Skill) => withParents.get(s.id) ?? s.tags;
 
 /** The order facets appear in, wherever they're listed. */
-export const FACET_ORDER = [
-  "category",
-  "type",
-  "effect",
-  "needs",
-  "by",
-  "topic",
-  "stack",
-  "flag",
-  "lang",
-];
+export const FACET_ORDER = ["category", "type", "effect", "needs", "by", "topic", "stack", "flag"];
 /** Tags that call for a look before installing. */
-export const CAUTION = ["flag:republished", "flag:deprecated"];
+export const CAUTION = ["flag:republished"];
 
 const most = (n: (number | null)[]) => {
   const known = n.filter((x) => x !== null);

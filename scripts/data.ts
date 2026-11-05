@@ -7,7 +7,7 @@ import { github, type Data, type SkillsSh } from "../website/types.ts";
 
 export const root = fileURLToPath(new URL("..", import.meta.url));
 const path = `${root}data/skills.json`;
-const candidatesPath = `${root}data/candidates.json`;
+const crawlPath = `${root}data/crawl.json`;
 
 export const readData = (): Data => JSON.parse(readFileSync(path, "utf8"));
 
@@ -44,46 +44,58 @@ export function writeData(data: Data) {
   writeJson(path, sorted(data, TOP));
 }
 
-// ------------------------------------------------------------------- candidates
+// ------------------------------------------------------------------- crawl
 
 /**
- * The shape of data/candidates.json: the skills an agent may add to skills.json, with the
- * add-skill skill, and the ones not to add. Skills are keyed by their skills.sh page.
+ * The shape of data/crawl.json: every skill the crawl has seen in the skills.sh all-time top 600
+ * that isn't approved (the approved ones are in skills.json), keyed by its skills.sh page. The two
+ * files are cumulative: a skill that lands in either never leaves them, only its state changes.
+ * Unlike skills.json, crawl.json takes any skill, such as one a website publishes.
  */
-export interface Candidates {
-  /** When leaderboard.ts last rewrote the queue (YYYY-MM-DD). */
+export interface Crawl {
+  /** When crawl.ts last ran (YYYY-MM-DD). */
   asOf: string;
-  /**
-   * The skills of the skills.sh all-time top 600 that are on GitHub but neither listed nor
-   * ignored, most installed first. leaderboard.ts rewrites it daily; adding or ignoring a skill
-   * takes it out.
-   */
-  queue: Candidate[];
-  /** What never to queue, each with why: a skill's skills.sh page, or a repo's (`https://skills.sh/owner/repo`) for all its skills. */
-  ignored: { url: string; note: string }[];
+  /** What a crawled skill needs to be queued: all-time installs, and its GitHub repo's stars. */
+  minimums: { installs: number; stars: number };
+  /** Below the minimums, most installed first. */
+  crawled: Crawled[];
+  /** At the minimums or above, most installed first: waiting for an agent to approve or skip them, with the add-skill skill. */
+  queued: Crawled[];
+  /** Not to be shown, each with why, and with no agent data: no tags, no TLDR, no copy of its SKILL.md. */
+  skipped: Skipped[];
 }
 
-export interface Candidate {
+export interface Crawled {
   name: string;
-  /** Its GitHub repo as skills.sh names it, which can be an old name the repo redirects from. */
+  /** Its GitHub repo, `owner/name`, as skills.sh names it: possibly an old name the repo redirects from. */
   repo: string;
   /** Whether skills.sh shows its publisher as verified. */
   official: boolean;
-  /** Its `skills.sh` field once it's in skills.json. */
+  /** Its repo's GitHub stars, or null when unknown. */
+  stars: number | null;
+  /** The last day the crawl saw it in the top 600, which its numbers are from (YYYY-MM-DD). */
+  seen: string;
+  /** Its `skills.sh` field once it's approved. */
   "skills.sh": SkillsSh;
 }
 
-export const readCandidates = (): Candidates => JSON.parse(readFileSync(candidatesPath, "utf8"));
-export const writeCandidates = (candidates: Candidates) => writeJson(candidatesPath, candidates);
+export interface Skipped {
+  /** Its skills.sh page. */
+  url: string;
+  note: string;
+}
+
+export const readCrawl = (): Crawl => JSON.parse(readFileSync(crawlPath, "utf8"));
+export const writeCrawl = (crawl: Crawl) => writeJson(crawlPath, crawl);
 
 /** A skills.sh page as a key: skills.sh doesn't care about case. */
 export const pageKey = (url: string) => url.toLowerCase().replace(/\/+$/, "");
 
 /**
- * The skills.sh pages of the listed skills. A skill counts under its GitHub repo and name too,
+ * The skills.sh pages of the approved skills. A skill counts under its GitHub repo and name too,
  * since skills.sh can list one skill twice, such as from a website and from its repo.
  */
-export function listedPages(data: Data): Set<string> {
+export function approvedPages(data: Data): Set<string> {
   const pages = new Set<string>();
   for (const s of data.skills) {
     pages.add(pageKey(s["skills.sh"].url));
@@ -92,8 +104,6 @@ export function listedPages(data: Data): Set<string> {
   return pages;
 }
 
-/** The `ignored` entry that covers a skills.sh page, if any: the page's own, or its repo's. */
-export const ignoring = (candidates: Pick<Candidates, "ignored">, url: string) =>
-  candidates.ignored.find(
-    (i) => pageKey(url) === pageKey(i.url) || pageKey(url).startsWith(`${pageKey(i.url)}/`),
-  );
+/** Whether a crawled skill passes the minimums. Unknown stars don't. */
+export const passes = ({ minimums }: Pick<Crawl, "minimums">, c: Crawled) =>
+  (c["skills.sh"].installs ?? 0) >= minimums.installs && (c.stars ?? -1) >= minimums.stars;

@@ -637,8 +637,7 @@ code {
 }
 
 .tag[data-tag="effect:remote"],
-.tag[data-tag="flag:republished"],
-.tag[data-tag="flag:deprecated"] {
+.tag[data-tag="flag:republished"] {
   background: var(--t-bad);
   color: var(--t-bad-ink);
 }

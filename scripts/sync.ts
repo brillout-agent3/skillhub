@@ -4,32 +4,22 @@
  * For each skill it fetches the SKILL.md from the HEAD of the skill's GitHub repo. When the text
  * differs from the copy, it rewrites the copy, records the commit in the skill's `skillMd` and
  * recomputes `skew`, how far the text has moved from the SKILL.md the skill's TLDR summarizes.
- * Skipped skills keep the copy they have. When a bundle's skill changes, it recomputes the
- * bundle's skew too.
+ * When a bundle's skill changes, it recomputes the bundle's skew too. A skill whose SKILL.md is
+ * gone from its repo is skipped: it moves to `skipped` in data/crawl.json, without its agent data.
  *
  * Run: pnpm run sync [id prefix...]
  */
 
 import { execFile } from "node:child_process";
-import {
-  existsSync,
-  mkdirSync,
-  mkdtempSync,
-  readdirSync,
-  readFileSync,
-  rmSync,
-  writeFileSync,
-} from "node:fs";
-import { tmpdir } from "node:os";
+import { existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { promisify } from "node:util";
-import { readData, root, writeData } from "./data.ts";
+import { readCrawl, readData, root, writeCrawl, writeData } from "./data.ts";
 import { get, pool } from "./fetch.ts";
 import { copyPath, rawUrl, skew } from "../website/skill-md.ts";
-import { github, skipped, type Bundle, type Skill, type SkillMd } from "../website/types.ts";
+import { github, type Bundle, type Skill, type SkillMd } from "../website/types.ts";
 
 const today = new Date().toISOString().slice(0, 10);
-const scratch = mkdtempSync(join(tmpdir(), "skillhub-sync-"));
 const git = (args: string[]) =>
   promisify(execFile)("git", args, { env: { ...process.env, GIT_TERMINAL_PROMPT: "0" } }).then(
     ({ stdout }) => stdout.trim(),
@@ -61,29 +51,6 @@ function head(repo: string): Promise<string> {
   return heads.get(repo) as Promise<string>;
 }
 
-/** Blobless clones with full history, for the SKILL.md files that are gone from HEAD. */
-const clones = new Map<string, Promise<string>>();
-function clone(repo: string): Promise<string> {
-  if (!clones.has(repo)) {
-    const dir = join(scratch, repo.replace("/", "__"));
-    const args = ["clone", "--quiet", "--filter=blob:none", "--no-checkout"];
-    clones.set(
-      repo,
-      git([...args, `https://github.com/${repo}`, dir]).then(() => dir),
-    );
-  }
-  return clones.get(repo) as Promise<string>;
-}
-
-/** When a file was deleted from a repo, and the last commit that still had it. */
-async function deletion(repo: string, path: string): Promise<{ date: string; before: string }> {
-  const dir = await clone(repo);
-  const log = ["log", "-1", "--no-renames", "--diff-filter=D", "--format=%H %cs", "--", path];
-  const [commit, date] = (await git(["-C", dir, ...log])).split(" ");
-  if (!commit) throw new Error(`${path} isn't in ${repo} and never was`);
-  return { date, before: await git(["-C", dir, "rev-parse", `${commit}^`]) };
-}
-
 /** The SKILL.md at the HEAD of the skill's repo, or null when it's gone from there. */
 async function fetchSkillMd(skill: Skill): Promise<Found | null> {
   const gh = github(skill);
@@ -95,7 +62,7 @@ async function fetchSkillMd(skill: Skill): Promise<Found | null> {
 // ------------------------------------------------------------------- syncing
 
 const changed = new Set<string>();
-const removed: string[] = [];
+const gone: Skill[] = [];
 const errors: string[] = [];
 
 /** How far `text` is from the SKILL.md the skill's TLDR summarizes. */
@@ -109,7 +76,7 @@ async function skewOf(skill: Skill, copy: string | null, text: string): Promise<
   return (skill.skillMd?.skew ?? 0) + skew(copy ?? "", text);
 }
 
-async function save(skill: Skill, copy: string | null, found: Found, gone?: string) {
+async function save(skill: Skill, copy: string | null, found: Found) {
   let { version, updated, skew: words } = skill.skillMd ?? ({} as SkillMd);
   if (copy !== found.text || !skill.skillMd) {
     const file = join(root, copyPath(skill));
@@ -120,7 +87,7 @@ async function save(skill: Skill, copy: string | null, found: Found, gone?: stri
     updated = today;
     words = await skewOf(skill, copy, found.text);
   }
-  skill.skillMd = { version, updated, ...(gone ? { removed: gone } : {}), skew: words };
+  skill.skillMd = { version, updated, skew: words };
 }
 
 async function sync(skill: Skill) {
@@ -129,16 +96,7 @@ async function sync(skill: Skill) {
   const before = JSON.stringify(skill.skillMd);
   const found = await fetchSkillMd(skill);
   if (found) await save(skill, copy, found);
-  else {
-    // Gone from its repo: keep the last version there was.
-    const gh = github(skill);
-    const path = skillMdIn(gh.dir);
-    const { date, before: commit } = await deletion(gh.repo, path);
-    const text = await get(raw(gh.repo, commit, path));
-    if (text === null) throw new Error(`${path} is missing at ${gh.repo}@${commit}`);
-    await save(skill, copy, { version: commit, text }, date);
-    removed.push(skill.id);
-  }
+  else gone.push(skill);
   if (JSON.stringify(skill.skillMd) !== before) changed.add(skill.id);
 }
 
@@ -160,13 +118,29 @@ async function bundleSkew(bundle: Bundle, skills: Map<string, Skill>): Promise<n
 
 const data = readData();
 const only = process.argv.slice(2);
-const listed = data.skills.filter((s) => !only.length || only.some((p) => s.id.startsWith(p)));
-const skills = listed.filter((s) => !skipped(data, s) || !existsSync(join(root, copyPath(s))));
+const skills = data.skills.filter((s) => !only.length || only.some((p) => s.id.startsWith(p)));
 await pool(skills, 8, (skill) =>
   sync(skill).catch((error: Error) => {
     errors.push(`${skill.id}: ${error.message}`);
   }),
 );
+
+// Skip the skills gone from their repo, and take them out of their bundles.
+if (gone.length) {
+  const crawl = readCrawl();
+  const ids = new Set(gone.map((s) => s.id));
+  for (const skill of gone) {
+    crawl.skipped.push({
+      url: skill["skills.sh"].url,
+      note: `Gone from ${github(skill).repo} since ${today}.`,
+    });
+    rmSync(join(root, copyPath(skill)), { force: true });
+    changed.add(skill.id);
+  }
+  data.skills = data.skills.filter((s) => !ids.has(s.id));
+  for (const bundle of data.bundles) bundle.skills = bundle.skills.filter(({ id }) => !ids.has(id));
+  writeCrawl(crawl);
+}
 
 const byId = new Map(data.skills.map((s) => [s.id, s]));
 for (const bundle of data.bundles)
@@ -179,7 +153,7 @@ for (const bundle of data.bundles)
     if (bundle.skew !== before) changed.add(`bundle ${bundle.id}`);
   }
 
-// Drop the copies of skills that left the list.
+// Drop the copies of skills that left skills.json.
 if (!only.length) {
   const kept = new Set(data.skills.map(copyPath));
   const dir = join(root, "data/skill-snapshots");
@@ -191,11 +165,11 @@ if (!only.length) {
 }
 
 writeData(data);
-rmSync(scratch, { recursive: true, force: true });
 
 console.log(
-  `Checked ${skills.length} skills, skipped ${listed.length - skills.length}: ${changed.size} changed, ${removed.length} gone from their repo, ${errors.length} failed.`,
+  `Checked ${skills.length} skills: ${changed.size} changed, ${gone.length} gone from their repo and skipped, ${errors.length} failed.`,
 );
 for (const id of changed) console.log(`  changed ${id}`);
+for (const skill of gone) console.log(`  skipped ${skill.id}: gone from its repo`);
 for (const e of errors) console.error(`  failed ${e}`);
 if (errors.length) process.exit(1);

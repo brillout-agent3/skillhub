@@ -6,8 +6,7 @@
  *      pnpm run tldr <id> <json>    set a skill's or a bundle's TLDR:
  *                                   {"glance": [{"label", "text"}], "text"} (or pipe the JSON in)
  *
- * The list leaves skipped skills out (see `skip` in skills.json). Setting a TLDR resets the
- * skew to 0 and records a permalink to what the TLDR summarizes: the skill's directory at the
+ * Setting a TLDR resets the skew to 0 and records a permalink to what the TLDR summarizes: the skill's directory at the
  * commit its copy in data/skill-snapshots/ was taken from. For a bundle, it's the repo at its
  * current commit, which its skills' copies must match.
  */
@@ -19,7 +18,6 @@ import { copyPath, rawUrl } from "../website/skill-md.ts";
 import {
   bundleRepo,
   github,
-  skipped,
   tldrProblems,
   type Bundle,
   type Skill,
@@ -67,9 +65,12 @@ const [first, ...rest] = process.argv.slice(2);
 
 if (!first || /^\d+$/.test(first)) {
   const list = [
-    ...data.skills
-      .filter((s) => !skipped(data, s))
-      .map((s) => ({ skew: s.skillMd?.skew, id: s.id, read: [copyPath(s)], tldr: s.tldr })),
+    ...data.skills.map((s) => ({
+      skew: s.skillMd?.skew,
+      id: s.id,
+      read: [copyPath(s)],
+      tldr: s.tldr,
+    })),
     ...data.bundles.map((b) => ({
       skew: b.skew,
       id: b.id,

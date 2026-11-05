@@ -87,12 +87,9 @@ export default function Page(pageContext: PageContextServer): string {
   const gh = github(s);
   const sh = s["skills.sh"];
   const state = s.skillMd;
-  const removed = state?.removed;
-  // A skill gone from its repo lives on at the commit its copy is from.
-  const at = removed && state ? state.version : "HEAD";
   const links = [
     `<a href="${esc(sh.url)}">skills.sh page</a>`,
-    `<a href="https://github.com/${esc(gh.repo)}${gh.dir || removed ? `/tree/${at}/${esc(encodeURI(gh.dir))}` : ""}">Source on GitHub</a>`,
+    `<a href="https://github.com/${esc(gh.repo)}${gh.dir ? `/tree/HEAD/${esc(encodeURI(gh.dir))}` : ""}">Source on GitHub</a>`,
     `<a href="${skillsLink({ repo: repoKey(s) })}">All skills from ${esc(repoKey(s))}</a>`,
   ];
   const bundle = bundleOf.get(s.id)?.bundle;
@@ -111,7 +108,6 @@ export default function Page(pageContext: PageContextServer): string {
       }
       ${inBundle(s)}
       ${s.note ? `<p class="note">${esc(s.note)}</p>` : ""}
-      ${removed ? `<p class="note">Gone from ${esc(gh.repo)} since ${date(removed)}, so installing it no longer works. The SKILL.md below is its last version.</p>` : ""}
       ${s.tldr ? tldrHtml(s.tldr, "the skill", s.skillMd?.skew ?? 0) : ""}
       <div class="details-grid">
         <div>

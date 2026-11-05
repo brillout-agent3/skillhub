@@ -1,12 +1,12 @@
 /**
- * check.ts — validate skills.json against its own tag vocabulary, and candidates.json against
+ * check.ts — validate skills.json against its own tag vocabulary, and crawl.json against
  * skills.json.
  *
  * Run: pnpm run check:data
  */
 
 import { existsSync, readdirSync, readFileSync } from "node:fs";
-import { ignoring, listedPages, pageKey, readCandidates } from "./data.ts";
+import { approvedPages, pageKey, readCrawl } from "./data.ts";
 import { copyPath } from "../website/skill-md.ts";
 import { bundleRepo, github, tldrProblems, type Data, type Facet } from "../website/types.ts";
 
@@ -23,9 +23,6 @@ for (const repo of data.repos) {
   repos.add(repo.id);
 }
 
-const vocabulary = new Set(
-  data.facets.flatMap((f) => f.values.map((v) => (f.prefix === false ? v.id : `${f.id}:${v.id}`))),
-);
 // A parent includes plain values of its own facet: parents don't nest, and skills don't carry them.
 const parents = new Set<string>();
 for (const f of data.facets)
@@ -38,11 +35,6 @@ for (const f of data.facets)
       else if (child.includes) fail(`facet ${f.id}`, `${v.id} includes ${id}, another parent`);
     }
   }
-for (const { tag, note } of data.skip) {
-  if (!vocabulary.has(tag)) fail("skip", `unknown tag "${tag}"`);
-  if (!note) fail("skip", `"${tag}" needs a note saying why its skills are skipped`);
-}
-
 /** A skill's page on skills.sh: the repo it comes from on GitHub, then the skill. */
 const SKILL_PAGE = /^https:\/\/skills\.sh\/[^/.]+\/[^/]+\/[^/]+$/;
 
@@ -151,35 +143,40 @@ for (const bundle of data.bundles) {
   }
 }
 
-// The queue holds only skills that are neither listed nor ignored.
-const candidates = readCandidates();
-const listed = listedPages(data);
-const queued = new Set<string>();
-for (const c of candidates.queue) {
-  const url = c["skills.sh"]?.url ?? "";
-  const at = `candidate ${url}`;
-  if (!SKILL_PAGE.test(url))
-    fail(at, "the url must be a skill's page on skills.sh, https://skills.sh/owner/repo/skill");
-  if (queued.has(pageKey(url))) fail(at, "queued twice");
-  queued.add(pageKey(url));
-  if (listed.has(pageKey(url))) fail(at, "it's in skills.json, so take it out of the queue");
-  const by = ignoring(candidates, url);
-  if (by) fail(at, `${by.url} is ignored, so take it out of the queue`);
-  if (!c.name || !c.repo || !c["skills.sh"].install)
-    fail(at, "needs a name, a repo and an install command");
-  const weekly = c["skills.sh"].weeklyInstalls;
-  if (weekly && weekly.length !== 8) fail(at, "weeklyInstalls must have 8 weeks");
-}
-// An ignored repo can hold listed skills (it ignores the rest of them), but an ignored skill can't be listed.
-const ignoredPages = new Set<string>();
-for (const { url, note } of candidates.ignored) {
-  const at = `ignored ${url}`;
-  if (!/^https:\/\/skills\.sh\/[^/.]+\/[^/]+(\/[^/]+)?$/.test(url))
-    fail(at, "the url must be a skill's or a repo's page on skills.sh");
-  if (ignoredPages.has(pageKey(url))) fail(at, "ignored twice");
-  ignoredPages.add(pageKey(url));
-  if (!note) fail(at, "needs a note saying why it's ignored");
-  if (listed.has(pageKey(url))) fail(at, "it's in skills.json, so it can't be ignored");
+// crawl.json: every skill has one state, approved (skills.json), crawled, queued or skipped, under
+// its skills.sh page. It's lenient: a skipped skill can be a website's.
+const crawl = readCrawl();
+const states = new Map<string, string>([...approvedPages(data)].map((page) => [page, "approved"]));
+const state = (at: string, url: string, name: string) => {
+  const was = states.get(pageKey(url));
+  if (was) fail(at, `it's ${was} too: a skill has one state`);
+  states.set(pageKey(url), name);
+};
+for (const [name, list] of [
+  ["crawled", crawl.crawled],
+  ["queued", crawl.queued],
+] as const)
+  for (const c of list) {
+    const url = c["skills.sh"]?.url ?? "";
+    const at = `${name} ${url}`;
+    if (!SKILL_PAGE.test(url))
+      fail(at, "the url must be a skill's page on skills.sh, https://skills.sh/owner/repo/skill");
+    state(at, url, name);
+    if (!c.name || !c.repo || !c.seen || !c["skills.sh"].install)
+      fail(at, "needs a name, a repo, the day it was seen and an install command");
+    const weekly = c["skills.sh"].weeklyInstalls;
+    if (weekly && weekly.length !== 8) fail(at, "weeklyInstalls must have 8 weeks");
+  }
+for (const { url, note } of crawl.skipped) {
+  const at = `skipped ${url}`;
+  if (
+    !/^https:\/\/skills\.sh\/(site\/)?[^/]+\/[^/]+$|^https:\/\/skills\.sh\/[^/.]+\/[^/]+\/[^/]+$/.test(
+      url,
+    )
+  )
+    fail(at, "the url must be a skill's page on skills.sh");
+  state(at, url, "skipped");
+  if (!note) fail(at, "needs a note saying why it's skipped");
 }
 
 const copies = new Set(data.skills.map(copyPath));
@@ -197,5 +194,5 @@ if (errors.length > 0) {
   process.exit(1);
 }
 console.log(
-  `skills.json is valid: ${data.skills.length} skills, ${data.bundles.length} bundles, ${data.repos.length} repos. candidates.json is too: ${candidates.queue.length} queued, ${candidates.ignored.length} ignored.`,
+  `skills.json is valid: ${data.skills.length} skills, ${data.bundles.length} bundles, ${data.repos.length} repos. crawl.json is too: ${crawl.crawled.length} crawled, ${crawl.queued.length} queued, ${crawl.skipped.length} skipped.`,
 );

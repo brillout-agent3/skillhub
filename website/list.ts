@@ -32,7 +32,7 @@ import {
   tagsOf,
   weekOf,
 } from "./skills.ts";
-import { skipped, type Bundle, type Skill } from "./types.ts";
+import type { Bundle, Skill } from "./types.ts";
 
 /** A row of the skills list: a skill, or a bundle with its skills inside. */
 type Entry = Skill | Bundle;
@@ -165,10 +165,6 @@ export interface State {
   ranges: Record<Prop, Range>;
   /** One entry per repo: the most popular one stands for the rest. */
   one: boolean;
-  /** Hide republished copies. */
-  hide: boolean;
-  /** Show the skipped skills too, which the list leaves out unless asked for. */
-  all: boolean;
 }
 
 export function parse(search: string, view: View = "top"): State {
@@ -191,8 +187,6 @@ export function parse(search: string, view: View = "top"): State {
     sort: sort && sort in PROPS ? sort : VIEWS[view].sort,
     ranges,
     one: p.get("one") === "1",
-    hide: p.get("hide") === "1",
-    all: p.get("all") === "1",
   };
 }
 /** The query string for a state, empty for the unfiltered list. */
@@ -211,8 +205,6 @@ export function query(s: State): string {
       );
   }
   if (s.one) p.set("one", "1");
-  if (s.hide) p.set("hide", "1");
-  if (s.all) p.set("all", "1");
   const q = p.toString();
   return q ? `?${q}` : "";
 }
@@ -272,14 +264,6 @@ const matches = (text: string, q: string) =>
 
 /** Within a facet a skill needs any selected value; across facets it needs all of them. `skip` leaves one facet out, for its counts. */
 function passes(s: Skill, st: State, skip: string | null = null): boolean {
-  // Filtering on a skip tag, such as flag:tool-docs, asks for the skills it skips.
-  if (
-    skipped(data, s) &&
-    !st.all &&
-    !data.skip.some(({ tag }) => s.tags.includes(tag) && st.tags.includes(tag))
-  )
-    return false;
-  if (st.hide && s.tags.includes("flag:republished")) return false;
   if (st.repo && repoKey(s) !== st.repo) return false;
   for (const p of PROP_IDS) {
     const [lo, hi] = st.ranges[p];
@@ -306,8 +290,7 @@ function bundlePasses(b: Bundle, st: State): boolean {
 }
 
 const isFiltered = (st: State) =>
-  Boolean(st.q || st.tags.length || st.repo || st.hide) ||
-  PROP_IDS.some((p) => isNarrowed(p, st.ranges[p]));
+  Boolean(st.q || st.tags.length || st.repo) || PROP_IDS.some((p) => isNarrowed(p, st.ranges[p]));
 
 /** On a tie, such as a bundle and its most installed skill, the bundle goes first. */
 const bundleFirst = (a: Entry, b: Entry) => Number(isBundle(b)) - Number(isBundle(a));
@@ -463,7 +446,7 @@ function tagSection(st: State, facetId: string): string {
 
 export function facetsHtml(st: State, stackExpanded: boolean): string {
   const sections: string[] = [];
-  for (const f of ["category", "type", "effect", "needs", "by", "flag", "lang"])
+  for (const f of ["category", "type", "effect", "needs", "by", "flag"])
     sections.push(tagSection(st, f));
   // Topics, by group.
   const topic = facetById.get("topic");
@@ -521,11 +504,7 @@ function activeFilters(st: State): string {
 
 export function resultsHtml(st: State): string {
   const { list, hidden, total, bundles } = results(st);
-  // Out of every entry once skipped skills show, else out of the listed ones.
-  const all = results({
-    ...fresh(st.view),
-    all: st.all || list.some((e) => !isBundle(e) && skipped(data, e)),
-  }).total;
+  const all = results(fresh(st.view)).total;
   const repoNote = st.repo ? repoById.get(st.repo) : undefined;
   return `
     <div class="toolbar">
@@ -542,8 +521,6 @@ export function resultsHtml(st: State): string {
         (p) => `<option value="${p}"${p === st.sort ? " selected" : ""}>${PROPS[p].label}</option>`,
       ).join("")}</select></label>
       <label class="check"><input type="checkbox" id="one"${st.one ? " checked" : ""} /> One per repo</label>
-      <label class="check"><input type="checkbox" id="hide"${st.hide ? " checked" : ""} /> Hide copies</label>
-      <label class="check" title="Also show the skills tagged ${esc(data.skip.map((s) => s.tag).join(", "))}, and those gone from their source"><input type="checkbox" id="all"${st.all ? " checked" : ""} /> Show all</label>
     </div>
     ${activeFilters(st)}
     ${repoNote ? `<p class="repo-banner"><a href="${esc(repoNote.url)}">${esc(repoNote.id)}</a>${repoNote.description ? ` · ${esc(repoNote.description)}` : ""}</p>` : ""}

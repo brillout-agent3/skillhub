@@ -10,15 +10,11 @@ import {
   tagOf,
   tagsOf,
 } from "../../skills.ts";
-import { skipped, type Facet } from "../../types.ts";
+import type { Facet } from "../../types.ts";
 
 export default function Page(): string {
-  // As many skills as each tag's link lists: skipped skills only count for the skip tags.
   const n = new Map<string, number>();
-  for (const s of data.skills)
-    for (const t of tagsOf(s))
-      if (!skipped(data, s) || data.skip.some(({ tag }) => tag === t))
-        n.set(t, (n.get(t) ?? 0) + 1);
+  for (const s of data.skills) for (const t of tagsOf(s)) n.set(t, (n.get(t) ?? 0) + 1);
   const tagLink = (t: string) => tagChip(t, skillsLink({ tags: [t] }));
   const sections = FACET_ORDER.map((id) => facetById.get(id))
     .filter((f): f is Facet => Boolean(f))

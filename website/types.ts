@@ -1,12 +1,14 @@
-/** The shape of ../data/skills.json, the single data file behind the site. */
+/**
+ * The shape of ../data/skills.json, the single data file behind the site: the approved skills,
+ * the ones it shows. The skills the crawl found but that aren't approved are in
+ * ../data/crawl.json, as `Crawl` in ../scripts/data.ts describes.
+ */
 
 export interface Data {
   /** When the data was last edited (YYYY-MM-DD). */
   updated: string;
-  /** When each kind of number was collected, which leaderboard.ts does daily, and when the tags were assigned (YYYY-MM-DD). */
+  /** When each kind of number was collected, which crawl.ts does daily, and when the tags were assigned (YYYY-MM-DD). */
   asOf: Record<"installs" | "stars" | "tags", string>;
-  /** The tags whose skills the skills list and the daily sync leave out, each with why. */
-  skip: { tag: string; note: string }[];
   facets: Facet[];
   repos: Repo[];
   bundles: Bundle[];
@@ -43,7 +45,7 @@ export interface Repo {
   url: string;
   /** `skills`: exists to ship skills. `project`: a product that also ships a skill. `index`: a curated list or catalog. */
   kind: "skills" | "project" | "index";
-  /** GitHub stars, or null when unknown. leaderboard.ts refreshes them for the repos of listed skills and bundles. */
+  /** GitHub stars, or null when unknown. crawl.ts refreshes them for the repos of approved skills and bundles. */
   stars: number | null;
   description: string | null;
   /** How many of the repo's skills were in the skills.sh all-time top 600. */
@@ -144,8 +146,6 @@ export interface SkillMd {
   version: string;
   /** When the copy last changed (YYYY-MM-DD). */
   updated: string;
-  /** When the SKILL.md disappeared from its source (YYYY-MM-DD). The copy keeps its last version. */
-  removed?: string;
   /** Words added plus words removed since the SKILL.md the TLDR summarizes, or all its words when there's no TLDR. */
   skew: number;
 }
@@ -155,13 +155,6 @@ export function github(skill: Skill): { repo: string; dir: string } {
   const [owner, name, ...dir] = skill.id.split("/");
   return { repo: `${owner}/${name}`, dir: dir.join("/") };
 }
-
-/**
- * Whether the skills list and the daily sync leave a skill out: it carries one of the `skip` tags,
- * or it's gone from its repo. Its page stays.
- */
-export const skipped = (data: Pick<Data, "skip">, skill: Skill) =>
-  data.skip.some(({ tag }) => skill.tags.includes(tag)) || Boolean(skill.skillMd?.removed);
 
 export interface SkillsSh {
   /** The skill's page on skills.sh. */
