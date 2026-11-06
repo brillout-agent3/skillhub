@@ -1941,6 +1941,31 @@
         "kind": "skills",
         "description": "Tw93's engineering habits, turned into your skills."
       }
+    },
+    {
+      "id": "resend/resend-skills",
+      "stars": 211,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Resend's agent skills for its email API, CLI and React Email, with its hosted MCP server.",
+        "note": "Three of its five skills (resend-cli, react-email, email-best-practices) are synced from other Resend repos, which skills.sh lists too."
+      }
+    },
+    {
+      "id": "jackwener/opencli",
+      "stars": 30939,
+      "agentReview": {
+        "kind": "project",
+        "description": "Convert any website into a CLI & run Browser Use on your logged-in Chrome."
+      }
+    },
+    {
+      "id": "ibelick/ui-skills",
+      "stars": 10720,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Skills for Design Engineers."
+      }
     }
   ],
   "bundles": [
@@ -24464,6 +24489,380 @@
           "research",
           "writing",
           "learning"
+        ]
+      }
+    },
+    {
+      "id": "antfu/skills/skills/antfu",
+      "name": "antfu",
+      "skills.sh": {
+        "url": "https://skills.sh/antfu/skills/antfu",
+        "installs": 17100,
+        "weeklyInstalls": [165, 121, 138, 188, 215, 243, 159, 167],
+        "firstSeen": "2026-01-28"
+      },
+      "skillMd": {
+        "version": "f63e9ec7bc85f67364b6596c2d29da87e83ce445",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Applies Anthony Fu's conventions and tool choices to JavaScript and TypeScript projects, from code layout and ESLint to pnpm catalogs and commit checks.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you start or maintain a JavaScript or TypeScript app or library and want it set up the way Anthony Fu sets up his own"
+            },
+            {
+              "label": "It does",
+              "text": "applies his code rules and tool picks: ni commands, @antfu/eslint-config with antislop on, Knip, tsdown, simple-git-hooks and named pnpm catalogs"
+            },
+            {
+              "label": "You get",
+              "text": "new projects that mirror his starter-ts template, and in every project one ci script that lints, type-checks, runs Knip, builds and tests"
+            },
+            {
+              "label": "Rule of thumb",
+              "text": "run nr lint --fix and nr ci before every commit, and fix the root cause instead of silencing rules"
+            }
+          ],
+          "text": "Anthony Fu's opinionated tooling and conventions for JavaScript and TypeScript projects. When scaffolding, the agent copies the layout of his starter-ts template rather than inventing one. Code rules: one focused purpose per file, types in types.ts and constants in constants.ts, runtime-agnostic code where possible and an @env comment where not, explicit return types, explicit imports with framework auto-imports turned off in new projects, no new path aliases, and comments that explain why rather than how. Tests sit beside the file as foo.test.ts, using describe and it, with snapshots for complex output. Tooling: ni to install and run scripts, fast-npm-meta to look up a package's latest version cheaply, @antfu/eslint-config with antislop on to flag redundant AI-style code, Knip for unused files, exports and dependencies, a pre-commit hook that runs the whole ci gate, skills-npm to link agent skills shipped inside npm packages, npm trusted publishing instead of tokens, and pnpm catalogs named prod, inlined, dev and frontend. References cover the ESLint config, project setup, app and library development, and monorepos.",
+          "permalink": "https://github.com/antfu/skills/tree/f63e9ec7bc85f67364b6596c2d29da87e83ce445/skills/antfu"
+        },
+        "tags": [
+          "category:engineering",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:typescript",
+          "stack:pnpm",
+          "stack:eslint",
+          "stack:vitest",
+          "code-quality",
+          "build-tools",
+          "ci"
+        ]
+      }
+    },
+    {
+      "id": "resend/resend-skills/skills/agent-email-inbox",
+      "name": "agent-email-inbox",
+      "skills.sh": {
+        "url": "https://skills.sh/resend/resend-skills/agent-email-inbox",
+        "installs": 13900,
+        "weeklyInstalls": [540, 550, 548, 613, 709, 638, 589, 426],
+        "firstSeen": "2026-03-15"
+      },
+      "skillMd": {
+        "version": "389de56a2e48903c4b8ac7b8f2b8ee1f2c1bb9df",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds a Resend email inbox your AI agent can act on, with security checks that keep untrusted senders from controlling it.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "an AI agent or app should receive email and act on it, such as a support handler or an email-to-task pipeline"
+            },
+            {
+              "label": "It does",
+              "text": "asks for an address to send tests to and a security level, then sets up the domain, a Resend inbox and a webhook endpoint, and replies inside the thread"
+            },
+            {
+              "label": "You get",
+              "text": "webhook code for Next.js or Express that verifies Resend's signature, rejects unknown senders and passes the rest to your agent"
+            },
+            {
+              "label": "Security levels",
+              "text": "five, from a strict sender allowlist, the recommended one, to a human approving untrusted actions"
+            },
+            {
+              "label": "Needs",
+              "text": "a Resend account with a full-access API key, ideally a new account just for the agent"
+            },
+            {
+              "label": "Fallback",
+              "text": "with no custom domain, or no inbox left on your plan, it receives on a resend.app address, with no threads"
+            }
+          ],
+          "text": "Resend's skill for giving an agent its own email address. Its premise: email is untrusted input, so an agent that acts on it can be steered by anyone who writes to it. The agent asks for your email address to send tests to, and whether to use a new Resend account, which it prefers, since the full-access key it needs reaches every project. Then it asks which of five security levels you want: an allowlist of senders, an allowlist of domains, content filtering, sandboxed processing with restricted agent capabilities, or human approval for untrusted actions. You verify a domain on Resend, preferably a subdomain, receiving mail through an MX record or by forwarding. The agent creates the inbox and a POST webhook that checks Resend's signature on the raw body, then fetches the email, since the webhook carries no body. It registers the webhook through the API, reaches localhost through Tailscale Funnel or ngrok, and replies inside the thread. Its common mistakes include comparing the whole From header instead of the address, trusting Reply-To, returning an error for rejected mail so Resend retries, and using a sending-only API key. It also says never to paste the key in chat.",
+          "permalink": "https://github.com/resend/resend-skills/tree/389de56a2e48903c4b8ac7b8f2b8ee1f2c1bb9df/skills/agent-email-inbox"
+        },
+        "tags": [
+          "category:agents",
+          "category:security",
+          "type:workflow",
+          "effect:remote",
+          "needs:account",
+          "by:official",
+          "stack:resend",
+          "email",
+          "security",
+          "guardrails",
+          "agent-development"
+        ],
+        "note": "Needs a Resend account with a full-access API key, and a custom domain for the inbox itself."
+      }
+    },
+    {
+      "id": "jackwener/opencli/skills/opencli-browser",
+      "name": "opencli-browser",
+      "skills.sh": {
+        "url": "https://skills.sh/jackwener/opencli/opencli-browser",
+        "installs": 20500,
+        "weeklyInstalls": [311, 255, 273, 223, 241, 300, 297, 251],
+        "firstSeen": "2026-04-08"
+      },
+      "skillMd": {
+        "version": "36bbbd7f60bd361a96e62e417a28ea09d6c2266b",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Drives your Chrome through the OpenCLI command line to read and act on pages, including logged-in sites, capture API calls and manage tabs.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a one-off task needs a real web page, including a site you're signed in to"
+            },
+            {
+              "label": "It does",
+              "text": "lists a page's interactive elements, then clicks, types, fills, uploads, extracts, screenshots or runs JavaScript, one opencli command at a time"
+            },
+            {
+              "label": "Also does",
+              "text": "captures the page's network requests, finds likely API calls in its scripts, and manages native Chrome tabs, windows and tab groups"
+            },
+            {
+              "label": "Needs",
+              "text": "the opencli CLI connected to Chrome; opencli doctor diagnoses the connection"
+            },
+            {
+              "label": "Not for",
+              "text": "reusable site commands, which OpenCLI's opencli-adapter-author skill writes"
+            }
+          ],
+          "text": "The OpenCLI project's skill for browsing with an agent. Page work happens in a named session, so separate tasks don't touch each other's tabs, and a profile flag picks the Chrome profile. The state command returns the URL and the page's interactive elements with refs, and actions target a ref, a CSS selector or flags such as role, name, label, text or test ID. fill replaces a field and checks its value, eval runs JavaScript in the page and can change it, wait holds for a request, selector, text or download, and frames and tabs are covered too. bind attaches the tab you already have open: the agent can navigate it but can't open, switch or close tabs. For data, network lists captured requests with their response shapes, and a static mode scans loaded scripts for candidate API calls without running them, which it treats as unproven. Native Chrome calls such as tabs.query or tabGroups.update need no session, and the tabs and windows they create stay open. Every command returns JSON with ok and data, or an error with a code and a hint; when a write's outcome is unknown, the agent checks the page before retrying.",
+          "permalink": "https://github.com/jackwener/opencli/tree/36bbbd7f60bd361a96e62e417a28ea09d6c2266b/skills/opencli-browser"
+        },
+        "tags": [
+          "category:browser",
+          "type:tool",
+          "effect:remote",
+          "needs:cli",
+          "needs:browser",
+          "by:official",
+          "stack:opencli",
+          "browser-automation",
+          "scraping"
+        ],
+        "note": "Works in your own Chrome, so it can act on the sites you're signed in to."
+      }
+    },
+    {
+      "id": "ibelick/ui-skills/skills/fixing-motion-performance",
+      "name": "fixing-motion-performance",
+      "skills.sh": {
+        "url": "https://skills.sh/ibelick/ui-skills/fixing-motion-performance",
+        "installs": 28300,
+        "weeklyInstalls": [520, 688, 661, 561, 588, 845, 1317, 827],
+        "firstSeen": "2026-01-22"
+      },
+      "skillMd": {
+        "version": "00db7d656719c399c091f3ea138c6f42a7fa4d98",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Applies rules that keep UI animations from janking, such as defaulting to transform and opacity, or reviews a file against them.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "animations stutter or transitions jank, or you're adding scroll-linked motion, blur or animated layout"
+            },
+            {
+              "label": "It does",
+              "text": "applies nine groups of rules in priority order, from never interleaving layout reads and writes to staying inside your animation library"
+            },
+            {
+              "label": "You get",
+              "text": "animation work within the rules, or for a file, a report quoting each violation with why it matters and a suggested code-level fix"
+            },
+            {
+              "label": "Won't",
+              "text": "switch or rewrite your animation library unless asked; it works within CSS, WAAPI, Motion, requestAnimationFrame or GSAP"
+            }
+          ],
+          "text": "The skill sorts what an animation changes by the rendering work it causes: composite (transform and opacity), paint (color, borders, gradients, masks, images, filters) and layout (size, position, flow, grid and flex). It keeps motion on the least expensive work that fits, defaulting to transform and opacity. Its rules: never interleave layout reads and writes in one frame, drive animation from scroll events, or run a requestAnimationFrame loop without a stop condition; measure once, then animate with transform, as in FLIP (measure where an element starts and ends, then animate the difference); use Scroll or View Timelines and IntersectionObserver instead of polling scroll position, and pause animations off-screen; animate paint only on small, isolated elements, and never animate inherited CSS variables; use will-change only briefly; keep blur at 8px or less and never animate it continuously; save view transitions for navigation. It prefers a cheaper technique over removing motion. Called alone, it applies the rules to animation work for the rest of the conversation; called with a file, it reviews that file and reports what to change. For any non-default choice it states the constraint that justifies it, such as surface size, duration or interaction.",
+          "permalink": "https://github.com/ibelick/ui-skills/tree/00db7d656719c399c091f3ea138c6f42a7fa4d98/skills/fixing-motion-performance"
+        },
+        "tags": [
+          "category:design",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "animation",
+          "performance",
+          "code-review"
+        ]
+      }
+    },
+    {
+      "id": "ibelick/ui-skills/skills/baseline-ui",
+      "name": "baseline-ui",
+      "skills.sh": {
+        "url": "https://skills.sh/ibelick/ui-skills/baseline-ui",
+        "installs": 25700,
+        "weeklyInstalls": [559, 736, 666, 584, 530, 804, 1337, 855],
+        "firstSeen": "2026-01-22"
+      },
+      "skillMd": {
+        "version": "00db7d656719c399c091f3ea138c6f42a7fa4d98",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Holds UI code to an opinionated baseline of stack, animation, typography and design rules against AI slop, or reviews a file against it.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "an agent's UI code looks generic and you want firm rules for it, or a file checked against them"
+            },
+            {
+              "label": "It does",
+              "text": "applies MUST, SHOULD and NEVER rules on stack, components, interaction, animation, typography, layout, performance and visual design"
+            },
+            {
+              "label": "You get",
+              "text": "UI work that follows the rules for the rest of the conversation, or a review quoting each violation with a suggested code-level fix"
+            },
+            {
+              "label": "Assumes",
+              "text": "Tailwind CSS defaults, motion/react, the cn helper and accessible primitives such as Base UI, React Aria or Radix"
+            }
+          ],
+          "text": "Ibelick's baseline against AI slop, the generic look of model-written interfaces. A sample of its rules: no animation unless asked, only transform and opacity animated, and no more than 200ms for interaction feedback; h-dvh instead of h-screen, and safe-area insets for fixed elements; text-balance for headings, text-pretty for body text and tabular-nums for data; a fixed z-index scale; no gradients unless asked and never purple or multicolor ones, no glow as the main affordance, one accent color per view; an AlertDialog for destructive actions, errors shown next to the action, and paste never blocked; aria-label on icon-only buttons and no hand-built keyboard or focus behavior; no useEffect for what render logic can do. It uses the project's existing components and color tokens first. Called alone, it applies the rules to all UI work in the conversation; called with a file, it lists each violation with the exact line, one sentence on why it matters and a suggested code-level fix.",
+          "permalink": "https://github.com/ibelick/ui-skills/tree/00db7d656719c399c091f3ea138c6f42a7fa4d98/skills/baseline-ui"
+        },
+        "tags": [
+          "category:design",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:tailwind",
+          "stack:react",
+          "design",
+          "anti-slop",
+          "animation",
+          "accessibility",
+          "code-review"
+        ],
+        "note": "Assumes Tailwind CSS, motion/react for JavaScript animation and the cn helper built on clsx and tailwind-merge."
+      }
+    },
+    {
+      "id": "ibelick/ui-skills/skills/fixing-accessibility",
+      "name": "fixing-accessibility",
+      "skills.sh": {
+        "url": "https://skills.sh/ibelick/ui-skills/fixing-accessibility",
+        "installs": 23300,
+        "weeklyInstalls": [394, 497, 482, 419, 418, 657, 1224, 763],
+        "firstSeen": "2026-01-22"
+      },
+      "skillMd": {
+        "version": "00db7d656719c399c091f3ea138c6f42a7fa4d98",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Applies accessibility rules to UI work, from accessible names and keyboard access to focus traps and form errors, or reviews a file against them.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you add buttons, links, forms, dialogs, menus or keyboard shortcuts, or want a file checked for accessibility"
+            },
+            {
+              "label": "It does",
+              "text": "applies rules in priority order: accessible names, keyboard access, focus and dialogs, semantics, forms and errors, announcements, contrast, media"
+            },
+            {
+              "label": "You get",
+              "text": "UI work that follows the rules, or a review quoting each violation with why it matters and a proposed small fix"
+            },
+            {
+              "label": "Rule of thumb",
+              "text": "native HTML before ARIA, and targeted fixes rather than rewriting large parts of the UI"
+            }
+          ],
+          "text": "The accessibility rules of ibelick's UI skills, in priority order. Every control needs an accessible name, icon-only buttons an aria-label and decorative icons aria-hidden; nothing clickable is a div without full keyboard support, focus stays visible and tabindex never goes above 0. Dialogs trap focus, set it inside on open, return it to the trigger on close and close on Escape. Native elements come before roles, headings don't skip levels, and lists and tables use their proper elements; complex widgets such as menus, dialogs and comboboxes use established accessible primitives. Form errors are tied to their fields with aria-describedby, invalid fields set aria-invalid and disabled submit buttons explain why. Critical errors use aria-live, toasts never carry critical information alone, hover-only interactions get keyboard equivalents, text and icons get sufficient contrast, disabled states don't rely on color alone, images get correct alt text, and non-essential motion respects reduced-motion settings. It won't migrate UI libraries or refactor unrelated code. Called alone, it applies the rules for the rest of the conversation; called with a file, it reviews that file and proposes small fixes.",
+          "permalink": "https://github.com/ibelick/ui-skills/tree/00db7d656719c399c091f3ea138c6f42a7fa4d98/skills/fixing-accessibility"
+        },
+        "tags": [
+          "category:design",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "accessibility",
+          "code-review"
+        ]
+      }
+    },
+    {
+      "id": "ibelick/ui-skills/skills/fixing-metadata",
+      "name": "fixing-metadata",
+      "skills.sh": {
+        "url": "https://skills.sh/ibelick/ui-skills/fixing-metadata",
+        "installs": 19400,
+        "weeklyInstalls": [275, 388, 355, 313, 302, 549, 1111, 654],
+        "firstSeen": "2026-01-22"
+      },
+      "skillMd": {
+        "version": "00db7d656719c399c091f3ea138c6f42a7fa4d98",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Audits and fixes a site's page metadata: titles, descriptions, canonical URLs, Open Graph and Twitter cards, favicons and JSON-LD.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you ship new pages, fix how links look when shared, or set up titles, canonical URLs or structured data"
+            },
+            {
+              "label": "It does",
+              "text": "finds pages with missing or wrong metadata, checks them against ranked rules and fixes duplicates and indexing problems first"
+            },
+            {
+              "label": "You get",
+              "text": "a small, metadata-only diff in which title, description, canonical URL and og:url agree"
+            },
+            {
+              "label": "Checks",
+              "text": "social cards on a real URL, not localhost"
+            }
+          ],
+          "text": "Metadata here is what sits in a page's head: its title and description, the canonical URL (the address search engines should treat as the page's own), robots directives, Open Graph and Twitter card tags for link previews, favicons and the manifest, JSON-LD structured data, and language alternates. Its rules: define metadata in one place per page with no duplicate tags, keep values deterministic, escape dynamic strings and give every page a safe default title and description; use noindex only for private, duplicate or staging pages; use absolute image URLs, and summary_large_image Twitter cards by default; add JSON-LD only when it matches what the page renders, never with invented ratings, reviews or prices; add hreflang alternates only for pages that exist. It follows the project's existing pattern, such as the Next.js metadata API, react-helmet or a hand-written head, and doesn't migrate SEO libraries or touch unrelated code.",
+          "permalink": "https://github.com/ibelick/ui-skills/tree/00db7d656719c399c091f3ea138c6f42a7fa4d98/skills/fixing-metadata"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "seo"
         ]
       }
     }
