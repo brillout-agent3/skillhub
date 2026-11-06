@@ -233,7 +233,10 @@ export interface SkillsSh {
    * from the "Weekly installs" chart of the skill's skills.sh page.
    */
   weeklyInstalls: number[] | null;
-  // TODO/ai where does that data come from exactly?
-  /** When skills.sh first saw the skill (YYYY-MM-DD). */
+  /**
+   * When skills.sh first saw the skill (YYYY-MM-DD), or null when unknown: the "First Seen" stat
+   * of the skill's skills.sh page, which the top 600 doesn't give. It never changes, so crawl.ts
+   * reads it once: when it records the skill in crawl.jsonc, or for an approved skill without one.
+   */
   firstSeen: string | null;
 }

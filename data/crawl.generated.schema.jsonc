@@ -103,7 +103,7 @@
         },
         "firstSeen": {
           "type": ["string", "null"],
-          "description": "When skills.sh first saw the skill (YYYY-MM-DD)."
+          "description": "When skills.sh first saw the skill (YYYY-MM-DD), or null when unknown: the \"First Seen\" stat of the skill's skills.sh page, which the top 600 doesn't give. It never changes, so crawl.ts reads it once: when it records the skill in crawl.jsonc, or for an approved skill without one."
         }
       },
       "required": ["url", "install", "installs", "weeklyInstalls", "firstSeen"],
