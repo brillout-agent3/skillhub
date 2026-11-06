@@ -68,19 +68,6 @@
       }
     },
     {
-      "name": "use-link-identity",
-      "repo": "stripe/link-cli",
-      "official": false,
-      "stars": 894,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/stripe/link-cli/use-link-identity",
-        "installs": 12500,
-        "weeklyInstalls": [0, 0, 0, 0, 1471, 3860, 4005, 1707],
-        "firstSeen": "2026-10-07"
-      }
-    },
-    {
       "name": "chrome-extensions",
       "repo": "googlechrome/modern-web-guidance",
       "official": false,
@@ -3123,19 +3110,6 @@
       }
     },
     {
-      "name": "modern-python",
-      "repo": "trailofbits/skills",
-      "official": true,
-      "stars": 8045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/trailofbits/skills/modern-python",
-        "installs": 9200,
-        "weeklyInstalls": [158, 186, 182, 198, 207, 238, 257, 283],
-        "firstSeen": "2026-01-26"
-      }
-    },
-    {
       "name": "remembering-conversations",
       "repo": "obra/episodic-memory",
       "official": false,
@@ -5190,19 +5164,6 @@
       }
     },
     {
-      "name": "agent-development",
-      "repo": "anthropics/claude-plugins-official",
-      "official": true,
-      "stars": 46288,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/anthropics/claude-plugins-official/agent-development",
-        "installs": 7800,
-        "weeklyInstalls": [197, 190, 87, 49, 140, 311, 260, 323],
-        "firstSeen": "2026-02-05"
-      }
-    },
-    {
       "name": "seo-sitemap",
       "repo": "agricidaniel/claude-seo",
       "official": false,
@@ -5866,32 +5827,6 @@
       }
     },
     {
-      "name": "hook-development",
-      "repo": "anthropics/claude-plugins-official",
-      "official": true,
-      "stars": 46288,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/anthropics/claude-plugins-official/hook-development",
-        "installs": 7400,
-        "weeklyInstalls": [186, 179, 80, 42, 128, 304, 255, 313],
-        "firstSeen": "2026-02-05"
-      }
-    },
-    {
-      "name": "mcp-integration",
-      "repo": "anthropics/claude-plugins-official",
-      "official": true,
-      "stars": 46288,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/anthropics/claude-plugins-official/mcp-integration",
-        "installs": 7400,
-        "weeklyInstalls": [187, 179, 81, 49, 131, 307, 253, 298],
-        "firstSeen": "2026-02-05"
-      }
-    },
-    {
       "name": "mongodb-query-optimizer",
       "repo": "mongodb/agent-skills",
       "official": false,
@@ -6019,32 +5954,6 @@
         "installs": 7300,
         "weeklyInstalls": [380, 381, 271, 264, 332, 526, 540, 740],
         "firstSeen": "2026-05-19"
-      }
-    },
-    {
-      "name": "command-development",
-      "repo": "anthropics/claude-plugins-official",
-      "official": true,
-      "stars": 46288,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/anthropics/claude-plugins-official/command-development",
-        "installs": 7300,
-        "weeklyInstalls": [185, 178, 78, 42, 129, 304, 252, 293],
-        "firstSeen": "2026-02-05"
-      }
-    },
-    {
-      "name": "writing-hookify-rules",
-      "repo": "anthropics/claude-plugins-official",
-      "official": true,
-      "stars": 46288,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/anthropics/claude-plugins-official/writing-hookify-rules",
-        "installs": 7300,
-        "weeklyInstalls": [187, 176, 77, 39, 128, 301, 250, 290],
-        "firstSeen": "2026-02-05"
       }
     },
     {
@@ -6279,32 +6188,6 @@
         "installs": 7200,
         "weeklyInstalls": [335, 307, 208, 236, 281, 763, 517, 1266],
         "firstSeen": "2026-05-19"
-      }
-    },
-    {
-      "name": "plugin-structure",
-      "repo": "anthropics/claude-plugins-official",
-      "official": true,
-      "stars": 46288,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/anthropics/claude-plugins-official/plugin-structure",
-        "installs": 7200,
-        "weeklyInstalls": [185, 176, 83, 42, 131, 305, 252, 295],
-        "firstSeen": "2026-02-05"
-      }
-    },
-    {
-      "name": "plugin-settings",
-      "repo": "anthropics/claude-plugins-official",
-      "official": true,
-      "stars": 46288,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/anthropics/claude-plugins-official/plugin-settings",
-        "installs": 7200,
-        "weeklyInstalls": [184, 176, 80, 40, 131, 302, 251, 290],
-        "firstSeen": "2026-02-05"
       }
     },
     {
@@ -6942,19 +6825,6 @@
         "installs": 7000,
         "weeklyInstalls": [65, 90, 71, 63, 113, 231, 193, 70],
         "firstSeen": "2026-03-09"
-      }
-    },
-    {
-      "name": "build-mcp-app",
-      "repo": "anthropics/claude-plugins-official",
-      "official": true,
-      "stars": 46288,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/anthropics/claude-plugins-official/build-mcp-app",
-        "installs": 7000,
-        "weeklyInstalls": [192, 193, 79, 51, 134, 309, 257, 298],
-        "firstSeen": "2026-03-20"
       }
     },
     {
@@ -37911,6 +37781,46 @@
     {
       "url": "https://skills.sh/stablyai/orca/orca-per-workspace-env",
       "note": "Tool docs: an agent's manual for orca."
+    },
+    {
+      "url": "https://skills.sh/anthropics/claude-plugins-official/agent-development",
+      "note": "Tool docs: an agent's manual for Claude Code plugins."
+    },
+    {
+      "url": "https://skills.sh/anthropics/claude-plugins-official/hook-development",
+      "note": "Tool docs: an agent's manual for Claude Code plugins."
+    },
+    {
+      "url": "https://skills.sh/anthropics/claude-plugins-official/mcp-integration",
+      "note": "Tool docs: an agent's manual for Claude Code plugins."
+    },
+    {
+      "url": "https://skills.sh/anthropics/claude-plugins-official/command-development",
+      "note": "Tool docs: an agent's manual for Claude Code."
+    },
+    {
+      "url": "https://skills.sh/anthropics/claude-plugins-official/writing-hookify-rules",
+      "note": "Tool docs: an agent's manual for hookify."
+    },
+    {
+      "url": "https://skills.sh/anthropics/claude-plugins-official/plugin-structure",
+      "note": "Tool docs: an agent's manual for Claude Code plugins."
+    },
+    {
+      "url": "https://skills.sh/anthropics/claude-plugins-official/plugin-settings",
+      "note": "Tool docs: an agent's manual for Claude Code plugins."
+    },
+    {
+      "url": "https://skills.sh/anthropics/claude-plugins-official/build-mcp-app",
+      "note": "Tool docs: an agent's manual for MCP Apps and the ext-apps SDK."
+    },
+    {
+      "url": "https://skills.sh/trailofbits/skills/modern-python",
+      "note": "Tool docs: an agent's manual for python."
+    },
+    {
+      "url": "https://skills.sh/stripe/link-cli/use-link-identity",
+      "note": "Tool docs: an agent's manual for link-cli."
     }
   ]
 }
