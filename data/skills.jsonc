@@ -2049,6 +2049,14 @@
         "kind": "project",
         "description": "Let agents control desktop software."
       }
+    },
+    {
+      "id": "usestrix/strix",
+      "stars": 74102,
+      "agentReview": {
+        "kind": "project",
+        "description": "The open-source AI pentesting tool: autonomous AI hackers that find and fix your app's vulnerabilities."
+      }
     }
   ],
   "bundles": [
@@ -3750,6 +3758,85 @@
           {
             "label": "GitHub Copilot CLI plugin; also adds capture hooks and the repo's 9 other skills; wire the MCP server with agentmemory connect copilot-cli",
             "command": "copilot plugin install rohitg00/agentmemory:plugin"
+          }
+        ]
+      }
+    },
+    {
+      "id": "usestrix/strix",
+      "skew": 0,
+      "agentReview": {
+        "name": "Strix",
+        "description": "Autonomous AI pentesting with Strix: scan code, web apps, APIs and the OWASP Top 10, fix findings and gate pull requests, self-hosted or managed.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to find and fix security vulnerabilities in your own app, API or code with autonomous AI pentesting"
+            },
+            {
+              "label": "It does",
+              "text": "runs Strix agents that exploit a target and validate each finding with a PoC, then helps you patch and re-test"
+            },
+            {
+              "label": "You get",
+              "text": "exploit-proven findings, root-cause fixes, CI gating and SARIF, from one engine run locally or in the cloud"
+            },
+            {
+              "label": "Works with",
+              "text": "the open-source CLI (Docker plus your LLM key) or the managed app.strix.ai cloud"
+            },
+            {
+              "label": "Needs",
+              "text": "a target you own or are authorized to test"
+            }
+          ],
+          "text": "Strix ships nine skills around one engine: autonomous AI agents that dynamically exploit a target and report only findings proven with a working proof-of-concept. penetration-testing-with-strix is the hub, covering install and the choice between the self-hosted open-source CLI (Docker plus your own LLM key, air-gap capable) and the managed app.strix.ai cloud. Four skills target a specific surface: web-app-penetration-testing for a running site, api-security-testing for REST/GraphQL/gRPC, owasp-top-10-testing for a category-mapped assessment, and find-security-vulnerabilities-in-code for a white-box code review. application-security-testing routes a whole product's assets to the right one and merges the results into a ranked plan. managed-pentesting-with-strix is the full cloud workflow. Once a scan reports, fix-security-vulnerabilities-with-strix patches root causes and re-scans to prove each exploit is closed, and ci-security-scanning-with-strix gates every pull request. All share the same SARIF output, so findings line up across local and cloud runs.",
+          "permalink": "https://github.com/usestrix/strix/tree/06015506625a78b981ae0b34be40239fc1b389be"
+        },
+        "skills": [
+          {
+            "id": "usestrix/strix/skills/penetration-testing-with-strix",
+            "standalone": true
+          },
+          {
+            "id": "usestrix/strix/skills/managed-pentesting-with-strix",
+            "standalone": true
+          },
+          {
+            "id": "usestrix/strix/skills/application-security-testing",
+            "standalone": false,
+            "note": "Routes each asset to the bundle's other Strix skills and sequences the runs; on its own it gives the mapping and a ranked plan but defers the actual testing and setup to them."
+          },
+          {
+            "id": "usestrix/strix/skills/find-security-vulnerabilities-in-code",
+            "standalone": true
+          },
+          {
+            "id": "usestrix/strix/skills/web-app-penetration-testing",
+            "standalone": true
+          },
+          {
+            "id": "usestrix/strix/skills/api-security-testing",
+            "standalone": true
+          },
+          {
+            "id": "usestrix/strix/skills/owasp-top-10-testing",
+            "standalone": true
+          },
+          {
+            "id": "usestrix/strix/skills/fix-security-vulnerabilities-with-strix",
+            "standalone": true
+          },
+          {
+            "id": "usestrix/strix/skills/ci-security-scanning-with-strix",
+            "standalone": true
+          }
+        ],
+        "install": [
+          {
+            "label": "Any agent, with the skills CLI",
+            "command": "npx skills add usestrix/strix"
           }
         ]
       }
@@ -26370,6 +26457,478 @@
           "stack:autodesk"
         ],
         "note": "Needs Flue (pip install flue, then flue setup) and the apps it drives. This skill only introduces Flue; once set up, Flue's installed skill takes over."
+      }
+    },
+    {
+      "id": "usestrix/strix/skills/penetration-testing-with-strix",
+      "name": "penetration-testing-with-strix",
+      "skills.sh": {
+        "url": "https://skills.sh/usestrix/strix/penetration-testing-with-strix",
+        "installs": 19500,
+        "weeklyInstalls": [1207, 1127, 1135, 1186, 1264, 1748, 1758, 1832],
+        "firstSeen": "2026-08-07"
+      },
+      "skillMd": {
+        "version": "06015506625a78b981ae0b34be40239fc1b389be",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Pentests a web app, API, codebase, URL or domain with Strix's autonomous agents, returning findings validated by working proof-of-concept exploits.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to pentest or security-scan an app, API, repo or URL and get exploit-proven findings"
+            },
+            {
+              "label": "It does",
+              "text": "runs autonomous AI pentesting agents that exploit the target in a sandbox and validate each finding with a proof-of-concept"
+            },
+            {
+              "label": "You get",
+              "text": "a report plus per-finding files with PoC and remediation, as Markdown, JSON, CSV and SARIF"
+            },
+            {
+              "label": "Unlike",
+              "text": "a static scanner, it reports only what it could actually exploit"
+            }
+          ],
+          "text": "The entry point to Strix, which runs AI pentesting agents that dynamically exploit a target and report only findings backed by a working proof-of-concept. Two interchangeable paths run the same engine: the open-source CLI, self-hosted in a Docker sandbox with your own LLM key, free and air-gap capable; and the managed app.strix.ai cloud, driven from the same binary with no Docker or key. The skill helps you choose per situation, then runs headless scans against local code, a deployed app or API, or a repo plus a live instance together, with scan modes from quick to deep and a budget cap. Results land in strix_runs as a report, per-finding files with PoCs, and SARIF. It warns that a clean exit is not proof of full coverage if a budget cap cut the run short. Hand findings to the fix skill and wire scanning into CI with the CI skill.",
+          "permalink": "https://github.com/usestrix/strix/tree/06015506625a78b981ae0b34be40239fc1b389be/skills/penetration-testing-with-strix"
+        },
+        "tags": [
+          "category:security",
+          "type:tool",
+          "effect:remote",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:strix",
+          "security",
+          "testing"
+        ],
+        "note": "Runs the open-source Strix CLI (needs Docker and an LLM API key) or the app.strix.ai cloud (needs an account). Only test targets you own or are authorized to test."
+      }
+    },
+    {
+      "id": "usestrix/strix/skills/fix-security-vulnerabilities-with-strix",
+      "name": "fix-security-vulnerabilities-with-strix",
+      "skills.sh": {
+        "url": "https://skills.sh/usestrix/strix/fix-security-vulnerabilities-with-strix",
+        "installs": 18400,
+        "weeklyInstalls": [1162, 1077, 1057, 1118, 1181, 1598, 1638, 1669],
+        "firstSeen": "2026-08-07"
+      },
+      "skillMd": {
+        "version": "06015506625a78b981ae0b34be40239fc1b389be",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Triages Strix findings, patches the root cause, and re-runs Strix to prove each exploit is closed.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a Strix scan has reported findings and you want to remediate them"
+            },
+            {
+              "label": "It does",
+              "text": "orders findings by severity, fixes the root cause with framework defenses, then re-scans to confirm the exploit is gone"
+            },
+            {
+              "label": "You get",
+              "text": "minimal patches and a per-finding report of root cause, fix location and verification result"
+            },
+            {
+              "label": "Keeps",
+              "text": "the fix verified by re-running the proof-of-concept, not just by inspection"
+            }
+          ],
+          "text": "Turns validated Strix findings into minimal, correct fixes. It pulls findings from a local strix_runs report or the cloud, works critical-to-low, and, because every finding came with a proof-of-concept, re-tests rather than dismissing anything as a false positive. For each it fixes the root cause (parameterize every query, enforce authorization in the handler) and prefers the framework's built-in defense over ad-hoc sanitization, keeping the diff minimal. It then re-runs Strix scoped to the changed area, or replays the original PoC, to prove the issue is closed, and checks the run actually completed rather than stopping early on a budget cap. The report gives severity, root cause, fix location and verification result per finding, and flags that a leaked secret must be rotated, not just removed.",
+          "permalink": "https://github.com/usestrix/strix/tree/06015506625a78b981ae0b34be40239fc1b389be/skills/fix-security-vulnerabilities-with-strix"
+        },
+        "tags": [
+          "category:security",
+          "category:debugging",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:strix",
+          "security",
+          "debugging"
+        ],
+        "note": "Acts on findings from a Strix scan; re-running Strix to verify needs the Strix CLI (Docker + LLM key) or an app.strix.ai account."
+      }
+    },
+    {
+      "id": "usestrix/strix/skills/ci-security-scanning-with-strix",
+      "name": "ci-security-scanning-with-strix",
+      "skills.sh": {
+        "url": "https://skills.sh/usestrix/strix/ci-security-scanning-with-strix",
+        "installs": 18000,
+        "weeklyInstalls": [1133, 1048, 1035, 1084, 1161, 1569, 1591, 1673],
+        "firstSeen": "2026-08-07"
+      },
+      "skillMd": {
+        "version": "06015506625a78b981ae0b34be40239fc1b389be",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Adds Strix security scanning to CI/CD so every pull request gets a diff-scoped AI pentest that blocks vulnerable code before merge.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want security scanning as a pre-merge gate in CI/CD"
+            },
+            {
+              "label": "It does",
+              "text": "adds a diff-scoped Strix scan to the pipeline, or connects the managed PR-review app, that fails the build on validated findings"
+            },
+            {
+              "label": "You get",
+              "text": "a workflow file or app connection, PR comments, and SARIF uploaded to code scanning"
+            },
+            {
+              "label": "Works with",
+              "text": "GitHub Actions, GitLab CI or any pipeline, self-hosted or managed"
+            }
+          ],
+          "text": "Wires Strix into a pipeline two ways. The self-hosted option adds a workflow step that installs Strix and runs a quick diff-scoped scan of the PR's changed files in your runner's Docker, failing the build on exit code 2; it includes a guard that fails the job unless the run actually completed, since a budget-capped run can exit clean with partial coverage. The managed option connects the Strix GitHub/GitLab/Bitbucket app (or triggers from a pipeline via token) so PRs are reviewed with no runner, Docker or LLM key, results posting as PR comments and to a dashboard. Both emit SARIF 2.1.0 for code scanning, and the skill shows how to resolve the PR's real base branch for diff scope. It tells you which repository secrets to add rather than creating them.",
+          "permalink": "https://github.com/usestrix/strix/tree/06015506625a78b981ae0b34be40239fc1b389be/skills/ci-security-scanning-with-strix"
+        },
+        "tags": [
+          "category:security",
+          "type:setup",
+          "effect:local",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:strix",
+          "stack:github",
+          "security",
+          "ci"
+        ],
+        "note": "Open-source option needs Docker and an LLM API key on the runner; managed option needs an app.strix.ai account. You add the required CI secrets."
+      }
+    },
+    {
+      "id": "usestrix/strix/skills/managed-pentesting-with-strix",
+      "name": "managed-pentesting-with-strix",
+      "skills.sh": {
+        "url": "https://skills.sh/usestrix/strix/managed-pentesting-with-strix",
+        "installs": 17900,
+        "weeklyInstalls": [1142, 1059, 1037, 1089, 1141, 1556, 1580, 1617],
+        "firstSeen": "2026-08-07"
+      },
+      "skillMd": {
+        "version": "06015506625a78b981ae0b34be40239fc1b389be",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Runs managed Strix pentests on app.strix.ai via the strix cloud CLI or REST API, with no local Docker or LLM key.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want Strix pentesting without running Docker or an LLM yourself, or you want team tracking and scheduled scans"
+            },
+            {
+              "label": "It does",
+              "text": "signs in, registers and verifies assets, uploads source safely, launches and polls scans, and triages findings through the strix cloud CLI"
+            },
+            {
+              "label": "You get",
+              "text": "validated findings in a dashboard, SARIF export, PR reviews, and compliance reports on the Enterprise plan"
+            },
+            {
+              "label": "Needs",
+              "text": "an app.strix.ai account; scans consume credits"
+            }
+          ],
+          "text": "The cloud counterpart to the open-source CLI, for sandboxed agents, teams and continuous testing. Everything runs through the strix cloud CLI (or the REST API), which mirrors every operation and returns JSON when not on a terminal. It covers device sign-in with least-privilege scopes, registering and verifying domains or repos, a two-step digest handoff that keeps a human in control of what source leaves the machine, launching and polling scans, listing and updating vulnerabilities, exporting SARIF, starting PR reviews, buying credits through an agent-payable flow, and setting up schedules and webhooks. Plan and role limits are enforced and passed through: report downloads need Enterprise, schedules need Pro, billing writes need an admin token. It shares the same engine and SARIF output as the OSS CLI, so you can mix the two.",
+          "permalink": "https://github.com/usestrix/strix/tree/06015506625a78b981ae0b34be40239fc1b389be/skills/managed-pentesting-with-strix"
+        },
+        "tags": [
+          "category:security",
+          "type:tool",
+          "effect:remote",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:strix",
+          "security",
+          "testing"
+        ],
+        "note": "Needs an app.strix.ai account; scans consume credits, and PDF/DOCX reports and schedules need paid plans. Only test assets you own or are authorized to test."
+      }
+    },
+    {
+      "id": "usestrix/strix/skills/web-app-penetration-testing",
+      "name": "web-app-penetration-testing",
+      "skills.sh": {
+        "url": "https://skills.sh/usestrix/strix/web-app-penetration-testing",
+        "installs": 15700,
+        "weeklyInstalls": [1171, 1099, 1074, 1144, 1197, 1663, 1703, 1736],
+        "firstSeen": "2026-08-20"
+      },
+      "skillMd": {
+        "version": "06015506625a78b981ae0b34be40239fc1b389be",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Pentests a live web app end to end with Strix, exploiting auth, access-control, injection and business-logic flaws and proving each with a PoC.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a black-box (or source-assisted) pentest of a running web app or staging site"
+            },
+            {
+              "label": "It does",
+              "text": "runs Strix agents against the URL with your test credentials and scope, exploiting and proving each finding"
+            },
+            {
+              "label": "You get",
+              "text": "a report and per-finding PoCs, strongest on multi-tenant IDOR and broken access control"
+            },
+            {
+              "label": "Needs",
+              "text": "the Strix CLI or cloud; two test accounts and credentials sharply improve results"
+            }
+          ],
+          "text": "The web-app-specific Strix workflow. It first pins down authorization and scope (the target is yours, prefer staging since agents send real payloads and change data, out-of-scope paths, and test credentials), because most real bugs live behind login and cross-account access can only be proven with two accounts. Then it runs a headless scan against the URL, passing credentials and focus areas by instruction, optionally adding the repo as a second target for white-box depth, and can reach a localhost dev server from the sandbox. It reads the report and per-finding PoCs, re-running each exploit to confirm it, and warns that a budget-capped run exiting clean is not full coverage. Setup and all flags live in the penetration-testing skill; hand findings to the fix skill and gate PRs with the CI skill.",
+          "permalink": "https://github.com/usestrix/strix/tree/06015506625a78b981ae0b34be40239fc1b389be/skills/web-app-penetration-testing"
+        },
+        "tags": [
+          "category:security",
+          "type:tool",
+          "effect:remote",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:strix",
+          "security",
+          "testing"
+        ],
+        "note": "Install and CLI setup live in the penetration-testing-with-strix skill. Runs the Strix CLI (Docker + LLM key) or the cloud (account); only test apps you own or are authorized to test."
+      }
+    },
+    {
+      "id": "usestrix/strix/skills/api-security-testing",
+      "name": "api-security-testing",
+      "skills.sh": {
+        "url": "https://skills.sh/usestrix/strix/api-security-testing",
+        "installs": 15600,
+        "weeklyInstalls": [1157, 1101, 1078, 1130, 1199, 1654, 1676, 1734],
+        "firstSeen": "2026-08-20"
+      },
+      "skillMd": {
+        "version": "06015506625a78b981ae0b34be40239fc1b389be",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Security-tests a REST, GraphQL or gRPC API with Strix, enumerating endpoints from a schema and exploiting the OWASP API Top 10 with proof-of-concept requests.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to security-test an API against the OWASP API Security Top 10"
+            },
+            {
+              "label": "It does",
+              "text": "feeds Strix the OpenAPI/GraphQL/Postman schema and tokens, then exploits authorization, injection and resource-consumption flaws"
+            },
+            {
+              "label": "You get",
+              "text": "a report with a proving request per finding, focused on BOLA/IDOR and function-level authorization"
+            },
+            {
+              "label": "Needs",
+              "text": "the Strix CLI or cloud; a schema and two tokens in different tenants matter most"
+            }
+          ],
+          "text": "Targets the way APIs fail: no rendered surface to crawl, bugs that are authorization-shaped, and endpoints that behave differently per token. It collects what the agents need first, a schema (OpenAPI/Swagger or Postman as a direct target, a .proto or GraphQL endpoint otherwise), two tokens in different tenants to prove BOLA/IDOR, a low- and high-privilege token for function-level authorization, example object IDs, out-of-scope routes and any rate limits. It passes the spec as a target so agents start from the real endpoint list, runs the scan with a focus instruction mapped to the OWASP API Security Top 10 (2023), and can add the backend source for depth or reach internal APIs through the cloud's network connector. Each finding carries the exact request that proved it; replay it before reporting. Setup is in the penetration-testing skill; remediate with the fix skill and gate PRs with the CI skill.",
+          "permalink": "https://github.com/usestrix/strix/tree/06015506625a78b981ae0b34be40239fc1b389be/skills/api-security-testing"
+        },
+        "tags": [
+          "category:security",
+          "type:tool",
+          "effect:remote",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:strix",
+          "security",
+          "testing",
+          "backend"
+        ],
+        "note": "Install and CLI setup live in the penetration-testing-with-strix skill. Runs the Strix CLI (Docker + LLM key) or the cloud (account); only test APIs you own or are authorized to test."
+      }
+    },
+    {
+      "id": "usestrix/strix/skills/owasp-top-10-testing",
+      "name": "owasp-top-10-testing",
+      "skills.sh": {
+        "url": "https://skills.sh/usestrix/strix/owasp-top-10-testing",
+        "installs": 15500,
+        "weeklyInstalls": [1173, 1108, 1077, 1148, 1198, 1628, 1673, 1715],
+        "firstSeen": "2026-08-20"
+      },
+      "skillMd": {
+        "version": "06015506625a78b981ae0b34be40239fc1b389be",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Tests an application against the current OWASP Top 10 with Strix, exploiting each category it can and reporting coverage honestly.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need an assessment mapped to OWASP Top 10 categories"
+            },
+            {
+              "label": "It does",
+              "text": "runs Strix against each OWASP Top 10:2025 category and maps every proven finding back to its category"
+            },
+            {
+              "label": "You get",
+              "text": "findings grouped by category, with a frank note of what a runtime scan cannot assess"
+            },
+            {
+              "label": "Keeps",
+              "text": "categories like logging/alerting marked not-testable rather than reported as passed"
+            }
+          ],
+          "text": "Treats the OWASP Top 10 as a risk taxonomy, not a test suite: it exercises each category against the real application and reports only what is actually exploitable. It defaults to the current OWASP Top 10:2025 (SSRF folded into A01, a new software-supply-chain category and a new exceptional-conditions category) and asks before using an older edition. A coverage table states honestly which categories a runtime scan handles strongly (access control, misconfiguration, injection, auth), which only partially (crypto, insecure design, integrity, supply chain), and which it cannot test from outside (logging and alerting). For full coverage it wants both source and a running instance plus credentials at two privilege levels, and runs a deep scan. The report groups findings by category, labels the edition, and states what could not be assessed. It also points APIs to the api-security-testing skill.",
+          "permalink": "https://github.com/usestrix/strix/tree/06015506625a78b981ae0b34be40239fc1b389be/skills/owasp-top-10-testing"
+        },
+        "tags": [
+          "category:security",
+          "type:tool",
+          "effect:remote",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:strix",
+          "security",
+          "testing"
+        ],
+        "note": "Install and CLI setup live in the penetration-testing-with-strix skill. Runs the Strix CLI (Docker + LLM key) or the cloud (account); only test apps you own or are authorized to test."
+      }
+    },
+    {
+      "id": "usestrix/strix/skills/find-security-vulnerabilities-in-code",
+      "name": "find-security-vulnerabilities-in-code",
+      "skills.sh": {
+        "url": "https://skills.sh/usestrix/strix/find-security-vulnerabilities-in-code",
+        "installs": 15400,
+        "weeklyInstalls": [1168, 1091, 1059, 1127, 1183, 1614, 1656, 1689],
+        "firstSeen": "2026-08-20"
+      },
+      "skillMd": {
+        "version": "06015506625a78b981ae0b34be40239fc1b389be",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Runs a white-box Strix security review of a codebase, reasoning about data flow and authorization, then exploiting findings in a sandbox with a PoC.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a security review of a repo, working tree or PR that reports proven issues, not scanner noise"
+            },
+            {
+              "label": "It does",
+              "text": "reads the source to model routes, sinks and authorization, then exploits what it finds in a live sandbox"
+            },
+            {
+              "label": "You get",
+              "text": "a short list of proven findings with file, line, PoC and remediation, plus SARIF"
+            },
+            {
+              "label": "Unlike",
+              "text": "a pattern-matching SAST tool, it validates exploitability instead of listing potential hits"
+            }
+          ],
+          "text": "A white-box Strix review: the agents read the source to build a model of routes, sinks and authorization checks, then attempt real exploitation, so the output is a short list of proven issues rather than hundreds of potential hits. It runs against a local tree, a GitHub repo, a monorepo subtree, or just a branch's diff, mounting local code writable in the sandbox. Two things sharply improve results: adding a running instance so findings are confirmed against live behavior (static-only findings are flagged unconfirmed), and scoping to the risky subtree while telling the agents the tenancy model and trust boundaries they cannot infer. Results come with file, line, PoC and SARIF. It is exploit-validated review, not an inventory, so keep a dependency scanner and secret scanning alongside it. Remediate with the fix skill; for PRs use the CI skill.",
+          "permalink": "https://github.com/usestrix/strix/tree/06015506625a78b981ae0b34be40239fc1b389be/skills/find-security-vulnerabilities-in-code"
+        },
+        "tags": [
+          "category:security",
+          "category:debugging",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:strix",
+          "security",
+          "code-review",
+          "testing"
+        ],
+        "note": "Install and CLI setup live in the penetration-testing-with-strix skill. Runs the Strix CLI (Docker + LLM key) or the cloud (account)."
+      }
+    },
+    {
+      "id": "usestrix/strix/skills/application-security-testing",
+      "name": "application-security-testing",
+      "skills.sh": {
+        "url": "https://skills.sh/usestrix/strix/application-security-testing",
+        "installs": 15200,
+        "weeklyInstalls": [1149, 1078, 1050, 1101, 1162, 1593, 1611, 1648],
+        "firstSeen": "2026-08-20"
+      },
+      "skillMd": {
+        "version": "06015506625a78b981ae0b34be40239fc1b389be",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Maps a product's assets to the right Strix test, runs them in sequence, and consolidates the results into one impact-ranked remediation plan.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want an application-security review across a whole product but don't yet know which test you need"
+            },
+            {
+              "label": "It does",
+              "text": "maps each asset (code, web app, API, CI) to the right Strix skill, sequences the runs, and merges findings into one ranked plan"
+            },
+            {
+              "label": "You get",
+              "text": "a remediation plan ordered by proven impact, with honest coverage gaps noted"
+            },
+            {
+              "label": "Unlike",
+              "text": "the single-target skills, it decides what to run and in what order"
+            }
+          ],
+          "text": "The entry point for a broad 'make my application secure' request where the target is not yet one URL or repo. It maps the product's assets, source, running environments, APIs, authentication and constraints, then picks the matching Strix skill per asset: code review, web-app pentest, API testing, OWASP assessment, CI scanning, or the managed cloud. It recommends a first-assessment sequence, review the code first since it is cheapest and maps the authorization model, then pentest staging with the repo as a second target, then add CI, running one asset at a time and reading each report before the next. It consolidates findings into a single list ranked by proven impact rather than scanner severity, deduplicates issues that surface in both code and live runs, and states plainly what was not tested. It defers the actual flags and result-reading to the per-asset skills and hands remediation to the fix skill.",
+          "permalink": "https://github.com/usestrix/strix/tree/06015506625a78b981ae0b34be40239fc1b389be/skills/application-security-testing"
+        },
+        "tags": [
+          "category:security",
+          "type:router",
+          "effect:none",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:strix",
+          "security",
+          "testing"
+        ]
       }
     }
   ]
