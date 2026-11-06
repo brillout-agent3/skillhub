@@ -143,7 +143,7 @@ export function approvedPages(data: Data): Set<string> {
   return pages;
 }
 
-/** What a skill of the top 600 needs to be queued: all-time installs, and its GitHub repo's stars. */
+/** What a skill of the top 600 needs to qualify: all-time installs, and its GitHub repo's stars. */
 export const MINIMUMS = { installs: 10000, stars: 100 };
 
 /** Whether a skill of the top 600 reaches the minimums. Unknown stars don't. */

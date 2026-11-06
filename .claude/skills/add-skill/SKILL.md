@@ -1,6 +1,6 @@
 ---
 name: add-skill
-description: Approve or skip the skills queued in SkillHub's crawl.jsonc, add a skill to skills.jsonc, or retag one, including whether it belongs to a bundle. Use when asked to work through the queue, to add, approve, skip, tag, retag or review skills, or to record a bundle of skills.
+description: Approve or skip the qualified skills in SkillHub's crawl.jsonc, add a skill to skills.jsonc, or retag one, including whether it belongs to a bundle. Use when asked to work through the qualified skills (the queue), to add, approve, skip, tag, retag or review skills, or to record a bundle of skills.
 ---
 
 # Skills and their states
@@ -9,20 +9,20 @@ Every skill SkillHub knows of has one state, under its skills.sh page:
 
 - **Approved:** shown on the site, with tags, a TLDR and a copy of its SKILL.md. In `data/skills.jsonc`.
 - **Unqualified:** found in the skills.sh all-time top 600, but under the minimums (`MINIMUMS` in `scripts/data.ts`: all-time installs, and its repo's GitHub stars). In `data/crawl.jsonc`.
-- **Queued:** at the minimums or above, waiting for an agent to approve or skip it. In `data/crawl.jsonc`.
+- **Qualified:** at the minimums or above, waiting for an agent to approve or skip it. In `data/crawl.jsonc`.
 - **Skipped:** not shown, with a note saying why, and no agent data: no tags, no TLDR, no copy. In `data/crawl.jsonc`.
 
-The daily crawl (`pnpm run crawl`) records new skills and moves them between queued and unqualified. The daily sync skips an approved skill whose SKILL.md is gone from its repo. The two files are cumulative: a skill never leaves them, only its state changes, and `pnpm run check` fails when a skill has two states. `Crawl` in `data/types.ts` describes crawl.jsonc.
+The daily crawl (`pnpm run crawl`) records new skills and moves them between qualified and unqualified. The daily sync skips an approved skill whose SKILL.md is gone from its repo. The two files are cumulative: a skill never leaves them, only its state changes, and `pnpm run check` fails when a skill has two states. `Crawl` in `data/types.ts` describes crawl.jsonc.
 
 Both files are JSONC and may hold comments, which the scripts keep. Edit them in place, or in code with `readData`/`writeData` and `readCrawl`/`writeCrawl` of `scripts/data.ts`; `JSON.parse` and `JSON.stringify` would drop the comments.
 
-## Work through the queue
+## Work through the qualified skills
 
 - The user decides each time how many skills, or which ones. If they didn't say, ask, and recommend a number.
-- Take a repo's queued skills together: skills.sh counts an install of a repo once per skill in it, so its skills arrive together, and they may form a bundle.
+- Take a repo's qualified skills together: skills.sh counts an install of a repo once per skill in it, so its skills arrive together, and they may form a bundle.
 - Read each skill's SKILL.md on GitHub, then skip it or approve it.
 
-**Skip** a skill the site shouldn't show: move it from `queued` to `skipped`, as its skills.sh page (`url`) and a `note` saying why, and write nothing else about it. Skip:
+**Skip** a skill the site shouldn't show: move it from `qualified` to `skipped`, as its skills.sh page (`url`) and a `note` saying why, and write nothing else about it. Skip:
 
 - Tool docs: documentation for agents of one product, how to build with it, configure it, deploy to it or operate it, such as a framework's best practices or a cloud's CLI. They only matter once someone has chosen the product, so browsing them discovers nothing. A skill that gets a job done through a tool, such as browsing, testing, scraping, searching or generating media, isn't tool docs: there, the tool is how, not what.
 - A retired skill, whose SKILL.md points to a replacement.

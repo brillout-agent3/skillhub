@@ -1795,9 +1795,8 @@
       }
     }
   ],
-  // TODO/ai rename prop to "unqualified" ?
   // TODO/ai move it to the top?
-  "queued": [
+  "qualified": [
     {
       "name": "hyperframes-animation",
       "repo": "heygen-com/hyperframes",

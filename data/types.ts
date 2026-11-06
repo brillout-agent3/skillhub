@@ -37,7 +37,7 @@ export interface Crawl {
    * At the minimums (`MINIMUMS` in ../scripts/data.ts) or above, most installed first: waiting for
    * an agent to approve or skip them, with the add-skill skill.
    */
-  queued: Crawled[];
+  qualified: Crawled[];
   /** Not to be shown, each with why, and with no agent data: no tags, no TLDR, no copy of its SKILL.md. */
   skipped: Skipped[];
 }

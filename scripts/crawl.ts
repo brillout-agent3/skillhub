@@ -10,10 +10,9 @@
  * - gives the repos of approved skills and bundles their GitHub stars (when GITHUB_TOKEN is set),
  *   and every repo the count of its skills in the top 600;
  * - records the other skills of the top 600 in crawl.jsonc, never removing one: a skill on GitHub
- *   is queued while it reaches the minimums and unqualified while it doesn't, and a website's is
+ *   is qualified while it reaches the minimums and unqualified while it doesn't, and a website's is
  *   skipped (not on GitHub). A skill that leaves the top
- *   600 keeps its state and its last numbers. An agent works through the queue with the add-skill
- *   skill.
+ *   600 keeps its state and its last numbers. An agent approves or skips the qualified skills with the add-skill skill.
  *
  * Run: pnpm run crawl
  */
@@ -179,7 +178,7 @@ data.asOf.installs = today;
 const approved = approvedPages(data);
 const skipped = new Set(crawl.skipped.map((s) => pageKey(s.url)));
 const recorded = new Map(
-  [...crawl.queued, ...crawl.unqualified].map((c) => [pageKey(c["skills.sh"].url), c]),
+  [...crawl.qualified, ...crawl.unqualified].map((c) => [pageKey(c["skills.sh"].url), c]),
 );
 const added: string[] = [];
 await pool(board, 4, async (e) => {
@@ -224,7 +223,7 @@ await pool(board, 4, async (e) => {
 
 // ------------------------------------------------------------------- stars
 
-// For the repos of approved skills and bundles, and of the queued and unqualified skills the
+// For the repos of approved skills and bundles, and of the qualified and unqualified skills the
 // crawl just saw.
 const perRepo = new Map<string, number>();
 for (const e of board)
@@ -257,25 +256,27 @@ for (const c of seenToday) c.stars = stars.get(c.repo) ?? c.stars;
 
 // ------------------------------------------------------------------- states
 
-// The minimums decide between queued and unqualified, from the numbers of today's crawl only: a
+// The minimums decide between qualified and unqualified, from the numbers of today's crawl only: a
 // skill that left the top 600 keeps its state.
 const byInstalls = (a: Crawled, b: Crawled) =>
   (b["skills.sh"].installs ?? -1) - (a["skills.sh"].installs ?? -1);
-const queuedBefore = new Set(crawl.queued.map((c) => pageKey(c["skills.sh"].url)));
-const queued = (c: Crawled) =>
-  c.seen === today ? passes(c) : queuedBefore.has(pageKey(c["skills.sh"].url));
-crawl.queued = [...recorded.values()].filter(queued).sort(byInstalls);
-crawl.unqualified = [...recorded.values()].filter((c) => !queued(c)).sort(byInstalls);
-const newlyQueued = crawl.queued.filter((c) => !queuedBefore.has(pageKey(c["skills.sh"].url)));
+const qualifiedBefore = new Set(crawl.qualified.map((c) => pageKey(c["skills.sh"].url)));
+const qualifies = (c: Crawled) =>
+  c.seen === today ? passes(c) : qualifiedBefore.has(pageKey(c["skills.sh"].url));
+crawl.qualified = [...recorded.values()].filter(qualifies).sort(byInstalls);
+crawl.unqualified = [...recorded.values()].filter((c) => !qualifies(c)).sort(byInstalls);
+const newlyQualified = crawl.qualified.filter(
+  (c) => !qualifiedBefore.has(pageKey(c["skills.sh"].url)),
+);
 crawl.asOf = today;
 
 writeData(data);
 writeCrawl(crawl);
 
 console.log(
-  `Crawled the skills.sh top ${board.length}: refreshed ${data.skills.length} approved skills (${fromPages} from their own page)${stars.size ? ` and the stars of ${stars.size} repos` : ""}. crawl.jsonc: ${crawl.queued.length} queued (${newlyQueued.length} new), ${crawl.unqualified.length} unqualified, ${crawl.skipped.length} skipped.`,
+  `Crawled the skills.sh top ${board.length}: refreshed ${data.skills.length} approved skills (${fromPages} from their own page)${stars.size ? ` and the stars of ${stars.size} repos` : ""}. crawl.jsonc: ${crawl.qualified.length} qualified (${newlyQualified.length} new), ${crawl.unqualified.length} unqualified, ${crawl.skipped.length} skipped.`,
 );
 for (const line of added) console.log(`  ${line}`);
-for (const c of newlyQueued) console.log(`  queued ${c["skills.sh"].url}`);
+for (const c of newlyQualified) console.log(`  qualified ${c["skills.sh"].url}`);
 for (const e of errors) console.error(`  failed ${e}`);
 if (errors.length) process.exit(1);
