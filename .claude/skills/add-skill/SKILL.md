@@ -8,7 +8,7 @@ description: Approve or skip the skills queued in SkillHub's crawl.jsonc, add a 
 Every skill SkillHub knows of has one state, under its skills.sh page:
 
 - **Approved:** shown on the site, with tags, a TLDR and a copy of its SKILL.md. In `data/skills.jsonc`.
-- **Crawled:** found in the skills.sh all-time top 600, but under the `minimums` (installs, and its repo's GitHub stars). In `data/crawl.jsonc`.
+- **Crawled:** found in the skills.sh all-time top 600, but under the minimums (`MINIMUMS` in `scripts/data.ts`: all-time installs, and its repo's GitHub stars). In `data/crawl.jsonc`.
 - **Queued:** at the minimums or above, waiting for an agent to approve or skip it. In `data/crawl.jsonc`.
 - **Skipped:** not shown, with a note saying why, and no agent data: no tags, no TLDR, no copy. In `data/crawl.jsonc`.
 

@@ -263,7 +263,7 @@ const byInstalls = (a: Crawled, b: Crawled) =>
   (b["skills.sh"].installs ?? -1) - (a["skills.sh"].installs ?? -1);
 const queuedBefore = new Set(crawl.queued.map((c) => pageKey(c["skills.sh"].url)));
 const queued = (c: Crawled) =>
-  c.seen === today ? passes(crawl, c) : queuedBefore.has(pageKey(c["skills.sh"].url));
+  c.seen === today ? passes(c) : queuedBefore.has(pageKey(c["skills.sh"].url));
 crawl.crawled = [...recorded.values()].filter((c) => !queued(c)).sort(byInstalls);
 crawl.queued = [...recorded.values()].filter(queued).sort(byInstalls);
 const newlyQueued = crawl.queued.filter((c) => !queuedBefore.has(pageKey(c["skills.sh"].url)));

@@ -14,20 +14,6 @@
           "type": "string",
           "description": "When crawl.ts last ran (YYYY-MM-DD)."
         },
-        "minimums": {
-          "type": "object",
-          "properties": {
-            "installs": {
-              "type": "number"
-            },
-            "stars": {
-              "type": "number"
-            }
-          },
-          "required": ["installs", "stars"],
-          "additionalProperties": false,
-          "description": "What a crawled skill needs to be queued: all-time installs, and its GitHub repo's stars."
-        },
         "crawled": {
           "type": "array",
           "items": {
@@ -40,7 +26,7 @@
           "items": {
             "$ref": "#/definitions/Crawled"
           },
-          "description": "At the minimums or above, most installed first: waiting for an agent to approve or skip them, with the add-skill skill."
+          "description": "At the minimums (`MINIMUMS` in ../scripts/data.ts) or above, most installed first: waiting for an agent to approve or skip them, with the add-skill skill."
         },
         "skipped": {
           "type": "array",
@@ -50,7 +36,7 @@
           "description": "Not to be shown, each with why, and with no agent data: no tags, no TLDR, no copy of its SKILL.md."
         }
       },
-      "required": ["$schema", "asOf", "minimums", "crawled", "queued", "skipped"],
+      "required": ["$schema", "asOf", "crawled", "queued", "skipped"],
       "additionalProperties": false,
       "description": "The shape of data/crawl.jsonc: every skill the crawl has seen in the skills.sh all-time top 600 that isn't approved (the approved ones are in skills.jsonc), keyed by its skills.sh page. The two files are cumulative: a skill that lands in either never leaves them, only its state changes. Unlike skills.jsonc, crawl.jsonc takes any skill, such as one a website publishes."
     },

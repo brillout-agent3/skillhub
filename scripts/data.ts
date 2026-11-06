@@ -143,9 +143,12 @@ export function approvedPages(data: Data): Set<string> {
   return pages;
 }
 
-/** Whether a crawled skill passes the minimums. Unknown stars don't. */
-export const passes = ({ minimums }: Pick<Crawl, "minimums">, c: Crawled) =>
-  (c["skills.sh"].installs ?? 0) >= minimums.installs && (c.stars ?? -1) >= minimums.stars;
+/** What a crawled skill needs to be queued: all-time installs, and its GitHub repo's stars. */
+export const MINIMUMS = { installs: 10000, stars: 100 };
+
+/** Whether a crawled skill reaches the minimums. Unknown stars don't. */
+export const passes = (c: Crawled) =>
+  (c["skills.sh"].installs ?? 0) >= MINIMUMS.installs && (c.stars ?? -1) >= MINIMUMS.stars;
 
 // -------------------------------------------------------------------- TLDRs
 

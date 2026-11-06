@@ -31,11 +31,12 @@ export interface Crawl {
   $schema: string;
   /** When crawl.ts last ran (YYYY-MM-DD). */
   asOf: string;
-  /** What a crawled skill needs to be queued: all-time installs, and its GitHub repo's stars. */
-  minimums: { installs: number; stars: number };
   /** Below the minimums, most installed first. */
   crawled: Crawled[];
-  /** At the minimums or above, most installed first: waiting for an agent to approve or skip them, with the add-skill skill. */
+  /**
+   * At the minimums (`MINIMUMS` in ../scripts/data.ts) or above, most installed first: waiting for
+   * an agent to approve or skip them, with the add-skill skill.
+   */
   queued: Crawled[];
   /** Not to be shown, each with why, and with no agent data: no tags, no TLDR, no copy of its SKILL.md. */
   skipped: Skipped[];
