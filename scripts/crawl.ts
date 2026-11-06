@@ -9,9 +9,9 @@
  *   date;
  * - gives the repos of approved skills and bundles their GitHub stars (when GITHUB_TOKEN is set),
  *   and every repo the count of its skills in the top 600;
- * - records the other skills of the top 600 in crawl.jsonc, never removing one: a new skill on
- *   GitHub is crawled, a website's is skipped (not on GitHub), and a crawled skill that reaches
- *   the minimums is queued, or crawled again once it falls under them. A skill that leaves the top
+ * - records the other skills of the top 600 in crawl.jsonc, never removing one: a skill on GitHub
+ *   is queued while it reaches the minimums and unqualified while it doesn't, and a website's is
+ *   skipped (not on GitHub). A skill that leaves the top
  *   600 keeps its state and its last numbers. An agent works through the queue with the add-skill
  *   skill.
  *
@@ -179,7 +179,7 @@ data.asOf.installs = today;
 const approved = approvedPages(data);
 const skipped = new Set(crawl.skipped.map((s) => pageKey(s.url)));
 const recorded = new Map(
-  [...crawl.crawled, ...crawl.queued].map((c) => [pageKey(c["skills.sh"].url), c]),
+  [...crawl.queued, ...crawl.unqualified].map((c) => [pageKey(c["skills.sh"].url), c]),
 );
 const added: string[] = [];
 await pool(board, 4, async (e) => {
@@ -214,7 +214,7 @@ await pool(board, 4, async (e) => {
       "skills.sh": sh,
     };
     recorded.set(pageKey(url), c);
-    added.push(`crawled ${url}`);
+    added.push(`recorded ${url}`);
   }
   c.official = Boolean(e.isOfficial);
   c.seen = today;
@@ -224,8 +224,8 @@ await pool(board, 4, async (e) => {
 
 // ------------------------------------------------------------------- stars
 
-// For the repos of approved skills and bundles, and of the crawled and queued skills the crawl
-// just saw.
+// For the repos of approved skills and bundles, and of the queued and unqualified skills the
+// crawl just saw.
 const perRepo = new Map<string, number>();
 for (const e of board)
   perRepo.set(e.source.toLowerCase(), (perRepo.get(e.source.toLowerCase()) ?? 0) + 1);
@@ -257,15 +257,15 @@ for (const c of seenToday) c.stars = stars.get(c.repo) ?? c.stars;
 
 // ------------------------------------------------------------------- states
 
-// The minimums decide between crawled and queued, from the numbers of today's crawl only: a skill
-// that left the top 600 keeps its state.
+// The minimums decide between queued and unqualified, from the numbers of today's crawl only: a
+// skill that left the top 600 keeps its state.
 const byInstalls = (a: Crawled, b: Crawled) =>
   (b["skills.sh"].installs ?? -1) - (a["skills.sh"].installs ?? -1);
 const queuedBefore = new Set(crawl.queued.map((c) => pageKey(c["skills.sh"].url)));
 const queued = (c: Crawled) =>
   c.seen === today ? passes(c) : queuedBefore.has(pageKey(c["skills.sh"].url));
-crawl.crawled = [...recorded.values()].filter((c) => !queued(c)).sort(byInstalls);
 crawl.queued = [...recorded.values()].filter(queued).sort(byInstalls);
+crawl.unqualified = [...recorded.values()].filter((c) => !queued(c)).sort(byInstalls);
 const newlyQueued = crawl.queued.filter((c) => !queuedBefore.has(pageKey(c["skills.sh"].url)));
 crawl.asOf = today;
 
@@ -273,7 +273,7 @@ writeData(data);
 writeCrawl(crawl);
 
 console.log(
-  `Crawled the skills.sh top ${board.length}: refreshed ${data.skills.length} approved skills (${fromPages} from their own page)${stars.size ? ` and the stars of ${stars.size} repos` : ""}. crawl.jsonc: ${crawl.crawled.length} crawled, ${crawl.queued.length} queued (${newlyQueued.length} new), ${crawl.skipped.length} skipped.`,
+  `Crawled the skills.sh top ${board.length}: refreshed ${data.skills.length} approved skills (${fromPages} from their own page)${stars.size ? ` and the stars of ${stars.size} repos` : ""}. crawl.jsonc: ${crawl.queued.length} queued (${newlyQueued.length} new), ${crawl.unqualified.length} unqualified, ${crawl.skipped.length} skipped.`,
 );
 for (const line of added) console.log(`  ${line}`);
 for (const c of newlyQueued) console.log(`  queued ${c["skills.sh"].url}`);

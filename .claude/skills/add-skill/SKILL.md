@@ -8,11 +8,11 @@ description: Approve or skip the skills queued in SkillHub's crawl.jsonc, add a 
 Every skill SkillHub knows of has one state, under its skills.sh page:
 
 - **Approved:** shown on the site, with tags, a TLDR and a copy of its SKILL.md. In `data/skills.jsonc`.
-- **Crawled:** found in the skills.sh all-time top 600, but under the minimums (`MINIMUMS` in `scripts/data.ts`: all-time installs, and its repo's GitHub stars). In `data/crawl.jsonc`.
+- **Unqualified:** found in the skills.sh all-time top 600, but under the minimums (`MINIMUMS` in `scripts/data.ts`: all-time installs, and its repo's GitHub stars). In `data/crawl.jsonc`.
 - **Queued:** at the minimums or above, waiting for an agent to approve or skip it. In `data/crawl.jsonc`.
 - **Skipped:** not shown, with a note saying why, and no agent data: no tags, no TLDR, no copy. In `data/crawl.jsonc`.
 
-The daily crawl (`pnpm run crawl`) records new skills and moves them between crawled and queued. The daily sync skips an approved skill whose SKILL.md is gone from its repo. The two files are cumulative: a skill never leaves them, only its state changes, and `pnpm run check` fails when a skill has two states. `Crawl` in `data/types.ts` describes crawl.jsonc.
+The daily crawl (`pnpm run crawl`) records new skills and moves them between queued and unqualified. The daily sync skips an approved skill whose SKILL.md is gone from its repo. The two files are cumulative: a skill never leaves them, only its state changes, and `pnpm run check` fails when a skill has two states. `Crawl` in `data/types.ts` describes crawl.jsonc.
 
 Both files are JSONC and may hold comments, which the scripts keep. Edit them in place, or in code with `readData`/`writeData` and `readCrawl`/`writeCrawl` of `scripts/data.ts`; `JSON.parse` and `JSON.stringify` would drop the comments.
 
@@ -30,7 +30,7 @@ Both files are JSONC and may hold comments, which the scripts keep. Edit them in
 - A copy: a skill republished under another name, or an approved skill under a second skills.sh listing, such as its repo under an old name.
 - Anything else the user doesn't want.
 
-**Approve** the others, with the steps below. Approving a crawled or skipped skill works the same way, when the user asks for it.
+**Approve** the others, with the steps below. Approving an unqualified or skipped skill works the same way, when the user asks for it.
 
 ## Approve a skill, or retag one
 

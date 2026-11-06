@@ -32,7 +32,7 @@ export interface Crawl {
   /** When crawl.ts last ran (YYYY-MM-DD). */
   asOf: string;
   /** Below the minimums, most installed first. */
-  crawled: Crawled[];
+  unqualified: Crawled[];
   /**
    * At the minimums (`MINIMUMS` in ../scripts/data.ts) or above, most installed first: waiting for
    * an agent to approve or skip them, with the add-skill skill.

@@ -146,8 +146,8 @@ for (const bundle of data.bundles) {
   }
 }
 
-// crawl.jsonc: every skill has one state, approved (skills.jsonc), crawled, queued or skipped, under
-// its skills.sh page. It's lenient: a skipped skill can be a website's.
+// crawl.jsonc: every skill has one state, approved (skills.jsonc), queued, unqualified or skipped,
+// under its skills.sh page. It's lenient: a skipped skill can be a website's.
 const crawl = readCrawl();
 const states = new Map<string, string>([...approvedPages(data)].map((page) => [page, "approved"]));
 const state = (at: string, url: string, name: string) => {
@@ -156,8 +156,8 @@ const state = (at: string, url: string, name: string) => {
   states.set(pageKey(url), name);
 };
 for (const [name, list] of [
-  ["crawled", crawl.crawled],
   ["queued", crawl.queued],
+  ["unqualified", crawl.unqualified],
 ] as const)
   for (const c of list) {
     const url = c["skills.sh"]?.url ?? "";
@@ -209,5 +209,5 @@ if (errors.length > 0) {
   process.exit(1);
 }
 console.log(
-  `skills.jsonc is valid: ${data.skills.length} skills, ${data.bundles.length} bundles, ${data.repos.length} repos. crawl.jsonc is too: ${crawl.crawled.length} crawled, ${crawl.queued.length} queued, ${crawl.skipped.length} skipped.`,
+  `skills.jsonc is valid: ${data.skills.length} skills, ${data.bundles.length} bundles, ${data.repos.length} repos. crawl.jsonc is too: ${crawl.queued.length} queued, ${crawl.unqualified.length} unqualified, ${crawl.skipped.length} skipped.`,
 );

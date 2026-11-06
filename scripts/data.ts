@@ -143,10 +143,10 @@ export function approvedPages(data: Data): Set<string> {
   return pages;
 }
 
-/** What a crawled skill needs to be queued: all-time installs, and its GitHub repo's stars. */
+/** What a skill of the top 600 needs to be queued: all-time installs, and its GitHub repo's stars. */
 export const MINIMUMS = { installs: 10000, stars: 100 };
 
-/** Whether a crawled skill reaches the minimums. Unknown stars don't. */
+/** Whether a skill of the top 600 reaches the minimums. Unknown stars don't. */
 export const passes = (c: Crawled) =>
   (c["skills.sh"].installs ?? 0) >= MINIMUMS.installs && (c.stars ?? -1) >= MINIMUMS.stars;
 

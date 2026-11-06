@@ -1,8 +1,7 @@
 {
   "$schema": "./crawl.generated.schema.jsonc",
   "asOf": "2026-11-06",
-  // TODO/ai rename prop to "unqualified" ?
-  "crawled": [
+  "unqualified": [
     {
       "name": "reddit-automation",
       "repo": "flowkit-labs/skills",
