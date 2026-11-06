@@ -42,19 +42,6 @@
       }
     },
     {
-      "name": "chrome-extensions",
-      "repo": "googlechrome/modern-web-guidance",
-      "official": false,
-      "stars": 2631,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googlechrome/modern-web-guidance/chrome-extensions",
-        "installs": 12500,
-        "weeklyInstalls": [847, 965, 1041, 962, 958, 864, 855, 965],
-        "firstSeen": "2026-05-19"
-      }
-    },
-    {
       "name": "resume-ats-optimizer",
       "repo": "paramchoudhary/resumeskills",
       "official": false,
@@ -1628,19 +1615,6 @@
       }
     },
     {
-      "name": "cmux",
-      "repo": "manaflow-ai/cmux",
-      "official": false,
-      "stars": 28729,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/manaflow-ai/cmux/cmux",
-        "installs": 10000,
-        "weeklyInstalls": [344, 333, 311, 329, 268, 170, 214, 225],
-        "firstSeen": "2026-02-04"
-      }
-    },
-    {
       "name": "find-docs",
       "repo": "upstash/context7",
       "official": false,
@@ -2720,32 +2694,6 @@
       }
     },
     {
-      "name": "tmux",
-      "repo": "openclaw/openclaw",
-      "official": false,
-      "stars": 394045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/openclaw/openclaw/tmux",
-        "installs": 8500,
-        "weeklyInstalls": [139, 138, 137, 165, 56, 32, 11, 16],
-        "firstSeen": "2026-01-24"
-      }
-    },
-    {
-      "name": "gog",
-      "repo": "openclaw/openclaw",
-      "official": false,
-      "stars": 394045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/openclaw/openclaw/gog",
-        "installs": 8500,
-        "weeklyInstalls": [134, 142, 150, 140, 30, 21, 30, 16],
-        "firstSeen": "2026-01-22"
-      }
-    },
-    {
       "name": "reference-list-builder",
       "repo": "paramchoudhary/resumeskills",
       "official": false,
@@ -3331,19 +3279,6 @@
       }
     },
     {
-      "name": "cmux-markdown",
-      "repo": "manaflow-ai/cmux",
-      "official": false,
-      "stars": 28729,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/manaflow-ai/cmux/cmux-markdown",
-        "installs": 7700,
-        "weeklyInstalls": [216, 247, 229, 219, 183, 125, 107, 101],
-        "firstSeen": "2026-03-05"
-      }
-    },
-    {
       "name": "eve",
       "repo": "vercel/eve",
       "official": true,
@@ -3578,19 +3513,6 @@
       }
     },
     {
-      "name": "cmux-settings",
-      "repo": "manaflow-ai/cmux",
-      "official": false,
-      "stars": 28729,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/manaflow-ai/cmux/cmux-settings",
-        "installs": 7500,
-        "weeklyInstalls": [225, 249, 341, 325, 252, 185, 169, 125],
-        "firstSeen": "2026-05-15"
-      }
-    },
-    {
       "name": "search",
       "repo": "brightdata/skills",
       "official": true,
@@ -3760,19 +3682,6 @@
       }
     },
     {
-      "name": "platform-apex-generate",
-      "repo": "forcedotcom/sf-skills",
-      "official": true,
-      "stars": 1151,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/forcedotcom/sf-skills/platform-apex-generate",
-        "installs": 7400,
-        "weeklyInstalls": [109, 116, 123, 275, 131, 158, 162, 167],
-        "firstSeen": "2026-06-26"
-      }
-    },
-    {
       "name": "dart-use-path-package",
       "repo": "flutter/agent-plugins",
       "official": false,
@@ -3848,19 +3757,6 @@
         "installs": 7300,
         "weeklyInstalls": [441, 359, 499, 400, 387, 353, 332, 327],
         "firstSeen": "2026-05-22"
-      }
-    },
-    {
-      "name": "platform-apex-test-generate",
-      "repo": "forcedotcom/sf-skills",
-      "official": true,
-      "stars": 1151,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/forcedotcom/sf-skills/platform-apex-test-generate",
-        "installs": 7300,
-        "weeklyInstalls": [102, 110, 122, 281, 133, 170, 169, 168],
-        "firstSeen": "2026-06-26"
       }
     },
     {
@@ -4176,19 +4072,6 @@
       }
     },
     {
-      "name": "platform-apex-test-run",
-      "repo": "forcedotcom/sf-skills",
-      "official": true,
-      "stars": 1151,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/forcedotcom/sf-skills/platform-apex-test-run",
-        "installs": 7200,
-        "weeklyInstalls": [93, 108, 117, 274, 129, 163, 170, 151],
-        "firstSeen": "2026-06-26"
-      }
-    },
-    {
       "name": "chatgpt-app-builder",
       "repo": "alpic-ai/skybridge",
       "official": false,
@@ -4238,19 +4121,6 @@
         "installs": 7100,
         "weeklyInstalls": [144, 122, 115, 103, 90, 129, 92, 82],
         "firstSeen": "2026-05-21"
-      }
-    },
-    {
-      "name": "cmux-workspace",
-      "repo": "manaflow-ai/cmux",
-      "official": false,
-      "stars": 28729,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/manaflow-ai/cmux/cmux-workspace",
-        "installs": 7100,
-        "weeklyInstalls": [267, 265, 269, 264, 202, 157, 144, 134],
-        "firstSeen": "2026-05-15"
       }
     },
     {
@@ -4449,19 +4319,6 @@
       }
     },
     {
-      "name": "platform-apex-logs-debug",
-      "repo": "forcedotcom/sf-skills",
-      "official": true,
-      "stars": 1151,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/forcedotcom/sf-skills/platform-apex-logs-debug",
-        "installs": 7100,
-        "weeklyInstalls": [92, 111, 115, 136, 119, 170, 166, 152],
-        "firstSeen": "2026-06-26"
-      }
-    },
-    {
       "name": "state-machine",
       "repo": "jakubkrehel/skills",
       "official": false,
@@ -4498,19 +4355,6 @@
         "installs": 7000,
         "weeklyInstalls": [299, 236, 226, 253, 405, 366, 369, 333],
         "firstSeen": "2026-03-24"
-      }
-    },
-    {
-      "name": "platform-soql-query",
-      "repo": "forcedotcom/sf-skills",
-      "official": true,
-      "stars": 1151,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/forcedotcom/sf-skills/platform-soql-query",
-        "installs": 7000,
-        "weeklyInstalls": [96, 104, 118, 250, 147, 161, 175, 152],
-        "firstSeen": "2026-06-26"
       }
     },
     {
@@ -35889,6 +35733,54 @@
     {
       "url": "https://skills.sh/onmax/nuxt-skills/nuxt-ui",
       "note": "Tool docs: an agent's manual for nuxt-ui."
+    },
+    {
+      "url": "https://skills.sh/manaflow-ai/cmux/cmux",
+      "note": "Tool docs: an agent's manual for cmux."
+    },
+    {
+      "url": "https://skills.sh/manaflow-ai/cmux/cmux-markdown",
+      "note": "Tool docs: an agent's manual for cmux."
+    },
+    {
+      "url": "https://skills.sh/manaflow-ai/cmux/cmux-settings",
+      "note": "Tool docs: an agent's manual for cmux."
+    },
+    {
+      "url": "https://skills.sh/manaflow-ai/cmux/cmux-workspace",
+      "note": "Tool docs: an agent's manual for cmux."
+    },
+    {
+      "url": "https://skills.sh/openclaw/openclaw/tmux",
+      "note": "Tool docs: an agent's manual for tmux."
+    },
+    {
+      "url": "https://skills.sh/openclaw/openclaw/gog",
+      "note": "Tool docs: an agent's manual for gog and google-workspace."
+    },
+    {
+      "url": "https://skills.sh/forcedotcom/sf-skills/platform-apex-generate",
+      "note": "Tool docs: an agent's manual for salesforce."
+    },
+    {
+      "url": "https://skills.sh/forcedotcom/sf-skills/platform-apex-test-generate",
+      "note": "Tool docs: an agent's manual for salesforce."
+    },
+    {
+      "url": "https://skills.sh/forcedotcom/sf-skills/platform-apex-test-run",
+      "note": "Tool docs: an agent's manual for salesforce."
+    },
+    {
+      "url": "https://skills.sh/forcedotcom/sf-skills/platform-apex-logs-debug",
+      "note": "Tool docs: an agent's manual for salesforce."
+    },
+    {
+      "url": "https://skills.sh/forcedotcom/sf-skills/platform-soql-query",
+      "note": "Tool docs: an agent's manual for salesforce."
+    },
+    {
+      "url": "https://skills.sh/googlechrome/modern-web-guidance/chrome-extensions",
+      "note": "Tool docs: an agent's manual for chrome extensions."
     }
   ]
 }
