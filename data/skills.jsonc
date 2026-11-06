@@ -2412,6 +2412,23 @@
         "description": "Business, marketing, UX and coding frameworks from bestselling books, plus metaskills that walk you through them step by step.",
         "note": "The further-reading links in its skills are Amazon affiliate links."
       }
+    },
+    {
+      "id": "every-app/open-seo",
+      "stars": 26607,
+      "agentReview": {
+        "kind": "project",
+        "description": "Open source alternative to Semrush and Ahrefs.",
+        "note": "Its skills work through the OpenSEO MCP server, hosted at openseo.so or self-hosted with your own DataForSEO API key, which you pay for per request."
+      }
+    },
+    {
+      "id": "miqdadbadjuber/anti-slop",
+      "stars": 8472,
+      "agentReview": {
+        "kind": "skills",
+        "description": "A rulebook that stops an AI coding agent shipping generic UI, text, and AI-shaped code."
+      }
     }
   ],
   "bundles": [
@@ -5147,6 +5164,199 @@
           {
             "label": "Any agent without a plugin, with the skills CLI, plus the repo's 3 other skills; cad, dxf, urdf, srdf and sdf need the cad command, which they install with the script above if missing",
             "command": "npx skills add earthtojake/text-to-cad#latest"
+          }
+        ]
+      }
+    },
+    {
+      "id": "every-app/open-seo@openseo",
+      "skew": 0,
+      "agentReview": {
+        "name": "OpenSEO",
+        "description": "OpenSEO's SEO skills on its search data: setup, coaching, audits, keyword research and clustering, competitor research and link prospecting, each workflow ending in a report saved to the project.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want an agent to do SEO work on real search data: audits, keyword research, competitor research or link outreach"
+            },
+            {
+              "label": "It does",
+              "text": "gives each job its own workflow skill on OpenSEO's MCP data; seo-coach points you to the right one and seo-project-setup records your site's context once"
+            },
+            {
+              "label": "You get",
+              "text": "an HTML report on the project's Reports page from each workflow run, and a shared project context that every skill reads and updates"
+            },
+            {
+              "label": "Needs",
+              "text": "the OpenSEO MCP server and an account, hosted or self-hosted with a DataForSEO API key; research spends credits"
+            },
+            {
+              "label": "Each workflow needs",
+              "text": "the repo's seo-report skill, not listed here, to write and save its report; without it, the workflow stops before writing one"
+            },
+            {
+              "label": "Plugin also adds",
+              "text": "seo-report, the hosted OpenSEO MCP server, and workflows for AI visibility, AI prompts and local SEO not listed here"
+            }
+          ],
+          "text": "OpenSEO is an open-source SEO tool whose MCP server gives the agent keyword, SERP (search results page), backlink, local and Search Console data; every skill works through it. They share one context per project, stored in OpenSEO: the business, goal, positioning, writing preferences, competitors, key pages and a research log. seo-project-setup fills it in one interview; each workflow asks only for what it lacks, saves back what it learned, and reuses research from the log's last 30 days instead of spending credits again. That's how the steps hand off: keywords that keyword-research saves and tags are a starting set for keyword-clustering, and competitors saved by setup or competitive-landscape tell competitor-analysis what's known about a rival and give link-prospecting backlink profiles to mine. seo-coach is the entry point: it reads where the site stands, explains plainly and suggests the next skill. seo-audit finds the few changes most likely to grow traffic that converts; keyword-research finds terms to target and keyword-clustering maps them to pages; competitive-landscape surveys a market and competitor-analysis studies one rival; link-prospecting finds sites to ask for links and drafts the outreach. Each of these six ends in a self-contained HTML report that seo-report writes and saves.",
+          "permalink": "https://github.com/every-app/open-seo/tree/78c5d850c2729e3fcf7edf33aafb66efe17453e0"
+        },
+        "skills": [
+          {
+            "id": "every-app/open-seo/plugins/openseo/skills/seo-coach",
+            "standalone": true
+          },
+          {
+            "id": "every-app/open-seo/plugins/openseo/skills/seo-project-setup",
+            "standalone": true
+          },
+          {
+            "id": "every-app/open-seo/plugins/openseo/skills/seo-audit",
+            "standalone": true
+          },
+          {
+            "id": "every-app/open-seo/plugins/openseo/skills/keyword-research",
+            "standalone": true
+          },
+          {
+            "id": "every-app/open-seo/plugins/openseo/skills/keyword-clustering",
+            "standalone": true
+          },
+          {
+            "id": "every-app/open-seo/plugins/openseo/skills/competitive-landscape",
+            "standalone": true
+          },
+          {
+            "id": "every-app/open-seo/plugins/openseo/skills/competitor-analysis",
+            "standalone": true
+          },
+          {
+            "id": "every-app/open-seo/plugins/openseo/skills/link-prospecting",
+            "standalone": true
+          }
+        ],
+        "install": [
+          {
+            "label": "Claude Code plugin; also adds seo-report, the hosted OpenSEO MCP server and workflows for AI visibility, AI prompts and local SEO",
+            "command": "claude plugin marketplace add every-app/open-seo && claude plugin install openseo@openseo"
+          },
+          {
+            "label": "Codex plugin; also adds seo-report, the hosted OpenSEO MCP server and workflows for AI visibility, AI prompts and local SEO",
+            "command": "codex plugin marketplace add every-app/open-seo && codex plugin add openseo@openseo"
+          },
+          {
+            "label": "Any agent, with the skills CLI; adds seo-report too, but not the MCP server, which you connect yourself",
+            "command": "npx skills add https://github.com/every-app/open-seo --skill seo-coach --skill seo-project-setup --skill seo-audit --skill keyword-research --skill keyword-clustering --skill competitive-landscape --skill competitor-analysis --skill link-prospecting --skill seo-report"
+          }
+        ]
+      }
+    },
+    {
+      "id": "miqdadbadjuber/anti-slop",
+      "skew": 0,
+      "agentReview": {
+        "name": "antislop",
+        "description": "A filter against AI slop: a core of 40 rules with a PASS/FAIL gate, plus companion skills for UI, copy, accessibility, mobile layout and code comments.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want agent-built UI, copy and code comments free of the generic AI look, without being handed a house style"
+            },
+            {
+              "label": "It does",
+              "text": "the core antislop skill sets 40 rules and a final gate; five companion skills each add a pattern catalog for one concern and cite the core's rules"
+            },
+            {
+              "label": "You get",
+              "text": "a PASS/FAIL report with evidence before delivery, or an audit file of numbered findings you pick from to fix"
+            },
+            {
+              "label": "Needs",
+              "text": "for UI you mean to ship, your own design direction, such as a DESIGN.md; without it, the result is labelled a draft without direction"
+            },
+            {
+              "label": "Installer",
+              "text": "npx antislop-ai asks which skills and agents, and writes a pointer that reloads antislop every session"
+            }
+          ],
+          "text": "The core, antislop, does the work and is the one skill that works alone. Unless you've saved a default with npx antislop-ai --mode, it asks each session whether to apply its rules while building or to audit finished work. It holds every technique to a purpose test, so a gradient or badge stays only with a written reason; sets three liveliness dials, energy, rhythm and motion, so that removing slop doesn't leave a sterile page; and ends with the Delivery Gate, a four-block PASS/FAIL check. Each companion skill says to load the core with it for one kind of task, cites the core's rules by number, and adds a catalog of patterns, each with a tell, why it reads as AI and a fix, plus a checklist run alongside the gate. antislop-ui covers color, layout, decoration, dashboards, motion and performance. antislop-copywriting covers AI writing tells in headlines and prose, with before-and-after rewrites and a draft, audit and final loop. antislop-human covers contrast, keyboard, focus and affordances, with a contrast-ratio script. antislop-layoutmobile covers reflow from phone to desktop. antislop-code covers comments only, never the code.",
+          "permalink": "https://github.com/miqdadbadjuber/anti-slop/tree/9504989f162a92b1996853eccbb3d8a86e73df68"
+        },
+        "skills": [
+          {
+            "id": "miqdadbadjuber/anti-slop/skills/antislop",
+            "standalone": true
+          },
+          {
+            "id": "miqdadbadjuber/anti-slop/skills/antislop-ui",
+            "standalone": false,
+            "note": "Says to load the core antislop skill with it: its fixes cite the core's rules by number and its RHYTHM and MOTION dials, and the core's Delivery Gate stays the final check."
+          },
+          {
+            "id": "miqdadbadjuber/anti-slop/skills/antislop-copywriting",
+            "standalone": false,
+            "note": "Says to load the core antislop skill with it, which holds the hard bans it cites by number, such as no em dashes and no invented numbers, and the R-37 rule for asking about em dashes in your writing sample; its checklist runs alongside the core's Delivery Gate."
+          },
+          {
+            "id": "miqdadbadjuber/anti-slop/skills/antislop-human",
+            "standalone": false,
+            "note": "Says to load the core antislop skill with it: it cites the core's contrast, keyboard, state and affordance rules by number and runs its checklist alongside the core's Delivery Gate; the contrast checker is its own."
+          },
+          {
+            "id": "miqdadbadjuber/anti-slop/skills/antislop-layoutmobile",
+            "standalone": false,
+            "note": "Says to load the core antislop skill with it: it cites the core's mobile and verification rules by number and runs its checklist alongside the core's Delivery Gate."
+          },
+          {
+            "id": "miqdadbadjuber/anti-slop/skills/antislop-code",
+            "standalone": false,
+            "note": "Says to load the core antislop skill with it and to run its comment checklist alongside the core's Delivery Gate; its own rules cite only one core rule, R-31."
+          }
+        ],
+        "install": [
+          {
+            "label": "The 12 agents antislop's installer supports; it asks which skills, where and which agents, and writes a pointer that reloads antislop every session",
+            "command": "npx antislop-ai"
+          },
+          {
+            "label": "Any agent, with the skills CLI; the same folders without the installer's pointer, so antislop loads by its description alone",
+            "command": "npx skills add miqdadbadjuber/anti-slop"
+          },
+          {
+            "label": "Claude Code plugin, after /plugin marketplace add https://github.com/miqdadbadjuber/anti-slop; also adds a local contrast-checking MCP server",
+            "command": "/plugin install antislop@anti-slop"
+          },
+          {
+            "label": "Codex plugin",
+            "command": "codex plugin marketplace add miqdadbadjuber/anti-slop && codex plugin add antislop@anti-slop"
+          },
+          {
+            "label": "Cursor plugin; then open Customize, find antislop and select Install",
+            "command": "agent plugin marketplace add https://github.com/miqdadbadjuber/anti-slop"
+          },
+          {
+            "label": "Antigravity plugin",
+            "command": "agy plugin install https://github.com/miqdadbadjuber/anti-slop"
+          },
+          {
+            "label": "Kimi Code plugin",
+            "command": "/plugins install https://github.com/miqdadbadjuber/anti-slop"
+          },
+          {
+            "label": "Cline CLI plugin; for the VS Code or JetBrains extension, use the installer",
+            "command": "cline plugin install https://github.com/miqdadbadjuber/anti-slop.git"
+          },
+          {
+            "label": "Oh My Pi plugin",
+            "command": "omp plugin marketplace add miqdadbadjuber/anti-slop && omp plugin install antislop@anti-slop"
+          },
+          {
+            "label": "Pi package",
+            "command": "pi install git:github.com/miqdadbadjuber/anti-slop"
           }
         ]
       }
@@ -46148,6 +46358,894 @@
           "prototyping"
         ],
         "note": "Needs Bambu Connect signed in to your Bambu Lab account (Windows or macOS), or Bambu Studio on Linux; you start each print yourself."
+      }
+    },
+    {
+      "id": "every-app/open-seo/plugins/openseo/skills/keyword-research",
+      "name": "keyword-research",
+      "skills.sh": {
+        "url": "https://skills.sh/every-app/open-seo/keyword-research",
+        "installs": 7300,
+        "weeklyInstalls": [441, 359, 499, 400, 387, 353, 332, 327],
+        "firstSeen": "2026-05-22"
+      },
+      "skillMd": {
+        "version": "78c5d850c2729e3fcf7edf33aafb66efe17453e0",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Turns seed topics into a prioritized keyword shortlist with volume, difficulty, intent and live search-result checks, using OpenSEO's SEO data.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to know which search terms a site, product or page should target, and which page to build for each"
+            },
+            {
+              "label": "It does",
+              "text": "researches your seed topics with OpenSEO's keyword, search-result and Search Console data, then ranks terms by business fit, intent and difficulty, not volume alone"
+            },
+            {
+              "label": "You get",
+              "text": "an HTML report saved to the project: a shortlist with intent, volume, difficulty, CPC and the page to make, a longer list, risks and next steps"
+            },
+            {
+              "label": "Saves keywords",
+              "text": "only after you confirm, with tags such as topic:, intent: or page:"
+            },
+            {
+              "label": "Needs",
+              "text": "the OpenSEO MCP server and account; its report goes through the repo's seo-report skill"
+            }
+          ],
+          "text": "One of the workflows of OpenSEO, an open-source SEO tool whose MCP server gives the agent keyword and search-result data. It starts from the project's shared context in OpenSEO: the business, goal, markets, competitors and key pages. If the business overview or current goal is empty, it asks just enough to fill them. Before spending credits it checks the project's research log and reuses matching research from the last 30 days. With Search Console connected, it starts from striking-distance queries, ones ranking 5 to 20 with at least 50 impressions, and adds volume, keyword difficulty and intent to them before broad discovery from 1 to 5 seeds per call. Local research can use one city's or region's volume and Maps results. It drops irrelevant, duplicate and branded-only terms and ranks the rest by fit with your product, clear intent, reasonable difficulty and a results page you can plausibly compete on, checking live results for the promising or ambiguous ones. Metrics it doesn't get are written as unknown. It ends by logging the research and saving durable findings, such as competitors that kept appearing, back to the project.",
+          "permalink": "https://github.com/every-app/open-seo/tree/78c5d850c2729e3fcf7edf33aafb66efe17453e0/plugins/openseo/skills/keyword-research"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:remote",
+          "needs:mcp",
+          "needs:account",
+          "by:official",
+          "stack:openseo",
+          "seo",
+          "research"
+        ],
+        "note": "Needs the OpenSEO MCP server and an OpenSEO account, and its research spends credits. It saves its report through the repo's seo-report skill, so install that alongside, or install the whole OpenSEO plugin."
+      }
+    },
+    {
+      "id": "every-app/open-seo/plugins/openseo/skills/competitor-analysis",
+      "name": "competitor-analysis",
+      "skills.sh": {
+        "url": "https://skills.sh/every-app/open-seo/competitor-analysis",
+        "installs": 7100,
+        "weeklyInstalls": [421, 351, 491, 385, 372, 337, 323, 303],
+        "firstSeen": "2026-05-22"
+      },
+      "skillMd": {
+        "version": "78c5d850c2729e3fcf7edf33aafb66efe17453e0",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Studies one competitor's organic traffic, ranking keywords, content themes and backlinks with OpenSEO data, and reports where you can outrank it.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you have a named competitor and want to know what to learn from it, avoid, counter-position against or outrank"
+            },
+            {
+              "label": "It does",
+              "text": "pulls the competitor's domain overview, ranking keywords and backlinks from OpenSEO, groups its keywords into themes, and compares search results with your site"
+            },
+            {
+              "label": "You get",
+              "text": "an HTML report with a footprint snapshot, its biggest lesson, where it's vulnerable, a keyword-theme table and next steps"
+            },
+            {
+              "label": "Unlike competitive-landscape",
+              "text": "that one maps who leads a whole market; this one goes deep on one domain"
+            },
+            {
+              "label": "Needs",
+              "text": "the OpenSEO MCP server and account; its report goes through the repo's seo-report skill"
+            }
+          ],
+          "text": "One of OpenSEO's workflows. It reads the project's saved competitors first, to see whether this domain is known and what was concluded before; with none saved, it saves this one and asks about others. Research from the last 30 days in the project's log is reused rather than bought again. When your domain is in the comparison and Search Console is connected, your real clicks and impressions replace third-party estimates. Keyword themes split into product and category terms, alternatives and comparisons, tools and templates, guides, branded demand and local terms. For local businesses it uses nearby-business and local search data before judging Maps strength. Its guardrails: filter keywords for business fit, separate evidence from inference, don't infer page types from keyword rows alone, and recommend a stronger angle rather than copying content. It ends by saving a note on the competitor's strengths and weak spots to the project and logging the research.",
+          "permalink": "https://github.com/every-app/open-seo/tree/78c5d850c2729e3fcf7edf33aafb66efe17453e0/plugins/openseo/skills/competitor-analysis"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:remote",
+          "needs:mcp",
+          "needs:account",
+          "by:official",
+          "stack:openseo",
+          "seo",
+          "research"
+        ],
+        "note": "Needs the OpenSEO MCP server and an OpenSEO account, and its research spends credits. It saves its report through the repo's seo-report skill, so install that alongside, or install the whole OpenSEO plugin."
+      }
+    },
+    {
+      "id": "every-app/open-seo/plugins/openseo/skills/seo-project-setup",
+      "name": "seo-project-setup",
+      "skills.sh": {
+        "url": "https://skills.sh/every-app/open-seo/seo-project-setup",
+        "installs": 7100,
+        "weeklyInstalls": [417, 348, 489, 392, 383, 334, 337, 319],
+        "firstSeen": "2026-05-28"
+      },
+      "skillMd": {
+        "version": "78c5d850c2729e3fcf7edf33aafb66efe17453e0",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Interviews you about a website's goals, positioning, competitors and key pages, and saves them as shared OpenSEO project context for the other skills.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're starting SEO work on a site in OpenSEO, or other skills keep asking for context it lacks"
+            },
+            {
+              "label": "It does",
+              "text": "checks the MCP connection, finds or creates the project, shows what's already saved, then asks in small batches about scope, goals, positioning, voice, competitors and key pages"
+            },
+            {
+              "label": "You get",
+              "text": "the project's shared context filled in and editable on its Context page, a status checklist, and one recommended next workflow"
+            },
+            {
+              "label": "Search Console",
+              "text": "in the hosted app, links your property once you've connected a Google account; otherwise you drop CSV exports in a local gsc/ folder"
+            },
+            {
+              "label": "Needs",
+              "text": "the OpenSEO MCP server and account"
+            }
+          ],
+          "text": "OpenSEO's skills all read one shared context per project, stored in OpenSEO rather than in local files so it survives new sessions, machines and agents. This skill fills it in one interview. The answers become prose sections: a business overview (what the business does, for whom, its markets and stage), a current goal with a metric and timeframe, positioning (audience, problem, differentiator, claims to defend) and writing preferences such as banned words and topics to avoid. Competitors are saved one per domain with a note on why they matter, and key pages as a curated shortlist of 10 to 30 money pages, topic hubs and linkable assets, each with a role. It confirms facts before saving them, writes in batches as the interview goes, and merges new answers into existing sections instead of overwriting them. It doesn't run paid research just to test the connection, and logs any credits it does spend. A local folder for exports, drafts and reports is suggested only if you want one, and created only when you ask.",
+          "permalink": "https://github.com/every-app/open-seo/tree/78c5d850c2729e3fcf7edf33aafb66efe17453e0/plugins/openseo/skills/seo-project-setup"
+        },
+        "tags": [
+          "category:marketing",
+          "type:setup",
+          "effect:remote",
+          "needs:mcp",
+          "needs:account",
+          "by:official",
+          "stack:openseo",
+          "seo",
+          "interview"
+        ],
+        "note": "Needs the OpenSEO MCP server and an OpenSEO account."
+      }
+    },
+    {
+      "id": "every-app/open-seo/plugins/openseo/skills/seo-coach",
+      "name": "seo-coach",
+      "skills.sh": {
+        "url": "https://skills.sh/every-app/open-seo/seo-coach",
+        "installs": 7100,
+        "weeklyInstalls": [415, 349, 485, 386, 382, 339, 319, 301],
+        "firstSeen": "2026-05-22"
+      },
+      "skillMd": {
+        "version": "78c5d850c2729e3fcf7edf33aafb66efe17453e0",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Puts the agent in a friendly SEO coach mode that reads your OpenSEO project, explains numbers in plain words and suggests one next step.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're new to SEO, or unsure which OpenSEO workflow to run next"
+            },
+            {
+              "label": "It does",
+              "text": "asks your experience and project, reads the project's saved context and existing reports, and answers in short bullets ending with one question or 2–4 choices"
+            },
+            {
+              "label": "Hands off",
+              "text": "to a workflow skill such as seo-audit or keyword-research when you want a full analysis or a shareable report"
+            },
+            {
+              "label": "Spends",
+              "text": "no credits unless you ask"
+            },
+            {
+              "label": "Needs",
+              "text": "the OpenSEO MCP server and account"
+            }
+          ],
+          "text": "The entry point to OpenSEO's skills. Coach mode is for quick orientation: where the site stands, a plain explanation, one recommended step. Replies stay under a screen, lead with the answer and gloss every number the first time, such as 2,400/mo (people searching it each month). It adapts depth to whether you're new or experienced, and empty project context usually makes the next step seo-project-setup. It explains the data sources: OpenSEO's MCP for keywords, search results, backlinks and rank tracking; Google Search Console for your own clicks and impressions, free once connected; web search and scraping for context OpenSEO doesn't have; project context as shared memory; and the Reports page, where finished work lives, so paid research gets reused instead of rerun. Asked for strategy, it anchors on business goals and positioning before keywords. Anything you tell it about the business goes back into the project's context.",
+          "permalink": "https://github.com/every-app/open-seo/tree/78c5d850c2729e3fcf7edf33aafb66efe17453e0/plugins/openseo/skills/seo-coach"
+        },
+        "tags": [
+          "category:marketing",
+          "type:mode",
+          "effect:remote",
+          "needs:mcp",
+          "needs:account",
+          "by:official",
+          "stack:openseo",
+          "seo",
+          "learning"
+        ],
+        "note": "Needs the OpenSEO MCP server and an OpenSEO account."
+      }
+    },
+    {
+      "id": "every-app/open-seo/plugins/openseo/skills/keyword-clustering",
+      "name": "keyword-clustering",
+      "skills.sh": {
+        "url": "https://skills.sh/every-app/open-seo/keyword-clustering",
+        "installs": 7100,
+        "weeklyInstalls": [420, 347, 486, 382, 374, 334, 321, 294],
+        "firstSeen": "2026-05-22"
+      },
+      "skillMd": {
+        "version": "78c5d850c2729e3fcf7edf33aafb66efe17453e0",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Groups keywords into page-level clusters by search intent and assigns each to an existing page, a new page, or a later or do-not-target list.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you have a keyword list, saved tag, seed topic or domain and need to decide which page should target which terms"
+            },
+            {
+              "label": "It does",
+              "text": "clusters terms by intent and overlap in search results rather than similar wording, checking borderline ones against live results"
+            },
+            {
+              "label": "You get",
+              "text": "an HTML report: a cluster table with primary keyword, intent, target page and priority, a brief per page, and any cannibalization found"
+            },
+            {
+              "label": "Cannibalization",
+              "text": "two of your pages competing for one query; with Search Console connected, it confirms this from real data"
+            },
+            {
+              "label": "Needs",
+              "text": "the OpenSEO MCP server and account; its report goes through the repo's seo-report skill"
+            }
+          ],
+          "text": "One of OpenSEO's workflows. It maps clusters onto the key pages saved in the project's shared context; with none saved, it asks for the pages that matter or proposes a shortlist and confirms it. Keywords come from your list, a saved set, seed research, a domain's ranking keywords, or Search Console queries paired with the pages already ranking for them. It removes duplicates and terms meant for a different product or audience, then splits clusters wherever intent, buyer stage or result format differ, because similar words don't guarantee the same page. Each cluster goes to an existing URL, a proposed new page, or a do-not-target or later bucket; pages are labelled proposed when no URL data was supplied. Fewer than 10 usable terms get a simple map instead. Cluster tags are applied to saved keywords only after you confirm, and the updated key pages and a research-log entry are saved back to the project.",
+          "permalink": "https://github.com/every-app/open-seo/tree/78c5d850c2729e3fcf7edf33aafb66efe17453e0/plugins/openseo/skills/keyword-clustering"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:remote",
+          "needs:mcp",
+          "needs:account",
+          "by:official",
+          "stack:openseo",
+          "seo"
+        ],
+        "note": "Needs the OpenSEO MCP server and an OpenSEO account, and its research spends credits. It saves its report through the repo's seo-report skill, so install that alongside, or install the whole OpenSEO plugin."
+      }
+    },
+    {
+      "id": "every-app/open-seo/plugins/openseo/skills/competitive-landscape",
+      "name": "competitive-landscape",
+      "skills.sh": {
+        "url": "https://skills.sh/every-app/open-seo/competitive-landscape",
+        "installs": 7000,
+        "weeklyInstalls": [418, 347, 486, 381, 371, 330, 316, 289],
+        "firstSeen": "2026-05-22"
+      },
+      "skillMd": {
+        "version": "78c5d850c2729e3fcf7edf33aafb66efe17453e0",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Maps who wins search in a market, what content and backlinks work for them, and where the openings are, using OpenSEO data.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to know who wins search across a whole market, what's working for them and where the openings are"
+            },
+            {
+              "label": "It does",
+              "text": "builds 5–10 representative queries, finds the domains that keep ranking, sizes the top 3–5 and labels each as a product competitor, publisher, marketplace, community or docs site"
+            },
+            {
+              "label": "You get",
+              "text": "an HTML report: the market read, who's winning and why, a table of gaps with demand and current owner, and the next workflow to run"
+            },
+            {
+              "label": "Unlike competitor-analysis",
+              "text": "this one surveys a whole market; that one studies one domain in depth"
+            },
+            {
+              "label": "Needs",
+              "text": "the OpenSEO MCP server and account; its report goes through the repo's seo-report skill"
+            }
+          ],
+          "text": "One of OpenSEO's workflows. It starts from the project's saved competitors, and when none are saved it asks who you compete with or infers a shortlist from search results and confirms it. Research from the last 30 days in the project's log is reused. The query set mixes informational, commercial, comparison and tool terms, plus neighbourhood and city terms for local markets, where Maps and local-pack results are checked alongside organic pages. It looks up ranking keywords for direct competitors and relevant publishers, and backlinks when authority seems to explain a lead. It keeps SEO competitors apart from business competitors, labels each domain's type, doesn't overstate estimated traffic, and calls the read directional when the query set is small. Confirmed competitors are saved to the project with a note on why they matter, ones it added that proved irrelevant are removed, and the research is logged.",
+          "permalink": "https://github.com/every-app/open-seo/tree/78c5d850c2729e3fcf7edf33aafb66efe17453e0/plugins/openseo/skills/competitive-landscape"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:remote",
+          "needs:mcp",
+          "needs:account",
+          "by:official",
+          "stack:openseo",
+          "seo",
+          "research"
+        ],
+        "note": "Needs the OpenSEO MCP server and an OpenSEO account, and its research spends credits. It saves its report through the repo's seo-report skill, so install that alongside, or install the whole OpenSEO plugin."
+      }
+    },
+    {
+      "id": "every-app/open-seo/plugins/openseo/skills/link-prospecting",
+      "name": "link-prospecting",
+      "skills.sh": {
+        "url": "https://skills.sh/every-app/open-seo/link-prospecting",
+        "installs": 7000,
+        "weeklyInstalls": [416, 345, 481, 382, 372, 328, 321, 288],
+        "firstSeen": "2026-05-22"
+      },
+      "skillMd": {
+        "version": "78c5d850c2729e3fcf7edf33aafb66efe17453e0",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Finds pages and authors likely to link to your page or asset, looks up their public contact paths, and drafts personalized outreach.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you have a page, study, tool or guide worth citing and want sites to link to it"
+            },
+            {
+              "label": "It does",
+              "text": "searches for resource pages, listicles, comparisons and statistics pages, mines competitors' backlinks, then looks up contact pages, author pages or public emails for the strongest prospects"
+            },
+            {
+              "label": "You get",
+              "text": "an HTML report: a prioritized prospect table with angle and contact path, two or three reusable outreach drafts, and who to contact first"
+            },
+            {
+              "label": "Won't",
+              "text": "invent emails or names, or credit OpenSEO for contacts found on the web; it records the source URL of each contact detail"
+            },
+            {
+              "label": "Needs",
+              "text": "the OpenSEO MCP server and account, the repo's seo-report skill, and web search or browsing in the agent for contacts"
+            }
+          ],
+          "text": "One of OpenSEO's workflows. It reads the project's positioning, for the claim that makes a link worth giving, and its saved competitors, whose backlink profiles it mines; when either is missing it asks why someone would cite you and who you compete with. Research from the last 30 days in the project's log is reused. Prospecting queries follow patterns such as topic resources, best category tools, competitor alternatives, topic statistics and templates. Homepages, login pages, thin affiliate pages, spam and direct competitors are deprioritized, and likely paid placements are flagged. Each good prospect gets an angle: a broken or missing resource, better data, a useful tool, inclusion in a comparison, or an expert quote. Contact discovery uses the agent's own web search, page fetching or browser, looking at bylines, contact and team pages, mastheads, social profiles and structured data. It avoids mass outreach, personalizing each message by page and reason. The linkable asset and any useful competitors are saved back to the project.",
+          "permalink": "https://github.com/every-app/open-seo/tree/78c5d850c2729e3fcf7edf33aafb66efe17453e0/plugins/openseo/skills/link-prospecting"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:remote",
+          "needs:mcp",
+          "needs:account",
+          "by:official",
+          "stack:openseo",
+          "seo",
+          "research"
+        ],
+        "note": "Needs the OpenSEO MCP server and an OpenSEO account, and its research spends credits. It saves its report through the repo's seo-report skill, so install that alongside, or install the whole OpenSEO plugin. Contacts are found with the agent's own web search or browser, and include public emails and profiles of authors and editors."
+      }
+    },
+    {
+      "id": "miqdadbadjuber/anti-slop/skills/antislop",
+      "name": "antislop",
+      "skills.sh": {
+        "url": "https://skills.sh/miqdadbadjuber/anti-slop/antislop",
+        "installs": 9200,
+        "weeklyInstalls": [777, 940, 1403, 722, 890, 875, 1031, 1129],
+        "firstSeen": "2026-08-15"
+      },
+      "skillMd": {
+        "version": "9504989f162a92b1996853eccbb3d8a86e73df68",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Filters the generic AI look out of interfaces with 40 rules and a PASS/FAIL gate, while building or as an audit of finished work.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "an agent builds UI for you and you don't want it to look generated, or you want existing UI audited for AI patterns"
+            },
+            {
+              "label": "It does",
+              "text": "holds every visual choice to a purpose test: a gradient, badge or glow stays only with a written reason, while honesty, function and accessibility rules are absolute"
+            },
+            {
+              "label": "Modes",
+              "text": "asks each session whether to apply the rules while building or to audit afterwards, unless you saved a default"
+            },
+            {
+              "label": "You get",
+              "text": "a PASS/FAIL Delivery Gate report with evidence, or a numbered findings file in anti-slop/ where only the numbers you approve get fixed"
+            },
+            {
+              "label": "Needs",
+              "text": "your design direction in DESIGN.md or a brief; without it, output is labelled a draft without direction"
+            },
+            {
+              "label": "Unlike a style guide",
+              "text": "it prescribes no colors, fonts or layouts"
+            }
+          ],
+          "text": "The core of antislop, a rulebook against AI slop: the generic, recognizable look of model-made interfaces. Its 40 rules come in three tiers. Hard Gate rules are absolute: no em dashes, no statistics or testimonials without a real source, no invented claims, ask before creating logos, avatars or numbers, no nav links or buttons that go nowhere, WCAG AA contrast, empty, loading and error states, keyboard access, and running the app and clicking every control before delivery. Purpose-Gate rules allow techniques such as gradients, glassmorphism and badges only with a written reason, and Quality Locks catch template layouts, generic CTAs and buzzwords. Because removing slop can leave a sterile page, it also requires liveliness: three dials, energy, rhythm and motion, each set from 1 to 3 from your direction or a one-line read of the brief, plus one focal point per screen, one deliberate accent and a repeated identity motif. The Delivery Gate checks all of this in four blocks, and any FAIL means fix and re-run before handing over. In audit mode, nothing changes until you approve findings by number, and a follow-up report closes the run.",
+          "permalink": "https://github.com/miqdadbadjuber/anti-slop/tree/9504989f162a92b1996853eccbb3d8a86e73df68/skills/antislop"
+        },
+        "tags": [
+          "category:design",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "design",
+          "anti-slop",
+          "accessibility"
+        ],
+        "note": "Asks at the start of every session whether to apply its rules while building or to audit afterwards, unless you save a default with npx antislop-ai --mode; for UI you mean to ship, it wants a DESIGN.md or brand direction."
+      }
+    },
+    {
+      "id": "miqdadbadjuber/anti-slop/skills/antislop-ui",
+      "name": "antislop-ui",
+      "skills.sh": {
+        "url": "https://skills.sh/miqdadbadjuber/anti-slop/antislop-ui",
+        "installs": 8100,
+        "weeklyInstalls": [727, 863, 909, 634, 840, 809, 882, 1037],
+        "firstSeen": "2026-08-15"
+      },
+      "skillMd": {
+        "version": "9504989f162a92b1996853eccbb3d8a86e73df68",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Catalogs AI-default UI patterns, from purple gradients and bento grids to invented dashboard numbers, each with why it reads as generated and a fix.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "the agent builds or edits a website, web app or dashboard and you don't want it to look AI-made"
+            },
+            {
+              "label": "It does",
+              "text": "lists AI-default UI patterns as Tell, Why and Fix across color, layout, decoration, app screens, motion and performance"
+            },
+            {
+              "label": "You get",
+              "text": "a UI checklist run alongside the core's Delivery Gate, from the palette's source to real numbers and sized media"
+            },
+            {
+              "label": "Needs",
+              "text": "the core antislop skill, whose rules it cites by number"
+            }
+          ],
+          "text": "antislop's UI skill. Each entry names a tell, explains why it reads as generated, and gives a fix, citing the core rule it falls under. Visual entries cover blue-purple gradients, glass, glow and big shadows on every surface, pill-shaped everything, background grids, dark mode by default and the sterile default left after over-filtering; most fixes keep the technique only with a written reason or cap it, such as glass on one or two elements. Layout entries cover the template landing page, identical feature cards, bento grids, three-step How It Works rows, Trusted By logo bars and a highlighted middle pricing tier; decoration entries cover sparkle icons, one Lucide-style icon look, emoji, arrows on every button, eyebrow badges and fake terminals. App screens get their own set: the default sidebar, stat cards, chart and table dashboard, invented numbers and deltas, filler activity feeds, charts that answer no question, John Doe filler data, and empty states that only say No data. Motion entries reject endless loops and stacked template animations, and performance entries cover unsized media, a lazy-loaded hero image and render-blocking scripts.",
+          "permalink": "https://github.com/miqdadbadjuber/anti-slop/tree/9504989f162a92b1996853eccbb3d8a86e73df68/skills/antislop-ui"
+        },
+        "tags": [
+          "category:design",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "design",
+          "anti-slop"
+        ]
+      }
+    },
+    {
+      "id": "miqdadbadjuber/anti-slop/skills/antislop-copywriting",
+      "name": "antislop-copywriting",
+      "skills.sh": {
+        "url": "https://skills.sh/miqdadbadjuber/anti-slop/antislop-copywriting",
+        "installs": 7800,
+        "weeklyInstalls": [689, 826, 886, 613, 810, 781, 862, 958],
+        "firstSeen": "2026-08-15"
+      },
+      "skillMd": {
+        "version": "9504989f162a92b1996853eccbb3d8a86e73df68",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Keeps AI tells out of headlines, CTAs and prose, from buzzwords and rule-of-three padding to em dashes, without inventing facts or erasing your voice.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "the agent writes or edits marketing copy, product copy or any prose people will read"
+            },
+            {
+              "label": "It does",
+              "text": "lists 30 AI writing patterns, each with why it reads as AI and a before-and-after rewrite, under the core's rule numbers"
+            },
+            {
+              "label": "You get",
+              "text": "copy run through a draft, audit and final pass, then checked against a copywriting checklist alongside the core's Delivery Gate"
+            },
+            {
+              "label": "Won't",
+              "text": "add a fact, name, number, date or quote that isn't in your source, or treat polish, formal words or one em dash as proof of AI"
+            },
+            {
+              "label": "Needs",
+              "text": "the core antislop skill, which holds the hard bans it relies on"
+            }
+          ],
+          "text": "antislop's copy skill. Its patterns run from tone (empty words such as unlock, elevate and seamless, significance inflation, weasel attributions, chatbot closers, fake-candid openers) through rhythm (forced rule of three, \"it's not just X, it's Y\", staccato fragments, theatrical takeaways such as \"Let that sink in.\") and honesty (fabricated specifics, speculative gap-filling) to hygiene (em dashes, boldface and quotation-mark overuse, title case in bullets, emoji in headings, filler and hedging). It warns against over-sterilizing: copy with no voice reads as machine-made too, so a voice you supply is kept. Given a sample of your writing, it matches its sentence lengths, vocabulary and quirks first, and raises any em dashes in it for you to keep or drop rather than cutting them silently. It lists what not to flag, such as perfect grammar or formal vocabulary on its own, and signs of human writing to preserve, such as odd specific detail and mixed feelings. Before delivering, it drafts, asks what still reads as AI and whether any fact isn't in the source, then revises and checks for dashes once more.",
+          "permalink": "https://github.com/miqdadbadjuber/anti-slop/tree/9504989f162a92b1996853eccbb3d8a86e73df68/skills/antislop-copywriting"
+        },
+        "tags": [
+          "category:writing",
+          "category:marketing",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "anti-slop",
+          "copywriting",
+          "writing"
+        ]
+      }
+    },
+    {
+      "id": "miqdadbadjuber/anti-slop/skills/antislop-human",
+      "name": "antislop-human",
+      "skills.sh": {
+        "url": "https://skills.sh/miqdadbadjuber/anti-slop/antislop-human",
+        "installs": 7400,
+        "weeklyInstalls": [657, 782, 867, 612, 761, 731, 847, 935],
+        "firstSeen": "2026-08-15"
+      },
+      "skillMd": {
+        "version": "9504989f162a92b1996853eccbb3d8a86e73df68",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Keeps interfaces usable for everyone: contrast, keyboard and focus, states, zoom and real controls, with a script that computes WCAG contrast ratios.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "the agent builds or edits UI and you want it usable by people with different eyes, hands and setups"
+            },
+            {
+              "label": "It does",
+              "text": "lists accessibility failures as Tell, Why and Fix: grey-on-grey text, removed focus outlines, mouse-only patterns, color-only feedback, divs posing as buttons, unlabelled fields"
+            },
+            {
+              "label": "Contrast checker",
+              "text": "a bundled Python script, or the WCAG formula and a reference table when it can't run, so contrast is computed rather than guessed"
+            },
+            {
+              "label": "You get",
+              "text": "a checklist run alongside the core's Delivery Gate"
+            },
+            {
+              "label": "Needs",
+              "text": "the core antislop skill loaded with it"
+            }
+          ],
+          "text": "antislop's accessibility skill, for the parts of a UI that exclude people. Contrast entries cover text over photos and gradients checked across the whole area, grey-on-grey text, and 3:1 non-text contrast for component edges and status indicators. Keyboard and focus entries cover removed outlines, mouse-only patterns, broken tab order, weak focus indicators and color-only feedback. It also covers missing empty, loading and error states, text that can't zoom to 200%, the mobile keyboard covering a form, and interaction affordances: a pointer cursor on every clickable control, native elements instead of divs, names for icon-only buttons, hover, active and disabled states, motion that respects reduced-motion settings, real field labels, and page-level semantics such as lang, landmarks and one h1 for whole documents. The contrast script takes two hex colors and prints the ratio with a pass or fail for normal and large text; it compares unrounded ratios, so 4.498 fails 4.5. Reference files hold copy-ready markup for patterns such as focus traps and skip links, and every WCAG 2.2 success criterion by level.",
+          "permalink": "https://github.com/miqdadbadjuber/anti-slop/tree/9504989f162a92b1996853eccbb3d8a86e73df68/skills/antislop-human"
+        },
+        "tags": [
+          "category:design",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "accessibility",
+          "design",
+          "anti-slop"
+        ]
+      }
+    },
+    {
+      "id": "miqdadbadjuber/anti-slop/skills/antislop-code",
+      "name": "antislop-code",
+      "skills.sh": {
+        "url": "https://skills.sh/miqdadbadjuber/anti-slop/antislop-code",
+        "installs": 7300,
+        "weeklyInstalls": [671, 793, 843, 594, 766, 735, 817, 922],
+        "firstSeen": "2026-08-18"
+      },
+      "skillMd": {
+        "version": "9504989f162a92b1996853eccbb3d8a86e73df68",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Cleans AI-slop comments out of code, such as banners, narration and signature echoes, keeps the ones that explain why, and never touches the code.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "the agent writes or edits code comments, or you want generated comments cleaned out of a file"
+            },
+            {
+              "label": "It does",
+              "text": "removes or shortens comments that add nothing: decorative banners, restated code, step-by-step narration, empty labels, vague TODOs, emoji and end markers"
+            },
+            {
+              "label": "Keeps",
+              "text": "comments on business logic, architecture, security, performance trade-offs, protocols, API contracts, workarounds, edge cases and legal notices"
+            },
+            {
+              "label": "Never",
+              "text": "changes code, identifiers, imports, formatting or whitespace, only comments"
+            },
+            {
+              "label": "Needs",
+              "text": "the core antislop skill loaded with it"
+            }
+          ],
+          "text": "antislop's code-comment skill. Each pattern comes as a tell, why it reads as slop, and a fix: separators built from repeated characters, \"// Initialize the variable\" above the line it describes, Step 1, Step 2 narration, labels such as Main logic, TODOs that name no task, JSDoc that only repeats the signature, decorative emoji such as ✅ or 🚀, and \"// end if\" markers. It also targets how comments read: a comment on every trivial line, formal or shouting wording, and over-explained notes that pad a one-line fact with version history and issue numbers. The fix is one line, two at most when the second carries a new fact, in a short, sentence-case developer voice that explains why rather than what. Valuable content never earns extra length. A checklist confirms every remaining comment adds information the code doesn't show, and that only comments changed.",
+          "permalink": "https://github.com/miqdadbadjuber/anti-slop/tree/9504989f162a92b1996853eccbb3d8a86e73df68/skills/antislop-code"
+        },
+        "tags": [
+          "category:engineering",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "code-quality",
+          "anti-slop"
+        ]
+      }
+    },
+    {
+      "id": "miqdadbadjuber/anti-slop/skills/antislop-layoutmobile",
+      "name": "antislop-layoutmobile",
+      "skills.sh": {
+        "url": "https://skills.sh/miqdadbadjuber/anti-slop/antislop-layoutmobile",
+        "installs": 7200,
+        "weeklyInstalls": [658, 771, 832, 581, 762, 716, 778, 879],
+        "firstSeen": "2026-08-15"
+      },
+      "skillMd": {
+        "version": "9504989f162a92b1996853eccbb3d8a86e73df68",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Makes layouts reflow from phone to desktop instead of shrinking: breakpoints set by content, mobile type and spacing, collapsing grids, no overflow, thumb-sized targets.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "the agent builds a layout that has to hold up at any screen width"
+            },
+            {
+              "label": "It does",
+              "text": "lists responsive failures as Tell, Why and Fix, from the desktop layout squeezed onto a phone to sticky navs that take over the screen"
+            },
+            {
+              "label": "Its principle",
+              "text": "a mobile layout is a different layout that re-stacks, rescales and re-orders, not the desktop at a smaller size"
+            },
+            {
+              "label": "You get",
+              "text": "a mobile layout checklist run alongside the core's Delivery Gate"
+            },
+            {
+              "label": "Needs",
+              "text": "the core antislop skill loaded with it"
+            }
+          ],
+          "text": "antislop's responsive-layout skill. Breakpoints go where the content breaks, not at device widths such as 375 or 768px, with as many states as the content needs, typically three rather than a phone stack and a desktop grid. Mobile gets its own smaller type scale, padding and gaps, fluid type with clamp(), and sections sized to their content or dvh instead of 100vh. Grids collapse to one column instead of colliding, tracks use minmax() and auto-fit rather than fixed pixels, and a 12-column grid isn't forced onto content that wants one or two. Overflow entries find whatever leaks sideways, such as tables, code blocks and long strings, and replace clipping with reflow. Tap targets get at least 44 by 44px with space between them, and every hover-only interaction gets a tap equivalent. Navigation reflows into a bottom nav or a labelled menu rather than a bare hamburger, fixed bars reserve their space so they never cover the last item, and sticky headers stay compact. Fixes end in checking the whole width range, not two sample widths.",
+          "permalink": "https://github.com/miqdadbadjuber/anti-slop/tree/9504989f162a92b1996853eccbb3d8a86e73df68/skills/antislop-layoutmobile"
+        },
+        "tags": [
+          "category:design",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "mobile",
+          "design",
+          "anti-slop"
+        ]
+      }
+    },
+    {
+      "id": "elevenlabs/skills/voice-isolator",
+      "name": "voice-isolator",
+      "skills.sh": {
+        "url": "https://skills.sh/elevenlabs/skills/voice-isolator",
+        "installs": 8300,
+        "weeklyInstalls": [239, 290, 359, 534, 601, 629, 797, 852],
+        "firstSeen": "2026-04-22"
+      },
+      "skillMd": {
+        "version": "9763c39a9d7add478b2f2d8229f0caadf5414f5f",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Removes background noise, music and ambience from recordings with ElevenLabs Voice Isolator, leaving clean speech.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a recording is noisy, or you want dialogue pulled out of a track with music or effects, or clean audio before transcription"
+            },
+            {
+              "label": "It does",
+              "text": "sends the file to ElevenLabs' audio isolation API from Python, JavaScript or the elevenlabs CLI"
+            },
+            {
+              "label": "You get",
+              "text": "an audio file of the isolated voice, streamed MP3 by default"
+            },
+            {
+              "label": "Takes",
+              "text": "any common audio or video file such as MP3, WAV, FLAC or MP4, from disk or a URL, or raw 16kHz PCM for lower latency"
+            },
+            {
+              "label": "Needs",
+              "text": "an ElevenLabs API key"
+            }
+          ],
+          "text": "ElevenLabs' own reference for its Voice Isolator API. As with the other ElevenLabs skills, a missing key sends the agent to the CLI's onboarding first, which signs you in and stores a key for the project. The request takes one audio file, read from disk or downloaded from a URL, and one option, the input format: raw 16-bit, 16kHz mono PCM skips decoding for lower latency. It suggests uses such as cleaning interview and podcast recordings before editing, isolating the voice before speech-to-text for better accuracy, pulling dialogue out of a mixed track, and preparing a source recording for the voice changer. It lists the common errors: an invalid key, invalid parameters and rate limits.",
+          "permalink": "https://github.com/elevenlabs/skills/tree/9763c39a9d7add478b2f2d8229f0caadf5414f5f/voice-isolator"
+        },
+        "tags": [
+          "category:media",
+          "type:tool",
+          "effect:local",
+          "needs:account",
+          "by:official",
+          "stack:elevenlabs",
+          "audio"
+        ],
+        "note": "Needs an ElevenLabs API key in ELEVENLABS_API_KEY; without one, it first runs the ElevenLabs CLI's onboarding, which signs you in and stores a key for the project."
+      }
+    },
+    {
+      "id": "elevenlabs/skills/voice-changer",
+      "name": "voice-changer",
+      "skills.sh": {
+        "url": "https://skills.sh/elevenlabs/skills/voice-changer",
+        "installs": 8000,
+        "weeklyInstalls": [236, 291, 347, 504, 571, 588, 761, 848],
+        "firstSeen": "2026-05-01"
+      },
+      "skillMd": {
+        "version": "9763c39a9d7add478b2f2d8229f0caadf5414f5f",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Re-voices an existing recording in a different ElevenLabs voice, keeping its emotion, timing and delivery.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a recording spoken by a different voice: a new narrator, a character voice from your own performance, or an anonymized speaker"
+            },
+            {
+              "label": "It does",
+              "text": "sends the audio and a target voice ID to ElevenLabs' Voice Changer (speech-to-speech) from Python, JavaScript or the CLI"
+            },
+            {
+              "label": "You get",
+              "text": "the converted audio, MP3 by default, keeping the original pacing, breaths, laughs and whispers"
+            },
+            {
+              "label": "Limits",
+              "text": "5 minutes and 50MB per request; longer recordings are split and the outputs stitched"
+            },
+            {
+              "label": "Not for",
+              "text": "cloning a new voice from a sample; it only converts into a voice ID you already have"
+            },
+            {
+              "label": "Needs",
+              "text": "an ElevenLabs API key"
+            }
+          ],
+          "text": "ElevenLabs' own reference for its Voice Changer API, formerly called speech-to-speech, which swaps who is speaking and keeps how it was said. It recommends the multilingual model, which covers 29 languages and often beats the English-only default even on English audio, names a few premade voices by ID and shows how to list your own. Per-request voice settings tune stability, similarity, style and speaker boost without changing the voice's stored defaults; a seed makes repeat conversions best-effort identical; and noisy input can be cleaned in the same call or first through the voice-isolator skill. It lists output formats from MP3 and PCM to telephony μ-law and Opus, and its billing: 1,000 characters per minute of audio. Its tips on input: be expressive, avoid clipping, and remember that accent and cadence come from the source, not the target voice. A missing key sends the agent to the CLI's onboarding first.",
+          "permalink": "https://github.com/elevenlabs/skills/tree/9763c39a9d7add478b2f2d8229f0caadf5414f5f/voice-changer"
+        },
+        "tags": [
+          "category:media",
+          "type:tool",
+          "effect:local",
+          "needs:account",
+          "by:official",
+          "stack:elevenlabs",
+          "audio",
+          "ai-generation"
+        ],
+        "note": "Needs an ElevenLabs API key in ELEVENLABS_API_KEY; without one, it first runs the ElevenLabs CLI's onboarding, which signs you in and stores a key for the project."
+      }
+    },
+    {
+      "id": "every-app/open-seo/plugins/openseo/skills/seo-audit",
+      "name": "seo-audit",
+      "skills.sh": {
+        "url": "https://skills.sh/every-app/open-seo/seo-audit",
+        "installs": 5600,
+        "weeklyInstalls": [411, 331, 460, 366, 349, 313, 314, 294],
+        "firstSeen": "2026-07-30"
+      },
+      "skillMd": {
+        "version": "78c5d850c2729e3fcf7edf33aafb66efe17453e0",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Audits a website with OpenSEO's crawl and search data, then reports the one to three changes most likely to grow traffic that converts.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want an SEO audit or review of a domain, especially a report a non-expert can act on"
+            },
+            {
+              "label": "It does",
+              "text": "crawls the site with OpenSEO, reads pages of each kind that could bring buyers, checks rankings live, and shortlists five to ten candidate changes before choosing"
+            },
+            {
+              "label": "You get",
+              "text": "an HTML report: one to three recommendations as Do this and Why bullets with an evidence table, a table of what else was checked, and a methodology appendix"
+            },
+            {
+              "label": "Won't",
+              "text": "treat search volume as visits or invent conversion rates or revenue; a position-one traffic scenario is labelled hypothetical"
+            },
+            {
+              "label": "Unlike",
+              "text": "competitor-analysis and competitive-landscape, expert-facing studies of a rival or a market; this one reviews one site for a reader who isn't an SEO"
+            },
+            {
+              "label": "Needs",
+              "text": "the OpenSEO MCP server and account; its report goes through the repo's seo-report skill"
+            }
+          ],
+          "text": "One of OpenSEO's workflows. It needs the project's business overview; if that's empty, it infers one from the site and confirms it in one question. It starts OpenSEO's site crawl and meanwhile pulls backlink and domain estimates, a sample of ranking keywords and the sitemap, to list the site's page families, such as pricing, comparison pages, guides or locations. For each family that could bring buyers, it reads the best and a typical page and asks whether each answers its searcher's question or just swaps a name into shared text. Every ranking claim behind a recommendation gets a live search-results check during the audit, even when recent research is reused. Candidates go into a working file, opportunities.md: an underperforming page, demand with no page, a winning page to protect, an indexing or redirect defect, or helping visitors take the next step. It prefers a bounded fix to a demonstrated problem, puts real access blockers and traffic losses first, and never recommends rewriting a page already near the top. Before saving, a second agent or a fresh self-review argues for the strongest rejected candidate. The pages it names and its verdict are saved back to the project.",
+          "permalink": "https://github.com/every-app/open-seo/tree/78c5d850c2729e3fcf7edf33aafb66efe17453e0/plugins/openseo/skills/seo-audit"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:remote",
+          "needs:mcp",
+          "needs:account",
+          "by:official",
+          "stack:openseo",
+          "seo",
+          "research"
+        ],
+        "note": "Needs the OpenSEO MCP server and an OpenSEO account, and its research spends credits. It saves its report through the repo's seo-report skill and stops before writing one without it, so install that alongside, or install the whole OpenSEO plugin."
       }
     }
   ]
