@@ -328,19 +328,6 @@
       }
     },
     {
-      "name": "ctf-reverse",
-      "repo": "ljagiello/ctf-skills",
-      "official": false,
-      "stars": 3638,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/ljagiello/ctf-skills/ctf-reverse",
-        "installs": 10800,
-        "weeklyInstalls": [252, 326, 267, 173, 221, 353, 334, 418],
-        "firstSeen": "2026-02-01"
-      }
-    },
-    {
       "name": "ui-animation",
       "repo": "mblode/agent-skills",
       "official": false,
@@ -403,19 +390,6 @@
         "installs": 10300,
         "weeklyInstalls": [110, 79, 72, 63, 77, 65, 67, 72],
         "firstSeen": "2026-01-21"
-      }
-    },
-    {
-      "name": "ctf-web",
-      "repo": "ljagiello/ctf-skills",
-      "official": false,
-      "stars": 3638,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/ljagiello/ctf-skills/ctf-web",
-        "installs": 10200,
-        "weeklyInstalls": [244, 321, 259, 156, 208, 318, 299, 364],
-        "firstSeen": "2026-02-01"
       }
     },
     {
@@ -562,19 +536,6 @@
       }
     },
     {
-      "name": "ctf-pwn",
-      "repo": "ljagiello/ctf-skills",
-      "official": false,
-      "stars": 3638,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/ljagiello/ctf-skills/ctf-pwn",
-        "installs": 10000,
-        "weeklyInstalls": [244, 313, 254, 152, 204, 311, 284, 361],
-        "firstSeen": "2026-02-01"
-      }
-    },
-    {
       "name": "refactoring-ui",
       "repo": "wondelai/skills",
       "official": false,
@@ -614,19 +575,6 @@
       }
     },
     {
-      "name": "ctf-crypto",
-      "repo": "ljagiello/ctf-skills",
-      "official": false,
-      "stars": 3638,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/ljagiello/ctf-skills/ctf-crypto",
-        "installs": 9700,
-        "weeklyInstalls": [239, 317, 257, 159, 201, 310, 278, 355],
-        "firstSeen": "2026-02-01"
-      }
-    },
-    {
       "name": "bro",
       "repo": "backnotprop/bro",
       "official": false,
@@ -640,19 +588,6 @@
       }
     },
     {
-      "name": "ctf-osint",
-      "repo": "ljagiello/ctf-skills",
-      "official": false,
-      "stars": 3638,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/ljagiello/ctf-skills/ctf-osint",
-        "installs": 9700,
-        "weeklyInstalls": [236, 295, 241, 146, 210, 297, 291, 357],
-        "firstSeen": "2026-02-01"
-      }
-    },
-    {
       "name": "web-typography",
       "repo": "wondelai/skills",
       "official": false,
@@ -663,19 +598,6 @@
         "installs": 9600,
         "weeklyInstalls": [261, 211, 254, 177, 224, 358, 300, 243],
         "firstSeen": "2026-01-30"
-      }
-    },
-    {
-      "name": "ctf-forensics",
-      "repo": "ljagiello/ctf-skills",
-      "official": false,
-      "stars": 3638,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/ljagiello/ctf-skills/ctf-forensics",
-        "installs": 9600,
-        "weeklyInstalls": [235, 308, 252, 150, 206, 307, 276, 355],
-        "firstSeen": "2026-02-01"
       }
     },
     {
@@ -702,32 +624,6 @@
         "installs": 9400,
         "weeklyInstalls": [389, 406, 316, 279, 281, 356, 450, 413],
         "firstSeen": "2026-04-22"
-      }
-    },
-    {
-      "name": "solve-challenge",
-      "repo": "ljagiello/ctf-skills",
-      "official": false,
-      "stars": 3638,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/ljagiello/ctf-skills/solve-challenge",
-        "installs": 9400,
-        "weeklyInstalls": [241, 304, 248, 148, 195, 296, 272, 361],
-        "firstSeen": "2026-02-01"
-      }
-    },
-    {
-      "name": "ctf-misc",
-      "repo": "ljagiello/ctf-skills",
-      "official": false,
-      "stars": 3638,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/ljagiello/ctf-skills/ctf-misc",
-        "installs": 9400,
-        "weeklyInstalls": [235, 304, 242, 146, 195, 297, 277, 349],
-        "firstSeen": "2026-02-01"
       }
     },
     {
@@ -767,19 +663,6 @@
         "installs": 9200,
         "weeklyInstalls": [777, 940, 1403, 722, 890, 875, 1031, 1129],
         "firstSeen": "2026-08-15"
-      }
-    },
-    {
-      "name": "ctf-malware",
-      "repo": "ljagiello/ctf-skills",
-      "official": false,
-      "stars": 3638,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/ljagiello/ctf-skills/ctf-malware",
-        "installs": 9200,
-        "weeklyInstalls": [237, 299, 246, 145, 189, 289, 268, 345],
-        "firstSeen": "2026-02-01"
       }
     },
     {
@@ -1004,19 +887,6 @@
       }
     },
     {
-      "name": "ctf-writeup",
-      "repo": "ljagiello/ctf-skills",
-      "official": false,
-      "stars": 3638,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/ljagiello/ctf-skills/ctf-writeup",
-        "installs": 8400,
-        "weeklyInstalls": [235, 297, 240, 142, 193, 281, 258, 338],
-        "firstSeen": "2026-03-27"
-      }
-    },
-    {
       "name": "gmgn-kline-pattern",
       "repo": "gmgnai/gmgn-skills",
       "official": false,
@@ -1040,19 +910,6 @@
         "installs": 8300,
         "weeklyInstalls": [239, 290, 359, 534, 601, 629, 797, 852],
         "firstSeen": "2026-04-22"
-      }
-    },
-    {
-      "name": "ctf-ai-ml",
-      "repo": "ljagiello/ctf-skills",
-      "official": false,
-      "stars": 3638,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/ljagiello/ctf-skills/ctf-ai-ml",
-        "installs": 8200,
-        "weeklyInstalls": [233, 298, 242, 146, 188, 279, 249, 343],
-        "firstSeen": "2026-03-28"
       }
     },
     {

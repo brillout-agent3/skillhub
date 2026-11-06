@@ -2377,6 +2377,15 @@
         "kind": "project",
         "description": "Persistent memory compression system built for Claude Code."
       }
+    },
+    {
+      "id": "ljagiello/ctf-skills",
+      "stars": 3638,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Agent Skills for solving CTF challenges: web exploitation, binary pwn, crypto, reverse engineering, forensics, OSINT and more.",
+        "note": "Skills expect CTF tools (radare2, gdb, pwntools, sqlmap and others) installed; the repo ships scripts/install_ctf_tools.sh to install them."
+      }
     }
   ],
   "bundles": [
@@ -4931,6 +4940,89 @@
           {
             "label": "Claude Code plugin; also adds the dashboard and MCP connections to Slack, Notion and project trackers such as Asana, Linear and Jira",
             "command": "claude plugin marketplace add anthropics/knowledge-work-plugins && claude plugin install productivity@knowledge-work-plugins"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ljagiello/ctf-skills",
+      "skew": 0,
+      "agentReview": {
+        "name": "ctf-skills",
+        "description": "A capture-the-flag solving suite: a dispatcher that triages a challenge and routes to deep category skills for web, pwn, crypto, reverse, forensics, OSINT, malware, AI/ML and misc, plus a writeup generator.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you are solving a CTF challenge and want category-specific exploitation playbooks"
+            },
+            {
+              "label": "It does",
+              "text": "triages the challenge, then loads the matching web, pwn, crypto, reverse, forensics, OSINT, malware, AI/ML or misc skill"
+            },
+            {
+              "label": "You get",
+              "text": "recon, the right category technique reference, and a standardized writeup when you finish"
+            },
+            {
+              "label": "Needs",
+              "text": "CTF tools installed; a filesystem agent with bash and Python"
+            }
+          ],
+          "text": "A capture-the-flag solving suite whose skills share one repo and install together. solve-challenge is the user-invocable entry point: it runs first-pass recon (file, strings, nc, HTTP probes), detects the CTF platform (CTFd API token flow, or Playwright MCP for JS-rendered sites), decides the dominant category, then loads the matching ctf-* skill. Each category skill (web, pwn, crypto, reverse, forensics, osint, malware, ai-ml, misc) is a deep, self-contained reference of techniques for that category and also works on its own. ctf-writeup runs after a solve to turn the session into a standardized submission writeup. The install pulls the whole repo, which also ships ctf-similar-search, a Tavily-API writeup-search helper that ctf-web's notes point to when stuck; SkillHub does not list it as a separate skill. The repo also ships scripts/install_ctf_tools.sh to install the many CLI tools these skills call.",
+          "permalink": "https://github.com/ljagiello/ctf-skills/tree/2ad85d368a86c2bc1ce13143a3768f4e55fd1c61"
+        },
+        "skills": [
+          {
+            "id": "ljagiello/ctf-skills/solve-challenge",
+            "standalone": false,
+            "note": "The suite's user-invocable entry point; runs recon then loads the ctf-* category skills, which it expects installed alongside it."
+          },
+          {
+            "id": "ljagiello/ctf-skills/ctf-web",
+            "standalone": true
+          },
+          {
+            "id": "ljagiello/ctf-skills/ctf-pwn",
+            "standalone": true
+          },
+          {
+            "id": "ljagiello/ctf-skills/ctf-crypto",
+            "standalone": true
+          },
+          {
+            "id": "ljagiello/ctf-skills/ctf-reverse",
+            "standalone": true
+          },
+          {
+            "id": "ljagiello/ctf-skills/ctf-forensics",
+            "standalone": true
+          },
+          {
+            "id": "ljagiello/ctf-skills/ctf-osint",
+            "standalone": true
+          },
+          {
+            "id": "ljagiello/ctf-skills/ctf-malware",
+            "standalone": true
+          },
+          {
+            "id": "ljagiello/ctf-skills/ctf-ai-ml",
+            "standalone": true
+          },
+          {
+            "id": "ljagiello/ctf-skills/ctf-misc",
+            "standalone": true
+          },
+          {
+            "id": "ljagiello/ctf-skills/ctf-writeup",
+            "standalone": true
+          }
+        ],
+        "install": [
+          {
+            "label": "Any Agent Skills agent (incl. Claude Code)",
+            "command": "npx skills add ljagiello/ctf-skills"
           }
         ]
       }
@@ -43665,6 +43757,549 @@
           "memory",
           "notes",
           "issue-tracking"
+        ]
+      }
+    },
+    {
+      "id": "ljagiello/ctf-skills/ctf-reverse",
+      "name": "ctf-reverse",
+      "skills.sh": {
+        "url": "https://skills.sh/ljagiello/ctf-skills/ctf-reverse",
+        "installs": 10800,
+        "weeklyInstalls": [252, 326, 267, 173, 221, 353, 334, 418],
+        "firstSeen": "2026-02-01"
+      },
+      "skillMd": {
+        "version": "2ad85d368a86c2bc1ce13143a3768f4e55fd1c61",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Reverse-engineers compiled, obfuscated, packed or virtualized CTF targets (binaries, APKs, WASM, firmware, custom VMs, bytecode) to understand them before exploiting.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a CTF target is a compiled, packed, obfuscated or virtualized program you must understand first"
+            },
+            {
+              "label": "It does",
+              "text": "collects RE techniques for binaries, APKs, WASM, firmware, custom VMs and bytecode, with a triage-first workflow"
+            },
+            {
+              "label": "You get",
+              "text": "a route from strings/ltrace/Frida/angr quick wins to deep static and dynamic analysis"
+            },
+            {
+              "label": "Unlike",
+              "text": "ctf-pwn, which exploits a bug you already understand"
+            },
+            {
+              "label": "Needs",
+              "text": "RE tools installed (radare2, gdb, Ghidra, angr, Frida)"
+            }
+          ],
+          "text": "A category skill in the ctf-skills suite. It is a large reference of reverse-engineering techniques for CTF, from plaintext-flag quick wins to Unicorn emulation, radare2 scripting, anti-debug and anti-VM bypass, MBA simplification, and language- and platform-specific reversing (Go, Rust, Swift, Android, .NET, WASM, firmware, kernel drivers). It starts with a short triage-first workflow and points to many supporting technique files, and tells you when to pivot to pwn, crypto, forensics or misc. It loads by context rather than being invoked by name.",
+          "permalink": "https://github.com/ljagiello/ctf-skills/tree/2ad85d368a86c2bc1ce13143a3768f4e55fd1c61/ctf-reverse"
+        },
+        "tags": [
+          "category:security",
+          "type:guidelines",
+          "effect:none",
+          "needs:cli",
+          "by:community",
+          "security",
+          "debugging"
+        ]
+      }
+    },
+    {
+      "id": "ljagiello/ctf-skills/ctf-web",
+      "name": "ctf-web",
+      "skills.sh": {
+        "url": "https://skills.sh/ljagiello/ctf-skills/ctf-web",
+        "installs": 10200,
+        "weeklyInstalls": [244, 321, 259, 156, 208, 318, 299, 364],
+        "firstSeen": "2026-02-01"
+      },
+      "skillMd": {
+        "version": "2ad85d368a86c2bc1ce13143a3768f4e55fd1c61",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Exploits web CTF targets: SQLi, XSS, SSTI, SSRF, XXE, JWT, auth bypass, file upload, deserialization, prototype pollution and OAuth/SAML flaws.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a CTF challenge is an HTTP app, API, browser client, template engine or auth flow"
+            },
+            {
+              "label": "It does",
+              "text": "maps the trust boundary, then routes you to technique notes for each web bug class"
+            },
+            {
+              "label": "You get",
+              "text": "first-pass recon steps, quick-start commands, and a deep catalog of web exploit techniques"
+            },
+            {
+              "label": "Needs",
+              "text": "tools like sqlmap, ffuf, hashcat; optional Playwright/Burp MCP"
+            }
+          ],
+          "text": "A category skill in the ctf-skills suite for web-heavy challenges. It keeps the first pass short (map the app, confirm the trust boundary) and then sends you to detailed reference files covering SQL injection, XSS and client-side bugs, SSTI, SSRF, XXE, deserialization, JWT and JWE, OAuth/OIDC/SAML, prototype pollution and Web3 frontends, plus CVE-shaped playbooks. It also lists MCP options (Playwright, Burp) and out-of-band callback patterns, and tells you when to pivot to pwn, crypto, forensics or OSINT. Loads by context rather than by name.",
+          "permalink": "https://github.com/ljagiello/ctf-skills/tree/2ad85d368a86c2bc1ce13143a3768f4e55fd1c61/ctf-web"
+        },
+        "tags": [
+          "category:security",
+          "type:guidelines",
+          "effect:none",
+          "needs:cli",
+          "by:community",
+          "security"
+        ]
+      }
+    },
+    {
+      "id": "ljagiello/ctf-skills/ctf-pwn",
+      "name": "ctf-pwn",
+      "skills.sh": {
+        "url": "https://skills.sh/ljagiello/ctf-skills/ctf-pwn",
+        "installs": 10000,
+        "weeklyInstalls": [244, 313, 254, 152, 204, 311, 284, 361],
+        "firstSeen": "2026-02-01"
+      },
+      "skillMd": {
+        "version": "2ad85d368a86c2bc1ce13143a3768f4e55fd1c61",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Turns memory-corruption bugs in CTF binaries into code execution: buffer overflows, format strings, heap, ROP, shellcode, kernel and sandbox escapes.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you already have a vulnerable native target and must turn a bug into code execution"
+            },
+            {
+              "label": "It does",
+              "text": "collects binary-exploitation techniques with runnable pwntools template scripts and writeup references"
+            },
+            {
+              "label": "You get",
+              "text": "playbooks for overflows, ROP, heap, format strings, kernel and seccomp escapes"
+            },
+            {
+              "label": "Unlike",
+              "text": "ctf-reverse, which is for understanding the binary first"
+            },
+            {
+              "label": "Needs",
+              "text": "pwntools, gdb/pwndbg and related exploit tooling"
+            }
+          ],
+          "text": "A category skill in the ctf-skills suite for binary exploitation. It assumes you know what the target does and focuses on the exploit: stack overflows, format strings, ROP and its variants, heap techniques across glibc versions, kernel exploitation, SROP and sandbox/seccomp escapes, with runnable pwntools templates and many competition writeups bundled as reference. It tells you when to switch back to reverse engineering, crypto or misc. Loads by context rather than by name; use it only on CTF challenges or systems you are authorized to test.",
+          "permalink": "https://github.com/ljagiello/ctf-skills/tree/2ad85d368a86c2bc1ce13143a3768f4e55fd1c61/ctf-pwn"
+        },
+        "tags": [
+          "category:security",
+          "type:guidelines",
+          "effect:none",
+          "needs:cli",
+          "by:community",
+          "security"
+        ]
+      }
+    },
+    {
+      "id": "ljagiello/ctf-skills/ctf-crypto",
+      "name": "ctf-crypto",
+      "skills.sh": {
+        "url": "https://skills.sh/ljagiello/ctf-skills/ctf-crypto",
+        "installs": 9700,
+        "weeklyInstalls": [239, 317, 257, 159, 201, 310, 278, 355],
+        "firstSeen": "2026-02-01"
+      },
+      "skillMd": {
+        "version": "2ad85d368a86c2bc1ce13143a3768f4e55fd1c61",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Breaks cryptography in CTF challenges: RSA, AES, ECC, lattices and LWE, PRNGs and classical ciphers, with ready attack recipes.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a CTF challenge attacks encryption, hashing, signatures, PRNGs or a number-theory problem"
+            },
+            {
+              "label": "It does",
+              "text": "collects cryptanalysis attacks keyed to the primitive and the weakness you spot"
+            },
+            {
+              "label": "You get",
+              "text": "recipes for RSA, AES, ECC, DH, lattices/LWE, and stream/PRNG attacks"
+            },
+            {
+              "label": "Needs",
+              "text": "Python crypto/math tooling (SageMath, pycryptodome, fpylll)"
+            }
+          ],
+          "text": "A category skill in the ctf-skills suite for cryptography challenges. It is a dense catalog of attacks organized by primitive: many RSA variants (small e, Wiener, Boneh-Durfee, Coppersmith, Hastad, padding and timing oracles), AES modes (ECB/CBC/GCM misuse, nonce reuse, padding oracle), elliptic curves, classical Diffie-Hellman, lattices and post-quantum, and PRNG/stream weaknesses. The agent matches the observed weakness to an attack. It tells you when the real problem is reversing an implementation or a web/JWT bug. Loads by context rather than by name.",
+          "permalink": "https://github.com/ljagiello/ctf-skills/tree/2ad85d368a86c2bc1ce13143a3768f4e55fd1c61/ctf-crypto"
+        },
+        "tags": [
+          "category:security",
+          "type:guidelines",
+          "effect:none",
+          "needs:cli",
+          "by:community",
+          "security"
+        ]
+      }
+    },
+    {
+      "id": "ljagiello/ctf-skills/ctf-osint",
+      "name": "ctf-osint",
+      "skills.sh": {
+        "url": "https://skills.sh/ljagiello/ctf-skills/ctf-osint",
+        "installs": 9700,
+        "weeklyInstalls": [236, 295, 241, 146, 210, 297, 291, 357],
+        "firstSeen": "2026-02-01"
+      },
+      "skillMd": {
+        "version": "2ad85d368a86c2bc1ce13143a3768f4e55fd1c61",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Gathers open-source intelligence for CTF challenges: geolocation, reverse image search, username enumeration, DNS and archive recon, and public-record lookups.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a CTF challenge asks you to find, locate or identify someone or something from public sources"
+            },
+            {
+              "label": "It does",
+              "text": "collects OSINT techniques for geolocation, reverse image search, usernames, DNS and public records"
+            },
+            {
+              "label": "You get",
+              "text": "methods for Street View matching, plus codes, username mining, WHOIS, dorking and archive research"
+            },
+            {
+              "label": "Heads up",
+              "text": "same methods work on real people; use only where authorized"
+            }
+          ],
+          "text": "A category skill in the ctf-skills suite for OSINT challenges. It gathers techniques for geolocating photos (Google Lens, Street View, What3Words, Plus Codes, Overpass Turbo), reverse image search, username enumeration and metadata mining, Strava and gaming-platform lookups, DNS recon, Google dorking, Shodan, Telegram, FEC filings, WHOIS and archive research. Because these methods investigate real people and accounts, it carries a dual-use flag: apply it only to CTF targets or individuals you are authorized to investigate. Loads by context rather than by name.",
+          "permalink": "https://github.com/ljagiello/ctf-skills/tree/2ad85d368a86c2bc1ce13143a3768f4e55fd1c61/ctf-osint"
+        },
+        "tags": [
+          "category:osint",
+          "category:security",
+          "type:guidelines",
+          "effect:none",
+          "needs:cli",
+          "by:community",
+          "osint",
+          "security",
+          "flag:dual-use"
+        ],
+        "note": "OSINT techniques that work against real people and accounts; use only on CTF targets or people you are authorized to investigate."
+      }
+    },
+    {
+      "id": "ljagiello/ctf-skills/ctf-forensics",
+      "name": "ctf-forensics",
+      "skills.sh": {
+        "url": "https://skills.sh/ljagiello/ctf-skills/ctf-forensics",
+        "installs": 9600,
+        "weeklyInstalls": [235, 308, 252, 150, 206, 307, 276, 355],
+        "firstSeen": "2026-02-01"
+      },
+      "skillMd": {
+        "version": "2ad85d368a86c2bc1ce13143a3768f4e55fd1c61",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Analyzes disk images, memory dumps, PCAPs, logs and steganography in CTF challenges to recover hidden data, files and flags.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a CTF challenge is a disk image, memory dump, packet capture, log set or stego artifact"
+            },
+            {
+              "label": "It does",
+              "text": "collects forensics and signal-analysis techniques for recovering hidden data and files"
+            },
+            {
+              "label": "You get",
+              "text": "methods for disk/memory forensics, PCAP and TLS decryption, steganography and side-channel traces"
+            },
+            {
+              "label": "Needs",
+              "text": "forensics tooling (Volatility, binwalk, tcpdump/Wireshark and more)"
+            }
+          ],
+          "text": "A category skill in the ctf-skills suite for forensics challenges. It covers disk and memory forensics (including Volatility and Windows triage), RAID and APFS recovery, network captures and TLS/RDP keylog decryption, a broad steganography toolkit (image, audio/SSTV, PDF, USB HID and MIDI, UART), cryptocurrency transaction tracing, and side-channel and signal analysis. It tells you when a dump really hides crypto work, a malware sample, or an OSINT trail. Loads by context rather than by name.",
+          "permalink": "https://github.com/ljagiello/ctf-skills/tree/2ad85d368a86c2bc1ce13143a3768f4e55fd1c61/ctf-forensics"
+        },
+        "tags": [
+          "category:security",
+          "type:guidelines",
+          "effect:none",
+          "needs:cli",
+          "by:community",
+          "security"
+        ]
+      }
+    },
+    {
+      "id": "ljagiello/ctf-skills/solve-challenge",
+      "name": "solve-challenge",
+      "skills.sh": {
+        "url": "https://skills.sh/ljagiello/ctf-skills/solve-challenge",
+        "installs": 9400,
+        "weeklyInstalls": [241, 304, 248, 148, 195, 296, 272, 361],
+        "firstSeen": "2026-02-01"
+      },
+      "skillMd": {
+        "version": "2ad85d368a86c2bc1ce13143a3768f4e55fd1c61",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Triages a CTF challenge, identifies its category, and routes to the matching ctf-* skill; the suite's recon and dispatch entry point.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you have a challenge bundle, service, suspicious file or only a vague description and must decide where to start"
+            },
+            {
+              "label": "It does",
+              "text": "runs first-pass recon, classifies the category, then loads the matching ctf-* skill"
+            },
+            {
+              "label": "You get",
+              "text": "a chosen category, platform handling (CTFd API, Playwright), and a pivot plan when stuck"
+            },
+            {
+              "label": "Runs",
+              "text": "when you invoke it by name; the category skills load automatically"
+            }
+          ],
+          "text": "The user-invocable dispatcher for the ctf-skills suite. It explores the challenge files, triages binaries and services, detects the CTF platform (CTFd API token flow or Playwright MCP for JS-rendered sites), then categorizes the challenge by file type, description keywords and service behavior and invokes the right category skill (web, pwn, crypto, reverse, forensics, osint, malware, ai-ml, misc). It carries pivot rules for multi-category challenges and finishes by handing off to ctf-writeup. It routes and runs recon rather than holding the deepest technique reference itself, so it expects the category skills installed alongside it.",
+          "permalink": "https://github.com/ljagiello/ctf-skills/tree/2ad85d368a86c2bc1ce13143a3768f4e55fd1c61/solve-challenge"
+        },
+        "tags": [
+          "category:security",
+          "type:router",
+          "effect:none",
+          "needs:cli",
+          "by:community",
+          "security",
+          "agent-workflows"
+        ]
+      }
+    },
+    {
+      "id": "ljagiello/ctf-skills/ctf-misc",
+      "name": "ctf-misc",
+      "skills.sh": {
+        "url": "https://skills.sh/ljagiello/ctf-skills/ctf-misc",
+        "installs": 9400,
+        "weeklyInstalls": [235, 304, 242, 146, 195, 297, 277, 349],
+        "firstSeen": "2026-02-01"
+      },
+      "skillMd": {
+        "version": "2ad85d368a86c2bc1ce13143a3768f4e55fd1c61",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Solves CTF challenges that fit no main category: pyjails, encodings, RF/SDR, esoteric languages, QR/audio puzzles, constraint solving and game theory.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a CTF challenge is a jail, encoding puzzle, signal, esoteric language or cross-category oddity"
+            },
+            {
+              "label": "It does",
+              "text": "collects techniques for the edge cases the main category skills do not cover"
+            },
+            {
+              "label": "You get",
+              "text": "playbooks for pyjail/bash-jail escapes, encodings, RF/SDR, audio stego and constraint solving"
+            },
+            {
+              "label": "Unlike",
+              "text": "the specific category skills; this is the fallback for genuine edge cases"
+            }
+          ],
+          "text": "A category skill in the ctf-skills suite, the fallback for challenges that do not fit web, pwn, crypto, reverse, forensics, malware or OSINT. It covers Python and bash sandbox escapes, many encodings and chained transforms, barcodes and QR polyglots, DTMF and audio steganography, RF/SDR, DNS tricks, Unicode stego, floating-point tricks, game theory and commitment schemes, and other esoteric puzzles. It advises trying a more specific skill first. Loads by context rather than by name.",
+          "permalink": "https://github.com/ljagiello/ctf-skills/tree/2ad85d368a86c2bc1ce13143a3768f4e55fd1c61/ctf-misc"
+        },
+        "tags": [
+          "category:security",
+          "type:guidelines",
+          "effect:none",
+          "needs:cli",
+          "by:community",
+          "security"
+        ]
+      }
+    },
+    {
+      "id": "ljagiello/ctf-skills/ctf-malware",
+      "name": "ctf-malware",
+      "skills.sh": {
+        "url": "https://skills.sh/ljagiello/ctf-skills/ctf-malware",
+        "installs": 9200,
+        "weeklyInstalls": [237, 299, 246, 145, 189, 289, 268, 345],
+        "firstSeen": "2026-02-01"
+      },
+      "skillMd": {
+        "version": "2ad85d368a86c2bc1ce13143a3768f4e55fd1c61",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Analyzes malware and network traffic in CTF challenges: obfuscated scripts, C2 protocols, PE/.NET binaries, shellcode and anti-analysis tricks.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a CTF challenge is a malware sample, C2 capture or obfuscated malicious package"
+            },
+            {
+              "label": "It does",
+              "text": "collects malware-analysis and network-forensics techniques to recover config and indicators"
+            },
+            {
+              "label": "You get",
+              "text": "methods for deobfuscation, C2 decoding, PE/.NET analysis, YARA, shellcode and memory forensics"
+            },
+            {
+              "label": "Needs",
+              "text": "analysis tooling (Volatility, YARA, strace/ltrace and more)"
+            }
+          ],
+          "text": "A category skill in the ctf-skills suite for malware and network-traffic challenges. It covers deobfuscating scripts and packages, decoding custom and known C2 protocols (Poison Ivy, LimeRAT, Cobalt Strike), PE and .NET analysis, PyInstaller unpacking, sandbox-evasion and anti-analysis recognition, dynamic analysis, YARA rules, shellcode analysis, and memory forensics for injection. It focuses on understanding and extracting indicators from a sample. It tells you when to pivot to reverse engineering or forensics. Loads by context rather than by name.",
+          "permalink": "https://github.com/ljagiello/ctf-skills/tree/2ad85d368a86c2bc1ce13143a3768f4e55fd1c61/ctf-malware"
+        },
+        "tags": [
+          "category:security",
+          "type:guidelines",
+          "effect:none",
+          "needs:cli",
+          "by:community",
+          "security"
+        ]
+      }
+    },
+    {
+      "id": "ljagiello/ctf-skills/ctf-writeup",
+      "name": "ctf-writeup",
+      "skills.sh": {
+        "url": "https://skills.sh/ljagiello/ctf-skills/ctf-writeup",
+        "installs": 8400,
+        "weeklyInstalls": [235, 297, 240, 142, 193, 281, 258, 338],
+        "firstSeen": "2026-03-27"
+      },
+      "skillMd": {
+        "version": "2ad85d368a86c2bc1ce13143a3768f4e55fd1c61",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Generates a standardized submission-style writeup after you solve a CTF challenge, with metadata, solution steps, code and lessons learned.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you have solved a CTF challenge and want a clean writeup for teammates or organizers"
+            },
+            {
+              "label": "It does",
+              "text": "gathers the metadata, artifacts and timeline from the session and fills a submission template"
+            },
+            {
+              "label": "You get",
+              "text": "a writeup.md file with summary, step-by-step solution, one complete solve script and the flag"
+            },
+            {
+              "label": "Runs",
+              "text": "when you invoke it by name, after the solve"
+            }
+          ],
+          "text": "A category skill in the ctf-skills suite that runs after a solve. You invoke it by name; it collects the challenge metadata (name, event, category, difficulty, points, flag format), the exploit scripts and artifacts, and the timeline from the session, then writes a standardized submission-style writeup to writeup.md (or writeup-<name>.md) using a fixed template: summary, numbered solution steps, one complete solve script, and the flag. It optimizes for speed and reproducibility so a teammate or organizer can validate the solve.",
+          "permalink": "https://github.com/ljagiello/ctf-skills/tree/2ad85d368a86c2bc1ce13143a3768f4e55fd1c61/ctf-writeup"
+        },
+        "tags": [
+          "category:security",
+          "type:command",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "security",
+          "docs-writing"
+        ]
+      }
+    },
+    {
+      "id": "ljagiello/ctf-skills/ctf-ai-ml",
+      "name": "ctf-ai-ml",
+      "skills.sh": {
+        "url": "https://skills.sh/ljagiello/ctf-skills/ctf-ai-ml",
+        "installs": 8200,
+        "weeklyInstalls": [233, 298, 242, 146, 188, 279, 249, 343],
+        "firstSeen": "2026-03-28"
+      },
+      "skillMd": {
+        "version": "2ad85d368a86c2bc1ce13143a3768f4e55fd1c61",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Attacks ML models in CTF challenges: adversarial examples, model extraction, membership inference, LoRA exploitation, data poisoning and LLM jailbreaks.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a CTF challenge ships model weights or turns on an ML/LLM attack"
+            },
+            {
+              "label": "It does",
+              "text": "collects techniques for attacking models and crafting adversarial or injection inputs"
+            },
+            {
+              "label": "You get",
+              "text": "methods for adversarial examples, model extraction, membership inference, LoRA and prompt injection"
+            },
+            {
+              "label": "Needs",
+              "text": "ML tooling (PyTorch, transformers, scikit-learn)"
+            }
+          ],
+          "text": "A category skill in the ctf-skills suite for AI/ML challenges. It covers weight perturbation, adversarial examples (FGSM, PGD, C&W), model extraction and membership inference, LoRA adapter exploitation, gradient-based inversion, data poisoning and backdoor detection, and LLM attacks such as prompt injection, jailbreaking, token smuggling and context-window manipulation. The agent reaches for it when a challenge provides .safetensors/.pt/.onnx weights or asks for a model attack. Loads by context rather than by name.",
+          "permalink": "https://github.com/ljagiello/ctf-skills/tree/2ad85d368a86c2bc1ce13143a3768f4e55fd1c61/ctf-ai-ml"
+        },
+        "tags": [
+          "category:security",
+          "type:guidelines",
+          "effect:none",
+          "needs:cli",
+          "by:community",
+          "security"
         ]
       }
     }
