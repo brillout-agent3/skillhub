@@ -222,29 +222,32 @@ export interface SkillsSh {
    * rounded to three digits (such as 26.5K) for an approved skill outside it. A skill of
    * crawl.jsonc that left the top 600 keeps its last number.
    *
-   * Source: scripts/crawl.ts, which .github/workflows/crawl.yml runs daily. For a skill in the top
-   * 600, `topSkills()` takes `installs` from the leaderboard that https://www.skills.sh/ embeds in
-   * its page (the `initialSkills` of its Next.js payload, the all-time view). For an approved skill
-   * outside it, `skillPage()` reads the "Installs" stat of the skill's skills.sh page, and sets null
-   * when skills.sh no longer has the page.
+   * Source: scraped from skills.sh's HTML, with no skills.sh API, by scripts/crawl.ts, which
+   * .github/workflows/crawl.yml runs daily. For a skill in the top 600, `topSkills()` fetches the
+   * HTML of https://www.skills.sh/ and parses the leaderboard JSON that the page's Next.js payload
+   * embeds (its `self.__next_f.push(…)` scripts, the `initialSkills` object of the all-time
+   * view). For an approved skill outside it, `skillPage()` fetches the HTML of the skill's
+   * skills.sh page and matches the "Installs" stat in its markup with a regex, such as "26.5K";
+   * null when skills.sh no longer has the page.
    */
   installs: number | null;
   /**
    * Installs per week for the 8 weeks up to the installs snapshot, oldest first, or null when
    * unknown.
    *
-   * Source: scripts/crawl.ts, daily, together with `installs`. For a skill in the top 600,
-   * `topSkills()` takes `weeklyInstalls` from the same leaderboard. For an approved skill outside
-   * it, `skillPage()` reads the "Weekly installs" chart of the skill's skills.sh page, from its
-   * `aria-label="Weekly installs: …"`.
+   * Source: scraped from skills.sh's HTML by scripts/crawl.ts, daily, together with `installs`. For
+   * a skill in the top 600, `topSkills()` takes `weeklyInstalls` from the same leaderboard JSON in
+   * the HTML of https://www.skills.sh/. For an approved skill outside it, `skillPage()` matches the
+   * `aria-label="Weekly installs: …"` of the chart in the HTML of the skill's skills.sh page.
    */
   weeklyInstalls: number[] | null;
   /**
    * When skills.sh first saw the skill (YYYY-MM-DD), or null when unknown. It never changes.
    *
-   * Source: scripts/crawl.ts. `skillPage()` reads the "First Seen" stat of the skill's skills.sh
-   * page, such as "Jan 22, 2026", which the leaderboard doesn't give. It reads it once: when the
-   * crawl records the skill in crawl.jsonc, or for an approved skill that has none.
+   * Source: scraped from skills.sh's HTML by scripts/crawl.ts. `skillPage()` fetches the HTML of
+   * the skill's skills.sh page and matches its "First Seen" stat with a regex, such as "Jan 22,
+   * 2026", which the leaderboard doesn't give. It does so once: when the crawl records the skill in
+   * crawl.jsonc, or for an approved skill that has none.
    */
   firstSeen: string | null;
 }
