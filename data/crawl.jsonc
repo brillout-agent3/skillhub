@@ -3,19 +3,6 @@
   "asOf": "2026-11-06",
   "qualified": [
     {
-      "name": "agents",
-      "repo": "elevenlabs/skills",
-      "official": true,
-      "stars": 536,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/elevenlabs/skills/agents",
-        "installs": 12600,
-        "weeklyInstalls": [304, 340, 417, 632, 645, 636, 813, 856],
-        "firstSeen": "2026-01-28"
-      }
-    },
-    {
       "name": "nature-literature-pipeline",
       "repo": "yuan1z0825/nature-skills",
       "official": false,
@@ -390,19 +377,6 @@
         "installs": 11600,
         "weeklyInstalls": [170, 187, 223, 270, 214, 184, 184, 178],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "setup-api-key",
-      "repo": "elevenlabs/skills",
-      "official": true,
-      "stars": 536,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/elevenlabs/skills/setup-api-key",
-        "installs": 11500,
-        "weeklyInstalls": [264, 320, 430, 601, 666, 708, 862, 903],
-        "firstSeen": "2026-01-27"
       }
     },
     {
@@ -991,19 +965,6 @@
       }
     },
     {
-      "name": "okx-cex-market",
-      "repo": "okx/agent-skills",
-      "official": false,
-      "stars": 201,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/okx/agent-skills/okx-cex-market",
-        "installs": 10700,
-        "weeklyInstalls": [137, 137, 137, 129, 131, 139, 144, 137],
-        "firstSeen": "2026-03-08"
-      }
-    },
-    {
       "name": "mtls-configuration",
       "repo": "wshobson/agents",
       "official": false,
@@ -1079,19 +1040,6 @@
         "installs": 10600,
         "weeklyInstalls": [165, 178, 206, 261, 206, 175, 176, 170],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "okx-cex-trade",
-      "repo": "okx/agent-skills",
-      "official": false,
-      "stars": 201,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/okx/agent-skills/okx-cex-trade",
-        "installs": 10500,
-        "weeklyInstalls": [134, 123, 134, 120, 126, 135, 128, 120],
-        "firstSeen": "2026-03-08"
       }
     },
     {
@@ -1225,19 +1173,6 @@
       }
     },
     {
-      "name": "okx-cex-portfolio",
-      "repo": "okx/agent-skills",
-      "official": false,
-      "stars": 201,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/okx/agent-skills/okx-cex-portfolio",
-        "installs": 10300,
-        "weeklyInstalls": [134, 127, 133, 119, 123, 129, 126, 122],
-        "firstSeen": "2026-03-08"
-      }
-    },
-    {
       "name": "swiftui-performance-audit",
       "repo": "dimillian/skills",
       "official": false,
@@ -1365,19 +1300,6 @@
         "installs": 10100,
         "weeklyInstalls": [108, 107, 93, 84, 81, 78, 130, 104],
         "firstSeen": "2026-03-04"
-      }
-    },
-    {
-      "name": "okx-cex-bot",
-      "repo": "okx/agent-skills",
-      "official": false,
-      "stars": 201,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/okx/agent-skills/okx-cex-bot",
-        "installs": 10100,
-        "weeklyInstalls": [134, 120, 127, 113, 119, 124, 118, 116],
-        "firstSeen": "2026-03-08"
       }
     },
     {
@@ -1859,19 +1781,6 @@
         "installs": 9400,
         "weeklyInstalls": [241, 304, 248, 148, 195, 296, 272, 361],
         "firstSeen": "2026-02-01"
-      }
-    },
-    {
-      "name": "okx-cex-earn",
-      "repo": "okx/agent-skills",
-      "official": false,
-      "stars": 201,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/okx/agent-skills/okx-cex-earn",
-        "installs": 9400,
-        "weeklyInstalls": [127, 119, 124, 110, 115, 116, 108, 113],
-        "firstSeen": "2026-03-15"
       }
     },
     {
@@ -2447,19 +2356,6 @@
       }
     },
     {
-      "name": "okx-sentiment-tracker",
-      "repo": "okx/agent-skills",
-      "official": false,
-      "stars": 201,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/okx/agent-skills/okx-sentiment-tracker",
-        "installs": 8400,
-        "weeklyInstalls": [138, 130, 164, 294, 219, 208, 208, 179],
-        "firstSeen": "2026-04-17"
-      }
-    },
-    {
       "name": "karpathy-llm-wiki",
       "repo": "astro-han/karpathy-llm-wiki",
       "official": false,
@@ -2509,19 +2405,6 @@
         "installs": 8300,
         "weeklyInstalls": [302, 224, 193, 186, 269, 283, 303, 334],
         "firstSeen": "2026-03-11"
-      }
-    },
-    {
-      "name": "okx-cex-skill-mp",
-      "repo": "okx/agent-skills",
-      "official": false,
-      "stars": 201,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/okx/agent-skills/okx-cex-skill-mp",
-        "installs": 8300,
-        "weeklyInstalls": [127, 120, 125, 112, 115, 116, 107, 113],
-        "firstSeen": "2026-04-03"
       }
     },
     {
@@ -2925,19 +2808,6 @@
         "installs": 7800,
         "weeklyInstalls": [144, 130, 107, 124, 117, 142, 155, 148],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "speech-engine",
-      "repo": "elevenlabs/skills",
-      "official": true,
-      "stars": 536,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/elevenlabs/skills/speech-engine",
-        "installs": 7800,
-        "weeklyInstalls": [244, 295, 379, 520, 577, 561, 722, 771],
-        "firstSeen": "2026-05-14"
       }
     },
     {
@@ -35495,6 +35365,46 @@
     {
       "url": "https://skills.sh/googlechrome/modern-web-guidance/chrome-extensions",
       "note": "Tool docs: an agent's manual for chrome extensions."
+    },
+    {
+      "url": "https://skills.sh/okx/agent-skills/okx-cex-market",
+      "note": "Tool docs: an agent's manual for okx."
+    },
+    {
+      "url": "https://skills.sh/okx/agent-skills/okx-cex-trade",
+      "note": "Tool docs: an agent's manual for okx."
+    },
+    {
+      "url": "https://skills.sh/okx/agent-skills/okx-cex-portfolio",
+      "note": "Tool docs: an agent's manual for okx."
+    },
+    {
+      "url": "https://skills.sh/okx/agent-skills/okx-cex-bot",
+      "note": "Tool docs: an agent's manual for okx."
+    },
+    {
+      "url": "https://skills.sh/okx/agent-skills/okx-cex-earn",
+      "note": "Tool docs: an agent's manual for okx."
+    },
+    {
+      "url": "https://skills.sh/okx/agent-skills/okx-sentiment-tracker",
+      "note": "Tool docs: an agent's manual for okx."
+    },
+    {
+      "url": "https://skills.sh/okx/agent-skills/okx-cex-skill-mp",
+      "note": "Tool docs: it finds and installs trading skills from OKX's own marketplace, through the okx CLI."
+    },
+    {
+      "url": "https://skills.sh/elevenlabs/skills/agents",
+      "note": "Tool docs: an agent's manual for elevenlabs."
+    },
+    {
+      "url": "https://skills.sh/elevenlabs/skills/setup-api-key",
+      "note": "Tool docs: an agent's manual for elevenlabs."
+    },
+    {
+      "url": "https://skills.sh/elevenlabs/skills/speech-engine",
+      "note": "Tool docs: an agent's manual for elevenlabs."
     }
   ]
 }
