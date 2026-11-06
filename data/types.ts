@@ -219,10 +219,12 @@ export interface SkillsSh {
   url: string;
   /** The command skills.sh gives to install it. */
   install: string;
-  // TODO/ai where does the weeklyInstalls data come from exactly?
   /**
-   * All-time installs, or null when unknown: exact for the skills.sh all-time top 600, else from
-   * the skill's skills.sh page, which rounds them to three digits (such as 26.5K).
+   * All-time installs, or null when unknown. crawl.ts takes them daily from the skills.sh all-time
+   * top 600, which skills.sh embeds in its home page, exact. For an approved skill outside it, it
+   * takes them from the "Installs" stat of the skill's skills.sh page, which rounds them to three
+   * digits (such as 26.5K), or null once skills.sh no longer has the skill. A skill of crawl.jsonc
+   * that left the top 600 keeps its last number.
    */
   installs: number | null;
   // TODO/ai where does the weeklyInstalls data come from exactly?
