@@ -5440,55 +5440,6 @@
       }
     },
     {
-      "id": "wshobson/agents/plugins/javascript-typescript/skills/typescript-advanced-types",
-      "name": "typescript-advanced-types",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/typescript-advanced-types",
-        "installs": 97707,
-        "weeklyInstalls": [3111, 2956, 3068, 2981, 2834, 3374, 3306, 3317],
-        "firstSeen": "2026-01-20"
-      },
-      "skillMd": {
-        "version": "0874a27b17a22e2b7c2e2bcd725768e0803cad06",
-        "updated": "2026-10-20",
-        "skew": 0
-      },
-      "agentReview": {
-        "description": "Teaches TypeScript generics, conditional, mapped and template-literal types.",
-        "tldr": {
-          "glance": [
-            {
-              "label": "Use it when",
-              "text": "you're writing complex TypeScript types: reusable generic helpers, type-safe API clients, typed config, forms or state"
-            },
-            {
-              "label": "It does",
-              "text": "gives the agent a reference of generics, conditional, mapped and template-literal types, with short examples"
-            },
-            {
-              "label": "You get",
-              "text": "types written along its patterns and best practices; it adds no steps or files of its own"
-            },
-            {
-              "label": "Also covers",
-              "text": "built-in utility types, testing types, common pitfalls and keeping the compiler fast"
-            }
-          ],
-          "text": "It's a reference, not a workflow. Each core feature gets its purpose and a few examples: generics with constraints, conditional types (including extracting a function's return type and distributing over unions), mapped types that rename or filter keys, template literal types that build string types such as dotted config paths, and built-in utilities like Partial, Pick, Omit and Record. A separate file holds worked patterns: a type-safe event emitter, API client and builder, deep readonly and partial types, form validation, discriminated unions, plus the infer keyword, type guards and assertion functions. Its best practices include unknown over any, interface for object shapes and type for unions, type guards over type assertions, and strict mode; it also shows how to write tests that check types at compile time. It lists common pitfalls and warns that deeply nested or recursive types slow the compiler.",
-          "permalink": "https://github.com/wshobson/agents/tree/0874a27b17a22e2b7c2e2bcd725768e0803cad06/plugins/javascript-typescript/skills/typescript-advanced-types"
-        },
-        "tags": [
-          "category:engineering",
-          "type:guidelines",
-          "effect:none",
-          "needs:none",
-          "by:community",
-          "stack:typescript",
-          "code-quality"
-        ]
-      }
-    },
-    {
       "id": "dietrichgebert/ponytail/skills/ponytail",
       "name": "ponytail",
       "skills.sh": {
