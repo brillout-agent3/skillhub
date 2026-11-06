@@ -4616,6 +4616,169 @@
           }
         ]
       }
+    },
+    {
+      "id": "gamedev-skills/awesome-gamedev-agent-skills",
+      "skew": 0,
+      "agentReview": {
+        "name": "Gamedev Agent Skills",
+        "description": "Cross-engine game-development skills for concepts, genres and process, with a router that detects your engine and task and loads only the skills that fit before the agent writes code.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're building a game with an agent, in any engine, and want it to pull in the right game-dev know-how for each request"
+            },
+            {
+              "label": "It does",
+              "text": "the router detects your engine from project files, sorts the request into concepts, a genre and process steps, and reads only those skills, engine basics first"
+            },
+            {
+              "label": "You get",
+              "text": "game code built to cross-engine playbooks, such as crash-safe saves, rebindable input, smooth cameras and juice, plus a genre's core loop, must-have systems and tuning knobs"
+            },
+            {
+              "label": "Runs",
+              "text": "by itself: you describe the task and never name a skill"
+            },
+            {
+              "label": "Engines",
+              "text": "Godot, Unity, Unreal, Ebitengine, Phaser, PixiJS, three.js, Bevy, pygame, LÖVE, Defold and Roblox, or your own engine, mapped from the project's code"
+            },
+            {
+              "label": "Not listed here",
+              "text": "the engine skills the router loads, plus steam-publish and itch-publish; both installs bring them, since each installs all 77 skills and the router"
+            },
+            {
+              "label": "Works with",
+              "text": "Claude Code, Cursor, Codex, Gemini CLI, GitHub Copilot and other agents that read SKILL.md files"
+            }
+          ],
+          "text": "The router is the entry point. It fingerprints the project to pick one engine (a project.godot means Godot), keeps an existing project's pinned version, then sorts the request into three additive groups and reads only the chosen skills, saying what it loaded. Fifteen discipline skills each own one portable concept, such as save-systems, input-systems, camera-systems, game-feel or performance-optimization, and leave the engine's API to its engine skill. Nine genre playbooks, from platformer to visual-novel, set out a game's core loop, must-have systems and tuning knobs, and name the disciplines to build each part from instead of re-teaching them. Two workflows cover process: prototype-fast tests whether a mechanic is fun, and game-jam scopes a jam entry to the clock and plans it through to submission. Asking for a double jump in a Godot game, say, loads the Godot movement skill and platformer, nothing else. For a new project with no engine preference the router picks Godot; a custom engine is kept, and the concepts are mapped onto its own APIs. The engine skills it routes to, and steam-publish and itch-publish, aren't listed on SkillHub, but both installs bring them. Every skill here but the router also works alone.",
+          "permalink": "https://github.com/gamedev-skills/awesome-gamedev-agent-skills/tree/19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9"
+        },
+        "skills": [
+          {
+            "id": "gamedev-skills/awesome-gamedev-agent-skills/router",
+            "standalone": false,
+            "note": "Picks and reads the bundle's other skills, plus the repo's engine skills, steam-publish and itch-publish, which SkillHub doesn't list; alone, it has nothing to load."
+          },
+          {
+            "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/disciplines/create-game-assets",
+            "standalone": true
+          },
+          {
+            "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/disciplines/game-ai",
+            "standalone": true
+          },
+          {
+            "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/disciplines/ai-behavior-trees-utility-ai",
+            "standalone": true
+          },
+          {
+            "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/disciplines/procedural-gen",
+            "standalone": true
+          },
+          {
+            "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/disciplines/dialogue-systems",
+            "standalone": true
+          },
+          {
+            "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/disciplines/save-systems",
+            "standalone": true
+          },
+          {
+            "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/disciplines/audio-design",
+            "standalone": true
+          },
+          {
+            "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/disciplines/shader-programming",
+            "standalone": true
+          },
+          {
+            "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/disciplines/physics-tuning",
+            "standalone": true
+          },
+          {
+            "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/disciplines/level-design",
+            "standalone": true
+          },
+          {
+            "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/disciplines/input-systems",
+            "standalone": true
+          },
+          {
+            "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/disciplines/game-feel",
+            "standalone": true
+          },
+          {
+            "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/disciplines/game-ui-ux",
+            "standalone": true
+          },
+          {
+            "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/disciplines/camera-systems",
+            "standalone": true
+          },
+          {
+            "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/disciplines/performance-optimization",
+            "standalone": true
+          },
+          {
+            "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/genres/platformer",
+            "standalone": true
+          },
+          {
+            "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/genres/roguelike",
+            "standalone": true
+          },
+          {
+            "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/genres/rpg",
+            "standalone": true
+          },
+          {
+            "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/genres/fps-shooter",
+            "standalone": true
+          },
+          {
+            "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/genres/tower-defense",
+            "standalone": true
+          },
+          {
+            "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/genres/card-game",
+            "standalone": true
+          },
+          {
+            "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/genres/visual-novel",
+            "standalone": true
+          },
+          {
+            "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/genres/survival-crafting",
+            "standalone": true
+          },
+          {
+            "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/genres/puzzle",
+            "standalone": true
+          },
+          {
+            "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/workflows/game-jam",
+            "standalone": true
+          },
+          {
+            "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/workflows/prototype-fast",
+            "standalone": true
+          }
+        ],
+        "install": [
+          {
+            "label": "Any agent, with the skills CLI",
+            "command": "npx skills add gamedev-skills/awesome-gamedev-agent-skills"
+          },
+          {
+            "label": "Claude Code plugin",
+            "command": "claude plugin marketplace add gamedev-skills/awesome-gamedev-agent-skills && claude plugin install gamedev@awesome-gamedev-agent-skills"
+          }
+        ]
+      }
     }
   ],
   "skills": [
@@ -36591,6 +36754,1311 @@
           "finance"
         ],
         "note": "Needs Python with pandas, numpy, toad, LightGBM, scikit-learn, openpyxl, joblib and tqdm. Its script asks for every path, column and threshold at the terminal, and names the Excel report and its sheets in Chinese."
+      }
+    },
+    {
+      "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/disciplines/level-design",
+      "name": "level-design",
+      "skills.sh": {
+        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/level-design",
+        "installs": 10900,
+        "weeklyInstalls": [435, 409, 483, 494, 579, 830, 1726, 2087],
+        "firstSeen": "2026-06-27"
+      },
+      "skillMd": {
+        "version": "19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Plans and blocks out game levels from the player's movement metrics, then paces, gates and playtests them before any art goes in.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're laying out a level and want it to play well before any art exists, or a level feels flat, confusing or unfair"
+            },
+            {
+              "label": "It does",
+              "text": "sizes every gap and ledge from the character's jump and run numbers, blocks the level out in grey primitives, paces tension and rest, then playtests"
+            },
+            {
+              "label": "Blockout means",
+              "text": "a rough version of the level built from untextured boxes at the right scale, cheap to change, and only dressed with art once it plays well"
+            },
+            {
+              "label": "You get",
+              "text": "level geometry sized in player units; its patterns add the pacing as data and a room-graph check that the goal can be reached"
+            },
+            {
+              "label": "Leaves to others",
+              "text": "generating levels by algorithm, to procedural-gen, and painting tiles in the engine, to the engine tilemap skills"
+            }
+          ],
+          "text": "A discipline skill from a game-development collection, engine-neutral with GDScript examples. Its seven steps: derive metrics from the character controller (max jump height and distance, run speed, reach); block the whole level out in primitives at the right scale, with Godot CSG boxes, Unity's ProBuilder, Unreal's Modeling Mode or a grey tileset; mark the critical path from start to goal and the golden path most players take; alternate tension and rest; teach each mechanic somewhere safe before testing it under pressure; gate with keys, abilities and one-way drops while guiding the eye with light, lines and landmarks; and fix the blockout by watching real players. Its patterns compute comfortable and hard gap widths from the same constants the controller uses, write the level's pacing as a list of beats with an intensity, and check a graph of rooms and gated exits for soft-locks, where the goal needs a key no reachable room grants. Pitfalls cover dressing before it plays, flat pacing and unsignposted one-way drops.",
+          "permalink": "https://github.com/gamedev-skills/awesome-gamedev-agent-skills/tree/19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9/skills/disciplines/level-design"
+        },
+        "tags": [
+          "category:design",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "design",
+          "prototyping"
+        ]
+      }
+    },
+    {
+      "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/disciplines/performance-optimization",
+      "name": "performance-optimization",
+      "skills.sh": {
+        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/performance-optimization",
+        "installs": 10500,
+        "weeklyInstalls": [393, 392, 460, 481, 579, 784, 1690, 2054],
+        "firstSeen": "2026-06-27"
+      },
+      "skillMd": {
+        "version": "19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Finds what makes a game slow with the engine profiler, fixes that one bottleneck, and reports measured frame times before and after.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "your game's frame rate is low or uneven, it stutters, or it misses a target such as 60 FPS"
+            },
+            {
+              "label": "It does",
+              "text": "sets a frame-time budget, profiles a repeatable worst-case scene, decides whether the CPU or the GPU is the bottleneck, fixes the biggest cost, then measures again"
+            },
+            {
+              "label": "You get",
+              "text": "one targeted fix at a time, such as object pooling, fewer draw calls or no per-frame allocations, with before and after numbers"
+            },
+            {
+              "label": "Profilers",
+              "text": "Godot 4.7's debugger tabs, Unity 6.3's Profiler and Frame Debugger, and Unreal 5.8's stat commands and Insights"
+            },
+            {
+              "label": "Rule",
+              "text": "never optimize what you haven't measured, and profile a release build on target hardware, since editor and debug builds mislead"
+            }
+          ],
+          "text": "A discipline skill from a game-development collection: a measurement method, not a bag of tricks. It turns \"feels slow\" into a budget, 16.67 ms for the whole frame at 60 FPS, split into slices for scripts, physics, rendering and UI, then reads the profiler's split between CPU and GPU time, because fixing the wrong side changes nothing. It prefers algorithmic wins, such as doing less work, caching, partitioning space or running less often, over polishing a hot line. Its shared fixes are a pool that hides and reuses bullets and enemies instead of creating and freeing them every shot; fewer draw calls through atlases, shared materials, instancing, static batching and baked lighting; and no allocations in Unity's Update, so the garbage collector doesn't stall frames. It ends by setting per-subsystem and asset budgets, adding a performance check to verification and reporting the measured numbers, or saying when it could only measure in the editor. Physics jitter and timestep problems go to the repo's physics-tuning.",
+          "permalink": "https://github.com/gamedev-skills/awesome-gamedev-agent-skills/tree/19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9/skills/disciplines/performance-optimization"
+        },
+        "tags": [
+          "category:debugging",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "performance",
+          "debugging"
+        ]
+      }
+    },
+    {
+      "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/disciplines/audio-design",
+      "name": "audio-design",
+      "skills.sh": {
+        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/audio-design",
+        "installs": 10400,
+        "weeklyInstalls": [419, 397, 440, 463, 564, 781, 1668, 2040],
+        "firstSeen": "2026-06-27"
+      },
+      "skillMd": {
+        "version": "19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Sets up a game's audio mix: buses with volume sliders in decibels, music ducking under dialogue, adaptive music, varied sound effects and beat sync.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're laying out a game's mixer and volume settings, or music should dip under dialogue, react to play or stay on the beat"
+            },
+            {
+              "label": "It does",
+              "text": "routes every sound through a few buses, maps settings sliders to decibels, adds ducking, varies repeated sounds and schedules events on the music's beat"
+            },
+            {
+              "label": "Ducking means",
+              "text": "lowering music or ambience automatically while a voice or important sound plays, then letting it recover"
+            },
+            {
+              "label": "You get",
+              "text": "audio code and mixer settings, checked by listening on headphones and speakers rather than trusting the editor meters"
+            },
+            {
+              "label": "Code examples",
+              "text": "Godot 4.7, with Unity 6.3 equivalents and notes for FMOD and Wwise"
+            }
+          ],
+          "text": "A discipline skill from a game-development collection that treats game audio as a mixing graph plus a music system. Buses such as Music, SFX, Ambience, UI and Voice feed Master, and the player's sliders set bus volumes, never hundreds of clip volumes. Levels work in decibels, with peaks at or below -1 dBTP and a loudness target from Sony's ASWG-R001: -24 LUFS for console and PC, -18 for handheld and mobile, not the -14 LUFS of music streaming. Ducking uses a sidechain compressor, or a separate duck bus so it never overwrites the player's music setting. Adaptive music fades stems in and out or swaps segments at musical boundaries. Small random pitch and volume changes over a pool of samples keep footsteps from sounding robotic. Beat sync reads the audio playback position, corrected for mix time and output latency, instead of counting frame time. Pitfalls include sliders treated as decibels, sources that bypass the mixer, pumping ducking and one-shot players that leak. Engine audio nodes and asset import are left to engine skills.",
+          "permalink": "https://github.com/gamedev-skills/awesome-gamedev-agent-skills/tree/19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9/skills/disciplines/audio-design"
+        },
+        "tags": [
+          "category:media",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "audio"
+        ]
+      }
+    },
+    {
+      "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/disciplines/game-ai",
+      "name": "game-ai",
+      "skills.sh": {
+        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/game-ai",
+        "installs": 10400,
+        "weeklyInstalls": [407, 388, 452, 455, 564, 764, 1668, 2008],
+        "firstSeen": "2026-06-27"
+      },
+      "skillMd": {
+        "version": "19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds enemy and NPC behavior in three layers: a state machine or behavior tree decides, pathfinding routes, and steering moves.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're writing enemy or NPC logic, such as patrol, chase, flee or guard, or need a path to the player"
+            },
+            {
+              "label": "It does",
+              "text": "picks a decision model by complexity, keeps decisions apart from motion, paths on a grid, waypoint graph or navmesh, and steers along the waypoints"
+            },
+            {
+              "label": "You get",
+              "text": "AI code with a state machine or behavior tree, A* or the engine's navmesh, and seek and arrive steering, tuned by drawing paths and states on screen"
+            },
+            {
+              "label": "Decision models",
+              "text": "a state machine for two to five clear states, a behavior tree for many prioritized behaviors, utility scoring for weighing options"
+            },
+            {
+              "label": "Leaves to others",
+              "text": "engine navmesh and behavior-tree APIs, to the Unity, Unreal and Godot skills, and deeper trees and utility AI, to ai-behavior-trees-utility-ai"
+            }
+          ],
+          "text": "A discipline skill from a game-development collection, teaching engine-neutral algorithms with GDScript and Python examples. Its rule is to separate deciding what to do, routing around the map and moving there: a behavior tree picks a target, the pathfinder produces waypoints, steering follows them. Patterns show a state machine in which each state returns the next one, instead of a pile of if-flags; behavior-tree sequence and selector nodes that return success, failure or running; seek and arrive steering scaled by frame time; and A* heuristics that never overestimate, Manhattan for four directions and octile for eight, so paths stay shortest. Paths are recomputed on a timer or when the goal moves a tile, never every frame. Pitfalls include leaves that never return running, so the tree restarts long actions every tick, agents that steer straight at the goal and hug walls, and no stuck check, which leaves agents grinding into walls. Its references hold the full A* loop and behavior-tree decorators and blackboards.",
+          "permalink": "https://github.com/gamedev-skills/awesome-gamedev-agent-skills/tree/19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9/skills/disciplines/game-ai"
+        },
+        "tags": [
+          "category:engineering",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "implementation",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/disciplines/camera-systems",
+      "name": "camera-systems",
+      "skills.sh": {
+        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/camera-systems",
+        "installs": 10300,
+        "weeklyInstalls": [392, 377, 447, 467, 561, 780, 1682, 2014],
+        "firstSeen": "2026-06-27"
+      },
+      "skillMd": {
+        "version": "19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds game cameras that follow smoothly with a deadzone, look-ahead and level bounds, plus third-person orbits with wall collision and first-person look.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a camera should follow the player smoothly and stay inside the level, or it jitters, snaps, shows past the edge or makes players queasy"
+            },
+            {
+              "label": "It does",
+              "text": "sets the camera's rules by genre, smooths the follow independently of frame rate, adds a deadzone, look-ahead and bounds, and pulls 3D cameras in off walls"
+            },
+            {
+              "label": "Deadzone means",
+              "text": "a box the player can move in without moving the camera, which stops twitchy games from shaking the view"
+            },
+            {
+              "label": "You get",
+              "text": "camera code, checked at low and high frame rates, in corners, against walls and at level edges"
+            },
+            {
+              "label": "Code examples",
+              "text": "Godot 4.7's Camera2D and SpringArm3D and a hand-rolled follow, with Unity Cinemachine 3 equivalents"
+            }
+          ],
+          "text": "A discipline skill from a game-development collection. It starts from what the camera serves: a platformer leads the jump, top-down centers with a deadzone, third-person orbits with collision, first-person only looks. The follow uses exponential smoothing or a spring rather than a fixed lerp per frame, whose feel changes with frame rate, and runs after movement and physics resolve, avoiding a one-frame lag. Look-ahead offsets the target in the direction of travel; bounds keep the whole view, not just its center, inside the level. In 3D, yaw and pitch turn a pivot, pitch is clamped, and a spring arm or ray pulls the camera in when geometry blocks it. Screen shake is an offset added on top of the follow; how strong it is and when it fires belong to the repo's game-feel skill. Pitfalls include Godot mouse sensitivity that changes with window size, unclamped pitch flipping the camera, and teleports that whip it across the level. Its reference covers multi-target framing, split-screen and cinematic blends.",
+          "permalink": "https://github.com/gamedev-skills/awesome-gamedev-agent-skills/tree/19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9/skills/disciplines/camera-systems"
+        },
+        "tags": [
+          "category:design",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "design",
+          "animation"
+        ]
+      }
+    },
+    {
+      "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/disciplines/save-systems",
+      "name": "save-systems",
+      "skills.sh": {
+        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/save-systems",
+        "installs": 10300,
+        "weeklyInstalls": [382, 390, 438, 451, 558, 770, 1660, 2017],
+        "firstSeen": "2026-06-27"
+      },
+      "skillMd": {
+        "version": "19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Designs game save and load: plain-data snapshots with a version number, crash-safe writes, migrations for old saves, slots and throttled autosave.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're adding save and load, slots or autosave, or old saves break after a patch"
+            },
+            {
+              "label": "It does",
+              "text": "saves data rather than engine objects, stamps a schema version, writes to a temporary file then renames it, migrates old saves step by step, and autosaves to its own slot"
+            },
+            {
+              "label": "You get",
+              "text": "save code that survives a crash mid-write, loads saves from earlier versions, and falls back to a backup when a file won't parse"
+            },
+            {
+              "label": "Checked by",
+              "text": "saving, quitting, relaunching and loading, then loading a save from the previous version"
+            },
+            {
+              "label": "Leaves to others",
+              "text": "Roblox cloud saves, to roblox-datastores, and the data model itself, to the engine resource skills"
+            }
+          ],
+          "text": "A discipline skill from a game-development collection. Its premise: writing bytes is easy; the hard parts are choosing what to save, writing it so a crash can't corrupt it, and reading old saves after you ship a patch. It saves plain data, such as health, position, seed and flags, and rebuilds objects on load instead of serializing live nodes. Every save carries a version number; loading reads it, runs one migration function per version up to the current one, validates the result, and refuses saves from a newer build. Writes go to a temporary file renamed over the real one, keeping the last good save as a .bak, and it says where that falls short: on Windows, and on power loss, since nothing calls fsync. Autosave runs on safe boundaries such as checkpoints, at most once a minute, into its own file. Pitfalls include Godot's JSON turning every number into a float, locale-dependent decimals, save files that run scripts when loaded, and trusting client saves in multiplayer. Examples are GDScript and Python, starting with JSON.",
+          "permalink": "https://github.com/gamedev-skills/awesome-gamedev-agent-skills/tree/19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9/skills/disciplines/save-systems"
+        },
+        "tags": [
+          "category:engineering",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "architecture",
+          "migration"
+        ]
+      }
+    },
+    {
+      "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/disciplines/input-systems",
+      "name": "input-systems",
+      "skills.sh": {
+        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/input-systems",
+        "installs": 10000,
+        "weeklyInstalls": [387, 371, 423, 444, 530, 735, 1636, 1975],
+        "firstSeen": "2026-06-27"
+      },
+      "skillMd": {
+        "version": "19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds a game input layer of named actions with per-device bindings, rebinding with conflict checks, stick deadzones, input buffering, coyote time and accessible controls.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're setting up controls, adding gamepad or touch support or a rebinding menu, or making jumps feel forgiving"
+            },
+            {
+              "label": "It does",
+              "text": "maps keys and buttons to named actions, binds each per device, filters sticks with a radial deadzone, buffers early presses and builds a rebinding screen that catches conflicts"
+            },
+            {
+              "label": "You get",
+              "text": "input code that gameplay reads by action name, with saved rebinds, a reset to defaults and prompts that switch with the device"
+            },
+            {
+              "label": "Coyote time means",
+              "text": "a short window after walking off a ledge in which a jump still works; buffering keeps an early jump press alive until landing"
+            },
+            {
+              "label": "Code examples",
+              "text": "Godot 4.7's InputMap, with the matching Unity Input System and Unreal Enhanced Input calls"
+            }
+          ],
+          "text": "A discipline skill from a game-development collection. Its rule is never to wire gameplay to raw keys: gameplay asks whether jump is pressed, and bindings are data, which gives rebinding, multiple devices and accessibility almost for free. It separates pressed-this-frame checks for discrete actions from held checks for movement, applies a radial deadzone that rescales past its edge so diagonals aren't clipped, and keeps the response curve apart from sensitivity. Buffering and coyote windows last about a tenth of a second. Rebinding captures the next input, rejects a binding another action already uses, binds keyboard keys by physical position so WASD stays put on AZERTY or Dvorak, binds pads for every device rather than pad 0, and persists through the repo's save-systems skill. It checks every device, and a rebind mid-game. Pitfalls include accessibility gaps: required simultaneous presses, no remapping, hold-only actions and fixed sensitivity.",
+          "permalink": "https://github.com/gamedev-skills/awesome-gamedev-agent-skills/tree/19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9/skills/disciplines/input-systems"
+        },
+        "tags": [
+          "category:engineering",
+          "category:design",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "architecture",
+          "accessibility"
+        ]
+      }
+    },
+    {
+      "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/disciplines/procedural-gen",
+      "name": "procedural-gen",
+      "skills.sh": {
+        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/procedural-gen",
+        "installs": 10000,
+        "weeklyInstalls": [380, 367, 435, 442, 528, 733, 1616, 1966],
+        "firstSeen": "2026-06-27"
+      },
+      "skillMd": {
+        "version": "19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Generates game levels, terrain and loot from a seed: deterministic random numbers, layered noise heightmaps, room-and-corridor dungeons and weighted drop tables.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want maps, dungeons, terrain or item drops you don't author by hand, reproducible from a seed for debugging, daily challenges or shared worlds"
+            },
+            {
+              "label": "It does",
+              "text": "threads one seeded random generator through all generation, picks noise, room placement or weighted tables by content, fills a plain grid, then checks the result is playable"
+            },
+            {
+              "label": "Seed means",
+              "text": "one number that reproduces the same world every time, as long as nothing else random leaks into generation"
+            },
+            {
+              "label": "You get",
+              "text": "generation code that fills a data grid, separate from drawing, with reachability checks that reject or repair broken maps"
+            },
+            {
+              "label": "Leaves to others",
+              "text": "painting the grid, to the engine tilemap skills, and hand-paced levels, to level-design"
+            }
+          ],
+          "text": "A discipline skill from a game-development collection, built on determinism. Generation code never calls the global random function, which makes worlds impossible to reproduce, and the seed goes in the save. Terrain sums several octaves from a real noise library, normalized and reshaped, with elevation and moisture on different seeds so biomes don't line up in bands. Dungeons place non-overlapping rooms, with capped attempts, and carve corridors between them. Loot rolls against relative weights. Before the player sees a map, it checks every room is reachable, the spawn is safe and the exit has a path. It tunes with the seed fixed, then sweeps many seeds to check the spread. Pitfalls include Perlin noise that is flat at whole-number coordinates, Python set order leaking into choices, and library generators whose sequences change between versions; for those it suggests shipping your own small generator with a test, or saving the result instead of the seed. Examples are Python with Godot and Unity equivalents; its references hold BSP, caves and wave function collapse.",
+          "permalink": "https://github.com/gamedev-skills/awesome-gamedev-agent-skills/tree/19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9/skills/disciplines/procedural-gen"
+        },
+        "tags": [
+          "category:engineering",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "generative-art",
+          "implementation"
+        ]
+      }
+    },
+    {
+      "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/disciplines/create-game-assets",
+      "name": "create-game-assets",
+      "skills.sh": {
+        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/create-game-assets",
+        "installs": 9900,
+        "weeklyInstalls": [415, 399, 474, 516, 611, 863, 1778, 2200],
+        "firstSeen": "2026-08-08"
+      },
+      "skillMd": {
+        "version": "19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Directs and produces cohesive game art: a locked visual target, an asset manifest, families generated or sourced from it, then normalized and checked in-game.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need sprites, tilesets, backgrounds, icons, UI art, textures or 3D asset briefs that look like one game, not a pile of one-off generations"
+            },
+            {
+              "label": "It does",
+              "text": "records the technical frame and a visual system, approves one hero asset at game scale, produces related assets as families, normalizes them with ordinary tools and imports them"
+            },
+            {
+              "label": "You get",
+              "text": "a filled-in art-direction brief and asset manifest, engine-ready files, contact sheets, and a record of each file's source and license"
+            },
+            {
+              "label": "Works with",
+              "text": "an image-generation skill or tool when one is installed, following it for the actual call; without one, licensed assets or labelled greybox placeholders"
+            },
+            {
+              "label": "Needs",
+              "text": "Python 3.10+ and Pillow for its two bundled QA scripts"
+            }
+          ],
+          "text": "A discipline skill from a game-development collection that treats image generation as one tool inside a controlled pipeline, never as proof an asset can ship. It first inspects existing art and import settings, then locks the technical frame: view, native size, palette, filtering, frame counts and budgets. It names the visual system in concrete properties, such as shape language, value structure and edge treatment, never a living artist's name. One representative asset is approved against a gameplay background before the rest are made as families that reuse it as a reference, keeping palette, view, proportions and lighting fixed. A prompt template covers role, view, art direction, game-scale read, technical output, locks and exclusions. Outputs are cropped, anchored, sliced and inspected with ordinary tools and two scripts: a report on size, transparency and color count, and a nearest-neighbor contact sheet. Quality gates cover cohesion, gameplay read, technical fit, animation, seams, 3D checks and rights, and nothing counts as production-ready from a prompt result alone. Sound goes to audio-design.",
+          "permalink": "https://github.com/gamedev-skills/awesome-gamedev-agent-skills/tree/19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9/skills/disciplines/create-game-assets"
+        },
+        "tags": [
+          "category:media",
+          "category:design",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "image",
+          "design",
+          "ai-generation"
+        ]
+      }
+    },
+    {
+      "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/disciplines/physics-tuning",
+      "name": "physics-tuning",
+      "skills.sh": {
+        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/physics-tuning",
+        "installs": 9800,
+        "weeklyInstalls": [388, 357, 422, 428, 507, 712, 1582, 1940],
+        "firstSeen": "2026-06-27"
+      },
+      "skillMd": {
+        "version": "19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Fixes jittery, tunneling or floaty game physics with a fixed timestep, render interpolation, continuous collision, body tuning and collision layers.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "motion jitters, fast objects pass through walls, stacks explode, or movement feels floaty, sticky or laggy"
+            },
+            {
+              "label": "It does",
+              "text": "moves simulation into the fixed physics step, interpolates rendering between ticks, turns on continuous collision for fast bodies, tunes mass, drag and materials, and checks layers and masks"
+            },
+            {
+              "label": "Tunneling means",
+              "text": "a fast, small object skipping past a thin collider between two physics steps"
+            },
+            {
+              "label": "You get",
+              "text": "physics settings and code changes, checked at low and high frame rates by throwing fast objects at thin walls and shoving stacks"
+            },
+            {
+              "label": "Code examples",
+              "text": "GDScript for Godot, with the Unity equivalents in comments"
+            }
+          ],
+          "text": "A discipline skill from a game-development collection. Its premise: most bad physics isn't an engine bug but a mismatch between the fixed-rate simulation and the variable-rate render loop, or untuned settings. Forces, velocities and collision reads go in the physics callback with its fixed step, and rendering interpolates between the last two physics states, preferably with the engine's built-in interpolation. Tunneling gets continuous collision detection and a speed cap, with the rule that one step's travel should stay under the thinnest wall. Mass sets weight in collisions, not fall speed, so feel comes from drag, gravity scale and physics materials. Stacks and joints settle with modest mass ratios, more solver iterations and sleeping. Pitfalls include one-sided layer and mask setups, huge time-step spikes after a hitch, teleports smeared by interpolation, and Godot damping that drifts after raising the physics rate. Jump buffering and coyote time are left to input-systems and the platformer skill.",
+          "permalink": "https://github.com/gamedev-skills/awesome-gamedev-agent-skills/tree/19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9/skills/disciplines/physics-tuning"
+        },
+        "tags": [
+          "category:debugging",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "debugging"
+        ]
+      }
+    },
+    {
+      "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/disciplines/shader-programming",
+      "name": "shader-programming",
+      "skills.sh": {
+        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/shader-programming",
+        "installs": 9700,
+        "weeklyInstalls": [379, 354, 419, 429, 509, 708, 1564, 1957],
+        "firstSeen": "2026-06-27"
+      },
+      "skillMd": {
+        "version": "19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes game shaders in GLSL, with HLSL equivalents, from the vertex and fragment stages to effects such as dissolve, scrolling UVs and rim light.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're writing a vertex or fragment shader, building an effect such as dissolve, outline, rim light or vignette, or porting a shader between GLSL, HLSL and engines"
+            },
+            {
+              "label": "It does",
+              "text": "tracks which stage and coordinate space it's in, drives effects with UVs and time, prefers mix and smoothstep over branches, and validates the source before testing visually"
+            },
+            {
+              "label": "You get",
+              "text": "shader code, checked with glslangValidator or naga when installed, then looked at on the hardware it ships to"
+            },
+            {
+              "label": "Leaves to others",
+              "text": "each engine's shader syntax and built-ins, to godot-shaders or the engine's material docs, and particle systems, to unreal-niagara"
+            }
+          ],
+          "text": "A discipline skill from a game-development collection: the shader concepts that carry across engines, where only the dialect and built-in names change. Its snippets are desktop GLSL 330 that pass glslangValidator, with notes for GLSL ES in WebGL2, three.js and PixiJS, and HLSL names in comments. Patterns cover sampling and tinting a texture, scrolling UVs driven by a real time uniform so speed stays steady, a dissolve that thresholds a noise map with a glowing edge and no stray specks at zero, and a fresnel rim light that brightens silhouettes. It explains why GPUs pay for both sides of a branch that differs between neighbouring pixels, and why texture samples dominate cost. Pitfalls include mixing coordinate spaces, unnormalized interpolated normals, V flipped on some engines, discard defeating early depth tests on mobile, reversed smoothstep edges, shimmer at low precision, GLSL-to-HLSL differences such as mod and fmod, and raw GLSL rendering nothing under three.js's WebGPURenderer. A reference holds outline, vignette and color-grading shaders and the full GLSL-to-HLSL table.",
+          "permalink": "https://github.com/gamedev-skills/awesome-gamedev-agent-skills/tree/19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9/skills/disciplines/shader-programming"
+        },
+        "tags": [
+          "category:engineering",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "stack:glsl",
+          "stack:hlsl",
+          "implementation",
+          "performance"
+        ]
+      }
+    },
+    {
+      "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/disciplines/dialogue-systems",
+      "name": "dialogue-systems",
+      "skills.sh": {
+        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/dialogue-systems",
+        "installs": 9600,
+        "weeklyInstalls": [364, 348, 418, 417, 510, 691, 1539, 1906],
+        "firstSeen": "2026-06-27"
+      },
+      "skillMd": {
+        "version": "19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds branching game dialogue as a graph of lines, choices, conditions and variables, in Ink, Yarn Spinner or a small custom runner.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're adding NPC conversations, choice menus or story flags that change later dialogue"
+            },
+            {
+              "label": "It does",
+              "text": "chooses between Ink, Yarn Spinner and a custom runner, defines what a node can yield, keeps variables apart from flow, uses line IDs for translation and walks every branch"
+            },
+            {
+              "label": "You get",
+              "text": "a dialogue graph as data and a runner that hands lines and choices to your UI, or the same scene in Ink or Yarn script"
+            },
+            {
+              "label": "Ink and Yarn",
+              "text": "Ink is prose-first and suits writer-heavy branching stories; Yarn Spinner is node-based, with explicit commands for engine hooks"
+            },
+            {
+              "label": "Leaves to others",
+              "text": "text boxes and choice buttons, to engine UI skills, and saving story variables, to save-systems"
+            }
+          ],
+          "text": "A discipline skill from a game-development collection that models conversations as a graph: nodes hold lines, choices branch, conditions gate options and variables remember what the player did. The first decision is build or buy, and for a custom runner it says to build a graph, not a language: a JSON graph whose lines are string-table IDs, with conditions and variable writes on choices, and a GDScript runner that shows lines, offers only the choices whose condition passes, and waits for the player. The same guard-bribe scene is shown in Ink (once-only and sticky choices, diverts, global variables) and in Yarn Spinner 3 (options, declare and set, jumps), noting that an undeclared Yarn variable compiles with only a warning, which hides typos. Writes go on the transition, so revisiting a node doesn't charge the player twice. It checks that every branch reaches an end or a valid jump. Pitfalls include hardcoded display strings that make translation a rewrite, inventing a scripting language for a simple tree, and dead-end nodes that stall silently.",
+          "permalink": "https://github.com/gamedev-skills/awesome-gamedev-agent-skills/tree/19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9/skills/disciplines/dialogue-systems"
+        },
+        "tags": [
+          "category:engineering",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "stack:ink",
+          "stack:yarn-spinner",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "id": "gamedev-skills/awesome-gamedev-agent-skills/router",
+      "name": "router",
+      "skills.sh": {
+        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/router",
+        "installs": 9400,
+        "weeklyInstalls": [370, 351, 414, 431, 479, 675, 1504, 1877],
+        "firstSeen": "2026-06-27"
+      },
+      "skillMd": {
+        "version": "19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Detects your game's engine from its project files and your task from the request, then loads only the matching skills from this game-dev collection.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you start any game-development request, or aren't sure which of the collection's skills applies"
+            },
+            {
+              "label": "It does",
+              "text": "fingerprints the project to pick one of twelve engines, sorts the request into concepts, usually one genre at most, and process or shipping workflows, then reads only those skills"
+            },
+            {
+              "label": "You get",
+              "text": "a short announcement of what it loaded and why, then work ordered engine basics, concept, genre glue, workflow"
+            },
+            {
+              "label": "No engine yet",
+              "text": "a pure concept question needs none; it asks once only if the choice blocks the answer, and picks Godot for a new project with no preference"
+            },
+            {
+              "label": "Custom engine",
+              "text": "kept, with the concepts mapped onto the project's own APIs from its code and docs"
+            },
+            {
+              "label": "Needs",
+              "text": "the whole repo installed beside it, including the engine, Steam and itch skills it routes to, which SkillHub doesn't list"
+            }
+          ],
+          "text": "The entry point of a game-development skill collection. It reads project files to pick one engine: a project.godot means Godot, a *.uproject Unreal, a go.mod requiring Ebitengine, a phaser dependency in package.json Phaser, and so on for twelve engines. Then it reads the engine version, so existing projects keep their pinned APIs. It classifies the request into three additive groups: cross-engine disciplines such as save-systems or camera-systems, usually at most one genre such as platformer or rpg, and workflows such as game-jam or steam-publish. Ownership is split: the engine skill owns API and syntax, the discipline owns the portable concept, and the genre owns the glue and links out. It reads only the chosen skills' bodies, and their reference files only on demand, and re-routes when the task pivots to a new engine or concern. When no skill covers a subtask, it loads the closest one for that engine and states the gap, never inventing a skill name. Its references hold the full fingerprints, every trigger word and the custom-engine mapping.",
+          "permalink": "https://github.com/gamedev-skills/awesome-gamedev-agent-skills/tree/19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9/router"
+        },
+        "tags": [
+          "category:skill-tools",
+          "type:router",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "skill-discovery"
+        ],
+        "note": "Routes to the repo's other skills, engine manuals included, so it needs the whole repo installed beside it."
+      }
+    },
+    {
+      "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/genres/rpg",
+      "name": "rpg",
+      "skills.sh": {
+        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/rpg",
+        "installs": 9100,
+        "weeklyInstalls": [345, 331, 401, 399, 479, 648, 1464, 1845],
+        "firstSeen": "2026-06-27"
+      },
+      "skillMd": {
+        "version": "19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Plans an RPG's core systems, stats and leveling, inventory, quests, combat, dialogue and saves, with design knobs, example formulas and pitfalls.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're building an RPG, JRPG or action RPG, or designing its leveling curve, damage formula, inventory or quest states"
+            },
+            {
+              "label": "It does",
+              "text": "frames every system around the loop of explore, encounter, reward and grow, and lists the eight systems an RPG needs, with the knobs that tune each"
+            },
+            {
+              "label": "You get",
+              "text": "stats, items and quests defined as data, with combat stats recomputed from base attributes and gear applied as removable modifiers"
+            },
+            {
+              "label": "Composes",
+              "text": "dialogue-systems for conversations, save-systems for persistence, game-ai for enemies and game-ui-ux for menus; Godot and Unity bindings are examples, not requirements"
+            }
+          ],
+          "text": "A genre playbook from a game-development collection: it ties systems together and points to the repo's other skills for the parts it doesn't teach. Its core loop is explore, encounter, earn rewards, grow and take on harder content, and every system should feed that sense of getting stronger and shaping a character. The eight must-haves are stats and leveling, inventory and equipment, combat, quests, dialogue, save and load, economy with power gating, and UI. A table of design knobs covers the XP curve, stat scaling, damage formula, variance and crits (±10% and about 1.5× crit as safe defaults), drop rates and choice consequences. Its pseudocode derives combat stats from base attributes every time, levels up on a quadratic XP curve, and advances quest objectives from game events. Pitfalls include editing base stats for buffs, multiplying stacked percentages, hardcoding content instead of data, saves with no version, and choices that reconverge at once. It works with custom engines too, binding the concepts to the project's own data, events, UI and saves.",
+          "permalink": "https://github.com/gamedev-skills/awesome-gamedev-agent-skills/tree/19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9/skills/genres/rpg"
+        },
+        "tags": [
+          "category:design",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "design",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/workflows/prototype-fast",
+      "name": "prototype-fast",
+      "skills.sh": {
+        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/prototype-fast",
+        "installs": 8900,
+        "weeklyInstalls": [336, 328, 393, 400, 467, 652, 1460, 1815],
+        "firstSeen": "2026-06-27"
+      },
+      "skillMd": {
+        "version": "19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Greyboxes one game mechanic within a hard timebox to answer whether it's fun, then makes a keep, kill or refactor call.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to know whether a mechanic or idea is fun before committing real time, or need something rough and playable fast"
+            },
+            {
+              "label": "It does",
+              "text": "writes the one question, decides throwaway or keep before coding, sets a 30 to 90 minute timebox, builds only the core action in grey shapes and playtests it"
+            },
+            {
+              "label": "You get",
+              "text": "a filled-in prototype brief, a playable spike in its own folder, and a keep, kill or refactor decision against criteria written in advance"
+            },
+            {
+              "label": "Greybox means",
+              "text": "plain boxes, circles and built-in fonts instead of art, so no time goes to anything the question doesn't need"
+            },
+            {
+              "label": "Unlike game-jam",
+              "text": "there's no deadline or submission; the output is a decision, not a product"
+            }
+          ],
+          "text": "A workflow skill from a game-development collection. A prototype's output, it says, is a decision, not a product, so it optimizes for learning speed. Before any code it fills a brief: the question, ideally yes or no; the single action the player repeats; whether the code is throwaway; the timebox; and observable keep and kill signals. Only the core action is real. Everything else is primitives, stubs or absent, and on-screen debug text shows the numbers being judged, such as speed or a timing window. You play it, then hand it to one other person without explaining the controls. Keep means a fresh player does the core action on purpose within about 30 seconds and repeats the loop unasked; kill means it only feels good once explained, needs far bigger systems, or you're adding art to avoid admitting it's flat. The spike lives in a separate folder or on a throwaway branch, and a keep authorizes a rewrite in the real project, never a copy of the spike.",
+          "permalink": "https://github.com/gamedev-skills/awesome-gamedev-agent-skills/tree/19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9/skills/workflows/prototype-fast"
+        },
+        "tags": [
+          "category:planning",
+          "category:engineering",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "prototyping",
+          "scope-control"
+        ]
+      }
+    },
+    {
+      "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/genres/roguelike",
+      "name": "roguelike",
+      "skills.sh": {
+        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/roguelike",
+        "installs": 8700,
+        "weeklyInstalls": [339, 318, 369, 383, 439, 635, 1430, 1777],
+        "firstSeen": "2026-06-27"
+      },
+      "skillMd": {
+        "version": "19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Guides building a turn-based roguelike: an energy turn scheduler, connected procedural dungeons, symmetric field of view, depth-scaled loot and permadeath.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're making a turn-based, grid-based dungeon crawler where death ends the run and the world regenerates, as a roguelike or a roguelite"
+            },
+            {
+              "label": "It does",
+              "text": "sets out the systems to build, the design knobs to tune and the bugs to avoid, with engine-neutral pseudocode"
+            },
+            {
+              "label": "You get",
+              "text": "a roguelike built around eight must-have systems, from an energy-based turn scheduler to a message log"
+            },
+            {
+              "label": "Leaves to others",
+              "text": "noise, tilemaps, saving and monster AI, to the repo's procedural-gen, engine tilemap, save-systems and game-ai skills"
+            }
+          ],
+          "text": "A genre playbook from a game-development collection. It anchors the design in the Berlin Interpretation, a community list of what makes a game feel roguelike, such as random levels, permadeath, turns, a grid and many interacting items and monsters. Its core loop: take a turn, let the world resolve its turn, then descend, loot or die and restart in a fresh dungeon. Patterns cover one seeded random generator per run, so a dungeon can be replayed or a crashed run resumed; an energy scheduler, where faster actors act more often, granting energy in its own pass so no actor is starved of turns; and field of view with explored memory, using symmetric shadowcasting so that if you can see a monster, it can see you. A table of knobs covers dungeon size, monster and loot curves by depth, FOV radius, scarcity and permadeath versus meta-progression. Pitfalls include unreachable rooms, real-time loops posing as turn-based ones, save-scumming and wiping meta-unlocks along with the run. It's a compositional skill: it names the repo's other skills to build each primitive from instead of teaching them.",
+          "permalink": "https://github.com/gamedev-skills/awesome-gamedev-agent-skills/tree/19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9/skills/genres/roguelike"
+        },
+        "tags": [
+          "category:design",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "design",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/genres/fps-shooter",
+      "name": "fps-shooter",
+      "skills.sh": {
+        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/fps-shooter",
+        "installs": 8700,
+        "weeklyInstalls": [389, 336, 376, 384, 457, 612, 1412, 1787],
+        "firstSeen": "2026-06-27"
+      },
+      "skillMd": {
+        "version": "19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Guides building a first-person shooter: hitscan or projectile shots, damage falloff, time-to-kill balance, learnable recoil and spread, and hit feedback.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're building a game whose core verb is aim and shoot, or tuning time-to-kill, recoil, spread or aim feel"
+            },
+            {
+              "label": "It does",
+              "text": "sets out the controller, shooting model, weapons, health, enemy AI and feedback to build, with a recommended default for each design knob"
+            },
+            {
+              "label": "Defaults",
+              "text": "headshots at about 1.5–2× damage, full damage to about 20 m, a learnable recoil pattern and an accurate first shot"
+            },
+            {
+              "label": "Leaves to others",
+              "text": "the 3D body, raycasts, input and enemy AI, to the repo's engine, input-systems and game-ai skills"
+            }
+          ],
+          "text": "A genre playbook from a game-development collection. It treats the aim-and-fire micro-loop as the whole game: responsive look, clear hit feedback and a death that reads instantly. Its eight must-have systems run from the first-person controller and camera to objectives beyond shooting. Patterns, in engine-neutral pseudocode, cover a hitscan ray from the camera that excludes the shooter and scales damage by range and headshot, a projectile that despawns once it has covered its range, and time-to-kill worked out from health, damage per shot and fire rate together. Pitfalls include look sensitivity multiplied by frame time, a view that can flip over unless pitch is clamped to about ±89°, shots stopped by the shooter's own collider or by trigger volumes, recoil written into the aim so that recovery fights the player, hitscan pistols that snipe across the map and trusting the client in multiplayer. It insists on FOV and sensitivity options, against motion sickness.",
+          "permalink": "https://github.com/gamedev-skills/awesome-gamedev-agent-skills/tree/19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9/skills/genres/fps-shooter"
+        },
+        "tags": [
+          "category:design",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "design",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/genres/puzzle",
+      "name": "puzzle",
+      "skills.sh": {
+        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/puzzle",
+        "installs": 8600,
+        "weeklyInstalls": [339, 314, 371, 386, 440, 633, 1405, 1778],
+        "firstSeen": "2026-06-27"
+      },
+      "skillMd": {
+        "version": "19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Guides building match-3, sokoban and other grid puzzles: a board model, rule resolution repeated until stable, exact undo and solvable levels.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're making a board the player changes with moves and that resolves by rules: match-3, sokoban, sliding or logic-grid puzzles"
+            },
+            {
+              "label": "It does",
+              "text": "sets out the board model, move validation, resolution loop, undo, scoring and level progression, with engine-neutral pseudocode"
+            },
+            {
+              "label": "Its rule",
+              "text": "the board is the single source of truth and the view only draws it; input stays locked until the board is stable"
+            },
+            {
+              "label": "Leaves to others",
+              "text": "tile rendering, level pacing and juice, to the repo's engine tilemap, level-design and game-feel skills"
+            }
+          ],
+          "text": "A genre playbook from a game-development collection. The fun of a puzzle is the planning, so the engine's job is to resolve each move deterministically and show it clearly. Patterns cover match detection on a grid; a resolve loop that clears, drops and refills pieces and scores each step of a chain until nothing changes; and undo by snapshot, or by storing commands that can be inverted on large boards. Undo must restore everything, random state included, or players learn to reroll refills by undoing. Pitfalls include resolving only once and missing cascades, unseeded refills, generated boards with no solution (a sliding puzzle filled by a random shuffle is unsolvable half the time), match-3 boards left with no valid move, and difficulty spikes from introducing several mechanics at once. A table of knobs covers grid shape, move or time limits, cascade scoring, undo depth and deadlock handling.",
+          "permalink": "https://github.com/gamedev-skills/awesome-gamedev-agent-skills/tree/19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9/skills/genres/puzzle"
+        },
+        "tags": [
+          "category:design",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "design",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/genres/card-game",
+      "name": "card-game",
+      "skills.sh": {
+        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/card-game",
+        "installs": 8600,
+        "weeklyInstalls": [346, 325, 368, 380, 430, 635, 1417, 1750],
+        "firstSeen": "2026-06-27"
+      },
+      "skillMd": {
+        "version": "19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Guides building card games and deckbuilders: cards as data, deck, hand and discard zones, reshuffling, turn phases and one interpreter for all effects.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're building a game whose objects are cards moving between zones: a deckbuilder, TCG or CCG, solitaire or roguelike deckbuilder"
+            },
+            {
+              "label": "It does",
+              "text": "sets out card data, zones, draw and reshuffle, turn phases, resources and effect resolution, with engine-neutral pseudocode"
+            },
+            {
+              "label": "Its rules",
+              "text": "a card lives in exactly one zone, effects are data rather than code per card, and a play is validated before anything is paid"
+            },
+            {
+              "label": "Leaves to others",
+              "text": "card assets, hand UI, saves and opponent AI, to the repo's engine data and UI skills, game-ui-ux, save-systems and game-ai"
+            }
+          ],
+          "text": "A genre playbook from a game-development collection. Depth comes from the combinations a hand allows; the engine's job is to resolve them unambiguously. Patterns cover drawing with an automatic reshuffle of the discard pile and a deck-out case; a card defined as data whose effects one small interpreter applies, after checking cost and targets so that a failed play leaves zones and resources untouched; and turns as a fixed list of phases (untap, draw, main, combat, end) where triggers fire. Pitfalls include a card in two zones at once, an undefined order for simultaneous triggers, unseeded shuffles that break replays, an off-by-one in the shuffle's random index that biases the deck (engines differ on whether a random range includes its top value), and threats with no answer in the card pool. A table of knobs covers hand size, deck size, the resource curve, rarity and reshuffle rules.",
+          "permalink": "https://github.com/gamedev-skills/awesome-gamedev-agent-skills/tree/19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9/skills/genres/card-game"
+        },
+        "tags": [
+          "category:design",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "design",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/genres/platformer",
+      "name": "platformer",
+      "skills.sh": {
+        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/platformer",
+        "installs": 8600,
+        "weeklyInstalls": [336, 311, 374, 381, 444, 624, 1408, 1782],
+        "firstSeen": "2026-06-27"
+      },
+      "skillMd": {
+        "version": "19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Guides building 2D platformers around a jump that feels right: gravity derived from height and apex time, coyote time, jump buffering and variable height.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're making a Mario- or Celeste-like, or a jump feels floaty, unresponsive or unfair"
+            },
+            {
+              "label": "It does",
+              "text": "sets out the controller, collisions, level geometry, hazards, checkpoints, camera and juice, and tunes the jump by outcome instead of raw numbers"
+            },
+            {
+              "label": "Coyote time means",
+              "text": "a jump still works for about 0.1 s after running off a ledge; a jump buffer keeps a press made just before landing"
+            },
+            {
+              "label": "Starting points",
+              "text": "3–4 tiles of jump height, 0.30–0.40 s to the top of the jump, and fall gravity 1.5–2× the rising gravity"
+            },
+            {
+              "label": "Leaves to others",
+              "text": "the character body, tilemaps and level layout, to the repo's engine movement, tilemap and level-design skills"
+            }
+          ],
+          "text": "A genre playbook from a game-development collection. A platformer lives or dies on one jump repeated thousands of times, so it tightens the controller first and treats everything else as content. Patterns, in pseudocode, solve gravity and jump velocity from the height and time to apex you want; combine coyote time, a jump buffer, a cut to upward speed when the button is released early and heavier gravity on the way down; and use each engine's one-way platform setting (Godot, Unity and Phaser are named) with a short window to drop through. Its knob table adds apex hang, ground acceleration, corner correction and wall slide and wall jump. Pitfalls include jump height that varies with frame rate unless the controller runs on the fixed physics tick, platform velocity added twice when leaving a moving platform, wall jumps that use up the double jump, catching on tile seams, tunnelling through floors at speed and a camera that snaps.",
+          "permalink": "https://github.com/gamedev-skills/awesome-gamedev-agent-skills/tree/19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9/skills/genres/platformer"
+        },
+        "tags": [
+          "category:design",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "design",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/genres/survival-crafting",
+      "name": "survival-crafting",
+      "skills.sh": {
+        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/survival-crafting",
+        "installs": 8500,
+        "weeklyInstalls": [325, 313, 370, 371, 429, 622, 1407, 1765],
+        "firstSeen": "2026-06-27"
+      },
+      "skillMd": {
+        "version": "19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Guides building survival-crafting games: resource gathering gated by tool tiers, crafting that consumes inputs atomically, decaying needs with graded consequences, and base building.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "the player gathers, crafts, manages hunger, thirst and temperature, and builds a base against escalating threats"
+            },
+            {
+              "label": "It does",
+              "text": "sets out eight must-have systems, from resource nodes and inventory to threats and saving, with a knob table and engine-neutral pseudocode"
+            },
+            {
+              "label": "Its rule",
+              "text": "each tier must open the next (better tool, new node, new resource, better craft), or the game turns into a grind"
+            },
+            {
+              "label": "Leaves to others",
+              "text": "items as data, world generation, saving and creature AI, to the repo's engine data, procedural-gen, save-systems and game-ai skills"
+            }
+          ],
+          "text": "A genre playbook from a game-development collection. Its loop is gather, craft, build, manage needs, explore farther and survive bigger threats, one tier higher each time. Patterns cover needs that decay over time and, once empty, drain health instead of killing at once, with healing while the player is fed and safe; recipes as data, crafted only after checking tech, station, inputs and room for the result, so inputs are never consumed by a failed craft; and gathering that yields only to a good enough tool, from nodes that respawn. Pitfalls include needs that kill instantly, inventories with no limit, which remove any reason for storage, a world players can strip bare, decay not scaled by frame time, and fragile saves of a large world. The knob table covers decay rates, scarcity, tool tiers, recipe depth, inventory limits, threat escalation and day length.",
+          "permalink": "https://github.com/gamedev-skills/awesome-gamedev-agent-skills/tree/19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9/skills/genres/survival-crafting"
+        },
+        "tags": [
+          "category:design",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "design",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/genres/tower-defense",
+      "name": "tower-defense",
+      "skills.sh": {
+        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/tower-defense",
+        "installs": 8500,
+        "weeklyInstalls": [332, 309, 366, 372, 433, 622, 1398, 1749],
+        "firstSeen": "2026-06-27"
+      },
+      "skillMd": {
+        "version": "19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Guides building tower defense games: data-driven waves, tower targeting priorities, and enemy health balanced against gold income and tower damage.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're building a game where placed towers fire on waves of enemies walking a path, or balancing its waves and economy"
+            },
+            {
+              "label": "It does",
+              "text": "sets out the path, waves, towers, targeting, economy, lives and prep UI, with a knob table and engine-neutral pseudocode"
+            },
+            {
+              "label": "Balance rule",
+              "text": "the player should almost afford each wave; enemy health grows about 1.1–1.2× per wave, paced as spike, breather, spike"
+            },
+            {
+              "label": "Leaves to others",
+              "text": "pathfinding, movement, maps and UI, to the repo's game-ai, engine, level-design and game-ui-ux skills"
+            }
+          ],
+          "text": "A genre playbook from a game-development collection. The tension is a planning puzzle: is the current damage enough for what's coming, and can the player afford the answer? Patterns cover a wave as data (enemy type, count, spacing) spawned over time; a tower that keeps the enemies in range and picks one by priority, first along the path by default, or last, closest, strongest or weakest; and a quick sum of a lane's damage against an enemy's health. Pitfalls include enemy health that grows slower than income, one dominant tower with no enemy type to counter it, maze layouts where players can block the goal, fast enemies that slow down or skip waypoints at corners, waves with no preview, and leaks that cost lives but not gold, which sometimes makes leaking the best play.",
+          "permalink": "https://github.com/gamedev-skills/awesome-gamedev-agent-skills/tree/19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9/skills/genres/tower-defense"
+        },
+        "tags": [
+          "category:design",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "design",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/genres/visual-novel",
+      "name": "visual-novel",
+      "skills.sh": {
+        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/visual-novel",
+        "installs": 8400,
+        "weeklyInstalls": [330, 292, 362, 372, 427, 618, 1386, 1738],
+        "firstSeen": "2026-06-27"
+      },
+      "skillMd": {
+        "version": "19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Guides building visual novels: a branching script with flags, a typewriter text box, choices, and expected conveniences like save-anywhere, backlog, skip and auto-advance.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "the game is mostly reading branching text over character art and backgrounds: a visual novel, dating sim or story-choice game"
+            },
+            {
+              "label": "It does",
+              "text": "sets out the script, text box, characters, backgrounds, choices, story flags, saves, conveniences and audio, with engine-neutral pseudocode"
+            },
+            {
+              "label": "In Ren'Py",
+              "text": "it keeps the engine's own save-anywhere, rollback, history, skip and auto-forward, and applies only its design advice"
+            },
+            {
+              "label": "Leaves to others",
+              "text": "the branching engine (Ink or Yarn Spinner), UI and saving, to the repo's dialogue-systems, game-ui-ux, engine UI and save-systems skills"
+            }
+          ],
+          "text": "A genre playbook from a game-development collection. The game is the shape of the branching and whether choices feel consequential; the rest is presentation and convenience. Patterns cover a script of lines, choices and flag updates that the engine walks through; a typewriter reveal that a first press completes and a second advances, done by raising the label's visible-character count (the Godot 4.7 and Unity 6.3 calls are named) so words don't jump between lines; and choices that set flags which later lines and endings check. Pitfalls include saving only at checkpoints when players expect to save on any line (Ink restores the exact position, Yarn Spinner only the node), presentation baked into the script, a skip that passes unread text, choices that reconverge at once, branch explosion where branch-and-merge would do, and text hardcoded in one language.",
+          "permalink": "https://github.com/gamedev-skills/awesome-gamedev-agent-skills/tree/19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9/skills/genres/visual-novel"
+        },
+        "tags": [
+          "category:design",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "design",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/workflows/game-jam",
+      "name": "game-jam",
+      "skills.sh": {
+        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/game-jam",
+        "installs": 8200,
+        "weeklyInstalls": [319, 295, 362, 350, 411, 590, 1366, 1706],
+        "firstSeen": "2026-06-27"
+      },
+      "skillMd": {
+        "version": "19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Plans a game jam entry to the deadline: a one-sentence concept, scope by jam length, a 48-hour schedule, feature cuts and a submission checklist.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're entering a timed jam such as Ludum Dare, GMTK Jam or Global Game Jam, or asking what you can build in a weekend"
+            },
+            {
+              "label": "It does",
+              "text": "takes you from the rules and the theme to one concept, a scope that fits the clock, an early playable loop and a build submitted before the deadline"
+            },
+            {
+              "label": "You get",
+              "text": "a one-sentence concept (\"You [verb] to [goal] while [constraint]\"), a scope budget, a 48-hour timeline in blocks of hours and a pre-submission checklist"
+            },
+            {
+              "label": "Its rule",
+              "text": "keep the last ~20% of the clock for shipping; under deadline pressure, the default answer to a feature is cut"
+            },
+            {
+              "label": "Leaves to others",
+              "text": "the game code and the upload, to the repo's engine and genre skills and to itch-publish"
+            }
+          ],
+          "text": "A planning and scope-control workflow from a game-development collection: its win condition is something submitted and playable, not the game you imagined. Before the theme drops, it checks the jam's rules (length, deadline and timezone, teams, assets, generative AI policy, platforms, where to submit, whether uploads lock) and preps an empty project that already builds and exports. It then brainstorms ten ideas in 15 minutes and commits to one, picks one core mechanic and one hook, and gets a 30-second loop from start to restart running early, before content. A budget table scales mechanics, levels, art, audio and the ship buffer for 48-hour, 72–96-hour and one-week jams, and a 48-hour timeline schedules sleep, a playtest, an art and audio pass and a bug-fix freeze. Feature triage asks three questions of every feature. The checklist tests the build from a clean extracted copy and confirms the entry is attached to the jam, not just the game's page. It also summarizes the formats of Ludum Dare, GMTK Jam and Global Game Jam, with a reminder to re-check the live rules.",
+          "permalink": "https://github.com/gamedev-skills/awesome-gamedev-agent-skills/tree/19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9/skills/workflows/game-jam"
+        },
+        "tags": [
+          "category:planning",
+          "category:engineering",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "planning",
+          "scope-control",
+          "prototyping"
+        ]
+      }
+    },
+    {
+      "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/disciplines/ai-behavior-trees-utility-ai",
+      "name": "ai-behavior-trees-utility-ai",
+      "skills.sh": {
+        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/ai-behavior-trees-utility-ai",
+        "installs": 7600,
+        "weeklyInstalls": [343, 337, 398, 400, 485, 668, 1507, 1874],
+        "firstSeen": "2026-08-24"
+      },
+      "skillMd": {
+        "version": "19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds a reusable behavior-tree runtime and a utility AI scorer for NPC decisions, plus hybrids where the tree delegates graded choices.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "an enemy or NPC needs decisions beyond a simple state machine, and you want your own reusable decision code rather than an engine's built-in assets"
+            },
+            {
+              "label": "Behavior tree means",
+              "text": "a tree of conditions and actions checked each decision step, each node reporting success, failure or still running to its parent"
+            },
+            {
+              "label": "Utility AI means",
+              "text": "scoring every possible action from 0 to 1 through response curves, then picking the best, so trade-offs such as distance against health are graded"
+            },
+            {
+              "label": "You get",
+              "text": "plain C# runtime code: a blackboard (per-agent shared memory), composites, decorators, curves and an evaluator, plus guard, villager and hybrid agent templates"
+            },
+            {
+              "label": "Unlike",
+              "text": "the repo's game-ai, which helps choose between state machines, behavior trees, steering and pathfinding, or unreal-behavior-trees, for Unreal's own tree assets"
+            },
+            {
+              "label": "Code examples",
+              "text": "C# using Unity's Vector2 member names, with the Godot C# equivalents named"
+            }
+          ],
+          "text": "The implementation companion to the repo's game-ai skill: game-ai picks a decision model, this one builds it. Its workflow takes a behavior tree for structured, prioritized, interruptible behavior, utility scoring for continuous choices such as targeting, or both. It designs the blackboard first, so leaves share it and never reference each other; writes conditions that answer at once and actions that return Running across frames; and composes them with Selector (first child that doesn't fail wins), Sequence (stops at the first that doesn't succeed), Parallel and decorators such as Inverter, Cooldown and Repeat. For utility, each fact passes through a curve normalized to 0..1; the results combine as a weighted sum, or as a product with a compensation factor so each extra consideration doesn't drag the score toward zero; hysteresis keeps agents from flip-flopping on near-ties. It ticks once per decision step and has you draw the active path and scores on screen while tuning. Its pitfalls cover restarting a running action every frame, guard conditions that stop being checked once an action runs, cooldowns cleared when a branch is abandoned, and allocations every tick. Four reference files hold the full C# code, the templates and best practices.",
+          "permalink": "https://github.com/gamedev-skills/awesome-gamedev-agent-skills/tree/19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9/skills/disciplines/ai-behavior-trees-utility-ai"
+        },
+        "tags": [
+          "category:engineering",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "stack:csharp",
+          "architecture",
+          "implementation"
+        ]
       }
     }
   ]

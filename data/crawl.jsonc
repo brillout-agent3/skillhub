@@ -900,19 +900,6 @@
       }
     },
     {
-      "name": "level-design",
-      "repo": "gamedev-skills/awesome-gamedev-agent-skills",
-      "official": false,
-      "stars": 7187,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/level-design",
-        "installs": 10900,
-        "weeklyInstalls": [435, 409, 483, 494, 579, 830, 1726, 2087],
-        "firstSeen": "2026-06-27"
-      }
-    },
-    {
       "name": "resume-bullet-writer",
       "repo": "paramchoudhary/resumeskills",
       "official": false,
@@ -1212,19 +1199,6 @@
       }
     },
     {
-      "name": "performance-optimization",
-      "repo": "gamedev-skills/awesome-gamedev-agent-skills",
-      "official": false,
-      "stars": 7187,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/performance-optimization",
-        "installs": 10500,
-        "weeklyInstalls": [393, 392, 460, 481, 579, 784, 1690, 2054],
-        "firstSeen": "2026-06-27"
-      }
-    },
-    {
       "name": "pre-mortem",
       "repo": "phuryn/pm-skills",
       "official": false,
@@ -1277,32 +1251,6 @@
       }
     },
     {
-      "name": "audio-design",
-      "repo": "gamedev-skills/awesome-gamedev-agent-skills",
-      "official": false,
-      "stars": 7187,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/audio-design",
-        "installs": 10400,
-        "weeklyInstalls": [419, 397, 440, 463, 564, 781, 1668, 2040],
-        "firstSeen": "2026-06-27"
-      }
-    },
-    {
-      "name": "game-ai",
-      "repo": "gamedev-skills/awesome-gamedev-agent-skills",
-      "official": false,
-      "stars": 7187,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/game-ai",
-        "installs": 10400,
-        "weeklyInstalls": [407, 388, 452, 455, 564, 764, 1668, 2008],
-        "firstSeen": "2026-06-27"
-      }
-    },
-    {
       "name": "parallel-debugging",
       "repo": "wshobson/agents",
       "official": false,
@@ -1352,32 +1300,6 @@
         "installs": 10300,
         "weeklyInstalls": [148, 248, 137, 283, 159, 158, 214, 235],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "camera-systems",
-      "repo": "gamedev-skills/awesome-gamedev-agent-skills",
-      "official": false,
-      "stars": 7187,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/camera-systems",
-        "installs": 10300,
-        "weeklyInstalls": [392, 377, 447, 467, 561, 780, 1682, 2014],
-        "firstSeen": "2026-06-27"
-      }
-    },
-    {
-      "name": "save-systems",
-      "repo": "gamedev-skills/awesome-gamedev-agent-skills",
-      "official": false,
-      "stars": 7187,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/save-systems",
-        "installs": 10300,
-        "weeklyInstalls": [382, 390, 438, 451, 558, 770, 1660, 2017],
-        "firstSeen": "2026-06-27"
       }
     },
     {
@@ -1745,32 +1667,6 @@
       }
     },
     {
-      "name": "input-systems",
-      "repo": "gamedev-skills/awesome-gamedev-agent-skills",
-      "official": false,
-      "stars": 7187,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/input-systems",
-        "installs": 10000,
-        "weeklyInstalls": [387, 371, 423, 444, 530, 735, 1636, 1975],
-        "firstSeen": "2026-06-27"
-      }
-    },
-    {
-      "name": "procedural-gen",
-      "repo": "gamedev-skills/awesome-gamedev-agent-skills",
-      "official": false,
-      "stars": 7187,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/procedural-gen",
-        "installs": 10000,
-        "weeklyInstalls": [380, 367, 435, 442, 528, 733, 1616, 1966],
-        "firstSeen": "2026-06-27"
-      }
-    },
-    {
       "name": "ctf-pwn",
       "repo": "ljagiello/ctf-skills",
       "official": false,
@@ -1820,19 +1716,6 @@
         "installs": 9900,
         "weeklyInstalls": [95, 125, 145, 630, 219, 121, 144, 101],
         "firstSeen": "2026-01-21"
-      }
-    },
-    {
-      "name": "create-game-assets",
-      "repo": "gamedev-skills/awesome-gamedev-agent-skills",
-      "official": false,
-      "stars": 7187,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/create-game-assets",
-        "installs": 9900,
-        "weeklyInstalls": [415, 399, 474, 516, 611, 863, 1778, 2200],
-        "firstSeen": "2026-08-08"
       }
     },
     {
@@ -1888,19 +1771,6 @@
       }
     },
     {
-      "name": "physics-tuning",
-      "repo": "gamedev-skills/awesome-gamedev-agent-skills",
-      "official": false,
-      "stars": 7187,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/physics-tuning",
-        "installs": 9800,
-        "weeklyInstalls": [388, 357, 422, 428, 507, 712, 1582, 1940],
-        "firstSeen": "2026-06-27"
-      }
-    },
-    {
       "name": "code-reviewer",
       "repo": "google-gemini/gemini-cli",
       "official": false,
@@ -1937,19 +1807,6 @@
         "installs": 9700,
         "weeklyInstalls": [117, 114, 64, 94, 3424, 5278, 71, 74],
         "firstSeen": "2026-06-18"
-      }
-    },
-    {
-      "name": "shader-programming",
-      "repo": "gamedev-skills/awesome-gamedev-agent-skills",
-      "official": false,
-      "stars": 7187,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/shader-programming",
-        "installs": 9700,
-        "weeklyInstalls": [379, 354, 419, 429, 509, 708, 1564, 1957],
-        "firstSeen": "2026-06-27"
       }
     },
     {
@@ -2057,19 +1914,6 @@
       }
     },
     {
-      "name": "dialogue-systems",
-      "repo": "gamedev-skills/awesome-gamedev-agent-skills",
-      "official": false,
-      "stars": 7187,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/dialogue-systems",
-        "installs": 9600,
-        "weeklyInstalls": [364, 348, 418, 417, 510, 691, 1539, 1906],
-        "firstSeen": "2026-06-27"
-      }
-    },
-    {
       "name": "hindsight-docs",
       "repo": "vectorize-io/hindsight",
       "official": false,
@@ -2158,19 +2002,6 @@
         "installs": 9400,
         "weeklyInstalls": [235, 304, 242, 146, 195, 297, 277, 349],
         "firstSeen": "2026-02-01"
-      }
-    },
-    {
-      "name": "router",
-      "repo": "gamedev-skills/awesome-gamedev-agent-skills",
-      "official": false,
-      "stars": 7187,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/router",
-        "installs": 9400,
-        "weeklyInstalls": [370, 351, 414, 431, 479, 675, 1504, 1877],
-        "firstSeen": "2026-06-27"
       }
     },
     {
@@ -2434,19 +2265,6 @@
       }
     },
     {
-      "name": "rpg",
-      "repo": "gamedev-skills/awesome-gamedev-agent-skills",
-      "official": false,
-      "stars": 7187,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/rpg",
-        "installs": 9100,
-        "weeklyInstalls": [345, 331, 401, 399, 479, 648, 1464, 1845],
-        "firstSeen": "2026-06-27"
-      }
-    },
-    {
       "name": "improve-ui",
       "repo": "ibelick/ui-skills",
       "official": false,
@@ -2561,19 +2379,6 @@
         "installs": 8900,
         "weeklyInstalls": [59, 65, 79, 89, 34, 34, 47, 37],
         "firstSeen": "2026-01-22"
-      }
-    },
-    {
-      "name": "prototype-fast",
-      "repo": "gamedev-skills/awesome-gamedev-agent-skills",
-      "official": false,
-      "stars": 7187,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/prototype-fast",
-        "installs": 8900,
-        "weeklyInstalls": [336, 328, 393, 400, 467, 652, 1460, 1815],
-        "firstSeen": "2026-06-27"
       }
     },
     {
@@ -2707,19 +2512,6 @@
       }
     },
     {
-      "name": "roguelike",
-      "repo": "gamedev-skills/awesome-gamedev-agent-skills",
-      "official": false,
-      "stars": 7187,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/roguelike",
-        "installs": 8700,
-        "weeklyInstalls": [339, 318, 369, 383, 439, 635, 1430, 1777],
-        "firstSeen": "2026-06-27"
-      }
-    },
-    {
       "name": "seo-audit",
       "repo": "agricidaniel/claude-seo",
       "official": false,
@@ -2772,19 +2564,6 @@
       }
     },
     {
-      "name": "fps-shooter",
-      "repo": "gamedev-skills/awesome-gamedev-agent-skills",
-      "official": false,
-      "stars": 7187,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/fps-shooter",
-        "installs": 8700,
-        "weeklyInstalls": [389, 336, 376, 384, 457, 612, 1412, 1787],
-        "firstSeen": "2026-06-27"
-      }
-    },
-    {
       "name": "content-research-writer",
       "repo": "composiohq/awesome-claude-skills",
       "official": true,
@@ -2834,45 +2613,6 @@
         "installs": 8600,
         "weeklyInstalls": [409, 356, 287, 307, 388, 401, 390, 360],
         "firstSeen": "2026-05-20"
-      }
-    },
-    {
-      "name": "puzzle",
-      "repo": "gamedev-skills/awesome-gamedev-agent-skills",
-      "official": false,
-      "stars": 7187,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/puzzle",
-        "installs": 8600,
-        "weeklyInstalls": [339, 314, 371, 386, 440, 633, 1405, 1778],
-        "firstSeen": "2026-06-27"
-      }
-    },
-    {
-      "name": "card-game",
-      "repo": "gamedev-skills/awesome-gamedev-agent-skills",
-      "official": false,
-      "stars": 7187,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/card-game",
-        "installs": 8600,
-        "weeklyInstalls": [346, 325, 368, 380, 430, 635, 1417, 1750],
-        "firstSeen": "2026-06-27"
-      }
-    },
-    {
-      "name": "platformer",
-      "repo": "gamedev-skills/awesome-gamedev-agent-skills",
-      "official": false,
-      "stars": 7187,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/platformer",
-        "installs": 8600,
-        "weeklyInstalls": [336, 311, 374, 381, 444, 624, 1408, 1782],
-        "firstSeen": "2026-06-27"
       }
     },
     {
@@ -2980,32 +2720,6 @@
       }
     },
     {
-      "name": "survival-crafting",
-      "repo": "gamedev-skills/awesome-gamedev-agent-skills",
-      "official": false,
-      "stars": 7187,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/survival-crafting",
-        "installs": 8500,
-        "weeklyInstalls": [325, 313, 370, 371, 429, 622, 1407, 1765],
-        "firstSeen": "2026-06-27"
-      }
-    },
-    {
-      "name": "tower-defense",
-      "repo": "gamedev-skills/awesome-gamedev-agent-skills",
-      "official": false,
-      "stars": 7187,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/tower-defense",
-        "installs": 8500,
-        "weeklyInstalls": [332, 309, 366, 372, 433, 622, 1398, 1749],
-        "firstSeen": "2026-06-27"
-      }
-    },
-    {
       "name": "tmux",
       "repo": "openclaw/openclaw",
       "official": false,
@@ -3068,19 +2782,6 @@
         "installs": 8400,
         "weeklyInstalls": [198, 206, 159, 132, 154, 157, 183, 167],
         "firstSeen": "2026-04-05"
-      }
-    },
-    {
-      "name": "visual-novel",
-      "repo": "gamedev-skills/awesome-gamedev-agent-skills",
-      "official": false,
-      "stars": 7187,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/visual-novel",
-        "installs": 8400,
-        "weeklyInstalls": [330, 292, 362, 372, 427, 618, 1386, 1738],
-        "firstSeen": "2026-06-27"
       }
     },
     {
@@ -3224,19 +2925,6 @@
         "installs": 8200,
         "weeklyInstalls": [1, 4, 7, 0, 3, 1, 2, 3],
         "firstSeen": "2026-03-20"
-      }
-    },
-    {
-      "name": "game-jam",
-      "repo": "gamedev-skills/awesome-gamedev-agent-skills",
-      "official": false,
-      "stars": 7187,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/game-jam",
-        "installs": 8200,
-        "weeklyInstalls": [319, 295, 362, 350, 411, 590, 1366, 1706],
-        "firstSeen": "2026-06-27"
       }
     },
     {
@@ -3796,19 +3484,6 @@
         "installs": 7600,
         "weeklyInstalls": [295, 334, 282, 197, 271, 205, 174, 93],
         "firstSeen": "2026-05-26"
-      }
-    },
-    {
-      "name": "ai-behavior-trees-utility-ai",
-      "repo": "gamedev-skills/awesome-gamedev-agent-skills",
-      "official": false,
-      "stars": 7187,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/ai-behavior-trees-utility-ai",
-        "installs": 7600,
-        "weeklyInstalls": [343, 337, 398, 400, 485, 668, 1507, 1874],
-        "firstSeen": "2026-08-24"
       }
     },
     {
