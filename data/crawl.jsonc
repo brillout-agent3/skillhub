@@ -146,19 +146,6 @@
       }
     },
     {
-      "name": "azure-postgres",
-      "repo": "microsoft/azure-skills",
-      "official": true,
-      "stars": 1622,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/microsoft/azure-skills/azure-postgres",
-        "installs": 27800,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-02-04"
-      }
-    },
-    {
       "name": "dbs-chatroom-austrian",
       "repo": "dontbesilent2025/dbskill",
       "official": false,
@@ -195,19 +182,6 @@
         "installs": 27400,
         "weeklyInstalls": [70, 85, 94, 87, 56, 124, 115, 96],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "dbs-hook",
-      "repo": "dontbesilent2025/dbskill",
-      "official": false,
-      "stars": 11294,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/dontbesilent2025/dbskill/dbs-hook",
-        "installs": 27300,
-        "weeklyInstalls": [988, 583, 652, 1076, 787, 421, 0, 0],
-        "firstSeen": "2026-03-22"
       }
     },
     {
@@ -273,19 +247,6 @@
         "installs": 26900,
         "weeklyInstalls": [843, 640, 582, 924, 493, 361, 357, 108],
         "firstSeen": "2026-05-20"
-      }
-    },
-    {
-      "name": "higgsfield-game-generation",
-      "repo": "higgsfield-ai/skills",
-      "official": false,
-      "stars": 1902,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/higgsfield-ai/skills/higgsfield-game-generation",
-        "installs": 26600,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 1, 1],
-        "firstSeen": "2026-07-16"
       }
     },
     {
@@ -380,19 +341,6 @@
       }
     },
     {
-      "name": "layout",
-      "repo": "pbakaus/impeccable",
-      "official": false,
-      "stars": 104630,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/pbakaus/impeccable/layout",
-        "installs": 26400,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-04-10"
-      }
-    },
-    {
       "name": "security-requirement-extraction",
       "repo": "wshobson/agents",
       "official": false,
@@ -484,19 +432,6 @@
       }
     },
     {
-      "name": "dbs-xhs-title",
-      "repo": "dontbesilent2025/dbskill",
-      "official": false,
-      "stars": 11294,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/dontbesilent2025/dbskill/dbs-xhs-title",
-        "installs": 25800,
-        "weeklyInstalls": [983, 586, 653, 1059, 780, 422, 0, 0],
-        "firstSeen": "2026-04-05"
-      }
-    },
-    {
       "name": "baseline-ui",
       "repo": "ibelick/ui-skills",
       "official": false,
@@ -575,19 +510,6 @@
       }
     },
     {
-      "name": "argent-create-flow",
-      "repo": "software-mansion/argent",
-      "official": true,
-      "stars": 3170,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/software-mansion/argent/argent-create-flow",
-        "installs": 25500,
-        "weeklyInstalls": [1530, 1387, 1523, 1539, 1592, 1642, 752, 84],
-        "firstSeen": "2026-04-28"
-      }
-    },
-    {
       "name": "respond-to-pr-comments-in-blocklist",
       "repo": "warpdotdev/common-skills",
       "official": false,
@@ -627,19 +549,6 @@
       }
     },
     {
-      "name": "dbs-agent-migration",
-      "repo": "dontbesilent2025/dbskill",
-      "official": false,
-      "stars": 11294,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/dontbesilent2025/dbskill/dbs-agent-migration",
-        "installs": 25200,
-        "weeklyInstalls": [982, 583, 645, 1043, 760, 873, 0, 0],
-        "firstSeen": "2026-04-16"
-      }
-    },
-    {
       "name": "firecrawl-research-index",
       "repo": "firecrawl/skills",
       "official": false,
@@ -650,19 +559,6 @@
         "installs": 25200,
         "weeklyInstalls": [643, 601, 591, 520, 562, 698, 775, 499],
         "firstSeen": "2026-06-16"
-      }
-    },
-    {
-      "name": "stitch-design",
-      "repo": "google-labs-code/stitch-skills",
-      "official": false,
-      "stars": 8689,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google-labs-code/stitch-skills/stitch-design",
-        "installs": 25100,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-03-13"
       }
     },
     {
@@ -1069,19 +965,6 @@
       }
     },
     {
-      "name": "vue-best-practices",
-      "repo": "antfu/skills",
-      "official": false,
-      "stars": 6043,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/antfu/skills/vue-best-practices",
-        "installs": 23400,
-        "weeklyInstalls": [334, 251, 184, 1, 1, 0, 0, 0],
-        "firstSeen": "2026-01-28"
-      }
-    },
-    {
       "name": "fixing-accessibility",
       "repo": "ibelick/ui-skills",
       "official": false,
@@ -1261,19 +1144,6 @@
         "installs": 22400,
         "weeklyInstalls": [640, 488, 445, 529, 396, 834, 521, 976],
         "firstSeen": "2026-01-26"
-      }
-    },
-    {
-      "name": "golang-linter",
-      "repo": "samber/cc-skills-golang",
-      "official": false,
-      "stars": 3806,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/samber/cc-skills-golang/golang-linter",
-        "installs": 22400,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-03-22"
       }
     },
     {
@@ -1511,19 +1381,6 @@
       }
     },
     {
-      "name": "vueuse-functions",
-      "repo": "antfu/skills",
-      "official": false,
-      "stars": 6043,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/antfu/skills/vueuse-functions",
-        "installs": 21400,
-        "weeklyInstalls": [266, 211, 161, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-01-28"
-      }
-    },
-    {
       "name": "opencli-usage",
       "repo": "jackwener/opencli",
       "official": false,
@@ -1576,19 +1433,6 @@
       }
     },
     {
-      "name": "gh-cli",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/gh-cli",
-        "installs": 21200,
-        "weeklyInstalls": [1, 0, 1, 3, 1, 1, 2, 0],
-        "firstSeen": "2026-01-23"
-      }
-    },
-    {
       "name": "wecomcli-smartsheet",
       "repo": "wecomteam/wecom-cli",
       "official": false,
@@ -1625,19 +1469,6 @@
         "installs": 21000,
         "weeklyInstalls": [251, 286, 341, 401, 341, 306, 288, 293],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "mediabunny",
-      "repo": "remotion-dev/skills",
-      "official": true,
-      "stars": 6472,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/remotion-dev/skills/mediabunny",
-        "installs": 20800,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-07-11"
       }
     },
     {
@@ -1784,19 +1615,6 @@
       }
     },
     {
-      "name": "firestore-security-rules-auditor",
-      "repo": "firebase/agent-skills",
-      "official": false,
-      "stars": 505,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/firebase/agent-skills/firestore-security-rules-auditor",
-        "installs": 20400,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-04-07"
-      }
-    },
-    {
       "name": "sql-optimization-patterns",
       "repo": "wshobson/agents",
       "official": false,
@@ -1940,19 +1758,6 @@
       }
     },
     {
-      "name": "expo-skill-feedback",
-      "repo": "expo/skills",
-      "official": true,
-      "stars": 4073,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/expo/skills/expo-skill-feedback",
-        "installs": 19800,
-        "weeklyInstalls": [1552, 1571, 1486, 1435, 1464, 1523, 672, 247],
-        "firstSeen": "2026-07-13"
-      }
-    },
-    {
       "name": "git-advanced-workflows",
       "repo": "wshobson/agents",
       "official": false,
@@ -2057,19 +1862,6 @@
       }
     },
     {
-      "name": "design-taste-frontend-v2-experimental",
-      "repo": "leonxlnx/taste-skill",
-      "official": false,
-      "stars": 111144,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/leonxlnx/taste-skill/design-taste-frontend-v2-experimental",
-        "installs": 19500,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 17135, 2403, 1],
-        "firstSeen": "2026-10-13"
-      }
-    },
-    {
       "name": "okx-agentic-wallet",
       "repo": "okx/onchainos-skills",
       "official": false,
@@ -2148,19 +1940,6 @@
       }
     },
     {
-      "name": "web-design-guidelines",
-      "repo": "antfu/skills",
-      "official": false,
-      "stars": 6043,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/antfu/skills/web-design-guidelines",
-        "installs": 19300,
-        "weeklyInstalls": [324, 239, 163, 2, 1, 0, 0, 0],
-        "firstSeen": "2026-01-28"
-      }
-    },
-    {
       "name": "golang-pro",
       "repo": "jeffallan/claude-skills",
       "official": false,
@@ -2210,19 +1989,6 @@
         "installs": 19300,
         "weeklyInstalls": [606, 706, 616, 600, 664, 528, 581, 542],
         "firstSeen": "2026-04-24"
-      }
-    },
-    {
-      "name": "dbs-slowisfast",
-      "repo": "dontbesilent2025/dbskill",
-      "official": false,
-      "stars": 11294,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/dontbesilent2025/dbskill/dbs-slowisfast",
-        "installs": 19200,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-04-11"
       }
     },
     {
@@ -2356,19 +2122,6 @@
       }
     },
     {
-      "name": "vue-router-best-practices",
-      "repo": "antfu/skills",
-      "official": false,
-      "stars": 6043,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/antfu/skills/vue-router-best-practices",
-        "installs": 18800,
-        "weeklyInstalls": [278, 186, 142, 1, 1, 0, 0, 0],
-        "firstSeen": "2026-01-31"
-      }
-    },
-    {
       "name": "bigquery-basics",
       "repo": "google/skills",
       "official": true,
@@ -2444,19 +2197,6 @@
         "installs": 18700,
         "weeklyInstalls": [315, 321, 374, 461, 346, 383, 349, 329],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "tavily-extract",
-      "repo": "tavily-ai/skills",
-      "official": false,
-      "stars": 490,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/tavily-ai/skills/tavily-extract",
-        "installs": 18600,
-        "weeklyInstalls": [619, 817, 665, 597, 572, 555, 620, 534],
-        "firstSeen": "2026-03-16"
       }
     },
     {
@@ -2915,19 +2655,6 @@
       }
     },
     {
-      "name": "aso-audit",
-      "repo": "coreyhaines31/marketingskills",
-      "official": false,
-      "stars": 58876,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/coreyhaines31/marketingskills/aso-audit",
-        "installs": 17800,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 1],
-        "firstSeen": "2026-04-13"
-      }
-    },
-    {
       "name": "github-issues",
       "repo": "github/awesome-copilot",
       "official": true,
@@ -3146,19 +2873,6 @@
         "installs": 17200,
         "weeklyInstalls": [484, 494, 494, 470, 452, 599, 645, 582],
         "firstSeen": "2026-04-24"
-      }
-    },
-    {
-      "name": "vue-testing-best-practices",
-      "repo": "antfu/skills",
-      "official": false,
-      "stars": 6043,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/antfu/skills/vue-testing-best-practices",
-        "installs": 17200,
-        "weeklyInstalls": [254, 206, 145, 1, 1, 0, 0, 0],
-        "firstSeen": "2026-01-31"
       }
     },
     {
@@ -3500,19 +3214,6 @@
       }
     },
     {
-      "name": "lark-whiteboard-cli",
-      "repo": "larksuite/cli",
-      "official": false,
-      "stars": 18001,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/larksuite/cli/lark-whiteboard-cli",
-        "installs": 16500,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-04-10"
-      }
-    },
-    {
       "name": "nature-citation",
       "repo": "yuan1z0825/nature-skills",
       "official": false,
@@ -3549,19 +3250,6 @@
         "installs": 16400,
         "weeklyInstalls": [418, 338, 462, 715, 824, 1006, 1536, 1834],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "wecomcli-msg",
-      "repo": "wecomteam/wecom-cli",
-      "official": false,
-      "stars": 3308,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wecomteam/wecom-cli/wecomcli-msg",
-        "installs": 16400,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-04-02"
       }
     },
     {
@@ -3640,19 +3328,6 @@
         "installs": 16200,
         "weeklyInstalls": [831, 934, 1143, 1024, 998, 1118, 1196, 992],
         "firstSeen": "2026-07-14"
-      }
-    },
-    {
-      "name": "wecomcli-schedule",
-      "repo": "wecomteam/wecom-cli",
-      "official": false,
-      "stars": 3308,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wecomteam/wecom-cli/wecomcli-schedule",
-        "installs": 16200,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-04-02"
       }
     },
     {
@@ -4904,19 +4579,6 @@
       }
     },
     {
-      "name": "argent-qa-flows",
-      "repo": "software-mansion/argent",
-      "official": true,
-      "stars": 3170,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/software-mansion/argent/argent-qa-flows",
-        "installs": 14300,
-        "weeklyInstalls": [1496, 1357, 1497, 1513, 1569, 1620, 740, 70],
-        "firstSeen": "2026-08-10"
-      }
-    },
-    {
       "name": "data-visualization",
       "repo": "anthropics/knowledge-work-plugins",
       "official": true,
@@ -5229,19 +4891,6 @@
       }
     },
     {
-      "name": "tsdown",
-      "repo": "antfu/skills",
-      "official": false,
-      "stars": 6043,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/antfu/skills/tsdown",
-        "installs": 14000,
-        "weeklyInstalls": [156, 145, 74, 0, 0, 1, 0, 0],
-        "firstSeen": "2026-01-28"
-      }
-    },
-    {
       "name": "bmad-build-auto",
       "repo": "bmad-code-org/bmad-method",
       "official": false,
@@ -5395,19 +5044,6 @@
         "installs": 13800,
         "weeklyInstalls": [205, 229, 259, 297, 228, 240, 226, 207],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "slidev",
-      "repo": "antfu/skills",
-      "official": false,
-      "stars": 6043,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/antfu/skills/slidev",
-        "installs": 13800,
-        "weeklyInstalls": [250, 188, 106, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-01-28"
       }
     },
     {
@@ -5811,19 +5447,6 @@
         "installs": 13300,
         "weeklyInstalls": [232, 255, 268, 315, 295, 329, 336, 345],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "turborepo",
-      "repo": "antfu/skills",
-      "official": false,
-      "stars": 6043,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/antfu/skills/turborepo",
-        "installs": 13300,
-        "weeklyInstalls": [161, 149, 81, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-01-28"
       }
     },
     {
@@ -6295,19 +5918,6 @@
       }
     },
     {
-      "name": "graphify",
-      "repo": "graphify-labs/graphify",
-      "official": false,
-      "stars": 143418,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/graphify-labs/graphify/graphify",
-        "installs": 12800,
-        "weeklyInstalls": [535, 573, 582, 547, 621, 836, 1068, 981],
-        "firstSeen": "2026-04-07"
-      }
-    },
-    {
       "name": "brag-slim",
       "repo": "latent-spaces/brag",
       "official": false,
@@ -6422,19 +6032,6 @@
         "installs": 12600,
         "weeklyInstalls": [281, 381, 287, 461, 394, 370, 358, 428],
         "firstSeen": "2026-03-11"
-      }
-    },
-    {
-      "name": "hono",
-      "repo": "yusukebe/hono-skill",
-      "official": false,
-      "stars": 154,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/yusukebe/hono-skill/hono",
-        "installs": 12600,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-01-21"
       }
     },
     {
@@ -47402,6 +46999,130 @@
     {
       "url": "https://skills.sh/wshobson/agents/typescript-advanced-types",
       "note": "Tool docs: an agent's manual for typescript."
+    },
+    {
+      "url": "https://skills.sh/microsoft/azure-skills/azure-postgres",
+      "note": "Gone from microsoft/azure-skills since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/dontbesilent2025/dbskill/dbs-hook",
+      "note": "Gone from dontbesilent2025/dbskill since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/higgsfield-ai/skills/higgsfield-game-generation",
+      "note": "Gone from higgsfield-ai/skills since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/pbakaus/impeccable/layout",
+      "note": "Gone from pbakaus/impeccable since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/dontbesilent2025/dbskill/dbs-xhs-title",
+      "note": "Gone from dontbesilent2025/dbskill since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/software-mansion/argent/argent-create-flow",
+      "note": "Gone from software-mansion/argent since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/dontbesilent2025/dbskill/dbs-agent-migration",
+      "note": "Gone from dontbesilent2025/dbskill since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/google-labs-code/stitch-skills/stitch-design",
+      "note": "Gone from google-labs-code/stitch-skills since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/antfu/skills/vue-best-practices",
+      "note": "Gone from antfu/skills since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/samber/cc-skills-golang/golang-linter",
+      "note": "Gone from samber/cc-skills-golang since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/antfu/skills/vueuse-functions",
+      "note": "Gone from antfu/skills since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/gh-cli",
+      "note": "Gone from github/awesome-copilot since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/remotion-dev/skills/mediabunny",
+      "note": "Gone from remotion-dev/skills since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/firebase/agent-skills/firestore-security-rules-auditor",
+      "note": "Gone from firebase/agent-skills since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/expo/skills/expo-skill-feedback",
+      "note": "Gone from expo/skills since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/leonxlnx/taste-skill/design-taste-frontend-v2-experimental",
+      "note": "Gone from leonxlnx/taste-skill since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/antfu/skills/web-design-guidelines",
+      "note": "Gone from antfu/skills since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/dontbesilent2025/dbskill/dbs-slowisfast",
+      "note": "Gone from dontbesilent2025/dbskill since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/antfu/skills/vue-router-best-practices",
+      "note": "Gone from antfu/skills since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/tavily-ai/skills/tavily-extract",
+      "note": "Gone from tavily-ai/skills since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/coreyhaines31/marketingskills/aso-audit",
+      "note": "Gone from coreyhaines31/marketingskills since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/antfu/skills/vue-testing-best-practices",
+      "note": "Gone from antfu/skills since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/larksuite/cli/lark-whiteboard-cli",
+      "note": "Gone from larksuite/cli since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/wecomteam/wecom-cli/wecomcli-msg",
+      "note": "Gone from wecomteam/wecom-cli since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/wecomteam/wecom-cli/wecomcli-schedule",
+      "note": "Gone from wecomteam/wecom-cli since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/software-mansion/argent/argent-qa-flows",
+      "note": "Gone from software-mansion/argent since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/antfu/skills/tsdown",
+      "note": "Gone from antfu/skills since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/antfu/skills/slidev",
+      "note": "Gone from antfu/skills since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/antfu/skills/turborepo",
+      "note": "Gone from antfu/skills since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/graphify-labs/graphify/graphify",
+      "note": "Gone from graphify-labs/graphify since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/yusukebe/hono-skill/hono",
+      "note": "Gone from yusukebe/hono-skill since 2026-11-06."
     }
   ]
 }
