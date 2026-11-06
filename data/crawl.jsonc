@@ -250,19 +250,6 @@
       }
     },
     {
-      "name": "bmad",
-      "repo": "bmad-code-org/bmad-method",
-      "official": false,
-      "stars": 55079,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/bmad-code-org/bmad-method/bmad",
-        "installs": 16200,
-        "weeklyInstalls": [1015, 1021, 1428, 2827, 3166, 1777, 1889, 1623],
-        "firstSeen": "2026-09-05"
-      }
-    },
-    {
       "name": "reverse-engineer-anything",
       "repo": "morluto/rea",
       "official": false,
@@ -328,19 +315,6 @@
       }
     },
     {
-      "name": "bmad-build",
-      "repo": "bmad-code-org/bmad-method",
-      "official": false,
-      "stars": 55079,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/bmad-code-org/bmad-method/bmad-build",
-        "installs": 15200,
-        "weeklyInstalls": [984, 982, 1335, 2672, 2938, 1628, 1753, 1494],
-        "firstSeen": "2026-07-30"
-      }
-    },
-    {
       "name": "cad",
       "repo": "earthtojake/text-to-cad",
       "official": false,
@@ -367,32 +341,6 @@
       }
     },
     {
-      "name": "bmad-code-review",
-      "repo": "bmad-code-org/bmad-method",
-      "official": false,
-      "stars": 55079,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/bmad-code-org/bmad-method/bmad-code-review",
-        "installs": 14800,
-        "weeklyInstalls": [977, 987, 1254, 2417, 2699, 1536, 1706, 1452],
-        "firstSeen": "2026-03-14"
-      }
-    },
-    {
-      "name": "bmad-brainstorming",
-      "repo": "bmad-code-org/bmad-method",
-      "official": false,
-      "stars": 55079,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/bmad-code-org/bmad-method/bmad-brainstorming",
-        "installs": 14600,
-        "weeklyInstalls": [967, 971, 1251, 2399, 2609, 1492, 1669, 1438],
-        "firstSeen": "2026-03-14"
-      }
-    },
-    {
       "name": "simple-english",
       "repo": "aminblg/simpleenglish",
       "official": false,
@@ -406,71 +354,6 @@
       }
     },
     {
-      "name": "bmad-agent-architect",
-      "repo": "bmad-code-org/bmad-method",
-      "official": false,
-      "stars": 55079,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/bmad-code-org/bmad-method/bmad-agent-architect",
-        "installs": 14500,
-        "weeklyInstalls": [971, 979, 1249, 2382, 2621, 1438, 1676, 1424],
-        "firstSeen": "2026-03-17"
-      }
-    },
-    {
-      "name": "bmad-architecture",
-      "repo": "bmad-code-org/bmad-method",
-      "official": false,
-      "stars": 55079,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/bmad-code-org/bmad-method/bmad-architecture",
-        "installs": 14500,
-        "weeklyInstalls": [972, 979, 1282, 2455, 2693, 1487, 1689, 1439],
-        "firstSeen": "2026-06-15"
-      }
-    },
-    {
-      "name": "bmad-agent-pm",
-      "repo": "bmad-code-org/bmad-method",
-      "official": false,
-      "stars": 55079,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/bmad-code-org/bmad-method/bmad-agent-pm",
-        "installs": 14500,
-        "weeklyInstalls": [961, 966, 1238, 2370, 2602, 1437, 1674, 1431],
-        "firstSeen": "2026-03-17"
-      }
-    },
-    {
-      "name": "bmad-agent-dev",
-      "repo": "bmad-code-org/bmad-method",
-      "official": false,
-      "stars": 55079,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/bmad-code-org/bmad-method/bmad-agent-dev",
-        "installs": 14400,
-        "weeklyInstalls": [970, 974, 1242, 2382, 2612, 1439, 1664, 1415],
-        "firstSeen": "2026-03-17"
-      }
-    },
-    {
-      "name": "bmad-agent-analyst",
-      "repo": "bmad-code-org/bmad-method",
-      "official": false,
-      "stars": 55079,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/bmad-code-org/bmad-method/bmad-agent-analyst",
-        "installs": 14400,
-        "weeklyInstalls": [958, 965, 1244, 2369, 2579, 1440, 1671, 1427],
-        "firstSeen": "2026-03-17"
-      }
-    },
-    {
       "name": "data-visualization",
       "repo": "anthropics/knowledge-work-plugins",
       "official": true,
@@ -481,175 +364,6 @@
         "installs": 14300,
         "weeklyInstalls": [197, 211, 244, 333, 319, 350, 392, 285],
         "firstSeen": "2026-01-31"
-      }
-    },
-    {
-      "name": "bmad-agent-ux-designer",
-      "repo": "bmad-code-org/bmad-method",
-      "official": false,
-      "stars": 55079,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/bmad-code-org/bmad-method/bmad-agent-ux-designer",
-        "installs": 14300,
-        "weeklyInstalls": [937, 961, 1225, 2353, 2557, 1425, 1670, 1421],
-        "firstSeen": "2026-03-17"
-      }
-    },
-    {
-      "name": "bmad-ux",
-      "repo": "bmad-code-org/bmad-method",
-      "official": false,
-      "stars": 55079,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/bmad-code-org/bmad-method/bmad-ux",
-        "installs": 14100,
-        "weeklyInstalls": [937, 959, 1224, 2346, 2585, 1447, 1642, 1399],
-        "firstSeen": "2026-05-23"
-      }
-    },
-    {
-      "name": "bmad-review",
-      "repo": "bmad-code-org/bmad-method",
-      "official": false,
-      "stars": 55079,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/bmad-code-org/bmad-method/bmad-review",
-        "installs": 14000,
-        "weeklyInstalls": [945, 954, 1227, 2369, 2618, 1449, 1661, 1413],
-        "firstSeen": "2026-07-19"
-      }
-    },
-    {
-      "name": "bmad-advanced-elicitation",
-      "repo": "bmad-code-org/bmad-method",
-      "official": false,
-      "stars": 55079,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/bmad-code-org/bmad-method/bmad-advanced-elicitation",
-        "installs": 14000,
-        "weeklyInstalls": [940, 946, 1210, 2324, 2516, 1435, 1615, 1386],
-        "firstSeen": "2026-03-14"
-      }
-    },
-    {
-      "name": "bmad-qa-generate-e2e-tests",
-      "repo": "bmad-code-org/bmad-method",
-      "official": false,
-      "stars": 55079,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/bmad-code-org/bmad-method/bmad-qa-generate-e2e-tests",
-        "installs": 14000,
-        "weeklyInstalls": [931, 944, 1190, 2298, 2499, 1450, 1631, 1393],
-        "firstSeen": "2026-03-17"
-      }
-    },
-    {
-      "name": "bmad-build-auto",
-      "repo": "bmad-code-org/bmad-method",
-      "official": false,
-      "stars": 55079,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/bmad-code-org/bmad-method/bmad-build-auto",
-        "installs": 14000,
-        "weeklyInstalls": [938, 950, 1206, 2318, 2561, 1503, 1659, 1442],
-        "firstSeen": "2026-07-30"
-      }
-    },
-    {
-      "name": "bmad-project-context",
-      "repo": "bmad-code-org/bmad-method",
-      "official": false,
-      "stars": 55079,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/bmad-code-org/bmad-method/bmad-project-context",
-        "installs": 14000,
-        "weeklyInstalls": [944, 958, 1225, 2372, 2590, 1453, 1642, 1402],
-        "firstSeen": "2026-08-03"
-      }
-    },
-    {
-      "name": "bmad-party-mode",
-      "repo": "bmad-code-org/bmad-method",
-      "official": false,
-      "stars": 55079,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/bmad-code-org/bmad-method/bmad-party-mode",
-        "installs": 13900,
-        "weeklyInstalls": [927, 941, 1193, 2302, 2511, 1416, 1584, 1368],
-        "firstSeen": "2026-03-12"
-      }
-    },
-    {
-      "name": "bmad-deep-recon",
-      "repo": "bmad-code-org/bmad-method",
-      "official": false,
-      "stars": 55079,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/bmad-code-org/bmad-method/bmad-deep-recon",
-        "installs": 13800,
-        "weeklyInstalls": [930, 940, 1198, 2316, 2527, 1450, 1638, 1410],
-        "firstSeen": "2026-07-23"
-      }
-    },
-    {
-      "name": "bmad-prfaq",
-      "repo": "bmad-code-org/bmad-method",
-      "official": false,
-      "stars": 55079,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/bmad-code-org/bmad-method/bmad-prfaq",
-        "installs": 13800,
-        "weeklyInstalls": [922, 923, 1169, 2265, 2467, 1398, 1609, 1389],
-        "firstSeen": "2026-03-29"
-      }
-    },
-    {
-      "name": "bmad-forge-idea",
-      "repo": "bmad-code-org/bmad-method",
-      "official": false,
-      "stars": 55079,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/bmad-code-org/bmad-method/bmad-forge-idea",
-        "installs": 13800,
-        "weeklyInstalls": [928, 937, 1194, 2299, 2502, 1433, 1625, 1395],
-        "firstSeen": "2026-06-22"
-      }
-    },
-    {
-      "name": "bmad-customize",
-      "repo": "bmad-code-org/bmad-method",
-      "official": false,
-      "stars": 55079,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/bmad-code-org/bmad-method/bmad-customize",
-        "installs": 13700,
-        "weeklyInstalls": [927, 926, 1177, 2264, 2482, 1425, 1579, 1402],
-        "firstSeen": "2026-04-22"
-      }
-    },
-    {
-      "name": "bmad-walkthrough",
-      "repo": "bmad-code-org/bmad-method",
-      "official": false,
-      "stars": 55079,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/bmad-code-org/bmad-method/bmad-walkthrough",
-        "installs": 13700,
-        "weeklyInstalls": [939, 957, 1191, 2286, 2530, 1461, 1631, 1430],
-        "firstSeen": "2026-08-28"
       }
     },
     {

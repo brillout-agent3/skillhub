@@ -2166,6 +2166,15 @@
         "kind": "skills",
         "description": "Reusable research skills for scholars worldwide, with verifiable workflows and ready-to-use outputs."
       }
+    },
+    {
+      "id": "bmad-code-org/bmad-method",
+      "stars": 55079,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Agile Ai Driven Development — turn an idea or change request into working software without giving up the thinking.",
+        "note": "Its default branch is v7, a preview alpha whose skills change often; the stable v6.12 installs with npx bmad-method install and lives on the V6.12 branch."
+      }
     }
   ],
   "bundles": [
@@ -4005,6 +4014,161 @@
           {
             "label": "Any agent, with the skills CLI, with the repo's other skills",
             "command": "npx skills add Jakubantalik/transitions.dev"
+          }
+        ]
+      }
+    },
+    {
+      "id": "bmad-code-org/bmad-method",
+      "skew": 0,
+      "agentReview": {
+        "name": "BMad Method",
+        "description": "BMad's agile AI-driven development method: brainstorm and research an idea, plan it with product, UX and architecture skills and their personas, then build, review and test each change.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want the agent to follow one delivery process, from a vague idea to reviewed, committed code, with as much planning as the change needs"
+            },
+            {
+              "label": "It does",
+              "text": "gives each phase its own skills and named personas: explore and research, product and UX documents, architecture, then build, review and test"
+            },
+            {
+              "label": "Start with",
+              "text": "the bmad skill's setup, which creates the _bmad/ folder the other skills run their scripts from; ask bmad what to run next"
+            },
+            {
+              "label": "You get",
+              "text": "Markdown files under one output folder, such as briefs, PRDs, UX specs, an architecture spine, plans and research reports, plus local commits"
+            },
+            {
+              "label": "Needs",
+              "text": "uv for BMad's scripts, Node.js for npx, and subagents for builds and reviews"
+            },
+            {
+              "label": "Status",
+              "text": "the default branch is v7, a preview alpha that changes often; the stable v6.12 installs separately, with npx bmad-method install"
+            }
+          ],
+          "text": "BMad Method keeps every decision explicit and carries it forward as files. After installing, ask the bmad skill to run setup: it creates the _bmad/ folder whose scripts the other skills run, and later answers what to run next from the installed modules' own help. Work is grouped into initiatives, each a ticket tree: the initiative, its epics and their stories. A small change goes straight to bmad-build, which plans, implements, has a subagent review the diff and commits locally; bmad-build-auto does the same unattended. Bigger work gets planning first. bmad-brainstorming, bmad-forge-idea, bmad-deep-recon and bmad-prfaq explore and test ideas; John (bmad-agent-pm) coaches PRDs and other product documents; bmad-ux writes DESIGN.md and EXPERIENCE.md; bmad-architecture records the decisions separately built parts must share. Sofia (bmad-agent-po), who turns those documents into an initiative's requirements, epics and stories, comes with the full install but isn't listed here. Mary, Sally, Winston and Amelia are personas that stay on and run these skills from a menu. After a build, bmad-code-review, bmad-walkthrough and bmad-qa-generate-e2e-tests check the result. bmad-party-mode, bmad-advanced-elicitation and bmad-review bring other views to a draft or a change, bmad-project-context keeps AGENTS.md's agent rules verified, and bmad-customize changes a skill through override files.",
+          "permalink": "https://github.com/bmad-code-org/bmad-method/tree/e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6"
+        },
+        "skills": [
+          {
+            "id": "bmad-code-org/bmad-method/skills/bmad",
+            "standalone": false,
+            "note": "Sets up and advises on the other BMad skills: its setup and help work from the modules and skills installed beside it, so alone it has nothing to set up, answer from or recommend."
+          },
+          {
+            "id": "bmad-code-org/bmad-method/skills/bmad-agent-analyst",
+            "standalone": false,
+            "note": "Its menu runs other BMad skills, mostly bmad-deep-recon and bmad-brainstorming, and it needs the _bmad/ folder that the bmad skill's setup creates."
+          },
+          {
+            "id": "bmad-code-org/bmad-method/skills/bmad-brainstorming",
+            "standalone": false,
+            "note": "Runs its scripts from the _bmad/ folder that the bmad skill's setup creates, and offers that setup when it's missing."
+          },
+          {
+            "id": "bmad-code-org/bmad-method/skills/bmad-forge-idea",
+            "standalone": false,
+            "note": "Runs its scripts from the _bmad/ folder that the bmad skill's setup creates, and offers that setup when it's missing."
+          },
+          {
+            "id": "bmad-code-org/bmad-method/skills/bmad-deep-recon",
+            "standalone": false,
+            "note": "Runs its scripts from the _bmad/ folder that the bmad skill's setup creates, and offers that setup when it's missing."
+          },
+          {
+            "id": "bmad-code-org/bmad-method/skills/bmad-prfaq",
+            "standalone": false,
+            "note": "Runs its scripts from the _bmad/ folder that the bmad skill's setup creates, and offers that setup when it's missing."
+          },
+          {
+            "id": "bmad-code-org/bmad-method/skills/bmad-agent-pm",
+            "standalone": false,
+            "note": "Hands every document to the repo's bmad-facilitate skill, and needs the _bmad/ folder that the bmad skill's setup creates."
+          },
+          {
+            "id": "bmad-code-org/bmad-method/skills/bmad-agent-ux-designer",
+            "standalone": false,
+            "note": "Its one menu item runs bmad-ux, and it needs the _bmad/ folder that the bmad skill's setup creates."
+          },
+          {
+            "id": "bmad-code-org/bmad-method/skills/bmad-ux",
+            "standalone": false,
+            "note": "Runs its scripts from the _bmad/ folder that the bmad skill's setup creates, and offers that setup when it's missing."
+          },
+          {
+            "id": "bmad-code-org/bmad-method/skills/bmad-agent-architect",
+            "standalone": false,
+            "note": "Its one menu item runs bmad-architecture, and it needs the _bmad/ folder that the bmad skill's setup creates."
+          },
+          {
+            "id": "bmad-code-org/bmad-method/skills/bmad-architecture",
+            "standalone": false,
+            "note": "Runs its scripts from the _bmad/ folder that the bmad skill's setup creates, and offers that setup when it's missing."
+          },
+          {
+            "id": "bmad-code-org/bmad-method/skills/bmad-agent-dev",
+            "standalone": false,
+            "note": "Its menu runs bmad-build, bmad-qa-generate-e2e-tests and bmad-code-review, and it needs the _bmad/ folder that the bmad skill's setup creates."
+          },
+          {
+            "id": "bmad-code-org/bmad-method/skills/bmad-build",
+            "standalone": false,
+            "note": "Its workflow is printed by a script in the _bmad/ folder that the bmad skill's setup creates, so it does nothing without that setup."
+          },
+          {
+            "id": "bmad-code-org/bmad-method/skills/bmad-build-auto",
+            "standalone": false,
+            "note": "Its workflow is printed by a script in the _bmad/ folder that the bmad skill's setup creates, so it does nothing without that setup."
+          },
+          {
+            "id": "bmad-code-org/bmad-method/skills/bmad-code-review",
+            "standalone": false,
+            "note": "Its workflow is printed by a script in the _bmad/ folder that the bmad skill's setup creates, so it does nothing without that setup."
+          },
+          {
+            "id": "bmad-code-org/bmad-method/skills/bmad-walkthrough",
+            "standalone": false,
+            "note": "Its workflow is printed by a script in the _bmad/ folder that the bmad skill's setup creates, so it does nothing without that setup."
+          },
+          {
+            "id": "bmad-code-org/bmad-method/skills/bmad-qa-generate-e2e-tests",
+            "standalone": false,
+            "note": "Its workflow is printed by a script in the _bmad/ folder that the bmad skill's setup creates, so it does nothing without that setup."
+          },
+          {
+            "id": "bmad-code-org/bmad-method/skills/bmad-project-context",
+            "standalone": true
+          },
+          {
+            "id": "bmad-code-org/bmad-method/skills/bmad-review",
+            "standalone": false,
+            "note": "Runs its scripts from the _bmad/ folder that the bmad skill's setup creates, and offers that setup when it's missing."
+          },
+          {
+            "id": "bmad-code-org/bmad-method/skills/bmad-advanced-elicitation",
+            "standalone": false,
+            "note": "Runs its scripts from the _bmad/ folder that the bmad skill's setup creates, and offers that setup when it's missing."
+          },
+          {
+            "id": "bmad-code-org/bmad-method/skills/bmad-party-mode",
+            "standalone": false,
+            "note": "Runs its scripts from the _bmad/ folder that the bmad skill's setup creates, and offers that setup when it's missing."
+          },
+          {
+            "id": "bmad-code-org/bmad-method/skills/bmad-customize",
+            "standalone": false,
+            "note": "Only writes overrides for installed BMad skills, into the _bmad/ folder that the bmad skill's setup creates."
+          }
+        ],
+        "install": [
+          {
+            "label": "Any agent, with the skills CLI, plus the repo's 13 other skills, among them Sofia (bmad-agent-po), bmad-facilitate and the module records setup needs",
+            "command": "npx skills add bmad-code-org/BMAD-METHOD --skill '*'"
           }
         ]
       }
@@ -29270,6 +29434,1302 @@
           "research"
         ],
         "note": "For Nature Machine Intelligence targets, and to check a statistic reported in several places, it loads files from the repo's nature-shared support package; install that alongside for those."
+      }
+    },
+    {
+      "id": "bmad-code-org/bmad-method/skills/bmad",
+      "name": "bmad",
+      "skills.sh": {
+        "url": "https://skills.sh/bmad-code-org/bmad-method/bmad",
+        "installs": 16200,
+        "weeklyInstalls": [1015, 1021, 1428, 2827, 3166, 1777, 1889, 1623],
+        "firstSeen": "2026-09-05"
+      },
+      "skillMd": {
+        "version": "e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Sets up BMad in a project and recommends what to run next, from the help of the BMad modules you have installed.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you start BMad in a project, want to update or repair it, or wonder which BMad skill to run next"
+            },
+            {
+              "label": "It does",
+              "text": "creates and maintains the project's _bmad/ folder, and answers questions only from the installed modules' own help, never from memory"
+            },
+            {
+              "label": "You get",
+              "text": "a working BMad setup, an active initiative once you pick or create one, and a recommended next skill with the reason; it can run that skill for you"
+            },
+            {
+              "label": "Speaks as",
+              "text": "BMad, a direct, opinionated advisor who introduces itself as the BMad Agent"
+            },
+            {
+              "label": "Needs",
+              "text": "uv; updates run npx skills update"
+            }
+          ],
+          "text": "The hub of the BMad Method. Every other BMad skill runs scripts from the project's _bmad/ folder and sends you here when it's missing. Setup creates that folder with uv and asks each installed module's configuration questions; on later runs the same flow checks each module's version, runs npx skills update, and offers to remove retired skills, duplicate copies and leftovers of a v6 install, always asking before it deletes anything. It can also migrate a project's documents to a newer version of a module, following a plan you approve first. Work is grouped into initiatives, a folder per body of work under the output folder, and the skill shows, switches, creates or clears the active one. Everything else is help: where the project stands, which installed skill comes next and why, or the trade-offs of an approach, all taken from the help files the installed modules ship. When one skill is the clear next step it suggests running it in a fresh context, offers to run it here; asked for a sequence of skills, it runs them one at a time, checking each result with you.",
+          "permalink": "https://github.com/bmad-code-org/bmad-method/tree/e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6/skills/bmad"
+        },
+        "tags": [
+          "category:skill-tools",
+          "type:setup",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "skill-discovery",
+          "agent-workflows"
+        ],
+        "note": "Needs uv. Run its setup first: every other BMad skill runs scripts from the _bmad/ folder it creates."
+      }
+    },
+    {
+      "id": "bmad-code-org/bmad-method/skills/bmad-build",
+      "name": "bmad-build",
+      "skills.sh": {
+        "url": "https://skills.sh/bmad-code-org/bmad-method/bmad-build",
+        "installs": 15200,
+        "weeklyInstalls": [984, 982, 1335, 2672, 2938, 1628, 1753, 1494],
+        "firstSeen": "2026-07-30"
+      },
+      "skillMd": {
+        "version": "e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Implements a story, feature or bug fix end to end: plans it, codes it, has subagents review the diff, then commits locally.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you hand the agent a ticket, story, feature or bug fix and leave the edits to it"
+            },
+            {
+              "label": "It does",
+              "text": "investigates the code, writes a plan file, implements it, has a reviewer subagent check the diff, fixes what's real and commits"
+            },
+            {
+              "label": "Two routes",
+              "text": "about 100 changed lines or fewer: built in the session; larger: you approve the plan, then a fresh subagent implements it"
+            },
+            {
+              "label": "You get",
+              "text": "a local commit, not pushed on its own, and a plan file with the intent and every review verdict; larger changes add a code map, tasks and acceptance criteria"
+            },
+            {
+              "label": "Unlike",
+              "text": "bmad-build-auto, it stops to ask you about gaps in the intent, a dirty working tree or a request with several goals"
+            },
+            {
+              "label": "Needs",
+              "text": "uv and BMad set up in the project: run the bmad skill's setup first; subagents for implementation and review"
+            }
+          ],
+          "text": "BMad's build workflow takes a change from intent to a local commit. It starts from what you hand it: a ticket from BMad's ticket tree of initiative, epic and story files, a plan file to resume, or a plain description; given nothing, it picks the next ready ticket. It checks that the working tree is clean and the branch fits, and offers to split off extra independently shippable goals into deferred-work.md. It investigates the code, then writes a plan file. A change of about 100 lines or fewer gets a short plan and is built in the session. A larger one gets the intent, a code map of what to touch, reuse and leave alone, tasks, Given/When/Then acceptance criteria and verification commands; once you approve, a fresh subagent implements it from the plan alone. Then a reviewer subagent reads the diff; a thorough review runs four lenses instead. The agent checks each finding against the code, fixes simple ones this change caused, defers older problems and logs every verdict in the plan; on the larger route, a finding traced to the plan or the intent reverts the code and re-plans. It then commits and offers a pull request or bmad-walkthrough.",
+          "permalink": "https://github.com/bmad-code-org/bmad-method/tree/e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6/skills/bmad-build"
+        },
+        "tags": [
+          "category:engineering",
+          "category:planning",
+          "category:debugging",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "needs:subagents",
+          "by:community",
+          "implementation",
+          "planning",
+          "code-review",
+          "scope-control",
+          "agent-workflows"
+        ],
+        "note": "Needs uv and BMad set up in the project: it runs scripts from the _bmad/ folder that the bmad skill's setup creates."
+      }
+    },
+    {
+      "id": "bmad-code-org/bmad-method/skills/bmad-code-review",
+      "name": "bmad-code-review",
+      "skills.sh": {
+        "url": "https://skills.sh/bmad-code-org/bmad-method/bmad-code-review",
+        "installs": 14800,
+        "weeklyInstalls": [977, 987, 1254, 2417, 2699, 1536, 1706, 1452],
+        "firstSeen": "2026-03-14"
+      },
+      "skillMd": {
+        "version": "e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Reviews a code change with several independent reviewer subagents, verifies and triages their findings, then applies the fixes you choose.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a change reviewed: a PR, branch, commit range, or staged or uncommitted work"
+            },
+            {
+              "label": "It does",
+              "text": "sends the diff to up to four reviewer subagents with different lenses, then checks every finding against the code before keeping it"
+            },
+            {
+              "label": "You get",
+              "text": "findings sorted into decisions for you, patches and deferred items, with each rejected finding listed and why"
+            },
+            {
+              "label": "Then",
+              "text": "you apply every patch, walk through them one by one, or keep them as action items in the plan file"
+            },
+            {
+              "label": "Modes",
+              "text": "thorough by default or quick with one reviewer; a no-code review edits nothing and writes a fix handoff for a coding agent"
+            },
+            {
+              "label": "Needs",
+              "text": "uv and BMad set up in the project: run the bmad skill's setup first; subagents for the reviewers"
+            }
+          ],
+          "text": "BMad's code review finds what to review from your request, a ticket in review in BMad's ticket tree, or the current branch, writes the diff to a temp file, and collects the commit messages as the change's own claims. A thorough review launches its reviewers at once, each without the others' findings: a blind hunter that sees only the diff, an edge-case hunter, a verification-gap reviewer that looks for behavior no test checks, and, when an intent is available, an intent-alignment auditor that compares the diff with it. The agent then checks every finding at its file and line, grades the real ones high, medium or low, rejects false ones with the evidence, and merges findings with the same root cause. Each survivor becomes a decision for you, a patch, or a deferral for problems this change didn't cause, which also go to deferred-work.md. With a plan file, the findings are written into it. A non-interactive run, such as from CI or another workflow, applies the patches without asking.",
+          "permalink": "https://github.com/bmad-code-org/bmad-method/tree/e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6/skills/bmad-code-review"
+        },
+        "tags": [
+          "category:debugging",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "needs:subagents",
+          "by:community",
+          "code-review",
+          "multi-agent",
+          "verification"
+        ],
+        "note": "Needs uv and BMad set up in the project: it runs scripts from the _bmad/ folder that the bmad skill's setup creates."
+      }
+    },
+    {
+      "id": "bmad-code-org/bmad-method/skills/bmad-brainstorming",
+      "name": "bmad-brainstorming",
+      "skills.sh": {
+        "url": "https://skills.sh/bmad-code-org/bmad-method/bmad-brainstorming",
+        "installs": 14600,
+        "weeklyInstalls": [967, 971, 1251, 2399, 2609, 1492, 1669, 1438],
+        "firstSeen": "2026-03-14"
+      },
+      "skillMd": {
+        "version": "e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Runs a brainstorming session on any topic, rotating creative techniques to push past 100 ideas, then helps you narrow them down.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want far more and better ideas on a topic than you'd come up with alone"
+            },
+            {
+              "label": "It does",
+              "text": "runs creative techniques one after another, logs every idea, and aims past 100 ideas before narrowing"
+            },
+            {
+              "label": "Three stances",
+              "text": "Facilitator only asks and never supplies ideas, Creative Partner trades ideas with you, Ideate for me runs the session by itself"
+            },
+            {
+              "label": "You get",
+              "text": "a log of every idea, plus your pick of an HTML keepsake of the session or a short intent document for planning skills"
+            },
+            {
+              "label": "Picks techniques",
+              "text": "on a local HTML page it tries to open in your browser, where you compose the session and paste a prompt back, or in chat"
+            },
+            {
+              "label": "Needs",
+              "text": "uv and BMad set up in the project: run the bmad skill's setup first; subagents to write the keepsake and other artifacts"
+            }
+          ],
+          "text": "A creative coach for divergent thinking. You say what you're brainstorming and why, then choose a stance and a batch of techniques, usually on a local HTML page: you compose the session there and paste the generated prompt back. In chat, three or four techniques is the suggested batch, and the agent can also pick techniques or invent new ones. In dialogue it asks one question per message, offers no multiple-choice menus, and moves to a new technique every five to ten turns. Every idea, insight and decision goes into a memlog, a running file of one line per entry that lets a session resume after an interruption. When a batch is spent you can run another, converge to narrow and decide, or wrap up. Wrap-up reflects a sampling of your ideas back, asks what you see, then adds connections you might have missed. Artifacts are opt-in, except in Ideate for me, where the HTML keepsake comes automatically: the keepsake, a short intent document for planning skills such as bmad-agent-pm, or other formats such as a one-pager.",
+          "permalink": "https://github.com/bmad-code-org/bmad-method/tree/e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6/skills/bmad-brainstorming"
+        },
+        "tags": [
+          "category:planning",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "needs:subagents",
+          "by:community",
+          "planning",
+          "interview"
+        ],
+        "note": "Needs uv and BMad set up in the project: it runs scripts from the _bmad/ folder that the bmad skill's setup creates."
+      }
+    },
+    {
+      "id": "bmad-code-org/bmad-method/skills/bmad-agent-architect",
+      "name": "bmad-agent-architect",
+      "skills.sh": {
+        "url": "https://skills.sh/bmad-code-org/bmad-method/bmad-agent-architect",
+        "installs": 14500,
+        "weeklyInstalls": [971, 979, 1249, 2382, 2621, 1438, 1676, 1424],
+        "firstSeen": "2026-03-17"
+      },
+      "skillMd": {
+        "version": "e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Turns the agent into Winston, BMad's system architect persona, who stays on until dismissed and runs BMad's architecture workflow.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to talk through architecture with a dedicated persona, Winston"
+            },
+            {
+              "label": "It does",
+              "text": "greets you as Winston and runs bmad-architecture, his one menu item, which records the design decisions separately built parts must share"
+            },
+            {
+              "label": "Persona",
+              "text": "favors boring technology and developer productivity, and answers with trade-offs rather than verdicts"
+            },
+            {
+              "label": "Stays on",
+              "text": "until you dismiss him, with his icon on every message, and carries into the skills he runs"
+            },
+            {
+              "label": "Needs",
+              "text": "uv and BMad set up in the project: run the bmad skill's setup first, and bmad-architecture for the actual work"
+            }
+          ],
+          "text": "One of BMad's named agent personas, for the phase between requirements and building. On activation it resolves the persona from the skill's customize.toml plus any team or personal overrides in _bmad/custom/, runs any extra activation steps your team configured, loads standing facts, and reads the ticket for the work first and in full when one exists. Winston then greets you, mentions the bmad skill for advice and bmad-party-mode and bmad-advanced-elicitation for more perspectives, and says in one line what he does. A request that fits his menu runs bmad-architecture; anything else is a conversation. Customization can change his role, style, principles, standing facts and menu. He stays in character, with his icon on every message, until you dismiss him.",
+          "permalink": "https://github.com/bmad-code-org/bmad-method/tree/e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6/skills/bmad-agent-architect"
+        },
+        "tags": [
+          "category:planning",
+          "type:mode",
+          "effect:none",
+          "needs:cli",
+          "by:community",
+          "architecture",
+          "planning"
+        ],
+        "note": "Needs uv and BMad set up in the project; its one menu item runs bmad-architecture."
+      }
+    },
+    {
+      "id": "bmad-code-org/bmad-method/skills/bmad-architecture",
+      "name": "bmad-architecture",
+      "skills.sh": {
+        "url": "https://skills.sh/bmad-code-org/bmad-method/bmad-architecture",
+        "installs": 14500,
+        "weeklyInstalls": [972, 979, 1282, 2455, 2693, 1487, 1689, 1439],
+        "firstSeen": "2026-06-15"
+      },
+      "skillMd": {
+        "version": "e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Coaches you through the architecture decisions that keep separately built parts of a system consistent, and records them in a short document.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "separately built parts of a system, or several agents, must agree on the same design rules before they're built"
+            },
+            {
+              "label": "It does",
+              "text": "interviews you by default, or drafts fast with [ASSUMPTION] tags for you to correct, logging every decision as it goes"
+            },
+            {
+              "label": "You get",
+              "text": "an architecture \"spine\": numbered decisions, each with what it binds, the divergence it prevents and its rule, plus diagrams and what it defers"
+            },
+            {
+              "label": "Keeps minimal",
+              "text": "structural detail such as the stack or file tree, which the code owns once it exists"
+            },
+            {
+              "label": "Also",
+              "text": "updates an existing spine, or validates one and reports in HTML"
+            },
+            {
+              "label": "Needs",
+              "text": "uv and BMad set up in the project: run the bmad skill's setup first; subagents for its review gate"
+            }
+          ],
+          "text": "The spine fixes only invariants: the design paradigm, boundary and dependency rules, how state changes, who owns shared data, the calls a later builder can't read off the code. Its test for each decision: could two units built independently choose incompatibly, and is the call non-obvious and a real trade-off? If not, it goes under Deferred. It starts from a ticket file, the initiative's or epic's spec, plus any existing architecture document or codebase, whose conventions it ratifies rather than reinvents, and an epic's spine inherits its parent's decisions as read-only. In the default coaching path it asks open questions and, for big calls such as paradigm, stack or starter, lays out the alternatives and lets you choose; for a new or beginner project it recommends a current, well-known starter, checked on the web. Decisions land in a memlog, an append-only log the spine is distilled from at the end, so a run can resume. Before handoff a lint script and parallel reviewer subagents check the spine, and it offers an extra piece for people, such as an HTML deck or a C4 set. Next it points you to Sofia, BMad's product owner, to adopt the spine on the ticket.",
+          "permalink": "https://github.com/bmad-code-org/bmad-method/tree/e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6/skills/bmad-architecture"
+        },
+        "tags": [
+          "category:planning",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "needs:subagents",
+          "by:community",
+          "architecture",
+          "planning",
+          "interview"
+        ],
+        "note": "Needs uv and BMad set up in the project: it runs scripts from the _bmad/ folder that the bmad skill's setup creates."
+      }
+    },
+    {
+      "id": "bmad-code-org/bmad-method/skills/bmad-agent-pm",
+      "name": "bmad-agent-pm",
+      "skills.sh": {
+        "url": "https://skills.sh/bmad-code-org/bmad-method/bmad-agent-pm",
+        "installs": 14500,
+        "weeklyInstalls": [961, 966, 1238, 2370, 2602, 1437, 1674, 1431],
+        "firstSeen": "2026-03-17"
+      },
+      "skillMd": {
+        "version": "e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Turns the agent into John, BMad's product manager, who coaches PRDs, briefs, business cases and other planning documents out of you.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need a product document written, updated or validated: a PRD, brief, business case, charter, pitch, SRS, BRD, experiment or launch plan"
+            },
+            {
+              "label": "It does",
+              "text": "works out where the document sits in BMad's ticket tree and which templates fit there, then hands the coaching to bmad-facilitate"
+            },
+            {
+              "label": "Also offers",
+              "text": "a prototype plan instead of a PRD for hobby projects or ideas to prove out, and a light PRD if you still want one"
+            },
+            {
+              "label": "Persona",
+              "text": "John, a relentless detective's \"why?\", who stays on until you dismiss him"
+            },
+            {
+              "label": "Needs",
+              "text": "uv and BMad set up in the project: run the bmad skill's setup first, and the repo's bmad-facilitate skill, which writes every document"
+            }
+          ],
+          "text": "John is BMad's product manager persona, and what he adds is placement. BMad keeps work in a ticket tree: an initiative ticket, epics below it, stories below those, with a program above several initiatives. John works out the altitude a document sits at, what it should state there, and which of his templates fit: a PRD at any level; for a program, a charter or narrative; for an initiative, an opportunity assessment, brief, business case, pitch, SRS or launch plan; an agent spec for a feature outside the tree; an experiment at any level. Documents for sponsors stay in prose and end with a section listing the stable ids that requirements will cite. The writing itself, create, update or validate, runs in bmad-facilitate, which he calls with his persona, the templates that fit and the next steps to name, usually Sofia, the product owner skill who turns a document into the initiative's requirements, then bmad-ux and bmad-architecture. A first message that belongs elsewhere is redirected, such as an express build to bmad-build or a PRFAQ to bmad-prfaq. With no person present he runs headless and asks nothing.",
+          "permalink": "https://github.com/bmad-code-org/bmad-method/tree/e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6/skills/bmad-agent-pm"
+        },
+        "tags": [
+          "category:planning",
+          "category:writing",
+          "type:mode",
+          "effect:none",
+          "needs:cli",
+          "by:community",
+          "requirements",
+          "planning",
+          "docs-writing",
+          "prototyping"
+        ],
+        "note": "Needs uv, BMad set up in the project, and the repo's bmad-facilitate skill, which isn't listed on its own."
+      }
+    },
+    {
+      "id": "bmad-code-org/bmad-method/skills/bmad-agent-dev",
+      "name": "bmad-agent-dev",
+      "skills.sh": {
+        "url": "https://skills.sh/bmad-code-org/bmad-method/bmad-agent-dev",
+        "installs": 14400,
+        "weeklyInstalls": [970, 974, 1242, 2382, 2612, 1439, 1664, 1415],
+        "firstSeen": "2026-03-17"
+      },
+      "skillMd": {
+        "version": "e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Turns the agent into Amelia, BMad's test-first senior engineer, who stays on until dismissed and runs BMad's build, test and review skills.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a dedicated developer persona, Amelia, for building and checking stories"
+            },
+            {
+              "label": "Her menu",
+              "text": "build a change (bmad-build), add end-to-end and API tests, run a code review, or review a finished epic against its acceptance criteria"
+            },
+            {
+              "label": "Persona",
+              "text": "ultra-succinct, speaks in file paths and acceptance-criteria ids, works red-green-refactor, and calls no task done without passing tests"
+            },
+            {
+              "label": "Stays on",
+              "text": "until you dismiss her, with her icon on every message"
+            },
+            {
+              "label": "Needs",
+              "text": "uv and BMad set up in the project: run the bmad skill's setup first, and the skills her menu runs"
+            }
+          ],
+          "text": "One of BMad's named agent personas, for the implementation phase. On activation it resolves the persona from the skill's customize.toml plus any team or personal overrides in _bmad/custom/, runs any extra activation steps your team configured, loads standing facts, and reads the ticket for the work first and in full when one exists. Amelia's principles: read the ticket before writing code, red-green-refactor in that order, run tasks in the order written, no task complete without passing tests, and no story ids or AI workflow notes in code comments. She greets you, mentions the bmad skill for advice, and dispatches a request that fits her menu: bmad-build, bmad-qa-generate-e2e-tests, bmad-code-review or bmad-retrospective. A skill that isn't installed she offers to install. Anything else is a conversation.",
+          "permalink": "https://github.com/bmad-code-org/bmad-method/tree/e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6/skills/bmad-agent-dev"
+        },
+        "tags": [
+          "category:engineering",
+          "category:debugging",
+          "type:mode",
+          "effect:none",
+          "needs:cli",
+          "by:community",
+          "implementation",
+          "tdd",
+          "code-review",
+          "testing"
+        ],
+        "note": "Needs uv and BMad set up in the project; her menu items run other BMad skills."
+      }
+    },
+    {
+      "id": "bmad-code-org/bmad-method/skills/bmad-agent-analyst",
+      "name": "bmad-agent-analyst",
+      "skills.sh": {
+        "url": "https://skills.sh/bmad-code-org/bmad-method/bmad-agent-analyst",
+        "installs": 14400,
+        "weeklyInstalls": [958, 965, 1244, 2369, 2579, 1440, 1671, 1427],
+        "firstSeen": "2026-03-17"
+      },
+      "skillMd": {
+        "version": "e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Turns the agent into Mary, BMad's business analyst, who stays on until dismissed and runs BMad's research, brainstorming and brief skills.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to research, brainstorm or analyze before committing to a project, with a dedicated analyst persona, Mary"
+            },
+            {
+              "label": "Her menu",
+              "text": "brainstorming; market, domain, technical, competitive and user-voice research; choosing between tools; a product brief, PRFAQ or BRD; the repo's agent instructions"
+            },
+            {
+              "label": "Persona",
+              "text": "Michael Porter's strategic rigor and Barbara Minto's pyramid structure, with every finding grounded in evidence"
+            },
+            {
+              "label": "Stays on",
+              "text": "until you dismiss her, with her icon on every message"
+            },
+            {
+              "label": "Needs",
+              "text": "uv and BMad set up in the project: run the bmad skill's setup first, and the skills her menu runs"
+            }
+          ],
+          "text": "One of BMad's named agent personas, for the analysis phase before planning. On activation it resolves the persona from the skill's customize.toml plus any team or personal overrides in _bmad/custom/, runs any extra activation steps your team configured, loads standing facts, and reads the ticket for the work first and in full when one exists. Mary greets you, mentions the bmad skill for advice and bmad-party-mode and bmad-advanced-elicitation for other perspectives, and dispatches a request that fits her menu straight away. Every research item, choosing between tools included, runs bmad-deep-recon with the research type already chosen; the others run bmad-brainstorming, bmad-product-brief, bmad-prfaq, bmad-project-context, or bmad-facilitate for a business requirements document. A skill that isn't installed she offers to install. Anything off the menu is a conversation.",
+          "permalink": "https://github.com/bmad-code-org/bmad-method/tree/e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6/skills/bmad-agent-analyst"
+        },
+        "tags": [
+          "category:planning",
+          "category:writing",
+          "type:mode",
+          "effect:none",
+          "needs:cli",
+          "by:community",
+          "research",
+          "requirements",
+          "planning"
+        ],
+        "note": "Needs uv and BMad set up in the project; her menu items run other BMad skills."
+      }
+    },
+    {
+      "id": "bmad-code-org/bmad-method/skills/bmad-agent-ux-designer",
+      "name": "bmad-agent-ux-designer",
+      "skills.sh": {
+        "url": "https://skills.sh/bmad-code-org/bmad-method/bmad-agent-ux-designer",
+        "installs": 14300,
+        "weeklyInstalls": [937, 961, 1225, 2353, 2557, 1425, 1670, 1421],
+        "firstSeen": "2026-03-17"
+      },
+      "skillMd": {
+        "version": "e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Turns the agent into Sally, BMad's UX designer persona, who stays on until dismissed and runs BMad's UX specification workflow.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to plan a product's UX with a dedicated designer persona, Sally"
+            },
+            {
+              "label": "It does",
+              "text": "greets you as Sally and runs bmad-ux, her one menu item, which writes the DESIGN.md and EXPERIENCE.md specs"
+            },
+            {
+              "label": "Persona",
+              "text": "an empathetic user advocate grounded in Don Norman and Alan Cooper: every decision serves a genuine user need"
+            },
+            {
+              "label": "Stays on",
+              "text": "until you dismiss her, with her icon on every message"
+            },
+            {
+              "label": "Needs",
+              "text": "uv and BMad set up in the project: run the bmad skill's setup first, and bmad-ux for the actual work"
+            }
+          ],
+          "text": "One of BMad's named agent personas, for UX planning before architecture and implementation. On activation it resolves the persona from the skill's customize.toml plus any team or personal overrides in _bmad/custom/, runs any extra activation steps your team configured, loads standing facts, and reads the ticket for the work first and in full when one exists. Sally greets you, mentions the bmad skill for advice and bmad-party-mode and bmad-advanced-elicitation for other perspectives, and says in one line what she does. A request that fits her menu runs bmad-ux; anything else is a conversation. She stays in character, with her icon on every message, until you dismiss her.",
+          "permalink": "https://github.com/bmad-code-org/bmad-method/tree/e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6/skills/bmad-agent-ux-designer"
+        },
+        "tags": [
+          "category:design",
+          "category:planning",
+          "type:mode",
+          "effect:none",
+          "needs:cli",
+          "by:community",
+          "design",
+          "requirements"
+        ],
+        "note": "Needs uv and BMad set up in the project; its one menu item runs bmad-ux."
+      }
+    },
+    {
+      "id": "bmad-code-org/bmad-method/skills/bmad-ux",
+      "name": "bmad-ux",
+      "skills.sh": {
+        "url": "https://skills.sh/bmad-code-org/bmad-method/bmad-ux",
+        "installs": 14100,
+        "weeklyInstalls": [937, 959, 1224, 2346, 2585, 1447, 1642, 1399],
+        "firstSeen": "2026-05-23"
+      },
+      "skillMd": {
+        "version": "e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Captures your UX vision in two specs: DESIGN.md for how the product looks and EXPERIENCE.md for how it behaves.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're planning a product's look and behavior before building it"
+            },
+            {
+              "label": "It does",
+              "text": "draws your vision out with questions instead of proposing its own, and can render color themes, design directions, wireframes and HTML mocks to pick from"
+            },
+            {
+              "label": "You get",
+              "text": "DESIGN.md, tokens and visual rules after Google Labs' DESIGN.md spec, and EXPERIENCE.md: screens, states, interactions, accessibility and key user journeys"
+            },
+            {
+              "label": "Modes",
+              "text": "coaching, a fast draft with [ASSUMPTION] tags, or a prompt you run in an outside design tool"
+            },
+            {
+              "label": "Also",
+              "text": "updates or validates existing specs; reviewer subagents run only if you opt in"
+            },
+            {
+              "label": "Needs",
+              "text": "uv and BMad set up in the project: run the bmad skill's setup first; subagents to distill the specs"
+            }
+          ],
+          "text": "BMad's UX facilitator records your vision and never volunteers colors, patterns or directions unless you confirm a theme already in place. It reads the ticket for the work first, or lists the brief, PRD and other planning documents for you to confirm, then takes a brain dump and asks about stakes and form factor. Decisions go into a memlog, an append-only log the specs are distilled from at the end, and your Figma files, sketches or brand decks into an imports folder. You narrate journeys with a named protagonist rather than \"the user\", and the information architecture closes only when every stated need has a screen and every screen a journey. DESIGN.md holds tokens for colors, typography, spacing and components plus brand and style sections; EXPERIENCE.md holds information architecture, voice and tone, component behavior, states, interactions, an accessibility floor and key flows, citing DESIGN.md tokens by name. When the product uses a UI system such as shadcn or MUI, both inherit from it. At the end it renders key-screen mocks, asks which screens still need one, and keeps the chosen ones in mockups/ and wireframes/ folders.",
+          "permalink": "https://github.com/bmad-code-org/bmad-method/tree/e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6/skills/bmad-ux"
+        },
+        "tags": [
+          "category:design",
+          "category:planning",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "needs:subagents",
+          "by:community",
+          "design",
+          "design-system",
+          "accessibility",
+          "requirements"
+        ],
+        "note": "Needs uv and BMad set up in the project: it runs scripts from the _bmad/ folder that the bmad skill's setup creates."
+      }
+    },
+    {
+      "id": "bmad-code-org/bmad-method/skills/bmad-review",
+      "name": "bmad-review",
+      "skills.sh": {
+        "url": "https://skills.sh/bmad-code-org/bmad-method/bmad-review",
+        "installs": 14000,
+        "weeklyInstalls": [945, 954, 1227, 2369, 2618, 1449, 1661, 1413],
+        "firstSeen": "2026-07-19"
+      },
+      "skillMd": {
+        "version": "e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Reviews a diff, PR or document through several lenses, from adversarial critique to edge cases, test gaps, structure and prose, and reports the findings.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you ask for a review of code or a document and actually say \"review\"; it never starts on its own"
+            },
+            {
+              "label": "It does",
+              "text": "runs every review pass, or lens, that fits the content, each with its own method and stance, in parallel subagents when it can"
+            },
+            {
+              "label": "Lenses",
+              "text": "adversarial (at least ten findings), edge-case hunter, verification gap for untested code, and editorial structure and prose for documents"
+            },
+            {
+              "label": "You get",
+              "text": "one list of findings, each with location, problem, fix and consequence, in chat as JSON and Markdown, with no severity ranking"
+            },
+            {
+              "label": "Unlike",
+              "text": "bmad-code-review, it only reports: it doesn't rank the findings or fix anything"
+            },
+            {
+              "label": "Needs",
+              "text": "uv and BMad set up in the project: run the bmad skill's setup first"
+            }
+          ],
+          "text": "A general review skill that other BMad skills also call, for example to polish documents. It stages the content once as a file: a branch, uncommitted work or a commit range becomes a unified diff in the temp folder, and any description of the change, such as its commit messages, is staged separately for the edge-case lens alone. It classifies the content as code or docs and runs every lens that applies, or exactly the ones you name. Each lens has its own stance: the adversarial lens must find at least ten concrete problems, most others may come back empty, and the editorial lenses keep the content as it is and critique only how it's organized and expressed, against the Microsoft Writing Style Guide by default. Lenses never see each other's findings, except the prose lens, which runs after the structure lens, on its findings. Every finding names where it is, what triggers the problem, the fix or guard, and what goes wrong if it ships. Teams can add or replace lenses, and set a file to write the report to.",
+          "permalink": "https://github.com/bmad-code-org/bmad-method/tree/e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6/skills/bmad-review"
+        },
+        "tags": [
+          "category:debugging",
+          "category:writing",
+          "type:workflow",
+          "effect:none",
+          "needs:cli",
+          "by:community",
+          "code-review",
+          "docs-writing",
+          "writing"
+        ],
+        "note": "Needs uv and BMad set up in the project: it runs scripts from the _bmad/ folder that the bmad skill's setup creates."
+      }
+    },
+    {
+      "id": "bmad-code-org/bmad-method/skills/bmad-advanced-elicitation",
+      "name": "bmad-advanced-elicitation",
+      "skills.sh": {
+        "url": "https://skills.sh/bmad-code-org/bmad-method/bmad-advanced-elicitation",
+        "installs": 14000,
+        "weeklyInstalls": [940, 946, 1210, 2324, 2516, 1435, 1615, 1386],
+        "firstSeen": "2026-03-14"
+      },
+      "skillMd": {
+        "version": "e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Pushes a draft past its first version: cold-reader subagents critique it with chosen methods, and you accept or reject one merged revision.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a draft, plan or choice needs pushing past the agent's first, most predictable answer, and you or a skill name advanced elicitation"
+            },
+            {
+              "label": "It does",
+              "text": "briefs fresh subagents, each with one critique method and none of the conversation, then merges their findings into one proposed revision"
+            },
+            {
+              "label": "Picks methods",
+              "text": "the ones you name, your team's defaults, or three pushes from different directions, one of them a wildcard"
+            },
+            {
+              "label": "You get",
+              "text": "a numbered list of changes with before and after; nothing changes until you apply all, some or none"
+            },
+            {
+              "label": "Then",
+              "text": "another round on the accepted version, in a direction not yet pushed, or done"
+            },
+            {
+              "label": "Needs",
+              "text": "uv and BMad set up in the project: run the bmad skill's setup first; subagents, or it runs at most two pushes itself"
+            }
+          ],
+          "text": "Advanced elicitation treats a first draft as the most likely draft: centered, agreeable with its own prompt, biased toward adding. The target is whatever you or a calling skill point at, at its own size, or else the last answer in the conversation. Each push gets a brief with only the target, its purpose, what's already settled so it isn't reopened, the method and the shape of its answer, so the author's reasoning can't anchor it. Methods come from a catalog; one with several voices, such as an expert panel, gets one subagent per voice, and a voice can take an installed BMad agent's persona. For a single choice or a few lines, one push is the agent's own: an open challenge with no method. It then composes one revision, sets a finding aside only on a stated ground, and shows a finding that rejects the target's premise as a decision for you. Each round goes into a report in the session folder. Applied changes edit a file target in place; a target that exists only in chat is staged to target.md. Methods can be named in the call or set as team defaults with bmad-customize.",
+          "permalink": "https://github.com/bmad-code-org/bmad-method/tree/e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6/skills/bmad-advanced-elicitation"
+        },
+        "tags": [
+          "category:writing",
+          "category:planning",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "needs:subagents",
+          "by:community",
+          "writing",
+          "multi-agent",
+          "planning"
+        ],
+        "note": "Needs uv and BMad set up in the project: it runs scripts from the _bmad/ folder that the bmad skill's setup creates."
+      }
+    },
+    {
+      "id": "bmad-code-org/bmad-method/skills/bmad-qa-generate-e2e-tests",
+      "name": "bmad-qa-generate-e2e-tests",
+      "skills.sh": {
+        "url": "https://skills.sh/bmad-code-org/bmad-method/bmad-qa-generate-e2e-tests",
+        "installs": 14000,
+        "weeklyInstalls": [931, 944, 1190, 2298, 2499, 1450, 1631, 1393],
+        "firstSeen": "2026-03-17"
+      },
+      "skillMd": {
+        "version": "e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Adds end-to-end and API tests for a feature that already works, following your project's existing test setup, and reports bugs they find.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a working feature has no end-to-end or API test coverage yet"
+            },
+            {
+              "label": "It does",
+              "text": "lists the user-visible scenarios for you to confirm, learns the project's test harness, writes one test per scenario and runs them twice"
+            },
+            {
+              "label": "You get",
+              "text": "new tests in the project's own runner and layout, and a chat report of what's covered, what isn't and why, bugs found and the command to run them"
+            },
+            {
+              "label": "Keeps",
+              "text": "a test that finds a bug, marked as an expected failure, rather than weakening it; flaky tests get their cause fixed, not retries"
+            },
+            {
+              "label": "Not for",
+              "text": "unit tests on work in progress, which bmad-build writes"
+            },
+            {
+              "label": "Needs",
+              "text": "uv and BMad set up in the project: run the bmad skill's setup first"
+            }
+          ],
+          "text": "BMad's QA skill adds tests for behavior that already works, so later changes can be checked against it. It finds the feature from your request, a ticket in review in BMad's ticket tree or the current branch, or asks, offering to list the features with no end-to-end coverage by how much a regression would hurt. It writes each scenario as one sentence a product person would recognize, marks those already covered, and waits for your confirmation. It then reads how the project already tests: the runner, where tests live, how the app starts, test data, authentication and the CI job, and runs the existing suite once; with no harness at all, it proposes one and asks before adding any dependency. Each test goes through the UI by role, label or text, or through the public API, asserts the visible outcome, waits on conditions rather than time, creates its own data and fails for one reason. Product code changes only where the harness needs it, such as a test id, and each change is listed in the report.",
+          "permalink": "https://github.com/bmad-code-org/bmad-method/tree/e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6/skills/bmad-qa-generate-e2e-tests"
+        },
+        "tags": [
+          "category:debugging",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "testing",
+          "verification"
+        ],
+        "note": "Needs uv and BMad set up in the project: it runs scripts from the _bmad/ folder that the bmad skill's setup creates."
+      }
+    },
+    {
+      "id": "bmad-code-org/bmad-method/skills/bmad-build-auto",
+      "name": "bmad-build-auto",
+      "skills.sh": {
+        "url": "https://skills.sh/bmad-code-org/bmad-method/bmad-build-auto",
+        "installs": 14000,
+        "weeklyInstalls": [938, 950, 1206, 2318, 2561, 1503, 1659, 1442],
+        "firstSeen": "2026-07-30"
+      },
+      "skillMd": {
+        "version": "e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Implements one story, feature or bug fix without asking anything: plans, codes, reviews with subagents, commits locally and reports a final status.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "an orchestrator or script hands the agent one ticket to build with nobody watching"
+            },
+            {
+              "label": "It does",
+              "text": "bmad-build's plan, implement, review and commit steps, but never asks: where bmad-build would stop for you, it halts with a status"
+            },
+            {
+              "label": "You get",
+              "text": "a local commit and the plan file marked built, or marked blocked with the reason, such as an intent gap or a dirty tree"
+            },
+            {
+              "label": "Runs",
+              "text": "only when invoked by name"
+            },
+            {
+              "label": "Needs",
+              "text": "uv and BMad set up in the project: run the bmad skill's setup first; subagents, which it must use, or it halts as blocked"
+            }
+          ],
+          "text": "The unattended twin of bmad-build, called by name, usually by an orchestrator. It takes one ticket from BMad's ticket tree, a plan file or a description, and never moves on to another. It follows the same path: check that the working tree is clean, investigate, write a plan file with acceptance criteria and verification commands, implement in the session for a change of about 100 lines or fewer or through a fresh subagent for a larger one, run the verification commands, have a reviewer subagent read the diff (four for a thorough review), verify each finding, patch what this change caused, defer older problems in the plan and commit locally without pushing. The invocation can pin the route or the review level, including no review, and can ask it to halt after planning. Wherever a person would be asked, it stops instead: an intent gap, a plan that fails its readiness standard, failing verification or a dirty tree each end the run as blocked, with the reason written to the plan file. A built or done plan handed back to it gets a fresh review pass.",
+          "permalink": "https://github.com/bmad-code-org/bmad-method/tree/e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6/skills/bmad-build-auto"
+        },
+        "tags": [
+          "category:engineering",
+          "category:debugging",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "needs:subagents",
+          "by:community",
+          "implementation",
+          "code-review",
+          "agent-workflows",
+          "multi-agent"
+        ],
+        "note": "Needs uv, BMad set up in the project and subagents; it halts as blocked without them."
+      }
+    },
+    {
+      "id": "bmad-code-org/bmad-method/skills/bmad-project-context",
+      "name": "bmad-project-context",
+      "skills.sh": {
+        "url": "https://skills.sh/bmad-code-org/bmad-method/bmad-project-context",
+        "installs": 14000,
+        "weeklyInstalls": [944, 958, 1225, 2372, 2590, 1453, 1642, 1402],
+        "firstSeen": "2026-08-03"
+      },
+      "skillMd": {
+        "version": "e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes or refreshes a small, verified block of agent instructions in your repo's AGENTS.md, and records agent mistakes as pitfalls.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you set up a repo's agent instructions, take over an existing AGENTS.md, or an agent keeps making the same mistake"
+            },
+            {
+              "label": "It does",
+              "text": "scans the repo with subagents, verifies every command and path it will state, and asks you only what no scan can answer"
+            },
+            {
+              "label": "You get",
+              "text": "a managed block inside AGENTS.md with a date and commit stamp, shown to you in full before it's written; it never commits"
+            },
+            {
+              "label": "Keeps",
+              "text": "every existing instruction accounted for in a ledger: kept, rewritten, moved, automated or deleted, each with its reason"
+            },
+            {
+              "label": "Modes",
+              "text": "setup, adopt an existing file, refresh, record a mistake, audit"
+            },
+            {
+              "label": "Runs",
+              "text": "only when invoked by name"
+            },
+            {
+              "label": "Needs",
+              "text": "uv, and subagents for the scan; it also works in a project without BMad's setup"
+            }
+          ],
+          "text": "BMad's skill for AGENTS.md keeps agent instructions small and true. It reads the existing instruction files, docs and notes, and opens a ledger entry for every existing instruction, so nothing is silently lost. It asks for rules the repo can't show, such as governance, security, standards or frozen areas, and for outside documents. Parallel subagents then check CI, config, source and history; it path-checks every file it names, reads the script behind every command it describes, and leaves out what package.json, a Makefile or CI already states. The interview covers only what scans can't reach: what agents get wrong, what's off limits, why a constraint exists, in batches of at most eight questions. For each candidate rule it first asks whether a hook, lint rule or CI check would enforce it better. You approve the block and the ledger together, and weakly grounded deletions need approval line by line. Record captures one observed agent mistake and adds a line once it recurs or proves costly. Refresh re-checks against git history since the stamped commit; an audit only ever ends smaller or equal.",
+          "permalink": "https://github.com/bmad-code-org/bmad-method/tree/e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6/skills/bmad-project-context"
+        },
+        "tags": [
+          "category:agents",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "needs:subagents",
+          "by:community",
+          "docs-writing",
+          "agent-workflows",
+          "self-improvement"
+        ],
+        "note": "Needs uv and BMad set up in the project: it runs scripts from the _bmad/ folder that the bmad skill's setup creates."
+      }
+    },
+    {
+      "id": "bmad-code-org/bmad-method/skills/bmad-party-mode",
+      "name": "bmad-party-mode",
+      "skills.sh": {
+        "url": "https://skills.sh/bmad-code-org/bmad-method/bmad-party-mode",
+        "installs": 13900,
+        "weeklyInstalls": [927, 941, 1193, 2302, 2511, 1416, 1584, 1368],
+        "firstSeen": "2026-03-12"
+      },
+      "skillMd": {
+        "version": "e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Runs a round-table where BMad's agent personas, or personas you define, argue with each other and with you until you call it done.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want several perspectives on a topic at once, argued out like a group chat rather than filed as reports"
+            },
+            {
+              "label": "It does",
+              "text": "voices the installed BMad agents, a saved group, or a cast you name inline, and pulls you into the conversation"
+            },
+            {
+              "label": "Keeps",
+              "text": "the clash: voices push back, take sides and aren't reconciled into a tidy consensus"
+            },
+            {
+              "label": "Modes",
+              "text": "one mind voicing every persona by default; real subagents every round or only when independent thinking matters; or a persistent agent team in Claude Code"
+            },
+            {
+              "label": "You get",
+              "text": "an open-ended discussion; at the end, the best takeaways and an optional HTML keepsake; the default room remembers past sessions, a saved group only if set to"
+            },
+            {
+              "label": "Also",
+              "text": "creates custom parties, such as a focus-group panel distilled from customer data"
+            },
+            {
+              "label": "Needs",
+              "text": "uv and BMad set up in the project: run the bmad skill's setup first"
+            }
+          ],
+          "text": "The agent becomes the orchestrator of a round-table. A script supplies the roster: the default party if one is set, otherwise the installed BMad agents. A cast you name inline takes over for the session, and you can switch groups or summon any member by name midway. Agents whose skills aren't installed are still voiced from their persona. The bar is a group chat, not a panel: short turns, distinct and unequal voices, disagreement left unresolved, characters who talk to you and build running jokes and grudges, staging played as written, and no summaries unless you ask. It runs round after round until you signal you're done; only an explicit --non-interactive run closes by itself. Then it reads back the best takeaways, tops up the party's memory when it keeps one, offers a self-contained HTML keepsake laid out by persona, and offers to save walk-on characters to your party settings. The built-in members include code reviewers such as a security engineer, an adversary and an edge-case hunter.",
+          "permalink": "https://github.com/bmad-code-org/bmad-method/tree/e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6/skills/bmad-party-mode"
+        },
+        "tags": [
+          "category:agents",
+          "type:mode",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "multi-agent",
+          "memory"
+        ],
+        "note": "Needs uv and BMad set up in the project: it runs scripts from the _bmad/ folder that the bmad skill's setup creates."
+      }
+    },
+    {
+      "id": "bmad-code-org/bmad-method/skills/bmad-deep-recon",
+      "name": "bmad-deep-recon",
+      "skills.sh": {
+        "url": "https://skills.sh/bmad-code-org/bmad-method/bmad-deep-recon",
+        "installs": 13800,
+        "weeklyInstalls": [930, 940, 1198, 2316, 2527, 1450, 1638, 1410],
+        "firstSeen": "2026-07-23"
+      },
+      "skillMd": {
+        "version": "e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Researches the question behind a decision, on the web or in your codebase, and writes a report where every claim cites a source.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a decision depends on research: entering a market, picking a stack, comparing competitors, reading literature, or why your code is built a certain way"
+            },
+            {
+              "label": "It does",
+              "text": "runs parallel web-research subagents, drafts a prompt for your own deep-research tool, or processes a report you already have"
+            },
+            {
+              "label": "You get",
+              "text": "a report that leads with the decision, with findings, contrary evidence, recommendations, a source appendix and when each claim should be re-checked, plus an HTML briefing page"
+            },
+            {
+              "label": "Keeps",
+              "text": "conclusions to evidence found during the run: never training data alone, and never your project's own documents"
+            },
+            {
+              "label": "Research types",
+              "text": "market, domain, technical, competitive, user voice and academic literature; teams can add their own"
+            },
+            {
+              "label": "Needs",
+              "text": "uv and BMad set up in the project: run the bmad skill's setup first; web access to run research here, or it offers Draft and Process instead"
+            }
+          ],
+          "text": "Deep Recon acts as a research director: every run serves a decision and is shaped by it. You choose how the research gets done. Run does it here through parallel web searches; Draft writes a prompt for a deep-research tool you subscribe to, often cheaper; Process turns that tool's report into the same cited summary; and a codebase mode answers questions about your repository from its code and git history. Two rules bind every subagent: nothing is concluded from training data alone, and project context such as tickets, briefs or code shapes what to ask but never counts as evidence. Each claim carries its publisher, publication date and access date, and thin data is reported as thin. Every digest and extract is written to the run folder as it lands, so a run can resume, and a memlog records each decision and claim. Before it finishes, a script checks every citation marker against the appendix and a fresh subagent checks that each source says what the text claims. A select mode compares candidates, and Refresh or Deepen update a finished run.",
+          "permalink": "https://github.com/bmad-code-org/bmad-method/tree/e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6/skills/bmad-deep-recon"
+        },
+        "tags": [
+          "category:writing",
+          "category:browser",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "research",
+          "web-search"
+        ],
+        "note": "Needs uv and BMad set up in the project: it runs scripts from the _bmad/ folder that the bmad skill's setup creates."
+      }
+    },
+    {
+      "id": "bmad-code-org/bmad-method/skills/bmad-prfaq",
+      "name": "bmad-prfaq",
+      "skills.sh": {
+        "url": "https://skills.sh/bmad-code-org/bmad-method/bmad-prfaq",
+        "installs": 13800,
+        "weeklyInstalls": [922, 923, 1169, 2265, 2467, 1398, 1609, 1389],
+        "firstSeen": "2026-03-29"
+      },
+      "skillMd": {
+        "version": "e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Tests a product idea with Amazon's Working Backwards method: a press release for the finished product, then hard customer and internal FAQs.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to stress-test a product concept before building it, by writing its launch press release first"
+            },
+            {
+              "label": "It does",
+              "text": "coaches you hard through five stages: the concept, the press release, a customer FAQ, an internal FAQ, then a verdict"
+            },
+            {
+              "label": "You get",
+              "text": "a complete PRFAQ document, plus a distillate: dense notes on what didn't fit in it, such as rejected framings and open questions, to feed requirements or a PRD"
+            },
+            {
+              "label": "Tone",
+              "text": "direct and challenging: vague answers get pushed back, but it offers suggestions when you're stuck"
+            },
+            {
+              "label": "Grounds",
+              "text": "competitive and market claims in current web research, with subagents when available"
+            },
+            {
+              "label": "Needs",
+              "text": "uv and BMad set up in the project: run the bmad skill's setup first"
+            }
+          ],
+          "text": "BMad's take on Amazon's PRFAQ: if you can't write a compelling press release for the finished product, it isn't ready. The first stage insists on the customer before the solution; lead with a technology and it asks whether anyone still cares without the buzzword. Before moving on it needs a specific customer, a concrete problem, why it matters to them and a rough solution, and it notes whether the concept is commercial, internal, open source or nonprofit, which changes the FAQ questions. It asks for your existing documents and sends one subagent to scan them and another to research the market and competitors. The press release is drafted iteratively with coaching, followed by the questions a skeptical customer and then skeptical stakeholders would ask, and a final verdict on the concept's strength. Coaching notes are kept in the document, which can resume from its last stage. If after two or three exchanges you can't name a customer or problem, it points you to bmad-brainstorming or bmad-forge-idea. A headless mode writes a first draft from inputs you provide.",
+          "permalink": "https://github.com/bmad-code-org/bmad-method/tree/e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6/skills/bmad-prfaq"
+        },
+        "tags": [
+          "category:planning",
+          "category:writing",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "requirements",
+          "interview",
+          "research",
+          "writing"
+        ],
+        "note": "Needs uv and BMad set up in the project: it runs scripts from the _bmad/ folder that the bmad skill's setup creates."
+      }
+    },
+    {
+      "id": "bmad-code-org/bmad-method/skills/bmad-forge-idea",
+      "name": "bmad-forge-idea",
+      "skills.sh": {
+        "url": "https://skills.sh/bmad-code-org/bmad-method/bmad-forge-idea",
+        "installs": 13800,
+        "weeklyInstalls": [928, 937, 1194, 2299, 2502, 1433, 1625, 1395],
+        "firstSeen": "2026-06-22"
+      },
+      "skillMd": {
+        "version": "e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Pressure-tests a half-formed idea, one question at a time and with personas probing weak spots, until you act on it or drop it.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you have an idea, product or not, and want its weak points found while changing your mind is still cheap"
+            },
+            {
+              "label": "It does",
+              "text": "asks one question at a time, checks your claims against an existing project's files, and lets you say \"attack this\", \"defend this\" or \"switch roles\""
+            },
+            {
+              "label": "Voices",
+              "text": "each turn pairs an installed BMad agent or your own persona with a freshly invented outsider, such as a competitor or finance reviewer"
+            },
+            {
+              "label": "You get",
+              "text": "an HTML report stamped Hardened, Killed (an \"Idea Death Certificate\") or Clarified, and for a hardened idea a very short file for planning skills"
+            },
+            {
+              "label": "Unlike",
+              "text": "bmad-brainstorming, it tests one idea instead of generating many"
+            },
+            {
+              "label": "Needs",
+              "text": "uv and BMad set up in the project: run the bmad skill's setup first"
+            }
+          ],
+          "text": "The goal is better thinking, not a document: making an idea stronger, killing it, or understanding it better are all complete outcomes, and it doesn't steer toward building. It first confirms the idea, what you want from the session (clarify it, test it or improve it) and whether it changes an existing project, whose files it treats as the source of truth over your summary. It works one question at a time in dependency order, offers its own best guess when that helps you answer, and names fuzzy terms, such as user, buyer and payer, until you pick one. Praise is treated as noise. Decisions, assumptions, cracks, kills and locked ideas each go into a memlog, an append-only log file, so the session can resume. If a BMad persona was already active, it leads in its own voice. The forged idea file, written only for a hardened idea, holds just the decisions, rejected options and reasons that matter downstream, and can go to Sofia, BMad's product owner skill, as input for requirements.",
+          "permalink": "https://github.com/bmad-code-org/bmad-method/tree/e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6/skills/bmad-forge-idea"
+        },
+        "tags": [
+          "category:planning",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "interview",
+          "planning",
+          "requirements"
+        ],
+        "note": "Needs uv and BMad set up in the project: it runs scripts from the _bmad/ folder that the bmad skill's setup creates."
+      }
+    },
+    {
+      "id": "bmad-code-org/bmad-method/skills/bmad-customize",
+      "name": "bmad-customize",
+      "skills.sh": {
+        "url": "https://skills.sh/bmad-code-org/bmad-method/bmad-customize",
+        "installs": 13700,
+        "weeklyInstalls": [927, 926, 1177, 2264, 2482, 1425, 1579, 1402],
+        "firstSeen": "2026-04-22"
+      },
+      "skillMd": {
+        "version": "e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes TOML overrides that change installed BMad agents and workflows, such as a persona, template or extra steps, for your team or yourself.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a BMad agent or workflow to behave differently: a new standing fact, a swapped template, a different output path"
+            },
+            {
+              "label": "It does",
+              "text": "lists what's customizable, picks the right layer (one workflow, or every workflow an agent runs) and drafts only the fields that change"
+            },
+            {
+              "label": "You get",
+              "text": "a TOML file in _bmad/custom/, either a committed team file or a gitignored personal one, shown and confirmed before it's written"
+            },
+            {
+              "label": "Checks",
+              "text": "runs BMad's resolver afterwards so you see the merged result"
+            },
+            {
+              "label": "Can't change",
+              "text": "step logic or central config; it says so and suggests a feature request or bmad-toolsmith"
+            },
+            {
+              "label": "Needs",
+              "text": "uv and BMad set up in the project: run the bmad skill's setup first"
+            }
+          ],
+          "text": "BMad skills read their defaults from a customize.toml, merged with a team file and a personal file under _bmad/custom/; this skill writes those overrides. A specific change to a named skill goes straight to drafting, while a vague request starts from a scripted list of customizable agents and workflows, showing which already have overrides. For a change that could live in several places, it walks you through the choice: an agent override applies to every workflow that agent runs, a workflow override to one. Overrides stay sparse, holding only the changed fields, and follow BMad's merge rules: single values replace, lists append, and menu items with a code or id replace their match. For a template swap it offers to copy the default template for you to edit. It shows the full file, or a diff when one exists, writes only after a yes, then verifies by running the resolver and reworks the override if it didn't land.",
+          "permalink": "https://github.com/bmad-code-org/bmad-method/tree/e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6/skills/bmad-customize"
+        },
+        "tags": [
+          "category:skill-tools",
+          "type:setup",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "skill-authoring",
+          "agent-workflows"
+        ],
+        "note": "Needs uv and BMad set up in the project: it runs scripts from the _bmad/ folder that the bmad skill's setup creates."
+      }
+    },
+    {
+      "id": "bmad-code-org/bmad-method/skills/bmad-walkthrough",
+      "name": "bmad-walkthrough",
+      "skills.sh": {
+        "url": "https://skills.sh/bmad-code-org/bmad-method/bmad-walkthrough",
+        "installs": 13700,
+        "weeklyInstalls": [939, 957, 1191, 2286, 2530, 1461, 1631, 1430],
+        "firstSeen": "2026-08-28"
+      },
+      "skillMd": {
+        "version": "e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Walks you through a commit, PR, file or directory one block at a time, in a written narrative, until you call each part done.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to review a commit, PR, file or directory yourself, with the agent as guide, rather than have it review for you"
+            },
+            {
+              "label": "It does",
+              "text": "splits the target into blocks: its intent, its broad strokes, one slice per concern, then the periphery, and stays on each until you say it's done"
+            },
+            {
+              "label": "You get",
+              "text": "a review narrative with a checkbox per block and a separate log of findings, decisions, edits and tests, in a walkthrough folder"
+            },
+            {
+              "label": "Moves",
+              "text": "a second opinion, a formal review, testing, a demo, a diagram or driving the app; none starts unless you pick it"
+            },
+            {
+              "label": "Runs",
+              "text": "only when invoked by name"
+            },
+            {
+              "label": "Needs",
+              "text": "uv and BMad set up in the project: run the bmad skill's setup first"
+            }
+          ],
+          "text": "BMad's walkthrough treats your attention as scarce: it shows only what you need to see and keeps its bookkeeping out of the session. It first works out what the target is and what it's for, reading the ticket when one covers it, then the plan, PR description and commit messages, and asks until it knows. The narrative opens with the intent, quoted from the ticket when there is one, then three to five entry points to open first, then one block per concern that leads with the mechanism and links the exact places, and ends with docs and other small enablers. Every file reference is clickable. On each block it suggests one to three moves, answers your questions with references, and rewrites a block in another shape if you ask, remembering that for later blocks. When you finish a block it shows the next one, checks the finished one off, and asks whether to commit if the tree is dirty. A background subagent writes the files when one is available. At the end it guesses the follow-through, such as merging the PR, and asks before doing it.",
+          "permalink": "https://github.com/bmad-code-org/bmad-method/tree/e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6/skills/bmad-walkthrough"
+        },
+        "tags": [
+          "category:debugging",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "code-review",
+          "learning"
+        ],
+        "note": "Needs uv and BMad set up in the project: it runs scripts from the _bmad/ folder that the bmad skill's setup creates."
       }
     }
   ]
