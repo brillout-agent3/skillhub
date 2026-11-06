@@ -2158,6 +2158,14 @@
         "kind": "skills",
         "description": "/brag is an agent skill that turns the project you created into a short, shareable launch video, with music, motion and share copy."
       }
+    },
+    {
+      "id": "yuan1z0825/nature-skills",
+      "stars": 52544,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Reusable research skills for scholars worldwide, with verifiable workflows and ready-to-use outputs."
+      }
     }
   ],
   "bundles": [
@@ -28562,6 +28570,706 @@
           "social-media",
           "marketing"
         ]
+      }
+    },
+    {
+      "id": "yuan1z0825/nature-skills/skills/nature-figure",
+      "name": "nature-figure",
+      "skills.sh": {
+        "url": "https://skills.sh/yuan1z0825/nature-skills/nature-figure",
+        "installs": 19700,
+        "weeklyInstalls": [1182, 1141, 937, 613, 783, 804, 744, 556],
+        "firstSeen": "2026-04-30"
+      },
+      "skillMd": {
+        "version": "d774add241c65e89ed17a4da573b472b0972fd42",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Creates, revises, audits and exports submission-ready scientific figures in Python or R, plus AI-generated graphical abstracts and schematics.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need a journal-quality figure or multi-panel plot for a manuscript, drawn in Python or R"
+            },
+            {
+              "label": "It does",
+              "text": "writes a figure contract first, plots in one backend only, then audits panel alignment and text collisions before delivery"
+            },
+            {
+              "label": "You get",
+              "text": "an exported publication-ready figure, or on request an AI-drafted graphical abstract or an editable SVG schematic"
+            },
+            {
+              "label": "Needs",
+              "text": "Python or R; an OpenRouter key only for AI images"
+            },
+            {
+              "label": "Keeps",
+              "text": "your Python-or-R choice as a saved default, so it asks only once"
+            }
+          ],
+          "text": "A router for making manuscript figures the way reviewers expect. For plotting it asks once, Python (matplotlib/seaborn) or R (ggplot2/patchwork), saves the answer as your default, and uses only that backend for drawing, previewing and export. Before any code it writes a figure contract: the core conclusion, the evidence chain, the figure type (such as a quantitative grid or an image plate with quantification) and the export rules; in a multi-panel figure each panel gets a distinct role in the argument. Its QA blocks delivery: it measures panel alignment on the final layout, audits text and collisions in the exported PDF, then inspects every panel at final physical size. Separate routes draft an AI graphical abstract or mechanism schematic through OpenRouter GPT Image, or hand-build an editable vector schematic, and neither plots data. It carries figure rules for flagship Nature and Nature Machine Intelligence, the NMI ones from the repo's nature-shared package. It will not invent data and treats polish as subordinate to a clear, defensible figure. It is not for dashboards, data cleaning or statistics-only work.",
+          "permalink": "https://github.com/yuan1z0825/nature-skills/tree/d774add241c65e89ed17a4da573b472b0972fd42/skills/nature-figure"
+        },
+        "tags": [
+          "category:science",
+          "category:media",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "stack:python",
+          "stack:r",
+          "stack:openrouter",
+          "charts",
+          "diagrams",
+          "research",
+          "ai-generation"
+        ],
+        "note": "AI graphical-abstract and schematic generation needs an OpenRouter API key; the core plotting and QA need Python (matplotlib/seaborn) or R (ggplot2) with PyMuPDF. For Nature Machine Intelligence figure rules, and to order panels by the manuscript's argument, it loads files from the repo's nature-shared support package, so install that alongside if you need them."
+      }
+    },
+    {
+      "id": "yuan1z0825/nature-skills/skills/nature-polishing",
+      "name": "nature-polishing",
+      "skills.sh": {
+        "url": "https://skills.sh/yuan1z0825/nature-skills/nature-polishing",
+        "installs": 18400,
+        "weeklyInstalls": [1078, 1096, 870, 625, 753, 794, 725, 554],
+        "firstSeen": "2026-04-29"
+      },
+      "skillMd": {
+        "version": "d774add241c65e89ed17a4da573b472b0972fd42",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Polishes, tightens or translates academic prose into Nature-style English while preserving facts, terminology and evidence boundaries.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you have drafted manuscript prose that needs Nature-style English, translation from Chinese or tightening, not new content"
+            },
+            {
+              "label": "It does",
+              "text": "detects paper type, section, language and journal, then edits structure, claims and sentences in that order"
+            },
+            {
+              "label": "You get",
+              "text": "polished prose plus 3-5 revision notes, with any paragraph it can't fix without inventing content flagged"
+            },
+            {
+              "label": "Unlike",
+              "text": "nature-writing, which drafts new sections from your evidence"
+            },
+            {
+              "label": "Needs",
+              "text": "the repo's nature-shared package installed alongside"
+            }
+          ],
+          "text": "The polishing half of the Nature writing skills. You give it existing prose and it improves the language without changing the facts, terminology or evidence. It routes on four axes, paper type, section, language (English or Chinese-to-English) and target journal, tells you in one line what it detected, loads only the matching guidance, then applies fixes in a fixed priority: paper-type architecture, section job, journal framing, sentence rules last, with ethics throughout. A paragraph it cannot fix without inventing content is flagged, not papered over. For Results or whole-manuscript compression it applies a main-text discipline: classify each result, keep the shortest sufficient evidence chain in the main text, and pair every addition with a deletion or replacement check, reporting word counts before and after. It can also sweep a manuscript for terminology, unit and number drift. A separate route fixes LaTeX layout, such as sparse pages or oversized floats, by editing and compiling the source and inspecting the rendered pages. Its core rules come from the repo's nature-shared package. Use nature-writing to draft new sections and nature-response for post-review correspondence.",
+          "permalink": "https://github.com/yuan1z0825/nature-skills/tree/d774add241c65e89ed17a4da573b472b0972fd42/skills/nature-polishing"
+        },
+        "tags": [
+          "category:writing",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "writing",
+          "research"
+        ],
+        "note": "Loads reference files from the repo's nature-shared support package; install it alongside."
+      }
+    },
+    {
+      "id": "yuan1z0825/nature-skills/skills/nature-paper2ppt",
+      "name": "nature-paper2ppt",
+      "skills.sh": {
+        "url": "https://skills.sh/yuan1z0825/nature-skills/nature-paper2ppt",
+        "installs": 16900,
+        "weeklyInstalls": [1012, 1026, 798, 544, 701, 711, 691, 526],
+        "firstSeen": "2026-05-03"
+      },
+      "skillMd": {
+        "version": "d774add241c65e89ed17a4da573b472b0972fd42",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Turns a scientific paper or reading notes into a Chinese academic PPTX with source figures and speaker notes.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need a Chinese journal-club, group-meeting or defense deck built from a paper, or changes to one"
+            },
+            {
+              "label": "It does",
+              "text": "classifies the paper type, follows a matching story arc, crops the source figures it needs and builds slides with python-pptx"
+            },
+            {
+              "label": "You get",
+              "text": "a real .pptx with source-labelled figures and speaker notes, plus a QA report"
+            },
+            {
+              "label": "Needs",
+              "text": "Python (PyMuPDF, python-pptx, Pillow) and the repo's nature-shared package"
+            }
+          ],
+          "text": "Builds a literature-report deck, in Chinese by default, from a paper or your reading notes. It first classifies the paper into one of six types, discovery, methods, resource, clinical, materials or review, tells you which, and follows that type's narrative arc, then runs a nine-step workflow: extract metadata, abstract and figure legends, plan the argument, pick the figures that carry it, crop only the assets the deck will use, write each slide and author the deck directly with python-pptx. A shared terminology ledger, from the repo's nature-shared package, keeps model, gene and dataset names identical across every slide and note. Figure slides carry source labels, and it does not fabricate results or figure details. After the first draft it runs an audit script for layout bounds, text overload and template-sounding Chinese phrasing, fixes high-severity issues and records the result in a QA report. For an existing deck it changes only the requested slides; asking for just an outline gets an outline, not a deck.",
+          "permalink": "https://github.com/yuan1z0825/nature-skills/tree/d774add241c65e89ed17a4da573b472b0972fd42/skills/nature-paper2ppt"
+        },
+        "tags": [
+          "category:documents",
+          "category:science",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "stack:python",
+          "stack:microsoft-office",
+          "slides",
+          "research"
+        ],
+        "note": "Loads a shared terminology ledger from the repo's nature-shared support package; install it alongside. Needs Python (PyMuPDF, python-pptx, Pillow)."
+      }
+    },
+    {
+      "id": "yuan1z0825/nature-skills/skills/nature-writing",
+      "name": "nature-writing",
+      "skills.sh": {
+        "url": "https://skills.sh/yuan1z0825/nature-skills/nature-writing",
+        "installs": 16500,
+        "weeklyInstalls": [1067, 1083, 855, 617, 749, 751, 692, 535],
+        "firstSeen": "2026-05-14"
+      },
+      "skillMd": {
+        "version": "d774add241c65e89ed17a4da573b472b0972fd42",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Drafts or restructures manuscript sections and initial-submission materials from your evidence, in Nature-style argument form.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need to draft or restructure a manuscript section, or first-submission materials, from your own results"
+            },
+            {
+              "label": "It does",
+              "text": "surfaces the missing claim, evidence or boundary, then drafts in paper-type and section order, sentence rules last"
+            },
+            {
+              "label": "You get",
+              "text": "draft prose with a claim-evidence map, labelled placeholders and a list of missing inputs where evidence is lacking"
+            },
+            {
+              "label": "Unlike",
+              "text": "nature-polishing, which edits language without adding content"
+            },
+            {
+              "label": "Needs",
+              "text": "the repo's nature-shared package installed alongside"
+            }
+          ],
+          "text": "The drafting half of the Nature writing skills. It routes on task (manuscript text versus a first-submission package), paper type, section, language (including Chinese notes to English) and journal, tells you in one line what it detected, and loads the matching guidance. Before writing it surfaces the claim, evidence and boundary a section needs. For Results or a full main text it classifies each result and keeps the shortest sufficient evidence chain in the main text, moving the rest to captions, Methods or SI. Missing evidence becomes a labelled placeholder, never invented content, and each major claim is marked supported, needing evidence or inferred. The submission-package mode instead drafts the initial cover letter, title page, highlights, author contributions and declarations from facts you supply, with a readiness verdict, and fills LaTeX templates into your folder on request. It owns initial submission; nature-response owns post-decision correspondence, nature-reviewer simulates peer review, and nature-figure handles graphical abstracts. Its core rules come from the repo's nature-shared package.",
+          "permalink": "https://github.com/yuan1z0825/nature-skills/tree/d774add241c65e89ed17a4da573b472b0972fd42/skills/nature-writing"
+        },
+        "tags": [
+          "category:writing",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "writing",
+          "research"
+        ],
+        "note": "Loads reference files from the repo's nature-shared support package; install it alongside."
+      }
+    },
+    {
+      "id": "yuan1z0825/nature-skills/skills/nature-citation",
+      "name": "nature-citation",
+      "skills.sh": {
+        "url": "https://skills.sh/yuan1z0825/nature-skills/nature-citation",
+        "installs": 16400,
+        "weeklyInstalls": [985, 1002, 775, 533, 667, 683, 622, 467],
+        "firstSeen": "2026-05-06"
+      },
+      "skillMd": {
+        "version": "d774add241c65e89ed17a4da573b472b0972fd42",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Finds and verifies Nature/CNS-family literature supporting manuscript claims, maps each claim to a source and exports a reference-manager file.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need references from Nature, Science or Cell family journals to support specific claims in a manuscript"
+            },
+            {
+              "label": "It does",
+              "text": "splits the text into segments, turns each claim into searches, grades how well each paper supports it, and exports one reference file"
+            },
+            {
+              "label": "You get",
+              "text": "sources for each segment with a support grade and where to insert them, one RIS, EndNote or Zotero RDF file, optionally an HTML browser"
+            },
+            {
+              "label": "Needs",
+              "text": "Python and internet access for its bundled search script"
+            }
+          ],
+          "text": "A citation finder restricted to one journal family: Nature Portfolio, CNS (Cell, Nature, Science and their sister journals) or flagship journals only, as you ask. It splits your text into citable segments, extracts each core claim and its type, and turns it into two to four English search queries, then searches with a bundled Python script against Crossref, and PubMed for biomedical topics, with optional year limits. It grades each candidate on a conservative scale, from strong to partial to background to contradictory, and never cites a metadata-only hit without checking the abstract or publisher page. Before writing the single reference-manager file it checks that every author list is complete, refetching by DOI or PMID rather than exporting surname-only entries, and it will not invent missing fields. Long texts are run in batches of about ten segments and merged, with an HTML browser to filter and pick candidates. Notes can be in Chinese while queries stay in English. For unrestricted sources use a broader literature search instead.",
+          "permalink": "https://github.com/yuan1z0825/nature-skills/tree/d774add241c65e89ed17a4da573b472b0972fd42/skills/nature-citation"
+        },
+        "tags": [
+          "category:science",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "stack:crossref",
+          "stack:pubmed",
+          "research"
+        ]
+      }
+    },
+    {
+      "id": "yuan1z0825/nature-skills/skills/nature-academic-search",
+      "name": "nature-academic-search",
+      "skills.sh": {
+        "url": "https://skills.sh/yuan1z0825/nature-skills/nature-academic-search",
+        "installs": 16100,
+        "weeklyInstalls": [1064, 1073, 847, 593, 755, 726, 681, 517],
+        "firstSeen": "2026-05-14"
+      },
+      "skillMd": {
+        "version": "d774add241c65e89ed17a4da573b472b0972fd42",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Searches literature across sources, verifies and manages citations, builds MeSH strategies, and audits citation impact.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need to search papers, verify a document's citations, convert citation files, or audit who cites a paper"
+            },
+            {
+              "label": "It does",
+              "text": "maps your request to one or more of six workflows and runs them with its bundled MCP search server, or Python scripts without it"
+            },
+            {
+              "label": "You get",
+              "text": "deduplicated search results, verified or converted .ris/.bib/.nbib files, a MeSH search strategy, or a table of a paper's independent citers"
+            },
+            {
+              "label": "Needs",
+              "text": "Python; its MCP server for full coverage; optional Semantic Scholar, NCBI or Elsevier keys"
+            }
+          ],
+          "text": "A literature-search router covering six workflows: multi-source search across Crossref, PubMed and arXiv; verifying citations extracted from a document; building a MeSH (PubMed subject heading) search strategy; converting .nbib, .ris and .bib files; reference management such as BibTeX, related articles and ID conversion; and a strict citation-impact audit. That audit separates independent citations from self, team and close-collaborator ones, builds article-level citation tables, and identifies high-profile citers and how they cite the paper. It states which workflows it picked, loads only those, and ranks sources by reliability, such as PubMed first for clinical work, Crossref for cross-disciplinary and arXiv for preprints, with fallbacks. Its tools come from an academic-search MCP server that ships with it, with an install script; without the server, stdlib-only scripts search OpenAlex and export citations. Converting complete records you supply needs no network. Optional Semantic Scholar, NCBI and Elsevier keys raise rate limits or add Scopus and ScienceDirect, and keys stay in local config. Use nature-citation when you only want Nature or CNS-family supporting references.",
+          "permalink": "https://github.com/yuan1z0825/nature-skills/tree/d774add241c65e89ed17a4da573b472b0972fd42/skills/nature-academic-search"
+        },
+        "tags": [
+          "category:science",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "needs:mcp",
+          "by:community",
+          "stack:crossref",
+          "stack:pubmed",
+          "stack:arxiv",
+          "stack:scopus",
+          "stack:openalex",
+          "research"
+        ],
+        "note": "Works best with the bundled academic-search MCP server; falls back to standalone Python scripts when it is not connected. Optional Scopus/ScienceDirect/Semantic Scholar keys widen coverage."
+      }
+    },
+    {
+      "id": "yuan1z0825/nature-skills/skills/nature-data",
+      "name": "nature-data",
+      "skills.sh": {
+        "url": "https://skills.sh/yuan1z0825/nature-skills/nature-data",
+        "installs": 16000,
+        "weeklyInstalls": [976, 981, 750, 511, 649, 640, 570, 425],
+        "firstSeen": "2026-05-01"
+      },
+      "skillMd": {
+        "version": "d774add241c65e89ed17a4da573b472b0972fd42",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Drafts or audits manuscript Data and Code Availability statements, repository plans, dataset citations and FAIR metadata.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need a journal-ready Data/Code Availability statement or data-sharing plan, or want an existing statement audited"
+            },
+            {
+              "label": "It does",
+              "text": "inventories each dataset, classifies its access route, chooses repositories and identifiers, drafts the statement and runs a FAIR metadata audit"
+            },
+            {
+              "label": "You get",
+              "text": "ready-to-paste statement text mapping each dataset to a concrete location, plus a list of fields you still need to fill"
+            },
+            {
+              "label": "Keeps",
+              "text": "\"available upon request\" flagged as weak unless a specific restriction justifies it"
+            }
+          ],
+          "text": "An eight-step workflow for the data-availability side of submission. It identifies the journal, inventories every supporting dataset, and classifies each into one access route (public repository, controlled access, within paper, reused public, third-party restricted, justified request, or not applicable), then chooses a repository and identifier strategy before drafting. The statement maps each dataset to a concrete location, adds formal dataset citations, and passes a FAIR audit, a check that the data are findable, accessible, interoperable and reusable. It never invents DOIs, accession numbers, licences, embargo dates or access committees, and returns the statement text plus the fields you still need to resolve. Editing or auditing one existing statement keeps its identifiers and skips the full inventory. It carries exact rules for flagship Nature and for Nature Machine Intelligence, including NMI's separate Code availability section; the NMI rules come from the repo's nature-shared package. Chinese-speaking authors also get a Chinese check block. It is not for data cleaning or statistical analysis.",
+          "permalink": "https://github.com/yuan1z0825/nature-skills/tree/d774add241c65e89ed17a4da573b472b0972fd42/skills/nature-data"
+        },
+        "tags": [
+          "category:science",
+          "category:writing",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "research"
+        ],
+        "note": "Its Nature Machine Intelligence rules are a file in the repo's nature-shared support package; install that alongside if you target NMI."
+      }
+    },
+    {
+      "id": "yuan1z0825/nature-skills/skills/nature-response",
+      "name": "nature-response",
+      "skills.sh": {
+        "url": "https://skills.sh/yuan1z0825/nature-skills/nature-response",
+        "installs": 15900,
+        "weeklyInstalls": [984, 1006, 761, 531, 670, 688, 603, 454],
+        "firstSeen": "2026-05-07"
+      },
+      "skillMd": {
+        "version": "d774add241c65e89ed17a4da573b472b0972fd42",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Drafts, audits or revises point-by-point responses to peer review, revision cover letters and marked-manuscript or LaTeX packages.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you have an editor decision and reviewer comments and need replies, a full revision package, or an edit of an existing response"
+            },
+            {
+              "label": "It does",
+              "text": "parses the decision letter, classifies every comment, and drafts a separate reply per reviewer that shows no other reviewer's comments"
+            },
+            {
+              "label": "You get",
+              "text": "an internal tracker, per-reviewer responses, an optional cover letter, red-marked manuscript and LaTeX files, and a readiness verdict"
+            },
+            {
+              "label": "Unlike",
+              "text": "nature-reviewer, which writes the reviews, and nature-writing, which prepares initial submission"
+            },
+            {
+              "label": "Needs",
+              "text": "the repo's nature-shared package whenever a reply edits the main text"
+            }
+          ],
+          "text": "Turns a revision invitation into a complete response package. It parses the editor email for decision type, instructions, reviewer boundaries, required files and deadlines; if the decision is unclear it asks whether this is a Major or Minor Revision rather than guessing from the comments. The decision sets the overall strategy, evidence-first for Major, bounded corrections for Minor, while a serious concern stays serious in either. It assigns IDs to editor and reviewer items and keeps a master tracker, never shown to reviewers, where duplicates and conflicts are reconciled. Each reviewer gets a standalone reply that answers repeated concerns in full and reveals nothing from the other reports. Every claimed change maps to a manuscript location or a placeholder, and counts as done only when it matches revised text you supplied. Main-text edits stay as short as possible, with extra detail routed to SI. It can mark changes in red on a backed-up copy and fill LaTeX cover-letter, response and redline templates, rerunning a consistency script after each edit. A wording edit or an audit of one reply gets just that. It invents nothing and marks what you must supply.",
+          "permalink": "https://github.com/yuan1z0825/nature-skills/tree/d774add241c65e89ed17a4da573b472b0972fd42/skills/nature-response"
+        },
+        "tags": [
+          "category:writing",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "writing",
+          "research"
+        ],
+        "note": "Whenever a reply proposes or makes a main-text edit it loads a file from the repo's nature-shared support package, so install that alongside."
+      }
+    },
+    {
+      "id": "yuan1z0825/nature-skills/skills/nature-reader",
+      "name": "nature-reader",
+      "skills.sh": {
+        "url": "https://skills.sh/yuan1z0825/nature-skills/nature-reader",
+        "installs": 15700,
+        "weeklyInstalls": [1008, 1050, 832, 566, 703, 735, 653, 504],
+        "firstSeen": "2026-05-11"
+      },
+      "skillMd": {
+        "version": "d774add241c65e89ed17a4da573b472b0972fd42",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds a source-grounded bilingual Chinese-English reader of a paper, with aligned text, figures, tables and equations.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a full Chinese-English reader of a paper, not a summary, or source-grounded answers about it"
+            },
+            {
+              "label": "It does",
+              "text": "detects the source format, anchors every block in a source map, then extracts and aligns text, figures, tables and equations"
+            },
+            {
+              "label": "You get",
+              "text": "a paper.md with paired Original/中文 blocks, a source_map.json, translation notes and an assets folder"
+            },
+            {
+              "label": "Keeps",
+              "text": "equations unchanged and every block traceable to its place in the source"
+            }
+          ],
+          "text": "Creates a faithful bilingual reader of a paper rather than a summary. It detects the source format (text PDF, scanned PDF, HTML, a DOI/arXiv link to resolve, or pasted text) and loads the matching extraction guidance, then follows a source-map-first workflow: give every block a stable anchor, extract figures and tables, render equations, and translate prose for meaning while leaving math untouched. The output is paper.md with paired Original and 中文 blocks, a source_map.json of those anchors, a translation_notes.md and an assets folder, checked by a deterministic math validator before delivery, plus a reader.html preview only if you ask. If it cannot fully process the source it still produces a draft and labels the gaps, never switching to summary mode. A question about the paper or a requested excerpt gets just that, cited to the source, without rebuilding the reader. A shared terminology ledger from the repo's nature-shared package keeps recurring terms consistent, so install that package alongside it.",
+          "permalink": "https://github.com/yuan1z0825/nature-skills/tree/d774add241c65e89ed17a4da573b472b0972fd42/skills/nature-reader"
+        },
+        "tags": [
+          "category:science",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "research",
+          "pdf"
+        ],
+        "note": "Loads a shared terminology ledger from the repo's nature-shared support package; install it alongside. For PDF input it also loads a separate pdf skill for extraction and OCR guidance."
+      }
+    },
+    {
+      "id": "yuan1z0825/nature-skills/skills/nature-reviewer",
+      "name": "nature-reviewer",
+      "skills.sh": {
+        "url": "https://skills.sh/yuan1z0825/nature-skills/nature-reviewer",
+        "installs": 14600,
+        "weeklyInstalls": [986, 1016, 781, 578, 706, 686, 615, 476],
+        "firstSeen": "2026-05-31"
+      },
+      "skillMd": {
+        "version": "d774add241c65e89ed17a4da573b472b0972fd42",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Simulates Nature-style peer review as three mutually blind reviewer reports plus a post-review synthesis, grounded in the manuscript.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a pre-submission referee view of a manuscript or excerpt"
+            },
+            {
+              "label": "It does",
+              "text": "runs three reviewers in isolated contexts on the same manuscript and criteria, then a separate forensic consistency audit and a synthesis"
+            },
+            {
+              "label": "You get",
+              "text": "three independent reviewer reports with major and minor concerns tied to the text, plus a cross-review synthesis"
+            },
+            {
+              "label": "Needs",
+              "text": "subagents or separate runs, so each reviewer works in its own context"
+            }
+          ],
+          "text": "Produces a referee-side assessment package. It builds one immutable review packet (the supplied manuscript, verified anchors and common journal criteria) and gives each reviewer an emphasis brief, a lens set in advance rather than a persona, then runs each reviewer in a genuinely separate context so none sees another's work; without isolation it generates one report per invocation or states that blindness is not guaranteed. Each reviewer assesses the manuscript on five axes (originality, importance, interdisciplinary interest, soundness, readability) and files major concerns and minor comments with claim and evidence pointers, marking a major concern as blocking only when the paper's central case cannot stand without it. It never invents locations and sets no concern quota. After the reports are frozen it runs a separate forensic consistency audit (arithmetic, metric bounds, duplication) and a synthesis that marks consensus only when two reviewers independently raise the same concern. It does not claim the editor's decision or that the paper fits Nature. Use nature-response for the author's rebuttal.",
+          "permalink": "https://github.com/yuan1z0825/nature-skills/tree/d774add241c65e89ed17a4da573b472b0972fd42/skills/nature-reviewer"
+        },
+        "tags": [
+          "category:science",
+          "type:workflow",
+          "effect:none",
+          "needs:subagents",
+          "by:community",
+          "research"
+        ],
+        "note": "When checking the manuscript against itself it can load a consistency-sweep file from the repo's nature-shared support package; install that alongside for that check."
+      }
+    },
+    {
+      "id": "yuan1z0825/nature-skills/skills/nature-paper-to-patent",
+      "name": "nature-paper-to-patent",
+      "skills.sh": {
+        "url": "https://skills.sh/yuan1z0825/nature-skills/nature-paper-to-patent",
+        "installs": 13300,
+        "weeklyInstalls": [998, 971, 760, 502, 649, 656, 573, 433],
+        "firstSeen": "2026-06-14"
+      },
+      "skillMd": {
+        "version": "d774add241c65e89ed17a4da573b472b0972fd42",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Turns research papers or inventor materials into evidence-grounded Chinese invention patent drafts and technical disclosures.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a Chinese invention patent draft, or a technical disclosure (技术交底书) for a patent attorney, from a paper or project materials"
+            },
+            {
+              "label": "It does",
+              "text": "ties every claimed feature to a source passage, equation, figure or code, drafts claims first, then aligns the specification, figures and abstract"
+            },
+            {
+              "label": "You get",
+              "text": "DOCX files for the claims, specification, abstract and abstract figure plus validation reports, or a disclosure as Markdown and DOCX"
+            },
+            {
+              "label": "Keeps",
+              "text": "features without source support out of formal claims; it is a drafting aid, not a legal opinion"
+            },
+            {
+              "label": "Needs",
+              "text": "Python; for disclosures also Node.js for diagrams and Playwright for the patent-office search"
+            }
+          ],
+          "text": "A router for drafting Chinese patents from research. It detects the source format, the task (full draft, claim set, disclosure analysis, technical disclosure, disclosure revision or paper-patent audit) and the invention type, then gives every paper block, equation, figure and code item a stable ID. Every material feature in a formal claim must map to those IDs, and unsupported features are left out. Full applications go through stage gates: the source map, terminology and evidence ledgers and the invention concept must pass before claims are drafted, then the specification, embodiments, figures and abstract follow the claims' wording and step order. Formal documents are in Chinese, with formulas as editable Office Math and a main flowchart drawn from the principal method claim; validation scripts must pass before the DOCX package is built. The technical-disclosure route instead mines patent points, searches published Chinese patents on the CNIPA site, falling back to web search, and writes a timestamped Markdown and DOCX disclosure. It never infers inventorship, prior-art conclusions or legal sufficiency, and the package is for inventor and patent-professional review, not a patentability or infringement opinion.",
+          "permalink": "https://github.com/yuan1z0825/nature-skills/tree/d774add241c65e89ed17a4da573b472b0972fd42/skills/nature-paper-to-patent"
+        },
+        "tags": [
+          "category:writing",
+          "category:science",
+          "category:documents",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "stack:microsoft-office",
+          "research",
+          "documents",
+          "writing"
+        ],
+        "note": "A drafting aid for inventor and patent-professional review, not a patentability opinion; its validation and DOCX build steps run Python scripts. Technical disclosures also use Node.js (Mermaid CLI) for diagrams and Playwright Chromium to search the CNIPA patent site."
+      }
+    },
+    {
+      "id": "yuan1z0825/nature-skills/skills/nature-downloader",
+      "name": "nature-downloader",
+      "skills.sh": {
+        "url": "https://skills.sh/yuan1z0825/nature-skills/nature-downloader",
+        "installs": 12700,
+        "weeklyInstalls": [955, 931, 749, 516, 659, 655, 599, 440],
+        "firstSeen": "2026-06-30"
+      },
+      "skillMd": {
+        "version": "d774add241c65e89ed17a4da573b472b0972fd42",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Retrieves academic full text lawfully through open access, publisher APIs, CNKI and your authenticated institutional browser session.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need to batch-download papers you have lawful access to, Chinese ones through CNKI"
+            },
+            {
+              "label": "It does",
+              "text": "routes each paper to a publisher API, open access, CNKI or your institution's logged-in Chrome session, and verifies each file"
+            },
+            {
+              "label": "You get",
+              "text": "PDFs or native full text, optional supporting information, and a manifest of route, format, checksum and failures"
+            },
+            {
+              "label": "Needs",
+              "text": "Node.js 22+ and Python 3; institutional routes need your logged-in Chrome, the web-access skill and your library URL"
+            },
+            {
+              "label": "Keeps",
+              "text": "your cookies and passwords untouched, and hands secret-bearing checks such as OTP or QR login to you"
+            }
+          ],
+          "text": "A download orchestrator that picks a lawful route per paper. Chinese literature always goes through CNKI. Elsevier, Springer Nature and IEEE articles try a publisher API with your configured key first, then legitimate open access (PMC, Unpaywall, arXiv); other English articles check open access first, then use Web Access, your institution's authorized access in your own browser. After an API and open access both fail it asks before switching to Web Access. It drives your already-authenticated Chrome through remote debugging, via the separate web-access skill's proxy, and never exports cookies, passwords or session files, nor bypasses paywalls, DRM or two-factor. It asks once whether you also want Supporting Information, confirms the paper list, and writes a manifest recording route, access mode, format, checksum and typed failure states. A batch script, which can also collect papers by Web of Science topic, keeps large pages and bytes out of the agent context. It tries slider puzzles and Turnstile or reCAPTCHA checkboxes, at most twice per tab, then hands off to you. API keys are stored locally with owner-only permissions and kept out of logs and manifests.",
+          "permalink": "https://github.com/yuan1z0825/nature-skills/tree/d774add241c65e89ed17a4da573b472b0972fd42/skills/nature-downloader"
+        },
+        "tags": [
+          "category:science",
+          "category:browser",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "needs:browser",
+          "needs:account",
+          "by:community",
+          "flag:dual-use",
+          "stack:cnki",
+          "stack:web-of-science",
+          "stack:elsevier",
+          "stack:springer-nature",
+          "stack:ieee",
+          "research",
+          "browser-automation",
+          "pdf"
+        ],
+        "note": "Uses only lawful open access, publisher APIs and your own authorized institutional access; needs Node.js 22+ and Python 3. CNKI, institutional and SI routes also need your logged-in Chrome with remote debugging, the separate web-access skill's CDP proxy and your library resource URL. It tries slider and checkbox verification challenges automatically before handing off to you."
+      }
+    },
+    {
+      "id": "yuan1z0825/nature-skills/skills/nature-statistics",
+      "name": "nature-statistics",
+      "skills.sh": {
+        "url": "https://skills.sh/yuan1z0825/nature-skills/nature-statistics",
+        "installs": 12600,
+        "weeklyInstalls": [978, 992, 778, 512, 661, 660, 592, 449],
+        "firstSeen": "2026-07-13"
+      },
+      "skillMd": {
+        "version": "d774add241c65e89ed17a4da573b472b0972fd42",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Audits or improves a manuscript's statistical reporting: experimental units, replication, uncertainty, tests and figure statistics.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need to check or write up the statistics in a manuscript, not run a new analysis"
+            },
+            {
+              "label": "It does",
+              "text": "extracts the design, defines the true n, maps each claim to its test, and checks failure modes and reporting completeness"
+            },
+            {
+              "label": "You get",
+              "text": "a severity-ranked issue list and ready-to-paste Statistical analysis, Results or figure-legend text, with author-input gaps flagged"
+            },
+            {
+              "label": "Keeps",
+              "text": "cells or technical replicates from being counted as independent n"
+            }
+          ],
+          "text": "A reporting-and-review skill, not a substitute for reanalysing raw data unless you supply it and ask. It separates what was measured, what unit was analysed and what was claimed, and treats the independent experimental unit as the default n rather than silently counting cells, fields of view or technical replicates. It maps each result claim to its comparison, test family, assumptions, correction, effect size and uncertainty, checks common failure modes (nesting, many comparisons, significance-only reasoning) and reporting completeness, and aligns figure-legend statistics. Output is a severity-ranked issue list plus conservative ready-to-paste text, with missing facts marked AUTHOR_INPUT_NEEDED rather than invented; a clean drafting request gets just the draft and reporting notes. It carries exact Nature and Nature Machine Intelligence reporting requirements, and checks that a statistic reported in several places agrees, both the NMI rules and that check coming from the repo's nature-shared package. It will not upgrade association into causation or hide weak results.",
+          "permalink": "https://github.com/yuan1z0825/nature-skills/tree/d774add241c65e89ed17a4da573b472b0972fd42/skills/nature-statistics"
+        },
+        "tags": [
+          "category:science",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "research"
+        ],
+        "note": "For Nature Machine Intelligence targets, and to check a statistic reported in several places, it loads files from the repo's nature-shared support package; install that alongside for those."
       }
     }
   ]
