@@ -8,6 +8,12 @@ export type Rebase = ((url: string, image: boolean) => string) | null;
 const FRONTMATTER = /^---\r?\n([\s\S]*?)\r?\n---[ \t]*(?:\r?\n|$)/;
 const ABSOLUTE = /^(?:[a-z][a-z0-9+.-]*:|#|\/\/)/i;
 
+/** The `name` in a SKILL.md's frontmatter, unquoted, or null when it has none. */
+export function nameInSkillMd(text: string): string | null {
+  const frontmatter = FRONTMATTER.exec(text)?.[1] ?? "";
+  return /^name:[ \t]*(["']?)(.+?)\1[ \t\r]*$/m.exec(frontmatter)?.[2] ?? null;
+}
+
 export function renderSkillMd(
   text: string,
   rebase: Rebase,

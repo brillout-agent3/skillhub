@@ -9,6 +9,7 @@ import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { approvedPages, pageKey, readCrawl, readData, readJsonc, tldrProblems } from "./data.ts";
 import { generate, SCHEMAS, TYPES, undocumented } from "./schema.ts";
+import { nameInSkillMd } from "../website/markdown.ts";
 import { copyPath } from "../website/skill-md.ts";
 import type { Facet } from "../data/types.ts";
 import { bundleRepo, github } from "../website/github.ts";
@@ -73,6 +74,12 @@ for (const skill of data.skills) {
   const copy = existsSync(new URL(copyPath(skill), root));
   if (skill.skillMd && !copy) fail(at, `no copy at ${copyPath(skill)}; run pnpm run sync`);
   if (!skill.skillMd && copy) fail(at, `${copyPath(skill)} has no skillMd; run pnpm run sync`);
+  const named = copy ? nameInSkillMd(readFileSync(new URL(copyPath(skill), root), "utf8")) : null;
+  if (copy && named !== skill.name)
+    fail(
+      at,
+      `its name must be the one its SKILL.md gives, ${named ?? "none"}; see ${copyPath(skill)}`,
+    );
   const skew = skill.skillMd?.skew;
   if (skew !== undefined && !(Number.isInteger(skew) && skew >= 0))
     fail(at, "skew must be a whole number of words");

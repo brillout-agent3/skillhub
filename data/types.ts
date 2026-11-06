@@ -220,6 +220,7 @@ export interface Skill {
    * with.
    *
    * Source: the `name` of its crawl.jsonc entry, which the agent that approves the skill copies.
+   * `pnpm run check` fails when it isn't the `name` of its SKILL.md copy.
    */
   name: string;
   /**
