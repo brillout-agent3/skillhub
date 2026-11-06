@@ -94,32 +94,6 @@
       }
     },
     {
-      "name": "firecrawl-search",
-      "repo": "firecrawl/cli",
-      "official": true,
-      "stars": 678,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/firecrawl/cli/firecrawl-search",
-        "installs": 85053,
-        "weeklyInstalls": [321, 464, 618, 513, 546, 501, 573, 414],
-        "firstSeen": "2026-03-10"
-      }
-    },
-    {
-      "name": "firecrawl-scrape",
-      "repo": "firecrawl/cli",
-      "official": true,
-      "stars": 678,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/firecrawl/cli/firecrawl-scrape",
-        "installs": 84124,
-        "weeklyInstalls": [349, 460, 532, 463, 356, 337, 452, 377],
-        "firstSeen": "2026-03-10"
-      }
-    },
-    {
       "name": "code-review-and-quality",
       "repo": "addyosmani/agent-skills",
       "official": false,
@@ -130,58 +104,6 @@
         "installs": 82125,
         "weeklyInstalls": [3503, 4573, 4388, 4720, 5783, 6429, 6032, 5359],
         "firstSeen": "2026-02-16"
-      }
-    },
-    {
-      "name": "firecrawl-agent",
-      "repo": "firecrawl/cli",
-      "official": true,
-      "stars": 678,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/firecrawl/cli/firecrawl-agent",
-        "installs": 81815,
-        "weeklyInstalls": [308, 306, 480, 532, 479, 430, 392, 325],
-        "firstSeen": "2026-03-10"
-      }
-    },
-    {
-      "name": "firecrawl-crawl",
-      "repo": "firecrawl/cli",
-      "official": true,
-      "stars": 678,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/firecrawl/cli/firecrawl-crawl",
-        "installs": 81174,
-        "weeklyInstalls": [310, 338, 350, 389, 302, 303, 284, 276],
-        "firstSeen": "2026-03-10"
-      }
-    },
-    {
-      "name": "firecrawl-map",
-      "repo": "firecrawl/cli",
-      "official": true,
-      "stars": 678,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/firecrawl/cli/firecrawl-map",
-        "installs": 80698,
-        "weeklyInstalls": [299, 329, 340, 382, 310, 291, 279, 267],
-        "firstSeen": "2026-03-10"
-      }
-    },
-    {
-      "name": "firecrawl-download",
-      "repo": "firecrawl/cli",
-      "official": true,
-      "stars": 678,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/firecrawl/cli/firecrawl-download",
-        "installs": 80295,
-        "weeklyInstalls": [300, 320, 338, 379, 292, 285, 272, 258],
-        "firstSeen": "2026-03-10"
       }
     },
     {
@@ -445,19 +367,6 @@
       }
     },
     {
-      "name": "firecrawl-interact",
-      "repo": "firecrawl/cli",
-      "official": true,
-      "stars": 678,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/firecrawl/cli/firecrawl-interact",
-        "installs": 65532,
-        "weeklyInstalls": [292, 307, 322, 364, 281, 266, 249, 250],
-        "firstSeen": "2026-04-09"
-      }
-    },
-    {
       "name": "animation-performance",
       "repo": "emilkowalski/skills",
       "official": false,
@@ -585,19 +494,6 @@
         "installs": 53900,
         "weeklyInstalls": [2464, 2370, 2293, 3020, 4843, 5407, 5602, 5460],
         "firstSeen": "2026-06-14"
-      }
-    },
-    {
-      "name": "firecrawl-parse",
-      "repo": "firecrawl/cli",
-      "official": false,
-      "stars": 678,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/firecrawl/cli/firecrawl-parse",
-        "installs": 51400,
-        "weeklyInstalls": [279, 291, 306, 352, 259, 250, 237, 236],
-        "firstSeen": "2026-04-27"
       }
     },
     {
@@ -988,19 +884,6 @@
         "installs": 33900,
         "weeklyInstalls": [1220, 1074, 1024, 1030, 1061, 1058, 1118, 1057],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "firecrawl-monitor",
-      "repo": "firecrawl/cli",
-      "official": false,
-      "stars": 678,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/firecrawl/cli/firecrawl-monitor",
-        "installs": 33600,
-        "weeklyInstalls": [261, 281, 290, 337, 233, 231, 217, 215],
-        "firstSeen": "2026-05-28"
       }
     },
     {

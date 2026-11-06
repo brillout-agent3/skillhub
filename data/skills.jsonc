@@ -2578,6 +2578,96 @@
           }
         ]
       }
+    },
+    {
+      "id": "firecrawl/cli@core",
+      "skew": 0,
+      "agentReview": {
+        "name": "Firecrawl CLI",
+        "description": "Web work through the Firecrawl CLI: an overview skill that picks the command, and a detailed guide to each, from search and scrape to crawl, monitor and interact.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want the agent to do its web work through Firecrawl: searching, reading pages, crawling sites, acting on pages, or watching them for changes"
+            },
+            {
+              "label": "It does",
+              "text": "firecrawl, the overview skill, picks the right Firecrawl command for the task; nine companion skills each give one command a detailed guide"
+            },
+            {
+              "label": "You get",
+              "text": "Markdown or JSON files in a .firecrawl/ folder, read in small pieces, and answers that cite them"
+            },
+            {
+              "label": "Needs",
+              "text": "the firecrawl-cli npm package and a Firecrawl account, whose plan sets your credits; search, scrape and interact also work without one, rate-limited"
+            },
+            {
+              "label": "Installs with",
+              "text": "firecrawl setup core, which also adds the repo's other skills, among them the ones for its developer-docs and research-paper indexes"
+            },
+            {
+              "label": "Unlike",
+              "text": "Firecrawl's build skills, for adding Firecrawl to an app's code, and its workflow skills, for deliverables such as research briefs or SEO audits; each has its own setup command"
+            }
+          ],
+          "text": "firecrawl is the entry point. Its description covers any live-web task, ordinary research included, and it sets an order to escalate in: search first, scrape a URL you already have, map a large site to find the right page, crawl a whole section such as /docs, set up a monitor for repeated checks, and interact with pages that need clicks, forms or a login. Beside that path, agent sends Firecrawl's own AI agent through a complex site to extract structured data, download saves a site as folders of Markdown files, and parse converts local files such as PDFs. For each command, firecrawl sends the agent to a companion skill with its options, costs and rules, such as search's feedback, which refunds a credit, or how to word a monitor's goal. Each companion also works alone and points to its neighbours, such as scrape to interact when a page needs clicks. Search also finds, and scrape runs, tools from Alexandria, Firecrawl's catalog of data providers and site workflows. The same files are copied unchanged into Firecrawl's firecrawl/skills catalog, which skills.sh lists separately.",
+          "permalink": "https://github.com/firecrawl/cli/tree/da25d5cd06db21cb33b100661cea0d9b89d457a3"
+        },
+        "skills": [
+          {
+            "id": "firecrawl/cli/skills/firecrawl",
+            "standalone": true
+          },
+          {
+            "id": "firecrawl/cli/skills/firecrawl-search",
+            "standalone": true
+          },
+          {
+            "id": "firecrawl/cli/skills/firecrawl-scrape",
+            "standalone": true
+          },
+          {
+            "id": "firecrawl/cli/skills/firecrawl-map",
+            "standalone": true
+          },
+          {
+            "id": "firecrawl/cli/skills/firecrawl-crawl",
+            "standalone": true
+          },
+          {
+            "id": "firecrawl/cli/skills/firecrawl-monitor",
+            "standalone": true
+          },
+          {
+            "id": "firecrawl/cli/skills/firecrawl-interact",
+            "standalone": true
+          },
+          {
+            "id": "firecrawl/cli/skills/firecrawl-agent",
+            "standalone": true
+          },
+          {
+            "id": "firecrawl/cli/skills/firecrawl-download",
+            "standalone": true
+          },
+          {
+            "id": "firecrawl/cli/skills/firecrawl-parse",
+            "standalone": true
+          }
+        ],
+        "install": [
+          {
+            "label": "Detected coding agents, once the Firecrawl CLI is installed",
+            "command": "firecrawl setup core"
+          },
+          {
+            "label": "One step: installs the CLI, logs in and adds Firecrawl's skills to detected agents",
+            "command": "npx -y firecrawl-cli@latest init -y --browser"
+          }
+        ]
+      }
     }
   ],
   "skills": [
@@ -7417,7 +7507,8 @@
           "stack:firecrawl",
           "scraping",
           "web-search",
-          "research"
+          "research",
+          "flag:mirror"
         ]
       }
     },
@@ -13640,6 +13731,523 @@
           "browser-automation",
           "flag:mirror"
         ]
+      }
+    },
+    {
+      "id": "firecrawl/cli/skills/firecrawl-search",
+      "name": "firecrawl-search",
+      "skills.sh": {
+        "url": "https://skills.sh/firecrawl/cli/firecrawl-search",
+        "installs": 85053,
+        "weeklyInstalls": [321, 464, 618, 513, 546, 501, 573, 414],
+        "firstSeen": "2026-03-10"
+      },
+      "skillMd": {
+        "version": "da25d5cd06db21cb33b100661cea0d9b89d457a3",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Searches the web, news and Firecrawl's catalog of data tools through the Firecrawl CLI, returning page excerpts or full content.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "the agent needs web sources for a question, recent news, US legal or regulatory sources, or structured records such as listings, transcripts or datasets"
+            },
+            {
+              "label": "It does",
+              "text": "runs firecrawl search, which returns web results with relevant excerpts plus matching tools from Alexandria, Firecrawl's catalog of data providers and site workflows"
+            },
+            {
+              "label": "You get",
+              "text": "results saved as JSON under .firecrawl/, optionally with each page's full content, and answers with source links"
+            },
+            {
+              "label": "Needs",
+              "text": "the Firecrawl CLI; without an API key, searches return web results only"
+            },
+            {
+              "label": "Sends",
+              "text": "feedback to Firecrawl after each search, which refunds one of its two credits, unless FIRECRAWL_NO_SEARCH_FEEDBACK=1 is set"
+            },
+            {
+              "label": "Unlike the firecrawl skill",
+              "text": "that is the overview of every command; this is the detailed guide to search, tool discovery and feedback"
+            }
+          ],
+          "text": "The detailed companion to the main firecrawl skill for its search command. Results come with excerpts relevant to the query; --scrape adds each result's full page, which the agent reuses instead of scraping again. Other options cover news, time ranges, an index of GitHub issues, merged pull requests, READMEs and docs, and US federal, state and local legal sources through firecrawl gov, which filters by jurisdiction, court or cited statute. Before citing current law it checks the source's issuer, jurisdiction, status and version. With an API key, each search also matches Alexandria tools, by meaning and by the domains in the results; the agent reads a tool's contract, its inputs and coverage, before running it through scrape, and falls back to web results when none fits. After using the results it sends rated feedback in the background within about two minutes, listing every result it used and the content it expected but didn't find.",
+          "permalink": "https://github.com/firecrawl/cli/tree/da25d5cd06db21cb33b100661cea0d9b89d457a3/skills/firecrawl-search"
+        },
+        "tags": [
+          "category:browser",
+          "type:tool",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:firecrawl",
+          "flag:mirror",
+          "effect:remote",
+          "web-search",
+          "research"
+        ]
+      }
+    },
+    {
+      "id": "firecrawl/cli/skills/firecrawl-scrape",
+      "name": "firecrawl-scrape",
+      "skills.sh": {
+        "url": "https://skills.sh/firecrawl/cli/firecrawl-scrape",
+        "installs": 84124,
+        "weeklyInstalls": [349, 460, 532, 463, 356, 337, 452, 377],
+        "firstSeen": "2026-03-10"
+      },
+      "skillMd": {
+        "version": "da25d5cd06db21cb33b100661cea0d9b89d457a3",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Reads web pages as clean Markdown or schema-typed JSON through the Firecrawl CLI, and runs data tools from Firecrawl's catalog.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "the agent has a URL, or a list of them, and needs the page content, structured fields from it, or results from a chosen data tool"
+            },
+            {
+              "label": "It does",
+              "text": "runs firecrawl scrape on pages, JavaScript-rendered ones included, or batch-scrape for many URLs, and runs Alexandria data tools from their contracts"
+            },
+            {
+              "label": "You get",
+              "text": "Markdown or JSON saved under .firecrawl/, read in small pieces rather than dumped into context"
+            },
+            {
+              "label": "Needs",
+              "text": "the Firecrawl CLI and Firecrawl credits; a PDF costs a credit per parsed page, capped with --max-pages"
+            },
+            {
+              "label": "Unlike firecrawl-interact",
+              "text": "scrape only reads; pages that need clicks, forms or a login go to interact"
+            }
+          ],
+          "text": "The detailed companion to the main firecrawl skill for reading known pages. A scrape returns the page's main content as Markdown by default, the whole page with --full-page, links or other formats on request, and typed fields when given a JSON schema. A few URLs can be scraped at once as Markdown; batch-scrape takes longer lists as a job, with other formats, one schema for all pages, or a webhook. --query asks one question about a page for 5 extra credits, though the skill prefers saving the page and searching it. Structured data can also come from Alexandria, Firecrawl's catalog of data providers: the agent reads a tool's contract, its required inputs, response shape and pagination, and checks every result item for errors, not just the overall status. When output is too large for the agent, it recovers the kept result by its ID rather than repeating a paid call. For PDFs it caps the pages parsed and checks how many were.",
+          "permalink": "https://github.com/firecrawl/cli/tree/da25d5cd06db21cb33b100661cea0d9b89d457a3/skills/firecrawl-scrape"
+        },
+        "tags": [
+          "category:browser",
+          "type:tool",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:firecrawl",
+          "flag:mirror",
+          "effect:local",
+          "scraping"
+        ]
+      }
+    },
+    {
+      "id": "firecrawl/cli/skills/firecrawl-agent",
+      "name": "firecrawl-agent",
+      "skills.sh": {
+        "url": "https://skills.sh/firecrawl/cli/firecrawl-agent",
+        "installs": 81815,
+        "weeklyInstalls": [308, 306, 480, 532, 479, 430, 392, 325],
+        "firstSeen": "2026-03-10"
+      },
+      "skillMd": {
+        "version": "da25d5cd06db21cb33b100661cea0d9b89d457a3",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Sends Firecrawl's AI agent through websites to collect structured data across many pages, returned as JSON.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "the data you need spans pages of complex sites and no ready-made tool in Firecrawl's catalog covers it"
+            },
+            {
+              "label": "It does",
+              "text": "runs firecrawl agent with a prompt, an optional JSON schema and starting URLs; Firecrawl's agent navigates and extracts, taking two to five minutes"
+            },
+            {
+              "label": "You get",
+              "text": "a JSON file under .firecrawl/, or a job ID to check later"
+            },
+            {
+              "label": "Needs",
+              "text": "the Firecrawl CLI and Firecrawl credits; agent runs cost more than scrapes, and --max-credits caps spending"
+            },
+            {
+              "label": "Asks first",
+              "text": "with --require-approval, a run stops for your go-ahead instead of making a paid provider call"
+            },
+            {
+              "label": "Unlike firecrawl-scrape",
+              "text": "scrape is faster and cheaper for one page; the agent decides on its own where to go"
+            }
+          ],
+          "text": "Before starting, the agent checks Alexandria, Firecrawl's catalog of data providers and site workflows, for a tool that already returns the records, and uses it instead when it fits. A run can also call connected providers, such as Apollo or Crunchbase, when started with flags that name them, cap the number of calls or require approval. A provider whose terms an organization admin hasn't accepted in the Firecrawl dashboard won't continue, and approving the call doesn't accept them. Jobs can be waited on, polled or cancelled by ID. A schema keeps the output predictable; without one the agent returns free-form data. The skill also shows how to send feedback on an Alexandria session, which refunds a credit.",
+          "permalink": "https://github.com/firecrawl/cli/tree/da25d5cd06db21cb33b100661cea0d9b89d457a3/skills/firecrawl-agent"
+        },
+        "tags": [
+          "category:browser",
+          "type:tool",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:firecrawl",
+          "flag:mirror",
+          "effect:local",
+          "scraping",
+          "browser-automation"
+        ]
+      }
+    },
+    {
+      "id": "firecrawl/cli/skills/firecrawl-crawl",
+      "name": "firecrawl-crawl",
+      "skills.sh": {
+        "url": "https://skills.sh/firecrawl/cli/firecrawl-crawl",
+        "installs": 81174,
+        "weeklyInstalls": [310, 338, 350, 389, 302, 303, 284, 276],
+        "firstSeen": "2026-03-10"
+      },
+      "skillMd": {
+        "version": "da25d5cd06db21cb33b100661cea0d9b89d457a3",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Crawls a website or section through the Firecrawl CLI, following links to a set depth or page limit, and saves the content.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need the content of many linked pages from one site, such as everything under /docs"
+            },
+            {
+              "label": "It does",
+              "text": "runs firecrawl crawl, scoped by paths, depth and a page limit, waiting for the result or returning a job ID"
+            },
+            {
+              "label": "You get",
+              "text": "the crawled pages as JSON under .firecrawl/"
+            },
+            {
+              "label": "Needs",
+              "text": "the Firecrawl CLI and a Firecrawl account, since crawl has no keyless tier; each page costs credits"
+            },
+            {
+              "label": "Unlike firecrawl-download",
+              "text": "crawl returns JSON; download saves the site as nested Markdown files"
+            }
+          ],
+          "text": "A short guide to one command. It limits the crawl to the section the request names, can wait with a progress display or return a job ID to check later, and suggests checking credit usage before a large crawl. Waiting has no default timeout; a timeout option bounds it. It points to map for finding URLs first and scrape for single pages.",
+          "permalink": "https://github.com/firecrawl/cli/tree/da25d5cd06db21cb33b100661cea0d9b89d457a3/skills/firecrawl-crawl"
+        },
+        "tags": [
+          "category:browser",
+          "type:tool",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:firecrawl",
+          "flag:mirror",
+          "effect:local",
+          "scraping"
+        ]
+      }
+    },
+    {
+      "id": "firecrawl/cli/skills/firecrawl-map",
+      "name": "firecrawl-map",
+      "skills.sh": {
+        "url": "https://skills.sh/firecrawl/cli/firecrawl-map",
+        "installs": 80698,
+        "weeklyInstalls": [299, 329, 340, 382, 310, 291, 279, 267],
+        "firstSeen": "2026-03-10"
+      },
+      "skillMd": {
+        "version": "da25d5cd06db21cb33b100661cea0d9b89d457a3",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Lists a website's URLs through the Firecrawl CLI, with search filtering to find the right page in a large site.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you know the site but not the exact page, or want its structure"
+            },
+            {
+              "label": "It does",
+              "text": "runs firecrawl map, optionally with --search to filter URLs and a limit on how many it returns"
+            },
+            {
+              "label": "You get",
+              "text": "a URL list saved under .firecrawl/, for picking the pages to scrape or crawl next"
+            },
+            {
+              "label": "Needs",
+              "text": "the Firecrawl CLI and a Firecrawl account, since map has no keyless tier"
+            },
+            {
+              "label": "Unlike firecrawl-crawl",
+              "text": "map lists URLs; crawl fetches the pages' content"
+            }
+          ],
+          "text": "A short guide to one command. The usual pattern is map then scrape: search a docs site for \"auth\", find /docs/api/authentication, then scrape that page. Other options, such as sitemap handling and subdomains, are left to the command's help.",
+          "permalink": "https://github.com/firecrawl/cli/tree/da25d5cd06db21cb33b100661cea0d9b89d457a3/skills/firecrawl-map"
+        },
+        "tags": [
+          "category:browser",
+          "type:tool",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:firecrawl",
+          "flag:mirror",
+          "effect:local",
+          "scraping"
+        ]
+      }
+    },
+    {
+      "id": "firecrawl/cli/skills/firecrawl-download",
+      "name": "firecrawl-download",
+      "skills.sh": {
+        "url": "https://skills.sh/firecrawl/cli/firecrawl-download",
+        "installs": 80295,
+        "weeklyInstalls": [300, 320, 338, 379, 292, 285, 272, 258],
+        "firstSeen": "2026-03-10"
+      },
+      "skillMd": {
+        "version": "da25d5cd06db21cb33b100661cea0d9b89d457a3",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Saves a website or section as local Markdown files and screenshots through the Firecrawl CLI, for offline docs or reference.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a local copy of a site or its docs for offline reading or reference"
+            },
+            {
+              "label": "It does",
+              "text": "runs the experimental firecrawl x download, which maps the site and scrapes each page into nested folders, limited by included or excluded paths"
+            },
+            {
+              "label": "You get",
+              "text": "a folder per page under .firecrawl/, with index.md and, if asked, links.txt and screenshot.png"
+            },
+            {
+              "label": "Needs",
+              "text": "the Firecrawl CLI and a Firecrawl account, since download has no keyless tier"
+            },
+            {
+              "label": "Unlike firecrawl-crawl",
+              "text": "crawl returns pages as JSON; download writes files you can browse"
+            }
+          ],
+          "text": "A short guide to one experimental command. It always passes -y, since without it the command opens an interactive wizard that waits for input. Examples cover screenshots, several formats per page, limiting the download to some sections and skipping translated pages.",
+          "permalink": "https://github.com/firecrawl/cli/tree/da25d5cd06db21cb33b100661cea0d9b89d457a3/skills/firecrawl-download"
+        },
+        "tags": [
+          "category:browser",
+          "type:tool",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:firecrawl",
+          "flag:mirror",
+          "effect:local",
+          "scraping"
+        ]
+      }
+    },
+    {
+      "id": "firecrawl/cli/skills/firecrawl-interact",
+      "name": "firecrawl-interact",
+      "skills.sh": {
+        "url": "https://skills.sh/firecrawl/cli/firecrawl-interact",
+        "installs": 65532,
+        "weeklyInstalls": [292, 307, 322, 364, 281, 266, 249, 250],
+        "firstSeen": "2026-04-09"
+      },
+      "skillMd": {
+        "version": "da25d5cd06db21cb33b100661cea0d9b89d457a3",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Drives a live browser on a page scraped with Firecrawl: clicks, form fills, logins, pagination and infinite scroll, by prompt or code.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a page's content needs clicks, forms, a login or scrolling, or a scrape came back incomplete"
+            },
+            {
+              "label": "It does",
+              "text": "scrapes the page first, then runs firecrawl interact with plain-language prompts or agent-browser commands in that page's live browser session"
+            },
+            {
+              "label": "You get",
+              "text": "the extracted content or the result of the action, with the session stopped afterwards"
+            },
+            {
+              "label": "Needs",
+              "text": "the Firecrawl CLI"
+            },
+            {
+              "label": "Keeps",
+              "text": "cookies and local storage in a named profile, so you can log in once and return signed in"
+            },
+            {
+              "label": "Unlike firecrawl-agent",
+              "text": "you direct each step; Firecrawl's agent navigates on its own"
+            }
+          ],
+          "text": "Sessions belong to a scrape: its ID is saved automatically, so later interact calls can leave it out, though a saved session may expire after about ten minutes. Prompts such as \"click the login button\" or \"extract the pricing table\" work in plain language, and --code runs agent-browser commands for precise control. A read-only reconnect leaves a profile's saved state untouched. For parallel work it scrapes several pages and drives each by its own scrape ID. Web searches belong to firecrawl search; interact is for acting on one page.",
+          "permalink": "https://github.com/firecrawl/cli/tree/da25d5cd06db21cb33b100661cea0d9b89d457a3/skills/firecrawl-interact"
+        },
+        "tags": [
+          "category:browser",
+          "type:tool",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:firecrawl",
+          "flag:mirror",
+          "effect:remote",
+          "browser-automation",
+          "scraping"
+        ]
+      }
+    },
+    {
+      "id": "firecrawl/cli/skills/firecrawl-parse",
+      "name": "firecrawl-parse",
+      "skills.sh": {
+        "url": "https://skills.sh/firecrawl/cli/firecrawl-parse",
+        "installs": 51400,
+        "weeklyInstalls": [279, 291, 306, 352, 259, 250, 237, 236],
+        "firstSeen": "2026-04-27"
+      },
+      "skillMd": {
+        "version": "da25d5cd06db21cb33b100661cea0d9b89d457a3",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Converts local PDF, Word, Excel, HTML and other documents to Markdown through the Firecrawl CLI, or summarizes them or answers questions.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "the input is a file on disk, such as a PDF, DOCX, ODT, RTF, XLSX or HTML file, not a URL"
+            },
+            {
+              "label": "It does",
+              "text": "runs firecrawl parse, which uploads the file to Firecrawl and returns Markdown, an AI summary or an answer to your question"
+            },
+            {
+              "label": "You get",
+              "text": "a Markdown file under .firecrawl/, read in small pieces with head or grep"
+            },
+            {
+              "label": "Needs",
+              "text": "the Firecrawl CLI and Firecrawl credits, about one per PDF page and one per HTML file; files up to 50 MB"
+            },
+            {
+              "label": "Unlike firecrawl-scrape",
+              "text": "the same conversion, for files on disk instead of URLs"
+            }
+          ],
+          "text": "A short guide to one command. It always writes to .firecrawl/ and suggests adding that folder to .gitignore, since parsed documents can run to hundreds of kilobytes. It checks .firecrawl/ before parsing the same file again, and suggests checking your credit balance before batch jobs.",
+          "permalink": "https://github.com/firecrawl/cli/tree/da25d5cd06db21cb33b100661cea0d9b89d457a3/skills/firecrawl-parse"
+        },
+        "tags": [
+          "category:documents",
+          "type:tool",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:firecrawl",
+          "flag:mirror",
+          "effect:remote",
+          "pdf",
+          "documents"
+        ]
+      }
+    },
+    {
+      "id": "firecrawl/cli/skills/firecrawl-monitor",
+      "name": "firecrawl-monitor",
+      "skills.sh": {
+        "url": "https://skills.sh/firecrawl/cli/firecrawl-monitor",
+        "installs": 33600,
+        "weeklyInstalls": [261, 281, 290, 337, 233, 231, 217, 215],
+        "firstSeen": "2026-05-28"
+      },
+      "skillMd": {
+        "version": "da25d5cd06db21cb33b100661cea0d9b89d457a3",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Sets up Firecrawl monitors that check pages, sites or web searches on a schedule and alert you by email or webhook when something changes.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to hear when a page, a set of pages or a whole site changes, or when new web results match a goal"
+            },
+            {
+              "label": "It does",
+              "text": "creates monitors with a schedule in plain words and a goal saying what matters; Firecrawl fetches, compares, judges and notifies on its servers"
+            },
+            {
+              "label": "You get",
+              "text": "a monitor confirmed by a test check, and email or webhook alerts; each checked page is labeled same, new, changed, removed or error"
+            },
+            {
+              "label": "Needs",
+              "text": "the Firecrawl CLI and a Firecrawl account; each check costs credits, and zero-data-retention teams can't use monitoring"
+            },
+            {
+              "label": "Runs",
+              "text": "until paused or deleted, as often as every five minutes"
+            },
+            {
+              "label": "Unlike firecrawl-scrape",
+              "text": "for checking the same URL more than once; one monitor replaces repeated scrapes"
+            }
+          ],
+          "text": "It has four target modes: one page, a batch of URLs, every page a crawl finds, or web searches that alert on results not seen before, which need a goal. The goal, two or three sentences starting \"Alert when\", is what Firecrawl's AI judge uses to decide whether a page changed in a way that matters; a guide that ships with the skill shows how to write it, and the queries of a search monitor. A second guide covers tracking fields such as a price or a stock flag, which reports each field's old and new value instead of a text diff. After creating a monitor the agent triggers a check right away to confirm the target, state and notifications. Other commands list, inspect, update, pause and delete monitors and filter a check's pages to the changed ones. External email recipients must confirm by email before they get alerts. On a rate-limit error it waits about 30 seconds and retries once; if that fails, it stops and deletes the monitors it created for the task.",
+          "permalink": "https://github.com/firecrawl/cli/tree/da25d5cd06db21cb33b100661cea0d9b89d457a3/skills/firecrawl-monitor"
+        },
+        "tags": [
+          "category:browser",
+          "type:tool",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:firecrawl",
+          "flag:mirror",
+          "effect:remote",
+          "scraping",
+          "web-search"
+        ],
+        "note": "Monitors keep running on Firecrawl's servers, using credits on every check, until you pause or delete them."
       }
     }
   ]
