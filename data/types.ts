@@ -112,10 +112,8 @@ export interface Facet {
 }
 
 export interface Repo {
-  /** GitHub `owner/name`. */
+  /** GitHub `owner/name`: its page is https://github.com/<id>. */
   id: string;
-  /** Its GitHub page. */
-  url: string;
   /** GitHub stars, or null when unknown. crawl.ts refreshes them for the repos of approved skills and bundles. */
   stars: number | null;
   /** How many of the repo's skills were in the skills.sh all-time top 600. */

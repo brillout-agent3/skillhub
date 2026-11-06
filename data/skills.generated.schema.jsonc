@@ -154,11 +154,7 @@
       "properties": {
         "id": {
           "type": "string",
-          "description": "GitHub `owner/name`."
-        },
-        "url": {
-          "type": "string",
-          "description": "Its GitHub page."
+          "description": "GitHub `owner/name`: its page is https://github.com/<id>."
         },
         "stars": {
           "type": ["number", "null"],
@@ -173,7 +169,7 @@
           "description": "What an agent wrote about the repo: everything else is collected by scripts."
         }
       },
-      "required": ["id", "url", "stars", "leaderboardSkills", "agentReview"],
+      "required": ["id", "stars", "leaderboardSkills", "agentReview"],
       "additionalProperties": false
     },
     "RepoReview": {
