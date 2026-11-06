@@ -61615,6 +61615,935 @@
           "guardrails"
         ]
       }
+    },
+    {
+      "id": "openclaw/openclaw/skills/skill-creator",
+      "name": "skill-creator",
+      "skills.sh": {
+        "url": "https://skills.sh/openclaw/openclaw/skill-creator",
+        "installs": 6700,
+        "weeklyInstalls": [142, 138, 137, 129, 23, 14, 12, 9],
+        "firstSeen": "2026-01-24"
+      },
+      "skillMd": {
+        "version": "f99d785d2ac6269b37a1c88eb8d5ef2283b76b99",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes, reviews or repairs agent skills for OpenClaw in five checked steps, then validates the SKILL.md frontmatter with a bundled script.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to write a new skill for OpenClaw, or review, repair or restructure an existing SKILL.md and its files"
+            },
+            {
+              "label": "It does",
+              "text": "walks five steps, each closed by a \"done when\" check: list each distinct case the skill handles, pick how it's invoked, lay out its files, draft, validate"
+            },
+            {
+              "label": "You get",
+              "text": "a SKILL.md with references/, scripts/ and assets/ as needed, as a pending proposal in OpenClaw's skill_workshop tool or a diff in your repo"
+            },
+            {
+              "label": "Validates with",
+              "text": "a bundled Python script that checks the frontmatter: only allowed keys, a hyphen-case name, and a description of at most 1,024 characters without angle brackets"
+            },
+            {
+              "label": "Unlike",
+              "text": "Anthropic's skill-creator, it runs no evals: it's a short checklist built around OpenClaw's frontmatter fields and its skill_workshop tool"
+            }
+          ],
+          "text": "OpenClaw's own guide to authoring skills in the AgentSkills format. It starts by pinning down the contract: each real branch of the workflow, as opposed to a synonym for another, gets a trigger, an expected outcome and a place where its result is saved. Then it picks how the skill is reached: found by the model through its description, run only by hand with disable-model-invocation, or dispatched straight to a tool without the model. Shared steps go in SKILL.md, each ending with a checkable completion criterion; branch-only detail goes to references/, helpers to scripts/, output resources to assets/ and UI metadata to agents/. A live workspace skill is drafted as a pending proposal in OpenClaw's skill_workshop tool, leaving the live files untouched until it's applied; a skill kept in a repository goes through that repo's normal edit and review. Last, it runs quick_validate.py on the skill folder, plus the focused test of every helper it touched. The validator accepts only the frontmatter fields OpenClaw supports, such as metadata, homepage, user-invocable and command-dispatch, and rejects any other key.",
+          "permalink": "https://github.com/openclaw/openclaw/tree/f99d785d2ac6269b37a1c88eb8d5ef2283b76b99/skills/skill-creator"
+        },
+        "tags": [
+          "category:skill-tools",
+          "type:workflow",
+          "effect:local",
+          "needs:openclaw",
+          "by:official",
+          "skill-authoring"
+        ],
+        "note": "Built for OpenClaw: live skills are drafted with OpenClaw's skill_workshop tool, and its validator rejects frontmatter keys OpenClaw doesn't support."
+      }
+    },
+    {
+      "id": "openclaw/openclaw/skills/coding-agent",
+      "name": "coding-agent",
+      "skills.sh": {
+        "url": "https://skills.sh/openclaw/openclaw/coding-agent",
+        "installs": 6500,
+        "weeklyInstalls": [130, 126, 124, 120, 16, 13, 9, 6],
+        "firstSeen": "2026-01-24"
+      },
+      "skillMd": {
+        "version": "f99d785d2ac6269b37a1c88eb8d5ef2283b76b99",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Hands feature builds, PR reviews, refactors and issue-to-PR work from OpenClaw to background Codex, Claude Code or OpenCode workers in isolated git worktrees.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want OpenClaw to hand a feature build, PR review, large refactor or issue-to-PR job to Codex, Claude Code or OpenCode, running in the background"
+            },
+            {
+              "label": "It does",
+              "text": "prepares an isolated git worktree from a freshly fetched base, writes the worker's prompt to a file, launches the worker and monitors it"
+            },
+            {
+              "label": "You get",
+              "text": "the worker's session ID right away, then one completion or failure message from the worker in your chat"
+            },
+            {
+              "label": "Needs",
+              "text": "OpenClaw with this skill enabled in its config, and the claude, codex or opencode CLI, signed in"
+            },
+            {
+              "label": "Watch for",
+              "text": "Claude Code runs with --permission-mode bypassPermissions; Codex gets a separate login in ~/.codex-coding-agent, never your usual ~/.codex"
+            },
+            {
+              "label": "Not for",
+              "text": "simple edits, read-only code lookup, or work inside OpenClaw's own state directories"
+            }
+          ],
+          "text": "A delegation playbook for OpenClaw. Every worker starts in the background and reports back itself, with openclaw message send, to a chat route captured before launch; the agent watches it with OpenClaw's process tool, reports only milestones, questions, errors and the finish, and respawns or asks rather than quietly coding the task itself if a worker fails. Before work that changes a git project, the agent proves the target repo, remote and base branch, fetches, creates a fresh worktree and branch, checks that its starting commit matches the fetched base, and pastes those facts into the worker's prompt. Code from untrusted contributors is never checked out outside the repo's own sandboxed review workflow, nor given to a permission-bypassed worker. For long jobs, a GitHub issue serves as the spec: the worker implements, tests, reviews until no actionable findings remain and opens the PR, checking just before pushing that its branch still sits on the latest base. Shared branches aren't rebased, reset or force-pushed unless you ask. A scratch mode runs Codex in a throwaway repo for work outside any project.",
+          "permalink": "https://github.com/openclaw/openclaw/tree/f99d785d2ac6269b37a1c88eb8d5ef2283b76b99/skills/coding-agent"
+        },
+        "tags": [
+          "category:agents",
+          "category:engineering",
+          "type:workflow",
+          "effect:remote",
+          "needs:openclaw",
+          "needs:cli",
+          "needs:account",
+          "needs:issue-tracker",
+          "by:community",
+          "stack:codex",
+          "stack:claude",
+          "stack:opencode",
+          "stack:git",
+          "stack:github",
+          "multi-agent",
+          "agent-workflows",
+          "git",
+          "implementation"
+        ],
+        "note": "Runs only in OpenClaw, once skills.entries.coding-agent.enabled is set in its config. It launches Claude Code with --permission-mode bypassPermissions, and its workers can push branches and open PRs."
+      }
+    },
+    {
+      "id": "openclaw/openclaw/skills/peekaboo",
+      "name": "peekaboo",
+      "skills.sh": {
+        "url": "https://skills.sh/openclaw/openclaw/peekaboo",
+        "installs": 6100,
+        "weeklyInstalls": [124, 135, 120, 118, 22, 17, 8, 15],
+        "firstSeen": "2026-01-24"
+      },
+      "skillMd": {
+        "version": "f99d785d2ac6269b37a1c88eb8d5ef2283b76b99",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Sees and operates macOS app interfaces with the Peekaboo CLI: annotated screenshots, clicks, typing, shortcuts and drags, checking the screen after each action.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want the agent to look at a Mac app's window and work it: click, type, scroll, press shortcuts, drag or manage windows and menus"
+            },
+            {
+              "label": "It does",
+              "text": "lists apps, takes a fresh snapshot of the target window annotated with its UI elements, acts on one, then looks again to check the result"
+            },
+            {
+              "label": "Needs",
+              "text": "macOS and the Peekaboo CLI, installed with Homebrew, plus the macOS permissions it checks, such as Screen Recording; its examples use version 4 syntax"
+            },
+            {
+              "label": "Watch for",
+              "text": "drags always move your shared cursor, and raw shortcuts and drags need foreground interaction to be authorized"
+            },
+            {
+              "label": "Works with",
+              "text": "OpenClaw's macOS app, which can host Peekaboo Bridge for its Computer Control; the skill keeps the socket already selected"
+            }
+          ],
+          "text": "A guide to Peekaboo, a macOS command-line tool that lets an agent see and operate app interfaces, with examples in its version 4 syntax. The agent lists running apps, then captures the target window with see, which returns a screenshot annotated with the window's UI elements. It reads those elements, acts on the intended app and window, and inspects the UI again to confirm the result, refreshing its view whenever the window changes rather than reusing old element IDs. For a plain screenshot it skips element detection. Rather than a full command reference, the skill sends the agent to each command's --help in the installed version, and maps the commands version 4 removed to their replacements. When it runs through OpenClaw's macOS app, it keeps the Bridge socket already selected and reports a missing host instead of switching providers. Troubleshooting covers removed commands, permission and host status, stale targets, and macOS 15's separate window picker prompt.",
+          "permalink": "https://github.com/openclaw/openclaw/tree/f99d785d2ac6269b37a1c88eb8d5ef2283b76b99/skills/peekaboo"
+        },
+        "tags": [
+          "category:agents",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "stack:peekaboo",
+          "stack:macos",
+          "computer-use"
+        ],
+        "note": "macOS only, with the Peekaboo CLI installed. It operates your real apps, and its drags move your shared cursor."
+      }
+    },
+    {
+      "id": "openclaw/openclaw/skills/clawhub",
+      "name": "clawhub",
+      "skills.sh": {
+        "url": "https://skills.sh/openclaw/openclaw/clawhub",
+        "installs": 6100,
+        "weeklyInstalls": [120, 121, 124, 123, 15, 12, 21, 9],
+        "firstSeen": "2026-01-31"
+      },
+      "skillMd": {
+        "version": "f99d785d2ac6269b37a1c88eb8d5ef2283b76b99",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Searches ClawHub for OpenClaw plugins, skills and agent Templates, and installs, updates, removes or publishes skills when you ask.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you ask OpenClaw for something it can't do yet, or want to find, install, update, remove or publish skills"
+            },
+            {
+              "label": "It does",
+              "text": "searches ClawHub, OpenClaw's public registry, for plugins by default, and for skills or agent Templates when you ask for those"
+            },
+            {
+              "label": "Installs",
+              "text": "only when you ask, verifying a skill before installing it; a search alone never installs anything"
+            },
+            {
+              "label": "Templates",
+              "text": "packages that create new agents, added from the Control UI's Pages → Templates once Settings → Labs → Templates is turned on"
+            },
+            {
+              "label": "Needs",
+              "text": "OpenClaw; removing and publishing skills also need the separate clawhub CLI from npm, and publishing a clawhub login"
+            },
+            {
+              "label": "Unlike",
+              "text": "find-skills, which searches skills.sh for any agent, it works only in OpenClaw and also covers plugins and Templates"
+            }
+          ],
+          "text": "OpenClaw's guide to ClawHub, its registry of plugins, skills and agent Templates at clawhub.ai. Asked for a capability, the agent searches plugins first, with the plugins tool or openclaw plugins search, and searches before saying something isn't available. Skills are searched, verified and installed with openclaw skills, into the current workspace or, with --global, for every local agent; the same command lists, checks and updates them. Templates are found through the registry's public API, paging through every result before claiming a full list, and added in the Control UI after reviewing the workspace files, skills, plugins, MCP servers and automations they bring; a reviewed local package can be previewed and added with openclaw templates. Removing a skill, and publishing or syncing your own, go through the standalone clawhub CLI, which asks for confirmation before it uninstalls.",
+          "permalink": "https://github.com/openclaw/openclaw/tree/f99d785d2ac6269b37a1c88eb8d5ef2283b76b99/skills/clawhub"
+        },
+        "tags": [
+          "category:skill-tools",
+          "type:tool",
+          "effect:remote",
+          "needs:openclaw",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:clawhub",
+          "skill-discovery"
+        ],
+        "note": "Runs only in OpenClaw. Publishing uploads your skill to the public ClawHub registry at clawhub.ai, after a clawhub login."
+      }
+    },
+    {
+      "id": "openclaw/openclaw/skills/healthcheck",
+      "name": "healthcheck",
+      "skills.sh": {
+        "url": "https://skills.sh/openclaw/openclaw/healthcheck",
+        "installs": 5600,
+        "weeklyInstalls": [132, 124, 120, 120, 17, 10, 22, 7],
+        "firstSeen": "2026-02-03"
+      },
+      "skillMd": {
+        "version": "f99d785d2ac6269b37a1c88eb8d5ef2283b76b99",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Audits the security of a machine running OpenClaw, from SSH and firewall to backups and the gateway, and proposes staged, reversible hardening.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to know how exposed the machine running OpenClaw is, and lock it down without cutting off your own access"
+            },
+            {
+              "label": "It does",
+              "text": "works out the host's setup, asking only for what's missing, runs read-only checks once you allow them, then asks which posture you want: convenience, balanced or strict"
+            },
+            {
+              "label": "You get",
+              "text": "a report of the current posture, findings with severity and evidence, a staged reversible plan, commands, and what it couldn't check"
+            },
+            {
+              "label": "Checks",
+              "text": "OpenClaw's security audit, gateway status and doctor lint, plus listening ports, firewall, SSH, updates, disk encryption and backups on macOS, Linux or Windows"
+            },
+            {
+              "label": "Changes",
+              "text": "nothing without your confirmation; SSH, firewall and remote access stay untouched until your access path is confirmed"
+            }
+          ],
+          "text": "A security review for the host OpenClaw runs on, whether a personal workstation, a local assistant box or a remote server. The agent first works out what it can: the OS, whether it's in a container, its privileges, how you reach it (locally, over SSH, RDP or a tailnet), its network exposure, the OpenClaw gateway's bind and auth, backups, disk encryption and automatic updates, asking you only for what's missing. With your permission it runs read-only checks, from openclaw security audit --deep to the OS's firewall, listening ports and encryption status. It then reports and offers only the hardening items that apply, such as binding the gateway to loopback, LAN or tailnet on purpose, requiring auth for remote access, closing public ports, enabling updates and disk encryption, verifying backups, requiring SSH keys, and scheduling the audit. It prefers reversible steps with rollback notes, never prints secrets, only recommends when it doesn't know your role, and never claims OpenClaw manages the firewall, SSH or updates.",
+          "permalink": "https://github.com/openclaw/openclaw/tree/f99d785d2ac6269b37a1c88eb8d5ef2283b76b99/skills/healthcheck"
+        },
+        "tags": [
+          "category:security",
+          "type:workflow",
+          "effect:local",
+          "needs:openclaw",
+          "by:official",
+          "security",
+          "infrastructure"
+        ],
+        "note": "Built for hosts running OpenClaw: its checks start with the openclaw CLI's security audit, gateway status and doctor commands."
+      }
+    },
+    {
+      "id": "openclaw/openclaw/skills/model-usage",
+      "name": "model-usage",
+      "skills.sh": {
+        "url": "https://skills.sh/openclaw/openclaw/model-usage",
+        "installs": 5500,
+        "weeklyInstalls": [132, 130, 114, 125, 17, 10, 5, 7],
+        "firstSeen": "2026-01-24"
+      },
+      "skillMd": {
+        "version": "f99d785d2ac6269b37a1c88eb8d5ef2283b76b99",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Shows what your Codex or Claude usage cost per model, from CodexBar's local logs, for the current model or all of them.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to know which models your Codex or Claude spending went to, or what the model you're on now has cost"
+            },
+            {
+              "label": "It does",
+              "text": "runs a bundled Python script on CodexBar's cost data and totals each model's cost, or reports the costliest model of the latest day"
+            },
+            {
+              "label": "You get",
+              "text": "a text or JSON summary of cost per model; CodexBar's data doesn't split tokens by model"
+            },
+            {
+              "label": "Needs",
+              "text": "the CodexBar CLI on macOS or Linux, or a cost JSON exported from CodexBar on other platforms"
+            },
+            {
+              "label": "Reads",
+              "text": "only local data: CodexBar computes cost from Codex's and Claude's session logs on your machine"
+            }
+          ],
+          "text": "A small OpenClaw skill on top of CodexBar, a tool that tracks Codex and Claude usage. The bundled script runs codexbar cost for the provider you pick, or reads a cost JSON from a file or stdin, then works in one of two modes. Current mode takes the most recent day that has per-model figures and reports its costliest model, falling back to the last model used when those figures are missing; --model names a model instead. All mode adds up each model's cost across every day. Output is plain text by default, or JSON. The figures are cost only, since CodexBar doesn't break tokens down by model.",
+          "permalink": "https://github.com/openclaw/openclaw/tree/f99d785d2ac6269b37a1c88eb8d5ef2283b76b99/skills/model-usage"
+        },
+        "tags": [
+          "category:agents",
+          "type:tool",
+          "effect:none",
+          "needs:cli",
+          "by:community",
+          "stack:codexbar",
+          "stack:codex",
+          "stack:claude",
+          "observability"
+        ],
+        "note": "Needs the CodexBar CLI for live reads on macOS or Linux; elsewhere, give it a cost JSON exported from CodexBar."
+      }
+    },
+    {
+      "id": "openclaw/openclaw/skills/openai-whisper-api",
+      "name": "openai-whisper-api",
+      "skills.sh": {
+        "url": "https://skills.sh/openclaw/openclaw/openai-whisper-api",
+        "installs": 5500,
+        "weeklyInstalls": [126, 132, 121, 127, 21, 16, 11, 14],
+        "firstSeen": "2026-01-24"
+      },
+      "skillMd": {
+        "version": "f99d785d2ac6269b37a1c88eb8d5ef2283b76b99",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Transcribes audio files through OpenAI's transcription API with a bundled script, with optional speaker labels, language hints and JSON output.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a transcript of an audio file, with speakers labelled if you like, and don't mind sending it to OpenAI"
+            },
+            {
+              "label": "It does",
+              "text": "uploads the file to OpenAI's transcription endpoint with a bundled script, using gpt-4o-transcribe unless you pick mini, diarize or whisper-1"
+            },
+            {
+              "label": "You get",
+              "text": "a text file beside the audio or wherever --out points, or the JSON response with --json"
+            },
+            {
+              "label": "Needs",
+              "text": "an OpenAI API key, curl and Node.js; OPENAI_BASE_URL can point it at a compatible proxy or local gateway"
+            },
+            {
+              "label": "Limits",
+              "text": "25 MB per file on the hosted API, in formats such as mp3, m4a, wav and webm"
+            },
+            {
+              "label": "Unlike",
+              "text": "openai-whisper, which runs Whisper on your machine with no key, this one transcribes in OpenAI's cloud"
+            }
+          ],
+          "text": "A wrapper around OpenAI's /v1/audio/transcriptions endpoint. The agent runs the skill's transcribe.sh on an audio file, and the script writes the transcript beside it as a .txt file unless --out names another path. Flags pick the model, set the language, add a prompt with hints such as speaker names, or keep the JSON. The diarize model labels who is speaking, and the script writes each segment as a speaker: text line; that model doesn't take a prompt. The key comes from OPENAI_API_KEY or the skill's entry in OpenClaw's config file.",
+          "permalink": "https://github.com/openclaw/openclaw/tree/f99d785d2ac6269b37a1c88eb8d5ef2283b76b99/skills/openai-whisper-api"
+        },
+        "tags": [
+          "category:media",
+          "type:tool",
+          "effect:local",
+          "needs:account",
+          "by:community",
+          "stack:openai",
+          "audio"
+        ],
+        "note": "Needs an OpenAI API key; your audio is uploaded to OpenAI, or to the endpoint you set in OPENAI_BASE_URL."
+      }
+    },
+    {
+      "id": "openclaw/openclaw/skills/blogwatcher",
+      "name": "blogwatcher",
+      "skills.sh": {
+        "url": "https://skills.sh/openclaw/openclaw/blogwatcher",
+        "installs": 5400,
+        "weeklyInstalls": [127, 127, 113, 124, 17, 12, 4, 8],
+        "firstSeen": "2026-01-24"
+      },
+      "skillMd": {
+        "version": "f99d785d2ac6269b37a1c88eb8d5ef2283b76b99",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Tracks blogs and RSS or Atom feeds with the blogwatcher CLI, scanning them for new articles and marking articles read.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you follow a few blogs or feeds and want to ask your agent what's new"
+            },
+            {
+              "label": "It does",
+              "text": "adds blogs by name and URL, scans every tracked blog for new posts and lists the articles"
+            },
+            {
+              "label": "You get",
+              "text": "a list of new articles, which you can mark read one at a time or all at once"
+            },
+            {
+              "label": "Needs",
+              "text": "the blogwatcher CLI, installed with go install"
+            }
+          ],
+          "text": "A short OpenClaw command list for blogwatcher, a command-line tool that keeps track of blogs and RSS or Atom feeds. The agent adds a blog with a name and URL, lists the tracked blogs, scans them all for updates, lists the articles found, marks one article or all of them read, and removes a blog. The example output shows a scan reporting, for each blog, the source type, such as RSS, and how many posts it found and how many are new. For anything else, the skill sends the agent to blogwatcher's own --help.",
+          "permalink": "https://github.com/openclaw/openclaw/tree/f99d785d2ac6269b37a1c88eb8d5ef2283b76b99/skills/blogwatcher"
+        },
+        "tags": [
+          "category:browser",
+          "category:personal",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "stack:blogwatcher",
+          "research",
+          "personal"
+        ],
+        "note": "Needs the blogwatcher CLI, installed with go install."
+      }
+    },
+    {
+      "id": "openclaw/openclaw/skills/goplaces",
+      "name": "goplaces",
+      "skills.sh": {
+        "url": "https://skills.sh/openclaw/openclaw/goplaces",
+        "installs": 5400,
+        "weeklyInstalls": [135, 142, 129, 132, 30, 28, 6, 8],
+        "firstSeen": "2026-01-24"
+      },
+      "skillMd": {
+        "version": "f99d785d2ac6269b37a1c88eb8d5ef2283b76b99",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Finds places such as cafés or restaurants through Google Places with the goplaces CLI, filtered by rating, area or open now, with reviews.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you ask for coffee open now, the best-rated pizza near a spot, or a place's details and reviews"
+            },
+            {
+              "label": "It does",
+              "text": "runs goplaces search, resolve or details against Google's Places API (New), in readable text or JSON"
+            },
+            {
+              "label": "Filters",
+              "text": "open now, minimum rating, result limit, and a location with a radius in meters"
+            },
+            {
+              "label": "You get",
+              "text": "matching places, or one place's details with its reviews"
+            },
+            {
+              "label": "Needs",
+              "text": "the goplaces CLI from Homebrew and a Google Places API key"
+            }
+          ],
+          "text": "A short OpenClaw guide to goplaces, a command-line client for the new Google Places API. The agent searches by text, such as coffee, with filters for places open now, a minimum rating and a result limit, and can bias a search to coordinates and a radius. It pages through results with a page token, resolves a place name like Soho, London to candidates, and fetches a place's details, with its reviews, by place ID. Output is readable text by default, or JSON for scripts. The skill notes that price levels run from 0, free, to 4, very expensive, and that only the first --type filter is sent, since the API accepts one.",
+          "permalink": "https://github.com/openclaw/openclaw/tree/f99d785d2ac6269b37a1c88eb8d5ef2283b76b99/skills/goplaces"
+        },
+        "tags": [
+          "category:personal",
+          "type:tool",
+          "effect:none",
+          "needs:cli",
+          "needs:account",
+          "by:community",
+          "stack:goplaces",
+          "stack:google-places",
+          "personal"
+        ],
+        "note": "Needs the goplaces CLI and a Google Places API key in GOOGLE_PLACES_API_KEY."
+      }
+    },
+    {
+      "id": "openclaw/openclaw/skills/sherpa-onnx-tts",
+      "name": "sherpa-onnx-tts",
+      "skills.sh": {
+        "url": "https://skills.sh/openclaw/openclaw/sherpa-onnx-tts",
+        "installs": 5300,
+        "weeklyInstalls": [129, 126, 120, 119, 23, 15, 7, 11],
+        "firstSeen": "2026-01-24"
+      },
+      "skillMd": {
+        "version": "f99d785d2ac6269b37a1c88eb8d5ef2283b76b99",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Turns text into a WAV file of speech on your own machine with sherpa-onnx and a downloaded voice model, with no cloud service.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want spoken audio from text without sending the text to a cloud service"
+            },
+            {
+              "label": "It does",
+              "text": "runs a wrapper script in the skill folder that calls sherpa-onnx's offline text-to-speech with your voice model"
+            },
+            {
+              "label": "You get",
+              "text": "a WAV file, tts.wav unless you name another"
+            },
+            {
+              "label": "Voice",
+              "text": "Piper's US English lessac voice by default; other models from sherpa-onnx's tts-models release work too"
+            },
+            {
+              "label": "Needs",
+              "text": "the sherpa-onnx runtime for macOS, Linux or Windows, a voice model, and Node for the wrapper"
+            },
+            {
+              "label": "Unlike sag",
+              "text": "it runs offline with no account, where sag uses ElevenLabs' cloud voices"
+            }
+          ],
+          "text": "A local text-to-speech skill from OpenClaw, built on sherpa-onnx's offline command-line TTS. Setup downloads the sherpa-onnx runtime for macOS, Linux or Windows and a voice model, by default Piper's en_US lessac voice in high quality, then records both folders as SHERPA_ONNX_RUNTIME_DIR and SHERPA_ONNX_MODEL_DIR in OpenClaw's config file. The agent then runs the wrapper script that ships in the skill folder with the text and an output path, and gets a WAV file. If a model folder holds more than one .onnx file, you name the one to use; the tokens file and data folder can be overridden too. For another voice, you download a different model from sherpa-onnx's tts-models release.",
+          "permalink": "https://github.com/openclaw/openclaw/tree/f99d785d2ac6269b37a1c88eb8d5ef2283b76b99/skills/sherpa-onnx-tts"
+        },
+        "tags": [
+          "category:media",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "stack:sherpa-onnx",
+          "audio",
+          "ai-generation"
+        ],
+        "note": "Setup is written for OpenClaw: the runtime and voice model download into ~/.openclaw and their paths go in OpenClaw's config; elsewhere, set SHERPA_ONNX_RUNTIME_DIR and SHERPA_ONNX_MODEL_DIR yourself. Its wrapper script runs on Node."
+      }
+    },
+    {
+      "id": "openclaw/openclaw/skills/oracle",
+      "name": "oracle",
+      "skills.sh": {
+        "url": "https://skills.sh/openclaw/openclaw/oracle",
+        "installs": 5200,
+        "weeklyInstalls": [129, 122, 112, 118, 20, 11, 4, 6],
+        "firstSeen": "2026-01-24"
+      },
+      "skillMd": {
+        "version": "f99d785d2ac6269b37a1c88eb8d5ef2283b76b99",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Asks a second model, GPT-5.5 Pro by default, for a review, debugging, refactoring or design pass over selected files, through the oracle CLI.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a stronger model's second opinion on a bug, a refactor, a design or a code review"
+            },
+            {
+              "label": "It does",
+              "text": "bundles a prompt with the fewest files that hold the answer, previews the token cost, then makes one run"
+            },
+            {
+              "label": "You get",
+              "text": "the other model's answer, which the skill says to treat as advisory and check against code and tests"
+            },
+            {
+              "label": "Engines",
+              "text": "the API when OPENAI_API_KEY is set, otherwise a browser session for GPT or Gemini; Claude, Grok and multi-model runs need the API"
+            },
+            {
+              "label": "Long runs",
+              "text": "Pro runs can take long; a timed-out run is reattached from its stored session, not re-run"
+            },
+            {
+              "label": "Needs",
+              "text": "the oracle CLI from npm, plus an OpenAI API key or a browser session"
+            }
+          ],
+          "text": "Oracle is a command-line tool that packs a prompt and a set of files into one request to another model, GPT-5.5 Pro by default. The skill's path: pick a tight file set, preview the payload and token spend with a dry run, then run it, in the browser for long Pro thinking or through the API. Since that model starts with no knowledge of the project, the skill gives a prompt template: a briefing with the stack and build and test commands, where things live, the exact question with verbatim errors and what was tried, constraints, and the output wanted. It covers including and excluding files with globs, which skip node_modules, dist and dotfiles by default and reject files over 1 MB, keeping .env files and keys out unless you ask, readable session slugs, and reattaching to sessions stored under ~/.oracle/sessions when a run detaches. Runs are one-shot, so for long investigations the agent writes a standalone prompt and file set it can rerun days later.",
+          "permalink": "https://github.com/openclaw/openclaw/tree/f99d785d2ac6269b37a1c88eb8d5ef2283b76b99/skills/oracle"
+        },
+        "tags": [
+          "category:debugging",
+          "category:agents",
+          "type:tool",
+          "effect:none",
+          "needs:cli",
+          "needs:account",
+          "needs:browser",
+          "by:community",
+          "stack:oracle-cli",
+          "stack:openai",
+          "code-review",
+          "debugging",
+          "refactoring",
+          "architecture"
+        ],
+        "note": "Needs the oracle CLI and either an OpenAI API key or ChatGPT in a browser for its browser engine; everything you attach is sent to that model's provider."
+      }
+    },
+    {
+      "id": "openclaw/openclaw/skills/gifgrep",
+      "name": "gifgrep",
+      "skills.sh": {
+        "url": "https://skills.sh/openclaw/openclaw/gifgrep",
+        "installs": 5200,
+        "weeklyInstalls": [129, 124, 121, 122, 18, 10, 3, 7],
+        "firstSeen": "2026-01-24"
+      },
+      "skillMd": {
+        "version": "f99d785d2ac6269b37a1c88eb8d5ef2283b76b99",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Searches Tenor and Giphy for GIFs with the gifgrep CLI, downloads them, and turns a GIF into a still or a frame grid.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a reaction GIF for a chat, doc or pull request, or a quick look at what's in a GIF"
+            },
+            {
+              "label": "It does",
+              "text": "searches Tenor or Giphy, browses results in a terminal UI, downloads picks and extracts stills or frame sheets"
+            },
+            {
+              "label": "You get",
+              "text": "GIF URLs or JSON results, downloads in ~/Downloads, and PNG stills or sheets of sampled frames"
+            },
+            {
+              "label": "Needs",
+              "text": "the gifgrep CLI; a Giphy API key only for Giphy, since Tenor falls back to a demo key"
+            },
+            {
+              "label": "Checks",
+              "text": "before using a GIF URL, that it loads, is served as image/gif and is really animated"
+            }
+          ],
+          "text": "An OpenClaw guide to gifgrep, a command-line GIF search. The agent searches by keyword, caps the number of results, and prints URLs or JSON with each result's id, title, URL, preview URL, tags and size, or opens a terminal UI to browse. Downloads go to ~/Downloads, and --reveal shows the last one in Finder. From a GIF file it can save the frame at a given time as a PNG, or a sheet: one PNG grid of sampled frames, with the number of frames, columns and padding adjustable, which the skill suggests for quick reviews, docs, PRs and chat. Still previews in the terminal work only in Kitty and Ghostty. The skill also sets rules for using GIFs: check that a URL resolves, is served as image/gif and is really animated, record its source, license and attribution, and download it into the project rather than hotlinking when a local file is needed.",
+          "permalink": "https://github.com/openclaw/openclaw/tree/f99d785d2ac6269b37a1c88eb8d5ef2283b76b99/skills/gifgrep"
+        },
+        "tags": [
+          "category:media",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "stack:gifgrep",
+          "stack:tenor",
+          "stack:giphy",
+          "image"
+        ]
+      }
+    },
+    {
+      "id": "openclaw/openclaw/skills/sag",
+      "name": "sag",
+      "skills.sh": {
+        "url": "https://skills.sh/openclaw/openclaw/sag",
+        "installs": 5200,
+        "weeklyInstalls": [126, 122, 114, 117, 18, 11, 3, 6],
+        "firstSeen": "2026-01-24"
+      },
+      "skillMd": {
+        "version": "f99d785d2ac6269b37a1c88eb8d5ef2283b76b99",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Speaks text aloud or saves it as audio with ElevenLabs voices through the sag CLI, with tips on pronunciation, pauses and tags like [whispers].",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want text read aloud, saved as an audio file, or a reply in a voice, such as a crazy scientist's"
+            },
+            {
+              "label": "It does",
+              "text": "runs sag, which plays ElevenLabs speech right away or writes an MP3 with -o"
+            },
+            {
+              "label": "Delivery",
+              "text": "respelling and hyphens for pronunciation, pause tags, and tags such as [whispers] or [laughs] on the expressive eleven_v3 model"
+            },
+            {
+              "label": "Models",
+              "text": "eleven_v3 by default; eleven_multilingual_v2 for stability, eleven_flash_v2_5 for speed"
+            },
+            {
+              "label": "Needs",
+              "text": "the sag CLI from Homebrew and an ElevenLabs API key"
+            },
+            {
+              "label": "Unlike sherpa-onnx-tts",
+              "text": "it uses ElevenLabs' cloud voices, where sherpa-onnx-tts runs offline with no account"
+            }
+          ],
+          "text": "An OpenClaw guide to sag, a command-line tool that speaks text with ElevenLabs voices, in the style of macOS's say command. The agent picks a voice, lists voices, or asks sag for model-specific prompting tips. To fix pronunciation it first respells words, adds hyphens or changes casing; it normalizes numbers, units and URLs, and can bias that to a language. Pauses are [pause] tags on eleven_v3 and SSML breaks on v2 and v2.5, and v3 also takes tags at the start of a line, such as [whispers], [sighs] or [sarcastic]. The skill says to confirm the voice and speaker before long output. When you ask for a voice reply, the agent writes an MP3 and attaches it to the chat with a MEDIA: line, in a voice called Clawd by default.",
+          "permalink": "https://github.com/openclaw/openclaw/tree/f99d785d2ac6269b37a1c88eb8d5ef2283b76b99/skills/sag"
+        },
+        "tags": [
+          "category:media",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "needs:account",
+          "by:community",
+          "stack:sag",
+          "stack:elevenlabs",
+          "audio",
+          "ai-generation"
+        ],
+        "note": "Needs the sag CLI and an ElevenLabs API key; your text is sent to ElevenLabs. Its chat voice replies attach the file with a MEDIA: line and default to a voice named Clawd, both from OpenClaw."
+      }
+    },
+    {
+      "id": "openclaw/openclaw/skills/camsnap",
+      "name": "camsnap",
+      "skills.sh": {
+        "url": "https://skills.sh/openclaw/openclaw/camsnap",
+        "installs": 5100,
+        "weeklyInstalls": [128, 122, 118, 121, 18, 11, 5, 6],
+        "firstSeen": "2026-01-24"
+      },
+      "skillMd": {
+        "version": "f99d785d2ac6269b37a1c88eb8d5ef2283b76b99",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Takes snapshots and clips from network cameras and webcams with the camsnap CLI, watches for motion, and moves pan-tilt-zoom webcams.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want your agent to check a camera, such as the kitchen one, or grab a frame from a webcam"
+            },
+            {
+              "label": "It does",
+              "text": "adds RTSP or ONVIF cameras by host and login, then takes snapshots, records clips of a set length or watches for motion"
+            },
+            {
+              "label": "You get",
+              "text": "image and video files, such as shot.jpg or a five-second clip.mp4"
+            },
+            {
+              "label": "Webcams",
+              "text": "on macOS, lists local devices, snaps from one, and moves gimbal cameras by pan and tilt"
+            },
+            {
+              "label": "Needs",
+              "text": "the camsnap CLI from Homebrew and ffmpeg on PATH"
+            }
+          ],
+          "text": "An OpenClaw guide to camsnap, a command-line tool for RTSP and ONVIF network cameras and local webcams. Cameras are kept in ~/.config/camsnap/config.yaml and added by name, host, user and password, and discover finds them on the network. The agent takes a snapshot, records a clip of a set duration, or watches a camera for motion above a threshold with an action to run; doctor probes the connections. The skill says to make a short test capture before longer clips. On macOS it also lists local webcams, snaps from one by device number, and reads, moves or homes pan-tilt-zoom cameras. Those moves are checked against the position reached and exit with an error if the camera didn't get there; if moves keep missing, the skill suggests turning off the camera's own AI framing.",
+          "permalink": "https://github.com/openclaw/openclaw/tree/f99d785d2ac6269b37a1c88eb8d5ef2283b76b99/skills/camsnap"
+        },
+        "tags": [
+          "category:media",
+          "category:personal",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "stack:camsnap",
+          "image",
+          "video"
+        ],
+        "note": "Needs camsnap and ffmpeg. Local webcams and pan-tilt-zoom are covered for macOS, where pan-tilt-zoom needs Camera permission."
+      }
+    },
+    {
+      "id": "openclaw/openclaw/skills/songsee",
+      "name": "songsee",
+      "skills.sh": {
+        "url": "https://skills.sh/openclaw/openclaw/songsee",
+        "installs": 5100,
+        "weeklyInstalls": [127, 121, 121, 123, 18, 11, 3, 8],
+        "firstSeen": "2026-01-24"
+      },
+      "skillMd": {
+        "version": "f99d785d2ac6269b37a1c88eb8d5ef2283b76b99",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Draws spectrograms and audio-feature panels, such as mel, chroma, loudness and tempo, from an audio file with the songsee CLI.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to see what's in a track or recording: its frequencies, pitch content, tempo or loudness"
+            },
+            {
+              "label": "It does",
+              "text": "runs songsee on an audio file or stdin, for the whole track or a time slice"
+            },
+            {
+              "label": "You get",
+              "text": "a JPG or PNG spectrogram, or a grid of panels when you ask for several views"
+            },
+            {
+              "label": "Views",
+              "text": "spectrogram, mel, chroma, HPSS, self-similarity, loudness, tempogram, MFCC and flux"
+            },
+            {
+              "label": "Needs",
+              "text": "the songsee CLI from Homebrew; ffmpeg for formats other than WAV and MP3"
+            }
+          ],
+          "text": "A short OpenClaw guide to songsee, a command-line tool that renders pictures of audio. A plain run draws a spectrogram, which shows a sound's frequencies over time. Listing several views in --viz draws them as a grid of panels: mel, chroma, HPSS (harmonic and percussive separation), self-similarity, loudness, tempogram, MFCC and spectral flux. Flags pick a palette such as magma or viridis, the image size, the FFT window and hop, a frequency range, a start time and duration, and JPG or PNG output. WAV and MP3 decode natively; other formats go through ffmpeg if it's installed.",
+          "permalink": "https://github.com/openclaw/openclaw/tree/f99d785d2ac6269b37a1c88eb8d5ef2283b76b99/skills/songsee"
+        },
+        "tags": [
+          "category:media",
+          "category:science",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "stack:songsee",
+          "audio",
+          "charts"
+        ]
+      }
+    },
+    {
+      "id": "openclaw/openclaw/skills/gh-issues",
+      "name": "gh-issues",
+      "skills.sh": {
+        "url": "https://skills.sh/openclaw/openclaw/gh-issues",
+        "installs": 5000,
+        "weeklyInstalls": [127, 124, 116, 118, 17, 10, 5, 6],
+        "firstSeen": "2026-02-17"
+      },
+      "skillMd": {
+        "version": "f99d785d2ac6269b37a1c88eb8d5ef2283b76b99",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Turns GitHub issues into pull requests with up to eight background agents, one per issue, and can then work through the PRs' review comments.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a repo has a backlog of issues you'd like agents to fix and turn into pull requests"
+            },
+            {
+              "label": "It does",
+              "text": "lists matching issues, skips those with an open PR, branch or recent claim, asks which to take, then starts up to eight background workers"
+            },
+            {
+              "label": "You get",
+              "text": "one PR per issue from a fix/issue-<n> branch, with tests run and a body covering problem, reason, user impact and evidence"
+            },
+            {
+              "label": "Reviews",
+              "text": "with --reviews-only or --watch, workers patch its PRs for actionable review comments, push and reply"
+            },
+            {
+              "label": "Options",
+              "text": "filter by label, milestone, assignee or state; --fork pushes to your fork, --dry-run only lists, --cron spawns workers and exits"
+            },
+            {
+              "label": "Needs",
+              "text": "gh and git with GitHub auth, a clean working tree, and an agent that runs background workers"
+            }
+          ],
+          "text": "An issue-to-PR loop from OpenClaw, run with gh and git. The agent resolves the repo from the origin remote or your argument, checks GitHub auth, and stops on a dirty working tree unless you say otherwise. It fetches issues with your filters, ten open ones by default, and drops any that already have an open PR, a fix/issue-<n> branch, or a claim under two hours old in a local claim file. Once you choose all issues or some, it launches up to eight background workers, each told to branch from the base, make a minimal fix, run the relevant tests, commit with a conventional message, push and open a PR. It then reports each issue as PR opened, skipped, failed or timed out. A reviews mode finds the workflow's own fix/issue-* PRs, ignores praise and already-addressed comments, and sends one worker per PR to patch, push without force and reply to each comment it fixed. Watch mode repeats both on an interval until you stop it. In fork mode, branches go to your fork and PRs to the source repo.",
+          "permalink": "https://github.com/openclaw/openclaw/tree/f99d785d2ac6269b37a1c88eb8d5ef2283b76b99/skills/gh-issues"
+        },
+        "tags": [
+          "category:engineering",
+          "category:agents",
+          "type:workflow",
+          "effect:remote",
+          "needs:cli",
+          "needs:subagents",
+          "needs:issue-tracker",
+          "by:community",
+          "stack:github",
+          "stack:git",
+          "issue-tracking",
+          "multi-agent",
+          "agent-workflows",
+          "implementation"
+        ],
+        "note": "Its workers push branches, open pull requests and reply to review comments on GitHub; --yes or --cron skip asking which issues to take, and --watch keeps polling until you say stop. It keeps claim files in ~/.openclaw and notifies through OpenClaw when you name a channel."
+      }
     }
   ]
 }
