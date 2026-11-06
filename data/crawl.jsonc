@@ -471,19 +471,6 @@
       }
     },
     {
-      "name": "xlsx-manipulation",
-      "repo": "claude-office-skills/skills",
-      "official": false,
-      "stars": 567,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/claude-office-skills/skills/xlsx-manipulation",
-        "installs": 6700,
-        "weeklyInstalls": [89, 105, 111, 95, 146, 299, 236, 118],
-        "firstSeen": "2026-03-09"
-      }
-    },
-    {
       "name": "urp-postprocessing",
       "repo": "unity-technologies/skills",
       "official": false,
@@ -585,19 +572,6 @@
         "installs": 6600,
         "weeklyInstalls": [197, 188, 156, 355, 311, 356, 352, 328],
         "firstSeen": "2026-02-01"
-      }
-    },
-    {
-      "name": "whatsapp-automation",
-      "repo": "claude-office-skills/skills",
-      "official": false,
-      "stars": 567,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/claude-office-skills/skills/whatsapp-automation",
-        "installs": 6600,
-        "weeklyInstalls": [76, 99, 80, 79, 124, 247, 199, 78],
-        "firstSeen": "2026-03-09"
       }
     },
     {
@@ -1082,19 +1056,6 @@
       }
     },
     {
-      "name": "telegram-bot",
-      "repo": "claude-office-skills/skills",
-      "official": false,
-      "stars": 567,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/claude-office-skills/skills/telegram-bot",
-        "installs": 6400,
-        "weeklyInstalls": [102, 116, 91, 88, 132, 267, 225, 107],
-        "firstSeen": "2026-03-09"
-      }
-    },
-    {
       "name": "storybrand-messaging",
       "repo": "wondelai/skills",
       "official": false,
@@ -1303,19 +1264,6 @@
       }
     },
     {
-      "name": "airtable-automation",
-      "repo": "claude-office-skills/skills",
-      "official": false,
-      "stars": 567,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/claude-office-skills/skills/airtable-automation",
-        "installs": 6300,
-        "weeklyInstalls": [50, 74, 55, 59, 98, 225, 176, 60],
-        "firstSeen": "2026-03-09"
-      }
-    },
-    {
       "name": "sarif-parsing",
       "repo": "trailofbits/skills",
       "official": true,
@@ -1485,19 +1433,6 @@
       }
     },
     {
-      "name": "docx-manipulation",
-      "repo": "claude-office-skills/skills",
-      "official": false,
-      "stars": 567,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/claude-office-skills/skills/docx-manipulation",
-        "installs": 6200,
-        "weeklyInstalls": [76, 100, 65, 71, 112, 250, 205, 84],
-        "firstSeen": "2026-03-09"
-      }
-    },
-    {
       "name": "update-skills-from-changelog",
       "repo": "elevenlabs/skills",
       "official": true,
@@ -1651,19 +1586,6 @@
         "installs": 6200,
         "weeklyInstalls": [178, 169, 186, 211, 233, 289, 239, 238],
         "firstSeen": "2026-02-15"
-      }
-    },
-    {
-      "name": "cv-builder",
-      "repo": "claude-office-skills/skills",
-      "official": false,
-      "stars": 567,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/claude-office-skills/skills/cv-builder",
-        "installs": 6200,
-        "weeklyInstalls": [77, 104, 92, 74, 130, 254, 218, 92],
-        "firstSeen": "2026-03-09"
       }
     },
     {
@@ -1859,19 +1781,6 @@
         "installs": 6100,
         "weeklyInstalls": [188, 158, 161, 139, 140, 263, 206, 139],
         "firstSeen": "2026-02-05"
-      }
-    },
-    {
-      "name": "pdf-to-docx",
-      "repo": "claude-office-skills/skills",
-      "official": false,
-      "stars": 567,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/claude-office-skills/skills/pdf-to-docx",
-        "installs": 6100,
-        "weeklyInstalls": [72, 99, 71, 64, 113, 242, 195, 75],
-        "firstSeen": "2026-03-04"
       }
     },
     {
@@ -3058,19 +2967,6 @@
       }
     },
     {
-      "name": "office-to-md",
-      "repo": "claude-office-skills/skills",
-      "official": false,
-      "stars": 567,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/claude-office-skills/skills/office-to-md",
-        "installs": 5800,
-        "weeklyInstalls": [59, 88, 64, 58, 109, 227, 185, 63],
-        "firstSeen": "2026-03-09"
-      }
-    },
-    {
       "name": "analyze",
       "repo": "anthropics/knowledge-work-plugins",
       "official": true,
@@ -3380,19 +3276,6 @@
         "installs": 5700,
         "weeklyInstalls": [70, 99, 83, 102, 96, 74, 95, 112],
         "firstSeen": "2026-03-30"
-      }
-    },
-    {
-      "name": "pptx-manipulation",
-      "repo": "claude-office-skills/skills",
-      "official": false,
-      "stars": 567,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/claude-office-skills/skills/pptx-manipulation",
-        "installs": 5700,
-        "weeklyInstalls": [78, 91, 64, 62, 106, 240, 194, 71],
-        "firstSeen": "2026-03-09"
       }
     },
     {
@@ -5281,19 +5164,6 @@
       }
     },
     {
-      "name": "discord-bot",
-      "repo": "claude-office-skills/skills",
-      "official": false,
-      "stars": 567,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/claude-office-skills/skills/discord-bot",
-        "installs": 5400,
-        "weeklyInstalls": [62, 87, 68, 81, 121, 240, 197, 86],
-        "firstSeen": "2026-03-09"
-      }
-    },
-    {
       "name": "principle-guard-the-context-window",
       "repo": "cursor/plugins",
       "official": false,
@@ -5343,19 +5213,6 @@
         "installs": 5400,
         "weeklyInstalls": [132, 195, 170, 154, 139, 96, 84, 89],
         "firstSeen": "2026-01-28"
-      }
-    },
-    {
-      "name": "doc-parser",
-      "repo": "claude-office-skills/skills",
-      "official": false,
-      "stars": 567,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/claude-office-skills/skills/doc-parser",
-        "installs": 5400,
-        "weeklyInstalls": [48, 77, 61, 58, 100, 223, 178, 62],
-        "firstSeen": "2026-03-05"
       }
     },
     {
@@ -27625,6 +27482,50 @@
     {
       "url": "https://skills.sh/jeffallan/claude-skills/rails-expert",
       "note": "Tool docs: an agent's manual for rails."
+    },
+    {
+      "url": "https://skills.sh/claude-office-skills/skills/xlsx-manipulation",
+      "note": "Tool docs: an agent's manual for openpyxl."
+    },
+    {
+      "url": "https://skills.sh/claude-office-skills/skills/whatsapp-automation",
+      "note": "Tool docs: an agent's manual for whatsapp."
+    },
+    {
+      "url": "https://skills.sh/claude-office-skills/skills/telegram-bot",
+      "note": "Tool docs: an agent's manual for telegram."
+    },
+    {
+      "url": "https://skills.sh/claude-office-skills/skills/airtable-automation",
+      "note": "Tool docs: an agent's manual for airtable."
+    },
+    {
+      "url": "https://skills.sh/claude-office-skills/skills/docx-manipulation",
+      "note": "Tool docs: an agent's manual for python-docx."
+    },
+    {
+      "url": "https://skills.sh/claude-office-skills/skills/cv-builder",
+      "note": "Tool docs: an agent's manual for rendercv."
+    },
+    {
+      "url": "https://skills.sh/claude-office-skills/skills/pdf-to-docx",
+      "note": "Tool docs: an agent's manual for pdf2docx."
+    },
+    {
+      "url": "https://skills.sh/claude-office-skills/skills/office-to-md",
+      "note": "Tool docs: an agent's manual for markitdown."
+    },
+    {
+      "url": "https://skills.sh/claude-office-skills/skills/pptx-manipulation",
+      "note": "Tool docs: an agent's manual for python-pptx."
+    },
+    {
+      "url": "https://skills.sh/claude-office-skills/skills/discord-bot",
+      "note": "Tool docs: an agent's manual for discord."
+    },
+    {
+      "url": "https://skills.sh/claude-office-skills/skills/doc-parser",
+      "note": "Tool docs: an agent's manual for docling."
     }
   ]
 }
