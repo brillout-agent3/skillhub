@@ -2,7 +2,7 @@ import { render } from "vike/abort";
 import type { PageContextServer } from "vike/types";
 import { renderSkillMd } from "../../markdown.ts";
 import { skillById } from "../../skills.ts";
-import { github } from "../../types.ts";
+import { github } from "../../../data/types.ts";
 
 // The copy of every SKILL.md, read at build time.
 const copies = import.meta.glob<string>("../../../data/skill-snapshots/**/*.md", {

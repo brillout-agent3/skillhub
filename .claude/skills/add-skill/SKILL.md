@@ -12,7 +12,7 @@ Every skill SkillHub knows of has one state, under its skills.sh page:
 - **Queued:** at the minimums or above, waiting for an agent to approve or skip it. In `data/crawl.jsonc`.
 - **Skipped:** not shown, with a note saying why, and no agent data: no tags, no TLDR, no copy. In `data/crawl.jsonc`.
 
-The daily crawl (`pnpm run crawl`) records new skills and moves them between crawled and queued. The daily sync skips an approved skill whose SKILL.md is gone from its repo. The two files are cumulative: a skill never leaves them, only its state changes, and `pnpm run check` fails when a skill has two states. `Crawl` in `scripts/data.ts` describes crawl.jsonc.
+The daily crawl (`pnpm run crawl`) records new skills and moves them between crawled and queued. The daily sync skips an approved skill whose SKILL.md is gone from its repo. The two files are cumulative: a skill never leaves them, only its state changes, and `pnpm run check` fails when a skill has two states. `Crawl` in `data/types.ts` describes crawl.jsonc.
 
 Both files are JSONC and may hold comments, which the scripts keep. Edit them in place, or in code with `readData`/`writeData` and `readCrawl`/`writeCrawl` of `scripts/data.ts`; `JSON.parse` and `JSON.stringify` would drop the comments.
 
@@ -34,7 +34,7 @@ Both files are JSONC and may hold comments, which the scripts keep. Edit them in
 
 ## Approve a skill, or retag one
 
-1. Add its entry to `skills` in `data/skills.jsonc`, and take it out of `data/crawl.jsonc`. SkillHub only shows skills that are on GitHub and on skills.sh: its `id` is where its SKILL.md lives on GitHub, as `Skill` in `website/types.ts` describes, and its `skills.sh` field comes from its entry in crawl.jsonc. Its repo needs an entry in `repos`; take `stars` from the crawl.jsonc entry, and leave `leaderboardSkills` at `null` for the daily crawl to fill in.
+1. Add its entry to `skills` in `data/skills.jsonc`, and take it out of `data/crawl.jsonc`. SkillHub only shows skills that are on GitHub and on skills.sh: its `id` is where its SKILL.md lives on GitHub, as `Skill` in `data/types.ts` describes, and its `skills.sh` field comes from its entry in crawl.jsonc. Its repo needs an entry in `repos`; take `stars` from the crawl.jsonc entry, and leave `leaderboardSkills` at `null` for the daily crawl to fill in.
 2. Run `pnpm run sync <id>` to save a copy of its SKILL.md in `data/skill-snapshots/`.
 3. Read that copy, not only the skill's one-line description, and tag it. Tag values and their meanings are under `facets` in `data/skills.jsonc`.
    1. Give it every `category:` that fits. Don't add a parent such as `category:software-engineering`: it comes with the categories it `includes`.
@@ -50,7 +50,7 @@ Both files are JSONC and may hold comments, which the scripts keep. Edit them in
 
 ## Bundles
 
-A bundle is skills of one repo meant to be installed and used together, such as the steps of a workflow. A collection of unrelated skills, such as `anthropics/skills`, isn't one. Record a bundle in `bundles` in `data/skills.jsonc`, as `Bundle` in `website/types.ts` describes:
+A bundle is skills of one repo meant to be installed and used together, such as the steps of a workflow. A collection of unrelated skills, such as `anthropics/skills`, isn't one. Record a bundle in `bundles` in `data/skills.jsonc`, as `Bundle` in `data/types.ts` describes:
 
 - Its `id` is the repo, or `<repo>@<name>` when the repo holds more than one bundle, or skills outside the bundle.
 - Its `skills` come in the order they're used. A skill is in one bundle at most, and only an approved skill can be in one.

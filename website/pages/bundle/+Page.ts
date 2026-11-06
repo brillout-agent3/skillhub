@@ -12,7 +12,7 @@ import {
   skillsOf,
   tldrHtml,
 } from "../../skills.ts";
-import type { Bundle } from "../../types.ts";
+import type { Bundle } from "../../../data/types.ts";
 import type { Data } from "./+data.ts";
 
 function facts(b: Bundle): string {

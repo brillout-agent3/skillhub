@@ -11,7 +11,7 @@ import {
   type Facet,
   type Skill,
   type Tldr,
-} from "./types.ts";
+} from "../data/types.ts";
 
 export const data = raw as Data;
 export const GITHUB = "https://github.com/brillout/skillhub";

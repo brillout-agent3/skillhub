@@ -22,7 +22,7 @@ import {
   type Bundle,
   type Skill,
   type Tldr,
-} from "../website/types.ts";
+} from "../data/types.ts";
 
 const git = (...args: string[]) =>
   execFileSync("git", ["-C", root, ...args], { encoding: "utf8" }).trim();

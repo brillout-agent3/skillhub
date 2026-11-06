@@ -32,7 +32,7 @@ import {
   tagsOf,
   weekOf,
 } from "./skills.ts";
-import type { Bundle, Skill } from "./types.ts";
+import type { Bundle, Skill } from "../data/types.ts";
 
 /** A row of the skills list: a skill, or a bundle with its skills inside. */
 type Entry = Skill | Bundle;

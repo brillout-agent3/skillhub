@@ -20,7 +20,7 @@ import {
   tagsOf,
   tldrHtml,
 } from "../../skills.ts";
-import { github, type Skill, type SkillMd } from "../../types.ts";
+import { github, type Skill, type SkillMd } from "../../../data/types.ts";
 import type { Data } from "./+data.ts";
 
 /** Where the copy of the SKILL.md came from. */

@@ -1,7 +1,7 @@
 /** The copies of every skill's SKILL.md, which ../scripts/sync.ts keeps in ../data/skill-snapshots/. */
 
 import { diffArrays } from "diff";
-import type { Skill } from "./types.ts";
+import type { Skill } from "../data/types.ts";
 
 /** Where the copy of a skill's SKILL.md lives, from the repo root. Not `<id>/SKILL.md`, so that `npx skills` doesn't take this repo for a skill bundle. */
 export const copyPath = (skill: Skill) => `data/skill-snapshots/${skill.id}.md`;

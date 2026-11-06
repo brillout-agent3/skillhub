@@ -10,7 +10,7 @@ import { fileURLToPath } from "node:url";
 import { approvedPages, pageKey, readCrawl, readData, readJsonc } from "./data.ts";
 import { generate, SCHEMAS } from "./schema.ts";
 import { copyPath } from "../website/skill-md.ts";
-import { bundleRepo, github, tldrProblems, type Facet } from "../website/types.ts";
+import { bundleRepo, github, tldrProblems, type Facet } from "../data/types.ts";
 
 const root = new URL("../", import.meta.url);
 const data = readData();

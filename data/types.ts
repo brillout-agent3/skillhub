@@ -1,11 +1,15 @@
 /**
- * The shape of ../data/skills.jsonc, the single data file behind the site: the approved skills,
- * the ones it shows. The skills the crawl found but that aren't approved are in
- * ../data/crawl.jsonc, as `Crawl` in ../scripts/data.ts describes.
+ * The shape of the data files: skills.jsonc, as `Data` describes, and crawl.jsonc, as `Crawl`
+ * describes. ../scripts/schema.ts generates their JSON Schemas from these types.
+ */
+
+/**
+ * The shape of skills.jsonc, the single data file behind the site: the approved skills, the ones
+ * it shows. The skills the crawl found but that aren't approved are in crawl.jsonc.
  */
 
 export interface Data {
-  /** The JSON Schema of this file, generated from this interface by ../scripts/schema.ts: for editors. */
+  /** The JSON Schema of this file, generated from this interface: for editors. */
   $schema: string;
   /** When the data was last edited (YYYY-MM-DD). */
   updated: string;
@@ -15,6 +19,47 @@ export interface Data {
   repos: Repo[];
   bundles: Bundle[];
   skills: Skill[];
+}
+
+/**
+ * The shape of data/crawl.jsonc: every skill the crawl has seen in the skills.sh all-time top 600
+ * that isn't approved (the approved ones are in skills.jsonc), keyed by its skills.sh page. The two
+ * files are cumulative: a skill that lands in either never leaves them, only its state changes.
+ * Unlike skills.jsonc, crawl.jsonc takes any skill, such as one a website publishes.
+ */
+export interface Crawl {
+  /** The JSON Schema of this file, generated from this interface: for editors. */
+  $schema: string;
+  /** When crawl.ts last ran (YYYY-MM-DD). */
+  asOf: string;
+  /** What a crawled skill needs to be queued: all-time installs, and its GitHub repo's stars. */
+  minimums: { installs: number; stars: number };
+  /** Below the minimums, most installed first. */
+  crawled: Crawled[];
+  /** At the minimums or above, most installed first: waiting for an agent to approve or skip them, with the add-skill skill. */
+  queued: Crawled[];
+  /** Not to be shown, each with why, and with no agent data: no tags, no TLDR, no copy of its SKILL.md. */
+  skipped: Skipped[];
+}
+
+export interface Crawled {
+  name: string;
+  /** Its GitHub repo, `owner/name`, as skills.sh names it: possibly an old name the repo redirects from. */
+  repo: string;
+  /** Whether skills.sh shows its publisher as verified. */
+  official: boolean;
+  /** Its repo's GitHub stars, or null when unknown. */
+  stars: number | null;
+  /** The last day the crawl saw it in the top 600, which its numbers are from (YYYY-MM-DD). */
+  seen: string;
+  /** Its `skills.sh` field once it's approved. */
+  "skills.sh": SkillsSh;
+}
+
+export interface Skipped {
+  /** Its skills.sh page. */
+  url: string;
+  note: string;
 }
 
 /** A tag dimension. Tags are written `facet:value`, except topics, which have no prefix. */

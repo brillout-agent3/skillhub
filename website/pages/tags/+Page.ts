@@ -10,7 +10,7 @@ import {
   tagOf,
   tagsOf,
 } from "../../skills.ts";
-import type { Facet } from "../../types.ts";
+import type { Facet } from "../../../data/types.ts";
 
 export default function Page(): string {
   const n = new Map<string, number>();
