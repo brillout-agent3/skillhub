@@ -1862,19 +1862,6 @@
       }
     },
     {
-      "name": "rag-implementation",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/rag-implementation",
-        "installs": 14400,
-        "weeklyInstalls": [206, 218, 252, 331, 271, 227, 253, 224],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
       "name": "data-visualization",
       "repo": "anthropics/knowledge-work-plugins",
       "official": true,
@@ -1940,19 +1927,6 @@
       }
     },
     {
-      "name": "deployment-pipeline-design",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/deployment-pipeline-design",
-        "installs": 14200,
-        "weeklyInstalls": [206, 234, 242, 299, 243, 223, 209, 221],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
       "name": "commit-history",
       "repo": "rohitg00/agentmemory",
       "official": false,
@@ -1963,19 +1937,6 @@
         "installs": 14200,
         "weeklyInstalls": [372, 394, 373, 341, 312, 331, 315, 295],
         "firstSeen": "2026-05-18"
-      }
-    },
-    {
-      "name": "changelog-automation",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/changelog-automation",
-        "installs": 14100,
-        "weeklyInstalls": [213, 238, 256, 302, 244, 200, 196, 179],
-        "firstSeen": "2026-01-20"
       }
     },
     {
@@ -2002,19 +1963,6 @@
         "installs": 14000,
         "weeklyInstalls": [945, 954, 1227, 2369, 2618, 1449, 1661, 1413],
         "firstSeen": "2026-07-19"
-      }
-    },
-    {
-      "name": "visual-design-foundations",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/visual-design-foundations",
-        "installs": 14000,
-        "weeklyInstalls": [198, 243, 331, 367, 317, 240, 263, 251],
-        "firstSeen": "2026-01-20"
       }
     },
     {
@@ -2174,19 +2122,6 @@
       }
     },
     {
-      "name": "debugging-strategies",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/debugging-strategies",
-        "installs": 13800,
-        "weeklyInstalls": [205, 229, 259, 297, 228, 240, 226, 207],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
       "name": "bmad-deep-recon",
       "repo": "bmad-code-org/bmad-method",
       "official": false,
@@ -2330,19 +2265,6 @@
       }
     },
     {
-      "name": "microservices-patterns",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/microservices-patterns",
-        "installs": 13600,
-        "weeklyInstalls": [198, 212, 254, 295, 249, 219, 222, 232],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
       "name": "speech-to-text",
       "repo": "elevenlabs/skills",
       "official": true,
@@ -2366,32 +2288,6 @@
         "installs": 13600,
         "weeklyInstalls": [340, 356, 474, 765, 879, 921, 1139, 1238],
         "firstSeen": "2026-01-29"
-      }
-    },
-    {
-      "name": "secrets-management",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/secrets-management",
-        "installs": 13600,
-        "weeklyInstalls": [209, 244, 259, 344, 269, 233, 218, 230],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "web-component-design",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/web-component-design",
-        "installs": 13500,
-        "weeklyInstalls": [197, 226, 243, 291, 241, 199, 211, 194],
-        "firstSeen": "2026-01-20"
       }
     },
     {
@@ -2460,19 +2356,6 @@
       }
     },
     {
-      "name": "protocol-reverse-engineering",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/protocol-reverse-engineering",
-        "installs": 13300,
-        "weeklyInstalls": [232, 255, 268, 315, 295, 329, 336, 345],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
       "name": "game-feel",
       "repo": "gamedev-skills/awesome-gamedev-agent-skills",
       "official": false,
@@ -2496,19 +2379,6 @@
         "installs": 13300,
         "weeklyInstalls": [998, 971, 760, 502, 649, 656, 573, 433],
         "firstSeen": "2026-06-14"
-      }
-    },
-    {
-      "name": "llm-evaluation",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/llm-evaluation",
-        "installs": 13200,
-        "weeklyInstalls": [263, 277, 280, 359, 310, 259, 256, 248],
-        "firstSeen": "2026-01-20"
       }
     },
     {
@@ -2603,19 +2473,6 @@
       }
     },
     {
-      "name": "startup-financial-modeling",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/startup-financial-modeling",
-        "installs": 13000,
-        "weeklyInstalls": [211, 226, 265, 347, 297, 250, 250, 231],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
       "name": "ultracite",
       "repo": "haydenbleasel/ultracite",
       "official": false,
@@ -2639,19 +2496,6 @@
         "installs": 13000,
         "weeklyInstalls": [666, 537, 415, 25, 21, 21, 16, 5],
         "firstSeen": "2026-04-08"
-      }
-    },
-    {
-      "name": "wcag-audit-patterns",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/wcag-audit-patterns",
-        "installs": 12900,
-        "weeklyInstalls": [199, 231, 263, 306, 250, 205, 236, 215],
-        "firstSeen": "2026-01-20"
       }
     },
     {

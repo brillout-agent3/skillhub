@@ -22742,6 +22742,624 @@
           "diagrams"
         ]
       }
+    },
+    {
+      "id": "wshobson/agents/plugins/llm-application-dev/skills/rag-implementation",
+      "name": "rag-implementation",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/rag-implementation",
+        "installs": 14400,
+        "weeklyInstalls": [206, 218, 252, 331, 271, 227, 253, 224],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Guides building retrieval-augmented generation (RAG) apps: vector stores, embeddings, chunking, hybrid search and reranking, with LangChain and LangGraph code.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're building a question-answering bot, a documentation assistant or a search over your own documents, and want answers grounded in them"
+            },
+            {
+              "label": "It does",
+              "text": "gives the agent the parts of a RAG system, which fetches relevant passages and hands them to the model, and the options for each part"
+            },
+            {
+              "label": "You get",
+              "text": "a design and Python code in LangChain and LangGraph; its reference file adds chunking, vector store setup, reranking, citation prompts and evaluation"
+            },
+            {
+              "label": "Covers",
+              "text": "Pinecone, Weaviate, Milvus, Chroma, Qdrant and pgvector, embedding models from Voyage, OpenAI and open source, and dense, keyword and hybrid search"
+            }
+          ],
+          "text": "A reference, not a step-by-step workflow. RAG, retrieval-augmented generation, means fetching passages from your own documents and putting them in the model's prompt, so answers rest on them rather than on the model's memory. The SKILL.md lists four parts and the choices for each: a vector database to store document embeddings, an embedding model to turn text into vectors (with a 2026 table of models and their dimensions), a retrieval strategy (dense, keyword such as BM25, hybrid, multi-query, or HyDE, which searches with a hypothetical answer), and reranking to reorder results. Its quick start builds a two-step LangGraph graph, retrieve then generate, with Claude, Voyage embeddings and Pinecone. A reference file holds worked code for hybrid search with rank fusion, multi-query retrieval, contextual compression, parent-document retrieval and HyDE; chunking by characters, tokens, meaning or Markdown headers; setup for five vector stores; metadata filtering, MMR (which balances relevance with variety), cross-encoder and Cohere reranking; prompts that cite sources; structured answers; and a function that scores retrieval precision and recall, and answer quality with an LLM judge.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/llm-application-dev/skills/rag-implementation"
+        },
+        "tags": [
+          "category:agents",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:langchain",
+          "agent-development",
+          "databases"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/cicd-automation/skills/deployment-pipeline-design",
+      "name": "deployment-pipeline-design",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/deployment-pipeline-design",
+        "installs": 14200,
+        "weeklyInstalls": [206, 234, 242, 299, 243, 223, 209, 221],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Designs multi-stage CI/CD pipelines with approval gates, canary or blue-green rollouts, health checks and automated rollback.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're designing CI/CD for a new service, adding gates between environments, moving to canary or blue-green releases, or debugging a stuck deployment gate"
+            },
+            {
+              "label": "It does",
+              "text": "works from your app, deployment target, environments, rollout and gate needs and monitoring stack to lay out stages, gates, rollout strategy, health checks and rollback"
+            },
+            {
+              "label": "You get",
+              "text": "a pipeline configuration, a chosen rollout strategy with annotated settings, health checks and smoke tests, gate definitions and a rollback plan"
+            },
+            {
+              "label": "Troubleshoots",
+              "text": "health checks that pass while production is broken, canaries that never promote, production jobs that never start, slow Docker builds and rollbacks that clash with migrations"
+            },
+            {
+              "label": "Works with",
+              "text": "GitHub Actions, GitLab CI, Azure Pipelines, Kubernetes and Argo Rollouts, in examples across two reference files"
+            }
+          ],
+          "text": "A reference for pipeline architecture rather than one CI product. The SKILL.md says what to give it and what it produces, then troubleshoots five failures: a shallow /ping health check that hides an unreachable database, an Argo Rollouts canary stuck because its Prometheus query returns no data, a production approval gate with no reviewer assigned, a Dockerfile that copies the source before installing dependencies, and a rollback that leaves new migrations under old code (keep migrations additive, with undo scripts). Its first reference file covers the stages from build to rollback; manual, delayed, multi-approver and metric-based gates; a decision table for rolling, blue-green, canary, recreate and feature-flag releases; shallow and deep health endpoints; a post-deploy check script; automated and manual rollback with kubectl; and DORA metrics. A second file holds full pipelines for GitHub Actions, GitLab CI and Azure Pipelines, multi-region canaries, advanced Argo Rollouts, expand/contract migrations, deployment freeze windows and Slack notifications. It points to github-actions-templates, gitlab-ci-patterns and secrets-management for one platform's details or for secrets.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/cicd-automation/skills/deployment-pipeline-design"
+        },
+        "tags": [
+          "category:engineering",
+          "category:cloud",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "ci",
+          "deployment"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/documentation-generation/skills/changelog-automation",
+      "name": "changelog-automation",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/changelog-automation",
+        "installs": 14100,
+        "weeklyInstalls": [213, 238, 256, 302, 244, 200, 196, 179],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Guides automated changelogs and release notes from Conventional Commits, in Keep a Changelog format, with setups for tools like semantic-release and git-cliff.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want changelogs and release notes generated from commit history instead of written by hand, or a team to agree on a commit message format"
+            },
+            {
+              "label": "It does",
+              "text": "explains Conventional Commits, how each commit type maps to a Keep a Changelog section, and which version number a change bumps"
+            },
+            {
+              "label": "You get",
+              "text": "commit message examples, a release notes template, and six automation setups in its reference file, from commitlint with husky to semantic-release and git-cliff"
+            },
+            {
+              "label": "Rules",
+              "text": "one logical change per commit, validate messages with commitlint and in CI, never hand-edit a generated changelog, always mark breaking changes"
+            }
+          ],
+          "text": "A reference for automating release documentation. Conventional Commits is a commit message format, type(scope): description, where the type (feat, fix, perf and so on) decides which changelog section a change lands in and whether the major, minor or patch number goes up; a ! or a BREAKING CHANGE footer marks a breaking change. Keep a Changelog is a changelog layout with an Unreleased section and Added, Changed, Deprecated, Removed, Fixed and Security headings under each version. The SKILL.md itself holds commit message examples, the body of an internal release notes template (summary, highlights, breaking changes, upgrade guide, known issues, updated dependencies) and do's and don'ts. The commit type table, the version rules and most of the changelog example sit in its reference file, which also gives six ways to automate it: conventional-changelog tooling with commitlint and a husky commit hook, standard-version, semantic-release for fully automated releases, a GitHub Actions release workflow, git-cliff, and commitizen for Python projects, plus a GitHub release notes template.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/documentation-generation/skills/changelog-automation"
+        },
+        "tags": [
+          "category:engineering",
+          "category:writing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:git",
+          "git",
+          "docs-writing",
+          "ci"
+        ],
+        "note": "Its SKILL.md was cut in the middle of a code block when it was split into two files. The Keep a Changelog example stops partway and continues at the top of the reference file, so the pointer to that file and a release notes template now sit inside the example's code block, and the commit type table and version rules are only in the reference file."
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/ui-design/skills/visual-design-foundations",
+      "name": "visual-design-foundations",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/visual-design-foundations",
+        "installs": 14000,
+        "weeklyInstalls": [198, 243, 331, 367, 317, 240, 263, 251],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Applies typography scales, an 8-point spacing grid, semantic color tokens and icon sizing to build consistent, accessible visual systems.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're setting up design tokens for a new project, choosing fonts, building an accessible color palette, planning dark mode or checking a UI for visual consistency"
+            },
+            {
+              "label": "It does",
+              "text": "gives the agent starting values as CSS variables: a type scale, a spacing scale, semantic color tokens and icon sizes, plus a starter Tailwind config"
+            },
+            {
+              "label": "You get",
+              "text": "designs built on named tokens instead of one-off values; it adds no steps or files of its own"
+            },
+            {
+              "label": "Also covers",
+              "text": "line heights, three font pairings, fluid type with clamp(), font loading without layout shift, WCAG contrast ratios, a contrast-checking function and dark-mode tokens"
+            }
+          ],
+          "text": "A reference of visual design basics with ready-made values. Typography gets a nine-step scale from 12 to 48 pixels, line heights for headings, body text and labels, three safe font pairings, fluid sizes with clamp(), a reading width of 65 characters and font-display: swap to avoid layout shift. Spacing follows an 8-point grid, a scale from 4 to 64 pixels, with suggested gaps for cards, sections, form fields, buttons and icons, and a vertical rhythm for prose. Colors are semantic tokens, named by purpose (primary, success, error) rather than by appearance, with a gray scale, a dark theme that swaps the same variables, WCAG minimum contrast ratios and a TypeScript function that computes contrast. Icons get a five-size scale and a React SVG component. A quick start puts fonts, font sizes, a brand color and extra spacing into a Tailwind config. It closes with rules, such as two or three font weights per family and mobile-first design, and common issues such as magic numbers, missing hover, focus and disabled states, and no plan for dark mode.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/ui-design/skills/visual-design-foundations"
+        },
+        "tags": [
+          "category:design",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "design",
+          "design-system",
+          "accessibility"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/developer-essentials/skills/debugging-strategies",
+      "name": "debugging-strategies",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/debugging-strategies",
+        "installs": 13800,
+        "weeklyInstalls": [205, 229, 259, 297, 228, 240, 226, 207],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Debugs systematically: reproduce the bug, gather evidence, form a hypothesis, then test it, with patterns for flaky, performance and production bugs.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're chasing a bug, an intermittent failure, a performance problem or a production issue, in any language or stack"
+            },
+            {
+              "label": "It does",
+              "text": "works in four phases: reproduce and shrink the bug, gather errors, environment and recent changes, form a hypothesis, then test it by bisecting, logging or isolating parts"
+            },
+            {
+              "label": "You get",
+              "text": "a root cause narrowed down by evidence rather than guesses, with notes on what you tried"
+            },
+            {
+              "label": "Also covers",
+              "text": "flaky bugs (race conditions, timing), performance (profile before optimizing), safe production debugging, and a checklist of usual suspects such as typos, off-by-ones and stale caches"
+            },
+            {
+              "label": "Tools file",
+              "text": "debuggers and profilers for JavaScript, Python and Go, git bisect, comparing working and broken setups, call tracing and memory-leak checks"
+            }
+          ],
+          "text": "A general debugging method for any codebase. It frames debugging as the scientific method: observe, hypothesize, experiment, analyze, repeat. First reproduce the bug and cut it down to a minimal case, then collect the full stack trace, versions, environment variables and recent code, dependency or configuration changes. Hypotheses come from asking what changed, what differs between working and broken, and where it could fail. Testing means binary search (comment out half the code), strategic logging, isolating components with mocks, and diffing working against broken setups. Before choosing tools or bisecting, the agent reads a second file with debugger and profiler examples for JavaScript and TypeScript, Python (pdb, cProfile) and Go (Delve, pprof), git bisect, a working-versus-broken table, a tracing decorator and heap-snapshot leak checks. Separate patterns cover intermittent bugs, performance issues and production bugs, where it says not to change production and to test fixes in staging first. It ends with common mistakes, such as changing several things at once or giving up too soon, and a checklist for when you're stuck.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/developer-essentials/skills/debugging-strategies"
+        },
+        "tags": [
+          "category:debugging",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "debugging",
+          "performance"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/backend-development/skills/microservices-patterns",
+      "name": "microservices-patterns",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/microservices-patterns",
+        "installs": 13600,
+        "weeklyInstalls": [198, 212, 254, 295, 249, 219, 222, 232],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Applies microservice architecture patterns: service boundaries, sync and event-driven communication, database per service, sagas, circuit breakers and retries.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're splitting a monolith into services, drawing service boundaries, or designing how services talk to each other and survive each other's failures"
+            },
+            {
+              "label": "It does",
+              "text": "gives the agent patterns for cutting services, calling them directly or through events, giving each its own data, and staying up when one fails"
+            },
+            {
+              "label": "You get",
+              "text": "designs along those patterns; it adds no steps or files of its own, and a reference file holds Python examples"
+            },
+            {
+              "label": "Terms",
+              "text": "a saga is a chain of local transactions with compensating undo steps; a circuit breaker stops calling a failing service for a while"
+            }
+          ],
+          "text": "A reference, not a workflow. It names three ways to cut services: by business capability (orders, payments, inventory), by subdomain, where each bounded context from domain-driven design becomes a service, and the strangler fig pattern, which moves features out of a monolith gradually behind a proxy. Services talk synchronously over REST, gRPC or GraphQL, or asynchronously through Kafka, RabbitMQ or SQS. Each service owns its database, and transactions that span services become sagas with eventual consistency. Resilience comes from circuit breakers, retries with exponential backoff and bulkheads, which isolate resources so one failure stays contained. The reference file shows each in Python: services that publish events, a FastAPI gateway that combines several services' data behind circuit breakers and tolerates partial failures, an HTTP client with retries and timeouts, an event bus on Kafka, an order-fulfillment saga that runs compensations when a step fails, and a circuit breaker class with closed, open and half-open states.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/backend-development/skills/microservices-patterns"
+        },
+        "tags": [
+          "category:engineering",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "architecture",
+          "backend"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/cicd-automation/skills/secrets-management",
+      "name": "secrets-management",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/secrets-management",
+        "installs": 13600,
+        "weeklyInstalls": [209, 244, 259, 344, 269, 233, 218, 230],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Keeps credentials out of code and logs in CI/CD with Vault, AWS Secrets Manager, GitHub and GitLab secrets, rotation and secret scanning.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "your pipelines need API keys, database passwords or certificates, and you want them stored, injected and rotated without hardcoding them"
+            },
+            {
+              "label": "It does",
+              "text": "shows how to store secrets in Vault or AWS Secrets Manager and pull them into GitHub Actions, GitLab CI, Terraform and Kubernetes"
+            },
+            {
+              "label": "You get",
+              "text": "pipeline snippets that inject secrets as environment variables without printing them, rotation steps, and secret scanning with TruffleHog before commits and in CI"
+            },
+            {
+              "label": "Compares",
+              "text": "HashiCorp Vault, AWS Secrets Manager, Azure Key Vault and Google Secret Manager, in a few lines each"
+            }
+          ],
+          "text": "A reference of copyable snippets rather than a workflow. After a short comparison of four secret stores, it starts a Vault dev server and stores a secret, then reads Vault secrets from GitHub Actions, with HashiCorp's vault-action, and from GitLab CI, with the vault CLI. For AWS it creates a secret with the CLI, reads it in GitHub Actions while masking it in the logs, and passes it to a Terraform database resource. It covers GitHub repository and environment secrets, GitLab's protected, masked and file variables, and the External Secrets Operator, which copies Vault secrets into Kubernetes secrets on a schedule. Rotation comes as an AWS Lambda function plus five manual steps: generate, store, update the apps, verify, revoke the old secret. Secret scanning runs TruffleHog in a pre-commit hook and as a CI job. Ten best practices round it off, among them never committing secrets, separate secrets per environment, least privilege, audit logs, masking and short-lived tokens. It points to github-actions-templates, gitlab-ci-patterns and deployment-pipeline-design for the rest of the pipeline.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/cicd-automation/skills/secrets-management"
+        },
+        "tags": [
+          "category:security",
+          "category:cloud",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:vault",
+          "stack:amazon",
+          "stack:github",
+          "stack:gitlab",
+          "security",
+          "ci"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/ui-design/skills/web-component-design",
+      "name": "web-component-design",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/web-component-design",
+        "installs": 13500,
+        "weeklyInstalls": [197, 226, 243, 291, 241, 199, 211, 194],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Designs reusable UI components in React, Vue and Svelte: compound components, render props, slots, typed prop APIs and styling choices.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're building a component library or design system, designing a component's props, or refactoring old components into composable ones"
+            },
+            {
+              "label": "It does",
+              "text": "gives the agent composition patterns (compound components, render props, slots), rules for prop APIs, and a comparison of five styling approaches"
+            },
+            {
+              "label": "You get",
+              "text": "components built along those patterns; it adds no steps or files of its own"
+            },
+            {
+              "label": "Examples in",
+              "text": "React with Tailwind and class-variance-authority, a React compound accordion, Vue 3 provide and inject, and Svelte 5 runes"
+            }
+          ],
+          "text": "A reference for component architecture across three frameworks. Compound components are related pieces that share state, such as a Select with Select.Trigger and Select.Option; render props hand rendering to the caller through a function; slots are Vue's and Svelte's named places for content. It compares Tailwind, CSS Modules, styled-components, Emotion and Vanilla Extract by approach and best fit. Prop APIs should use semantic names such as isLoading, sensible defaults, children for composition and className or style for overrides. Its quick start is a Button with class-variance-authority variants, forwardRef and a loading state. Framework examples show a React accordion that shares state through context, Vue 3 tabs with provide and inject, and a Svelte 5 button using $props and $derived. Best practices cover single responsibility, context instead of prop drilling, accessibility by default, supporting controlled and uncontrolled use, forwarding refs, memoization and error boundaries; common issues include too many props, style conflicts, re-render cascades and bundle size.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/ui-design/skills/web-component-design"
+        },
+        "tags": [
+          "category:design",
+          "category:frameworks",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:react",
+          "stack:vue",
+          "stack:svelte",
+          "design-system",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/reverse-engineering/skills/protocol-reverse-engineering",
+      "name": "protocol-reverse-engineering",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/protocol-reverse-engineering",
+        "installs": 13300,
+        "weeklyInstalls": [232, 255, 268, 315, 295, 329, 336, 345],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Reverse-engineers network protocols: captures traffic, dissects messages, identifies fields and encryption, fuzzes and replays, then documents the format.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need to understand an undocumented or proprietary network protocol, for security research, interoperability or debugging network communication"
+            },
+            {
+              "label": "It does",
+              "text": "captures traffic, maps message structure and fields by comparing samples, writes a specification, checks it with a parser, then probes edge cases by fuzzing"
+            },
+            {
+              "label": "You get",
+              "text": "a protocol specification from its template, a parser to check it, and optionally a Wireshark dissector written in Lua"
+            },
+            {
+              "label": "Needs",
+              "text": "Wireshark or tshark, tcpdump, mitmproxy, Scapy or boofuzz installed, depending on the step"
+            },
+            {
+              "label": "Sends traffic",
+              "text": "its fuzzing and replay steps send crafted or modified packets to a live target, and mitmproxy intercepts TLS traffic"
+            }
+          ],
+          "text": "Commands and a seven-step method for working out a protocol from its traffic: capture several sessions, find where messages start and end, map the fixed header and variable payload, identify fields by comparing samples, write a specification, validate it by implementing a parser or generator, then test edge cases with fuzzing. Capture uses Wireshark, tshark (with ring buffers), tcpdump, or mitmproxy and Burp Suite for HTTP and HTTPS. Analysis uses Wireshark display filters and stream following, tshark field extraction and statistics, and Scapy scripts. It lists byte signatures for common protocols, such as HTTP, TLS, SSH, SMB and Redis, and a typical header layout: magic number, version, flags, length, message type, sequence number. Before binary or encryption work, the agent reads a file on length-prefixed and type-length-value structures, a Python parser, hex dumps, entropy checks that hint at encryption, JA3 TLS fingerprints and decrypting TLS with key logs. Before documenting, it reads a specification template and a Lua dissector example. Active testing defines messages for the boofuzz fuzzer and replays or modifies captured packets with Scapy.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/reverse-engineering/skills/protocol-reverse-engineering"
+        },
+        "tags": [
+          "category:security",
+          "type:workflow",
+          "effect:remote",
+          "needs:cli",
+          "by:community",
+          "stack:wireshark",
+          "security",
+          "debugging"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/llm-application-dev/skills/llm-evaluation",
+      "name": "llm-evaluation",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/llm-evaluation",
+        "installs": 13200,
+        "weeklyInstalls": [263, 277, 280, 359, 310, 259, 256, 248],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds evaluation suites for LLM applications: automatic metrics, LLM-as-judge scoring, human ratings, A/B tests and regression checks.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need to know whether a prompt, model or pipeline change made your LLM app better or worse, or want a baseline before shipping"
+            },
+            {
+              "label": "It does",
+              "text": "lays out three kinds of evaluation: computed metrics, human ratings, and LLM-as-judge, where a stronger model scores or compares answers"
+            },
+            {
+              "label": "You get",
+              "text": "Python for a suite that scores test cases on several metrics; its reference file adds judge prompts, rater guidelines, significance tests and a regression detector"
+            },
+            {
+              "label": "Metrics",
+              "text": "BLEU and ROUGE for word overlap, BERTScore for meaning, accuracy and F1 for classification, and MRR, NDCG and precision or recall at K for retrieval"
+            }
+          ],
+          "text": "A reference for testing LLM applications, not one tool's manual. Automated metrics are fast and repeatable: overlap scores for translations and summaries, embedding similarity, classification scores, and ranking scores for retrieval in RAG systems. Human evaluation rates accuracy, coherence, relevance, fluency, safety and helpfulness. LLM-as-judge comes pointwise (score one answer) or pairwise (pick the better of two), with or without a reference answer. The quick start is an EvaluationSuite that runs a model over test cases and averages each metric. Its reference file implements BLEU, ROUGE and BERTScore; custom checks for groundedness and factuality with NLI models, which judge whether a source supports a claim, and for toxicity with Detoxify; Claude judge prompts for single, pairwise and reference-based scoring; annotation guidelines for human raters; Cohen's kappa for agreement between raters; A/B tests with statistical significance and effect size; a detector that flags metrics more than 5% below a baseline; a LangSmith evaluation example; and a benchmark runner.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/llm-application-dev/skills/llm-evaluation"
+        },
+        "tags": [
+          "category:agents",
+          "category:debugging",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "testing",
+          "agent-development"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/startup-business-analyst/skills/startup-financial-modeling",
+      "name": "startup-financial-modeling",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/startup-financial-modeling",
+        "installs": 13000,
+        "weeklyInstalls": [211, 226, 265, 347, 297, 250, 250, 231],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds 3–5 year startup financial models: cohort-based revenue, costs, hiring, cash flow, runway and three scenarios for fundraising.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're an early-stage founder projecting revenue, working out burn and runway, or preparing financials for a seed or Series A raise"
+            },
+            {
+              "label": "It does",
+              "text": "walks through nine steps: business model, cohort revenue, costs, hiring plan, cash flow, key metrics, three scenarios, sanity checks and funding rounds"
+            },
+            {
+              "label": "You get",
+              "text": "a model with monthly detail for two years, quarterly for the third and annual for years four and five, in conservative, base and optimistic versions"
+            },
+            {
+              "label": "Benchmarks",
+              "text": "typical ratios for SaaS, marketplace, e-commerce and services businesses, such as 75–85% SaaS gross margin and LTV/CAC above 3"
+            }
+          ],
+          "text": "A method for startup financial projections that names no spreadsheet tool. Revenue is built by cohort: each month's new customers, times the share who stay, times average revenue per user. Costs split into cost of goods sold, sales and marketing, R&D, and general and administrative, and into fixed and variable. The hiring plan uses fully loaded pay, salary times 1.3–1.4 for benefits and taxes. Cash flow gives monthly burn and runway, and the key metrics include CAC, LTV, payback period, burn multiple, magic number and the Rule of 40. Three scenarios, conservative, base and optimistic, vary acquisition, churn, contract value and CAC by set percentages. It has templates for SaaS, marketplace, e-commerce and agency models, dilution and use-of-funds math, with enough runway for the next milestone plus six months, pitfalls such as optimistic revenue and ignoring cash timing, and sanity checks against benchmarks. The detailed steps sit in a reference file, moved there to keep the SKILL.md under Codex's 8 KB limit.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/startup-business-analyst/skills/startup-financial-modeling"
+        },
+        "tags": [
+          "category:science",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "finance"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/accessibility-compliance/skills/wcag-audit-patterns",
+      "name": "wcag-audit-patterns",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/wcag-audit-patterns",
+        "installs": 12900,
+        "weeklyInstalls": [199, 231, 263, 306, 250, 205, 236, 215],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Audits web pages against WCAG 2.2 with a criterion-by-criterion checklist, automated axe-core, pa11y and Lighthouse checks, and fixes for common violations.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're auditing a site for accessibility, fixing WCAG violations, or preparing for ADA, Section 508 or VPAT requirements"
+            },
+            {
+              "label": "It does",
+              "text": "ranks common violations by impact, and its reference file gives a checklist of 38 Level A and AA criteria, grouped by principle, about a third of them with code examples"
+            },
+            {
+              "label": "Automates",
+              "text": "axe-core inside a Playwright test, plus axe, pa11y and Lighthouse from the command line; it says automation finds only 30–50% of issues"
+            },
+            {
+              "label": "Fixes",
+              "text": "before-and-after code for missing form labels and insufficient color contrast, and a custom dropdown made keyboard-operable"
+            }
+          ],
+          "text": "A reference for accessibility audits against WCAG 2.2, the Web Content Accessibility Guidelines. Conformance comes in three levels: A is the legal baseline, AA what most regulations require, AAA enhanced accessibility. Every criterion falls under four principles, known as POUR: perceivable, operable, understandable and robust. The SKILL.md sorts common violations by impact: critical ones block users (missing alt text, no keyboard access, unlabeled form fields, autoplaying media without controls), serious ones include low contrast and missing skip links, moderate ones a missing language attribute or a broken heading order. Its reference file is a checklist of 38 Level A and AA criteria from 1.1.1 to 4.1.3, including the WCAG 2.2 addition Focus Not Obscured and noting that 4.1.1 Parsing is obsolete, each with checkboxes and about a third with HTML, CSS or JavaScript examples. It then shows axe-core running in a Playwright test, CLI checks with axe, pa11y and Lighthouse, and fixes for three common violations. Because tools catch only part of the issues, it asks for manual testing and testing with disabled users, native HTML before ARIA, visible focus outlines, zoom left on and never color alone.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/accessibility-compliance/skills/wcag-audit-patterns"
+        },
+        "tags": [
+          "category:design",
+          "category:debugging",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "accessibility",
+          "testing"
+        ]
+      }
     }
   ]
 }
