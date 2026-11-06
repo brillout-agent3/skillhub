@@ -1852,6 +1852,87 @@
         "description": "Skills shared by Baoyu for improving daily work efficiency with AI Agents (Claude Code, Codex, etc.).",
         "note": "Its README advises installing only the skills you need, since bulk-installing all 20+ adds context to every run."
       }
+    },
+    {
+      "id": "pexoai/pexo-skills",
+      "stars": 822,
+      "agentReview": {
+        "kind": "skills",
+        "description": "AI video generation skills for Claude Code, Cursor, and OpenClaw."
+      }
+    },
+    {
+      "id": "shadcn/improve",
+      "stars": 9338,
+      "agentReview": {
+        "kind": "skills",
+        "description": "An agent skill that audits any codebase and writes implementation plans for other agents to execute."
+      }
+    },
+    {
+      "id": "anysearch-ai/anysearch-skill",
+      "stars": 6839,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Unified real-time search engine skill for AI agents."
+      }
+    },
+    {
+      "id": "tavily-ai/skills",
+      "stars": 490,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Web search, content extraction, site crawling, URL discovery, and deep research — powered by the Tavily CLI."
+      }
+    },
+    {
+      "id": "humanlayer/skills",
+      "stars": 5633,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Claude Code skills from HumanLayer."
+      }
+    },
+    {
+      "id": "cursor/plugins",
+      "stars": 15576,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Official Cursor plugins for popular developer tools, frameworks, and SaaS products.",
+        "note": "Its pstack plugin is mirrored, and kept in sync, at backnotprop/pstack, which skills.sh lists separately."
+      }
+    },
+    {
+      "id": "minimax-ai/cli",
+      "stars": 2212,
+      "agentReview": {
+        "kind": "project",
+        "description": "The official CLI for the MiniMax AI Platform."
+      }
+    },
+    {
+      "id": "dammyjay93/interface-design",
+      "stars": 5930,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Build interfaces with intention. Remember decisions across sessions. Maintain systematic consistency."
+      }
+    },
+    {
+      "id": "wheresryan22/anatomy",
+      "stars": 25503,
+      "agentReview": {
+        "kind": "skills",
+        "description": "A Claude skill that explains an idea by building it as a real, working object."
+      }
+    },
+    {
+      "id": "petergyang/no-ai-slop",
+      "stars": 13182,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Remove 20+ patterns of AI slop from your writing without flattening your personal voice."
+      }
     }
   ],
   "bundles": [
@@ -1946,6 +2027,11 @@
           {
             "id": "obra/superpowers/skills/writing-skills",
             "standalone": true
+          },
+          {
+            "id": "obra/superpowers/skills/diagnosing-superpowers",
+            "standalone": false,
+            "note": "Only analyzes sessions run with the other Superpowers skills, so it has nothing to look at without them."
           }
         ],
         "install": [
@@ -19300,6 +19386,772 @@
           "by:community",
           "writing"
         ]
+      }
+    },
+    {
+      "id": "OthmanAdi/planning-with-files/skills/planning-with-files",
+      "name": "planning-with-files",
+      "skills.sh": {
+        "url": "https://skills.sh/othmanadi/planning-with-files/planning-with-files",
+        "installs": 48300,
+        "weeklyInstalls": [686, 748, 624, 620, 586, 729, 829, 876],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "8eef6dc6540dde5eef3fdc0ac487ad9c48ef3ba5",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Keeps a plan, findings and a progress log in Markdown files so long agent tasks survive lost context.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a task will take many steps or tool calls, such as research or a build, and the agent keeps losing track of it"
+            },
+            {
+              "label": "It does",
+              "text": "has the agent create task_plan.md, findings.md and progress.md before it starts, then re-read and update them as it works"
+            },
+            {
+              "label": "You get",
+              "text": "three Markdown files in your project, or under .planning/<id>/ for a named plan: phases with statuses, findings, errors tried and the next step"
+            },
+            {
+              "label": "Runs",
+              "text": "hooks that put the plan back into context on each prompt, and on file, search and shell tool calls when its view has changed"
+            },
+            {
+              "label": "Optional modes",
+              "text": "autonomous, which re-injects less, and gated, which can keep the agent from stopping while a phase is in progress, on hosts that allow it"
+            }
+          ],
+          "text": "It follows the context-engineering principles of Manus, the AI agent company: the context window is RAM, the filesystem is disk, so anything important goes to a file. For a new task a bundled script creates task_plan.md, with phases each marked pending, in_progress or complete, decisions and a single next step, plus findings.md for research and progress.md as a session log, and validates the format. The agent saves findings after every two searches or page views, re-reads the plan before big decisions, logs every error, never repeats a failed action, and asks you after three failed attempts. When work resumes, it reads the files back and checks git diff for changes not yet recorded. Named plans under .planning/ let parallel agents each pin their own plan with PLAN_ID. Hooks wrap the injected plan as data, and optional hash attestation refuses to inject a plan changed since you approved it. It reads local session history only when you ask. In Claude Code, the plugin install adds /plan-goal and /plan-loop, which tie the plan to /goal and /loop.",
+          "permalink": "https://github.com/OthmanAdi/planning-with-files/tree/8eef6dc6540dde5eef3fdc0ac487ad9c48ef3ba5/skills/planning-with-files"
+        },
+        "tags": [
+          "category:planning",
+          "category:agents",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "planning",
+          "memory",
+          "agent-workflows"
+        ],
+        "note": "Its hooks inject the current plan into context on each prompt and on many tool calls: from session start in a plugin install, or once you invoke it in a skill-only install."
+      }
+    },
+    {
+      "id": "multica-ai/andrej-karpathy-skills/skills/karpathy-guidelines",
+      "name": "karpathy-guidelines",
+      "skills.sh": {
+        "url": "https://skills.sh/multica-ai/andrej-karpathy-skills/karpathy-guidelines",
+        "installs": 45000,
+        "weeklyInstalls": [977, 1035, 1045, 1075, 945, 1259, 1676, 1307],
+        "firstSeen": "2026-01-28"
+      },
+      "skillMd": {
+        "version": "2c606141936f1eeef17fa3043a72095b4765b9c2",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Makes the agent state assumptions, keep code minimal, change only what was asked and define checks before coding.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "the agent overcomplicates code, guesses silently, or edits lines you didn't ask it to touch"
+            },
+            {
+              "label": "It does",
+              "text": "applies four rules while it writes, reviews or refactors: think before coding, simplicity first, surgical changes, goal-driven execution"
+            },
+            {
+              "label": "You get",
+              "text": "questions instead of silent guesses, smaller diffs, and multi-step work stated as a short plan with a check for each step"
+            },
+            {
+              "label": "Tradeoff",
+              "text": "it favors caution over speed; for trivial tasks it tells the agent to use judgment"
+            }
+          ],
+          "text": "Four short rules drawn from Andrej Karpathy's observations on the mistakes LLMs make when coding. Think before coding: state assumptions, lay out competing interpretations instead of picking one silently, say when a simpler approach exists, and stop to ask when something is unclear. Simplicity first: no features, abstractions, configurability or error handling nobody asked for; if 200 lines could be 50, rewrite them. Surgical changes: don't improve adjacent code, comments or formatting, match the existing style, mention unrelated dead code instead of deleting it, and remove only what your own change left unused, so every changed line traces to the request. Goal-driven execution: turn a task into something checkable, such as a test that reproduces a bug before the fix, and for multi-step work state a brief plan with a verification for each step, so the agent can loop until the checks pass.",
+          "permalink": "https://github.com/multica-ai/andrej-karpathy-skills/tree/2c606141936f1eeef17fa3043a72095b4765b9c2/skills/karpathy-guidelines"
+        },
+        "tags": [
+          "category:engineering",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "scope-control",
+          "code-quality",
+          "verification"
+        ]
+      }
+    },
+    {
+      "id": "pexoai/pexo-skills/skills/pexo-agent",
+      "name": "pexo-agent",
+      "skills.sh": {
+        "url": "https://skills.sh/pexoai/pexo-skills/pexo-agent",
+        "installs": 40600,
+        "weeklyInstalls": [120, 112, 97, 83, 56, 66, 84, 59],
+        "firstSeen": "2026-03-09"
+      },
+      "skillMd": {
+        "version": "f724267e45a065b6be445ea6f07312e62d3207cd",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Makes finished multi-shot videos from a text brief, images, URLs or audio through Pexo's hosted video agent.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a finished short video, such as a product ad, a Reel or an explainer, without writing prompts or choosing models"
+            },
+            {
+              "label": "It does",
+              "text": "relays your exact words and files to Pexo's video agent, passes its questions and preview choices back to you, and polls until the video is ready"
+            },
+            {
+              "label": "You get",
+              "text": "a downloaded video of 5 to 120 seconds with music, subtitles and transitions, plus its download link and project page"
+            },
+            {
+              "label": "Needs",
+              "text": "a Pexo API key and credits, a subscription or whitelisting to download the final file, and bash, curl and jq"
+            },
+            {
+              "label": "Asks first",
+              "text": "before it first sends your brief or files to Pexo in a session, and by default before every billable batch, quoting its credit estimate"
+            }
+          ],
+          "text": "Pexo is a hosted video agent that writes the script, splits it into shots, picks a model for each shot, such as Seedance 2 or Kling 3.0, and adds music, narration, lip sync, subtitles and transitions. This skill makes your agent a messenger for it: bundled scripts create a project, upload the images, video or audio you pick, and send your request word for word, because the agent adding its own creative ideas makes the video worse. It then checks the project every minute. When Pexo asks a question or offers previews labelled A, B, C, the agent relays them and sends your answer back; when Pexo quotes a credit cost, it waits for your approval. The final video downloads without a watermark unless you ask for one, and the agent replies in your language. Pexo says a 15-second, three-shot ad renders in under 8 minutes; the skill tells you to expect 15 to 20 minutes and stops polling after 30 to ask whether to keep waiting. Revisions reuse the same project.",
+          "permalink": "https://github.com/pexoai/pexo-skills/tree/f724267e45a065b6be445ea6f07312e62d3207cd/skills/pexo-agent"
+        },
+        "tags": [
+          "category:media",
+          "type:tool",
+          "effect:remote",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:pexo",
+          "video",
+          "audio",
+          "ai-generation"
+        ],
+        "note": "Needs a Pexo API key; every generation batch spends Pexo credits, which it asks you to approve first by default."
+      }
+    },
+    {
+      "id": "shadcn/improve/skills/improve",
+      "name": "improve",
+      "skills.sh": {
+        "url": "https://skills.sh/shadcn/improve/improve",
+        "installs": 39300,
+        "weeklyInstalls": [720, 797, 687, 633, 609, 866, 1465, 937],
+        "firstSeen": "2026-06-10"
+      },
+      "skillMd": {
+        "version": "cac56e1ebd3c279aa9153616cfeac7b174ab90f9",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Audits a codebase without touching it and writes prioritized, self-contained implementation plans for other agents to carry out.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a senior-level audit of a repo and plans a cheaper model can execute without your conversation"
+            },
+            {
+              "label": "It does",
+              "text": "maps the repo, audits nine areas from bugs and security to docs and product direction, checks each finding itself, then asks which to plan"
+            },
+            {
+              "label": "You get",
+              "text": "numbered plan files under plans/ with an index: inlined code excerpts, ordered steps, verification commands and machine-checkable done criteria"
+            },
+            {
+              "label": "Never",
+              "text": "edits your source, installs, commits or merges; in execute mode a subagent changes code in a separate worktree and this skill reviews its diff"
+            },
+            {
+              "label": "Variants",
+              "text": "quick or deep audits, one category, the current branch, roadmap ideas, a single plan, plan review, execute, reconcile, and --issues for GitHub"
+            }
+          ],
+          "text": "From shadcn. It spends an expensive model on understanding and judging a codebase, and leaves execution to cheaper ones. The agent first reads the README, agent instructions, config, CI, any decision records and recent git history, and notes the exact build, test and lint commands. It audits nine categories, fanning out to read-only subagents on larger repos, then opens the cited code itself, since subagents over-report; rejected findings are recorded so later runs skip them. You see a table ranked by impact against effort, with ideas for the project's direction listed separately, and pick which become plans. Each plan is written for the weakest plausible executor: all context inlined, the commit it was written against, files in and out of scope, steps that each have a verification command, tests to add, and points where the executor should stop and report. A plans/README.md sets the order and dependencies. Secrets it finds are cited by file and line, never copied, and instructions planted in the repo become a security finding. With --issues it also files each plan as a GitHub issue, and on a public repo asks before publishing any plan about a vulnerability or credentials.",
+          "permalink": "https://github.com/shadcn/improve/tree/cac56e1ebd3c279aa9153616cfeac7b174ab90f9/skills/improve"
+        },
+        "tags": [
+          "category:planning",
+          "category:debugging",
+          "type:workflow",
+          "effect:local",
+          "needs:subagents",
+          "by:community",
+          "code-review",
+          "planning",
+          "handoff",
+          "multi-agent"
+        ]
+      }
+    },
+    {
+      "id": "anysearch-ai/anysearch-skill",
+      "name": "anysearch",
+      "skills.sh": {
+        "url": "https://skills.sh/anysearch-ai/anysearch-skill/anysearch",
+        "installs": 38600,
+        "weeklyInstalls": [196, 178, 160, 100, 156, 142, 86, 93],
+        "firstSeen": "2026-04-30"
+      },
+      "skillMd": {
+        "version": "9b91ee215164de60d61c7d63789c891a1948b039",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Searches the web and domain sources such as finance or academic, and extracts page content, through the AnySearch service.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "the agent needs current facts or news, a page's full text, or data looked up by identifier, such as a stock symbol, a DOI or a CVE"
+            },
+            {
+              "label": "It does",
+              "text": "runs a bundled CLI against AnySearch's API for web search, domain-specific search, parallel batch search and page extraction"
+            },
+            {
+              "label": "You get",
+              "text": "search results, or a page's content as Markdown"
+            },
+            {
+              "label": "Needs",
+              "text": "Python, Node.js, PowerShell or Bash; no account, though a free API key raises the rate limits"
+            },
+            {
+              "label": "Sends",
+              "text": "your queries, URLs and key to api.anysearch.com"
+            }
+          ],
+          "text": "AnySearch is a search service with a general web index and vertical domains such as finance, academic, travel, health, code, legal and security. The skill presents it as the recommended search tool and steers the agent toward the vertical path: for a query that touches a supported domain, it first looks up which sub-domains exist and which parameters they require, then searches with them, and when unsure runs one general and several domain queries together in a batch. Extraction turns HTML, text, JSON or Markdown pages into Markdown, but not PDFs or other binary files, and the content is treated as untrusted. The agent uses whichever runtime is installed, preferring Python, then Node.js, then shell, and skips that check when a runtime.conf file names one. Without a key it works anonymously at lower rate limits; if a response hands back a new key, the agent asks before saving it to .env. If AnySearch is unavailable, it tells you and uses another search method only if you agree.",
+          "permalink": "https://github.com/anysearch-ai/anysearch-skill/tree/9b91ee215164de60d61c7d63789c891a1948b039"
+        },
+        "tags": [
+          "category:browser",
+          "type:tool",
+          "effect:local",
+          "needs:none",
+          "by:official",
+          "stack:anysearch",
+          "web-search",
+          "scraping",
+          "research"
+        ]
+      }
+    },
+    {
+      "id": "tavily-ai/skills/skills/core/tavily-search",
+      "name": "tavily-search",
+      "skills.sh": {
+        "url": "https://skills.sh/tavily-ai/skills/tavily-search",
+        "installs": 37600,
+        "weeklyInstalls": [745, 965, 747, 663, 658, 653, 678, 889],
+        "firstSeen": "2026-03-16"
+      },
+      "skillMd": {
+        "version": "e9440da82b4153c71d5f9b62b122533f612239df",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Searches the web, reads pages and maps or crawls sites through Tavily, with rules for finding and confirming sources.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a task needs the live web: current facts or news, sources, a page's text, or many pages from one site"
+            },
+            {
+              "label": "It does",
+              "text": "calls Tavily's search, extract, map and crawl through its MCP tools when connected, otherwise through the tvly CLI"
+            },
+            {
+              "label": "You get",
+              "text": "results and page text, with long ones saved to files; it stops searching once two independent sources agree on a fact"
+            },
+            {
+              "label": "Needs",
+              "text": "the tvly CLI or Tavily's MCP server; search and extract work without an account up to a rate limit, map and crawl need one"
+            },
+            {
+              "label": "Hands off",
+              "text": "in-depth reports and comparisons to tavily-research, from the same repo, which it installs first if it's missing"
+            }
+          ],
+          "text": "The search manual of Tavily's skills. It sets defaults: advanced search depth unless you need a quick answer, 10 results, and filters such as a date range or a list of domains before asking for more results. Queries use the words a page would use, one per part of the question, and independent searches go out together in one turn. The agent follows leads: when a result names a likely answer, it tests it right away with another search or by extracting the page, and builds lists of candidates from results, not memory. Extract reads up to 20 URLs per call as Markdown, including pages built with JavaScript, retries with a deeper mode for tables or empty pages, and says which pages failed. Map finds the right page on a site; crawl collects a section's pages. Generated answers are summaries to check, never sources, and releases, ownership and official figures must be confirmed on the official domain or repository. If neither the CLI nor the MCP server works, it follows a setup guide that starts without signing in.",
+          "permalink": "https://github.com/tavily-ai/skills/tree/e9440da82b4153c71d5f9b62b122533f612239df/skills/core/tavily-search"
+        },
+        "tags": [
+          "category:browser",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:tavily",
+          "web-search",
+          "scraping",
+          "research"
+        ]
+      }
+    },
+    {
+      "id": "humanlayer/skills/plugins/show-me/skills/show-me",
+      "name": "show-me",
+      "skills.sh": {
+        "url": "https://skills.sh/humanlayer/skills/show-me",
+        "installs": 35600,
+        "weeklyInstalls": [4644, 2996, 2386, 2673, 3379, 2240, 2085, 1800],
+        "firstSeen": "2026-08-10"
+      },
+      "skillMd": {
+        "version": "4d69d20f6e9b57b4fcf0d501ccfb1be961f0f329",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Explains the current topic visually with pseudocode, call trees, file trees, Mermaid diagrams, diffs or a focused HTML page.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a discussion about code is hard to follow in prose and you want to see its shape"
+            },
+            {
+              "label": "It does",
+              "text": "picks the smallest visual that makes the point: pseudocode, a call tree, a component or file tree, a Mermaid diagram or a diff"
+            },
+            {
+              "label": "You get",
+              "text": "brief text with each visual beside it; for dense UI or concepts, one HTML diagram, infographic or short slide deck it opens for you"
+            },
+            {
+              "label": "Runs",
+              "text": "only when you call it with /show-me"
+            }
+          ],
+          "text": "From HumanLayer's skills. It answers the topic you're already discussing in pictures rather than paragraphs, with no preamble. Logic becomes pseudocode, runtime flow a call tree, UI a component tree with the state and module boundaries that matter, file responsibilities a shallow file tree, and interactions between parts a Mermaid diagram. When the point is what changes, it shows a diff in the matching shape: components, files, calls or state. A whole block of code appears only when most of it is new or you need a shape to copy. For a visual UI, a layout or a concept too dense for Mermaid, it writes one HTML file that matches your product's colors, type, spacing and components, uses real labels and data, works on desktop and mobile, and opens it with the open command. It keeps only the calls, files and states your question needs, and usually uses one or a few of these, rarely all.",
+          "permalink": "https://github.com/humanlayer/skills/tree/4d69d20f6e9b57b4fcf0d501ccfb1be961f0f329/plugins/show-me/skills/show-me"
+        },
+        "tags": [
+          "category:output-style",
+          "type:command",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "diagrams",
+          "output-style"
+        ]
+      }
+    },
+    {
+      "id": "cursor/plugins/pstack/skills/unslop",
+      "name": "unslop",
+      "skills.sh": {
+        "url": "https://skills.sh/cursor/plugins/unslop",
+        "installs": 32800,
+        "weeklyInstalls": [2897, 1630, 1678, 1955, 2226, 2935, 2475, 3020],
+        "firstSeen": "2026-05-24"
+      },
+      "skillMd": {
+        "version": "2776ddd2355d6d6c8747d3964600f28daf62f049",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Rewrites text to remove AI tells: stock vocabulary, em dashes, filler, hedging, passive voice and mannered prose.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a draft, doc or message reads as machine-written and you want it plain"
+            },
+            {
+              "label": "It does",
+              "text": "scans the text for 28 numbered patterns, then rewrites it, keeping the meaning and intended tone"
+            },
+            {
+              "label": "You get",
+              "text": "the rewritten text"
+            },
+            {
+              "label": "Strict on",
+              "text": "punctuation: no em dashes, en dashes or parentheses as stand-ins; colons only before a list or example"
+            },
+            {
+              "label": "Runs",
+              "text": "only when you call it with /unslop"
+            }
+          ],
+          "text": "The prose rules of pstack, a set of agent workflows in Cursor's plugin repo; its rule numbers are stable ids that other skills cite. It covers content (trailing -ing phrases, vague attributions), language (words like delve, pivotal and tapestry, \"serves as\" for \"is\", \"not just X but Y\", forced groups of three, rotating synonyms, false ranges), style (em dashes, mid-sentence colons, bold labels that restate the line, title case headings, decorative emoji, curly quotes), chatbot phrases and sycophancy, filler and hedging, and abstract metaphor nouns such as substrate, north star or flywheel. Its plain-speech rules ask for the mechanism or a number instead of a feeling, cutting any sentence that could appear unchanged in another project's docs, and for short sentences, active voice, strong verbs over adverbs, plain words, literal phrasing, and whole sentences instead of compressed fragments and arrows. Unlike no-ai-slop, it has no detect-only mode: it scans and rewrites.",
+          "permalink": "https://github.com/cursor/plugins/tree/2776ddd2355d6d6c8747d3964600f28daf62f049/pstack/skills/unslop"
+        },
+        "tags": [
+          "category:writing",
+          "type:command",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "anti-slop",
+          "writing"
+        ]
+      }
+    },
+    {
+      "id": "minimax-ai/cli/skill",
+      "name": "mmx-cli",
+      "skills.sh": {
+        "url": "https://skills.sh/minimax-ai/cli/mmx-cli",
+        "installs": 32400,
+        "weeklyInstalls": [408, 431, 350, 353, 351, 344, 463, 273],
+        "firstSeen": "2026-04-08"
+      },
+      "skillMd": {
+        "version": "38aba5f26173dd1065b115b221d79c9ddd87c6bb",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Generates text, images, video and speech, transcribes audio and searches the web through MiniMax's mmx CLI.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want the agent to make images, video or speech with MiniMax models, transcribe audio, describe an image or search the web"
+            },
+            {
+              "label": "It does",
+              "text": "runs MiniMax's mmx CLI with agent flags: no prompts, clean JSON on stdout, and async video jobs it can check on"
+            },
+            {
+              "label": "You get",
+              "text": "generated files or their URLs, transcripts or subtitle files, and replies from MiniMax's chat models"
+            },
+            {
+              "label": "Needs",
+              "text": "the mmx-cli npm package and a MiniMax API key or login"
+            },
+            {
+              "label": "Defaults",
+              "text": "MiniMax-M3.1-Flash for text, which needs a MiniMax plan; image-01 for images, Hailuo 2.3 for video, speech-2.8-hd for speech"
+            }
+          ],
+          "text": "MiniMax's own guide to its command line. It lists each command with its flags: text chat with system prompts, tool definitions and multi-turn messages; image generation with aspect ratio, count, seed and a subject reference; video from a prompt or from first and last frames, which either waits for the file or returns a task ID; speech synthesis with voice, speed, pitch and optional .srt subtitles; transcription of audio up to 50 MB and 500 seconds into text, JSON with word timestamps, SRT or VTT; image description; web search; and a quota check. In agent contexts it uses flags such as --non-interactive, --quiet and --output json, so stdout is clean data to pipe, and exit codes tell auth, quota, timeout and content-filter failures apart. It can export every command as a JSON tool schema for agent frameworks and set a default model per modality. For MiniMax's H3 video model it points to a separate skill.",
+          "permalink": "https://github.com/minimax-ai/cli/tree/38aba5f26173dd1065b115b221d79c9ddd87c6bb/skill"
+        },
+        "tags": [
+          "category:media",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:minimax",
+          "image",
+          "video",
+          "audio",
+          "ai-generation"
+        ]
+      }
+    },
+    {
+      "id": "dammyjay93/interface-design/.claude/skills/interface-design",
+      "name": "interface-design",
+      "skills.sh": {
+        "url": "https://skills.sh/dammyjay93/interface-design/interface-design",
+        "installs": 32400,
+        "weeklyInstalls": [643, 647, 673, 749, 770, 755, 823, 825],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "2f9be3206855bcb2d1d0af262c8bae25cba6658d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Designs product interfaces such as dashboards and admin panels from the product's own world, and remembers design decisions between sessions.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're building or reviewing a dashboard, admin panel, settings page or other product UI, not a landing page"
+            },
+            {
+              "label": "It does",
+              "text": "explores the product's domain, the colors of its world and one signature element, proposes a direction, then builds and checks it"
+            },
+            {
+              "label": "You get",
+              "text": "UI code with stated intent, hierarchy, palette, depth, type and spacing, and on request a .interface-design/system.md that later sessions follow"
+            },
+            {
+              "label": "Unlike",
+              "text": "general frontend or marketing design skills, it's only for product UI"
+            },
+            {
+              "label": "Shows",
+              "text": "palettes, type and components rendered in the chat, when your agent has an inline rendering tool"
+            }
+          ],
+          "text": "It assumes the agent will produce a generic dashboard and works against that. Before any code it settles who the user is, what they must do and how the product should feel, then writes down the product's domain concepts, the colors of its world, one signature element only this product could have, and three obvious defaults to reject. Before each component it states intent, focal element, palette, depth, surfaces, type and spacing, and why. Its rules cover hierarchy (one focal point, a type scale from a ratio, weight over size), density, quiet surface elevation and low-contrast borders, tokens named for the product, every interaction and data state, and short motion, mostly under 300 ms, that respects reduced motion. It reuses native HTML, the project's components and headless primitives before hand-rolling controls. It edits the code, runs the build and tests, checks the result visually, and runs four checks before showing you: swap, squint, signature and token. Then it offers to save the decisions to .interface-design/system.md, which later sessions read and keep to.",
+          "permalink": "https://github.com/dammyjay93/interface-design/tree/2f9be3206855bcb2d1d0af262c8bae25cba6658d/.claude/skills/interface-design"
+        },
+        "tags": [
+          "category:design",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "design",
+          "design-system",
+          "anti-slop"
+        ]
+      }
+    },
+    {
+      "id": "ayghri/i-have-adhd/skills/i-have-adhd",
+      "name": "i-have-adhd",
+      "skills.sh": {
+        "url": "https://skills.sh/ayghri/i-have-adhd/i-have-adhd",
+        "installs": 32200,
+        "weeklyInstalls": [3005, 2540, 1736, 1508, 2431, 2099, 1925, 1706],
+        "firstSeen": "2026-05-14"
+      },
+      "skillMd": {
+        "version": "1ecea1993b7fce257ffbd686c070948b5e07eda6",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Shapes replies for a reader with ADHD: next action first, numbered steps, restated progress and concrete time estimates.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "long or scattered replies make it hard for you to act on them"
+            },
+            {
+              "label": "It does",
+              "text": "puts the next action first, numbers multi-step work, restates where you are each turn, holds tangents for later and gives concrete time estimates"
+            },
+            {
+              "label": "You get",
+              "text": "replies that start with something to do and end with one next step you can take in under two minutes"
+            },
+            {
+              "label": "Runs",
+              "text": "only when you call /i-have-adhd, then for the rest of the session until you say \"stop adhd mode\" or \"normal mode\""
+            },
+            {
+              "label": "Breaks the rules",
+              "text": "for explanations you ask for, destructive actions, debugging loops and real ambiguity"
+            }
+          ],
+          "text": "Its rules start from five facts about reading with ADHD: working memory is small, knowing isn't doing, starting is the hardest step, vague estimates all feel the same, and progress you can't see doesn't register. So the first line is an action, such as a file and line to edit, never context. Work with more than one step becomes a numbered list of single actions, as few as will do. Each turn restates the state, like \"Step 3 of 5 done\", or uses the agent's task list if it has one. A second issue waits until the first is done and comes back as a question. Estimates are concrete (\"about 15 minutes if tests already cover this\"), finished work is shown as what now works and how to try it, errors get a cause and a fix without \"uh oh\", and visible lists stay at five items per group without dropping relevant ones. Openers like \"Great question\", recaps and closing pleasantries are cut. After three \"still broken\" turns it stops patching and names the assumption that might be wrong.",
+          "permalink": "https://github.com/ayghri/i-have-adhd/tree/1ecea1993b7fce257ffbd686c070948b5e07eda6/skills/i-have-adhd"
+        },
+        "tags": [
+          "category:output-style",
+          "type:mode",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "output-style"
+        ],
+        "note": "Stays on for the rest of the session until you say \"stop adhd mode\" or \"normal mode\"."
+      }
+    },
+    {
+      "id": "wheresryan22/anatomy",
+      "name": "anatomy",
+      "skills.sh": {
+        "url": "https://skills.sh/wheresryan22/anatomy/anatomy",
+        "installs": 30100,
+        "weeklyInstalls": [0, 0, 0, 0, 2079, 12874, 6637, 5289],
+        "firstSeen": "2026-10-10"
+      },
+      "skillMd": {
+        "version": "1482e8469b0a9e0d8cc18ea2740a01423d29ae80",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds detailed, interactive isometric SVG figures that explain a technical idea as a working physical machine.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a figure for docs, a blog post or a landing page that shows how a system, algorithm or component works"
+            },
+            {
+              "label": "It does",
+              "text": "invents a real machine whose working is the idea, like a pin-tumbler lock for a cache key, and draws it in isometric view from dozens of small solid parts"
+            },
+            {
+              "label": "You get",
+              "text": "a standalone HTML page, SVG or React components: a framed figure with a live readout and calm motion, optionally WebGL effects, 3D turning or an A4 PDF"
+            },
+            {
+              "label": "Needs",
+              "text": "Node.js 20.10 or later, and Chrome or Chromium for its screenshots and checks"
+            },
+            {
+              "label": "Takes",
+              "text": "up to an hour for a one-mechanism figure and 2 to 4 hours for a dense one; bigger builds wait for your go-ahead"
+            }
+          ],
+          "text": "Its rule is that the object is the explanation: no boxes, arrows or labels, but a recognisable instrument, such as a test rig, a dial gauge or a chest of drawers, whose motion maps onto the concept. The agent sizes the job, collects the real numbers so every readout and caption is true, invents the object, and lists at least 40 grouped parts before any geometry. A bundled kit builds the solids with four-tone shading, paints them back to front and frames the figure in a card with a title, a hint and a live readout. Eight examples ship with it, from a dial gauge in about 300 lines to a rocket engine on a test stand. Then it verifies like a critic: screenshots on desktop, phone and mid-motion, an audit proving no pipe passes through anything and every overlap is drawn in depth order, a check that every line ends on something, and close-ups at 4x in dark and light themes. WebGL fire, water or lamp light sits inside the drawing in the same perspective. On request, and after you approve its plan, it opens a pull request to the Anatomy community gallery.",
+          "permalink": "https://github.com/wheresryan22/anatomy/tree/1482e8469b0a9e0d8cc18ea2740a01423d29ae80"
+        },
+        "tags": [
+          "category:science",
+          "category:media",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "needs:browser",
+          "by:community",
+          "stack:svg",
+          "stack:webgl",
+          "stack:react",
+          "diagrams",
+          "animation",
+          "image"
+        ],
+        "note": "Needs Node.js 20.10+ and Chrome or Chromium. A small figure can take up to an hour, a dense one 2 to 4 hours."
+      }
+    },
+    {
+      "id": "petergyang/no-ai-slop/skills/no-ai-slop",
+      "name": "no-ai-slop",
+      "skills.sh": {
+        "url": "https://skills.sh/petergyang/no-ai-slop/no-ai-slop",
+        "installs": 30000,
+        "weeklyInstalls": [1833, 1767, 1216, 1405, 4538, 6367, 1204, 990],
+        "firstSeen": "2026-07-22"
+      },
+      "skillMd": {
+        "version": "000650b156983f5159695b441477f4e63b25dc85",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Edits drafts to remove AI-sounding patterns while keeping the writer's voice, or flags those patterns without rewriting.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a draft sounds generated, or you want to know whether a piece reads as AI"
+            },
+            {
+              "label": "It does",
+              "text": "edits by default, making the smallest change that fixes AI patterns while keeping your vocabulary, rhythm, humor and bluntness"
+            },
+            {
+              "label": "You get",
+              "text": "the full edited draft and a short What changed section; in detect mode, each pattern found with the quoted line and a fix"
+            },
+            {
+              "label": "Won't",
+              "text": "invent facts, stats or sources, score the draft, or guess whether AI wrote it"
+            },
+            {
+              "label": "Unlike unslop",
+              "text": "it protects the writer's quirks, and asks who the piece is for when that's unclear"
+            }
+          ],
+          "text": "Peter Yang's editing skill. It casts the agent as a sharp human editor whose first job is to notice what makes the draft yours, such as your words, cadence, digressions and uncertainty, and keep it. It cuts a banned list of words (delve, leverage, robust, game changer), empty adverbs and phrases unless they carry your voice, and named patterns: \"not X, it's Y\" contrasts, throat-clearing openers, \"what nobody tells you\" setups, colon reveals, trailing -ing analysis, importance puffery, lines telling the reader what to notice, weasel attributions, dramatic fragments, rhetorical setups, mic-drop endings, recap conclusions, formatting slop and em-dash clusters. It pushes for concrete names, numbers and mechanisms, and applies a portability test: a sentence that could move unchanged to another subject is filler. With no draft it asks for one, and it asks a single question when the audience or goal is unclear. After editing, it checks the draft against the skill's eval.md and fixes what fails before returning it.",
+          "permalink": "https://github.com/petergyang/no-ai-slop/tree/000650b156983f5159695b441477f4e63b25dc85/skills/no-ai-slop"
+        },
+        "tags": [
+          "category:writing",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "anti-slop",
+          "writing"
+        ]
+      }
+    },
+    {
+      "id": "obra/superpowers/skills/diagnosing-superpowers",
+      "name": "diagnosing-superpowers",
+      "skills.sh": {
+        "url": "https://skills.sh/obra/superpowers/diagnosing-superpowers",
+        "installs": 28800,
+        "weeklyInstalls": [0, 941, 4336, 3664, 3315, 4039, 4577, 4394],
+        "firstSeen": "2026-09-19"
+      },
+      "skillMd": {
+        "version": "22f0b463e7a5e579904dd6211a520321035526f7",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Investigates why a Superpowers session went wrong from its transcripts, and drafts an evidence-backed bug report for the maintainers.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a Superpowers session repeated work, ignored its plan, cost too much or never fired a skill, and you want to know why"
+            },
+            {
+              "label": "It does",
+              "text": "asks what went wrong, finds the session's transcripts, and runs seven analyst subagents in parallel, one per angle such as plan adherence or cost"
+            },
+            {
+              "label": "You get",
+              "text": "a report in which every finding cites a transcript file and line; a GitHub issue if Superpowers looks involved; a scrubbed session bundle if you ask"
+            },
+            {
+              "label": "Won't",
+              "text": "name a defect in a skill, propose a change or give advice; it reports, and the maintainers decide"
+            },
+            {
+              "label": "Asks first",
+              "text": "before filing an issue, and before building or archiving a bundle"
+            }
+          ],
+          "text": "Superpowers' way to look back at a session, the current one or a past one by id or path, on any agent harness. It starts with intake, asking one question at a time until it can say which session, what you expected, what happened and what you care about, such as time, tokens or one repeated action. It then locates the transcript files, subagents' included, confirms a past session by quoting its first prompt, and opens a case file in ~/.superpowers/diagnosing-superpowers/<session-id>/. It reads the region around the problem itself, then dispatches analysts for skill timeline, plan adherence, repeated work, stumbles, quality evidence, conflicting requests, and cost and time, discarding any finding without a path:line citation; every number comes from the transcript or a command it ran. If the report says Superpowers may be involved, it searches existing GitHub issues, suggests adding to the closest, and files a new one only after you approve its exact text. A shareable bundle is built only when you ask, at a redaction level you choose, scrubbed and audited until clean. It never modifies session files.",
+          "permalink": "https://github.com/obra/superpowers/tree/22f0b463e7a5e579904dd6211a520321035526f7/skills/diagnosing-superpowers"
+        },
+        "tags": [
+          "category:debugging",
+          "category:skill-tools",
+          "type:workflow",
+          "effect:remote",
+          "needs:subagents",
+          "needs:issue-tracker",
+          "by:community",
+          "debugging",
+          "agent-workflows",
+          "issue-tracking"
+        ],
+        "note": "Only analyzes sessions that used the Superpowers skills, so it's useful only alongside them."
       }
     }
   ]
