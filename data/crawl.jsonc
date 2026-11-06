@@ -5814,32 +5814,6 @@
       }
     },
     {
-      "name": "create-spring-boot-kotlin-project",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/create-spring-boot-kotlin-project",
-        "installs": 8700,
-        "weeklyInstalls": [7, 9, 11, 11, 3, 1, 2, 4],
-        "firstSeen": "2026-02-25"
-      }
-    },
-    {
-      "name": "mcp-create-declarative-agent",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/mcp-create-declarative-agent",
-        "installs": 8700,
-        "weeklyInstalls": [6, 12, 13, 11, 2, 0, 1, 2],
-        "firstSeen": "2026-02-25"
-      }
-    },
-    {
       "name": "roguelike",
       "repo": "gamedev-skills/awesome-gamedev-agent-skills",
       "official": false,
@@ -5853,19 +5827,6 @@
       }
     },
     {
-      "name": "typespec-create-api-plugin",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/typespec-create-api-plugin",
-        "installs": 8700,
-        "weeklyInstalls": [6, 8, 13, 13, 2, 0, 0, 2],
-        "firstSeen": "2026-02-25"
-      }
-    },
-    {
       "name": "roblox-luau",
       "repo": "gamedev-skills/awesome-gamedev-agent-skills",
       "official": false,
@@ -5876,19 +5837,6 @@
         "installs": 8700,
         "weeklyInstalls": [342, 314, 397, 398, 472, 689, 1459, 1743],
         "firstSeen": "2026-06-27"
-      }
-    },
-    {
-      "name": "cosmosdb-datamodeling",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/cosmosdb-datamodeling",
-        "installs": 8700,
-        "weeklyInstalls": [6, 9, 17, 13, 2, 4, 0, 2],
-        "firstSeen": "2026-02-25"
       }
     },
     {
@@ -5918,19 +5866,6 @@
       }
     },
     {
-      "name": "mcp-copilot-studio-server-generator",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/mcp-copilot-studio-server-generator",
-        "installs": 8700,
-        "weeklyInstalls": [5, 7, 15, 10, 2, 1, 1, 4],
-        "firstSeen": "2026-02-25"
-      }
-    },
-    {
       "name": "seo-audit",
       "repo": "agricidaniel/claude-seo",
       "official": false,
@@ -5957,32 +5892,6 @@
       }
     },
     {
-      "name": "kotlin-mcp-server-generator",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/kotlin-mcp-server-generator",
-        "installs": 8700,
-        "weeklyInstalls": [7, 7, 11, 11, 2, 0, 0, 4],
-        "firstSeen": "2026-02-25"
-      }
-    },
-    {
-      "name": "power-platform-mcp-connector-suite",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/power-platform-mcp-connector-suite",
-        "installs": 8700,
-        "weeklyInstalls": [7, 11, 14, 15, 3, 1, 0, 5],
-        "firstSeen": "2026-02-25"
-      }
-    },
-    {
       "name": "shuffle-json-data",
       "repo": "github/awesome-copilot",
       "official": true,
@@ -6006,84 +5915,6 @@
         "installs": 8700,
         "weeklyInstalls": [821, 860, 803, 797, 789, 580, 450, 347],
         "firstSeen": "2026-08-11"
-      }
-    },
-    {
-      "name": "declarative-agents",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/declarative-agents",
-        "installs": 8700,
-        "weeklyInstalls": [6, 7, 17, 11, 2, 0, 0, 2],
-        "firstSeen": "2026-02-25"
-      }
-    },
-    {
-      "name": "az-cost-optimize",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/az-cost-optimize",
-        "installs": 8700,
-        "weeklyInstalls": [7, 10, 16, 11, 3, 4, 1, 0],
-        "firstSeen": "2026-02-25"
-      }
-    },
-    {
-      "name": "azure-resource-health-diagnose",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/azure-resource-health-diagnose",
-        "installs": 8700,
-        "weeklyInstalls": [7, 8, 17, 11, 3, 3, 1, 0],
-        "firstSeen": "2026-02-25"
-      }
-    },
-    {
-      "name": "typespec-create-agent",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/typespec-create-agent",
-        "installs": 8700,
-        "weeklyInstalls": [6, 7, 15, 12, 2, 0, 0, 2],
-        "firstSeen": "2026-02-25"
-      }
-    },
-    {
-      "name": "centos-linux-triage",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/centos-linux-triage",
-        "installs": 8700,
-        "weeklyInstalls": [10, 11, 14, 14, 4, 1, 2, 5],
-        "firstSeen": "2026-02-25"
-      }
-    },
-    {
-      "name": "containerize-aspnet-framework",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/containerize-aspnet-framework",
-        "installs": 8700,
-        "weeklyInstalls": [5, 9, 14, 11, 3, 2, 0, 0],
-        "firstSeen": "2026-02-25"
       }
     },
     {
@@ -6201,45 +6032,6 @@
         "installs": 8600,
         "weeklyInstalls": [409, 356, 287, 307, 388, 401, 390, 360],
         "firstSeen": "2026-05-20"
-      }
-    },
-    {
-      "name": "update-avm-modules-in-bicep",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/update-avm-modules-in-bicep",
-        "installs": 8600,
-        "weeklyInstalls": [8, 8, 13, 17, 12, 9, 0, 5],
-        "firstSeen": "2026-02-25"
-      }
-    },
-    {
-      "name": "entra-agent-user",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/entra-agent-user",
-        "installs": 8600,
-        "weeklyInstalls": [6, 8, 15, 11, 2, 0, 0, 2],
-        "firstSeen": "2026-02-24"
-      }
-    },
-    {
-      "name": "ruby-mcp-server-generator",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/ruby-mcp-server-generator",
-        "installs": 8600,
-        "weeklyInstalls": [6, 10, 12, 12, 2, 0, 3, 4],
-        "firstSeen": "2026-02-25"
       }
     },
     {
@@ -9984,19 +9776,6 @@
         "installs": 7000,
         "weeklyInstalls": [147, 131, 117, 131, 112, 144, 151, 147],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "msstore-cli",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/msstore-cli",
-        "installs": 7000,
-        "weeklyInstalls": [6, 7, 13, 12, 4, 3, 2, 8],
-        "firstSeen": "2026-03-02"
       }
     },
     {
@@ -40080,6 +39859,74 @@
     {
       "url": "https://skills.sh/github/awesome-copilot/dataverse-python-usecase-builder",
       "note": "Tool docs: an agent's manual for dataverse and python."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/create-spring-boot-kotlin-project",
+      "note": "Tool docs: an agent's manual for spring-boot and kotlin."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/mcp-create-declarative-agent",
+      "note": "Tool docs: an agent's manual for microsoft-365-copilot."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/typespec-create-api-plugin",
+      "note": "Tool docs: an agent's manual for typespec and microsoft-365-copilot."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/cosmosdb-datamodeling",
+      "note": "Tool docs: an agent's manual for azure."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/mcp-copilot-studio-server-generator",
+      "note": "Tool docs: an agent's manual for copilot-studio and power-platform."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/kotlin-mcp-server-generator",
+      "note": "Tool docs: an agent's manual for kotlin and the MCP Kotlin SDK."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/power-platform-mcp-connector-suite",
+      "note": "Tool docs: an agent's manual for copilot-studio and power-platform."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/declarative-agents",
+      "note": "Tool docs: an agent's manual for microsoft-365-copilot."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/az-cost-optimize",
+      "note": "Tool docs: an agent's manual for azure."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/azure-resource-health-diagnose",
+      "note": "Tool docs: an agent's manual for azure."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/typespec-create-agent",
+      "note": "Tool docs: an agent's manual for typespec and microsoft-365-copilot."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/centos-linux-triage",
+      "note": "Tool docs: an agent's manual for centos."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/containerize-aspnet-framework",
+      "note": "Tool docs: an agent's manual for docker and dotnet."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/update-avm-modules-in-bicep",
+      "note": "Tool docs: an agent's manual for azure and bicep."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/entra-agent-user",
+      "note": "Tool docs: an agent's manual for azure."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/ruby-mcp-server-generator",
+      "note": "Tool docs: an agent's manual for ruby and the MCP Ruby SDK."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/msstore-cli",
+      "note": "Tool docs: an agent's manual for the Microsoft Store CLI."
     }
   ]
 }
