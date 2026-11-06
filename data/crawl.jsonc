@@ -198,19 +198,6 @@
       }
     },
     {
-      "name": "sanity-migration",
-      "repo": "sanity-io/agent-toolkit",
-      "official": true,
-      "stars": 197,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/sanity-io/agent-toolkit/sanity-migration",
-        "installs": 23400,
-        "weeklyInstalls": [1098, 1078, 975, 883, 829, 779, 740, 710],
-        "firstSeen": "2026-06-10"
-      }
-    },
-    {
       "name": "tavily-research",
       "repo": "tavily-ai/skills",
       "official": false,
@@ -289,32 +276,6 @@
       }
     },
     {
-      "name": "clickhouse-best-practices",
-      "repo": "clickhouse/agent-skills",
-      "official": true,
-      "stars": 564,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/clickhouse/agent-skills/clickhouse-best-practices",
-        "installs": 22600,
-        "weeklyInstalls": [201, 235, 255, 325, 3725, 5666, 513, 509],
-        "firstSeen": "2026-01-27"
-      }
-    },
-    {
-      "name": "rust-best-practices",
-      "repo": "apollographql/skills",
-      "official": false,
-      "stars": 125,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/apollographql/skills/rust-best-practices",
-        "installs": 22400,
-        "weeklyInstalls": [640, 488, 445, 529, 396, 834, 521, 976],
-        "firstSeen": "2026-01-26"
-      }
-    },
-    {
       "name": "interface-review",
       "repo": "jakubkrehel/skills",
       "official": false,
@@ -341,19 +302,6 @@
       }
     },
     {
-      "name": "agent-reach",
-      "repo": "panniantong/agent-reach",
-      "official": false,
-      "stars": 109622,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/panniantong/agent-reach/agent-reach",
-        "installs": 22000,
-        "weeklyInstalls": [642, 735, 567, 731, 777, 799, 931, 916],
-        "firstSeen": "2026-02-25"
-      }
-    },
-    {
       "name": "ppt-master",
       "repo": "hugohe3/ppt-master",
       "official": false,
@@ -364,19 +312,6 @@
         "installs": 21900,
         "weeklyInstalls": [828, 774, 671, 436, 716, 945, 1248, 1269],
         "firstSeen": "2026-03-21"
-      }
-    },
-    {
-      "name": "simplify",
-      "repo": "brianlovin/agent-config",
-      "official": false,
-      "stars": 381,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/brianlovin/agent-config/simplify",
-        "installs": 21300,
-        "weeklyInstalls": [506, 560, 363, 783, 750, 799, 638, 775],
-        "firstSeen": "2026-01-20"
       }
     },
     {
@@ -406,19 +341,6 @@
       }
     },
     {
-      "name": "ai-elements",
-      "repo": "vercel/ai-elements",
-      "official": true,
-      "stars": 2509,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/vercel/ai-elements/ai-elements",
-        "installs": 20700,
-        "weeklyInstalls": [470, 496, 356, 321, 365, 274, 216, 175],
-        "firstSeen": "2026-01-26"
-      }
-    },
-    {
       "name": "react-doctor",
       "repo": "millionco/react-doctor",
       "official": false,
@@ -445,32 +367,6 @@
       }
     },
     {
-      "name": "langfuse",
-      "repo": "langfuse/skills",
-      "official": true,
-      "stars": 333,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/langfuse/skills/langfuse",
-        "installs": 20700,
-        "weeklyInstalls": [650, 759, 709, 660, 714, 694, 612, 541],
-        "firstSeen": "2026-02-15"
-      }
-    },
-    {
-      "name": "gh-stack",
-      "repo": "github/gh-stack",
-      "official": true,
-      "stars": 1750,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/gh-stack/gh-stack",
-        "installs": 20500,
-        "weeklyInstalls": [1050, 1285, 1078, 1408, 1184, 687, 1111, 1286],
-        "firstSeen": "2026-04-10"
-      }
-    },
-    {
       "name": "opencli-browser",
       "repo": "jackwener/opencli",
       "official": false,
@@ -481,19 +377,6 @@
         "installs": 20500,
         "weeklyInstalls": [311, 255, 273, 223, 241, 300, 297, 251],
         "firstSeen": "2026-04-08"
-      }
-    },
-    {
-      "name": "angular-new-app",
-      "repo": "angular/skills",
-      "official": true,
-      "stars": 716,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/angular/skills/angular-new-app",
-        "installs": 20300,
-        "weeklyInstalls": [743, 735, 950, 786, 907, 661, 707, 655],
-        "firstSeen": "2026-03-24"
       }
     },
     {
@@ -523,19 +406,6 @@
       }
     },
     {
-      "name": "nuxt-ui",
-      "repo": "nuxt/ui",
-      "official": false,
-      "stars": 7058,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/nuxt/ui/nuxt-ui",
-        "installs": 20200,
-        "weeklyInstalls": [366, 306, 333, 283, 375, 301, 272, 288],
-        "firstSeen": "2026-02-09"
-      }
-    },
-    {
       "name": "nature-figure",
       "repo": "yuan1z0825/nature-skills",
       "official": false,
@@ -546,19 +416,6 @@
         "installs": 19700,
         "weeklyInstalls": [1182, 1141, 937, 613, 783, 804, 744, 556],
         "firstSeen": "2026-04-30"
-      }
-    },
-    {
-      "name": "mintlify",
-      "repo": "mintlify/docs",
-      "official": false,
-      "stars": 461,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/mintlify/docs/mintlify",
-        "installs": 19700,
-        "weeklyInstalls": [246, 272, 222, 230, 3474, 5382, 236, 124],
-        "firstSeen": "2026-02-04"
       }
     },
     {
@@ -43932,6 +43789,50 @@
     {
       "url": "https://skills.sh/tt-a1i/archify/archify-review",
       "note": "Internal: reviews Archify's own issues and PRs, and its frontmatter marks it internal."
+    },
+    {
+      "url": "https://skills.sh/sanity-io/agent-toolkit/sanity-migration",
+      "note": "Tool docs: an agent's manual for sanity."
+    },
+    {
+      "url": "https://skills.sh/clickhouse/agent-skills/clickhouse-best-practices",
+      "note": "Tool docs: an agent's manual for clickhouse."
+    },
+    {
+      "url": "https://skills.sh/apollographql/skills/rust-best-practices",
+      "note": "Tool docs: an agent's manual for rust."
+    },
+    {
+      "url": "https://skills.sh/panniantong/agent-reach/agent-reach",
+      "note": "In Chinese."
+    },
+    {
+      "url": "https://skills.sh/brianlovin/agent-config/simplify",
+      "note": "A copy of anthropics/claude-plugins-official/plugins/code-simplifier, Anthropic's code-simplifier agent."
+    },
+    {
+      "url": "https://skills.sh/vercel/ai-elements/ai-elements",
+      "note": "Tool docs: an agent's manual for ai-elements."
+    },
+    {
+      "url": "https://skills.sh/langfuse/skills/langfuse",
+      "note": "Tool docs: an agent's manual for langfuse."
+    },
+    {
+      "url": "https://skills.sh/github/gh-stack/gh-stack",
+      "note": "Tool docs: an agent's manual for gh-stack."
+    },
+    {
+      "url": "https://skills.sh/angular/skills/angular-new-app",
+      "note": "Tool docs: an agent's manual for angular."
+    },
+    {
+      "url": "https://skills.sh/nuxt/ui/nuxt-ui",
+      "note": "Tool docs: an agent's manual for nuxt-ui."
+    },
+    {
+      "url": "https://skills.sh/mintlify/docs/mintlify",
+      "note": "Tool docs: an agent's manual for mintlify."
     }
   ]
 }
