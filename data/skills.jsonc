@@ -20104,6 +20104,560 @@
         ],
         "note": "Only analyzes sessions that used the Superpowers skills, so it's useful only alongside them."
       }
+    },
+    {
+      "id": "wshobson/agents/plugins/framework-migration/skills/database-migration",
+      "name": "database-migration",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/database-migration",
+        "installs": 18000,
+        "weeklyInstalls": [224, 239, 267, 320, 252, 228, 223, 203],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Guides schema and data migrations in Sequelize, TypeORM and Prisma, with zero-downtime column changes and rollback strategies.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're changing a database schema, transforming existing data or moving between databases, and want a way back if it fails"
+            },
+            {
+              "label": "It does",
+              "text": "gives the agent migration patterns with up and down steps, mostly in Sequelize, plus the TypeORM and Prisma basics"
+            },
+            {
+              "label": "Zero downtime",
+              "text": "a column rename runs in steps: add the new column and copy the data, switch the app, then drop the old column"
+            },
+            {
+              "label": "You get",
+              "text": "migrations written along those patterns; it adds no steps or files of its own"
+            }
+          ],
+          "text": "It's a reference, not a workflow. It opens with a create-table migration in each of Sequelize, TypeORM and Prisma, with the commands to run them. The rest is Sequelize code: adding a column with a default; renaming a column without downtime by adding the new one, copying the data, updating the app and only then removing the old one; and changing a column's type on a large table by adding a new column, casting the data into it, dropping the old one and renaming the new one. A data migration splits an address string into street, city and state, with a down step that rebuilds it. For rollbacks, it wraps changes in a transaction, or copies the table to a backup first, checks the result and restores the backup if the check fails. A separate file adds a five-phase blue-green migration (add the column, write to both, backfill, read from the new one, remove the old) and a migration that picks MySQL's JSON or PostgreSQL's JSONB column type depending on the database.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/framework-migration/skills/database-migration"
+        },
+        "tags": [
+          "category:engineering",
+          "category:frameworks",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:sequelize",
+          "stack:typeorm",
+          "stack:prisma",
+          "migration",
+          "databases"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/business-analytics/skills/data-storytelling",
+      "name": "data-storytelling",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/data-storytelling",
+        "installs": 17500,
+        "weeklyInstalls": [216, 240, 406, 580, 374, 322, 369, 382],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Turns data analysis into a story for stakeholders, with narrative structures, presentation templates, annotated charts and headline formulas.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're presenting analytics to executives or investors, writing a data report or business review, or explaining findings to a non-technical audience"
+            },
+            {
+              "label": "It does",
+              "text": "shapes findings into an arc: a hook, the baseline, the data that builds up, the key insight, recommendations and a call to action"
+            },
+            {
+              "label": "You get",
+              "text": "a report or presentation that leads with the insight and ends with next steps"
+            },
+            {
+              "label": "Also covers",
+              "text": "headlines that state a number and its business impact, transition phrases, and ways to state uncertainty such as ranges and confidence levels"
+            }
+          ],
+          "text": "A guide to presenting data, not to analyzing it. The core is a story structure: set up the context and baseline, name the problem or opportunity, then resolve it with insights and recommendations, carried by three pillars of data, narrative and visuals. Its rules: start with the \"so what\", group in threes, curate instead of dumping data, connect to the audience's goals, avoid jargon, give context before method and end with clear next steps. A separate file holds three story frameworks (problem and solution, trend, comparison), each worked through on an example such as a churn analysis; visualization techniques such as revealing a chart one layer per slide, before-and-after contrasts and annotating a chart in matplotlib; templates for an executive summary slide, a seven-slide deck from the headline to the ask, and a one-page monthly business review; and writing techniques: headlines built from a number, its business impact and context, transition phrases and ways to present uncertainty.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/business-analytics/skills/data-storytelling"
+        },
+        "tags": [
+          "category:writing",
+          "category:science",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "charts",
+          "writing",
+          "slides"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/quantitative-trading/skills/backtesting-frameworks",
+      "name": "backtesting-frameworks",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/backtesting-frameworks",
+        "installs": 17400,
+        "weeklyInstalls": [225, 239, 276, 373, 336, 336, 381, 354],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Helps build trading-strategy backtests that avoid look-ahead, survivorship and overfitting bias, using walk-forward testing and realistic trading costs.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're building a backtester, or checking whether a trading strategy's historical results can be trusted"
+            },
+            {
+              "label": "It does",
+              "text": "names the biases that inflate backtests (look-ahead, survivorship, overfitting, cherry-picking, ignored trading costs) and how to avoid each"
+            },
+            {
+              "label": "You get",
+              "text": "backtests that split history into training, validation and test sets and test walk-forward over rolling windows"
+            },
+            {
+              "label": "Also has",
+              "text": "Python for an event-driven and a vectorized backtester, walk-forward optimization, Monte Carlo analysis and performance metrics"
+            }
+          ],
+          "text": "A reference for trading-strategy backtests. Each bias comes with its fix: point-in-time data against look-ahead, delisted securities against survivorship, out-of-sample testing against overfitting, pre-registration against cherry-picking strategies, and realistic cost models for trading costs. History is split three ways: develop on the training set, choose parameters on the validation set without peeking, and touch the test set only for the final estimate; walk-forward analysis repeats that over rolling windows. Its rules: limit parameters, never optimize on the full history, handle adjusted prices with care, use Monte Carlo analysis to understand uncertainty, and account for capacity and market impact. A separate file holds the implementations in Python with pandas and NumPy: an event-driven backtester, a faster vectorized one, walk-forward optimization, Monte Carlo analysis, and a function computing returns, volatility, Sharpe, Sortino and Calmar ratios, maximum drawdown, win rate and profit factor.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/quantitative-trading/skills/backtesting-frameworks"
+        },
+        "tags": [
+          "category:science",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:python",
+          "finance"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/business-analytics/skills/kpi-dashboard-design",
+      "name": "kpi-dashboard-design",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/kpi-dashboard-design",
+        "installs": 17000,
+        "weeklyInstalls": [304, 325, 346, 428, 395, 412, 423, 405],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Designs KPI dashboards: which metrics to show to whom, how to lay them out, and how to fix numbers people don't trust.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're choosing KPIs and laying out an executive, departmental or real-time operations dashboard, or fixing one whose numbers contradict each other"
+            },
+            {
+              "label": "It does",
+              "text": "sorts KPIs into strategic, tactical and operational levels by audience and update frequency, and limits a dashboard to 5-7 of them"
+            },
+            {
+              "label": "You get",
+              "text": "a dashboard plan, from a one-page executive summary down to department views and drilldowns"
+            },
+            {
+              "label": "Troubleshoots",
+              "text": "MRR that disagrees with finance, green dashboards while users complain, flat cohorts, live dashboards that overload the database, and ignored alerts"
+            }
+          ],
+          "text": "Guidance for business dashboards. KPIs should be specific, measurable, achievable, relevant and time-bound, and actionable rather than vanity metrics; each number needs context such as a trend, target or comparison; red means bad and green good; no 3D charts; calculations are documented; and the dashboard should work on mobile. The troubleshooting is concrete: normalize annual and quarterly plans to a monthly figure and show the formula, add user-facing metrics such as page load time and support tickets beside uptime, group cohorts by month rather than day, feed live dashboards from a summary table refreshed by a scheduled job instead of querying production, and alert on deviations from a 30-day rolling mean instead of fixed thresholds. A separate file lists common KPIs for sales, marketing, product and finance, layouts for executive, SaaS and operations dashboards, SQL for KPI calculations, and a dashboard in Streamlit.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/business-analytics/skills/kpi-dashboard-design"
+        },
+        "tags": [
+          "category:science",
+          "category:design",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "charts",
+          "design"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/documentation-generation/skills/openapi-spec-generation",
+      "name": "openapi-spec-generation",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/openapi-spec-generation",
+        "installs": 16900,
+        "weeklyInstalls": [225, 244, 255, 339, 286, 267, 316, 292],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes OpenAPI 3.1 specifications for REST APIs, design-first or from existing code, following a complete template and documentation rules.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're documenting a REST API, designing its contract before writing code, or need a spec to generate client SDKs from"
+            },
+            {
+              "label": "It does",
+              "text": "picks design-first, code-first or hybrid to suit the API, and writes the spec with shared schemas, examples, every error and security schemes"
+            },
+            {
+              "label": "You get",
+              "text": "an OpenAPI 3.1 YAML spec; a separate file has a complete one for a user-management API to start from"
+            }
+          ],
+          "text": "A reference for OpenAPI 3.1, the standard format for describing REST APIs. Writing the spec before the code suits new APIs and contracts, generating it from code suits existing APIs, and annotating code to generate it suits APIs that keep changing. Its rules: reuse schemas, parameters and responses with $ref, add realistic examples, document every error code, version the API in the URL or a header and the spec with semantic versioning, define every security scheme, state nullability explicitly, keep naming consistent and use server variables instead of hardcoded URLs. The separate file's spec has list, create, read, update and delete endpoints with pagination, schemas for users, requests, paginated lists and errors, shared parameters, standard responses for bad requests, missing auth, not found and rate limits, and bearer-token and API-key security. That file points to a third with code-first templates for FastAPI and for TypeScript with tsoa, linting with Spectral and Redocly, and generating TypeScript, Python and Go clients with OpenAPI Generator.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/documentation-generation/skills/openapi-spec-generation"
+        },
+        "tags": [
+          "category:engineering",
+          "category:writing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:openapi",
+          "docs-writing",
+          "backend"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/ui-design/skills/interaction-design",
+      "name": "interaction-design",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/interaction-design",
+        "installs": 16900,
+        "weeklyInstalls": [335, 350, 722, 467, 381, 369, 375, 377],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Adds microinteractions, transitions, loading states and gestures to interfaces, with timing and easing rules and reduced-motion support.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're adding hover and press feedback, loading states, toggles, page transitions or swipe gestures to a UI"
+            },
+            {
+              "label": "It does",
+              "text": "keeps motion to what communicates: confirming an action, showing where things come from, drawing attention or keeping context"
+            },
+            {
+              "label": "You get",
+              "text": "components in React with Framer Motion or plain CSS, such as skeleton screens, progress bars, toggles, ripple buttons and swipe-to-dismiss cards"
+            },
+            {
+              "label": "Also covers",
+              "text": "honouring reduced-motion settings, animating only transform and opacity, and never blocking input during an animation"
+            }
+          ],
+          "text": "Interaction design principles with code. Motion should give feedback, orientation, focus or continuity, not decoration. A timing table maps durations to uses: 100-150ms for hovers and clicks, 200-300ms for toggles and dropdowns, 300-500ms for modals and page changes, and longer only for choreographed sequences; four easing curves cover entering, exiting, moving between states and a playful overshoot. Examples use React with Framer Motion and Tailwind classes, plus CSS keyframes and transitions. Its rules: animate transform and opacity for 60fps, respect prefers-reduced-motion in CSS and in code, keep one timing scale across the app, prefer springs to linear motion, let users interrupt long animations, work without JavaScript animation, and test on real devices. It names toasts, drag-and-drop and scroll-triggered animations among its uses but shows no code for them. It ends with common problems such as janky animations of width or position, motion fatigue and animation listeners left behind on unmount.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/ui-design/skills/interaction-design"
+        },
+        "tags": [
+          "category:design",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:react",
+          "stack:framer-motion",
+          "animation",
+          "design"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/ui-design/skills/design-system-patterns",
+      "name": "design-system-patterns",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/design-system-patterns",
+        "installs": 16600,
+        "weeklyInstalls": [240, 295, 358, 386, 338, 287, 325, 378],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds design systems from layered design tokens, light, dark and multi-brand theming, and consistent component APIs.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're creating design tokens, adding theme switching or multi-brand themes, or building a component library"
+            },
+            {
+              "label": "It does",
+              "text": "organizes tokens in three layers: primitives (raw values), semantic tokens (what a value means, such as text-primary) and component tokens (button-bg)"
+            },
+            {
+              "label": "You get",
+              "text": "tokens as CSS custom properties, a theme switcher that follows the system setting, and components with variant and size systems"
+            },
+            {
+              "label": "Also covers",
+              "text": "a Style Dictionary config that builds CSS, SCSS, iOS and Android files from JSON token files"
+            }
+          ],
+          "text": "A reference for the foundations of a design system. Tokens are named by purpose rather than look (text-primary, not dark-gray): semantic tokens refer to primitives, and component tokens to semantic ones. Its code, mostly in a separate file, shows the three token layers as CSS custom properties, a React theme provider that switches between light, dark and the system's color-scheme setting and remembers the choice, a button with variants and sizes built with class-variance-authority, and the Style Dictionary config. It also lists, without examples, compound, polymorphic, slot-based and headless components, reduced-motion and high-contrast modes, and syncing tokens from Figma in CI. Its rules: document how each token is used, version tokens like an API with semver, test every theme with every component, automate the token pipeline and retire tokens gradually. Common problems it names are token sprawl, mixed naming conventions, tokens that ignore dark mode, hardcoded values, tokens that reference each other in loops, and tokens missing on some platforms.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/ui-design/skills/design-system-patterns"
+        },
+        "tags": [
+          "category:design",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:react",
+          "stack:style-dictionary",
+          "design-system",
+          "design"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/blockchain-web3/skills/solidity-security",
+      "name": "solidity-security",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/solidity-security",
+        "installs": 15700,
+        "weeklyInstalls": [181, 201, 230, 281, 228, 196, 199, 184],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes and reviews smart contracts against reentrancy, overflow, access-control and front-running attacks, with secure Solidity patterns and an audit checklist.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're writing a smart contract, checking one for vulnerabilities, or preparing it for a professional audit"
+            },
+            {
+              "label": "It does",
+              "text": "shows vulnerable and fixed Solidity for reentrancy, integer overflow, missing access control and front-running"
+            },
+            {
+              "label": "You get",
+              "text": "contracts that follow checks-effects-interactions and pull payments, plus Hardhat tests that try the attacks"
+            },
+            {
+              "label": "Also covers",
+              "text": "an emergency stop, gas savings, documentation for auditors and a 15-item security checklist"
+            }
+          ],
+          "text": "A security reference for Ethereum-style smart contracts. The SKILL.md itself shows Hardhat tests that attempt a reentrancy attack, an overflow and an unauthorized withdrawal and expect each to revert, and a contract documented for auditors whose withdrawal checks the balance, updates it, and only then sends the funds. A separate file holds the detail: each critical vulnerability as vulnerable code and its fix, with OpenZeppelin's ReentrancyGuard, Solidity 0.8's built-in overflow checks (SafeMath before it), owner-only and role-based access control, and a commit-reveal scheme against front-running; secure patterns such as checks-effects-interactions, pulling payments instead of pushing them, input validation and a circuit breaker to pause the contract; gas optimizations such as packed storage and calldata arguments; and a checklist that also covers delegatecall to untrusted contracts, tx.origin authentication, unchecked return values and hardcoded addresses.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/blockchain-web3/skills/solidity-security"
+        },
+        "tags": [
+          "category:security",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:solidity",
+          "stack:hardhat",
+          "stack:openzeppelin",
+          "web3",
+          "security"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/hr-legal-compliance/skills/gdpr-data-handling",
+      "name": "gdpr-data-handling",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/gdpr-data-handling",
+        "installs": 15300,
+        "weeklyInstalls": [187, 203, 256, 310, 266, 261, 258, 243],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds GDPR-compliant handling of EU personal data: lawful bases, consent, data subject requests, retention, breach notification and a compliance checklist.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're building a system that processes EU personal data, adding privacy controls, or reviewing a system for GDPR compliance"
+            },
+            {
+              "label": "It does",
+              "text": "sorts personal data by the protection it needs, ties processing to one of the six lawful bases and lists the rights users can exercise"
+            },
+            {
+              "label": "You get",
+              "text": "code patterns for consent, access and erasure requests, retention, privacy by design and breach notification, and a compliance checklist"
+            }
+          ],
+          "text": "The regulation boiled down for builders: data categories from basic contact details to sensitive (Article 9), criminal (Article 10) and children's data, the six lawful bases of Article 6, and the rights to access, rectification, erasure, restriction, portability and objection, which must be answered within a month. Its rules: collect only what's needed, document processing and its legal basis, encrypt personal data at rest and in transit, restrict access and audit regularly; never pre-tick consent boxes, bundle purposes into one consent, keep data indefinitely or transfer it without safeguards such as standard contractual clauses. A separate file holds the implementations, in JavaScript and Python: consent records and a cookie-consent banner, a handler for data subject requests with its deadlines, retention policies with a legal basis for each kind of data, a privacy-by-design data model that keeps personal data apart, and breach notification within 72 hours, plus a checklist covering legal basis, transparency, rights, security, breach response and documentation.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/hr-legal-compliance/skills/gdpr-data-handling"
+        },
+        "tags": [
+          "category:security",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "privacy"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/ui-design/skills/accessibility-compliance",
+      "name": "accessibility-compliance",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/accessibility-compliance",
+        "installs": 15100,
+        "weeklyInstalls": [229, 268, 279, 333, 269, 241, 270, 284],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Applies WCAG 2.2 rules to interfaces: semantic HTML, keyboard focus, screen-reader support, color contrast and mobile accessibility.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're building or auditing an interface for WCAG 2.2 AA or AAA, screen readers or keyboard-only use"
+            },
+            {
+              "label": "It does",
+              "text": "gives the agent rules, such as native elements over ARIA, visible focus, text alternatives and live regions, and the common failures to look for"
+            },
+            {
+              "label": "You get",
+              "text": "components written to those rules, with React examples of accessible buttons, modal dialogs, forms, skip links and announcements"
+            },
+            {
+              "label": "Test with",
+              "text": "automated checks in axe DevTools, WAVE or Lighthouse, and manual ones with VoiceOver, NVDA, JAWS or TalkBack"
+            },
+            {
+              "label": "Unlike accessibility",
+              "text": "from addyosmani/web-quality-skills, which audits the rendered page and fixes what fails, this is a reference with no steps of its own"
+            }
+          ],
+          "text": "A reference, not a workflow. Its rules: prefer semantic HTML to ARIA, test with people with disabilities, design for the keyboard first, style focus outlines instead of removing them, give all non-text content a text alternative, keep pages working at 200% zoom, announce dynamic changes with live regions, and honour reduced-motion and contrast preferences. Common failures it names include missing alt text and labels, poor contrast, keyboard traps, auto-playing media, custom controls that rebuild native ones badly, missing skip links and a tab order that doesn't match the screen. A separate file covers WCAG's four principles, ARIA roles, states and live regions, keyboard focus and focus trapping, screen readers, and mobile (44-point touch targets, VoiceOver, TalkBack, Dynamic Type); a checklist of key WCAG 2.2 success criteria; React code for the components; and a contrast-ratio function with the AA and AAA thresholds.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/ui-design/skills/accessibility-compliance"
+        },
+        "tags": [
+          "category:design",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "accessibility"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/developer-essentials/skills/monorepo-management",
+      "name": "monorepo-management",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/monorepo-management",
+        "installs": 14900,
+        "weeklyInstalls": [220, 226, 265, 300, 265, 246, 248, 201],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Sets up and runs JavaScript monorepos with pnpm workspaces and Turborepo or Nx: shared packages and configs, build caching, CI and publishing.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're starting a monorepo, merging several repos into one, or speeding up its builds and tests"
+            },
+            {
+              "label": "It does",
+              "text": "recommends pnpm workspaces and Turborepo for most teams, calls Nx feature-rich but complex, and shows how to set them up"
+            },
+            {
+              "label": "You get",
+              "text": "apps and shared packages, a turbo.json task pipeline with caching, shared TypeScript and ESLint configs, and releases with Changesets"
+            },
+            {
+              "label": "Watch for",
+              "text": "circular and phantom dependencies, wrong cache inputs, and Turborepo 2 rejecting a config that still uses the old pipeline key"
+            }
+          ],
+          "text": "Monorepo practice for JavaScript and TypeScript. It weighs the gains (shared code, atomic commits across projects, consistent tooling, easier refactoring) against the costs (build times at scale, CI complexity, access control, a large Git repository), ranks the tools (pnpm over npm or Yarn workspaces; Turborepo for most, Nx feature-rich but complex, Lerna in maintenance mode) and walks through a Turborepo setup with apps and shared packages. Its rules: keep dependency versions consistent, centralize ESLint, TypeScript and Prettier configs, keep the dependency graph acyclic, set cache inputs and outputs correctly, share types between frontend and backend, unit-test packages and test apps end to end, and version with Changesets, published from a GitHub Actions workflow. A separate file covers pnpm workspace commands, Nx setup and tasks for affected projects, shared configs, patterns for sharing UI, utilities and types, local and remote caching, and CI that deploys only the apps that changed.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/developer-essentials/skills/monorepo-management"
+        },
+        "tags": [
+          "category:engineering",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:turborepo",
+          "stack:nx",
+          "stack:pnpm",
+          "stack:changesets",
+          "build-tools",
+          "architecture",
+          "ci"
+        ]
+      }
     }
   ]
 }
