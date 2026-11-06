@@ -3,71 +3,6 @@
   "asOf": "2026-11-06",
   "qualified": [
     {
-      "name": "hyperframes-animation",
-      "repo": "heygen-com/hyperframes",
-      "official": false,
-      "stars": 79997,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/heygen-com/hyperframes/hyperframes-animation",
-        "installs": 1005262,
-        "weeklyInstalls": [41855, 78223, 67130, 91534, 144874, 148755, 64260, 335],
-        "firstSeen": "2026-06-14"
-      }
-    },
-    {
-      "name": "hyperframes-creative",
-      "repo": "heygen-com/hyperframes",
-      "official": false,
-      "stars": 79997,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/heygen-com/hyperframes/hyperframes-creative",
-        "installs": 916992,
-        "weeklyInstalls": [42452, 78353, 57738, 92669, 116135, 124499, 58088, 332],
-        "firstSeen": "2026-06-14"
-      }
-    },
-    {
-      "name": "hyperframes-keyframes",
-      "repo": "heygen-com/hyperframes",
-      "official": false,
-      "stars": 79997,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/heygen-com/hyperframes/hyperframes-keyframes",
-        "installs": 754674,
-        "weeklyInstalls": [28637, 62770, 60739, 79048, 115768, 99650, 35916, 327],
-        "firstSeen": "2026-07-02"
-      }
-    },
-    {
-      "name": "hyperframes-audio",
-      "repo": "heygen-com/hyperframes",
-      "official": false,
-      "stars": 79997,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/heygen-com/hyperframes/hyperframes-audio",
-        "installs": 663744,
-        "weeklyInstalls": [34716, 71655, 60471, 78857, 129747, 130612, 44827, 325],
-        "firstSeen": "2026-08-13"
-      }
-    },
-    {
-      "name": "general-video",
-      "repo": "heygen-com/hyperframes",
-      "official": false,
-      "stars": 79997,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/heygen-com/hyperframes/general-video",
-        "installs": 661628,
-        "weeklyInstalls": [28322, 57814, 41804, 61758, 97530, 106648, 32560, 327],
-        "firstSeen": "2026-06-14"
-      }
-    },
-    {
       "name": "azure-validate",
       "repo": "microsoft/azure-skills",
       "official": true,
@@ -224,19 +159,6 @@
       }
     },
     {
-      "name": "product-launch-video",
-      "repo": "heygen-com/hyperframes",
-      "official": false,
-      "stars": 79997,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/heygen-com/hyperframes/product-launch-video",
-        "installs": 539192,
-        "weeklyInstalls": [21145, 47868, 30516, 40835, 74875, 78979, 27784, 324],
-        "firstSeen": "2026-06-14"
-      }
-    },
-    {
       "name": "azure-upgrade",
       "repo": "microsoft/azure-skills",
       "official": true,
@@ -247,32 +169,6 @@
         "installs": 536555,
         "weeklyInstalls": [11401, 11077, 12366, 12204, 11521, 9128, 7427, 7809],
         "firstSeen": "2026-03-13"
-      }
-    },
-    {
-      "name": "faceless-explainer",
-      "repo": "heygen-com/hyperframes",
-      "official": false,
-      "stars": 79997,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/heygen-com/hyperframes/faceless-explainer",
-        "installs": 521892,
-        "weeklyInstalls": [18353, 46620, 29125, 37150, 71204, 75701, 26747, 332],
-        "firstSeen": "2026-06-14"
-      }
-    },
-    {
-      "name": "motion-graphics",
-      "repo": "heygen-com/hyperframes",
-      "official": false,
-      "stars": 79997,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/heygen-com/hyperframes/motion-graphics",
-        "installs": 514208,
-        "weeklyInstalls": [18133, 46834, 30566, 38281, 64667, 71239, 31186, 324],
-        "firstSeen": "2026-06-14"
       }
     },
     {
@@ -458,32 +354,6 @@
       }
     },
     {
-      "name": "embedded-captions",
-      "repo": "heygen-com/hyperframes",
-      "official": false,
-      "stars": 79997,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/heygen-com/hyperframes/embedded-captions",
-        "installs": 453800,
-        "weeklyInstalls": [16660, 44264, 22027, 32317, 56169, 60857, 24520, 323],
-        "firstSeen": "2026-06-14"
-      }
-    },
-    {
-      "name": "hyperframes-studio",
-      "repo": "heygen-com/hyperframes",
-      "official": false,
-      "stars": 79997,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/heygen-com/hyperframes/hyperframes-studio",
-        "installs": 451517,
-        "weeklyInstalls": [0, 21751, 57106, 84410, 115369, 123828, 48567, 313],
-        "firstSeen": "2026-09-19"
-      }
-    },
-    {
       "name": "lark-approval",
       "repo": "larksuite/cli",
       "official": false,
@@ -494,19 +364,6 @@
         "installs": 450177,
         "weeklyInstalls": [6706, 6637, 6435, 3342, 4073, 5371, 5323, 6044],
         "firstSeen": "2026-04-02"
-      }
-    },
-    {
-      "name": "pr-to-video",
-      "repo": "heygen-com/hyperframes",
-      "official": false,
-      "stars": 79997,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/heygen-com/hyperframes/pr-to-video",
-        "installs": 449131,
-        "weeklyInstalls": [15758, 42571, 23591, 29076, 59685, 63096, 21650, 321],
-        "firstSeen": "2026-06-14"
       }
     },
     {
@@ -549,19 +406,6 @@
       }
     },
     {
-      "name": "music-to-video",
-      "repo": "heygen-com/hyperframes",
-      "official": false,
-      "stars": 79997,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/heygen-com/hyperframes/music-to-video",
-        "installs": 419170,
-        "weeklyInstalls": [14489, 43707, 21520, 32432, 59480, 54437, 19665, 321],
-        "firstSeen": "2026-06-23"
-      }
-    },
-    {
       "name": "entra-agent-id",
       "repo": "microsoft/azure-skills",
       "official": true,
@@ -572,45 +416,6 @@
         "installs": 408825,
         "weeklyInstalls": [11400, 11074, 12361, 12202, 11519, 8829, 6962, 7699],
         "firstSeen": "2026-04-29"
-      }
-    },
-    {
-      "name": "talking-head-recut",
-      "repo": "heygen-com/hyperframes",
-      "official": false,
-      "stars": 79997,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/heygen-com/hyperframes/talking-head-recut",
-        "installs": 407825,
-        "weeklyInstalls": [15582, 43688, 20095, 32898, 57069, 61811, 19609, 321],
-        "firstSeen": "2026-06-25"
-      }
-    },
-    {
-      "name": "gpt-taste",
-      "repo": "leonxlnx/taste-skill",
-      "official": false,
-      "stars": 111144,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/leonxlnx/taste-skill/gpt-taste",
-        "installs": 399536,
-        "weeklyInstalls": [15667, 15631, 17689, 20775, 19667, 24223, 2757, 14],
-        "firstSeen": "2026-04-16"
-      }
-    },
-    {
-      "name": "industrial-brutalist-ui",
-      "repo": "leonxlnx/taste-skill",
-      "official": false,
-      "stars": 111144,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/leonxlnx/taste-skill/industrial-brutalist-ui",
-        "installs": 396946,
-        "weeklyInstalls": [15147, 15149, 17243, 20259, 19247, 22692, 2759, 14],
-        "firstSeen": "2026-03-19"
       }
     },
     {
@@ -640,71 +445,6 @@
       }
     },
     {
-      "name": "stitch-design-taste",
-      "repo": "leonxlnx/taste-skill",
-      "official": false,
-      "stars": 111144,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/leonxlnx/taste-skill/stitch-design-taste",
-        "installs": 394901,
-        "weeklyInstalls": [15111, 15075, 17157, 20191, 19099, 22630, 2689, 13],
-        "firstSeen": "2026-03-20"
-      }
-    },
-    {
-      "name": "brandkit",
-      "repo": "leonxlnx/taste-skill",
-      "official": false,
-      "stars": 111144,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/leonxlnx/taste-skill/brandkit",
-        "installs": 390737,
-        "weeklyInstalls": [15576, 15566, 17795, 20995, 19969, 24699, 2702, 26],
-        "firstSeen": "2026-04-26"
-      }
-    },
-    {
-      "name": "image-to-code",
-      "repo": "leonxlnx/taste-skill",
-      "official": false,
-      "stars": 111144,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/leonxlnx/taste-skill/image-to-code",
-        "installs": 385930,
-        "weeklyInstalls": [15672, 15721, 17962, 21385, 20194, 23829, 2724, 29],
-        "firstSeen": "2026-04-24"
-      }
-    },
-    {
-      "name": "imagegen-frontend-web",
-      "repo": "leonxlnx/taste-skill",
-      "official": false,
-      "stars": 111144,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/leonxlnx/taste-skill/imagegen-frontend-web",
-        "installs": 380144,
-        "weeklyInstalls": [15322, 15297, 17383, 20415, 19376, 22889, 2620, 13],
-        "firstSeen": "2026-04-25"
-      }
-    },
-    {
-      "name": "imagegen-frontend-mobile",
-      "repo": "leonxlnx/taste-skill",
-      "official": false,
-      "stars": 111144,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/leonxlnx/taste-skill/imagegen-frontend-mobile",
-        "installs": 373790,
-        "weeklyInstalls": [15223, 15121, 17209, 20204, 19213, 22649, 2614, 14],
-        "firstSeen": "2026-04-25"
-      }
-    },
-    {
       "name": "azure-reliability",
       "repo": "microsoft/azure-skills",
       "official": true,
@@ -728,32 +468,6 @@
         "installs": 364927,
         "weeklyInstalls": [6654, 6559, 6396, 3312, 4038, 5302, 5242, 5954],
         "firstSeen": "2026-05-11"
-      }
-    },
-    {
-      "name": "azure-cost",
-      "repo": "microsoft/azure-skills",
-      "official": true,
-      "stars": 1622,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/microsoft/azure-skills/azure-cost",
-        "installs": 362649,
-        "weeklyInstalls": [11429, 11099, 4895, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-04-02"
-      }
-    },
-    {
-      "name": "azure-hosted-copilot-sdk",
-      "repo": "microsoft/azure-skills",
-      "official": true,
-      "stars": 1622,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/microsoft/azure-skills/azure-hosted-copilot-sdk",
-        "installs": 355277,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-02-24"
       }
     },
     {
@@ -832,19 +546,6 @@
         "installs": 349170,
         "weeklyInstalls": [22, 15, 23, 23, 3486, 10899, 11027, 8739],
         "firstSeen": "2026-04-01"
-      }
-    },
-    {
-      "name": "design-taste-frontend-v1",
-      "repo": "leonxlnx/taste-skill",
-      "official": false,
-      "stars": 111144,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/leonxlnx/taste-skill/design-taste-frontend-v1",
-        "installs": 330375,
-        "weeklyInstalls": [14886, 14886, 16875, 19876, 18897, 22679, 2747, 12],
-        "firstSeen": "2026-05-25"
       }
     },
     {
@@ -1186,19 +887,6 @@
       }
     },
     {
-      "name": "azure-cost-optimization",
-      "repo": "microsoft/azure-skills",
-      "official": true,
-      "stars": 1622,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/microsoft/azure-skills/azure-cost-optimization",
-        "installs": 155407,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-02-04"
-      }
-    },
-    {
       "name": "marketing-ideas",
       "repo": "coreyhaines31/marketingskills",
       "official": false,
@@ -1261,19 +949,6 @@
         "installs": 142120,
         "weeklyInstalls": [3428, 3111, 3198, 3984, 4515, 4161, 4235, 4886],
         "firstSeen": "2026-02-19"
-      }
-    },
-    {
-      "name": "hyperframes-media",
-      "repo": "heygen-com/hyperframes",
-      "official": false,
-      "stars": 79997,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/heygen-com/hyperframes/hyperframes-media",
-        "installs": 141731,
-        "weeklyInstalls": [0, 1, 1, 1, 0, 0, 0, 0],
-        "firstSeen": "2026-05-05"
       }
     },
     {
@@ -53566,6 +53241,106 @@
     {
       "url": "https://skills.sh/site/agent.qq.com/agently-mail",
       "note": "Not on GitHub: skills.sh lists it from agent.qq.com."
+    },
+    {
+      "url": "https://skills.sh/heygen-com/hyperframes/hyperframes-animation",
+      "note": "Gone from heygen-com/hyperframes since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/heygen-com/hyperframes/hyperframes-creative",
+      "note": "Gone from heygen-com/hyperframes since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/heygen-com/hyperframes/hyperframes-keyframes",
+      "note": "Gone from heygen-com/hyperframes since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/heygen-com/hyperframes/hyperframes-audio",
+      "note": "Gone from heygen-com/hyperframes since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/heygen-com/hyperframes/general-video",
+      "note": "Gone from heygen-com/hyperframes since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/heygen-com/hyperframes/product-launch-video",
+      "note": "Gone from heygen-com/hyperframes since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/heygen-com/hyperframes/faceless-explainer",
+      "note": "Gone from heygen-com/hyperframes since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/heygen-com/hyperframes/motion-graphics",
+      "note": "Gone from heygen-com/hyperframes since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/heygen-com/hyperframes/embedded-captions",
+      "note": "Gone from heygen-com/hyperframes since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/heygen-com/hyperframes/hyperframes-studio",
+      "note": "Gone from heygen-com/hyperframes since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/heygen-com/hyperframes/pr-to-video",
+      "note": "Gone from heygen-com/hyperframes since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/heygen-com/hyperframes/music-to-video",
+      "note": "Gone from heygen-com/hyperframes since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/heygen-com/hyperframes/talking-head-recut",
+      "note": "Gone from heygen-com/hyperframes since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/leonxlnx/taste-skill/gpt-taste",
+      "note": "Gone from leonxlnx/taste-skill since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/leonxlnx/taste-skill/industrial-brutalist-ui",
+      "note": "Gone from leonxlnx/taste-skill since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/leonxlnx/taste-skill/stitch-design-taste",
+      "note": "Gone from leonxlnx/taste-skill since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/leonxlnx/taste-skill/brandkit",
+      "note": "Gone from leonxlnx/taste-skill since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/leonxlnx/taste-skill/image-to-code",
+      "note": "Gone from leonxlnx/taste-skill since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/leonxlnx/taste-skill/imagegen-frontend-web",
+      "note": "Gone from leonxlnx/taste-skill since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/leonxlnx/taste-skill/imagegen-frontend-mobile",
+      "note": "Gone from leonxlnx/taste-skill since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/microsoft/azure-skills/azure-cost",
+      "note": "Gone from microsoft/azure-skills since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/microsoft/azure-skills/azure-hosted-copilot-sdk",
+      "note": "Gone from microsoft/azure-skills since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/leonxlnx/taste-skill/design-taste-frontend-v1",
+      "note": "Gone from leonxlnx/taste-skill since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/microsoft/azure-skills/azure-cost-optimization",
+      "note": "Gone from microsoft/azure-skills since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/heygen-com/hyperframes/hyperframes-media",
+      "note": "Gone from heygen-com/hyperframes since 2026-11-06."
     }
   ]
 }
