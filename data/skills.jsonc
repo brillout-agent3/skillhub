@@ -21291,6 +21291,900 @@
           "anti-slop"
         ]
       }
+    },
+    {
+      "id": "github/awesome-copilot/skills/documentation-writer",
+      "name": "documentation-writer",
+      "skills.sh": {
+        "url": "https://skills.sh/github/awesome-copilot/documentation-writer",
+        "installs": 28200,
+        "weeklyInstalls": [339, 280, 264, 315, 266, 284, 261, 244],
+        "firstSeen": "2026-02-25"
+      },
+      "skillMd": {
+        "version": "797337f33f73e35d08d82f840e21c4b8c4932d88",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes software documentation by the Diátaxis framework, as a tutorial, how-to, reference or explanation, after agreeing the audience, goal and outline with you.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need a tutorial, a how-to guide, a reference page or an explanation for a piece of software"
+            },
+            {
+              "label": "It does",
+              "text": "settles the document type, the reader, their goal and the scope with you, then proposes an outline and waits for your approval"
+            },
+            {
+              "label": "You get",
+              "text": "the full document in Markdown, written to the outline you approved"
+            },
+            {
+              "label": "Diátaxis",
+              "text": "a documentation framework that splits docs into four kinds: lessons, recipes for one problem, technical descriptions and discussions that explain"
+            },
+            {
+              "label": "Unlike create-readme",
+              "text": "which writes a README straight from the codebase, this one asks first and covers any of the four document types"
+            }
+          ],
+          "text": "Diátaxis sorts documentation by what the reader needs: a tutorial takes a newcomer through practical steps to a first success, a how-to guide solves one specific problem, reference describes the machinery, and explanation discusses a topic so it's understood. The agent works as a technical writer bound to that split. Before writing anything it must pin down the document type, the target audience, what the reader wants to achieve, and what's in and out of scope, asking you whatever is missing. It then proposes a detailed outline, such as a table of contents with a short description of each part, and writes the document only once you approve it. The result is Markdown aimed at clear language, accurate code and details, one user goal per document and consistent terminology. Markdown files you share are read for the project's tone, style and terms but not copied unless you ask, and it consults no outside website unless you give it a link and tell it to.",
+          "permalink": "https://github.com/github/awesome-copilot/tree/797337f33f73e35d08d82f840e21c4b8c4932d88/skills/documentation-writer"
+        },
+        "tags": [
+          "category:writing",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:official",
+          "docs-writing",
+          "writing"
+        ]
+      }
+    },
+    {
+      "id": "github/awesome-copilot/skills/prd",
+      "name": "prd",
+      "skills.sh": {
+        "url": "https://skills.sh/github/awesome-copilot/prd",
+        "installs": 24400,
+        "weeklyInstalls": [243, 203, 221, 240, 172, 201, 175, 175],
+        "firstSeen": "2026-01-23"
+      },
+      "skillMd": {
+        "version": "797337f33f73e35d08d82f840e21c4b8c4932d88",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Interviews you about a feature's problem, success metrics and constraints, then writes a product requirements document in a fixed five-section structure.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're starting a product or feature, including an AI-powered one, and want its requirements pinned down before building"
+            },
+            {
+              "label": "It does",
+              "text": "asks at least two questions first, on the problem, how success is measured and the constraints, then maps the user flow and non-goals"
+            },
+            {
+              "label": "You get",
+              "text": "a PRD with an executive summary, user stories with acceptance criteria, AI requirements if any, technical specs, and risks with a phased roadmap"
+            },
+            {
+              "label": "Insists on",
+              "text": "measurable requirements, such as results within 200ms for 10k records, rather than \"fast\" or \"easy\"; a tech stack you didn't name is asked about or marked TBD"
+            }
+          ],
+          "text": "A PRD (product requirements document) is the single source of truth for what a project will and won't build. This skill never writes one without discovery: the agent first asks why this is being built now, how you'll know it worked, and what budget, stack or deadline limits it. It then works out dependencies and hidden complexity, the user flow, and what's explicitly out of scope, and drafts the document in a strict schema. The executive summary states the problem, the proposed solution and three to five measurable KPIs. The user experience section lists personas, user stories in \"As a [user], I want to [action] so that [benefit]\" form, acceptance criteria for each, and non-goals. AI features get a section on the tools and APIs they need and how output quality will be evaluated and tested. Technical specifications cover the architecture, integration points such as APIs, databases and auth, and security and privacy. The last section plans a phased rollout from MVP to v2.0 and names technical risks such as latency, cost or failing dependencies. It presents a draft and asks for feedback on specific sections. A worked example covers an intelligent documentation search.",
+          "permalink": "https://github.com/github/awesome-copilot/tree/797337f33f73e35d08d82f840e21c4b8c4932d88/skills/prd"
+        },
+        "tags": [
+          "category:planning",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:official",
+          "requirements",
+          "planning",
+          "interview"
+        ]
+      }
+    },
+    {
+      "id": "github/awesome-copilot/skills/refactor",
+      "name": "refactor",
+      "skills.sh": {
+        "url": "https://skills.sh/github/awesome-copilot/refactor",
+        "installs": 22600,
+        "weeklyInstalls": [152, 152, 171, 161, 133, 126, 105, 136],
+        "firstSeen": "2026-01-23"
+      },
+      "skillMd": {
+        "version": "797337f33f73e35d08d82f840e21c4b8c4932d88",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Refactors code in small, tested steps without changing what it does, with a catalog of code smells, their fixes and design patterns.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "code is hard to read or change, functions or classes have grown too large, or you ask the agent to clean something up"
+            },
+            {
+              "label": "It does",
+              "text": "makes sure tests exist, commits and branches, then makes one small change at a time, running the tests and committing after each"
+            },
+            {
+              "label": "Covers",
+              "text": "ten code smells, such as long functions, duplication, god classes, magic numbers and nested conditionals, each with a before-and-after fix"
+            },
+            {
+              "label": "You get",
+              "text": "restructured code that behaves the same, checked against rules on function size, naming, structure, types and tests"
+            },
+            {
+              "label": "Unlike repo-rebuilder",
+              "text": "a skill it calls more drastic, this one makes gradual improvements to existing code rather than rebuilding it"
+            }
+          ],
+          "text": "Refactoring here means changing how code is organized, never what it does. Its rules: preserve behavior, take small steps, commit at each safe state, have tests (without them you're only editing), and never mix refactoring with feature work. It also says when not to refactor: stable code that won't change again, critical code without tests until tests are added, a tight deadline, or change for its own sake. The process has five stages: prepare with tests, a commit and a feature branch; find the smell and plan the change; refactor one small change at a time, with tests and a commit after each; verify that tests pass and performance hasn't dropped; then update comments and docs. Before-and-after examples, mostly in TypeScript and JavaScript, cover long functions, duplicated code, large classes, long parameter lists, feature envy (a method that uses another object's data more than its own), primitive obsession, magic numbers, nested conditionals, dead code and classes that reach into each other's internals, plus extracting methods, adding types, and the Strategy and Chain of Responsibility patterns. A final checklist asks for functions under 50 lines, no duplication or magic values, one-way dependencies, typed public APIs and passing tests.",
+          "permalink": "https://github.com/github/awesome-copilot/tree/797337f33f73e35d08d82f840e21c4b8c4932d88/skills/refactor"
+        },
+        "tags": [
+          "category:engineering",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:official",
+          "refactoring",
+          "code-quality"
+        ]
+      }
+    },
+    {
+      "id": "github/awesome-copilot/skills/create-readme",
+      "name": "create-readme",
+      "skills.sh": {
+        "url": "https://skills.sh/github/awesome-copilot/create-readme",
+        "installs": 19400,
+        "weeklyInstalls": [185, 176, 175, 163, 153, 199, 151, 178],
+        "firstSeen": "2026-02-25"
+      },
+      "skillMd": {
+        "version": "797337f33f73e35d08d82f840e21c4b8c4932d88",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Reviews your whole project and writes a concise README.md for it in GitHub Flavored Markdown.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a README.md written for a project"
+            },
+            {
+              "label": "It does",
+              "text": "reviews the whole project and workspace, takes structure and tone from four example READMEs it links to, and writes README.md"
+            },
+            {
+              "label": "You get",
+              "text": "a concise README.md in GitHub Flavored Markdown, with GitHub callouts where they fit and the project's logo in the header if it finds one"
+            },
+            {
+              "label": "Leaves out",
+              "text": "license, contributing and changelog sections, which belong in their own files, and heavy use of emoji"
+            }
+          ],
+          "text": "A one-shot command. The agent plays a senior engineer experienced in open source: it reviews the entire project and workspace, then writes a comprehensive, well-structured README.md. For structure, tone and content it takes inspiration from four READMEs it names by URL, two from Azure-Samples serverless projects and two from sinedied's run-on-output and smoke repositories. The README should be appealing, informative and easy to read, yet concise, without overused emoji. It uses GitHub Flavored Markdown, with GitHub's admonition syntax (callout blocks such as a note or a warning) where appropriate, and puts the project's logo or icon in the header if it finds one. Sections such as LICENSE, CONTRIBUTING and CHANGELOG are left out, since dedicated files cover them.",
+          "permalink": "https://github.com/github/awesome-copilot/tree/797337f33f73e35d08d82f840e21c4b8c4932d88/skills/create-readme"
+        },
+        "tags": [
+          "category:writing",
+          "type:command",
+          "effect:local",
+          "needs:none",
+          "by:official",
+          "docs-writing"
+        ]
+      }
+    },
+    {
+      "id": "github/awesome-copilot/skills/playwright-generate-test",
+      "name": "playwright-generate-test",
+      "skills.sh": {
+        "url": "https://skills.sh/github/awesome-copilot/playwright-generate-test",
+        "installs": 18200,
+        "weeklyInstalls": [55, 59, 60, 68, 41, 30, 33, 22],
+        "firstSeen": "2026-02-25"
+      },
+      "skillMd": {
+        "version": "797337f33f73e35d08d82f840e21c4b8c4932d88",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Runs a scenario step by step through Playwright MCP, then writes a Playwright TypeScript test from it and runs it until it passes.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you have a scenario to test in a web app and want a Playwright test written for it"
+            },
+            {
+              "label": "It does",
+              "text": "carries out the scenario's steps one by one in the browser with the Playwright MCP tools before writing any test code"
+            },
+            {
+              "label": "You get",
+              "text": "a TypeScript test using @playwright/test, saved in the tests directory, run and reworked until it passes"
+            },
+            {
+              "label": "Needs",
+              "text": "the Playwright MCP server connected, and Playwright in the project to run the test"
+            },
+            {
+              "label": "Unlike playwright-explore-website",
+              "text": "which explores a site to find what's worth testing, this turns one scenario you give into a passing test"
+            }
+          ],
+          "text": "Test code written from a scenario's description alone is a guess about the page. This skill forbids that: the agent may not generate test code prematurely or from the scenario alone. It first performs every step of the scenario itself, one at a time, with the tools of the Playwright MCP server. Only once all steps are done does it write a Playwright test in TypeScript with @playwright/test, based on the session's history of those steps. It saves the file in the tests directory, runs it, and keeps iterating until the test passes. If you don't give a scenario, it asks for one first.",
+          "permalink": "https://github.com/github/awesome-copilot/tree/797337f33f73e35d08d82f840e21c4b8c4932d88/skills/playwright-generate-test"
+        },
+        "tags": [
+          "category:debugging",
+          "category:browser",
+          "type:workflow",
+          "effect:remote",
+          "needs:mcp",
+          "needs:browser",
+          "needs:cli",
+          "by:official",
+          "stack:playwright",
+          "stack:typescript",
+          "testing",
+          "browser-automation"
+        ]
+      }
+    },
+    {
+      "id": "github/awesome-copilot/skills/conventional-commit",
+      "name": "conventional-commit",
+      "skills.sh": {
+        "url": "https://skills.sh/github/awesome-copilot/conventional-commit",
+        "installs": 17300,
+        "weeklyInstalls": [317, 307, 142, 132, 113, 124, 109, 91],
+        "firstSeen": "2026-02-25"
+      },
+      "skillMd": {
+        "version": "797337f33f73e35d08d82f840e21c4b8c4932d88",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Reviews your changes with git status and git diff, stages them and commits them with a Conventional Commits message.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want the agent to commit your work with a message in the Conventional Commits format"
+            },
+            {
+              "label": "It does",
+              "text": "checks git status and the diff, stages the files, builds a type(scope): description message and runs git commit"
+            },
+            {
+              "label": "Message",
+              "text": "one of 11 types such as feat, fix, docs or refactor, an optional scope, an imperative summary, and an optional body and footer"
+            },
+            {
+              "label": "Commits",
+              "text": "straight away, without asking you to confirm the message"
+            },
+            {
+              "label": "Unlike git-commit",
+              "text": "from the same repo, which first reads your repo's commit rules and makes one commit per logical change, this one applies a fixed template"
+            }
+          ],
+          "text": "Conventional Commits is a spec for commit messages that begin with a type, an optional scope and a short summary, like \"feat(parser): add ability to parse arrays\". The agent runs git status to see what changed, inspects git diff or git diff --cached, and stages files with git add. It builds the message from an XML template: a type from feat, fix, docs, style, refactor, perf, test, build, ci, chore and revert; a scope, optional but recommended; a required summary in the imperative mood (\"add\", not \"added\"); an optional body for context; and a footer for breaking changes or issue references, with an example marking a breaking change as feat!. Then it runs git commit -m with the message, with no confirmation step. The skill was written as a Copilot prompt, so its wording has Copilot running the command in your integrated terminal.",
+          "permalink": "https://github.com/github/awesome-copilot/tree/797337f33f73e35d08d82f840e21c4b8c4932d88/skills/conventional-commit"
+        },
+        "tags": [
+          "category:engineering",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:official",
+          "stack:git",
+          "git"
+        ],
+        "note": "Runs git commit as soon as the message is built, without asking you to confirm it."
+      }
+    },
+    {
+      "id": "github/awesome-copilot/skills/chrome-devtools",
+      "name": "chrome-devtools",
+      "skills.sh": {
+        "url": "https://skills.sh/github/awesome-copilot/chrome-devtools",
+        "installs": 15400,
+        "weeklyInstalls": [87, 71, 92, 91, 68, 71, 53, 61],
+        "firstSeen": "2026-01-23"
+      },
+      "skillMd": {
+        "version": "797337f33f73e35d08d82f840e21c4b8c4932d88",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Drives and inspects a live Chrome through the Chrome DevTools MCP server: navigation, clicks and forms, screenshots, console, network and performance traces.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want the agent to work in a real Chrome page: click through it, read its console and network traffic, or find out why it's slow"
+            },
+            {
+              "label": "It does",
+              "text": "maps the chrome-devtools MCP server's tools for pages, input, inspection, emulation and performance tracing, with three worked patterns"
+            },
+            {
+              "label": "Needs",
+              "text": "the chrome-devtools MCP server connected to your agent"
+            },
+            {
+              "label": "Snapshot first",
+              "text": "it finds elements in a text accessibility tree, whose element IDs the click and fill tools need, and keeps screenshots for visual checks"
+            },
+            {
+              "label": "Patterns",
+              "text": "act on an element, troubleshoot a broken page from console and network errors, and profile a slow load for LCP and layout shifts"
+            }
+          ],
+          "text": "A reference for the chrome-devtools MCP server, which lets the agent control and inspect a live Chrome browser. It groups the server's tools into four sets: opening, navigating, switching, closing and waiting on pages; input, such as clicks, form filling, hovering, key presses, drag and drop, dialogs and file uploads; inspection, through accessibility snapshots, screenshots, console messages, JavaScript run in the page and network requests; and emulation and performance, from resizing the viewport and throttling CPU or network to recording a trace and analysing its insights. Three patterns show how they fit together. To act on an element, take a snapshot, find its uid and pass it to click or fill. To troubleshoot a failing page, list console messages for JavaScript errors and network requests for failed 4xx or 5xx resources, then evaluate a script to check DOM elements or globals. To profile a slow page, start a trace that reloads and stops itself, then analyse its insights for LCP (Largest Contentful Paint, when the main content shows) or layout shifts. It reminds the agent to check which tab is active, take a new snapshot after navigation because uids change, and keep waits to reasonable timeouts.",
+          "permalink": "https://github.com/github/awesome-copilot/tree/797337f33f73e35d08d82f840e21c4b8c4932d88/skills/chrome-devtools"
+        },
+        "tags": [
+          "category:browser",
+          "category:debugging",
+          "type:tool",
+          "effect:remote",
+          "needs:mcp",
+          "needs:browser",
+          "by:official",
+          "stack:chrome-devtools",
+          "browser-automation",
+          "debugging",
+          "performance"
+        ]
+      }
+    },
+    {
+      "id": "github/awesome-copilot/skills/playwright-explore-website",
+      "name": "playwright-explore-website",
+      "skills.sh": {
+        "url": "https://skills.sh/github/awesome-copilot/playwright-explore-website",
+        "installs": 14800,
+        "weeklyInstalls": [43, 49, 38, 31, 24, 15, 17, 13],
+        "firstSeen": "2026-02-25"
+      },
+      "skillMd": {
+        "version": "797337f33f73e35d08d82f840e21c4b8c4932d88",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Explores a website through Playwright MCP, trying three to five core features, and proposes test cases from what it found.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to know what to test on a website before writing tests, and have its URL"
+            },
+            {
+              "label": "It does",
+              "text": "opens the URL with the Playwright MCP server, works through three to five core features or user flows, then closes the browser"
+            },
+            {
+              "label": "You get",
+              "text": "a short summary of the interactions, the UI elements and their locators, the expected outcomes, and proposed test cases"
+            },
+            {
+              "label": "Unlike playwright-generate-test",
+              "text": "which turns one scenario you give into a passing test file, this one surveys a site to find what's worth testing"
+            }
+          ],
+          "text": "You give a URL, or the agent asks for one. It navigates there with the Playwright MCP server, picks three to five core features or user flows, and interacts with them. Along the way it documents what it did, the relevant UI elements with their locators (the way a test finds an element on the page) and the outcomes expected. It closes the browser context when it's done, summarizes its findings, and proposes and generates test cases based on the exploration.",
+          "permalink": "https://github.com/github/awesome-copilot/tree/797337f33f73e35d08d82f840e21c4b8c4932d88/skills/playwright-explore-website"
+        },
+        "tags": [
+          "category:debugging",
+          "category:browser",
+          "type:workflow",
+          "effect:remote",
+          "needs:mcp",
+          "needs:browser",
+          "by:official",
+          "stack:playwright",
+          "testing",
+          "browser-automation"
+        ]
+      }
+    },
+    {
+      "id": "github/awesome-copilot/skills/web-design-reviewer",
+      "name": "web-design-reviewer",
+      "skills.sh": {
+        "url": "https://skills.sh/github/awesome-copilot/web-design-reviewer",
+        "installs": 14200,
+        "weeklyInstalls": [171, 183, 116, 78, 79, 92, 108, 100],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "797337f33f73e35d08d82f840e21c4b8c4932d88",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Reviews a running website in a browser for layout, responsive, accessibility and consistency problems, then fixes them in the source and re-checks.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want the agent to look at your running site, local or deployed, and find and fix what looks broken"
+            },
+            {
+              "label": "It does",
+              "text": "screenshots pages at 375, 768, 1280 and 1920px, rates layout, responsive, accessibility and consistency issues by priority, fixes the source one issue at a time, then re-checks"
+            },
+            {
+              "label": "You get",
+              "text": "fixed CSS or components, and a Markdown report of issues found, fixed and left open, with before-and-after screenshots"
+            },
+            {
+              "label": "Needs",
+              "text": "the site running, and browser automation that can navigate, screenshot and read the DOM; it recommends the Playwright MCP server"
+            },
+            {
+              "label": "Asks you",
+              "text": "before large changes, and when one issue still isn't fixed after three attempts"
+            }
+          ],
+          "text": "The agent asks for the URL if you haven't given one, then detects the framework and styling method from files such as package.json and tailwind.config, so it knows whether a fix belongs in plain CSS, SCSS, CSS Modules, Tailwind classes or CSS-in-JS. It visits the pages, captures screenshots and the DOM, and works through a visual checklist kept in the skill's references, rating issues such as overflowing or overlapping elements, small touch targets, low contrast, missing focus states and mixed fonts as high, medium or low. Fixes go in priority order, one at a time, as minimal changes that follow the project's existing style. After each one it reloads, compares screenshots and checks that nothing else broke, looping until no issues remain. A production site gets a read-only review. Any browser tool with navigation, screenshots and DOM access will do; Selenium, Puppeteer and Cypress are named alongside Playwright MCP.",
+          "permalink": "https://github.com/github/awesome-copilot/tree/797337f33f73e35d08d82f840e21c4b8c4932d88/skills/web-design-reviewer"
+        },
+        "tags": [
+          "category:design",
+          "category:debugging",
+          "type:workflow",
+          "effect:local",
+          "needs:browser",
+          "by:official",
+          "design",
+          "accessibility",
+          "browser-automation"
+        ]
+      }
+    },
+    {
+      "id": "github/awesome-copilot/skills/create-specification",
+      "name": "create-specification",
+      "skills.sh": {
+        "url": "https://skills.sh/github/awesome-copilot/create-specification",
+        "installs": 13600,
+        "weeklyInstalls": [44, 50, 50, 47, 34, 34, 29, 35],
+        "firstSeen": "2026-02-25"
+      },
+      "skillMd": {
+        "version": "797337f33f73e35d08d82f840e21c4b8c4932d88",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes a specification file for the purpose you give, with numbered requirements, interfaces, acceptance criteria and a test strategy, worded for AI agents.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want requirements, constraints and interfaces written down in a form another agent can follow without guessing"
+            },
+            {
+              "label": "It does",
+              "text": "fills a fixed template: purpose and scope, definitions, requirements, interfaces, acceptance criteria, test strategy, rationale, dependencies, examples, validation criteria and related specs"
+            },
+            {
+              "label": "You get",
+              "text": "one Markdown file with front matter in /spec/, named spec-<purpose>-<name>.md, the purpose being schema, tool, data, infrastructure, process, architecture or design"
+            },
+            {
+              "label": "Unlike create-implementation-plan",
+              "text": "from the same repo, which lays out the phased tasks to build something, this defines what it must do"
+            }
+          ],
+          "text": "A spec template meant for AI readers: precise, explicit language, no idioms or metaphors, every acronym defined, and a document that stands on its own. Each requirement gets a prefixed ID, REQ-001 for requirements, SEC- for security, CON- for constraints, GUD- for guidelines and PAT- for patterns to follow, and acceptance criteria use Given-When-Then where it fits. Dependencies are written as what is needed, such as \"an OAuth 2.0 authentication library\", rather than a package and version. The template's test section suggests MSTest, FluentAssertions and Moq for .NET apps and GitHub Actions for CI, so expect to swap those for your stack. It has no interview step: it writes from the purpose you give it.",
+          "permalink": "https://github.com/github/awesome-copilot/tree/797337f33f73e35d08d82f840e21c4b8c4932d88/skills/create-specification"
+        },
+        "tags": [
+          "category:planning",
+          "type:command",
+          "effect:local",
+          "needs:none",
+          "by:official",
+          "requirements",
+          "docs-writing"
+        ]
+      }
+    },
+    {
+      "id": "github/awesome-copilot/skills/game-engine",
+      "name": "game-engine",
+      "skills.sh": {
+        "url": "https://skills.sh/github/awesome-copilot/game-engine",
+        "installs": 13400,
+        "weeklyInstalls": [99, 84, 88, 124, 105, 112, 150, 114],
+        "firstSeen": "2026-02-25"
+      },
+      "skillMd": {
+        "version": "797337f33f73e35d08d82f840e21c4b8c4932d88",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Guides building browser games and game engines with HTML5 Canvas, WebGL and JavaScript, from game loops and collisions to controls, audio and publishing.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're making a game that runs in the browser, from a Breakout clone or a platformer to a 3D scene"
+            },
+            {
+              "label": "It does",
+              "text": "guides the agent through the game loop, Canvas or WebGL rendering, collision, physics, controls, audio and multiplayer, with step lists for a 2D game, a 3D game and publishing"
+            },
+            {
+              "label": "You get",
+              "text": "browser game code in HTML5 and JavaScript, optionally started from one of its five working templates, with nine reference files to draw on"
+            },
+            {
+              "label": "Works with",
+              "text": "plain JavaScript, or frameworks such as Phaser, Three.js, Babylon.js, A-Frame and PlayCanvas"
+            }
+          ],
+          "text": "Reference material and short build steps for web game development. Its core is the game loop: read input, update state, render, driven by requestAnimationFrame. Around it, the skill covers when to use Canvas 2D, WebGL, SVG or CSS; AABB, circle and SAT collision in 2D, bounding volumes and raycasting in 3D; simple Newtonian movement and gravity; and the Web Audio API. Short workflows outline a basic 2D game, a 3D game built on a framework, and publishing: optimizing assets, testing across browsers, choosing a platform, monetizing and promoting. Starter templates in its assets folder include a Breakout-style paddle game, a maze game with device-orientation controls, a Phaser platformer and a simple 2D engine with collisions. References cover web APIs, algorithms, 3D and WebXR, controls, publishing and a glossary. A troubleshooting table answers common problems: a blank canvas, game speed that varies with frame rate, unreliable collisions, audio that won't play before a click, and a lost WebGL context.",
+          "permalink": "https://github.com/github/awesome-copilot/tree/797337f33f73e35d08d82f840e21c4b8c4932d88/skills/game-engine"
+        },
+        "tags": [
+          "category:frameworks",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:official",
+          "stack:javascript",
+          "stack:webgl",
+          "stack:canvas",
+          "implementation",
+          "animation"
+        ]
+      }
+    },
+    {
+      "id": "github/awesome-copilot/skills/create-agentsmd",
+      "name": "create-agentsmd",
+      "skills.sh": {
+        "url": "https://skills.sh/github/awesome-copilot/create-agentsmd",
+        "installs": 13200,
+        "weeklyInstalls": [125, 102, 114, 119, 78, 66, 56, 64],
+        "firstSeen": "2026-02-25"
+      },
+      "skillMd": {
+        "version": "797337f33f73e35d08d82f840e21c4b8c4932d88",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes an AGENTS.md at your repo's root: the setup, test, build, code style and PR instructions coding agents need, taken from the project's files.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "your repo has no AGENTS.md and you want coding agents to know how to set it up, build, test and contribute"
+            },
+            {
+              "label": "It does",
+              "text": "reads package.json scripts, Makefiles, CI config and docs, then writes sections on setup, development workflow, testing, code style, build and deployment, and PR rules"
+            },
+            {
+              "label": "You get",
+              "text": "an AGENTS.md at the repo root in the agents.md open format, and in a monorepo, more in subprojects as needed"
+            },
+            {
+              "label": "Unlike a README",
+              "text": "it holds the exact commands and conventions agents need, not general project information for people"
+            }
+          ],
+          "text": "AGENTS.md is an open format, documented at agents.md, for a \"README for agents\": one Markdown file at the repo root that coding tools such as Cursor, Aider and Gemini CLI read for project context. The skill explains the format, then has the agent analyze the project's languages, frameworks, package managers, test frameworks and layout, and find its key workflows in package.json scripts, Makefiles, CI files and documentation. From those it writes the essential sections, project overview, setup commands, development workflow, testing instructions, code style, and build and deployment, plus optional ones on security, monorepo navigation, pull requests and debugging, starting from a template and a real example from agents.md. It wants exact commands in code blocks rather than vague descriptions, and has the agent check that each documented command works. In a monorepo, nested AGENTS.md files go in subprojects, and the one closest to a file takes precedence.",
+          "permalink": "https://github.com/github/awesome-copilot/tree/797337f33f73e35d08d82f840e21c4b8c4932d88/skills/create-agentsmd"
+        },
+        "tags": [
+          "category:agents",
+          "type:setup",
+          "effect:local",
+          "needs:none",
+          "by:official",
+          "docs-writing",
+          "agent-workflows"
+        ]
+      }
+    },
+    {
+      "id": "github/awesome-copilot/skills/refactor-plan",
+      "name": "refactor-plan",
+      "skills.sh": {
+        "url": "https://skills.sh/github/awesome-copilot/refactor-plan",
+        "installs": 13000,
+        "weeklyInstalls": [29, 41, 35, 37, 27, 19, 11, 21],
+        "firstSeen": "2026-02-25"
+      },
+      "skillMd": {
+        "version": "797337f33f73e35d08d82f840e21c4b8c4932d88",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Plans a multi-file refactor before any edit: affected files, phased steps with checks, rollback and risks, then waits for your go-ahead.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're about to refactor across several files and want the order of changes worked out before anything is edited"
+            },
+            {
+              "label": "It does",
+              "text": "reads the code, tests, config and docs, maps affected files, dependencies and hidden coupling, then sequences changes: types first, then implementations, callers, tests and cleanup"
+            },
+            {
+              "label": "You get",
+              "text": "a Markdown plan: current and target state, a table of affected files, phased checklists each with a verify step, a rollback plan and risks"
+            },
+            {
+              "label": "Stops",
+              "text": "after the plan to ask \"Shall I proceed with Phase 1?\", even if you asked it to implement, unless you said to continue without review"
+            }
+          ],
+          "text": "The skill keeps the agent's hands off the code while it plans. It searches the codebase and reads enough implementation, tests, configuration and docs to make the plan specific to your repository, then identifies the files involved, ownership boundaries, dependencies and coupling that could break. Changes are ordered so each phase builds on the last: contracts and types, then implementations, callers, tests and cleanup, with a verification step between phases and a final validation command. The riskiest phases get rollback or recovery steps. If the request is too vague to plan safely, it asks short clarifying questions instead. It edits no files: it outputs the plan, and implementation starts only once you confirm.",
+          "permalink": "https://github.com/github/awesome-copilot/tree/797337f33f73e35d08d82f840e21c4b8c4932d88/skills/refactor-plan"
+        },
+        "tags": [
+          "category:planning",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:official",
+          "refactoring",
+          "planning"
+        ]
+      }
+    },
+    {
+      "id": "github/awesome-copilot/skills/pytest-coverage",
+      "name": "pytest-coverage",
+      "skills.sh": {
+        "url": "https://skills.sh/github/awesome-copilot/pytest-coverage",
+        "installs": 12900,
+        "weeklyInstalls": [60, 60, 60, 47, 47, 57, 42, 39],
+        "firstSeen": "2026-02-25"
+      },
+      "skillMd": {
+        "version": "797337f33f73e35d08d82f840e21c4b8c4932d88",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Runs pytest with coverage, reads the annotated source for uncovered lines and writes tests until every line is covered.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a Python project's tests, or one module's, to cover every line of code"
+            },
+            {
+              "label": "It does",
+              "text": "runs pytest --cov with an annotate report, opens the annotated copy of each file under 100%, and adds tests for the lines marked with !"
+            },
+            {
+              "label": "You get",
+              "text": "new tests and a cov_annotate folder of annotated source, with the loop repeated until all lines are covered"
+            },
+            {
+              "label": "Needs",
+              "text": "pytest set up in your project with its --cov coverage option working"
+            }
+          ],
+          "text": "A short loop for raising test coverage in Python. The agent generates a report with pytest --cov --cov-report=annotate:cov_annotate, narrowed to one module with --cov=<module> or to particular test files if you want. The annotate report writes one copy of each source file into cov_annotate, with every line the tests never ran marked by a leading !. Files already at 100% are skipped; for the rest, the agent reads the marked lines, adds tests that run them, and reruns the report until nothing is left uncovered. The skill says nothing about test style, fixtures or assertions: its target is line coverage only.",
+          "permalink": "https://github.com/github/awesome-copilot/tree/797337f33f73e35d08d82f840e21c4b8c4932d88/skills/pytest-coverage"
+        },
+        "tags": [
+          "category:debugging",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:official",
+          "stack:python",
+          "stack:pytest",
+          "testing",
+          "code-quality"
+        ]
+      }
+    },
+    {
+      "id": "github/awesome-copilot/skills/penpot-uiux-design",
+      "name": "penpot-uiux-design",
+      "skills.sh": {
+        "url": "https://skills.sh/github/awesome-copilot/penpot-uiux-design",
+        "installs": 12900,
+        "weeklyInstalls": [52, 82, 45, 41, 47, 44, 43, 42],
+        "firstSeen": "2026-02-04"
+      },
+      "skillMd": {
+        "version": "797337f33f73e35d08d82f840e21c4b8c4932d88",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Designs UI screens and design systems in Penpot through its MCP server, applying layout, typography, spacing and accessibility rules.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want the agent to design screens, forms, dashboards, landing pages or a component library directly in a Penpot file"
+            },
+            {
+              "label": "It does",
+              "text": "checks for your design system first, reads the page's structure, creates boards, shapes, text and flex layouts through Penpot's plugin API, then exports shapes as images to check them"
+            },
+            {
+              "label": "You get",
+              "text": "designs in your Penpot file, placed beside existing boards without overlapping, and CSS you can extract from them"
+            },
+            {
+              "label": "Needs",
+              "text": "the penpot-mcp server and its plugin connected; it tests the connection first and gives setup steps only once you confirm it isn't installed"
+            },
+            {
+              "label": "Defaults",
+              "text": "an 8px spacing scale, a type scale and status colors, used only when you have no design system of your own"
+            }
+          ],
+          "text": "The agent designs by running JavaScript in Penpot's plugin context through the MCP server's execute_code tool. It first tries a tool call to see whether the server is connected; if not, and you confirm it isn't installed, it walks you through cloning penpot-mcp, running npm install and npm run bootstrap, and loading the plugin from localhost:4400. It then asks whether you have a design system, or reads one from the file's colors, text styles and components, and uses those tokens; otherwise it falls back to its own defaults. Alongside the workflow it carries design rules: visual hierarchy, mobile and desktop layout sizes, checklists for buttons, forms and navigation, WCAG AA contrast and 44px touch targets, plus Penpot API gotchas such as read-only width and height. Before finishing it runs a review checklist and checks for elements outside their bounds, text under 12px and weak contrast, the last by exporting a shape and looking at it. Reference files cover setup troubleshooting, component specs, accessibility and platform guidelines.",
+          "permalink": "https://github.com/github/awesome-copilot/tree/797337f33f73e35d08d82f840e21c4b8c4932d88/skills/penpot-uiux-design"
+        },
+        "tags": [
+          "category:design",
+          "type:workflow",
+          "effect:remote",
+          "needs:mcp",
+          "by:official",
+          "stack:penpot",
+          "design",
+          "design-system",
+          "accessibility"
+        ],
+        "note": "Needs the penpot/penpot-mcp server running locally, with its plugin loaded and connected in an open Penpot design file."
+      }
+    },
+    {
+      "id": "github/awesome-copilot/skills/memory-merger",
+      "name": "memory-merger",
+      "skills.sh": {
+        "url": "https://skills.sh/github/awesome-copilot/memory-merger",
+        "installs": 12900,
+        "weeklyInstalls": [19, 12, 22, 13, 5, 19, 9, 11],
+        "firstSeen": "2026-02-25"
+      },
+      "skillMd": {
+        "version": "797337f33f73e35d08d82f840e21c4b8c4932d88",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Merges the lessons you approve from a domain's memory file into its instruction file, without losing detail, then removes them from the memory file.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a domain's file of remembered lessons has grown and you want the mature ones folded into that domain's standing instructions"
+            },
+            {
+              "label": "It does",
+              "text": "reads <domain>-memory.instructions.md and <domain>.instructions.md, proposes which memories go where, waits for your go, then drafts and refines the merge"
+            },
+            {
+              "label": "You get",
+              "text": "a new or updated instruction file, with both files' applyTo patterns combined, and a memory file with the merged lessons removed"
+            },
+            {
+              "label": "Call it as",
+              "text": "/memory-merger >domain, optionally with a scope: global (VS Code's user prompts folder, the default) or workspace (.github/instructions/)"
+            },
+            {
+              "label": "Needs",
+              "text": "the repo's remember skill installed too: it writes the <domain>-memory.instructions.md files this one merges"
+            }
+          ],
+          "text": "Memory files hold lessons learned, one per heading, next to the instruction files an agent loads for a domain such as clojure or git-workflow; applyTo patterns in their front matter say which files they apply to. This skill consolidates the two. It works out the paths from the domain and scope, globbing the folder for a near match if you mistyped the domain, and reads both files; the instruction file may not exist yet. It lists each memory with its key points and where it would go, then stops until you approve all with \"go\" or name the ones to skip. It drafts the merged instructions without touching any file, judging them against three goals: no detail or example lost, overlapping guidance consolidated, and a clear, scannable structure, and refines until they meet all three. Only then does it write the instruction file, adding front matter if the file is new, and remove the merged sections from the memory file. It tracks its progress in the agent's todo list.",
+          "permalink": "https://github.com/github/awesome-copilot/tree/797337f33f73e35d08d82f840e21c4b8c4932d88/skills/memory-merger"
+        },
+        "tags": [
+          "category:agents",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:official",
+          "stack:vscode",
+          "memory",
+          "self-improvement"
+        ],
+        "note": "Merges the <domain>-memory.instructions.md files that the repo's remember skill writes, so install remember with it. Built for VS Code: the files live in VS Code's user prompts folder or .github/instructions/."
+      }
+    },
+    {
+      "id": "github/awesome-copilot/skills/create-implementation-plan",
+      "name": "create-implementation-plan",
+      "skills.sh": {
+        "url": "https://skills.sh/github/awesome-copilot/create-implementation-plan",
+        "installs": 12600,
+        "weeklyInstalls": [37, 28, 48, 32, 19, 32, 16, 30],
+        "firstSeen": "2026-02-25"
+      },
+      "skillMd": {
+        "version": "797337f33f73e35d08d82f840e21c4b8c4932d88",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes a phased implementation plan file of atomic, ID-numbered tasks, with files, tests, risks and status, for another agent or person to execute.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a feature, refactor, package upgrade or infrastructure change planned in a file an agent can execute without asking questions"
+            },
+            {
+              "label": "It does",
+              "text": "fills a mandatory template: requirements and constraints, phases with goals and task tables, alternatives, dependencies, files, tests, risks and assumptions"
+            },
+            {
+              "label": "You get",
+              "text": "a Markdown file in /plan/, named like feature-auth-module-1.md, with front matter and a status badge: Planned, In progress, Completed, On Hold or Deprecated"
+            },
+            {
+              "label": "Checks",
+              "text": "runs grep commands so each REQ-, TASK- or other identifier is declared only once, renumbering duplicates until the checks come back empty"
+            },
+            {
+              "label": "Unlike create-specification",
+              "text": "from the same repo, which defines what a component must do, this sets out the tasks to build it"
+            }
+          ],
+          "text": "The plan is written for machines first: deterministic language with nothing left to interpret, tables and lists that parse cleanly, and tasks that name exact file paths, functions and implementation details so none needs a human decision. Each phase has a GOAL- and measurable completion criteria, and its TASK- rows track completion and date; tasks within a phase can run in parallel unless a dependency is stated. Every section of the template is required, headers must match exactly and no placeholder text may remain. Before finishing, the agent runs three grep checks over the file: two that must return nothing, catching an identifier declared twice in a task table or a bullet line, and a broader scan for awareness only, since references to an ID are allowed. The file name starts with its purpose: upgrade, refactor, feature, data, infrastructure, process, architecture or design. The checks need grep, sed, sort and uniq, or Windows equivalents.",
+          "permalink": "https://github.com/github/awesome-copilot/tree/797337f33f73e35d08d82f840e21c4b8c4932d88/skills/create-implementation-plan"
+        },
+        "tags": [
+          "category:planning",
+          "type:command",
+          "effect:local",
+          "needs:none",
+          "by:official",
+          "planning",
+          "agent-workflows"
+        ]
+      }
     }
   ]
 }
