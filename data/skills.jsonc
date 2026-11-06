@@ -4787,6 +4787,73 @@
           }
         ]
       }
+    },
+    {
+      "id": "wshobson/agents@conductor",
+      "skew": 0,
+      "agentReview": {
+        "name": "Conductor",
+        "description": "Keeps project context in a conductor/ folder, turns each feature or fix into a spec and phased plan, then builds it test-first with your approval after each phase.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want an agent to build features from written project context and an agreed plan, across many sessions, approving each phase before it moves on"
+            },
+            {
+              "label": "It does",
+              "text": "keeps project context files, turns each feature, bug, chore or refactor into a track, a unit of work with a spec and phased plan, then builds it test-first"
+            },
+            {
+              "label": "You get",
+              "text": "a conductor/ folder of product, tech-stack and workflow files and a tracks.md registry; per track, a spec.md, a plan.md marked with task status and commit SHAs, and metadata"
+            },
+            {
+              "label": "Pauses",
+              "text": "at the end of each phase, until you approve its verification checklist"
+            },
+            {
+              "label": "Commands",
+              "text": "setup, new-track and revert steps call /conductor commands that come with the plugin, not the skills; the skills alone include templates and manual steps"
+            },
+            {
+              "label": "Based on",
+              "text": "Google's Conductor extension for Gemini CLI, adapted for Claude Code"
+            }
+          ],
+          "text": "Three skills behind Conductor, a wshobson/agents plugin, one per stage of its cycle: context, then spec and plan, then implementation. context-driven-development keeps a conductor/ folder of Markdown files the agent reads before each piece of work: product.md for what's built and why, product-guidelines.md for voice and terminology, tech-stack.md, workflow.md for rules such as TDD, commit conventions and coverage targets, and tracks.md, the registry of tracks. It gives starter templates, when to update each file and a checklist to run before starting a track. track-management turns a feature, bug, chore or refactor into a track: a folder with spec.md (requirements, testable acceptance criteria, scope, dependencies, risks), plan.md (phases of tasks, each ending in verification) and metadata.json. workflow-patterns then works through the plan one task at a time: mark it in progress, write failing tests, make them pass, refactor, reach 80% coverage, commit, attach a git note and record the SHA in plan.md. At the end of each phase it runs the full test suite, lists manual checks and waits for your approval before a checkpoint commit. Setting up, creating tracks and reverting call /conductor commands, which come with the plugin, not with the skills.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d"
+        },
+        "skills": [
+          {
+            "id": "wshobson/agents/plugins/conductor/skills/context-driven-development",
+            "standalone": true
+          },
+          {
+            "id": "wshobson/agents/plugins/conductor/skills/track-management",
+            "standalone": true
+          },
+          {
+            "id": "wshobson/agents/plugins/conductor/skills/workflow-patterns",
+            "standalone": false,
+            "note": "Works task by task through a track's plan.md, in the format track-management defines, updating its status markers and recording each commit's SHA there."
+          }
+        ],
+        "install": [
+          {
+            "label": "Any agent, with the skills CLI; the skills only, without the plugin's /conductor: commands",
+            "command": "npx skills add wshobson/agents --skill context-driven-development --skill track-management --skill workflow-patterns"
+          },
+          {
+            "label": "Claude Code plugin, after /plugin marketplace add wshobson/agents; the skills plus the /conductor: commands",
+            "command": "/plugin install conductor@claude-code-workflows"
+          },
+          {
+            "label": "Codex plugin; the skills only, without the /conductor: commands",
+            "command": "codex plugin marketplace add wshobson/agents && codex plugin add conductor@claude-code-workflows"
+          }
+        ]
+      }
     }
   ],
   "skills": [
@@ -39168,6 +39235,2336 @@
           "email",
           "writing"
         ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/startup-business-analyst/skills/market-sizing-analysis",
+      "name": "market-sizing-analysis",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/market-sizing-analysis",
+        "installs": 12100,
+        "weeklyInstalls": [173, 202, 328, 451, 271, 214, 237, 210],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Sizes a market's TAM, SAM and SOM with top-down, bottom-up and value-theory methods, cross-checked for a pitch or business plan.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need market size figures for a pitch deck or business plan, or to decide whether a market is worth entering"
+            },
+            {
+              "label": "It does",
+              "text": "defines the market, gathers sources, calculates total, serviceable and obtainable market with up to three methods, then cross-checks the results"
+            },
+            {
+              "label": "You get",
+              "text": "TAM, SAM and SOM with the method, sources and assumptions behind each, laid out for investors or for strategy"
+            },
+            {
+              "label": "Terms",
+              "text": "TAM is all revenue at 100% share, SAM the part your product can serve, SOM the share you can realistically win in 3–5 years"
+            },
+            {
+              "label": "Red flags",
+              "text": "a TAM under $1B for a VC-backed startup, an SOM above 10% in five years, or methods more than 50% apart"
+            }
+          ],
+          "text": "A market sizing method that needs no tool or data service. The SKILL.md defines the three tiers and when each method fits; a reference file holds the formulas and steps. Top-down starts from an industry report's category size and narrows it by geography and segment. Bottom-up multiplies the customers in each segment by their yearly revenue, the method it calls most credible to investors. Value theory prices the solution at 10–30% of the value it creates, for new categories with no market data. The six steps define the market (problem, customers, category, geography, time horizon), gather sources such as analyst reports, census data, Crunchbase or customer interviews, calculate TAM, filter it down to SAM, take 2–5% of SAM as SOM, then triangulate: top-down and bottom-up results should land within 30% of each other. It gives TAM formulas for SaaS, marketplace, consumer and B2B services markets, outlines for presenting to investors (lead with bottom-up) or for strategy, and five common mistakes, such as confusing TAM with SAM or relying on top-down figures alone.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/startup-business-analyst/skills/market-sizing-analysis"
+        },
+        "tags": [
+          "category:science",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "finance",
+          "research"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/systems-programming/skills/memory-safety-patterns",
+      "name": "memory-safety-patterns",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/memory-safety-patterns",
+        "installs": 12100,
+        "weeklyInstalls": [172, 194, 227, 284, 223, 214, 205, 189],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Applies RAII, smart pointers, ownership and bounds checking in C, C++ and Rust to prevent use-after-free, leaks, overflows and data races.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're writing or reviewing C, C++ or Rust and want to rule out leaks, dangling pointers, buffer overflows and data races"
+            },
+            {
+              "label": "It does",
+              "text": "gives the agent a table of six memory bug types and how each is prevented, with code patterns for each language"
+            },
+            {
+              "label": "You get",
+              "text": "code written along those patterns; it adds no steps or files of its own"
+            },
+            {
+              "label": "Terms",
+              "text": "RAII ties a resource to a scope, so it's freed when the scope ends; ownership is Rust's compile-time rule of one owner per value"
+            },
+            {
+              "label": "Debugging tools",
+              "text": "commands for AddressSanitizer, ThreadSanitizer, Valgrind and Rust's Miri"
+            }
+          ],
+          "text": "A reference, not a workflow. It places languages on a spectrum from manual memory management in C, through smart pointers in C++ and ownership in Rust, to garbage collection in Go and Java: safer toward the end, with less control. A reference file holds six patterns with code: RAII classes in C++ for files, locks and a transaction that rolls back unless committed; unique_ptr, shared_ptr and weak_ptr, with make_unique over raw new; Rust's moves, borrowing, lifetimes, interior mutability and Rc and Arc for shared ownership; cleanup functions and the GCC/Clang cleanup attribute in C, which has no RAII; bounds checking with containers, at() and std::span in C++ and slices in Rust; and data-race prevention with atomics, mutexes and read-write locks in both. Its rules include avoiding raw pointers except at C boundaries, never returning references to locals, keeping Rust's unsafe to a minimum and never assuming thread safety.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/systems-programming/skills/memory-safety-patterns"
+        },
+        "tags": [
+          "category:engineering",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:c",
+          "stack:cpp",
+          "stack:rust",
+          "code-quality",
+          "debugging"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/cloud-infrastructure/skills/cost-optimization",
+      "name": "cost-optimization",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/cost-optimization",
+        "installs": 11800,
+        "weeklyInstalls": [177, 190, 220, 275, 218, 187, 184, 176],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Applies cost-saving strategies for AWS, Azure, GCP and OCI: tagging, rightsizing, reserved and spot capacity, storage lifecycle rules and budget alerts.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "your cloud bill keeps growing and you want savings, or tags and budgets that keep spending visible"
+            },
+            {
+              "label": "It does",
+              "text": "organizes savings into four levers, visibility, right-sizing, pricing models and architecture, with each provider's discount options for AWS, Azure, GCP and OCI"
+            },
+            {
+              "label": "You get",
+              "text": "Terraform snippets for S3 lifecycle rules, cost tags, an AWS budget alert and CPU-triggered auto-scaling, plus a 15-item checklist"
+            },
+            {
+              "label": "Discounts",
+              "text": "AWS reserved capacity and savings plans up to 72%, spot up to 90%, GCP committed use up to 57% and preemptible VMs up to 80%"
+            },
+            {
+              "label": "Tag standard",
+              "text": "a reference file requires Environment, Owner, CostCenter, Project and ManagedBy tags on every resource"
+            }
+          ],
+          "text": "A reference, not a workflow. Its framework has four parts: visibility (cost allocation tags, budget alerts, dashboards), right-sizing (downsizing, auto-scaling, removing idle resources), pricing models (reserved capacity, spot or preemptible instances, savings plans, committed use discounts) and architecture (managed services, caching, data transfer, lifecycle policies). For each provider it lists the main options: AWS Reserved Instances, Savings Plans and Spot; Azure reserved VMs, Hybrid Benefit for existing Windows Server and SQL Server licenses, and Advisor; GCP committed and sustained use discounts and preemptible VMs; OCI flexible shapes, commitments, compartment budgets and preemptible capacity. Four architecture patterns follow: serverless first, databases sized per environment, storage tiered from S3 Standard to Deep Archive, and auto-scaling. A reference file sets the required tags, how each provider uses them for billing, and rules such as enforcing tags in CI and auditing them weekly. It names cost tools per provider and across clouds, such as Cost Explorer, Azure Advisor, Kubecost and CloudHealth, and points to terraform-module-library for provisioning.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/cloud-infrastructure/skills/cost-optimization"
+        },
+        "tags": [
+          "category:cloud",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:amazon",
+          "stack:azure",
+          "stack:google-cloud",
+          "stack:oci",
+          "stack:terraform",
+          "infrastructure"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/llm-application-dev/skills/embedding-strategies",
+      "name": "embedding-strategies",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/embedding-strategies",
+        "installs": 11700,
+        "weeklyInstalls": [178, 187, 228, 285, 226, 183, 187, 175],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Chooses embedding models and chunking strategies for semantic search and RAG, with code for Voyage, OpenAI and local models and retrieval-quality metrics.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're building semantic search or RAG and need to pick an embedding model, split documents into chunks, or measure retrieval quality"
+            },
+            {
+              "label": "It does",
+              "text": "compares ten embedding models by dimensions, token limit and best use, and gives the agent chunking and preprocessing rules"
+            },
+            {
+              "label": "You get",
+              "text": "Python templates for Voyage AI, OpenAI and local embeddings, four chunkers, document and code pipelines, and a function that scores and compares models"
+            },
+            {
+              "label": "Recommends",
+              "text": "Voyage AI models for Claude apps, as Anthropic does, with domain models for code, finance and legal text"
+            },
+            {
+              "label": "Terms",
+              "text": "an embedding turns text into a list of numbers so similar meanings land close together; chunking splits documents into pieces to embed"
+            },
+            {
+              "label": "Unlike",
+              "text": "rag-implementation, from the same repo, which covers the whole retrieval system; this one covers only the embedding step"
+            }
+          ],
+          "text": "A reference with templates rather than a workflow. The SKILL.md has a 2026 table of embedding models, from voyage-3-large and OpenAI's text-embedding-3 models to open-source bge-large, all-MiniLM and multilingual-e5, and a pipeline: chunk, preprocess, embed. Its rules: match the model to code, prose or multilingual content, keep chunks on meaning boundaries, normalize vectors for cosine similarity, batch and cache requests, respect token limits, never mix models in one index, and keep metadata. The reference file holds six Python templates: Voyage AI embeddings through LangChain, including the code, finance and law models; OpenAI embeddings in batches of 100 with optional dimension reduction (Matryoshka embeddings, which still work when cut shorter); local BGE and E5 models with the query prefixes they expect; chunking by tokens, sentences, Markdown headers or a recursive splitter; a pipeline that cleans, chunks and embeds documents with metadata, and one that splits code into functions and classes with tree-sitter; and an evaluation that scores retrieval by precision, recall, MRR and NDCG and compares models side by side.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/llm-application-dev/skills/embedding-strategies"
+        },
+        "tags": [
+          "category:agents",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:python",
+          "stack:voyage-ai",
+          "stack:openai",
+          "agent-development"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/data-engineering/skills/data-quality-frameworks",
+      "name": "data-quality-frameworks",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/data-quality-frameworks",
+        "installs": 11600,
+        "weeklyInstalls": [187, 203, 235, 295, 237, 201, 207, 203],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds data quality checks for pipelines with Great Expectations suites, dbt tests and data contracts, from null and uniqueness checks to freshness.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you run data pipelines or a warehouse and want bad, missing or stale data caught before it reaches reports or models"
+            },
+            {
+              "label": "It does",
+              "text": "covers six dimensions of data quality, from completeness to timeliness, tested in three layers: schema, single-column and cross-table tests"
+            },
+            {
+              "label": "You get",
+              "text": "a Great Expectations suite and checkpoint, dbt schema and SQL tests, a data contract in YAML, and a Python pipeline that validates many tables and fails on errors"
+            },
+            {
+              "label": "Terms",
+              "text": "a data contract is a versioned agreement between teams on a table's schema, quality checks and freshness SLA"
+            },
+            {
+              "label": "Mind",
+              "text": "the end of the SKILL.md is garbled by a bad file split; see the note"
+            }
+          ],
+          "text": "A reference with worked examples, not a step-by-step workflow. It sorts data quality into six dimensions, completeness, uniqueness, validity, accuracy, consistency and timeliness, each with a matching Great Expectations check, and a testing pyramid of schema, column and cross-table tests. Its quick start installs Great Expectations and builds a first expectation suite. The reference file holds six patterns: an orders suite with schema, key, allowed-value, range, freshness, row-count and mean checks; a checkpoint that stores results, updates data docs and posts to Slack on failure; dbt tests for keys, relationships and accepted values, with dbt_utils; custom generic and singular dbt tests in SQL; a data contract in the datacontract.com format with PII flags, SodaCL checks and an SLA; and a Python pipeline that validates several tables and builds a Markdown report. Its rules: test source data before transforming it, add tests as you find issues, alert on failures, version contracts, focus on critical columns, and use dynamic baselines rather than hard-coded thresholds.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/data-engineering/skills/data-quality-frameworks"
+        },
+        "tags": [
+          "category:debugging",
+          "category:engineering",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:great-expectations",
+          "stack:dbt",
+          "stack:python",
+          "testing",
+          "databases"
+        ],
+        "note": "Its SKILL.md was cut in the middle of a code block when it was split into two files. The reference file stops partway through a report function; the SKILL.md picks up the rest of that code outside any code block, under a stray \"Summary\" heading, and the code's closing fence then opens a block that swallows the Best Practices section."
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/startup-business-analyst/skills/startup-metrics-framework",
+      "name": "startup-metrics-framework",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/startup-metrics-framework",
+        "installs": 11600,
+        "weeklyInstalls": [178, 197, 231, 303, 244, 220, 218, 196],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Picks and calculates the metrics a startup should track from seed to Series A, such as CAC, LTV, burn multiple and NDR, with benchmarks.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're a founder choosing which numbers to track, checking business health against benchmarks, or preparing metrics for investors or a board"
+            },
+            {
+              "label": "It does",
+              "text": "gives formulas and benchmarks for SaaS, marketplace, consumer and B2B metrics, and says which matter at pre-seed, seed and Series A"
+            },
+            {
+              "label": "You get",
+              "text": "metrics calculated and compared with benchmarks, in a dashboard format of current value, trend and context"
+            },
+            {
+              "label": "Benchmarks",
+              "text": "such as LTV:CAC above 3, net dollar retention above 100% and a burn multiple under 2 by Series A"
+            },
+            {
+              "label": "Edge cases",
+              "text": "reports break-even rather than a runway when burn is zero or negative, and N/A for the quick ratio when nothing churned or downgraded"
+            }
+          ],
+          "text": "A reference of formulas and targets for early-stage startups. Before any analysis the agent reads a reference file of universal metrics: MRR, ARR and growth rates; unit economics (CAC, LTV, LTV:CAC and CAC payback); and cash metrics (net burn, runway, and a burn multiple computed per quarter from net new ARR), plus SaaS metrics such as net new MRR, logo, net dollar and gross retention, the magic number, the Rule of 40 and the quick ratio. The SKILL.md adds marketplace metrics (GMV, take rate, fill and repeat rates, supply and demand balance), consumer metrics (DAU/MAU, day 1, 7 and 30 retention, viral coefficient) and B2B metrics (win rate, sales cycle, contract value, pipeline coverage and stage conversion). It lists the focus metrics at pre-seed, seed and Series A and what investors look for at each round, a daily-to-quarterly reporting cadence, analytics tools such as Mixpanel, ChartMogul and Looker, and five mistakes, such as vanity metrics and tracking too many numbers. Its quick start: pick 5–7 core metrics for your model and stage, set targets from the benchmarks and review them weekly.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/startup-business-analyst/skills/startup-metrics-framework"
+        },
+        "tags": [
+          "category:science",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "finance"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/payment-processing/skills/billing-automation",
+      "name": "billing-automation",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/billing-automation",
+        "installs": 11600,
+        "weeklyInstalls": [170, 187, 223, 270, 214, 184, 184, 178],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds subscription billing: billing cycles, invoices, failed-payment recovery (dunning), proration for plan changes, sales tax and VAT, and usage-based pricing.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're building SaaS subscription billing yourself and need trials, renewals, failed-payment retries, plan changes or tax handled"
+            },
+            {
+              "label": "It does",
+              "text": "explains billing cycles, subscription states, dunning and proration, then gives Python classes for each part of a billing engine"
+            },
+            {
+              "label": "You get",
+              "text": "Python code for subscriptions, a billing run that invoices and charges through Stripe, dunning, proration, tax, invoices and usage pricing"
+            },
+            {
+              "label": "Terms",
+              "text": "dunning is the retry-and-remind process after a failed payment; proration charges or credits part of a period when a plan changes"
+            }
+          ],
+          "text": "A reference of Python code, not a workflow. The SKILL.md covers billing intervals, subscription states from trial through active and past due to canceled, with pause and resume, dunning through retry schedules, notifications, grace periods and account restrictions, and proration on upgrades, seat changes and billing-frequency changes. Its quick start shows the calls; the reference file holds the classes. A subscription moves through trial, activation, past due and cancellation, at once or at period end. The billing engine builds an invoice with subscription and usage line items and tax, charges the customer through Stripe, and starts dunning when the charge fails. The dunning manager retries after 3, 7 and 14 days with an email each time, then cancels the subscription. Proration credits the unused part of the old plan and charges the new one for the rest of the period; added seats are charged, removed seats aren't refunded. Tax comes from a fixed table of a few US state, EU VAT and Australian GST rates, with VAT number validation left as a stub. Invoices render to HTML, and usage billing has tiered and per-unit pricing.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/payment-processing/skills/billing-automation"
+        },
+        "tags": [
+          "category:engineering",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:python",
+          "payments",
+          "backend"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/machine-learning-ops/skills/ml-pipeline-workflow",
+      "name": "ml-pipeline-workflow",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/ml-pipeline-workflow",
+        "installs": 11500,
+        "weeklyInstalls": [173, 184, 302, 433, 228, 189, 195, 176],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Designs end-to-end MLOps pipelines, from data validation and training to model validation, deployment and drift monitoring, across tools like Airflow, MLflow and SageMaker.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're designing a production ML pipeline that takes data through training and validation to deployment and monitoring"
+            },
+            {
+              "label": "It does",
+              "text": "lays out the pipeline stages, a four-phase production workflow and best practices for versioning, model registries and gradual rollouts"
+            },
+            {
+              "label": "You get",
+              "text": "a pipeline design along those lines; the reference guides and templates it promises are missing from the repo"
+            },
+            {
+              "label": "Grows in",
+              "text": "five levels, from a linear data-train-deploy pipeline, through validation, tuning, A/B tests and gradual rollouts, to multi-model ensembles"
+            },
+            {
+              "label": "Works with",
+              "text": "Airflow, Dagster, Kubeflow or Prefect to orchestrate, MLflow or Weights & Biases to track, SageMaker, Vertex AI, Azure ML, OCI or KServe to serve"
+            }
+          ],
+          "text": "A high-level guide, not a step-by-step workflow. The pipeline runs data ingestion, data validation, feature engineering, training, model validation and deployment as a DAG, a graph of stages that each wait for the ones they depend on. The production workflow has four phases: prepare and version the data, train and track experiments, validate against a baseline and approve, then package, deploy and monitor. Its best practices: make each stage testable on its own and safe to re-run, log metrics at every stage, version data, code and models, validate data with Great Expectations or TFX, version datasets with DVC, keep training and serving infrastructure apart, start with shadow deployments, then canary releases and A/B tests, and roll back automatically. It ends with common issues and five debugging steps. The SKILL.md points to guides on data preparation, training, validation and deployment, a DAG template, a training config and a validation checklist, but none of these files exist in the repo, so its code examples stop at placeholder comments. The hyperparameter-tuning, experiment-tracking-setup and model-deployment-patterns skills it suggests next aren't in the repo either.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/machine-learning-ops/skills/ml-pipeline-workflow"
+        },
+        "tags": [
+          "category:cloud",
+          "category:engineering",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "deployment",
+          "infrastructure"
+        ],
+        "note": "It sends the agent to four reference guides and three templates under references/ and assets/, and to three follow-up skills, none of which are in the repo, so only the overview in the SKILL.md itself is there."
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/conductor/skills/context-driven-development",
+      "name": "context-driven-development",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/context-driven-development",
+        "installs": 11400,
+        "weeklyInstalls": [175, 193, 221, 280, 218, 189, 184, 174],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Creates and maintains product, tech-stack, workflow and track documents in a conductor/ folder that the agent reads before each piece of work.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want every AI coding session on a project to start from the same written product goals, tech choices and working rules"
+            },
+            {
+              "label": "It does",
+              "text": "creates and keeps current a conductor/ folder of Markdown files: product vision, product guidelines, tech stack, workflow rules and a registry of work units"
+            },
+            {
+              "label": "You get",
+              "text": "product.md, product-guidelines.md, tech-stack.md, workflow.md, tracks.md and an index.md under conductor/, with starter templates for the first five"
+            },
+            {
+              "label": "Before each task",
+              "text": "the agent reads the files, flags anything outdated and proposes updates before it starts"
+            },
+            {
+              "label": "Needs",
+              "text": "the Conductor plugin's /conductor:setup command for its setup steps; with the skill alone, the agent writes the files from the templates"
+            }
+          ],
+          "text": "The context step of Conductor, a plugin in the same repo whose workflow runs context, then spec and plan, then implementation. Each file answers one question: product.md what is built and why, product-guidelines.md how the product speaks to users, tech-stack.md which languages, dependencies and infrastructure, workflow.md how the team works (TDD, commit conventions, review, coverage targets), and tracks.md which work units, called tracks, are active or done. The files stay in sync: a new dependency goes into tech-stack.md with its reason and version, and a finished feature moves from planned to implemented in product.md. For a new project, setup asks about vision, tech and workflow; for an existing one it reads the code and configs and pre-fills the files for you to review. Before each track the agent runs a validation checklist over product, technical, workflow and track context. At the start of a session it reads index.md, tracks.md and the current plan; at the end it updates the plan, notes blockers and commits work in progress. It warns against stale, scattered, unwritten and over-detailed context.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/conductor/skills/context-driven-development"
+        },
+        "tags": [
+          "category:planning",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "planning",
+          "docs-writing",
+          "memory"
+        ],
+        "note": "Its setup steps run /conductor:setup, a command of the repo's Conductor plugin; installed as a skill alone, the agent writes the conductor/ files itself, from the starter templates in its reference files."
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/framework-migration/skills/dependency-upgrade",
+      "name": "dependency-upgrade",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/dependency-upgrade",
+        "installs": 11400,
+        "weeklyInstalls": [177, 195, 225, 265, 207, 186, 186, 176],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Upgrades major JavaScript dependencies in stages: audits versions, checks compatibility, updates one package at a time with tests, codemods and a rollback plan.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're moving a JavaScript project to a new major version of a framework or library, or clearing out outdated and vulnerable packages"
+            },
+            {
+              "label": "It does",
+              "text": "audits what's outdated, maps compatible versions, then upgrades in three phases, one package at a time with tests after each, rolling back if they fail"
+            },
+            {
+              "label": "You get",
+              "text": "an UPGRADE_PLAN.md with the upgrade order, an updated package.json and lockfile, and compatibility tests"
+            },
+            {
+              "label": "Also covers",
+              "text": "jscodeshift codemods for breaking changes, Renovate and Dependabot configs, lockfile commands and peer-dependency conflicts"
+            }
+          ],
+          "text": "A staged process with npm and yarn commands, using a React upgrade as the running example. It opens with semantic versioning and the ^ and ~ ranges, then audits with npm outdated, npm audit and npm-check-updates and traces why a package is installed. A compatibility matrix records which versions of related packages go together, such as React with react-dom, React Router and Testing Library. Phase 1 lists current versions, reads changelogs and migration guides, and writes the upgrade order to UPGRADE_PLAN.md: TypeScript, then React, React Router, testing libraries and build tools. Phase 2 upgrades one package, and one major version, at a time, running tests and the build after each. Phase 3 adds tests that check matching versions and no peer-dependency warnings. Breaking changes get codemods (jscodeshift scripts that rewrite code, tried with a dry run first) or a custom find-and-replace script. Testing covers unit, integration, snapshot and Cypress end-to-end tests. A rollback script upgrades on a branch and commits only if tests pass. It ends with a Renovate config that auto-merges minor and patch updates but not majors, a weekly Dependabot config, and commands for lockfiles, peer dependencies and workspaces.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/framework-migration/skills/dependency-upgrade"
+        },
+        "tags": [
+          "category:engineering",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "stack:javascript",
+          "stack:npm",
+          "migration",
+          "testing"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/startup-business-analyst/skills/competitive-landscape",
+      "name": "competitive-landscape",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/competitive-landscape",
+        "installs": 11400,
+        "weeklyInstalls": [172, 188, 226, 284, 246, 230, 222, 195],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Analyzes competitors with Porter's Five Forces, Blue Ocean Strategy, positioning maps and competitor profiles to find where a startup can win.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're sizing up competitors, choosing a market position, or preparing the competition section of a pitch"
+            },
+            {
+              "label": "It does",
+              "text": "rates the industry on Porter's five forces, maps competitors on two dimensions to find gaps, profiles the top 3–5 rivals and tests which advantages last"
+            },
+            {
+              "label": "You get",
+              "text": "a five-forces scorecard, a positioning map, competitor profiles, a pricing comparison and a positioning statement"
+            },
+            {
+              "label": "Terms",
+              "text": "the five forces are new entrants, suppliers, buyers, substitutes and rivalry; a blue ocean is market space no one competes in yet"
+            }
+          ],
+          "text": "Frameworks for startup competitive strategy, ending in an eight-step quick start. Before rating market forces or looking for a blue ocean, the agent reads a reference file: the five forces, each with its factors and questions, scored 1–5 in a summary table, and Blue Ocean Strategy's four actions (eliminate, reduce, raise, create) drawn as a strategy canvas against competitors. The SKILL.md covers positioning maps on two dimensions such as price and complexity, four kinds of differentiation (product, service, brand, price), and a positioning statement template: for whom, who needs what, our product is, that, unlike, our product. Competitor profiles cover company, product, go-to-market, strengths, weaknesses and likely next moves, drawn from public sources such as job postings, G2 reviews and SEC filings, or from customer interviews and win/loss analysis. It adds premium, mid-market and value pricing tiers with a comparison table, four ways to enter a market and how to pick a beachhead segment, six kinds of lasting advantage, from network effects to regulation, with four questions that test them, and a weekly-to-annual cadence for watching competitors.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/startup-business-analyst/skills/competitive-landscape"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "research",
+          "marketing"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/reverse-engineering/skills/memory-forensics",
+      "name": "memory-forensics",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/memory-forensics",
+        "installs": 11400,
+        "weeklyInstalls": [170, 183, 217, 267, 222, 185, 185, 177],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Acquires and analyzes memory dumps for incident response and malware hunting, finding hidden processes, injected code, network connections and persistence with Volatility 3.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're responding to an incident or analyzing malware and have, or need to capture, a RAM dump from Windows, Linux, macOS or a VM"
+            },
+            {
+              "label": "It does",
+              "text": "captures memory with tools such as WinPmem, LiME or osxpmem, then runs Volatility 3 plugins in a malware workflow and an incident-response workflow"
+            },
+            {
+              "label": "You get",
+              "text": "text files of processes, connections and injected code, dumped executables and their strings, a timeline CSV and YARA matches"
+            },
+            {
+              "label": "Needs",
+              "text": "Volatility 3, installed with pip, Windows symbol tables, and the capture tool for your system"
+            },
+            {
+              "label": "Detects",
+              "text": "process injection and hollowing, rootkits that hide processes or hook system calls, and Cobalt Strike beacons, with sample YARA rules"
+            }
+          ],
+          "text": "A forensic reference with two ready-made workflows. Acquisition covers live capture on Windows (WinPmem, DumpIt and GUI tools), Linux (LiME, /dev/mem, /proc/kcore) and macOS (osxpmem), and copying memory out of VMware, VirtualBox, QEMU and Hyper-V. A reference file holds Volatility 3's setup and its main plugins for processes, network, DLLs and modules, injection, the registry and files on Windows, and for Linux and macOS. The malware workflow surveys processes and connections, runs malfind to find injected code, inspects suspicious processes' DLLs and handles, dumps them, extracts strings and scans with YARA. The incident-response workflow builds a timeline, then checks command lines, Run-key persistence, services, scheduled tasks and recent files. It explains the Windows structures these tools read (EPROCESS, PEB, VAD), four injection techniques, rootkit checks such as comparing pslist with psscan to find hidden processes, credential extraction (password hashes, LSA secrets, cached domain logins), memory YARA rules, and FLOSS for obfuscated strings. Its best practices: hash the dump right away, keep a chain of custody, cross-check plugins and correlate with disk and network evidence.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/reverse-engineering/skills/memory-forensics"
+        },
+        "tags": [
+          "category:security",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "stack:volatility",
+          "stack:yara",
+          "security"
+        ],
+        "note": "Capture and analyze memory only from systems you own or are authorized to investigate: its steps also dump password hashes, LSA secrets and cached domain credentials."
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/quantitative-trading/skills/risk-metrics-calculation",
+      "name": "risk-metrics-calculation",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/risk-metrics-calculation",
+        "installs": 11300,
+        "weeklyInstalls": [176, 198, 220, 294, 236, 196, 203, 188],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Calculates portfolio risk metrics — VaR, CVaR, Sharpe, Sortino, drawdowns — and stress-tests portfolios, with Python implementations.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're measuring portfolio risk, setting risk limits, or building a risk dashboard"
+            },
+            {
+              "label": "It does",
+              "text": "defines each metric and when to use it, then its reference file implements them in Python with pandas and NumPy"
+            },
+            {
+              "label": "You get",
+              "text": "risk code along these patterns; it adds no steps or files of its own"
+            },
+            {
+              "label": "Covers",
+              "text": "volatility, beta, VaR (historical, parametric, Cornish-Fisher), CVaR, drawdowns, Sharpe/Sortino/Calmar/Omega, and historical, hypothetical and Monte Carlo stress tests"
+            }
+          ],
+          "text": "A reference for portfolio risk measurement, not a workflow. The SKILL.md groups metrics into volatility, tail risk, drawdown and risk-adjusted categories and sets out do's and don'ts: use several metrics, don't lean on VaR alone, assume fat tails rather than normality, watch correlation in stress, and use long lookbacks. A reference file holds the Python: a RiskMetrics class (volatility, downside deviation, beta, three VaR methods, CVaR, drawdown series and durations, Sharpe, Sortino, Calmar, Omega, information ratio and a summary), a PortfolioRisk class (portfolio volatility, marginal and component risk contributions, risk-parity weights, diversification ratio, tracking error), rolling versions over a window, and a StressTester with named historical crises (2008, 2020 COVID, 2022 rate hikes, dot-com, flash crash), hypothetical shocks and Monte Carlo at elevated volatility.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/quantitative-trading/skills/risk-metrics-calculation"
+        },
+        "tags": [
+          "category:science",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:python",
+          "finance"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/reverse-engineering/skills/binary-analysis-patterns",
+      "name": "binary-analysis-patterns",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/binary-analysis-patterns",
+        "installs": 11300,
+        "weeklyInstalls": [187, 195, 234, 297, 247, 220, 226, 207],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Reads compiled binaries — assembly idioms, control flow, data structures and decompilation patterns — to reconstruct program logic, with Ghidra and IDA scripting.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're reverse-engineering an executable, analyzing malware, or reading a decompiler's output and want to recover the original logic"
+            },
+            {
+              "label": "It does",
+              "text": "catalogs how compilers turn C into assembly — branches, loops, switch tables, arrays, structs, string ops — and how to read it back"
+            },
+            {
+              "label": "You get",
+              "text": "patterns for recognizing idioms and recovering variables, function signatures and types, plus Ghidra and IDAPython snippets"
+            },
+            {
+              "label": "Needs",
+              "text": "a disassembler or decompiler such as Ghidra, IDA Pro or Binary Ninja"
+            }
+          ],
+          "text": "A reference of patterns for static binary analysis. The SKILL.md maps common assembly idioms to their source constructs: conditional branches and signed/unsigned comparisons, for/while/do-while loops, jump-table and sequential switch statements, array and multi-dimensional indexing, struct field offsets, linked-list traversal, string and memory operations, constant multiplication and division by shifts, and bit manipulation. It then covers decompilation: recovering local variables and stack arrays, inferring parameters from register use under the System V convention, and guessing types from operand sizes. Ghidra scripting examples fix function signatures and define structures; IDAPython examples find calls to dangerous functions and rename by string hints. A reference file adds prologue/epilogue, calling conventions and ARM patterns. It closes with an analysis workflow — triage, strings, functions, control flow, data structures, algorithms, documentation — and pitfalls from optimization such as inlining, tail calls and position-independent code.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/reverse-engineering/skills/binary-analysis-patterns"
+        },
+        "tags": [
+          "category:security",
+          "type:guidelines",
+          "effect:none",
+          "needs:cli",
+          "by:community",
+          "stack:ghidra",
+          "stack:ida",
+          "security"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/backend-development/skills/cqrs-implementation",
+      "name": "cqrs-implementation",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/cqrs-implementation",
+        "installs": 11300,
+        "weeklyInstalls": [176, 194, 223, 274, 213, 184, 185, 177],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Separates an application's read and write models with the CQRS pattern — commands, queries, events, projections — with Python and FastAPI examples.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to scale reads separately from writes, or pair CQRS with event sourcing"
+            },
+            {
+              "label": "It does",
+              "text": "explains the pieces — commands, command handlers, events, queries, query handlers, projectors — and how a write model feeds a read model through events"
+            },
+            {
+              "label": "You get",
+              "text": "a design along these patterns and Python/FastAPI templates in its reference file; it adds no steps of its own"
+            },
+            {
+              "label": "Watch for",
+              "text": "eventual consistency between the two models — it shows read-your-writes handling and projection rebuilds"
+            }
+          ],
+          "text": "A reference for Command Query Responsibility Segregation, not a workflow. The SKILL.md diagrams the split: commands express intent to change state and go through command handlers that validate and emit events; queries read from a denormalized read model built by projectors that apply those events. Its do's and don'ts: separate the models, accept propagation delay, validate in command handlers, version events, don't query inside commands or couple the two schemas, and don't over-engineer. A reference file holds Python templates — a command base and bus with handlers, a query base and bus with paginated results, a FastAPI app wiring command endpoints (POST/PUT/DELETE) to query endpoints (GET), a read-model synchronizer that tracks a checkpoint and can rebuild a projection from scratch, and a query handler that waits for the read model to reach an expected version before returning, falling back to stale data with a warning after a timeout.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/backend-development/skills/cqrs-implementation"
+        },
+        "tags": [
+          "category:engineering",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:python",
+          "architecture",
+          "backend"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/conductor/skills/workflow-patterns",
+      "name": "workflow-patterns",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/workflow-patterns",
+        "installs": 11300,
+        "weeklyInstalls": [167, 182, 309, 436, 209, 179, 180, 165],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Drives a disciplined TDD implementation loop — red-green-refactor, coverage gates, focused commits and git notes, phase checkpoints that wait for approval.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're implementing tasks from a Conductor track's plan.md and want a strict TDD loop with checkpoints"
+            },
+            {
+              "label": "It does",
+              "text": "runs an 11-step lifecycle per task: write failing tests, make them pass, refactor, check coverage, commit, attach a git note, record the commit SHA"
+            },
+            {
+              "label": "You get",
+              "text": "small focused commits, a plan.md updated as you go, and a phase checkpoint that stops for your approval before continuing"
+            },
+            {
+              "label": "Part of",
+              "text": "wshobson's Conductor context-driven-development plugin"
+            }
+          ],
+          "text": "The implementation step of wshobson's Conductor methodology (context → spec & plan → implement). For each pending task in a track's plan.md it follows red-green-refactor: write tests that fail, write the minimum code to pass, then refactor while tests stay green, checking coverage against an 80% target. It commits with a typed, scoped message, attaches a rich git note of decisions and files changed, and records the commit SHA back in plan.md. When a phase's tasks are done it runs a verification protocol — list changed files, confirm tests exist, run the full suite, lint and type-check, generate manual verification steps — then waits for explicit user approval before a checkpoint commit. It also covers deviations (scope added or cut, technical changes), error recovery, and TDD variations by task type. The quality gates, git conventions and checkpoint mechanics live in a reference file.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/conductor/skills/workflow-patterns"
+        },
+        "tags": [
+          "category:engineering",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "tdd",
+          "agent-workflows",
+          "git"
+        ],
+        "note": "Part of wshobson's Conductor plugin; it drives the implementation step and expects a Conductor-scaffolded project — the plan.md tracks created by the plugin's context-driven-development and track-management skills."
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/incident-response/skills/incident-runbook-templates",
+      "name": "incident-runbook-templates",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/incident-runbook-templates",
+        "installs": 11300,
+        "weeklyInstalls": [180, 200, 226, 286, 237, 193, 200, 202],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds incident response runbooks from templates — severity, detection, triage, mitigation, rollback, escalation and communication — with worked service and database examples.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're writing a runbook for a service or database outage, or onboarding on-call engineers"
+            },
+            {
+              "label": "It does",
+              "text": "gives a runbook structure and fill-in templates, with severity levels (SEV1–SEV4) and their response times"
+            },
+            {
+              "label": "You get",
+              "text": "a runbook written for a 3 AM responder, with triage steps, mitigation and rollback commands, an escalation matrix and status-update templates"
+            },
+            {
+              "label": "Also has",
+              "text": "troubleshooting for why runbooks fail in a real incident — missing preconditions, steps run out of order, stale commands, delayed comms"
+            }
+          ],
+          "text": "A template library for incident response runbooks. The SKILL.md sets out a nine-section structure (overview, detection, triage, mitigation, root cause, resolution, verification and rollback, communication, escalation) and a severity table. A reference file holds two full worked runbooks: a payment-service outage runbook with alert and dashboard links, a five-minute triage, mitigation paths for a down service, high latency, partial failures and traffic surges, verification and rollback commands, an escalation matrix and notification, status-update and resolution message templates; and a database incident runbook with SQL for connection-pool exhaustion, replication lag and disk-space emergencies. The SKILL.md itself adds troubleshooting advice: add a prerequisite check and failure note to each command, put a numbered checklist at the top, stamp a last-verified date and owner, assign a dedicated communicator, and guard destructive SQL with a dry-run count. It points to the postmortem-writing and on-call-handoff skills for the steps after resolution.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/incident-response/skills/incident-runbook-templates"
+        },
+        "tags": [
+          "category:cloud",
+          "category:writing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "docs-writing"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/reverse-engineering/skills/anti-reversing-techniques",
+      "name": "anti-reversing-techniques",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/anti-reversing-techniques",
+        "installs": 11200,
+        "weeklyInstalls": [175, 192, 224, 299, 243, 223, 237, 212],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Explains anti-debugging, anti-VM, obfuscation and packing protections and how to get past them during authorized binary and malware analysis.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you hit anti-debugging, anti-VM, obfuscation or packing while analyzing a binary you're authorized to"
+            },
+            {
+              "label": "It does",
+              "text": "names each protection and where it appears, then gives a specific way past it — a patch address, a hook point or a tool command"
+            },
+            {
+              "label": "You get",
+              "text": "protection identification, a strategy per layer, and scripts or GDB/x64dbg command sequences; a reference file adds unpacking and virtualization-based protection"
+            },
+            {
+              "label": "Authorized use",
+              "text": "the skill insists on written permission or a legitimate context (malware analysis, CTF, pentest) first"
+            }
+          ],
+          "text": "A reference for the protection mechanisms an analyst meets during authorized reverse engineering, and how to neutralize each. It opens with an authorized-use banner and an input/output contract: you give a binary, platform and goal; it produces named protections with locations, a strategy per layer, an analysis report and code artifacts. A reference file covers Windows anti-debugging (API checks, PEB flags, timing, exceptions), Linux ptrace checks, anti-VM detection (hardware fingerprints, registry and file artifacts, timing), and obfuscation (control-flow flattening, opaque predicates, string and API obfuscation). A second reference file goes further into packers and unpacking, virtualization-based protection and anti-disassembly tricks. The SKILL.md's troubleshooting notes platform differences (x86 vs ARM), calibrating timing thresholds against false positives, and adjusting a comparison rather than a jump to avoid crashes. It points to the binary-analysis-patterns, memory-forensics and protocol-reverse-engineering skills.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/reverse-engineering/skills/anti-reversing-techniques"
+        },
+        "tags": [
+          "category:security",
+          "type:guidelines",
+          "effect:none",
+          "needs:cli",
+          "by:community",
+          "security"
+        ],
+        "note": "Covers bypassing software protections; intended only for malware analysis, CTFs, authorized pentests, or software you own — unauthorized circumvention may be illegal."
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/incident-response/skills/postmortem-writing",
+      "name": "postmortem-writing",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/postmortem-writing",
+        "installs": 11200,
+        "weeklyInstalls": [181, 194, 224, 289, 241, 204, 193, 198],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes blameless postmortems — timeline, root-cause analysis, impact, lessons and tracked action items — and facilitates the review meeting.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're writing a postmortem after an incident, or running the review meeting"
+            },
+            {
+              "label": "It does",
+              "text": "frames the review as blameless — what conditions allowed the failure, not who caused it — and gives templates and a 5 Whys structure"
+            },
+            {
+              "label": "You get",
+              "text": "a postmortem with an executive summary, UTC timeline, root-cause analysis, impact, lessons and a prioritized action-item table with owners and tickets"
+            },
+            {
+              "label": "Also has",
+              "text": "a meeting facilitation guide and a table of anti-patterns (blame, shallow analysis, no action items, no follow-up)"
+            }
+          ],
+          "text": "A guide to writing postmortems that drive learning rather than blame. The SKILL.md contrasts blame-focused with blameless framing, lists what triggers a postmortem (SEV1/SEV2, customer outages over 15 minutes, data loss, near-misses, novel failures), and gives a rough timeline from incident to quarterly pattern review. A reference file holds a full standard template worked through a payment-service outage — summary, timeline, root-cause with a 5 Whys chain, detection, response, impact, lessons and action items — plus a 5 Whys template and a quick template for minor incidents. The SKILL.md adds a 60-minute meeting structure, facilitation tips (redirect blame to systems, document dissent, time-box tangents), an anti-patterns table, and do's and don'ts: start immediately, be specific, assign owners, share widely, never name and shame, don't skip small incidents or follow-up. It points to the runbook and on-call-handoff skills.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/incident-response/skills/postmortem-writing"
+        },
+        "tags": [
+          "category:writing",
+          "category:cloud",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "docs-writing"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/security-scanning/skills/sast-configuration",
+      "name": "sast-configuration",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/sast-configuration",
+        "installs": 11100,
+        "weeklyInstalls": [185, 191, 229, 282, 228, 196, 199, 198],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Sets up static application security testing in CI/CD with Semgrep, SonarQube and CodeQL — custom rules, quality gates and false-positive tuning.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're adding static security scanning to a codebase or CI/CD pipeline"
+            },
+            {
+              "label": "It does",
+              "text": "compares and configures three SAST tools — Semgrep, SonarQube and CodeQL — and shows how to write custom rules and tune false positives"
+            },
+            {
+              "label": "You get",
+              "text": "install and CI snippets (GitHub Actions, pre-commit), a custom Semgrep rule example, compliance scans, and a tool-comparison table"
+            },
+            {
+              "label": "Approach",
+              "text": "baseline scan first, adopt incrementally, block only on critical findings, exclude tests and generated code"
+            }
+          ],
+          "text": "A configuration reference for static application security testing. It frames an initial assessment — identify languages, note compliance needs (PCI-DSS, SOC 2), pick a tool, run a baseline — then covers three tools. Semgrep: custom pattern rules, language-specific security rules, CI integration and false-positive tuning. SonarQube: quality gates, security hotspots, custom quality profiles, enterprise LDAP/SAML. CodeQL: GitHub Advanced Security, custom queries, SARIF output. It shows quick-start install commands, a GitHub Actions step and a pre-commit hook, a custom rule that flags a hardcoded JWT secret, and a PCI-DSS scan. Best practices stress starting from a baseline, incremental adoption, documenting suppressions, excluding test and generated code, and security champions. A troubleshooting section addresses high false-positive rates, slow scans and integration failures, and a table compares the three tools by language support, cost and integration. It points to the STRIDE-analysis and threat-mitigation skills.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/security-scanning/skills/sast-configuration"
+        },
+        "tags": [
+          "category:security",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:semgrep",
+          "stack:sonarqube",
+          "stack:codeql",
+          "security",
+          "ci"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/backend-development/skills/event-store-design",
+      "name": "event-store-design",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/event-store-design",
+        "installs": 11100,
+        "weeklyInstalls": [170, 191, 220, 266, 216, 182, 187, 174],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Designs event stores for event-sourced systems — append-only streams, ordering, versioning, subscriptions — and compares EventStoreDB, Postgres, Kafka, DynamoDB and Marten.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're building event-sourcing infrastructure or choosing where to store events"
+            },
+            {
+              "label": "It does",
+              "text": "sets the requirements for an event store — append-only, ordered per stream and globally, versioned for concurrency, subscribable, idempotent"
+            },
+            {
+              "label": "You get",
+              "text": "a design along these rules; a reference file holds the templates and worked examples"
+            },
+            {
+              "label": "Compares",
+              "text": "EventStoreDB, PostgreSQL, Kafka, DynamoDB and Marten, with what each is best and worst at"
+            }
+          ],
+          "text": "A reference for designing the storage layer of an event-sourced system. The SKILL.md diagrams an event store as per-aggregate streams plus a global position, lists its requirements (immutable append-only events, per-stream and global ordering, optimistic concurrency via versions, real-time subscriptions, idempotent writes), and compares five technologies: EventStoreDB for pure event sourcing, PostgreSQL when you already run Postgres, Kafka for high-throughput streaming but weak per-stream queries, DynamoDB for serverless AWS, and Marten for .NET. Its do's and don'ts: stream IDs that include the aggregate type, correlation and causation IDs, version events from day one, deduplicate by event ID, index for your query patterns, never update or delete events, keep payloads small, don't skip optimistic concurrency, and handle slow consumers. The concrete templates and worked examples sit in a reference file.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/backend-development/skills/event-store-design"
+        },
+        "tags": [
+          "category:engineering",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "architecture",
+          "databases",
+          "backend"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/llm-application-dev/skills/hybrid-search-implementation",
+      "name": "hybrid-search-implementation",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/hybrid-search-implementation",
+        "installs": 11100,
+        "weeklyInstalls": [180, 188, 218, 281, 220, 191, 189, 179],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Combines vector similarity and keyword search for retrieval, fusing the two result sets, for RAG and search when neither alone has enough recall.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "pure vector search misses exact terms like names or codes, and you want keyword matching too"
+            },
+            {
+              "label": "It does",
+              "text": "runs vector and keyword search in parallel and fuses their rankings into one result list"
+            },
+            {
+              "label": "You get",
+              "text": "a design and, in its reference file, templates; it names fusion methods and when each fits"
+            },
+            {
+              "label": "Fusion methods",
+              "text": "Reciprocal Rank Fusion for general use, a weighted linear sum for tunable balance, a cross-encoder rerank for quality, cascade filtering for efficiency"
+            }
+          ],
+          "text": "A short reference for hybrid retrieval, combining semantic vector search with keyword search so a query gets both meaning and exact matches. The SKILL.md diagrams the flow — the query fans out to a vector search and a keyword search, whose candidates are fused — and tabulates four fusion methods: Reciprocal Rank Fusion (general purpose, works without tuning), a weighted linear sum of scores (tunable), a cross-encoder reranker (highest quality) and a cascade that filters then reranks. Its advice: tune weights on your own data, start with RRF, add reranking for a quality jump, log both scores for debugging, A/B test real impact, and handle edge cases like empty results and single-word queries without over-fetching. The templates and worked examples are in a reference file.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/llm-application-dev/skills/hybrid-search-implementation"
+        },
+        "tags": [
+          "category:agents",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "databases",
+          "agent-development"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/accessibility-compliance/skills/screen-reader-testing",
+      "name": "screen-reader-testing",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/screen-reader-testing",
+        "installs": 11000,
+        "weeklyInstalls": [176, 188, 214, 272, 217, 190, 212, 181],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Tests web interfaces with screen readers — VoiceOver, NVDA, JAWS, TalkBack — covering modals, live regions, tabs and focus management.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're validating that a site works with screen readers, or debugging an ARIA problem"
+            },
+            {
+              "label": "It does",
+              "text": "names the major screen readers and their share, sets a minimum and a comprehensive test matrix, and points to per-reader setup references"
+            },
+            {
+              "label": "You get",
+              "text": "accessible markup and focus-management examples for modals, live regions and tabs, plus a snippet that logs what a screen reader would announce"
+            },
+            {
+              "label": "Covers",
+              "text": "VoiceOver on macOS and iOS, NVDA, JAWS and TalkBack, in browse, focus and application modes"
+            }
+          ],
+          "text": "A practical guide to testing with assistive technology. The SKILL.md tabulates the major screen readers (JAWS ~40%, NVDA ~31%, VoiceOver ~15%, TalkBack, Narrator) with their platform and browser, recommends a minimum matrix (NVDA+Firefox, VoiceOver+Safari on macOS and iOS) and a comprehensive one, and explains the three interaction modes. It points to separate reference files for VoiceOver (macOS and iOS), NVDA and JAWS/TalkBack setup, commands and checklists to read before testing on each. It then gives common test scenarios with accessible HTML and JavaScript: a dialog with focus trap and restore, polite and assertive live regions and progress and log roles, and a tab interface with arrow-key navigation. A debugging snippet logs an element's role, accessible name and ARIA state. Do's and don'ts: test with real screen readers not simulators, semantic HTML before ARIA, test both modes, start keyboard-only, and don't assume one reader is enough.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/accessibility-compliance/skills/screen-reader-testing"
+        },
+        "tags": [
+          "category:design",
+          "category:debugging",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "accessibility",
+          "testing"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/backend-development/skills/saga-orchestration",
+      "name": "saga-orchestration",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/saga-orchestration",
+        "installs": 11000,
+        "weeklyInstalls": [167, 189, 221, 270, 212, 183, 192, 175],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Coordinates distributed transactions across services with the saga pattern — ordered steps, compensating rollbacks, per-step timeouts and stuck-saga recovery.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need a multi-service transaction without two-phase commit — an order, booking or approval flow that must roll back on partial failure"
+            },
+            {
+              "label": "It does",
+              "text": "defines the saga as ordered steps, each with a compensating undo, run by an orchestrator or by choreography"
+            },
+            {
+              "label": "You get",
+              "text": "a saga definition, orchestrator or choreography code, idempotent compensation per service, per-step timeouts and monitoring; Python is in the reference file"
+            },
+            {
+              "label": "Term",
+              "text": "a saga is a chain of local transactions where each completed step has an undo that runs in reverse if a later step fails"
+            }
+          ],
+          "text": "A reference for managing distributed transactions as sagas. You provide service boundaries, which steps must be atomic, failure modes and SLAs; it produces an ordered saga with action and compensation commands, an implementation, idempotent always-succeeds compensation, per-step timeouts and monitoring. Its do's: make every step idempotent, design compensations as the critical path, thread a saga_id through every event and log, set per-step timeouts, log state transitions, and test compensation by injecting a failure at each step. Its don'ts: don't assume instant completion, don't skip compensation testing, don't couple services synchronously, don't ignore partial failures, don't use one global timeout. A troubleshooting section covers sagas stuck compensating, duplicate executions after a restart, lost choreography events, premature timeouts and wrong compensation order. Core concepts, templates and a timeout-aware orchestrator with Prometheus metrics live in reference files.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/backend-development/skills/saga-orchestration"
+        },
+        "tags": [
+          "category:engineering",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:python",
+          "architecture",
+          "backend"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/cloud-infrastructure/skills/multi-cloud-architecture",
+      "name": "multi-cloud-architecture",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/multi-cloud-architecture",
+        "installs": 11000,
+        "weeklyInstalls": [169, 182, 214, 268, 209, 176, 182, 171],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Designs architectures across AWS, Azure, GCP and OCI with a decision framework for picking services and avoiding vendor lock-in.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're designing across more than one cloud, migrating between providers, or avoiding vendor lock-in"
+            },
+            {
+              "label": "It does",
+              "text": "maps equivalent compute, storage and database services across AWS, Azure, GCP and OCI, and gives patterns for combining them"
+            },
+            {
+              "label": "You get",
+              "text": "a provider-neutral design and a service-selection decision, not provisioning; reference files hold the full comparison and patterns"
+            },
+            {
+              "label": "Patterns",
+              "text": "single provider with cross-cloud DR, best-of-breed per provider, geographic distribution, and a cloud-agnostic abstraction on Kubernetes, Postgres, Kafka and S3-compatible storage"
+            }
+          ],
+          "text": "A decision framework for multi-cloud architecture. The SKILL.md tabulates equivalent services across AWS, Azure, GCP and OCI for compute, storage and databases, then lays out four patterns: a primary cloud with disaster recovery in another, best-of-breed (AI on GCP, enterprise on Azure, regulated data on OCI, general compute on AWS), geographic distribution for latency and data sovereignty, and a cloud-agnostic abstraction built on Kubernetes, PostgreSQL/MySQL, Kafka, Redis, S3-compatible storage, Prometheus/Grafana and a service mesh behind a Terraform layer. It compares pricing models and lists cost-optimization strategies (reserved and spot capacity, right-sizing, serverless for variable load, lifecycle policies, allocation tags) and a four-phase migration (assess, pilot, migrate with dual-run, optimize). Best practices: infrastructure as code, CI/CD, design for cross-cloud failure, managed services, monitoring, and training teams on several clouds. Fuller comparison and pattern detail sit in reference files.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/cloud-infrastructure/skills/multi-cloud-architecture"
+        },
+        "tags": [
+          "category:cloud",
+          "category:engineering",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:amazon",
+          "stack:azure",
+          "stack:google-cloud",
+          "stack:oci",
+          "architecture",
+          "infrastructure"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/llm-application-dev/skills/similarity-search-patterns",
+      "name": "similarity-search-patterns",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/similarity-search-patterns",
+        "installs": 11000,
+        "weeklyInstalls": [169, 184, 216, 264, 208, 182, 179, 167],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Implements similarity search over vector databases — distance metrics and index choice — for semantic search, RAG retrieval and recommendations.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're building semantic search, RAG retrieval or a recommendation engine over embeddings"
+            },
+            {
+              "label": "It does",
+              "text": "helps pick a distance metric and an index type for your data size and recall/latency needs"
+            },
+            {
+              "label": "You get",
+              "text": "a design; a reference file holds the templates and worked examples"
+            },
+            {
+              "label": "Choices",
+              "text": "cosine, Euclidean, dot-product or Manhattan distance; a flat (exact), HNSW (graph) or IVF+PQ (quantized) index, with their speed and recall trade-offs"
+            }
+          ],
+          "text": "A short reference for production similarity search. The SKILL.md tabulates four distance metrics and when each fits — cosine for normalized embeddings, Euclidean for raw vectors, dot product when magnitude matters, Manhattan for sparse vectors — and three index families with their complexity and recall: flat exact search (O(n), 100% recall, small data), HNSW (O(log n), 95–99%, medium to large) and IVF+PQ (O(√n), 90–95%, very large). Its advice: use HNSW for most cases, tune ef_search or nprobe for the recall/speed balance, add keyword search for hybrid retrieval, pre-filter to shrink the search space, measure recall before optimizing, start flat and scale up, watch P99 latency, and remember storage cost. The templates and worked examples are in a reference file.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/llm-application-dev/skills/similarity-search-patterns"
+        },
+        "tags": [
+          "category:agents",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "databases",
+          "agent-development",
+          "performance"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/llm-application-dev/skills/vector-index-tuning",
+      "name": "vector-index-tuning",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/vector-index-tuning",
+        "installs": 11000,
+        "weeklyInstalls": [172, 180, 213, 265, 208, 179, 180, 169],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Tunes vector indexes for latency, recall and memory — HNSW parameters, quantization strategies and index choice as data scales.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a vector index is too slow, too large, or not recalling enough, and you need to tune it"
+            },
+            {
+              "label": "It does",
+              "text": "maps data size to an index type and explains the HNSW parameters and quantization options that trade recall against speed and memory"
+            },
+            {
+              "label": "You get",
+              "text": "a tuning plan; a reference file holds the templates and worked examples"
+            },
+            {
+              "label": "Knobs",
+              "text": "HNSW's M, efConstruction and efSearch; and FP16, INT8, product or binary quantization for memory savings"
+            }
+          ],
+          "text": "A reference for optimizing vector indexes in production. The SKILL.md maps data size to an index: flat exact search under 10K vectors, HNSW to 1M, HNSW with quantization to 100M, IVF+PQ or DiskANN beyond that. It explains the three HNSW parameters — M (connections per node), efConstruction (build quality) and efSearch (search quality) — each trading recall against memory or speed, and lists quantization options from full FP32 down through FP16, INT8 scalar, product quantization and binary, with their byte costs. Its advice: benchmark with real queries not synthetic, monitor recall continuously because data drift degrades it, start from defaults and tune only when needed, use quantization for large memory savings, consider tiered hot/cold storage, profile before optimizing, account for build and reindex time, and warm a cold index. The concrete templates and worked examples live in a reference file.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/llm-application-dev/skills/vector-index-tuning"
+        },
+        "tags": [
+          "category:agents",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "databases",
+          "performance",
+          "agent-development"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/cloud-infrastructure/skills/hybrid-cloud-networking",
+      "name": "hybrid-cloud-networking",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/hybrid-cloud-networking",
+        "installs": 10900,
+        "weeklyInstalls": [169, 181, 215, 266, 207, 175, 176, 164],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Guides connecting on-premises data centers to AWS, Azure, GCP or Oracle Cloud over VPN or dedicated links, with BGP routing, redundancy and cost tips.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're linking an on-premises data center to one or more clouds, running hybrid active-active setups or migrating to the cloud gradually"
+            },
+            {
+              "label": "It does",
+              "text": "weighs each cloud's site-to-site VPN against its dedicated link: AWS Direct Connect, Azure ExpressRoute, GCP Interconnect and OCI FastConnect"
+            },
+            {
+              "label": "You get",
+              "text": "Terraform for AWS and Azure VPN gateways and two AWS tunnels, diagrams of hub-and-spoke, multi-region and multi-cloud layouts, and example BGP settings"
+            },
+            {
+              "label": "Also covers",
+              "text": "ten security practices, cost advice, the metrics to watch and AWS, Azure and OCI CLI commands for troubleshooting"
+            }
+          ],
+          "text": "A reference rather than a step-by-step workflow. For AWS, Azure, GCP and Oracle Cloud it sets an IPsec VPN, cheaper but over the internet (up to 1.25 Gbps per AWS tunnel, 3 Gbps on GCP), against a dedicated private link with lower latency and up to 100 Gbps. It sketches three layouts: hub-and-spoke from on-premises through a transit gateway or Azure vWAN to production, staging and development networks; multi-region with a Direct Connect per region; and multi-cloud with one dedicated link per provider. Routing uses BGP with example AS numbers, route propagation and filtering. High availability means dual VPN tunnels and active-active links with ECMP routing and BGP failover. Security practices include private links, encrypted tunnels, VPC endpoints, flow logs and DDoS protection; cost advice is to right-size links and keep VPN for low-bandwidth traffic. It lists the metrics to watch: tunnel state, traffic, packet loss, latency and BGP sessions. A short reference file compares the four dedicated-link services and advises redundant circuits in separate facilities, with VPN as backup. It points to multi-cloud-architecture and terraform-module-library.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/cloud-infrastructure/skills/hybrid-cloud-networking"
+        },
+        "tags": [
+          "category:cloud",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:amazon",
+          "stack:azure",
+          "stack:google-cloud",
+          "stack:oracle-cloud",
+          "stack:terraform",
+          "infrastructure",
+          "security"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/payment-processing/skills/pci-compliance",
+      "name": "pci-compliance",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/pci-compliance",
+        "installs": 10900,
+        "weeklyInstalls": [173, 182, 218, 274, 211, 186, 186, 175],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Applies PCI DSS to payment code: card data never to store, tokenization, encryption, access control, audit logging and a compliance checklist.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're building or auditing a system that takes card payments, or trying to shrink how much of it PCI DSS covers"
+            },
+            {
+              "label": "It does",
+              "text": "lists the standard's 12 requirements and four merchant levels, and shows Python that masks card numbers in logs, refuses to store CVV or PIN, tokenizes and encrypts"
+            },
+            {
+              "label": "You get",
+              "text": "code patterns, a compliance checklist, and the three main self-assessment questionnaires, SAQ A, A-EP and D, with who each is for"
+            },
+            {
+              "label": "Key advice",
+              "text": "keep card data off your servers: tokenize in the browser with Stripe.js so the server only ever sees a token"
+            }
+          ],
+          "text": "A compliance reference for developers. It groups PCI DSS's 12 requirements under secure networks, protecting cardholder data, vulnerability management, access control, monitoring and security policy, and gives the four merchant levels by yearly transactions. Full magnetic-stripe data, CVV and PIN may never be stored; card number, name and expiry only when encrypted. Python examples mask card numbers in logs to the first six and last four digits, raise an error on prohibited fields, charge a card and attach it to a Stripe customer through tokens, so card details never reach the server, build a token vault with Fernet for when you must store cards, encrypt data at rest with AES-256-GCM, and enforce HTTPS and secure cookies in Flask. A reference file adds a decorator that restricts and logs access to card data, audit logging, input validation, the three main questionnaires (SAQ A for hosted payment pages, A-EP for embedded forms, D for anyone who stores or processes cards, from about 20 to about 300 questions) and a checklist across network security, data protection, vulnerability management, access control, monitoring and policy.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/payment-processing/skills/pci-compliance"
+        },
+        "tags": [
+          "category:security",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:stripe",
+          "stack:python",
+          "security",
+          "payments"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/backend-development/skills/projection-patterns",
+      "name": "projection-patterns",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/projection-patterns",
+        "installs": 10800,
+        "weeklyInstalls": [166, 180, 211, 267, 207, 180, 178, 171],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds read models from event streams in event-sourced and CQRS systems: projectors with checkpoints, rebuilds, search indexes and aggregated reporting tables.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you have an event-sourced system and need query-friendly views, dashboards or search indexes built from its events"
+            },
+            {
+              "label": "Terms",
+              "text": "a projection turns a stream of events into a read model, a table or index shaped for queries; a checkpoint records the last event applied"
+            },
+            {
+              "label": "It does",
+              "text": "explains four projection types, live, catch-up, persistent and inline, and nine do's and don'ts, such as idempotent projections so replays are safe"
+            },
+            {
+              "label": "You get",
+              "text": "async Python templates for a projector with checkpoints and rebuilds, an order summary, an Elasticsearch search index, daily sales totals and a multi-table projection"
+            }
+          ],
+          "text": "In CQRS with event sourcing, changes are stored as events and reads come from separate read models; this skill covers that read side. The SKILL.md shows the architecture (event store, projector, read model) and four projection types: live from a subscription for current state, catch-up over history to rebuild, persistent with a stored checkpoint to resume after a restart, and inline in the write's transaction for strong consistency. Its rules: make projections idempotent so replays are safe, use transactions for multi-table updates, store checkpoints, monitor lag and plan for rebuilds; keep projections independent, handle and alert on errors, process events in order and denormalize for the queries you need. A reference file holds the templates, in async Python, with asyncpg for Postgres: a base Projection class and a Projector that runs each projection from its checkpoint and can rebuild one from scratch, an order summary projection, a product search projection into Elasticsearch, a daily sales aggregate that subtracts refunds, and a customer activity projection across several tables.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/backend-development/skills/projection-patterns"
+        },
+        "tags": [
+          "category:engineering",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:python",
+          "stack:postgres",
+          "stack:elasticsearch",
+          "architecture",
+          "backend",
+          "databases"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/hr-legal-compliance/skills/employment-contract-templates",
+      "name": "employment-contract-templates",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/employment-contract-templates",
+        "installs": 10800,
+        "weeklyInstalls": [166, 184, 219, 264, 213, 177, 179, 163],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Drafts offer letters, employment agreements and handbook policies from fill-in templates, for a lawyer to review before use.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're writing an offer letter, an employment contract or a section of an employee handbook, or standardizing your company's HR documents"
+            },
+            {
+              "label": "You get",
+              "text": "Markdown templates with bracketed blanks for an offer letter, an employment agreement for a contract position and handbook policies"
+            },
+            {
+              "label": "Covers",
+              "text": "confidentiality, IP assignment, non-compete and non-solicitation, termination, equal opportunity, anti-harassment, time off, code of conduct and social media"
+            },
+            {
+              "label": "Caution",
+              "text": "US-centric and not legal advice; it tells you to customize for your jurisdiction and have counsel review everything"
+            }
+          ],
+          "text": "Templates rather than a drafting process. The SKILL.md lists the document types (offer letter, employment contract, employee handbook, NDA, non-compete) and when each is used, the questions that shape them (at-will or contract, employee or contractor, full- or part-time, exempt or non-exempt, local requirements) and a disclaimer that none of it is legal advice. Its rules: consult counsel, keep signed copies, update documents as laws change, be specific and train managers; don't use generic templates unchanged, make promises that could create implied contracts, use discriminatory language or forget at-will language where it applies. A reference file holds three templates: an offer letter with position, salary, bonus, equity vesting, benefits, contingencies such as right-to-work verification, an at-will clause and an acceptance block; an employment agreement for a contract position with term, compensation, confidentiality, intellectual property with a prior-inventions exhibit, non-competition and non-solicitation, termination and general provisions; and handbook policies for equal opportunity, anti-harassment, hours, paid time off, sick leave, holidays, code of conduct, technology use and social media, with an acknowledgment page.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/hr-legal-compliance/skills/employment-contract-templates"
+        },
+        "tags": [
+          "category:writing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "writing",
+          "documents"
+        ],
+        "note": "Its templates follow US practice, such as at-will employment, exempt or non-exempt status and 401(k) benefits, and aren't legal advice: the skill itself says to customize them for your jurisdiction and have counsel review every document."
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/observability-monitoring/skills/slo-implementation",
+      "name": "slo-implementation",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/slo-implementation",
+        "installs": 10800,
+        "weeklyInstalls": [171, 183, 216, 278, 223, 191, 195, 178],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Defines SLIs, SLOs and error budgets for a service and implements them as Prometheus recording rules, burn-rate alerts and dashboard queries.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're setting reliability targets for a service, adopting SRE practices or tying alerts to what users actually experience"
+            },
+            {
+              "label": "It does",
+              "text": "defines availability and latency as the share of good requests, sets a target, and treats the gap to 100% as an error budget, the failure you can afford"
+            },
+            {
+              "label": "You get",
+              "text": "Prometheus recording and alerting rules for the SLIs, compliance, budget left and fast or slow burn, plus a dashboard layout and queries"
+            },
+            {
+              "label": "Also covers",
+              "text": "an error budget policy that slows, then freezes changes as the budget runs out, and weekly, monthly and quarterly SLO reviews"
+            }
+          ],
+          "text": "Terms first: an SLI is a measurement such as the share of requests without a 5xx error, an SLO the internal target for it, an SLA the contract with customers. It writes availability and latency SLIs in PromQL over 28 days, plus a durability ratio, tabulates the downtime 99% to 99.99% allows, and lists what to weigh in a target: user expectations, business needs, current performance, cost and competitors. The error budget is one minus the target, so 99.9% leaves 43.2 minutes a month; a policy maps the budget left to action, from normal velocity to a feature freeze at zero. Prometheus recording rules compute the SLIs, compliance, the budget left and a 5-minute burn rate, how fast the budget is being spent. Alerts fire on a fast burn (14.4 times, over one hour and five minutes), a slow burn (6 times, over six hours and 30 minutes) and an exhausted budget, but the longer burn rates they use are left for you to record. A Grafana layout and queries show compliance, budget, trend and days until it runs out. A reference file adds a combined alert, the review cadence and ten best practices, such as never aiming for 100%.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/observability-monitoring/skills/slo-implementation"
+        },
+        "tags": [
+          "category:cloud",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:prometheus",
+          "stack:grafana",
+          "observability"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/blockchain-web3/skills/defi-protocol-templates",
+      "name": "defi-protocol-templates",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/defi-protocol-templates",
+        "installs": 10800,
+        "weeklyInstalls": [167, 179, 211, 263, 206, 178, 178, 158],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Provides Solidity templates for DeFi protocols: a staking contract with rewards, a constant-product AMM, governance token voting and flash loans.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're building a staking platform, an automated market maker, token governance or flash loans on an Ethereum-style chain"
+            },
+            {
+              "label": "You get",
+              "text": "Solidity contracts to start from: staking with per-second rewards, a two-token AMM with a 0.3% swap fee, a voting token with a proposal contract, and a flash loan provider"
+            },
+            {
+              "label": "Built on",
+              "text": "OpenZeppelin's ERC-20 interface, ReentrancyGuard, Ownable and ERC20Votes"
+            },
+            {
+              "label": "Unlike",
+              "text": "solidity-security from the same repo, which covers attacks and audit checks rather than protocol code"
+            }
+          ],
+          "text": "Code templates with almost no prose. The staking contract uses the reward-per-token pattern: rewards accrue per second in proportion to each staker's share, with stake, withdraw, claim and exit functions guarded against reentrancy. The AMM holds two tokens, mints liquidity shares (the square root of the two deposits multiplied for the first provider, proportional after that), burns them on withdrawal and prices swaps on the constant-product curve after a 0.3% fee. A reference file adds a governance token built on ERC20Votes with a minimal Governor contract of its own: holders above a threshold propose, votes are weighted by voting power at the proposal's start block, and a proposal passes with more votes for than against, though the action it executes is left for you to write. It also has a flash loan provider that lends tokens, calls the borrower's executeOperation and reverts unless the loan plus a 0.09% fee comes back, with an example receiver.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/blockchain-web3/skills/defi-protocol-templates"
+        },
+        "tags": [
+          "category:engineering",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:solidity",
+          "stack:openzeppelin",
+          "web3",
+          "finance"
+        ],
+        "note": "Its contracts are written against OpenZeppelin 4.x, such as the security/ReentrancyGuard.sol import and Ownable without an owner argument, so they need changes to compile with OpenZeppelin 5."
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/startup-business-analyst/skills/team-composition-analysis",
+      "name": "team-composition-analysis",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/team-composition-analysis",
+        "installs": 10700,
+        "weeklyInstalls": [165, 185, 208, 260, 210, 177, 174, 162],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Plans a startup's team from pre-seed to Series A: roles to hire when, salary and equity ranges, org charts and a headcount budget.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're a founder deciding who to hire next, what salary and equity to offer, or how to budget headcount against a funding round"
+            },
+            {
+              "label": "It does",
+              "text": "lays out team size and roles at pre-seed, seed and Series A, then works through eight steps from identifying your stage to allocating equity"
+            },
+            {
+              "label": "You get",
+              "text": "a hiring plan with timing, salary and equity ranges per role, an org chart and a fully loaded headcount budget"
+            },
+            {
+              "label": "Benchmarks",
+              "text": "2024 US salaries with city adjustments, equity by role and stage, option pool sizes, and hiring and ramp-up times"
+            }
+          ],
+          "text": "Reference figures with a short plan to apply them. Teams grow from 2–5 people at pre-seed, founders plus contractors, to 5–15 at seed and 15–50 at Series A, where engineering takes about 40%. It gives 2024 US base salaries for engineering, sales (with commission), product, marketing and customer success, up to 30% higher in San Francisco and New York and lower for remote roles; fully loaded cost is salary times 1.3–1.4. Equity runs from founders' splits, with four-year vesting and a one-year cliff, to fractions of a percent for later hires, with option pools of 10–15% per round and how creating the pool dilutes founders. It shows an org chart per stage and manager spans of control, when to hire full-time or use contractors, how long hiring (6–24 weeks) and ramp-up take, pay as a share of revenue and a headcount budget formula. Its eight steps: identify the stage, define roles, prioritize hires, set pay and equity, plan the timeline, calculate the budget, design the org chart and allocate equity. A reference file holds the role-by-role plan for each department and stage.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/startup-business-analyst/skills/team-composition-analysis"
+        },
+        "tags": [
+          "category:science",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "finance"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/cloud-infrastructure/skills/mtls-configuration",
+      "name": "mtls-configuration",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/mtls-configuration",
+        "installs": 10700,
+        "weeklyInstalls": [177, 186, 219, 280, 221, 180, 182, 170],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Sets up mutual TLS between services for zero-trust networking in Istio or Linkerd, with cert-manager or SPIRE certificates, rotation and handshake debugging.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want services in a Kubernetes service mesh to prove their identity to each other, or a TLS handshake between them is failing"
+            },
+            {
+              "label": "It does",
+              "text": "explains the mTLS handshake, where each side checks the other's certificate, and a certificate chain from a root CA down to short-lived workload certificates"
+            },
+            {
+              "label": "You get",
+              "text": "Istio PeerAuthentication and DestinationRule YAML, cert-manager and SPIRE configs, Linkerd policies, and commands to check certificates and debug handshakes"
+            },
+            {
+              "label": "Key advice",
+              "text": "move from permissive to strict mode gradually, keep workload certificates to 24 hours or less and automate rotation"
+            }
+          ],
+          "text": "Mutual TLS means both sides of a connection present a certificate, not only the server, so each service can verify who is calling. The SKILL.md shows the handshake between two sidecar proxies and a hierarchy of a long-lived root CA, intermediate CAs per cluster or across clusters, and workload certificates. Its rules: start permissive and tighten to strict, alert on expiry, rotate the CA, log TLS errors; never disable mTLS for convenience, ignore expiry, use self-signed certificates instead of a proper CA hierarchy or skip chain verification. A reference file has the templates: Istio strict mode mesh-wide with a permissive override for a legacy namespace and a per-port exception for metrics, DestinationRules for mTLS inside the mesh, one-way TLS to an external API and mutual TLS to a partner's, a cert-manager issuer with 24-hour certificates, a SPIRE server and agent, and Linkerd's automatic mTLS with server policies and skipped ports. It ends with commands to read a proxy's certificate, force rotation by restarting a deployment and debug handshakes with istioctl, kubectl logs and linkerd viz.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/cloud-infrastructure/skills/mtls-configuration"
+        },
+        "tags": [
+          "category:security",
+          "category:cloud",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:kubernetes",
+          "stack:istio",
+          "stack:linkerd",
+          "stack:cert-manager",
+          "stack:spire",
+          "security",
+          "infrastructure"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/incident-response/skills/on-call-handoff-patterns",
+      "name": "on-call-handoff-patterns",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/on-call-handoff-patterns",
+        "installs": 10600,
+        "weeklyInstalls": [168, 177, 205, 271, 218, 182, 181, 166],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes on-call shift handoffs that pass on active incidents, open investigations, recent changes and known issues, including mid-incident handoffs.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "your on-call shift is ending, you're handing over mid-incident, or you're setting up or improving a team's handoff routine"
+            },
+            {
+              "label": "It does",
+              "text": "has the outgoing engineer cover five things: active incidents, ongoing investigations, recent changes, known issues and upcoming events"
+            },
+            {
+              "label": "You get",
+              "text": "a handoff document from one of three Markdown templates: a full shift handoff, a quick async one or a mid-incident handoff"
+            },
+            {
+              "label": "Timing",
+              "text": "a 30-minute overlap: the outgoing engineer writes for 15 minutes, then both join a 15-minute sync call"
+            }
+          ],
+          "text": "A handoff routine for human on-call rotations that the agent helps write. The SKILL.md names what every handoff carries and how to time it: the outgoing engineer writes the document and holds a sync call, and the incoming engineer reviews it, joins the call and checks their alerting works. Its troubleshooting covers incomplete handoffs (no section may stay empty: write \"none\"), time zones that rule out a call (use the async template plus a recorded walkthrough), inheriting an incident mid-response (the outgoing engineer stays reachable on Slack for 15 minutes), inconsistent formats across teams, and confirming alerts with a test alert before the overlap ends. The reference file's templates: a full shift handoff with incidents, investigations with their tickets, issues resolved this shift, deployments and config changes, workarounds, upcoming events, escalation contacts, common commands, links and checklists for both engineers; a short async handoff with a TL;DR and a watch list; and an incident handoff with current state, what's known, what's been done, next steps, key people and communication status. It points to incident-runbook-templates and postmortem-writing.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/incident-response/skills/on-call-handoff-patterns"
+        },
+        "tags": [
+          "category:cloud",
+          "category:writing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "handoff",
+          "docs-writing"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/cloud-infrastructure/skills/service-mesh-observability",
+      "name": "service-mesh-observability",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/service-mesh-observability",
+        "installs": 10600,
+        "weeklyInstalls": [165, 178, 206, 263, 206, 173, 177, 159],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Sets up metrics, distributed tracing, dashboards and alerts for Istio or Linkerd service meshes, using Prometheus, Grafana, Jaeger, Kiali and OpenTelemetry.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you run Istio or Linkerd on Kubernetes and need request metrics, traces across services, a dependency map or alerts on mesh traffic"
+            },
+            {
+              "label": "It does",
+              "text": "frames mesh monitoring around the golden signals, latency, traffic, errors and saturation, with starting alert thresholds such as P99 over 500 ms or errors over 1%"
+            },
+            {
+              "label": "You get",
+              "text": "YAML and commands that wire Prometheus, Jaeger, Kiali and an OpenTelemetry collector into Istio, PromQL queries, a Grafana dashboard and alert rules"
+            },
+            {
+              "label": "Sampling",
+              "text": "trace every request in development and 1–10% in production"
+            }
+          ],
+          "text": "Observability for the traffic between services in an Istio or Linkerd mesh. The SKILL.md sets out the three pillars, metrics, traces and logs, and the four golden signals with suggested thresholds, plus rules: sample appropriately, propagate trace headers consistently, alert on the golden signals, link metrics to traces with exemplars and tier storage; don't over-sample, let label cardinality grow, skip dependency dashboards or forget what observability costs. Its reference file is mostly Istio: a Prometheus scrape config and a Prometheus Operator ServiceMonitor; PromQL for request rate, 5xx rate, P99 latency, TCP connections and request size; Jaeger with Istio tracing turned on; a Grafana dashboard with request rate, error rate, P99 latency and service topology panels; Kiali to visualize the mesh; and an OpenTelemetry collector feeding Jaeger and Prometheus, with Istio sampling 10% of traces. For Linkerd it gives linkerd viz commands for top requests, per-route metrics, live traffic and service edges. Prometheus alert rules fire on errors above 5%, P99 latency over one second and mesh certificates expiring within a week.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/cloud-infrastructure/skills/service-mesh-observability"
+        },
+        "tags": [
+          "category:cloud",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:kubernetes",
+          "stack:istio",
+          "stack:linkerd",
+          "stack:prometheus",
+          "stack:grafana",
+          "stack:jaeger",
+          "stack:kiali",
+          "stack:opentelemetry",
+          "observability",
+          "infrastructure"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/conductor/skills/track-management",
+      "name": "track-management",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/track-management",
+        "installs": 10600,
+        "weeklyInstalls": [166, 178, 207, 260, 204, 174, 173, 164],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Organizes work into Conductor tracks: a spec.md and phased plan.md per feature, bug, chore or refactor, tracked with status markers and commit SHAs.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're starting a feature, bug fix, chore or refactor in a project run with Conductor, or writing or updating its spec.md and plan.md"
+            },
+            {
+              "label": "It does",
+              "text": "defines a track, one unit of work with its own folder, an ID such as user-auth_20250115, a spec, a phased plan and metadata, and its lifecycle from creation to archive"
+            },
+            {
+              "label": "You get",
+              "text": "templates for spec.md, plan.md, metadata.json and the tracks.md registry, plus quality checklists for specs and plans"
+            },
+            {
+              "label": "Markers",
+              "text": "[ ] pending, [~] in progress, [x] done with its commit SHA, [-] skipped, [!] blocked"
+            },
+            {
+              "label": "Commands",
+              "text": "creating and reverting a track run /conductor:new-track and /conductor:revert, which come with the Conductor plugin, not with this skill"
+            }
+          ],
+          "text": "Conductor, a plugin in the same repo, keeps a project's context in a conductor/ folder and splits work into tracks; this skill is its guide to tracks. Creating one means gathering requirements by Q&A, writing spec.md (functional and non-functional requirements, testable acceptance criteria, what's in and out of scope, dependencies, risks and open questions) and plan.md (phases of tasks, each ending in verification tasks, with a checkpoint table), then registering it in tracks.md with a metadata.json and an index. During implementation, tasks are marked as they go and completed ones record their commit SHA; each phase needs its verification and an approved checkpoint before the next. On completion, the track is marked done, product.md and tech-stack.md are updated if features or dependencies changed, and the track is archived rather than deleted. Tracks should take one to five days, with two to four phases and 8–20 tasks; it lists signs of tracks too large or too small, how to record hard, soft and external dependencies, and phase patterns for features, bug fixes (start with a failing test) and refactors (start with characterization tests). The SKILL.md holds only ten best practices; the rest is in a reference file.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/conductor/skills/track-management"
+        },
+        "tags": [
+          "category:planning",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "planning",
+          "requirements"
+        ],
+        "note": "Written for wshobson's Conductor plugin: creating and reverting a track go through its /conductor:new-track and /conductor:revert commands, which installing the skill alone doesn't add."
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/blockchain-web3/skills/nft-standards",
+      "name": "nft-standards",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/nft-standards",
+        "installs": 10600,
+        "weeklyInstalls": [165, 178, 206, 261, 206, 175, 176, 170],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Implements ERC-721 and ERC-1155 NFT contracts in Solidity, with on- or off-chain metadata, EIP-2981 royalties, soulbound and dynamic tokens and ERC721A minting.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're launching an NFT collection, game items or non-transferable badges, or adding royalties for marketplaces"
+            },
+            {
+              "label": "You get",
+              "text": "Solidity contracts for a capped, paid ERC-721 mint and an ERC-1155 set of game items with per-item supply caps, batch minting and burning"
+            },
+            {
+              "label": "Also covers",
+              "text": "IPFS metadata JSON with traits, on-chain metadata with a placeholder SVG, EIP-2981 royalties capped at 10%, soulbound tokens, NFTs that level up and ERC721A for cheaper batch mints"
+            }
+          ],
+          "text": "Templates for the two NFT standards. ERC-721 gives every token its own ID: the example caps supply at 10,000, charges a price per mint, limits mints per transaction, sets an IPFS token URI and lets the owner withdraw the proceeds. ERC-1155 holds many token types in one contract: the example defines a sword, a shield and a potion with separate supply caps, owner-only single and batch minting, and burning. Metadata can live off-chain as JSON on IPFS with name, description, image and attributes, or be generated on-chain as Base64 JSON with an SVG image, whose drawing is left as a stub. Royalties follow EIP-2981, which tells marketplaces who receives what share of a resale. A reference file adds soulbound tokens, which can be minted and burned but never transferred; dynamic NFTs whose level rises with experience, with the metadata that follows their state left as a stub; and ERC721A, a library that makes minting several tokens at once cheaper in gas.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/blockchain-web3/skills/nft-standards"
+        },
+        "tags": [
+          "category:engineering",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:solidity",
+          "stack:openzeppelin",
+          "stack:ipfs",
+          "web3"
+        ],
+        "note": "Its contracts are written against OpenZeppelin 4.x, using Counters and the _beforeTokenTransfer hook that OpenZeppelin 5 removed, so they need changes to compile with the current version."
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/agent-teams/skills/parallel-debugging",
+      "name": "parallel-debugging",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/parallel-debugging",
+        "installs": 10300,
+        "weeklyInstalls": [174, 189, 221, 268, 216, 187, 185, 171],
+        "firstSeen": "2026-02-05"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Debugs hard bugs by having parallel investigators test competing hypotheses, then weighing their cited evidence to name the root cause.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a bug has several plausible causes, first attempts failed, or it spans several modules and you want to avoid fixing the first theory that fits"
+            },
+            {
+              "label": "It does",
+              "text": "draws hypotheses from six failure types, has investigators gather evidence for each, then sorts them into confirmed, plausible, falsified or inconclusive"
+            },
+            {
+              "label": "You get",
+              "text": "a root cause backed by file:line evidence and a confidence level, a compound cause, or new hypotheses when none holds up"
+            },
+            {
+              "label": "Terms",
+              "text": "Analysis of Competing Hypotheses (ACH) tests several explanations side by side instead of chasing one"
+            }
+          ],
+          "text": "A method for running several lines of investigation at once, written for a team of agents, though it names no particular tool. Hypotheses come from six failure categories: logic errors, data issues, state problems such as races and stale caches, integration failures, resource exhaustion and environment differences. Evidence is graded as direct (the code at a line), correlational (errors rose after a commit), testimonial (\"works on my machine\") or absence (no null check on the path), and is always cited with file:line. Confidence is high above 80%, with several direct pieces and nothing contradicting, medium from 50% and low below. Once every investigator reports, each hypothesis is labelled confirmed, plausible, falsified or inconclusive, and confirmed ones are ranked by confidence, amount of evidence, strength of the causal chain and lack of contradiction. One clear winner is the root cause, a tie may be a compound issue, and no winner means new hypotheses from what was learned. Before the bug counts as fixed, the fix must address the root cause, break nothing new, pass the original reproduction, cover related edge cases and come with tests.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/agent-teams/skills/parallel-debugging"
+        },
+        "tags": [
+          "category:debugging",
+          "category:agents",
+          "type:workflow",
+          "effect:none",
+          "needs:subagents",
+          "by:community",
+          "debugging",
+          "multi-agent"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/agent-teams/skills/parallel-feature-development",
+      "name": "parallel-feature-development",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/parallel-feature-development",
+        "installs": 10200,
+        "weeklyInstalls": [168, 190, 216, 277, 223, 194, 186, 171],
+        "firstSeen": "2026-02-05"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Splits a feature across parallel implementer agents with one owner per file, shared interface contracts and a vertical, horizontal or hybrid integration plan.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a feature is big enough for two or more agents to build at once and you need to keep them out of each other's files"
+            },
+            {
+              "label": "It does",
+              "text": "assigns file ownership by directory, module or layer, and has implementers code against contract files that none of them edit"
+            },
+            {
+              "label": "You get",
+              "text": "a split into vertical slices, horizontal layers or a mix, and a branch strategy: one shared branch or a sub-branch per implementer"
+            },
+            {
+              "label": "Troubleshoots",
+              "text": "implementers blocking each other, merge conflicts in index files, early finishers, a wrong split and tests failing on drifted contracts"
+            }
+          ],
+          "text": "Rules for dividing one feature among several implementer agents. The cardinal rule is one owner per file. When a file needs changes from several implementers, one owns it and the others send change requests, or the shared part moves into a separate interface file. Interface contracts, such as a TypeScript types file owned by the team lead, let implementers build against each other's APIs before those exist. Vertical slices, where each implementer builds UI, API and tests for one feature, need little integration; horizontal layers, one implementer on all UI and another on all endpoints, keep each layer consistent but add integration points; a hybrid pairs a feature slice with shared infrastructure. A single branch suits two or three implementers with clear boundaries, sub-branches suit four or more. Its fixes: move shared code into a lead-owned contract, give barrel and index files one owner, write stubs so a finished implementer unblocks the others, stop and redistribute when the split is wrong, and broadcast before changing a contract. It points to team-composition-patterns and team-communication-protocols.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/agent-teams/skills/parallel-feature-development"
+        },
+        "tags": [
+          "category:engineering",
+          "category:agents",
+          "type:guidelines",
+          "effect:none",
+          "needs:subagents",
+          "by:community",
+          "multi-agent",
+          "implementation",
+          "git"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/agent-teams/skills/task-coordination-strategies",
+      "name": "task-coordination-strategies",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/task-coordination-strategies",
+        "installs": 10100,
+        "weeklyInstalls": [174, 187, 214, 272, 215, 202, 189, 176],
+        "firstSeen": "2026-02-05"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Breaks work into tasks for an agent team, sets their dependencies, writes briefs with owned files and acceptance criteria, and rebalances workload.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're splitting a large task among teammates, deciding which tasks block which, or a team's workload has become uneven"
+            },
+            {
+              "label": "It does",
+              "text": "splits work by layer, component, concern or file ownership, and keeps dependency graphs wide and shallow so more runs in parallel"
+            },
+            {
+              "label": "You get",
+              "text": "task descriptions with objective, owned files, requirements, interface contracts, acceptance criteria and out-of-scope items, from a template"
+            },
+            {
+              "label": "Needs",
+              "text": "Claude Code's Agent Teams task tools, which it uses to set blockers and reassign work"
+            }
+          ],
+          "text": "Planning advice for a lead agent. It names four ways to split work: by layer for full-stack features, by component for modular systems, by concern for reviews and audits, and by file ownership to avoid conflicts. Dependency graphs should be wide and shallow, with blockedBy used only where truly needed and no cycles; the longest chain, the critical path, sets the minimum completion time. It draws three patterns, independent tasks feeding an integration task, a sequential chain and a diamond, and shows the TaskCreate and TaskUpdate calls that make an integration task wait for two others. Every task description carries six parts, shown in a template for an authentication API task. For workload, it reads the signals (a teammate idle while others are busy, one stuck on a task, everything blocked, one carrying three times the others' load) and rebalances: check TaskList, find idle or overloaded teammates, reassign with TaskUpdate, tell those affected with SendMessage and watch throughput.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/agent-teams/skills/task-coordination-strategies"
+        },
+        "tags": [
+          "category:agents",
+          "category:planning",
+          "type:guidelines",
+          "effect:none",
+          "needs:subagents",
+          "needs:claude-code",
+          "by:community",
+          "multi-agent",
+          "planning",
+          "agent-workflows"
+        ],
+        "note": "Uses Claude Code's Agent Teams tools TaskCreate, TaskUpdate, TaskList and SendMessage; the agent-teams plugin's README turns that experimental feature on with CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1."
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/agent-teams/skills/multi-reviewer-patterns",
+      "name": "multi-reviewer-patterns",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/multi-reviewer-patterns",
+        "installs": 10100,
+        "weeklyInstalls": [176, 187, 211, 269, 212, 181, 187, 168],
+        "firstSeen": "2026-02-05"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Splits a code review across reviewers by dimension, such as security or performance, then merges duplicate findings, calibrates severity and writes one report.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're organizing a review by several reviewer agents, or merging and ranking what they found"
+            },
+            {
+              "label": "It does",
+              "text": "picks dimensions from security, performance, architecture, testing and accessibility to suit the change, then merges findings at the same file and line"
+            },
+            {
+              "label": "You get",
+              "text": "one Markdown report with findings grouped from Critical to Low, each with location, dimension, impact and fix, and a count per dimension"
+            },
+            {
+              "label": "Unlike",
+              "text": "code-review-excellence from the same repo, which guides a single reviewer through a PR; this one coordinates several and reconciles their findings"
+            }
+          ],
+          "text": "Coordination rules for a review split among parallel reviewers. A table says when each dimension applies, such as security for anything touching user input or auth and accessibility for UI changes, and suggests combinations: security, performance and architecture for API changes, performance and architecture for a database migration. When findings meet, the same issue at the same file:line is merged with every reviewer credited, different issues at one spot stay separate but tagged co-located, the same issue elsewhere is cross-referenced, conflicting severities take the higher one, and conflicting recommendations are both kept with attribution. Severity runs from Critical (data loss, breach, near certain) to Low (cosmetic), with floors: security issues external users can exploit are at least High; hot-path performance issues, missing tests on critical paths and accessibility failures in core features at least Medium. The report template lists the target, reviewers, date and files, then each finding by severity with an ID such as CR-001, a summary table by dimension and an overall recommendation.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/agent-teams/skills/multi-reviewer-patterns"
+        },
+        "tags": [
+          "category:debugging",
+          "category:agents",
+          "type:guidelines",
+          "effect:none",
+          "needs:subagents",
+          "by:community",
+          "code-review",
+          "multi-agent"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/agent-teams/skills/team-communication-protocols",
+      "name": "team-communication-protocols",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/team-communication-protocols",
+        "installs": 10000,
+        "weeklyInstalls": [166, 186, 210, 265, 211, 179, 182, 164],
+        "firstSeen": "2026-02-05"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Sets messaging rules for Claude Code agent teams: direct messages over broadcasts, plan approval by the lead, and graceful shutdown.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you've spawned a team of Claude Code agents and need them to coordinate, approve plans or shut down cleanly"
+            },
+            {
+              "label": "It does",
+              "text": "picks the message type: a direct message by default, a broadcast only for critical changes to shared resources, a shutdown_request to end a teammate"
+            },
+            {
+              "label": "You get",
+              "text": "JSON examples of each message, plan approval and rejection replies, a shutdown sequence ending in TeamDelete, and where to find teammates' names"
+            },
+            {
+              "label": "Avoid",
+              "text": "broadcasting routine updates, status reports as JSON messages, micromanaging, addressing teammates by ID and leaving idle ones without work"
+            }
+          ],
+          "text": "The protocol side of Claude Code's Agent Teams. Direct messages carry task updates, questions and notices that an interface is ready; a broadcast costs one message per teammate, so it's kept for blockers and changes to shared files. A teammate spawned with plan_mode_required explores read-only, then ExitPlanMode sends the lead a plan_approval_request, which the lead approves or rejects with feedback. To end the team, the lead sends each teammate a shutdown_request; a teammate approves and exits, or rejects with a reason, in which case the lead waits and retries, and TeamDelete runs once all are gone. Teammates are listed in ~/.claude/teams/{team-name}/config.json and always addressed by name, never by agent ID. Troubleshooting covers silent teammates (idle or mid-task), a missing SendMessage tool (agents with a restricted tool list must name the team tools), leads that broadcast every update, rejected shutdowns, plan requests without a request_id and two teammates deadlocked waiting on each other. It points to team-composition-patterns and parallel-feature-development.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/agent-teams/skills/team-communication-protocols"
+        },
+        "tags": [
+          "category:agents",
+          "type:guidelines",
+          "effect:none",
+          "needs:subagents",
+          "needs:claude-code",
+          "by:community",
+          "multi-agent",
+          "agent-workflows"
+        ],
+        "note": "Written for Claude Code's experimental Agent Teams feature, which the agent-teams plugin's README turns on with CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1."
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/agent-teams/skills/team-composition-patterns",
+      "name": "team-composition-patterns",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/team-composition-patterns",
+        "installs": 9900,
+        "weeklyInstalls": [168, 185, 213, 268, 213, 180, 182, 168],
+        "firstSeen": "2026-02-05"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Plans a Claude Code agent team: how many teammates, a preset such as review, debug or feature, each role's agent type and display mode.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're about to spawn a Claude Code agent team and need to choose its size, roles and agent types"
+            },
+            {
+              "label": "It does",
+              "text": "sizes the team by complexity, one or two agents for a simple job up to four or five for a full-stack or systemic one, as small as covers the work"
+            },
+            {
+              "label": "You get",
+              "text": "seven preset teams (review, debug, feature, fullstack, research, security, migration) with roles and default focus, and a table of which agent type has which tools"
+            },
+            {
+              "label": "Also covers",
+              "text": "tmux, iTerm2 or in-process display modes in settings.json, rules for custom teams and troubleshooting"
+            }
+          ],
+          "text": "Team design for Claude Code's Agent Teams. Each preset names its size, agents and use: three reviewers on security, performance and architecture; three debuggers on competing hypotheses; a lead with two implementers for a feature, or three for full-stack work; three general-purpose researchers searching code and the web; four security reviewers on OWASP, auth, supply chain and secrets; and a migration team of a lead, two implementers and a reviewer. Agent types decide tools: general-purpose can edit files, Explore and Plan are read-only and must never get implementation work, and the plugin's team-reviewer, team-debugger, team-implementer and team-lead agents add the team task and messaging tools. The display mode, set as teammateMode in ~/.claude/settings.json, puts each teammate in a tmux pane or an iTerm2 tab, or keeps them all in one process for CI. Custom teams need a coordinator, roles matched to agent types, no duplicate roles, clear boundaries and two to four teammates. Troubleshooting covers read-only agents asked to write, teams too big to coordinate, tmux panes not showing, overlapping reviewers and teammates spawned without full context, since they start with no conversation history.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/agent-teams/skills/team-composition-patterns"
+        },
+        "tags": [
+          "category:agents",
+          "type:guidelines",
+          "effect:none",
+          "needs:subagents",
+          "needs:claude-code",
+          "by:community",
+          "multi-agent",
+          "agent-workflows"
+        ],
+        "note": "Its presets use the agent-teams plugin's team-lead, team-reviewer, team-debugger and team-implementer agents, which installing the skill alone doesn't add; the plugin's README also turns on the experimental Agent Teams feature with CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1."
       }
     }
   ]

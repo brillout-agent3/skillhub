@@ -107,32 +107,6 @@
       }
     },
     {
-      "name": "market-sizing-analysis",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/market-sizing-analysis",
-        "installs": 12100,
-        "weeklyInstalls": [173, 202, 328, 451, 271, 214, 237, 210],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "memory-safety-patterns",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/memory-safety-patterns",
-        "installs": 12100,
-        "weeklyInstalls": [172, 194, 227, 284, 223, 214, 205, 189],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
       "name": "vitepress",
       "repo": "antfu/skills",
       "official": false,
@@ -185,19 +159,6 @@
       }
     },
     {
-      "name": "cost-optimization",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/cost-optimization",
-        "installs": 11800,
-        "weeklyInstalls": [177, 190, 220, 275, 218, 187, 184, 176],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
       "name": "github-actions",
       "repo": "callstackincubator/agent-skills",
       "official": false,
@@ -220,19 +181,6 @@
         "url": "https://skills.sh/jeffallan/claude-skills/devops-engineer",
         "installs": 11800,
         "weeklyInstalls": [190, 190, 203, 305, 356, 441, 344, 312],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "embedding-strategies",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/embedding-strategies",
-        "installs": 11700,
-        "weeklyInstalls": [178, 187, 228, 285, 226, 183, 187, 175],
         "firstSeen": "2026-01-20"
       }
     },
@@ -276,45 +224,6 @@
       }
     },
     {
-      "name": "data-quality-frameworks",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/data-quality-frameworks",
-        "installs": 11600,
-        "weeklyInstalls": [187, 203, 235, 295, 237, 201, 207, 203],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "startup-metrics-framework",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/startup-metrics-framework",
-        "installs": 11600,
-        "weeklyInstalls": [178, 197, 231, 303, 244, 220, 218, 196],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "billing-automation",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/billing-automation",
-        "installs": 11600,
-        "weeklyInstalls": [170, 187, 223, 270, 214, 184, 184, 178],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
       "name": "sdf",
       "repo": "earthtojake/text-to-cad",
       "official": false,
@@ -325,19 +234,6 @@
         "installs": 11500,
         "weeklyInstalls": [562, 500, 303, 324, 461, 582, 517, 845],
         "firstSeen": "2026-05-13"
-      }
-    },
-    {
-      "name": "ml-pipeline-workflow",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/ml-pipeline-workflow",
-        "installs": 11500,
-        "weeklyInstalls": [173, 184, 302, 433, 228, 189, 195, 176],
-        "firstSeen": "2026-01-20"
       }
     },
     {
@@ -354,45 +250,6 @@
       }
     },
     {
-      "name": "context-driven-development",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/context-driven-development",
-        "installs": 11400,
-        "weeklyInstalls": [175, 193, 221, 280, 218, 189, 184, 174],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "dependency-upgrade",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/dependency-upgrade",
-        "installs": 11400,
-        "weeklyInstalls": [177, 195, 225, 265, 207, 186, 186, 176],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "competitive-landscape",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/competitive-landscape",
-        "installs": 11400,
-        "weeklyInstalls": [172, 188, 226, 284, 246, 230, 222, 195],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
       "name": "gmgn-holder-analysis",
       "repo": "gmgnai/gmgn-skills",
       "official": false,
@@ -406,19 +263,6 @@
       }
     },
     {
-      "name": "memory-forensics",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/memory-forensics",
-        "installs": 11400,
-        "weeklyInstalls": [170, 183, 217, 267, 222, 185, 185, 177],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
       "name": "srdf",
       "repo": "earthtojake/text-to-cad",
       "official": false,
@@ -429,71 +273,6 @@
         "installs": 11300,
         "weeklyInstalls": [560, 496, 299, 317, 448, 576, 508, 838],
         "firstSeen": "2026-05-13"
-      }
-    },
-    {
-      "name": "risk-metrics-calculation",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/risk-metrics-calculation",
-        "installs": 11300,
-        "weeklyInstalls": [176, 198, 220, 294, 236, 196, 203, 188],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "binary-analysis-patterns",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/binary-analysis-patterns",
-        "installs": 11300,
-        "weeklyInstalls": [187, 195, 234, 297, 247, 220, 226, 207],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "cqrs-implementation",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/cqrs-implementation",
-        "installs": 11300,
-        "weeklyInstalls": [176, 194, 223, 274, 213, 184, 185, 177],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "workflow-patterns",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/workflow-patterns",
-        "installs": 11300,
-        "weeklyInstalls": [167, 182, 309, 436, 209, 179, 180, 165],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "incident-runbook-templates",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/incident-runbook-templates",
-        "installs": 11300,
-        "weeklyInstalls": [180, 200, 226, 286, 237, 193, 200, 202],
-        "firstSeen": "2026-01-20"
       }
     },
     {
@@ -520,19 +299,6 @@
         "installs": 11200,
         "weeklyInstalls": [304, 280, 267, 248, 250, 314, 301, 250],
         "firstSeen": "2026-03-10"
-      }
-    },
-    {
-      "name": "anti-reversing-techniques",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/anti-reversing-techniques",
-        "installs": 11200,
-        "weeklyInstalls": [175, 192, 224, 299, 243, 223, 237, 212],
-        "firstSeen": "2026-01-20"
       }
     },
     {
@@ -575,19 +341,6 @@
       }
     },
     {
-      "name": "postmortem-writing",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/postmortem-writing",
-        "installs": 11200,
-        "weeklyInstalls": [181, 194, 224, 289, 241, 204, 193, 198],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
       "name": "autofix",
       "repo": "coderabbitai/skills",
       "official": false,
@@ -614,58 +367,6 @@
       }
     },
     {
-      "name": "sast-configuration",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/sast-configuration",
-        "installs": 11100,
-        "weeklyInstalls": [185, 191, 229, 282, 228, 196, 199, 198],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "event-store-design",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/event-store-design",
-        "installs": 11100,
-        "weeklyInstalls": [170, 191, 220, 266, 216, 182, 187, 174],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "hybrid-search-implementation",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/hybrid-search-implementation",
-        "installs": 11100,
-        "weeklyInstalls": [180, 188, 218, 281, 220, 191, 189, 179],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "screen-reader-testing",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/screen-reader-testing",
-        "installs": 11000,
-        "weeklyInstalls": [176, 188, 214, 272, 217, 190, 212, 181],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
       "name": "create-prd",
       "repo": "phuryn/pm-skills",
       "official": false,
@@ -679,71 +380,6 @@
       }
     },
     {
-      "name": "saga-orchestration",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/saga-orchestration",
-        "installs": 11000,
-        "weeklyInstalls": [167, 189, 221, 270, 212, 183, 192, 175],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "multi-cloud-architecture",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/multi-cloud-architecture",
-        "installs": 11000,
-        "weeklyInstalls": [169, 182, 214, 268, 209, 176, 182, 171],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "similarity-search-patterns",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/similarity-search-patterns",
-        "installs": 11000,
-        "weeklyInstalls": [169, 184, 216, 264, 208, 182, 179, 167],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "vector-index-tuning",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/vector-index-tuning",
-        "installs": 11000,
-        "weeklyInstalls": [172, 180, 213, 265, 208, 179, 180, 169],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "hybrid-cloud-networking",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/hybrid-cloud-networking",
-        "installs": 10900,
-        "weeklyInstalls": [169, 181, 215, 266, 207, 175, 176, 164],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
       "name": "scrape",
       "repo": "brightdata/skills",
       "official": true,
@@ -754,58 +390,6 @@
         "installs": 10900,
         "weeklyInstalls": [13, 15, 8, 31, 15, 27, 31, 32],
         "firstSeen": "2026-02-10"
-      }
-    },
-    {
-      "name": "pci-compliance",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/pci-compliance",
-        "installs": 10900,
-        "weeklyInstalls": [173, 182, 218, 274, 211, 186, 186, 175],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "projection-patterns",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/projection-patterns",
-        "installs": 10800,
-        "weeklyInstalls": [166, 180, 211, 267, 207, 180, 178, 171],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "employment-contract-templates",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/employment-contract-templates",
-        "installs": 10800,
-        "weeklyInstalls": [166, 184, 219, 264, 213, 177, 179, 163],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "slo-implementation",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/slo-implementation",
-        "installs": 10800,
-        "weeklyInstalls": [171, 183, 216, 278, 223, 191, 195, 178],
-        "firstSeen": "2026-01-20"
       }
     },
     {
@@ -835,19 +419,6 @@
       }
     },
     {
-      "name": "defi-protocol-templates",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/defi-protocol-templates",
-        "installs": 10800,
-        "weeklyInstalls": [167, 179, 211, 263, 206, 178, 178, 158],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
       "name": "gemini-live-api-dev",
       "repo": "google-gemini/gemini-skills",
       "official": false,
@@ -858,84 +429,6 @@
         "installs": 10700,
         "weeklyInstalls": [260, 438, 362, 389, 390, 244, 201, 288],
         "firstSeen": "2026-03-03"
-      }
-    },
-    {
-      "name": "team-composition-analysis",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/team-composition-analysis",
-        "installs": 10700,
-        "weeklyInstalls": [165, 185, 208, 260, 210, 177, 174, 162],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "mtls-configuration",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/mtls-configuration",
-        "installs": 10700,
-        "weeklyInstalls": [177, 186, 219, 280, 221, 180, 182, 170],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "on-call-handoff-patterns",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/on-call-handoff-patterns",
-        "installs": 10600,
-        "weeklyInstalls": [168, 177, 205, 271, 218, 182, 181, 166],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "service-mesh-observability",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/service-mesh-observability",
-        "installs": 10600,
-        "weeklyInstalls": [165, 178, 206, 263, 206, 173, 177, 159],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "track-management",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/track-management",
-        "installs": 10600,
-        "weeklyInstalls": [166, 178, 207, 260, 204, 174, 173, 164],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "nft-standards",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/nft-standards",
-        "installs": 10600,
-        "weeklyInstalls": [165, 178, 206, 261, 206, 175, 176, 170],
-        "firstSeen": "2026-01-20"
       }
     },
     {
@@ -1043,19 +536,6 @@
       }
     },
     {
-      "name": "parallel-debugging",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/parallel-debugging",
-        "installs": 10300,
-        "weeklyInstalls": [174, 189, 221, 268, 216, 187, 185, 171],
-        "firstSeen": "2026-02-05"
-      }
-    },
-    {
       "name": "deep-research",
       "repo": "199-biotechnologies/claude-deep-research-skill",
       "official": false,
@@ -1079,19 +559,6 @@
         "installs": 10300,
         "weeklyInstalls": [148, 248, 137, 283, 159, 158, 214, 235],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "parallel-feature-development",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/parallel-feature-development",
-        "installs": 10200,
-        "weeklyInstalls": [168, 190, 216, 277, 223, 194, 186, 171],
-        "firstSeen": "2026-02-05"
       }
     },
     {
@@ -1157,19 +624,6 @@
         "installs": 10200,
         "weeklyInstalls": [559, 498, 301, 312, 449, 576, 514, 846],
         "firstSeen": "2026-05-27"
-      }
-    },
-    {
-      "name": "task-coordination-strategies",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/task-coordination-strategies",
-        "installs": 10100,
-        "weeklyInstalls": [174, 187, 214, 272, 215, 202, 189, 176],
-        "firstSeen": "2026-02-05"
       }
     },
     {
@@ -1264,19 +718,6 @@
       }
     },
     {
-      "name": "multi-reviewer-patterns",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/multi-reviewer-patterns",
-        "installs": 10100,
-        "weeklyInstalls": [176, 187, 211, 269, 212, 181, 187, 168],
-        "firstSeen": "2026-02-05"
-      }
-    },
-    {
       "name": "deslop",
       "repo": "cursor/plugins",
       "official": false,
@@ -1342,19 +783,6 @@
       }
     },
     {
-      "name": "team-communication-protocols",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/team-communication-protocols",
-        "installs": 10000,
-        "weeklyInstalls": [166, 186, 210, 265, 211, 179, 182, 164],
-        "firstSeen": "2026-02-05"
-      }
-    },
-    {
       "name": "ctf-pwn",
       "repo": "ljagiello/ctf-skills",
       "official": false,
@@ -1378,19 +806,6 @@
         "installs": 9900,
         "weeklyInstalls": [284, 267, 298, 244, 315, 497, 476, 416],
         "firstSeen": "2026-01-29"
-      }
-    },
-    {
-      "name": "team-composition-patterns",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/team-composition-patterns",
-        "installs": 9900,
-        "weeklyInstalls": [168, 185, 213, 268, 213, 180, 182, 168],
-        "firstSeen": "2026-02-05"
       }
     },
     {
