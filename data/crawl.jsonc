@@ -146,19 +146,6 @@
       }
     },
     {
-      "name": "workflow-orchestration-patterns",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/workflow-orchestration-patterns",
-        "installs": 12400,
-        "weeklyInstalls": [186, 202, 226, 275, 230, 189, 192, 185],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
       "name": "plannotator-setup-goal",
       "repo": "backnotprop/plannotator",
       "official": false,
@@ -169,19 +156,6 @@
         "installs": 12400,
         "weeklyInstalls": [451, 460, 574, 569, 792, 710, 659, 634],
         "firstSeen": "2026-05-07"
-      }
-    },
-    {
-      "name": "unity-ecs-patterns",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/unity-ecs-patterns",
-        "installs": 12400,
-        "weeklyInstalls": [181, 199, 229, 303, 231, 219, 207, 190],
-        "firstSeen": "2026-01-20"
       }
     },
     {
@@ -208,19 +182,6 @@
         "installs": 12300,
         "weeklyInstalls": [153, 178, 183, 134, 136, 165, 546, 497],
         "firstSeen": "2026-01-28"
-      }
-    },
-    {
-      "name": "helm-chart-scaffolding",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/helm-chart-scaffolding",
-        "installs": 12300,
-        "weeklyInstalls": [201, 212, 255, 313, 247, 223, 214, 197],
-        "firstSeen": "2026-01-20"
       }
     },
     {
@@ -276,19 +237,6 @@
       }
     },
     {
-      "name": "python-resilience",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/python-resilience",
-        "installs": 12200,
-        "weeklyInstalls": [240, 271, 292, 360, 291, 258, 227, 215],
-        "firstSeen": "2026-01-30"
-      }
-    },
-    {
       "name": "humanizer",
       "repo": "blader/humanizer",
       "official": false,
@@ -324,19 +272,6 @@
         "url": "https://skills.sh/wshobson/agents/memory-safety-patterns",
         "installs": 12100,
         "weeklyInstalls": [172, 194, 227, 284, 223, 214, 205, 189],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "gitops-workflow",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/gitops-workflow",
-        "installs": 12000,
-        "weeklyInstalls": [185, 209, 229, 303, 267, 228, 224, 203],
         "firstSeen": "2026-01-20"
       }
     },
@@ -393,19 +328,6 @@
       }
     },
     {
-      "name": "python-observability",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/python-observability",
-        "installs": 12000,
-        "weeklyInstalls": [196, 218, 257, 314, 236, 232, 206, 211],
-        "firstSeen": "2026-01-30"
-      }
-    },
-    {
       "name": "step-parts",
       "repo": "earthtojake/text-to-cad",
       "official": false,
@@ -419,19 +341,6 @@
       }
     },
     {
-      "name": "shellcheck-configuration",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/shellcheck-configuration",
-        "installs": 11900,
-        "weeklyInstalls": [225, 251, 266, 363, 266, 241, 231, 207],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
       "name": "svelte-core-bestpractices",
       "repo": "sveltejs/ai-tools",
       "official": false,
@@ -442,19 +351,6 @@
         "installs": 11900,
         "weeklyInstalls": [634, 666, 502, 911, 477, 252, 654, 744],
         "firstSeen": "2026-02-11"
-      }
-    },
-    {
-      "name": "python-configuration",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/python-configuration",
-        "installs": 11900,
-        "weeklyInstalls": [193, 212, 256, 315, 243, 225, 210, 208],
-        "firstSeen": "2026-01-30"
       }
     },
     {
@@ -731,19 +627,6 @@
       }
     },
     {
-      "name": "go-concurrency-patterns",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/go-concurrency-patterns",
-        "installs": 11600,
-        "weeklyInstalls": [177, 197, 231, 268, 211, 177, 188, 171],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
       "name": "startup-metrics-framework",
       "repo": "wshobson/agents",
       "official": false,
@@ -753,19 +636,6 @@
         "url": "https://skills.sh/wshobson/agents/startup-metrics-framework",
         "installs": 11600,
         "weeklyInstalls": [178, 197, 231, 303, 244, 220, 218, 196],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "prometheus-configuration",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/prometheus-configuration",
-        "installs": 11600,
-        "weeklyInstalls": [177, 193, 217, 303, 238, 196, 199, 182],
         "firstSeen": "2026-01-20"
       }
     },
@@ -780,32 +650,6 @@
         "installs": 11600,
         "weeklyInstalls": [170, 187, 223, 270, 214, 184, 184, 178],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "k8s-manifest-generator",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/k8s-manifest-generator",
-        "installs": 11500,
-        "weeklyInstalls": [176, 189, 224, 283, 248, 203, 200, 199],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "python-background-jobs",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/python-background-jobs",
-        "installs": 11500,
-        "weeklyInstalls": [198, 211, 254, 306, 235, 225, 199, 194],
-        "firstSeen": "2026-01-30"
       }
     },
     {
@@ -974,19 +818,6 @@
         "url": "https://skills.sh/wshobson/agents/memory-forensics",
         "installs": 11400,
         "weeklyInstalls": [170, 183, 217, 267, 222, 185, 185, 177],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "bats-testing-patterns",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/bats-testing-patterns",
-        "installs": 11400,
-        "weeklyInstalls": [212, 235, 259, 334, 250, 232, 217, 194],
         "firstSeen": "2026-01-20"
       }
     },
@@ -38487,6 +38318,58 @@
     {
       "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/roblox-datastores",
       "note": "Tool docs: an agent's manual for roblox."
+    },
+    {
+      "url": "https://skills.sh/wshobson/agents/workflow-orchestration-patterns",
+      "note": "Tool docs: an agent's manual for temporal."
+    },
+    {
+      "url": "https://skills.sh/wshobson/agents/unity-ecs-patterns",
+      "note": "Tool docs: an agent's manual for unity."
+    },
+    {
+      "url": "https://skills.sh/wshobson/agents/helm-chart-scaffolding",
+      "note": "Tool docs: an agent's manual for helm."
+    },
+    {
+      "url": "https://skills.sh/wshobson/agents/python-resilience",
+      "note": "Tool docs: an agent's manual for python and tenacity."
+    },
+    {
+      "url": "https://skills.sh/wshobson/agents/gitops-workflow",
+      "note": "Tool docs: an agent's manual for argocd and flux."
+    },
+    {
+      "url": "https://skills.sh/wshobson/agents/python-observability",
+      "note": "Tool docs: an agent's manual for python."
+    },
+    {
+      "url": "https://skills.sh/wshobson/agents/shellcheck-configuration",
+      "note": "Tool docs: an agent's manual for shellcheck."
+    },
+    {
+      "url": "https://skills.sh/wshobson/agents/python-configuration",
+      "note": "Tool docs: an agent's manual for python and pydantic-settings."
+    },
+    {
+      "url": "https://skills.sh/wshobson/agents/go-concurrency-patterns",
+      "note": "Tool docs: an agent's manual for go."
+    },
+    {
+      "url": "https://skills.sh/wshobson/agents/prometheus-configuration",
+      "note": "Tool docs: an agent's manual for prometheus."
+    },
+    {
+      "url": "https://skills.sh/wshobson/agents/k8s-manifest-generator",
+      "note": "Tool docs: an agent's manual for kubernetes."
+    },
+    {
+      "url": "https://skills.sh/wshobson/agents/python-background-jobs",
+      "note": "Tool docs: an agent's manual for python and celery."
+    },
+    {
+      "url": "https://skills.sh/wshobson/agents/bats-testing-patterns",
+      "note": "Tool docs: an agent's manual for bats."
     }
   ]
 }
