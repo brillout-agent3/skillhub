@@ -1,5 +1,5 @@
 # Check every skill's SKILL.md once a day. When one changed, update its copy in data/skill-snapshots/ and its
-# skew in skills.json, commit to the default branch and redeploy the site.
+# skew in skills.jsonc, commit to the default branch and redeploy the site.
 name: Sync SKILL.md copies
 
 on:
@@ -31,7 +31,7 @@ jobs:
       - name: Sync the SKILL.md copies
         id: sync
         run: pnpm run sync
-      - name: Validate skills.json
+      - name: Validate skills.jsonc
         id: validate
         # Keep what synced even when some skills failed; their errors still fail the run.
         if: ${{ !cancelled() && steps.sync.outcome != 'skipped' }}

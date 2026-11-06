@@ -1,15 +1,15 @@
 /**
  * crawl.ts — crawl skills.sh and GitHub: refresh the numbers, and record every skill of the
- * skills.sh all-time top 600 in data/crawl.json.
+ * skills.sh all-time top 600 in data/crawl.jsonc.
  *
  * It reads the top 600, which skills.sh embeds in its home page (its robots.txt keeps scripts off
  * its API), then:
- * - gives every approved skill (skills.json) its installs and weekly installs: from the top 600,
+ * - gives every approved skill (skills.jsonc) its installs and weekly installs: from the top 600,
  *   or for a skill outside it, from its own skills.sh page, which also gives a missing first-seen
  *   date;
  * - gives the repos of approved skills and bundles their GitHub stars (when GITHUB_TOKEN is set),
  *   and every repo the count of its skills in the top 600;
- * - records the other skills of the top 600 in crawl.json, never removing one: a new skill on
+ * - records the other skills of the top 600 in crawl.jsonc, never removing one: a new skill on
  *   GitHub is crawled, a website's is skipped (not on GitHub), and a crawled skill that reaches
  *   the minimums is queued, or crawled again once it falls under them. A skill that leaves the top
  *   600 keeps its state and its last numbers. An agent works through the queue with the add-skill
@@ -174,7 +174,7 @@ data.asOf.installs = today;
 
 // ------------------------------------------------------------------- the crawl
 
-// Every skill of the top 600 lands in crawl.json, unless it's approved. A skill already there
+// Every skill of the top 600 lands in crawl.jsonc, unless it's approved. A skill already there
 // keeps its install command and first-seen date, and a skipped one stays as it is.
 const approved = approvedPages(data);
 const skipped = new Set(crawl.skipped.map((s) => pageKey(s.url)));
@@ -273,7 +273,7 @@ writeData(data);
 writeCrawl(crawl);
 
 console.log(
-  `Crawled the skills.sh top ${board.length}: refreshed ${data.skills.length} approved skills (${fromPages} from their own page)${stars.size ? ` and the stars of ${stars.size} repos` : ""}. crawl.json: ${crawl.crawled.length} crawled, ${crawl.queued.length} queued (${newlyQueued.length} new), ${crawl.skipped.length} skipped.`,
+  `Crawled the skills.sh top ${board.length}: refreshed ${data.skills.length} approved skills (${fromPages} from their own page)${stars.size ? ` and the stars of ${stars.size} repos` : ""}. crawl.jsonc: ${crawl.crawled.length} crawled, ${crawl.queued.length} queued (${newlyQueued.length} new), ${crawl.skipped.length} skipped.`,
 );
 for (const line of added) console.log(`  ${line}`);
 for (const c of newlyQueued) console.log(`  queued ${c["skills.sh"].url}`);

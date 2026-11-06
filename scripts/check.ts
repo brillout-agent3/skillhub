@@ -1,18 +1,19 @@
 /**
- * check.ts — validate skills.json against its own tag vocabulary, and crawl.json against
- * skills.json.
+ * check.ts — validate skills.jsonc against its own tag vocabulary, and crawl.jsonc against
+ * skills.jsonc.
  *
  * Run: pnpm run check:data
  */
 
 import { existsSync, readdirSync, readFileSync } from "node:fs";
-import { approvedPages, pageKey, readCrawl } from "./data.ts";
+import { fileURLToPath } from "node:url";
+import { approvedPages, pageKey, readCrawl, readData, readJsonc } from "./data.ts";
 import { generate, SCHEMAS } from "./schema.ts";
 import { copyPath } from "../website/skill-md.ts";
-import { bundleRepo, github, tldrProblems, type Data, type Facet } from "../website/types.ts";
+import { bundleRepo, github, tldrProblems, type Facet } from "../website/types.ts";
 
 const root = new URL("../", import.meta.url);
-const data: Data = JSON.parse(readFileSync(new URL("data/skills.json", root), "utf8"));
+const data = readData();
 const errors: string[] = [];
 const fail = (where: string, message: string) => errors.push(`${where}: ${message}`);
 
@@ -144,7 +145,7 @@ for (const bundle of data.bundles) {
   }
 }
 
-// crawl.json: every skill has one state, approved (skills.json), crawled, queued or skipped, under
+// crawl.jsonc: every skill has one state, approved (skills.jsonc), crawled, queued or skipped, under
 // its skills.sh page. It's lenient: a skipped skill can be a website's.
 const crawl = readCrawl();
 const states = new Map<string, string>([...approvedPages(data)].map((page) => [page, "approved"]));
@@ -186,12 +187,12 @@ for (const file of readdirSync(new URL("data/skill-snapshots", root), {
   encoding: "utf8",
 }))
   if (file.endsWith(".md") && !copies.has(`data/skill-snapshots/${file}`))
-    fail(`data/skill-snapshots/${file}`, "copy of a skill that isn't in skills.json");
+    fail(`data/skill-snapshots/${file}`, "copy of a skill that isn't in skills.jsonc");
 
 // The JSON Schemas, for editors: each data file points to its own, which matches its type.
 for (const s of SCHEMAS) {
   const ref = `./${s.schema.split("/").pop()}`;
-  if (JSON.parse(readFileSync(new URL(s.data, root), "utf8")).$schema !== ref)
+  if (readJsonc<{ $schema?: string }>(fileURLToPath(new URL(s.data, root))).$schema !== ref)
     fail(s.data, `$schema must be "${ref}"; run pnpm run schema`);
   if (
     !existsSync(new URL(s.schema, root)) ||
@@ -207,5 +208,5 @@ if (errors.length > 0) {
   process.exit(1);
 }
 console.log(
-  `skills.json is valid: ${data.skills.length} skills, ${data.bundles.length} bundles, ${data.repos.length} repos. crawl.json is too: ${crawl.crawled.length} crawled, ${crawl.queued.length} queued, ${crawl.skipped.length} skipped.`,
+  `skills.jsonc is valid: ${data.skills.length} skills, ${data.bundles.length} bundles, ${data.repos.length} repos. crawl.jsonc is too: ${crawl.crawled.length} crawled, ${crawl.queued.length} queued, ${crawl.skipped.length} skipped.`,
 );

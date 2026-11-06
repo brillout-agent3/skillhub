@@ -5,7 +5,7 @@
  * differs from the copy, it rewrites the copy, records the commit in the skill's `skillMd` and
  * recomputes `skew`, how far the text has moved from the SKILL.md the skill's TLDR summarizes.
  * When a bundle's skill changes, it recomputes the bundle's skew too. A skill whose SKILL.md is
- * gone from its repo is skipped: it moves to `skipped` in data/crawl.json, without its agent data.
+ * gone from its repo is skipped: it moves to `skipped` in data/crawl.jsonc, without its agent data.
  *
  * Run: pnpm run sync [id prefix...]
  */
@@ -153,7 +153,7 @@ for (const bundle of data.bundles)
     if (bundle.skew !== before) changed.add(`bundle ${bundle.id}`);
   }
 
-// Drop the copies of skills that left skills.json.
+// Drop the copies of skills that left skills.jsonc.
 if (!only.length) {
   const kept = new Set(data.skills.map(copyPath));
   const dir = join(root, "data/skill-snapshots");

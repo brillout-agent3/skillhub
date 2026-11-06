@@ -51,7 +51,7 @@
       },
       "required": ["$schema", "asOf", "minimums", "crawled", "queued", "skipped"],
       "additionalProperties": false,
-      "description": "The shape of data/crawl.json: every skill the crawl has seen in the skills.sh all-time top 600 that isn't approved (the approved ones are in skills.json), keyed by its skills.sh page. The two files are cumulative: a skill that lands in either never leaves them, only its state changes. Unlike skills.json, crawl.json takes any skill, such as one a website publishes."
+      "description": "The shape of data/crawl.jsonc: every skill the crawl has seen in the skills.sh all-time top 600 that isn't approved (the approved ones are in skills.jsonc), keyed by its skills.sh page. The two files are cumulative: a skill that lands in either never leaves them, only its state changes. Unlike skills.jsonc, crawl.jsonc takes any skill, such as one a website publishes."
     },
     "Crawled": {
       "type": "object",

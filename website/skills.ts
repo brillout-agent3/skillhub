@@ -1,6 +1,6 @@
-/** The data behind every page, ../data/skills.json, and what the pages derive from it. */
+/** The data behind every page, ../data/skills.jsonc, and what the pages derive from it. */
 
-import raw from "../data/skills.json";
+import raw from "../data/skills.jsonc";
 import { esc, href, plural } from "./format.ts";
 import {
   bundleRepo,
@@ -13,7 +13,7 @@ import {
   type Tldr,
 } from "./types.ts";
 
-export const data = raw as unknown as Data;
+export const data = raw as Data;
 export const GITHUB = "https://github.com/brillout/skillhub";
 
 export const facetById = new Map(data.facets.map((f) => [f.id, f]));

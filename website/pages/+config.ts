@@ -1,11 +1,21 @@
+import { parse } from "comment-json";
 import type { Config, PageContextServer } from "vike/types";
+
+/** Imports the data files, which are JSONC, as JSON, without their comments. */
+const jsonc = {
+  name: "jsonc",
+  transform(code: string, id: string) {
+    if (!id.endsWith(".jsonc")) return;
+    return { code: `export default ${JSON.stringify(parse(code, undefined, true))};`, map: null };
+  },
+};
 
 export default {
   // Every page is HTML rendered at build time; the pages that need JavaScript add a +client.ts.
   prerender: true,
   trailingSlash: true,
   // GitHub Pages serves the site under the repo's name, such as /skillhub/.
-  vite: { base: process.env.BASE ?? "/" },
+  vite: { base: process.env.BASE ?? "/", plugins: [jsonc] },
   meta: {
     title: { env: { server: true } },
     description: { env: { server: true } },

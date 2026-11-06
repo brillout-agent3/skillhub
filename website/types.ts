@@ -1,7 +1,7 @@
 /**
- * The shape of ../data/skills.json, the single data file behind the site: the approved skills,
+ * The shape of ../data/skills.jsonc, the single data file behind the site: the approved skills,
  * the ones it shows. The skills the crawl found but that aren't approved are in
- * ../data/crawl.json, as `Crawl` in ../scripts/data.ts describes.
+ * ../data/crawl.jsonc, as `Crawl` in ../scripts/data.ts describes.
  */
 
 export interface Data {
