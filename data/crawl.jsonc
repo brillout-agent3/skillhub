@@ -68,19 +68,6 @@
       }
     },
     {
-      "name": "bmod-toolsmith",
-      "repo": "bmad-code-org/bmad-method",
-      "official": false,
-      "stars": 55079,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/bmad-code-org/bmad-method/bmod-toolsmith",
-        "installs": 6900,
-        "weeklyInstalls": [0, 0, 0, 0, 1733, 1300, 1507, 1299],
-        "firstSeen": "2026-10-06"
-      }
-    },
-    {
       "name": "architecture",
       "repo": "anthropics/knowledge-work-plugins",
       "official": true,
@@ -146,19 +133,6 @@
       }
     },
     {
-      "name": "planning-with-files-es",
-      "repo": "othmanadi/planning-with-files",
-      "official": false,
-      "stars": 27923,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/othmanadi/planning-with-files/planning-with-files-es",
-        "installs": 6800,
-        "weeklyInstalls": [100, 106, 87, 53, 78, 88, 120, 116],
-        "firstSeen": "2026-04-09"
-      }
-    },
-    {
       "name": "blast-radius",
       "repo": "cursor/plugins",
       "official": false,
@@ -185,19 +159,6 @@
       }
     },
     {
-      "name": "planning-with-files-de",
-      "repo": "othmanadi/planning-with-files",
-      "official": false,
-      "stars": 27923,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/othmanadi/planning-with-files/planning-with-files-de",
-        "installs": 6800,
-        "weeklyInstalls": [99, 105, 86, 54, 76, 91, 121, 122],
-        "firstSeen": "2026-04-09"
-      }
-    },
-    {
       "name": "build-mcpb",
       "repo": "anthropics/claude-plugins-official",
       "official": true,
@@ -211,19 +172,6 @@
       }
     },
     {
-      "name": "planning-with-files-ar",
-      "repo": "othmanadi/planning-with-files",
-      "official": false,
-      "stars": 27923,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/othmanadi/planning-with-files/planning-with-files-ar",
-        "installs": 6800,
-        "weeklyInstalls": [96, 106, 84, 52, 74, 86, 116, 115],
-        "firstSeen": "2026-04-09"
-      }
-    },
-    {
       "name": "clickhouse-managed-postgres-rca",
       "repo": "clickhouse/agent-skills",
       "official": true,
@@ -234,19 +182,6 @@
         "installs": 6700,
         "weeklyInstalls": [124, 109, 97, 94, 76, 122, 81, 53],
         "firstSeen": "2026-06-08"
-      }
-    },
-    {
-      "name": "browser-automation",
-      "repo": "sickn33/agentic-awesome-skills",
-      "official": false,
-      "stars": 49273,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/sickn33/agentic-awesome-skills/browser-automation",
-        "installs": 6700,
-        "weeklyInstalls": [65, 84, 60, 35, 9, 6, 8, 8],
-        "firstSeen": "2026-01-19"
       }
     },
     {
@@ -328,19 +263,6 @@
       }
     },
     {
-      "name": "nextjs-supabase-auth",
-      "repo": "sickn33/agentic-awesome-skills",
-      "official": false,
-      "stars": 49273,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/sickn33/agentic-awesome-skills/nextjs-supabase-auth",
-        "installs": 6600,
-        "weeklyInstalls": [42, 61, 51, 38, 23, 19, 14, 23],
-        "firstSeen": "2026-01-19"
-      }
-    },
-    {
       "name": "landing-page-copywriter",
       "repo": "onewave-ai/claude-skills",
       "official": false,
@@ -351,32 +273,6 @@
         "installs": 6600,
         "weeklyInstalls": [103, 119, 73, 57, 52, 52, 51, 47],
         "firstSeen": "2026-01-24"
-      }
-    },
-    {
-      "name": "wp-performance",
-      "repo": "wordpress/agent-skills",
-      "official": false,
-      "stars": 2338,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wordpress/agent-skills/wp-performance",
-        "installs": 6600,
-        "weeklyInstalls": [177, 213, 240, 210, 304, 273, 278, 254],
-        "firstSeen": "2026-02-01"
-      }
-    },
-    {
-      "name": "refactor-module",
-      "repo": "hashicorp/agent-skills",
-      "official": true,
-      "stars": 917,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/hashicorp/agent-skills/refactor-module",
-        "installs": 6600,
-        "weeklyInstalls": [203, 153, 148, 154, 145, 147, 141, 120],
-        "firstSeen": "2026-01-26"
       }
     },
     {
@@ -614,19 +510,6 @@
       }
     },
     {
-      "name": "binance",
-      "repo": "binance/binance-skills-hub",
-      "official": false,
-      "stars": 1147,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/binance/binance-skills-hub/binance",
-        "installs": 6300,
-        "weeklyInstalls": [86, 75, 80, 86, 63, 61, 265, 1223],
-        "firstSeen": "2026-04-08"
-      }
-    },
-    {
       "name": "better-icons",
       "repo": "better-auth/better-icons",
       "official": false,
@@ -757,19 +640,6 @@
       }
     },
     {
-      "name": "wp-rest-api",
-      "repo": "wordpress/agent-skills",
-      "official": false,
-      "stars": 2338,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wordpress/agent-skills/wp-rest-api",
-        "installs": 6200,
-        "weeklyInstalls": [158, 193, 205, 176, 209, 207, 222, 214],
-        "firstSeen": "2026-02-01"
-      }
-    },
-    {
       "name": "academic-search",
       "repo": "claude-office-skills/skills",
       "official": false,
@@ -780,19 +650,6 @@
         "installs": 6200,
         "weeklyInstalls": [65, 88, 66, 63, 106, 226, 189, 67],
         "firstSeen": "2026-03-09"
-      }
-    },
-    {
-      "name": "wp-block-themes",
-      "repo": "wordpress/agent-skills",
-      "official": false,
-      "stars": 2338,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wordpress/agent-skills/wp-block-themes",
-        "installs": 6200,
-        "weeklyInstalls": [161, 187, 208, 176, 222, 217, 224, 226],
-        "firstSeen": "2026-02-01"
       }
     },
     {
@@ -1043,19 +900,6 @@
       }
     },
     {
-      "name": "qianwen-update-check",
-      "repo": "qianwen-ai/qianwen-ai",
-      "official": false,
-      "stars": 120,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/qianwen-ai/qianwen-ai/qianwen-update-check",
-        "installs": 6000,
-        "weeklyInstalls": [280, 234, 186, 157, 197, 194, 255, 204],
-        "firstSeen": "2026-05-12"
-      }
-    },
-    {
       "name": "information-architecture",
       "repo": "julianoczkowski/designer-skills",
       "official": false,
@@ -1199,19 +1043,6 @@
       }
     },
     {
-      "name": "onchain-pay-open-api",
-      "repo": "binance/binance-skills-hub",
-      "official": false,
-      "stars": 1147,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/binance/binance-skills-hub/onchain-pay-open-api",
-        "installs": 6000,
-        "weeklyInstalls": [51, 58, 53, 58, 42, 40, 230, 1158],
-        "firstSeen": "2026-03-17"
-      }
-    },
-    {
       "name": "incident-response",
       "repo": "anthropics/knowledge-work-plugins",
       "official": true,
@@ -1313,19 +1144,6 @@
         "installs": 5900,
         "weeklyInstalls": [269, 227, 180, 160, 183, 190, 255, 190],
         "firstSeen": "2026-05-12"
-      }
-    },
-    {
-      "name": "wordpress-router",
-      "repo": "wordpress/agent-skills",
-      "official": false,
-      "stars": 2338,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wordpress/agent-skills/wordpress-router",
-        "installs": 5900,
-        "weeklyInstalls": [171, 191, 201, 177, 218, 211, 242, 216],
-        "firstSeen": "2026-02-01"
       }
     },
     {
@@ -1433,19 +1251,6 @@
       }
     },
     {
-      "name": "qianwen-text",
-      "repo": "qianwen-ai/qianwen-ai",
-      "official": false,
-      "stars": 120,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/qianwen-ai/qianwen-ai/qianwen-text",
-        "installs": 5900,
-        "weeklyInstalls": [266, 224, 180, 155, 177, 181, 249, 189],
-        "firstSeen": "2026-05-12"
-      }
-    },
-    {
       "name": "swiftui-liquid-glass",
       "repo": "dimillian/skills",
       "official": false,
@@ -1469,19 +1274,6 @@
         "installs": 5900,
         "weeklyInstalls": [706, 471, 468, 513, 293, 547, 707, 187],
         "firstSeen": "2026-06-29"
-      }
-    },
-    {
-      "name": "wp-wpcli-and-ops",
-      "repo": "wordpress/agent-skills",
-      "official": false,
-      "stars": 2338,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wordpress/agent-skills/wp-wpcli-and-ops",
-        "installs": 5900,
-        "weeklyInstalls": [167, 202, 226, 193, 240, 235, 263, 242],
-        "firstSeen": "2026-02-01"
       }
     },
     {
@@ -1524,32 +1316,6 @@
       }
     },
     {
-      "name": "wp-block-development",
-      "repo": "wordpress/agent-skills",
-      "official": false,
-      "stars": 2338,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wordpress/agent-skills/wp-block-development",
-        "installs": 5800,
-        "weeklyInstalls": [159, 188, 213, 153, 197, 203, 203, 211],
-        "firstSeen": "2026-02-01"
-      }
-    },
-    {
-      "name": "wp-project-triage",
-      "repo": "wordpress/agent-skills",
-      "official": false,
-      "stars": 2338,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wordpress/agent-skills/wp-project-triage",
-        "installs": 5800,
-        "weeklyInstalls": [170, 193, 240, 191, 243, 241, 273, 247],
-        "firstSeen": "2026-02-01"
-      }
-    },
-    {
       "name": "qianwen-video-generation",
       "repo": "qianwen-ai/qianwen-ai",
       "official": false,
@@ -1586,19 +1352,6 @@
         "installs": 5800,
         "weeklyInstalls": [75, 90, 63, 59, 61, 70, 71, 70],
         "firstSeen": "2026-03-13"
-      }
-    },
-    {
-      "name": "qianwen-model-selector",
-      "repo": "qianwen-ai/qianwen-ai",
-      "official": false,
-      "stars": 120,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/qianwen-ai/qianwen-ai/qianwen-model-selector",
-        "installs": 5800,
-        "weeklyInstalls": [265, 225, 179, 153, 178, 178, 248, 192],
-        "firstSeen": "2026-05-12"
       }
     },
     {
@@ -1651,45 +1404,6 @@
         "installs": 5800,
         "weeklyInstalls": [107, 101, 95, 66, 91, 95, 96, 78],
         "firstSeen": "2026-03-13"
-      }
-    },
-    {
-      "name": "qianwen-usage",
-      "repo": "qianwen-ai/qianwen-ai",
-      "official": false,
-      "stars": 120,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/qianwen-ai/qianwen-ai/qianwen-usage",
-        "installs": 5800,
-        "weeklyInstalls": [263, 225, 176, 153, 176, 178, 247, 193],
-        "firstSeen": "2026-05-12"
-      }
-    },
-    {
-      "name": "fiat",
-      "repo": "binance/binance-skills-hub",
-      "official": false,
-      "stars": 1147,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/binance/binance-skills-hub/fiat",
-        "installs": 5800,
-        "weeklyInstalls": [53, 58, 53, 59, 43, 41, 230, 1159],
-        "firstSeen": "2026-03-20"
-      }
-    },
-    {
-      "name": "qianwen-ops-auth",
-      "repo": "qianwen-ai/qianwen-ai",
-      "official": false,
-      "stars": 120,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/qianwen-ai/qianwen-ai/qianwen-ops-auth",
-        "installs": 5800,
-        "weeklyInstalls": [261, 224, 176, 149, 175, 177, 247, 192],
-        "firstSeen": "2026-05-12"
       }
     },
     {
@@ -1768,19 +1482,6 @@
         "installs": 5800,
         "weeklyInstalls": [70, 98, 64, 66, 110, 237, 187, 70],
         "firstSeen": "2026-03-09"
-      }
-    },
-    {
-      "name": "terraform-stacks",
-      "repo": "hashicorp/agent-skills",
-      "official": true,
-      "stars": 917,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/hashicorp/agent-skills/terraform-stacks",
-        "installs": 5800,
-        "weeklyInstalls": [139, 117, 119, 97, 66, 75, 84, 77],
-        "firstSeen": "2026-01-26"
       }
     },
     {
@@ -2018,32 +1719,6 @@
       }
     },
     {
-      "name": "react-navigation",
-      "repo": "callstackincubator/agent-skills",
-      "official": false,
-      "stars": 1702,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/callstackincubator/agent-skills/react-navigation",
-        "installs": 5700,
-        "weeklyInstalls": [340, 438, 426, 373, 423, 420, 380, 471],
-        "firstSeen": "2026-06-25"
-      }
-    },
-    {
-      "name": "drizzle-orm-patterns",
-      "repo": "giuseppe-trisciuoglio/developer-kit",
-      "official": false,
-      "stars": 367,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/giuseppe-trisciuoglio/developer-kit/drizzle-orm-patterns",
-        "installs": 5700,
-        "weeklyInstalls": [256, 268, 273, 293, 156, 154, 139, 139],
-        "firstSeen": "2026-02-20"
-      }
-    },
-    {
       "name": "code-review",
       "repo": "getsentry/skills",
       "official": true,
@@ -2184,19 +1859,6 @@
         "installs": 5600,
         "weeklyInstalls": [111, 102, 105, 95, 119, 121, 157, 159],
         "firstSeen": "2026-01-19"
-      }
-    },
-    {
-      "name": "p2p",
-      "repo": "binance/binance-skills-hub",
-      "official": false,
-      "stars": 1147,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/binance/binance-skills-hub/p2p",
-        "installs": 5600,
-        "weeklyInstalls": [53, 60, 55, 59, 46, 42, 228, 1164],
-        "firstSeen": "2026-03-24"
       }
     },
     {
@@ -2447,19 +2109,6 @@
       }
     },
     {
-      "name": "grill-me",
-      "repo": "julianoczkowski/designer-skills",
-      "official": false,
-      "stars": 600,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/julianoczkowski/designer-skills/grill-me",
-        "installs": 5500,
-        "weeklyInstalls": [102, 118, 88, 67, 50, 64, 50, 55],
-        "firstSeen": "2026-03-28"
-      }
-    },
-    {
       "name": "constant-time-testing",
       "repo": "trailofbits/skills",
       "official": true,
@@ -2509,19 +2158,6 @@
         "installs": 5500,
         "weeklyInstalls": [108, 107, 106, 101, 118, 122, 152, 161],
         "firstSeen": "2026-01-19"
-      }
-    },
-    {
-      "name": "react-native-brownfield-migration",
-      "repo": "callstackincubator/agent-skills",
-      "official": false,
-      "stars": 1702,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/callstackincubator/agent-skills/react-native-brownfield-migration",
-        "installs": 5500,
-        "weeklyInstalls": [161, 192, 169, 165, 135, 152, 200, 178],
-        "firstSeen": "2026-03-04"
       }
     },
     {
@@ -3084,19 +2720,6 @@
       }
     },
     {
-      "name": "3d-web-experience",
-      "repo": "sickn33/agentic-awesome-skills",
-      "official": false,
-      "stars": 49273,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/sickn33/agentic-awesome-skills/3d-web-experience",
-        "installs": 5200,
-        "weeklyInstalls": [124, 125, 116, 99, 66, 56, 45, 42],
-        "firstSeen": "2026-01-19"
-      }
-    },
-    {
       "name": "standup",
       "repo": "anthropics/knowledge-work-plugins",
       "official": true,
@@ -3448,19 +3071,6 @@
       }
     },
     {
-      "name": "create-react-native-library",
-      "repo": "callstackincubator/agent-skills",
-      "official": false,
-      "stars": 1702,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/callstackincubator/agent-skills/create-react-native-library",
-        "installs": 5100,
-        "weeklyInstalls": [306, 394, 386, 323, 382, 387, 347, 424],
-        "firstSeen": "2026-06-25"
-      }
-    },
-    {
       "name": "check-understanding",
       "repo": "rohitg00/ai-engineering-from-scratch",
       "official": false,
@@ -3734,19 +3344,6 @@
       }
     },
     {
-      "name": "terraform-search-import",
-      "repo": "hashicorp/agent-skills",
-      "official": true,
-      "stars": 917,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/hashicorp/agent-skills/terraform-search-import",
-        "installs": 5000,
-        "weeklyInstalls": [152, 126, 127, 118, 75, 91, 99, 95],
-        "firstSeen": "2026-03-03"
-      }
-    },
-    {
       "name": "zeroize-audit",
       "repo": "trailofbits/skills",
       "official": true,
@@ -3786,19 +3383,6 @@
       }
     },
     {
-      "name": "unit-test-bean-validation",
-      "repo": "giuseppe-trisciuoglio/developer-kit",
-      "official": false,
-      "stars": 367,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/giuseppe-trisciuoglio/developer-kit/unit-test-bean-validation",
-        "installs": 5000,
-        "weeklyInstalls": [208, 217, 192, 212, 70, 61, 48, 50],
-        "firstSeen": "2026-02-03"
-      }
-    },
-    {
       "name": "data-pipeline",
       "repo": "claude-office-skills/skills",
       "official": false,
@@ -3809,32 +3393,6 @@
         "installs": 5000,
         "weeklyInstalls": [52, 83, 58, 59, 99, 224, 176, 63],
         "firstSeen": "2026-03-05"
-      }
-    },
-    {
-      "name": "nextjs-performance",
-      "repo": "giuseppe-trisciuoglio/developer-kit",
-      "official": false,
-      "stars": 367,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/giuseppe-trisciuoglio/developer-kit/nextjs-performance",
-        "installs": 5000,
-        "weeklyInstalls": [250, 257, 212, 231, 90, 87, 62, 59],
-        "firstSeen": "2026-02-20"
-      }
-    },
-    {
-      "name": "wp-playground",
-      "repo": "wordpress/agent-skills",
-      "official": false,
-      "stars": 2338,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wordpress/agent-skills/wp-playground",
-        "installs": 5000,
-        "weeklyInstalls": [155, 172, 188, 155, 198, 201, 193, 176],
-        "firstSeen": "2026-02-01"
       }
     },
     {
@@ -23984,6 +23542,142 @@
     {
       "url": "https://skills.sh/czlonkowski/n8n-skills/n8n-code-python",
       "note": "Tool docs: an agent's manual for n8n."
+    },
+    {
+      "url": "https://skills.sh/qianwen-ai/qianwen-ai/qianwen-update-check",
+      "note": "Internal: a support package for qianwen-ai/qianwen-ai's other skills."
+    },
+    {
+      "url": "https://skills.sh/qianwen-ai/qianwen-ai/qianwen-text",
+      "note": "Tool docs: an agent's manual for qianwen."
+    },
+    {
+      "url": "https://skills.sh/qianwen-ai/qianwen-ai/qianwen-model-selector",
+      "note": "Tool docs: an agent's manual for qianwen."
+    },
+    {
+      "url": "https://skills.sh/qianwen-ai/qianwen-ai/qianwen-usage",
+      "note": "Tool docs: an agent's manual for qianwen."
+    },
+    {
+      "url": "https://skills.sh/qianwen-ai/qianwen-ai/qianwen-ops-auth",
+      "note": "Tool docs: an agent's manual for qianwen."
+    },
+    {
+      "url": "https://skills.sh/wordpress/agent-skills/wp-performance",
+      "note": "Tool docs: an agent's manual for wordpress."
+    },
+    {
+      "url": "https://skills.sh/wordpress/agent-skills/wp-rest-api",
+      "note": "Tool docs: an agent's manual for wordpress."
+    },
+    {
+      "url": "https://skills.sh/wordpress/agent-skills/wp-block-themes",
+      "note": "Tool docs: an agent's manual for wordpress."
+    },
+    {
+      "url": "https://skills.sh/wordpress/agent-skills/wordpress-router",
+      "note": "Tool docs: an agent's manual for wordpress."
+    },
+    {
+      "url": "https://skills.sh/wordpress/agent-skills/wp-wpcli-and-ops",
+      "note": "Tool docs: an agent's manual for wordpress."
+    },
+    {
+      "url": "https://skills.sh/wordpress/agent-skills/wp-block-development",
+      "note": "Tool docs: an agent's manual for wordpress."
+    },
+    {
+      "url": "https://skills.sh/wordpress/agent-skills/wp-project-triage",
+      "note": "Tool docs: an agent's manual for wordpress."
+    },
+    {
+      "url": "https://skills.sh/wordpress/agent-skills/wp-playground",
+      "note": "Tool docs: an agent's manual for wordpress."
+    },
+    {
+      "url": "https://skills.sh/julianoczkowski/designer-skills/grill-me",
+      "note": "A copy of mattpocock/skills/skills/productivity/grill-me as it first read, with design examples added."
+    },
+    {
+      "url": "https://skills.sh/binance/binance-skills-hub/binance",
+      "note": "Tool docs: an agent's manual for binance."
+    },
+    {
+      "url": "https://skills.sh/binance/binance-skills-hub/onchain-pay-open-api",
+      "note": "Tool docs: an agent's manual for binance."
+    },
+    {
+      "url": "https://skills.sh/binance/binance-skills-hub/fiat",
+      "note": "Tool docs: an agent's manual for binance."
+    },
+    {
+      "url": "https://skills.sh/binance/binance-skills-hub/p2p",
+      "note": "Tool docs: an agent's manual for binance."
+    },
+    {
+      "url": "https://skills.sh/bmad-code-org/bmad-method/bmod-toolsmith",
+      "note": "Module record: its SKILL.md is metadata for BMad's setup and says never to invoke it."
+    },
+    {
+      "url": "https://skills.sh/othmanadi/planning-with-files/planning-with-files-es",
+      "note": "In Spanish."
+    },
+    {
+      "url": "https://skills.sh/othmanadi/planning-with-files/planning-with-files-de",
+      "note": "In German."
+    },
+    {
+      "url": "https://skills.sh/othmanadi/planning-with-files/planning-with-files-ar",
+      "note": "In Arabic."
+    },
+    {
+      "url": "https://skills.sh/sickn33/agentic-awesome-skills/browser-automation",
+      "note": "Tool docs: an agent's manual for playwright."
+    },
+    {
+      "url": "https://skills.sh/sickn33/agentic-awesome-skills/nextjs-supabase-auth",
+      "note": "Tool docs: an agent's manual for supabase and nextjs."
+    },
+    {
+      "url": "https://skills.sh/sickn33/agentic-awesome-skills/3d-web-experience",
+      "note": "Tool docs: an agent's manual for threejs, react-three-fiber and spline."
+    },
+    {
+      "url": "https://skills.sh/hashicorp/agent-skills/refactor-module",
+      "note": "Tool docs: an agent's manual for terraform."
+    },
+    {
+      "url": "https://skills.sh/hashicorp/agent-skills/terraform-stacks",
+      "note": "Tool docs: an agent's manual for terraform."
+    },
+    {
+      "url": "https://skills.sh/hashicorp/agent-skills/terraform-search-import",
+      "note": "Tool docs: an agent's manual for terraform."
+    },
+    {
+      "url": "https://skills.sh/callstackincubator/agent-skills/react-navigation",
+      "note": "Tool docs: an agent's manual for react-navigation."
+    },
+    {
+      "url": "https://skills.sh/callstackincubator/agent-skills/react-native-brownfield-migration",
+      "note": "Tool docs: an agent's manual for react-native-brownfield and react-native."
+    },
+    {
+      "url": "https://skills.sh/callstackincubator/agent-skills/create-react-native-library",
+      "note": "Tool docs: an agent's manual for create-react-native-library and react-native."
+    },
+    {
+      "url": "https://skills.sh/giuseppe-trisciuoglio/developer-kit/drizzle-orm-patterns",
+      "note": "Tool docs: an agent's manual for drizzle."
+    },
+    {
+      "url": "https://skills.sh/giuseppe-trisciuoglio/developer-kit/unit-test-bean-validation",
+      "note": "Tool docs: an agent's manual for jakarta-bean-validation and junit."
+    },
+    {
+      "url": "https://skills.sh/giuseppe-trisciuoglio/developer-kit/nextjs-performance",
+      "note": "Tool docs: an agent's manual for nextjs."
     }
   ]
 }
