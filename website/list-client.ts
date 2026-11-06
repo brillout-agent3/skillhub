@@ -101,6 +101,7 @@ app.addEventListener("click", (event) => {
       repo: null,
       ranges: parse("", view).ranges,
     });
+  else if (d.action === "order") go({ asc: !state.asc });
   else if (d.action === "stack") {
     stackExpanded = !stackExpanded;
     render();

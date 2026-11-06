@@ -163,6 +163,8 @@ export interface State {
   tags: string[];
   repo: string | null;
   sort: Sort;
+  /** Lowest (or oldest) first, instead of highest first. */
+  asc: boolean;
   ranges: Record<Prop, Range>;
   /** One entry per repo: the most popular one stands for the rest. */
   one: boolean;
@@ -186,6 +188,7 @@ export function parse(search: string, view: View = "top"): State {
     tags: p.getAll("tag"),
     repo: p.get("repo"),
     sort: sort && sort in PROPS ? sort : VIEWS[view].sort,
+    asc: p.get("order") === "asc",
     ranges,
     one: p.get("one") === "1",
   };
@@ -197,6 +200,7 @@ export function query(s: State): string {
   for (const t of s.tags) p.append("tag", t);
   if (s.repo) p.set("repo", s.repo);
   if (s.sort !== VIEWS[s.view].sort) p.set("sort", s.sort);
+  if (s.asc) p.set("order", "asc");
   for (const prop of PROP_IDS) {
     const [lo, hi] = s.ranges[prop];
     if (isNarrowed(prop, [lo, hi]))
@@ -303,8 +307,11 @@ const bundleFirst = (a: Entry, b: Entry) => Number(isBundle(b)) - Number(isBundl
 /** Compare for a descending sort, unknown values last. */
 const descending = (a: Value | null, b: Value | null) =>
   a === b ? 0 : a === null ? 1 : b === null ? -1 : a < b ? 1 : -1;
-const order = (sort: Sort) => (a: Entry, b: Entry) =>
-  descending(PROPS[sort].of(a), PROPS[sort].of(b)) ||
+/** Compare for an ascending sort, unknown values still last. */
+const ascending = (a: Value | null, b: Value | null) =>
+  a === null || b === null ? descending(a, b) : -descending(a, b);
+const order = (sort: Sort, asc: boolean) => (a: Entry, b: Entry) =>
+  (asc ? ascending : descending)(PROPS[sort].of(a), PROPS[sort].of(b)) ||
   descending(installsOf(a), installsOf(b)) ||
   bundleFirst(a, b) ||
   nameOf(a).localeCompare(nameOf(b));
@@ -319,7 +326,7 @@ function results(st: State): {
   const matching = [
     ...data.bundles.filter((b) => bundlePasses(b, st)),
     ...data.skills.filter((s) => ownEntry(s) && passes(s, st)),
-  ].sort(order(st.sort));
+  ].sort(order(st.sort, st.asc));
   const hidden = new Map<string, number>();
   const counted = { total: matching.length, bundles: matching.filter(isBundle).length };
   if (!st.one) return { list: matching, hidden, ...counted };
@@ -369,7 +376,7 @@ function propsHtml(e: Entry, st: State): string {
 
 const moreLink = (e: Entry, more: number, st: State) =>
   more
-    ? `<a class="more" href="${skillsLink({ view: st.view, repo: repoKey(e), sort: st.sort })}">+${more} more from ${esc(repoKey(e))}</a>`
+    ? `<a class="more" href="${skillsLink({ view: st.view, repo: repoKey(e), sort: st.sort, asc: st.asc })}">+${more} more from ${esc(repoKey(e))}</a>`
     : "";
 
 function skillRow(s: Skill, more: number, st: State): string {
@@ -531,7 +538,17 @@ export function resultsHtml(st: State): string {
       <button type="button" class="filters-toggle" data-action="filters" aria-controls="filters">Filters</button>
       <label class="sort">Sort by <select id="sort">${PROP_IDS.map(
         (p) => `<option value="${p}"${p === st.sort ? " selected" : ""}>${PROPS[p].label}</option>`,
-      ).join("")}</select></label>
+      ).join(
+        "",
+      )}</select><button type="button" class="order" data-action="order" title="Reverse the order">${
+        PROPS[st.sort].date
+          ? st.asc
+            ? "Oldest first"
+            : "Newest first"
+          : st.asc
+            ? "Lowest first"
+            : "Highest first"
+      } <span aria-hidden="true">${st.asc ? "↑" : "↓"}</span></button></label>
       <label class="check"><input type="checkbox" id="one"${st.one ? " checked" : ""} /> One per repo</label>
     </div>
     ${activeFilters(st)}
