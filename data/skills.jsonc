@@ -2084,7 +2084,7 @@
     },
     {
       "id": "mattpocock/skills@engineering",
-      "skew": 144,
+      "skew": 298,
       "agentReview": {
         "name": "Engineering workflow",
         "description": "Grills an idea into a spec and tickets on your issue tracker, builds them test-first, reviews the result and tunes the agent's setup.",
@@ -2173,6 +2173,11 @@
             "note": "Resolves its decision tickets by loading grilling, domain-modeling, research and prototype, on the tracker that setup-matt-pocock-skills configures (local Markdown files without it)."
           },
           {
+            "id": "mattpocock/skills/skills/in-progress/chief-of-staff",
+            "standalone": false,
+            "note": "Runs retro, to-spec, to-tickets and implement-spec as its procedures, reading each SKILL.md by relative path, so they must be installed in the same skills folder; its specs and tickets go to the tracker setup-matt-pocock-skills configures."
+          },
+          {
             "id": "mattpocock/skills/skills/engineering/to-spec",
             "standalone": false,
             "note": "Publishes to the issue tracker, with the ready-for-agent label, that setup-matt-pocock-skills configures."
@@ -2234,22 +2239,22 @@
         "install": [
           {
             "label": "Any agent, with the skills CLI",
-            "command": "npx skills add https://github.com/mattpocock/skills --skill setup-matt-pocock-skills --skill ask-matt --skill grill-with-docs --skill grill-me --skill grilling --skill domain-modeling --skill research --skill handoff --skill prototype --skill wayfinder --skill to-spec --skill to-tickets --skill triage --skill implement --skill implement-spec --skill tdd --skill codebase-design --skill code-review --skill diagnosing-bugs --skill retro --skill writing-for-agents --skill improve-codebase-architecture"
+            "command": "npx skills add https://github.com/mattpocock/skills --skill setup-matt-pocock-skills --skill ask-matt --skill grill-with-docs --skill grill-me --skill grilling --skill domain-modeling --skill research --skill handoff --skill prototype --skill wayfinder --skill to-spec --skill to-tickets --skill triage --skill implement --skill implement-spec --skill tdd --skill codebase-design --skill code-review --skill diagnosing-bugs --skill retro --skill writing-for-agents --skill improve-codebase-architecture --skill chief-of-staff"
           },
           {
-            "label": "Claude Code plugin, with 5 more of the repo's skills",
+            "label": "Claude Code plugin, with 5 more of the repo's skills, without chief-of-staff",
             "command": "claude plugin install mattpocock-skills@claude-plugins-official"
           },
           {
-            "label": "Codex plugin, with 5 more of the repo's skills",
+            "label": "Codex plugin, with 5 more of the repo's skills, without chief-of-staff",
             "command": "codex plugin marketplace add mattpocock/skills && codex plugin add mattpocock-skills@mattpocock"
           },
           {
-            "label": "GitHub Copilot CLI plugin, with 5 more of the repo's skills",
+            "label": "GitHub Copilot CLI plugin, with 5 more of the repo's skills, without chief-of-staff",
             "command": "copilot plugin marketplace add mattpocock/skills && copilot plugin install mattpocock-skills@mattpocock"
           },
           {
-            "label": "Gemini CLI, with 5 more of the repo's skills",
+            "label": "Gemini CLI, with 5 more of the repo's skills, without chief-of-staff",
             "command": "gemini skills install https://github.com/mattpocock/skills.git --path skills/engineering && gemini skills install https://github.com/mattpocock/skills.git --path skills/productivity"
           }
         ]
@@ -16288,6 +16293,67 @@
           "by:community",
           "code-review"
         ]
+      }
+    },
+    {
+      "id": "mattpocock/skills/skills/in-progress/chief-of-staff",
+      "name": "chief-of-staff",
+      "skills.sh": {
+        "url": "https://skills.sh/mattpocock/skills/chief-of-staff",
+        "installs": 114083,
+        "weeklyInstalls": [0, 0, 0, 0, 26404, 25313, 23962, 22386],
+        "firstSeen": "2026-10-05"
+      },
+      "skillMd": {
+        "version": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Pursues a long-running goal by delegating all work to subagents, keeping memory in a wiki and improving the agents' environment as it goes.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you have a goal that will take many tasks and want one long session to manage it"
+            },
+            {
+              "label": "It does",
+              "text": "makes the agent a coordinator that hands every task to a fresh background subagent and stays in conversation with you"
+            },
+            {
+              "label": "Keeps",
+              "text": "a wiki of linked Markdown pages, dated and citing commits, so decisions and lessons outlive the session"
+            },
+            {
+              "label": "Also",
+              "text": "runs retros on about one in five subagent sessions, turns large work into a spec and tickets, and suggests recurring schedules"
+            },
+            {
+              "label": "Needs",
+              "text": "subagents; retro, to-spec, to-tickets and implement-spec installed beside it, since it reads them by relative path; an issue tracker for large work"
+            },
+            {
+              "label": "Runs",
+              "text": "only when you call it, then for the rest of the session; it sits in its author's in-progress folder, so expect changes"
+            }
+          ],
+          "text": "Matt Pocock's skill for a long-running session. The agent becomes the person responsible for the goal and thinks on two tracks: finishing the task in front of it, and changing the environment so the next task goes better. To protect its context it does no work itself: every task goes to a background subagent with a fresh context, briefed through pointers to notes, commits and wiki pages rather than copied text. Its memory is a wiki, one linked page per decision, problem, subsystem or preference, in a wiki you already keep or a place agreed with you. Pages are dated history: claims about code cite the commit they held at, and a change adds a new claim instead of rewriting the old. It reads the wiki before decisions and suggests a schedule to check it for contradictions. It runs the retro skill on about one in five subagent sessions, worst first, and acts on the findings itself instead of presenting them to you; large work becomes a spec and tickets on your tracker, built with implement-spec. Throughout, it pushes for constrained APIs, lint rules that force correctness, access to logs and test databases, and no workarounds.",
+          "permalink": "https://github.com/mattpocock/skills/tree/4ae2317ddb22b046e26455e4f9c9b3aaaf62212d/skills/in-progress/chief-of-staff"
+        },
+        "tags": [
+          "category:agents",
+          "type:mode",
+          "effect:remote",
+          "needs:subagents",
+          "needs:issue-tracker",
+          "by:community",
+          "multi-agent",
+          "memory",
+          "agent-workflows",
+          "self-improvement"
+        ],
+        "note": "Runs retro, to-spec, to-tickets and implement-spec by reading their SKILL.md from beside it, so it needs them installed."
       }
     }
   ]
