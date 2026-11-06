@@ -1794,6 +1794,15 @@
         "description": "Outcome-focused Firecrawl workflow skills for AI coding agents: research reports, SEO audits, QA reports, knowledge bases, lead lists and website design systems.",
         "note": "The source of Firecrawl's workflow skills; CI copies them into the firecrawl/skills catalog, which Firecrawl promotes as the install path."
       }
+    },
+    {
+      "id": "software-mansion/argent",
+      "stars": 3170,
+      "agentReview": {
+        "kind": "project",
+        "description": "Gives your AI assistant direct control of iOS simulators, Android emulators and devices, TVs and Electron/Chromium apps.",
+        "note": "Argent collects telemetry unless you run argent telemetry disable, and its per-platform simulator-server binaries are proprietary."
+      }
     }
   ],
   "bundles": [
@@ -2836,6 +2845,85 @@
           {
             "label": "Command Code, which asks which skills to install",
             "command": "cmd skills add addyosmani/agent-skills"
+          }
+        ]
+      }
+    },
+    {
+      "id": "software-mansion/argent",
+      "skew": 0,
+      "agentReview": {
+        "name": "Argent",
+        "description": "Software Mansion's skills for Argent, an MCP server that lets the agent use your app on simulators, emulators, phones and Chromium apps, to test its UI, debug its JavaScript and profile it.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want the agent to use, test, debug or speed up your mobile app, React Native above all, on a simulator, emulator or phone"
+            },
+            {
+              "label": "It does",
+              "text": "teaches the agent Argent's tools: tap and type in the app, check UI flows, read logs and the component tree, and profile React and native code"
+            },
+            {
+              "label": "You get",
+              "text": "UI flows checked with screenshot, element-tree and log evidence, answers from the live app, profiling reports, and measured performance fixes if you want them"
+            },
+            {
+              "label": "Start with",
+              "text": "argent-device-interact, which the testing and profiling skills use to drive the app; for speed, argent-react-native-optimization, which runs the profilers for you"
+            },
+            {
+              "label": "Needs",
+              "text": "the Argent MCP server, set up by its installer; full Xcode for native profiling on iOS"
+            },
+            {
+              "label": "Physical iPhones",
+              "text": "support only some interaction tools, and none of the debugger or profiler tools; use a simulator"
+            },
+            {
+              "label": "Unlike agent-browser",
+              "text": "which drives websites, it drives apps on phones, simulators and emulators, and can see inside a React Native app"
+            }
+          ],
+          "text": "Argent is Software Mansion's MCP server for controlling iOS simulators, Android emulators, phones and Chromium apps, and these six skills teach the agent to use it. argent-device-interact is the base: which tool fits each tap, swipe or keystroke, how to find targets in the element tree each action returns, and how to wait for the screen without polling. argent-test-ui-flow builds on it for manual QA, checking each step of a flow with a screenshot diff, the element tree or logs, then reporting a verdict with its evidence. argent-metro-debugger attaches to a React Native app's JavaScript runtime through Metro for console logs, the component tree, network traffic and running code. Performance work starts at argent-react-native-optimization: subagents fix what an ESLint sweep and a judgment checklist turn up, then it profiles with argent-react-native-profiler, which records React commits and CPU samples while the app is used. That profiler starts argent-native-profiler alongside by default, for hangs, CPU hotspots and leaks in native code, through Instruments or Perfetto; either profiler also runs alone. Both report what they find, ask before fixing, and re-profile after a fix to say honestly whether it helped. One installer sets up the server and all of the repo's skills.",
+          "permalink": "https://github.com/software-mansion/argent/tree/b965c94827d6167fd2912a7ca5ad5505040ae4e0"
+        },
+        "skills": [
+          {
+            "id": "software-mansion/argent/packages/skills/skills/argent-device-interact",
+            "standalone": true
+          },
+          {
+            "id": "software-mansion/argent/packages/skills/skills/argent-test-ui-flow",
+            "standalone": true
+          },
+          {
+            "id": "software-mansion/argent/packages/skills/skills/argent-metro-debugger",
+            "standalone": true
+          },
+          {
+            "id": "software-mansion/argent/packages/skills/skills/argent-react-native-optimization",
+            "standalone": false,
+            "note": "Loads argent-react-native-profiler as its profiling phase, and navigates every screen with argent-device-interact to check that the fixes broke nothing."
+          },
+          {
+            "id": "software-mansion/argent/packages/skills/skills/argent-react-native-profiler",
+            "standalone": true
+          },
+          {
+            "id": "software-mansion/argent/packages/skills/skills/argent-native-profiler",
+            "standalone": true
+          }
+        ],
+        "install": [
+          {
+            "label": "Editors the Argent installer supports, via npm; also sets up the MCP server and 12 more of the repo's skills",
+            "command": "npx @swmansion/argent@latest init"
+          },
+          {
+            "label": "Editors the Argent installer supports, via pnpm; also sets up the MCP server and 12 more of the repo's skills",
+            "command": "pnpm dlx @swmansion/argent@latest init"
           }
         ]
       }
@@ -15703,6 +15791,342 @@
           "code-quality",
           "guardrails",
           "ci"
+        ]
+      }
+    },
+    {
+      "id": "software-mansion/argent/packages/skills/skills/argent-react-native-optimization",
+      "name": "argent-react-native-optimization",
+      "skills.sh": {
+        "url": "https://skills.sh/software-mansion/argent/argent-react-native-optimization",
+        "installs": 29500,
+        "weeklyInstalls": [1567, 1415, 1536, 1543, 1599, 1652, 1708, 1637],
+        "firstSeen": "2026-04-28"
+      },
+      "skillMd": {
+        "version": "b965c94827d6167fd2912a7ca5ad5505040ae4e0",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Optimizes a React Native app's performance with lint and code sweeps, then profiling the running app to find and fix the worst bottlenecks.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a React Native app feels slow, janky or slow to start, and you want it measurably faster"
+            },
+            {
+              "label": "It does",
+              "text": "sweeps the code with an ESLint performance ruleset and a judgment checklist, has subagents fix the findings, then profiles key flows and fixes the worst offenders"
+            },
+            {
+              "label": "You get",
+              "text": "code fixes checked against a target metric, re-profiled after each architectural change, then a pass over every screen for errors the fixes introduced"
+            },
+            {
+              "label": "Needs",
+              "text": "the Argent MCP server, subagents, argent-react-native-profiler, which it loads for profiling, and argent-device-interact for navigating screens"
+            },
+            {
+              "label": "Installs",
+              "text": "any ESLint plugins the ruleset needs that your project lacks; the extra rules apply for that one run"
+            },
+            {
+              "label": "Skips",
+              "text": "memoization fixes when the project uses React Compiler, except for components the compiler leaves out"
+            }
+          ],
+          "text": "Software Mansion's entry point for performance work on a React Native app, run through Argent, their MCP server that lets the agent control simulators, emulators and devices. Its rule is to measure first: set a target metric and threshold, fix the top offender, re-measure honestly, and check a fix with debugger-evaluate before committing it. It works through a four-phase checklist. Phase 1 runs ESLint over the source with React Native performance rules, such as no inline styles or index keys, and sends subagents to fix the results, one per file. Phase 2 reviews areas that need judgment, such as memoization, lists, animations, fetch waterfalls, effect cleanup and state, with one subagent per item; a monolithic context is only reported, not fixed. Phase 3 loads argent-react-native-profiler to profile the key user flows, cross-references what it finds with the sweeps and fixes the biggest issues first: mechanical fixes in batches, architectural ones one per cycle. Only the main agent touches the device. Phase 4 visits every screen in scope and checks the console log for errors the fixes introduced, then lint runs once more. A measured interaction is first recorded as a replayable e2e test, with argent-create-e2e.",
+          "permalink": "https://github.com/software-mansion/argent/tree/b965c94827d6167fd2912a7ca5ad5505040ae4e0/packages/skills/skills/argent-react-native-optimization"
+        },
+        "tags": [
+          "category:debugging",
+          "type:workflow",
+          "effect:local",
+          "needs:mcp",
+          "needs:subagents",
+          "by:official",
+          "stack:argent",
+          "stack:react-native",
+          "performance",
+          "mobile"
+        ],
+        "note": "Loads argent-react-native-profiler and follows its workflow for the profiling phase, so it needs that skill and Argent's MCP server."
+      }
+    },
+    {
+      "id": "software-mansion/argent/packages/skills/skills/argent-device-interact",
+      "name": "argent-device-interact",
+      "skills.sh": {
+        "url": "https://skills.sh/software-mansion/argent/argent-device-interact",
+        "installs": 29400,
+        "weeklyInstalls": [1538, 1393, 1529, 1547, 1596, 1651, 1697, 1634],
+        "firstSeen": "2026-05-12"
+      },
+      "skillMd": {
+        "version": "b965c94827d6167fd2912a7ca5ad5505040ae4e0",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Drives iOS simulators, Android emulators, phones and Chromium apps through Argent: taps, gestures, typing, hardware buttons and screenshots.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "the agent needs to use your app on an iOS simulator, Android emulator, phone or Chromium app: tap, swipe, type, launch it, take screenshots"
+            },
+            {
+              "label": "It does",
+              "text": "tells the agent which Argent tool fits each action, how to find tap targets in the screen's element tree, and how to wait for UI without polling"
+            },
+            {
+              "label": "You get",
+              "text": "an agent that takes the paths a real user would, reading the element tree each action returns instead of guessing taps from screenshots"
+            },
+            {
+              "label": "Needs",
+              "text": "the Argent MCP server and a simulator, emulator, phone or Chromium app; the agent boots one if none is ready"
+            },
+            {
+              "label": "Not for",
+              "text": "TVs"
+            }
+          ],
+          "text": "Argent is Software Mansion's MCP server that lets an agent control simulators, emulators and devices, much as agent-browser does for websites. Each tool describes its own parameters; this skill covers choosing between them and the gotchas. A table maps actions to tools: launch-app rather than tapping home-screen icons, gesture tools for taps, swipes, pinches and long presses, keyboard for text, button for hardware keys, plus rotate, fold and shake. To find a target the agent reads the element tree each action returns, or calls describe; screenshots are a last resort, not a source of tap coordinates for routine navigation. It waits with await-ui-element or await-screen-idle instead of taking screenshots in a loop, and batches known steps with run-sequence, gated on the expected screen appearing. Credentials go in as {{secret:NAME}} placeholders, never as plaintext, and a field holding a secret isn't screenshotted. It answers an app's own permission dialogs rather than changing settings, and explains how React Native's LogBox toasts catch taps. Separate reference files cover Chromium, HarmonyOS and foldable targets; for a physical iPhone, which supports only some of the tools, it sends the agent to argent-ios-device-interact first.",
+          "permalink": "https://github.com/software-mansion/argent/tree/b965c94827d6167fd2912a7ca5ad5505040ae4e0/packages/skills/skills/argent-device-interact"
+        },
+        "tags": [
+          "category:debugging",
+          "type:tool",
+          "effect:local",
+          "needs:mcp",
+          "by:official",
+          "stack:argent",
+          "mobile",
+          "testing",
+          "computer-use"
+        ]
+      }
+    },
+    {
+      "id": "software-mansion/argent/packages/skills/skills/argent-react-native-profiler",
+      "name": "argent-react-native-profiler",
+      "skills.sh": {
+        "url": "https://skills.sh/software-mansion/argent/argent-react-native-profiler",
+        "installs": 29300,
+        "weeklyInstalls": [1541, 1394, 1523, 1535, 1591, 1642, 1698, 1626],
+        "firstSeen": "2026-04-28"
+      },
+      "skillMd": {
+        "version": "b965c94827d6167fd2912a7ca5ad5505040ae4e0",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Profiles a React Native app's re-renders and CPU use through Argent, ranks the slowest commits and components, and re-profiles after each fix.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a React Native screen re-renders too often or stutters, or you want before-and-after numbers for a fix"
+            },
+            {
+              "label": "It does",
+              "text": "records React commits and CPU samples, with native profiling alongside, while the agent or you use the app, then analyzes the recording"
+            },
+            {
+              "label": "You get",
+              "text": "a ranked report of hot commits and the functions behind them, drill-downs to the root-cause file, and a fix only if you want one"
+            },
+            {
+              "label": "Asks you",
+              "text": "after each report and each drill-down round whether to dig further, fix and re-profile, or stop"
+            },
+            {
+              "label": "Needs",
+              "text": "the Argent MCP server and a Hermes app on a simulator, emulator or Android phone; physical iPhones aren't supported"
+            }
+          ],
+          "text": "Part of Software Mansion's Argent toolkit, which lets the agent control simulators and emulators; argent-react-native-optimization calls it for measurement. First the agent agrees a success metric with you, such as total render time or one component's render count. It starts the React and native profilers together, then drives the interaction itself or waits while you do, annotating every tap and swipe with the server's timestamps so the report lines up with what happened. The analysis ranks hot commits with the JavaScript functions that ran in each; when both profilers ran, a combined report links native hangs to React commits. Query tools then trace a slow commit to what triggered it, or a slow component to its hot function and source. Earlier sessions can be reloaded to compare before and after. After a fix it re-profiles the same scenario and says honestly whether the metric improved, stayed flat or regressed, reverting a fix with no net gain. It warns that dev builds render about three times slower, that live data and 10-15% run-to-run noise skew results, and it won't propose memoization for components React Compiler already handles.",
+          "permalink": "https://github.com/software-mansion/argent/tree/b965c94827d6167fd2912a7ca5ad5505040ae4e0/packages/skills/skills/argent-react-native-profiler"
+        },
+        "tags": [
+          "category:debugging",
+          "type:workflow",
+          "effect:local",
+          "needs:mcp",
+          "by:official",
+          "stack:argent",
+          "stack:react-native",
+          "performance",
+          "mobile"
+        ]
+      }
+    },
+    {
+      "id": "software-mansion/argent/packages/skills/skills/argent-test-ui-flow",
+      "name": "argent-test-ui-flow",
+      "skills.sh": {
+        "url": "https://skills.sh/software-mansion/argent/argent-test-ui-flow",
+        "installs": 29300,
+        "weeklyInstalls": [1534, 1390, 1522, 1537, 1588, 1638, 1697, 1618],
+        "firstSeen": "2026-04-28"
+      },
+      "skillMd": {
+        "version": "b965c94827d6167fd2912a7ca5ad5505040ae4e0",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Tests app UI flows on iOS or Android through Argent, checking each tap or keystroke with screenshots, element trees or logs.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want the agent to check a login, navigation or other UI flow on a simulator, emulator or phone, or confirm a visible UI change"
+            },
+            {
+              "label": "It does",
+              "text": "repeats a loop for each step of the flow: baseline screenshot, find the target, act, verify"
+            },
+            {
+              "label": "You get",
+              "text": "a verdict: expected and observed behavior, the evidence used, and anything that blocked the check"
+            },
+            {
+              "label": "Picks evidence",
+              "text": "pixel diffs for visual changes, element trees for structure, logs and network traffic for runtime behavior"
+            },
+            {
+              "label": "Needs",
+              "text": "the Argent MCP server"
+            }
+          ],
+          "text": "A manual-QA loop the agent runs through Argent, Software Mansion's MCP server for controlling simulators, emulators and devices. It picks a device first, preferring one already running, then for each step of the flow takes a baseline screenshot, finds the element to tap in the screen's element tree, acts, and verifies. Verification depends on what's asserted: a screenshot diff against the baseline for layout, color or text rendering; the element or component tree for navigation state and labels; network and console logs or a JavaScript evaluation for API calls and errors. It waits out loading screens with await-ui-element rather than repeated screenshots, and retries a missed tap once with fresh coordinates before reporting the element as not found. Credentials are typed as {{secret:NAME}} placeholders, never as plaintext. These steps run live; a flow worth repeating can be saved as a replayable YAML test with argent-create-e2e.",
+          "permalink": "https://github.com/software-mansion/argent/tree/b965c94827d6167fd2912a7ca5ad5505040ae4e0/packages/skills/skills/argent-test-ui-flow"
+        },
+        "tags": [
+          "category:debugging",
+          "type:workflow",
+          "effect:local",
+          "needs:mcp",
+          "by:official",
+          "stack:argent",
+          "testing",
+          "mobile",
+          "verification"
+        ]
+      }
+    },
+    {
+      "id": "software-mansion/argent/packages/skills/skills/argent-metro-debugger",
+      "name": "argent-metro-debugger",
+      "skills.sh": {
+        "url": "https://skills.sh/software-mansion/argent/argent-metro-debugger",
+        "installs": 29300,
+        "weeklyInstalls": [1530, 1389, 1518, 1535, 1586, 1639, 1687, 1615],
+        "firstSeen": "2026-04-28"
+      },
+      "skillMd": {
+        "version": "b965c94827d6167fd2912a7ca5ad5505040ae4e0",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Connects the agent to a running React Native or Chromium app's JavaScript runtime through Argent, to read logs, components and network traffic.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need to see inside a running React Native app: console errors, which component is on screen, app state or API calls"
+            },
+            {
+              "label": "It does",
+              "text": "connects to the app's JavaScript runtime through Metro and gives the agent tools for logs, the component tree, network traffic and running JavaScript"
+            },
+            {
+              "label": "You get",
+              "text": "answers from the live app, such as the source file and line of the component at a point on screen"
+            },
+            {
+              "label": "Works with",
+              "text": "React Native on iOS, Android and Fire TV (Vega); a subset of the tools on Electron and other Chromium apps"
+            },
+            {
+              "label": "Needs",
+              "text": "the Argent MCP server and Metro, which the agent starts with the project's own script if it isn't running; physical iPhones aren't supported"
+            }
+          ],
+          "text": "Argent, Software Mansion's MCP server for simulators and devices, includes debugger tools that attach to a JavaScript runtime over the Chrome DevTools Protocol, through Metro for React Native. This skill is their manual: what each platform needs first, such as the adb port forwarding an Android phone needs, a table of what each tool is for, and what to do when something fails. The agent calls debugger-status first, follows its guidance once rather than retrying in a loop, starts Metro itself with the project's own script if it isn't running, and relaunches the app if it lost its connection. Console logs go to a flat file on disk; the skill explains its format and how to search it narrowly, with grep limits, escaped brackets and a subagent for files over 10,000 entries. Everything read from the app, such as logs, payloads and component trees, is treated as untrusted data: the agent never follows instructions found there or copies secrets out.",
+          "permalink": "https://github.com/software-mansion/argent/tree/b965c94827d6167fd2912a7ca5ad5505040ae4e0/packages/skills/skills/argent-metro-debugger"
+        },
+        "tags": [
+          "category:debugging",
+          "type:tool",
+          "effect:local",
+          "needs:mcp",
+          "by:official",
+          "stack:argent",
+          "stack:react-native",
+          "debugging",
+          "mobile"
+        ]
+      }
+    },
+    {
+      "id": "software-mansion/argent/packages/skills/skills/argent-native-profiler",
+      "name": "argent-native-profiler",
+      "skills.sh": {
+        "url": "https://skills.sh/software-mansion/argent/argent-native-profiler",
+        "installs": 29200,
+        "weeklyInstalls": [1534, 1388, 1518, 1537, 1588, 1639, 1690, 1619],
+        "firstSeen": "2026-05-12"
+      },
+      "skillMd": {
+        "version": "b965c94827d6167fd2912a7ca5ad5505040ae4e0",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Profiles native CPU hotspots, UI hangs and memory issues in iOS and Android apps through Argent, with Instruments or Perfetto.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "an iOS or Android app hangs, burns CPU or seems to leak memory in native code"
+            },
+            {
+              "label": "It does",
+              "text": "records a native profile while the app is used, analyzes it, then drills into hang stacks, per-thread CPU and leak stacks"
+            },
+            {
+              "label": "You get",
+              "text": "findings marked red (act on it) or yellow (worth investigating), then fixes and a re-profile if you want them"
+            },
+            {
+              "label": "Needs",
+              "text": "the Argent MCP server; on iOS, full Xcode and a simulator; on Android, an app that is debuggable or profileable"
+            },
+            {
+              "label": "Unlike argent-react-native-profiler",
+              "text": "it covers native code only; that skill starts this profiler alongside React profiling by default"
+            }
+          ],
+          "text": "Part of Software Mansion's Argent toolkit, which lets the agent control simulators, emulators and devices. On iOS it records with Instruments through xctrace, on simulators only, and reports CPU hotspots, UI hangs and memory leaks. On Android it uses Perfetto on an emulator or phone and reports CPU hotspots and UI hangs, with jank reasons and the main-thread function that blocked, plus memory growth to treat as a hint rather than a confirmed leak. The steps run in order: start the profiler with the app running, let you or the agent use the app, stop, analyze, then present findings and ask whether to dig deeper, fix or stop. Drill-downs follow set patterns: a hang goes from its native call chain to the callers of the suspect function and its source, a CPU hotspot from the per-thread split to the dominant function. After a fix it re-profiles the same scenario and compares sessions, saying plainly when nothing improved. It warns that simulator timings reflect your computer, not the phone, and counts only consistent changes across two or more runs, or over 15%, as real.",
+          "permalink": "https://github.com/software-mansion/argent/tree/b965c94827d6167fd2912a7ca5ad5505040ae4e0/packages/skills/skills/argent-native-profiler"
+        },
+        "tags": [
+          "category:debugging",
+          "type:workflow",
+          "effect:local",
+          "needs:mcp",
+          "needs:cli",
+          "by:official",
+          "stack:argent",
+          "performance",
+          "mobile"
         ]
       }
     }
