@@ -81,19 +81,6 @@
       }
     },
     {
-      "name": "vitest",
-      "repo": "pproenca/dot-skills",
-      "official": false,
-      "stars": 221,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/pproenca/dot-skills/vitest",
-        "installs": 6900,
-        "weeklyInstalls": [344, 213, 266, 707, 335, 713, 522, 530],
-        "firstSeen": "2026-01-22"
-      }
-    },
-    {
       "name": "build-design",
       "repo": "jakubkrehel/skills",
       "official": false,
@@ -133,32 +120,6 @@
       }
     },
     {
-      "name": "rust-skills",
-      "repo": "leonardomso/rust-skills",
-      "official": false,
-      "stars": 675,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/leonardomso/rust-skills/rust-skills",
-        "installs": 6800,
-        "weeklyInstalls": [206, 325, 242, 192, 288, 349, 235, 228],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "build-mcpb",
-      "repo": "anthropics/claude-plugins-official",
-      "official": true,
-      "stars": 46288,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/anthropics/claude-plugins-official/build-mcpb",
-        "installs": 6800,
-        "weeklyInstalls": [185, 188, 73, 51, 129, 308, 254, 297],
-        "firstSeen": "2026-03-20"
-      }
-    },
-    {
       "name": "clickhouse-managed-postgres-rca",
       "repo": "clickhouse/agent-skills",
       "official": true,
@@ -169,19 +130,6 @@
         "installs": 6700,
         "weeklyInstalls": [124, 109, 97, 94, 76, 122, 81, 53],
         "firstSeen": "2026-06-08"
-      }
-    },
-    {
-      "name": "knap",
-      "repo": "kepano/obsidian-skills",
-      "official": false,
-      "stars": 50892,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/kepano/obsidian-skills/knap",
-        "installs": 6700,
-        "weeklyInstalls": [299, 712, 707, 677, 804, 774, 1317, 841],
-        "firstSeen": "2026-09-10"
       }
     },
     {
@@ -208,19 +156,6 @@
         "installs": 6600,
         "weeklyInstalls": [95, 111, 79, 59, 72, 108, 136, 102],
         "firstSeen": "2026-02-24"
-      }
-    },
-    {
-      "name": "dart-write-documentation",
-      "repo": "dart-lang/skills",
-      "official": false,
-      "stars": 543,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/dart-lang/skills/dart-write-documentation",
-        "installs": 6600,
-        "weeklyInstalls": [564, 668, 589, 564, 640, 514, 569, 527],
-        "firstSeen": "2026-08-20"
       }
     },
     {
@@ -263,19 +198,6 @@
       }
     },
     {
-      "name": "next-best-practices",
-      "repo": "vercel-labs/openreview",
-      "official": true,
-      "stars": 1704,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/vercel-labs/openreview/next-best-practices",
-        "installs": 6500,
-        "weeklyInstalls": [363, 363, 319, 363, 394, 365, 256, 267],
-        "firstSeen": "2026-03-09"
-      }
-    },
-    {
       "name": "claude-delegate",
       "repo": "amelnagdy/delegate-skills",
       "official": false,
@@ -299,19 +221,6 @@
         "installs": 6500,
         "weeklyInstalls": [72, 81, 49, 57, 66, 60, 55, 57],
         "firstSeen": "2026-01-31"
-      }
-    },
-    {
-      "name": "dagster-expert",
-      "repo": "dagster-io/skills",
-      "official": true,
-      "stars": 218,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/dagster-io/skills/dagster-expert",
-        "installs": 6500,
-        "weeklyInstalls": [243, 216, 242, 207, 130, 96, 119, 97],
-        "firstSeen": "2026-02-05"
       }
     },
     {
@@ -354,19 +263,6 @@
       }
     },
     {
-      "name": "shopify",
-      "repo": "shopify/shopify-ai-toolkit",
-      "official": false,
-      "stars": 630,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/shopify/shopify-ai-toolkit/shopify",
-        "installs": 6400,
-        "weeklyInstalls": [0, 0, 314, 1180, 1111, 1106, 1067, 982],
-        "firstSeen": "2026-09-25"
-      }
-    },
-    {
       "name": "view-pdf",
       "repo": "anthropics/knowledge-work-plugins",
       "official": true,
@@ -393,19 +289,6 @@
       }
     },
     {
-      "name": "motion-framer",
-      "repo": "freshtechbro/claudedesignskills",
-      "official": false,
-      "stars": 1267,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/freshtechbro/claudedesignskills/motion-framer",
-        "installs": 6400,
-        "weeklyInstalls": [318, 213, 225, 245, 266, 390, 306, 267],
-        "firstSeen": "2026-02-27"
-      }
-    },
-    {
       "name": "copywriting-hooks",
       "repo": "samber/cc-skills",
       "official": false,
@@ -429,19 +312,6 @@
         "installs": 6300,
         "weeklyInstalls": [153, 105, 79, 104, 121, 119, 95, 108],
         "firstSeen": "2026-03-14"
-      }
-    },
-    {
-      "name": "antd",
-      "repo": "ant-design/ant-design-cli",
-      "official": true,
-      "stars": 261,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/ant-design/ant-design-cli/antd",
-        "installs": 6300,
-        "weeklyInstalls": [221, 213, 187, 124, 150, 172, 188, 159],
-        "firstSeen": "2026-03-24"
       }
     },
     {
@@ -507,32 +377,6 @@
         "installs": 6300,
         "weeklyInstalls": [742, 439, 427, 282, 278, 358, 257, 227],
         "firstSeen": "2026-07-16"
-      }
-    },
-    {
-      "name": "playwright-skill",
-      "repo": "testdino-hq/playwright-skill",
-      "official": true,
-      "stars": 412,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/testdino-hq/playwright-skill/playwright-skill",
-        "installs": 6200,
-        "weeklyInstalls": [144, 129, 185, 130, 151, 4, 0, 0],
-        "firstSeen": "2026-02-13"
-      }
-    },
-    {
-      "name": "update-skills-from-changelog",
-      "repo": "elevenlabs/skills",
-      "official": true,
-      "stars": 536,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/elevenlabs/skills/update-skills-from-changelog",
-        "installs": 6200,
-        "weeklyInstalls": [220, 278, 305, 443, 486, 485, 642, 718],
-        "firstSeen": "2026-06-04"
       }
     },
     {
@@ -640,32 +484,6 @@
       }
     },
     {
-      "name": "dart-use-doc-examples",
-      "repo": "dart-lang/skills",
-      "official": false,
-      "stars": 543,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/dart-lang/skills/dart-use-doc-examples",
-        "installs": 6200,
-        "weeklyInstalls": [559, 661, 584, 556, 633, 508, 562, 521],
-        "firstSeen": "2026-08-24"
-      }
-    },
-    {
-      "name": "mongodb-search-and-ai",
-      "repo": "mongodb/agent-skills",
-      "official": false,
-      "stars": 195,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/mongodb/agent-skills/mongodb-search-and-ai",
-        "installs": 6100,
-        "weeklyInstalls": [272, 252, 281, 247, 292, 258, 290, 246],
-        "firstSeen": "2026-03-26"
-      }
-    },
-    {
       "name": "portless",
       "repo": "vercel-labs/portless",
       "official": true,
@@ -715,19 +533,6 @@
         "installs": 6100,
         "weeklyInstalls": [99, 123, 144, 107, 112, 97, 124, 125],
         "firstSeen": "2026-03-13"
-      }
-    },
-    {
-      "name": "okx-cex-auth",
-      "repo": "okx/agent-skills",
-      "official": false,
-      "stars": 201,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/okx/agent-skills/okx-cex-auth",
-        "installs": 6100,
-        "weeklyInstalls": [131, 125, 128, 110, 116, 121, 114, 115],
-        "firstSeen": "2026-04-17"
       }
     },
     {
@@ -806,19 +611,6 @@
         "installs": 6000,
         "weeklyInstalls": [146, 171, 137, 82, 58, 110, 88, 94],
         "firstSeen": "2026-03-28"
-      }
-    },
-    {
-      "name": "okx-cex-smartmoney",
-      "repo": "okx/agent-skills",
-      "official": false,
-      "stars": 201,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/okx/agent-skills/okx-cex-smartmoney",
-        "installs": 6000,
-        "weeklyInstalls": [134, 129, 127, 115, 120, 124, 115, 120],
-        "firstSeen": "2026-04-23"
       }
     },
     {
@@ -1485,19 +1277,6 @@
       }
     },
     {
-      "name": "swiftui-animation",
-      "repo": "dpearson2699/swift-ios-skills",
-      "official": false,
-      "stars": 1278,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/dpearson2699/swift-ios-skills/swiftui-animation",
-        "installs": 5600,
-        "weeklyInstalls": [141, 189, 116, 128, 98, 139, 123, 148],
-        "firstSeen": "2026-03-03"
-      }
-    },
-    {
       "name": "gmgn-narrative",
       "repo": "gmgnai/gmgn-skills",
       "official": false,
@@ -1534,19 +1313,6 @@
         "installs": 5600,
         "weeklyInstalls": [224, 297, 236, 269, 315, 343, 457, 475],
         "firstSeen": "2026-05-04"
-      }
-    },
-    {
-      "name": "paseo",
-      "repo": "getpaseo/paseo",
-      "official": false,
-      "stars": 23300,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/getpaseo/paseo/paseo",
-        "installs": 5600,
-        "weeklyInstalls": [177, 212, 234, 244, 232, 255, 252, 222],
-        "firstSeen": "2026-03-15"
       }
     },
     {
@@ -1690,19 +1456,6 @@
         "installs": 5500,
         "weeklyInstalls": [137, 139, 171, 199, 227, 260, 328, 291],
         "firstSeen": "2026-04-16"
-      }
-    },
-    {
-      "name": "mongodb-connection",
-      "repo": "mongodb/agent-skills",
-      "official": false,
-      "stars": 195,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/mongodb/agent-skills/mongodb-connection",
-        "installs": 5500,
-        "weeklyInstalls": [120, 127, 150, 126, 175, 154, 184, 176],
-        "firstSeen": "2026-03-26"
       }
     },
     {
@@ -2486,19 +2239,6 @@
       }
     },
     {
-      "name": "langsmith-evaluator",
-      "repo": "langchain-ai/langsmith-skills",
-      "official": false,
-      "stars": 165,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/langchain-ai/langsmith-skills/langsmith-evaluator",
-        "installs": 5100,
-        "weeklyInstalls": [132, 179, 142, 127, 82, 76, 83, 80],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
       "name": "content-creation",
       "repo": "anthropics/knowledge-work-plugins",
       "official": true,
@@ -2574,19 +2314,6 @@
         "installs": 5000,
         "weeklyInstalls": [60, 141, 145, 122, 129, 195, 234, 235],
         "firstSeen": "2026-01-29"
-      }
-    },
-    {
-      "name": "langsmith-trace",
-      "repo": "langchain-ai/langsmith-skills",
-      "official": false,
-      "stars": 165,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/langchain-ai/langsmith-skills/langsmith-trace",
-        "installs": 5000,
-        "weeklyInstalls": [126, 174, 133, 123, 77, 71, 73, 80],
-        "firstSeen": "2026-03-04"
       }
     },
     {
@@ -22872,6 +22599,90 @@
     {
       "url": "https://skills.sh/giuseppe-trisciuoglio/developer-kit/nextjs-performance",
       "note": "Tool docs: an agent's manual for nextjs."
+    },
+    {
+      "url": "https://skills.sh/getpaseo/paseo/paseo",
+      "note": "Tool docs: an agent's manual for paseo."
+    },
+    {
+      "url": "https://skills.sh/dart-lang/skills/dart-write-documentation",
+      "note": "Tool docs: an agent's manual for dart."
+    },
+    {
+      "url": "https://skills.sh/dart-lang/skills/dart-use-doc-examples",
+      "note": "Tool docs: an agent's manual for dart."
+    },
+    {
+      "url": "https://skills.sh/elevenlabs/skills/update-skills-from-changelog",
+      "note": "Internal: updates elevenlabs/skills' own skills from ElevenLabs' changelog, and the repo leaves it out of its published skills."
+    },
+    {
+      "url": "https://skills.sh/mongodb/agent-skills/mongodb-search-and-ai",
+      "note": "Tool docs: an agent's manual for mongodb."
+    },
+    {
+      "url": "https://skills.sh/mongodb/agent-skills/mongodb-connection",
+      "note": "Tool docs: an agent's manual for mongodb."
+    },
+    {
+      "url": "https://skills.sh/okx/agent-skills/okx-cex-auth",
+      "note": "Tool docs: an agent's manual for okx."
+    },
+    {
+      "url": "https://skills.sh/okx/agent-skills/okx-cex-smartmoney",
+      "note": "Tool docs: an agent's manual for okx."
+    },
+    {
+      "url": "https://skills.sh/pproenca/dot-skills/vitest",
+      "note": "Tool docs: an agent's manual for vitest."
+    },
+    {
+      "url": "https://skills.sh/dpearson2699/swift-ios-skills/swiftui-animation",
+      "note": "Tool docs: an agent's manual for swiftui."
+    },
+    {
+      "url": "https://skills.sh/langchain-ai/langsmith-skills/langsmith-evaluator",
+      "note": "Tool docs: an agent's manual for langsmith."
+    },
+    {
+      "url": "https://skills.sh/langchain-ai/langsmith-skills/langsmith-trace",
+      "note": "Tool docs: an agent's manual for langsmith."
+    },
+    {
+      "url": "https://skills.sh/leonardomso/rust-skills/rust-skills",
+      "note": "Tool docs: an agent's manual for rust."
+    },
+    {
+      "url": "https://skills.sh/anthropics/claude-plugins-official/build-mcpb",
+      "note": "Tool docs: an agent's manual for MCPB bundles and the mcpb CLI."
+    },
+    {
+      "url": "https://skills.sh/kepano/obsidian-skills/knap",
+      "note": "Tool docs: an agent's manual for knap."
+    },
+    {
+      "url": "https://skills.sh/vercel-labs/openreview/next-best-practices",
+      "note": "Tool docs: an agent's manual for nextjs."
+    },
+    {
+      "url": "https://skills.sh/dagster-io/skills/dagster-expert",
+      "note": "Tool docs: an agent's manual for dagster."
+    },
+    {
+      "url": "https://skills.sh/shopify/shopify-ai-toolkit/shopify",
+      "note": "Tool docs: an agent's manual for shopify."
+    },
+    {
+      "url": "https://skills.sh/freshtechbro/claudedesignskills/motion-framer",
+      "note": "Tool docs: an agent's manual for framer-motion."
+    },
+    {
+      "url": "https://skills.sh/ant-design/ant-design-cli/antd",
+      "note": "Tool docs: an agent's manual for antd."
+    },
+    {
+      "url": "https://skills.sh/testdino-hq/playwright-skill/playwright-skill",
+      "note": "Tool docs: an agent's manual for playwright."
     }
   ]
 }
