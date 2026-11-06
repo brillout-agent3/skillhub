@@ -1459,19 +1459,6 @@
       }
     },
     {
-      "name": "turborepo-caching",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/turborepo-caching",
-        "installs": 10900,
-        "weeklyInstalls": [169, 186, 214, 264, 227, 180, 182, 168],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
       "name": "apify-actor-development",
       "repo": "apify/agent-skills",
       "official": true,
@@ -1784,32 +1771,6 @@
       }
     },
     {
-      "name": "bazel-build-optimization",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/bazel-build-optimization",
-        "installs": 10600,
-        "weeklyInstalls": [167, 179, 213, 265, 204, 172, 178, 159],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "istio-traffic-management",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/istio-traffic-management",
-        "installs": 10600,
-        "weeklyInstalls": [168, 180, 211, 266, 207, 179, 175, 158],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
       "name": "nft-standards",
       "repo": "wshobson/agents",
       "official": false,
@@ -1833,19 +1794,6 @@
         "installs": 10500,
         "weeklyInstalls": [486, 430, 347, 393, 461, 499, 486, 454],
         "firstSeen": "2026-05-20"
-      }
-    },
-    {
-      "name": "linkerd-patterns",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/linkerd-patterns",
-        "installs": 10500,
-        "weeklyInstalls": [164, 178, 210, 262, 220, 181, 178, 161],
-        "firstSeen": "2026-01-20"
       }
     },
     {
@@ -6253,19 +6201,6 @@
         "installs": 7500,
         "weeklyInstalls": [256, 211, 170, 166, 187, 163, 160, 153],
         "firstSeen": "2026-01-24"
-      }
-    },
-    {
-      "name": "evaluation-methodology",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/evaluation-methodology",
-        "installs": 7500,
-        "weeklyInstalls": [180, 192, 222, 278, 219, 182, 183, 166],
-        "firstSeen": "2026-03-27"
       }
     },
     {
@@ -38370,6 +38305,26 @@
     {
       "url": "https://skills.sh/wshobson/agents/bats-testing-patterns",
       "note": "Tool docs: an agent's manual for bats."
+    },
+    {
+      "url": "https://skills.sh/wshobson/agents/turborepo-caching",
+      "note": "Tool docs: an agent's manual for turborepo."
+    },
+    {
+      "url": "https://skills.sh/wshobson/agents/bazel-build-optimization",
+      "note": "Tool docs: an agent's manual for bazel."
+    },
+    {
+      "url": "https://skills.sh/wshobson/agents/istio-traffic-management",
+      "note": "Tool docs: an agent's manual for istio."
+    },
+    {
+      "url": "https://skills.sh/wshobson/agents/linkerd-patterns",
+      "note": "Tool docs: an agent's manual for linkerd."
+    },
+    {
+      "url": "https://skills.sh/wshobson/agents/evaluation-methodology",
+      "note": "Tool docs: an agent's manual for plugin-eval."
     }
   ]
 }
