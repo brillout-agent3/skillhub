@@ -94,19 +94,6 @@
       }
     },
     {
-      "name": "security-best-practices",
-      "repo": "openai/skills",
-      "official": true,
-      "stars": 28550,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/openai/skills/security-best-practices",
-        "installs": 12000,
-        "weeklyInstalls": [430, 508, 435, 497, 401, 498, 475, 456],
-        "firstSeen": "2026-02-02"
-      }
-    },
-    {
       "name": "step-parts",
       "repo": "earthtojake/text-to-cad",
       "official": false,
@@ -129,19 +116,6 @@
         "url": "https://skills.sh/jeffallan/claude-skills/devops-engineer",
         "installs": 11800,
         "weeklyInstalls": [190, 190, 203, 305, 356, 441, 344, 312],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "gh-fix-ci",
-      "repo": "openai/skills",
-      "official": true,
-      "stars": 28550,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/openai/skills/gh-fix-ci",
-        "installs": 11700,
-        "weeklyInstalls": [199, 193, 175, 268, 240, 279, 242, 182],
         "firstSeen": "2026-01-20"
       }
     },
@@ -182,19 +156,6 @@
         "installs": 11500,
         "weeklyInstalls": [562, 502, 300, 318, 452, 580, 510, 839],
         "firstSeen": "2026-04-22"
-      }
-    },
-    {
-      "name": "gmgn-holder-analysis",
-      "repo": "gmgnai/gmgn-skills",
-      "official": false,
-      "stars": 647,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/gmgnai/gmgn-skills/gmgn-holder-analysis",
-        "installs": 11400,
-        "weeklyInstalls": [1264, 851, 793, 649, 575, 513, 774, 723],
-        "firstSeen": "2026-07-16"
       }
     },
     {
@@ -302,19 +263,6 @@
       }
     },
     {
-      "name": "create-prd",
-      "repo": "phuryn/pm-skills",
-      "official": false,
-      "stars": 27742,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/phuryn/pm-skills/create-prd",
-        "installs": 11000,
-        "weeklyInstalls": [165, 164, 127, 113, 110, 138, 184, 151],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
       "name": "scrape",
       "repo": "brightdata/skills",
       "official": true,
@@ -364,19 +312,6 @@
         "installs": 10500,
         "weeklyInstalls": [15, 10, 6, 9, 8, 7, 14, 4],
         "firstSeen": "2026-03-07"
-      }
-    },
-    {
-      "name": "pre-mortem",
-      "repo": "phuryn/pm-skills",
-      "official": false,
-      "stars": 27742,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/phuryn/pm-skills/pre-mortem",
-        "installs": 10400,
-        "weeklyInstalls": [115, 110, 94, 102, 103, 102, 167, 136],
-        "firstSeen": "2026-03-04"
       }
     },
     {
@@ -445,19 +380,6 @@
       }
     },
     {
-      "name": "prioritization-frameworks",
-      "repo": "phuryn/pm-skills",
-      "official": false,
-      "stars": 27742,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/phuryn/pm-skills/prioritization-frameworks",
-        "installs": 10100,
-        "weeklyInstalls": [108, 107, 93, 84, 81, 78, 130, 104],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
       "name": "unlazy",
       "repo": "leonxlnx/unlazy",
       "official": false,
@@ -481,19 +403,6 @@
         "installs": 10100,
         "weeklyInstalls": [269, 269, 100, 85, 140, 134, 142, 153],
         "firstSeen": "2026-05-14"
-      }
-    },
-    {
-      "name": "outcome-roadmap",
-      "repo": "phuryn/pm-skills",
-      "official": false,
-      "stars": 27742,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/phuryn/pm-skills/outcome-roadmap",
-        "installs": 10100,
-        "weeklyInstalls": [109, 108, 86, 82, 74, 75, 132, 95],
-        "firstSeen": "2026-03-04"
       }
     },
     {
@@ -601,19 +510,6 @@
       }
     },
     {
-      "name": "strategy-red-team",
-      "repo": "phuryn/pm-skills",
-      "official": false,
-      "stars": 27742,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/phuryn/pm-skills/strategy-red-team",
-        "installs": 9500,
-        "weeklyInstalls": [125, 137, 115, 113, 98, 103, 163, 134],
-        "firstSeen": "2026-06-05"
-      }
-    },
-    {
       "name": "web-design-engineer",
       "repo": "conardli/garden-skills",
       "official": false,
@@ -676,19 +572,6 @@
         "installs": 9200,
         "weeklyInstalls": [756, 743, 664, 601, 613, 564, 498, 500],
         "firstSeen": "2026-05-04"
-      }
-    },
-    {
-      "name": "playwright",
-      "repo": "openai/skills",
-      "official": true,
-      "stars": 28550,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/openai/skills/playwright",
-        "installs": 9100,
-        "weeklyInstalls": [363, 328, 362, 377, 287, 318, 365, 331],
-        "firstSeen": "2026-02-01"
       }
     },
     {
@@ -796,19 +679,6 @@
       }
     },
     {
-      "name": "security-threat-model",
-      "repo": "openai/skills",
-      "official": true,
-      "stars": 28550,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/openai/skills/security-threat-model",
-        "installs": 8700,
-        "weeklyInstalls": [366, 393, 364, 565, 402, 398, 383, 379],
-        "firstSeen": "2026-02-02"
-      }
-    },
-    {
       "name": "seo-audit",
       "repo": "agricidaniel/claude-seo",
       "official": false,
@@ -884,19 +754,6 @@
         "installs": 8400,
         "weeklyInstalls": [314, 302, 332, 280, 265, 297, 293, 408],
         "firstSeen": "2026-02-19"
-      }
-    },
-    {
-      "name": "gmgn-kline-pattern",
-      "repo": "gmgnai/gmgn-skills",
-      "official": false,
-      "stars": 647,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/gmgnai/gmgn-skills/gmgn-kline-pattern",
-        "installs": 8300,
-        "weeklyInstalls": [1243, 845, 779, 643, 562, 508, 763, 715],
-        "firstSeen": "2026-08-25"
       }
     },
     {
@@ -1027,19 +884,6 @@
         "installs": 8100,
         "weeklyInstalls": [727, 863, 909, 634, 840, 809, 882, 1037],
         "firstSeen": "2026-08-15"
-      }
-    },
-    {
-      "name": "gmgn-contract-dd",
-      "repo": "gmgnai/gmgn-skills",
-      "official": false,
-      "stars": 647,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/gmgnai/gmgn-skills/gmgn-contract-dd",
-        "installs": 8100,
-        "weeklyInstalls": [1257, 847, 792, 651, 566, 514, 767, 724],
-        "firstSeen": "2026-08-28"
       }
     },
     {
@@ -1261,19 +1105,6 @@
         "installs": 7600,
         "weeklyInstalls": [415, 307, 315, 322, 325, 320, 339, 266],
         "firstSeen": "2026-05-15"
-      }
-    },
-    {
-      "name": "gmgn-wallet-analysis",
-      "repo": "gmgnai/gmgn-skills",
-      "official": false,
-      "stars": 647,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/gmgnai/gmgn-skills/gmgn-wallet-analysis",
-        "installs": 7600,
-        "weeklyInstalls": [1256, 854, 795, 648, 566, 510, 768, 721],
-        "firstSeen": "2026-09-01"
       }
     },
     {
@@ -1573,19 +1404,6 @@
         "installs": 7200,
         "weeklyInstalls": [234, 837, 500, 315, 308, 299, 261, 193],
         "firstSeen": "2026-05-29"
-      }
-    },
-    {
-      "name": "gmgn-dev-score",
-      "repo": "gmgnai/gmgn-skills",
-      "official": false,
-      "stars": 647,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/gmgnai/gmgn-skills/gmgn-dev-score",
-        "installs": 7200,
-        "weeklyInstalls": [1244, 846, 784, 644, 565, 509, 765, 715],
-        "firstSeen": "2026-09-03"
       }
     },
     {

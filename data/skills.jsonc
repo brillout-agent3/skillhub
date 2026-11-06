@@ -2386,6 +2386,14 @@
         "description": "Agent Skills for solving CTF challenges: web exploitation, binary pwn, crypto, reverse engineering, forensics, OSINT and more.",
         "note": "Skills expect CTF tools (radare2, gdb, pwntools, sqlmap and others) installed; the repo ships scripts/install_ctf_tools.sh to install them."
       }
+    },
+    {
+      "id": "gmgnai/gmgn-skills",
+      "stars": 647,
+      "agentReview": {
+        "kind": "skills",
+        "description": "GMGN Agent Skills: real-time multi-chain memecoin data, token and wallet analysis, and trading for AI agents, through gmgn-cli."
+      }
     }
   ],
   "bundles": [
@@ -44300,6 +44308,813 @@
           "needs:cli",
           "by:community",
           "security"
+        ]
+      }
+    },
+    {
+      "id": "openai/skills/skills/.curated/security-best-practices",
+      "name": "security-best-practices",
+      "skills.sh": {
+        "url": "https://skills.sh/openai/skills/security-best-practices",
+        "installs": 12000,
+        "weeklyInstalls": [430, 508, 435, 497, 401, 498, 475, 456],
+        "firstSeen": "2026-02-02"
+      },
+      "skillMd": {
+        "version": "49f948faa9258a0c61caceaf225e179651397431",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Applies language- and framework-specific security guides while writing Python, JavaScript/TypeScript or Go code, and audits a codebase on request in a prioritized report.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you explicitly ask for secure-by-default code, a security review or a security report on a Python, JavaScript/TypeScript or Go project"
+            },
+            {
+              "label": "It does",
+              "text": "identifies every language and framework in scope, frontend and backend, and reads the skill's matching security guides before it writes or reviews"
+            },
+            {
+              "label": "Three modes",
+              "text": "writes secure code from then on, flags only high-impact issues while you work, or audits the whole codebase when you ask"
+            },
+            {
+              "label": "You get",
+              "text": "security_best_practices_report.md: an executive summary, numbered findings by severity with line numbers, then fixes one finding at a time once you agree"
+            },
+            {
+              "label": "Careful with",
+              "text": "TLS: it doesn't report missing TLS as a flaw, sets secure cookies only for apps served over TLS, and avoids recommending HSTS, which it calls dangerous"
+            }
+          ],
+          "text": "A security skill from OpenAI's catalog of Codex skills. It first works out every language and framework the project uses, then reads the guides in its references folder that match, named by language, framework and stack, plus a general guide for the language; for a web app it checks both frontend and backend. With no matching guide it falls back on well-known practices and, in a report, says that concrete guidance wasn't available. From there it either writes secure-by-default code, quietly watches for major vulnerabilities while working on your code, or produces a full report: an executive summary, findings grouped by severity with numeric IDs, line numbers and a one-sentence impact for critical ones, saved to security_best_practices_report.md unless you choose another place. Fixes come one finding at a time, after you agree, each with a short comment on the practice behind it, a check for regressions, and your usual tests and commit flow, without bundling unrelated findings into one commit. It follows project documentation that overrides a practice rather than fighting you. It doesn't trigger for general code review. The openai/skills repository is marked deprecated; its README points to openai/plugins for current Codex skills.",
+          "permalink": "https://github.com/openai/skills/tree/49f948faa9258a0c61caceaf225e179651397431/skills/.curated/security-best-practices"
+        },
+        "tags": [
+          "category:security",
+          "category:debugging",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:official",
+          "stack:python",
+          "stack:javascript",
+          "stack:typescript",
+          "stack:go",
+          "security",
+          "code-review"
+        ]
+      }
+    },
+    {
+      "id": "openai/skills/skills/.curated/gh-fix-ci",
+      "name": "gh-fix-ci",
+      "skills.sh": {
+        "url": "https://skills.sh/openai/skills/gh-fix-ci",
+        "installs": 11700,
+        "weeklyInstalls": [199, 193, 175, 268, 240, 279, 242, 182],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "49f948faa9258a0c61caceaf225e179651397431",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Finds a pull request's failing GitHub Actions checks with gh, summarizes their logs, and fixes them once you approve a plan.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a pull request's GitHub Actions checks are failing and you want them diagnosed and fixed"
+            },
+            {
+              "label": "It does",
+              "text": "checks gh is logged in, finds the PR for the current branch or the one you name, and pulls the failing runs' logs with a bundled Python script"
+            },
+            {
+              "label": "You get",
+              "text": "each failing check's name, run URL and log snippet, a fix plan to approve, then the fix with a summary of diffs and tests"
+            },
+            {
+              "label": "Needs",
+              "text": "the GitHub CLI, gh, logged in with repo and workflow scopes, and Python for the script"
+            },
+            {
+              "label": "Skips",
+              "text": "checks run by other CI providers such as Buildkite, reporting only their URL"
+            },
+            {
+              "label": "Unlike diagnose-ci-failures",
+              "text": "Warp's skill, which stops at a fix plan, this one carries out the plan after you approve it"
+            }
+          ],
+          "text": "A CI-repair loop from OpenAI's catalog of Codex skills. The agent confirms gh is authenticated, asking you to run gh auth login if not, resolves the PR (the current branch's by default, or a number or URL you give) and inspects its checks. A bundled script, inspect_pr_checks.py, finds the failing checks, fetches their GitHub Actions logs, falls back to job logs while a run is still in progress, and extracts the failure snippet; it can print JSON and exits non-zero while failures remain. Plain gh commands are the fallback. Checks from other providers are labelled external and only their details URL is reported. The agent summarizes each failure, calls out missing logs, and drafts a plan, through a create-plan skill when one is available or inline otherwise. Nothing changes until you approve. Then it applies the plan, summarizes the diffs and tests, asks whether to open a PR, and suggests re-running the tests and gh pr checks. The openai/skills repository is marked deprecated; its README points to openai/plugins for current Codex skills.",
+          "permalink": "https://github.com/openai/skills/tree/49f948faa9258a0c61caceaf225e179651397431/skills/.curated/gh-fix-ci"
+        },
+        "tags": [
+          "category:debugging",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:official",
+          "stack:github",
+          "ci",
+          "debugging"
+        ]
+      }
+    },
+    {
+      "id": "openai/skills/skills/.curated/playwright",
+      "name": "playwright",
+      "skills.sh": {
+        "url": "https://skills.sh/openai/skills/playwright",
+        "installs": 9100,
+        "weeklyInstalls": [363, 328, 362, 377, 287, 318, 365, 331],
+        "firstSeen": "2026-02-01"
+      },
+      "skillMd": {
+        "version": "49f948faa9258a0c61caceaf225e179651397431",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Drives a real browser from the terminal with playwright-cli to navigate, fill forms, take snapshots and screenshots, and debug UI flows.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "the agent needs a real browser from the terminal: open pages, fill forms, extract data, take screenshots or debug a UI flow"
+            },
+            {
+              "label": "It does",
+              "text": "runs Playwright's command-line tool through a bundled wrapper that calls it with npx, so no global install is needed"
+            },
+            {
+              "label": "Works by",
+              "text": "opening a page, taking a snapshot that gives each element a short ref like e15, acting on refs, and snapshotting again after anything changes"
+            },
+            {
+              "label": "You get",
+              "text": "screenshots, PDFs and traces when useful, kept under output/playwright/"
+            },
+            {
+              "label": "Needs",
+              "text": "Node.js with npx; the wrapper's default path assumes Codex's skills folder, ~/.codex/skills"
+            },
+            {
+              "label": "Unlike Microsoft's playwright-cli",
+              "text": "skill for the same tool, which also generates and repairs tests, this one stays CLI-first and writes no test files unless you ask"
+            }
+          ],
+          "text": "OpenAI's short skill for Playwright's command-line tool, written for Codex. Before proposing commands the agent checks that npx is available and, if not, asks you to install Node.js. It points a PWCLI variable at the bundled playwright_cli.sh, which runs @playwright/cli through npx; a global install works too. Work follows one loop: open a page, snapshot it to get element refs, click, type, fill or press using refs from the latest snapshot, and snapshot again after navigation, modals, tab switches or big UI changes, because refs go stale. Recipes cover filling and submitting a form, tracing a UI flow to debug it, and working across tabs; --headed shows the browser when a visual check helps. Its guardrails: never reference an element without a fresh snapshot, prefer explicit commands over eval and run-code, keep artifacts in output/playwright/, and use CLI commands rather than @playwright/test specs unless you ask for tests. A command reference and a workflows and troubleshooting file are opened only when needed. The openai/skills repository is marked deprecated; its README points to openai/plugins for current Codex skills.",
+          "permalink": "https://github.com/openai/skills/tree/49f948faa9258a0c61caceaf225e179651397431/skills/.curated/playwright"
+        },
+        "tags": [
+          "category:browser",
+          "type:tool",
+          "effect:remote",
+          "needs:cli",
+          "needs:browser",
+          "by:official",
+          "stack:playwright",
+          "browser-automation",
+          "scraping"
+        ]
+      }
+    },
+    {
+      "id": "openai/skills/skills/.curated/security-threat-model",
+      "name": "security-threat-model",
+      "skills.sh": {
+        "url": "https://skills.sh/openai/skills/security-threat-model",
+        "installs": 8700,
+        "weeklyInstalls": [366, 393, 364, 565, 402, 398, 383, 379],
+        "firstSeen": "2026-02-02"
+      },
+      "skillMd": {
+        "version": "49f948faa9258a0c61caceaf225e179651397431",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes a repository-grounded threat model: trust boundaries, assets, attacker capabilities, ranked abuse paths and mitigations, after checking its assumptions with you.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you explicitly ask to threat model a codebase or path, or to list its abuse paths"
+            },
+            {
+              "label": "It does",
+              "text": "maps components, data flows, trust boundaries, assets and entry points from evidence in the repo, then ranks threats by likelihood and impact"
+            },
+            {
+              "label": "Asks you",
+              "text": "to confirm its key assumptions and answer one to three questions about deployment, exposure, auth and data before it writes the report"
+            },
+            {
+              "label": "You get",
+              "text": "<repo-or-dir-name>-threat-model.md, with a Mermaid diagram of trust boundaries, a threat table with IDs like TM-001, mitigations and paths worth reviewing by hand"
+            },
+            {
+              "label": "Unlike stride-analysis-patterns",
+              "text": "which walks STRIDE's six categories over any system, this one anchors every claim to the repository and keeps the threat list short"
+            }
+          ],
+          "text": "An application-security threat model from OpenAI's catalog of Codex skills. The agent builds a model of the system from the repo: components, data stores, integrations, how it runs and its entry points, keeping runtime apart from CI, build tooling and tests, and claiming nothing it can't point to. It lists trust boundaries as concrete edges with their protocol, auth, encryption, validation and rate limits, the assets that drive risk, and realistic attacker capabilities, including what an attacker can't do, so severity isn't inflated. Threats are written as abuse paths tied to assets and ranked low to critical by likelihood times impact, adjusted for existing controls. Before the final report it pauses to confirm assumptions with you; whatever stays unanswered is kept as an explicit assumption and makes recommendations conditional. Mitigations separate existing controls, with evidence, from recommended ones tied to specific locations. A quality check confirms every entry point and trust boundary is covered. The report follows a fixed template: executive summary, scope and assumptions, system model, assets, attacker model, entry points, top abuse paths, the threat table, criticality calibration and focus paths. The openai/skills repository is marked deprecated; its README points to openai/plugins for current Codex skills.",
+          "permalink": "https://github.com/openai/skills/tree/49f948faa9258a0c61caceaf225e179651397431/skills/.curated/security-threat-model"
+        },
+        "tags": [
+          "category:security",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:official",
+          "security",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "id": "gmgnai/gmgn-skills/skills/gmgn-holder-analysis",
+      "name": "gmgn-holder-analysis",
+      "skills.sh": {
+        "url": "https://skills.sh/gmgnai/gmgn-skills/gmgn-holder-analysis",
+        "installs": 11400,
+        "weeklyInstalls": [1264, 851, 793, 649, 575, 513, 774, 723],
+        "firstSeen": "2026-07-16"
+      },
+      "skillMd": {
+        "version": "6a04e1f00b5463cfc965e41003ca0c7c2db5b69f",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Rates a token's holder structure from its top 100 holders on GMGN, flagging whales, insiders, bundlers, snipers and dev-linked wallets.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to know who holds a memecoin and whether its holder mix makes it risky to buy"
+            },
+            {
+              "label": "It does",
+              "text": "runs a bundled Python script over the token's top 100 holders and its dev's record through gmgn-cli, and pastes the report verbatim"
+            },
+            {
+              "label": "You get",
+              "text": "concentration, entry costs, whale, dev and KOL behaviour, risk wallets and linked funding, rated from Not Recommended to Normal"
+            },
+            {
+              "label": "Measures against",
+              "text": "the tradeable float, the supply minus burned tokens and the DEX pool, not total supply as GMGN's own site does"
+            },
+            {
+              "label": "Missing data",
+              "text": "never reads as safe: an empty holder list or a float under 2% of supply is rated Cannot Assess, and no float percentages print"
+            },
+            {
+              "label": "Needs",
+              "text": "gmgn-cli and a GMGN API key; the script is called from ~/.claude/skills"
+            }
+          ],
+          "text": "One of GMGN's analysis skills for memecoin traders. You give a token address and chain; the agent runs analyze.py, which pulls the top 100 holders, the dev's holdings and the dev's other launches through gmgn-cli, then pastes the whole report, in Chinese unless you wrote in English, with no commentary. The report covers top-10 and top-20 concentration, holders' entry cost and profit, whales, dev and KOL wallets, smart-money signals, and risk wallets: rat traders (insider wallets), bundlers (bot-bundled buys) and snipers who bought at launch. It groups wallets funded from the same source at nearly the same time, and flags dev sock puppets: top-100 wallets that received the dev's tokens or had their gas paid by the dev. The rating is Not Recommended when rat traders hold over 5%, one wallet over 10%, or a sock puppet appears; Caution or Light Position when softer warnings fire, such as the dev still holding over 1%; Normal otherwise. A wallet counts as zero-cost only with no cost evidence at all, since buy counts aren't indexed on every chain, and the token's own contract is reported separately, not as a holder.",
+          "permalink": "https://github.com/gmgnai/gmgn-skills/tree/6a04e1f00b5463cfc965e41003ca0c7c2db5b69f/skills/gmgn-holder-analysis"
+        },
+        "tags": [
+          "category:science",
+          "type:tool",
+          "effect:none",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:gmgn",
+          "web3",
+          "finance"
+        ],
+        "note": "Needs gmgn-cli and a GMGN API key, from gmgn.ai."
+      }
+    },
+    {
+      "id": "gmgnai/gmgn-skills/skills/gmgn-kline-pattern",
+      "name": "gmgn-kline-pattern",
+      "skills.sh": {
+        "url": "https://skills.sh/gmgnai/gmgn-skills/gmgn-kline-pattern",
+        "installs": 8300,
+        "weeklyInstalls": [1243, 845, 779, 643, 562, 508, 763, 715],
+        "firstSeen": "2026-08-25"
+      },
+      "skillMd": {
+        "version": "6a04e1f00b5463cfc965e41003ca0c7c2db5b69f",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Names the chart pattern of a token's recent candles on GMGN and scores it 0–100, showing every number and point behind the score.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a technical read of a token's chart: trending, breaking down, basing or just consolidating"
+            },
+            {
+              "label": "It does",
+              "text": "fetches candles with one gmgn-cli call, 15-minute by default, and computes six numbers itself: trend, slope, volatility, drawdown, volume ratio and rise from the low"
+            },
+            {
+              "label": "You get",
+              "text": "one of eleven named patterns, such as uptrend channel, breakdown or bounce off the lows, and a 0–100 score listing every point added or taken away"
+            },
+            {
+              "label": "Won't",
+              "text": "read a pattern from fewer than 8 usable candles, or present the score as a prediction or buy signal"
+            },
+            {
+              "label": "Checks first",
+              "text": "that the address is well formed before it reaches a shell, and asks which one you mean when you paste two"
+            },
+            {
+              "label": "Needs",
+              "text": "gmgn-cli and a GMGN API key; 1-second candles need a Pro key"
+            }
+          ],
+          "text": "A chart-reading skill from GMGN for memecoin traders, with no script: the agent does the arithmetic itself from one market kline response. It sorts the candles by time, converts the price fields, which arrive as strings, and drops broken candles. Then it computes six measurements and shows them so you can check them: whether the 9-bar average is above, below or equal to the 21-bar one, the slope over the last 20 or so bars, the average candle range, the drawdown from the range high, the last bar's volume against the previous 20, and the rise from the range low. A division by zero makes a measurement unavailable rather than zero, and the rules that need it are skipped and listed. The first matching rule names the pattern. The score starts at 50 and moves by fixed amounts for trend, slope, volume spikes, drawdown and new highs on shrinking volume; volatility and runs of five same-colour candles are reported as context only. Prices under 0.001 print in scientific notation. The output ends by saying a pattern describes the past and isn't investment advice. It answers in Chinese if you write Chinese, English otherwise, and never trades.",
+          "permalink": "https://github.com/gmgnai/gmgn-skills/tree/6a04e1f00b5463cfc965e41003ca0c7c2db5b69f/skills/gmgn-kline-pattern"
+        },
+        "tags": [
+          "category:science",
+          "type:workflow",
+          "effect:none",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:gmgn",
+          "web3",
+          "finance"
+        ],
+        "note": "Needs gmgn-cli and a GMGN API key, from gmgn.ai."
+      }
+    },
+    {
+      "id": "gmgnai/gmgn-skills/skills/gmgn-contract-dd",
+      "name": "gmgn-contract-dd",
+      "skills.sh": {
+        "url": "https://skills.sh/gmgnai/gmgn-skills/gmgn-contract-dd",
+        "installs": 8100,
+        "weeklyInstalls": [1257, 847, 792, 651, 566, 514, 767, 724],
+        "firstSeen": "2026-08-28"
+      },
+      "skillMd": {
+        "version": "6a04e1f00b5463cfc965e41003ca0c7c2db5b69f",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Scores a token contract 0–100 on whether you can safely buy in and get back out, from GMGN's contract, holder and price data.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you paste a token address and want one verdict: is it safe to buy, is it a rug or a honeypot"
+            },
+            {
+              "label": "It does",
+              "text": "reads the token's info, security fields and 15-minute candles through gmgn-cli, scores contract safety, holders and price from 100 each, and weights them 45%, 35% and 20%"
+            },
+            {
+              "label": "You get",
+              "text": "a fixed report: the score, a band from buyable to do not buy, the weak side named, then selling, pool, holders, launcher, price and what to do"
+            },
+            {
+              "label": "Caps",
+              "text": "GMGN's rug label, unlocked liquidity and a missing honeypot or open-source check cap the score; a honeypot flag (you can buy but not sell) sets it to 0"
+            },
+            {
+              "label": "Never counts",
+              "text": "a missing field as a passing check; most gaps only lower the confidence label, though too few candles costs up to 12 points"
+            },
+            {
+              "label": "Hands off",
+              "text": "wallet addresses to gmgn-wallet-analysis, and token names or position sizing to gmgn-token-buy"
+            },
+            {
+              "label": "Needs",
+              "text": "gmgn-cli and a GMGN API key; no private key"
+            }
+          ],
+          "text": "GMGN's due-diligence skill for memecoins. The agent first checks that GMGN has a record of the address; an empty record may be a wallet, which it probes for and hands to gmgn-wallet-analysis instead of scoring. Each section starts at 100 and loses points for named findings: for the contract, honeypot, open source, renounced ownership, blacklist, taxes, LP lock, liquidity and its shrinkage, how many tokens the deployer has launched and reused logos; for holders, top-ten concentration, holder count and GMGN's bundler, rat-trader, sniper and other wallet tags; for price, drawdown, the worst candle, the 24-hour move and volume. The composite takes the lowest cap that applies, including one from GMGN's rug ratio, found by scanning its trenches and trending listings. A confidence label, from how many checks ran, says how far the number can be trusted, and the token's age sits beside it so a young token's clean score doesn't read as reassurance. Token names and links are treated as attacker-controlled: instruction-like text is reported as a risk, never followed. It only reads data and ends by saying it's a rule-based read, not investment advice.",
+          "permalink": "https://github.com/gmgnai/gmgn-skills/tree/6a04e1f00b5463cfc965e41003ca0c7c2db5b69f/skills/gmgn-contract-dd"
+        },
+        "tags": [
+          "category:science",
+          "type:workflow",
+          "effect:none",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:gmgn",
+          "web3",
+          "finance"
+        ],
+        "note": "Needs gmgn-cli and a GMGN API key, from gmgn.ai."
+      }
+    },
+    {
+      "id": "gmgnai/gmgn-skills/skills/gmgn-wallet-analysis",
+      "name": "gmgn-wallet-analysis",
+      "skills.sh": {
+        "url": "https://skills.sh/gmgnai/gmgn-skills/gmgn-wallet-analysis",
+        "installs": 7600,
+        "weeklyInstalls": [1256, 854, 795, 648, 566, 510, 768, 721],
+        "firstSeen": "2026-09-01"
+      },
+      "skillMd": {
+        "version": "6a04e1f00b5463cfc965e41003ca0c7c2db5b69f",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Decides whether a memecoin wallet is worth copy-trading, through four pass/fail gates on its GMGN record, plus what it holds and buys now.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you paste a wallet address, or ask whether a wallet can be copied, what it's buying now or whether it's still hot"
+            },
+            {
+              "label": "It does",
+              "text": "runs a bundled Python script that pulls the wallet's stats, profits, activity and holdings through gmgn-cli, and pastes its report verbatim"
+            },
+            {
+              "label": "Four gates",
+              "text": "is the record real, is the edge still working this week, can you get its fills given your delay, and does it cut losses"
+            },
+            {
+              "label": "You get",
+              "text": "who the wallet is, a caliber grade, a 7-day backtest, a verdict from COPYABLE AT SMALL SIZE to DO NOT COPY that names its cause, and three follow-up questions"
+            },
+            {
+              "label": "Unmeasured stays unmeasured",
+              "text": "a gate it can't check shows as not evaluated: never as a pass, and never as a red flag"
+            },
+            {
+              "label": "Options",
+              "text": "your lag in seconds, 3 by default, the position size you plan, and a brief mode that prints only the verdict card"
+            },
+            {
+              "label": "Needs",
+              "text": "gmgn-cli and a GMGN API key; live holdings and the honeypot check also need GMGN_PRIVATE_KEY, the CLI's request-signing key, not a wallet's private key"
+            }
+          ],
+          "text": "GMGN's copy-trading dossier for memecoin wallets. Where gmgn-wallet-score rates a trader on a scale, this decides whether to act on one. Authenticity fails on a corroborated wash-trading tag, profit mostly from tokens the wallet launched, fewer than five tokens traded, or one token carrying the result. Currency fails when the last 7 days are down while all-time is up, or 7 and 30 days are both negative. Reachability fails when, for instance, its copy window (the median seconds from its first buy of a token to its first sell) is under three times your lag, or it buys very small caps or carries a sandwich or MEV bot tag. Survivability fails when it holds honeypots or rides many positions to zero. The first two gates veto; the last two change what you do. It also gives the entry market-cap band and a size cap: half the wallet's average buy. Without the signing key it skips live positions and the honeypot check. It never trades; gmgn-swap acts on a verdict. A full run uses about 23 units of GMGN's rate limit, so don't run wallets back to back. The script runs from ~/.claude/skills. English by default, Chinese if you write Chinese.",
+          "permalink": "https://github.com/gmgnai/gmgn-skills/tree/6a04e1f00b5463cfc965e41003ca0c7c2db5b69f/skills/gmgn-wallet-analysis"
+        },
+        "tags": [
+          "category:science",
+          "type:tool",
+          "effect:none",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:gmgn",
+          "web3",
+          "finance"
+        ],
+        "note": "Live holdings need GMGN_PRIVATE_KEY. Despite the name, it is not a crypto wallet's private key: it is a request-signing key that gmgn-cli config generates on your machine and pairs with your GMGN API key. Never give this skill a wallet's private key or seed phrase; it doesn't ask for one. Keep the signing key private anyway: gmgn-cli stores it in plain text in ~/.config/gmgn/.env, and the same key signs the CLI's swap and order requests. Without it, the report still runs but leaves out live positions and the honeypot check. Setup also asks you to paste your GMGN API key into the chat."
+      }
+    },
+    {
+      "id": "gmgnai/gmgn-skills/skills/gmgn-dev-score",
+      "name": "gmgn-dev-score",
+      "skills.sh": {
+        "url": "https://skills.sh/gmgnai/gmgn-skills/gmgn-dev-score",
+        "installs": 7200,
+        "weeklyInstalls": [1244, 846, 784, 644, 565, 509, 765, 715],
+        "firstSeen": "2026-09-03"
+      },
+      "skillMd": {
+        "version": "6a04e1f00b5463cfc965e41003ca0c7c2db5b69f",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Scores a token creator 0–100 from their launches and their trades in them, then says whether and when to buy their next launch.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're deciding whether to buy a launcher's next token, or ask whether a token's dev has rugged before"
+            },
+            {
+              "label": "It does",
+              "text": "runs a bundled Python script over the dev's launch history and every trade they made in their own coins, then writes the report from its JSON"
+            },
+            {
+              "label": "Two scores",
+              "text": "conduct, whether they dump on buyers at open, and power, whether they ever built anything big; a big past coin never offsets a dump record"
+            },
+            {
+              "label": "You get",
+              "text": "a fixed nine-section report: score and band, open-dump record, what moved the score, best coins, what they did, and buy or not with a timing window"
+            },
+            {
+              "label": "Timing",
+              "text": "always quotes the dev's fastest first sell, never the median"
+            },
+            {
+              "label": "Unlike gmgn-wallet-score",
+              "text": "which profiles a wallet, this answers a buy decision; it asks one question when it can't tell which you want"
+            },
+            {
+              "label": "Needs",
+              "text": "gmgn-cli and a GMGN API key; the script is called from ~/.claude/skills"
+            }
+          ],
+          "text": "GMGN's skill for judging a memecoin launcher before their next launch. Give it a creator address, or a token address it resolves to its creator. If you don't give a chain, it probes chains one at a time, never in parallel because that gets the key banned, and analyses the one with the most migrated launches. dev_score.py walks up to 25 pages of trades by default and prints one JSON object; the agent writes the report from it, in your language. Its rules: state no number the JSON doesn't carry, treat a missing value as missing rather than zero, keep the verdict band without softening it, and keep what the market did to the coins apart from what the dev did to holders. Supply moved to other wallets is reported but not counted as a dump, and bundled buying at open is shown but not scored. Coverage gaps, such as a truncated trade history that can only make the dev look cleaner, are spelled out. Before answering it silently checks absolute claims, such as \"never dumped\", against the raw trade feed. If the address can't be scored, it says why and stops.",
+          "permalink": "https://github.com/gmgnai/gmgn-skills/tree/6a04e1f00b5463cfc965e41003ca0c7c2db5b69f/skills/gmgn-dev-score"
+        },
+        "tags": [
+          "category:science",
+          "type:tool",
+          "effect:none",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:gmgn",
+          "web3",
+          "finance"
+        ],
+        "note": "Needs gmgn-cli and a GMGN API key, from gmgn.ai."
+      }
+    },
+    {
+      "id": "phuryn/pm-skills/pm-execution/skills/create-prd",
+      "name": "create-prd",
+      "skills.sh": {
+        "url": "https://skills.sh/phuryn/pm-skills/create-prd",
+        "installs": 11000,
+        "weeklyInstalls": [165, 164, 127, 113, 110, 138, 184, 151],
+        "firstSeen": "2026-03-04"
+      },
+      "skillMd": {
+        "version": "2a12295a7717569baa7be181b4cfebe3ca38a6bb",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes a lean, one-to-two-page PRD in eight sections, asking first about the problem, users and success metric if you haven't said.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're writing a PRD or feature spec, or want an existing PRD reviewed"
+            },
+            {
+              "label": "It does",
+              "text": "asks up to three questions if the problem, users or success metric is missing, searches the web on the market and competitors when it helps, then writes"
+            },
+            {
+              "label": "You get",
+              "text": "PRD-[product-name].md, about one to two pages: summary, contacts, background, objective, segments, value propositions, solution and release"
+            },
+            {
+              "label": "Value propositions",
+              "text": "one per segment, in a six-part template: who, why, what before, how, what after, and the alternatives they'd use without you"
+            },
+            {
+              "label": "Reviewing a PRD",
+              "text": "it returns the gaps that block a decision first, then what to cut"
+            }
+          ],
+          "text": "From the PM Skills marketplace's pm-execution plugin. The agent acts as an experienced product manager writing the shortest PRD that lets a team decide and start, roughly 600 to 1,000 words unless you ask for more. If the problem, the target users or how success will be measured is missing, it asks up to three short questions and writes nothing until you answer or tell it to go ahead, then marks the gaps as assumptions. When it helps, it searches the web for the market, competitors and regulations, cites sources beside claims, and keeps only findings that change a decision. Market segments, defined by problems rather than demographics, and a value proposition for each are always included; the solution has to deliver each proposition's how, and one to three key results measure its what after. Sections with little to say get a line, unknown contacts are left out, nothing is padded with TBD, and anything unproven goes under assumptions and open questions. The release section says what's in the first version, what comes later and what's out, in relative timeframes. It writes in short, plain sentences, and its reply lists what it left out so you can ask for more.",
+          "permalink": "https://github.com/phuryn/pm-skills/tree/2a12295a7717569baa7be181b4cfebe3ca38a6bb/pm-execution/skills/create-prd"
+        },
+        "tags": [
+          "category:planning",
+          "category:writing",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "requirements",
+          "planning",
+          "docs-writing"
+        ]
+      }
+    },
+    {
+      "id": "phuryn/pm-skills/pm-execution/skills/pre-mortem",
+      "name": "pre-mortem",
+      "skills.sh": {
+        "url": "https://skills.sh/phuryn/pm-skills/pre-mortem",
+        "installs": 10400,
+        "weeklyInstalls": [115, 110, 94, 102, 103, 102, 167, 136],
+        "firstSeen": "2026-03-04"
+      },
+      "skillMd": {
+        "version": "2a12295a7717569baa7be181b4cfebe3ca38a6bb",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Runs a pre-mortem on a PRD or launch plan, sorting risks into Tigers, Paper Tigers and Elephants, with action plans for launch blockers.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a launch is coming and you want to find what could sink it while there's still time to act"
+            },
+            {
+              "label": "It does",
+              "text": "imagines the product launches in 14 days and fails, then works back to what went wrong and what the team was overconfident about"
+            },
+            {
+              "label": "Sorts risks into",
+              "text": "Tigers, real threats; Paper Tigers, overblown worries; and Elephants, unspoken concerns nobody is checking"
+            },
+            {
+              "label": "You get",
+              "text": "PreMortem-[product-name]-[date].md, with Tigers marked launch-blocking, fast-follow or track, and a mitigation, owner and due date for each blocker"
+            },
+            {
+              "label": "Unlike strategy-red-team",
+              "text": "its sibling in the same plugin, which attacks the plan's assumptions now instead of narrating a failure"
+            }
+          ],
+          "text": "From the PM Skills marketplace's pm-execution plugin. The agent plays a veteran product manager. It reads the PRD or plan you give it, searching the web for the competitive landscape or market when relevant, then assumes the launch has failed: customers didn't adopt it, revenue missed, reputation took a hit. Each cause it finds becomes a Tiger, a real problem backed by evidence, experience or clear logic; a Paper Tiger, a concern others might raise that it judges unlikely or overblown, written down to align stakeholders; or an Elephant, something the team isn't discussing enough that deserves investigation. Tigers are then ranked launch-blocking (solve before launch), fast-follow (within 30 days of launch) or track (watch after launch). Every launch-blocking Tiger gets a concrete mitigation, an owner and a decision or completion date. When unsure, it calls a risk a Tiger, and it draws on engineering, design and go-to-market perspectives. It suggests revisiting the pre-mortem two to three weeks before launch to check the mitigations are on track.",
+          "permalink": "https://github.com/phuryn/pm-skills/tree/2a12295a7717569baa7be181b4cfebe3ca38a6bb/pm-execution/skills/pre-mortem"
+        },
+        "tags": [
+          "category:planning",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "planning"
+        ]
+      }
+    },
+    {
+      "id": "phuryn/pm-skills/pm-execution/skills/prioritization-frameworks",
+      "name": "prioritization-frameworks",
+      "skills.sh": {
+        "url": "https://skills.sh/phuryn/pm-skills/prioritization-frameworks",
+        "installs": 10100,
+        "weeklyInstalls": [108, 107, 93, 84, 81, 78, 130, 104],
+        "firstSeen": "2026-03-04"
+      },
+      "skillMd": {
+        "version": "2a12295a7717569baa7be181b4cfebe3ca38a6bb",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Explains nine prioritization frameworks, from Opportunity Score and ICE to RICE, Kano and MoSCoW, with formulas and when to use each.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're choosing how to prioritize, comparing RICE and ICE, or learning how a framework works"
+            },
+            {
+              "label": "Core rule",
+              "text": "prioritize customer problems, not features, and never let customers design the solution"
+            },
+            {
+              "label": "Recommends",
+              "text": "Opportunity Score, importance × (1 − satisfaction), for customer problems, and ICE for quick prioritization of ideas"
+            },
+            {
+              "label": "You get",
+              "text": "formulas for Opportunity Score, ICE and RICE, a table of all nine frameworks with what each suits, and links to templates"
+            },
+            {
+              "label": "Runs",
+              "text": "as a reference only: no steps and no file"
+            }
+          ],
+          "text": "A reference card from the PM Skills marketplace's pm-execution plugin. It starts from one principle: rank problems (opportunities), not features. Opportunity Score, from Dan Olsen's The Lean Product Playbook, surveys customers on how important each need is and how satisfied they are, normalized to 0–1; importance × (1 − satisfaction) finds the biggest gaps, plotted on an importance versus satisfaction chart. ICE multiplies impact (Opportunity Score × customers affected) by confidence and ease, scored 1–10. RICE splits reach out of impact, takes confidence as a percentage and divides by effort in person-months, for larger teams. A table places all nine: the Eisenhower Matrix for personal tasks, Impact vs Effort for quick triage, Risk vs Reward when uncertainty matters, Opportunity Score for customer problems, Kano for understanding expectations rather than ranking, the Weighted Decision Matrix for stakeholder buy-in, ICE, RICE, and MoSCoW for requirements, with a caution about its project-management origin. It links Google Sheets and Slides templates for Opportunity Score, ICE and RICE.",
+          "permalink": "https://github.com/phuryn/pm-skills/tree/2a12295a7717569baa7be181b4cfebe3ca38a6bb/pm-execution/skills/prioritization-frameworks"
+        },
+        "tags": [
+          "category:planning",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "planning"
+        ]
+      }
+    },
+    {
+      "id": "phuryn/pm-skills/pm-execution/skills/outcome-roadmap",
+      "name": "outcome-roadmap",
+      "skills.sh": {
+        "url": "https://skills.sh/phuryn/pm-skills/outcome-roadmap",
+        "installs": 10100,
+        "weeklyInstalls": [109, 108, 86, 82, 74, 75, 132, 95],
+        "firstSeen": "2026-03-04"
+      },
+      "skillMd": {
+        "version": "2a12295a7717569baa7be181b4cfebe3ca38a6bb",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Rewrites a feature roadmap as outcome statements, \"Enable [segment] to [outcome] so that [business impact]\", with success metrics and dependencies.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "your roadmap lists features and you want it to say what each will change for customers and the business"
+            },
+            {
+              "label": "It does",
+              "text": "asks of each initiative what outcome it serves, which customer problem it solves and which metric moves, then rewrites it"
+            },
+            {
+              "label": "Format",
+              "text": "Enable [customer segment] to [desired customer outcome] so that [business impact]"
+            },
+            {
+              "label": "You get",
+              "text": "the roadmap by quarter or phase, each initiative beside its outcome statement, success metrics and sequencing notes, plus strategic context"
+            },
+            {
+              "label": "Writes",
+              "text": "Outcome-Roadmap-[year].md when the result is substantial"
+            }
+          ],
+          "text": "From the PM Skills marketplace's pm-execution plugin. Feature-list roadmaps, it argues, create false precision and align teams on output instead of results. The agent reads your current roadmap and, if you mention strategy documents or company objectives, searches the web to see how the roadmap should line up with them. For each initiative it names the planned output, asks why it's being built and what changes for customers or the business, considers whether there's a better way to reach the same outcome, and rewrites it as an outcome statement. Its example turns \"build advanced search filters\" into \"enable customers to find products 50% faster through intuitive discovery\". The result lists the original initiatives by quarter or phase beside their outcomes, the metrics that will show success, and dependencies, then adds how the outcomes align with company strategy, key assumptions about customer needs, and flexible release windows in quarters rather than dates. Outcomes should be testable and measurable; when it's unclear what a feature drives, it keeps asking \"so what?\" until it reaches real customer or business value.",
+          "permalink": "https://github.com/phuryn/pm-skills/tree/2a12295a7717569baa7be181b4cfebe3ca38a6bb/pm-execution/skills/outcome-roadmap"
+        },
+        "tags": [
+          "category:planning",
+          "type:command",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "planning"
+        ]
+      }
+    },
+    {
+      "id": "phuryn/pm-skills/pm-execution/skills/strategy-red-team",
+      "name": "strategy-red-team",
+      "skills.sh": {
+        "url": "https://skills.sh/phuryn/pm-skills/strategy-red-team",
+        "installs": 9500,
+        "weeklyInstalls": [125, 137, 115, 113, 98, 103, 163, 134],
+        "firstSeen": "2026-06-05"
+      },
+      "skillMd": {
+        "version": "2a12295a7717569baa7be181b4cfebe3ca38a6bb",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Red-teams a PRD, roadmap or strategy, attacking its load-bearing assumptions and giving each the cheapest test and a kill criterion.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're stress-testing a plan, challenging its assumptions or preparing a document for executive review"
+            },
+            {
+              "label": "It does",
+              "text": "lists what the plan claims, keeps the load-bearing claims that would kill it if false, and attacks the strongest version of each"
+            },
+            {
+              "label": "You get",
+              "text": "three to five kill-assumptions ranked by impact × likelihood × cheapness to test, each with how it fails, evidence to get this week, a kill criterion and the cheapest test"
+            },
+            {
+              "label": "Also says",
+              "text": "what's well reasoned and why, and what it couldn't assess"
+            },
+            {
+              "label": "Unlike pre-mortem",
+              "text": "which imagines the launch already failed, it attacks the assumptions now, while the cheapest test can still run"
+            },
+            {
+              "label": "Optional",
+              "text": "on request, and when another model such as Codex or Gemini is reachable, runs the plan past it and flags where they disagree"
+            }
+          ],
+          "text": "From the PM Skills marketplace's pm-execution plugin. The agent plays a sharp but fair adversary. It extracts every claim the plan makes about users, market, constraints, mechanism and timeline, and separates load-bearing claims from cosmetic ones. For each load-bearing claim it first states the strongest case for it, then attacks that case, writing each failure mode as a concrete, falsifiable \"Fails if ___\". It ranks them by impact if wrong × likelihood of being wrong × cheapness to test, so the top of the list is what to test this week. It treats a risk as real unless the plan already cites evidence against it, but says plainly when a claim is well reasoned and never invents a weakness. Each surviving assumption gets the evidence to collect this week, the threshold at which you'd stop or change course, and the smallest experiment that would move the belief. The output is a Markdown reply, not a saved file, meant to be screenshotted, with no generic risk lists, and it ends on what to do rather than what to fear.",
+          "permalink": "https://github.com/phuryn/pm-skills/tree/2a12295a7717569baa7be181b4cfebe3ca38a6bb/pm-execution/skills/strategy-red-team"
+        },
+        "tags": [
+          "category:planning",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "planning"
         ]
       }
     }
