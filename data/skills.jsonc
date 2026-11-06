@@ -2668,6 +2668,177 @@
           }
         ]
       }
+    },
+    {
+      "id": "addyosmani/agent-skills",
+      "skew": 0,
+      "agentReview": {
+        "name": "Addy's Agent Skills",
+        "description": "Twenty-five engineering skills for every phase of building software: define, plan, build, verify, review and ship.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want your agent to follow a senior engineer's process at every phase, from a vague idea to a production launch"
+            },
+            {
+              "label": "It does",
+              "text": "gives each phase its own skills: interview, spec, plan, build in tested slices, debug, review, simplify, secure, commit, document and ship"
+            },
+            {
+              "label": "You get",
+              "text": "a spec you approve, a plan in tasks/plan.md and tasks/todo.md, small tested commits, a five-axis code review and a launch checklist with a rollback plan"
+            },
+            {
+              "label": "Runs",
+              "text": "by itself: each skill loads when the work matches it, and using-agent-skills maps a task to its skill when the choice isn't obvious"
+            },
+            {
+              "label": "Commands",
+              "text": "in Claude Code, slash commands such as /spec, /plan, /build, /test, /review and /ship start the matching skills; /build auto works through a whole plan after one approval"
+            },
+            {
+              "label": "Works with",
+              "text": "Claude Code, Codex, Gemini CLI, Antigravity, Command Code and any agent the skills CLI supports"
+            },
+            {
+              "label": "Install whole",
+              "text": "a single-skill install copies only that skill's folder, so its links to the repo's shared checklists break, though the skill still works"
+            }
+          ],
+          "text": "Addy Osmani's pack maps software work onto six phases. using-agent-skills, the entry point, picks the skill for a task and sets shared rules: state assumptions, push back, stay in scope, verify before claiming done. Define: interview-me finds out what you actually want, idea-refine turns a rough idea into a one-pager, spec-driven-development writes the spec and waits for your approval, and constraint-driven-development records the quality bar in CONSTRAINTS.md. Plan: planning-and-task-breakdown turns the spec into ordered tasks. Build: context-engineering loads the right context and source-driven-development checks framework code against official docs; incremental-implementation and test-driven-development then deliver each task as small tested commits, helped by frontend-ui-engineering and api-and-interface-design, with observability-and-instrumentation adding telemetry alongside and doubt-driven-development sending non-trivial decisions to an adversarial reviewer. Verify: browser-testing-with-devtools and debugging-and-error-recovery. Review: code-review-and-quality, code-simplification, security-and-hardening and performance-optimization. Ship: git-workflow-and-versioning, ci-cd-and-automation, documentation-and-adrs, deprecation-and-migration and shipping-and-launch. Every skill but the router has a table of excuses to reject and a verification checklist, and works alone. The repo also ships reviewer personas and shared checklists that only a whole-repo install brings.",
+          "permalink": "https://github.com/addyosmani/agent-skills/tree/301b02b12bff98e4688e6984af6556802322bbde"
+        },
+        "skills": [
+          {
+            "id": "addyosmani/agent-skills/skills/using-agent-skills",
+            "standalone": false,
+            "note": "Routes each task to the bundle's other skills; alone, it only adds its shared rules."
+          },
+          {
+            "id": "addyosmani/agent-skills/skills/interview-me",
+            "standalone": true
+          },
+          {
+            "id": "addyosmani/agent-skills/skills/idea-refine",
+            "standalone": true
+          },
+          {
+            "id": "addyosmani/agent-skills/skills/spec-driven-development",
+            "standalone": true
+          },
+          {
+            "id": "addyosmani/agent-skills/skills/constraint-driven-development",
+            "standalone": true
+          },
+          {
+            "id": "addyosmani/agent-skills/skills/planning-and-task-breakdown",
+            "standalone": true
+          },
+          {
+            "id": "addyosmani/agent-skills/skills/context-engineering",
+            "standalone": true
+          },
+          {
+            "id": "addyosmani/agent-skills/skills/source-driven-development",
+            "standalone": true
+          },
+          {
+            "id": "addyosmani/agent-skills/skills/incremental-implementation",
+            "standalone": true
+          },
+          {
+            "id": "addyosmani/agent-skills/skills/frontend-ui-engineering",
+            "standalone": true
+          },
+          {
+            "id": "addyosmani/agent-skills/skills/api-and-interface-design",
+            "standalone": true
+          },
+          {
+            "id": "addyosmani/agent-skills/skills/observability-and-instrumentation",
+            "standalone": true
+          },
+          {
+            "id": "addyosmani/agent-skills/skills/doubt-driven-development",
+            "standalone": true
+          },
+          {
+            "id": "addyosmani/agent-skills/skills/test-driven-development",
+            "standalone": true
+          },
+          {
+            "id": "addyosmani/agent-skills/skills/browser-testing-with-devtools",
+            "standalone": true
+          },
+          {
+            "id": "addyosmani/agent-skills/skills/debugging-and-error-recovery",
+            "standalone": true
+          },
+          {
+            "id": "addyosmani/agent-skills/skills/code-review-and-quality",
+            "standalone": true
+          },
+          {
+            "id": "addyosmani/agent-skills/skills/code-simplification",
+            "standalone": true
+          },
+          {
+            "id": "addyosmani/agent-skills/skills/security-and-hardening",
+            "standalone": true
+          },
+          {
+            "id": "addyosmani/agent-skills/skills/performance-optimization",
+            "standalone": true
+          },
+          {
+            "id": "addyosmani/agent-skills/skills/git-workflow-and-versioning",
+            "standalone": true
+          },
+          {
+            "id": "addyosmani/agent-skills/skills/ci-cd-and-automation",
+            "standalone": true
+          },
+          {
+            "id": "addyosmani/agent-skills/skills/documentation-and-adrs",
+            "standalone": true
+          },
+          {
+            "id": "addyosmani/agent-skills/skills/deprecation-and-migration",
+            "standalone": true
+          },
+          {
+            "id": "addyosmani/agent-skills/skills/shipping-and-launch",
+            "standalone": true
+          }
+        ],
+        "install": [
+          {
+            "label": "Any agent, with the skills CLI",
+            "command": "npx skills add addyosmani/agent-skills"
+          },
+          {
+            "label": "Claude Code plugin",
+            "command": "claude plugin marketplace add addyosmani/agent-skills && claude plugin install agent-skills@addy-agent-skills"
+          },
+          {
+            "label": "Codex plugin",
+            "command": "codex plugin marketplace add addyosmani/agent-skills && codex plugin add agent-skills@agent-skills"
+          },
+          {
+            "label": "Gemini CLI",
+            "command": "gemini skills install https://github.com/addyosmani/agent-skills.git --path skills"
+          },
+          {
+            "label": "Antigravity CLI plugin",
+            "command": "agy plugin install https://github.com/addyosmani/agent-skills.git"
+          },
+          {
+            "label": "Command Code, which asks which skills to install",
+            "command": "cmd skills add addyosmani/agent-skills"
+          }
+        ]
+      }
     }
   ],
   "skills": [
@@ -14248,6 +14419,1291 @@
           "web-search"
         ],
         "note": "Monitors keep running on Firecrawl's servers, using credits on every check, until you pause or delete them."
+      }
+    },
+    {
+      "id": "addyosmani/agent-skills/skills/code-review-and-quality",
+      "name": "code-review-and-quality",
+      "skills.sh": {
+        "url": "https://skills.sh/addyosmani/agent-skills/code-review-and-quality",
+        "installs": 82125,
+        "weeklyInstalls": [3503, 4573, 4388, 4720, 5783, 6429, 6032, 5359],
+        "firstSeen": "2026-02-16"
+      },
+      "skillMd": {
+        "version": "301b02b12bff98e4688e6984af6556802322bbde",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Reviews a change on five axes, correctness, readability, architecture, security and performance, with every finding labelled by severity.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a change, diff or pull request needs reviewing before it merges, whether you, another agent or a person wrote it"
+            },
+            {
+              "label": "It does",
+              "text": "reads the tests first, walks each file for correctness, readability, architecture, security and performance, then checks how the author verified it"
+            },
+            {
+              "label": "You get",
+              "text": "findings ordered by impact, each marked Critical, required, Optional, Nit or FYI, and a verdict: approve or request changes"
+            },
+            {
+              "label": "Also checks",
+              "text": "that the tests would catch a regression, by flipping one condition and rerunning them; plus change size, dead code and dependency upgrades"
+            }
+          ],
+          "text": "Its approval standard: approve a change once it clearly improves the health of the codebase, even if it isn't perfect. The agent first asks what the change is for and which spec it implements, then reads the tests, and proves they'd catch a regression by inverting one condition the change adds, running the suite and restoring the file. Then it goes file by file through the five axes, with concrete questions such as N+1 queries, unvalidated input, feature logic leaking into shared modules, or a refactor that only moves complexity around. Before reporting, it drops findings that callers, guards or tests rule out, separates old defects from new regressions, and accepts zero findings as a valid result. When it flags a structural problem it names the fix, such as replacing a chain of conditionals with a dispatcher. Other sections cover change sizing (about 100 lines is good, 1,000 should be split), commit descriptions, listing dead code and asking before deleting it, reviewing dependency upgrades one package at a time against their changelog, and having a second model review the first one's code. It ends with a review checklist.",
+          "permalink": "https://github.com/addyosmani/agent-skills/tree/301b02b12bff98e4688e6984af6556802322bbde/skills/code-review-and-quality"
+        },
+        "tags": [
+          "category:debugging",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "code-review",
+          "code-quality"
+        ]
+      }
+    },
+    {
+      "id": "addyosmani/agent-skills/skills/security-and-hardening",
+      "name": "security-and-hardening",
+      "skills.sh": {
+        "url": "https://skills.sh/addyosmani/agent-skills/security-and-hardening",
+        "installs": 79452,
+        "weeklyInstalls": [3568, 4463, 4543, 4846, 6068, 6709, 6347, 5802],
+        "firstSeen": "2026-02-16"
+      },
+      "skillMd": {
+        "version": "301b02b12bff98e4688e6984af6556802322bbde",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Threat-models a feature, then hardens it against injection, broken access control, leaked secrets, risky dependencies, privacy gaps and LLM prompt injection.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you build or audit anything that takes user input, handles logins, sessions or personal data, calls outside services, or adds a dependency"
+            },
+            {
+              "label": "It does",
+              "text": "maps where untrusted data enters and what's worth stealing, asks the six STRIDE questions of each entry point, then applies hardening rules"
+            },
+            {
+              "label": "Rules",
+              "text": "always validate input, parameterize queries and hash passwords; ask you before changing auth, CORS or uploads; never commit secrets or log tokens"
+            },
+            {
+              "label": "Also covers",
+              "text": "dependency audits and supply-chain risk, server-side URL fetches, unsafe deletes, rate limiting, privacy rules such as GDPR, and features that call an LLM"
+            }
+          ],
+          "text": "Before any control, the agent spends five minutes thinking like an attacker: it maps the trust boundaries where outside data enters, including LLM output and values handed over by other processes, names the assets worth stealing, and asks the six STRIDE questions of each boundary: can someone impersonate a user, tamper with data, deny an action, read what they shouldn't, overwhelm the system or gain rights? Abuse cases become the first tests. Rules come in three tiers: always do (validate at the boundary, parameterize queries, encode output, hash passwords, set security headers and safe cookies), ask first (new auth flows, new kinds of sensitive data, CORS, uploads, permissions), and never do (secrets in git, sensitive data in logs, eval or innerHTML on user input). Each control, from SSRF and rate limiting to secrets and dependency audits, links to worked code in a file that ships with the skill. Personal data is treated as a liability, with a purpose, a retention limit and a working deletion path. LLM features map to OWASP's LLM Top 10: model output is untrusted input, and the system prompt isn't a security boundary. Sign-off walks a security checklist kept in the repo's shared folder.",
+          "permalink": "https://github.com/addyosmani/agent-skills/tree/301b02b12bff98e4688e6984af6556802322bbde/skills/security-and-hardening"
+        },
+        "tags": [
+          "category:security",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "security",
+          "privacy"
+        ],
+        "note": "Installed alone, it lacks the repo-wide security checklist its sign-off step walks; install the whole repo to get it."
+      }
+    },
+    {
+      "id": "addyosmani/agent-skills/skills/frontend-ui-engineering",
+      "name": "frontend-ui-engineering",
+      "skills.sh": {
+        "url": "https://skills.sh/addyosmani/agent-skills/frontend-ui-engineering",
+        "installs": 75953,
+        "weeklyInstalls": [3273, 4281, 4248, 4230, 5448, 6141, 5840, 5315],
+        "firstSeen": "2026-02-16"
+      },
+      "skillMd": {
+        "version": "301b02b12bff98e4688e6984af6556802322bbde",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Shapes UI code: composable components, simple state, your design system's tokens, WCAG 2.1 AA accessibility and no generic AI look.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "the agent builds or changes components, pages or layouts, and you want them to look designed rather than generated"
+            },
+            {
+              "label": "It does",
+              "text": "gives rules for component structure, state, spacing, type, color, accessibility, responsive layout and loading states, with React and Tailwind examples"
+            },
+            {
+              "label": "Avoids",
+              "text": "the AI defaults: purple gradients, rounded everything, oversized padding, stock card grids, heavy shadows and placeholder copy"
+            },
+            {
+              "label": "Checks",
+              "text": "keyboard access, screen-reader structure, layouts at 320 to 1440 pixels wide, and loading, empty, error and permission states"
+            }
+          ],
+          "text": "A set of rules the agent applies while writing UI code. Components live with their tests and hooks, favour composition over long prop lists, do one thing, and keep data fetching apart from rendering. State starts as simple as possible, from local state up to a global store only when needed, with no prop drilling past three levels. When the product needs its own look, the agent studies two or three reference screens and writes a short design contract before building, without copying another product's branding. A table names the AI defaults to avoid and what to use instead: the project's palette, its spacing scale, its corner radii, real content. Accessibility targets WCAG 2.1 AA: everything works by keyboard, controls are labelled, focus moves into dialogs, contrast is at least 4.5:1 and color never carries meaning alone. Layouts are mobile-first and checked at four widths, content loads with skeletons rather than spinners, and updates can show before the server confirms them. The examples are React with Tailwind.",
+          "permalink": "https://github.com/addyosmani/agent-skills/tree/301b02b12bff98e4688e6984af6556802322bbde/skills/frontend-ui-engineering"
+        },
+        "tags": [
+          "category:design",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:react",
+          "stack:tailwind",
+          "design",
+          "accessibility",
+          "design-system",
+          "anti-slop"
+        ]
+      }
+    },
+    {
+      "id": "addyosmani/agent-skills/skills/performance-optimization",
+      "name": "performance-optimization",
+      "skills.sh": {
+        "url": "https://skills.sh/addyosmani/agent-skills/performance-optimization",
+        "installs": 73402,
+        "weeklyInstalls": [3156, 4169, 3900, 4246, 5431, 6229, 5793, 5155],
+        "firstSeen": "2026-02-16"
+      },
+      "skillMd": {
+        "version": "301b02b12bff98e4688e6984af6556802322bbde",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Measures before optimizing: finds the real bottleneck, fixes only that, re-measures, and reverts any change that doesn't beat the noise.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "pages load slowly, Core Web Vitals miss their targets, an endpoint drags, or a change may have made things slower"
+            },
+            {
+              "label": "It does",
+              "text": "measures a baseline, finds the actual bottleneck, fixes that one thing, re-measures the same way, then adds a guard against regression"
+            },
+            {
+              "label": "Keeps",
+              "text": "a change only if it beats run-to-run variance with tests still green; anything neutral or worse is reverted, and every attempt is logged"
+            },
+            {
+              "label": "Covers",
+              "text": "frontend and backend: images, re-renders, bundle size, N+1 queries, query plans and indexes, connection pools and caching"
+            }
+          ],
+          "text": "Its rule is measure first: no optimization without data. Step one takes a baseline, both lab measurements such as Lighthouse or a DevTools trace and real-user data from the web-vitals library, and a decision tree points from the symptom (slow first load, sluggish clicks, a slow endpoint) to what to measure. Step two names the bottleneck from tables of likely causes. Step three fixes only that, with rules for the usual suspects: N+1 queries, missing pagination, indexes judged by EXPLAIN ANALYZE rather than guessed, connection pools sized to the database's limit, caches keyed on every input, images with dimensions and modern formats, needless re-renders, code splitting. Step four re-measures under the same conditions and decides strictly: keep only a gain past the noise with tests green, otherwise revert, and log every attempt, kept or reverted, in the PR or a PERF.md so dead ideas aren't retried. Step five guards the user-facing metric with a CI budget and field monitoring. Targets are the Core Web Vitals \"good\" thresholds, LCP 2.5 s, INP 200 ms and CLS 0.1, plus default budgets such as 200 KB of gzipped JavaScript.",
+          "permalink": "https://github.com/addyosmani/agent-skills/tree/301b02b12bff98e4688e6984af6556802322bbde/skills/performance-optimization"
+        },
+        "tags": [
+          "category:debugging",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "performance",
+          "databases",
+          "verification"
+        ]
+      }
+    },
+    {
+      "id": "addyosmani/agent-skills/skills/spec-driven-development",
+      "name": "spec-driven-development",
+      "skills.sh": {
+        "url": "https://skills.sh/addyosmani/agent-skills/spec-driven-development",
+        "installs": 72939,
+        "weeklyInstalls": [3274, 4206, 3878, 4146, 5297, 5901, 5489, 4959],
+        "firstSeen": "2026-02-16"
+      },
+      "skillMd": {
+        "version": "301b02b12bff98e4688e6984af6556802322bbde",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes a spec covering objective, commands, structure, code style, testing and boundaries, and stops for your approval before planning or code.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you start a project, feature or significant change and nothing is written down yet about what to build"
+            },
+            {
+              "label": "It does",
+              "text": "lists its assumptions for you to correct, asks clarifying questions, then writes a spec and ends its turn until you approve it"
+            },
+            {
+              "label": "You get",
+              "text": "a spec file in the repo with objective, commands, structure, code style, testing, boundaries, success criteria and open questions"
+            },
+            {
+              "label": "Then",
+              "text": "gated phases follow, each reviewed by you: a plan in tasks/plan.md, a task list, then implementation one task at a time"
+            },
+            {
+              "label": "For big asks",
+              "text": "a request bundling several separate capabilities first gets a map of modules and build order, then a spec per module"
+            }
+          ],
+          "text": "Spec-driven development runs in gated phases, specify, plan, tasks, implement, and doesn't advance until you've reviewed the current one. It starts by listing the assumptions it's making (web app or mobile? which database?) so you can correct them, and turns vague asks into testable targets: \"make the dashboard faster\" becomes a load time under 2.5 seconds. The spec covers six areas: the objective and users, the exact build, test and lint commands, the project layout, a real snippet of the code style, the testing strategy, and three tiers of boundaries: always do, ask first, never do. Once the spec is saved, the agent summarizes it, lists open questions and stops its turn; planning starts only after you approve in a later turn. The plan goes to tasks/plan.md and the task list to tasks/todo.md, deferring to planning-and-task-breakdown, another skill in the same repo, for the details, with each task small, ordered by dependency and paired with a check. If a project already uses a spec tool such as OpenSpec, it keeps that format instead of adding a SPEC.md. The spec stays alive: it's committed, updated before the code when decisions change, and referenced from PRs.",
+          "permalink": "https://github.com/addyosmani/agent-skills/tree/301b02b12bff98e4688e6984af6556802322bbde/skills/spec-driven-development"
+        },
+        "tags": [
+          "category:planning",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "requirements",
+          "planning"
+        ]
+      }
+    },
+    {
+      "id": "addyosmani/agent-skills/skills/documentation-and-adrs",
+      "name": "documentation-and-adrs",
+      "skills.sh": {
+        "url": "https://skills.sh/addyosmani/agent-skills/documentation-and-adrs",
+        "installs": 71820,
+        "weeklyInstalls": [3228, 4142, 3882, 4184, 5330, 6002, 5539, 4986],
+        "firstSeen": "2026-02-16"
+      },
+      "skillMd": {
+        "version": "301b02b12bff98e4688e6984af6556802322bbde",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Records why decisions were made in architecture decision records, and sets rules for comments, API docs, READMEs and changelogs.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you make an architectural decision, change a public API, ship a feature, or keep explaining the same thing"
+            },
+            {
+              "label": "It does",
+              "text": "has the agent write ADRs, short records of a decision with its context, rejected alternatives and consequences, plus docs that explain why"
+            },
+            {
+              "label": "Matches",
+              "text": "your project's existing ADR folder, numbering and headings first; otherwise it numbers them in docs/decisions/"
+            },
+            {
+              "label": "Also covers",
+              "text": "comments that explain intent, typed API docs and OpenAPI, README and changelog shapes, rules files for agents, and a prose review"
+            }
+          ],
+          "text": "Its premise is that code shows what was built, and documentation should record why. The highest-value document is the architecture decision record (ADR): a short file per significant decision, such as a database, an auth strategy or an API style, with its status, context, the decision, the alternatives considered and why each was rejected, and the consequences. ADRs are never deleted; a new one supersedes the old. Before writing one, the agent looks for the project's own convention, its folder, file format, numbering and headings, and only falls back to the skill's template in docs/decisions/ when there is none. In code, comments explain intent and known gotchas rather than restating the code, with no commented-out code and no TODOs for things to do now. Public APIs get typed doc comments or an OpenAPI spec, a README covers quick start, commands and architecture, and changelog entries are grouped under Added, Fixed and Changed. Rules files such as CLAUDE.md, specs and ADRs are kept current for agents too. A final prose review strips filler and promotional wording while checking that names, numbers, commands and caveats survive the edit.",
+          "permalink": "https://github.com/addyosmani/agent-skills/tree/301b02b12bff98e4688e6984af6556802322bbde/skills/documentation-and-adrs"
+        },
+        "tags": [
+          "category:writing",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "docs-writing",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "id": "addyosmani/agent-skills/skills/planning-and-task-breakdown",
+      "name": "planning-and-task-breakdown",
+      "skills.sh": {
+        "url": "https://skills.sh/addyosmani/agent-skills/planning-and-task-breakdown",
+        "installs": 71813,
+        "weeklyInstalls": [3073, 4108, 3816, 3952, 5062, 5728, 5370, 4623],
+        "firstSeen": "2026-02-16"
+      },
+      "skillMd": {
+        "version": "301b02b12bff98e4688e6984af6556802322bbde",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Breaks a spec into small, ordered tasks, each with acceptance criteria and a check, in a plan file and task list.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you have a spec or clear requirements and need tasks an agent can implement, or a task feels too big to start"
+            },
+            {
+              "label": "It does",
+              "text": "reads the spec and code without writing any, maps dependencies, slices the work into end-to-end features, then writes and orders the tasks"
+            },
+            {
+              "label": "You get",
+              "text": "tasks/plan.md with decisions, risks and open questions, and a task list in tasks/todo.md or your issue tracker, with checkpoints"
+            },
+            {
+              "label": "Won't",
+              "text": "overwrite a plan that still has unchecked tasks for other work; it stops and asks you"
+            }
+          ],
+          "text": "Planning starts read-only: the agent reads the spec and the relevant code, notes patterns and risks, and maps what depends on what, from database schema up to UI. It then slices vertically, one complete feature path per task (\"user can log in\": schema, API and UI together) instead of all the database, then all the API. Each task gets a description, acceptance criteria, verification commands, dependencies, likely files and a size; anything that would touch more than about five files, take more than one session, or need \"and\" in its title gets split. Tasks are ordered so dependencies come first, risky work comes early and the system works after each one, with a checkpoint every two or three tasks. The plan always goes to tasks/plan.md; tasks go to tasks/todo.md by default, or one item per task in an issue tracker such as GitHub Issues, Jira or Linear when the project's agent rules or you say so. It also lists which work is safe to run in parallel, such as independent slices, and which must stay sequential, such as migrations. A /build command and other downstream tools expect these default files, and you approve the plan before implementation starts.",
+          "permalink": "https://github.com/addyosmani/agent-skills/tree/301b02b12bff98e4688e6984af6556802322bbde/skills/planning-and-task-breakdown"
+        },
+        "tags": [
+          "category:planning",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "planning",
+          "scope-control"
+        ]
+      }
+    },
+    {
+      "id": "addyosmani/agent-skills/skills/code-simplification",
+      "name": "code-simplification",
+      "skills.sh": {
+        "url": "https://skills.sh/addyosmani/agent-skills/code-simplification",
+        "installs": 70856,
+        "weeklyInstalls": [3055, 4059, 3820, 4026, 5173, 5835, 5470, 4984],
+        "firstSeen": "2026-03-15"
+      },
+      "skillMd": {
+        "version": "301b02b12bff98e4688e6984af6556802322bbde",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Simplifies working code for readability while keeping its behavior exactly the same, one tested change at a time.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "code works and tests pass, but it's harder to read or change than it should be"
+            },
+            {
+              "label": "It does",
+              "text": "learns why the code is the way it is, spots deep nesting, long functions, vague names and dead code, then simplifies one change at a time"
+            },
+            {
+              "label": "Keeps",
+              "text": "inputs, outputs, errors and side effects identical; the tests run after each change, and one that fails them is reverted"
+            },
+            {
+              "label": "Scope",
+              "text": "recently changed code by default, matched to your project's conventions, with no drive-by refactors elsewhere"
+            },
+            {
+              "label": "Inspired by",
+              "text": "Anthropic's Code Simplifier plugin for Claude Code, adapted for any coding agent"
+            }
+          ],
+          "text": "Simpler here means faster to understand, not fewer lines. Before touching anything the agent applies Chesterton's Fence: don't remove what you don't understand. It works out what the code is for, what calls it, its edge cases, its tests and, through git blame, why it was written that way. Then it scans for concrete signals: nesting three levels deep, functions over 50 lines, nested ternaries, boolean flag parameters, generic or misleading names, duplicated logic, wrappers that add nothing, a factory for a factory. Each simplification is made alone, the test suite runs, and the change is kept or reverted; refactors go in their own PR, apart from features. Past 500 lines of edits, it reaches for codemods or AST transforms instead of hand edits. It warns against over-simplifying too: inlining a helper that named a concept, merging unrelated functions, chasing line count. Before-and-after examples cover TypeScript, Python and React. A final check asks whether the result is genuinely easier to read; if not, it's reverted.",
+          "permalink": "https://github.com/addyosmani/agent-skills/tree/301b02b12bff98e4688e6984af6556802322bbde/skills/code-simplification"
+        },
+        "tags": [
+          "category:engineering",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "refactoring",
+          "code-quality"
+        ]
+      }
+    },
+    {
+      "id": "addyosmani/agent-skills/skills/api-and-interface-design",
+      "name": "api-and-interface-design",
+      "skills.sh": {
+        "url": "https://skills.sh/addyosmani/agent-skills/api-and-interface-design",
+        "installs": 70738,
+        "weeklyInstalls": [3087, 4092, 3920, 4210, 5449, 5961, 5676, 5075],
+        "firstSeen": "2026-02-16"
+      },
+      "skillMd": {
+        "version": "301b02b12bff98e4688e6984af6556802322bbde",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Designs APIs and module interfaces that are hard to misuse: contract first, one error format, validation at the edges, changes that don't break callers.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you design REST or GraphQL endpoints, module boundaries, component props or any interface other code depends on"
+            },
+            {
+              "label": "It does",
+              "text": "applies rules such as Hyrum's Law: once enough people use an API, every behavior it shows, documented or not, is something to keep"
+            },
+            {
+              "label": "Covers",
+              "text": "contracts before code, one error shape, validation where outside data enters, optional new fields, naming, pagination and PATCH"
+            },
+            {
+              "label": "Goes deep on",
+              "text": "idempotency keys for safe retries: derived from the intent, claimed atomically through a unique constraint, kept as long as any retry path"
+            }
+          ],
+          "text": "Rules the agent follows when it shapes an interface. Two principles frame them: Hyrum's Law, so it is deliberate about every observable behavior and plans for deprecation from the start, and the One-Version Rule: extend an interface rather than make consumers choose between versions. The interface is written as a typed contract before the implementation. Errors share one shape and a fixed mapping to HTTP status codes. Input is validated where it enters, at route handlers, forms, environment loading and third-party responses, which count as untrusted, and trusted inside after that. New fields are optional additions; existing ones never change type or disappear. Naming follows fixed conventions (plural nouns in URLs, camelCase fields, is or has for booleans), list endpoints paginate, and updates use PATCH. A long section on idempotency keys makes retries of a payment safe: the key comes from the client or the original event, a unique constraint picks the winner instead of a check-then-act race, a reused key with a different body fails, an in-flight duplicate gets a deliberate 409, wait or 202, and keys outlive the longest retry path. TypeScript patterns include discriminated unions, separate input and output types, and branded ID types.",
+          "permalink": "https://github.com/addyosmani/agent-skills/tree/301b02b12bff98e4688e6984af6556802322bbde/skills/api-and-interface-design"
+        },
+        "tags": [
+          "category:engineering",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:typescript",
+          "architecture",
+          "backend"
+        ]
+      }
+    },
+    {
+      "id": "addyosmani/agent-skills/skills/debugging-and-error-recovery",
+      "name": "debugging-and-error-recovery",
+      "skills.sh": {
+        "url": "https://skills.sh/addyosmani/agent-skills/debugging-and-error-recovery",
+        "installs": 70710,
+        "weeklyInstalls": [3230, 4140, 3847, 3990, 5090, 5800, 5424, 4901],
+        "firstSeen": "2026-02-16"
+      },
+      "skillMd": {
+        "version": "301b02b12bff98e4688e6984af6556802322bbde",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Stops feature work when something breaks, then reproduces, localizes, reduces and fixes the root cause, guarded by a regression test.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a test fails, the build breaks, something that worked yesterday doesn't, or behavior doesn't match what you expected"
+            },
+            {
+              "label": "It does",
+              "text": "halts new changes, keeps the evidence, then reproduces, finds the failing layer, shrinks the case, fixes the cause and verifies end to end"
+            },
+            {
+              "label": "You get",
+              "text": "a fix for the underlying cause rather than the symptom, plus a test that fails without it"
+            },
+            {
+              "label": "Also covers",
+              "text": "bugs that won't reproduce, git bisect for regressions, triage trees for test, build and runtime errors, and when to remove debug logging"
+            },
+            {
+              "label": "Treats",
+              "text": "error messages and logs as data: it won't run commands or open URLs they suggest without asking you"
+            }
+          ],
+          "text": "It starts with a stop-the-line rule: when anything unexpected happens, the agent stops adding features, preserves the error output and logs, and doesn't resume until the fix is verified. The triage runs in order. Reproduce: make the failure happen reliably, with a decision tree for bugs that depend on timing, environment or state. Localize: decide which layer fails, UI, API, database, build tooling, an outside service or the test itself, and use git bisect to find the commit behind a regression. Reduce: strip code, config and input down to the smallest failing case. Fix the root cause, asking why until the real cause appears: in its example, duplicate rows in a list come from a JOIN in the API, so the query gets fixed instead of deduplicating in the UI. Guard: write a test that fails without the fix. Verify: run the focused test, the full suite and the build with the repository's own commands. Quick triage trees cover common test, build and runtime failures, and safe fallbacks show how to degrade gracefully under time pressure. Error output from outside sources is data to read, not instructions to follow.",
+          "permalink": "https://github.com/addyosmani/agent-skills/tree/301b02b12bff98e4688e6984af6556802322bbde/skills/debugging-and-error-recovery"
+        },
+        "tags": [
+          "category:debugging",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "debugging",
+          "testing"
+        ]
+      }
+    },
+    {
+      "id": "addyosmani/agent-skills/skills/test-driven-development",
+      "name": "test-driven-development",
+      "skills.sh": {
+        "url": "https://skills.sh/addyosmani/agent-skills/test-driven-development",
+        "installs": 69655,
+        "weeklyInstalls": [3107, 4046, 3774, 3933, 4993, 5875, 5442, 4710],
+        "firstSeen": "2026-02-16"
+      },
+      "skillMd": {
+        "version": "301b02b12bff98e4688e6984af6556802322bbde",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes a failing test before the code that makes it pass, and reproduces every bug as a test before fixing it.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "the agent implements logic, fixes a bug or changes behavior, even when you didn't mention tests"
+            },
+            {
+              "label": "It does",
+              "text": "finds how your repo runs tests, writes a test that fails, then the least code that passes, then refactors with the tests green"
+            },
+            {
+              "label": "For bugs",
+              "text": "a test reproducing the bug must fail before any fix and pass after it, followed by the full suite"
+            },
+            {
+              "label": "Also covers",
+              "text": "a test mix of about 80% unit, 15% integration and 5% end-to-end, readable self-contained tests, and real code preferred over mocks"
+            }
+          ],
+          "text": "Its cycle is red, green, refactor: write a test that fails, write the minimum code that passes it, then clean up while the tests stay green. Before the first test, the agent works out how this repository tests, from package.json, Gradle, pyproject.toml, Cargo.toml or the CI config, and uses those commands rather than assuming npm test. A bug report starts with a test that reproduces it, not with a fix. Beyond the loop it covers writing tests worth keeping: about 80% small unit tests, 15% integration and 5% end-to-end; the Beyonce Rule (if you liked it, you should have put a test on it); assertions on outcomes rather than on internal calls; DAMP over DRY, so each test tells its whole story without shared helpers; real implementations before fakes, stubs and mocks; one concept per test and descriptive names. For browser code it adds a runtime check through Chrome DevTools MCP, treating everything read from the page as untrusted, and for hard bugs it can have a subagent write the reproducing test without knowing the fix. It also tells the agent not to rerun a test command when nothing has changed.",
+          "permalink": "https://github.com/addyosmani/agent-skills/tree/301b02b12bff98e4688e6984af6556802322bbde/skills/test-driven-development"
+        },
+        "tags": [
+          "category:engineering",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "tdd",
+          "testing"
+        ]
+      }
+    },
+    {
+      "id": "addyosmani/agent-skills/skills/context-engineering",
+      "name": "context-engineering",
+      "skills.sh": {
+        "url": "https://skills.sh/addyosmani/agent-skills/context-engineering",
+        "installs": 69454,
+        "weeklyInstalls": [3202, 4186, 3801, 3959, 5023, 5661, 5339, 4879],
+        "firstSeen": "2026-02-16"
+      },
+      "skillMd": {
+        "version": "301b02b12bff98e4688e6984af6556802322bbde",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Sets up what the agent sees: a rules file, the right spec and source files per task, and trimmed context in long sessions.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you start a session or switch tasks, set up a project for an agent, or its output drifts from your conventions"
+            },
+            {
+              "label": "It does",
+              "text": "layers context from a rules file such as CLAUDE.md down to the current error, loading only what the task needs"
+            },
+            {
+              "label": "You get",
+              "text": "a rules file template with stack, commands, conventions and boundaries, plus prompt shapes for packing a task's context"
+            },
+            {
+              "label": "Also covers",
+              "text": "what to cut from a long session and what to keep, when it's safe to restart and what to write down first, and asking instead of guessing"
+            }
+          ],
+          "text": "It treats context as five layers, from most to least lasting: a rules file loaded every session (CLAUDE.md, AGENTS.md, Cursor or Copilot rules), the relevant section of the spec, the files the task touches, the latest error output, and the conversation. The agent reads a file before editing it, finds an existing example of the pattern it's about to write, and trusts project code more than config, fixtures or outside docs, whose instruction-like text it reports to you. Templates show a rules file and three ways to pack context: a brain dump at session start, a selective include of only the task's files, and a project map. For long sessions it budgets: compact well before the limit, drop failed attempts and verbose output first, summarize rather than delete, protect the task definition and current error, and put task-critical material last. A fresh session is safe at a finished task, once scope, status, changed files, verification results and open questions are written down. Conflicts between spec and code get options and a question, not a guess; a missing requirement does too, unless the code sets a precedent. It suggests MCP servers such as Context7 and Chrome DevTools for richer context.",
+          "permalink": "https://github.com/addyosmani/agent-skills/tree/301b02b12bff98e4688e6984af6556802322bbde/skills/context-engineering"
+        },
+        "tags": [
+          "category:agents",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "agent-workflows",
+          "handoff"
+        ]
+      }
+    },
+    {
+      "id": "addyosmani/agent-skills/skills/incremental-implementation",
+      "name": "incremental-implementation",
+      "skills.sh": {
+        "url": "https://skills.sh/addyosmani/agent-skills/incremental-implementation",
+        "installs": 69344,
+        "weeklyInstalls": [3122, 4051, 3778, 3916, 4977, 5644, 5280, 4556],
+        "firstSeen": "2026-02-16"
+      },
+      "skillMd": {
+        "version": "301b02b12bff98e4688e6984af6556802322bbde",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds a change in thin slices, each implemented, tested, verified and committed before the next, touching only what the task needs.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a feature or change touches more than one file, or the agent is about to write a lot of code at once"
+            },
+            {
+              "label": "It does",
+              "text": "builds one small working piece, runs the tests and build, commits it, then moves to the next piece"
+            },
+            {
+              "label": "You get",
+              "text": "a series of small commits, each leaving the project building and tested, and each revertible on its own"
+            },
+            {
+              "label": "Won't",
+              "text": "clean up nearby code or add features outside the task; it lists what it noticed and asks"
+            }
+          ],
+          "text": "The cycle is implement, test, verify, commit, repeat, with each slice the smallest complete piece of functionality. Slices are vertical by default, one path through database, API and UI, such as \"create a task\"; contract-first when front and back end are built in parallel, with the API types defined first; or risk-first, proving the riskiest part works before building on it. Rules keep each slice clean: start with the simplest thing that could work and no abstraction until a third use; touch only what the task needs and list anything else worth fixing instead of fixing it; one logical change per increment; the project builds and tests pass after every slice; unfinished features hide behind feature flags; new options default to the safe choice; and each increment can be reverted alone, with rollback migrations for schema changes. After each slice the agent runs the repository's own test, build, type-check and lint commands, without rerunning one when nothing has changed. More than about 100 lines without a test run is a red flag.",
+          "permalink": "https://github.com/addyosmani/agent-skills/tree/301b02b12bff98e4688e6984af6556802322bbde/skills/incremental-implementation"
+        },
+        "tags": [
+          "category:engineering",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "implementation",
+          "scope-control"
+        ]
+      }
+    },
+    {
+      "id": "addyosmani/agent-skills/skills/git-workflow-and-versioning",
+      "name": "git-workflow-and-versioning",
+      "skills.sh": {
+        "url": "https://skills.sh/addyosmani/agent-skills/git-workflow-and-versioning",
+        "installs": 67190,
+        "weeklyInstalls": [3077, 4012, 3719, 3878, 4953, 5603, 5303, 4680],
+        "firstSeen": "2026-02-16"
+      },
+      "skillMd": {
+        "version": "301b02b12bff98e4688e6984af6556802322bbde",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Keeps git history clean: short-lived branches, small atomic commits with messages that explain why, and releases tagged with semantic versions and changelogs.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "the agent commits, branches, splits messy work into commits, opens a PR, writes a changelog entry or cuts a release"
+            },
+            {
+              "label": "It does",
+              "text": "applies trunk-based habits: main always deployable, branches merged within one to three days, one logical change per commit"
+            },
+            {
+              "label": "You get",
+              "text": "commits like \"feat: add email validation\" with the why in the body, and a summary of what changed and what was left alone"
+            },
+            {
+              "label": "Also covers",
+              "text": "pre-commit checks for secrets, worktrees for parallel agents, git bisect and blame, semantic versioning, tags and changelogs written for users"
+            }
+          ],
+          "text": "Git is treated as a safety net: commits are save points, branches are sandboxes, history is documentation. The agent works trunk-based, keeping main deployable and feature branches short-lived, with feature flags rather than long branches for unfinished work. It commits after each passing increment and goes back to the last commit when a test fails. Each commit does one thing, never mixing formatting, refactoring and features, and aims for about 100 changed lines. Messages follow type: description (feat, fix, refactor, test, docs, chore) with a body explaining why. After a change it writes a summary of what it changed, what it deliberately didn't touch, and any concerns. Before committing it checks the staged diff, searches it for likely secrets and runs tests, lint and type checks. Git worktrees let several agents work on separate branches at once. For anything with consumers, versions follow semver, where a behavior change users relied on is major whatever its size; releases are tagged and the version derived from the tag; and the changelog is curated for users, written with the change rather than dumped from commits.",
+          "permalink": "https://github.com/addyosmani/agent-skills/tree/301b02b12bff98e4688e6984af6556802322bbde/skills/git-workflow-and-versioning"
+        },
+        "tags": [
+          "category:engineering",
+          "type:workflow",
+          "effect:remote",
+          "needs:none",
+          "by:community",
+          "stack:git",
+          "git"
+        ]
+      }
+    },
+    {
+      "id": "addyosmani/agent-skills/skills/idea-refine",
+      "name": "idea-refine",
+      "skills.sh": {
+        "url": "https://skills.sh/addyosmani/agent-skills/idea-refine",
+        "installs": 66743,
+        "weeklyInstalls": [2864, 3884, 3622, 3811, 4856, 5727, 5345, 4728],
+        "firstSeen": "2026-02-19"
+      },
+      "skillMd": {
+        "version": "301b02b12bff98e4688e6984af6556802322bbde",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Turns a vague idea into a one-page proposal by expanding it into variations, stress-testing the best, and naming what not to build.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you have a rough concept and want to explore options and test its assumptions before committing to a plan"
+            },
+            {
+              "label": "It does",
+              "text": "restates the idea as a \"How might we\" question, asks three to five questions, offers five to eight variations, then narrows to two or three directions"
+            },
+            {
+              "label": "You get",
+              "text": "a Markdown one-pager: problem, recommended direction, assumptions to test, MVP scope, a Not Doing list and open questions"
+            },
+            {
+              "label": "Saves",
+              "text": "to docs/ideas/, only after you confirm"
+            },
+            {
+              "label": "Unlike",
+              "text": "interview-me, which finds out what you want at all, it starts from an idea and widens it before narrowing"
+            }
+          ],
+          "text": "A thinking partner for the step before a spec. In the first phase the agent restates your idea as a \"How might we...?\" problem, asks three to five sharpening questions (who is it for, what does success look like, what are the constraints, what's been tried, why now) and won't go on until it knows who it's for and what success means. Then it generates five to eight variations through lenses such as inversion, removing a constraint, a different audience, a version ten times simpler or ten times bigger; inside a codebase it grounds them in the existing code. Once you react, it clusters what resonated into two or three directions, tests each for user value, feasibility and differentiation, and names the hidden assumptions and what could kill each. The last phase writes the one-pager, where the Not Doing list makes the trade-offs explicit. It's told to be honest rather than supportive and to push back on weak ideas. Extra files in the skill's folder hold more ideation frameworks, an evaluation rubric and example sessions.",
+          "permalink": "https://github.com/addyosmani/agent-skills/tree/301b02b12bff98e4688e6984af6556802322bbde/skills/idea-refine"
+        },
+        "tags": [
+          "category:planning",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "requirements",
+          "planning"
+        ]
+      }
+    },
+    {
+      "id": "addyosmani/agent-skills/skills/using-agent-skills",
+      "name": "using-agent-skills",
+      "skills.sh": {
+        "url": "https://skills.sh/addyosmani/agent-skills/using-agent-skills",
+        "installs": 66394,
+        "weeklyInstalls": [3026, 3938, 3658, 3797, 4851, 5496, 5175, 4455],
+        "firstSeen": "2026-02-16"
+      },
+      "skillMd": {
+        "version": "301b02b12bff98e4688e6984af6556802322bbde",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Routes each piece of work to the right skill of Addy Osmani's pack, and sets rules every skill shares.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you have this pack installed and want the agent to pick the right skill at the start of a session or a task"
+            },
+            {
+              "label": "It does",
+              "text": "maps the task to a phase, from define to ship, and names the skill to use, or a sequence of skills for a whole feature"
+            },
+            {
+              "label": "Also sets",
+              "text": "six rules for every task: state assumptions, stop when confused, push back, keep it simple, stay in scope, verify before calling it done"
+            }
+          ],
+          "text": "The pack's entry point. A decision tree sends each task to one skill: interview-me when you don't yet know what you want, spec-driven-development for a new feature, debugging-and-error-recovery when something broke, shipping-and-launch for a deploy, and so on across the pack's 24 other skills. For a whole feature it gives a typical sequence, from interview and spec through planning, building slice by slice, testing, review, simplification, commits and docs to launch, and notes that a bug fix might need only three skills. It also sets behaviors that hold under every skill: list assumptions before non-trivial work, stop and ask when something is unclear or contradictory, push back on approaches with clear problems instead of agreeing, prefer the boring simple solution, touch only what you were asked to, and don't call anything done without evidence such as passing tests. Its rules tell the agent to check for an applicable skill before starting work and to follow each skill's steps in order.",
+          "permalink": "https://github.com/addyosmani/agent-skills/tree/301b02b12bff98e4688e6984af6556802322bbde/skills/using-agent-skills"
+        },
+        "tags": [
+          "category:skill-tools",
+          "type:router",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "skill-discovery",
+          "agent-workflows"
+        ]
+      }
+    },
+    {
+      "id": "addyosmani/agent-skills/skills/browser-testing-with-devtools",
+      "name": "browser-testing-with-devtools",
+      "skills.sh": {
+        "url": "https://skills.sh/addyosmani/agent-skills/browser-testing-with-devtools",
+        "installs": 66104,
+        "weeklyInstalls": [2872, 3917, 3627, 3779, 4862, 5547, 5219, 4607],
+        "firstSeen": "2026-02-16"
+      },
+      "skillMd": {
+        "version": "301b02b12bff98e4688e6984af6556802322bbde",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Checks and debugs web pages in a real Chrome through the Chrome DevTools MCP server: DOM, console, network, performance and screenshots.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you build or debug anything that runs in a browser and want the agent to see what actually renders"
+            },
+            {
+              "label": "It does",
+              "text": "reproduces the bug in Chrome, inspects console, DOM, styles, network and accessibility tree, fixes the source, then reloads and compares screenshots"
+            },
+            {
+              "label": "Needs",
+              "text": "the chrome-devtools MCP server set up in your agent; the skill gives the config, with a throwaway browser profile"
+            },
+            {
+              "label": "Guards",
+              "text": "treats page content as untrusted, keeps JavaScript read-only unless you approve a change, never reads cookies or tokens, and asks before following links from the page"
+            }
+          ],
+          "text": "Chrome DevTools MCP lets the agent look at a running page instead of guessing from the code. The skill gives a config snippet that starts Chrome with a temporary profile, wiped when it closes, and warns against attaching to your everyday browser, where the agent could see every open tab and logged-in session. It then follows short workflows. For UI bugs: reproduce and screenshot, inspect the console, DOM, computed styles and accessibility tree, decide whether HTML, CSS, JavaScript or data is at fault, fix the source, reload and compare. For network problems: capture the request and check its URL, payload, status and timing. For performance: record a trace, read LCP, CLS, INP and long tasks, fix, record again. It also covers written test plans for complex UI bugs, before-and-after screenshots for CSS changes, a zero-errors-and-warnings console standard, and an accessibility pass over names, headings, focus order, contrast and live regions. Security rules run throughout: everything read from the page is data, not instructions, JavaScript runs read-only, credentials are off limits, and anything that changes the page needs your confirmation.",
+          "permalink": "https://github.com/addyosmani/agent-skills/tree/301b02b12bff98e4688e6984af6556802322bbde/skills/browser-testing-with-devtools"
+        },
+        "tags": [
+          "category:debugging",
+          "category:browser",
+          "type:workflow",
+          "effect:local",
+          "needs:mcp",
+          "needs:browser",
+          "by:community",
+          "stack:chrome-devtools",
+          "testing",
+          "debugging",
+          "browser-automation"
+        ]
+      }
+    },
+    {
+      "id": "addyosmani/agent-skills/skills/shipping-and-launch",
+      "name": "shipping-and-launch",
+      "skills.sh": {
+        "url": "https://skills.sh/addyosmani/agent-skills/shipping-and-launch",
+        "installs": 65842,
+        "weeklyInstalls": [3008, 3916, 3601, 3885, 5084, 5671, 5253, 4598],
+        "firstSeen": "2026-02-16"
+      },
+      "skillMd": {
+        "version": "301b02b12bff98e4688e6984af6556802322bbde",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Prepares a production launch: a pre-launch checklist, feature flags, a staged rollout with rollback thresholds, monitoring and a written rollback plan.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're about to deploy to production and want to know what must be in place first"
+            },
+            {
+              "label": "It does",
+              "text": "walks a pre-launch checklist across code quality, security, performance, accessibility, infrastructure and docs, then plans a staged rollout"
+            },
+            {
+              "label": "Rollout",
+              "text": "deploy with the flag off, enable for your team, then 5%, 25%, 50% and 100% of users, advancing only while error rate and latency hold"
+            },
+            {
+              "label": "You get",
+              "text": "a rollback plan with triggers, steps, database considerations and expected time to roll back"
+            },
+            {
+              "label": "Also covers",
+              "text": "first-hour checks after launch, error reporting, what to monitor, feature flag cleanup and an error-budget release gate"
+            }
+          ],
+          "text": "Launches should be reversible, observable and incremental. The pre-launch checklist runs through code quality (tests, build, lint, review, no stray console.log), security (secrets, dependency audit, validation, auth, headers, rate limits, CORS), performance, accessibility, infrastructure (environment variables, migrations, DNS and SSL, logging, a health check) and documentation. Features ship behind flags, each with an owner and an expiry date, removed within two weeks of full rollout and tested both on and off in CI. The rollout moves from staging to production with the flag off, then to the team, a 5% canary and wider steps, with a table of thresholds deciding whether to advance, hold or roll back: for example, roll back when errors double or p95 latency rises more than 50%. It lists what to monitor across the application, infrastructure and client, shows error reporting in a React error boundary and an Express handler, and gives a first-hour check after launch. An error budget, the share of failures your service level objective allows, gates releases: under 20% left means slow rollouts only, none left means a feature freeze. Every deploy needs a written rollback plan before it happens.",
+          "permalink": "https://github.com/addyosmani/agent-skills/tree/301b02b12bff98e4688e6984af6556802322bbde/skills/shipping-and-launch"
+        },
+        "tags": [
+          "category:cloud",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "deployment",
+          "observability"
+        ]
+      }
+    },
+    {
+      "id": "addyosmani/agent-skills/skills/source-driven-development",
+      "name": "source-driven-development",
+      "skills.sh": {
+        "url": "https://skills.sh/addyosmani/agent-skills/source-driven-development",
+        "installs": 65785,
+        "weeklyInstalls": [3024, 3950, 3685, 3860, 4918, 5528, 5219, 4709],
+        "firstSeen": "2026-04-09"
+      },
+      "skillMd": {
+        "version": "301b02b12bff98e4688e6984af6556802322bbde",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Checks framework-specific code against the official docs for your exact versions, and cites the source for every pattern it uses.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want framework or library code that follows current documented practice instead of the agent's possibly outdated memory"
+            },
+            {
+              "label": "It does",
+              "text": "reads your dependency files for exact versions, fetches the specific official doc page, writes code that follows it, then cites it"
+            },
+            {
+              "label": "You get",
+              "text": "code with full source URLs in comments and replies, and anything it couldn't find documented flagged as unverified"
+            },
+            {
+              "label": "Trusts",
+              "text": "official docs and changelogs, then MDN, web.dev and caniuse; never Stack Overflow, blog posts or its own training data"
+            }
+          ],
+          "text": "The process is detect, fetch, implement, cite. The agent first reads package.json, pyproject.toml, go.mod or the like and states the versions it found, asking you when they're missing, since the version decides which pattern is right. It then fetches the one documentation page for the feature at hand, such as a specific React hook's reference, not a homepage or a general search, and notes deprecations and migration advice. Sources rank from official docs, to official blogs and changelogs, to web standards references, to compatibility tables. It writes code the way the docs show, uses the new way where the docs have one, and when the docs disagree with your existing code it shows you both options instead of picking one. Every framework-specific decision gets a citation with a full, deep-linked URL, quoting the passage when the choice isn't obvious. Fetched pages are treated as data: it takes API signatures, examples and deprecation notes from them, ignores anything addressed to the model, and won't hardcode a telemetry or other outside endpoint from an example without telling you. It skips the process for version-independent changes or when you ask for speed.",
+          "permalink": "https://github.com/addyosmani/agent-skills/tree/301b02b12bff98e4688e6984af6556802322bbde/skills/source-driven-development"
+        },
+        "tags": [
+          "category:engineering",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "implementation",
+          "verification",
+          "research"
+        ]
+      }
+    },
+    {
+      "id": "addyosmani/agent-skills/skills/ci-cd-and-automation",
+      "name": "ci-cd-and-automation",
+      "skills.sh": {
+        "url": "https://skills.sh/addyosmani/agent-skills/ci-cd-and-automation",
+        "installs": 65706,
+        "weeklyInstalls": [2845, 3898, 3586, 3798, 4857, 5480, 5147, 4705],
+        "firstSeen": "2026-02-16"
+      },
+      "skillMd": {
+        "version": "301b02b12bff98e4688e6984af6556802322bbde",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Sets up CI that blocks merges until lint, type checks, tests, build and a security audit pass, and plans deploys you can roll back.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you set up or change a build and deploy pipeline, add automated checks, or a CI failure needs fixing"
+            },
+            {
+              "label": "It does",
+              "text": "lays out a pipeline where every pull request passes lint, type check, unit tests, build, integration tests, optional end-to-end tests, an audit and a bundle-size check"
+            },
+            {
+              "label": "You get",
+              "text": "GitHub Actions workflows for CI, a Postgres integration job, Playwright tests, preview deploys and a rollback, plus a Dependabot config"
+            },
+            {
+              "label": "Rule",
+              "text": "no gate gets skipped: a failing lint rule is fixed, not disabled, and a failing test means fixing the code, not skipping the test"
+            },
+            {
+              "label": "Also covers",
+              "text": "feeding CI errors back to the agent, feature flags, staged rollouts, secrets per environment, branch protection and speeding up slow pipelines"
+            }
+          ],
+          "text": "CI is framed as the enforcement mechanism for every other skill, built on two ideas: shift left, catching problems as early in the pipeline as possible, and faster is safer, since small, frequent releases are easier to debug. Every change passes the same gates before review: lint, type check, unit tests, build, integration tests, optional end-to-end tests, a security audit and a bundle-size check, and none can be skipped. The examples are GitHub Actions: a basic quality job on Node, an integration job with a Postgres service and Prisma migrations, a Playwright job that uploads its report on failure, a Vercel preview deploy per pull request, and a manual rollback workflow that passes its input through an environment variable to avoid shell injection. When CI fails, the error goes back to the agent to fix and verify locally before pushing again. It also covers feature flags with a cleanup date, staged rollouts with a monitoring window, keeping production secrets out of CI, Dependabot, a Build Cop who keeps the build green, required reviews and status checks, and, for pipelines over ten minutes, caching, parallel jobs, path filters and sharded tests.",
+          "permalink": "https://github.com/addyosmani/agent-skills/tree/301b02b12bff98e4688e6984af6556802322bbde/skills/ci-cd-and-automation"
+        },
+        "tags": [
+          "category:engineering",
+          "category:cloud",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:github",
+          "ci",
+          "deployment"
+        ]
+      }
+    },
+    {
+      "id": "addyosmani/agent-skills/skills/deprecation-and-migration",
+      "name": "deprecation-and-migration",
+      "skills.sh": {
+        "url": "https://skills.sh/addyosmani/agent-skills/deprecation-and-migration",
+        "installs": 64810,
+        "weeklyInstalls": [2917, 3892, 3588, 3781, 4824, 5459, 5119, 4611],
+        "firstSeen": "2026-03-30"
+      },
+      "skillMd": {
+        "version": "301b02b12bff98e4688e6984af6556802322bbde",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Retires old systems, APIs or features safely: replacement first, consumers migrated one by one, old code removed once nothing uses it.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you replace or sunset a system, API, library or feature, or rename or drop a database column in production"
+            },
+            {
+              "label": "It does",
+              "text": "asks whether the old system still earns its keep, builds and documents the replacement, migrates each consumer, then removes the old code once usage is zero"
+            },
+            {
+              "label": "For schemas",
+              "text": "expand and contract: add the new column, write to both, backfill in batches, switch reads, and drop the old column in a later deploy"
+            },
+            {
+              "label": "Also covers",
+              "text": "advisory versus forced deprecation, the strangler, adapter and feature-flag migration patterns, and zombie code nobody owns"
+            }
+          ],
+          "text": "It starts from the view that code is a liability: every line costs upkeep, and with enough users every behavior gets depended on, so removal needs active migration, not just an announcement. Five questions decide whether to deprecate: does it still provide unique value, who depends on it, does a replacement exist, what will migrating cost each consumer, and what does keeping it cost? Deprecation defaults to advisory, with warnings and docs; a hard deadline is for security risks or unsustainable upkeep, and needs migration tooling. The process is to build a replacement proven in production, publish a deprecation notice with a migration guide, migrate consumers one at a time, verifying each, and remove the old code, tests, docs and config only once metrics show zero use. If you own what's being deprecated, migrating its users is your job. Patterns include running old and new side by side while shifting traffic (the strangler pattern), an adapter that keeps the old interface over the new code, and per-user feature flags. Database changes use expand and contract across separate deploys, each with a tested down migration. Zombie code, depended on but unowned, gets an owner or a removal plan.",
+          "permalink": "https://github.com/addyosmani/agent-skills/tree/301b02b12bff98e4688e6984af6556802322bbde/skills/deprecation-and-migration"
+        },
+        "tags": [
+          "category:engineering",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "migration",
+          "databases"
+        ]
+      }
+    },
+    {
+      "id": "addyosmani/agent-skills/skills/interview-me",
+      "name": "interview-me",
+      "skills.sh": {
+        "url": "https://skills.sh/addyosmani/agent-skills/interview-me",
+        "installs": 64800,
+        "weeklyInstalls": [2930, 4011, 3888, 3975, 5023, 5728, 5365, 4606],
+        "firstSeen": "2026-05-14"
+      },
+      "skillMd": {
+        "version": "301b02b12bff98e4688e6984af6556802322bbde",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Interviews you one question at a time, each with its best guess attached, until it can predict your answers, then confirms what you want.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "an ask is underspecified, such as \"build me a dashboard\", or you say \"interview me\" or \"grill me\""
+            },
+            {
+              "label": "It does",
+              "text": "states its read of what you want with a confidence number, then asks one question at a time, each with its own guess for you to correct"
+            },
+            {
+              "label": "You get",
+              "text": "a short statement of intent you confirm with an explicit yes: outcome, user, why now, success, constraint and what's out of scope"
+            },
+            {
+              "label": "Stops",
+              "text": "when it can predict your reaction to its next three questions; after you confirm, it ends its turn and waits"
+            },
+            {
+              "label": "Unlike",
+              "text": "idea-refine and spec-driven-development, which assume you know roughly what you want, it finds that out first"
+            }
+          ],
+          "text": "People ask for what one usually asks for, a dashboard, something faster, and this skill digs for what they actually want before any plan or code exists. The agent writes one sentence on what it thinks you want, with an honest confidence percentage and, below 70%, what's still missing. Then it asks one question per message, always with its guess for the answer, because reacting to a wrong guess is faster than answering from scratch. It listens for answers that sound like best practice rather than a real want (\"scalable\", \"the standard approach\") and asks what you'd want if you didn't have to justify it. When confident, it restates your intent in five to eight lines, including what's out of scope, and only an explicit yes counts: \"whatever you think\" or \"sounds good\" get a follow-up. Once you confirm, it offers to save the statement to docs/intent/, draft a spec or move on to planning, and stops. It isn't for clear or mechanical asks, and it won't run in CI or other loops with no person to answer. In its example, two questions turn a \"dashboard\" into a list of experiments.",
+          "permalink": "https://github.com/addyosmani/agent-skills/tree/301b02b12bff98e4688e6984af6556802322bbde/skills/interview-me"
+        },
+        "tags": [
+          "category:planning",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "interview",
+          "requirements"
+        ]
+      }
+    },
+    {
+      "id": "addyosmani/agent-skills/skills/doubt-driven-development",
+      "name": "doubt-driven-development",
+      "skills.sh": {
+        "url": "https://skills.sh/addyosmani/agent-skills/doubt-driven-development",
+        "installs": 64200,
+        "weeklyInstalls": [3016, 3940, 3706, 3927, 5050, 5637, 5286, 4624],
+        "firstSeen": "2026-05-09"
+      },
+      "skillMd": {
+        "version": "301b02b12bff98e4688e6984af6556802322bbde",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Sends each non-trivial decision to a fresh-context reviewer told to find what's wrong, then weighs every finding before the decision stands.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "stakes are high, such as auth, security or an irreversible migration, or you're working in code you don't fully understand"
+            },
+            {
+              "label": "It does",
+              "text": "states the claim, hands only the code and its requirements to a subagent told to disprove it, then sorts each finding and fixes the real ones"
+            },
+            {
+              "label": "Offers",
+              "text": "a second opinion from another model through the Gemini or Codex CLI every cycle, run only with your go-ahead and in read-only mode"
+            },
+            {
+              "label": "Stops",
+              "text": "after a round with only trivial findings, after three rounds, or when you say ship it"
+            },
+            {
+              "label": "Unlike",
+              "text": "a review of a finished pull request, it checks decisions while they're still cheap to change"
+            },
+            {
+              "label": "Needs",
+              "text": "subagents, started from the main session rather than from inside one"
+            }
+          ],
+          "text": "Long sessions turn assumptions into \"facts\", so this skill makes the agent doubt its own non-trivial work in progress. A decision counts as non-trivial when it adds branching logic, crosses a module boundary, claims something the compiler can't check such as thread safety, depends on context a reader won't see, or can't be undone. Each doubt cycle has five steps. Claim: name the decision and why it matters in two or three lines. Extract: cut out the smallest reviewable unit, the diff or proposal plus the contract it must meet, without the reasoning that produced it. Doubt: give that to a fresh-context reviewer with an adversarial prompt (find issues, don't validate), and never the claim itself, which would bias it toward agreeing. Reconcile: reread the artifact against each finding and class it as a misread contract, a real issue to fix, an accepted trade-off or noise. Stop: after trivial findings, three cycles, or your say-so. In interactive sessions it always offers a cross-model review through Gemini CLI, Codex CLI or a manual paste, checks the tool works, confirms the command with you and pipes the prompt in read-only mode. In CI or loops, it skips this and says so.",
+          "permalink": "https://github.com/addyosmani/agent-skills/tree/301b02b12bff98e4688e6984af6556802322bbde/skills/doubt-driven-development"
+        },
+        "tags": [
+          "category:debugging",
+          "type:workflow",
+          "effect:local",
+          "needs:subagents",
+          "by:community",
+          "code-review",
+          "verification",
+          "multi-agent"
+        ]
+      }
+    },
+    {
+      "id": "addyosmani/agent-skills/skills/observability-and-instrumentation",
+      "name": "observability-and-instrumentation",
+      "skills.sh": {
+        "url": "https://skills.sh/addyosmani/agent-skills/observability-and-instrumentation",
+        "installs": 62100,
+        "weeklyInstalls": [3039, 3973, 3752, 3976, 5066, 5641, 5346, 4522],
+        "firstSeen": "2026-06-11"
+      },
+      "skillMd": {
+        "version": "301b02b12bff98e4688e6984af6556802322bbde",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Instruments a feature with structured logs, metrics, traces and symptom-based alerts, each tied to a question on-call will ask.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you build anything that runs in production, add an endpoint, job or outside integration, or an incident was hard to diagnose"
+            },
+            {
+              "label": "It does",
+              "text": "writes down what on-call will ask about the feature, adds the log, metric or trace that answers each question, then alerts with runbooks"
+            },
+            {
+              "label": "You get",
+              "text": "JSON logs with a request ID on every line, rate, error and latency metrics, OpenTelemetry traces, and alerts linked to short runbooks"
+            },
+            {
+              "label": "Proves it",
+              "text": "forces an error in staging, finds it through the telemetry alone, and fires each new alert once"
+            },
+            {
+              "label": "Unlike",
+              "text": "shipping-and-launch, which lists what to watch on launch day, it adds the logs, metrics, traces and alerts that feed it"
+            }
+          ],
+          "text": "Instrumentation is written with the feature, like tests. The agent starts from two to four questions an on-call engineer will ask, such as why payments fail, and every signal must answer one: metrics say that something is wrong, traces say where, logs say why. Logs are structured events with stable names, a correlation ID carried across every call and, when several entry points write to one log, a field naming which one started the run; secrets and full personal data never go in. Every endpoint and outside dependency gets RED metrics (rate, errors, duration), resources get USE (utilization, saturation, errors), latency is a histogram read at p50, p95 and p99, and labels come only from small fixed sets, never user IDs or URLs. Tracing uses OpenTelemetry auto-instrumentation, with manual spans only around meaningful work. Alerts fire on symptoms users feel, such as error rate or latency, not on CPU; each is actionable, has a justified threshold, one of two severities and a runbook of a few lines in docs/runbooks/. Finally it verifies the telemetry itself: logs are structured, metrics appear, a request can be followed across services, and alerts reach the right channel.",
+          "permalink": "https://github.com/addyosmani/agent-skills/tree/301b02b12bff98e4688e6984af6556802322bbde/skills/observability-and-instrumentation"
+        },
+        "tags": [
+          "category:cloud",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "stack:opentelemetry",
+          "observability"
+        ]
+      }
+    },
+    {
+      "id": "addyosmani/agent-skills/skills/constraint-driven-development",
+      "name": "constraint-driven-development",
+      "skills.sh": {
+        "url": "https://skills.sh/addyosmani/agent-skills/constraint-driven-development",
+        "installs": 40800,
+        "weeklyInstalls": [2837, 3875, 3607, 3859, 4861, 5481, 5090, 4612],
+        "firstSeen": "2026-08-28"
+      },
+      "skillMd": {
+        "version": "301b02b12bff98e4688e6984af6556802322bbde",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Interviews you for a quality bar, records it in CONSTRAINTS.md with the commands that enforce it, and catches diffs that weaken it.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "no quality bar is written down, or an agent keeps skipping tests and silencing checks to get to green"
+            },
+            {
+              "label": "It does",
+              "text": "detects your stack, asks four questions with defaults, writes CONSTRAINTS.md, installs a standard tool per dimension and places each check by cost"
+            },
+            {
+              "label": "You get",
+              "text": "CONSTRAINTS.md with a floor, enforced rules that each name their command, measured numbers that mustn't get worse, and dated exceptions"
+            },
+            {
+              "label": "Catches",
+              "text": "lowered thresholds, skipped or deleted tests, new @ts-ignore or eslint-disable comments, empty catch blocks, stubs and undiscussed exceptions"
+            },
+            {
+              "label": "Defaults",
+              "text": "80% coverage of changed lines, no vulnerabilities rated high or above, LCP of 2.5 seconds or less, no critical or serious accessibility violations, exceptions lasting 90 days"
+            },
+            {
+              "label": "Runs",
+              "text": "its interview only with a person present; in CI or loops it applies just the floor and flags the rest"
+            }
+          ],
+          "text": "Other skills describe good code in prose an agent may forget; this one writes the project's own bar down, with numbers, where any agent and the build can check it. It reads what it can first, stack, test runner, linters, coverage, CI, then asks four questions one at a time, each with a default: which dimensions to enforce beyond the floor (coverage, security, performance, accessibility, architecture), block or warn, target numbers or today's values, and the slowest check you'll tolerate. The floor applies to every project: no new suppression comments, stubs or empty catch blocks, no unexplained skipped tests, no secrets, and no weakening the file itself. Each chosen dimension gets a standard tool, such as Semgrep, gitleaks, osv-scanner, Lighthouse, axe or Stryker, a package script, and a test against a known violation; fast checks run after each edit, slow ones at task end or in CI. Without a target it uses a ratchet: record today's number and refuse to get worse. At review it checks the diff for the five ways agents lower the bar. AGENTS.md and CLAUDE.md get a line pointing to it. A gate script and a diff-scoped floor checker ship with the skill.",
+          "permalink": "https://github.com/addyosmani/agent-skills/tree/301b02b12bff98e4688e6984af6556802322bbde/skills/constraint-driven-development"
+        },
+        "tags": [
+          "category:engineering",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "code-quality",
+          "guardrails",
+          "ci"
+        ]
       }
     }
   ]
