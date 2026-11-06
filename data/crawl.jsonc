@@ -679,32 +679,6 @@
       }
     },
     {
-      "name": "bailian-cli",
-      "repo": "modelstudioai/cli",
-      "official": false,
-      "stars": 369,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/modelstudioai/cli/bailian-cli",
-        "installs": 18900,
-        "weeklyInstalls": [328, 231, 172, 122, 127, 121, 92, 99],
-        "firstSeen": "2026-06-08"
-      }
-    },
-    {
-      "name": "planning-with-files-zh",
-      "repo": "othmanadi/planning-with-files",
-      "official": false,
-      "stars": 27923,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/othmanadi/planning-with-files/planning-with-files-zh",
-        "installs": 18500,
-        "weeklyInstalls": [160, 179, 133, 94, 115, 146, 178, 182],
-        "firstSeen": "2026-03-19"
-      }
-    },
-    {
       "name": "nature-polishing",
       "repo": "yuan1z0825/nature-skills",
       "official": false,
@@ -848,19 +822,6 @@
       }
     },
     {
-      "name": "swift-concurrency",
-      "repo": "avdlee/swift-concurrency-agent-skill",
-      "official": false,
-      "stars": 1702,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/avdlee/swift-concurrency-agent-skill/swift-concurrency",
-        "installs": 17400,
-        "weeklyInstalls": [268, 295, 284, 281, 281, 200, 223, 222],
-        "firstSeen": "2026-01-21"
-      }
-    },
-    {
       "name": "explain-interface",
       "repo": "jakubkrehel/skills",
       "official": false,
@@ -871,19 +832,6 @@
         "installs": 17400,
         "weeklyInstalls": [1392, 1625, 1242, 1671, 1357, 1264, 1453, 1977],
         "firstSeen": "2026-08-19"
-      }
-    },
-    {
-      "name": "web-access",
-      "repo": "eze-is/web-access",
-      "official": false,
-      "stars": 9351,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/eze-is/web-access/web-access",
-        "installs": 17200,
-        "weeklyInstalls": [156, 152, 95, 96, 88, 210, 139, 124],
-        "firstSeen": "2026-03-19"
       }
     },
     {
@@ -926,19 +874,6 @@
       }
     },
     {
-      "name": "yomiyasu",
-      "repo": "nanaism/yomiyasu",
-      "official": false,
-      "stars": 2873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/nanaism/yomiyasu/yomiyasu",
-        "installs": 17000,
-        "weeklyInstalls": [0, 0, 0, 3417, 5316, 2676, 2688, 2133],
-        "firstSeen": "2026-09-30"
-      }
-    },
-    {
       "name": "nature-paper2ppt",
       "repo": "yuan1z0825/nature-skills",
       "official": false,
@@ -962,19 +897,6 @@
         "installs": 16700,
         "weeklyInstalls": [132, 131, 139, 131, 134, 268, 226, 202],
         "firstSeen": "2026-01-28"
-      }
-    },
-    {
-      "name": "meegle",
-      "repo": "larksuite/meegle-cli",
-      "official": false,
-      "stars": 252,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/larksuite/meegle-cli/meegle",
-        "installs": 16700,
-        "weeklyInstalls": [823, 911, 637, 448, 455, 659, 622, 632],
-        "firstSeen": "2026-04-22"
       }
     },
     {
@@ -1108,19 +1030,6 @@
       }
     },
     {
-      "name": "neon-realtime",
-      "repo": "neondatabase/agent-skills",
-      "official": true,
-      "stars": 111,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/neondatabase/agent-skills/neon-realtime",
-        "installs": 15900,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 1847, 4044, 5042],
-        "firstSeen": "2026-10-15"
-      }
-    },
-    {
       "name": "write",
       "repo": "tw93/waza",
       "official": false,
@@ -1157,19 +1066,6 @@
         "installs": 15800,
         "weeklyInstalls": [268, 355, 416, 258, 305, 339, 330, 1147],
         "firstSeen": "2026-03-09"
-      }
-    },
-    {
-      "name": "linear-cli",
-      "repo": "schpet/linear-cli",
-      "official": false,
-      "stars": 1039,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/schpet/linear-cli/linear-cli",
-        "installs": 15800,
-        "weeklyInstalls": [551, 1399, 848, 925, 846, 1108, 670, 1104],
-        "firstSeen": "2026-01-23"
       }
     },
     {
@@ -1274,19 +1170,6 @@
         "installs": 15500,
         "weeklyInstalls": [1173, 1108, 1077, 1148, 1198, 1628, 1673, 1715],
         "firstSeen": "2026-08-20"
-      }
-    },
-    {
-      "name": "flutter-animations",
-      "repo": "madteacher/mad-agents-skills",
-      "official": false,
-      "stars": 112,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/madteacher/mad-agents-skills/flutter-animations",
-        "installs": 15500,
-        "weeklyInstalls": [51, 44, 40, 36, 52, 87, 70, 72],
-        "firstSeen": "2026-01-22"
       }
     },
     {
@@ -1417,32 +1300,6 @@
         "installs": 14800,
         "weeklyInstalls": [977, 987, 1254, 2417, 2699, 1536, 1706, 1452],
         "firstSeen": "2026-03-14"
-      }
-    },
-    {
-      "name": "wecom-unified",
-      "repo": "wecomteam/wecom-unified",
-      "official": false,
-      "stars": 132,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wecomteam/wecom-unified/wecom-unified",
-        "installs": 14700,
-        "weeklyInstalls": [909, 813, 535, 378, 420, 575, 482, 421],
-        "firstSeen": "2026-04-22"
-      }
-    },
-    {
-      "name": "fastapi",
-      "repo": "fastapi/fastapi",
-      "official": false,
-      "stars": 104464,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/fastapi/fastapi/fastapi",
-        "installs": 14700,
-        "weeklyInstalls": [475, 535, 564, 604, 715, 826, 722, 664],
-        "firstSeen": "2026-02-25"
       }
     },
     {
@@ -44139,6 +43996,50 @@
     {
       "url": "https://skills.sh/twostraws/swift-concurrency-agent-skill/swift-concurrency-pro",
       "note": "Tool docs: an agent's manual for swift."
+    },
+    {
+      "url": "https://skills.sh/modelstudioai/cli/bailian-cli",
+      "note": "Tool docs: an agent's manual for bailian."
+    },
+    {
+      "url": "https://skills.sh/othmanadi/planning-with-files/planning-with-files-zh",
+      "note": "In Chinese."
+    },
+    {
+      "url": "https://skills.sh/avdlee/swift-concurrency-agent-skill/swift-concurrency",
+      "note": "Tool docs: an agent's manual for swift."
+    },
+    {
+      "url": "https://skills.sh/eze-is/web-access/web-access",
+      "note": "In Chinese."
+    },
+    {
+      "url": "https://skills.sh/nanaism/yomiyasu/yomiyasu",
+      "note": "In Japanese."
+    },
+    {
+      "url": "https://skills.sh/larksuite/meegle-cli/meegle",
+      "note": "In Chinese. Tool docs: an agent's manual for meegle."
+    },
+    {
+      "url": "https://skills.sh/neondatabase/agent-skills/neon-realtime",
+      "note": "Tool docs: an agent's manual for neon and postgres."
+    },
+    {
+      "url": "https://skills.sh/schpet/linear-cli/linear-cli",
+      "note": "Tool docs: an agent's manual for linear."
+    },
+    {
+      "url": "https://skills.sh/madteacher/mad-agents-skills/flutter-animations",
+      "note": "Tool docs: an agent's manual for flutter."
+    },
+    {
+      "url": "https://skills.sh/wecomteam/wecom-unified/wecom-unified",
+      "note": "In Chinese. Tool docs: an agent's manual for wecom."
+    },
+    {
+      "url": "https://skills.sh/fastapi/fastapi/fastapi",
+      "note": "Tool docs: an agent's manual for fastapi and python."
     }
   ]
 }
