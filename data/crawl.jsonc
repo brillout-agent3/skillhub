@@ -2525,19 +2525,6 @@
       }
     },
     {
-      "name": "bmad-prd",
-      "repo": "bmad-code-org/bmad-method",
-      "official": false,
-      "stars": 55079,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/bmad-code-org/bmad-method/bmad-prd",
-        "installs": 14300,
-        "weeklyInstalls": [949, 962, 1252, 2415, 2630, 1459, 1657, 1428],
-        "firstSeen": "2026-05-14"
-      }
-    },
-    {
       "name": "create-auth",
       "repo": "better-auth/skills",
       "official": false,
@@ -2574,19 +2561,6 @@
         "installs": 14300,
         "weeklyInstalls": [376, 396, 372, 345, 314, 330, 321, 300],
         "firstSeen": "2026-05-18"
-      }
-    },
-    {
-      "name": "bmad-product-brief",
-      "repo": "bmad-code-org/bmad-method",
-      "official": false,
-      "stars": 55079,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/bmad-code-org/bmad-method/bmad-product-brief",
-        "installs": 14200,
-        "weeklyInstalls": [951, 948, 1218, 2346, 2566, 1429, 1648, 1408],
-        "firstSeen": "2026-03-20"
       }
     },
     {
@@ -3318,19 +3292,6 @@
       }
     },
     {
-      "name": "bmod-core-tools",
-      "repo": "bmad-code-org/bmad-method",
-      "official": false,
-      "stars": 55079,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/bmad-code-org/bmad-method/bmod-core-tools",
-        "installs": 13200,
-        "weeklyInstalls": [0, 1, 1126, 2750, 3042, 1689, 1810, 1548],
-        "firstSeen": "2026-09-20"
-      }
-    },
-    {
       "name": "apple-design",
       "repo": "dickwu/apple-design-skill",
       "official": false,
@@ -3432,19 +3393,6 @@
         "installs": 13000,
         "weeklyInstalls": [211, 226, 265, 347, 297, 250, 250, 231],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "bmod-method",
-      "repo": "bmad-code-org/bmad-method",
-      "official": false,
-      "stars": 55079,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/bmad-code-org/bmad-method/bmod-method",
-        "installs": 13000,
-        "weeklyInstalls": [0, 1, 1126, 2726, 2994, 1658, 1774, 1510],
-        "firstSeen": "2026-09-20"
       }
     },
     {
@@ -45477,6 +45425,22 @@
     {
       "url": "https://skills.sh/alchaincyf/nuwa-skill/huashu-nuwa",
       "note": "In Chinese."
+    },
+    {
+      "url": "https://skills.sh/bmad-code-org/bmad-method/bmad-prd",
+      "note": "Retired. Its SKILL.md now points to bmad-agent-pm."
+    },
+    {
+      "url": "https://skills.sh/bmad-code-org/bmad-method/bmad-product-brief",
+      "note": "Retired. Its SKILL.md now points to bmad-agent-pm."
+    },
+    {
+      "url": "https://skills.sh/bmad-code-org/bmad-method/bmod-core-tools",
+      "note": "Module record: its SKILL.md is metadata for BMad's setup and says never to invoke it."
+    },
+    {
+      "url": "https://skills.sh/bmad-code-org/bmad-method/bmod-method",
+      "note": "Module record: its SKILL.md is metadata for BMad's setup and says never to invoke it."
     }
   ]
 }
