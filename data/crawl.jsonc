@@ -3357,19 +3357,6 @@
       }
     },
     {
-      "name": "godot-ui-control",
-      "repo": "gamedev-skills/awesome-gamedev-agent-skills",
-      "official": false,
-      "stars": 7187,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/godot-ui-control",
-        "installs": 9500,
-        "weeklyInstalls": [375, 354, 417, 451, 516, 735, 1546, 1917],
-        "firstSeen": "2026-06-27"
-      }
-    },
-    {
       "name": "create-github-issues-feature-from-implementation-plan",
       "repo": "github/awesome-copilot",
       "official": true,
@@ -3549,19 +3536,6 @@
         "installs": 9400,
         "weeklyInstalls": [472, 505, 485, 426, 383, 386, 343, 363],
         "firstSeen": "2026-05-19"
-      }
-    },
-    {
-      "name": "godot-animation",
-      "repo": "gamedev-skills/awesome-gamedev-agent-skills",
-      "official": false,
-      "stars": 7187,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/godot-animation",
-        "installs": 9400,
-        "weeklyInstalls": [371, 335, 416, 447, 490, 740, 1530, 1888],
-        "firstSeen": "2026-06-27"
       }
     },
     {
@@ -3890,32 +3864,6 @@
       }
     },
     {
-      "name": "godot-gdscript",
-      "repo": "gamedev-skills/awesome-gamedev-agent-skills",
-      "official": false,
-      "stars": 7187,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/godot-gdscript",
-        "installs": 9200,
-        "weeklyInstalls": [365, 339, 406, 419, 488, 731, 1506, 1887],
-        "firstSeen": "2026-06-27"
-      }
-    },
-    {
-      "name": "godot-shaders",
-      "repo": "gamedev-skills/awesome-gamedev-agent-skills",
-      "official": false,
-      "stars": 7187,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/godot-shaders",
-        "installs": 9200,
-        "weeklyInstalls": [366, 327, 402, 427, 495, 715, 1506, 1864],
-        "firstSeen": "2026-06-27"
-      }
-    },
-    {
       "name": "create-llms",
       "repo": "github/awesome-copilot",
       "official": true,
@@ -3952,19 +3900,6 @@
         "installs": 9200,
         "weeklyInstalls": [450, 325, 275, 17, 11, 11, 9, 3],
         "firstSeen": "2026-04-08"
-      }
-    },
-    {
-      "name": "godot-nodes-scenes",
-      "repo": "gamedev-skills/awesome-gamedev-agent-skills",
-      "official": false,
-      "stars": 7187,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/godot-nodes-scenes",
-        "installs": 9200,
-        "weeklyInstalls": [365, 339, 399, 413, 472, 708, 1517, 1882],
-        "firstSeen": "2026-06-27"
       }
     },
     {
@@ -4332,32 +4267,6 @@
       }
     },
     {
-      "name": "godot-resources",
-      "repo": "gamedev-skills/awesome-gamedev-agent-skills",
-      "official": false,
-      "stars": 7187,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/godot-resources",
-        "installs": 9000,
-        "weeklyInstalls": [359, 323, 395, 399, 463, 693, 1467, 1849],
-        "firstSeen": "2026-06-27"
-      }
-    },
-    {
-      "name": "godot-physics",
-      "repo": "gamedev-skills/awesome-gamedev-agent-skills",
-      "official": false,
-      "stars": 7187,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/godot-physics",
-        "installs": 9000,
-        "weeklyInstalls": [351, 329, 396, 401, 473, 684, 1469, 1834],
-        "firstSeen": "2026-06-27"
-      }
-    },
-    {
       "name": "create-github-issues-for-unmet-specification-requirements",
       "repo": "github/awesome-copilot",
       "official": true,
@@ -4563,19 +4472,6 @@
         "installs": 8900,
         "weeklyInstalls": [8, 9, 15, 13, 6, 5, 2, 1],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "godot-signals-groups",
-      "repo": "gamedev-skills/awesome-gamedev-agent-skills",
-      "official": false,
-      "stars": 7187,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/godot-signals-groups",
-        "installs": 8900,
-        "weeklyInstalls": [359, 320, 386, 383, 460, 677, 1449, 1831],
-        "firstSeen": "2026-06-27"
       }
     },
     {
@@ -38685,6 +38581,38 @@
     {
       "url": "https://skills.sh/google/skills/workload-manager-basics",
       "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/godot-ui-control",
+      "note": "Tool docs: an agent's manual for godot."
+    },
+    {
+      "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/godot-animation",
+      "note": "Tool docs: an agent's manual for godot."
+    },
+    {
+      "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/godot-gdscript",
+      "note": "Tool docs: an agent's manual for godot."
+    },
+    {
+      "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/godot-shaders",
+      "note": "Tool docs: an agent's manual for godot."
+    },
+    {
+      "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/godot-nodes-scenes",
+      "note": "Tool docs: an agent's manual for godot."
+    },
+    {
+      "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/godot-resources",
+      "note": "Tool docs: an agent's manual for godot."
+    },
+    {
+      "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/godot-physics",
+      "note": "Tool docs: an agent's manual for godot."
+    },
+    {
+      "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/godot-signals-groups",
+      "note": "Tool docs: an agent's manual for godot."
     }
   ]
 }
