@@ -1160,19 +1160,6 @@
       }
     },
     {
-      "name": "angular-developer",
-      "repo": "angular/skills",
-      "official": true,
-      "stars": 716,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/angular/skills/angular-developer",
-        "installs": 48500,
-        "weeklyInstalls": [1498, 1610, 1864, 1839, 2072, 1564, 1593, 1389],
-        "firstSeen": "2026-03-23"
-      }
-    },
-    {
       "name": "planning-with-files",
       "repo": "othmanadi/planning-with-files",
       "official": false,
@@ -1261,19 +1248,6 @@
         "installs": 44700,
         "weeklyInstalls": [1901, 1866, 1800, 1830, 2106, 2461, 3211, 3699],
         "firstSeen": "2026-06-25"
-      }
-    },
-    {
-      "name": "vue-best-practices",
-      "repo": "vuejs-ai/skills",
-      "official": false,
-      "stars": 3264,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/vuejs-ai/skills/vue-best-practices",
-        "installs": 44700,
-        "weeklyInstalls": [507, 503, 558, 518, 614, 748, 1367, 1246],
-        "firstSeen": "2026-01-21"
       }
     },
     {
@@ -1433,19 +1407,6 @@
       }
     },
     {
-      "name": "modern-web-guidance",
-      "repo": "googlechrome/modern-web-guidance",
-      "official": false,
-      "stars": 2631,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googlechrome/modern-web-guidance/modern-web-guidance",
-        "installs": 38300,
-        "weeklyInstalls": [1665, 1835, 1874, 1997, 4264, 2500, 1948, 2060],
-        "firstSeen": "2026-05-19"
-      }
-    },
-    {
       "name": "tavily-search",
       "repo": "tavily-ai/skills",
       "official": false,
@@ -1482,32 +1443,6 @@
         "installs": 37200,
         "weeklyInstalls": [2211, 2429, 2297, 3061, 2722, 1748, 2021, 2922],
         "firstSeen": "2026-07-10"
-      }
-    },
-    {
-      "name": "swiftui-pro",
-      "repo": "twostraws/swiftui-agent-skill",
-      "official": false,
-      "stars": 6487,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/twostraws/swiftui-agent-skill/swiftui-pro",
-        "installs": 37100,
-        "weeklyInstalls": [618, 804, 648, 1016, 1460, 1441, 1280, 1325],
-        "firstSeen": "2026-03-05"
-      }
-    },
-    {
-      "name": "swiftui-expert-skill",
-      "repo": "avdlee/swiftui-agent-skill",
-      "official": false,
-      "stars": 3833,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/avdlee/swiftui-agent-skill/swiftui-expert-skill",
-        "installs": 36000,
-        "weeklyInstalls": [591, 965, 715, 690, 695, 565, 607, 547],
-        "firstSeen": "2026-01-24"
       }
     },
     {
@@ -1573,19 +1508,6 @@
         "installs": 34800,
         "weeklyInstalls": [294, 295, 118, 127, 175, 164, 168, 191],
         "firstSeen": "2026-01-19"
-      }
-    },
-    {
-      "name": "migrate-radix-to-base",
-      "repo": "shadcn/ui",
-      "official": false,
-      "stars": 127510,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/shadcn/ui/migrate-radix-to-base",
-        "installs": 34500,
-        "weeklyInstalls": [2631, 2608, 2594, 2758, 2963, 2710, 2376, 2534],
-        "firstSeen": "2026-07-03"
       }
     },
     {
@@ -1693,19 +1615,6 @@
       }
     },
     {
-      "name": "sanity-best-practices",
-      "repo": "sanity-io/agent-toolkit",
-      "official": true,
-      "stars": 197,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/sanity-io/agent-toolkit/sanity-best-practices",
-        "installs": 33300,
-        "weeklyInstalls": [1360, 1331, 1233, 1099, 1048, 1008, 981, 961],
-        "firstSeen": "2026-01-24"
-      }
-    },
-    {
       "name": "better-writing",
       "repo": "jakubkrehel/skills",
       "official": false,
@@ -1729,19 +1638,6 @@
         "installs": 33300,
         "weeklyInstalls": [343, 345, 160, 194, 213, 233, 230, 261],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "mcp-apps-builder",
-      "repo": "mcp-use/mcp-use",
-      "official": false,
-      "stars": 10853,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/mcp-use/mcp-use/mcp-apps-builder",
-        "installs": 33100,
-        "weeklyInstalls": [178, 167, 1028, 901, 1182, 386, 828, 807],
-        "firstSeen": "2026-02-17"
       }
     },
     {
@@ -1940,19 +1836,6 @@
       }
     },
     {
-      "name": "react-native-best-practices",
-      "repo": "callstackincubator/agent-skills",
-      "official": false,
-      "stars": 1702,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/callstackincubator/agent-skills/react-native-best-practices",
-        "installs": 31600,
-        "weeklyInstalls": [728, 739, 834, 708, 784, 818, 756, 862],
-        "firstSeen": "2026-01-19"
-      }
-    },
-    {
       "name": "baoyu-slide-deck",
       "repo": "jimliu/baoyu-skills",
       "official": false,
@@ -2028,19 +1911,6 @@
         "installs": 31500,
         "weeklyInstalls": [118, 86, 102, 87, 67, 83, 63, 94],
         "firstSeen": "2026-05-15"
-      }
-    },
-    {
-      "name": "nestjs-best-practices",
-      "repo": "kadajett/agent-nestjs-skills",
-      "official": false,
-      "stars": 297,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/kadajett/agent-nestjs-skills/nestjs-best-practices",
-        "installs": 31300,
-        "weeklyInstalls": [528, 539, 543, 585, 612, 524, 545, 536],
-        "firstSeen": "2026-01-19"
       }
     },
     {
@@ -2145,19 +2015,6 @@
         "installs": 30000,
         "weeklyInstalls": [1833, 1767, 1216, 1405, 4538, 6367, 1204, 990],
         "firstSeen": "2026-07-22"
-      }
-    },
-    {
-      "name": "orca-linear",
-      "repo": "stablyai/orca",
-      "official": true,
-      "stars": 117623,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/stablyai/orca/orca-linear",
-        "installs": 29600,
-        "weeklyInstalls": [4040, 2386, 2268, 2033, 1558, 3027, 2957, 364],
-        "firstSeen": "2026-06-22"
       }
     },
     {
@@ -2340,19 +2197,6 @@
         "installs": 28600,
         "weeklyInstalls": [846, 643, 588, 929, 492, 364, 356, 107],
         "firstSeen": "2026-05-09"
-      }
-    },
-    {
-      "name": "remotion-license",
-      "repo": "remotion-dev/skills",
-      "official": true,
-      "stars": 6472,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/remotion-dev/skills/remotion-license",
-        "installs": 28600,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
-        "firstSeen": null
       }
     },
     {
@@ -49768,6 +49612,54 @@
     {
       "url": "https://skills.sh/wind-alice/alicemarket/wind-find-finance-skill",
       "note": "In Chinese."
+    },
+    {
+      "url": "https://skills.sh/angular/skills/angular-developer",
+      "note": "Tool docs: an agent's manual for angular."
+    },
+    {
+      "url": "https://skills.sh/vuejs-ai/skills/vue-best-practices",
+      "note": "Tool docs: an agent's manual for vue."
+    },
+    {
+      "url": "https://skills.sh/googlechrome/modern-web-guidance/modern-web-guidance",
+      "note": "Tool docs: an agent's manual for html, css and javascript."
+    },
+    {
+      "url": "https://skills.sh/twostraws/swiftui-agent-skill/swiftui-pro",
+      "note": "Tool docs: an agent's manual for swiftui."
+    },
+    {
+      "url": "https://skills.sh/avdlee/swiftui-agent-skill/swiftui-expert-skill",
+      "note": "Tool docs: an agent's manual for swiftui."
+    },
+    {
+      "url": "https://skills.sh/shadcn/ui/migrate-radix-to-base",
+      "note": "Tool docs: an agent's manual for shadcn and radix-ui and base-ui."
+    },
+    {
+      "url": "https://skills.sh/sanity-io/agent-toolkit/sanity-best-practices",
+      "note": "Tool docs: an agent's manual for sanity."
+    },
+    {
+      "url": "https://skills.sh/mcp-use/mcp-use/mcp-apps-builder",
+      "note": "Tool docs: an agent's manual for mcp-use."
+    },
+    {
+      "url": "https://skills.sh/callstackincubator/agent-skills/react-native-best-practices",
+      "note": "Tool docs: an agent's manual for react-native."
+    },
+    {
+      "url": "https://skills.sh/kadajett/agent-nestjs-skills/nestjs-best-practices",
+      "note": "Tool docs: an agent's manual for nestjs."
+    },
+    {
+      "url": "https://skills.sh/stablyai/orca/orca-linear",
+      "note": "Tool docs: an agent's manual for orca."
+    },
+    {
+      "url": "https://skills.sh/remotion-dev/skills/remotion-license",
+      "note": "Tool docs: an agent's manual for remotion."
     }
   ]
 }
