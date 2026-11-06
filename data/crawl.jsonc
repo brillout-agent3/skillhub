@@ -3604,45 +3604,6 @@
       }
     },
     {
-      "name": "copilot-sdk",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/copilot-sdk",
-        "installs": 9400,
-        "weeklyInstalls": [10, 11, 24, 16, 6, 10, 3, 6],
-        "firstSeen": "2026-01-29"
-      }
-    },
-    {
-      "name": "azure-role-selector",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/azure-role-selector",
-        "installs": 9400,
-        "weeklyInstalls": [9, 8, 16, 12, 2, 5, 3, 0],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "next-intl-add-language",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/next-intl-add-language",
-        "installs": 9400,
-        "weeklyInstalls": [24, 18, 27, 42, 17, 14, 23, 29],
-        "firstSeen": "2026-02-25"
-      }
-    },
-    {
       "name": "project-workflow-analysis-blueprint-generator",
       "repo": "github/awesome-copilot",
       "official": true,
@@ -3757,19 +3718,6 @@
         "installs": 9300,
         "weeklyInstalls": [166, 169, 122, 124, 142, 180, 161, 125],
         "firstSeen": "2026-03-13"
-      }
-    },
-    {
-      "name": "java-refactoring-extract-method",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/java-refactoring-extract-method",
-        "installs": 9300,
-        "weeklyInstalls": [16, 19, 19, 19, 17, 13, 26, 25],
-        "firstSeen": "2026-02-25"
       }
     },
     {
@@ -4007,32 +3955,6 @@
       }
     },
     {
-      "name": "dataverse-python-advanced-patterns",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/dataverse-python-advanced-patterns",
-        "installs": 9200,
-        "weeklyInstalls": [15, 10, 14, 15, 4, 4, 8, 13],
-        "firstSeen": "2026-02-25"
-      }
-    },
-    {
-      "name": "debian-linux-triage",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/debian-linux-triage",
-        "installs": 9200,
-        "weeklyInstalls": [18, 21, 23, 31, 17, 25, 31, 27],
-        "firstSeen": "2026-02-25"
-      }
-    },
-    {
       "name": "modern-python",
       "repo": "trailofbits/skills",
       "official": true,
@@ -4098,19 +4020,6 @@
       }
     },
     {
-      "name": "go-mcp-server-generator",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/go-mcp-server-generator",
-        "installs": 9200,
-        "weeklyInstalls": [19, 29, 28, 32, 17, 20, 19, 26],
-        "firstSeen": "2026-02-25"
-      }
-    },
-    {
       "name": "ctf-malware",
       "repo": "ljagiello/ctf-skills",
       "official": false,
@@ -4137,32 +4046,6 @@
       }
     },
     {
-      "name": "aspnet-minimal-api-openapi",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/aspnet-minimal-api-openapi",
-        "installs": 9200,
-        "weeklyInstalls": [20, 23, 23, 21, 16, 13, 11, 8],
-        "firstSeen": "2026-02-25"
-      }
-    },
-    {
-      "name": "rust-mcp-server-generator",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/rust-mcp-server-generator",
-        "installs": 9200,
-        "weeklyInstalls": [13, 20, 16, 17, 8, 18, 16, 8],
-        "firstSeen": "2026-02-25"
-      }
-    },
-    {
       "name": "godot-shaders",
       "repo": "gamedev-skills/awesome-gamedev-agent-skills",
       "official": false,
@@ -4173,19 +4056,6 @@
         "installs": 9200,
         "weeklyInstalls": [366, 327, 402, 427, 495, 715, 1506, 1864],
         "firstSeen": "2026-06-27"
-      }
-    },
-    {
-      "name": "power-bi-dax-optimization",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/power-bi-dax-optimization",
-        "installs": 9200,
-        "weeklyInstalls": [28, 20, 24, 35, 20, 16, 22, 21],
-        "firstSeen": "2026-02-25"
       }
     },
     {
@@ -4709,19 +4579,6 @@
       }
     },
     {
-      "name": "azure-static-web-apps",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/azure-static-web-apps",
-        "installs": 8900,
-        "weeklyInstalls": [9, 10, 17, 14, 4, 5, 2, 2],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
       "name": "java-refactoring-remove-parameter",
       "repo": "github/awesome-copilot",
       "official": true,
@@ -4826,32 +4683,6 @@
       }
     },
     {
-      "name": "power-bi-performance-troubleshooting",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/power-bi-performance-troubleshooting",
-        "installs": 8900,
-        "weeklyInstalls": [15, 16, 18, 28, 10, 6, 4, 11],
-        "firstSeen": "2026-02-25"
-      }
-    },
-    {
-      "name": "containerize-aspnetcore",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/containerize-aspnetcore",
-        "installs": 8900,
-        "weeklyInstalls": [15, 20, 23, 21, 15, 10, 12, 3],
-        "firstSeen": "2026-02-25"
-      }
-    },
-    {
       "name": "codegen",
       "repo": "vercel-labs/json-render",
       "official": true,
@@ -4891,19 +4722,6 @@
       }
     },
     {
-      "name": "vscode-ext-localization",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/vscode-ext-localization",
-        "installs": 8900,
-        "weeklyInstalls": [6, 7, 12, 13, 3, 3, 3, 2],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
       "name": "prototype-fast",
       "repo": "gamedev-skills/awesome-gamedev-agent-skills",
       "official": false,
@@ -4914,32 +4732,6 @@
         "installs": 8900,
         "weeklyInstalls": [336, 328, 393, 400, 467, 652, 1460, 1815],
         "firstSeen": "2026-06-27"
-      }
-    },
-    {
-      "name": "csharp-mstest",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/csharp-mstest",
-        "installs": 8900,
-        "weeklyInstalls": [12, 10, 21, 23, 6, 2, 2, 5],
-        "firstSeen": "2026-02-25"
-      }
-    },
-    {
-      "name": "php-mcp-server-generator",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/php-mcp-server-generator",
-        "installs": 8900,
-        "weeklyInstalls": [14, 11, 15, 12, 3, 2, 1, 4],
-        "firstSeen": "2026-02-25"
       }
     },
     {
@@ -4966,19 +4758,6 @@
         "installs": 8900,
         "weeklyInstalls": [8, 9, 15, 13, 6, 5, 2, 1],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "csharp-tunit",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/csharp-tunit",
-        "installs": 8900,
-        "weeklyInstalls": [16, 11, 21, 17, 4, 3, 4, 4],
-        "firstSeen": "2026-02-25"
       }
     },
     {
@@ -5056,32 +4835,6 @@
         "url": "https://skills.sh/github/awesome-copilot/structured-autonomy-plan",
         "installs": 8800,
         "weeklyInstalls": [10, 11, 17, 13, 2, 0, 3, 3],
-        "firstSeen": "2026-02-25"
-      }
-    },
-    {
-      "name": "workiq-copilot",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/workiq-copilot",
-        "installs": 8800,
-        "weeklyInstalls": [9, 9, 10, 13, 6, 0, 1, 2],
-        "firstSeen": "2026-01-28"
-      }
-    },
-    {
-      "name": "mcp-deploy-manage-agents",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/mcp-deploy-manage-agents",
-        "installs": 8800,
-        "weeklyInstalls": [5, 9, 14, 13, 2, 0, 1, 4],
         "firstSeen": "2026-02-25"
       }
     },
@@ -39450,6 +39203,82 @@
     {
       "url": "https://skills.sh/github/awesome-copilot/csharp-nunit",
       "note": "Tool docs: an agent's manual for nunit and csharp."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/copilot-sdk",
+      "note": "Tool docs: an agent's manual for the GitHub Copilot SDK."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/azure-role-selector",
+      "note": "Tool docs: an agent's manual for azure."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/next-intl-add-language",
+      "note": "Tool docs: an agent's manual for next-intl and nextjs."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/java-refactoring-extract-method",
+      "note": "Tool docs: an agent's manual for java."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/dataverse-python-advanced-patterns",
+      "note": "Tool docs: an agent's manual for dataverse and python."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/debian-linux-triage",
+      "note": "Tool docs: an agent's manual for debian."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/go-mcp-server-generator",
+      "note": "Tool docs: an agent's manual for go and the official MCP Go SDK."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/aspnet-minimal-api-openapi",
+      "note": "Tool docs: an agent's manual for aspnet and dotnet."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/rust-mcp-server-generator",
+      "note": "Tool docs: an agent's manual for rust and the rmcp MCP SDK."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/power-bi-dax-optimization",
+      "note": "Tool docs: an agent's manual for power-bi."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/azure-static-web-apps",
+      "note": "Tool docs: an agent's manual for azure."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/power-bi-performance-troubleshooting",
+      "note": "Tool docs: an agent's manual for power-bi."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/containerize-aspnetcore",
+      "note": "Tool docs: an agent's manual for docker and dotnet."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/vscode-ext-localization",
+      "note": "Tool docs: an agent's manual for vscode."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/csharp-mstest",
+      "note": "Tool docs: an agent's manual for mstest."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/php-mcp-server-generator",
+      "note": "Tool docs: an agent's manual for mcp and php."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/csharp-tunit",
+      "note": "Tool docs: an agent's manual for tunit."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/workiq-copilot",
+      "note": "Tool docs: an agent's manual for workiq."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/mcp-deploy-manage-agents",
+      "note": "Tool docs: an agent's manual for microsoft-365."
     }
   ]
 }
