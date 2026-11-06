@@ -757,19 +757,6 @@
       }
     },
     {
-      "name": "next-partial-prefetching-adoption",
-      "repo": "vercel/next.js",
-      "official": true,
-      "stars": 143367,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/vercel/next.js/next-partial-prefetching-adoption",
-        "installs": 10000,
-        "weeklyInstalls": [714, 689, 651, 588, 614, 550, 502, 498],
-        "firstSeen": "2026-07-14"
-      }
-    },
-    {
       "name": "find-docs",
       "repo": "upstash/context7",
       "official": false,
@@ -809,19 +796,6 @@
       }
     },
     {
-      "name": "react-email",
-      "repo": "resend/react-email",
-      "official": false,
-      "stars": 19915,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/resend/react-email/react-email",
-        "installs": 9900,
-        "weeklyInstalls": [95, 125, 145, 630, 219, 121, 144, 101],
-        "firstSeen": "2026-01-21"
-      }
-    },
-    {
       "name": "tanstack-start-best-practices",
       "repo": "deckardger/tanstack-agent-skills",
       "official": false,
@@ -858,19 +832,6 @@
         "installs": 9800,
         "weeklyInstalls": [189, 246, 266, 295, 357, 488, 709, 594],
         "firstSeen": "2026-01-19"
-      }
-    },
-    {
-      "name": "dart-use-primary-constructors",
-      "repo": "dart-lang/skills",
-      "official": false,
-      "stars": 543,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/dart-lang/skills/dart-use-primary-constructors",
-        "installs": 9800,
-        "weeklyInstalls": [568, 672, 591, 564, 639, 511, 568, 525],
-        "firstSeen": "2026-07-10"
       }
     },
     {
@@ -926,19 +887,6 @@
       }
     },
     {
-      "name": "figma-use",
-      "repo": "figma/mcp-server-guide",
-      "official": true,
-      "stars": 2157,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/figma/mcp-server-guide/figma-use",
-        "installs": 9700,
-        "weeklyInstalls": [244, 246, 254, 273, 305, 477, 477, 320],
-        "firstSeen": "2026-03-24"
-      }
-    },
-    {
       "name": "mcp-builder",
       "repo": "mcp-use/mcp-use",
       "official": false,
@@ -965,19 +913,6 @@
       }
     },
     {
-      "name": "swiftdata-pro",
-      "repo": "twostraws/swiftdata-agent-skill",
-      "official": false,
-      "stars": 464,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/twostraws/swiftdata-agent-skill/swiftdata-pro",
-        "installs": 9600,
-        "weeklyInstalls": [213, 204, 214, 245, 260, 248, 215, 203],
-        "firstSeen": "2026-03-11"
-      }
-    },
-    {
       "name": "web-typography",
       "repo": "wondelai/skills",
       "official": false,
@@ -1001,19 +936,6 @@
         "installs": 9600,
         "weeklyInstalls": [235, 308, 252, 150, 206, 307, 276, 355],
         "firstSeen": "2026-02-01"
-      }
-    },
-    {
-      "name": "hindsight-docs",
-      "repo": "vectorize-io/hindsight",
-      "official": false,
-      "stars": 59406,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/vectorize-io/hindsight/hindsight-docs",
-        "installs": 9500,
-        "weeklyInstalls": [257, 273, 383, 529, 305, 342, 307, 246],
-        "firstSeen": "2026-02-10"
       }
     },
     {
@@ -1121,32 +1043,6 @@
       }
     },
     {
-      "name": "m15-anti-pattern",
-      "repo": "actionbook/rust-skills",
-      "official": false,
-      "stars": 1575,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/actionbook/rust-skills/m15-anti-pattern",
-        "installs": 9300,
-        "weeklyInstalls": [77, 84, 93, 115, 90, 423, 134, 588],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "use-railway",
-      "repo": "railwayapp/railway-skills",
-      "official": true,
-      "stars": 341,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/railwayapp/railway-skills/use-railway",
-        "installs": 9300,
-        "weeklyInstalls": [225, 199, 275, 352, 344, 505, 384, 230],
-        "firstSeen": "2026-02-25"
-      }
-    },
-    {
       "name": "remembering-conversations",
       "repo": "obra/episodic-memory",
       "official": false,
@@ -1251,32 +1147,6 @@
       }
     },
     {
-      "name": "terraform-test",
-      "repo": "hashicorp/agent-skills",
-      "official": true,
-      "stars": 917,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/hashicorp/agent-skills/terraform-test",
-        "installs": 9100,
-        "weeklyInstalls": [261, 235, 215, 229, 209, 202, 186, 166],
-        "firstSeen": "2026-01-26"
-      }
-    },
-    {
-      "name": "migrate-to-vinext",
-      "repo": "cloudflare/vinext",
-      "official": false,
-      "stars": 9323,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/cloudflare/vinext/migrate-to-vinext",
-        "installs": 9100,
-        "weeklyInstalls": [477, 432, 535, 597, 557, 536, 495, 463],
-        "firstSeen": "2026-02-24"
-      }
-    },
-    {
       "name": "conversion-tracking",
       "repo": "coreyhaines31/marketingskills",
       "official": false,
@@ -1303,19 +1173,6 @@
       }
     },
     {
-      "name": "home-assistant-best-practices",
-      "repo": "homeassistant-ai/skills",
-      "official": false,
-      "stars": 949,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/homeassistant-ai/skills/home-assistant-best-practices",
-        "installs": 9000,
-        "weeklyInstalls": [189, 219, 285, 273, 247, 361, 262, 278],
-        "firstSeen": "2026-01-31"
-      }
-    },
-    {
       "name": "chrome-devtools",
       "repo": "chromedevtools/chrome-devtools-mcp",
       "official": false,
@@ -1329,19 +1186,6 @@
       }
     },
     {
-      "name": "notion-cli",
-      "repo": "makenotion/skills",
-      "official": false,
-      "stars": 182,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/makenotion/skills/notion-cli",
-        "installs": 9000,
-        "weeklyInstalls": [211, 197, 157, 124, 123, 110, 126, 118],
-        "firstSeen": "2026-03-17"
-      }
-    },
-    {
       "name": "cmux-browser",
       "repo": "manaflow-ai/cmux",
       "official": false,
@@ -1352,19 +1196,6 @@
         "installs": 9000,
         "weeklyInstalls": [292, 306, 254, 249, 192, 174, 150, 124],
         "firstSeen": "2026-02-20"
-      }
-    },
-    {
-      "name": "gh-axi",
-      "repo": "kunchenguid/gh-axi",
-      "official": false,
-      "stars": 359,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/kunchenguid/gh-axi/gh-axi",
-        "installs": 8900,
-        "weeklyInstalls": [207, 204, 428, 1085, 1512, 854, 426, 510],
-        "firstSeen": "2026-06-11"
       }
     },
     {
@@ -1469,19 +1300,6 @@
         "installs": 8700,
         "weeklyInstalls": [329, 325, 354, 292, 274, 302, 290, 403],
         "firstSeen": "2026-02-10"
-      }
-    },
-    {
-      "name": "composio",
-      "repo": "composiohq/composio",
-      "official": true,
-      "stars": 30950,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/composiohq/composio/composio",
-        "installs": 8700,
-        "weeklyInstalls": [821, 860, 803, 797, 789, 580, 450, 347],
-        "firstSeen": "2026-08-11"
       }
     },
     {
@@ -34559,6 +34377,62 @@
     {
       "url": "https://skills.sh/vercel/vercel/vercel-cli",
       "note": "Tool docs: an agent's manual for vercel."
+    },
+    {
+      "url": "https://skills.sh/vercel/next.js/next-partial-prefetching-adoption",
+      "note": "Tool docs: an agent's manual for nextjs."
+    },
+    {
+      "url": "https://skills.sh/resend/react-email/react-email",
+      "note": "Tool docs: an agent's manual for react-email."
+    },
+    {
+      "url": "https://skills.sh/dart-lang/skills/dart-use-primary-constructors",
+      "note": "Tool docs: an agent's manual for dart."
+    },
+    {
+      "url": "https://skills.sh/figma/mcp-server-guide/figma-use",
+      "note": "Tool docs: an agent's manual for figma."
+    },
+    {
+      "url": "https://skills.sh/twostraws/swiftdata-agent-skill/swiftdata-pro",
+      "note": "Tool docs: an agent's manual for swiftdata."
+    },
+    {
+      "url": "https://skills.sh/vectorize-io/hindsight/hindsight-docs",
+      "note": "Tool docs: an agent's manual for hindsight."
+    },
+    {
+      "url": "https://skills.sh/actionbook/rust-skills/m15-anti-pattern",
+      "note": "Tool docs: an agent's manual for rust."
+    },
+    {
+      "url": "https://skills.sh/railwayapp/railway-skills/use-railway",
+      "note": "Tool docs: an agent's manual for railway."
+    },
+    {
+      "url": "https://skills.sh/hashicorp/agent-skills/terraform-test",
+      "note": "Tool docs: an agent's manual for terraform."
+    },
+    {
+      "url": "https://skills.sh/cloudflare/vinext/migrate-to-vinext",
+      "note": "Tool docs: an agent's manual for vinext."
+    },
+    {
+      "url": "https://skills.sh/homeassistant-ai/skills/home-assistant-best-practices",
+      "note": "Tool docs: an agent's manual for home-assistant."
+    },
+    {
+      "url": "https://skills.sh/makenotion/skills/notion-cli",
+      "note": "Tool docs: an agent's manual for notion."
+    },
+    {
+      "url": "https://skills.sh/kunchenguid/gh-axi/gh-axi",
+      "note": "Tool docs: an agent's manual for gh-axi."
+    },
+    {
+      "url": "https://skills.sh/composiohq/composio/composio",
+      "note": "Tool docs: an agent's manual for composio."
     }
   ]
 }
