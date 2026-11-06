@@ -42,19 +42,6 @@
       }
     },
     {
-      "name": "china-stock-analysis",
-      "repo": "sugarforever/01coder-agent-skills",
-      "official": false,
-      "stars": 139,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/sugarforever/01coder-agent-skills/china-stock-analysis",
-        "installs": 12500,
-        "weeklyInstalls": [0, 1, 0, 0, 0, 0, 1, 0],
-        "firstSeen": "2026-01-27"
-      }
-    },
-    {
       "name": "nature-literature-pipeline",
       "repo": "yuan1z0825/nature-skills",
       "official": false,
@@ -208,19 +195,6 @@
         "installs": 12400,
         "weeklyInstalls": [826, 809, 785, 561, 557, 569, 579, 498],
         "firstSeen": "2026-08-05"
-      }
-    },
-    {
-      "name": "gemini-interactions-api",
-      "repo": "google-gemini/gemini-skills",
-      "official": false,
-      "stars": 4414,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google-gemini/gemini-skills/gemini-interactions-api",
-        "installs": 12300,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-03-04"
       }
     },
     {
@@ -728,19 +702,6 @@
         "installs": 11800,
         "weeklyInstalls": [48, 67, 61, 60, 62, 69, 107, 96],
         "firstSeen": "2026-02-25"
-      }
-    },
-    {
-      "name": "claude-opus-4-5-migration",
-      "repo": "anthropics/claude-code",
-      "official": true,
-      "stars": 154784,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/anthropics/claude-code/claude-opus-4-5-migration",
-        "installs": 11800,
-        "weeklyInstalls": [212, 188, 180, 158, 173, 177, 143, 42],
-        "firstSeen": "2026-01-20"
       }
     },
     {
@@ -1537,19 +1498,6 @@
       }
     },
     {
-      "name": "firecrawl-browser",
-      "repo": "firecrawl/cli",
-      "official": false,
-      "stars": 678,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/firecrawl/cli/firecrawl-browser",
-        "installs": 11200,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-03-10"
-      }
-    },
-    {
       "name": "anti-reversing-techniques",
       "repo": "wshobson/agents",
       "official": false,
@@ -2083,19 +2031,6 @@
       }
     },
     {
-      "name": "okx-growth-competition",
-      "repo": "okx/onchainos-skills",
-      "official": false,
-      "stars": 346,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/okx/onchainos-skills/okx-growth-competition",
-        "installs": 10900,
-        "weeklyInstalls": [1, 0, 0, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-05-07"
-      }
-    },
-    {
       "name": "resume-bullet-writer",
       "repo": "paramchoudhary/resumeskills",
       "official": false,
@@ -2382,19 +2317,6 @@
       }
     },
     {
-      "name": "flutter-building-layouts",
-      "repo": "flutter/agent-plugins",
-      "official": false,
-      "stars": 3158,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/flutter/agent-plugins/flutter-building-layouts",
-        "installs": 10600,
-        "weeklyInstalls": [0, 0, 0, 0, 1, 2, 0, 0],
-        "firstSeen": "2026-03-13"
-      }
-    },
-    {
       "name": "service-mesh-observability",
       "repo": "wshobson/agents",
       "official": false,
@@ -2548,19 +2470,6 @@
         "installs": 10500,
         "weeklyInstalls": [204, 340, 435, 403, 507, 500, 660, 1555],
         "firstSeen": "2026-03-28"
-      }
-    },
-    {
-      "name": "pi-planning-with-files",
-      "repo": "othmanadi/planning-with-files",
-      "official": false,
-      "stars": 27923,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/othmanadi/planning-with-files/pi-planning-with-files",
-        "installs": 10500,
-        "weeklyInstalls": [117, 141, 51, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-02-04"
       }
     },
     {
@@ -2876,19 +2785,6 @@
       }
     },
     {
-      "name": "flutter-architecting-apps",
-      "repo": "flutter/agent-plugins",
-      "official": false,
-      "stars": 3158,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/flutter/agent-plugins/flutter-architecting-apps",
-        "installs": 10300,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-03-13"
-      }
-    },
-    {
       "name": "parallel-debugging",
       "repo": "wshobson/agents",
       "official": false,
@@ -3133,19 +3029,6 @@
         "installs": 10200,
         "weeklyInstalls": [421, 498, 371, 416, 449, 402, 323, 390],
         "firstSeen": "2026-05-19"
-      }
-    },
-    {
-      "name": "bmad-spec",
-      "repo": "bmad-code-org/bmad-method",
-      "official": false,
-      "stars": 55079,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/bmad-code-org/bmad-method/bmad-spec",
-        "installs": 10200,
-        "weeklyInstalls": [971, 968, 1275, 2447, 2746, 1373, 20, 8],
-        "firstSeen": "2026-05-24"
       }
     },
     {
@@ -3916,19 +3799,6 @@
       }
     },
     {
-      "name": "bmad-correct-course",
-      "repo": "bmad-code-org/bmad-method",
-      "official": false,
-      "stars": 55079,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/bmad-code-org/bmad-method/bmad-correct-course",
-        "installs": 9800,
-        "weeklyInstalls": [943, 947, 1198, 2307, 2529, 1300, 8, 7],
-        "firstSeen": "2026-03-17"
-      }
-    },
-    {
       "name": "image-manipulation-image-magick",
       "repo": "github/awesome-copilot",
       "official": true,
@@ -4007,19 +3877,6 @@
       }
     },
     {
-      "name": "self-improvement",
-      "repo": "pskoett/self-improving-agent",
-      "official": false,
-      "stars": 790,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/pskoett/self-improving-agent/self-improvement",
-        "installs": 9700,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-02-18"
-      }
-    },
-    {
       "name": "bro",
       "repo": "backnotprop/bro",
       "official": false,
@@ -4056,19 +3913,6 @@
         "installs": 9700,
         "weeklyInstalls": [475, 350, 305, 18, 14, 15, 11, 3],
         "firstSeen": "2026-04-08"
-      }
-    },
-    {
-      "name": "my-pull-requests",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/my-pull-requests",
-        "installs": 9700,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-02-25"
       }
     },
     {
@@ -4189,19 +4033,6 @@
       }
     },
     {
-      "name": "okx-dex-token",
-      "repo": "okx/onchainos-skills",
-      "official": false,
-      "stars": 346,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/okx/onchainos-skills/okx-dex-token",
-        "installs": 9700,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-02-28"
-      }
-    },
-    {
       "name": "mcp-cli",
       "repo": "github/awesome-copilot",
       "official": true,
@@ -4290,19 +4121,6 @@
         "installs": 9600,
         "weeklyInstalls": [463, 346, 293, 19, 14, 12, 11, 4],
         "firstSeen": "2026-04-08"
-      }
-    },
-    {
-      "name": "flutter-animating-apps",
-      "repo": "flutter/agent-plugins",
-      "official": false,
-      "stars": 3158,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/flutter/agent-plugins/flutter-animating-apps",
-        "installs": 9600,
-        "weeklyInstalls": [0, 0, 0, 0, 1, 2, 1, 0],
-        "firstSeen": "2026-03-13"
       }
     },
     {
@@ -4410,19 +4228,6 @@
       }
     },
     {
-      "name": "flutter-managing-state",
-      "repo": "flutter/agent-plugins",
-      "official": false,
-      "stars": 3158,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/flutter/agent-plugins/flutter-managing-state",
-        "installs": 9600,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-03-13"
-      }
-    },
-    {
       "name": "shopify-app-store-review",
       "repo": "shopify/shopify-ai-toolkit",
       "official": false,
@@ -4459,19 +4264,6 @@
         "installs": 9600,
         "weeklyInstalls": [925, 790, 654, 605, 545, 587, 634, 655],
         "firstSeen": "2026-06-08"
-      }
-    },
-    {
-      "name": "my-issues",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/my-issues",
-        "installs": 9600,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-02-25"
       }
     },
     {
@@ -4641,19 +4433,6 @@
         "installs": 9500,
         "weeklyInstalls": [499, 428, 348, 11, 16, 15, 10, 2],
         "firstSeen": "2026-04-13"
-      }
-    },
-    {
-      "name": "flutter-theming-apps",
-      "repo": "flutter/agent-plugins",
-      "official": false,
-      "stars": 3158,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/flutter/agent-plugins/flutter-theming-apps",
-        "installs": 9500,
-        "weeklyInstalls": [0, 0, 1, 0, 1, 1, 1, 1],
-        "firstSeen": "2026-03-13"
       }
     },
     {
@@ -4901,19 +4680,6 @@
         "installs": 9400,
         "weeklyInstalls": [9, 8, 16, 12, 2, 5, 3, 0],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "prompt-builder",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/prompt-builder",
-        "installs": 9400,
-        "weeklyInstalls": [0, 0, 1, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-02-25"
       }
     },
     {
@@ -5242,19 +5008,6 @@
       }
     },
     {
-      "name": "baoyu-imagine",
-      "repo": "jimliu/baoyu-skills",
-      "official": false,
-      "stars": 27357,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/jimliu/baoyu-skills/baoyu-imagine",
-        "installs": 9300,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-03-25"
-      }
-    },
-    {
       "name": "query-address-info",
       "repo": "binance/binance-skills-hub",
       "official": false,
@@ -5291,19 +5044,6 @@
         "installs": 9300,
         "weeklyInstalls": [15, 15, 17, 17, 4, 2, 5, 4],
         "firstSeen": "2026-02-25"
-      }
-    },
-    {
-      "name": "flutter-implementing-navigation-and-routing",
-      "repo": "flutter/agent-plugins",
-      "official": false,
-      "stars": 3158,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/flutter/agent-plugins/flutter-implementing-navigation-and-routing",
-        "installs": 9300,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-03-13"
       }
     },
     {
@@ -5814,19 +5554,6 @@
       }
     },
     {
-      "name": "ai-paper-reproduction",
-      "repo": "lllllllama/rigorpilot-skills",
-      "official": false,
-      "stars": 486,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/lllllllama/rigorpilot-skills/ai-paper-reproduction",
-        "installs": 9100,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-03-30"
-      }
-    },
-    {
       "name": "breakdown-epic-pm",
       "repo": "github/awesome-copilot",
       "official": true,
@@ -5928,19 +5655,6 @@
         "installs": 9100,
         "weeklyInstalls": [157, 315, 255, 113, 334, 462, 241, 168],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "github",
-      "repo": "callstackincubator/agent-skills",
-      "official": false,
-      "stars": 1702,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/callstackincubator/agent-skills/github",
-        "installs": 9100,
-        "weeklyInstalls": [139, 195, 209, 161, 253, 237, 142, 247],
-        "firstSeen": "2026-01-26"
       }
     },
     {
@@ -6048,19 +5762,6 @@
       }
     },
     {
-      "name": "drawio-skill",
-      "repo": "agents365-ai/365-skills",
-      "official": false,
-      "stars": 100,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/agents365-ai/365-skills/drawio-skill",
-        "installs": 9000,
-        "weeklyInstalls": [362, 48, 0, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-05-06"
-      }
-    },
-    {
       "name": "create-technical-spike",
       "repo": "github/awesome-copilot",
       "official": true,
@@ -6126,19 +5827,6 @@
       }
     },
     {
-      "name": "cad-viewer",
-      "repo": "earthtojake/text-to-cad",
-      "official": false,
-      "stars": 25696,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/earthtojake/text-to-cad/cad-viewer",
-        "installs": 9000,
-        "weeklyInstalls": [658, 574, 353, 105, 0, 0, 0, 0],
-        "firstSeen": "2026-05-27"
-      }
-    },
-    {
       "name": "chrome-devtools",
       "repo": "chromedevtools/chrome-devtools-mcp",
       "official": false,
@@ -6188,19 +5876,6 @@
         "installs": 9000,
         "weeklyInstalls": [192, 315, 417, 397, 505, 493, 630, 1520],
         "firstSeen": "2026-04-24"
-      }
-    },
-    {
-      "name": "dbs-bridge",
-      "repo": "dontbesilent2025/dbskill",
-      "official": false,
-      "stars": 11294,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/dontbesilent2025/dbskill/dbs-bridge",
-        "installs": 9000,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-07-04"
       }
     },
     {
@@ -6279,19 +5954,6 @@
         "installs": 9000,
         "weeklyInstalls": [12, 12, 16, 14, 2, 2, 2, 3],
         "firstSeen": "2026-02-25"
-      }
-    },
-    {
-      "name": "okx-wallet-portfolio",
-      "repo": "okx/onchainos-skills",
-      "official": false,
-      "stars": 346,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/okx/onchainos-skills/okx-wallet-portfolio",
-        "installs": 9000,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-02-28"
       }
     },
     {
@@ -6412,19 +6074,6 @@
       }
     },
     {
-      "name": "create-github-pull-request-from-specification",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/create-github-pull-request-from-specification",
-        "installs": 8900,
-        "weeklyInstalls": [0, 1, 0, 0, 0, 1, 0, 0],
-        "firstSeen": "2026-02-25"
-      }
-    },
-    {
       "name": "what-context-needed",
       "repo": "github/awesome-copilot",
       "official": true,
@@ -6435,19 +6084,6 @@
         "installs": 8900,
         "weeklyInstalls": [8, 10, 16, 18, 2, 2, 1, 3],
         "firstSeen": "2026-02-25"
-      }
-    },
-    {
-      "name": "flutter-testing-apps",
-      "repo": "flutter/agent-plugins",
-      "official": false,
-      "stars": 3158,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/flutter/agent-plugins/flutter-testing-apps",
-        "installs": 8900,
-        "weeklyInstalls": [0, 0, 0, 0, 1, 0, 0, 0],
-        "firstSeen": "2026-03-13"
       }
     },
     {
@@ -6539,19 +6175,6 @@
         "installs": 8900,
         "weeklyInstalls": [97, 76, 65, 387, 98, 135, 151, 158],
         "firstSeen": "2026-02-01"
-      }
-    },
-    {
-      "name": "okx-dex-swap",
-      "repo": "okx/onchainos-skills",
-      "official": false,
-      "stars": 346,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/okx/onchainos-skills/okx-dex-swap",
-        "installs": 8900,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-02-28"
       }
     },
     {
@@ -6695,19 +6318,6 @@
         "installs": 8900,
         "weeklyInstalls": [12, 10, 21, 23, 6, 2, 2, 5],
         "firstSeen": "2026-02-25"
-      }
-    },
-    {
-      "name": "make-skill-template",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/make-skill-template",
-        "installs": 8900,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-01-20"
       }
     },
     {
@@ -6968,19 +6578,6 @@
         "installs": 8800,
         "weeklyInstalls": [174, 183, 201, 219, 270, 293, 353, 371],
         "firstSeen": "2026-02-26"
-      }
-    },
-    {
-      "name": "okx-onchain-gateway",
-      "repo": "okx/onchainos-skills",
-      "official": false,
-      "stars": 346,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/okx/onchainos-skills/okx-onchain-gateway",
-        "installs": 8800,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-02-28"
       }
     },
     {
@@ -7556,19 +7153,6 @@
       }
     },
     {
-      "name": "design",
-      "repo": "tw93/waza",
-      "official": false,
-      "stars": 7523,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/tw93/waza/design",
-        "installs": 8700,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-04-04"
-      }
-    },
-    {
       "name": "sponsor-finder",
       "repo": "github/awesome-copilot",
       "official": true,
@@ -7683,19 +7267,6 @@
         "installs": 8700,
         "weeklyInstalls": [6, 7, 17, 11, 2, 0, 0, 2],
         "firstSeen": "2026-02-25"
-      }
-    },
-    {
-      "name": "dbs-skill-cleaner",
-      "repo": "dontbesilent2025/dbskill",
-      "official": false,
-      "stars": 11294,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/dontbesilent2025/dbskill/dbs-skill-cleaner",
-        "installs": 8700,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-07-13"
       }
     },
     {
@@ -7829,19 +7400,6 @@
       }
     },
     {
-      "name": "flutter-caching-data",
-      "repo": "flutter/agent-plugins",
-      "official": false,
-      "stars": 3158,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/flutter/agent-plugins/flutter-caching-data",
-        "installs": 8700,
-        "weeklyInstalls": [0, 0, 0, 1, 0, 0, 0, 0],
-        "firstSeen": "2026-03-13"
-      }
-    },
-    {
       "name": "content-research-writer",
       "repo": "composiohq/awesome-claude-skills",
       "official": true,
@@ -7946,19 +7504,6 @@
       }
     },
     {
-      "name": "flutter-reducing-app-size",
-      "repo": "flutter/agent-plugins",
-      "official": false,
-      "stars": 3158,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/flutter/agent-plugins/flutter-reducing-app-size",
-        "installs": 8600,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-03-13"
-      }
-    },
-    {
       "name": "flight-ticket-search",
       "repo": "nomadamas/k-skill",
       "official": false,
@@ -7998,19 +7543,6 @@
       }
     },
     {
-      "name": "flutter-building-forms",
-      "repo": "flutter/agent-plugins",
-      "official": false,
-      "stars": 3158,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/flutter/agent-plugins/flutter-building-forms",
-        "installs": 8600,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-03-13"
-      }
-    },
-    {
       "name": "danawa-price-search",
       "repo": "nomadamas/k-skill",
       "official": false,
@@ -8034,19 +7566,6 @@
         "installs": 8600,
         "weeklyInstalls": [346, 325, 368, 380, 430, 635, 1417, 1750],
         "firstSeen": "2026-06-27"
-      }
-    },
-    {
-      "name": "flutter-handling-http-and-json",
-      "repo": "flutter/agent-plugins",
-      "official": false,
-      "stars": 3158,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/flutter/agent-plugins/flutter-handling-http-and-json",
-        "installs": 8600,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-03-13"
       }
     },
     {
@@ -8219,19 +7738,6 @@
       }
     },
     {
-      "name": "flutter-handling-concurrency",
-      "repo": "flutter/agent-plugins",
-      "official": false,
-      "stars": 3158,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/flutter/agent-plugins/flutter-handling-concurrency",
-        "installs": 8500,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-03-13"
-      }
-    },
-    {
       "name": "n8n-mcp-tools-expert",
       "repo": "czlonkowski/n8n-skills",
       "official": false,
@@ -8349,45 +7855,6 @@
       }
     },
     {
-      "name": "model-recommendation",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/model-recommendation",
-        "installs": 8400,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-02-25"
-      }
-    },
-    {
-      "name": "winapp-cli",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/winapp-cli",
-        "installs": 8400,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-02-02"
-      }
-    },
-    {
-      "name": "flutter-localizing-apps",
-      "repo": "flutter/agent-plugins",
-      "official": false,
-      "stars": 3158,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/flutter/agent-plugins/flutter-localizing-apps",
-        "installs": 8400,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-03-13"
-      }
-    },
-    {
       "name": "okx-sentiment-tracker",
       "repo": "okx/agent-skills",
       "official": false,
@@ -8398,32 +7865,6 @@
         "installs": 8400,
         "weeklyInstalls": [138, 130, 164, 294, 219, 208, 208, 179],
         "firstSeen": "2026-04-17"
-      }
-    },
-    {
-      "name": "polyglot-test-agent",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/polyglot-test-agent",
-        "installs": 8400,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-02-18"
-      }
-    },
-    {
-      "name": "flutter-working-with-databases",
-      "repo": "flutter/agent-plugins",
-      "official": false,
-      "stars": 3158,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/flutter/agent-plugins/flutter-working-with-databases",
-        "installs": 8400,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-03-13"
       }
     },
     {
@@ -8622,19 +8063,6 @@
       }
     },
     {
-      "name": "flutter-improving-accessibility",
-      "repo": "flutter/agent-plugins",
-      "official": false,
-      "stars": 3158,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/flutter/agent-plugins/flutter-improving-accessibility",
-        "installs": 8400,
-        "weeklyInstalls": [0, 0, 1, 0, 1, 0, 1, 0],
-        "firstSeen": "2026-03-13"
-      }
-    },
-    {
       "name": "daangn-jobs-search",
       "repo": "nomadamas/k-skill",
       "official": false,
@@ -8645,19 +8073,6 @@
         "installs": 8400,
         "weeklyInstalls": [199, 330, 424, 397, 502, 490, 622, 1519],
         "firstSeen": "2026-05-14"
-      }
-    },
-    {
-      "name": "csharp-mcp-server-generator",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/csharp-mcp-server-generator",
-        "installs": 8400,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-02-25"
       }
     },
     {
@@ -8804,19 +8219,6 @@
       }
     },
     {
-      "name": "flutter-interoperating-with-native-apis",
-      "repo": "flutter/agent-plugins",
-      "official": false,
-      "stars": 3158,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/flutter/agent-plugins/flutter-interoperating-with-native-apis",
-        "installs": 8300,
-        "weeklyInstalls": [0, 0, 0, 0, 1, 0, 1, 0],
-        "firstSeen": "2026-03-13"
-      }
-    },
-    {
       "name": "interrogate",
       "repo": "backnotprop/pstack",
       "official": false,
@@ -8840,19 +8242,6 @@
         "installs": 8300,
         "weeklyInstalls": [190, 309, 416, 393, 495, 490, 623, 1512],
         "firstSeen": "2026-05-13"
-      }
-    },
-    {
-      "name": "flutter-adding-home-screen-widgets",
-      "repo": "flutter/agent-plugins",
-      "official": false,
-      "stars": 3158,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/flutter/agent-plugins/flutter-adding-home-screen-widgets",
-        "installs": 8300,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 1, 0, 0],
-        "firstSeen": "2026-03-13"
       }
     },
     {
@@ -8973,19 +8362,6 @@
       }
     },
     {
-      "name": "flutter-building-plugins",
-      "repo": "flutter/agent-plugins",
-      "official": false,
-      "stars": 3158,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/flutter/agent-plugins/flutter-building-plugins",
-        "installs": 8200,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-03-13"
-      }
-    },
-    {
       "name": "unity-package-management",
       "repo": "unity-technologies/skills",
       "official": false,
@@ -9100,19 +8476,6 @@
         "installs": 8200,
         "weeklyInstalls": [320, 292, 355, 354, 407, 586, 1375, 1723],
         "firstSeen": "2026-06-27"
-      }
-    },
-    {
-      "name": "flutter-embedding-native-views",
-      "repo": "flutter/agent-plugins",
-      "official": false,
-      "stars": 3158,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/flutter/agent-plugins/flutter-embedding-native-views",
-        "installs": 8200,
-        "weeklyInstalls": [0, 0, 0, 0, 1, 0, 0, 0],
-        "firstSeen": "2026-03-13"
       }
     },
     {
@@ -9688,19 +9051,6 @@
       }
     },
     {
-      "name": "fullstack-developer",
-      "repo": "shubhamsaboo/awesome-llm-apps",
-      "official": false,
-      "stars": 144026,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/shubhamsaboo/awesome-llm-apps/fullstack-developer",
-        "installs": 7900,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 1],
-        "firstSeen": "2026-02-05"
-      }
-    },
-    {
       "name": "korean-middle-korean",
       "repo": "nomadamas/k-skill",
       "official": false,
@@ -9906,32 +9256,6 @@
         "installs": 7800,
         "weeklyInstalls": [233, 256, 240, 238, 234, 257, 269, 347],
         "firstSeen": "2026-02-10"
-      }
-    },
-    {
-      "name": "add-app-clip",
-      "repo": "expo/skills",
-      "official": true,
-      "stars": 4073,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/expo/skills/add-app-clip",
-        "installs": 7800,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-05-21"
-      }
-    },
-    {
-      "name": "flutter-setting-up-on-macos",
-      "repo": "flutter/agent-plugins",
-      "official": false,
-      "stars": 3158,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/flutter/agent-plugins/flutter-setting-up-on-macos",
-        "installs": 7800,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-03-13"
       }
     },
     {
@@ -10507,32 +9831,6 @@
       }
     },
     {
-      "name": "flutter-setting-up-on-windows",
-      "repo": "flutter/agent-plugins",
-      "official": false,
-      "stars": 3158,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/flutter/agent-plugins/flutter-setting-up-on-windows",
-        "installs": 7700,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-03-13"
-      }
-    },
-    {
-      "name": "framework-selection",
-      "repo": "langchain-ai/langchain-skills",
-      "official": false,
-      "stars": 1324,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/langchain-ai/langchain-skills/framework-selection",
-        "installs": 7700,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 1, 0, 0],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
       "name": "workload-manager-basics",
       "repo": "google/skills",
       "official": true,
@@ -10702,19 +10000,6 @@
       }
     },
     {
-      "name": "okx-dex-signal",
-      "repo": "okx/onchainos-skills",
-      "official": false,
-      "stars": 346,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/okx/onchainos-skills/okx-dex-signal",
-        "installs": 7600,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-03-12"
-      }
-    },
-    {
       "name": "adhd",
       "repo": "uditakhourii/adhd",
       "official": false,
@@ -10751,19 +10036,6 @@
         "installs": 7600,
         "weeklyInstalls": [191, 312, 418, 400, 507, 489, 625, 1517],
         "firstSeen": "2026-06-15"
-      }
-    },
-    {
-      "name": "flutter-setting-up-on-linux",
-      "repo": "flutter/agent-plugins",
-      "official": false,
-      "stars": 3158,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/flutter/agent-plugins/flutter-setting-up-on-linux",
-        "installs": 7600,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-03-13"
       }
     },
     {
@@ -10985,19 +10257,6 @@
         "installs": 7500,
         "weeklyInstalls": [10, 11, 8, 20, 12, 17, 27, 28],
         "firstSeen": "2026-02-10"
-      }
-    },
-    {
-      "name": "okx-dex-trenches",
-      "repo": "okx/onchainos-skills",
-      "official": false,
-      "stars": 346,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/okx/onchainos-skills/okx-dex-trenches",
-        "installs": 7500,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-03-12"
       }
     },
     {
@@ -12847,19 +12106,6 @@
       }
     },
     {
-      "name": "create-oo-component-documentation",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/create-oo-component-documentation",
-        "installs": 7000,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-02-25"
-      }
-    },
-    {
       "name": "build-mcp-app",
       "repo": "anthropics/claude-plugins-official",
       "official": true,
@@ -12974,32 +12220,6 @@
         "installs": 7000,
         "weeklyInstalls": [767, 489, 445, 316, 300, 393, 302, 228],
         "firstSeen": "2026-07-04"
-      }
-    },
-    {
-      "name": "mcp-configure",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/mcp-configure",
-        "installs": 7000,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-02-26"
-      }
-    },
-    {
-      "name": "update-oo-component-documentation",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/update-oo-component-documentation",
-        "installs": 7000,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
-        "firstSeen": "2026-02-25"
       }
     },
     {
@@ -42078,6 +41298,246 @@
     {
       "url": "https://skills.sh/mintlify/docs/mintlify",
       "note": "Tool docs: an agent's manual for mintlify."
+    },
+    {
+      "url": "https://skills.sh/sugarforever/01coder-agent-skills/china-stock-analysis",
+      "note": "Gone from sugarforever/01coder-agent-skills since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/google-gemini/gemini-skills/gemini-interactions-api",
+      "note": "Gone from google-gemini/gemini-skills since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/anthropics/claude-code/claude-opus-4-5-migration",
+      "note": "Gone from anthropics/claude-code since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/firecrawl/cli/firecrawl-browser",
+      "note": "Gone from firecrawl/cli since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/okx/onchainos-skills/okx-growth-competition",
+      "note": "Gone from okx/onchainos-skills since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/flutter/agent-plugins/flutter-building-layouts",
+      "note": "Gone from flutter/agent-plugins since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/othmanadi/planning-with-files/pi-planning-with-files",
+      "note": "Gone from othmanadi/planning-with-files since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/flutter/agent-plugins/flutter-architecting-apps",
+      "note": "Gone from flutter/agent-plugins since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/bmad-code-org/bmad-method/bmad-spec",
+      "note": "Gone from bmad-code-org/bmad-method since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/bmad-code-org/bmad-method/bmad-correct-course",
+      "note": "Gone from bmad-code-org/bmad-method since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/pskoett/self-improving-agent/self-improvement",
+      "note": "Gone from pskoett/self-improving-agent since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/my-pull-requests",
+      "note": "Gone from github/awesome-copilot since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/okx/onchainos-skills/okx-dex-token",
+      "note": "Gone from okx/onchainos-skills since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/flutter/agent-plugins/flutter-animating-apps",
+      "note": "Gone from flutter/agent-plugins since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/flutter/agent-plugins/flutter-managing-state",
+      "note": "Gone from flutter/agent-plugins since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/my-issues",
+      "note": "Gone from github/awesome-copilot since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/flutter/agent-plugins/flutter-theming-apps",
+      "note": "Gone from flutter/agent-plugins since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/prompt-builder",
+      "note": "Gone from github/awesome-copilot since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/jimliu/baoyu-skills/baoyu-imagine",
+      "note": "Gone from jimliu/baoyu-skills since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/flutter/agent-plugins/flutter-implementing-navigation-and-routing",
+      "note": "Gone from flutter/agent-plugins since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/lllllllama/rigorpilot-skills/ai-paper-reproduction",
+      "note": "Gone from lllllllama/rigorpilot-skills since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/callstackincubator/agent-skills/github",
+      "note": "Gone from callstackincubator/agent-skills since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/agents365-ai/365-skills/drawio-skill",
+      "note": "Gone from agents365-ai/365-skills since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/earthtojake/text-to-cad/cad-viewer",
+      "note": "Gone from earthtojake/text-to-cad since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/dontbesilent2025/dbskill/dbs-bridge",
+      "note": "Gone from dontbesilent2025/dbskill since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/okx/onchainos-skills/okx-wallet-portfolio",
+      "note": "Gone from okx/onchainos-skills since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/create-github-pull-request-from-specification",
+      "note": "Gone from github/awesome-copilot since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/flutter/agent-plugins/flutter-testing-apps",
+      "note": "Gone from flutter/agent-plugins since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/okx/onchainos-skills/okx-dex-swap",
+      "note": "Gone from okx/onchainos-skills since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/make-skill-template",
+      "note": "Gone from github/awesome-copilot since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/okx/onchainos-skills/okx-onchain-gateway",
+      "note": "Gone from okx/onchainos-skills since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/tw93/waza/design",
+      "note": "Gone from tw93/waza since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/dontbesilent2025/dbskill/dbs-skill-cleaner",
+      "note": "Gone from dontbesilent2025/dbskill since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/flutter/agent-plugins/flutter-caching-data",
+      "note": "Gone from flutter/agent-plugins since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/flutter/agent-plugins/flutter-reducing-app-size",
+      "note": "Gone from flutter/agent-plugins since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/flutter/agent-plugins/flutter-building-forms",
+      "note": "Gone from flutter/agent-plugins since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/flutter/agent-plugins/flutter-handling-http-and-json",
+      "note": "Gone from flutter/agent-plugins since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/flutter/agent-plugins/flutter-handling-concurrency",
+      "note": "Gone from flutter/agent-plugins since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/model-recommendation",
+      "note": "Gone from github/awesome-copilot since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/winapp-cli",
+      "note": "Gone from github/awesome-copilot since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/flutter/agent-plugins/flutter-localizing-apps",
+      "note": "Gone from flutter/agent-plugins since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/polyglot-test-agent",
+      "note": "Gone from github/awesome-copilot since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/flutter/agent-plugins/flutter-working-with-databases",
+      "note": "Gone from flutter/agent-plugins since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/flutter/agent-plugins/flutter-improving-accessibility",
+      "note": "Gone from flutter/agent-plugins since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/csharp-mcp-server-generator",
+      "note": "Gone from github/awesome-copilot since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/flutter/agent-plugins/flutter-interoperating-with-native-apis",
+      "note": "Gone from flutter/agent-plugins since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/flutter/agent-plugins/flutter-adding-home-screen-widgets",
+      "note": "Gone from flutter/agent-plugins since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/flutter/agent-plugins/flutter-building-plugins",
+      "note": "Gone from flutter/agent-plugins since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/flutter/agent-plugins/flutter-embedding-native-views",
+      "note": "Gone from flutter/agent-plugins since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/shubhamsaboo/awesome-llm-apps/fullstack-developer",
+      "note": "Gone from shubhamsaboo/awesome-llm-apps since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/expo/skills/add-app-clip",
+      "note": "Gone from expo/skills since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/flutter/agent-plugins/flutter-setting-up-on-macos",
+      "note": "Gone from flutter/agent-plugins since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/flutter/agent-plugins/flutter-setting-up-on-windows",
+      "note": "Gone from flutter/agent-plugins since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/langchain-ai/langchain-skills/framework-selection",
+      "note": "Gone from langchain-ai/langchain-skills since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/okx/onchainos-skills/okx-dex-signal",
+      "note": "Gone from okx/onchainos-skills since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/flutter/agent-plugins/flutter-setting-up-on-linux",
+      "note": "Gone from flutter/agent-plugins since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/okx/onchainos-skills/okx-dex-trenches",
+      "note": "Gone from okx/onchainos-skills since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/create-oo-component-documentation",
+      "note": "Gone from github/awesome-copilot since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/mcp-configure",
+      "note": "Gone from github/awesome-copilot since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/update-oo-component-documentation",
+      "note": "Gone from github/awesome-copilot since 2026-11-06."
     }
   ]
 }
