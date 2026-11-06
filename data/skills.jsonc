@@ -1910,24 +1910,36 @@
               "text": "makes the agent answer tersely, and adds terse commits, one-line reviews and compressed memory files"
             },
             {
+              "label": "Modes",
+              "text": "caveman's short sentences, ultracave's fragments or megacave's Classical Chinese; the last two start only when you type their command"
+            },
+            {
               "label": "Keeps",
               "text": "code, commands, errors and numbers exact, and full sentences for warnings and irreversible actions"
             },
             {
               "label": "Also has",
-              "text": "five short work patterns, such as investigate-first and lean-build, that keep code changes small"
+              "text": "six short work patterns, such as investigate-first and verify-and-stop, that keep the agent's work to what the task asks"
             },
             {
               "label": "Needs",
               "text": "the Caveman plugin for caveman-stats and for cavecrew's subagents"
             }
           ],
-          "text": "Its core is caveman, a mode that makes the agent lead with the answer in short plain sentences, with no greetings, hedging or recaps, until you say \"stop caveman\"; ultracave and megacave, two more skills in the repo, cut further. The other skills carry the idea beyond chat. caveman-commit writes Conventional Commits messages with a subject of 50 characters when possible, caveman-review writes one line per review finding, and caveman-compress rewrites a memory file such as CLAUDE.md in caveman style to save input tokens, backing up the original. cavecrew delegates searches, small edits and reviews to three subagents whose reports come back compressed, so the main context lasts longer. caveman-stats shows the session's recorded token usage, and caveman-help lists every mode and command. Five short skills are work patterns the agent picks up when a task fits: investigate-first diagnoses before editing, lean-build builds only what's asked, surgical-patch fixes at the narrowest layer, safe-refactor keeps behavior unchanged and migration keeps changes reversible. The repo also ships a CLI and a proxy that shrink what the agent reads; this bundle covers its skills.",
-          "permalink": "https://github.com/juliusbrussee/caveman/tree/bad48a0e1df55e05e3f52249afa35ecc1909ee76"
+          "text": "Its core is caveman: the agent leads with the answer in short plain sentences, without greetings, hedging or recaps, until you say \"stop caveman\". Two stricter modes start only when you type them: ultracave cuts replies to fragments, and megacave turns them into Classical Chinese (文言文), for fewer characters. The other skills carry the idea beyond chat. caveman-commit writes terse Conventional Commits messages, caveman-review writes one line per review finding, and caveman-compress rewrites a memory file such as CLAUDE.md in caveman style to save input tokens, backing up the original. To spare the main context, cavecrew hands searches, small edits and reviews to three subagents that report back compressed, and caveman-explore, a read-only code finder, replies with file and line citations only. caveman-stats shows recorded token usage, and caveman-help lists every mode and command. The agent picks up six short work patterns when a task fits: investigate-first diagnoses before editing, lean-build builds only what's asked, surgical-patch fixes at the narrowest layer, safe-refactor keeps behavior unchanged, migration keeps changes reversible and verify-and-stop proves finished work without adding to it. The repo's CLI and proxy, which shrink what the agent reads, and the skills that drive them aren't in this bundle.",
+          "permalink": "https://github.com/juliusbrussee/caveman/tree/4bf8898b31c93326a5e5d90999241a1c15b52ed2"
         },
         "skills": [
           {
             "id": "juliusbrussee/caveman/skills/caveman",
+            "standalone": true
+          },
+          {
+            "id": "juliusbrussee/caveman/skills/ultracave",
+            "standalone": true
+          },
+          {
+            "id": "juliusbrussee/caveman/skills/megacave",
             "standalone": true
           },
           {
@@ -1958,6 +1970,10 @@
             "note": "Delegates to three subagents that come with the Caveman plugin, not with the skill."
           },
           {
+            "id": "juliusbrussee/caveman/skills/caveman-explore",
+            "standalone": true
+          },
+          {
             "id": "juliusbrussee/caveman/skills/investigate-first",
             "standalone": true
           },
@@ -1975,6 +1991,10 @@
           },
           {
             "id": "juliusbrussee/caveman/skills/migration",
+            "standalone": true
+          },
+          {
+            "id": "juliusbrussee/caveman/skills/verify-and-stop",
             "standalone": true
           }
         ],
@@ -5446,9 +5466,9 @@
         "firstSeen": "2026-04-06"
       },
       "skillMd": {
-        "version": "bad48a0e1df55e05e3f52249afa35ecc1909ee76",
-        "updated": "2026-10-20",
-        "skew": 0
+        "version": "4bf8898b31c93326a5e5d90999241a1c15b52ed2",
+        "updated": "2026-11-06",
+        "skew": 29
       },
       "agentReview": {
         "description": "Compresses CLAUDE.md or todo files into caveman format to save input tokens.",
@@ -5547,9 +5567,9 @@
         "firstSeen": "2026-05-01"
       },
       "skillMd": {
-        "version": "bad48a0e1df55e05e3f52249afa35ecc1909ee76",
-        "updated": "2026-10-20",
-        "skew": 0
+        "version": "4bf8898b31c93326a5e5d90999241a1c15b52ed2",
+        "updated": "2026-11-06",
+        "skew": 38
       },
       "agentReview": {
         "description": "Delegates work to terse investigator, builder and reviewer subagents.",
@@ -12363,6 +12383,224 @@
           "ci",
           "debugging"
         ]
+      }
+    },
+    {
+      "id": "juliusbrussee/caveman/skills/caveman-explore",
+      "name": "caveman-explore",
+      "skills.sh": {
+        "url": "https://skills.sh/juliusbrussee/caveman/caveman-explore",
+        "installs": 119914,
+        "weeklyInstalls": [12679, 13288, 11030, 10515, 8675, 7397, 7737, 7359],
+        "firstSeen": "2026-08-11"
+      },
+      "skillMd": {
+        "version": "4bf8898b31c93326a5e5d90999241a1c15b52ed2",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Finds where the relevant code lives in a repository, read-only, and replies only with path:line citations for the agent that asked.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "the agent must find where something lives in an unfamiliar codebase, search across many files, or retry after a direct search failed"
+            },
+            {
+              "label": "You get",
+              "text": "only a list of path:start-end citations with one short reason each, or the single line \"no relevant locations found\""
+            },
+            {
+              "label": "It does",
+              "text": "fans out several Glob, Grep and Read calls at once, follows the evidence for a turn or two, and never edits, runs commands or proposes fixes"
+            },
+            {
+              "label": "Runs",
+              "text": "as an explorer another agent delegates to; its frontmatter lists only the Read, Glob and Grep tools and the Haiku model"
+            },
+            {
+              "label": "Skip it when",
+              "text": "the exact file or symbol is already named"
+            }
+          ],
+          "text": "A prompt for a fast, cheap, read-only code finder, which the SKILL.md calls FastContext. Another agent, the solver, hands it a question about where some code lives. In its first turn it casts a broad net with several searches at once: likely file paths, symbol and string matches, and reads of the most promising files. It follows the evidence for one or two more turns only if needed, and stops as soon as it can name the locations. It never edits files, runs commands or proposes a solution. Its whole reply is one citation per line, path:start-end plus a short reason, citing only line ranges it actually read, or \"no relevant locations found\" when nothing fits, since an honest empty answer beats a guess. The point is to keep the search's reads out of the solver's context, so the solver gets a short, exact list of locations for a few tokens.",
+          "permalink": "https://github.com/juliusbrussee/caveman/tree/4bf8898b31c93326a5e5d90999241a1c15b52ed2/skills/caveman-explore"
+        },
+        "tags": [
+          "category:agents",
+          "category:output-style",
+          "type:workflow",
+          "effect:none",
+          "needs:subagents",
+          "by:community",
+          "multi-agent",
+          "token-saving"
+        ]
+      }
+    },
+    {
+      "id": "juliusbrussee/caveman/skills/verify-and-stop",
+      "name": "verify-and-stop",
+      "skills.sh": {
+        "url": "https://skills.sh/juliusbrussee/caveman/verify-and-stop",
+        "installs": 117119,
+        "weeklyInstalls": [12480, 13099, 10879, 10087, 8241, 7107, 7560, 7182],
+        "firstSeen": "2026-08-11"
+      },
+      "skillMd": {
+        "version": "4bf8898b31c93326a5e5d90999241a1c15b52ed2",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Proves finished work meets its acceptance conditions with the smallest set of checks, then stops without adding fixes or polish.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a task only asks to check that existing work is done, such as a completion check, a focused gate run or last-mile proof"
+            },
+            {
+              "label": "It does",
+              "text": "turns the acceptance conditions into the smallest set of checks that proves them, reusing results still current for the same code"
+            },
+            {
+              "label": "You get",
+              "text": "the commands run, their results and any unresolved risk, with each check marked pass, fail, unavailable or blocked"
+            },
+            {
+              "label": "Won't",
+              "text": "edit product code unless you asked for fixes, or add polish, cleanup or unrelated tests once the criteria pass"
+            },
+            {
+              "label": "Unlike surgical-patch",
+              "text": "which fixes a bug and then proves the fix, this only proves"
+            },
+            {
+              "label": "Runs",
+              "text": "on its own, whenever the agent sees a task that fits; it's a short list of rules, not a step-by-step guide"
+            }
+          ],
+          "text": "One of Caveman's short work patterns, for tasks that ask for proof rather than changes. The agent translates the acceptance conditions into the smallest set of checks that would prove them. It reuses results that are still current for the same repository state, runs focused checks before wider gates, and keeps pass, fail, unavailable and blocked apart exactly. It doesn't edit product code unless the request includes fixes, and once the criteria pass it adds no polish, cleanup or unrelated tests. It stops as soon as the proof is complete, and reports only the commands, their results and any risk left unresolved.",
+          "permalink": "https://github.com/juliusbrussee/caveman/tree/4bf8898b31c93326a5e5d90999241a1c15b52ed2/skills/verify-and-stop"
+        },
+        "tags": [
+          "category:debugging",
+          "category:engineering",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "verification",
+          "scope-control"
+        ]
+      }
+    },
+    {
+      "id": "juliusbrussee/caveman/skills/ultracave",
+      "name": "ultracave",
+      "skills.sh": {
+        "url": "https://skills.sh/juliusbrussee/caveman/ultracave",
+        "installs": 38700,
+        "weeklyInstalls": [0, 0, 0, 2037, 8495, 7368, 7838, 7418],
+        "firstSeen": "2026-10-03"
+      },
+      "skillMd": {
+        "version": "4bf8898b31c93326a5e5d90999241a1c15b52ed2",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Switches the agent to fragment-only replies, one word where one word does and each fact said once, until you say \"stop caveman\".",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "caveman's short sentences still feel too long and you want the tersest replies possible"
+            },
+            {
+              "label": "It does",
+              "text": "drops articles, linking verbs and connectives, answers in one word when one is enough, and states each fact once"
+            },
+            {
+              "label": "Keeps",
+              "text": "code, commands, paths, error strings, numbers and every \"not\", \"never\" or \"only\" exact, in your language"
+            },
+            {
+              "label": "Unlike caveman",
+              "text": "which keeps short plain sentences, this strips grammar down to fragments wherever the order stays clear"
+            },
+            {
+              "label": "Runs",
+              "text": "only when you type /ultracave or /caveman ultra, then for the whole session until \"stop caveman\" or \"normal mode\""
+            }
+          ],
+          "text": "Ultracave is caveman with the grammar stripped: the tersest of Caveman's reply modes. Replies become fragments, such as \"Inline object prop, new ref, re-render. `useMemo`.\", with articles, linking verbs and connectives dropped as long as the order stays clear; when a fragment isn't shorter than the sentence, the sentence wins. Nothing is restated and lists get no summary, a code change shows only the changed lines with context, and a tool run gets one line in and one line out. It never cuts code, commands, paths, API names, error strings, negations, numbers or units, and never invents abbreviations or adds words for flavor. It switches to plain prose for security warnings, confirmations of irreversible actions, ambiguous fragments, a confused user, questions to you, and anything saved outside the chat, such as code, commits, docs or PRs, then resumes. It doesn't load on its own: you start it with /ultracave or /caveman ultra, and it stays on until you say \"stop caveman\" or \"normal mode\".",
+          "permalink": "https://github.com/juliusbrussee/caveman/tree/4bf8898b31c93326a5e5d90999241a1c15b52ed2/skills/ultracave"
+        },
+        "tags": [
+          "category:output-style",
+          "type:mode",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "token-saving",
+          "output-style"
+        ]
+      }
+    },
+    {
+      "id": "juliusbrussee/caveman/skills/megacave",
+      "name": "megacave",
+      "skills.sh": {
+        "url": "https://skills.sh/juliusbrussee/caveman/megacave",
+        "installs": 37600,
+        "weeklyInstalls": [0, 0, 0, 1979, 8235, 7173, 7612, 7203],
+        "firstSeen": "2026-10-03"
+      },
+      "skillMd": {
+        "version": "4bf8898b31c93326a5e5d90999241a1c15b52ed2",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Switches the agent to terse replies in Classical Chinese, with code and technical terms kept verbatim, until you say \"stop caveman\".",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you read Classical Chinese and want replies that take far fewer characters on screen"
+            },
+            {
+              "label": "It does",
+              "text": "answers in 文言文, the classical literary register: subjects omitted where clear, verb before object, particles instead of connecting phrases"
+            },
+            {
+              "label": "Keeps",
+              "text": "code, commands, paths, API names and error strings in their original script, never translated; every negation; numbers and units in Arabic numerals"
+            },
+            {
+              "label": "Unlike ultracave",
+              "text": "which compresses your own language into fragments, this changes the language; it says its token savings are small and noisy"
+            },
+            {
+              "label": "Runs",
+              "text": "only when you type /megacave or /caveman wenyan, then for the whole session until \"stop caveman\" or \"normal mode\""
+            }
+          ],
+          "text": "Megacave is Caveman's reply mode in Classical Chinese (文言文) rather than modern written Chinese (白話). Replies omit subjects where they can be recovered, put the verb before the object, and use one particle per relation, such as 之, 乃 or 故, instead of connecting phrases, so answers take fewer characters on screen. The skill itself says the token savings are small and noisy, and tells the agent never to claim them. Code, commands, paths, API names and error strings stay in their original script, and negations and Arabic numerals are kept. A clause that would be ambiguous in Classical Chinese, or a sentence that wouldn't get shorter, is written in modern Chinese instead. For security warnings, confirmations of irreversible actions, a confused user, questions to you and anything saved outside the chat, such as code, commits or docs, it switches to modern Chinese or your language, in full sentences, then resumes. You start it with /megacave or /caveman wenyan, and it stays on until you say \"stop caveman\" or \"normal mode\".",
+          "permalink": "https://github.com/juliusbrussee/caveman/tree/4bf8898b31c93326a5e5d90999241a1c15b52ed2/skills/megacave"
+        },
+        "tags": [
+          "category:output-style",
+          "type:mode",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "output-style"
+        ],
+        "note": "Replies in Classical Chinese, so it's only useful if you read it."
       }
     }
   ]
