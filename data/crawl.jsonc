@@ -3,19 +3,6 @@
   "asOf": "2026-11-06",
   "qualified": [
     {
-      "name": "guizang-ppt-skill",
-      "repo": "op7418/guizang-ppt-skill",
-      "official": false,
-      "stars": 29389,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/op7418/guizang-ppt-skill/guizang-ppt-skill",
-        "installs": 28400,
-        "weeklyInstalls": [463, 423, 352, 272, 351, 417, 364, 414],
-        "firstSeen": "2026-04-25"
-      }
-    },
-    {
       "name": "fixing-motion-performance",
       "repo": "ibelick/ui-skills",
       "official": false,
@@ -1433,32 +1420,6 @@
       }
     },
     {
-      "name": "dart-add-unit-test",
-      "repo": "dart-lang/skills",
-      "official": false,
-      "stars": 543,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/dart-lang/skills/dart-add-unit-test",
-        "installs": 20200,
-        "weeklyInstalls": [638, 742, 649, 629, 693, 577, 632, 590],
-        "firstSeen": "2026-04-24"
-      }
-    },
-    {
-      "name": "dart-run-static-analysis",
-      "repo": "dart-lang/skills",
-      "official": false,
-      "stars": 543,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/dart-lang/skills/dart-run-static-analysis",
-        "installs": 19900,
-        "weeklyInstalls": [626, 741, 629, 639, 687, 551, 604, 562],
-        "firstSeen": "2026-04-24"
-      }
-    },
-    {
       "name": "git-advanced-workflows",
       "repo": "wshobson/agents",
       "official": false,
@@ -1511,32 +1472,6 @@
       }
     },
     {
-      "name": "dart-use-pattern-matching",
-      "repo": "dart-lang/skills",
-      "official": false,
-      "stars": 543,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/dart-lang/skills/dart-use-pattern-matching",
-        "installs": 19700,
-        "weeklyInstalls": [627, 728, 648, 638, 699, 592, 625, 566],
-        "firstSeen": "2026-04-24"
-      }
-    },
-    {
-      "name": "dart-fix-runtime-errors",
-      "repo": "dart-lang/skills",
-      "official": false,
-      "stars": 543,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/dart-lang/skills/dart-fix-runtime-errors",
-        "installs": 19600,
-        "weeklyInstalls": [613, 714, 618, 606, 667, 538, 583, 541],
-        "firstSeen": "2026-04-24"
-      }
-    },
-    {
       "name": "dotnet-backend-patterns",
       "repo": "wshobson/agents",
       "official": false,
@@ -1573,19 +1508,6 @@
         "installs": 19500,
         "weeklyInstalls": [1207, 1127, 1135, 1186, 1264, 1748, 1758, 1832],
         "firstSeen": "2026-08-07"
-      }
-    },
-    {
-      "name": "dart-resolve-package-conflicts",
-      "repo": "dart-lang/skills",
-      "official": false,
-      "stars": 543,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/dart-lang/skills/dart-resolve-package-conflicts",
-        "installs": 19500,
-        "weeklyInstalls": [607, 713, 619, 615, 663, 533, 583, 542],
-        "firstSeen": "2026-04-24"
       }
     },
     {
@@ -1654,32 +1576,6 @@
       }
     },
     {
-      "name": "dart-collect-coverage",
-      "repo": "dart-lang/skills",
-      "official": false,
-      "stars": 543,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/dart-lang/skills/dart-collect-coverage",
-        "installs": 19300,
-        "weeklyInstalls": [606, 706, 616, 600, 664, 528, 581, 542],
-        "firstSeen": "2026-04-24"
-      }
-    },
-    {
-      "name": "dart-generate-test-mocks",
-      "repo": "dart-lang/skills",
-      "official": false,
-      "stars": 543,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/dart-lang/skills/dart-generate-test-mocks",
-        "installs": 19200,
-        "weeklyInstalls": [603, 706, 618, 594, 650, 525, 580, 535],
-        "firstSeen": "2026-04-24"
-      }
-    },
-    {
       "name": "text-to-speech",
       "repo": "elevenlabs/skills",
       "official": true,
@@ -1745,19 +1641,6 @@
       }
     },
     {
-      "name": "dart-migrate-to-checks-package",
-      "repo": "dart-lang/skills",
-      "official": false,
-      "stars": 543,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/dart-lang/skills/dart-migrate-to-checks-package",
-        "installs": 18900,
-        "weeklyInstalls": [600, 700, 608, 594, 644, 521, 570, 528],
-        "firstSeen": "2026-04-24"
-      }
-    },
-    {
       "name": "bailian-cli",
       "repo": "modelstudioai/cli",
       "official": false,
@@ -1768,19 +1651,6 @@
         "installs": 18900,
         "weeklyInstalls": [328, 231, 172, 122, 127, 121, 92, 99],
         "firstSeen": "2026-06-08"
-      }
-    },
-    {
-      "name": "dart-build-cli-app",
-      "repo": "dart-lang/skills",
-      "official": false,
-      "stars": 543,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/dart-lang/skills/dart-build-cli-app",
-        "installs": 18900,
-        "weeklyInstalls": [613, 708, 613, 600, 658, 536, 586, 537],
-        "firstSeen": "2026-04-24"
       }
     },
     {
@@ -1927,19 +1797,6 @@
       }
     },
     {
-      "name": "story-long-write",
-      "repo": "zenstory-ai/oh-story-claudecode",
-      "official": false,
-      "stars": 8359,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/zenstory-ai/oh-story-claudecode/story-long-write",
-        "installs": 18200,
-        "weeklyInstalls": [491, 497, 500, 483, 464, 605, 660, 590],
-        "firstSeen": "2026-04-24"
-      }
-    },
-    {
       "name": "playwright-generate-test",
       "repo": "github/awesome-copilot",
       "official": true,
@@ -1950,19 +1807,6 @@
         "installs": 18200,
         "weeklyInstalls": [55, 59, 60, 68, 41, 30, 33, 22],
         "firstSeen": "2026-02-25"
-      }
-    },
-    {
-      "name": "story-deslop",
-      "repo": "zenstory-ai/oh-story-claudecode",
-      "official": false,
-      "stars": 8359,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/zenstory-ai/oh-story-claudecode/story-deslop",
-        "installs": 18200,
-        "weeklyInstalls": [497, 510, 503, 472, 458, 607, 662, 602],
-        "firstSeen": "2026-04-24"
       }
     },
     {
@@ -2031,19 +1875,6 @@
       }
     },
     {
-      "name": "story-long-analyze",
-      "repo": "zenstory-ai/oh-story-claudecode",
-      "official": false,
-      "stars": 8359,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/zenstory-ai/oh-story-claudecode/story-long-analyze",
-        "installs": 18000,
-        "weeklyInstalls": [482, 484, 495, 478, 453, 595, 654, 591],
-        "firstSeen": "2026-04-24"
-      }
-    },
-    {
       "name": "gemini-api",
       "repo": "google/skills",
       "official": true,
@@ -2080,19 +1911,6 @@
         "installs": 18000,
         "weeklyInstalls": [1133, 1048, 1035, 1084, 1161, 1569, 1591, 1673],
         "firstSeen": "2026-08-07"
-      }
-    },
-    {
-      "name": "story-short-write",
-      "repo": "zenstory-ai/oh-story-claudecode",
-      "official": false,
-      "stars": 8359,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/zenstory-ai/oh-story-claudecode/story-short-write",
-        "installs": 18000,
-        "weeklyInstalls": [490, 487, 498, 467, 451, 603, 650, 578],
-        "firstSeen": "2026-04-24"
       }
     },
     {
@@ -2161,32 +1979,6 @@
       }
     },
     {
-      "name": "story-long-scan",
-      "repo": "zenstory-ai/oh-story-claudecode",
-      "official": false,
-      "stars": 8359,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/zenstory-ai/oh-story-claudecode/story-long-scan",
-        "installs": 17800,
-        "weeklyInstalls": [468, 479, 489, 465, 450, 591, 652, 578],
-        "firstSeen": "2026-04-24"
-      }
-    },
-    {
-      "name": "story-short-analyze",
-      "repo": "zenstory-ai/oh-story-claudecode",
-      "official": false,
-      "stars": 8359,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/zenstory-ai/oh-story-claudecode/story-short-analyze",
-        "installs": 17800,
-        "weeklyInstalls": [477, 484, 493, 465, 446, 598, 648, 573],
-        "firstSeen": "2026-04-24"
-      }
-    },
-    {
       "name": "shopify-admin",
       "repo": "shopify/shopify-ai-toolkit",
       "official": false,
@@ -2210,32 +2002,6 @@
         "installs": 17700,
         "weeklyInstalls": [838, 637, 577, 922, 486, 358, 356, 106],
         "firstSeen": "2026-07-08"
-      }
-    },
-    {
-      "name": "browser-cdp",
-      "repo": "zenstory-ai/oh-story-claudecode",
-      "official": false,
-      "stars": 8359,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/zenstory-ai/oh-story-claudecode/browser-cdp",
-        "installs": 17700,
-        "weeklyInstalls": [467, 474, 491, 458, 435, 587, 640, 568],
-        "firstSeen": "2026-04-26"
-      }
-    },
-    {
-      "name": "story-short-scan",
-      "repo": "zenstory-ai/oh-story-claudecode",
-      "official": false,
-      "stars": 8359,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/zenstory-ai/oh-story-claudecode/story-short-scan",
-        "installs": 17600,
-        "weeklyInstalls": [466, 479, 489, 461, 441, 590, 643, 569],
-        "firstSeen": "2026-04-24"
       }
     },
     {
@@ -2304,19 +2070,6 @@
       }
     },
     {
-      "name": "story-cover",
-      "repo": "zenstory-ai/oh-story-claudecode",
-      "official": false,
-      "stars": 8359,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/zenstory-ai/oh-story-claudecode/story-cover",
-        "installs": 17400,
-        "weeklyInstalls": [468, 479, 494, 463, 440, 591, 646, 583],
-        "firstSeen": "2026-04-30"
-      }
-    },
-    {
       "name": "explain-interface",
       "repo": "jakubkrehel/skills",
       "official": false,
@@ -2382,19 +2135,6 @@
       }
     },
     {
-      "name": "story",
-      "repo": "zenstory-ai/oh-story-claudecode",
-      "official": false,
-      "stars": 8359,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/zenstory-ai/oh-story-claudecode/story",
-        "installs": 17200,
-        "weeklyInstalls": [484, 494, 494, 470, 452, 599, 645, 582],
-        "firstSeen": "2026-04-24"
-      }
-    },
-    {
       "name": "gmgn-cooking",
       "repo": "gmgnai/gmgn-skills",
       "official": false,
@@ -2418,32 +2158,6 @@
         "installs": 17100,
         "weeklyInstalls": [165, 121, 138, 188, 215, 243, 159, 167],
         "firstSeen": "2026-01-28"
-      }
-    },
-    {
-      "name": "story-setup",
-      "repo": "zenstory-ai/oh-story-claudecode",
-      "official": false,
-      "stars": 8359,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/zenstory-ai/oh-story-claudecode/story-setup",
-        "installs": 17100,
-        "weeklyInstalls": [481, 487, 494, 466, 451, 598, 650, 580],
-        "firstSeen": "2026-05-07"
-      }
-    },
-    {
-      "name": "story-review",
-      "repo": "zenstory-ai/oh-story-claudecode",
-      "official": false,
-      "stars": 8359,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/zenstory-ai/oh-story-claudecode/story-review",
-        "installs": 17100,
-        "weeklyInstalls": [485, 488, 494, 466, 449, 598, 657, 586],
-        "firstSeen": "2026-05-08"
       }
     },
     {
@@ -2548,19 +2262,6 @@
         "installs": 16900,
         "weeklyInstalls": [335, 350, 722, 467, 381, 369, 375, 377],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "story-import",
-      "repo": "zenstory-ai/oh-story-claudecode",
-      "official": false,
-      "stars": 8359,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/zenstory-ai/oh-story-claudecode/story-import",
-        "installs": 16800,
-        "weeklyInstalls": [480, 482, 493, 464, 445, 591, 645, 579],
-        "firstSeen": "2026-05-12"
       }
     },
     {
@@ -4930,19 +4631,6 @@
       }
     },
     {
-      "name": "dart-use-ffigen",
-      "repo": "dart-lang/skills",
-      "official": false,
-      "stars": 543,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/dart-lang/skills/dart-use-ffigen",
-        "installs": 12900,
-        "weeklyInstalls": [567, 672, 585, 570, 639, 513, 564, 521],
-        "firstSeen": "2026-06-09"
-      }
-    },
-    {
       "name": "wcag-audit-patterns",
       "repo": "wshobson/agents",
       "official": false,
@@ -4979,19 +4667,6 @@
         "installs": 12900,
         "weeklyInstalls": [614, 583, 545, 639, 567, 542, 534, 506],
         "firstSeen": "2026-02-28"
-      }
-    },
-    {
-      "name": "dart-setup-ffi-assets",
-      "repo": "dart-lang/skills",
-      "official": false,
-      "stars": 543,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/dart-lang/skills/dart-setup-ffi-assets",
-        "installs": 12900,
-        "weeklyInstalls": [568, 669, 584, 571, 638, 513, 560, 519],
-        "firstSeen": "2026-06-09"
       }
     },
     {
@@ -46547,6 +46222,106 @@
     {
       "url": "https://skills.sh/github/awesome-copilot/postgresql-code-review",
       "note": "Tool docs: an agent's manual for postgres."
+    },
+    {
+      "url": "https://skills.sh/zenstory-ai/oh-story-claudecode/story-long-write",
+      "note": "In Chinese."
+    },
+    {
+      "url": "https://skills.sh/zenstory-ai/oh-story-claudecode/story-deslop",
+      "note": "In Chinese."
+    },
+    {
+      "url": "https://skills.sh/zenstory-ai/oh-story-claudecode/story-long-analyze",
+      "note": "In Chinese."
+    },
+    {
+      "url": "https://skills.sh/zenstory-ai/oh-story-claudecode/story-short-write",
+      "note": "In Chinese."
+    },
+    {
+      "url": "https://skills.sh/zenstory-ai/oh-story-claudecode/story-long-scan",
+      "note": "In Chinese."
+    },
+    {
+      "url": "https://skills.sh/zenstory-ai/oh-story-claudecode/story-short-analyze",
+      "note": "In Chinese."
+    },
+    {
+      "url": "https://skills.sh/zenstory-ai/oh-story-claudecode/browser-cdp",
+      "note": "In Chinese."
+    },
+    {
+      "url": "https://skills.sh/zenstory-ai/oh-story-claudecode/story-short-scan",
+      "note": "In Chinese."
+    },
+    {
+      "url": "https://skills.sh/zenstory-ai/oh-story-claudecode/story-cover",
+      "note": "In Chinese."
+    },
+    {
+      "url": "https://skills.sh/zenstory-ai/oh-story-claudecode/story",
+      "note": "In Chinese."
+    },
+    {
+      "url": "https://skills.sh/zenstory-ai/oh-story-claudecode/story-setup",
+      "note": "In Chinese."
+    },
+    {
+      "url": "https://skills.sh/zenstory-ai/oh-story-claudecode/story-review",
+      "note": "In Chinese."
+    },
+    {
+      "url": "https://skills.sh/zenstory-ai/oh-story-claudecode/story-import",
+      "note": "In Chinese."
+    },
+    {
+      "url": "https://skills.sh/dart-lang/skills/dart-add-unit-test",
+      "note": "Tool docs: an agent's manual for dart."
+    },
+    {
+      "url": "https://skills.sh/dart-lang/skills/dart-run-static-analysis",
+      "note": "Tool docs: an agent's manual for dart."
+    },
+    {
+      "url": "https://skills.sh/dart-lang/skills/dart-use-pattern-matching",
+      "note": "Tool docs: an agent's manual for dart."
+    },
+    {
+      "url": "https://skills.sh/dart-lang/skills/dart-fix-runtime-errors",
+      "note": "Tool docs: an agent's manual for dart."
+    },
+    {
+      "url": "https://skills.sh/dart-lang/skills/dart-resolve-package-conflicts",
+      "note": "Tool docs: an agent's manual for dart."
+    },
+    {
+      "url": "https://skills.sh/dart-lang/skills/dart-collect-coverage",
+      "note": "Tool docs: an agent's manual for dart."
+    },
+    {
+      "url": "https://skills.sh/dart-lang/skills/dart-generate-test-mocks",
+      "note": "Tool docs: an agent's manual for dart."
+    },
+    {
+      "url": "https://skills.sh/dart-lang/skills/dart-migrate-to-checks-package",
+      "note": "Tool docs: an agent's manual for dart."
+    },
+    {
+      "url": "https://skills.sh/dart-lang/skills/dart-build-cli-app",
+      "note": "Tool docs: an agent's manual for dart."
+    },
+    {
+      "url": "https://skills.sh/dart-lang/skills/dart-use-ffigen",
+      "note": "Tool docs: an agent's manual for dart."
+    },
+    {
+      "url": "https://skills.sh/dart-lang/skills/dart-setup-ffi-assets",
+      "note": "Tool docs: an agent's manual for dart."
+    },
+    {
+      "url": "https://skills.sh/op7418/guizang-ppt-skill/guizang-ppt-skill",
+      "note": "In Chinese."
     }
   ]
 }
