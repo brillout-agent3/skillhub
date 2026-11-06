@@ -5177,19 +5177,6 @@
       }
     },
     {
-      "name": "spotify-player",
-      "repo": "openclaw/openclaw",
-      "official": false,
-      "stars": 394045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/openclaw/openclaw/spotify-player",
-        "installs": 5400,
-        "weeklyInstalls": [129, 128, 119, 123, 18, 10, 3, 8],
-        "firstSeen": "2026-01-24"
-      }
-    },
-    {
       "name": "goplaces",
       "repo": "openclaw/openclaw",
       "official": false,
@@ -5199,19 +5186,6 @@
         "url": "https://skills.sh/openclaw/openclaw/goplaces",
         "installs": 5400,
         "weeklyInstalls": [135, 142, 129, 132, 30, 28, 6, 8],
-        "firstSeen": "2026-01-24"
-      }
-    },
-    {
-      "name": "gemini",
-      "repo": "openclaw/openclaw",
-      "official": false,
-      "stars": 394045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/openclaw/openclaw/gemini",
-        "installs": 5400,
-        "weeklyInstalls": [129, 120, 120, 122, 19, 10, 3, 6],
         "firstSeen": "2026-01-24"
       }
     },
@@ -5941,19 +5915,6 @@
         "installs": 5300,
         "weeklyInstalls": [58, 94, 59, 58, 103, 226, 183, 64],
         "firstSeen": "2026-03-09"
-      }
-    },
-    {
-      "name": "sonoscli",
-      "repo": "openclaw/openclaw",
-      "official": false,
-      "stars": 394045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/openclaw/openclaw/sonoscli",
-        "installs": 5300,
-        "weeklyInstalls": [127, 130, 115, 122, 17, 11, 3, 6],
-        "firstSeen": "2026-01-24"
       }
     },
     {
@@ -6802,32 +6763,6 @@
       }
     },
     {
-      "name": "things-mac",
-      "repo": "openclaw/openclaw",
-      "official": false,
-      "stars": 394045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/openclaw/openclaw/things-mac",
-        "installs": 5200,
-        "weeklyInstalls": [126, 123, 117, 124, 18, 11, 3, 6],
-        "firstSeen": "2026-01-24"
-      }
-    },
-    {
-      "name": "openhue",
-      "repo": "openclaw/openclaw",
-      "official": false,
-      "stars": 394045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/openclaw/openclaw/openhue",
-        "installs": 5200,
-        "weeklyInstalls": [126, 125, 115, 122, 19, 11, 4, 6],
-        "firstSeen": "2026-01-24"
-      }
-    },
-    {
       "name": "oracle",
       "repo": "openclaw/openclaw",
       "official": false,
@@ -7335,19 +7270,6 @@
       }
     },
     {
-      "name": "bear-notes",
-      "repo": "openclaw/openclaw",
-      "official": false,
-      "stars": 394045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/openclaw/openclaw/bear-notes",
-        "installs": 5100,
-        "weeklyInstalls": [125, 122, 116, 122, 19, 10, 4, 6],
-        "firstSeen": "2026-01-24"
-      }
-    },
-    {
       "name": "camsnap",
       "repo": "openclaw/openclaw",
       "official": false,
@@ -7370,32 +7292,6 @@
         "url": "https://skills.sh/openclaw/openclaw/songsee",
         "installs": 5100,
         "weeklyInstalls": [127, 121, 121, 123, 18, 11, 3, 8],
-        "firstSeen": "2026-01-24"
-      }
-    },
-    {
-      "name": "blucli",
-      "repo": "openclaw/openclaw",
-      "official": false,
-      "stars": 394045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/openclaw/openclaw/blucli",
-        "installs": 5100,
-        "weeklyInstalls": [122, 124, 118, 120, 17, 10, 3, 6],
-        "firstSeen": "2026-01-24"
-      }
-    },
-    {
-      "name": "eightctl",
-      "repo": "openclaw/openclaw",
-      "official": false,
-      "stars": 394045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/openclaw/openclaw/eightctl",
-        "installs": 5100,
-        "weeklyInstalls": [125, 121, 121, 123, 16, 10, 4, 6],
         "firstSeen": "2026-01-24"
       }
     },
@@ -27436,6 +27332,38 @@
     {
       "url": "https://skills.sh/openclaw/openclaw/trello",
       "note": "Tool docs: an agent's manual for trello."
+    },
+    {
+      "url": "https://skills.sh/openclaw/openclaw/spotify-player",
+      "note": "Tool docs: an agent's manual for spotify."
+    },
+    {
+      "url": "https://skills.sh/openclaw/openclaw/gemini",
+      "note": "Tool docs: an agent's manual for gemini-cli."
+    },
+    {
+      "url": "https://skills.sh/openclaw/openclaw/sonoscli",
+      "note": "Tool docs: an agent's manual for sonos."
+    },
+    {
+      "url": "https://skills.sh/openclaw/openclaw/things-mac",
+      "note": "Tool docs: an agent's manual for things3."
+    },
+    {
+      "url": "https://skills.sh/openclaw/openclaw/openhue",
+      "note": "Tool docs: an agent's manual for philips-hue."
+    },
+    {
+      "url": "https://skills.sh/openclaw/openclaw/bear-notes",
+      "note": "Tool docs: an agent's manual for bear."
+    },
+    {
+      "url": "https://skills.sh/openclaw/openclaw/blucli",
+      "note": "Tool docs: an agent's manual for bluesound."
+    },
+    {
+      "url": "https://skills.sh/openclaw/openclaw/eightctl",
+      "note": "Tool docs: an agent's manual for eight-sleep."
     }
   ]
 }
