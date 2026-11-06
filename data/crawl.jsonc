@@ -328,19 +328,6 @@
       }
     },
     {
-      "name": "typescript-mcp-server-generator",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/typescript-mcp-server-generator",
-        "installs": 12100,
-        "weeklyInstalls": [29, 37, 26, 25, 17, 14, 9, 21],
-        "firstSeen": "2026-02-25"
-      }
-    },
-    {
       "name": "gcloud",
       "repo": "google/skills",
       "official": true,
@@ -523,19 +510,6 @@
       }
     },
     {
-      "name": "java-junit",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/java-junit",
-        "installs": 11800,
-        "weeklyInstalls": [48, 67, 61, 60, 62, 69, 107, 96],
-        "firstSeen": "2026-02-25"
-      }
-    },
-    {
       "name": "github-actions",
       "repo": "callstackincubator/agent-skills",
       "official": false,
@@ -611,19 +585,6 @@
         "installs": 11700,
         "weeklyInstalls": [311, 310, 230, 260, 348, 446, 339, 333],
         "firstSeen": "2026-01-21"
-      }
-    },
-    {
-      "name": "dotnet-design-pattern-review",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/dotnet-design-pattern-review",
-        "installs": 11700,
-        "weeklyInstalls": [60, 64, 71, 68, 59, 42, 52, 39],
-        "firstSeen": "2026-02-25"
       }
     },
     {
@@ -728,19 +689,6 @@
         "installs": 11700,
         "weeklyInstalls": [0, 209, 2376, 3510, 1428, 1238, 1180, 1020],
         "firstSeen": "2026-09-19"
-      }
-    },
-    {
-      "name": "dotnet-upgrade",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/dotnet-upgrade",
-        "installs": 11600,
-        "weeklyInstalls": [116, 167, 175, 190, 171, 157, 116, 78],
-        "firstSeen": "2026-02-25"
       }
     },
     {
@@ -1602,19 +1550,6 @@
       }
     },
     {
-      "name": "csharp-async",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/csharp-async",
-        "installs": 11000,
-        "weeklyInstalls": [82, 70, 96, 102, 89, 76, 68, 81],
-        "firstSeen": "2026-02-25"
-      }
-    },
-    {
       "name": "shopify-polaris-app-home",
       "repo": "shopify/shopify-ai-toolkit",
       "official": false,
@@ -1690,19 +1625,6 @@
         "installs": 11000,
         "weeklyInstalls": [172, 180, 213, 265, 208, 179, 180, 169],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "editorconfig",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/editorconfig",
-        "installs": 11000,
-        "weeklyInstalls": [11, 11, 24, 15, 3, 6, 0, 7],
-        "firstSeen": "2026-02-25"
       }
     },
     {
@@ -1846,19 +1768,6 @@
         "installs": 10800,
         "weeklyInstalls": [509, 392, 316, 21, 17, 21, 12, 1],
         "firstSeen": "2026-04-08"
-      }
-    },
-    {
-      "name": "java-docs",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/java-docs",
-        "installs": 10800,
-        "weeklyInstalls": [27, 39, 37, 33, 40, 19, 53, 39],
-        "firstSeen": "2026-02-25"
       }
     },
     {
@@ -2213,19 +2122,6 @@
       }
     },
     {
-      "name": "python-mcp-server-generator",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/python-mcp-server-generator",
-        "installs": 10500,
-        "weeklyInstalls": [32, 33, 28, 30, 29, 23, 20, 26],
-        "firstSeen": "2026-02-25"
-      }
-    },
-    {
       "name": "performance-optimization",
       "repo": "gamedev-skills/awesome-gamedev-agent-skills",
       "official": false,
@@ -2262,19 +2158,6 @@
         "installs": 10400,
         "weeklyInstalls": [232, 215, 138, 112, 203, 418, 598, 741],
         "firstSeen": "2026-01-21"
-      }
-    },
-    {
-      "name": "csharp-xunit",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/csharp-xunit",
-        "installs": 10400,
-        "weeklyInstalls": [63, 59, 83, 67, 62, 52, 38, 39],
-        "firstSeen": "2026-02-25"
       }
     },
     {
@@ -2886,19 +2769,6 @@
         "installs": 10000,
         "weeklyInstalls": [714, 689, 651, 588, 614, 550, 502, 498],
         "firstSeen": "2026-07-14"
-      }
-    },
-    {
-      "name": "powerbi-modeling",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/powerbi-modeling",
-        "installs": 10000,
-        "weeklyInstalls": [44, 35, 30, 43, 26, 35, 24, 29],
-        "firstSeen": "2026-02-04"
       }
     },
     {
@@ -4332,19 +4202,6 @@
       }
     },
     {
-      "name": "finnish-humanizer",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/finnish-humanizer",
-        "installs": 9200,
-        "weeklyInstalls": [16, 15, 23, 18, 10, 8, 9, 5],
-        "firstSeen": "2026-02-17"
-      }
-    },
-    {
       "name": "agent-platform-tuning-management",
       "repo": "google/skills",
       "official": true,
@@ -4433,19 +4290,6 @@
         "installs": 9100,
         "weeklyInstalls": [363, 328, 362, 377, 287, 318, 365, 331],
         "firstSeen": "2026-02-01"
-      }
-    },
-    {
-      "name": "arch-linux-triage",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/arch-linux-triage",
-        "installs": 9100,
-        "weeklyInstalls": [15, 18, 21, 25, 14, 16, 21, 7],
-        "firstSeen": "2026-02-25"
       }
     },
     {
@@ -4631,32 +4475,6 @@
       }
     },
     {
-      "name": "snowflake-semanticview",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/snowflake-semanticview",
-        "installs": 9000,
-        "weeklyInstalls": [11, 10, 14, 15, 3, 2, 1, 4],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "microsoft-skill-creator",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/microsoft-skill-creator",
-        "installs": 9000,
-        "weeklyInstalls": [8, 14, 17, 15, 8, 2, 4, 4],
-        "firstSeen": "2026-02-11"
-      }
-    },
-    {
       "name": "create-technical-spike",
       "repo": "github/awesome-copilot",
       "official": true,
@@ -4667,32 +4485,6 @@
         "installs": 9000,
         "weeklyInstalls": [15, 13, 17, 18, 3, 6, 2, 9],
         "firstSeen": "2026-02-25"
-      }
-    },
-    {
-      "name": "fluentui-blazor",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/fluentui-blazor",
-        "installs": 9000,
-        "weeklyInstalls": [12, 12, 21, 17, 4, 6, 5, 6],
-        "firstSeen": "2026-02-18"
-      }
-    },
-    {
-      "name": "vscode-ext-commands",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/vscode-ext-commands",
-        "installs": 9000,
-        "weeklyInstalls": [7, 8, 14, 14, 3, 4, 1, 4],
-        "firstSeen": "2026-01-20"
       }
     },
     {
@@ -4722,19 +4514,6 @@
       }
     },
     {
-      "name": "power-bi-model-design-review",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/power-bi-model-design-review",
-        "installs": 9000,
-        "weeklyInstalls": [14, 18, 23, 33, 13, 7, 8, 17],
-        "firstSeen": "2026-02-25"
-      }
-    },
-    {
       "name": "promql",
       "repo": "grafana/skills",
       "official": false,
@@ -4748,19 +4527,6 @@
       }
     },
     {
-      "name": "aspire",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/aspire",
-        "installs": 9000,
-        "weeklyInstalls": [12, 11, 19, 14, 3, 2, 0, 2],
-        "firstSeen": "2026-02-13"
-      }
-    },
-    {
       "name": "notion-cli",
       "repo": "makenotion/skills",
       "official": false,
@@ -4771,19 +4537,6 @@
         "installs": 9000,
         "weeklyInstalls": [211, 197, 157, 124, 123, 110, 126, 118],
         "firstSeen": "2026-03-17"
-      }
-    },
-    {
-      "name": "csharp-nunit",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/csharp-nunit",
-        "installs": 9000,
-        "weeklyInstalls": [11, 16, 21, 18, 8, 8, 8, 10],
-        "firstSeen": "2026-02-25"
       }
     },
     {
@@ -39621,6 +39374,82 @@
     {
       "url": "https://skills.sh/nomadamas/k-skill/express-bus-booking",
       "note": "Before each use, its CLI installs all of k-skill's skills globally, without asking."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/typescript-mcp-server-generator",
+      "note": "Tool docs: an agent's manual for the MCP TypeScript SDK."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/java-junit",
+      "note": "Tool docs: an agent's manual for junit and java."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/dotnet-design-pattern-review",
+      "note": "Tool docs: an agent's manual for dotnet and csharp."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/dotnet-upgrade",
+      "note": "Tool docs: an agent's manual for dotnet."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/csharp-async",
+      "note": "Tool docs: an agent's manual for csharp."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/editorconfig",
+      "note": "Tool docs: an agent's manual for editorconfig."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/java-docs",
+      "note": "Tool docs: an agent's manual for javadoc and java."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/python-mcp-server-generator",
+      "note": "Tool docs: an agent's manual for the MCP Python SDK."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/csharp-xunit",
+      "note": "Tool docs: an agent's manual for xunit and dotnet."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/powerbi-modeling",
+      "note": "Tool docs: an agent's manual for power-bi."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/finnish-humanizer",
+      "note": "In Finnish."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/arch-linux-triage",
+      "note": "Tool docs: an agent's manual for arch-linux."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/snowflake-semanticview",
+      "note": "Tool docs: an agent's manual for snowflake."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/microsoft-skill-creator",
+      "note": "Tool docs: it turns Microsoft Learn documentation into skills for azure, dotnet and other Microsoft products."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/fluentui-blazor",
+      "note": "Tool docs: an agent's manual for fluentui-blazor and blazor."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/vscode-ext-commands",
+      "note": "Tool docs: an agent's manual for vscode."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/power-bi-model-design-review",
+      "note": "Tool docs: an agent's manual for power-bi."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/aspire",
+      "note": "Tool docs: an agent's manual for aspire."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/csharp-nunit",
+      "note": "Tool docs: an agent's manual for nunit and csharp."
     }
   ]
 }
