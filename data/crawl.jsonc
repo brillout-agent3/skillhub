@@ -3,84 +3,6 @@
   "asOf": "2026-11-06",
   "qualified": [
     {
-      "name": "summarize",
-      "repo": "openclaw/openclaw",
-      "official": false,
-      "stars": 394045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/openclaw/openclaw/summarize",
-        "installs": 27000,
-        "weeklyInstalls": [409, 226, 167, 159, 49, 46, 55, 56],
-        "firstSeen": "2026-01-24"
-      }
-    },
-    {
-      "name": "diagram-design",
-      "repo": "cathrynlavery/diagram-design",
-      "official": false,
-      "stars": 65472,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/cathrynlavery/diagram-design/diagram-design",
-        "installs": 25600,
-        "weeklyInstalls": [1028, 813, 665, 626, 2226, 5193, 4258, 4019],
-        "firstSeen": "2026-04-19"
-      }
-    },
-    {
-      "name": "firecrawl-research-index",
-      "repo": "firecrawl/skills",
-      "official": false,
-      "stars": 147,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/firecrawl/skills/firecrawl-research-index",
-        "installs": 25200,
-        "weeklyInstalls": [643, 601, 591, 520, 562, 698, 775, 499],
-        "firstSeen": "2026-06-16"
-      }
-    },
-    {
-      "name": "hypit",
-      "repo": "hypit-ai/hypit",
-      "official": false,
-      "stars": 28289,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/hypit-ai/hypit/hypit",
-        "installs": 24700,
-        "weeklyInstalls": [12, 6119, 3301, 1829, 1881, 2769, 3479, 3176],
-        "firstSeen": "2026-09-10"
-      }
-    },
-    {
-      "name": "gstack",
-      "repo": "garrytan/gstack",
-      "official": false,
-      "stars": 140376,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/garrytan/gstack/gstack",
-        "installs": 24600,
-        "weeklyInstalls": [328, 277, 236, 252, 229, 244, 261, 329],
-        "firstSeen": "2026-03-12"
-      }
-    },
-    {
-      "name": "feature-sliced-design",
-      "repo": "feature-sliced/skills",
-      "official": false,
-      "stars": 117,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/feature-sliced/skills/feature-sliced-design",
-        "installs": 24200,
-        "weeklyInstalls": [219, 243, 237, 414, 2567, 1098, 406, 528],
-        "firstSeen": "2026-03-09"
-      }
-    },
-    {
       "name": "lavish",
       "repo": "kunchenguid/lavish-axi",
       "official": false,
@@ -627,19 +549,6 @@
       }
     },
     {
-      "name": "discernment-nudge",
-      "repo": "anthropics/skills",
-      "official": true,
-      "stars": 188100,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/anthropics/skills/discernment-nudge",
-        "installs": 15300,
-        "weeklyInstalls": [1058, 1165, 1084, 1140, 1231, 1378, 1642, 1586],
-        "firstSeen": "2026-08-17"
-      }
-    },
-    {
       "name": "bmad-build",
       "repo": "bmad-code-org/bmad-method",
       "official": false,
@@ -676,19 +585,6 @@
         "installs": 15000,
         "weeklyInstalls": [541, 381, 303, 305, 306, 282, 222, 217],
         "firstSeen": "2026-02-04"
-      }
-    },
-    {
-      "name": "academy-guide",
-      "repo": "anthropics/skills",
-      "official": true,
-      "stars": 188100,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/anthropics/skills/academy-guide",
-        "installs": 14900,
-        "weeklyInstalls": [1041, 1156, 1071, 1125, 1202, 1365, 1617, 1570],
-        "firstSeen": "2026-08-18"
       }
     },
     {
@@ -913,19 +809,6 @@
       }
     },
     {
-      "name": "claude-md-improver",
-      "repo": "anthropics/claude-plugins-official",
-      "official": true,
-      "stars": 46288,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/anthropics/claude-plugins-official/claude-md-improver",
-        "installs": 14000,
-        "weeklyInstalls": [274, 282, 196, 190, 252, 411, 595, 752],
-        "firstSeen": "2026-01-21"
-      }
-    },
-    {
       "name": "bmad-party-mode",
       "repo": "bmad-code-org/bmad-method",
       "official": false,
@@ -975,19 +858,6 @@
         "installs": 13800,
         "weeklyInstalls": [928, 937, 1194, 2299, 2502, 1433, 1625, 1395],
         "firstSeen": "2026-06-22"
-      }
-    },
-    {
-      "name": "plannotator-visual-explainer",
-      "repo": "backnotprop/plannotator",
-      "official": false,
-      "stars": 9874,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/backnotprop/plannotator/plannotator-visual-explainer",
-        "installs": 13700,
-        "weeklyInstalls": [481, 593, 641, 647, 862, 762, 761, 757],
-        "firstSeen": "2026-05-12"
       }
     },
     {
@@ -1043,19 +913,6 @@
       }
     },
     {
-      "name": "game-feel",
-      "repo": "gamedev-skills/awesome-gamedev-agent-skills",
-      "official": false,
-      "stars": 7187,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/game-feel",
-        "installs": 13300,
-        "weeklyInstalls": [523, 517, 587, 593, 749, 1098, 2091, 2445],
-        "firstSeen": "2026-06-27"
-      }
-    },
-    {
       "name": "nature-paper-to-patent",
       "repo": "yuan1z0825/nature-skills",
       "official": false,
@@ -1066,19 +923,6 @@
         "installs": 13300,
         "weeklyInstalls": [998, 971, 760, 502, 649, 656, 573, 433],
         "firstSeen": "2026-06-14"
-      }
-    },
-    {
-      "name": "game-ui-ux",
-      "repo": "gamedev-skills/awesome-gamedev-agent-skills",
-      "official": false,
-      "stars": 7187,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/game-ui-ux",
-        "installs": 13200,
-        "weeklyInstalls": [552, 535, 583, 597, 727, 1049, 2020, 2427],
-        "firstSeen": "2026-06-27"
       }
     },
     {
@@ -1131,19 +975,6 @@
         "installs": 12700,
         "weeklyInstalls": [783, 1348, 725, 875, 744, 702, 994, 1227],
         "firstSeen": "2026-07-13"
-      }
-    },
-    {
-      "name": "plannotator-compound",
-      "repo": "backnotprop/plannotator",
-      "official": false,
-      "stars": 9874,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/backnotprop/plannotator/plannotator-compound",
-        "installs": 12600,
-        "weeklyInstalls": [454, 469, 562, 584, 796, 713, 658, 678],
-        "firstSeen": "2026-04-08"
       }
     },
     {

@@ -950,7 +950,7 @@
       "agentReview": {
         "kind": "skills",
         "description": "Role-based slash-command workflow for Claude Code.",
-        "note": "Ships as slash commands, not a SKILL.md. Star count as reported by AWS in June 2026."
+        "note": "Its skills are SKILL.md files you run as slash commands, installed together by cloning the repo and running ./setup, which needs Bun and builds the browser and helper binaries the skills call; ./setup --host adds Codex, Cursor and other agents, most of them experimental. Star count as reported by AWS in June 2026."
       }
     },
     {
@@ -2056,6 +2056,73 @@
       "agentReview": {
         "kind": "project",
         "description": "The open-source AI pentesting tool: autonomous AI hackers that find and fix your app's vulnerabilities."
+      }
+    },
+    {
+      "id": "anthropics/claude-plugins-official",
+      "stars": 46288,
+      "agentReview": {
+        "kind": "index",
+        "description": "A curated directory of high-quality plugins for Claude Code.",
+        "note": "Claude Code's official plugin marketplace: plugins/ holds Anthropic's own plugins, external_plugins/ those of partners and the community."
+      }
+    },
+    {
+      "id": "backnotprop/plannotator",
+      "stars": 9874,
+      "agentReview": {
+        "kind": "project",
+        "description": "Everything you need to annotate and stay in the loop with your agents."
+      }
+    },
+    {
+      "id": "gamedev-skills/awesome-gamedev-agent-skills",
+      "stars": 7187,
+      "agentReview": {
+        "kind": "skills",
+        "description": "77 game-dev skills for your AI coding agent — install once, and a router loads the right skill for whatever you're building.",
+        "note": "Despite its awesome- name, it ships its own skills, for twelve engines, rather than listing other people's."
+      }
+    },
+    {
+      "id": "openclaw/openclaw",
+      "stars": 394045,
+      "agentReview": {
+        "kind": "project",
+        "description": "Your assistant, on your devices, in your chats."
+      }
+    },
+    {
+      "id": "cathrynlavery/diagram-design",
+      "stars": 65472,
+      "agentReview": {
+        "kind": "skills",
+        "description": "An agent skill that draws diagrams as one self-contained HTML + SVG file, in your brand."
+      }
+    },
+    {
+      "id": "firecrawl/skills",
+      "stars": 147,
+      "agentReview": {
+        "kind": "skills",
+        "description": "The full catalog of Firecrawl skills for AI coding agents.",
+        "note": "A CI-synced mirror: its skills come unchanged from firecrawl/cli, firecrawl/firecrawl and firecrawl/firecrawl-workflows."
+      }
+    },
+    {
+      "id": "hypit-ai/hypit",
+      "stars": 28289,
+      "agentReview": {
+        "kind": "project",
+        "description": "Clone any viral video with AI agents."
+      }
+    },
+    {
+      "id": "feature-sliced/skills",
+      "stars": 117,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Agent skills that teach AI coding agents how to apply the Feature-Sliced Design (FSD) v2.1 methodology."
       }
     }
   ],
@@ -26928,6 +26995,748 @@
           "stack:strix",
           "security",
           "testing"
+        ]
+      }
+    },
+    {
+      "id": "anthropics/claude-plugins-official/plugins/claude-md-management/skills/claude-md-improver",
+      "name": "claude-md-improver",
+      "skills.sh": {
+        "url": "https://skills.sh/anthropics/claude-plugins-official/claude-md-improver",
+        "installs": 14000,
+        "weeklyInstalls": [274, 282, 196, 190, 252, 411, 595, 752],
+        "firstSeen": "2026-01-21"
+      },
+      "skillMd": {
+        "version": "c07c748f1c680734a813eefd909bc073f8a9103f",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Audits a repo's CLAUDE.md files against a quality rubric, reports a grade for each, then applies the targeted fixes you approve.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to check whether your repo's CLAUDE.md files give Claude Code the project context it needs"
+            },
+            {
+              "label": "It does",
+              "text": "finds every CLAUDE.md in the repo and scores each on commands, architecture, gotchas, conciseness, currency and actionability"
+            },
+            {
+              "label": "You get",
+              "text": "a quality report with a score out of 100 and a letter grade per file, then the edits you approve, each shown as a diff"
+            },
+            {
+              "label": "Keeps it minimal",
+              "text": "adds commands, gotchas and quirks found in the code, not generic advice, obvious facts or one-off fixes"
+            },
+            {
+              "label": "Asks first",
+              "text": "always shows the report before proposing changes, and edits only after you confirm"
+            }
+          ],
+          "text": "From Anthropic's claude-md-management plugin for Claude Code. CLAUDE.md is the file Claude Code reads for a project's context, such as build commands, structure and conventions; a repo can have one at its root, one per package or subfolder, and a personal .claude.local.md. The skill finds them all, then grades each against six weighted criteria: are build, test and deploy commands there, is the architecture clear, are non-obvious patterns documented, is it concise, does it match the current code, and are its instructions executable rather than vague. It flags stale commands, missing dependencies or environment setup, outdated structure and undocumented gotchas. Each proposed change names the file, shows the addition and says why it helps future sessions. With its recommendations it also passes on a few habits: the # key to have Claude add learnings to CLAUDE.md, .claude.local.md for personal settings kept out of git, and ~/.claude/CLAUDE.md for defaults across projects.",
+          "permalink": "https://github.com/anthropics/claude-plugins-official/tree/c07c748f1c680734a813eefd909bc073f8a9103f/plugins/claude-md-management/skills/claude-md-improver"
+        },
+        "tags": [
+          "category:agents",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:official",
+          "stack:claude",
+          "memory",
+          "docs-writing"
+        ]
+      }
+    },
+    {
+      "id": "anthropics/skills/skills/discernment-nudge",
+      "name": "discernment-nudge",
+      "skills.sh": {
+        "url": "https://skills.sh/anthropics/skills/discernment-nudge",
+        "installs": 15300,
+        "weeklyInstalls": [1058, 1165, 1084, 1140, 1231, 1378, 1642, 1586],
+        "firstSeen": "2026-08-17"
+      },
+      "skillMd": {
+        "version": "ca45fc496a3436251f191354091d557da31c15b5",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Ends substantive answers you might act on with two or three specific follow-up questions that help you check facts, assumptions and missing context.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a nudge to double-check advice, estimates, plans or drafts before you act on them"
+            },
+            {
+              "label": "It does",
+              "text": "after an answer you're likely to act on, adds \"A few things worth a second look:\" and two or three questions"
+            },
+            {
+              "label": "You get",
+              "text": "questions you could send back as written, each tied to a number, step or assumption in that answer"
+            },
+            {
+              "label": "Stays quiet",
+              "text": "for code you'll run, creative writing, chat, lookups, explanations, summaries of your own material, opinions, or when you asked for checking"
+            },
+            {
+              "label": "Runs",
+              "text": "by itself, at most once per conversation"
+            }
+          ],
+          "text": "From Anthropic, built on three discernment habits from its AI Fluency framework: checking facts, questioning reasoning and noticing missing context. The skill models them rather than lecturing about them. It applies when an answer gives estimates or projections, advice in a consequential area such as health, money, law or career, factual claims you'll rely on or repeat, multi-step reasoning, an interpretation of data, or a draft you'll use, such as a plan, pitch or email. The agent answers in full first, then appends a short plain-text list of first-person questions, such as \"How do these CPL estimates compare to benchmarks in my specific vertical?\" Generic prompts like \"can you verify those facts?\" are ruled out, and nothing follows the list. It also stays silent when you asked for the quick version or said you'd do your own checking, and when you asked it to review something of yours, since then its answer is the check.",
+          "permalink": "https://github.com/anthropics/skills/tree/ca45fc496a3436251f191354091d557da31c15b5/skills/discernment-nudge"
+        },
+        "tags": [
+          "category:output-style",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:official",
+          "output-style"
+        ],
+        "note": "Fires on its own after answers it judges you may act on, at most once per conversation."
+      }
+    },
+    {
+      "id": "anthropics/skills/skills/academy-guide",
+      "name": "academy-guide",
+      "skills.sh": {
+        "url": "https://skills.sh/anthropics/skills/academy-guide",
+        "installs": 14900,
+        "weeklyInstalls": [1041, 1156, 1071, 1125, 1202, 1365, 1617, 1570],
+        "firstSeen": "2026-08-18"
+      },
+      "skillMd": {
+        "version": "ca45fc496a3436251f191354091d557da31c15b5",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Recommends a matching Claude Academy course, tutorial or use case after answering your questions about how to use Claude and its products.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're learning a Claude feature or product, or rolling Claude out to a team or class, and want courses to follow up with"
+            },
+            {
+              "label": "It does",
+              "text": "answers your question first, then adds one or two matching items from Claude Academy, Anthropic's learning hub"
+            },
+            {
+              "label": "You get",
+              "text": "a short \"you might also find this helpful\" line, with a link copied from the Academy's live catalog"
+            },
+            {
+              "label": "Stays quiet",
+              "text": "when you're mid-task or the match is weak; it never recommends through a caveat"
+            },
+            {
+              "label": "Without the catalog",
+              "text": "names no specific course, only a product hub or the Academy's resources library"
+            }
+          ],
+          "text": "Anthropic's skill for pointing people to its own learning content: courses, most with a certificate, short tutorials, and use cases with a prompt to try. It triggers on how-to and getting-started questions about Claude, Claude Code, Cowork, artifacts, projects, skills, plugins, connectors and MCP, and on requests for training or onboarding material. It embeds no course list: when a recommendation fits, it fetches the Academy's catalog.json once per conversation, trusts it only until its staleAfter date, and takes nothing from it but its item entries, such as titles, URLs and summaries. A strong match is about intent: \"how do projects work?\" qualifies, \"help me organize this document\" doesn't. It never invents titles or URLs, recommends at most two items even when you ask for training materials, avoids pushy wording, and says when a course needs an Academy sign-in.",
+          "permalink": "https://github.com/anthropics/skills/tree/ca45fc496a3436251f191354091d557da31c15b5/skills/academy-guide"
+        },
+        "tags": [
+          "category:personal",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:official",
+          "stack:claude",
+          "learning"
+        ],
+        "note": "Fires on its own after questions about using Claude, and fetches academy.claude.com's catalog to recommend from."
+      }
+    },
+    {
+      "id": "backnotprop/plannotator/apps/skills/extra/plannotator-visual-explainer",
+      "name": "plannotator-visual-explainer",
+      "skills.sh": {
+        "url": "https://skills.sh/backnotprop/plannotator/plannotator-visual-explainer",
+        "installs": 13700,
+        "weeklyInstalls": [481, 593, 641, 647, 862, 762, 761, 757],
+        "firstSeen": "2026-05-12"
+      },
+      "skillMd": {
+        "version": "a35cc47b50e1b42d3538638cb85f237da83660ce",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Turns implementation plans, PR walkthroughs and technical explanations into themed HTML pages, then opens them in Plannotator for your annotations or approval.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you'd rather review a plan, a pull request or a technical explanation as a designed page than as Markdown"
+            },
+            {
+              "label": "It does",
+              "text": "picks a path by content: its own fixed structure for plans and for PR explainers, or nicobailon's visual-explainer skill for anything else"
+            },
+            {
+              "label": "You get",
+              "text": "a self-contained HTML file in Plannotator's theme, opened in its annotation UI; plans open with an approve-or-deny gate"
+            },
+            {
+              "label": "Plans can include",
+              "text": "key numbers, phases without time estimates, an SVG architecture diagram, UI mockups, risks with severity badges and open questions"
+            },
+            {
+              "label": "Needs",
+              "text": "the Plannotator CLI; the general path also needs visual-explainer, which it installs only if you agree"
+            },
+            {
+              "label": "Runs",
+              "text": "only when you call it"
+            }
+          ],
+          "text": "One of Plannotator's extra skills. Plannotator is a local, browser-based review surface where you mark up an agent's plans, documents and diffs and send the feedback back to it. The plan path adapts its lead section to the task: data flow for backend work, mockups for frontend, before-and-after diagrams for refactoring. A PR explainer has a TL;DR card, why the change was made, a tour of each file with its key diff hunks, a risk map separating files that need careful review from mechanical ones, where to focus, a test plan and, if relevant, a rollout. Everything else, such as architecture diagrams, data tables, slide decks and project recaps, follows visual-explainer's structure and anti-slop rules with Plannotator's colors and fonts swapped in. Any Mermaid diagram must render cleanly in both light and dark palettes before the page is delivered. Across all paths: generous whitespace, one idea per screen, show rather than describe.",
+          "permalink": "https://github.com/backnotprop/plannotator/tree/a35cc47b50e1b42d3538638cb85f237da83660ce/apps/skills/extra/plannotator-visual-explainer"
+        },
+        "tags": [
+          "category:planning",
+          "category:science",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:official",
+          "stack:plannotator",
+          "planning",
+          "code-review",
+          "diagrams"
+        ],
+        "note": "Needs the Plannotator CLI to show its pages."
+      }
+    },
+    {
+      "id": "backnotprop/plannotator/apps/skills/extra/plannotator-compound",
+      "name": "plannotator-compound",
+      "skills.sh": {
+        "url": "https://skills.sh/backnotprop/plannotator/plannotator-compound",
+        "installs": 12600,
+        "weeklyInstalls": [454, 469, 562, 584, 796, 713, 658, 678],
+        "firstSeen": "2026-04-08"
+      },
+      "skillMd": {
+        "version": "a35cc47b50e1b42d3538638cb85f237da83660ce",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Mines your denied agent plans for recurring feedback and writes an HTML report with corrective instructions it can feed into future planning sessions.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you've rejected many agent plans and want to see what you keep asking for, so agents stop repeating the same mistakes"
+            },
+            {
+              "label": "It does",
+              "text": "reads every denied plan in your Plannotator archive with parallel subagents, then sorts your feedback into categories with real counts and quotes"
+            },
+            {
+              "label": "You get",
+              "text": "a versioned HTML report in Plannotator's data folder, ending with numbered planning instructions and the share of denials they would address"
+            },
+            {
+              "label": "Optional hook",
+              "text": "saves those instructions to a file Plannotator's plan-mode hook injects into every future planning session"
+            },
+            {
+              "label": "Without Plannotator",
+              "text": "uses the reasons you gave when rejecting plans in Claude Code, parsed from its transcripts by a bundled script"
+            },
+            {
+              "label": "Runs",
+              "text": "only when you call it"
+            }
+          ],
+          "text": "A map-reduce analysis of your plan reviews. It counts approved and denied plans, their date range and your revision rate, and offers an incremental run when an earlier report exists. Past ten files, Haiku subagents extract each denied plan's topic, feedback, specific asks and recurring phrases, in batches sized to the archive; Sonnet subagents then reduce those into a taxonomy of 8 to 15 denial reasons, the top patterns, your recurring phrases, what you value, what agents keep getting wrong, the plan structure you expect, and how that changed over time. The report has seven editorial sections, from a narrative headline finding to a dark panel holding the corrective prompt with a working copy button, and opens in your browser. Every number and quote must come from your files, and thin data is called preliminary. Afterwards it offers the hook; if one exists, you can replace it, merge the two sets or keep the old one.",
+          "permalink": "https://github.com/backnotprop/plannotator/tree/a35cc47b50e1b42d3538638cb85f237da83660ce/apps/skills/extra/plannotator-compound"
+        },
+        "tags": [
+          "category:planning",
+          "category:agents",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "needs:subagents",
+          "needs:claude-code",
+          "by:official",
+          "stack:plannotator",
+          "planning",
+          "self-improvement"
+        ],
+        "note": "Reads every denied plan in your archive, launching parallel Haiku and Sonnet subagents on large ones."
+      }
+    },
+    {
+      "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/disciplines/game-feel",
+      "name": "game-feel",
+      "skills.sh": {
+        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/game-feel",
+        "installs": 13300,
+        "weeklyInstalls": [523, 517, 587, 593, 749, 1098, 2091, 2445],
+        "firstSeen": "2026-06-27"
+      },
+      "skillMd": {
+        "version": "19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Adds juice to game actions, such as screen shake, hit-stop, eased tweens, squash and stretch and layered feedback, scaled to each event's importance.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a hit, jump, pickup or death works but feels weak, weightless or unsatisfying"
+            },
+            {
+              "label": "Juice means",
+              "text": "the brief, exaggerated responses that make an action feel good, such as a flash, a shake or a freeze; they always return to rest"
+            },
+            {
+              "label": "It does",
+              "text": "hooks feedback onto game events, picking from sound, particles, shake, hit-stop, flashes, knockback, tweens and number pops, then playtests it"
+            },
+            {
+              "label": "You get",
+              "text": "changes to your game code, with small, medium and large feedback presets assigned to events"
+            },
+            {
+              "label": "Code examples",
+              "text": "Godot 4.7 and Unity 6.3; the techniques themselves are engine-neutral"
+            }
+          ],
+          "text": "A discipline skill from a game-development collection. Its premise: one satisfying hit is five to eight tiny responses firing within about 100 ms. The workflow checks the mechanic emits events such as on_hit or on_land, starts with two or three feedback channels per event, eases motion instead of moving it linearly, and keeps shake and hit-stop (a split-second freeze) for real impacts. Feedback stays off the simulation: shake moves the camera, never the body, and hit-stop slows time with a real-time timer so the game always resumes. Patterns include shake driven by a decaying trauma value, a hit-stop that survives overlapping hits, and a squash-and-pop tween with overshoot. It warns against over-juicing routine actions and suggests an option to reduce shake and flashing. It polishes a mechanic but doesn't build one: jump physics, camera follow and sound mixing are left to other skills in the repo.",
+          "permalink": "https://github.com/gamedev-skills/awesome-gamedev-agent-skills/tree/19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9/skills/disciplines/game-feel"
+        },
+        "tags": [
+          "category:design",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "animation",
+          "design"
+        ]
+      }
+    },
+    {
+      "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/disciplines/game-ui-ux",
+      "name": "game-ui-ux",
+      "skills.sh": {
+        "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/game-ui-ux",
+        "installs": 13200,
+        "weeklyInstalls": [552, 535, 583, 597, 727, 1049, 2020, 2427],
+        "firstSeen": "2026-06-27"
+      },
+      "skillMd": {
+        "version": "19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds game HUDs and menus that scale to any screen and work with a gamepad: anchored layouts, safe areas, focus navigation and event-driven updates.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're building a HUD or a main, pause or settings menu, or fixing game UI that breaks at other resolutions or on a controller"
+            },
+            {
+              "label": "It does",
+              "text": "lays UI out with anchors and containers, picks a scaling policy, insets for notches and TV overscan, sets gamepad focus and stacks screens"
+            },
+            {
+              "label": "You get",
+              "text": "UI code, checked by resizing the window, switching aspect ratios and navigating by gamepad alone"
+            },
+            {
+              "label": "Code examples",
+              "text": "Godot 4.7, and Unity 6.3 with uGUI and UI Toolkit; the patterns themselves are engine-neutral"
+            },
+            {
+              "label": "Leaves to others",
+              "text": "widget styling, button juice and dialogue UI, to engine UI skills and the repo's game-feel and dialogue-systems"
+            }
+          ],
+          "text": "A discipline skill from a game-development collection: it owns UI architecture and leaves concrete widgets to engine skills. Its seven steps: anchors and containers instead of absolute pixel positions; a reference resolution that scales, plus a rule for the extra width of ultrawide screens and phones; safe-area insets for notches, rounded corners and overscan; an initially focused control and defined focus neighbours on every screen, so a gamepad never lands on nothing; screens as a stack you push and pop, so pause and back are trivial; a HUD that updates on events such as health_changed instead of reading game state every frame; and checks across resolutions and input devices, reporting what was observed. Its pitfalls cover tiny fixed fonts, citing the minimum text sizes of Xbox Accessibility Guideline 101, strings that overflow buttons once translated, and Unity menus that ignore the gamepad after switching to the Input System.",
+          "permalink": "https://github.com/gamedev-skills/awesome-gamedev-agent-skills/tree/19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9/skills/disciplines/game-ui-ux"
+        },
+        "tags": [
+          "category:design",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "design",
+          "accessibility"
+        ]
+      }
+    },
+    {
+      "id": "openclaw/openclaw/skills/summarize",
+      "name": "summarize",
+      "skills.sh": {
+        "url": "https://skills.sh/openclaw/openclaw/summarize",
+        "installs": 27000,
+        "weeklyInstalls": [409, 226, 167, 159, 49, 46, 55, 56],
+        "firstSeen": "2026-01-24"
+      },
+      "skillMd": {
+        "version": "154d60ec2bc612db80a39c13b61466a64acfc527",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Summarizes or transcribes web pages, YouTube videos, podcasts, PDFs and local files with the summarize CLI and the model provider you choose.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you ask \"what's this link or video about?\", or want a summary or transcript of an article, video, podcast or file"
+            },
+            {
+              "label": "It does",
+              "text": "runs summarize on the URL or file, at a length you can set from short to xxl"
+            },
+            {
+              "label": "You get",
+              "text": "a summary in the chat; for a huge transcript, a tight summary first, then the section you pick"
+            },
+            {
+              "label": "Needs",
+              "text": "the summarize CLI, installed with Homebrew, and an API key for OpenAI, Anthropic, xAI or Google"
+            },
+            {
+              "label": "Optional keys",
+              "text": "Firecrawl for blocked sites and Apify as a YouTube fallback"
+            }
+          ],
+          "text": "A short guide to summarize.sh, a command-line tool that reads a link or file and has a model summarize it. The agent passes the URL or path, adds --youtube auto for YouTube links, and --extract when you want the raw text or a best-effort transcript instead of a summary. The model defaults to auto; a config file at ~/.summarize/config.json can pin one. Other flags cap output tokens or return JSON.",
+          "permalink": "https://github.com/openclaw/openclaw/tree/154d60ec2bc612db80a39c13b61466a64acfc527/skills/summarize"
+        },
+        "tags": [
+          "category:browser",
+          "category:documents",
+          "type:tool",
+          "effect:none",
+          "needs:cli",
+          "needs:account",
+          "by:community",
+          "stack:summarize",
+          "research",
+          "video",
+          "pdf"
+        ],
+        "note": "Needs the summarize CLI and a model provider's API key; what you summarize is sent to that provider."
+      }
+    },
+    {
+      "id": "cathrynlavery/diagram-design/skills/diagram-design",
+      "name": "diagram-design",
+      "skills.sh": {
+        "url": "https://skills.sh/cathrynlavery/diagram-design/diagram-design",
+        "installs": 25600,
+        "weeklyInstalls": [1028, 813, 665, 626, 2226, 5193, 4258, 4019],
+        "firstSeen": "2026-04-19"
+      },
+      "skillMd": {
+        "version": "e57eda6102a19444538ebd611d39534fad65b663",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Draws diagrams and charts of 45 types as self-contained HTML and SVG in your brand, and redraws draw.io, Mermaid and Excalidraw files.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need an architecture diagram, flowchart, sequence, timeline, quadrant, chart or another of 45 types that looks designed, not generated"
+            },
+            {
+              "label": "It does",
+              "text": "picks the type, states its plan, draws in a strict editorial style, then runs a pre-output checklist and a bundled self-check script"
+            },
+            {
+              "label": "You get",
+              "text": "one .html file with inline SVG, from light, dark or full editorial templates, plus PNG or SVG export when you ask"
+            },
+            {
+              "label": "First run",
+              "text": "asks to match your brand from a website, a design system, pasted tokens or a saved profile, or to keep the default style"
+            },
+            {
+              "label": "Imports",
+              "text": "redraws draw.io, Mermaid and Excalidraw files in its own style, and reports what it merged or dropped"
+            },
+            {
+              "label": "Needs",
+              "text": "Python 3 for its check, import and export scripts"
+            }
+          ],
+          "text": "Its philosophy is deletion: every node is a distinct idea, every line carries information, and a diagram is done when nothing can be removed. Each one stays within a budget of 9 nodes and 12 arrows, with the accent color on one or two focal elements; bigger subjects split into an overview and a detail. When behavior matters, such as a bottleneck, a trust boundary or a lifecycle with retries, it first picks a semantic pattern, then the layout type. Six connector rules are mandatory, among them right-angle elbows only, labels masked with a gap from their line, and no overlapping paths. It bans common slop such as dark mode with cyan glow, shadows, heavily rounded boxes and JetBrains Mono, and sets type in Instrument Serif, Geist and Geist Mono. Every SVG is accessible, with a title and description. Before drawing, it checks whether a table or paragraph would do the job better, and animation is off unless you ask.",
+          "permalink": "https://github.com/cathrynlavery/diagram-design/tree/e57eda6102a19444538ebd611d39534fad65b663/skills/diagram-design"
+        },
+        "tags": [
+          "category:science",
+          "category:design",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "diagrams",
+          "charts",
+          "architecture",
+          "anti-slop"
+        ]
+      }
+    },
+    {
+      "id": "firecrawl/skills/skills/core/firecrawl-research-index",
+      "name": "firecrawl-research-index",
+      "skills.sh": {
+        "url": "https://skills.sh/firecrawl/skills/firecrawl-research-index",
+        "installs": 25200,
+        "weeklyInstalls": [643, 601, 591, 520, 562, 698, 775, 499],
+        "firstSeen": "2026-06-16"
+      },
+      "skillMd": {
+        "version": "458d9d0331fb31121fd38e0e09ae5036f952784b",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Finds research papers for a query in Firecrawl's index of biomedical and arXiv abstracts, expanding through similar, citing and cited papers.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need the papers that answer a research question, from one named paper to a whole family of methods"
+            },
+            {
+              "label": "It does",
+              "text": "searches abstracts by meaning, expands good hits to similar, citing and cited papers, and reads a paper's full text to check a hard constraint"
+            },
+            {
+              "label": "You get",
+              "text": "the relevant papers, most relevant first, leaning toward keeping close neighbours rather than one best match"
+            },
+            {
+              "label": "Covers",
+              "text": "mostly PubMed, bioRxiv and medRxiv, plus arXiv preprints in computer science, physics and math"
+            },
+            {
+              "label": "Needs",
+              "text": "the Firecrawl CLI's research commands or Firecrawl's MCP tools"
+            },
+            {
+              "label": "Unlike",
+              "text": "firecrawl-research-papers, which writes a literature review from the same index; this one only finds the papers"
+            }
+          ],
+          "text": "Firecrawl's skill for its research paper index. There's no fixed recipe: the agent reads the query's shape and picks an approach. A named paper takes one search. A paper described by its method is expanded to its family. A request for papers that do something expands several anchors and re-seeds from new hits. Papers that use a property are found through what cites or is cited by its defining paper. Leaderboard questions go to the web first, then map the top entries back to papers. Author or organization filters are checked against the paper itself. It warns that Firecrawl's ordinary web search with the research category is a different feature: it returns web pages from sites like PubMed and arXiv, not records from this index. An identical copy ships in firecrawl/cli.",
+          "permalink": "https://github.com/firecrawl/skills/tree/458d9d0331fb31121fd38e0e09ae5036f952784b/skills/core/firecrawl-research-index"
+        },
+        "tags": [
+          "category:science",
+          "type:tool",
+          "effect:none",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:firecrawl",
+          "research",
+          "flag:mirror"
+        ]
+      }
+    },
+    {
+      "id": "hypit-ai/hypit/skills/hypit",
+      "name": "hypit",
+      "skills.sh": {
+        "url": "https://skills.sh/hypit-ai/hypit/hypit",
+        "installs": 24700,
+        "weeklyInstalls": [12, 6119, 3301, 1829, 1881, 2769, 3479, 3176],
+        "firstSeen": "2026-09-10"
+      },
+      "skillMd": {
+        "version": "2d31e88765e297f0795348b460c77a6067f12261",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Directs and produces videos with Hypit: studies references, generates images, footage and voices, and composes them with captions and motion graphics.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a video made: a remake of a reference video, a short drama, a creator-led social clip, or one from a brief"
+            },
+            {
+              "label": "It does",
+              "text": "studies a reference's frames alongside its speech, writes a brief and a creative treatment, directs image, video and voice models, then composes the video"
+            },
+            {
+              "label": "You get",
+              "text": "a finished video, watched and checked by the agent, plus the editable production in Hypit's Studio for timestamped comments"
+            },
+            {
+              "label": "Keeps",
+              "text": "its understanding in project files, the brief, treatment, analysis and timeline, so another session can pick the work up"
+            },
+            {
+              "label": "Needs",
+              "text": "the Hypit executable, plus HypiHub or your own model API keys for generation, which the skill doesn't include"
+            }
+          ],
+          "text": "Hypit's own skill. The agent acts as director and producer, making creative choices and explaining them as the work develops. Hypit treats a video as one timeline and one canvas whose objects change over time; where speech leads, events are tied to words in the script rather than fixed times, so a new wording moves the picture with its meaning. A-roll is the performance carrying a passage; B-roll, captions, MG (motion graphics) and effects are composed around it, and new visual systems are written as project components in Hypit's own formats (SVML, SVS and SVRun). Before writing an image, video or voice prompt, the agent must read Hypit's direction guide for it, which records how the models respond. It brings you into choices about your goal, services and spending, and explains what is running during long generations. The SKILL.md ends with a map to dozens of reference files, from caption styling and sound mixing to downloading references with yt-dlp.",
+          "permalink": "https://github.com/hypit-ai/hypit/tree/2d31e88765e297f0795348b460c77a6067f12261/skills/hypit"
+        },
+        "tags": [
+          "category:media",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:hypit",
+          "video",
+          "ai-generation",
+          "audio"
+        ],
+        "note": "Generation needs HypiHub or your own model API keys, which cost money; the skill agrees accounts and a budget with you before paid work."
+      }
+    },
+    {
+      "id": "garrytan/gstack",
+      "name": "gstack",
+      "skills.sh": {
+        "url": "https://skills.sh/garrytan/gstack/gstack",
+        "installs": 24600,
+        "weeklyInstalls": [328, 277, 236, 252, 229, 244, 261, 329],
+        "firstSeen": "2026-03-12"
+      },
+      "skillMd": {
+        "version": "688e3ab9d131bd4f9d7b173d81ed15c299d3387a",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Routes your request to the right gstack skill, such as office-hours, review, qa or ship, or answers directly when none fits.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you've installed Garry Tan's gstack suite and want each request sent to the gstack skill that fits it"
+            },
+            {
+              "label": "It does",
+              "text": "matches your request against routing rules for dozens of gstack skills, from plan reviews and QA to shipping, security audits and retros"
+            },
+            {
+              "label": "By default",
+              "text": "auto-runs only office-hours, review, qa and ship; otherwise it answers directly, unless you name a skill"
+            },
+            {
+              "label": "Bugs",
+              "text": "makes one read-only check of the cause first, then fixes a narrow bug or hands it to investigate"
+            },
+            {
+              "label": "Needs",
+              "text": "the full gstack install with its setup script; without it, it falls back to safe defaults and tells you to run setup"
+            },
+            {
+              "label": "Also",
+              "text": "logs telemetry and session learnings through gstack's scripts, and asks once for privacy consent"
+            }
+          ],
+          "text": "gstack is a large set of role-based skills, and this SKILL.md is only its router. Its rules cover new ideas (office-hours), specs and tickets, plan reviews from CEO, engineering, design and developer-experience angles, bug investigation, QA, code review, shipping and deploys, docs, retros, security audits, PDFs, scraping and iOS testing. A setting called proactive decides how far it goes: off suggests nothing, core, the default, auto-runs four skills, and all invokes whichever skill matches. Browser requests go to browse, which drives the Aside browser with your logged-in sessions first and gstack's own browser otherwise. It routes only to skills that are installed. It starts by running a preamble script, reports its outcome as DONE, DONE_WITH_CONCERNS, BLOCKED or NEEDS_CONTEXT, and sets a voice: direct, no em dashes, no stock AI vocabulary.",
+          "permalink": "https://github.com/garrytan/gstack/tree/688e3ab9d131bd4f9d7b173d81ed15c299d3387a"
+        },
+        "tags": [
+          "category:skill-tools",
+          "type:router",
+          "effect:none",
+          "needs:cli",
+          "by:community",
+          "skill-discovery",
+          "agent-workflows",
+          "code-review",
+          "testing"
+        ],
+        "note": "Routes to gstack's other skills and runs its scripts, so it needs the full gstack install (git clone and ./setup); it also logs telemetry and learnings locally."
+      }
+    },
+    {
+      "id": "feature-sliced/skills/feature-sliced-design",
+      "name": "feature-sliced-design",
+      "skills.sh": {
+        "url": "https://skills.sh/feature-sliced/skills/feature-sliced-design",
+        "installs": 24200,
+        "weeklyInstalls": [219, 243, 237, 414, 2567, 1098, 406, 528],
+        "firstSeen": "2026-03-09"
+      },
+      "skillMd": {
+        "version": "5e95aaebb84541742686e56352b7569acf4306f1",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Applies Feature-Sliced Design v2.1 to frontend code: where each file belongs, which layers to use, import boundaries and cross-import fixes.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're structuring or reorganizing a frontend project with Feature-Sliced Design, or deciding where a piece of code should go"
+            },
+            {
+              "label": "It does",
+              "text": "places code with a five-step decision tree, enforces the import and public-API rules, and resolves cross-imports between slices"
+            },
+            {
+              "label": "Bias",
+              "text": "pages first: code moves down to features or entities only when it's reused now, changes for its own reasons and has a focused job"
+            },
+            {
+              "label": "Layers",
+              "text": "app, pages, widgets, features, entities and shared, highest to lowest; most projects can start with only app, pages and shared"
+            },
+            {
+              "label": "Also covers",
+              "text": "migrating from FSD v2.0 or a non-FSD codebase, Next.js, Nuxt, Astro and other frameworks, auth, API calls, Redux and TanStack Query"
+            },
+            {
+              "label": "Official",
+              "text": "the Feature-Sliced Design project's own skill, based on the v2.1 docs at fsd.how"
+            }
+          ],
+          "text": "Feature-Sliced Design is a methodology for organizing frontend code into layers, which divide into slices by business area, which divide into segments by technical purpose: ui, model, api, lib and config. A module may import only from layers below it, and only through a slice's index.ts. The skill leans hard toward simplicity: duplication across pages is acceptable, the widgets layer is discouraged, plain CRUD is infrastructure rather than an entity, auth tokens live in shared, and files are named for their domain (user.ts) rather than their role (utils.ts). For cross-imports between entities it prefers merging their boundaries over the @x notation, a last resort, and for features it offers four strategies, from merging slices to composing them from the page. It recommends Steiger, the official FSD linter, and reads each of its nine reference files only when a task calls for it.",
+          "permalink": "https://github.com/feature-sliced/skills/tree/5e95aaebb84541742686e56352b7569acf4306f1/feature-sliced-design"
+        },
+        "tags": [
+          "category:engineering",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:official",
+          "stack:feature-sliced-design",
+          "architecture",
+          "migration"
         ]
       }
     }
