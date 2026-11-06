@@ -4,7 +4,7 @@
  * MINIMUMS.installs.
  *
  * It reads the top 600, which skills.sh embeds in its home page (its robots.txt keeps scripts off
- * its API), and the first SITEMAP_DEPTH skills of skills.sh's sitemap, then:
+ * its API), and skills.sh's sitemap, then:
  * - gives every approved skill (skills.jsonc) its installs and weekly installs: from the top 600,
  *   or for a skill outside it, from its own skills.sh page, which also gives a missing first-seen
  *   date;
@@ -12,8 +12,9 @@
  * - records the other skills of the top 600 in crawl.jsonc, never removing one: a skill on GitHub
  *   is qualified while it reaches the minimums and unqualified while it doesn't, and a website's is
  *   disqualified (not on GitHub);
- * - reads the page of every other skill of the sitemap's first SITEMAP_DEPTH, and records those
- *   that reach MINIMUMS.installs the same way, or refreshes them once recorded.
+ * - reads the page of every other skill of the sitemap, in its order, until UNDER_IN_A_ROW skills
+ *   in a row are under MINIMUMS.installs, and records those that reach it the same way, or
+ *   refreshes them once recorded.
  *
  * A skill outside both keeps its state and its last numbers. An agent approves or disqualifies the
  * qualified skills with the add-skill skill.
@@ -147,14 +148,7 @@ function skillPage(url: string): Promise<Page | null> {
   return pages.get(pageKey(url)) as Promise<Page | null>;
 }
 
-/**
- * How many skills of skills.sh's sitemap the crawl reads the page of. The sitemap lists 20,000
- * skills roughly most installed first, and passed MINIMUMS.installs around its 2,500th skill in
- * November 2026: the rest is a margin for its loose order.
- */
-const SITEMAP_DEPTH = 4000;
-
-/** The first SITEMAP_DEPTH skill pages of skills.sh's sitemap, as https://skills.sh/owner/repo/skill. */
+/** The skill pages of skills.sh's sitemap, as https://skills.sh/owner/repo/skill, in its order. */
 async function sitemapSkills(): Promise<string[]> {
   const index = (await get("https://www.skills.sh/sitemap.xml")) ?? "";
   const maps = [...index.matchAll(/<loc>([^<]*\/sitemap-skills-\d+\.xml)<\/loc>/g)].map(
@@ -163,14 +157,12 @@ async function sitemapSkills(): Promise<string[]> {
   if (!maps.length)
     throw new Error("skills.sh: no skills sitemap in its sitemap.xml; did it change?");
   const urls: string[] = [];
-  for (const map of maps) {
-    if (urls.length >= SITEMAP_DEPTH) break;
+  for (const map of maps)
     for (const m of ((await get(map)) ?? "").matchAll(
       /<loc>https:\/\/www\.skills\.sh\/([^/<.]+\/[^/<]+\/[^/<]+)<\/loc>/g,
     ))
       urls.push(`https://skills.sh/${m[1]}`);
-  }
-  return urls.slice(0, SITEMAP_DEPTH);
+  return urls;
 }
 
 // ------------------------------------------------------------------- approved skills
@@ -262,23 +254,34 @@ await pool(board, 4, async (e) => {
 
 // ------------------------------------------------------------------- beyond the top 600
 
+/**
+ * How far down the sitemap the crawl reads: until this many skills in a row are under
+ * MINIMUMS.installs. The sitemap lists skills roughly most installed first, but loosely, so a
+ * skill that reaches the minimum can come after many that don't.
+ */
+const UNDER_IN_A_ROW = 1000;
+
 // The sitemap's skills that reach MINIMUMS.installs land in crawl.jsonc too, with the rounded
 // numbers of their own page. A page that doesn't read is retried on the next run: only many of
 // them fail the run, such as when skills.sh changed its pages.
 const sitemap = await sitemapSkills();
 const unread: string[] = [];
 let fromSitemap = 0;
-await pool(sitemap, 4, async (url) => {
+
+/** Read a skill of the sitemap: whether it reaches MINIMUMS.installs, or null when unknown. */
+async function visit(url: string): Promise<boolean | null> {
   const key = pageKey(url);
-  if (onBoard.has(key) || approved.has(key) || disqualified.has(key)) return;
+  if (onBoard.has(key) || approved.has(key)) return true;
+  if (disqualified.has(key)) return null;
   const page = await skillPage(url).catch((error: unknown) => {
     unread.push(`${url}: ${message(error)}`);
     return undefined;
   });
-  if (!page) return;
+  if (!page) return null;
+  const reaches = (page.installs ?? 0) >= MINIMUMS.installs;
   let c = recorded.get(key);
   if (!c) {
-    if ((page.installs ?? 0) < MINIMUMS.installs) return;
+    if (!reaches) return false;
     const [owner, repo, name] = url.replace("https://skills.sh/", "").split("/");
     c = {
       name,
@@ -296,8 +299,22 @@ await pool(sitemap, 4, async (url) => {
   c.seen = today;
   c["skills.sh"].installs = page.installs;
   c["skills.sh"].weeklyInstalls = page.weeklyInstalls;
-});
-if (unread.length > sitemap.length / 100)
+  return reaches;
+}
+
+// A hundred skills at a time, so that the run of skills under the minimum is counted in order.
+let depth = 0;
+let under = 0;
+while (depth < sitemap.length && under < UNDER_IN_A_ROW) {
+  const batch = sitemap.slice(depth, depth + 100).map((url, i) => ({ url, i }));
+  const reached: (boolean | null)[] = [];
+  await pool(batch, 4, async ({ url, i }) => {
+    reached[i] = await visit(url);
+  });
+  for (const r of reached) under = r === true ? 0 : r === false ? under + 1 : under;
+  depth += batch.length;
+}
+if (unread.length > depth / 100)
   errors.push(`${unread.length} of the sitemap's skill pages didn't read, such as ${unread[0]}`);
 
 // ------------------------------------------------------------------- stars
@@ -353,7 +370,7 @@ writeData(data);
 writeCrawl(crawl);
 
 console.log(
-  `Crawled the skills.sh top ${board.length}, and ${fromSitemap} skills further down its sitemap${unread.length ? ` (${unread.length} pages didn't read)` : ""}: refreshed ${data.skills.length} approved skills (${fromPages} from their own page)${stars.size ? ` and the stars of ${stars.size} repos` : ""}. crawl.jsonc: ${crawl.qualified.length} qualified (${newlyQualified.length} new), ${crawl.unqualified.length} unqualified, ${crawl.disqualified.length} disqualified.`,
+  `Crawled the skills.sh top ${board.length}, and ${fromSitemap} skills further down its sitemap, whose first ${depth} it read${unread.length ? ` (${unread.length} pages didn't)` : ""}: refreshed ${data.skills.length} approved skills (${fromPages} from their own page)${stars.size ? ` and the stars of ${stars.size} repos` : ""}. crawl.jsonc: ${crawl.qualified.length} qualified (${newlyQualified.length} new), ${crawl.unqualified.length} unqualified, ${crawl.disqualified.length} disqualified.`,
 );
 for (const line of added) console.log(`  ${line}`);
 for (const c of newlyQualified) console.log(`  qualified ${c["skills.sh"].url}`);

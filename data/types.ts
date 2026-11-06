@@ -388,8 +388,8 @@ export interface SkillsSh {
    * .github/workflows/crawl.yml runs daily. For a skill in the top 600, `topSkills()` fetches the
    * HTML of https://www.skills.sh/ and parses the leaderboard JSON that the page's Next.js payload
    * embeds (its `self.__next_f.push(…)` scripts, the `initialSkills` object of the all-time
-   * view). For a skill outside it, an approved one or one of the first `SITEMAP_DEPTH` skills of
-   * https://www.skills.sh/sitemap.xml, `skillPage()` fetches the HTML of the skill's skills.sh page
+   * view). For a skill outside it, an approved one or one of the skills of
+   * https://www.skills.sh/sitemap.xml it reads, `skillPage()` fetches the HTML of the skill's skills.sh page
    * and matches the "Installs" stat in its markup with a regex, such as "26.5K"; null when
    * skills.sh no longer has the page.
    */
