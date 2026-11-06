@@ -16129,6 +16129,166 @@
           "mobile"
         ]
       }
+    },
+    {
+      "id": "wshobson/agents/plugins/brand-landingpage/skills/brand-landingpage",
+      "name": "brand-landingpage",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/brand-landingpage",
+        "installs": 39800,
+        "weeklyInstalls": [177, 192, 227, 280, 217, 201, 195, 180],
+        "firstSeen": "2026-05-02"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Interviews you about your brand, then designs a landing page with Stitch, iterates on your feedback and bundles deployment-ready HTML.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you've built a product or side project and need a landing page, but have no visual direction or brand yet"
+            },
+            {
+              "label": "It does",
+              "text": "interviews you in about ten questions, turns your answers into a design system in Stitch, a service that generates screens from text prompts, then generates the page"
+            },
+            {
+              "label": "You get",
+              "text": "a zip with index.html, an optional mobile.html, DESIGN.md, color tokens and a DEPLOY.md checklist"
+            },
+            {
+              "label": "Iterates",
+              "text": "opens each version in your browser, asks three feedback questions, and turns your answers into edits or new variants"
+            },
+            {
+              "label": "Needs",
+              "text": "a Stitch API key; the agent installs the Stitch SDK"
+            },
+            {
+              "label": "Not for",
+              "text": "pages you already have a mockup for, dashboards, app UI, multi-page apps or restyling with known design tokens; it points you to frontend-design"
+            }
+          ],
+          "text": "A design consultant for developers who have built something but haven't thought about brand. Before generating anything, it gets the Stitch SDK working and checks your API key with one call. The interview has three parts: the product (name, what it does, who it's for, what visitors should do), brand feel (three adjectives, a landing page you admire, light or dark) and visual preferences (colors, modern or traditional type, sharp or rounded shapes). It maps those answers to Stitch's design-system settings and documents them in .stitch/DESIGN.md. Then it generates a desktop page, opens it in your browser and loops: a specific request becomes a direct edit, general dissatisfaction two or three variants to compare, and \"something totally different\" a full rethink. Every version is kept, and the state saved in .stitch/metadata.json lets a later session resume without interviewing you again. After you approve the desktop page it offers a mobile layout, then zips the final files for deployment. It doesn't take your logo as input, since Stitch generates from text; it saves any image you attach so you can swap it into the HTML.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/brand-landingpage/skills/brand-landingpage"
+        },
+        "tags": [
+          "category:design",
+          "category:marketing",
+          "type:workflow",
+          "effect:remote",
+          "needs:account",
+          "by:community",
+          "stack:stitch",
+          "design",
+          "interview",
+          "marketing",
+          "ai-generation"
+        ],
+        "note": "Needs a Stitch API key from Stitch's dashboard; the agent installs the Stitch SDK itself, globally unless you're clearly inside a project."
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/backend-development/skills/api-design-principles",
+      "name": "api-design-principles",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/api-design-principles",
+        "installs": 31200,
+        "weeklyInstalls": [336, 351, 401, 463, 400, 425, 411, 469],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Applies REST and GraphQL design principles, such as resource naming, versioning, pagination and error formats, when designing or reviewing an API.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're designing a new REST or GraphQL API, reviewing an API spec, or setting API standards for a team"
+            },
+            {
+              "label": "It does",
+              "text": "gives the agent principles for resources, HTTP methods, GraphQL schemas, versioning, pagination, rate limits and errors"
+            },
+            {
+              "label": "You get",
+              "text": "APIs designed along those rules; it adds no steps or files of its own"
+            },
+            {
+              "label": "Also covers",
+              "text": "common pitfalls, such as breaking changes, inconsistent error formats and APIs that mirror the database schema"
+            }
+          ],
+          "text": "It's a reference, not a workflow. For REST, resources are plural nouns and actions are HTTP methods; it spells out what GET, POST, PUT, PATCH and DELETE mean and which are idempotent, and asks for correct status codes, stateless requests, pagination of large collections, rate limits and OpenAPI docs. For GraphQL, it designs the schema before the resolvers, uses DataLoaders to avoid N+1 queries, validates at schema and resolver level, returns structured errors in mutation payloads, paginates with cursors and retires fields with @deprecated. It shows three ways to version an API, with an example each: in the URL, in a header or as a query parameter. A separate file holds detailed patterns and worked examples.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/backend-development/skills/api-design-principles"
+        },
+        "tags": [
+          "category:engineering",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:graphql",
+          "backend",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/developer-essentials/skills/code-review-excellence",
+      "name": "code-review-excellence",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/code-review-excellence",
+        "installs": 30800,
+        "weeklyInstalls": [337, 333, 363, 417, 362, 380, 370, 334],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Reviews pull requests in four phases, from context to line-by-line checks, with constructive, prioritized feedback and a review comment template.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're reviewing a pull request, or setting review standards or a checklist for a team"
+            },
+            {
+              "label": "It does",
+              "text": "walks a review through four phases: context, high-level design, line-by-line checks, then a summary and a clear verdict"
+            },
+            {
+              "label": "You get",
+              "text": "review comments in a template of summary, strengths, required changes, suggestions, questions and verdict, with blocking issues kept apart from nits"
+            },
+            {
+              "label": "Also covers",
+              "text": "phrasing hard feedback, handling disagreement, and pitfalls such as rubber-stamping and bike-shedding"
+            }
+          ],
+          "text": "A review process plus advice on tone. Before reading code, the agent reads the PR description and linked issue, checks the size (over 400 lines, ask to split it) and whether CI passes. A high-level pass asks whether the solution fits the problem, whether something simpler exists and whether tests cover the edge cases. The line-by-line pass checks logic (off-by-one errors, null checks, race conditions), security (input validation, SQL injection, XSS, exposed data), performance (N+1 queries, memory leaks, blocking calls) and maintainability. It ends with the key concerns, what was done well, and a verdict: approve, comment or request changes. Formatting, import order and lint issues are left to tools. Feedback should be specific, actionable and about the code rather than the person, with nits marked non-blocking; hard feedback goes context, specific issue, then a helpful solution. Much of the advice also speaks to human reviewers and teams: review within a day, keep PRs to 200-400 lines, offer to pair. Two extra files hold review techniques and checklists for language, architecture, test and security reviews.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/developer-essentials/skills/code-review-excellence"
+        },
+        "tags": [
+          "category:debugging",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "code-review"
+        ]
+      }
     }
   ]
 }
