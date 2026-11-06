@@ -3040,39 +3040,39 @@
       "skew": 0,
       "agentReview": {
         "name": "Argent",
-        "description": "Software Mansion's skills for Argent, an MCP server that lets the agent use your app on simulators, emulators, phones and Chromium apps, to test its UI, debug its JavaScript and profile it.",
+        "description": "Software Mansion's skills for Argent, an MCP server that lets the agent use your app on simulators, emulators, phones, TVs and Chromium apps, to test its UI, record it, debug its JavaScript, profile it and try out design variants.",
         "tldr": {
           "glance": [
             {
               "label": "Use it when",
-              "text": "you want the agent to use, test, debug or speed up your mobile app, React Native above all, on a simulator, emulator or phone"
+              "text": "you want the agent to use, test, record, debug or speed up your app, React Native above all, on a simulator, emulator, phone or TV"
             },
             {
               "label": "It does",
-              "text": "teaches the agent Argent's tools: tap and type in the app, check UI flows, read logs and the component tree, and profile React and native code"
+              "text": "teaches the agent Argent's tools: drive the app by touch or TV remote, check UI flows, diff screenshots, record video, read logs, profile code and offer design variants"
             },
             {
               "label": "You get",
-              "text": "UI flows checked with screenshot, element-tree and log evidence, answers from the live app, profiling reports, and measured performance fixes if you want them"
+              "text": "UI flows checked with screenshot diffs, element trees and logs, answers from the live app, videos, profiling reports, measured fixes if you want them, and your chosen design applied"
             },
             {
               "label": "Start with",
-              "text": "argent-device-interact, which the testing and profiling skills use to drive the app; for speed, argent-react-native-optimization, which runs the profilers for you"
+              "text": "argent-device-interact, which the testing, recording, design and profiling skills use to drive the app (argent-tv-interact on a TV); for speed, argent-react-native-optimization, which runs the profilers for you"
             },
             {
               "label": "Needs",
-              "text": "the Argent MCP server, set up by its installer; full Xcode for native profiling on iOS"
+              "text": "the Argent MCP server, set up by its installer; full Xcode for native profiling on iOS; the vega CLI for Fire TV; a feature flag for argent-lens"
             },
             {
               "label": "Physical iPhones",
-              "text": "support only some interaction tools, and none of the debugger or profiler tools; use a simulator"
+              "text": "support only the tools argent-ios-device-interact lists: no debugger, profiler or screen recording, which move to a simulator, and no permission tool"
             },
             {
               "label": "Unlike agent-browser",
-              "text": "which drives websites, it drives apps on phones, simulators and emulators, and can see inside a React Native app"
+              "text": "which drives websites, it drives apps on phones, TVs, simulators and emulators, and can see inside a React Native app"
             }
           ],
-          "text": "Argent is Software Mansion's MCP server for controlling iOS simulators, Android emulators, phones and Chromium apps, and these six skills teach the agent to use it. argent-device-interact is the base: which tool fits each tap, swipe or keystroke, how to find targets in the element tree each action returns, and how to wait for the screen without polling. argent-test-ui-flow builds on it for manual QA, checking each step of a flow with a screenshot diff, the element tree or logs, then reporting a verdict with its evidence. argent-metro-debugger attaches to a React Native app's JavaScript runtime through Metro for console logs, the component tree, network traffic and running code. Performance work starts at argent-react-native-optimization: subagents fix what an ESLint sweep and a judgment checklist turn up, then it profiles with argent-react-native-profiler, which records React commits and CPU samples while the app is used. That profiler starts argent-native-profiler alongside by default, for hangs, CPU hotspots and leaks in native code, through Instruments or Perfetto; either profiler also runs alone. Both report what they find, ask before fixing, and re-profile after a fix to say honestly whether it helped. One installer sets up the server and all of the repo's skills.",
+          "text": "Argent is Software Mansion's MCP server for controlling simulators, emulators, phones, TVs and Chromium apps; these twelve skills teach the agent to use it. argent-device-interact is the base: which tool fits each tap, swipe or keystroke, and how to find targets in the element tree. It sends the agent to argent-ios-device-interact for a physical iPhone, which has fewer tools, and to argent-settings-permissions only when the app's own dialog can't change a permission. argent-tv-interact swaps taps for focus moved by remote buttons. argent-test-ui-flow builds on argent-device-interact for manual QA, checking each step with the element tree, logs or a screenshot diff, taken as argent-screenshot-diff describes, then giving a verdict. argent-screen-recording captures a flow as video. argent-metro-debugger attaches to a React Native app's JavaScript runtime through Metro for logs, components, network traffic and running code. Performance work starts at argent-react-native-optimization: subagents fix what lint and a checklist turn up, then argent-react-native-profiler records React commits, with argent-native-profiler alongside by default for native hangs, CPU and leaks; both ask before fixing and re-profile after. argent-lens builds design variants in the running app, lets you pick in Argent's Lens window, then applies your picks. One installer sets up the server and all the repo's skills.",
           "permalink": "https://github.com/software-mansion/argent/tree/b965c94827d6167fd2912a7ca5ad5505040ae4e0"
         },
         "skills": [
@@ -3081,7 +3081,28 @@
             "standalone": true
           },
           {
+            "id": "software-mansion/argent/packages/skills/skills/argent-ios-device-interact",
+            "standalone": false,
+            "note": "Covers only what differs on a physical iPhone; argent-device-interact, which sends the agent here for one, still applies to everything else."
+          },
+          {
+            "id": "software-mansion/argent/packages/skills/skills/argent-tv-interact",
+            "standalone": true
+          },
+          {
+            "id": "software-mansion/argent/packages/skills/skills/argent-settings-permissions",
+            "standalone": true
+          },
+          {
             "id": "software-mansion/argent/packages/skills/skills/argent-test-ui-flow",
+            "standalone": true
+          },
+          {
+            "id": "software-mansion/argent/packages/skills/skills/argent-screenshot-diff",
+            "standalone": true
+          },
+          {
+            "id": "software-mansion/argent/packages/skills/skills/argent-screen-recording",
             "standalone": true
           },
           {
@@ -3100,15 +3121,19 @@
           {
             "id": "software-mansion/argent/packages/skills/skills/argent-native-profiler",
             "standalone": true
+          },
+          {
+            "id": "software-mansion/argent/packages/skills/skills/argent-lens",
+            "standalone": true
           }
         ],
         "install": [
           {
-            "label": "Editors the Argent installer supports, via npm; also sets up the MCP server and 12 more of the repo's skills",
+            "label": "Editors the Argent installer supports, via npm; also sets up the MCP server and 6 more of the repo's skills",
             "command": "npx @swmansion/argent@latest init"
           },
           {
-            "label": "Editors the Argent installer supports, via pnpm; also sets up the MCP server and 12 more of the repo's skills",
+            "label": "Editors the Argent installer supports, via pnpm; also sets up the MCP server and 6 more of the repo's skills",
             "command": "pnpm dlx @swmansion/argent@latest init"
           }
         ]
@@ -25399,6 +25424,341 @@
           "memory",
           "handoff"
         ]
+      }
+    },
+    {
+      "id": "software-mansion/argent/packages/skills/skills/argent-screenshot-diff",
+      "name": "argent-screenshot-diff",
+      "skills.sh": {
+        "url": "https://skills.sh/software-mansion/argent/argent-screenshot-diff",
+        "installs": 28000,
+        "weeklyInstalls": [1541, 1385, 1528, 1540, 1592, 1643, 1692, 1622],
+        "firstSeen": "2026-06-01"
+      },
+      "skillMd": {
+        "version": "b965c94827d6167fd2912a7ca5ad5505040ae4e0",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Compares a baseline and a current screenshot of a running app through Argent to check visual changes and catch visual regressions.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a visual regression test or a before-and-after comparison of a screen around a UI change"
+            },
+            {
+              "label": "It does",
+              "text": "saves a full-size baseline screenshot before the interaction or code change, then diffs a fresh capture of the state under test against it"
+            },
+            {
+              "label": "You get",
+              "text": "a diff summary and artifact files showing what changed in pixels, read together with a normal look at the screen"
+            },
+            {
+              "label": "Poor fit",
+              "text": "for state, navigation or log checks, finding tap targets, or screens with animation, timestamps, ads or random data"
+            },
+            {
+              "label": "Needs",
+              "text": "the Argent MCP server"
+            }
+          ],
+          "text": "Part of Software Mansion's Argent toolkit, which lets the agent control simulators, emulators and devices. Argent's screenshot-diff tool highlights pixel-visible change or stability between two screenshots, and this skill sets when and how to use it. It's required when you ask for a visual regression test, a screenshot diff or a before-and-after comparison, unless comparable screenshots can't be produced, and it suits changes in layout, spacing, color, typography, clipping and rendering of text or images. The agent navigates to the known-good state and saves a baseline screenshot at full scale, kept out of its context, before the interaction or edit. Then it makes the change, waits for the app to reload or rebuild, navigates to the state under test and diffs a fresh capture, or a second saved file, against the baseline. The diff is supporting evidence only: the agent still looks at the screen and adds element-tree, log or network checks when the assertion needs them.",
+          "permalink": "https://github.com/software-mansion/argent/tree/b965c94827d6167fd2912a7ca5ad5505040ae4e0/packages/skills/skills/argent-screenshot-diff"
+        },
+        "tags": [
+          "category:debugging",
+          "type:workflow",
+          "effect:local",
+          "needs:mcp",
+          "by:official",
+          "stack:argent",
+          "testing",
+          "verification",
+          "mobile"
+        ]
+      }
+    },
+    {
+      "id": "software-mansion/argent/packages/skills/skills/argent-lens",
+      "name": "argent-lens",
+      "skills.sh": {
+        "url": "https://skills.sh/software-mansion/argent/argent-lens",
+        "installs": 25500,
+        "weeklyInstalls": [1526, 1379, 1514, 1527, 1579, 1632, 1684, 1614],
+        "firstSeen": "2026-06-17"
+      },
+      "skillMd": {
+        "version": "b965c94827d6167fd2912a7ca5ad5505040ae4e0",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds several design variants of on-screen elements, captures each running on the device, and lets you choose in Argent's Lens window.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want design alternatives for a screen or component and to pick between them yourself, on the running app"
+            },
+            {
+              "label": "It does",
+              "text": "plans distinct variants per element, then builds each, screenshots it on the device, proposes it in Lens and reverts it"
+            },
+            {
+              "label": "You get",
+              "text": "your pick for each element applied in code, your comments acted on, and a report of what was applied or skipped"
+            },
+            {
+              "label": "Rules",
+              "text": "at least two variants per element, each a real, distinct screenshot of the running app, never a mockup"
+            },
+            {
+              "label": "Needs",
+              "text": "the Argent MCP server with its argent-lens feature flag, off by default and turned on with argent enable argent-lens, and the app running on a simulator or emulator"
+            }
+          ],
+          "text": "Part of Software Mansion's Argent toolkit, which lets the agent control simulators, emulators and devices. Lens is Argent's window for choosing between designs: it shows each element as a card beside the live device stream, and you pick a variant per element, pin comments and press Complete. The agent first writes down which elements it will redesign and the distinct variants for each, such as filled, outlined or pill for a search field, and reads each element's exact identifier from the screen so the card points at the right one. Then, one variant at a time, it changes the code, reloads or rebuilds the app, navigates to the element, takes a screenshot, proposes it and reverts it, so captures never mix. Byte-identical screenshots mean a variant isn't on screen yet; if it can't produce visibly different captures, it stops and tells you. One blocking call waits for your decision, then it implements the chosen variants and treats every comment as a change request, including those on skipped variants.",
+          "permalink": "https://github.com/software-mansion/argent/tree/b965c94827d6167fd2912a7ca5ad5505040ae4e0/packages/skills/skills/argent-lens"
+        },
+        "tags": [
+          "category:design",
+          "type:workflow",
+          "effect:local",
+          "needs:mcp",
+          "by:official",
+          "stack:argent",
+          "design",
+          "mobile"
+        ],
+        "note": "Needs Argent's argent-lens feature flag, which is off by default: run argent enable argent-lens once."
+      }
+    },
+    {
+      "id": "software-mansion/argent/packages/skills/skills/argent-tv-interact",
+      "name": "argent-tv-interact",
+      "skills.sh": {
+        "url": "https://skills.sh/software-mansion/argent/argent-tv-interact",
+        "installs": 23900,
+        "weeklyInstalls": [1516, 1366, 1500, 1525, 1570, 1628, 1681, 1608],
+        "firstSeen": "2026-07-01"
+      },
+      "skillMd": {
+        "version": "b965c94827d6167fd2912a7ca5ad5505040ae4e0",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Drives TV apps on Apple TV, Android TV and Fire TV through Argent: reads focus, navigates with the D-pad remote, types and takes screenshots.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "the agent needs to use or test an app on an Apple TV simulator, an Android TV emulator or Amazon Fire TV (Vega)"
+            },
+            {
+              "label": "It does",
+              "text": "reads which element has focus, moves focus with one remote-button path ending in select, then checks focus again"
+            },
+            {
+              "label": "You get",
+              "text": "an agent that navigates by focus as a remote does, never by tapping coordinates"
+            },
+            {
+              "label": "E2E tests",
+              "text": "only on Fire TV (Vega); on Apple TV and Android TV it reports that limitation"
+            },
+            {
+              "label": "Needs",
+              "text": "the Argent MCP server; for Fire TV, the vega CLI, which the agent runs to stop the virtual device and set up Fast Refresh"
+            },
+            {
+              "label": "Unlike argent-device-interact",
+              "text": "which drives touch screens with taps and gestures, this drives focus-based TV interfaces"
+            }
+          ],
+          "text": "Part of Software Mansion's Argent toolkit, which lets the agent control simulators, emulators and devices. A TV is driven by focus, not touch, so this skill swaps taps and gestures for a loop: describe the screen to find the focused element and the target, send one remote-button path ending in select, such as down, right, select, counting rows and columns from the element frames, then describe again to confirm. On Fire TV's Vega the highlighted item is often marked selected rather than focused, and the skill treats that as the cursor. The same tools drive all three platforms, picked from the device id. It covers launching apps by bundle id, booting an Apple TV simulator or Android TV emulator, opening an Expo development build by deep link, and Fast Refresh, which needs a debug build and Metro started by the agent. For Fire TV it sends the agent to a separate reference file first, which uses the vega CLI to stop the Vega virtual device and set up Fast Refresh, and lists the JavaScript debugger tools that work there: logs, evaluation and network traffic, but not the component tree or the profilers.",
+          "permalink": "https://github.com/software-mansion/argent/tree/b965c94827d6167fd2912a7ca5ad5505040ae4e0/packages/skills/skills/argent-tv-interact"
+        },
+        "tags": [
+          "category:debugging",
+          "type:tool",
+          "effect:local",
+          "needs:mcp",
+          "needs:cli",
+          "by:official",
+          "stack:argent",
+          "testing",
+          "computer-use",
+          "debugging"
+        ]
+      }
+    },
+    {
+      "id": "software-mansion/argent/packages/skills/skills/argent-settings-permissions",
+      "name": "argent-settings-permissions",
+      "skills.sh": {
+        "url": "https://skills.sh/software-mansion/argent/argent-settings-permissions",
+        "installs": 22100,
+        "weeklyInstalls": [1523, 1375, 1511, 1521, 1580, 1632, 1680, 1610],
+        "firstSeen": "2026-07-14"
+      },
+      "skillMd": {
+        "version": "b965c94827d6167fd2912a7ca5ad5505040ae4e0",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Grants, denies or resets an app's runtime permissions on an iOS simulator or Android device through Argent, without the Settings UI.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a test needs a permission such as camera, location or notifications set before the app asks, turned back on after a denial, or reset"
+            },
+            {
+              "label": "It does",
+              "text": "edits the permission store directly: the iOS simulator's TCC database, or Android's runtime permissions over adb"
+            },
+            {
+              "label": "Prefers",
+              "text": "the app's own toggle or permission dialog whenever one can make the change, since that's the flow under test"
+            },
+            {
+              "label": "Works with",
+              "text": "11 runtime permissions, not all on both platforms, on iOS simulators and Android; not physical iPhones"
+            },
+            {
+              "label": "Needs",
+              "text": "the Argent MCP server"
+            }
+          ],
+          "text": "Part of Software Mansion's Argent toolkit, which lets the agent control simulators, emulators and devices. Argent's settings-permissions tool is for test setup, not a general toggle, and this skill's table decides when to use it, first match winning: tap the app's own control or the system dialog when there is one; use the tool to grant or deny before launch, to turn back on a permission iOS won't ask for again, or to reset it so the first-run dialog returns. Anything outside the 11 runtime permissions, such as Wi-Fi or dark mode, goes through the Settings app or the app's own UI instead. Its gotchas cover the platform differences: on Android a pre-launch deny doesn't suppress the prompt, a reset below API 33 can't clear \"don't ask again\", and granting background location adds fine and coarse location too. Permissions are set before launching the app, since a change can terminate a running one.",
+          "permalink": "https://github.com/software-mansion/argent/tree/b965c94827d6167fd2912a7ca5ad5505040ae4e0/packages/skills/skills/argent-settings-permissions"
+        },
+        "tags": [
+          "category:debugging",
+          "type:tool",
+          "effect:local",
+          "needs:mcp",
+          "by:official",
+          "stack:argent",
+          "testing",
+          "mobile"
+        ]
+      }
+    },
+    {
+      "id": "software-mansion/argent/packages/skills/skills/argent-screen-recording",
+      "name": "argent-screen-recording",
+      "skills.sh": {
+        "url": "https://skills.sh/software-mansion/argent/argent-screen-recording",
+        "installs": 20700,
+        "weeklyInstalls": [1512, 1371, 1512, 1521, 1580, 1636, 1684, 1608],
+        "firstSeen": "2026-07-23"
+      },
+      "skillMd": {
+        "version": "b965c94827d6167fd2912a7ca5ad5505040ae4e0",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Records a video of an app on an iOS simulator or Android screen through Argent while the agent drives the flow.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a video of a flow, interaction or animation in your app on an iOS simulator, Android emulator or Android phone"
+            },
+            {
+              "label": "It does",
+              "text": "starts recording with a time cap, sets itself a reminder to stop, drives the interaction, then stops and checks the file"
+            },
+            {
+              "label": "You get",
+              "text": "a video file in your project's .argent/recordings/, or ~/.argent/recordings/ outside one, plus a reminder to .gitignore or delete it if it shouldn't be committed"
+            },
+            {
+              "label": "Watermark",
+              "text": "a faint Argent logo in a corner, until you run argent disable video-watermark"
+            },
+            {
+              "label": "Not supported",
+              "text": "physical iPhones, tvOS simulators, Chromium apps, Fire TV and HarmonyOS"
+            },
+            {
+              "label": "Needs",
+              "text": "the Argent MCP server"
+            }
+          ],
+          "text": "Part of Software Mansion's Argent toolkit, which lets the agent control simulators, emulators and devices. Its first rule is never to leave a recording running: a forgotten one keeps capturing until its time cap and holds the session. So as soon as recording starts, the agent sets a reminder for the expected end, with a scheduling tool or a background sleep, and reads the note every Argent result carries while a recording runs. The steps: get the app to the opening state, start recording with a cap slightly above the expected length, drive the interaction, batching tight steps so tool latency doesn't pad the video, then stop, check any warning and confirm the file has a sane size. The agent tells you where the file landed, a folder you can change with argent config, and that it's untracked, so you can add it to .gitignore or delete it if it shouldn't be committed. Limits: one recording per device at a time, the video keeps the screen size it started with, landscape on remote simulators plays sideways, and secure Android screens come out black.",
+          "permalink": "https://github.com/software-mansion/argent/tree/b965c94827d6167fd2912a7ca5ad5505040ae4e0/packages/skills/skills/argent-screen-recording"
+        },
+        "tags": [
+          "category:debugging",
+          "category:media",
+          "type:workflow",
+          "effect:local",
+          "needs:mcp",
+          "by:official",
+          "stack:argent",
+          "video",
+          "mobile"
+        ]
+      }
+    },
+    {
+      "id": "software-mansion/argent/packages/skills/skills/argent-ios-device-interact",
+      "name": "argent-ios-device-interact",
+      "skills.sh": {
+        "url": "https://skills.sh/software-mansion/argent/argent-ios-device-interact",
+        "installs": 14000,
+        "weeklyInstalls": [1438, 1321, 1471, 1488, 1550, 1612, 1665, 1599],
+        "firstSeen": "2026-09-03"
+      },
+      "skillMd": {
+        "version": "b965c94827d6167fd2912a7ca5ad5505040ae4e0",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Adapts Argent's device control to a physical iPhone: which tools exist on hardware, how a backgrounded app behaves, and what to do instead.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "the agent drives your app on a physical iPhone, not a simulator"
+            },
+            {
+              "label": "It does",
+              "text": "lists the Argent tools that exist on a physical iPhone and how they behave when the app is in the background"
+            },
+            {
+              "label": "You get",
+              "text": "an agent that skips unsupported tools and records, profiles or debugs on a simulator instead"
+            },
+            {
+              "label": "Needs",
+              "text": "argent-device-interact, which still applies to everything this skill doesn't list, and the Argent MCP server"
+            }
+          ],
+          "text": "Part of Software Mansion's Argent toolkit, which lets the agent control simulators, emulators and devices. A physical iPhone supports only some of Argent's tools, and this skill is the short contract for it, read alongside argent-device-interact. Observation never changes the screen: describe and await-ui-element fail on a backgrounded app instead of bringing it forward, while gestures and the keyboard bring it back, after which the agent describes again. Launching, opening or restarting an app makes it the app Argent automates; reinstalling clears that and a tool-server restart forgets it, so the agent launches it again. On hardware the agent has app launch and reinstall, describe, screenshots and screenshot diffs, gestures, the home and volume buttons, the keyboard, waits, run-sequence and the e2e tools. Any other device tool fails with a bare \"not supported on ios device\", and the skill's list, not the error, says what to do instead: with no orientation change, shake, paste, permission tool, screen recording, debugger or profiler, the phone is moved by hand, text is typed with the keyboard, permissions are changed in its Settings, and debugging, profiling and recording happen on a simulator. Cable, trust and signing problems go to argent-ios-device-setup.",
+          "permalink": "https://github.com/software-mansion/argent/tree/b965c94827d6167fd2912a7ca5ad5505040ae4e0/packages/skills/skills/argent-ios-device-interact"
+        },
+        "tags": [
+          "category:debugging",
+          "type:guidelines",
+          "effect:none",
+          "needs:mcp",
+          "by:official",
+          "stack:argent",
+          "mobile",
+          "testing",
+          "computer-use"
+        ],
+        "note": "Covers only what differs on a physical iPhone; argent-device-interact still applies to everything else."
       }
     }
   ]
