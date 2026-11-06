@@ -6284,6 +6284,68 @@
           }
         ]
       }
+    },
+    {
+      "id": "anthropics/knowledge-work-plugins@enterprise-search",
+      "skew": 0,
+      "agentReview": {
+        "name": "Enterprise Search",
+        "description": "Searches your company's chat, email, cloud storage, wikis, project trackers and CRM with one question and answers with every claim's source.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "your company's knowledge is spread across chat, email, documents, wikis and trackers and you want one question to search them all"
+            },
+            {
+              "label": "It does",
+              "text": "search runs the query; search-strategy plans a search per source, source-management tracks which tools are reachable, knowledge-synthesis merges the results"
+            },
+            {
+              "label": "You get",
+              "text": "one answer with the source, place and date of each claim, conflicts flagged and confidence stated"
+            },
+            {
+              "label": "Runs",
+              "text": "search as /enterprise-search:search; the other three on their own when relevant, hidden from the slash menu"
+            },
+            {
+              "label": "Works with",
+              "text": "any work tool connected through MCP; the plugin pre-configures Slack, Notion, Guru, Atlassian and Asana"
+            },
+            {
+              "label": "Built for",
+              "text": "Claude Cowork, installed from claude.com/plugins; also works in Claude Code"
+            }
+          ],
+          "text": "The enterprise-search plugin of Anthropic's knowledge-work plugins, built to answer questions such as \"what did we decide about the API redesign?\" from every work tool you connect. search is the command you call: it checks the connected sources, splits the question into a query per source in that tool's own syntax, runs them in parallel and returns one answer with its sources. The other three skills, which the plugin's README says power the search experience, go deeper on each step and load on their own. search-strategy classifies the question, such as a decision, status or policy query, writes keyword and semantic variants, translates filters such as from: and after:, scores results and broadens empty searches. source-management detects which sources are connected, says how to add missing ones, orders sources by question type and handles rate limits. knowledge-synthesis merges the same fact found in several places, cites every claim, rates confidence by freshness and authority, and flags conflicts rather than picking one version. Installing the plugin also adds digest, a daily or weekly roundup of action items, decisions and mentions across the same sources, which isn't listed here.",
+          "permalink": "https://github.com/anthropics/knowledge-work-plugins/tree/ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d"
+        },
+        "skills": [
+          {
+            "id": "anthropics/knowledge-work-plugins/enterprise-search/skills/search",
+            "standalone": true
+          },
+          {
+            "id": "anthropics/knowledge-work-plugins/enterprise-search/skills/source-management",
+            "standalone": true
+          },
+          {
+            "id": "anthropics/knowledge-work-plugins/enterprise-search/skills/search-strategy",
+            "standalone": true
+          },
+          {
+            "id": "anthropics/knowledge-work-plugins/enterprise-search/skills/knowledge-synthesis",
+            "standalone": true
+          }
+        ],
+        "install": [
+          {
+            "label": "Claude Code plugin; also adds the digest command and MCP connections to Slack, Notion, Guru, Atlassian and Asana",
+            "command": "claude plugin marketplace add anthropics/knowledge-work-plugins && claude plugin install enterprise-search@knowledge-work-plugins"
+          }
+        ]
+      }
     }
   ],
   "skills": [
@@ -69835,6 +69897,1101 @@
           "by:community",
           "code-quality",
           "architecture"
+        ]
+      }
+    },
+    {
+      "id": "anthropics/knowledge-work-plugins/engineering/skills/architecture",
+      "name": "architecture",
+      "skills.sh": {
+        "url": "https://skills.sh/anthropics/knowledge-work-plugins/architecture",
+        "installs": 6900,
+        "weeklyInstalls": [134, 139, 134, 100, 110, 120, 123, 119],
+        "firstSeen": "2026-03-13"
+      },
+      "skillMd": {
+        "version": "ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Turns a technology choice, design review or new component into an architecture decision record that weighs each option's complexity, cost, scalability and team fit.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're choosing between technologies, such as Kafka or SQS, reviewing a design proposal, or designing a new component"
+            },
+            {
+              "label": "You get",
+              "text": "an ADR in Markdown: status, context, decision, a table per option on complexity, cost, scalability and team familiarity, trade-offs, consequences and action items"
+            },
+            {
+              "label": "With connectors",
+              "text": "it looks for earlier ADRs and design docs in your knowledge base, links related epics and tickets, and creates implementation tasks in your project tracker"
+            },
+            {
+              "label": "Unlike",
+              "text": "system-design, which walks a design through requirements, deep dive and scaling, it records one decision and its options in a fixed template"
+            },
+            {
+              "label": "Runs",
+              "text": "as /architecture with the decision or system, or when you ask about one"
+            },
+            {
+              "label": "Part of",
+              "text": "the engineering plugin of Anthropic's knowledge-work plugins"
+            }
+          ],
+          "text": "An ADR, or architecture decision record, is a short document that captures one design decision, the options weighed and why one won. This skill writes one in a fixed template: status (proposed, accepted, deprecated or superseded), date and who signs off, then the context and the proposed decision. Each option considered gets a table rating complexity, cost, scalability and team familiarity, with pros and cons, followed by a trade-off analysis, the consequences (what gets easier, what gets harder, what to revisit) and a checklist of action items. It takes three kinds of request: a choice such as Kafka or SQS for an event bus, a review of an existing proposal, or the design of a new system, and points to the system-design skill for deeper frameworks. Stating constraints such as a deadline or a load target, naming the options and including latency, cost and maintenance needs sharpen its analysis. With a knowledge base connected it searches for earlier ADRs and design docs; with a project tracker it links related epics and tickets and creates implementation tasks.",
+          "permalink": "https://github.com/anthropics/knowledge-work-plugins/tree/ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d/engineering/skills/architecture"
+        },
+        "tags": [
+          "category:planning",
+          "type:command",
+          "effect:remote",
+          "needs:none",
+          "by:official",
+          "architecture",
+          "docs-writing"
+        ]
+      }
+    },
+    {
+      "id": "anthropics/knowledge-work-plugins/engineering/skills/testing-strategy",
+      "name": "testing-strategy",
+      "skills.sh": {
+        "url": "https://skills.sh/anthropics/knowledge-work-plugins/testing-strategy",
+        "installs": 6600,
+        "weeklyInstalls": [95, 111, 79, 59, 72, 108, 136, 102],
+        "firstSeen": "2026-02-24"
+      },
+      "skillMd": {
+        "version": "ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Designs a test plan for a system, choosing unit, integration or end-to-end tests per area, with coverage targets, example cases and gaps.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you ask how to test something, what tests you need, or for a test plan"
+            },
+            {
+              "label": "You get",
+              "text": "a test plan: what to test, the test type for each area, coverage targets, example test cases and gaps in existing coverage"
+            },
+            {
+              "label": "Starts from",
+              "text": "the testing pyramid: many fast unit tests, some integration tests and a few slow end-to-end tests"
+            },
+            {
+              "label": "By component",
+              "text": "API endpoints, data pipelines, frontends and infrastructure each get their own mix, from contract tests to chaos and load tests"
+            },
+            {
+              "label": "Part of",
+              "text": "the engineering plugin of Anthropic's knowledge-work plugins"
+            }
+          ],
+          "text": "A one-page testing reference from the engineering plugin of Anthropic's knowledge-work plugins. It starts from the testing pyramid: many fast, focused unit tests, some integration tests and a few slow, high-confidence end-to-end tests. It then suggests a mix by component. API endpoints get unit tests for business logic, integration tests for the HTTP layer and contract tests for their consumers; data pipelines get input validation, transformation and idempotency tests; frontends get component, interaction, visual regression and accessibility tests; infrastructure gets smoke tests, chaos engineering and load tests. Tests should cover business-critical paths, error handling, edge cases, security boundaries and data integrity, and skip trivial getters and setters, framework code and one-off scripts. The result is a test plan listing what to test, the type of test for each area, coverage targets and example test cases, with the gaps in current coverage. It's short guidance with no step-by-step method.",
+          "permalink": "https://github.com/anthropics/knowledge-work-plugins/tree/ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d/engineering/skills/testing-strategy"
+        },
+        "tags": [
+          "category:debugging",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:official",
+          "testing",
+          "planning"
+        ]
+      }
+    },
+    {
+      "id": "anthropics/knowledge-work-plugins/engineering/skills/tech-debt",
+      "name": "tech-debt",
+      "skills.sh": {
+        "url": "https://skills.sh/anthropics/knowledge-work-plugins/tech-debt",
+        "installs": 6600,
+        "weeklyInstalls": [107, 115, 96, 79, 106, 109, 103, 84],
+        "firstSeen": "2026-02-24"
+      },
+      "skillMd": {
+        "version": "ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Sorts technical debt into six kinds and ranks each item by impact, risk and effort into a phased plan to fix alongside feature work.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a tech debt audit, or to decide what to refactor first"
+            },
+            {
+              "label": "It does",
+              "text": "sorts debt into code, architecture, test, dependency, documentation and infrastructure debt, and scores each item 1 to 5 on impact, risk and effort"
+            },
+            {
+              "label": "Ranks by",
+              "text": "(impact + risk) × (6 − effort), so cheap fixes of costly problems rise to the top"
+            },
+            {
+              "label": "You get",
+              "text": "a prioritized list with effort estimates and a business case per item, and a phased plan to do alongside feature work"
+            },
+            {
+              "label": "Part of",
+              "text": "the engineering plugin of Anthropic's knowledge-work plugins"
+            }
+          ],
+          "text": "A short framework from the engineering plugin of Anthropic's knowledge-work plugins. It names six kinds of technical debt, each with examples and the risk it carries: code debt such as duplicated logic and magic numbers causes bugs and slows development; architecture debt such as a monolith that should be split limits scaling; test debt such as flaky tests lets regressions ship; dependency debt such as unmaintained libraries brings security holes; documentation debt such as missing runbooks makes onboarding painful; infrastructure debt such as manual deploys and no monitoring leads to incidents and slow recovery. Each item is scored from 1 to 5 on how much it slows the team, what happens if it isn't fixed, and how hard the fix is, then ranked by (impact + risk) × (6 − effort). The output is a prioritized list with estimated effort and a business justification for each item, plus a phased remediation plan meant to run alongside feature work. It gives no steps for finding debt in a codebase.",
+          "permalink": "https://github.com/anthropics/knowledge-work-plugins/tree/ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d/engineering/skills/tech-debt"
+        },
+        "tags": [
+          "category:engineering",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:official",
+          "code-quality",
+          "refactoring",
+          "planning"
+        ]
+      }
+    },
+    {
+      "id": "anthropics/knowledge-work-plugins/enterprise-search/skills/knowledge-synthesis",
+      "name": "knowledge-synthesis",
+      "skills.sh": {
+        "url": "https://skills.sh/anthropics/knowledge-work-plugins/knowledge-synthesis",
+        "installs": 6500,
+        "weeklyInstalls": [72, 81, 49, 57, 66, 60, 55, 57],
+        "firstSeen": "2026-01-31"
+      },
+      "skillMd": {
+        "version": "ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Merges search results from chat, email, documents and trackers into one answer with sources cited, duplicates combined, conflicts flagged and confidence stated.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "the agent has results from several of your company's tools and you want one answer, not a list per source"
+            },
+            {
+              "label": "It does",
+              "text": "merges the same fact found in several places, groups results by topic, ranks them, and rates confidence by freshness, source authority and agreement"
+            },
+            {
+              "label": "You get",
+              "text": "an answer that leads with the conclusion, cites each claim's source, place and date, and flags conflicting or possibly outdated information"
+            },
+            {
+              "label": "Scales",
+              "text": "shows every detail for up to 5 results, groups 5 to 15 by theme, and summarizes 15 or more with an offer to dig deeper"
+            },
+            {
+              "label": "Runs",
+              "text": "on its own when there are results to combine; user-invocable: false hides it from the slash menu"
+            }
+          ],
+          "text": "The last step of enterprise search: what the agent does with raw results from several sources once they're gathered. It spots results about the same thing from signs such as similar text, the same author, dates a day or so apart, the same project or decision, or one citing another, and merges them into one point that cites every source, keeping the fullest version and adding each source's unique details. It keeps them apart when people disagree, a decision changed between versions, or they cover different periods. Every claim names its source type, location, date and, where relevant, author, channel or subject line. Confidence depends on freshness, with anything older than a month flagged as possibly outdated, and on authority, from official wiki pages down to mid-thread chat and drafts. The answer is stated plainly when fresh, authoritative sources agree and hedged when it rests on one source or old data, and conflicts are always laid out rather than silently resolved. It avoids listing results source by source, burying the answer under method, or cutting useful detail.",
+          "permalink": "https://github.com/anthropics/knowledge-work-plugins/tree/ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d/enterprise-search/skills/knowledge-synthesis"
+        },
+        "tags": [
+          "category:documents",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:official",
+          "research",
+          "documents"
+        ]
+      }
+    },
+    {
+      "id": "anthropics/knowledge-work-plugins/pdf-viewer/skills/view-pdf",
+      "name": "view-pdf",
+      "skills.sh": {
+        "url": "https://skills.sh/anthropics/knowledge-work-plugins/view-pdf",
+        "installs": 6400,
+        "weeklyInstalls": [66, 77, 52, 42, 50, 56, 49, 45],
+        "firstSeen": "2026-03-28"
+      },
+      "skillMd": {
+        "version": "ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Opens a PDF in a live local viewer where the agent highlights, annotates, stamps, fills form fields and places signature images with you.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to look at a PDF together: mark up a contract, fill in a form, stamp it or place your signature"
+            },
+            {
+              "label": "It does",
+              "text": "opens the PDF in an interactive viewer, proposes annotations, applies them once you agree and checks each change with a screenshot"
+            },
+            {
+              "label": "You get",
+              "text": "a marked-up or filled-in PDF that you download from the viewer's toolbar"
+            },
+            {
+              "label": "Not for",
+              "text": "summarizing or extracting text, which it leaves to the agent's own Read tool"
+            },
+            {
+              "label": "Signatures",
+              "text": "places an image of your signature or initials, not a certified or cryptographic digital signature"
+            },
+            {
+              "label": "Opens",
+              "text": "local files, arXiv links and any direct HTTPS link to a PDF"
+            },
+            {
+              "label": "Needs",
+              "text": "the pdf-viewer plugin's local PDF MCP server, started with npx"
+            }
+          ],
+          "text": "The skill of the pdf-viewer plugin from Anthropic's knowledge-work plugins. It drives a local PDF server through three tools: one lists available PDFs, one opens a document in a live viewer, and one does everything after that: annotating, navigating, searching, zooming, reading page text, taking screenshots and filling forms. Annotations include highlights, underlines, strikethroughs, sticky notes, visible text, boxes, circles, lines, stamps such as APPROVED or CONFIDENTIAL, and images for signatures, initials or logos. To annotate, it reads the relevant pages, tells you what it plans to mark, adds the batch once you approve and shows a screenshot to iterate on. To fill a form, it matches cryptic field names such as Text1 to the labels printed on the page, asks you for values by those labels and shows the result; simple, well-labelled forms can instead prompt you for every field up front. To sign, it asks for your signature image and places it on a signature field or where you say. It only works on existing PDFs and doesn't create new ones.",
+          "permalink": "https://github.com/anthropics/knowledge-work-plugins/tree/ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d/pdf-viewer/skills/view-pdf"
+        },
+        "tags": [
+          "category:documents",
+          "type:tool",
+          "effect:local",
+          "needs:mcp",
+          "by:official",
+          "pdf",
+          "documents"
+        ],
+        "note": "Needs the pdf-viewer plugin's local PDF server, @modelcontextprotocol/server-pdf, which the plugin starts with npx on Node.js 18 or later; the skill alone doesn't include it."
+      }
+    },
+    {
+      "id": "anthropics/knowledge-work-plugins/data/skills/explore-data",
+      "name": "explore-data",
+      "skills.sh": {
+        "url": "https://skills.sh/anthropics/knowledge-work-plugins/explore-data",
+        "installs": 6000,
+        "weeklyInstalls": [73, 95, 68, 59, 65, 82, 73, 76],
+        "firstSeen": "2026-03-13"
+      },
+      "skillMd": {
+        "version": "ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Profiles a table or data file, its grain, keys, column types, nulls, distributions and quality problems, then suggests what to analyze next.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you meet a new table or file and want to know its shape and quality before analyzing it"
+            },
+            {
+              "label": "It does",
+              "text": "classifies each column, profiles nulls, distinct values, ranges and patterns, and flags quality problems such as duplicates, placeholder values and skew"
+            },
+            {
+              "label": "You get",
+              "text": "a data profile: an overview, a column summary table, quality issues by severity, and 3 to 5 suggested follow-up analyses"
+            },
+            {
+              "label": "Data from",
+              "text": "a connected data warehouse, queried live, or an uploaded CSV, Excel, Parquet or JSON file"
+            },
+            {
+              "label": "Runs",
+              "text": "as /explore-data with a table or file, or when you ask about a dataset"
+            },
+            {
+              "label": "Part of",
+              "text": "the data plugin of Anthropic's knowledge-work plugins"
+            }
+          ],
+          "text": "A profiling command for a dataset. With a data warehouse connected, it resolves the table name, reads column metadata and runs profiling queries on the live data; with a file, it loads it and infers the types; with neither, it asks for one, or suggests profiling queries for a schema you describe. It works out the row count, the grain (what one row stands for), the primary key and the date range, and classifies each column as an identifier, dimension, metric, date, text, boolean or nested structure. Every column gets null rates, distinct counts and its most and least common values; numbers get percentiles, strings get length and format checks, dates get gaps and future dates. It flags nulls above 5% or 20%, surprising cardinality, placeholder values such as 999999 or TBD, duplicate keys, skew and inconsistent formats, then looks for join keys, hierarchies, correlations and redundant columns. It ends by naming the best columns to slice and measure by and suggesting 3 to 5 next analyses. A template for documenting a table for your team is included.",
+          "permalink": "https://github.com/anthropics/knowledge-work-plugins/tree/ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d/data/skills/explore-data"
+        },
+        "tags": [
+          "category:science",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:official",
+          "databases",
+          "research"
+        ]
+      }
+    },
+    {
+      "id": "anthropics/knowledge-work-plugins/engineering/skills/incident-response",
+      "name": "incident-response",
+      "skills.sh": {
+        "url": "https://skills.sh/anthropics/knowledge-work-plugins/incident-response",
+        "installs": 6000,
+        "weeklyInstalls": [85, 99, 65, 52, 75, 72, 62, 62],
+        "firstSeen": "2026-02-24"
+      },
+      "skillMd": {
+        "version": "ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Runs an incident from triage to postmortem: rates severity, drafts status updates, tracks the timeline and writes a blameless postmortem with five whys.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "production is down, an alert needs a severity, you owe a mid-incident update, or it's time for the postmortem"
+            },
+            {
+              "label": "It does",
+              "text": "rates severity SEV1 to SEV4, assigns roles, drafts internal and customer updates, tracks mitigation and the timeline, then writes the postmortem"
+            },
+            {
+              "label": "You get",
+              "text": "status updates in a fixed format, and a blameless postmortem with impact, timeline, root cause, five whys, action items with owners and lessons"
+            },
+            {
+              "label": "With connectors",
+              "text": "it pulls alerts and metrics, posts updates to your incident channel, creates a war room, and pages on-call through PagerDuty or Opsgenie"
+            },
+            {
+              "label": "Runs",
+              "text": "as /incident-response new, update or postmortem; with no mode it asks what phase the incident is in"
+            },
+            {
+              "label": "Part of",
+              "text": "the engineering plugin of Anthropic's knowledge-work plugins"
+            }
+          ],
+          "text": "A four-phase incident command from the engineering plugin of Anthropic's knowledge-work plugins. Triage rates severity, from SEV1 (service down for all users, an immediate all-hands response) to SEV4 (cosmetic, next business day), identifies the affected systems and users, and assigns an incident commander, communications and responders. Communicate drafts the internal status update and any customer message and sets up a war room and an update cadence. Mitigate records the steps taken and the timeline and confirms resolution. Postmortem writes a blameless document: summary, impact, a UTC timeline, root cause, five whys, what went well and poorly, action items with owner, priority and due date, and lessons learned. Status updates follow one template: severity, a status from investigating to resolved, impact, what's known, actions taken, next steps and a timeline. Updates stay factual and start before all the facts are in, and postmortems focus on systems and processes, not people. With monitoring, incident management or chat connected, it pulls alert details and metrics, creates or updates the incident, pages on-call and posts updates to the incident channel.",
+          "permalink": "https://github.com/anthropics/knowledge-work-plugins/tree/ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d/engineering/skills/incident-response"
+        },
+        "tags": [
+          "category:cloud",
+          "category:writing",
+          "type:workflow",
+          "effect:remote",
+          "needs:none",
+          "by:official",
+          "observability",
+          "debugging",
+          "docs-writing"
+        ],
+        "note": "With chat or incident-management connectors, it posts status updates to your incident channel, creates a war-room channel, creates or updates incidents in PagerDuty or Opsgenie and pages on-call responders."
+      }
+    },
+    {
+      "id": "anthropics/knowledge-work-plugins/engineering/skills/debug",
+      "name": "debug",
+      "skills.sh": {
+        "url": "https://skills.sh/anthropics/knowledge-work-plugins/debug",
+        "installs": 6000,
+        "weeklyInstalls": [102, 106, 87, 66, 82, 88, 82, 65],
+        "firstSeen": "2026-03-13"
+      },
+      "skillMd": {
+        "version": "ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Debugs a problem by reproducing, isolating and diagnosing it, then reports the root cause, a proposed fix and tests to keep it from recurring.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you have an error or stack trace, something broke after a deploy, or it works in staging but not in production"
+            },
+            {
+              "label": "It does",
+              "text": "reproduces the problem, narrows it to a component and recent changes, tests hypotheses down to the root cause, then proposes a fix"
+            },
+            {
+              "label": "You get",
+              "text": "a debug report: expected versus actual behavior, reproduction steps, root cause, the fix, and tests and guards to prevent a repeat"
+            },
+            {
+              "label": "With connectors",
+              "text": "it pulls logs, metrics and recent deploys, finds commits that touched the code, searches known bugs, and creates a ticket for the fix"
+            },
+            {
+              "label": "Runs",
+              "text": "as /debug with the error or problem, or when the cause of a bug isn't obvious"
+            },
+            {
+              "label": "Part of",
+              "text": "the engineering plugin of Anthropic's knowledge-work plugins"
+            }
+          ],
+          "text": "A debugging command from the engineering plugin of Anthropic's knowledge-work plugins. It asks for whatever you have: the exact error or stack trace, steps to reproduce, what changed recently, logs or screenshots, and expected versus actual behavior. It then works in four steps. Reproduce pins down the behavior, the exact steps and the scope: when it started and who is affected. Isolate narrows it to a component, service or code path and checks recent deploys, config and dependency changes, and the logs. Diagnose forms and tests hypotheses and traces the code path to a root cause rather than a symptom. Fix proposes a change with an explanation, weighs side effects and edge cases, and suggests regression tests. The report covers reproduction, root cause, the fix and prevention. With monitoring connected it pulls logs, error rates, metrics and recent deploys around the time of the issue; with source control, the commits and PRs that touched the affected code; with a project tracker, related bug reports, and it creates a ticket for the fix.",
+          "permalink": "https://github.com/anthropics/knowledge-work-plugins/tree/ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d/engineering/skills/debug"
+        },
+        "tags": [
+          "category:debugging",
+          "type:workflow",
+          "effect:remote",
+          "needs:none",
+          "by:official",
+          "debugging"
+        ]
+      }
+    },
+    {
+      "id": "anthropics/knowledge-work-plugins/product-management/skills/product-brainstorming",
+      "name": "product-brainstorming",
+      "skills.sh": {
+        "url": "https://skills.sh/anthropics/knowledge-work-plugins/product-brainstorming",
+        "installs": 5900,
+        "weeklyInstalls": [121, 143, 115, 83, 103, 116, 145, 127],
+        "firstSeen": "2026-03-18"
+      },
+      "skillMd": {
+        "version": "ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Acts as a sharp product sparring partner that explores problems, generates solutions, stress-tests assumptions and pushes back before you commit to a direction.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're exploring a product problem or idea and want someone to think it through with you before writing a spec"
+            },
+            {
+              "label": "It does",
+              "text": "asks hard questions, generates five to seven options before judging any, names the riskiest assumption and the cheapest test for it, and argues back"
+            },
+            {
+              "label": "Modes",
+              "text": "problem exploration, solution ideation, assumption testing and strategy exploration, switching as the conversation moves"
+            },
+            {
+              "label": "You get",
+              "text": "a conversation rather than a deliverable, ending with the top ideas, assumptions to test, questions to research, next steps and what was set aside"
+            },
+            {
+              "label": "Frameworks",
+              "text": "How Might We, jobs to be done, opportunity solution trees, first principles, SCAMPER, OODA and reverse brainstorming, pulled in only when they help"
+            },
+            {
+              "label": "Part of",
+              "text": "the product-management plugin of Anthropic's knowledge-work plugins"
+            }
+          ],
+          "text": "A thinking partner for product managers, written as an experienced PM or design lead who is opinionated, pushes back and brings unexpected angles. It picks one of four modes and shifts between them. Problem exploration asks who has the problem and what they do about it today, and digs from symptoms to root causes. Solution ideation produces at least five to seven distinct approaches before judging any, including one that does the opposite and one that removes something. Assumption testing lists every assumption, finds the one that would kill the idea, and suggests the cheapest way to test it. Strategy exploration weighs bets, second-order effects, competitor responses and timeframes. A session moves through framing, diverging, provoking, converging on the top two or three ideas, and capturing what came out. It names common traps, such as solutioning before framing, copying a competitor's feature, or brainstorming a question that needs research, and avoids dumping frameworks, handing over a list or agreeing with everything.",
+          "permalink": "https://github.com/anthropics/knowledge-work-plugins/tree/ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d/product-management/skills/product-brainstorming"
+        },
+        "tags": [
+          "category:planning",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:official",
+          "planning",
+          "interview"
+        ]
+      }
+    },
+    {
+      "id": "anthropics/knowledge-work-plugins/data/skills/analyze",
+      "name": "analyze",
+      "skills.sh": {
+        "url": "https://skills.sh/anthropics/knowledge-work-plugins/analyze",
+        "installs": 5800,
+        "weeklyInstalls": [75, 90, 63, 59, 61, 70, 71, 70],
+        "firstSeen": "2026-03-13"
+      },
+      "skillMd": {
+        "version": "ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Answers a data question with a quick number, a full analysis or a formal report, querying your warehouse or using your data.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you have a data question, from how many users signed up last week to what's driving a drop in conversion"
+            },
+            {
+              "label": "It does",
+              "text": "sizes the question, writes and runs SQL on a connected warehouse or works from data you paste or upload, then sanity-checks the results"
+            },
+            {
+              "label": "You get",
+              "text": "a direct answer with its query, an analysis that leads with the key finding, or a formal report with methodology, caveats and recommendations"
+            },
+            {
+              "label": "Checks",
+              "text": "row counts, unexpected nulls, magnitudes, gaps in time series and whether subtotals add up, before presenting anything"
+            },
+            {
+              "label": "Works with",
+              "text": "the data plugin's sql-queries skill for SQL dialects and its data-visualization skill for choosing charts"
+            },
+            {
+              "label": "Runs",
+              "text": "as /analyze with a question in plain language, or when you ask one"
+            },
+            {
+              "label": "Part of",
+              "text": "the data plugin of Anthropic's knowledge-work plugins"
+            }
+          ],
+          "text": "A data-question command from the data plugin of Anthropic's knowledge-work plugins. It first sorts the question into a quick answer (one metric or lookup), a full analysis (trends, drivers, comparisons) or a formal report, and works out the tables, metrics, dimensions and time range it needs. With a data warehouse connected, it explores the schema, writes and runs SQL, debugs failed queries and sanity-checks unexpected results. Without one, it asks you to paste results, upload a CSV or Excel file, or describe the schema so it can write queries for you to run, using the plugin's sql-queries skill for the dialect. It calculates metrics, finds patterns, outliers and anomalies, compares segments and periods, and breaks complex questions into sub-questions. Before presenting, it checks row counts, nulls, magnitudes, time-series gaps and that subtotals sum to totals, and notes caveats. Quick answers come with the query used; reports add an executive summary, methodology, findings, limitations and next steps. When a chart helps, it picks one with the data-visualization skill and draws it in Python or builds it into an HTML dashboard.",
+          "permalink": "https://github.com/anthropics/knowledge-work-plugins/tree/ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d/data/skills/analyze"
+        },
+        "tags": [
+          "category:science",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:official",
+          "databases",
+          "research",
+          "charts"
+        ]
+      }
+    },
+    {
+      "id": "anthropics/knowledge-work-plugins/engineering/skills/deploy-checklist",
+      "name": "deploy-checklist",
+      "skills.sh": {
+        "url": "https://skills.sh/anthropics/knowledge-work-plugins/deploy-checklist",
+        "installs": 5800,
+        "weeklyInstalls": [107, 101, 95, 66, 91, 95, 96, 78],
+        "firstSeen": "2026-03-13"
+      },
+      "skillMd": {
+        "version": "ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds a deploy checklist for a release: pre-deploy checks, the rollout, post-deploy steps, and rollback triggers decided before you ship.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're about to ship a release, especially one with database migrations, feature flags or a breaking API change"
+            },
+            {
+              "label": "You get",
+              "text": "a Markdown checklist in four parts: pre-deploy, deploy, post-deploy, and rollback triggers on error rate, latency and a critical user flow"
+            },
+            {
+              "label": "Covers",
+              "text": "CI, review, migrations, flags, a rollback plan, staging and smoke tests, a canary, 15 minutes of monitoring, release notes and stakeholders"
+            },
+            {
+              "label": "Adapts",
+              "text": "adds flag, migration or consumer-notification steps when you say your deploy has them"
+            },
+            {
+              "label": "With connectors",
+              "text": "it pulls the release diff, checks PR approvals and the CI pipeline, and pre-fills rollback thresholds from current monitoring baselines"
+            },
+            {
+              "label": "Runs",
+              "text": "as /deploy-checklist with a service or release name"
+            },
+            {
+              "label": "Part of",
+              "text": "the engineering plugin of Anthropic's knowledge-work plugins"
+            }
+          ],
+          "text": "A checklist command from the engineering plugin of Anthropic's knowledge-work plugins. The checklist has four parts. Pre-deploy: tests passing in CI, code reviewed and approved, no known critical bugs, migrations tested, feature flags configured, a documented rollback plan and on-call notified. Deploy: staging first, smoke tests, production with a canary if available, 15 minutes watching error rates and latency, and key user flows verified. Post-deploy: metrics nominal, release notes or changelog updated, stakeholders notified, related tickets closed. Rollback triggers, set before the deploy: an error rate, a P50 latency and a critical user flow failing. Saying the deploy uses feature flags, includes a database migration or breaks an API adds matching steps. With source control connected it pulls the release diff and checks that all PRs are approved and merged; with CI/CD, that the pipeline is green; with monitoring, it pre-fills rollback thresholds from current baselines and sets up a post-deploy metric watch.",
+          "permalink": "https://github.com/anthropics/knowledge-work-plugins/tree/ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d/engineering/skills/deploy-checklist"
+        },
+        "tags": [
+          "category:cloud",
+          "type:command",
+          "effect:none",
+          "needs:none",
+          "by:official",
+          "deployment",
+          "verification"
+        ]
+      }
+    },
+    {
+      "id": "anthropics/knowledge-work-plugins/design/skills/design-critique",
+      "name": "design-critique",
+      "skills.sh": {
+        "url": "https://skills.sh/anthropics/knowledge-work-plugins/design-critique",
+        "installs": 5700,
+        "weeklyInstalls": [117, 166, 110, 94, 120, 172, 152, 200],
+        "firstSeen": "2026-02-24"
+      },
+      "skillMd": {
+        "version": "ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Critiques a design from a Figma link, screenshot or description on first impression, usability, hierarchy, consistency and accessibility, with prioritized fixes.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want feedback on a mockup, screen or flow, at any stage from early exploration to final polish"
+            },
+            {
+              "label": "It checks",
+              "text": "the two-second first impression, usability, visual hierarchy, consistency with your design system, and accessibility such as contrast and touch targets"
+            },
+            {
+              "label": "You get",
+              "text": "a Markdown critique: overall impression, tables of findings with severity and fixes, what works well, and three priority recommendations"
+            },
+            {
+              "label": "With connectors",
+              "text": "it pulls the design from Figma to inspect components, tokens and layers, and cross-checks it against recent user feedback"
+            },
+            {
+              "label": "Runs",
+              "text": "as /design-critique with a Figma URL, screenshot or description"
+            },
+            {
+              "label": "Part of",
+              "text": "the design plugin of Anthropic's knowledge-work plugins"
+            }
+          ],
+          "text": "A design review command. You share the design as a Figma link, a screenshot, a file or a description, with what it is, who it's for and what stage it's at, and optionally a focus such as mobile or one flow. It reviews the design through five lenses. First impression asks what draws the eye in two seconds, whether that's right, and whether the purpose is clear. Usability asks whether users can reach their goal, whether navigation and interactive elements are obvious, and whether any steps are unnecessary. Visual hierarchy covers reading order, emphasis, whitespace and typography. Consistency checks spacing, color, typography and behavior against the design system. Accessibility covers color contrast, touch target size, text readability and alt text. Feedback is meant to be specific, explain why, propose an alternative, say what works and fit the stage. The critique rates usability findings critical, moderate or minor and ends with three priority recommendations; with Figma connected it also compares the design against your existing design system.",
+          "permalink": "https://github.com/anthropics/knowledge-work-plugins/tree/ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d/design/skills/design-critique"
+        },
+        "tags": [
+          "category:design",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:official",
+          "design",
+          "accessibility"
+        ]
+      }
+    },
+    {
+      "id": "anthropics/knowledge-work-plugins/enterprise-search/skills/search-strategy",
+      "name": "search-strategy",
+      "skills.sh": {
+        "url": "https://skills.sh/anthropics/knowledge-work-plugins/search-strategy",
+        "installs": 5400,
+        "weeklyInstalls": [61, 71, 47, 37, 42, 48, 53, 49],
+        "firstSeen": "2026-01-31"
+      },
+      "skillMd": {
+        "version": "ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Turns a question into parallel searches across your connected chat, email, storage, wiki and tracker, in each tool's own syntax, then ranks the results.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you ask something whose answer is spread across your company's chat, email, documents, wiki and project tracker"
+            },
+            {
+              "label": "It does",
+              "text": "classifies the question, such as a decision, status, document or person query, and writes keyword and semantic searches for each connected source"
+            },
+            {
+              "label": "Ranks by",
+              "text": "keyword match, freshness, authority and completeness, weighted by query type, with wiki pages trusted over chat for policy questions"
+            },
+            {
+              "label": "Falls back",
+              "text": "broadens terms and drops date filters when searches come back empty, and skips unavailable or rate-limited sources, noting the gap"
+            },
+            {
+              "label": "Asks",
+              "text": "one clarifying question, only when a query has genuinely different readings"
+            },
+            {
+              "label": "Runs",
+              "text": "on its own when needed; user-invocable: false hides it from the slash menu"
+            }
+          ],
+          "text": "The query planning behind enterprise search, which turns one plain question into searches run in parallel across every connected source. It first classifies the question: a decision, a status check, a document, a person, a fact or policy, a date, or an open exploration, each favoring different sources. It extracts keywords, people and projects, time ranges, source hints and exclusions, writes several variants when a topic goes by different names, such as k8s for Kubernetes, and picks semantic search for conceptual questions and keyword search for exact terms and filters. It translates filters such as from:, in:, after: and type: into each tool's syntax, with examples for chat, wiki and project-tracker searches. Results are scored on keyword match, freshness, authority and completeness, with weights that change by query type, and merged into one answer. When a source is missing or returns nothing, it notes the gap and broadens the query step by step, dropping date filters first, and suggests changes if everything comes back empty.",
+          "permalink": "https://github.com/anthropics/knowledge-work-plugins/tree/ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d/enterprise-search/skills/search-strategy"
+        },
+        "tags": [
+          "category:documents",
+          "type:workflow",
+          "effect:none",
+          "needs:mcp",
+          "by:official",
+          "research",
+          "messaging",
+          "email"
+        ]
+      }
+    },
+    {
+      "id": "anthropics/knowledge-work-plugins/legal/skills/legal-risk-assessment",
+      "name": "legal-risk-assessment",
+      "skills.sh": {
+        "url": "https://skills.sh/anthropics/knowledge-work-plugins/legal-risk-assessment",
+        "installs": 5300,
+        "weeklyInstalls": [85, 106, 72, 93, 92, 121, 104, 106],
+        "firstSeen": "2026-01-31"
+      },
+      "skillMd": {
+        "version": "ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Scores a legal risk by severity and likelihood on a five-by-five matrix, says what each level calls for, and documents it in a memo.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're weighing a contract term, deal exposure or legal issue and need to rate it and decide whether to escalate"
+            },
+            {
+              "label": "It does",
+              "text": "scores severity and likelihood from 1 to 5 each, multiplies them, and maps the score to green, yellow, orange or red"
+            },
+            {
+              "label": "You get",
+              "text": "a risk assessment memo with both ratings and their rationale, mitigation options, a recommended approach and next steps, plus a risk register entry"
+            },
+            {
+              "label": "Escalation",
+              "text": "says what each level calls for, from accepting and logging green risks to briefing the general counsel and board on red ones"
+            },
+            {
+              "label": "Outside counsel",
+              "text": "lists when to engage it: mandatory, as for litigation or a government investigation, strongly recommended, or worth considering"
+            },
+            {
+              "label": "Not legal advice",
+              "text": "the skill says its assessments should be reviewed by qualified legal professionals"
+            },
+            {
+              "label": "Part of",
+              "text": "the legal plugin of Anthropic's knowledge-work plugins"
+            }
+          ],
+          "text": "A risk framework for in-house legal teams, from the legal plugin of Anthropic's knowledge-work plugins. Severity runs from negligible to critical, with financial exposure bands such as under 1% or over 25% of the contract or deal value, and likelihood runs from remote to almost certain. Their product is the score: 1 to 4 is green, 5 to 9 yellow, 10 to 15 orange and 16 to 25 red. Each level comes with examples and actions. Green risks are accepted, logged and reviewed periodically; yellow ones get an owner, mitigations and monthly monitoring; orange ones go to senior counsel with a mitigation plan, a leadership briefing and possibly outside counsel; red ones go straight to the general counsel, executives or board, with outside counsel, a response team, litigation holds and any required regulatory notices. The memo template covers the risk, background, both ratings with rationale, contributing and mitigating factors, a table of mitigation options, the recommended approach, residual risk, a monitoring plan and next steps. The framework is a starting point to adapt to your organization's risk appetite and industry.",
+          "permalink": "https://github.com/anthropics/knowledge-work-plugins/tree/ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d/legal/skills/legal-risk-assessment"
+        },
+        "tags": [
+          "category:writing",
+          "category:security",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:official",
+          "docs-writing",
+          "writing"
+        ]
+      }
+    },
+    {
+      "id": "anthropics/knowledge-work-plugins/data/skills/create-viz",
+      "name": "create-viz",
+      "skills.sh": {
+        "url": "https://skills.sh/anthropics/knowledge-work-plugins/create-viz",
+        "installs": 5300,
+        "weeklyInstalls": [64, 76, 53, 44, 55, 64, 57, 55],
+        "firstSeen": "2026-03-13"
+      },
+      "skillMd": {
+        "version": "ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Turns query results, pasted data or a file into a chart in Python, picking the chart type, applying design rules and saving a PNG.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a chart from query results, pasted data, a CSV or Excel file, or an analysis earlier in the conversation"
+            },
+            {
+              "label": "It does",
+              "text": "recommends a chart type for the data and question, writes matplotlib and seaborn code, or plotly for interactive charts, and applies design and accuracy rules"
+            },
+            {
+              "label": "You get",
+              "text": "a PNG saved to the current folder and shown to you, with the code to change it and suggested variations"
+            },
+            {
+              "label": "Unlike",
+              "text": "data-visualization, the plugin's chart reference that the agent applies while charting, this is a command that gets the data and makes the chart"
+            },
+            {
+              "label": "Runs",
+              "text": "as /create-viz with a data source, an optional chart type and instructions"
+            },
+            {
+              "label": "Part of",
+              "text": "the data plugin of Anthropic's knowledge-work plugins"
+            }
+          ],
+          "text": "A charting command from the data plugin of Anthropic's knowledge-work plugins. It works out the data source, the chart type if you named one, the purpose and the audience. Data comes from a query it runs on a connected warehouse, from pasted or uploaded data it loads into pandas and cleans, or from an analysis earlier in the conversation. Without a chart type, it recommends one from a table and explains the choice: lines for trends, bars for categories and rankings, stacked bars or areas for part-to-whole, histograms or box plots for distributions, scatter plots for correlations, plus choropleth maps, Sankey diagrams and heatmaps. Static charts use matplotlib and seaborn; interactive ones with hover and zoom use plotly. Its rules: a colorblind-friendly palette, color that carries meaning, one highlighted point against grey, titles that state the insight, categories sorted by value, bars from zero, consistent scales and readable numbers such as $1.2M. It saves the chart as a PNG with a descriptive name, shows it, gives you the code and suggests variations.",
+          "permalink": "https://github.com/anthropics/knowledge-work-plugins/tree/ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d/data/skills/create-viz"
+        },
+        "tags": [
+          "category:science",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:official",
+          "stack:python",
+          "stack:matplotlib",
+          "stack:seaborn",
+          "stack:plotly",
+          "charts"
+        ]
+      }
+    },
+    {
+      "id": "anthropics/knowledge-work-plugins/engineering/skills/standup",
+      "name": "standup",
+      "skills.sh": {
+        "url": "https://skills.sh/anthropics/knowledge-work-plugins/standup",
+        "installs": 5200,
+        "weeklyInstalls": [66, 77, 45, 35, 54, 52, 55, 45],
+        "firstSeen": "2026-03-13"
+      },
+      "skillMd": {
+        "version": "ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes your standup update as yesterday, today and blockers, from notes you give it or from your commits, PRs, tickets and chat.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're preparing for daily standup and want your recent work turned into a shareable update"
+            },
+            {
+              "label": "You get",
+              "text": "a dated Markdown update with Yesterday, Today and Blockers, ticket references where available, and who can help with each blocker"
+            },
+            {
+              "label": "From",
+              "text": "rough notes you give it, or, with connectors, your recent commits and PRs, ticket moves, sprint items and chat discussions"
+            },
+            {
+              "label": "Also",
+              "text": "flags chat threads that need your response, and formats the update for Slack, email or your team's standup tool on request"
+            },
+            {
+              "label": "Runs",
+              "text": "as /standup, optionally for yesterday, today or blockers"
+            },
+            {
+              "label": "Part of",
+              "text": "the engineering plugin of Anthropic's knowledge-work plugins"
+            }
+          ],
+          "text": "A standup command from the engineering plugin of Anthropic's knowledge-work plugins. It works two ways. Without connectors, you tell it what you did, such as \"worked on the auth migration, reviewed 3 PRs, got blocked on the API rate limiting issue\", and it structures that into a concise, action-oriented update. With connectors, /standup alone gathers the material: commits and PRs you opened, reviewed or merged, summarized at a high level, from source control; tickets moved to in progress or done, and upcoming sprint items, from a project tracker; relevant discussions and decisions from chat, with threads that need your reply flagged. The update has three sections, Yesterday, Today and Blockers, with ticket references where available and, for each blocker, its context and who can help. You can add nuance afterwards, or ask for it formatted for Slack, email or your team's standup tool.",
+          "permalink": "https://github.com/anthropics/knowledge-work-plugins/tree/ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d/engineering/skills/standup"
+        },
+        "tags": [
+          "category:writing",
+          "type:command",
+          "effect:none",
+          "needs:none",
+          "by:official",
+          "writing",
+          "git",
+          "issue-tracking"
+        ]
+      }
+    },
+    {
+      "id": "anthropics/knowledge-work-plugins/enterprise-search/skills/source-management",
+      "name": "source-management",
+      "skills.sh": {
+        "url": "https://skills.sh/anthropics/knowledge-work-plugins/source-management",
+        "installs": 5200,
+        "weeklyInstalls": [58, 68, 42, 33, 41, 47, 45, 37],
+        "firstSeen": "2026-01-31"
+      },
+      "skillMd": {
+        "version": "ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Tracks which work tools are connected for search, orders sources by kind of question, guides you to connect more, and handles rate limits.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "the agent searches your company's tools through MCP and you want it to know which sources it can reach"
+            },
+            {
+              "label": "It does",
+              "text": "detects connected chat, email, cloud storage, project tracker, CRM and knowledge base sources, and tells you how to connect missing ones"
+            },
+            {
+              "label": "Priorities",
+              "text": "orders sources by question type, such as chat first for decisions, the project tracker for status and the wiki for policy"
+            },
+            {
+              "label": "Rate limits",
+              "text": "doesn't retry a throttled source right away, carries on with the others and tells you which results are missing"
+            },
+            {
+              "label": "Runs",
+              "text": "on its own when needed; user-invocable: false hides it from the slash menu"
+            }
+          ],
+          "text": "A support skill of the enterprise-search plugin that keeps track of the sources a search can use. A source counts as connected when its MCP tools are available. When few or none are, or you ask about one that isn't, it lists what's connected and explains how to add a server in your MCP settings. It sets an order of sources for each kind of question, used to weight results rather than to skip sources: chat, then email and documents, for decisions; the project tracker first for status; cloud storage first for documents; chat and task assignees for people; the wiki first for policy. On a rate limit, such as an HTTP 429, it doesn't retry immediately, continues with the other sources and says which one to retry later; it also avoids needless and repeated calls. It reports which sources were searched, and which are available, not connected or rate limited, so you know how complete an answer is. Sources added to the plugin's .mcp.json are picked up by its search and digest commands automatically.",
+          "permalink": "https://github.com/anthropics/knowledge-work-plugins/tree/ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d/enterprise-search/skills/source-management"
+        },
+        "tags": [
+          "category:documents",
+          "type:guidelines",
+          "effect:none",
+          "needs:mcp",
+          "by:official",
+          "research"
+        ]
+      }
+    },
+    {
+      "id": "anthropics/knowledge-work-plugins/enterprise-search/skills/search",
+      "name": "search",
+      "skills.sh": {
+        "url": "https://skills.sh/anthropics/knowledge-work-plugins/search",
+        "installs": 5100,
+        "weeklyInstalls": [60, 70, 42, 37, 41, 47, 46, 40],
+        "firstSeen": "2026-03-13"
+      },
+      "skillMd": {
+        "version": "ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Searches all your connected chat, email, cloud storage, project tracker, CRM and wiki at once and answers with the sources it found.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're looking for a decision, document or discussion and don't know whether it's in chat, email, a doc or a tracker"
+            },
+            {
+              "label": "It does",
+              "text": "splits your question into a search per connected source in its own syntax, runs them in parallel, then merges and ranks the results"
+            },
+            {
+              "label": "You get",
+              "text": "a direct answer or summary with a source list of tool, channel or document, and date, or what to try when nothing matches"
+            },
+            {
+              "label": "Filters",
+              "text": "from:, in:, after:, before: and type:, translated for each source"
+            },
+            {
+              "label": "Needs",
+              "text": "at least one work tool connected through MCP; without one it tells you how to connect them"
+            },
+            {
+              "label": "Runs",
+              "text": "as /enterprise-search:search with your question, or when you ask where something is"
+            }
+          ],
+          "text": "The search command of the enterprise-search plugin. It checks which MCP sources are connected, then reads your question for what you want (a decision, a document, a person, a status update or a conversation), the people and projects named, time limits, hints about where to look, and filters such as from: or after:. For each connected source it writes a targeted query in that tool's own syntax, and runs them all at once, so one failing source doesn't hold up the others. It merges the same information found in several places, then ranks by relevance, freshness, authority and completeness, trusting official docs for facts and conversations for what was discussed. The answer fits the question: a direct answer with sources for a decision, a summary with counts per source for an exploration, or the item itself plus related finds for a lookup. An ambiguous query gets one clarifying question first; no results get suggestions for broader terms, another time range or another source; sources that failed are named.",
+          "permalink": "https://github.com/anthropics/knowledge-work-plugins/tree/ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d/enterprise-search/skills/search"
+        },
+        "tags": [
+          "category:documents",
+          "type:workflow",
+          "effect:none",
+          "needs:mcp",
+          "by:official",
+          "research",
+          "messaging",
+          "email",
+          "documents"
+        ]
+      }
+    },
+    {
+      "id": "anthropics/knowledge-work-plugins/marketing/skills/content-creation",
+      "name": "content-creation",
+      "skills.sh": {
+        "url": "https://skills.sh/anthropics/knowledge-work-plugins/content-creation",
+        "installs": 5100,
+        "weeklyInstalls": [73, 87, 67, 50, 83, 82, 67, 70],
+        "firstSeen": "2026-01-31"
+      },
+      "skillMd": {
+        "version": "ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Structures blog posts, social posts, newsletters, landing pages, press releases and case studies with per-channel templates, SEO rules, headline formulas and CTAs.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're drafting a blog post, social post, newsletter, landing page, press release or case study"
+            },
+            {
+              "label": "It gives",
+              "text": "a section-by-section template for each, writing rules per channel, an on-page SEO checklist, headline and hook formulas, and call-to-action guidance"
+            },
+            {
+              "label": "For example",
+              "text": "blog headlines of 60 characters or less, email subject lines under 50, LinkedIn posts around 1,300 characters before \"see more\""
+            },
+            {
+              "label": "Runs",
+              "text": "when the agent picks it up for marketing writing; user-invocable: false hides it from the slash menu"
+            },
+            {
+              "label": "Part of",
+              "text": "the marketing plugin of Anthropic's knowledge-work plugins"
+            }
+          ],
+          "text": "A reference the agent applies while writing marketing content. Each of six content types gets a structure. A blog post has a keyword-bearing headline, a 100 to 150 word introduction that opens with a hook, three to five sections under H2s, a conclusion with a call to action and a meta description under 160 characters. A landing page has a benefit headline under ten words, value propositions, social proof, objection handling and a repeated CTA. A press release has a dateline, a lead answering who, what, when, where and why, and boilerplate. A case study runs challenge, solution, quantified results and a customer quote. Social posts and newsletters get their own outlines. Channel rules cover blogs (an 8th-grade reading level, short paragraphs, subheadings every 200 to 300 words), LinkedIn, X, Instagram, Facebook, email and web pages. The SEO section sets one primary and two or three secondary keywords and where they go, with a checklist for titles, meta descriptions, URLs, headings, alt text and links. Seven headline formulas, six hook types and CTA rules on wording, one primary action and placement finish it.",
+          "permalink": "https://github.com/anthropics/knowledge-work-plugins/tree/ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d/marketing/skills/content-creation"
+        },
+        "tags": [
+          "category:marketing",
+          "category:writing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:official",
+          "copywriting",
+          "marketing",
+          "seo",
+          "social-media",
+          "email"
         ]
       }
     }

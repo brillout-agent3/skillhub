@@ -29,19 +29,6 @@
       }
     },
     {
-      "name": "architecture",
-      "repo": "anthropics/knowledge-work-plugins",
-      "official": true,
-      "stars": 34972,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/anthropics/knowledge-work-plugins/architecture",
-        "installs": 6900,
-        "weeklyInstalls": [134, 139, 134, 100, 110, 120, 123, 119],
-        "firstSeen": "2026-03-13"
-      }
-    },
-    {
       "name": "hads",
       "repo": "wshobson/agents",
       "official": false,
@@ -94,32 +81,6 @@
       }
     },
     {
-      "name": "testing-strategy",
-      "repo": "anthropics/knowledge-work-plugins",
-      "official": true,
-      "stars": 34972,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/anthropics/knowledge-work-plugins/testing-strategy",
-        "installs": 6600,
-        "weeklyInstalls": [95, 111, 79, 59, 72, 108, 136, 102],
-        "firstSeen": "2026-02-24"
-      }
-    },
-    {
-      "name": "tech-debt",
-      "repo": "anthropics/knowledge-work-plugins",
-      "official": true,
-      "stars": 34972,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/anthropics/knowledge-work-plugins/tech-debt",
-        "installs": 6600,
-        "weeklyInstalls": [107, 115, 96, 79, 106, 109, 103, 84],
-        "firstSeen": "2026-02-24"
-      }
-    },
-    {
       "name": "landing-page-copywriter",
       "repo": "onewave-ai/claude-skills",
       "official": false,
@@ -146,19 +107,6 @@
       }
     },
     {
-      "name": "knowledge-synthesis",
-      "repo": "anthropics/knowledge-work-plugins",
-      "official": true,
-      "stars": 34972,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/anthropics/knowledge-work-plugins/knowledge-synthesis",
-        "installs": 6500,
-        "weeklyInstalls": [72, 81, 49, 57, 66, 60, 55, 57],
-        "firstSeen": "2026-01-31"
-      }
-    },
-    {
       "name": "no-mistakes",
       "repo": "kunchenguid/no-mistakes",
       "official": false,
@@ -182,19 +130,6 @@
         "installs": 6400,
         "weeklyInstalls": [114, 129, 153, 65, 34, 66, 55, 22],
         "firstSeen": "2026-03-09"
-      }
-    },
-    {
-      "name": "view-pdf",
-      "repo": "anthropics/knowledge-work-plugins",
-      "official": true,
-      "stars": 34972,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/anthropics/knowledge-work-plugins/view-pdf",
-        "installs": 6400,
-        "weeklyInstalls": [66, 77, 52, 42, 50, 56, 49, 45],
-        "firstSeen": "2026-03-28"
       }
     },
     {
@@ -458,32 +393,6 @@
       }
     },
     {
-      "name": "explore-data",
-      "repo": "anthropics/knowledge-work-plugins",
-      "official": true,
-      "stars": 34972,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/anthropics/knowledge-work-plugins/explore-data",
-        "installs": 6000,
-        "weeklyInstalls": [73, 95, 68, 59, 65, 82, 73, 76],
-        "firstSeen": "2026-03-13"
-      }
-    },
-    {
-      "name": "incident-response",
-      "repo": "anthropics/knowledge-work-plugins",
-      "official": true,
-      "stars": 34972,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/anthropics/knowledge-work-plugins/incident-response",
-        "installs": 6000,
-        "weeklyInstalls": [85, 99, 65, 52, 75, 72, 62, 62],
-        "firstSeen": "2026-02-24"
-      }
-    },
-    {
       "name": "agent-desktop",
       "repo": "vercel-labs/agent-desktop",
       "official": true,
@@ -494,19 +403,6 @@
         "installs": 6000,
         "weeklyInstalls": [9, 2, 17, 10, 7, 7, 6, 1400],
         "firstSeen": "2026-02-23"
-      }
-    },
-    {
-      "name": "debug",
-      "repo": "anthropics/knowledge-work-plugins",
-      "official": true,
-      "stars": 34972,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/anthropics/knowledge-work-plugins/debug",
-        "installs": 6000,
-        "weeklyInstalls": [102, 106, 87, 66, 82, 88, 82, 65],
-        "firstSeen": "2026-03-13"
       }
     },
     {
@@ -575,19 +471,6 @@
       }
     },
     {
-      "name": "product-brainstorming",
-      "repo": "anthropics/knowledge-work-plugins",
-      "official": true,
-      "stars": 34972,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/anthropics/knowledge-work-plugins/product-brainstorming",
-        "installs": 5900,
-        "weeklyInstalls": [121, 143, 115, 83, 103, 116, 145, 127],
-        "firstSeen": "2026-03-18"
-      }
-    },
-    {
       "name": "design-review",
       "repo": "julianoczkowski/designer-skills",
       "official": false,
@@ -627,19 +510,6 @@
       }
     },
     {
-      "name": "analyze",
-      "repo": "anthropics/knowledge-work-plugins",
-      "official": true,
-      "stars": 34972,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/anthropics/knowledge-work-plugins/analyze",
-        "installs": 5800,
-        "weeklyInstalls": [75, 90, 63, 59, 61, 70, 71, 70],
-        "firstSeen": "2026-03-13"
-      }
-    },
-    {
       "name": "bencium-impact-designer",
       "repo": "bencium/bencium-marketplace",
       "official": false,
@@ -676,19 +546,6 @@
         "installs": 5800,
         "weeklyInstalls": [286, 281, 324, 275, 117, 133, 93, 128],
         "firstSeen": "2026-01-26"
-      }
-    },
-    {
-      "name": "deploy-checklist",
-      "repo": "anthropics/knowledge-work-plugins",
-      "official": true,
-      "stars": 34972,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/anthropics/knowledge-work-plugins/deploy-checklist",
-        "installs": 5800,
-        "weeklyInstalls": [107, 101, 95, 66, 91, 95, 96, 78],
-        "firstSeen": "2026-03-13"
       }
     },
     {
@@ -767,19 +624,6 @@
         "installs": 5700,
         "weeklyInstalls": [471, 633, 646, 587, 524, 803, 831, 887],
         "firstSeen": "2026-09-07"
-      }
-    },
-    {
-      "name": "design-critique",
-      "repo": "anthropics/knowledge-work-plugins",
-      "official": true,
-      "stars": 34972,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/anthropics/knowledge-work-plugins/design-critique",
-        "installs": 5700,
-        "weeklyInstalls": [117, 166, 110, 94, 120, 172, 152, 200],
-        "firstSeen": "2026-02-24"
       }
     },
     {
@@ -1160,19 +1004,6 @@
       }
     },
     {
-      "name": "search-strategy",
-      "repo": "anthropics/knowledge-work-plugins",
-      "official": true,
-      "stars": 34972,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/anthropics/knowledge-work-plugins/search-strategy",
-        "installs": 5400,
-        "weeklyInstalls": [61, 71, 47, 37, 42, 48, 53, 49],
-        "firstSeen": "2026-01-31"
-      }
-    },
-    {
       "name": "design-brief",
       "repo": "julianoczkowski/designer-skills",
       "official": false,
@@ -1238,19 +1069,6 @@
       }
     },
     {
-      "name": "legal-risk-assessment",
-      "repo": "anthropics/knowledge-work-plugins",
-      "official": true,
-      "stars": 34972,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/anthropics/knowledge-work-plugins/legal-risk-assessment",
-        "installs": 5300,
-        "weeklyInstalls": [85, 106, 72, 93, 92, 121, 104, 106],
-        "firstSeen": "2026-01-31"
-      }
-    },
-    {
       "name": "copywriting-prose-creator",
       "repo": "samber/cc-skills",
       "official": false,
@@ -1274,19 +1092,6 @@
         "installs": 5300,
         "weeklyInstalls": [140, 125, 89, 97, 93, 70, 78, 66],
         "firstSeen": "2026-05-20"
-      }
-    },
-    {
-      "name": "create-viz",
-      "repo": "anthropics/knowledge-work-plugins",
-      "official": true,
-      "stars": 34972,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/anthropics/knowledge-work-plugins/create-viz",
-        "installs": 5300,
-        "weeklyInstalls": [64, 76, 53, 44, 55, 64, 57, 55],
-        "firstSeen": "2026-03-13"
       }
     },
     {
@@ -1368,19 +1173,6 @@
       }
     },
     {
-      "name": "standup",
-      "repo": "anthropics/knowledge-work-plugins",
-      "official": true,
-      "stars": 34972,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/anthropics/knowledge-work-plugins/standup",
-        "installs": 5200,
-        "weeklyInstalls": [66, 77, 45, 35, 54, 52, 55, 45],
-        "firstSeen": "2026-03-13"
-      }
-    },
-    {
       "name": "press-release-writer",
       "repo": "samber/cc-skills",
       "official": false,
@@ -1430,19 +1222,6 @@
         "installs": 5200,
         "weeklyInstalls": [172, 182, 219, 241, 207, 181, 190, 213],
         "firstSeen": "2026-03-15"
-      }
-    },
-    {
-      "name": "source-management",
-      "repo": "anthropics/knowledge-work-plugins",
-      "official": true,
-      "stars": 34972,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/anthropics/knowledge-work-plugins/source-management",
-        "installs": 5200,
-        "weeklyInstalls": [58, 68, 42, 33, 41, 47, 45, 37],
-        "firstSeen": "2026-01-31"
       }
     },
     {
@@ -1599,32 +1378,6 @@
         "installs": 5100,
         "weeklyInstalls": [168, 160, 192, 128, 125, 159, 149, 202],
         "firstSeen": "2026-02-16"
-      }
-    },
-    {
-      "name": "search",
-      "repo": "anthropics/knowledge-work-plugins",
-      "official": true,
-      "stars": 34972,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/anthropics/knowledge-work-plugins/search",
-        "installs": 5100,
-        "weeklyInstalls": [60, 70, 42, 37, 41, 47, 46, 40],
-        "firstSeen": "2026-03-13"
-      }
-    },
-    {
-      "name": "content-creation",
-      "repo": "anthropics/knowledge-work-plugins",
-      "official": true,
-      "stars": 34972,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/anthropics/knowledge-work-plugins/content-creation",
-        "installs": 5100,
-        "weeklyInstalls": [73, 87, 67, 50, 83, 82, 67, 70],
-        "firstSeen": "2026-01-31"
       }
     },
     {
