@@ -47,7 +47,7 @@ function skills(b: Bundle): string {
           ${standalone ? "" : `<span class="kind">Only in the bundle</span>`}
           ${installs === null ? "" : `<span class="metric"><strong>${compact(installs)}</strong> installs</span>`}
         </div>
-        <p class="skill-desc">${esc(s.description)}</p>
+        <p class="skill-desc">${esc(s.agentReview.description)}</p>
         ${note ? `<p class="member-note">${esc(note)}</p>` : ""}
       </li>`;
   });

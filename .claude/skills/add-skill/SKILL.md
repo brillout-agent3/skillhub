@@ -34,7 +34,7 @@ Both files are JSONC and may hold comments, which the scripts keep. Edit them in
 
 ## Approve a skill, or retag one
 
-1. Add its entry to `skills` in `data/skills.jsonc`, and take it out of `data/crawl.jsonc`. SkillHub only shows skills that are on GitHub and on skills.sh: its `id` is where its SKILL.md lives on GitHub, as `Skill` in `data/types.ts` describes, and its `skills.sh` field comes from its entry in crawl.jsonc. Its repo needs an entry in `repos`; take `stars` from the crawl.jsonc entry, and leave `leaderboardSkills` at `null` for the daily crawl to fill in.
+1. Add its entry to `skills` in `data/skills.jsonc`, and take it out of `data/crawl.jsonc`. SkillHub only shows skills that are on GitHub and on skills.sh: its `id` is where its SKILL.md lives on GitHub, as `Skill` in `data/types.ts` describes, and its `skills.sh` field comes from its entry in crawl.jsonc, and what you write about it, its description, tags and note, goes in its `agentReview`. Its repo needs an entry in `repos`; take `stars` from the crawl.jsonc entry, and leave `leaderboardSkills` at `null` for the daily crawl to fill in.
 2. Run `pnpm run sync <id>` to save a copy of its SKILL.md in `data/skill-snapshots/`.
 3. Read that copy, not only the skill's one-line description, and tag it. Tag values and their meanings are under `facets` in `data/skills.jsonc`.
    1. Give it every `category:` that fits. Don't add a parent such as `category:software-engineering`: it comes with the categories it `includes`.

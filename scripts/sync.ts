@@ -69,12 +69,14 @@ const errors: string[] = [];
 
 /** How far `text` is from the SKILL.md the skill's TLDR summarizes. */
 async function skewOf(skill: Skill, copy: string | null, text: string): Promise<number> {
-  if (!skill.tldr) return skew("", text);
-  const url = rawUrl(skill.tldr.permalink);
+  if (!skill.agentReview.tldr) return skew("", text);
+  const url = rawUrl(skill.agentReview.tldr.permalink);
   const summarized = url ? await get(url).catch(() => null) : null;
   if (summarized !== null) return skew(summarized, text);
   // The summarized SKILL.md can't be fetched: add this change to the skew so far.
-  errors.push(`${skill.id}: can't fetch the SKILL.md its TLDR summarizes, ${skill.tldr.permalink}`);
+  errors.push(
+    `${skill.id}: can't fetch the SKILL.md its TLDR summarizes, ${skill.agentReview.tldr.permalink}`,
+  );
   return (skill.skillMd?.skew ?? 0) + skew(copy ?? "", text);
 }
 

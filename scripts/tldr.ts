@@ -63,7 +63,7 @@ if (!first || /^\d+$/.test(first)) {
       skew: s.skillMd?.skew,
       id: s.id,
       read: [copyPath(s)],
-      tldr: s.tldr,
+      tldr: s.agentReview.tldr,
     })),
     ...data.bundles.map((b) => ({
       skew: b.skew,
@@ -87,7 +87,7 @@ if (!first || /^\d+$/.test(first)) {
     permalink: skill ? permalink(skill) : await bundlePermalink(bundle as Bundle),
   };
   if (skill) {
-    skill.tldr = tldr;
+    skill.agentReview.tldr = tldr;
     if (skill.skillMd) skill.skillMd.skew = 0;
   } else if (bundle) {
     bundle.tldr = tldr;

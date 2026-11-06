@@ -138,16 +138,21 @@ export interface Skill {
   id: string;
   /** Its name on skills.sh: the end of its skills.sh page. */
   name: string;
+  /** Its listing on skills.sh. */
+  "skills.sh": SkillsSh;
+  /** The copy of the skill's SKILL.md at `data/skill-snapshots/<id>.md`, which `sync.ts` keeps current. */
+  skillMd?: SkillMd;
+  /** What an agent wrote about the skill: everything else is collected by scripts. */
+  agentReview: SkillReview;
+}
+
+export interface SkillReview {
   /** One sentence on what it does, shown until it has a TLDR. */
   description: string;
   /** What the skill is and does, written from the SKILL.md its permalink points to. */
   tldr?: Tldr;
   /** Its tags, `facet:value` or just the value for a topic, from the values `facets` defines. */
   tags: string[];
-  /** Its listing on skills.sh. */
-  "skills.sh": SkillsSh;
-  /** The copy of the skill's SKILL.md at `data/skill-snapshots/<id>.md`, which `sync.ts` keeps current. */
-  skillMd?: SkillMd;
   /** Something to know before installing. */
   note?: string;
 }

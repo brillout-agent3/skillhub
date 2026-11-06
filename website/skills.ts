@@ -48,11 +48,11 @@ export const parentsOf = (tag: string) => parents.get(tag) ?? [];
 const withParents = new Map(
   data.skills.map((s) => [
     s.id,
-    [...s.tags, ...new Set(s.tags.flatMap((t) => parents.get(t) ?? []))],
+    [...s.agentReview.tags, ...new Set(s.agentReview.tags.flatMap((t) => parents.get(t) ?? []))],
   ]),
 );
 /** A skill's tags, plus the parents it has through them. */
-export const tagsOf = (s: Skill) => withParents.get(s.id) ?? s.tags;
+export const tagsOf = (s: Skill) => withParents.get(s.id) ?? s.agentReview.tags;
 
 /** The order facets appear in, wherever they're listed. */
 export const FACET_ORDER = ["category", "type", "effect", "needs", "by", "topic", "stack", "flag"];

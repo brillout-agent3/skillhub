@@ -233,11 +233,11 @@ const searchText = new Map(
     s.id,
     [
       s.name,
-      s.description,
-      ...(s.tldr?.glance.map((g) => g.text) ?? []),
-      s.tldr?.text,
+      s.agentReview.description,
+      ...(s.agentReview.tldr?.glance.map((g) => g.text) ?? []),
+      s.agentReview.tldr?.text,
       repoKey(s),
-      s.note,
+      s.agentReview.note,
       ...tagsOf(s),
       ...tagsOf(s).map(tagLabel),
     ]
@@ -367,10 +367,10 @@ const moreLink = (e: Entry, more: number, st: State) =>
     : "";
 
 function skillRow(s: Skill, more: number, st: State): string {
-  const tags = s.tags
+  const tags = s.agentReview.tags
     .filter((t) => !quiet(t))
     .sort((a, b) => FACET_ORDER.indexOf(facetOf(a)) - FACET_ORDER.indexOf(facetOf(b)));
-  const caution = s.tags.some((t) => CAUTION.includes(t));
+  const caution = s.agentReview.tags.some((t) => CAUTION.includes(t));
   const bundle = bundleOf.get(s.id)?.bundle;
   return `
     <li class="skill${caution ? " caution" : ""}">
@@ -381,7 +381,7 @@ function skillRow(s: Skill, more: number, st: State): string {
           bundle ? ` · part of <a href="${bundleHref(bundle.id)}">${esc(bundle.name)}</a>` : ""
         }</span>
       </div>
-      ${s.tldr?.glance.length ? glanceHtml(s.tldr.glance, 2) : `<p class="skill-desc">${esc(s.description)}</p>`}
+      ${s.agentReview.tldr?.glance.length ? glanceHtml(s.agentReview.tldr.glance, 2) : `<p class="skill-desc">${esc(s.agentReview.description)}</p>`}
       <div class="tags">${tags.map((t) => tagChip(t, null, st.tags.includes(t))).join("")}</div>
       ${moreLink(s, more, st)}
       </div>
@@ -450,7 +450,9 @@ export function facetsHtml(st: State, stackExpanded: boolean): string {
     sections.push(tagSection(st, f));
   // Topics, by group.
   const topic = facetById.get("topic");
-  const topicCounts = counts(st, "topic", (s) => s.tags.filter((t) => facetOf(t) === "topic"));
+  const topicCounts = counts(st, "topic", (s) =>
+    s.agentReview.tags.filter((t) => facetOf(t) === "topic"),
+  );
   const groups = (topic?.groups ?? [])
     .map((g) => {
       const chips = g.values
@@ -464,7 +466,9 @@ export function facetsHtml(st: State, stackExpanded: boolean): string {
     `<section class="facet"><h2 title="${esc(topic?.question ?? "")}">Topics</h2>${groups || `<p class="muted">None</p>`}</section>`,
   );
   // Stack, most used first.
-  const stackCounts = counts(st, "stack", (s) => s.tags.filter((t) => t.startsWith("stack:")));
+  const stackCounts = counts(st, "stack", (s) =>
+    s.agentReview.tags.filter((t) => t.startsWith("stack:")),
+  );
   const stack = [
     ...stackCounts.keys(),
     ...st.tags.filter((t) => t.startsWith("stack:") && !stackCounts.has(t)),

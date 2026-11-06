@@ -56,8 +56,8 @@ for (const skill of data.skills) {
   const at = skill.id;
   if (ids.has(at)) fail(at, "duplicate skill id");
   ids.add(at);
-  if (!skill.description) fail(at, "missing description");
-  for (const t of skill.tags)
+  if (!skill.agentReview.description) fail(at, "missing description");
+  for (const t of skill.agentReview.tags)
     if (parents.has(t)) fail(at, `${t} comes with the tags it includes; don't tag it directly`);
   // SkillHub only lists skills that are on GitHub and on skills.sh.
   const gh = github(skill);
@@ -76,15 +76,15 @@ for (const skill of data.skills) {
   const skew = skill.skillMd?.skew;
   if (skew !== undefined && !(Number.isInteger(skew) && skew >= 0))
     fail(at, "skew must be a whole number of words");
-  if (skill.tldr) {
-    for (const problem of tldrProblems(skill.tldr)) fail(at, problem);
+  if (skill.agentReview.tldr) {
+    for (const problem of tldrProblems(skill.agentReview.tldr)) fail(at, problem);
     const target = `https://github.com/${escape(gh.repo)}/tree/[0-9a-f]{40}${gh.dir ? `/${escape(gh.dir)}` : ""}`;
-    if (!new RegExp(`^${target}$`).test(skill.tldr.permalink))
+    if (!new RegExp(`^${target}$`).test(skill.agentReview.tldr.permalink))
       fail(at, "the TLDR permalink must point to the skill at a commit; set it with pnpm run tldr");
   }
 
   const perFacet = new Map<string, string[]>();
-  for (const tag of skill.tags) {
+  for (const tag of skill.agentReview.tags) {
     const i = tag.indexOf(":");
     const facetId = i === -1 ? "topic" : tag.slice(0, i);
     const value = i === -1 ? tag : tag.slice(i + 1);
@@ -110,7 +110,8 @@ for (const skill of data.skills) {
   const type = perFacet.get("type")?.[0];
   if ((type === "guidelines" || type === "router") && perFacet.get("effect")?.[0] !== "none")
     fail(at, `type:${type} must be effect:none`);
-  if (!skill.tags.every((t) => t.includes(":") || topics.has(t))) fail(at, "unknown topic");
+  if (!skill.agentReview.tags.every((t) => t.includes(":") || topics.has(t)))
+    fail(at, "unknown topic");
 }
 
 const bundled = new Map<string, string>();

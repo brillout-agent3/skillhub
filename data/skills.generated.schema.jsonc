@@ -303,21 +303,6 @@
           "type": "string",
           "description": "Its name on skills.sh: the end of its skills.sh page."
         },
-        "description": {
-          "type": "string",
-          "description": "One sentence on what it does, shown until it has a TLDR."
-        },
-        "tldr": {
-          "$ref": "#/definitions/Tldr",
-          "description": "What the skill is and does, written from the SKILL.md its permalink points to."
-        },
-        "tags": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "description": "Its tags, `facet:value` or just the value for a topic, from the values `facets` defines."
-        },
         "skills.sh": {
           "$ref": "#/definitions/SkillsSh",
           "description": "Its listing on skills.sh."
@@ -326,12 +311,12 @@
           "$ref": "#/definitions/SkillMd",
           "description": "The copy of the skill's SKILL.md at `data/skill-snapshots/<id>.md`, which `sync.ts` keeps current."
         },
-        "note": {
-          "type": "string",
-          "description": "Something to know before installing."
+        "agentReview": {
+          "$ref": "#/definitions/SkillReview",
+          "description": "What an agent wrote about the skill: everything else is collected by scripts."
         }
       },
-      "required": ["id", "name", "description", "tags", "skills.sh"],
+      "required": ["id", "name", "skills.sh", "agentReview"],
       "additionalProperties": false,
       "description": "A skill on GitHub that skills.sh lists. SkillHub lists no other skills."
     },
@@ -385,6 +370,32 @@
         }
       },
       "required": ["version", "updated", "skew"],
+      "additionalProperties": false
+    },
+    "SkillReview": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string",
+          "description": "One sentence on what it does, shown until it has a TLDR."
+        },
+        "tldr": {
+          "$ref": "#/definitions/Tldr",
+          "description": "What the skill is and does, written from the SKILL.md its permalink points to."
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Its tags, `facet:value` or just the value for a topic, from the values `facets` defines."
+        },
+        "note": {
+          "type": "string",
+          "description": "Something to know before installing."
+        }
+      },
+      "required": ["description", "tags"],
       "additionalProperties": false
     }
   }

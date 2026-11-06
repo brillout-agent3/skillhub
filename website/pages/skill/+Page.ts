@@ -107,13 +107,13 @@ export default function Page(pageContext: PageContextServer): string {
       }</p>
       <h1>${esc(s.name)}</h1>
       ${
-        s.tldr?.glance.length
-          ? `<section class="at-a-glance" aria-label="At a glance">${glanceHtml(s.tldr.glance)}</section>`
-          : `<p class="lede">${esc(s.description)}</p>`
+        s.agentReview.tldr?.glance.length
+          ? `<section class="at-a-glance" aria-label="At a glance">${glanceHtml(s.agentReview.tldr.glance)}</section>`
+          : `<p class="lede">${esc(s.agentReview.description)}</p>`
       }
       ${inBundle(s)}
-      ${s.note ? `<p class="note">${esc(s.note)}</p>` : ""}
-      ${s.tldr ? tldrHtml(s.tldr, "the skill", s.skillMd?.skew ?? 0) : ""}
+      ${s.agentReview.note ? `<p class="note">${esc(s.agentReview.note)}</p>` : ""}
+      ${s.agentReview.tldr ? tldrHtml(s.agentReview.tldr, "the skill", s.skillMd?.skew ?? 0) : ""}
       <div class="details-grid">
         <div>
           <div class="install"><code>${esc(installCommand(s))}</code><button type="button" class="copy" data-copy="${esc(installCommand(s))}">Copy</button></div>

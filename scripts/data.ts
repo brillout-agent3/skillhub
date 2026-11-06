@@ -20,11 +20,12 @@ const TOP = ["$schema", "updated", "asOf", "facets", "repos", "bundles", "skills
 const ORDER = [
   "id",
   "name",
+  "skills.sh",
+  "skillMd",
+  "agentReview",
   "description",
   "tldr",
   "tags",
-  "skills.sh",
-  "skillMd",
   "standalone",
   "note",
   "skills",
@@ -115,7 +116,9 @@ export function writeJsonc(file: string, value: unknown) {
 // -------------------------------------------------------------------- data
 
 export function writeData(data: Data) {
-  data.skills = data.skills.map((s) => sorted(s, ORDER));
+  data.skills = data.skills.map((s) =>
+    sorted({ ...s, agentReview: sorted(s.agentReview, ORDER) }, ORDER),
+  );
   data.bundles = data.bundles.map((b) =>
     sorted({ ...b, skills: b.skills.map((m) => sorted(m, ORDER)) }, ORDER),
   );
