@@ -3435,19 +3435,6 @@
       }
     },
     {
-      "name": "shadcn-svelte",
-      "repo": "huntabyte/shadcn-svelte",
-      "official": false,
-      "stars": 9246,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/huntabyte/shadcn-svelte/shadcn-svelte",
-        "installs": 7100,
-        "weeklyInstalls": [348, 352, 352, 392, 297, 258, 247, 245],
-        "firstSeen": "2026-04-14"
-      }
-    },
-    {
       "name": "claude-to-im",
       "repo": "op7418/claude-to-im-skill",
       "official": false,
@@ -3513,19 +3500,6 @@
       }
     },
     {
-      "name": "payload",
-      "repo": "payloadcms/skills",
-      "official": false,
-      "stars": 172,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/payloadcms/skills/payload",
-        "installs": 7100,
-        "weeklyInstalls": [143, 175, 150, 146, 126, 125, 128, 122],
-        "firstSeen": "2026-01-26"
-      }
-    },
-    {
       "name": "embedded-systems",
       "repo": "jeffallan/claude-skills",
       "official": false,
@@ -3536,19 +3510,6 @@
         "installs": 7100,
         "weeklyInstalls": [123, 120, 138, 132, 132, 188, 158, 202],
         "firstSeen": "2026-01-21"
-      }
-    },
-    {
-      "name": "vercel-cli",
-      "repo": "vercel/vercel",
-      "official": true,
-      "stars": 16538,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/vercel/vercel/vercel-cli",
-        "installs": 7100,
-        "weeklyInstalls": [141, 161, 204, 309, 325, 216, 254, 216],
-        "firstSeen": "2026-02-10"
       }
     },
     {
@@ -35171,6 +35132,18 @@
     {
       "url": "https://skills.sh/minimax-ai/minimax-h3/h3-prompt-writing",
       "note": "Tool docs: an agent's manual for minimax."
+    },
+    {
+      "url": "https://skills.sh/huntabyte/shadcn-svelte/shadcn-svelte",
+      "note": "Tool docs: an agent's manual for shadcn and svelte and tailwind."
+    },
+    {
+      "url": "https://skills.sh/payloadcms/skills/payload",
+      "note": "Tool docs: an agent's manual for payload."
+    },
+    {
+      "url": "https://skills.sh/vercel/vercel/vercel-cli",
+      "note": "Tool docs: an agent's manual for vercel."
     }
   ]
 }
