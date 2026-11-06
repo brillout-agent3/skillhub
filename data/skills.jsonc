@@ -2749,6 +2749,47 @@
         "description": "The Printing Press prints a token-efficient Go CLI, a Claude Code skill and an MCP server for any API or website.",
         "note": "Its skills drive the cli-printing-press generator binary, which needs Go 1.26.10 or newer; install both."
       }
+    },
+    {
+      "id": "brightdata/skills",
+      "stars": 270,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Teach any coding agent to get web data: scrape, fetch, search, browse, and watch the bill."
+      }
+    },
+    {
+      "id": "upstash/context7",
+      "stars": 64282,
+      "agentReview": {
+        "kind": "project",
+        "description": "Context7: up-to-date docs for AI agents."
+      }
+    },
+    {
+      "id": "chromedevtools/chrome-devtools-mcp",
+      "stars": 54881,
+      "agentReview": {
+        "kind": "project",
+        "description": "Chrome DevTools for agents: an MCP server and CLI that let coding agents control and inspect a live Chrome browser.",
+        "note": "Its README says Google collects usage statistics by default; --no-usage-statistics turns that off."
+      }
+    },
+    {
+      "id": "jeffallan/claude-skills",
+      "stars": 12244,
+      "agentReview": {
+        "kind": "skills",
+        "description": "67 skills for full-stack developers across languages, frameworks, infrastructure, APIs, testing, DevOps, security and data, plus 9 Jira and Confluence workflow commands."
+      }
+    },
+    {
+      "id": "ceorkm/mobile-app-ui-design",
+      "stars": 510,
+      "agentReview": {
+        "kind": "skills",
+        "description": "A skill for designing mobile app interfaces on principles from apps such as Airbnb, Duolingo and Spotify."
+      }
     }
   ],
   "bundles": [
@@ -6040,6 +6081,65 @@
           {
             "label": "Codex, by hand: the binary with go install, then all nine skills with the skills CLI",
             "command": "go install github.com/mvanhorn/cli-printing-press/v4/cmd/cli-printing-press@latest && npx -y skills@latest add mvanhorn/cli-printing-press/skills --skill '*' -g -a codex -y"
+          }
+        ]
+      }
+    },
+    {
+      "id": "brightdata/skills@scrape-search",
+      "skew": 0,
+      "agentReview": {
+        "name": "Bright Data scrape and search",
+        "description": "Web data through Bright Data: structured records from any site with scrape, and results from search engines and AI answer engines with search.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "the agent needs web data through Bright Data: records pulled from a site, or results for a search query"
+            },
+            {
+              "label": "It does",
+              "text": "scrape picks a ready scraper, Scraper Studio or a page fetch for the fields you want; search picks SERP API or a top-100 job by depth"
+            },
+            {
+              "label": "You get",
+              "text": "structured records or parsed results, with one line naming the product it chose, which one word from you overrides"
+            },
+            {
+              "label": "Needs",
+              "text": "a Bright Data account, and the bdata CLI or, without it, Node.js scripts or REST calls"
+            },
+            {
+              "label": "Installs with",
+              "text": "the repo's nine other skills by its default command, among them agent-onboarding, which installs the bdata CLI and logs in once; --skill flags add fewer"
+            }
+          ],
+          "text": "Bright Data's skills split web data by where a job starts. scrape handles data fields from known places: it checks a bundled table of 25 popular platforms and the free scraper catalogue first, builds a scraper in Scraper Studio when none fits and the pages share a layout, the job repeats or the data needs browser work, and only falls back to fetching raw pages for one-off jobs. search handles anything that starts from a query: SERP API for about ten results in one call, and Web Scraper API jobs for the top 100, Google verticals such as Shopping and Maps, and what ChatGPT Search, Perplexity, Gemini or Google AI Mode say about a brand. Those jobs follow scrape's reference, and search checks their scraper ids with scrape's lookup script, so it needs scrape beside it; plain SERP calls don't. Neither asks you which product to use: each states its choice in one line. Recurring work means a cron job the agent writes, except in Scraper Studio, which has its own scheduler. Logins and refused calls go to the repo's agent-onboarding skill; single pages, ready-made datasets, Instagram and your own browser code go to its other skills.",
+          "permalink": "https://github.com/brightdata/skills/tree/103b4cf933618ffa2fc85281e45dce60421e180d"
+        },
+        "skills": [
+          {
+            "id": "brightdata/skills/skills/scrape",
+            "standalone": true
+          },
+          {
+            "id": "brightdata/skills/skills/search",
+            "standalone": false,
+            "note": "Its dataset jobs, the top 100, the Google verticals (Shopping, Maps, Hotels, Flights) and the AI answer engines, follow scrape's references/web-scraper-api.md and check scraper ids with scrape's scripts/find-scraper.mjs; plain SERP searches work without it."
+          }
+        ],
+        "install": [
+          {
+            "label": "Any agent, with the skills CLI; adds all 11 of the repo's skills, agent-onboarding among them (needs Node.js and git; in Windows PowerShell, use npx.cmd if scripts are blocked)",
+            "command": "npx -y skills add brightdata/skills -y"
+          },
+          {
+            "label": "Any agent, with the skills CLI; adds just these two and agent-onboarding, which the README says to start with: it installs the bdata CLI and logs in once",
+            "command": "npx -y skills add brightdata/skills -y --skill scrape --skill search --skill agent-onboarding"
+          },
+          {
+            "label": "Without Node.js, as the README suggests: clone the repo, then copy skills/scrape, skills/search and skills/agent-onboarding into the folder your agent reads skills from, often .agents/skills",
+            "command": "git clone https://github.com/brightdata/skills"
           }
         ]
       }
@@ -53344,6 +53444,1076 @@
           "git"
         ],
         "note": "Opens a public pull request on mvanhorn/printing-press-library and may open an issue on mvanhorn/cli-printing-press. Needs the cli-printing-press binary 4.0.0 or newer, Go and the GitHub CLI signed in; dogfood mode reads Claude Code's session transcript."
+      }
+    },
+    {
+      "id": "brightdata/skills/skills/scrape",
+      "name": "scrape",
+      "skills.sh": {
+        "url": "https://skills.sh/brightdata/skills/scrape",
+        "installs": 10900,
+        "weeklyInstalls": [13, 15, 8, 31, 15, 27, 31, 32],
+        "firstSeen": "2026-02-10"
+      },
+      "skillMd": {
+        "version": "103b4cf933618ffa2fc85281e45dce60421e180d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Pulls structured records, such as profiles, posts, products, reviews or listings, from any site through Bright Data's ready scrapers or Scraper Studio.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want data fields from a site, such as follower counts, prices, reviews or job listings, once or on a schedule"
+            },
+            {
+              "label": "It does",
+              "text": "picks the Bright Data product itself: a ready scraper from its catalogue first, a new one built in Scraper Studio next, a raw page fetch last"
+            },
+            {
+              "label": "You get",
+              "text": "records from a scraping job, checked against the entity you meant, with one line naming the product it chose, which one word from you overrides"
+            },
+            {
+              "label": "Needs",
+              "text": "a Bright Data account, and the bdata CLI or Node.js for its bundled scripts"
+            },
+            {
+              "label": "Bills",
+              "text": "per record, and one URL can return many, such as a profile's posts; --limit is documented only for discovery inputs, so it checks the first run's count"
+            },
+            {
+              "label": "Unlike",
+              "text": "the repo's fetch skill, which returns the page itself, and search, which starts from a query"
+            }
+          ],
+          "text": "This skill picks among Bright Data's products itself, checking in order. A huge generic corpus, needed once, where a few months old is fine, goes to the repo's datasets skill, since buying a ready download isn't scraping. Otherwise it looks for a ready scraper that returns the fields: a bundled table of the top 25 platforms costs no API calls, free catalogue searches cover the rest, and many scrapers take a keyword, category or username instead of a URL. If none fits and the pages share a layout, the job will repeat, or the data only appears after typing, scrolling or a CAPTCHA and you have no Playwright, Puppeteer or Selenium setup, it builds one in Scraper Studio, which does the browser work, has its own scheduler and repairs itself when the site changes, optionally after your approval. Only a one-off job with no shared layout falls back to fetching raw pages, leaving the parsing to you. Web Scraper API jobs are triggered, polled and downloaded, so they aren't instant, and on that path 'recurring' means the agent writes a cron job or GitHub Actions workflow in your project. Instagram goes to the repo's instagram skill.",
+          "permalink": "https://github.com/brightdata/skills/tree/103b4cf933618ffa2fc85281e45dce60421e180d/skills/scrape"
+        },
+        "tags": [
+          "category:browser",
+          "type:tool",
+          "effect:remote",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:brightdata",
+          "scraping",
+          "social-media",
+          "research",
+          "flag:dual-use"
+        ],
+        "note": "Needs a Bright Data account, and every record a job returns is billed; the repo's agent-onboarding skill installs the bdata CLI and logs you in."
+      }
+    },
+    {
+      "id": "brightdata/skills/skills/search",
+      "name": "search",
+      "skills.sh": {
+        "url": "https://skills.sh/brightdata/skills/search",
+        "installs": 7500,
+        "weeklyInstalls": [10, 11, 8, 20, 12, 17, 27, 28],
+        "firstSeen": "2026-02-10"
+      },
+      "skillMd": {
+        "version": "103b4cf933618ffa2fc85281e45dce60421e180d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Gets search results from Google, Bing, Yandex and AI answer engines through Bright Data, from a quick top ten to top-100 rank reports.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a task starts from a search query: live results, a Google vertical such as Shopping or Maps, keyword rank tracking, or what AI engines say about a brand"
+            },
+            {
+              "label": "It does",
+              "text": "routes by depth: SERP API for about ten structured results in one call, a top-100 job only when you ask for volume"
+            },
+            {
+              "label": "You get",
+              "text": "parsed results, cut to the number you asked for, or a deeper set from a job that takes longer, with one line naming the path it took"
+            },
+            {
+              "label": "Needs",
+              "text": "a Bright Data account, the bdata CLI or REST calls, and the scrape skill beside it for its top-100, Google vertical and answer-engine jobs"
+            },
+            {
+              "label": "Tracks",
+              "text": "keywords or brands on a schedule through a cron job the agent writes; depth, not repetition, picks the product"
+            }
+          ],
+          "text": "Bright Data's skill for anything that starts from a query rather than a known URL. The default is SERP API: one synchronous call that returns about ten parsed results, cut down when you ask for fewer, since a smaller number is the same call. Asking for the top 100, all results or a rank report past page one switches to a Web Scraper API job, one request for 100 results that runs as trigger, poll and download, so it isn't instant. Only Google comes back parsed by default: Bing needs --json on the CLI or a parsed REST format, and Yandex comes back as the raw page. It also covers Google verticals such as Shopping, Maps, Hotels and Flights. What ChatGPT Search, Perplexity, Gemini or Google AI Mode answer about a brand runs as a dataset job too, each with its own scraper, whose id it confirms with the scrape skill's lookup script before the first trigger. For daily or weekly tracking the agent writes a cron job: SERP for a top-ten snapshot, the top-100 job for full rank reports. Records from a known place, like Google Maps reviews, go to scrape, and one known page to fetch.",
+          "permalink": "https://github.com/brightdata/skills/tree/103b4cf933618ffa2fc85281e45dce60421e180d/skills/search"
+        },
+        "tags": [
+          "category:browser",
+          "category:marketing",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:brightdata",
+          "web-search",
+          "seo",
+          "research"
+        ],
+        "note": "Needs a Bright Data account; the repo's agent-onboarding skill installs the bdata CLI and logs you in."
+      }
+    },
+    {
+      "id": "jimliu/baoyu-skills/skills/baoyu-wechat-summary",
+      "name": "baoyu-wechat-summary",
+      "skills.sh": {
+        "url": "https://skills.sh/jimliu/baoyu-skills/baoyu-wechat-summary",
+        "installs": 10100,
+        "weeklyInstalls": [269, 269, 100, 85, 140, 134, 142, 153],
+        "firstSeen": "2026-05-14"
+      },
+      "skillMd": {
+        "version": "ca703c2d7c2c4399a1dc0cf82224f8551e05a96d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Summarizes a WeChat group chat into a dated digest, with an opt-in roast version, keeping per-member profiles and group history across runs.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to catch up on a busy WeChat group: what was discussed, by whom, since your last digest or over a date range"
+            },
+            {
+              "label": "It does",
+              "text": "pulls the messages with wx-cli, lists every topic with verbatim quotes, writes the digest, then checks each quote against the raw messages"
+            },
+            {
+              "label": "You get",
+              "text": "a dated Markdown digest per group: an overview, topic sections, message stats with a top-10 leaderboard, and portraits of active members"
+            },
+            {
+              "label": "Keeps",
+              "text": "history for incremental runs, a profile for each member with 3+ messages, and a file of facts members corrected"
+            },
+            {
+              "label": "Also writes",
+              "text": "a roast (毒舌) version when you ask, mocking takes rather than people, from its own separate profiles"
+            },
+            {
+              "label": "Language",
+              "text": "instructions mostly in English, with some rules and the digest's fixed headings in Chinese"
+            }
+          ],
+          "text": "A digest writer for WeChat groups, built on wx-cli, a separate command-line tool that reads WeChat's local data. On first run it asks for your WeChat ID and display name, the default version and where to save digests, and stores them in a preferences file. You name a group and a time range, or none, in which case it picks up where the last digest ended. It saves the messages to a temporary file and works in three rounds: a skeleton of every topic with who said what, the written digest, and an audit that greps each quote in the raw messages and fixes misattributions. It doesn't decode images, using a one-line description file only if you provide one. After saving, it updates history.json, an append-only log, each active member's profile, and memory.md, a file of facts members corrected so later digests don't repeat errors. Profiles leave out real names not used in the group, contact details, health and private family matters; the roast version also skips looks, family and identity. Questions members address to an @bot alias get their own section. It never installs wx-cli or runs sudo for you.",
+          "permalink": "https://github.com/jimliu/baoyu-skills/tree/ca703c2d7c2c4399a1dc0cf82224f8551e05a96d/skills/baoyu-wechat-summary"
+        },
+        "tags": [
+          "category:writing",
+          "category:personal",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "stack:wechat",
+          "messaging",
+          "notes",
+          "memory"
+        ],
+        "note": "Needs wx-cli and WeChat 4.x running and logged in on the same computer; on macOS, wx-cli setup re-signs WeChat.app, and the skill runs every wx command with Claude Code's sandbox off."
+      }
+    },
+    {
+      "id": "jimliu/baoyu-skills/skills/baoyu-electron-extract",
+      "name": "baoyu-electron-extract",
+      "skills.sh": {
+        "url": "https://skills.sh/jimliu/baoyu-skills/baoyu-electron-extract",
+        "installs": 8100,
+        "weeklyInstalls": [269, 267, 99, 85, 145, 129, 139, 151],
+        "firstSeen": "2026-05-24"
+      },
+      "skillMd": {
+        "version": "ca703c2d7c2c4399a1dc0cf82224f8551e05a96d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Extracts an installed Electron app's bundled code and assets, rebuilding original sources from source maps or formatting minified code.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to read how a desktop Electron app, such as Codex or VS Code, is built"
+            },
+            {
+              "label": "It does",
+              "text": "finds the app's app.asar bundle on macOS or Windows, unpacks it, then rebuilds sources from .js.map files or runs Prettier on minified code"
+            },
+            {
+              "label": "You get",
+              "text": "a folder in ~/Downloads with the raw contents, the restored source tree when maps allow, and a JSON report"
+            },
+            {
+              "label": "Needs",
+              "text": "Bun or npx; it fetches asar and Prettier through npx on first run"
+            },
+            {
+              "label": "Leaves alone",
+              "text": "node_modules, and any non-empty output folder unless you pass --force"
+            }
+          ],
+          "text": "A wrapper around one bundled script. You give it an app name or a path to the .app, install folder or .asar file; it searches /Applications and ~/Applications on macOS and the usual program folders on Windows, and asks you to choose when several match. On Linux you pass the .asar path yourself. A dry run prints what it found without writing anything. The output folder, ~/Downloads/<AppName>-electron-extract/ by default, holds extracted/ with the raw bundle, extracted.unpacked/ with native modules and large assets when present, restored/ with the original source tree when a source map embeds its sources, and extract-report.json with counts and warnings. Where no usable map exists, JavaScript and CSS are formatted in place with Prettier instead. Restored paths are kept inside restored/, and it refuses to write to /, your home folder or the current directory.",
+          "permalink": "https://github.com/jimliu/baoyu-skills/tree/ca703c2d7c2c4399a1dc0cf82224f8551e05a96d/skills/baoyu-electron-extract"
+        },
+        "tags": [
+          "category:security",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "stack:electron",
+          "learning",
+          "security"
+        ]
+      }
+    },
+    {
+      "id": "cursor/plugins/cursor-team-kit/skills/deslop",
+      "name": "deslop",
+      "skills.sh": {
+        "url": "https://skills.sh/cursor/plugins/deslop",
+        "installs": 10100,
+        "weeklyInstalls": [554, 629, 690, 718, 449, 522, 536, 396],
+        "firstSeen": "2026-02-18"
+      },
+      "skillMd": {
+        "version": "8ecfb19f844b67a4bc7af7f66c366d57bc7b6d2b",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Removes AI-generated slop from your branch's diff: needless comments, unusual defensive checks, casts to any and deep nesting.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a branch written with an agent is done and you want its machine-written habits cleaned out before review"
+            },
+            {
+              "label": "It does",
+              "text": "reads the diff against main and edits out comments, try/catch blocks, any casts and nesting that don't match the surrounding code"
+            },
+            {
+              "label": "You get",
+              "text": "small, behavior-preserving edits and a summary of one to three sentences"
+            },
+            {
+              "label": "Part of",
+              "text": "cursor-team-kit, one of the plugins in Cursor's plugin repo"
+            },
+            {
+              "label": "Unlike",
+              "text": "unslop, from the same repo, which rewrites prose rather than code"
+            }
+          ],
+          "text": "A short cleanup pass. The agent checks the current branch's diff against main and removes what the branch introduced that reads as machine-written: comments that are unnecessary or don't match the file's style, defensive checks and try/catch blocks that are unusual for trusted code paths, casts to any that only get around type errors, deeply nested code that early returns would flatten, and other patterns out of keeping with the file and the codebase. It keeps behavior unchanged unless it's fixing a clear bug, prefers small focused edits to broad rewrites, and keeps its closing summary to one to three sentences.",
+          "permalink": "https://github.com/cursor/plugins/tree/8ecfb19f844b67a4bc7af7f66c366d57bc7b6d2b/cursor-team-kit/skills/deslop"
+        },
+        "tags": [
+          "category:engineering",
+          "category:debugging",
+          "type:command",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "anti-slop",
+          "code-quality",
+          "refactoring"
+        ]
+      }
+    },
+    {
+      "id": "upstash/context7/skills/find-docs",
+      "name": "find-docs",
+      "skills.sh": {
+        "url": "https://skills.sh/upstash/context7/find-docs",
+        "installs": 10000,
+        "weeklyInstalls": [332, 290, 266, 265, 392, 576, 525, 332],
+        "firstSeen": "2026-03-11"
+      },
+      "skillMd": {
+        "version": "078c0c731d19eb88d2391b236ab82a127dbabac3",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Looks up current documentation and code examples for any library, framework or SDK through the Context7 CLI, instead of relying on training data.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "the agent writes or debugs code against a library and its training data may be out of date"
+            },
+            {
+              "label": "It does",
+              "text": "resolves the library to a Context7 ID, then asks its docs one focused question, with at most three tries per question"
+            },
+            {
+              "label": "You get",
+              "text": "current code snippets and explanations, for a specific version if you name one"
+            },
+            {
+              "label": "Triggers",
+              "text": "on any question that names a library, even one the agent thinks it knows; its description says to prefer it over web search"
+            },
+            {
+              "label": "Needs",
+              "text": "Node.js, to run npx ctx7@latest; a login or API key only raises the rate limit"
+            }
+          ],
+          "text": "Context7 indexes documentation for libraries, frameworks and services, and this skill sends the agent there before it answers from memory. It runs the ctx7 CLI through npx, so nothing has to be installed globally. First it resolves a name such as Next.js or Prisma into a library ID like /vercel/next.js, choosing among matches by name, description, number of code snippets, source reputation and benchmark score, and using a version-specific ID when you mention a version. Then it queries that ID with one specific topic per query, optionally ranking examples in your programming language first. Results mix titled code snippets with prose explanations. It keeps API keys, credentials, personal data and proprietary code out of its queries. When the monthly quota runs out it tells you, suggests logging in, and only then answers from training data, saying it may be outdated.",
+          "permalink": "https://github.com/upstash/context7/tree/078c0c731d19eb88d2391b236ab82a127dbabac3/skills/find-docs"
+        },
+        "tags": [
+          "category:frameworks",
+          "type:tool",
+          "effect:none",
+          "needs:cli",
+          "by:official",
+          "stack:context7",
+          "implementation",
+          "debugging",
+          "migration"
+        ]
+      }
+    },
+    {
+      "id": "coreyhaines31/marketingskills/skills/conversion-tracking",
+      "name": "conversion-tracking",
+      "skills.sh": {
+        "url": "https://skills.sh/coreyhaines31/marketingskills/conversion-tracking",
+        "installs": 9100,
+        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 2777, 3725],
+        "firstSeen": "2026-10-19"
+      },
+      "skillMd": {
+        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Sets up, audits and fixes website conversion tracking for GA4, Google Ads, Meta and other ad platforms, and verifies test conversions arrive.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're setting up conversion tracking, or conversions stopped, double count, or GA4 and Google Ads disagree"
+            },
+            {
+              "label": "It does",
+              "text": "settles what counts as a conversion, where it must land and what fires it, then builds the tracking or diagnoses the fault"
+            },
+            {
+              "label": "You get",
+              "text": "a GTM import file or snippet that fires on confirmed success, or an audit with every finding marked observed, reported or inferred"
+            },
+            {
+              "label": "Insists on",
+              "text": "a test conversion seen arriving at the platform before setup counts as done, or a named check for you to run"
+            },
+            {
+              "label": "Asks first",
+              "text": "before firing a real test conversion or publishing a GTM container, and diagnoses before changing anything"
+            },
+            {
+              "label": "Unlike",
+              "text": "analytics, from the same repo, which plans events and UTMs; this one gets conversions to GA4 or ad platforms and proves they arrived"
+            }
+          ],
+          "text": "It splits conversions into two kinds: lead generation (forms, bookings, chats, calls), where success often has to be detected in the browser and every form tool signals it differently, and ecommerce, where an order record exists and the hard parts are values, deduplication and refunds. Before asking you anything, it reads your product marketing context if you have it, the live page, the codebase or the GTM container. Setup finds the tool's real success signal, picks a delivery path (the platform's native integration first, then browser tags with hashed-email matching turned on, then server-side options, with prices, when you reach that choice), and builds it, generating one GTM import file with a bundled Python script for covered form tools. It ships paste-in success detectors for 22 lead-gen tools, plus patterns for phone-number clicks, downloads, thank-you pages and AJAX forms. Audits route on your symptom, check a calendar of dated platform changes such as Shopify's script removals, and treat a 10 to 30% gap between GA4 and Google Ads as normal. One server-side tool in its references is a partner of the repo, and the agent discloses that whenever it names it.",
+          "permalink": "https://github.com/coreyhaines31/marketingskills/tree/96798cf38736ecdba015a1d2b0521b0c8f8f41dd/skills/conversion-tracking"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:remote",
+          "needs:none",
+          "by:community",
+          "stack:google-tag-manager",
+          "stack:google-analytics",
+          "stack:google-ads",
+          "stack:meta",
+          "conversion",
+          "marketing",
+          "verification",
+          "ecommerce"
+        ]
+      }
+    },
+    {
+      "id": "coreyhaines31/marketingskills/skills/link-building",
+      "name": "link-building",
+      "skills.sh": {
+        "url": "https://skills.sh/coreyhaines31/marketingskills/link-building",
+        "installs": 8700,
+        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 2711, 3524],
+        "firstSeen": "2026-10-19"
+      },
+      "skillMd": {
+        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Plans how to earn backlinks and third-party mentions that lift rankings and AI citations, from finding the link gap to outreach drafts.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "rankings stall on authority, or you want your product mentioned on the pages AI assistants cite"
+            },
+            {
+              "label": "It does",
+              "text": "checks the page itself and its page-level link gap first, then picks tactics by effort, qualifies prospects and drafts outreach"
+            },
+            {
+              "label": "You get",
+              "text": "a plan: diagnosis per target page, assets, three or four tactics, a prospect list, outreach drafts and 30- and 90-day targets"
+            },
+            {
+              "label": "Won't",
+              "text": "send outreach without your approval of the list and the copy, or recommend paid links that pass ranking credit"
+            },
+            {
+              "label": "Works with",
+              "text": "Ahrefs, Semrush, DataForSEO or Moz if you have them; Search Console and search operators otherwise"
+            }
+          ],
+          "text": "Every placement is judged twice: does it pass authority to a page that needs it, and is it on a page AI engines cite for your category, where a mention helps even without a link. It reads your product marketing context if you have it (a shared file on your product, audience and positioning that the repo's product-marketing skill writes), then asks for target pages, queries, rankings, linkable assets, budget, tools and link history. Before any outreach it confirms links are the bottleneck by comparing referring domains to the target page against the pages that outrank it, and sends content or intent problems to seo-audit. Tactics start with the cheap, high-yield ones: reclaiming unlinked mentions, partner and integration pages, and fixing moved or broken links, before best-of lists, resource pages, guest articles and handoffs to PR. It follows Google's spam policies: paid or exchanged placements carry rel=sponsored or nofollow, and it never uses private blog networks, paid insertions into old articles or automated link tools. Anchor text is left to the linking site.",
+          "permalink": "https://github.com/coreyhaines31/marketingskills/tree/96798cf38736ecdba015a1d2b0521b0c8f8f41dd/skills/link-building"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "seo",
+          "marketing"
+        ]
+      }
+    },
+    {
+      "id": "ibelick/ui-skills/skills/improve-ui",
+      "name": "improve-ui",
+      "skills.sh": {
+        "url": "https://skills.sh/ibelick/ui-skills/improve-ui",
+        "installs": 9000,
+        "weeklyInstalls": [526, 605, 628, 517, 505, 608, 670, 614],
+        "firstSeen": "2026-07-15"
+      },
+      "skillMd": {
+        "version": "00db7d656719c399c091f3ea138c6f42a7fa4d98",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Audits one product surface against its own design system, reports at most three proven UI problems, and writes implementation plans for another agent.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want an interface reviewed or cleaned up without losing its identity, or you suspect design-system drift"
+            },
+            {
+              "label": "It does",
+              "text": "traces one surface's routes, components and tokens, and keeps a finding only with a cited rule, a proven runtime path and one correction"
+            },
+            {
+              "label": "You get",
+              "text": "a table of up to three findings, one to improve first, then a self-contained plan for each finding you pick, in design-plans/"
+            },
+            {
+              "label": "Never",
+              "text": "edits product source, installs, formats or commits; another agent carries out the plans"
+            },
+            {
+              "label": "Skips",
+              "text": "accessibility and semantic HTML findings unless you ask for them"
+            }
+          ],
+          "text": "A read-only design audit that would rather report nothing than guess. It picks one coherent surface, such as one app's main task flow, and follows what actually renders it: routes, layouts, shared components, variants, resolved tokens and styles. It reads DESIGN.md and other design docs only after proving they're current and govern that surface, and writes down the design language it found. A candidate becomes a finding only with three proofs: a binding design decision or a direct contradiction in what users see, evidence that the cited value reaches the surface, and the one correction the evidence requires. It then tries to falsify each finding and deletes any that fail, overlap or would invent product intent. Judgments about hierarchy, clarity or usability need screenshots or user evidence you provide, and functional bugs, performance and code quality are out of scope unless you ask. After the report it stops and asks which findings to turn into plans, each written so an agent with no context can carry it out.",
+          "permalink": "https://github.com/ibelick/ui-skills/tree/00db7d656719c399c091f3ea138c6f42a7fa4d98/skills/improve-ui"
+        },
+        "tags": [
+          "category:design",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "design",
+          "design-system",
+          "code-review",
+          "handoff"
+        ]
+      }
+    },
+    {
+      "id": "ibelick/ui-skills/skills/ui-skills-root",
+      "name": "ui-skills-root",
+      "skills.sh": {
+        "url": "https://skills.sh/ibelick/ui-skills/ui-skills-root",
+        "installs": 7900,
+        "weeklyInstalls": [368, 461, 470, 427, 401, 439, 462, 422],
+        "firstSeen": "2026-06-14"
+      },
+      "skillMd": {
+        "version": "00db7d656719c399c091f3ea138c6f42a7fa4d98",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Picks one to three skills from the UI Skills registry for a UI task, loads them through the ui-skills CLI, then implements.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you start UI work and want the agent to pull in only the UI guidance the task needs"
+            },
+            {
+              "label": "It does",
+              "text": "checks the task is UI work, picks a category, lists its skills with npx ui-skills and loads the narrowest ones"
+            },
+            {
+              "label": "You get",
+              "text": "one skill by default, two when the task has two clear angles, three at most for broad reviews or redesigns"
+            },
+            {
+              "label": "Needs",
+              "text": "Node.js, to run npx ui-skills"
+            }
+          ],
+          "text": "The routing layer of UI Skills, ibelick's registry of skills for design engineers, and the skill that npx ui-skills start shows. When an agent in Codex, Cursor or Claude Code has a UI goal, it first decides whether the task is UI-related and returns 'no skill needed' if not, asking one short question when the goal is unclear. It then identifies the likely category, inspects it with the ui-skills CLI, and loads only the skills it selects, by slug. It routes by topic, then stack, then specificity: specific skills over broad ones, framework-specific ones when the stack is obvious, and the narrowest craft, visual or layout skill for quick cleanups. With that context loaded, it implements the change.",
+          "permalink": "https://github.com/ibelick/ui-skills/tree/00db7d656719c399c091f3ea138c6f42a7fa4d98/skills/ui-skills-root"
+        },
+        "tags": [
+          "category:skill-tools",
+          "category:design",
+          "type:router",
+          "effect:none",
+          "needs:cli",
+          "by:official",
+          "skill-discovery",
+          "design"
+        ]
+      }
+    },
+    {
+      "id": "chromedevtools/chrome-devtools-mcp/skills/chrome-devtools",
+      "name": "chrome-devtools",
+      "skills.sh": {
+        "url": "https://skills.sh/chromedevtools/chrome-devtools-mcp/chrome-devtools",
+        "installs": 9000,
+        "weeklyInstalls": [248, 250, 269, 281, 351, 346, 241, 215],
+        "firstSeen": "2026-01-27"
+      },
+      "skillMd": {
+        "version": "0b37364dc0a88a804c6d73d3335e776adc7f33c4",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Drives and inspects a live Chrome through the Chrome DevTools MCP server, for debugging pages, automating interactions, profiling performance and testing extensions.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want the agent to debug a web page, click through it, read its network traffic or check its performance in a real Chrome"
+            },
+            {
+              "label": "It does",
+              "text": "navigates, waits for content, takes a text snapshot whose element uids the click and fill tools need, then acts"
+            },
+            {
+              "label": "Needs",
+              "text": "the chrome-devtools-mcp server connected to your agent, not in its --slim mode"
+            },
+            {
+              "label": "Also does",
+              "text": "CSS cascade inspection, logpoints instead of code edits, and unpacked extension tests when the server runs with --categoryExtensions"
+            },
+            {
+              "label": "Unlike",
+              "text": "chrome-devtools-cli, from the same repo, which runs the same browser tools as shell commands"
+            }
+          ],
+          "text": "The Chrome DevTools team's own guide to its MCP server. The browser starts on the first tool call with a persistent Chrome profile. Page tools take a pageId from list_pages or new_page, and the agent finds elements in a text snapshot of the page, taking a fresh one when an element has gone. The usual order is navigate, wait for known content, snapshot, then click or fill by uid; calls can run in parallel as long as that order holds. To keep context small it writes large screenshots, snapshots and traces to files, pages and filters lists, and skips snapshots after input unless it needs them. Screenshots are for visual checks, get_css_styles for matched rules and CSS variables, evaluate_script for other runtime data, and set_logpoints for logging values at source lines, source maps included. With --categoryExtensions it installs an unpacked extension, opens its popup or side panel, evaluates code in its service worker and checks its content scripts; without the flag it asks you to change the server config and restart. Memory tools need --memoryDebugging.",
+          "permalink": "https://github.com/chromedevtools/chrome-devtools-mcp/tree/0b37364dc0a88a804c6d73d3335e776adc7f33c4/skills/chrome-devtools"
+        },
+        "tags": [
+          "category:browser",
+          "category:debugging",
+          "type:tool",
+          "effect:remote",
+          "needs:mcp",
+          "needs:browser",
+          "by:official",
+          "stack:chrome-devtools",
+          "browser-automation",
+          "debugging",
+          "performance",
+          "testing"
+        ]
+      }
+    },
+    {
+      "id": "chromedevtools/chrome-devtools-mcp/skills/chrome-devtools-cli",
+      "name": "chrome-devtools-cli",
+      "skills.sh": {
+        "url": "https://skills.sh/chromedevtools/chrome-devtools-mcp/chrome-devtools-cli",
+        "installs": 7900,
+        "weeklyInstalls": [246, 337, 526, 586, 1005, 721, 220, 397],
+        "firstSeen": "2026-03-11"
+      },
+      "skillMd": {
+        "version": "0b37364dc0a88a804c6d73d3335e776adc7f33c4",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Controls and inspects Chrome from shell commands or scripts with the chrome-devtools CLI: clicks and forms, screenshots, network, performance traces and heap snapshots.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want browser automation or debugging from the terminal or a shell script, without connecting an MCP server to your agent"
+            },
+            {
+              "label": "It does",
+              "text": "runs chrome-devtools commands against pages by ID: a snapshot for element uids, then click, fill, type, navigate or emulate"
+            },
+            {
+              "label": "You get",
+              "text": "Markdown-like text or JSON, plus screenshots, traces, heap snapshots, screencasts and Lighthouse reports saved to files"
+            },
+            {
+              "label": "Needs",
+              "text": "the chrome-devtools CLI, a one-time install, and Chrome"
+            },
+            {
+              "label": "Unlike",
+              "text": "chrome-devtools, from the same repo, which uses the same tools through MCP"
+            }
+          ],
+          "text": "A command reference for the chrome-devtools CLI that ships with chrome-devtools-mcp. A background server starts on the first command and state persists between commands, so the agent doesn't start or stop it each time. Required arguments are positional and options are flags. Commands cover input (click, drag, fill, hover, key presses, typing, file uploads, dialogs), navigation and tabs, emulation of network, CPU, geolocation, color scheme, viewport and user agent, performance traces and insights, heap snapshots with deeper analysis behind --memoryDebugging, network requests, console messages, CSS styles, JavaScript evaluation, Lighthouse audits, screenshots and mp4 screencasts, Chrome extensions, and installable web apps behind a flag. Experimental tools, such as clicking at coordinates, need their own flags at start, and --headless=false shows the browser window.",
+          "permalink": "https://github.com/chromedevtools/chrome-devtools-mcp/tree/0b37364dc0a88a804c6d73d3335e776adc7f33c4/skills/chrome-devtools-cli"
+        },
+        "tags": [
+          "category:browser",
+          "category:debugging",
+          "type:tool",
+          "effect:remote",
+          "needs:cli",
+          "needs:browser",
+          "by:official",
+          "stack:chrome-devtools",
+          "browser-automation",
+          "debugging",
+          "performance"
+        ],
+        "note": "By default the CLI can read and write files anywhere on your system; pass --allowUnrestrictedPaths=false to limit it to the temp folder."
+      }
+    },
+    {
+      "id": "sickn33/agentic-awesome-skills/skills/api-security-best-practices",
+      "name": "api-security-best-practices",
+      "skills.sh": {
+        "url": "https://skills.sh/sickn33/agentic-awesome-skills/api-security-best-practices",
+        "installs": 8900,
+        "weeklyInstalls": [59, 65, 79, 89, 34, 34, 47, 37],
+        "firstSeen": "2026-01-22"
+      },
+      "skillMd": {
+        "version": "828257c3037dc7c3c3ec987decc5a603025a0ce5",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Reviews and hardens API endpoints: token verification, per-object authorization, input validation, rate limiting, password storage and safe logging.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you add a protected endpoint, review who can reach which objects, or investigate an API abuse path"
+            },
+            {
+              "label": "It does",
+              "text": "follows the request from caller identity through authorization and validated input to storage and response, keeping your existing identity provider"
+            },
+            {
+              "label": "You get",
+              "text": "the route policy, the failure cases reproduced, the exact test command and output, and the gaps left untested"
+            },
+            {
+              "label": "Examples in",
+              "text": "Node, with Express, jsonwebtoken and Zod, as sketches to check against your installed versions"
+            },
+            {
+              "label": "Isn't",
+              "text": "a penetration test or certified audit; it tests with synthetic identities in a test environment"
+            }
+          ],
+          "text": "Security guidance for one API boundary at a time, starting from the failing route when there's a concrete defect rather than deploying new security infrastructure. It covers verifying JWTs against a fixed algorithm, issuer and audience, and rotating refresh tokens in one transaction so that reuse revokes the session family; authorizing each object and tenant inside the database write instead of checking first; parsing input once, rejecting partial numbers, unknown properties and oversized bodies, with notes on HTML sanitizing, outbound URLs and uploads; rate limits with shared stores, correct proxy trust and accurate Retry-After headers, without claiming DDoS protection; Argon2id for new password storage; and logs that never hold tokens, passwords or request bodies. A worked example takes a PATCH /users/:id endpoint through missing tokens, malformed IDs, an extra role field and cross-tenant access. It says plainly that passing structural checks doesn't prove an API secure, and wants separate authority before production scans, account writes or messages.",
+          "permalink": "https://github.com/sickn33/agentic-awesome-skills/tree/828257c3037dc7c3c3ec987decc5a603025a0ce5/skills/api-security-best-practices"
+        },
+        "tags": [
+          "category:security",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:node",
+          "stack:express",
+          "security",
+          "auth",
+          "backend"
+        ]
+      }
+    },
+    {
+      "id": "callstack/agent-device/skills/dogfood",
+      "name": "dogfood",
+      "skills.sh": {
+        "url": "https://skills.sh/callstack/agent-device/dogfood",
+        "installs": 12300,
+        "weeklyInstalls": [500, 595, 648, 690, 681, 531, 521, 543],
+        "firstSeen": "2026-03-02"
+      },
+      "skillMd": {
+        "version": "463fd7b4d8168aadffc1b1613df96a342a47953e",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Explores a mobile app on iOS or Android with agent-device to find bugs and UX issues, writing a report with reproducible evidence.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want an app dogfooded, bug-hunted or QA'd on an iPhone, Android phone, simulator or emulator"
+            },
+            {
+              "label": "It does",
+              "text": "opens the app, maps its navigation, works through main flows and edge states, and records evidence for each issue as it finds it"
+            },
+            {
+              "label": "You get",
+              "text": "./dogfood-output/report.md with severity counts and, per finding, repro commands, expected and actual behavior, and screenshots or video"
+            },
+            {
+              "label": "Needs",
+              "text": "agent-device 0.14.0 or later, on your PATH or through an exact-version npm command you approve; it won't install or upgrade it on its own"
+            },
+            {
+              "label": "Judges",
+              "text": "only what the running app does, never its source code"
+            },
+            {
+              "label": "Unlike",
+              "text": "agent-device, the repo's skill for driving an app, it runs a whole QA pass and writes the report"
+            }
+          ],
+          "text": "A short router: the SKILL.md checks the agent-device version, then reads the CLI's own guide with agent-device help dogfood, so the workflow matches the installed CLI. That guide has the agent find the target app, sign in or ask you for a code if needed, capture a baseline snapshot and screenshot, map the top-level navigation, then work through main flows and edge states: forms, empty, error and loading states, offline and retry, permissions, settings, accessibility labels, orientation and keyboard, and obvious stalls. Each issue gets its evidence on the spot, step screenshots and usually a video for interactive bugs, one screenshot for static ones, and a severity from critical to low. React Native error overlays count as findings or blockers, and Expo Go and dev-client URLs are handled. It aims for 5 to 10 well-evidenced issues, reports the ground covered and the remaining risk if it finds none, keeps every artifact, and closes the session, shutting down any simulator it booted unless you want it kept. Its allowed tools are limited to agent-device commands.",
+          "permalink": "https://github.com/callstack/agent-device/tree/463fd7b4d8168aadffc1b1613df96a342a47953e/skills/dogfood"
+        },
+        "tags": [
+          "category:debugging",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:official",
+          "stack:agent-device",
+          "testing",
+          "mobile",
+          "computer-use"
+        ]
+      }
+    },
+    {
+      "id": "jeffallan/claude-skills/skills/devops-engineer",
+      "name": "devops-engineer",
+      "skills.sh": {
+        "url": "https://skills.sh/jeffallan/claude-skills/devops-engineer",
+        "installs": 11800,
+        "weeklyInstalls": [190, 190, 203, 305, 356, 441, 344, 312],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "078a25cc5bfd8011459be7b91d004e900c1d02d3",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds CI/CD pipelines, Dockerfiles, Kubernetes manifests and Terraform, and deploys to production only after your approval, with a rollback plan.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need a pipeline, a container, infrastructure as code or a deployment, or are handling a production incident"
+            },
+            {
+              "label": "It does",
+              "text": "works through assess, design, implement, validate, plan rollout, deploy and monitor, running terraform plan and linters before anything ships"
+            },
+            {
+              "label": "You get",
+              "text": "pipeline configs, Dockerfiles, Kubernetes or Terraform files, and a deployment summary with its rollback command and checks"
+            },
+            {
+              "label": "Asks first",
+              "text": "before any production or customer-facing deploy; without your approval it stops with a blocked verdict"
+            },
+            {
+              "label": "Covers",
+              "text": "GitHub Actions, GitLab CI, Docker, Kubernetes, Terraform, rollout strategies, platform engineering, releases and incident response"
+            }
+          ],
+          "text": "It takes the view of a senior DevOps engineer with three hats: build, deploy and operate. Its rules: infrastructure as code only, health checks and readiness probes, secrets in a secret manager rather than code, env files or CI variables, container scanning in CI, GitOps with Argo CD or Flux for Kubernetes, no latest tags in production, no skipped staging and no Friday deploys without monitoring. Nine reference files load by topic, from GitHub Actions and GitLab CI to blue-green and canary rollouts, developer portals such as Backstage, feature flags and postmortems. Examples include a GitHub Actions job that builds, tests, scans and pushes an image, a two-stage Dockerfile, and a Kubernetes rollback with its verification. It's one of 67 skills in its repo.",
+          "permalink": "https://github.com/jeffallan/claude-skills/tree/078a25cc5bfd8011459be7b91d004e900c1d02d3/skills/devops-engineer"
+        },
+        "tags": [
+          "category:cloud",
+          "type:workflow",
+          "effect:remote",
+          "needs:none",
+          "by:community",
+          "stack:docker",
+          "stack:kubernetes",
+          "stack:terraform",
+          "stack:github",
+          "deployment",
+          "ci",
+          "infrastructure",
+          "observability"
+        ]
+      }
+    },
+    {
+      "id": "jeffallan/claude-skills/skills/architecture-designer",
+      "name": "architecture-designer",
+      "skills.sh": {
+        "url": "https://skills.sh/jeffallan/claude-skills/architecture-designer",
+        "installs": 8200,
+        "weeklyInstalls": [158, 172, 156, 165, 196, 231, 223, 239],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "078a25cc5bfd8011459be7b91d004e900c1d02d3",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Designs system architecture from your requirements, with a Mermaid diagram, stated trade-offs and an Architecture Decision Record for each key choice.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're designing a new system, choosing between patterns or databases, or reviewing an existing design"
+            },
+            {
+              "label": "It does",
+              "text": "gathers functional and non-functional requirements, matches them to patterns, designs with trade-offs stated, then reviews with you"
+            },
+            {
+              "label": "You get",
+              "text": "a requirements summary, a Mermaid architecture diagram, ADRs with alternatives and consequences, technology picks and risks"
+            },
+            {
+              "label": "ADR means",
+              "text": "Architecture Decision Record: a short note of a decision, its context, the alternatives considered and what it costs"
+            },
+            {
+              "label": "Not for",
+              "text": "code-level design patterns or database-only design"
+            }
+          ],
+          "text": "It acts as a principal architect who prefers pragmatic trade-offs to designing for hypothetical scale. Requirements must be fully covered before design starts, and a failed review sends it back to design with the feedback recorded. Its rules: document every significant decision, weigh trade-offs and not just benefits, plan for failure, count operational cost and complexity, consider security, and never pick a technology without comparing alternatives. Five reference files load as needed: monolith-versus-microservices patterns, an ADR template, a full system design template, database selection and a non-functional requirements checklist. Its examples are an API gateway diagram and an ADR choosing PostgreSQL over MongoDB and DynamoDB.",
+          "permalink": "https://github.com/jeffallan/claude-skills/tree/078a25cc5bfd8011459be7b91d004e900c1d02d3/skills/architecture-designer"
+        },
+        "tags": [
+          "category:planning",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "architecture",
+          "requirements",
+          "diagrams"
+        ]
+      }
+    },
+    {
+      "id": "jeffallan/claude-skills/skills/embedded-systems",
+      "name": "embedded-systems",
+      "skills.sh": {
+        "url": "https://skills.sh/jeffallan/claude-skills/embedded-systems",
+        "installs": 7100,
+        "weeklyInstalls": [123, 120, 138, 132, 132, 188, 158, 202],
+        "firstSeen": "2026-01-21"
+      },
+      "skillMd": {
+        "version": "078a25cc5bfd8011459be7b91d004e900c1d02d3",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes firmware for microcontrollers such as STM32 and ESP32, bare-metal or on FreeRTOS, within tight memory, timing and power budgets.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're writing drivers, interrupt handlers, RTOS tasks or low-power code for a microcontroller"
+            },
+            {
+              "label": "It does",
+              "text": "starts from the chip's memory, timing and power limits, designs tasks and interrupts, then writes drivers and application code"
+            },
+            {
+              "label": "You get",
+              "text": "hardware setup, drivers and interrupt handlers, RTOS tasks or a main loop, and a flash, RAM and power summary"
+            },
+            {
+              "label": "Checks",
+              "text": "builds with -Wall -Werror, runs static analysis such as cppcheck, checks register bits against the datasheet, and measures stack use and interrupt timing"
+            }
+          ],
+          "text": "Its rules come from resource-constrained work: volatile for hardware registers and variables shared with interrupts, short interrupt handlers that hand work to tasks, a watchdog timer, proper locking around shared resources, no blocking calls in interrupts, no unbounded dynamic allocation, and care with floating point on chips without hardware support. Timing is verified with a logic analyzer or oscilloscope and stack headroom with FreeRTOS's high-water mark, and worst-case load must miss no deadline; any failure sends it back to the validation step, with its warning-free build and static analysis. References cover FreeRTOS patterns, bare-metal register programming, sleep modes and battery life, I2C, SPI, UART and CAN, and code size and RAM. Examples include an STM32 UART interrupt with a critical section, a periodic FreeRTOS sensor task and a register-level timer blink.",
+          "permalink": "https://github.com/jeffallan/claude-skills/tree/078a25cc5bfd8011459be7b91d004e900c1d02d3/skills/embedded-systems"
+        },
+        "tags": [
+          "category:engineering",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "stack:stm32",
+          "stack:esp32",
+          "stack:freertos",
+          "implementation",
+          "performance"
+        ]
+      }
+    },
+    {
+      "id": "jeffallan/claude-skills/skills/websocket-engineer",
+      "name": "websocket-engineer",
+      "skills.sh": {
+        "url": "https://skills.sh/jeffallan/claude-skills/websocket-engineer",
+        "installs": 7100,
+        "weeklyInstalls": [128, 110, 122, 118, 119, 177, 160, 176],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "078a25cc5bfd8011459be7b91d004e900c1d02d3",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds real-time messaging with WebSockets or Socket.IO: authenticated connections, rooms, presence and Redis-backed scaling across servers.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're building chat, live updates, presence or other server push that must hold up under many connections"
+            },
+            {
+              "label": "It does",
+              "text": "sizes connections and message volume, designs pub/sub and failover, builds the server, tests it locally with wscat, then scales"
+            },
+            {
+              "label": "You get",
+              "text": "a server setup, connect, message and disconnect handlers, a client that reconnects, and a scaling plan"
+            },
+            {
+              "label": "Scales with",
+              "text": "a Redis adapter once a pub/sub round trip works, sticky sessions confirmed with test connections across instances, then load balancing"
+            }
+          ],
+          "text": "Its examples are Socket.IO in Node.js: a JWT checked in middleware before a connection opens, rooms to scope messages, presence kept in Redis, and a client that reconnects with exponential backoff and jitter and queues messages while offline. Rules: sticky sessions behind a load balancer, heartbeats to detect dead connections, cleanup of presence and room membership on disconnect, no large in-memory state without a clustering plan, and load tests before production, since connection spikes behave differently from HTTP traffic. Its last step sets up tracking of connection counts, latency, throughput and error rates, with alerts on connection spikes and error-rate thresholds. References cover the WebSocket protocol (handshake, frames, close codes), scaling, room and broadcast patterns, security such as rate limiting and CORS, and when server-sent events or long polling fit better.",
+          "permalink": "https://github.com/jeffallan/claude-skills/tree/078a25cc5bfd8011459be7b91d004e900c1d02d3/skills/websocket-engineer"
+        },
+        "tags": [
+          "category:engineering",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "stack:socket-io",
+          "stack:redis",
+          "stack:node",
+          "backend",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "id": "ceorkm/mobile-app-ui-design",
+      "name": "mobile-app-ui-design",
+      "skills.sh": {
+        "url": "https://skills.sh/ceorkm/mobile-app-ui-design/mobile-app-ui-design",
+        "installs": 12500,
+        "weeklyInstalls": [525, 471, 437, 366, 416, 457, 462, 523],
+        "firstSeen": "2026-02-15"
+      },
+      "skillMd": {
+        "version": "0ad61f025fc647417d4b8fb0ca786cb493c5156a",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Designs mobile app screens step by step, applying rules for typography, 60/30/10 color, an 8-point grid and memorable success moments.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're designing or improving a mobile app screen, onboarding flow or navigation, often as a React or HTML prototype"
+            },
+            {
+              "label": "It does",
+              "text": "works out the app, user and main action, maps the flow, applies its visual rules, designs the key moments, then polishes"
+            },
+            {
+              "label": "Rules",
+              "text": "one font family with at most 4 sizes and 2 weights, 60/30/10 color, an 8-point spacing grid, main actions in the bottom third"
+            },
+            {
+              "label": "Peak-end rule",
+              "text": "people remember a task's most intense moment and its ending, so it designs both, with celebratory feedback and a closing summary"
+            },
+            {
+              "label": "Builds with",
+              "text": "Tailwind, Lucide icons and Recharts, at a 375px baseline width"
+            }
+          ],
+          "text": "It models its advice on apps such as Airbnb, Duolingo, Spotify, Revolut and Phantom, and starts every screen from three questions: what the user is trying to do, how it should make them feel, and what they should notice first. The rules are specific: 60/30/10 means 60% neutral base, 30% complementary and 10% accent; secondary text uses 60-70% opacity instead of a new color, shadows are tinted to the background, cards get 24-32px of padding, tap targets are at least 44pt, and empty, loading, error and success states are all designed. Patterns adapt screens to new, returning and power users, fill search screens with recent and popular items, show order status as a visual timeline and offer tappable choices instead of typing. A list of anti-patterns rules out random spacing, actions out of thumb reach and labels bigger than their values. A reference file covers conventions by industry, such as finance, health or crypto. When you mention publishing to an app store, it suggests the author's separate ASO Shots skill for screenshots.",
+          "permalink": "https://github.com/ceorkm/mobile-app-ui-design/tree/0ad61f025fc647417d4b8fb0ca786cb493c5156a"
+        },
+        "tags": [
+          "category:design",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:react",
+          "stack:tailwind",
+          "design",
+          "mobile",
+          "design-system"
+        ]
       }
     }
   ]
