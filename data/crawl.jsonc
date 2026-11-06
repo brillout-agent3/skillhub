@@ -81,19 +81,6 @@
       }
     },
     {
-      "name": "golang-gopls",
-      "repo": "samber/cc-skills-golang",
-      "official": false,
-      "stars": 3806,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/samber/cc-skills-golang/golang-gopls",
-        "installs": 12300,
-        "weeklyInstalls": [645, 725, 637, 976, 1482, 1290, 1009, 862],
-        "firstSeen": "2026-07-06"
-      }
-    },
-    {
       "name": "humanizer",
       "repo": "blader/humanizer",
       "official": false,
@@ -104,19 +91,6 @@
         "installs": 12100,
         "weeklyInstalls": [756, 689, 582, 553, 569, 790, 837, 944],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "vitepress",
-      "repo": "antfu/skills",
-      "official": false,
-      "stars": 6043,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/antfu/skills/vitepress",
-        "installs": 12000,
-        "weeklyInstalls": [136, 100, 118, 178, 137, 120, 115, 122],
-        "firstSeen": "2026-01-28"
       }
     },
     {
@@ -143,19 +117,6 @@
         "installs": 11900,
         "weeklyInstalls": [596, 514, 318, 337, 485, 595, 523, 615],
         "firstSeen": "2026-05-14"
-      }
-    },
-    {
-      "name": "svelte-core-bestpractices",
-      "repo": "sveltejs/ai-tools",
-      "official": false,
-      "stars": 337,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/sveltejs/ai-tools/svelte-core-bestpractices",
-        "installs": 11900,
-        "weeklyInstalls": [634, 666, 502, 911, 477, 252, 654, 744],
-        "firstSeen": "2026-02-11"
       }
     },
     {
@@ -406,19 +367,6 @@
       }
     },
     {
-      "name": "gemini-live-api-dev",
-      "repo": "google-gemini/gemini-skills",
-      "official": false,
-      "stars": 4414,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google-gemini/gemini-skills/gemini-live-api-dev",
-        "installs": 10700,
-        "weeklyInstalls": [260, 438, 362, 389, 390, 244, 201, 288],
-        "firstSeen": "2026-03-03"
-      }
-    },
-    {
       "name": "gcode",
       "repo": "earthtojake/text-to-cad",
       "official": false,
@@ -458,19 +406,6 @@
       }
     },
     {
-      "name": "swift-testing-pro",
-      "repo": "twostraws/swift-testing-agent-skill",
-      "official": false,
-      "stars": 476,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/twostraws/swift-testing-agent-skill/swift-testing-pro",
-        "installs": 10500,
-        "weeklyInstalls": [225, 218, 238, 292, 308, 293, 250, 251],
-        "firstSeen": "2026-03-11"
-      }
-    },
-    {
       "name": "pre-mortem",
       "repo": "phuryn/pm-skills",
       "official": false,
@@ -497,19 +432,6 @@
       }
     },
     {
-      "name": "sentry-fix-issues",
-      "repo": "getsentry/sentry-for-ai",
-      "official": true,
-      "stars": 275,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/getsentry/sentry-for-ai/sentry-fix-issues",
-        "installs": 10400,
-        "weeklyInstalls": [346, 369, 313, 303, 310, 403, 316, 207],
-        "firstSeen": "2026-02-28"
-      }
-    },
-    {
       "name": "deep-research",
       "repo": "199-biotechnologies/claude-deep-research-skill",
       "official": false,
@@ -520,19 +442,6 @@
         "installs": 10300,
         "weeklyInstalls": [110, 79, 72, 63, 77, 65, 67, 72],
         "firstSeen": "2026-01-21"
-      }
-    },
-    {
-      "name": "swiftui-performance-audit",
-      "repo": "dimillian/skills",
-      "official": false,
-      "stars": 4027,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/dimillian/skills/swiftui-performance-audit",
-        "installs": 10300,
-        "weeklyInstalls": [148, 248, 137, 283, 159, 158, 214, 235],
-        "firstSeen": "2026-01-20"
       }
     },
     {
@@ -624,32 +533,6 @@
         "installs": 10100,
         "weeklyInstalls": [683, 874, 980, 622, 375, 430, 516, 426],
         "firstSeen": "2026-08-10"
-      }
-    },
-    {
-      "name": "notebooklm",
-      "repo": "teng-lin/notebooklm-py",
-      "official": false,
-      "stars": 20140,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/teng-lin/notebooklm-py/notebooklm",
-        "installs": 10100,
-        "weeklyInstalls": [152, 108, 110, 104, 125, 150, 149, 138],
-        "firstSeen": "2026-01-21"
-      }
-    },
-    {
-      "name": "frontend-code-review",
-      "repo": "langgenius/dify",
-      "official": false,
-      "stars": 160564,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/langgenius/dify/frontend-code-review",
-        "installs": 10100,
-        "weeklyInstalls": [94, 85, 95, 69, 48, 31, 40, 25],
-        "firstSeen": "2026-01-20"
       }
     },
     {
@@ -1953,19 +1836,6 @@
       }
     },
     {
-      "name": "mongodb-query-optimizer",
-      "repo": "mongodb/agent-skills",
-      "official": false,
-      "stars": 195,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/mongodb/agent-skills/mongodb-query-optimizer",
-        "installs": 7400,
-        "weeklyInstalls": [309, 290, 325, 283, 330, 304, 327, 287],
-        "firstSeen": "2026-03-26"
-      }
-    },
-    {
       "name": "antislop-human",
       "repo": "miqdadbadjuber/anti-slop",
       "official": false,
@@ -2197,19 +2067,6 @@
         "installs": 7200,
         "weeklyInstalls": [1244, 846, 784, 644, 565, 509, 765, 715],
         "firstSeen": "2026-09-03"
-      }
-    },
-    {
-      "name": "mongodb-schema-design",
-      "repo": "mongodb/agent-skills",
-      "official": false,
-      "stars": 195,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/mongodb/agent-skills/mongodb-schema-design",
-        "installs": 7200,
-        "weeklyInstalls": [284, 255, 312, 271, 321, 274, 300, 253],
-        "firstSeen": "2026-03-22"
       }
     },
     {
@@ -34139,6 +33996,50 @@
     {
       "url": "https://skills.sh/planetscale/database-skills/postgres",
       "note": "Tool docs: an agent's manual for postgres and planetscale."
+    },
+    {
+      "url": "https://skills.sh/mongodb/agent-skills/mongodb-query-optimizer",
+      "note": "Tool docs: an agent's manual for mongodb."
+    },
+    {
+      "url": "https://skills.sh/mongodb/agent-skills/mongodb-schema-design",
+      "note": "Tool docs: an agent's manual for mongodb."
+    },
+    {
+      "url": "https://skills.sh/samber/cc-skills-golang/golang-gopls",
+      "note": "Tool docs: an agent's manual for gopls and go."
+    },
+    {
+      "url": "https://skills.sh/antfu/skills/vitepress",
+      "note": "Tool docs: an agent's manual for vitepress."
+    },
+    {
+      "url": "https://skills.sh/sveltejs/ai-tools/svelte-core-bestpractices",
+      "note": "Tool docs: an agent's manual for svelte."
+    },
+    {
+      "url": "https://skills.sh/google-gemini/gemini-skills/gemini-live-api-dev",
+      "note": "Tool docs: an agent's manual for gemini."
+    },
+    {
+      "url": "https://skills.sh/twostraws/swift-testing-agent-skill/swift-testing-pro",
+      "note": "Tool docs: an agent's manual for swift-testing."
+    },
+    {
+      "url": "https://skills.sh/getsentry/sentry-for-ai/sentry-fix-issues",
+      "note": "Retired: its repo freezes it under skills-legacy/, outside its published plugins, and sentry-debug-issue now does its job."
+    },
+    {
+      "url": "https://skills.sh/dimillian/skills/swiftui-performance-audit",
+      "note": "Tool docs: an agent's manual for swiftui."
+    },
+    {
+      "url": "https://skills.sh/teng-lin/notebooklm-py/notebooklm",
+      "note": "Tool docs: an agent's manual for the notebooklm-py CLI."
+    },
+    {
+      "url": "https://skills.sh/langgenius/dify/frontend-code-review",
+      "note": "Internal: an agent's manual for Dify's own frontend codebase."
     }
   ]
 }
