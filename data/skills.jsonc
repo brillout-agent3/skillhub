@@ -22185,6 +22185,563 @@
           "agent-workflows"
         ]
       }
+    },
+    {
+      "id": "wshobson/agents/plugins/security-scanning/skills/security-requirement-extraction",
+      "name": "security-requirement-extraction",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/security-requirement-extraction",
+        "installs": 26300,
+        "weeklyInstalls": [625, 739, 1041, 1111, 768, 831, 953, 866],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Turns threat models and business needs into specific, testable security requirements, user stories and test cases, mapped to compliance frameworks.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you have a threat model or business security goals and need requirements, security user stories or acceptance criteria a team can build and test against"
+            },
+            {
+              "label": "It does",
+              "text": "traces each requirement from a business need to a security requirement to a technical control, typed as functional, non-functional or constraint, with priority and risk level"
+            },
+            {
+              "label": "You get",
+              "text": "requirements with acceptance criteria and test specifications, security user stories grouped into epics, and mappings to PCI DSS, HIPAA, GDPR and OWASP controls"
+            },
+            {
+              "label": "Works with",
+              "text": "threat models whose threats carry STRIDE categories, the six kinds of threat from spoofing and tampering to elevation of privilege, which its templates turn into requirement patterns"
+            }
+          ],
+          "text": "A reference for the step after threat modeling. It sorts security requirements into functional (what the system must do), non-functional (how well it must do it) and constraints (limits such as approved crypto libraries), and gives each one a link to the threat or compliance rule behind it, a way to test it, a priority and a risk level. Its templates, written in Python and kept in a separate file, model requirements and sets of them, turn STRIDE-labelled threats into requirement patterns (spoofing becomes authentication and session rules, tampering becomes input validation and integrity checks), set priority from a threat's impact times its likelihood, map requirements to PCI DSS, HIPAA, GDPR and OWASP controls with a traceability matrix and a gap analysis, and write security user stories and epics with acceptance criteria and a definition of done. The rules: trace every requirement to a threat, make it specific enough to test, define when it's done, map to compliance early, and never write \"be secure\" as a requirement.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/security-scanning/skills/security-requirement-extraction"
+        },
+        "tags": [
+          "category:security",
+          "category:planning",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "security",
+          "requirements"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/backend-development/skills/architecture-patterns",
+      "name": "architecture-patterns",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/architecture-patterns",
+        "installs": 25000,
+        "weeklyInstalls": [308, 312, 396, 453, 421, 397, 405, 469],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Applies Clean Architecture, Hexagonal Architecture and Domain-Driven Design to backend services, with layer rules, ports, aggregates and in-memory test adapters.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're designing a backend service, untangling business logic from ORM models or HTTP code, splitting a monolith into bounded contexts, or breaking dependency cycles between layers"
+            },
+            {
+              "label": "It does",
+              "text": "gives the agent the rules of Clean and Hexagonal Architecture and the strategic and tactical patterns of Domain-Driven Design, with Python examples"
+            },
+            {
+              "label": "You get",
+              "text": "a layered structure where dependencies point inward, interfaces at each boundary, and use cases you can test without a database"
+            },
+            {
+              "label": "Also covers",
+              "text": "troubleshooting, such as circular imports between layers, ORM annotations on domain entities, overgrown controllers and one context importing another's entities"
+            }
+          ],
+          "text": "A reference for structuring backend code. Clean Architecture's layers (entities, use cases, interface adapters, frameworks) depend only inward. Hexagonal Architecture keeps the domain core behind ports, abstract interfaces, and plugs adapters such as a PostgreSQL or Stripe implementation in at the edges. From Domain-Driven Design it takes bounded contexts, a separate model per subdomain, and a ubiquitous language shared with domain experts, plus entities, value objects, aggregates, repositories and domain events. The sign it's done right: every use case runs in a plain unit test against an in-memory repository, with no database, Docker or network. Examples are in Python. Two more files hold worked implementations and advanced patterns: a multi-service project tree, Onion versus Clean Architecture, an anti-corruption layer between contexts, context maps, dependency injection wiring, aggregate design heuristics, domain events through a transactional outbox, and finding dependency cycles with pydeps.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/backend-development/skills/architecture-patterns"
+        },
+        "tags": [
+          "category:engineering",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:python",
+          "architecture",
+          "domain-modeling",
+          "backend"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/llm-application-dev/skills/prompt-engineering-patterns",
+      "name": "prompt-engineering-patterns",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/prompt-engineering-patterns",
+        "installs": 24100,
+        "weeklyInstalls": [343, 370, 383, 396, 389, 411, 390, 365],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Applies prompt engineering techniques, such as few-shot examples, chain-of-thought, structured outputs and system prompt design, to prompts for production LLM applications.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're writing, optimizing or debugging the prompts inside an LLM application, or a prompt gives inconsistent or unparseable output"
+            },
+            {
+              "label": "It does",
+              "text": "covers few-shot example selection, chain-of-thought with self-verification, structured outputs with Pydantic, prompt templates, system prompts and recovery from malformed output"
+            },
+            {
+              "label": "You get",
+              "text": "prompts built from those patterns, and metrics to track them by: accuracy, consistency, latency, token use and the share of valid outputs"
+            },
+            {
+              "label": "Works with",
+              "text": "Python, with examples that use the Anthropic SDK and LangChain"
+            }
+          ],
+          "text": "A reference for prompts that run inside an application rather than in a chat. Its patterns: few-shot prompting with examples picked by semantic similarity, chain-of-thought with a verification step, structured outputs enforced by a Pydantic schema, progressive disclosure (start with a plain instruction and add constraints, reasoning, then examples only when needed), recovery when output fails to parse, and role-based system prompts. It also shows prompts combined with retrieval (RAG) and with validation, shorter prompts that save tokens, and caching a long system prompt. Best practices: be specific, show examples rather than describe, enforce schemas, test on varied inputs, and version prompts like code. Pitfalls include starting complex, examples that don't match the task, overflowing the context window and assuming output is always well-formed.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/llm-application-dev/skills/prompt-engineering-patterns"
+        },
+        "tags": [
+          "category:agents",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:python",
+          "stack:langchain",
+          "stack:claude",
+          "agent-development"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/documentation-generation/skills/architecture-decision-records",
+      "name": "architecture-decision-records",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/architecture-decision-records",
+        "installs": 23900,
+        "weeklyInstalls": [860, 626, 747, 741, 740, 1524, 1115, 1057],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes and maintains Architecture Decision Records, with templates, a numbered docs/adr index, a status lifecycle and a review checklist.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're making or recording a significant technical decision, such as a database or framework choice, or setting up a decision process for a team"
+            },
+            {
+              "label": "It does",
+              "text": "says when an ADR is worth writing, how one moves from proposed to accepted, deprecated or superseded, and how to keep a numbered index in docs/adr"
+            },
+            {
+              "label": "You get",
+              "text": "ADRs from five templates: standard (MADR), lightweight, a one-sentence Y-statement, deprecation with a migration plan, and RFC style"
+            },
+            {
+              "label": "Also covers",
+              "text": "adr-tools commands, and a review checklist for before submission, during review and after acceptance"
+            }
+          ],
+          "text": "An Architecture Decision Record, or ADR, explains why a technical decision was made: its context, the decision and its consequences. Write one for a new framework, a database, an API pattern or a security architecture; skip it for bug fixes, minor upgrades and configuration changes. ADRs live as numbered files in docs/adr, with a README index of title, status and date. An accepted ADR is never edited: a new one supersedes it, and rejected ones stay as a record. Before drafting, the agent reads the matching template: a full record in the MADR format with decision drivers, considered options, pros, cons and risks; a lightweight one; a Y-statement (in the context of, facing, we decided for and against, to achieve, accepting that); a deprecation with a migration plan and lessons learned; or an RFC with detailed design, drawbacks, alternatives and open questions. It also lists adr-tools commands to create, supersede and link records. Keep each ADR to one or two pages and be honest about trade-offs.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/documentation-generation/skills/architecture-decision-records"
+        },
+        "tags": [
+          "category:writing",
+          "category:planning",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "architecture",
+          "docs-writing"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/python-development/skills/python-design-patterns",
+      "name": "python-design-patterns",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/python-design-patterns",
+        "installs": 23600,
+        "weeklyInstalls": [433, 454, 444, 522, 460, 425, 379, 377],
+        "firstSeen": "2026-01-30"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Applies design principles such as KISS, single responsibility, composition over inheritance and the rule of three when writing or refactoring Python.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're designing a Python service or component, splitting a class that does too much, or deciding whether a new abstraction is worth it"
+            },
+            {
+              "label": "It does",
+              "text": "gives the agent design principles with Python examples: keep it simple, one reason to change per unit, separate layers, compose rather than inherit"
+            },
+            {
+              "label": "Rule of three",
+              "text": "don't abstract until a third similar case appears, unless the copies already diverge in ways that cause bugs"
+            },
+            {
+              "label": "You get",
+              "text": "code shaped by those rules; it adds no steps or files of its own"
+            }
+          ],
+          "text": "A short reference on structure rather than syntax, with Python examples. Keep it simple: a dictionary beats a factory with registration. Give each unit one reason to change, and separate HTTP handling, business logic and data access into handler, service and repository layers whose imports point one way. Build behavior by composing objects passed in through the constructor, so tests can swap in fakes. Wait for three similar cases before abstracting, since duplication is often cheaper than the wrong abstraction. Keep functions to roughly 20-50 lines with one purpose. Its troubleshooting covers a class that seems to have several responsibilities (list every reason it could change), constructors with seven or more parameters (split the class), composition nested too deep, and a service layer importing from the API layer. Anti-patterns include returning ORM models from an API instead of response schemas, and SQL inside business logic.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/python-development/skills/python-design-patterns"
+        },
+        "tags": [
+          "category:engineering",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:python",
+          "code-quality",
+          "refactoring",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/developer-essentials/skills/error-handling-patterns",
+      "name": "error-handling-patterns",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/error-handling-patterns",
+        "installs": 23500,
+        "weeklyInstalls": [297, 317, 349, 395, 368, 308, 302, 330],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Applies error handling patterns, such as custom error hierarchies, Result types, retries, circuit breakers and graceful degradation, in Python, TypeScript, Rust and Go.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're adding error handling to a feature, designing how an API reports failures, or making a service survive failing dependencies"
+            },
+            {
+              "label": "It does",
+              "text": "explains when to throw exceptions, return Result types or crash, and which errors are recoverable, with idioms for Python, TypeScript, Rust and Go"
+            },
+            {
+              "label": "You get",
+              "text": "code shaped by those rules; it adds no steps or files of its own"
+            },
+            {
+              "label": "Also covers",
+              "text": "retries with exponential backoff, circuit breakers, collecting several errors at once, fallbacks, and pitfalls like empty catch blocks or logging and re-throwing"
+            }
+          ],
+          "text": "A reference that spans languages. Exceptions are for unexpected conditions, Result types for expected failures such as validation errors, and crashes for bugs nothing can recover from. Network timeouts, missing files, bad input and rate limits are recoverable; running out of memory and null-pointer bugs are not. For each language it shows the native way: a custom exception hierarchy, context managers for cleanup and retry with backoff in Python; custom error classes, a Result type and async handling in TypeScript; Result and Option with the ? operator in Rust; returned and wrapped errors and custom error types in Go. Patterns for any language are a circuit breaker, error aggregation and graceful degradation through fallbacks. The rules: fail fast, keep context such as stack traces and metadata, write messages that say how to fix the problem, catch only where you can handle the error, always clean up resources, and never swallow an error silently.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/developer-essentials/skills/error-handling-patterns"
+        },
+        "tags": [
+          "category:engineering",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:python",
+          "stack:typescript",
+          "stack:rust",
+          "stack:go",
+          "code-quality",
+          "backend"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/security-scanning/skills/stride-analysis-patterns",
+      "name": "stride-analysis-patterns",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/stride-analysis-patterns",
+        "installs": 22100,
+        "weeklyInstalls": [839, 1031, 1318, 1325, 1111, 932, 968, 962],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Finds threats to a system with STRIDE, one category at a time, and writes them up as a prioritized threat model.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're starting a threat model, reviewing a system's architecture or design decisions for security, or preparing for an audit"
+            },
+            {
+              "label": "STRIDE means",
+              "text": "six threat categories, each tied to a property: Spoofing (authentication), Tampering (integrity), Repudiation (audit logs), Information disclosure (confidentiality), Denial of service (availability), Elevation of privilege (authorization)"
+            },
+            {
+              "label": "You get",
+              "text": "a threat model document: system overview, data flow diagram, trust boundaries, assets, threats per category with mitigations, a risk matrix and prioritized recommendations"
+            },
+            {
+              "label": "Also has",
+              "text": "Python templates that model threats and apply STRIDE to a data flow diagram and to each interaction between components"
+            }
+          ],
+          "text": "STRIDE is a checklist for finding threats: for each part of a system, ask whether an attacker could pretend to be someone else, modify data, deny having done something, read data they shouldn't, disrupt availability or gain higher privileges. This skill gives the agent that matrix, each question paired with the family of controls that answers it, and a template for the write-up. The threat model describes the system, draws its data flow, marks trust boundaries, lists assets by sensitivity, tables threats per category with impact, likelihood and mitigations, scores them on a 4-by-4 impact and likelihood matrix, and ends with immediate, 30-day and 90-day recommendations. Python templates model threats, assets and trust boundaries, analyze a data flow diagram, and apply STRIDE per interaction between components. The rules: cover every category, prioritize realistically, involve security, development and operations, keep the model updated, and follow through with mitigations.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/security-scanning/skills/stride-analysis-patterns"
+        },
+        "tags": [
+          "category:security",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "security",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/ui-design/skills/responsive-design",
+      "name": "responsive-design",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/responsive-design",
+        "installs": 21800,
+        "weeklyInstalls": [391, 438, 471, 468, 388, 412, 473, 492],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds layouts that adapt to any screen with mobile-first breakpoints, container queries, fluid typography and CSS Grid.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're building a layout that has to work from phones to large desktops, or components that adapt to the space they're placed in"
+            },
+            {
+              "label": "It does",
+              "text": "gives the agent patterns for container queries, fluid type with clamp(), Grid and Flexbox layouts, navigation, images, tables and mobile viewport units"
+            },
+            {
+              "label": "You get",
+              "text": "layouts built mobile-first, with breakpoints set where the content needs them rather than per device; it adds no steps or files of its own"
+            },
+            {
+              "label": "Works with",
+              "text": "plain CSS, plus React components styled with Tailwind in about half the examples"
+            }
+          ],
+          "text": "A reference of modern CSS techniques for responsive layouts. Container queries let a component respond to the width of its container rather than the viewport. Fluid typography and spacing scale between a minimum and a maximum with clamp(). It gives a mobile-first breakpoint scale from 640 to 1536 pixels, matching Tailwind's, and patterns for auto-fitting grids, a navigation that collapses behind a menu button on small screens, images with art direction through <picture>, tables that scroll sideways or turn into cards on mobile, and the dynamic viewport units that fix 100vh on mobile browsers. Best practices: start from mobile styles, set breakpoints by content, prefer fluid values to fixed ones, keep touch targets at least 44 by 44 pixels, use logical properties for internationalization, and test on real devices. Common issues it names include horizontal overflow, fixed pixel widths, squashed images and overlays that break across screen sizes.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/ui-design/skills/responsive-design"
+        },
+        "tags": [
+          "category:design",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:css",
+          "stack:tailwind",
+          "stack:react",
+          "design",
+          "mobile"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/security-scanning/skills/threat-mitigation-mapping",
+      "name": "threat-mitigation-mapping",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/threat-mitigation-mapping",
+        "installs": 21000,
+        "weeklyInstalls": [793, 949, 1159, 1185, 867, 853, 984, 964],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Maps identified threats to preventive, detective and corrective controls across layers, finds coverage gaps and plans a prioritized remediation roadmap.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you have a list of threats and must decide which security controls to invest in, check what they cover, or plan remediation"
+            },
+            {
+              "label": "It does",
+              "text": "maps each threat to controls by type (prevent, detect, correct) and by layer (network, application, data, endpoint, process), checking for defense in depth"
+            },
+            {
+              "label": "You get",
+              "text": "a mitigation report: executive summary, defense-in-depth coverage, critical gaps, recommendations and an implementation roadmap"
+            },
+            {
+              "label": "Also has",
+              "text": "Python templates for a control library tied to STRIDE threat categories (spoofing, tampering, repudiation and so on), budget-limited control selection and control effectiveness tests"
+            }
+          ],
+          "text": "The step after finding threats: deciding what stops them. Controls are sorted by what they do, preventing an attack (firewall, input validation), detecting one in progress (intrusion detection, log monitoring) or recovering from it (incident response, backup restore), and by layer, from network and application to data, endpoints, and people and process. Defense in depth means each threat meets several layers and kinds of control, so no single control is a point of failure. Its Python templates model threats, controls and coverage; hold a library of standard controls, such as multi-factor authentication, with cost, effectiveness and compliance references; compute risk reduction and critical gaps; choose controls within a budget; generate a roadmap and a report; and test whether controls work. The rules: leave no threat unmapped, layer and mix control types, weigh cost, test controls, review them regularly, and don't rely on technology alone.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/security-scanning/skills/threat-mitigation-mapping"
+        },
+        "tags": [
+          "category:security",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "security"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/developer-essentials/skills/auth-implementation-patterns",
+      "name": "auth-implementation-patterns",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/auth-implementation-patterns",
+        "installs": 20700,
+        "weeklyInstalls": [617, 719, 1023, 1145, 798, 716, 796, 773],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Implements authentication and authorization with JWTs, refresh tokens, sessions, OAuth2 social login and role- or permission-based access control.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're adding login, securing an API, adding Google or GitHub sign-in, setting up roles and permissions, or debugging an auth problem"
+            },
+            {
+              "label": "It does",
+              "text": "explains authentication versus authorization and when to use sessions, JWTs or OAuth2, with TypeScript and Express examples for each"
+            },
+            {
+              "label": "You get",
+              "text": "auth code that hashes passwords, keeps access tokens short-lived, sets secure cookies and rate-limits login endpoints"
+            },
+            {
+              "label": "Avoids",
+              "text": "JWTs in localStorage, tokens that never expire, checks made only on the client, insecure password resets and login endpoints without rate limits"
+            }
+          ],
+          "text": "A reference for building access control. Authentication answers who you are; authorization, what you may do. Sessions keep state on the server behind a cookie; JWTs are stateless and scale horizontally; OAuth2 and OpenID Connect hand login to Google, GitHub or an enterprise single sign-on. The worked examples, in TypeScript with Express, cover issuing and verifying JWTs with a refresh-token flow, sessions stored in Redis, Google and GitHub login through Passport.js, role-based and permission-based access control, resource ownership checks, password hashing with bcrypt and input validation with Zod, and rate limiting. Its rules: never store plain passwords, keep access tokens to 15-30 minutes, set httpOnly, secure and sameSite on cookies, protect session-based auth against CSRF, rotate secrets, log security events and use MFA when possible.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/developer-essentials/skills/auth-implementation-patterns"
+        },
+        "tags": [
+          "category:security",
+          "category:engineering",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:typescript",
+          "stack:express",
+          "auth",
+          "security",
+          "backend"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/security-scanning/skills/attack-tree-construction",
+      "name": "attack-tree-construction",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/attack-tree-construction",
+        "installs": 18600,
+        "weeklyInstalls": [599, 701, 996, 1191, 827, 697, 782, 763],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds attack trees that split an attacker's goal into AND/OR steps rated by cost, skill and detection, exposing the easiest paths.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're mapping how an attacker could reach a goal, planning a penetration test, or explaining security risks and defensive priorities to stakeholders"
+            },
+            {
+              "label": "Attack tree",
+              "text": "a goal at the root, split into sub-goals; an OR node needs any one child, an AND node all of them, and leaves are single attack steps"
+            },
+            {
+              "label": "You get",
+              "text": "a tree whose attacks are rated by cost, time, skill and detection risk, exportable as a Mermaid or PlantUML diagram"
+            },
+            {
+              "label": "Finds",
+              "text": "the easiest, cheapest and stealthiest paths, the nodes most paths go through, open paths left by your mitigations, and which mitigations to do first"
+            }
+          ],
+          "text": "An attack tree starts from what an attacker wants, such as taking over an account, and breaks it down into the ways to get there. This skill gives the agent the structure and the attributes to rate each attack: cost, time, skill needed and likelihood of detection. Its Python templates model nodes and trees, build them step by step with a builder (an account-takeover tree is the example), export them as Mermaid or PlantUML diagrams, and analyze them: every path to the goal, each path's difficulty and cost, the nodes that appear in the most paths, how many paths your mitigations block, and which mitigations block the most. The rules: start from clear attacker goals, consider every vector including insiders, respect what AND nodes require, have a red team review the tree, keep it updated, and use it to plan defenses rather than stopping at the diagram.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/security-scanning/skills/attack-tree-construction"
+        },
+        "tags": [
+          "category:security",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "security",
+          "diagrams"
+        ]
+      }
     }
   ]
 }
