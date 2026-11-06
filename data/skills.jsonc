@@ -2361,6 +2361,22 @@
         "kind": "skills",
         "description": "Resume skills for Claude Code. ATS optimization, bullet writing, job matching, interview prep, and career development."
       }
+    },
+    {
+      "id": "manaflow-ai/cmux",
+      "stars": 28729,
+      "agentReview": {
+        "kind": "project",
+        "description": "A Ghostty-based macOS terminal with vertical tabs and notifications for AI coding agents."
+      }
+    },
+    {
+      "id": "thedotmack/claude-mem",
+      "stars": 113905,
+      "agentReview": {
+        "kind": "project",
+        "description": "Persistent memory compression system built for Claude Code."
+      }
     }
   ],
   "bundles": [
@@ -42347,6 +42363,734 @@
           "ci",
           "guardrails"
         ]
+      }
+    },
+    {
+      "id": "manaflow-ai/cmux/skills/cmux-browser",
+      "name": "cmux-browser",
+      "skills.sh": {
+        "url": "https://skills.sh/manaflow-ai/cmux/cmux-browser",
+        "installs": 9000,
+        "weeklyInstalls": [292, 306, 254, 249, 192, 174, 150, 124],
+        "firstSeen": "2026-02-20"
+      },
+      "skillMd": {
+        "version": "be5e24339c6eabb8e929a7029c4e6f834e257c97",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Drives the browser built into the cmux terminal: opens sites, waits for pages, clicks, fills forms and extracts text, without moving your focus.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you work in cmux and want the agent to open, read or operate a website in a browser pane beside your terminal"
+            },
+            {
+              "label": "It does",
+              "text": "runs cmux browser commands to open a page, wait for it, snapshot its elements, click, fill, and read its text or HTML"
+            },
+            {
+              "label": "Leaves alone",
+              "text": "your focus: it finds browser panes from cmux's tree and targets each by its handle, never by what's on screen"
+            },
+            {
+              "label": "Needs",
+              "text": "the cmux macOS app and its CLI"
+            },
+            {
+              "label": "Can't do",
+              "text": "tracing, network mocking or raw input, which need Chrome's DevTools protocol; geolocation and offline mode work"
+            },
+            {
+              "label": "Unlike agent-browser",
+              "text": "it drives cmux's WebKit browser rather than Chrome; a reference maps its commands to agent-browser's"
+            }
+          ],
+          "text": "cmux is a macOS terminal for coding agents with a browser you can split next to your terminals. This skill is cmux's guide to automating that browser. The agent first checks cmux browser --help, then keeps two kinds of command apart: open, open-split and new create a browser surface, while commands that act on an existing surface name its handle, preferably with --surface, and never guess from focus. To find a page you already have open, it filters cmux tree --all --json for browser surfaces, or matches a URL or title without printing it. The usual loop opens a page with --focus false, keeps the returned surface ref, waits for the page to load, takes an interactive snapshot that labels elements e1, e2 and so on, fills and clicks by those labels, and snapshots again after each navigation because the labels go stale. It can also set an exact viewport and list a surface's downloads. When a page rejects the snapshot script, it falls back to reading the page's text or HTML. References cover logins and saved state, several surfaces at once and proxies, and three template scripts cover form filling, an authenticated session and capturing screenshots.",
+          "permalink": "https://github.com/manaflow-ai/cmux/tree/be5e24339c6eabb8e929a7029c4e6f834e257c97/skills/cmux-browser"
+        },
+        "tags": [
+          "category:browser",
+          "type:tool",
+          "effect:remote",
+          "needs:cli",
+          "by:official",
+          "stack:cmux",
+          "browser-automation",
+          "scraping"
+        ],
+        "note": "Works only inside cmux, a macOS terminal app: it drives cmux's built-in WebKit browser, not Chrome."
+      }
+    },
+    {
+      "id": "openclaw/openclaw/skills/weather",
+      "name": "weather",
+      "skills.sh": {
+        "url": "https://skills.sh/openclaw/openclaw/weather",
+        "installs": 9400,
+        "weeklyInstalls": [140, 147, 212, 217, 68, 23, 56, 52],
+        "firstSeen": "2026-01-24"
+      },
+      "skillMd": {
+        "version": "ab156fa9251c559ad4131daae40733cbb868fc61",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Answers weather questions with current conditions and forecasts from wttr.in, for a city, airport code or coordinates.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you ask about the weather, rain or temperature somewhere, or want a forecast for a trip"
+            },
+            {
+              "label": "It does",
+              "text": "fetches wttr.in's JSON with the agent's web fetch tool, or with curl when that tool is missing, and summarizes it"
+            },
+            {
+              "label": "You get",
+              "text": "a short answer: conditions, temperature and feels-like, rain, humidity, wind and the coming days' highs and lows"
+            },
+            {
+              "label": "Needs",
+              "text": "web access; the requests it shows carry no API key"
+            },
+            {
+              "label": "Not for",
+              "text": "severe alerts, aviation, marine or official decisions, which it leaves to official local services, or past weather"
+            }
+          ],
+          "text": "A small skill from OpenClaw built on wttr.in, a weather service you query by place name in the URL. Given a city, region, airport code or coordinates, the agent requests wttr.in's compact JSON format, which leaves out bulky hourly data, and reads the current condition, nearest area and first forecast days. It lists the JSON fields to use, such as condition, temperature, feels-like, precipitation, humidity and wind speed. If the agent has no web fetch tool, it uses curl with a timeout, and can ask for one-line text formats built from codes for location, condition, temperature, wind and rain. It treats the fetched text as outside content and ignores any instructions in it, retries on the wttr.is mirror if wttr.in is unreliable, and points to official services for severe alerts, aviation, marine or official decisions, an archive API for historical weather, and local sensors for microclimates.",
+          "permalink": "https://github.com/openclaw/openclaw/tree/ab156fa9251c559ad4131daae40733cbb868fc61/skills/weather"
+        },
+        "tags": [
+          "category:personal",
+          "type:tool",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:wttr-in",
+          "personal"
+        ]
+      }
+    },
+    {
+      "id": "openclaw/openclaw/skills/openai-whisper",
+      "name": "openai-whisper",
+      "skills.sh": {
+        "url": "https://skills.sh/openclaw/openclaw/openai-whisper",
+        "installs": 7300,
+        "weeklyInstalls": [139, 142, 127, 134, 33, 36, 37, 73],
+        "firstSeen": "2026-01-24"
+      },
+      "skillMd": {
+        "version": "ab156fa9251c559ad4131daae40733cbb868fc61",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Transcribes audio files on your own machine with OpenAI's Whisper CLI, with no API key.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a transcript or subtitles of an audio file without sending it to a cloud service"
+            },
+            {
+              "label": "It does",
+              "text": "runs the whisper CLI locally with the model size and output format you need, such as txt or srt"
+            },
+            {
+              "label": "You get",
+              "text": "transcript files in the folder you name, or a translation with --task translate"
+            },
+            {
+              "label": "Needs",
+              "text": "the whisper command, installed with Homebrew's openai-whisper; no API key"
+            },
+            {
+              "label": "Models",
+              "text": "turbo by default on this install; smaller ones are faster, larger ones more accurate"
+            }
+          ],
+          "text": "A short OpenClaw guide to the command-line version of OpenAI's Whisper speech recognition. The agent runs whisper on the audio file, picks a model and an output format, and writes the result to the directory you choose, for example a plain-text transcript or an srt subtitle file. Adding --task translate gives a translated transcript instead. Everything runs on your machine: the models download to ~/.cache/whisper the first time, and the skill notes that smaller models trade accuracy for speed.",
+          "permalink": "https://github.com/openclaw/openclaw/tree/ab156fa9251c559ad4131daae40733cbb868fc61/skills/openai-whisper"
+        },
+        "tags": [
+          "category:media",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "stack:whisper",
+          "audio"
+        ],
+        "note": "Needs the whisper CLI; it downloads its speech models to ~/.cache/whisper on first run."
+      }
+    },
+    {
+      "id": "openclaw/openclaw/skills/nano-pdf",
+      "name": "nano-pdf",
+      "skills.sh": {
+        "url": "https://skills.sh/openclaw/openclaw/nano-pdf",
+        "installs": 7200,
+        "weeklyInstalls": [136, 130, 121, 123, 20, 11, 5, 8],
+        "firstSeen": "2026-01-24"
+      },
+      "skillMd": {
+        "version": "ab156fa9251c559ad4131daae40733cbb868fc61",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Edits a page of a PDF from a plain-language instruction, such as changing a slide's title or fixing a typo, with the nano-pdf CLI.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to change something on one page of a PDF, such as a deck's title or a typo, by describing the edit"
+            },
+            {
+              "label": "It does",
+              "text": "runs nano-pdf edit with the file, the page number and your instruction"
+            },
+            {
+              "label": "You get",
+              "text": "an edited PDF, which the skill says to check before sending it out"
+            },
+            {
+              "label": "Needs",
+              "text": "the nano-pdf CLI, installed with uv"
+            },
+            {
+              "label": "Watch for",
+              "text": "page numbers can be 0- or 1-based depending on nano-pdf's version; if the edit lands one page off, retry with the other"
+            }
+          ],
+          "text": "A very short OpenClaw guide to nano-pdf, a command-line tool that applies an edit described in plain language to a specific page of a PDF. The agent passes the file, the page and the instruction, for example changing the title to Q3 Results and fixing a typo in the subtitle on page 1 of a deck. The skill warns that the tool's page numbering depends on its version, so an edit that lands on the wrong page should be retried with the other numbering, and that the output should be checked before it's sent anywhere.",
+          "permalink": "https://github.com/openclaw/openclaw/tree/ab156fa9251c559ad4131daae40733cbb868fc61/skills/nano-pdf"
+        },
+        "tags": [
+          "category:documents",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "needs:account",
+          "by:community",
+          "stack:nano-pdf",
+          "pdf",
+          "documents"
+        ],
+        "note": "nano-pdf, per its PyPI page, edits pages with Google's Gemini 3 Pro Image model and needs a paid Gemini API key in GEMINI_API_KEY; the SKILL.md doesn't say so."
+      }
+    },
+    {
+      "id": "thedotmack/claude-mem/cowork/skills/mem-search",
+      "name": "mem-search",
+      "skills.sh": {
+        "url": "https://skills.sh/thedotmack/claude-mem/mem-search",
+        "installs": 9200,
+        "weeklyInstalls": [169, 144, 127, 112, 115, 186, 150, 174],
+        "firstSeen": "2026-02-07"
+      },
+      "skillMd": {
+        "version": "24802b13ef5e9bf61a84e650af446c4ff69ab399",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Searches your Claude-Mem memory on cmem.ai to answer what you did in past sessions, from a Claude Cowork session.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you ask what you did last session, or what the agent remembers about a project, decision, file or task"
+            },
+            {
+              "label": "It does",
+              "text": "runs the plugin's search script against cmem.ai: one to three broad keyword searches, then narrower ones with the exact terms found"
+            },
+            {
+              "label": "You get",
+              "text": "a plain-language answer drawn from the matching observations, with timestamps when you ask when"
+            },
+            {
+              "label": "Searches",
+              "text": "notes from your past sessions across agents such as Claude Code, Cowork and Codex"
+            },
+            {
+              "label": "Needs",
+              "text": "the claude-mem Cowork plugin and your cmem.ai API key"
+            },
+            {
+              "label": "Unlike claude-mem's mem-search",
+              "text": "it runs a script against your memory on cmem.ai instead of calling the local worker's MCP tools"
+            }
+          ],
+          "text": "Claude-Mem gives agents memory across sessions by saving observations: timestamped notes synthesized from what happened in past sessions. This is the version of its search skill for Claude's Cowork: it reads your memory on cmem.ai, claude-mem's hosted service, through a script that the Cowork plugin ships, instead of a local worker. The agent searches cheaply first: a few broad keyword searches on project names, file names, error strings or features, skimming titles and summaries, then a narrower search with the most specific terms it found and a smaller limit. It answers from the observations rather than pasting raw results. If a search fails or comes back empty, it runs the script's status check and tells you plainly what's wrong, such as a missing API key in the plugin's configuration. Because some filters, like date ranges, may be ignored by the cloud API, it narrows by keyword instead, and it never puts secrets in a query, since queries are sent to cmem.ai.",
+          "permalink": "https://github.com/thedotmack/claude-mem/tree/24802b13ef5e9bf61a84e650af446c4ff69ab399/cowork/skills/mem-search"
+        },
+        "tags": [
+          "category:agents",
+          "type:tool",
+          "effect:none",
+          "needs:account",
+          "by:official",
+          "stack:claude-mem",
+          "memory"
+        ],
+        "note": "Runs a script that ships with the claude-mem Cowork plugin, not with the skill, and searches your memory on cmem.ai: it needs that plugin and a cmem.ai API key, and your queries are sent to cmem.ai."
+      }
+    },
+    {
+      "id": "thedotmack/claude-mem/plugin/skills/smart-explore",
+      "name": "smart-explore",
+      "skills.sh": {
+        "url": "https://skills.sh/thedotmack/claude-mem/smart-explore",
+        "installs": 7600,
+        "weeklyInstalls": [126, 113, 99, 102, 98, 135, 130, 147],
+        "firstSeen": "2026-02-26"
+      },
+      "skillMd": {
+        "version": "24802b13ef5e9bf61a84e650af446c4ff69ab399",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Explores code with claude-mem's tree-sitter search, outline and unfold tools instead of reading whole files, to spend fewer tokens.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want the agent to find its way around a codebase without reading whole files"
+            },
+            {
+              "label": "It does",
+              "text": "replaces Read, Grep and Glob for code discovery with claude-mem's smart_search, smart_outline and smart_unfold tools"
+            },
+            {
+              "label": "You get",
+              "text": "ranked symbols and file outlines first, then the full source of only the functions you need"
+            },
+            {
+              "label": "Claims",
+              "text": "4 to 8 times fewer tokens than reading files, and 11 to 18 times fewer than an Explore agent, by its own figures"
+            },
+            {
+              "label": "Stays on",
+              "text": "it overrides the agent's usual exploration for as long as it's active"
+            },
+            {
+              "label": "Needs",
+              "text": "claude-mem's MCP server"
+            },
+            {
+              "label": "Languages",
+              "text": "JavaScript, TypeScript, Python, Go, Rust, Ruby, Java, C and C++, plus Markdown headings"
+            }
+          ],
+          "text": "The rule is to get a map before reading code. The tools parse source files with tree-sitter, which reads code as a syntax tree of functions, classes and methods rather than lines of text. smart_search walks a directory and returns matching symbols with signatures, line numbers and folded views of their files; smart_outline gives one file's skeleton; smart_unfold returns the complete source of one named symbol. The skill makes these the agent's first move for code, and keeps the standard tools for what they do better: Grep for exact strings, Read for small or non-code files, Glob for path patterns, and an Explore agent for explanations that span many files. In Markdown, outline lists the headings and unfold returns one section. Files in other languages get no symbols, so for those it uses a text search such as rg.",
+          "permalink": "https://github.com/thedotmack/claude-mem/tree/24802b13ef5e9bf61a84e650af446c4ff69ab399/plugin/skills/smart-explore"
+        },
+        "tags": [
+          "category:engineering",
+          "type:tool",
+          "effect:none",
+          "needs:mcp",
+          "by:official",
+          "stack:claude-mem",
+          "stack:tree-sitter",
+          "token-saving",
+          "agent-workflows"
+        ],
+        "note": "While active, it tells the agent to use claude-mem's smart_search, smart_outline and smart_unfold MCP tools instead of Read, Grep and Glob, so it needs claude-mem's MCP server."
+      }
+    },
+    {
+      "id": "thedotmack/claude-mem/plugin/skills/make-plan",
+      "name": "make-plan",
+      "skills.sh": {
+        "url": "https://skills.sh/thedotmack/claude-mem/make-plan",
+        "installs": 7500,
+        "weeklyInstalls": [124, 105, 97, 94, 92, 138, 125, 138],
+        "firstSeen": "2026-02-24"
+      },
+      "skillMd": {
+        "version": "24802b13ef5e9bf61a84e650af446c4ff69ab399",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes a phased implementation plan grounded in documentation that subagents gather first, ready to execute with do.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a plan for a feature or multi-step change before any code is written"
+            },
+            {
+              "label": "It does",
+              "text": "sends subagents to find the real docs, API signatures and examples, then writes phases that each cite them"
+            },
+            {
+              "label": "You get",
+              "text": "a plan file that opens with the user-visible goal, plus a five-part summary of it in chat"
+            },
+            {
+              "label": "Each phase has",
+              "text": "what to copy from which file, doc references, a verification checklist and anti-pattern guards"
+            },
+            {
+              "label": "Written for",
+              "text": "running one phase at a time in fresh chat contexts"
+            },
+            {
+              "label": "Next",
+              "text": "do, which executes the plan with subagents"
+            }
+          ],
+          "text": "The agent acts as an orchestrator: subagents gather facts, and it writes the plan itself. Phase 0 is always documentation discovery, in which subagents must report their sources, exact API names and file paths, example locations and known gaps, or be sent back. The result is a list of allowed APIs, citing their docs, and of anti-patterns such as methods that don't exist. The plan opens with its primary goal, the outcome a user would see, and every phase starts with a short paragraph on how it serves that goal; a phase that can't honestly say so is cut. Tasks are framed as copying documented patterns rather than transforming existing code, and the last phase checks everything against the docs, greps for anti-patterns and runs the tests. In chat it presents the plan in a fixed format: goal, current state, idea, one line per step, and what's deferred. For a plan rooted in an issue backlog, it suggests the repo's oh-my-issues skill first.",
+          "permalink": "https://github.com/thedotmack/claude-mem/tree/24802b13ef5e9bf61a84e650af446c4ff69ab399/plugin/skills/make-plan"
+        },
+        "tags": [
+          "category:planning",
+          "category:agents",
+          "type:workflow",
+          "effect:local",
+          "needs:subagents",
+          "by:community",
+          "planning",
+          "multi-agent",
+          "agent-workflows"
+        ]
+      }
+    },
+    {
+      "id": "thedotmack/claude-mem/plugin/skills/do",
+      "name": "do",
+      "skills.sh": {
+        "url": "https://skills.sh/thedotmack/claude-mem/do",
+        "installs": 7300,
+        "weeklyInstalls": [122, 103, 96, 92, 91, 128, 116, 133],
+        "firstSeen": "2026-02-24"
+      },
+      "skillMd": {
+        "version": "24802b13ef5e9bf61a84e650af446c4ff69ab399",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Executes a phased implementation plan through subagents that implement, verify, review and commit each phase in turn.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you have a phased plan, such as one from make-plan, and want it carried out"
+            },
+            {
+              "label": "It does",
+              "text": "stays a coordinator and hands all the work to subagents: one implements each phase, others verify, check anti-patterns and review"
+            },
+            {
+              "label": "You get",
+              "text": "one commit per phase that passed its checks, pushed to your working branch"
+            },
+            {
+              "label": "Needs",
+              "text": "an agent that can start subagents"
+            },
+            {
+              "label": "Won't",
+              "text": "move to the next phase, or commit, until a subagent's evidence shows the phase is done"
+            }
+          ],
+          "text": "The main agent does no work itself except routing context and checking each subagent's report against the plan. Every subagent gets one objective and must report evidence: commands run, outputs and files changed. In each phase an implementation subagent copies patterns from the documentation, cites sources for unfamiliar APIs and stops to verify when an API seems missing rather than assuming it exists. After the phase, separate subagents run its verification checklist, grep for the plan's known bad patterns and review code quality, and a commit subagent commits only if verification passed. Between phases a branch subagent pushes to the working branch and prepares a handoff, so the next phase's subagents start fresh but know the plan.",
+          "permalink": "https://github.com/thedotmack/claude-mem/tree/24802b13ef5e9bf61a84e650af446c4ff69ab399/plugin/skills/do"
+        },
+        "tags": [
+          "category:engineering",
+          "category:agents",
+          "type:workflow",
+          "effect:remote",
+          "needs:subagents",
+          "by:community",
+          "implementation",
+          "multi-agent",
+          "verification",
+          "agent-workflows"
+        ],
+        "note": "Commits each phase once it passes verification and pushes to your working branch between phases."
+      }
+    },
+    {
+      "id": "thedotmack/claude-mem/plugin/skills/timeline-report",
+      "name": "timeline-report",
+      "skills.sh": {
+        "url": "https://skills.sh/thedotmack/claude-mem/timeline-report",
+        "installs": 7000,
+        "weeklyInstalls": [126, 104, 97, 93, 92, 129, 119, 136],
+        "firstSeen": "2026-03-18"
+      },
+      "skillMd": {
+        "version": "24802b13ef5e9bf61a84e650af446c4ff69ab399",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes a long narrative report of a project's whole development history from the observations claude-mem recorded.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want the story of a project's development, as recorded by claude-mem across its sessions"
+            },
+            {
+              "label": "It does",
+              "text": "fetches the project's full timeline from claude-mem's local worker and gives it to a subagent that also queries claude-mem's SQLite database"
+            },
+            {
+              "label": "You get",
+              "text": "a Markdown report of 3,000 to 6,000 words, saved as journey-into-<project>.md"
+            },
+            {
+              "label": "Covers",
+              "text": "origins, architecture changes, breakthroughs, debugging sagas, technical debt, work patterns, statistics and lessons"
+            },
+            {
+              "label": "Cost",
+              "text": "it estimates the timeline's tokens first and asks before going on above 100K"
+            },
+            {
+              "label": "Needs",
+              "text": "claude-mem with its worker running, sqlite3, and an agent that can start subagents"
+            }
+          ],
+          "text": "claude-mem records observations, short notes about what happened in each agent session, and this skill turns a project's whole record into a history. The agent works out the project name, using the parent repository when you're in a git worktree, and fetches every observation, session boundary and summary from the worker's local API. It estimates the size at about one token per four characters, reports it and waits for your go-ahead on large timelines. A subagent then writes \"Journey Into\" the project as a narrative, not bullet lists, citing observation IDs and dates. One section estimates how many tokens memory saved, from SQL queries plus fixed assumptions, such as 30% of injected context preventing rework, with a monthly table. The report is saved in the current folder unless you name another path, and the agent tells you where it is, the token cost, the date range and how many observations it covered.",
+          "permalink": "https://github.com/thedotmack/claude-mem/tree/24802b13ef5e9bf61a84e650af446c4ff69ab399/plugin/skills/timeline-report"
+        },
+        "tags": [
+          "category:agents",
+          "category:writing",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "needs:subagents",
+          "by:official",
+          "stack:claude-mem",
+          "memory",
+          "writing"
+        ],
+        "note": "Needs claude-mem installed, with its local worker running and observations recorded for the project. A long history can cost hundreds of thousands of tokens; above 100K it asks first."
+      }
+    },
+    {
+      "id": "ComposioHQ/awesome-claude-skills/tailored-resume-generator",
+      "name": "tailored-resume-generator",
+      "skills.sh": {
+        "url": "https://skills.sh/composiohq/awesome-claude-skills/tailored-resume-generator",
+        "installs": 10400,
+        "weeklyInstalls": [119, 139, 128, 177, 156, 128, 147, 137],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "be2a406907dbc61b73e6827ded415c96139d13a2",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Rewrites your resume for a specific job description, matching its keywords for applicant tracking systems without inventing experience.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're applying for a specific job, or changing careers, and want your resume rewritten for it"
+            },
+            {
+              "label": "It does",
+              "text": "ranks the job's requirements, maps your experience to each, then reorders and rewords it with the posting's own keywords"
+            },
+            {
+              "label": "You get",
+              "text": "a tailored resume in Markdown or plain text, plus strengths, gaps, interview talking points and cover letter openers"
+            },
+            {
+              "label": "Rule",
+              "text": "never fabricate: it only lists skills you can back up with experience"
+            },
+            {
+              "label": "Watch for",
+              "text": "its own worked example adds figures and skills the background never gave, such as a 60% time saving, so check every claim before you send it"
+            }
+          ],
+          "text": "You paste a job description and either your current resume or a summary of your background, and the agent asks for anything missing. It sorts the posting's requirements into deal-breakers, strongly desired and nice to have, picks out repeated keywords and signs of company culture, and finds where your experience matches, where transferable skills cover a gap and where you fall short. The resume it writes leads with a three-to-four-line summary built from the top required skills, groups skills the way the job does, and rewrites each role's bullets as action, what, how and result, quantified with numbers, percentages and scale. It keeps the layout safe for applicant tracking systems, the software that filters resumes by keyword: standard headings, no tables or graphics, both acronyms and full terms. It holds to one page under ten years of experience and two above, adapts for career changers, recent graduates, executives, and technical or creative roles, and offers to iterate or make versions for other jobs.",
+          "permalink": "https://github.com/ComposioHQ/awesome-claude-skills/tree/be2a406907dbc61b73e6827ded415c96139d13a2/tailored-resume-generator"
+        },
+        "tags": [
+          "category:personal",
+          "category:writing",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:official",
+          "writing",
+          "personal"
+        ]
+      }
+    },
+    {
+      "id": "ComposioHQ/awesome-claude-skills/content-research-writer",
+      "name": "content-research-writer",
+      "skills.sh": {
+        "url": "https://skills.sh/composiohq/awesome-claude-skills/content-research-writer",
+        "installs": 8700,
+        "weeklyInstalls": [114, 153, 138, 232, 185, 173, 170, 218],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "be2a406907dbc61b73e6827ded415c96139d13a2",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Works with you on an article or post from outline to final draft: researching with citations, sharpening the hook and reviewing each section.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're writing a blog post, article, newsletter, case study or tutorial and want a partner through it"
+            },
+            {
+              "label": "It does",
+              "text": "outlines with you, researches claims and adds citations, offers alternative hooks, and reviews each section as you finish it"
+            },
+            {
+              "label": "You get",
+              "text": "an outline with a research to-do list, cited findings, per-section feedback with line edits, and a full-draft review"
+            },
+            {
+              "label": "Keeps",
+              "text": "your voice: it suggests options instead of rewriting, and asks whether it still sounds like you"
+            }
+          ],
+          "text": "The agent starts by asking about the topic and argument, audience, length, goal, sources and your style, then builds an outline with a hook, introduction, sections marked where research is needed, a conclusion and a research to-do list. When you ask for research it finds sources, pulls out facts, quotes and data, and adds them with citations in the style you want: inline, numbered or footnotes, with a running reference list. For your opening it says what works and offers three rewrites, such as a bold statement, a story or a surprising number. After each section it reports what works and suggests fixes for clarity, flow, evidence and style, with before-and-after line edits. The final review covers structure, argument, evidence, citations and readability, and ends with a pre-publish checklist. It also sketches workflows for blog posts, newsletters, technical tutorials and thought-leadership pieces.",
+          "permalink": "https://github.com/ComposioHQ/awesome-claude-skills/tree/be2a406907dbc61b73e6827ded415c96139d13a2/content-research-writer"
+        },
+        "tags": [
+          "category:writing",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:official",
+          "writing",
+          "research"
+        ]
+      }
+    },
+    {
+      "id": "ComposioHQ/awesome-claude-skills/changelog-generator",
+      "name": "changelog-generator",
+      "skills.sh": {
+        "url": "https://skills.sh/composiohq/awesome-claude-skills/changelog-generator",
+        "installs": 7600,
+        "weeklyInstalls": [104, 122, 125, 173, 143, 143, 140, 132],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "be2a406907dbc61b73e6827ded415c96139d13a2",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Turns a range of git commits into a customer-friendly changelog grouped into features, improvements and fixes.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're writing release notes, an app store update or a weekly product update from recent commits"
+            },
+            {
+              "label": "It does",
+              "text": "reads the git history for a date range or since a version, groups the changes and rewrites them for customers"
+            },
+            {
+              "label": "You get",
+              "text": "a Markdown changelog with sections such as new features, improvements and fixes, for you to review before publishing"
+            },
+            {
+              "label": "Leaves out",
+              "text": "internal commits such as refactoring and tests"
+            },
+            {
+              "label": "Follows",
+              "text": "your own changelog style guide, such as a CHANGELOG_STYLE.md, when you point it to one"
+            }
+          ],
+          "text": "You run it from the repository and say which commits to cover: since the last release, the past week, a date range or a version. The agent scans those commits, sorts them into features, improvements, bug fixes, breaking changes and security, drops internal work, and translates developer phrasing into what changed for the user, in your brand voice or your style file's format. The example output is a dated update with short bold-titled entries under emoji headings. It suggests reviewing the result before publishing, and saving it to CHANGELOG.md, and lists other uses such as GitHub release notes, app store descriptions, update emails and announcement posts.",
+          "permalink": "https://github.com/ComposioHQ/awesome-claude-skills/tree/be2a406907dbc61b73e6827ded415c96139d13a2/changelog-generator"
+        },
+        "tags": [
+          "category:writing",
+          "category:engineering",
+          "type:command",
+          "effect:none",
+          "needs:none",
+          "by:official",
+          "stack:git",
+          "git",
+          "docs-writing"
+        ]
+      }
+    },
+    {
+      "id": "ComposioHQ/awesome-claude-skills/file-organizer",
+      "name": "file-organizer",
+      "skills.sh": {
+        "url": "https://skills.sh/composiohq/awesome-claude-skills/file-organizer",
+        "installs": 7200,
+        "weeklyInstalls": [166, 155, 155, 208, 168, 184, 187, 180],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "be2a406907dbc61b73e6827ded415c96139d13a2",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Cleans up a messy folder: finds duplicates, proposes a better structure, then moves, renames and archives files once you approve.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a folder such as Downloads, Documents, Desktop or Projects is a mess, or you suspect duplicate files"
+            },
+            {
+              "label": "It does",
+              "text": "surveys the folder's file types, sizes and dates, finds duplicates by hash and by name, and proposes a new structure"
+            },
+            {
+              "label": "You get",
+              "text": "a plan to approve, then the files moved, renamed and archived, with a summary and maintenance tips"
+            },
+            {
+              "label": "Asks",
+              "text": "before deleting anything, and logs every move so it can be undone"
+            }
+          ],
+          "text": "The agent first asks which folder, what the problem is, what to leave alone and how aggressive to be. It then lists the folder with shell commands, counting file types, finding the largest files and checking dates, and groups what it finds by type, by purpose such as work, personal or archive, and by age. For duplicates it shows every copy with sizes and dates and recommends which to keep. Before changing anything it presents a plan: the current state, the proposed folder tree, the folders it will create, the files it will move, rename or delete, and the files it needs you to decide on. Once you approve, it creates the folders and moves and renames files, preserving modification dates, handling name clashes and stopping when something unexpected comes up. It ends with what changed and a weekly-to-yearly maintenance routine. Examples include sorting photos into year and month folders from their EXIF dates.",
+          "permalink": "https://github.com/ComposioHQ/awesome-claude-skills/tree/be2a406907dbc61b73e6827ded415c96139d13a2/file-organizer"
+        },
+        "tags": [
+          "category:personal",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:official",
+          "personal"
+        ],
+        "note": "It moves, renames and archives files on your computer once you approve its plan, and asks before deleting anything."
       }
     }
   ]
