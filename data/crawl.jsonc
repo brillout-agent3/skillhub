@@ -2395,19 +2395,6 @@
       }
     },
     {
-      "name": "nature-shared",
-      "repo": "yuan1z0825/nature-skills",
-      "official": false,
-      "stars": 52544,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/yuan1z0825/nature-skills/nature-shared",
-        "installs": 14100,
-        "weeklyInstalls": [1072, 1120, 903, 614, 781, 818, 732, 563],
-        "firstSeen": "2026-07-15"
-      }
-    },
-    {
       "name": "changelog-automation",
       "repo": "wshobson/agents",
       "official": false,
@@ -3331,19 +3318,6 @@
       }
     },
     {
-      "name": "nature-ref-verifier",
-      "repo": "yuan1z0825/nature-skills",
-      "official": false,
-      "stars": 52544,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/yuan1z0825/nature-skills/nature-ref-verifier",
-        "installs": 12700,
-        "weeklyInstalls": [972, 957, 749, 517, 662, 655, 590, 436],
-        "firstSeen": "2026-07-06"
-      }
-    },
-    {
       "name": "nature-downloader",
       "repo": "yuan1z0825/nature-skills",
       "official": false,
@@ -3419,19 +3393,6 @@
         "installs": 12600,
         "weeklyInstalls": [37, 28, 48, 32, 19, 32, 16, 30],
         "firstSeen": "2026-02-25"
-      }
-    },
-    {
-      "name": "researchwrite",
-      "repo": "yuan1z0825/nature-skills",
-      "official": false,
-      "stars": 52544,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/yuan1z0825/nature-skills/researchwrite",
-        "installs": 12600,
-        "weeklyInstalls": [948, 966, 742, 503, 638, 638, 592, 438],
-        "firstSeen": "2026-06-30"
       }
     },
     {
@@ -45212,6 +45173,18 @@
     {
       "url": "https://skills.sh/vercel/next.js/next-cache-components-optimizer",
       "note": "Tool docs: an agent's manual for nextjs."
+    },
+    {
+      "url": "https://skills.sh/yuan1z0825/nature-skills/nature-shared",
+      "note": "Internal: the repo's shared support package for its other skills, left out of its skill index and not meant to run on its own."
+    },
+    {
+      "url": "https://skills.sh/yuan1z0825/nature-skills/nature-ref-verifier",
+      "note": "In Chinese."
+    },
+    {
+      "url": "https://skills.sh/yuan1z0825/nature-skills/researchwrite",
+      "note": "In Chinese."
     }
   ]
 }
