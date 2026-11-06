@@ -237,19 +237,6 @@
       }
     },
     {
-      "name": "byted-mediakit-audio",
-      "repo": "volcengine/mediakit-cli",
-      "official": false,
-      "stars": 220,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/volcengine/mediakit-cli/byted-mediakit-audio",
-        "installs": 12300,
-        "weeklyInstalls": [2489, 1589, 2950, 2146, 1144, 8, 12, 7],
-        "firstSeen": "2026-06-23"
-      }
-    },
-    {
       "name": "dogfood",
       "repo": "callstack/agent-device",
       "official": true,
@@ -260,84 +247,6 @@
         "installs": 12300,
         "weeklyInstalls": [500, 595, 648, 690, 681, 531, 521, 543],
         "firstSeen": "2026-03-02"
-      }
-    },
-    {
-      "name": "byted-mediakit-video",
-      "repo": "volcengine/mediakit-cli",
-      "official": false,
-      "stars": 220,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/volcengine/mediakit-cli/byted-mediakit-video",
-        "installs": 12300,
-        "weeklyInstalls": [2489, 1589, 2947, 2144, 1143, 7, 12, 7],
-        "firstSeen": "2026-06-04"
-      }
-    },
-    {
-      "name": "genshijin",
-      "repo": "interfacex-co-jp/genshijin",
-      "official": false,
-      "stars": 332,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/interfacex-co-jp/genshijin/genshijin",
-        "installs": 12300,
-        "weeklyInstalls": [1396, 1116, 548, 818, 1118, 763, 933, 7],
-        "firstSeen": "2026-04-07"
-      }
-    },
-    {
-      "name": "nature-experiment-log",
-      "repo": "yuan1z0825/nature-skills",
-      "official": false,
-      "stars": 52544,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/yuan1z0825/nature-skills/nature-experiment-log",
-        "installs": 12300,
-        "weeklyInstalls": [952, 926, 707, 476, 619, 617, 555, 414],
-        "firstSeen": "2026-07-02"
-      }
-    },
-    {
-      "name": "byted-mediakit-shared",
-      "repo": "volcengine/mediakit-cli",
-      "official": false,
-      "stars": 220,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/volcengine/mediakit-cli/byted-mediakit-shared",
-        "installs": 12300,
-        "weeklyInstalls": [2490, 1590, 2950, 2147, 1142, 11, 15, 8],
-        "firstSeen": "2026-06-04"
-      }
-    },
-    {
-      "name": "byted-mediakit-image",
-      "repo": "volcengine/mediakit-cli",
-      "official": false,
-      "stars": 220,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/volcengine/mediakit-cli/byted-mediakit-image",
-        "installs": 12300,
-        "weeklyInstalls": [2487, 1589, 2949, 2143, 1141, 7, 12, 7],
-        "firstSeen": "2026-06-23"
-      }
-    },
-    {
-      "name": "byted-mediakit-editing",
-      "repo": "volcengine/mediakit-cli",
-      "official": false,
-      "stars": 220,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/volcengine/mediakit-cli/byted-mediakit-editing",
-        "installs": 12300,
-        "weeklyInstalls": [2487, 1590, 2951, 2143, 1141, 8, 12, 7],
-        "firstSeen": "2026-06-04"
       }
     },
     {
@@ -471,19 +380,6 @@
       }
     },
     {
-      "name": "genshijin-commit",
-      "repo": "interfacex-co-jp/genshijin",
-      "official": false,
-      "stars": 332,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/interfacex-co-jp/genshijin/genshijin-commit",
-        "installs": 12000,
-        "weeklyInstalls": [1390, 1111, 546, 814, 1113, 763, 930, 6],
-        "firstSeen": "2026-04-18"
-      }
-    },
-    {
       "name": "n8n-workflow-patterns",
       "repo": "czlonkowski/n8n-skills",
       "official": false,
@@ -494,19 +390,6 @@
         "installs": 12000,
         "weeklyInstalls": [167, 167, 159, 169, 163, 195, 207, 197],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "genshijin-compress",
-      "repo": "interfacex-co-jp/genshijin",
-      "official": false,
-      "stars": 332,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/interfacex-co-jp/genshijin/genshijin-compress",
-        "installs": 12000,
-        "weeklyInstalls": [1386, 1110, 545, 815, 1112, 763, 931, 6],
-        "firstSeen": "2026-04-18"
       }
     },
     {
@@ -533,32 +416,6 @@
         "installs": 12000,
         "weeklyInstalls": [430, 508, 435, 497, 401, 498, 475, 456],
         "firstSeen": "2026-02-02"
-      }
-    },
-    {
-      "name": "genshijin-help",
-      "repo": "interfacex-co-jp/genshijin",
-      "official": false,
-      "stars": 332,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/interfacex-co-jp/genshijin/genshijin-help",
-        "installs": 12000,
-        "weeklyInstalls": [1383, 1110, 544, 813, 1112, 761, 930, 6],
-        "firstSeen": "2026-04-18"
-      }
-    },
-    {
-      "name": "genshijin-review",
-      "repo": "interfacex-co-jp/genshijin",
-      "official": false,
-      "stars": 332,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/interfacex-co-jp/genshijin/genshijin-review",
-        "installs": 12000,
-        "weeklyInstalls": [1385, 1108, 544, 811, 1109, 762, 930, 6],
-        "firstSeen": "2026-04-18"
       }
     },
     {
@@ -611,32 +468,6 @@
         "installs": 11900,
         "weeklyInstalls": [634, 666, 502, 911, 477, 252, 654, 744],
         "firstSeen": "2026-02-11"
-      }
-    },
-    {
-      "name": "genshijin-crew",
-      "repo": "interfacex-co-jp/genshijin",
-      "official": false,
-      "stars": 332,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/interfacex-co-jp/genshijin/genshijin-crew",
-        "installs": 11900,
-        "weeklyInstalls": [1384, 1110, 544, 813, 1109, 761, 930, 6],
-        "firstSeen": "2026-05-11"
-      }
-    },
-    {
-      "name": "genshijin-stats",
-      "repo": "interfacex-co-jp/genshijin",
-      "official": false,
-      "stars": 332,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/interfacex-co-jp/genshijin/genshijin-stats",
-        "installs": 11900,
-        "weeklyInstalls": [1382, 1108, 543, 812, 1105, 761, 927, 6],
-        "firstSeen": "2026-05-11"
       }
     },
     {
@@ -965,19 +796,6 @@
       }
     },
     {
-      "name": "xiaohongshu",
-      "repo": "zhjiang22/openclaw-xhs",
-      "official": false,
-      "stars": 127,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/zhjiang22/openclaw-xhs/xiaohongshu",
-        "installs": 11600,
-        "weeklyInstalls": [64, 25, 33, 21, 14, 26, 16, 21],
-        "firstSeen": "2026-02-09"
-      }
-    },
-    {
       "name": "go-concurrency-patterns",
       "repo": "wshobson/agents",
       "official": false,
@@ -1027,19 +845,6 @@
         "installs": 11600,
         "weeklyInstalls": [170, 187, 223, 270, 214, 184, 184, 178],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "zhangxuefeng-perspective",
-      "repo": "alchaincyf/zhangxuefeng-skill",
-      "official": false,
-      "stars": 10709,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/alchaincyf/zhangxuefeng-skill/zhangxuefeng-perspective",
-        "installs": 11500,
-        "weeklyInstalls": [26, 27, 27, 22, 34, 38, 25, 25],
-        "firstSeen": "2026-04-05"
       }
     },
     {
@@ -1225,19 +1030,6 @@
       }
     },
     {
-      "name": "dbs-content-risk-check",
-      "repo": "dontbesilent2025/dbskill",
-      "official": false,
-      "stars": 11294,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/dontbesilent2025/dbskill/dbs-content-risk-check",
-        "installs": 11400,
-        "weeklyInstalls": [970, 576, 647, 1049, 763, 997, 897, 773],
-        "firstSeen": "2026-08-11"
-      }
-    },
-    {
       "name": "memory-forensics",
       "repo": "wshobson/agents",
       "official": false,
@@ -1261,19 +1053,6 @@
         "installs": 11400,
         "weeklyInstalls": [212, 235, 259, 334, 250, 232, 217, 194],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "darwin-skill",
-      "repo": "alchaincyf/darwin-skill",
-      "official": false,
-      "stars": 6830,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/alchaincyf/darwin-skill/darwin-skill",
-        "installs": 11400,
-        "weeklyInstalls": [105, 132, 125, 99, 109, 106, 167, 171],
-        "firstSeen": "2026-04-13"
       }
     },
     {
@@ -2733,19 +2512,6 @@
       }
     },
     {
-      "name": "dbs-jtbd",
-      "repo": "dontbesilent2025/dbskill",
-      "official": false,
-      "stars": 11294,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/dontbesilent2025/dbskill/dbs-jtbd",
-        "installs": 10400,
-        "weeklyInstalls": [971, 574, 638, 1039, 766, 977, 881, 761],
-        "firstSeen": "2026-08-18"
-      }
-    },
-    {
       "name": "audio-design",
       "repo": "gamedev-skills/awesome-gamedev-agent-skills",
       "official": false,
@@ -4098,19 +3864,6 @@
       }
     },
     {
-      "name": "dbs-install-skill",
-      "repo": "dontbesilent2025/dbskill",
-      "official": false,
-      "stars": 11294,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/dontbesilent2025/dbskill/dbs-install-skill",
-        "installs": 9600,
-        "weeklyInstalls": [974, 571, 639, 1041, 761, 973, 878, 756],
-        "firstSeen": "2026-08-25"
-      }
-    },
-    {
       "name": "shopify-polaris-checkout-extensions",
       "repo": "shopify/shopify-ai-toolkit",
       "official": false,
@@ -4332,19 +4085,6 @@
       }
     },
     {
-      "name": "wecomcli-shared",
-      "repo": "wecomteam/wecom-cli",
-      "official": false,
-      "stars": 3308,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wecomteam/wecom-cli/wecomcli-shared",
-        "installs": 9500,
-        "weeklyInstalls": [784, 818, 502, 297, 332, 820, 780, 977],
-        "firstSeen": "2026-08-17"
-      }
-    },
-    {
       "name": "hindsight-docs",
       "repo": "vectorize-io/hindsight",
       "official": false,
@@ -4488,19 +4228,6 @@
       }
     },
     {
-      "name": "wecomcli-doc-manage",
-      "repo": "wecomteam/wecom-cli",
-      "official": false,
-      "stars": 3308,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wecomteam/wecom-cli/wecomcli-doc-manage",
-        "installs": 9500,
-        "weeklyInstalls": [783, 811, 500, 293, 326, 824, 779, 977],
-        "firstSeen": "2026-08-17"
-      }
-    },
-    {
       "name": "web-design-engineer",
       "repo": "conardli/garden-skills",
       "official": false,
@@ -4511,19 +4238,6 @@
         "installs": 9400,
         "weeklyInstalls": [389, 406, 316, 279, 281, 356, 450, 413],
         "firstSeen": "2026-04-22"
-      }
-    },
-    {
-      "name": "wecomcli-disk",
-      "repo": "wecomteam/wecom-cli",
-      "official": false,
-      "stars": 3308,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wecomteam/wecom-cli/wecomcli-disk",
-        "installs": 9400,
-        "weeklyInstalls": [785, 810, 499, 292, 321, 822, 775, 974],
-        "firstSeen": "2026-08-17"
       }
     },
     {
@@ -4605,32 +4319,6 @@
       }
     },
     {
-      "name": "wecomcli-media",
-      "repo": "wecomteam/wecom-cli",
-      "official": false,
-      "stars": 3308,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wecomteam/wecom-cli/wecomcli-media",
-        "installs": 9400,
-        "weeklyInstalls": [783, 808, 499, 291, 323, 806, 768, 971],
-        "firstSeen": "2026-08-17"
-      }
-    },
-    {
-      "name": "wecomcli-calendar",
-      "repo": "wecomteam/wecom-cli",
-      "official": false,
-      "stars": 3308,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wecomteam/wecom-cli/wecomcli-calendar",
-        "installs": 9400,
-        "weeklyInstalls": [783, 809, 499, 291, 323, 806, 770, 972],
-        "firstSeen": "2026-08-17"
-      }
-    },
-    {
       "name": "copilot-sdk",
       "repo": "github/awesome-copilot",
       "official": true,
@@ -4641,32 +4329,6 @@
         "installs": 9400,
         "weeklyInstalls": [10, 11, 24, 16, 6, 10, 3, 6],
         "firstSeen": "2026-01-29"
-      }
-    },
-    {
-      "name": "wecomcli-email",
-      "repo": "wecomteam/wecom-cli",
-      "official": false,
-      "stars": 3308,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wecomteam/wecom-cli/wecomcli-email",
-        "installs": 9400,
-        "weeklyInstalls": [783, 808, 499, 293, 324, 807, 767, 970],
-        "firstSeen": "2026-08-17"
-      }
-    },
-    {
-      "name": "wecomcli-message",
-      "repo": "wecomteam/wecom-cli",
-      "official": false,
-      "stars": 3308,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wecomteam/wecom-cli/wecomcli-message",
-        "installs": 9400,
-        "weeklyInstalls": [778, 802, 494, 286, 323, 803, 771, 974],
-        "firstSeen": "2026-08-17"
       }
     },
     {
@@ -5629,19 +5291,6 @@
         "installs": 9100,
         "weeklyInstalls": [0, 0, 0, 0, 0, 0, 2777, 3725],
         "firstSeen": "2026-10-19"
-      }
-    },
-    {
-      "name": "dbs-skill-maker",
-      "repo": "dontbesilent2025/dbskill",
-      "official": false,
-      "stars": 11294,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/dontbesilent2025/dbskill/dbs-skill-maker",
-        "installs": 9100,
-        "weeklyInstalls": [968, 570, 637, 1039, 749, 972, 870, 756],
-        "firstSeen": "2026-08-27"
       }
     },
     {
@@ -8284,19 +7933,6 @@
       }
     },
     {
-      "name": "dbs-video-extract",
-      "repo": "dontbesilent2025/dbskill",
-      "official": false,
-      "stars": 11294,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/dontbesilent2025/dbskill/dbs-video-extract",
-        "installs": 8200,
-        "weeklyInstalls": [969, 572, 641, 1040, 759, 973, 875, 755],
-        "firstSeen": "2026-09-01"
-      }
-    },
-    {
       "name": "asc-submission-health",
       "repo": "rorkai/app-store-connect-cli-skills",
       "official": false,
@@ -9074,19 +8710,6 @@
         "installs": 7900,
         "weeklyInstalls": [317, 282, 347, 341, 380, 570, 1299, 1649],
         "firstSeen": "2026-06-27"
-      }
-    },
-    {
-      "name": "planning-with-files-zht",
-      "repo": "othmanadi/planning-with-files",
-      "official": false,
-      "stars": 27923,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/othmanadi/planning-with-files/planning-with-files-zht",
-        "installs": 7900,
-        "weeklyInstalls": [97, 107, 85, 54, 76, 86, 120, 117],
-        "firstSeen": "2026-03-22"
       }
     },
     {
@@ -10377,19 +10000,6 @@
       }
     },
     {
-      "name": "video-shotcraft",
-      "repo": "vincentwei1021/video-shotcraft",
-      "official": false,
-      "stars": 17441,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/vincentwei1021/video-shotcraft/video-shotcraft",
-        "installs": 7500,
-        "weeklyInstalls": [223, 222, 280, 285, 516, 764, 918, 1461],
-        "firstSeen": "2026-07-20"
-      }
-    },
-    {
       "name": "seo-page",
       "repo": "agricidaniel/claude-seo",
       "official": false,
@@ -11443,19 +11053,6 @@
       }
     },
     {
-      "name": "dbs-theory-grounding",
-      "repo": "dontbesilent2025/dbskill",
-      "official": false,
-      "stars": 11294,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/dontbesilent2025/dbskill/dbs-theory-grounding",
-        "installs": 7100,
-        "weeklyInstalls": [926, 568, 637, 1039, 750, 970, 872, 755],
-        "firstSeen": "2026-09-07"
-      }
-    },
-    {
       "name": "cmux-workspace",
       "repo": "manaflow-ai/cmux",
       "official": false,
@@ -11921,19 +11518,6 @@
         "installs": 7100,
         "weeklyInstalls": [153, 119, 97, 92, 88, 99, 61, 60],
         "firstSeen": "2026-02-15"
-      }
-    },
-    {
-      "name": "ljg-card",
-      "repo": "lijigang/ljg-skills",
-      "official": false,
-      "stars": 7635,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/lijigang/ljg-skills/ljg-card",
-        "installs": 7100,
-        "weeklyInstalls": [48, 53, 29, 59, 42, 44, 35, 18],
-        "firstSeen": "2026-03-09"
       }
     },
     {
@@ -41538,6 +41122,134 @@
     {
       "url": "https://skills.sh/github/awesome-copilot/update-oo-component-documentation",
       "note": "Gone from github/awesome-copilot since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/volcengine/mediakit-cli/byted-mediakit-audio",
+      "note": "In Chinese."
+    },
+    {
+      "url": "https://skills.sh/volcengine/mediakit-cli/byted-mediakit-video",
+      "note": "In Chinese."
+    },
+    {
+      "url": "https://skills.sh/interfacex-co-jp/genshijin/genshijin",
+      "note": "In Japanese."
+    },
+    {
+      "url": "https://skills.sh/yuan1z0825/nature-skills/nature-experiment-log",
+      "note": "In Chinese."
+    },
+    {
+      "url": "https://skills.sh/volcengine/mediakit-cli/byted-mediakit-shared",
+      "note": "In Chinese."
+    },
+    {
+      "url": "https://skills.sh/volcengine/mediakit-cli/byted-mediakit-image",
+      "note": "In Chinese."
+    },
+    {
+      "url": "https://skills.sh/volcengine/mediakit-cli/byted-mediakit-editing",
+      "note": "In Chinese."
+    },
+    {
+      "url": "https://skills.sh/interfacex-co-jp/genshijin/genshijin-commit",
+      "note": "In Japanese."
+    },
+    {
+      "url": "https://skills.sh/interfacex-co-jp/genshijin/genshijin-compress",
+      "note": "In Japanese."
+    },
+    {
+      "url": "https://skills.sh/interfacex-co-jp/genshijin/genshijin-help",
+      "note": "In Japanese."
+    },
+    {
+      "url": "https://skills.sh/interfacex-co-jp/genshijin/genshijin-review",
+      "note": "In Japanese."
+    },
+    {
+      "url": "https://skills.sh/interfacex-co-jp/genshijin/genshijin-crew",
+      "note": "In Japanese."
+    },
+    {
+      "url": "https://skills.sh/interfacex-co-jp/genshijin/genshijin-stats",
+      "note": "In Japanese."
+    },
+    {
+      "url": "https://skills.sh/zhjiang22/openclaw-xhs/xiaohongshu",
+      "note": "In Chinese."
+    },
+    {
+      "url": "https://skills.sh/alchaincyf/zhangxuefeng-skill/zhangxuefeng-perspective",
+      "note": "In Chinese."
+    },
+    {
+      "url": "https://skills.sh/dontbesilent2025/dbskill/dbs-content-risk-check",
+      "note": "In Chinese."
+    },
+    {
+      "url": "https://skills.sh/alchaincyf/darwin-skill/darwin-skill",
+      "note": "In Chinese."
+    },
+    {
+      "url": "https://skills.sh/dontbesilent2025/dbskill/dbs-jtbd",
+      "note": "In Chinese."
+    },
+    {
+      "url": "https://skills.sh/dontbesilent2025/dbskill/dbs-install-skill",
+      "note": "In Chinese."
+    },
+    {
+      "url": "https://skills.sh/wecomteam/wecom-cli/wecomcli-shared",
+      "note": "In Chinese."
+    },
+    {
+      "url": "https://skills.sh/wecomteam/wecom-cli/wecomcli-doc-manage",
+      "note": "In Chinese."
+    },
+    {
+      "url": "https://skills.sh/wecomteam/wecom-cli/wecomcli-disk",
+      "note": "In Chinese."
+    },
+    {
+      "url": "https://skills.sh/wecomteam/wecom-cli/wecomcli-media",
+      "note": "In Chinese."
+    },
+    {
+      "url": "https://skills.sh/wecomteam/wecom-cli/wecomcli-calendar",
+      "note": "In Chinese."
+    },
+    {
+      "url": "https://skills.sh/wecomteam/wecom-cli/wecomcli-email",
+      "note": "In Chinese."
+    },
+    {
+      "url": "https://skills.sh/wecomteam/wecom-cli/wecomcli-message",
+      "note": "In Chinese."
+    },
+    {
+      "url": "https://skills.sh/dontbesilent2025/dbskill/dbs-skill-maker",
+      "note": "In Chinese."
+    },
+    {
+      "url": "https://skills.sh/dontbesilent2025/dbskill/dbs-video-extract",
+      "note": "In Chinese."
+    },
+    {
+      "url": "https://skills.sh/othmanadi/planning-with-files/planning-with-files-zht",
+      "note": "In Chinese."
+    },
+    {
+      "url": "https://skills.sh/vincentwei1021/video-shotcraft/video-shotcraft",
+      "note": "In Chinese."
+    },
+    {
+      "url": "https://skills.sh/dontbesilent2025/dbskill/dbs-theory-grounding",
+      "note": "In Chinese."
+    },
+    {
+      "url": "https://skills.sh/lijigang/ljg-skills/ljg-card",
+      "note": "In Chinese."
     }
   ]
 }
