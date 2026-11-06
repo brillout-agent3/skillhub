@@ -1459,19 +1459,6 @@
       }
     },
     {
-      "name": "bigquery-basics",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/bigquery-basics",
-        "installs": 18800,
-        "weeklyInstalls": [520, 704, 522, 567, 616, 679, 673, 568],
-        "firstSeen": "2026-04-22"
-      }
-    },
-    {
       "name": "gmgn-portfolio",
       "repo": "gmgnai/gmgn-skills",
       "official": false,
@@ -1508,19 +1495,6 @@
         "installs": 18500,
         "weeklyInstalls": [160, 179, 133, 94, 115, 146, 178, 182],
         "firstSeen": "2026-03-19"
-      }
-    },
-    {
-      "name": "cloud-run-basics",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/cloud-run-basics",
-        "installs": 18400,
-        "weeklyInstalls": [520, 588, 487, 515, 547, 487, 459, 484],
-        "firstSeen": "2026-04-22"
       }
     },
     {
@@ -1651,19 +1625,6 @@
         "installs": 18000,
         "weeklyInstalls": [1498, 1512, 1078, 1524, 955, 1136, 700, 1122],
         "firstSeen": "2026-03-07"
-      }
-    },
-    {
-      "name": "gemini-api",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/gemini-api",
-        "installs": 18000,
-        "weeklyInstalls": [542, 642, 473, 526, 540, 463, 398, 447],
-        "firstSeen": "2026-04-22"
       }
     },
     {
@@ -2135,19 +2096,6 @@
       }
     },
     {
-      "name": "google-cloud-recipe-auth",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/google-cloud-recipe-auth",
-        "installs": 16200,
-        "weeklyInstalls": [451, 539, 414, 457, 498, 485, 386, 423],
-        "firstSeen": "2026-04-22"
-      }
-    },
-    {
       "name": "unocss",
       "repo": "antfu/skills",
       "official": false,
@@ -2174,19 +2122,6 @@
       }
     },
     {
-      "name": "dart-run-static-analysis",
-      "repo": "flutter/agent-plugins",
-      "official": false,
-      "stars": 3158,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/flutter/agent-plugins/dart-run-static-analysis",
-        "installs": 16200,
-        "weeklyInstalls": [831, 934, 1143, 1024, 998, 1118, 1196, 992],
-        "firstSeen": "2026-07-14"
-      }
-    },
-    {
       "name": "nature-academic-search",
       "repo": "yuan1z0825/nature-skills",
       "official": false,
@@ -2197,32 +2132,6 @@
         "installs": 16100,
         "weeklyInstalls": [1064, 1073, 847, 593, 755, 726, 681, 517],
         "firstSeen": "2026-05-14"
-      }
-    },
-    {
-      "name": "google-cloud-recipe-onboarding",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/google-cloud-recipe-onboarding",
-        "installs": 16100,
-        "weeklyInstalls": [422, 535, 368, 408, 452, 444, 333, 384],
-        "firstSeen": "2026-04-22"
-      }
-    },
-    {
-      "name": "dart-add-unit-test",
-      "repo": "flutter/agent-plugins",
-      "official": false,
-      "stars": 3158,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/flutter/agent-plugins/dart-add-unit-test",
-        "installs": 16100,
-        "weeklyInstalls": [833, 938, 1131, 1014, 982, 1099, 1186, 971],
-        "firstSeen": "2026-07-14"
       }
     },
     {
@@ -2278,19 +2187,6 @@
       }
     },
     {
-      "name": "dart-fix-runtime-errors",
-      "repo": "flutter/agent-plugins",
-      "official": false,
-      "stars": 3158,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/flutter/agent-plugins/dart-fix-runtime-errors",
-        "installs": 16000,
-        "weeklyInstalls": [817, 920, 1128, 1014, 968, 1098, 1184, 961],
-        "firstSeen": "2026-07-14"
-      }
-    },
-    {
       "name": "nature-response",
       "repo": "yuan1z0825/nature-skills",
       "official": false,
@@ -2327,32 +2223,6 @@
         "installs": 15800,
         "weeklyInstalls": [297, 385, 263, 187, 447, 371, 206, 347],
         "firstSeen": "2026-04-04"
-      }
-    },
-    {
-      "name": "dart-use-pattern-matching",
-      "repo": "flutter/agent-plugins",
-      "official": false,
-      "stars": 3158,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/flutter/agent-plugins/dart-use-pattern-matching",
-        "installs": 15800,
-        "weeklyInstalls": [812, 931, 1127, 1010, 972, 1080, 1186, 958],
-        "firstSeen": "2026-07-14"
-      }
-    },
-    {
-      "name": "dart-resolve-package-conflicts",
-      "repo": "flutter/agent-plugins",
-      "official": false,
-      "stars": 3158,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/flutter/agent-plugins/dart-resolve-package-conflicts",
-        "installs": 15800,
-        "weeklyInstalls": [807, 918, 1117, 1002, 958, 1088, 1167, 962],
-        "firstSeen": "2026-07-14"
       }
     },
     {
@@ -2473,19 +2343,6 @@
       }
     },
     {
-      "name": "dart-generate-test-mocks",
-      "repo": "flutter/agent-plugins",
-      "official": false,
-      "stars": 3158,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/flutter/agent-plugins/dart-generate-test-mocks",
-        "installs": 15700,
-        "weeklyInstalls": [808, 909, 1110, 989, 944, 1071, 1157, 943],
-        "firstSeen": "2026-07-14"
-      }
-    },
-    {
       "name": "web-app-penetration-testing",
       "repo": "usestrix/strix",
       "official": false,
@@ -2522,32 +2379,6 @@
         "installs": 15600,
         "weeklyInstalls": [997, 1217, 1181, 1233, 1292, 917, 433, 1456],
         "firstSeen": "2026-08-12"
-      }
-    },
-    {
-      "name": "dart-collect-coverage",
-      "repo": "flutter/agent-plugins",
-      "official": false,
-      "stars": 3158,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/flutter/agent-plugins/dart-collect-coverage",
-        "installs": 15600,
-        "weeklyInstalls": [806, 910, 1098, 983, 947, 1070, 1154, 932],
-        "firstSeen": "2026-07-14"
-      }
-    },
-    {
-      "name": "dart-use-primary-constructors",
-      "repo": "flutter/agent-plugins",
-      "official": false,
-      "stars": 3158,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/flutter/agent-plugins/dart-use-primary-constructors",
-        "installs": 15600,
-        "weeklyInstalls": [799, 909, 1102, 984, 943, 1061, 1148, 930],
-        "firstSeen": "2026-07-14"
       }
     },
     {
@@ -2590,45 +2421,6 @@
       }
     },
     {
-      "name": "cloud-sql-basics",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/cloud-sql-basics",
-        "installs": 15500,
-        "weeklyInstalls": [462, 541, 422, 452, 481, 427, 397, 427],
-        "firstSeen": "2026-04-22"
-      }
-    },
-    {
-      "name": "dart-build-cli-app",
-      "repo": "flutter/agent-plugins",
-      "official": false,
-      "stars": 3158,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/flutter/agent-plugins/dart-build-cli-app",
-        "installs": 15500,
-        "weeklyInstalls": [791, 906, 1106, 976, 938, 1056, 1147, 918],
-        "firstSeen": "2026-07-14"
-      }
-    },
-    {
-      "name": "google-cloud-waf-security",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/google-cloud-waf-security",
-        "installs": 15400,
-        "weeklyInstalls": [470, 535, 459, 479, 478, 456, 402, 439],
-        "firstSeen": "2026-04-22"
-      }
-    },
-    {
       "name": "find-security-vulnerabilities-in-code",
       "repo": "usestrix/strix",
       "official": false,
@@ -2655,32 +2447,6 @@
       }
     },
     {
-      "name": "dart-migrate-to-checks-package",
-      "repo": "flutter/agent-plugins",
-      "official": false,
-      "stars": 3158,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/flutter/agent-plugins/dart-migrate-to-checks-package",
-        "installs": 15400,
-        "weeklyInstalls": [792, 890, 1092, 969, 933, 1053, 1144, 917],
-        "firstSeen": "2026-07-14"
-      }
-    },
-    {
-      "name": "dart-use-ffigen",
-      "repo": "flutter/agent-plugins",
-      "official": false,
-      "stars": 3158,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/flutter/agent-plugins/dart-use-ffigen",
-        "installs": 15400,
-        "weeklyInstalls": [787, 893, 1087, 970, 928, 1050, 1142, 908],
-        "firstSeen": "2026-07-14"
-      }
-    },
-    {
       "name": "discernment-nudge",
       "repo": "anthropics/skills",
       "official": true,
@@ -2691,19 +2457,6 @@
         "installs": 15300,
         "weeklyInstalls": [1058, 1165, 1084, 1140, 1231, 1378, 1642, 1586],
         "firstSeen": "2026-08-17"
-      }
-    },
-    {
-      "name": "dart-setup-ffi-assets",
-      "repo": "flutter/agent-plugins",
-      "official": false,
-      "stars": 3158,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/flutter/agent-plugins/dart-setup-ffi-assets",
-        "installs": 15300,
-        "weeklyInstalls": [782, 889, 1084, 970, 924, 1049, 1137, 905],
-        "firstSeen": "2026-07-14"
       }
     },
     {
@@ -2798,19 +2551,6 @@
       }
     },
     {
-      "name": "google-cloud-waf-cost-optimization",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/google-cloud-waf-cost-optimization",
-        "installs": 15100,
-        "weeklyInstalls": [447, 525, 445, 485, 509, 466, 398, 431],
-        "firstSeen": "2026-04-22"
-      }
-    },
-    {
       "name": "building-components",
       "repo": "vercel/components.build",
       "official": true,
@@ -2850,32 +2590,6 @@
       }
     },
     {
-      "name": "firebase-basics",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/firebase-basics",
-        "installs": 14900,
-        "weeklyInstalls": [456, 539, 370, 446, 477, 411, 325, 440],
-        "firstSeen": "2026-04-22"
-      }
-    },
-    {
-      "name": "google-cloud-waf-reliability",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/google-cloud-waf-reliability",
-        "installs": 14800,
-        "weeklyInstalls": [444, 521, 446, 460, 470, 442, 397, 431],
-        "firstSeen": "2026-04-22"
-      }
-    },
-    {
       "name": "playwright-explore-website",
       "repo": "github/awesome-copilot",
       "official": true,
@@ -2911,19 +2625,6 @@
         "url": "https://skills.sh/wecomteam/wecom-unified/wecom-unified",
         "installs": 14700,
         "weeklyInstalls": [909, 813, 535, 378, 420, 575, 482, 421],
-        "firstSeen": "2026-04-22"
-      }
-    },
-    {
-      "name": "gke-basics",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/gke-basics",
-        "installs": 14700,
-        "weeklyInstalls": [432, 512, 403, 454, 463, 410, 356, 393],
         "firstSeen": "2026-04-22"
       }
     },
@@ -3695,19 +3396,6 @@
       }
     },
     {
-      "name": "alloydb-basics",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/alloydb-basics",
-        "installs": 13700,
-        "weeklyInstalls": [434, 507, 385, 401, 440, 397, 350, 385],
-        "firstSeen": "2026-04-22"
-      }
-    },
-    {
       "name": "bmad-walkthrough",
       "repo": "bmad-code-org/bmad-method",
       "official": false,
@@ -4459,19 +4147,6 @@
         "installs": 12600,
         "weeklyInstalls": [1, 4, 6, 2, 5, 7, 7, 2],
         "firstSeen": "2026-05-08"
-      }
-    },
-    {
-      "name": "google-cloud-networking-observability",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/google-cloud-networking-observability",
-        "installs": 12600,
-        "weeklyInstalls": [431, 515, 383, 437, 468, 444, 323, 383],
-        "firstSeen": "2026-05-13"
       }
     },
     {
@@ -46007,6 +45682,106 @@
     {
       "url": "https://skills.sh/wshobson/agents/async-python-patterns",
       "note": "Tool docs: an agent's manual for python."
+    },
+    {
+      "url": "https://skills.sh/google/skills/bigquery-basics",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/cloud-run-basics",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/gemini-api",
+      "note": "Tool docs: an agent's manual for gemini and google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/google-cloud-recipe-auth",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/google-cloud-recipe-onboarding",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/cloud-sql-basics",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/google-cloud-waf-security",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/google-cloud-waf-cost-optimization",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/firebase-basics",
+      "note": "A copy of firebase/agent-skills/skills/firebase-basics. Tool docs: an agent's manual for firebase."
+    },
+    {
+      "url": "https://skills.sh/google/skills/google-cloud-waf-reliability",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/gke-basics",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/alloydb-basics",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/google-cloud-networking-observability",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/flutter/agent-plugins/dart-run-static-analysis",
+      "note": "A copy of dart-lang/skills/skills/dart-run-static-analysis. Tool docs: an agent's manual for dart."
+    },
+    {
+      "url": "https://skills.sh/flutter/agent-plugins/dart-add-unit-test",
+      "note": "A copy of dart-lang/skills/skills/dart-add-unit-test. Tool docs: an agent's manual for dart."
+    },
+    {
+      "url": "https://skills.sh/flutter/agent-plugins/dart-fix-runtime-errors",
+      "note": "A copy of dart-lang/skills/skills/dart-fix-runtime-errors. Tool docs: an agent's manual for dart."
+    },
+    {
+      "url": "https://skills.sh/flutter/agent-plugins/dart-use-pattern-matching",
+      "note": "A copy of dart-lang/skills/skills/dart-use-pattern-matching. Tool docs: an agent's manual for dart."
+    },
+    {
+      "url": "https://skills.sh/flutter/agent-plugins/dart-resolve-package-conflicts",
+      "note": "A copy of dart-lang/skills/skills/dart-resolve-package-conflicts. Tool docs: an agent's manual for dart."
+    },
+    {
+      "url": "https://skills.sh/flutter/agent-plugins/dart-generate-test-mocks",
+      "note": "A copy of dart-lang/skills/skills/dart-generate-test-mocks. Tool docs: an agent's manual for dart."
+    },
+    {
+      "url": "https://skills.sh/flutter/agent-plugins/dart-collect-coverage",
+      "note": "A copy of dart-lang/skills/skills/dart-collect-coverage. Tool docs: an agent's manual for dart."
+    },
+    {
+      "url": "https://skills.sh/flutter/agent-plugins/dart-use-primary-constructors",
+      "note": "A copy of dart-lang/skills/skills/dart-use-primary-constructors. Tool docs: an agent's manual for dart."
+    },
+    {
+      "url": "https://skills.sh/flutter/agent-plugins/dart-build-cli-app",
+      "note": "A copy of dart-lang/skills/skills/dart-build-cli-app. Tool docs: an agent's manual for dart."
+    },
+    {
+      "url": "https://skills.sh/flutter/agent-plugins/dart-migrate-to-checks-package",
+      "note": "A copy of dart-lang/skills/skills/dart-migrate-to-checks-package. Tool docs: an agent's manual for dart."
+    },
+    {
+      "url": "https://skills.sh/flutter/agent-plugins/dart-use-ffigen",
+      "note": "A copy of dart-lang/skills/skills/dart-use-ffigen. Tool docs: an agent's manual for dart."
+    },
+    {
+      "url": "https://skills.sh/flutter/agent-plugins/dart-setup-ffi-assets",
+      "note": "A copy of dart-lang/skills/skills/dart-setup-ffi-assets. Tool docs: an agent's manual for dart."
     }
   ]
 }
