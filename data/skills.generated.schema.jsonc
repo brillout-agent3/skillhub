@@ -362,7 +362,7 @@
               "type": "null"
             }
           ],
-          "description": "Installs per week for the 8 weeks up to the installs snapshot, oldest first."
+          "description": "Installs per week for the 8 weeks up to the installs snapshot, oldest first, or null when unknown. They come with `installs`: from the top 600, or for an approved skill outside it, from the \"Weekly installs\" chart of the skill's skills.sh page."
         },
         "firstSeen": {
           "type": ["string", "null"],

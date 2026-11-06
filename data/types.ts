@@ -227,8 +227,11 @@ export interface SkillsSh {
    * that left the top 600 keeps its last number.
    */
   installs: number | null;
-  // TODO/ai where does the weeklyInstalls data come from exactly?
-  /** Installs per week for the 8 weeks up to the installs snapshot, oldest first. */
+  /**
+   * Installs per week for the 8 weeks up to the installs snapshot, oldest first, or null when
+   * unknown. They come with `installs`: from the top 600, or for an approved skill outside it,
+   * from the "Weekly installs" chart of the skill's skills.sh page.
+   */
   weeklyInstalls: number[] | null;
   // TODO/ai where does that data come from exactly?
   /** When skills.sh first saw the skill (YYYY-MM-DD). */
