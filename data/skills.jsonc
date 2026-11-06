@@ -9709,6 +9709,2177 @@
         ],
         "note": "Needs a Higgsfield account and its CLI. Every deploy puts the site live publicly at once; there is no preview stage."
       }
+    },
+    {
+      "id": "coreyhaines31/marketingskills/skills/cold-email",
+      "name": "cold-email",
+      "skills.sh": {
+        "url": "https://skills.sh/coreyhaines31/marketingskills/cold-email",
+        "installs": 134599,
+        "weeklyInstalls": [3161, 2837, 2893, 3575, 3947, 3406, 3538, 4191],
+        "firstSeen": "2026-02-18"
+      },
+      "skillMd": {
+        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes B2B cold emails and follow-ups that sound human, and covers sending setup, LinkedIn steps, multichannel cadences and reply handling.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're writing B2B cold outbound emails or a follow-up sequence, or nobody is replying"
+            },
+            {
+              "label": "It does",
+              "text": "writes short, peer-to-peer emails built on a real observation about the prospect, with one low-friction ask"
+            },
+            {
+              "label": "You get",
+              "text": "email drafts with 2-4 word lowercase subject lines, plus follow-ups that each add a new angle"
+            },
+            {
+              "label": "Before sending",
+              "text": "send from secondary domains with SPF, DKIM and DMARC, verify lists, and turn off open and click tracking"
+            },
+            {
+              "label": "Unlike the emails skill",
+              "text": "that one, from the same repo, covers lifecycle and nurture email; this one is for cold outreach"
+            }
+          ],
+          "text": "B2B cold outbound written to read like it came from a sharp colleague rather than a sales template. It reads your product marketing context if you have it (a shared file on your product, audience and positioning that the repo's product-marketing skill writes), then asks who you're writing to, what you want, the value, your proof and any research signals such as funding or hiring, but writes with whatever you give it. Personalization has to connect to the problem: if removing the opening line leaves the email intact, it isn't working. It picks a shape such as observation, problem, proof, ask, keeps one interest-based question as the call to action, and checks the draft against a list of AI tells (contrast reveals, self-answered questions, em dashes, stock phrases). Follow-ups run 3 to 5 emails with growing gaps, each standing alone. Replies are sorted by type, and positive ones get a fast answer with two proposed times and a booking link. References cover deliverability rules for Google, Yahoo and Microsoft, LinkedIn outreach, outbound plays, and multichannel cadences in which a reply on any channel stops them all. The prospect list comes from the repo's prospecting skill.",
+          "permalink": "https://github.com/coreyhaines31/marketingskills/tree/96798cf38736ecdba015a1d2b0521b0c8f8f41dd/skills/cold-email"
+        },
+        "tags": [
+          "category:marketing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "email",
+          "copywriting",
+          "marketing"
+        ]
+      }
+    },
+    {
+      "id": "coreyhaines31/marketingskills/skills/site-architecture",
+      "name": "site-architecture",
+      "skills.sh": {
+        "url": "https://skills.sh/coreyhaines31/marketingskills/site-architecture",
+        "installs": 129750,
+        "weeklyInstalls": [2833, 2620, 2741, 3043, 3331, 3509, 3747, 4180],
+        "firstSeen": "2026-02-27"
+      },
+      "skillMd": {
+        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Plans a website's page hierarchy, navigation, URL structure and internal linking, delivered as a page tree, a Mermaid sitemap and a URL map.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're planning a new site, restructuring one, or asking what pages you need and how they connect"
+            },
+            {
+              "label": "It does",
+              "text": "asks about your business, current site and content, then designs the hierarchy, navigation, URL patterns and internal links"
+            },
+            {
+              "label": "You get",
+              "text": "an ASCII page tree, a Mermaid sitemap, a URL map table, a navigation spec and an internal linking plan"
+            },
+            {
+              "label": "Rules it applies",
+              "text": "important pages within 3 clicks, 4-7 header items, readable lowercase hyphenated URLs, and no orphan pages"
+            },
+            {
+              "label": "Unlike seo-audit",
+              "text": "from the same repo, which handles XML sitemaps and technical SEO, it plans the structure people navigate"
+            }
+          ],
+          "text": "Information architecture for marketing sites, blogs, stores, docs and small-business sites. After reading your product marketing context if you have it (a shared file on your product, audience and positioning that the repo's product-marketing skill writes), it asks what the company does, who the site is for, its top goals, whether it's new or being restructured, which URLs must be kept for redirects, and how many pages exist. Each site type has a starting depth and URL pattern, from 1-2 levels for a small business to 3-4 for e-commerce and documentation. It goes as flat as clean navigation allows, keeps breadcrumbs matching the URL path, and flags common URL mistakes such as dates in blog URLs, IDs, over-nesting and changed URLs without 301 redirects. Content-heavy sites are organized around hub pages that link to their spoke pages and back. A reference covers choosing a platform, adding a section to an existing site and migrating.",
+          "permalink": "https://github.com/coreyhaines31/marketingskills/tree/96798cf38736ecdba015a1d2b0521b0c8f8f41dd/skills/site-architecture"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "seo",
+          "diagrams",
+          "marketing"
+        ]
+      }
+    },
+    {
+      "id": "coreyhaines31/marketingskills/skills/churn-prevention",
+      "name": "churn-prevention",
+      "skills.sh": {
+        "url": "https://skills.sh/coreyhaines31/marketingskills/churn-prevention",
+        "installs": 127117,
+        "weeklyInstalls": [3028, 2714, 2785, 3391, 3685, 3194, 3295, 3688],
+        "firstSeen": "2026-02-19"
+      },
+      "skillMd": {
+        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Designs cancel flows with save offers, churn-risk health scores and failed-payment recovery to reduce subscription churn.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "subscribers keep canceling, you have no cancel flow, or failed payments are quietly closing accounts"
+            },
+            {
+              "label": "It does",
+              "text": "designs a cancel flow with a save offer matched to each cancel reason, lists warning signs of at-risk accounts, and plans payment retries and reminder emails"
+            },
+            {
+              "label": "You get",
+              "text": "a cancel flow design (exit survey, offer, confirmation), an offer-per-reason map, a retry schedule and a 4-email payment reminder sequence"
+            },
+            {
+              "label": "Covers",
+              "text": "both voluntary churn (customers choosing to leave) and involuntary churn (payments that fail)"
+            },
+            {
+              "label": "Won't",
+              "text": "hide the cancel button or guilt-trip: the \"continue cancelling\" option stays visible"
+            }
+          ],
+          "text": "Retention for subscription products in three modes: build a cancel flow, improve an existing one from its data, or set up recovery of failed payments. It reads your product marketing context if you have it (a shared file on your product, audience and positioning that the repo's product-marketing skill writes) and asks about churn rate, billing provider, usage data and whether you sell to businesses or consumers. The cancel flow runs from a one-question exit survey to an offer chosen by the reason: a 20-30% discount for price, a pause for low use, a roadmap preview for a missing feature, no offer for a closed business. To catch churn early, it lists warning signs such as a 50% drop in logins or a data export, and a weighted 0-100 health score whose weights it calls illustrative, to be checked against real renewals before use. Failed payments get card-expiry alerts, retries timed by decline type, and dunning emails (reminders to update payment) over ten days. It ends with churn metrics, cohort cuts and cancel-flow tests, and compares retention tools such as Churnkey and billing providers such as Stripe.",
+          "permalink": "https://github.com/coreyhaines31/marketingskills/tree/96798cf38736ecdba015a1d2b0521b0c8f8f41dd/skills/churn-prevention"
+        },
+        "tags": [
+          "category:marketing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "conversion",
+          "payments",
+          "marketing"
+        ]
+      }
+    },
+    {
+      "id": "coreyhaines31/marketingskills/skills/sales-enablement",
+      "name": "sales-enablement",
+      "skills.sh": {
+        "url": "https://skills.sh/coreyhaines31/marketingskills/sales-enablement",
+        "installs": 125167,
+        "weeklyInstalls": [2672, 2469, 2472, 2952, 3136, 3225, 3363, 3822],
+        "firstSeen": "2026-02-27"
+      },
+      "skillMd": {
+        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Creates sales collateral reps will use: decks, one-pagers, objection docs, battle cards, demo scripts, ROI calculators, proposals and playbooks.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "your sales team needs a deck, one-pager, battle card or demo script, or a rep needs an answer to a live objection"
+            },
+            {
+              "label": "It does",
+              "text": "drafts each asset to a set structure, such as a 10-12 slide deck that tells a story instead of touring features"
+            },
+            {
+              "label": "You get",
+              "text": "outlines and copy by format: slides with speaker notes, objection tables, scene-by-scene demo scripts, persona cards"
+            },
+            {
+              "label": "Won't",
+              "text": "invent stats, customers or competitor numbers; unproven \"why we win\" claims become hypotheses for reps to test"
+            },
+            {
+              "label": "Also does",
+              "text": "win-loss analysis that codes each deal's main reason and reports counts with sample sizes"
+            }
+          ],
+          "text": "Sales collateral built around what reps trust: their language, scannable layouts, and claims a buyer can't disprove in a minute. It reads your product marketing context if you have it (a shared file on your product, audience and positioning that the repo's product-marketing skill writes) and asks about your value proposition, how you sell, which assets you need and what exists already. Each asset has a structure: decks run from the buyer's problem and its cost through proof and ROI to next steps, one-pagers fit on one page, and objection docs give each objection the concern behind it, a response, proof and a follow-up question. For a live deal objection it answers that deal with one response the rep can say as written, and says when the objection shows a real fit gap. Battle cards cover one competitor, including when to walk away, and it asks which competitor before drafting. Win-loss analysis segments deals before counting reasons and treats slices under about 5 deals as signals, not findings. It also covers ROI calculators, proposals, sales playbooks, short case-study briefs for reps and cold-call scripts. Public comparison pages are left to the repo's competitors skill.",
+          "permalink": "https://github.com/coreyhaines31/marketingskills/tree/96798cf38736ecdba015a1d2b0521b0c8f8f41dd/skills/sales-enablement"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "marketing",
+          "copywriting",
+          "slides"
+        ]
+      }
+    },
+    {
+      "id": "coreyhaines31/marketingskills/skills/customer-research",
+      "name": "customer-research",
+      "skills.sh": {
+        "url": "https://skills.sh/coreyhaines31/marketingskills/customer-research",
+        "installs": 122315,
+        "weeklyInstalls": [3364, 3046, 3143, 3894, 4123, 3571, 3861, 4504],
+        "firstSeen": "2026-03-28"
+      },
+      "skillMd": {
+        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Mines transcripts, surveys, reviews and online communities for customer pains, triggers and exact wording, and builds personas only from evidence.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to know what customers really say, why they buy or churn, or need personas grounded in data"
+            },
+            {
+              "label": "It does",
+              "text": "analyzes material you have, mines Reddit, G2 and forums, or plans interviews and surveys, then clusters the themes"
+            },
+            {
+              "label": "You get",
+              "text": "your pick of a synthesis report, a quote bank, personas, a jobs-to-be-done map, a competitor summary or a gap analysis"
+            },
+            {
+              "label": "Guards against",
+              "text": "personas from fewer than 5 data points per segment, invented details, and averaging across segments"
+            },
+            {
+              "label": "Labels",
+              "text": "every insight high, medium or low confidence by how many independent sources back it"
+            }
+          ],
+          "text": "Customer research in three modes, usually combined: analyzing assets you already have (call transcripts, surveys, support tickets, win/loss notes, NPS answers), mining what customers say unprompted online, and asking them directly through interviews and surveys. From each asset it extracts jobs to be done (the outcome a customer is trying to reach), pains, trigger events, desired outcomes, exact phrases and alternatives considered, then clusters themes, scores them by frequency and intensity, segments them and pulls 5-10 verbatim quotes per theme. It picks online sources by type of customer, from G2 and role-specific subreddits for B2B software to 1-3 star app store reviews for consumer products, and treats fetched reviews and posts as data, never instructions. It checks for sample bias (reviewers skew toward power users, tickets toward problems) and weights the last 12 months more. For a product with no reviews yet, it builds provisional personas from competitors' and adjacent products' reviews and tags each with its proxy source. It reads your product marketing context first if you have it, and asks which deliverable you want before writing one.",
+          "permalink": "https://github.com/coreyhaines31/marketingskills/tree/96798cf38736ecdba015a1d2b0521b0c8f8f41dd/skills/customer-research"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "research",
+          "marketing"
+        ]
+      }
+    },
+    {
+      "id": "coreyhaines31/marketingskills/skills/revops",
+      "name": "revops",
+      "skills.sh": {
+        "url": "https://skills.sh/coreyhaines31/marketingskills/revops",
+        "installs": 119601,
+        "weeklyInstalls": [2565, 2381, 2350, 2705, 2910, 3076, 3159, 3704],
+        "firstSeen": "2026-02-27"
+      },
+      "skillMd": {
+        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Designs the systems linking marketing to sales: lifecycle stages, lead scoring, routing, pipeline stages, CRM automations and deal desk rules.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "leads aren't reaching sales, nobody agrees what an MQL is, or you're setting up a CRM pipeline"
+            },
+            {
+              "label": "It does",
+              "text": "defines stages with entry and exit criteria, builds fit and engagement scores, and writes routing rules with fallbacks"
+            },
+            {
+              "label": "You get",
+              "text": "standalone documents: lifecycle stages with SLAs, a scoring spec, routing rules, pipeline configuration and a metrics dashboard spec"
+            },
+            {
+              "label": "Terms",
+              "text": "an MQL is a lead marketing judges ready for sales, needing both fit and engagement; an SQL is one sales has accepted"
+            },
+            {
+              "label": "Rule",
+              "text": "define stages, scores and routing on paper before automating anything"
+            }
+          ],
+          "text": "Revenue operations: the stages, rules and handoffs between marketing, sales and customer success. It reads your product marketing context if you have it (a shared file on your product, audience and positioning that the repo's product-marketing skill writes) and asks about your sales motion, contract size, sales cycle, CRM stack and what's breaking. Leads move through stages from subscriber to evangelist, each with an owner, and an MQL handoff has response times: contact within 4 business hours, qualify or reject within 48. Scoring combines who the lead is, what they do and disqualifying signals, and a new model is tested on a later holdout of won and lost deals before it routes real leads. Routing goes to the most specific match first, with a fallback owner, and prioritizes speed to lead. It also covers pipeline stage hygiene, CRM and scheduling automations, discount approval tiers for the deal desk, deduplication and quarterly data audits, and benchmark metrics such as MQL-to-SQL rate and LTV:CAC. Guidance gets platform-specific when it knows your CRM, such as HubSpot or Salesforce.",
+          "permalink": "https://github.com/coreyhaines31/marketingskills/tree/96798cf38736ecdba015a1d2b0521b0c8f8f41dd/skills/revops"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "marketing",
+          "conversion"
+        ]
+      }
+    },
+    {
+      "id": "coreyhaines31/marketingskills/skills/lead-magnets",
+      "name": "lead-magnets",
+      "skills.sh": {
+        "url": "https://skills.sh/coreyhaines31/marketingskills/lead-magnets",
+        "installs": 119490,
+        "weeklyInstalls": [2811, 2703, 2734, 3226, 3536, 3195, 3384, 3944],
+        "firstSeen": "2026-03-14"
+      },
+      "skillMd": {
+        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Plans a lead magnet, such as a checklist, template or ebook, plus how to gate, deliver, promote and measure it.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want something to give away in exchange for emails and don't know what to make"
+            },
+            {
+              "label": "It does",
+              "text": "matches a format to your buyer's stage, from checklists for awareness to templates and free trials for decision"
+            },
+            {
+              "label": "You get",
+              "text": "a recommendation with effort estimate, a content outline, a gating and capture plan, a distribution plan and KPIs"
+            },
+            {
+              "label": "Unlike free-tools",
+              "text": "from the same repo, which covers calculators and graders, it plans downloadable and gated content"
+            },
+            {
+              "label": "Also covers",
+              "text": "packaging a course, webinar series or newsletter you own as an installable agent skill"
+            }
+          ],
+          "text": "A lead magnet is a free resource, such as a checklist, cheat sheet, template, ebook, mini-course, quiz or webinar, offered in exchange for an email address. After reading your product marketing context if you have it (a shared file on your product, audience and positioning that the repo's product-marketing skill writes), it asks about your business, how you capture leads now, what content and expertise you could repackage, and your goals. Its rules: solve one specific problem, fit the buyer's stage, look worth paying for but take under 30 minutes to consume, and lead naturally to the product. It weighs full, partial and no gating, asks for the fewest form fields, and lays out the landing page and thank-you page. Promotion runs through blog content upgrades, popups, social posts, paid ads and partners, with landing-page conversion benchmarks and A/B test ideas. Writing the content itself, capture forms and the follow-up emails go to the repo's copywriting, cro and emails skills.",
+          "permalink": "https://github.com/coreyhaines31/marketingskills/tree/96798cf38736ecdba015a1d2b0521b0c8f8f41dd/skills/lead-magnets"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "marketing",
+          "conversion",
+          "email"
+        ]
+      }
+    },
+    {
+      "id": "coreyhaines31/marketingskills/skills/competitor-profiling",
+      "name": "competitor-profiling",
+      "skills.sh": {
+        "url": "https://skills.sh/coreyhaines31/marketingskills/competitor-profiling",
+        "installs": 101456,
+        "weeklyInstalls": [3201, 2861, 3016, 3726, 3954, 3441, 3784, 4199],
+        "firstSeen": "2026-04-21"
+      },
+      "skillMd": {
+        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Researches competitors from their URLs by scraping their sites and pulling SEO data, and writes one comparable Markdown profile per competitor.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you have a list of competitor URLs and want structured dossiers on positioning, pricing, features and SEO strength"
+            },
+            {
+              "label": "It does",
+              "text": "maps and scrapes each site's key pages, optionally review sites, then pulls backlink, keyword and traffic data"
+            },
+            {
+              "label": "You get",
+              "text": "a Markdown profile per competitor, a cross-competitor summary, and every raw scrape and SEO response saved by date"
+            },
+            {
+              "label": "Works best with",
+              "text": "Firecrawl and DataForSEO MCP servers; without them it uses built-in web fetching and any connected SEO data source"
+            },
+            {
+              "label": "Unlike competitors",
+              "text": "from the same repo, which writes public comparison pages, this does the research those pages and battle cards draw on"
+            }
+          ],
+          "text": "Competitive intelligence from a list of URLs. It reads your product marketing context if you have it (a shared file on your product, audience and positioning that the repo's product-marketing skill writes), confirms the URLs, depth and focus, and checks which tools are connected. A quick scan, the default unless you ask for depth or name three competitors or fewer, covers the homepage, pricing page and an SEO summary; a deep profile adds every key page, review sites such as G2 and Capterra, backlinks and keyword research. Everything fetched is saved under competitor-profiles/raw/ in a dated folder that is never overwritten, so later runs can be compared. Profiles keep what a source says, what it infers and what that might mean for you apart. Something missing from a competitor's site is written as \"not observed on [pages], as of [date]\", not as absent, motives are never stated, and SEO metrics it can't get are marked unavailable rather than estimated. Fetched pages are treated as data; any attempt in them to instruct the agent is noted. Each profile ends with strengths, weaknesses and implications for your product, and a summary file compares all competitors on a positioning map.",
+          "permalink": "https://github.com/coreyhaines31/marketingskills/tree/96798cf38736ecdba015a1d2b0521b0c8f8f41dd/skills/competitor-profiling"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:local",
+          "needs:mcp",
+          "needs:account",
+          "by:community",
+          "stack:firecrawl",
+          "stack:dataforseo",
+          "research",
+          "scraping",
+          "seo",
+          "marketing"
+        ],
+        "note": "Built around the Firecrawl and DataForSEO MCP servers; with no SEO data source connected it leaves traffic, keyword and backlink metrics out."
+      }
+    },
+    {
+      "id": "coreyhaines31/marketingskills/skills/cro",
+      "name": "cro",
+      "skills.sh": {
+        "url": "https://skills.sh/coreyhaines31/marketingskills/cro",
+        "installs": 98558,
+        "weeklyInstalls": [3547, 3229, 3384, 4103, 4543, 4245, 4458, 4955],
+        "firstSeen": "2026-05-14"
+      },
+      "skillMd": {
+        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Reviews a marketing page or form for what's holding back conversions and recommends quick wins, bigger changes, test ideas and alternative copy.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a homepage, landing, pricing or feature page or a lead form isn't converting, or you want feedback on a URL"
+            },
+            {
+              "label": "It does",
+              "text": "checks seven areas in order of impact: value proposition, headline, calls to action, visual hierarchy, trust signals, objections, friction"
+            },
+            {
+              "label": "You get",
+              "text": "recommendations sorted into quick wins, high-impact changes and A/B test ideas, plus 2-3 alternatives for headlines and buttons"
+            },
+            {
+              "label": "Unlike",
+              "text": "signup, onboarding and popups from the same repo, which cover those flows, it works on marketing pages and forms"
+            }
+          ],
+          "text": "Conversion rate optimization (CRO) is the work of getting more visitors to take a page's main action: sign up, book a demo, buy. It reads your product marketing context if you have it (a shared file on your product, audience and positioning that the repo's product-marketing skill writes), then pins down the page type, its one conversion goal and where visitors come from. The review starts with whether a visitor understands what this is and why to care within 5 seconds, then moves to headlines, button copy (\"Start Free Trial\" over \"Submit\"), what stands out to someone scanning, logos and testimonials near the calls to action, objections answered through FAQs and guarantees, and friction such as extra form fields or slow loads. Each page type has its own focus: message match and a single call to action for landing pages, a highlighted recommended plan for pricing pages. For form abandonment or experiment ideas, it first loads the matching reference: fields, validation and mobile forms, or tests by page type. Designing and measuring the tests goes to the repo's ab-testing skill.",
+          "permalink": "https://github.com/coreyhaines31/marketingskills/tree/96798cf38736ecdba015a1d2b0521b0c8f8f41dd/skills/cro"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "conversion",
+          "copywriting",
+          "marketing"
+        ]
+      }
+    },
+    {
+      "id": "coreyhaines31/marketingskills/skills/community-marketing",
+      "name": "community-marketing",
+      "skills.sh": {
+        "url": "https://skills.sh/coreyhaines31/marketingskills/community-marketing",
+        "installs": 95809,
+        "weeklyInstalls": [3102, 2736, 2806, 3298, 3437, 2971, 3173, 3813],
+        "firstSeen": "2026-04-21"
+      },
+      "skillMd": {
+        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Plans how to launch, grow and measure an online community, from founding members and rituals to ambassador programs.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're starting a Discord, Slack, forum or subreddit community, or an existing one has gone quiet"
+            },
+            {
+              "label": "It does",
+              "text": "defines the identity members share, weighs platforms, and applies a playbook for your goal and stage"
+            },
+            {
+              "label": "You get",
+              "text": "one of: a strategy doc with a 90-day launch plan, channel layout, new-member journey, ritual calendar, ambassador brief or health audit"
+            },
+            {
+              "label": "Health signals",
+              "text": "what to track weekly, such as DAU/MAU above 20%, new members posting within 7 days, and unanswered questions"
+            }
+          ],
+          "text": "Community-led growth built on one idea: people join for the product but stay for the people and a shared identity, such as bootstrapped founders or self-hosting tinkerers. After reading your product marketing context if you have it (a shared file on your product, audience and positioning that the repo's product-marketing skill writes), it asks about your product, platform, community stage, main goal and ideal member, and makes and flags assumptions where details are missing. Playbooks cover launching from zero (recruit 20-50 founding members by hand and seed posts before opening), growing an existing community (find where members drop off, run weekly rituals, invest in the few power users), building an ambassador program, and community-led support. A platform table weighs Discord, Slack, Circle, Reddit, Facebook Groups and Discourse forums. A reference describes four community models and how the builder's role shifts as a community passes 100 and then 1,000 members. It insists on specifics you can act on today rather than \"be consistent\" advice.",
+          "permalink": "https://github.com/coreyhaines31/marketingskills/tree/96798cf38736ecdba015a1d2b0521b0c8f8f41dd/skills/community-marketing"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "marketing",
+          "social-media"
+        ]
+      }
+    },
+    {
+      "id": "coreyhaines31/marketingskills/skills/image",
+      "name": "image",
+      "skills.sh": {
+        "url": "https://skills.sh/coreyhaines31/marketingskills/image",
+        "installs": 93811,
+        "weeklyInstalls": [2777, 2720, 2802, 3405, 3608, 3096, 3302, 3934],
+        "firstSeen": "2026-04-24"
+      },
+      "skillMd": {
+        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Guides marketing image creation, such as blog heroes, social graphics and banners: which AI model or design tool to use, sizes and web optimization.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need a blog hero, social graphic, product mockup, profile banner or OG image (the preview shown when a link is shared)"
+            },
+            {
+              "label": "It does",
+              "text": "picks between AI generation, design tools like Canva and Figma, real screenshots or stock, and shapes the prompt"
+            },
+            {
+              "label": "You get",
+              "text": "prompts, exact dimensions per platform, and an optimization checklist with commands for converting to WebP"
+            },
+            {
+              "label": "Steers away from",
+              "text": "AI for product UI (models invent interfaces) and for logos; text-heavy images go to Ideogram or overlays"
+            },
+            {
+              "label": "Unlike ad-creative",
+              "text": "from the same repo, which handles paid ad visuals and ad specs, this covers general marketing images"
+            }
+          ],
+          "text": "A guide to making marketing images efficiently. After reading your product marketing context if you have it (a shared file on your product, audience and positioning that the repo's product-marketing skill writes), it asks what the image is, where it goes, its size, your brand assets and which image tools you have API keys for. A decision tree picks the model: Ideogram when the image needs text, Flux or Gemini (Nano Banana) for consistency across many images, Recraft for vector illustrations, cheaper models for volume. Prompts follow subject, setting, style, lighting, composition and technical details. Workflows cover blog heroes at 1200x630 (which doubles as the link preview), resizing social graphics per platform, framing real screenshots in device mockups, and banners for LinkedIn, X, Product Hunt and G2. Images are meant to be compressed, served as WebP with a fallback, lazy loaded and given explicit sizes, with commands for cwebp, ImageMagick and jpegoptim. It also gives the meta tags for link previews and ways to generate them per page. Video goes to the repo's video skill.",
+          "permalink": "https://github.com/coreyhaines31/marketingskills/tree/96798cf38736ecdba015a1d2b0521b0c8f8f41dd/skills/image"
+        },
+        "tags": [
+          "category:marketing",
+          "category:media",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "image",
+          "ai-generation",
+          "marketing"
+        ]
+      }
+    },
+    {
+      "id": "coreyhaines31/marketingskills/skills/social",
+      "name": "social",
+      "skills.sh": {
+        "url": "https://skills.sh/coreyhaines31/marketingskills/social",
+        "installs": 93335,
+        "weeklyInstalls": [2921, 2694, 2904, 3492, 3994, 4335, 4594, 5223],
+        "firstSeen": "2026-05-14"
+      },
+      "skillMd": {
+        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes and plans social media posts for LinkedIn, X, Instagram, TikTok and Facebook, from hooks and carousels to repurposing, calendars and short-form video scripts.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need posts, a content calendar or ideas for what to post, or want to turn a blog post or podcast into social content"
+            },
+            {
+              "label": "It does",
+              "text": "builds 3-5 content pillars, writes hooks and posts per platform, and cuts long content into standalone pieces"
+            },
+            {
+              "label": "You get",
+              "text": "post drafts, carousel slide plans, a weekly calendar, and short video scripts timed second by second"
+            },
+            {
+              "label": "Bans",
+              "text": "AI tells such as \"it's not X, it's Y\", one-line-per-sentence \"broetry\", engagement bait and emoji bullets"
+            },
+            {
+              "label": "Can publish",
+              "text": "through a connected scheduling tool such as Typefully or Buffer, as drafts first and never without your go-ahead"
+            }
+          ],
+          "text": "Social content with storytelling first: platform tactics only amplify a good story. It reads your product marketing context if you have it (a shared file on your product, audience and positioning that the repo's product-marketing skill writes), then asks about goals, audience, brand voice and how much time you have. A quick reference gives each platform's audience, posting frequency and main format, with deeper references on each platform, character limits, and how X ranks its For You feed. Hooks come in curiosity, story, value and contrarian shapes, to be filled with a specific fact or story. Repurposing pulls 5-10 self-contained moments from a blog post, podcast, webinar or newsletter and adapts each to a platform. It also sets a 30-minute daily engagement routine, a weekly review of top and bottom posts, a method for studying what works for top creators in your niche, and short-form video structures in which the visual, spoken and on-screen hooks all land in the first second. A listening reference helps pick which posts to comment on and track brand mentions.",
+          "permalink": "https://github.com/coreyhaines31/marketingskills/tree/96798cf38736ecdba015a1d2b0521b0c8f8f41dd/skills/social"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:remote",
+          "needs:none",
+          "by:community",
+          "stack:linkedin",
+          "stack:x-twitter",
+          "stack:tiktok",
+          "stack:meta",
+          "social-media",
+          "copywriting",
+          "video",
+          "marketing"
+        ]
+      }
+    },
+    {
+      "id": "coreyhaines31/marketingskills/skills/video",
+      "name": "video",
+      "skills.sh": {
+        "url": "https://skills.sh/coreyhaines31/marketingskills/video",
+        "installs": 92784,
+        "weeklyInstalls": [2659, 2461, 2490, 2855, 3073, 3233, 3478, 4205],
+        "firstSeen": "2026-04-24"
+      },
+      "skillMd": {
+        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Guides marketing video production: picks programmatic, AI-generated, avatar or editing tools and lays out workflows for demos, explainers and batches of social clips.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a product demo, explainer, social clip or ad video and aren't sure which tools to use"
+            },
+            {
+              "label": "It does",
+              "text": "chooses among code-built video (Hyperframes, Remotion), AI footage (Veo, Runway, Kling), AI avatars (HeyGen, Synthesia) and editing tools"
+            },
+            {
+              "label": "You get",
+              "text": "a tool choice, video-model prompts and production workflows; with code or API access, the agent can build the video itself"
+            },
+            {
+              "label": "Also covers",
+              "text": "copying a reference video's edit style as a beat sheet, without its footage, script or music"
+            },
+            {
+              "label": "Unlike social",
+              "text": "from the same repo, which decides what to post, this covers how to make the video"
+            }
+          ],
+          "text": "Video production for marketing, organized by approach. Programmatic video means building videos with code for templated or data-driven content: Hyperframes compositions are HTML files animated by a GSAP timeline, Remotion compositions are React components, and the skill picks whichever matches what your team already writes. AI generation covers B-roll and scenes you can't film, with a comparison of models on resolution, length and cost, and prompts built from subject, action, camera, style and mood. AI avatars from HeyGen (which has an MCP server) or Synthesia present scripts without filming. Editing tools such as Descript, Opus Clip and CapCut turn long recordings into short clips. Workflows cover product demos, explainers, batch social clips and personalized films per target account, and references cover recording a web app demo with Playwright and rendering product films from code. With Hyperframes, the HeyGen MCP server or a video model's API, an agent can run the whole pipeline itself, from script to assembled final cut. It warns against AI-generated text in video and against skipping captions. It reads your product marketing context first if you have it (a shared file the repo's product-marketing skill writes) and asks about your API keys and budget.",
+          "permalink": "https://github.com/coreyhaines31/marketingskills/tree/96798cf38736ecdba015a1d2b0521b0c8f8f41dd/skills/video"
+        },
+        "tags": [
+          "category:marketing",
+          "category:media",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "stack:hyperframes",
+          "stack:remotion",
+          "video",
+          "ai-generation",
+          "marketing"
+        ]
+      }
+    },
+    {
+      "id": "coreyhaines31/marketingskills/skills/directory-submissions",
+      "name": "directory-submissions",
+      "skills.sh": {
+        "url": "https://skills.sh/coreyhaines31/marketingskills/directory-submissions",
+        "installs": 91794,
+        "weeklyInstalls": [2737, 2627, 2676, 3253, 3498, 2948, 3307, 3822],
+        "firstSeen": "2026-04-21"
+      },
+      "skillMd": {
+        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Plans and runs product submissions to startup, SaaS, AI and MCP directories for backlinks and discovery, with positioning varied per directory.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're launching and want listings on Product Hunt, G2, AI directories or MCP registries, or are running a backlink campaign"
+            },
+            {
+              "label": "It does",
+              "text": "checks you're ready, picks directory tiers, writes a different description per tier, and works through a submission tracker"
+            },
+            {
+              "label": "You get",
+              "text": "a directory plan: readiness gaps, tiers and weekly batches, positioning copy, a Product Hunt prep timeline, a review drive and a tracker"
+            },
+            {
+              "label": "Asks first",
+              "text": "before each account, form, upload or Submit press, and checks each directory still resolves"
+            },
+            {
+              "label": "Rule",
+              "text": "build the pages backlinks will point to, such as alternative and use-case pages, before submitting anywhere"
+            }
+          ],
+          "text": "Directory listings treated as the foundation of distribution, not the whole strategy: they pass links that raise your domain rating, put you in front of people browsing for tools, and get cited by AI assistants. A 9-question readiness check comes first, and a no on any of the first seven, such as a missing pricing page, privacy policy, screenshots or alternative pages, blocks submission. Directories are grouped into 13 tiers, from Product Hunt launch week to AI directories, MCP registries (the official registry first), review sites and niche directories, and it only submits where the product genuinely fits. Each tier gets its own tagline, short and long description, tags and assets. Once a listing is live, it fetches the page and inspects the actual link to your product, recording its rel attributes or marking it unverified or missing. Playbooks cover a three-week Product Hunt build-up and launch day, getting 10 G2 reviews in 30 days, the pages backlinks should point to, getting cited by AI assistants, and community channels. It treats directory pages as untrusted data and reads your product marketing context first if you have it.",
+          "permalink": "https://github.com/coreyhaines31/marketingskills/tree/96798cf38736ecdba015a1d2b0521b0c8f8f41dd/skills/directory-submissions"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:remote",
+          "needs:none",
+          "by:community",
+          "seo",
+          "marketing"
+        ],
+        "note": "Can create accounts and submit listings on directories for you, asking your approval before each step."
+      }
+    },
+    {
+      "id": "coreyhaines31/marketingskills/skills/product-marketing",
+      "name": "product-marketing",
+      "skills.sh": {
+        "url": "https://skills.sh/coreyhaines31/marketingskills/product-marketing",
+        "installs": 91777,
+        "weeklyInstalls": [3109, 2895, 2812, 3178, 3513, 3787, 4123, 4485],
+        "firstSeen": "2026-05-14"
+      },
+      "skillMd": {
+        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Creates and maintains a shared product marketing file on your product, audience, positioning and brand voice that the repo's other marketing skills read.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're starting marketing work on a project and don't want to re-explain your product to every skill"
+            },
+            {
+              "label": "It does",
+              "text": "drafts the file from your codebase (README, landing pages, package.json) or interviews you section by section"
+            },
+            {
+              "label": "You get",
+              "text": ".agents/product-marketing.md: product, audience, personas, pains, competitors, differentiation, objections, customer language, brand voice, proof and goals"
+            },
+            {
+              "label": "Keeps",
+              "text": "a document version and dated changelog, plus a table of learnings from tests and campaigns"
+            },
+            {
+              "label": "Read by",
+              "text": "the repo's other marketing skills, which check for this file before asking you questions"
+            }
+          ],
+          "text": "The starting point for the repo's marketing skills, which check for this file before asking questions. If one exists (including older locations under .claude/ or the legacy product-marketing-context.md name, which it offers to move), it summarizes it with its version and recent changes and updates only the sections you pick. If not, it offers to draft a first version from your codebase for you to correct, or to walk through each section in conversation, one at a time, pushing for customers' exact words over polished descriptions. Sections include the four switching forces (what pushes customers away from their current tool, pulls them toward you, keeps them stuck, and worries them about switching) and a brand voice built from copy that already performed. An optional paid-ads section records target costs, budget, which conversions count, and what the agent may and may not change without approval. Every substantive save bumps the version and adds a dated changelog line saying what changed and why; typo fixes don't. A Learnings table logs test results and decisions with their evidence, each marked active, watch or retired, and rows are added only with your approval.",
+          "permalink": "https://github.com/coreyhaines31/marketingskills/tree/96798cf38736ecdba015a1d2b0521b0c8f8f41dd/skills/product-marketing"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "marketing",
+          "interview"
+        ]
+      }
+    },
+    {
+      "id": "coreyhaines31/marketingskills/skills/analytics",
+      "name": "analytics",
+      "skills.sh": {
+        "url": "https://skills.sh/coreyhaines31/marketingskills/analytics",
+        "installs": 91243,
+        "weeklyInstalls": [3291, 3009, 3077, 3714, 4076, 3747, 3882, 4289],
+        "firstSeen": "2026-05-14"
+      },
+      "skillMd": {
+        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Plans and checks analytics tracking: event plans and naming, GA4 and Tag Manager setup, UTM conventions and validation.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're setting up tracking, your events aren't firing, or you're asking how to tell whether something works"
+            },
+            {
+              "label": "It does",
+              "text": "starts from the decisions the data should inform, then names events object_action, picks properties and gives a checklist and tools to confirm they fire"
+            },
+            {
+              "label": "You get",
+              "text": "a tracking plan document with events, properties, triggers, custom dimensions and conversions"
+            },
+            {
+              "label": "Insists on",
+              "text": "computing every figure from row-level data, never by eye, and dividing rates over matching closed time windows"
+            },
+            {
+              "label": "Unlike",
+              "text": "conversion-tracking and attribution from the same repo, which cover ad-platform conversions and attribution models"
+            }
+          ],
+          "text": "Analytics implementation for marketing and product decisions, built on tracking only what informs a decision. It reads your product marketing context if you have it (a shared file on your product, audience and positioning that the repo's product-marketing skill writes) and asks what decisions the data will drive, what's tracked now, and what your stack and privacy requirements are. Events follow an object_action format such as signup_completed, keeping GA4's own names where its recommended events apply. It lists essential events for marketing sites and apps, standard properties, and setup steps for GA4 and Google Tag Manager. UTM links stay lowercase and hyphenated with one spelling per source and no personal data, with fixed patterns per partner type (newsletters, creators, podcasts, affiliates, communities) and a GA4 channel group so partner traffic doesn't land in Unassigned. Visits from AI assistants get their own channel, treated as a floor since many arrive as direct traffic. For analysis it computes figures with a script or spreadsheet, cross-checks headline numbers, counts cohorts still inside their window as pending rather than failed, and ties each recommendation to the brief's stated goal.",
+          "permalink": "https://github.com/coreyhaines31/marketingskills/tree/96798cf38736ecdba015a1d2b0521b0c8f8f41dd/skills/analytics"
+        },
+        "tags": [
+          "category:marketing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:google-analytics",
+          "stack:google-tag-manager",
+          "marketing",
+          "conversion"
+        ]
+      }
+    },
+    {
+      "id": "coreyhaines31/marketingskills/skills/ads",
+      "name": "ads",
+      "skills.sh": {
+        "url": "https://skills.sh/coreyhaines31/marketingskills/ads",
+        "installs": 89879,
+        "weeklyInstalls": [3235, 2920, 3010, 3752, 4140, 3693, 3914, 4409],
+        "firstSeen": "2026-05-14"
+      },
+      "skillMd": {
+        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Plans and optimizes paid campaigns on Google, Meta, LinkedIn, X and TikTok: structure, targeting, budgets, retargeting and weekly account checks.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're starting paid ads, a campaign's cost per acquisition is climbing, or you want to know if it's working"
+            },
+            {
+              "label": "It does",
+              "text": "loads the playbook for the platform or decision at hand, such as Meta kill-or-scale calls, Google Search structure or B2B budgets"
+            },
+            {
+              "label": "You get",
+              "text": "recommendations ending in facts, hypotheses and missing data, with unavailable inputs labelled MISSING rather than estimated"
+            },
+            {
+              "label": "Weekly check",
+              "text": "spend, traffic, conversions, creative, landing page, tracking, ending in one call: hold, fix, test or investigate"
+            },
+            {
+              "label": "Unlike ad-creative",
+              "text": "from the same repo, which writes the ads themselves, this handles campaign strategy and account decisions"
+            }
+          ],
+          "text": "Paid acquisition across ad platforms, with the detail in references it loads by intent: payback math, B2B playbooks, Meta and LinkedIn operations, Google Search, account-based campaigns, account audits, and Google responsive search ads, which must follow a strict output spec. It reads your product marketing context if you have it (a shared file on your product, audience and positioning that the repo's product-marketing skill writes), including its paid-ads targets and learnings, so tested angles don't come back as new ideas. Its central claim for 2026 is that audience knowledge goes into the creative first and targeting filters second, by a ratio that varies by platform: about 80/20 on Meta, but 40/60 on Google Search and LinkedIn, where keywords and job-title filters still lead. Retargeting shows people who didn't buy a different offer, through four ad types run together. Brand and non-brand search are measured separately, since cheap brand conversions flatter blended numbers. Guardrails for live accounts: unknown isn't failing, search terms are only a sample, no invented negative keywords, no adding conversions across attribution windows, and changes are proposed with a rollback and applied only with your approval.",
+          "permalink": "https://github.com/coreyhaines31/marketingskills/tree/96798cf38736ecdba015a1d2b0521b0c8f8f41dd/skills/ads"
+        },
+        "tags": [
+          "category:marketing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:google-ads",
+          "stack:meta",
+          "stack:linkedin",
+          "marketing",
+          "conversion"
+        ]
+      }
+    },
+    {
+      "id": "coreyhaines31/marketingskills/skills/pricing",
+      "name": "pricing",
+      "skills.sh": {
+        "url": "https://skills.sh/coreyhaines31/marketingskills/pricing",
+        "installs": 86318,
+        "weeklyInstalls": [2871, 2670, 2632, 2978, 3385, 3529, 3758, 4202],
+        "firstSeen": "2026-05-14"
+      },
+      "skillMd": {
+        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Designs SaaS pricing (value metric, tiers, first price, research, increases) and audits pricing pages for buyers and AI agents.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're deciding what to charge, how to structure plans, whether to offer a free tier, or how to raise prices"
+            },
+            {
+              "label": "It does",
+              "text": "finds a value metric that grows with what customers get, then sets tiers and a price between the next best alternative and perceived value"
+            },
+            {
+              "label": "First price",
+              "text": "start near $10, $100 or $1,000 a month by customer type, and avoid ultra-low $9 pricing"
+            },
+            {
+              "label": "Price increases",
+              "text": "test on new customers first, move 5-10% of existing ones, and treat grandfathering as a transition"
+            },
+            {
+              "label": "Also does",
+              "text": "a pricing page teardown scoring it for human buyers and for AI agents that need prices in plain text"
+            }
+          ],
+          "text": "Pricing for SaaS along three axes: what each tier includes, what you charge for (the value metric, such as per seat or per usage) and the price itself. It reads your product marketing context if you have it (a shared file on your product, audience and positioning that the repo's product-marketing skill writes) and asks about your product, current pricing, market, sales motion, conversion, revenue per user and churn. Prices are set by value, not by cost or by copying a competitor. On day one a price is for learning, so it suggests a round number in the right order of magnitude, shipped quickly. Tiers follow good-better-best, with the top tier at 2-3 times the middle one. It describes Van Westendorp surveys (four questions that find an acceptable price range) and MaxDiff (ranking which features matter), noting that a survey intersection isn't proof of the best price. The pricing page teardown checks clarity, transparency and whether AI assistants can read and quote your prices, with a quick test of asking one for your plans. Upgrade screens inside the product go to the repo's paywalls skill.",
+          "permalink": "https://github.com/coreyhaines31/marketingskills/tree/96798cf38736ecdba015a1d2b0521b0c8f8f41dd/skills/pricing"
+        },
+        "tags": [
+          "category:marketing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "marketing",
+          "conversion"
+        ]
+      }
+    },
+    {
+      "id": "coreyhaines31/marketingskills/skills/co-marketing",
+      "name": "co-marketing",
+      "skills.sh": {
+        "url": "https://skills.sh/coreyhaines31/marketingskills/co-marketing",
+        "installs": 86243,
+        "weeklyInstalls": [3028, 2676, 2734, 3291, 3444, 3025, 3180, 3571],
+        "firstSeen": "2026-05-06"
+      },
+      "skillMd": {
+        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Helps choose co-marketing partners that share your audience, brainstorms joint campaigns, and outlines the outreach email and agreement.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're looking for companies to partner with, or planning a joint webinar, report or launch with one"
+            },
+            {
+              "label": "It does",
+              "text": "scores possible partners 1-5 on audience fit, size, brand alignment, engagement, reciprocity and ease of execution"
+            },
+            {
+              "label": "You get",
+              "text": "scored partner candidates, campaign ideas by format, an outreach email template and an agreement outline"
+            },
+            {
+              "label": "Ideal partner",
+              "text": "same buyer, different problem, adjacent in the workflow, and not competing for the same budget"
+            },
+            {
+              "label": "Unlike referrals",
+              "text": "from the same repo, which covers customers referring customers and affiliate mechanics"
+            }
+          ],
+          "text": "Partnerships between companies that share an audience. It reads your product marketing context if you have it (a shared file on your product, audience and positioning that the repo's product-marketing skill writes). Partners are found among your integration partners, tools used just before or after yours, sponsors of the same podcasts and conferences, and account overlap data from Crossbeam or Reveal. Co-marketing is placed among five partnership types (integrations, resellers, affiliates, co-marketing and app marketplaces) so a request goes to the right play, with HubSpot's partner program as the flagship example. Campaign formats run from co-authored posts and newsletter swaps to joint research reports, webinars, integration launches, bundles and giveaways, each rated by effort. For brainstorming with a specific partner, it looks for moments that matter to both audiences, what the two products enable together, and what each side brings. It then covers preparing for the first call, agreeing on lead ownership, promotion and approvals, and measuring leads, revenue and the relationship afterward, with a checklist from finding partners to the debrief.",
+          "permalink": "https://github.com/coreyhaines31/marketingskills/tree/96798cf38736ecdba015a1d2b0521b0c8f8f41dd/skills/co-marketing"
+        },
+        "tags": [
+          "category:marketing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "marketing"
+        ]
+      }
+    },
+    {
+      "id": "coreyhaines31/marketingskills/skills/schema",
+      "name": "schema",
+      "skills.sh": {
+        "url": "https://skills.sh/coreyhaines31/marketingskills/schema",
+        "installs": 85396,
+        "weeklyInstalls": [2897, 2716, 2787, 3156, 3363, 3636, 3894, 4224],
+        "firstSeen": "2026-05-14"
+      },
+      "skillMd": {
+        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes JSON-LD structured data for your pages, first checking which Google rich results still exist, with a validation checklist.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want star ratings or other rich results in Google, or need to add or fix structured data"
+            },
+            {
+              "label": "It does",
+              "text": "matches the page to schema.org types such as Organization, Article, Product or BreadcrumbList, written as JSON-LD"
+            },
+            {
+              "label": "You get",
+              "text": "a complete JSON-LD code block and a testing checklist for the Rich Results Test and Schema.org Validator"
+            },
+            {
+              "label": "Knows that",
+              "text": "Google dropped FAQ rich results in May 2026, HowTo in 2023 and the sitelinks search box in 2024"
+            },
+            {
+              "label": "Unlike seo-audit",
+              "text": "from the same repo, which covers SEO broadly, this only writes and checks structured data"
+            }
+          ],
+          "text": "Schema markup is structured data, written in the schema.org vocabulary, that describes what a page contains, such as a product's price or an article's author, so search engines can show enhanced results. It reads your product marketing context if you have it (a shared file on your product, audience and positioning that the repo's product-marketing skill writes), then asks about the page type, existing markup and the rich results you want. Its rules: mark up only what's visible on the page, use JSON-LD, follow Google's guidelines, and test before deploying. A table lists the common types with their required properties, and several types can share one page through @graph. Before writing markup for a search appearance, it checks Google's current list of supported features: a type can be valid schema.org and still earn no rich result, and it won't recommend markup to chase a retired one. Implementation notes cover static sites, React and Next.js, and WordPress plugins. Optimizing for AI search goes to the repo's ai-seo skill.",
+          "permalink": "https://github.com/coreyhaines31/marketingskills/tree/96798cf38736ecdba015a1d2b0521b0c8f8f41dd/skills/schema"
+        },
+        "tags": [
+          "category:marketing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "seo",
+          "marketing"
+        ]
+      }
+    },
+    {
+      "id": "coreyhaines31/marketingskills/skills/competitors",
+      "name": "competitors",
+      "skills.sh": {
+        "url": "https://skills.sh/coreyhaines31/marketingskills/competitors",
+        "installs": 84898,
+        "weeklyInstalls": [3087, 2744, 2873, 3499, 3630, 3083, 3301, 3738],
+        "firstSeen": "2026-05-14"
+      },
+      "skillMd": {
+        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes competitor comparison and alternative pages in four formats, keeps claims about rivals dated and sourced, and audits existing pages for stale claims.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want pages that rank for \"[competitor] alternative\" or \"X vs Y\", or need to check old comparison content"
+            },
+            {
+              "label": "It does",
+              "text": "picks one of four formats (alternative, alternatives list, you vs them, two competitors) and writes the page section by section"
+            },
+            {
+              "label": "You get",
+              "text": "a YAML data file per competitor, full page copy with meta tags and tables, and a prioritized page plan"
+            },
+            {
+              "label": "Evidence rules",
+              "text": "\"not listed on their pricing page (as of date)\" instead of \"doesn't have\", dated prices, and no guessed motives"
+            },
+            {
+              "label": "Unlike competitor-profiling",
+              "text": "from the same repo, which researches competitors from scratch, this turns what you know into public pages"
+            }
+          ],
+          "text": "Pages that position your product against competitors for people comparing options. It reads your product marketing context if you have it (a shared file on your product, audience and positioning that the repo's product-marketing skill writes), and if no competitor is named it asks and stops rather than guessing. Each format has its own search intent, URL pattern and section order: a single alternative page for people ready to switch, a list of 4-7 real alternatives for earlier research, a you-versus-them page, and a page comparing two competitors that introduces you as the third option. Pages admit competitor strengths, say who each product is best for, and explain why differences matter beyond a feature checklist. Competitor facts live in one central file per competitor, so a fix reaches every page. The asset audit lists every claim about a competitor across pages, battle cards and decks, re-checks it, and marks it current, changed, unverifiable or overclaimed, then reports a fix list with replacement wording, public pages first. It notes that alternatives lists can earn citations in AI answers without AI recommending you.",
+          "permalink": "https://github.com/coreyhaines31/marketingskills/tree/96798cf38736ecdba015a1d2b0521b0c8f8f41dd/skills/competitors"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "seo",
+          "copywriting",
+          "marketing"
+        ]
+      }
+    },
+    {
+      "id": "coreyhaines31/marketingskills/skills/launch",
+      "name": "launch",
+      "skills.sh": {
+        "url": "https://skills.sh/coreyhaines31/marketingskills/launch",
+        "installs": 84778,
+        "weeklyInstalls": [2879, 2744, 2844, 3410, 3814, 3321, 3544, 3983],
+        "firstSeen": "2026-05-14"
+      },
+      "skillMd": {
+        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Plans product and feature launches, from a readiness check through five rollout phases, Product Hunt and post-launch follow-up.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're about to release a product, feature or update and want a launch plan, or need to size how much noise an update deserves"
+            },
+            {
+              "label": "It does",
+              "text": "checks the product is ready to launch, then plans five phases from internal testing to general availability across owned, rented and borrowed channels"
+            },
+            {
+              "label": "You get",
+              "text": "a phased launch plan with checklists for before, on and after launch day, plus Product Hunt preparation"
+            },
+            {
+              "label": "Unlike marketing-ideas",
+              "text": "from the same repo, which covers ongoing marketing after launch, it plans the release itself"
+            }
+          ],
+          "text": "Launches are treated as a phased process. A readiness gate comes first: is what you're launching simple (it does one thing), lovable (people would choose it) and complete (a whole experience for that one thing)? It warns against both polishing in private forever and pushing the date for one more feature. Channels are sorted into owned (email list, blog, community), rented (social platforms, app stores) and borrowed (guest posts, podcasts, influencers), with everything meant to lead back to owned ones. The five phases run internal, alpha, beta, early access and full launch, each with actions and a goal. Product Hunt gets its own before, during and after plan with two case studies. After launch it covers onboarding emails, comparison pages and interactive demos, and for later releases a matrix sizes the marketing to the update: a full campaign for major features, a targeted note for integrations, a changelog entry for fixes. References cover QA for a new site and drafting changelogs from merged pull requests. It reads your product marketing context if you have it (a shared file on your product, audience and positioning that the repo's product-marketing skill writes).",
+          "permalink": "https://github.com/coreyhaines31/marketingskills/tree/96798cf38736ecdba015a1d2b0521b0c8f8f41dd/skills/launch"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "marketing"
+        ]
+      }
+    },
+    {
+      "id": "coreyhaines31/marketingskills/skills/emails",
+      "name": "emails",
+      "skills.sh": {
+        "url": "https://skills.sh/coreyhaines31/marketingskills/emails",
+        "installs": 84774,
+        "weeklyInstalls": [2851, 2761, 2862, 3470, 3848, 3351, 3521, 3903],
+        "firstSeen": "2026-05-14"
+      },
+      "skillMd": {
+        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Designs automated email sequences such as welcome, nurture, onboarding and re-engagement flows, with timing, subject lines and full copy for each email.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need a welcome, lead nurture, onboarding, re-engagement or other automated email flow, or want to find gaps in your lifecycle emails"
+            },
+            {
+              "label": "It does",
+              "text": "asks what triggers the sequence, who's in it and its goal, then sets the length, spacing and one job for each email"
+            },
+            {
+              "label": "You get",
+              "text": "a sequence overview with trigger, goal and exit conditions, then each email's send time, subject, preview text, body and button, plus a metrics plan"
+            },
+            {
+              "label": "Bans",
+              "text": "AI tells such as \"it's not X, it's Y\", \"no X, no Y\" lists, fake \"Re:\" subject lines and \"I hope this email finds you well\""
+            },
+            {
+              "label": "Unlike cold-email",
+              "text": "from the same repo, which handles cold outreach, it designs flows triggered by signups, purchases, events or inactivity"
+            }
+          ],
+          "text": "Email sequence design for lifecycle marketing. It first reads your product marketing context if you have it (a shared file on your product, audience and positioning that the repo's product-marketing skill writes), including its Learnings section, so angles and offers already tested aren't proposed again as new. Four principles run through every sequence: one email, one job; value before the ask; fewer, more relevant emails; and an obvious next step. It gives default lengths and spacing, such as 5 to 7 welcome emails over about two weeks, or 3 to 4 re-engagement emails after 30 to 60 days of inactivity, with an email-by-email outline for welcome, lead nurture, re-engagement and onboarding sequences. Copy rules cover structure (hook, context, value, call to action, sign-off), short mobile-friendly paragraphs, word counts by email type, and subject lines of 40 to 60 characters. It lists lifecycle emails by category, from failed-payment recovery to win-back, and loads references for detailed templates, the lifecycle audit, and personalization and testing. For sending, it points to guides for tools such as Customer.io, Mailchimp, Resend and Kit.",
+          "permalink": "https://github.com/coreyhaines31/marketingskills/tree/96798cf38736ecdba015a1d2b0521b0c8f8f41dd/skills/emails"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "email",
+          "copywriting",
+          "marketing"
+        ]
+      }
+    },
+    {
+      "id": "coreyhaines31/marketingskills/skills/ab-testing",
+      "name": "ab-testing",
+      "skills.sh": {
+        "url": "https://skills.sh/coreyhaines31/marketingskills/ab-testing",
+        "installs": 83774,
+        "weeklyInstalls": [3097, 2789, 2817, 3373, 3588, 3305, 3405, 3997],
+        "firstSeen": "2026-05-14"
+      },
+      "skillMd": {
+        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Designs A/B tests with a hypothesis, metrics and sample size, interprets results without common statistical mistakes, and helps run an ongoing experiment program.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to test a change, need to know how long a test should run, or want experiments to become a regular practice"
+            },
+            {
+              "label": "It does",
+              "text": "writes a hypothesis, picks primary, secondary and guardrail metrics, sizes the sample, and checks results against the plan made before the test"
+            },
+            {
+              "label": "You get",
+              "text": "a documented test plan, an analysis checklist, and a playbook entry recording each finished experiment"
+            },
+            {
+              "label": "Guards against",
+              "text": "stopping early when results look good, testing several changes at once, and misreading p-values and confidence intervals"
+            },
+            {
+              "label": "Unlike cro",
+              "text": "from the same repo, which finds what to improve on a page, this designs the test and judges its result"
+            }
+          ],
+          "text": "Experiment design with statistical care. Each test starts from a hypothesis in a fixed form: because of this observation, we believe this change will cause this outcome for this audience, and we'll know when these metrics move. A quick table gives the sample size per variant for common baselines and lifts at 95% confidence and 80% power, with links to calculators. It covers test types (A/B, several variants, multivariate, split URL), traffic splits, client-side versus server-side setup, and a pre-launch checklist. For changes only some visitors interact with, such as a hero video, it explains comparing only the visitors who reached it. Its analysis follows the American Statistical Association's statement on p-values: what a p-value and a confidence interval do and don't mean, and why a finished test isn't extended until it turns significant. For a program, it adds a loop: gather hypotheses from analytics, research and support tickets, score them on impact, confidence and ease, run them, and record each result in a playbook of reusable patterns, reviewed weekly, monthly and quarterly. It reads your product marketing context if you have it (a shared file on your product, audience and positioning that the repo's product-marketing skill writes).",
+          "permalink": "https://github.com/coreyhaines31/marketingskills/tree/96798cf38736ecdba015a1d2b0521b0c8f8f41dd/skills/ab-testing"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "conversion",
+          "marketing"
+        ]
+      }
+    },
+    {
+      "id": "coreyhaines31/marketingskills/skills/aso",
+      "name": "aso",
+      "skills.sh": {
+        "url": "https://skills.sh/coreyhaines31/marketingskills/aso",
+        "installs": 81725,
+        "weeklyInstalls": [3042, 2709, 2782, 3315, 3544, 3082, 3249, 3858],
+        "firstSeen": "2026-05-14"
+      },
+      "skillMd": {
+        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Audits an App Store or Google Play listing, scores it out of 100, and returns a prioritized plan of specific fixes.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you share an App Store or Google Play link and want to know why the app isn't found or downloaded"
+            },
+            {
+              "label": "It does",
+              "text": "fetches the live listing, screenshots the page, and scores six areas from title to ratings, adjusted for how well-known the app is"
+            },
+            {
+              "label": "You get",
+              "text": "a report with a score card, three quick wins, keyword suggestions, visual advice and an action plan, with character counts for text changes"
+            },
+            {
+              "label": "Also",
+              "text": "compares your listing with 2 or 3 competitors and finds keywords they target that you don't"
+            },
+            {
+              "label": "Limits",
+              "text": "says what it can't judge without paid tools, such as search volume and exact rankings"
+            }
+          ],
+          "text": "ASO, app store optimization, is the store version of SEO: getting a listing found in store search and turning visits into downloads. The agent fetches the listing page and extracts every field it can, from title and subtitle to ratings, release notes and languages, then takes a screenshot to judge the icon, screenshots and video, asking you for one if it has no browser tools. Before scoring it classes the app as dominant, established or challenger: a household name with millions of ratings gets credit for brand-only titles and lifestyle imagery that would be mistakes for an unknown app. Six areas are scored 0 to 10 and weighted into a grade from A to F: title and subtitle, description, visual assets, ratings and reviews, metadata and freshness, and conversion signals. Store rules are built in, such as Apple's hidden 100-byte keyword field and unindexed long description, against Google Play's indexed full description and limit of eight screenshots. Every recommendation must be specific (\"change subtitle from X to Y\"). It reads your product marketing context if you have it (a shared file on your product, audience and positioning that the repo's product-marketing skill writes).",
+          "permalink": "https://github.com/coreyhaines31/marketingskills/tree/96798cf38736ecdba015a1d2b0521b0c8f8f41dd/skills/aso"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:app-store",
+          "stack:google-play",
+          "mobile",
+          "seo",
+          "conversion",
+          "marketing"
+        ]
+      }
+    },
+    {
+      "id": "coreyhaines31/marketingskills/skills/free-tools",
+      "name": "free-tools",
+      "skills.sh": {
+        "url": "https://skills.sh/coreyhaines31/marketingskills/free-tools",
+        "installs": 79864,
+        "weeklyInstalls": [2770, 2673, 2725, 3252, 3333, 2985, 3321, 3619],
+        "firstSeen": "2026-05-14"
+      },
+      "skillMd": {
+        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Plans and evaluates free tools, such as calculators, generators or graders, that bring in leads, search traffic and links.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're considering building a free calculator, generator, grader or similar tool to attract leads or links"
+            },
+            {
+              "label": "It does",
+              "text": "finds tool ideas in your audience's pain points, checks search demand and fit with your product, and weighs gating, build options and scope"
+            },
+            {
+              "label": "You get",
+              "text": "a verdict from an eight-factor scorecard out of 40: strong candidate, promising, or reconsider"
+            },
+            {
+              "label": "Unlike lead-magnets",
+              "text": "from the same repo, which covers downloadable content such as ebooks and checklists, this is about interactive tools"
+            }
+          ],
+          "text": "Engineering as marketing: building something useful and giving it away so it brings in leads, search traffic and links. The idea is to take a capability others charge for and offer a free version, as Unsplash did with stock photos. A good tool solves a real problem for your audience, leads naturally to your product, and is worth more in leads than it costs to build and maintain. It sorts tools into calculators, generators, analyzers, testers, libraries and interactive tools, then finds ideas in what your audience searches for, the tedious tasks they do by hand, and what they need before buying. It weighs gating (fully, partly or not at all), keyword targets, custom, no-code or embedded builds, and a first version that skips accounts and saved results. Each idea is scored 1 to 5 on eight factors, including search demand, buyer match, uniqueness and maintenance burden. It warns against overbuilding before demand is proven and against counting visitors instead of leads. It reads your product marketing context if you have it (a shared file on your product, audience and positioning that the repo's product-marketing skill writes).",
+          "permalink": "https://github.com/coreyhaines31/marketingskills/tree/96798cf38736ecdba015a1d2b0521b0c8f8f41dd/skills/free-tools"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "marketing",
+          "seo"
+        ]
+      }
+    },
+    {
+      "id": "coreyhaines31/marketingskills/skills/onboarding",
+      "name": "onboarding",
+      "skills.sh": {
+        "url": "https://skills.sh/coreyhaines31/marketingskills/onboarding",
+        "installs": 79743,
+        "weeklyInstalls": [2666, 2468, 2379, 2663, 2895, 3098, 3294, 3713],
+        "firstSeen": "2026-05-14"
+      },
+      "skillMd": {
+        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Audits or designs post-signup onboarding so new users reach value fast, from finding the aha moment to checklists, empty states and emails.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "people sign up but don't start using the product, or you're designing a first-run experience"
+            },
+            {
+              "label": "It does",
+              "text": "defines your activation event, finds where users drop off, and designs the shortest path from signup to the product's core value"
+            },
+            {
+              "label": "You get",
+              "text": "an audit (finding, impact, recommendation and priority per issue) or a flow design with checklist items, empty-state copy, email triggers and a metrics plan"
+            },
+            {
+              "label": "Unlike signup",
+              "text": "from the same repo, which optimizes registration itself, this covers what happens once the account exists"
+            }
+          ],
+          "text": "Onboarding aimed at the aha moment: the point where a new user first gets real value. Its core rule is to remove every step between signup and that value: design the minimum path to it, aim for one goal per first session, and have users do the thing rather than watch a tutorial. It explains why the mechanics work, such as checklists that open partly done, ending sessions on a high, and a behavior needing motivation, ability and a prompt at the same moment. To find your aha moment, it compares early actions with later retention on fully observed signup cohorts, treats strong correlations as hypotheses, and tests them before adopting them. It judges activation by conversion to customer and 90-day retention, not signup volume. It then covers the first 30 seconds after signup, checklists of 3 to 7 items, empty states, short tours, emails that reinforce in-app steps, and recovering stalled users. References cover the minimum path to value, five activation models such as freemium and free trial, and experiment ideas. It reads your product marketing context if you have it (a shared file on your product, audience and positioning that the repo's product-marketing skill writes).",
+          "permalink": "https://github.com/coreyhaines31/marketingskills/tree/96798cf38736ecdba015a1d2b0521b0c8f8f41dd/skills/onboarding"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "conversion",
+          "marketing"
+        ]
+      }
+    },
+    {
+      "id": "coreyhaines31/marketingskills/skills/referrals",
+      "name": "referrals",
+      "skills.sh": {
+        "url": "https://skills.sh/coreyhaines31/marketingskills/referrals",
+        "installs": 78109,
+        "weeklyInstalls": [2630, 2417, 2277, 2590, 2951, 3108, 3247, 3664],
+        "firstSeen": "2026-05-14"
+      },
+      "skillMd": {
+        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Designs and improves referral, affiliate and review programs that turn customers and partners into a source of new customers.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want customers or partners to bring in new customers, or need more reviews on sites such as G2"
+            },
+            {
+              "label": "It does",
+              "text": "checks whether sharing can be built into the product first, then designs the referral loop: when to ask, how to share, and the reward"
+            },
+            {
+              "label": "You get",
+              "text": "a program design with incentives, fixes for weak spots, metrics, a launch checklist, a launch email and a schedule of reminder emails"
+            },
+            {
+              "label": "Also covers",
+              "text": "affiliate and partner programs, review requests and replying to bad reviews, mostly through its references"
+            }
+          ],
+          "text": "Word-of-mouth programs, from customer referrals to affiliates. Before any reward scheme it asks whether the product could spread on its own, through \"Powered by\" badges, shared outputs or embeds, and warns against forcing that on backend or internal tools. Customer referral programs suit products people already talk about; affiliate programs reach audiences you don't have, through partners paid ongoing commission. Program design follows a loop: pick a trigger moment such as right after the aha moment or a milestone, choose a share mechanism (in-product sharing converts best, a referral code works offline), and choose single-sided, double-sided or tiered rewards, presented as whichever number feels bigger and given at a milestone rather than at signup. It covers fixing low share or conversion rates, tests to run, fraud limits, metrics such as referred customers' lifetime value, and a 30-day launch checklist. Affiliate operations, viral mechanics, review programs and each review platform's rules live in references, and it lists tools such as Rewardful, Tolt and PartnerStack. It asks about lifetime value, acquisition cost and reward budget. It reads your product marketing context if you have it (a shared file on your product, audience and positioning that the repo's product-marketing skill writes).",
+          "permalink": "https://github.com/coreyhaines31/marketingskills/tree/96798cf38736ecdba015a1d2b0521b0c8f8f41dd/skills/referrals"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "marketing"
+        ]
+      }
+    },
+    {
+      "id": "coreyhaines31/marketingskills/skills/signup",
+      "name": "signup",
+      "skills.sh": {
+        "url": "https://skills.sh/coreyhaines31/marketingskills/signup",
+        "installs": 77708,
+        "weeklyInstalls": [2600, 2396, 2434, 2683, 2805, 2955, 3156, 3580],
+        "firstSeen": "2026-05-14"
+      },
+      "skillMd": {
+        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Audits signup and registration flows field by field to cut drop-off, with prioritized fixes, test ideas and an optional form redesign.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "people start signing up but don't finish, or you're designing a trial, freemium or waitlist signup"
+            },
+            {
+              "label": "It does",
+              "text": "questions every field, then reviews email and password fields, social sign-in, one step versus several, errors, mobile and what happens after submit"
+            },
+            {
+              "label": "You get",
+              "text": "findings with impact, fix and priority, grouped into same-day fixes, bigger changes and A/B test ideas, plus a redesigned form if asked"
+            },
+            {
+              "label": "Unlike onboarding",
+              "text": "from the same repo, which covers what happens after signup, it stops once the account exists"
+            }
+          ],
+          "text": "Conversion work on the account-creation step. The rule is that every field costs signups: for each one it asks whether you need it before the person can use the product, could collect it later, or could infer it, which often leaves only email and password as essential. It suggests showing value before asking for commitment, setting expectations (\"takes 30 seconds\"), and trust lines such as \"no credit card required\" when true. Field by field it covers typo checks on emails, showing passwords and allowing paste, deferring phone and company fields, and placing Google, Apple or Microsoft sign-in prominently. It says when one step beats several (three fields or fewer), how to order multi-step forms from easy to hard, inline error handling, mobile layout, and email verification that doesn't stop people exploring. It lists metrics down to field-level drop-off, common patterns for B2B trials, consumer apps, waitlists and e-commerce accounts, and a long list of experiments. Lead-capture forms are left to the repo's cro skill. It reads your product marketing context if you have it (a shared file on your product, audience and positioning that the repo's product-marketing skill writes).",
+          "permalink": "https://github.com/coreyhaines31/marketingskills/tree/96798cf38736ecdba015a1d2b0521b0c8f8f41dd/skills/signup"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "conversion",
+          "marketing"
+        ]
+      }
+    },
+    {
+      "id": "coreyhaines31/marketingskills/skills/paywalls",
+      "name": "paywalls",
+      "skills.sh": {
+        "url": "https://skills.sh/coreyhaines31/marketingskills/paywalls",
+        "installs": 76677,
+        "weeklyInstalls": [2569, 2383, 2226, 2520, 2724, 2831, 3071, 3762],
+        "firstSeen": "2026-05-14"
+      },
+      "skillMd": {
+        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Designs in-app paywalls and upgrade prompts that convert free or trial users to paid at the right moment, without dark patterns.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "free or trial users won't upgrade, or you're designing an upgrade screen, feature gate or limit-reached prompt"
+            },
+            {
+              "label": "It does",
+              "text": "times upgrade prompts for after users have seen real value, and builds each screen from seven parts, from headline to a clear \"not now\""
+            },
+            {
+              "label": "You get",
+              "text": "advice and text layouts for feature-lock, usage-limit and trial-expiry paywalls, with timing and frequency rules and tests to run"
+            },
+            {
+              "label": "Unlike cro",
+              "text": "from the same repo, which handles public pricing pages, this covers upgrade moments inside the product"
+            },
+            {
+              "label": "Won't",
+              "text": "hide the close button, guilt-trip, or use fake countdowns and \"limited\" offers"
+            }
+          ],
+          "text": "Upgrade screens inside a product, for freemium, trials, tier upgrades and usage limits. Its principles: ask only after the user has had real value, show what the paid feature does rather than just naming it, make upgrading easy, and make saying no easy too, so trust survives for later. It covers four triggers (a paid feature clicked, a limit hit, a trial ending, and gentle reminders after some days of free use) and the parts of a paywall screen: headline, value demonstration, plan comparison, pricing, social proof, a specific button, and an escape hatch. Text layouts are given for a feature-lock, a usage-limit and a trial-expiration paywall. Timing rules say when not to show one (during onboarding, mid-task, again right after a dismissal), with per-session limits and cool-downs measured in days. It lists what to test and which metrics to track, and its references cover more experiments and consumer iOS and Android subscription apps. It reads your product marketing context if you have it (a shared file on your product, audience and positioning that the repo's product-marketing skill writes).",
+          "permalink": "https://github.com/coreyhaines31/marketingskills/tree/96798cf38736ecdba015a1d2b0521b0c8f8f41dd/skills/paywalls"
+        },
+        "tags": [
+          "category:marketing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "conversion",
+          "marketing"
+        ]
+      }
+    },
+    {
+      "id": "coreyhaines31/marketingskills/skills/popups",
+      "name": "popups",
+      "skills.sh": {
+        "url": "https://skills.sh/coreyhaines31/marketingskills/popups",
+        "installs": 76469,
+        "weeklyInstalls": [2586, 2376, 2207, 2487, 2711, 2811, 3024, 3642],
+        "firstSeen": "2026-05-14"
+      },
+      "skillMd": {
+        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Designs popups, slide-ins and banners that capture emails or promote offers without annoying visitors, from trigger and targeting to copy.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want an email capture, exit-intent, discount or announcement popup, or your current one annoys people"
+            },
+            {
+              "label": "It does",
+              "text": "picks the popup type and trigger, such as scroll depth, exit intent or a click, then sets targeting, frequency caps and copy"
+            },
+            {
+              "label": "You get",
+              "text": "a popup spec with type, trigger, audience, frequency, headline, button and decline text, rules so several popups don't collide, and test ideas"
+            },
+            {
+              "label": "Respects",
+              "text": "easy closing, remembered dismissals, GDPR consent, keyboard and screen-reader access, and Google's stance on intrusive mobile popups"
+            }
+          ],
+          "text": "Conversion work on overlays that interrupt: modals, slide-ins, exit-intent popups, sticky bars and announcement banners. Timing comes first: it prefers 30 to 60 seconds over 5, scroll depth for articles, exit intent for a last chance, and click-triggered popups, which annoy nobody, for lead magnets. Each popup type gets its own practices, such as a single email field with a specific benefit for list capture, or an offer on exit that differs from the entry popup. Design rules cover hierarchy, sizes for desktop and mobile, a visible close button and a \"no thanks\" link; copy covers headline formulas, first-person buttons (\"Get My Discount\") and polite decline text instead of guilt-tripping. It shows a popup at most once per session, waits 7 to 30 days after a dismissal, excludes checkout flows and converted visitors, and gives typical conversion rates by type. It ends with common setups for e-commerce, B2B SaaS, content sites and lead generation, and a long list of experiments. It reads your product marketing context if you have it (a shared file on your product, audience and positioning that the repo's product-marketing skill writes).",
+          "permalink": "https://github.com/coreyhaines31/marketingskills/tree/96798cf38736ecdba015a1d2b0521b0c8f8f41dd/skills/popups"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "conversion",
+          "marketing"
+        ]
+      }
+    },
+    {
+      "id": "coreyhaines31/marketingskills/skills/marketing-plan",
+      "name": "marketing-plan",
+      "skills.sh": {
+        "url": "https://skills.sh/coreyhaines31/marketingskills/marketing-plan",
+        "installs": 74444,
+        "weeklyInstalls": [2817, 2636, 2666, 3090, 3393, 3270, 3499, 3952],
+        "firstSeen": "2026-05-29"
+      },
+      "skillMd": {
+        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds a 12-month marketing plan structured by funnel stage and fitted to a company's budget, team and funding, reviewed with you section by section.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're a fractional CMO or consultant starting with a client, or a founder who needs a 12-month marketing roadmap for the team or investors"
+            },
+            {
+              "label": "It does",
+              "text": "researches the company and interviews you, then drafts 13 sections one at a time for you to approve, adjust or expand"
+            },
+            {
+              "label": "You get",
+              "text": "one Markdown file of roughly 8,000 to 12,000 words, ready to paste into Notion, with a 90-day roadmap that names owners"
+            },
+            {
+              "label": "Keeps",
+              "text": "research, progress and each approved section in ~/marketing-plans/, so you can stop and resume where you left off"
+            },
+            {
+              "label": "Unlike marketing-ideas",
+              "text": "from the same repo, which suggests standalone tactics, it commits to a sequenced plan and cross-references all 139 of those ideas"
+            }
+          ],
+          "text": "A fractional CMO's strategy document, organized by AARRR, the funnel stages acquisition, activation, retention, referral and revenue, so every move names the stage it serves. You call it with a client name or domain. First it reads the materials you provide, pulls data from connected tools such as analytics or Stripe, and interviews you on funding, team, budget, channels, what's done and what's stuck, scoring the current state against its own 17-part rubric. In the second it presents each of 13 sections for approval: executive summary, strategic frame, current state, one per funnel stage, a 90-day roadmap, a 12-month outlook tied to funding milestones, the marketing skills and integrations that would carry out each move, an idea bank, and measurement with open decisions. The third phase compiles and checks the final file, and can offer to publish it to a GitHub repo. Throughout, it treats marketing as a portfolio of compounding assets, checks how big and frequent the problem is, sizes the market (total, serviceable and obtainable) when that's in doubt, sets budgets from revenue or from goals, and lists unknowns such as acquisition cost as open decisions rather than guessing. A finished plan is never overwritten without asking.",
+          "permalink": "https://github.com/coreyhaines31/marketingskills/tree/96798cf38736ecdba015a1d2b0521b0c8f8f41dd/skills/marketing-plan"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "marketing",
+          "research"
+        ],
+        "note": "Saves research, progress and the finished plan under ~/marketing-plans/ in your home folder."
+      }
+    },
+    {
+      "id": "coreyhaines31/marketingskills/skills/prospecting",
+      "name": "prospecting",
+      "skills.sh": {
+        "url": "https://skills.sh/coreyhaines31/marketingskills/prospecting",
+        "installs": 71707,
+        "weeklyInstalls": [2634, 2435, 2280, 2639, 3052, 3109, 3268, 3937],
+        "firstSeen": "2026-05-26"
+      },
+      "skillMd": {
+        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds verified, scored prospect lists for B2B, SaaS or local-business outreach, or finds first customers from public signs of demand.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need a list of companies or local businesses to contact, or your first customers and design partners"
+            },
+            {
+              "label": "It does",
+              "text": "turns your ideal customer into pass/fail criteria, sources two to three times more candidates than needed, and qualifies each with sources and a confidence level"
+            },
+            {
+              "label": "You get",
+              "text": "a lead sheet scored hot, warm, cold or skip, as a chat table or a CSV above 25 rows, with the top 3 to 5 targets explained"
+            },
+            {
+              "label": "Won't",
+              "text": "bulk-scrape LinkedIn or Google Maps, get past logins or CAPTCHAs, or use leaked data or sensitive traits"
+            },
+            {
+              "label": "Works with",
+              "text": "Apollo, Clay, ZoomInfo, Hunter and similar if you have them; otherwise public sources and browser research"
+            },
+            {
+              "label": "Unlike cold-email",
+              "text": "from the same repo, which handles the outreach itself (copy, sending setup, cadences and replies), it builds the list you reach out to"
+            }
+          ],
+          "text": "Prospect research in four branches: SaaS companies, other B2B businesses, local small businesses such as gyms or clinics, and an early-stage branch that looks for public evidence of the pain you solve in forums, reviews, GitHub issues and job posts. Every branch runs the same five phases. It defines the ideal customer profile as a paragraph plus pass/fail checks, including a \"why now\" buying signal; builds a candidate list from two or three sources; qualifies each candidate with evidence, rating confidence high only with two independent sources or the official business page; scores and tiers accounts, with a researched brief before any outreach to the top tier; and outputs the lead sheet, or an evidence report for the early-stage branch. Emails are verified before they go on the list and again before sending if the list has sat. Compliance rules apply on every run: no bulk scraping, public business contacts only, a source URL and date kept for every contact for GDPR and CAN-SPAM, and no reselling extracted data. It reads your product marketing context if you have it (a shared file on your product, audience and positioning that the repo's product-marketing skill writes).",
+          "permalink": "https://github.com/coreyhaines31/marketingskills/tree/96798cf38736ecdba015a1d2b0521b0c8f8f41dd/skills/prospecting"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "research",
+          "marketing"
+        ]
+      }
+    },
+    {
+      "id": "coreyhaines31/marketingskills/skills/sms",
+      "name": "sms",
+      "skills.sh": {
+        "url": "https://skills.sh/coreyhaines31/marketingskills/sms",
+        "installs": 70093,
+        "weeklyInstalls": [2511, 2315, 2301, 2590, 2722, 2839, 3048, 3490],
+        "firstSeen": "2026-05-21"
+      },
+      "skillMd": {
+        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Plans compliant SMS, MMS and WhatsApp marketing programs, from consent and carrier registration to flows like abandoned cart and win-back.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're starting or fixing text-message marketing, deciding between SMS and email, or need to get compliant in the US, EU or Canada"
+            },
+            {
+              "label": "It does",
+              "text": "checks compliance first, then ranks which flows to build by return, such as abandoned cart, welcome, post-purchase and win-back"
+            },
+            {
+              "label": "You get",
+              "text": "an SMS plan: compliance blockers, flow designs with timing and copy with character counts, a platform pick, a measurement plan and STOP/HELP templates"
+            },
+            {
+              "label": "Also covers",
+              "text": "WhatsApp for audiences outside the US, with its 24-hour reply window and approved message templates"
+            }
+          ],
+          "text": "Text-message marketing built on compliance. It explains US rules (written consent under the TCPA, honoring STOP within seconds, quiet hours, and registering business numbers with carriers through A2P 10DLC, without which messages are silently filtered) plus EU, UK and Canadian consent rules. It says when SMS beats email, such as cart recovery, shipping updates and flash sales, and when it doesn't, such as newsletters. It compares short codes, toll-free and regular numbers by list size, and sets principles: every send costs money, one link per message, the brand name in every text, and staying within 160 characters, since emojis cut a segment to 70. Flow templates give timing, such as a cart reminder 30 minutes after abandonment, with any discount saved for the second or third message. It compares platforms such as Klaviyo, Postscript, Attentive and Twilio, lists healthy benchmark ranges, and covers WhatsApp's reply window, templates, per-message pricing and its lack of US marketing delivery. It reads your product marketing context if you have it (a shared file on your product, audience and positioning that the repo's product-marketing skill writes).",
+          "permalink": "https://github.com/coreyhaines31/marketingskills/tree/96798cf38736ecdba015a1d2b0521b0c8f8f41dd/skills/sms"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "messaging",
+          "marketing",
+          "ecommerce"
+        ]
+      }
+    },
+    {
+      "id": "coreyhaines31/marketingskills/skills/offers",
+      "name": "offers",
+      "skills.sh": {
+        "url": "https://skills.sh/coreyhaines31/marketingskills/offers",
+        "installs": 64200,
+        "weeklyInstalls": [2810, 2637, 2519, 2910, 3203, 3421, 3686, 4287],
+        "firstSeen": "2026-06-17"
+      },
+      "skillMd": {
+        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Designs or improves the offer behind a sale (deliverable, bonuses, guarantee, urgency, name and payment terms) using Hormozi's value equation.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "your offer isn't converting, or you're packaging a service, course, coaching or high-ticket product"
+            },
+            {
+              "label": "It does",
+              "text": "scores your offer on the four levers of the value equation, finds the weakest of six parts, and redrafts one part per round"
+            },
+            {
+              "label": "You get",
+              "text": "a reworked bonus, guarantee, deadline, name or payment plan, with an honest estimate of the lift to confirm by test"
+            },
+            {
+              "label": "Unlike pricing",
+              "text": "from the same repo, which sets tiers and price levels, it improves what's included and how it's framed; self-serve SaaS should start with pricing"
+            },
+            {
+              "label": "Won't",
+              "text": "use fake scarcity, inflated \"worth $X\" bonuses or over-promising guarantees"
+            }
+          ],
+          "text": "Offer design for services, courses, coaching, info products, high-ticket B2B and direct response. Its premise is that a stronger offer with average copy beats better copy on a weak offer. The value equation, from Alex Hormozi's $100M Offers, rates value as the dream outcome times the buyer's belief they'll get it, divided by the wait and the effort it takes; most requests to lower a price are really requests to raise the top or shrink the bottom. A complete offer has six parts: the core deliverable, a bonus stack, a guarantee, scarcity or urgency, a name, and price with payment terms. Its diagnostic loop states the current offer plainly, scores each lever from 1 to 10, audits the six parts, changes only the weakest, and projects a 10 to 40% lift per change, multiplied rather than added. It bans words such as \"game-changing\" and unconditional \"100% guaranteed\", and advises against discounting to win new customers. References cover each part, formats by business type, SaaS offers and worked examples. It reads your product marketing context if you have it (a shared file on your product, audience and positioning that the repo's product-marketing skill writes).",
+          "permalink": "https://github.com/coreyhaines31/marketingskills/tree/96798cf38736ecdba015a1d2b0521b0c8f8f41dd/skills/offers"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "marketing",
+          "conversion"
+        ]
+      }
+    },
+    {
+      "id": "coreyhaines31/marketingskills/skills/public-relations",
+      "name": "public-relations",
+      "skills.sh": {
+        "url": "https://skills.sh/coreyhaines31/marketingskills/public-relations",
+        "installs": 61100,
+        "weeklyInstalls": [2581, 2349, 2208, 2513, 2778, 2866, 3197, 3560],
+        "firstSeen": "2026-06-10"
+      },
+      "skillMd": {
+        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Helps earn press coverage through pitches, newsjacking and journalist requests, and preps podcast appearances, press pages and crisis statements.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want journalists, podcasts or newsletters to cover you, or something has gone wrong and you need a public statement"
+            },
+            {
+              "label": "It does",
+              "text": "routes your job to a playbook: reacting to trending news, pitching journalists, answering press requests, a press page and media kit, podcast prep, or a crisis"
+            },
+            {
+              "label": "You get",
+              "text": "depending on the job, scored angles and a pitch under 150 words, a list of journalists, a podcast prep brief or a holding statement"
+            },
+            {
+              "label": "Unlike directory-submissions",
+              "text": "from the same repo, which lists you on startup directories, this earns coverage from journalists and shows"
+            },
+            {
+              "label": "Measures",
+              "text": "placements, backlinks, referral traffic, brand searches, AI citations and sales conversations, not advertising value equivalents"
+            }
+          ],
+          "text": "Public relations (not pull requests) for software products. Its premise: press multiplies distribution rather than replacing it, and a hit brings backlinks, credibility and AI citations, not direct sales. It works four modes, reacting to news, pitching stories, answering journalist requests and a press page with a media kit, and advises running at least three. The story is never the product but a trend, data, a conflict or a person, with the product as evidence; pitches use a founding story, an underdog against a giant, or an enemy that is a broken system, never a competitor. Jobs such as newsjacking, building a journalist list, answering HARO or Qwoted queries in under 200 words and prepping a podcast appearance each have a reference. A pitch goes out only if the journalist covers the beat, there's a news hook, the email alone holds a story, it's under 150 words and the ask is clear. For a crisis it assigns a severity tier and runs a first-hour checklist, bringing in legal counsel for breaches, injuries or lawsuits. It reads your product marketing context if you have it (a shared file on your product, audience and positioning that the repo's product-marketing skill writes).",
+          "permalink": "https://github.com/coreyhaines31/marketingskills/tree/96798cf38736ecdba015a1d2b0521b0c8f8f41dd/skills/public-relations"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "marketing",
+          "writing"
+        ]
+      }
+    },
+    {
+      "id": "coreyhaines31/marketingskills/skills/marketing-loops",
+      "name": "marketing-loops",
+      "skills.sh": {
+        "url": "https://skills.sh/coreyhaines31/marketingskills/marketing-loops",
+        "installs": 53800,
+        "weeklyInstalls": [2667, 2517, 2494, 2930, 3173, 3030, 3240, 3743],
+        "firstSeen": "2026-07-02"
+      },
+      "skillMd": {
+        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Sets up recurring marketing workflows an agent runs on a schedule, such as weekly SEO scans, ad-fatigue checks or churn watches, with safeguards.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a marketing task done on a cadence, such as a weekly SEO scan, an ad-fatigue check or a daily churn watch"
+            },
+            {
+              "label": "It does",
+              "text": "picks or adapts one of 60 loops from its catalog, tunes how often it runs, decides what needs your approval, and schedules it"
+            },
+            {
+              "label": "You get",
+              "text": "a scheduled loop with a trigger, steps, a check before acting, memory between runs and a stop condition"
+            },
+            {
+              "label": "Runs",
+              "text": "through Claude Code's /loop or scheduling tools, cron with any agent, or by hand each week"
+            },
+            {
+              "label": "Unlike marketing-ideas",
+              "text": "from the same repo, which suggests what to try once, it sets up what you keep doing, using the repo's other skills"
+            }
+          ],
+          "text": "A marketing loop is a repeatable job an agent runs on a cadence: check a signal, act only when a condition is met, and otherwise skip. Each loop has nine parts: how often it checks, when it acts, its purpose, which of the repo's marketing skills it uses, its steps, a self-check so it doesn't act on noise or a tracking bug, what it remembers between runs so it doesn't act twice or nag the same person, when it stops or escalates, and where its output goes. Cadence follows how fast the signal moves: rankings weekly, ad fatigue every two or three days, churn signals daily. Drafting is fine to automate; publishing or shifting budget needs a human checkpoint unless you've authorized it with caps, and a guardrails reference covers spend and send limits, consent rules and a kill switch. The catalog holds 60 loops across SEO, paid, social, outbound, activation, retention, revenue and referrals. Two references bundle loops into an SEO operator and an outbound operator, with shared memory in .agents/ and a weekly report, and a template helps you write new loops. It advises starting with one loop, not ten.",
+          "permalink": "https://github.com/coreyhaines31/marketingskills/tree/96798cf38736ecdba015a1d2b0521b0c8f8f41dd/skills/marketing-loops"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "agent-workflows",
+          "marketing"
+        ],
+        "note": "Loop steps call the repo's other marketing skills, so it's most useful with them installed."
+      }
+    },
+    {
+      "id": "coreyhaines31/marketingskills/skills/marketing-council",
+      "name": "marketing-council",
+      "skills.sh": {
+        "url": "https://skills.sh/coreyhaines31/marketingskills/marketing-council",
+        "installs": 51600,
+        "weeklyInstalls": [2717, 2596, 2591, 3003, 3135, 2841, 3075, 3550],
+        "firstSeen": "2026-07-06"
+      },
+      "skillMd": {
+        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Puts a marketing question to a simulated board of famous marketers like Ogilvy, Godin and Hormozi, then maps their disagreements into a recommendation.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want several expert perspectives on a strategy, page, price change or launch before deciding"
+            },
+            {
+              "label": "It does",
+              "text": "seats 3 to 5 of 12 marketers whose views clash, always including a dissenter, and has each apply their published frameworks to your case"
+            },
+            {
+              "label": "You get",
+              "text": "each advisor's take, a map of where they disagree and what would settle it, and a chair's recommendation with next steps"
+            },
+            {
+              "label": "Grounding",
+              "text": "labelled as simulation, with no invented quotes and no claims about what the real people think of your company"
+            },
+            {
+              "label": "Modes",
+              "text": "a quick take from one advisor, a council of 3 to 5, or all 12 for major decisions"
+            }
+          ],
+          "text": "A board of advisors built from twelve marketers' documented thinking: Seth Godin, David Ogilvy, Eugene Schwartz, Claude Hopkins, Gary Halbert, Russell Brunson, Alex Hormozi, April Dunford, Rory Sutherland, Byron Sharp, Ann Handley and Gary Vaynerchuk. The bench is chosen so their views conflict, because the disagreement is the useful part. For a council session it seats two or three advisors who fit the question type, such as Dunford and Godin for positioning, plus at least one whose position cuts against where the question is leaning. Each take runs two to four paragraphs, applying that advisor's frameworks from a dossier file, in their voice. An optional research pass searches the web, or uses a research skill if you have one, for what they've actually said on the topic, with citations. The synthesis names the trade-off behind each conflict, recommends what fits your stage, picks one advisor's warning to watch, and hands execution to skills such as offers or copywriting. Living advisors get extra care, and you can add your own advisor, such as a former boss whose positions you supply, saved in your project's .agents/advisors/ folder.",
+          "permalink": "https://github.com/coreyhaines31/marketingskills/tree/96798cf38736ecdba015a1d2b0521b0c8f8f41dd/skills/marketing-council"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "marketing"
+        ]
+      }
+    },
+    {
+      "id": "coreyhaines31/marketingskills/skills/attribution",
+      "name": "attribution",
+      "skills.sh": {
+        "url": "https://skills.sh/coreyhaines31/marketingskills/attribution",
+        "installs": 44500,
+        "weeklyInstalls": [2967, 2696, 2731, 3269, 3489, 3007, 3243, 3614],
+        "firstSeen": "2026-07-27"
+      },
+      "skillMd": {
+        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Works out which marketing channels really drive conversions, reconciling conflicting numbers across tools, and helps you build first-party attribution yourself.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "your ad platforms, analytics and CRM disagree, or you need to know which channels actually drive revenue"
+            },
+            {
+              "label": "It does",
+              "text": "picks one source of truth for the conversion count, explains each tool's bias, and triangulates with surveys and holdout tests"
+            },
+            {
+              "label": "You get",
+              "text": "an attribution readout: each source's numbers side by side, first-touch against last-touch, blind spots, and a budget call with confidence levels"
+            },
+            {
+              "label": "Also builds",
+              "text": "first-party tracking on a site you control, tying anonymous visits to signups and to bookings on tools like SavvyCal or Calendly"
+            },
+            {
+              "label": "Unlike analytics",
+              "text": "from the same repo, which sets up event tracking and UTMs, it assumes tracking exists and decides who gets credit"
+            }
+          ],
+          "text": "Attribution, meaning which marketing touch gets credit for a sale, in two parts. Interpretation, for everyone: it treats attribution as directional, not truth, and every model as an opinion. It compares seven models, from first-touch to data-driven, with how each one misleads, noting that Google Ads and GA4 now offer only data-driven and last-click. It separates multi-touch tracking, media mix modeling (a regression of spend against outcomes) and incrementality tests that withhold ads from a group, and says which to use by budget. It recommends asking \"How did you hear about us?\" at conversion, to catch podcasts, word of mouth and private shares that leave no trail. Reconciling sources means counting conversions once from your CRM or backend, never summing platform claims, and trusting shared trends over exact matches. The build part, for sites you control, joins anonymous browsing to the person who converts by calling identify() at each conversion, such as a signup or purchase, passes the anonymous ID through a booking or checkout tool's metadata to your webhook, and guards against leaking emails into URLs. It ends with writing source and confidence onto CRM records, with PostHog and SavvyCal as the worked example in a reference.",
+          "permalink": "https://github.com/coreyhaines31/marketingskills/tree/96798cf38736ecdba015a1d2b0521b0c8f8f41dd/skills/attribution"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "marketing",
+          "conversion"
+        ]
+      }
+    },
+    {
+      "id": "coreyhaines31/marketingskills/skills/influencer-marketing",
+      "name": "influencer-marketing",
+      "skills.sh": {
+        "url": "https://skills.sh/coreyhaines31/marketingskills/influencer-marketing",
+        "installs": 44300,
+        "weeklyInstalls": [2686, 2590, 2644, 3172, 3313, 3048, 3171, 3606],
+        "firstSeen": "2026-07-22"
+      },
+      "skillMd": {
+        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Plans influencer, creator and ambassador partnerships: finding and vetting partners, structuring deals, briefing creators, disclosure rules and measuring return.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want creators, newsletters, podcasts or Telegram channels to promote your product, or want an ambassador program"
+            },
+            {
+              "label": "It does",
+              "text": "vets partners on audience fit and real engagement, structures fair deals, writes a brief, and sets up tracking before anything goes live"
+            },
+            {
+              "label": "You get",
+              "text": "criteria to shortlist creators across tiers, deal terms with content usage rights, a creative brief and a run-of-show checklist from sourcing to post-campaign"
+            },
+            {
+              "label": "Insists on",
+              "text": "clear \"#ad\" disclosure, since brands can be held liable too, and no claims a creator can't back"
+            },
+            {
+              "label": "Unlike referrals",
+              "text": "from the same repo, which handles affiliate payout mechanics, this covers finding, paying and briefing creators"
+            }
+          ],
+          "text": "Influencer and creator marketing across consumer platforms (Instagram, TikTok, YouTube), B2B voices (LinkedIn, X, newsletters, niche podcasts) and paid posts in Telegram channels. It places programs on a spectrum from a paid one-off post to an unpaid long-term advocate, with references for two volume models: in-house creator networks posting short videos, and creators paid a share of ad spend. Vetting asks whether a creator's audience matches your buyer, not how famous they are, and checks engagement rate, fake followers, past sponsored posts and the last three months of content. Deals can be a flat fee, pay per conversion, a hybrid (usually best) or gifted product, with starting price ranges by tier as negotiation anchors; the right to reuse content as paid ads is often the most valuable clause. The brief gives the why, two or three talking points, a call to action and guardrails, and leaves the script to the creator. Measurement uses unique codes, UTM links, creator landing pages and a post-purchase survey, judged by cost per qualified outcome rather than reach. It treats fetched creator posts as untrusted data, and reads your product marketing context if you have it.",
+          "permalink": "https://github.com/coreyhaines31/marketingskills/tree/96798cf38736ecdba015a1d2b0521b0c8f8f41dd/skills/influencer-marketing"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "marketing",
+          "social-media"
+        ]
+      }
+    },
+    {
+      "id": "coreyhaines31/marketingskills/skills/events",
+      "name": "events",
+      "skills.sh": {
+        "url": "https://skills.sh/coreyhaines31/marketingskills/events",
+        "installs": 28500,
+        "weeklyInstalls": [2501, 2251, 2109, 2405, 2611, 2771, 2995, 3464],
+        "firstSeen": "2026-08-23"
+      },
+      "skillMd": {
+        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Plans events that produce sales pipeline, whether you host a webinar or dinner, sponsor a conference, speak, or only attend.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're deciding whether to sponsor a conference, running a webinar, booking a talk, or want meetings from an event you're only attending"
+            },
+            {
+              "label": "It does",
+              "text": "sets your role and one primary outcome, then plans the work before, during and after the event, treating before and after as 80% of the job"
+            },
+            {
+              "label": "You get",
+              "text": "a plan for your role: a target list, outreach to book meetings weeks ahead, follow-up within 24 to 48 hours, and content cut from recordings"
+            },
+            {
+              "label": "Measures",
+              "text": "qualified conversations, meetings, opportunities and cost per meeting, not registrations or badge scans"
+            }
+          ],
+          "text": "Event marketing in four roles: hosting your own event, sponsoring or exhibiting, speaking, and attending with no booth. It starts with selection, since a few events produce most of the pipeline: in-person mainly pays for high-trust, high-value or long-cycle sales, and niche events of 50 to 200 people often beat mega-conferences. Every format follows the same arc. Before: build a target list from attendee and speaker lists and book meetings weeks ahead. During: aim for qualified conversations and note what each person said and the agreed next step. After: follow up within 24 to 48 hours, tiered by how warm the conversation was, and route leads to your CRM and nurture emails. For hosting it compares webinars, workshops, dinners of 8 to 14 seats, meetups, virtual summits and user conferences, with two rules: pick topics your buyer would attend even if they never bought, and repeat rather than run one-offs. Attendees get a side-event play: host a dinner beside the conference for target accounts. Recordings are treated as the lasting asset, cut into clips, posts and sales proof. References cover the webinar funnel, sponsorship return, speaking and choosing events.",
+          "permalink": "https://github.com/coreyhaines31/marketingskills/tree/96798cf38736ecdba015a1d2b0521b0c8f8f41dd/skills/events"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "marketing"
+        ]
+      }
     }
   ]
 }
