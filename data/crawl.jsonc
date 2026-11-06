@@ -4280,19 +4280,6 @@
       }
     },
     {
-      "name": "testing-handbook-generator",
-      "repo": "trailofbits/skills",
-      "official": true,
-      "stars": 8045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/trailofbits/skills/testing-handbook-generator",
-        "installs": 5500,
-        "weeklyInstalls": [112, 100, 102, 95, 114, 123, 153, 162],
-        "firstSeen": "2026-01-19"
-      }
-    },
-    {
       "name": "one-page-marketing",
       "repo": "wondelai/skills",
       "official": false,
@@ -4329,19 +4316,6 @@
         "installs": 5500,
         "weeklyInstalls": [166, 188, 217, 274, 211, 176, 176, 161],
         "firstSeen": "2026-04-28"
-      }
-    },
-    {
-      "name": "libfuzzer",
-      "repo": "trailofbits/skills",
-      "official": true,
-      "stars": 8045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/trailofbits/skills/libfuzzer",
-        "installs": 5500,
-        "weeklyInstalls": [112, 113, 111, 99, 118, 126, 157, 164],
-        "firstSeen": "2026-01-19"
       }
     },
     {
@@ -4540,32 +4514,6 @@
       }
     },
     {
-      "name": "ossfuzz",
-      "repo": "trailofbits/skills",
-      "official": true,
-      "stars": 8045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/trailofbits/skills/ossfuzz",
-        "installs": 5500,
-        "weeklyInstalls": [114, 104, 106, 93, 116, 125, 154, 161],
-        "firstSeen": "2026-01-19"
-      }
-    },
-    {
-      "name": "atheris",
-      "repo": "trailofbits/skills",
-      "official": true,
-      "stars": 8045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/trailofbits/skills/atheris",
-        "installs": 5500,
-        "weeklyInstalls": [112, 106, 106, 97, 117, 126, 152, 161],
-        "firstSeen": "2026-01-19"
-      }
-    },
-    {
       "name": "copywriting-cta",
       "repo": "samber/cc-skills",
       "official": false,
@@ -4576,19 +4524,6 @@
         "installs": 5500,
         "weeklyInstalls": [26, 56, 180, 389, 547, 692, 766, 616],
         "firstSeen": "2026-05-20"
-      }
-    },
-    {
-      "name": "aflpp",
-      "repo": "trailofbits/skills",
-      "official": true,
-      "stars": 8045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/trailofbits/skills/aflpp",
-        "installs": 5500,
-        "weeklyInstalls": [110, 108, 109, 98, 119, 123, 154, 159],
-        "firstSeen": "2026-01-19"
       }
     },
     {
@@ -4719,19 +4654,6 @@
         "installs": 5500,
         "weeklyInstalls": [369, 455, 542, 584, 563, 460, 440, 446],
         "firstSeen": "2026-08-10"
-      }
-    },
-    {
-      "name": "wycheproof",
-      "repo": "trailofbits/skills",
-      "official": true,
-      "stars": 8045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/trailofbits/skills/wycheproof",
-        "installs": 5500,
-        "weeklyInstalls": [111, 103, 106, 92, 116, 127, 155, 164],
-        "firstSeen": "2026-01-19"
       }
     },
     {
@@ -4995,19 +4917,6 @@
       }
     },
     {
-      "name": "libafl",
-      "repo": "trailofbits/skills",
-      "official": true,
-      "stars": 8045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/trailofbits/skills/libafl",
-        "installs": 5400,
-        "weeklyInstalls": [110, 102, 104, 91, 113, 123, 151, 160],
-        "firstSeen": "2026-01-19"
-      }
-    },
-    {
       "name": "domain-name-brainstormer",
       "repo": "composiohq/awesome-claude-skills",
       "official": true,
@@ -5044,19 +4953,6 @@
         "installs": 5400,
         "weeklyInstalls": [314, 369, 434, 510, 408, 481, 484, 358],
         "firstSeen": "2026-05-23"
-      }
-    },
-    {
-      "name": "ruzzy",
-      "repo": "trailofbits/skills",
-      "official": true,
-      "stars": 8045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/trailofbits/skills/ruzzy",
-        "installs": 5400,
-        "weeklyInstalls": [111, 102, 103, 92, 115, 123, 149, 162],
-        "firstSeen": "2026-01-19"
       }
     },
     {
@@ -5148,19 +5044,6 @@
         "installs": 5400,
         "weeklyInstalls": [123, 99, 93, 88, 93, 124, 110, 131],
         "firstSeen": "2026-04-25"
-      }
-    },
-    {
-      "name": "burpsuite-project-parser",
-      "repo": "trailofbits/skills",
-      "official": true,
-      "stars": 8045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/trailofbits/skills/burpsuite-project-parser",
-        "installs": 5400,
-        "weeklyInstalls": [113, 108, 108, 101, 121, 128, 161, 170],
-        "firstSeen": "2026-01-19"
       }
     },
     {
@@ -27301,6 +27184,42 @@
     {
       "url": "https://skills.sh/claude-office-skills/skills/table-extractor",
       "note": "Tool docs: an agent's manual for camelot."
+    },
+    {
+      "url": "https://skills.sh/trailofbits/skills/testing-handbook-generator",
+      "note": "Internal: generates skills for trailofbits/skills' own repo from its Testing Handbook."
+    },
+    {
+      "url": "https://skills.sh/trailofbits/skills/libfuzzer",
+      "note": "Tool docs: an agent's manual for libfuzzer."
+    },
+    {
+      "url": "https://skills.sh/trailofbits/skills/ossfuzz",
+      "note": "Tool docs: an agent's manual for oss-fuzz."
+    },
+    {
+      "url": "https://skills.sh/trailofbits/skills/atheris",
+      "note": "Tool docs: an agent's manual for atheris."
+    },
+    {
+      "url": "https://skills.sh/trailofbits/skills/aflpp",
+      "note": "Tool docs: an agent's manual for afl++."
+    },
+    {
+      "url": "https://skills.sh/trailofbits/skills/wycheproof",
+      "note": "Tool docs: an agent's manual for wycheproof."
+    },
+    {
+      "url": "https://skills.sh/trailofbits/skills/libafl",
+      "note": "Tool docs: an agent's manual for libafl."
+    },
+    {
+      "url": "https://skills.sh/trailofbits/skills/ruzzy",
+      "note": "Tool docs: an agent's manual for ruzzy."
+    },
+    {
+      "url": "https://skills.sh/trailofbits/skills/burpsuite-project-parser",
+      "note": "Tool docs: an agent's manual for burp suite's project file parser."
     }
   ]
 }
