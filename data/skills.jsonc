@@ -2429,6 +2429,32 @@
         "kind": "skills",
         "description": "A rulebook that stops an AI coding agent shipping generic UI, text, and AI-shaped code."
       }
+    },
+    {
+      "id": "claude-office-skills/skills",
+      "stars": 567,
+      "agentReview": {
+        "kind": "skills",
+        "description": "A curated collection of practical Claude Skills for real-world office tasks."
+      }
+    },
+    {
+      "id": "imbad0202/academic-research-skills",
+      "stars": 55632,
+      "agentReview": {
+        "kind": "skills",
+        "description": "A comprehensive suite of Claude Code skills for academic research, covering the full pipeline from research to publication.",
+        "note": "Licensed CC BY-NC 4.0: no commercial use."
+      }
+    },
+    {
+      "id": "modelstudioai/cli",
+      "stars": 369,
+      "agentReview": {
+        "kind": "project",
+        "description": "The official command-line interface for Aliyun Model Studio (DashScope) AI Platform.",
+        "note": "App orchestration, MCP setup, fine-tuning, deployment and account operations work only for China-site (aliyun.com) accounts."
+      }
     }
   ],
   "bundles": [
@@ -5357,6 +5383,80 @@
           {
             "label": "Pi package",
             "command": "pi install git:github.com/miqdadbadjuber/anti-slop"
+          }
+        ]
+      }
+    },
+    {
+      "id": "imbad0202/academic-research-skills",
+      "skew": 0,
+      "agentReview": {
+        "name": "Academic Research Skills",
+        "description": "Researches, writes, reviews and revises academic papers through role-separated agents, with integrity checks and your approval at every stage.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're working on an academic paper and want help researching, drafting, reviewing and checking it while every decision stays yours"
+            },
+            {
+              "label": "It does",
+              "text": "academic-pipeline runs ten stages through the other three: deep-research researches, academic-paper writes and revises, academic-paper-reviewer simulates a journal panel"
+            },
+            {
+              "label": "You get",
+              "text": "a research report, a paper draft with bilingual abstracts, review reports with a decision letter, integrity reports, the formatted paper and a record of how it was made"
+            },
+            {
+              "label": "Stops for you",
+              "text": "after every stage; the integrity checks before review and before formatting can't be skipped"
+            },
+            {
+              "label": "Install together",
+              "text": "each skill reads protocol files from the repo's shared/ folder and from the others' folders, so a single copied skill folder doesn't run as written"
+            },
+            {
+              "label": "Unlike",
+              "text": "a humanizer, it doesn't help hide AI use: citations must be verified and papers carry an AI-use statement"
+            },
+            {
+              "label": "Needs",
+              "text": "Python for revision mode and the re-review's checker script; Pandoc and LaTeX only for DOCX and PDF output"
+            }
+          ],
+          "text": "Academic Research Skills (ARS), by Cheng-I Wu, treats the AI as a copilot: it hunts down references, formats citations and checks consistency, while you define the question, choose the method and interpret the results. deep-research frames a research question with you, searches and grades sources and writes an APA 7.0 report, or guides you through Socratic questions when the idea is still vague. Its question brief, bibliography and synthesis hand over to academic-paper, which interviews you about the paper, then outlines, drafts, cites and formats it, and later revises it from reviewer comments. In academic-paper-reviewer, five role-separated seats, including a Devil's Advocate, review the draft and a synthesizer writes a decision letter and a revision roadmap that academic-paper's revision mode takes in. academic-pipeline chains them into ten stages, with integrity checks of references, data and claims before review and again before formatting, a re-review that verifies the revision, and a closing record of the human-AI collaboration. Each stage waits for your confirmation. The skills share contracts and protocols in the repo's shared/ folder and read each other's files, so they're installed together; the plugin also adds sr-screener, a study-screening skill, plus slash commands, agents and hooks.",
+          "permalink": "https://github.com/imbad0202/academic-research-skills/tree/6d9388674de1ad0437ad95db3d52f92b92204d84"
+        },
+        "skills": [
+          {
+            "id": "imbad0202/academic-research-skills/academic-pipeline",
+            "standalone": false,
+            "note": "Dispatches deep-research, academic-paper and academic-paper-reviewer for its stages and does no research, writing or reviewing itself; it also runs checker scripts from the repo's scripts/ folder, so it needs them and the whole repo, as the plugin installs it."
+          },
+          {
+            "id": "imbad0202/academic-research-skills/deep-research",
+            "standalone": false,
+            "note": "Its report compiler runs the writing-quality check in academic-paper's folder, its bibliography and three-way scan use academic-paper-reviewer's review-criteria table, and its ethics review reads registries in the repo's shared/ folder, so it needs the whole repo, as the plugin installs it."
+          },
+          {
+            "id": "imbad0202/academic-research-skills/academic-paper",
+            "standalone": false,
+            "note": "Its full mode loads writer and evaluator contracts from the repo's shared/ folder, revision mode runs scripts from its scripts/ folder, and plan mode reads its questions from deep-research's Socratic mentor file, so it needs the whole repo, as the plugin installs it."
+          },
+          {
+            "id": "imbad0202/academic-research-skills/academic-paper-reviewer",
+            "standalone": false,
+            "note": "Its full and methodology-focus reviews load their contracts from the repo's shared/ folder, and its revision coaching reads its questions from deep-research's Socratic mentor file, so it needs the whole repo, as the plugin installs it."
+          }
+        ],
+        "install": [
+          {
+            "label": "Claude Code plugin, with the repo's shared files and scripts; also adds sr-screener, the /ars-* commands, plugin agents and hooks",
+            "command": "claude plugin marketplace add Imbad0202/academic-research-skills && claude plugin install academic-research-skills@academic-research-skills"
+          },
+          {
+            "label": "Pi, through the repo's community-maintained wrapper",
+            "command": "pi install git:github.com/Imbad0202/academic-research-skills"
           }
         ]
       }
@@ -47246,6 +47346,603 @@
           "research"
         ],
         "note": "Needs the OpenSEO MCP server and an OpenSEO account, and its research spends credits. It saves its report through the repo's seo-report skill and stops before writing one without it, so install that alongside, or install the whole OpenSEO plugin."
+      }
+    },
+    {
+      "id": "claude-office-skills/skills/ppt-visual",
+      "name": "ppt-visual",
+      "skills.sh": {
+        "url": "https://skills.sh/claude-office-skills/skills/ppt-visual",
+        "installs": 12400,
+        "weeklyInstalls": [122, 146, 146, 148, 208, 391, 367, 214],
+        "firstSeen": "2026-03-09"
+      },
+      "skillMd": {
+        "version": "9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Designs slide layouts, color palettes, fonts and visuals for presentations, as written specs you build the slides from.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a slide is a wall of text, or you want a visual direction for a deck before you build it"
+            },
+            {
+              "label": "It does",
+              "text": "fits your content to one of nine layout patterns, such as big statement, three columns, timeline or before and after, in a style you pick"
+            },
+            {
+              "label": "You get",
+              "text": "a design spec per slide: an ASCII wireframe, where each text goes with font, size and hex color, icon and image ideas, animation and build tips"
+            },
+            {
+              "label": "Doesn't",
+              "text": "create the PowerPoint file, generate images or open an existing deck; you give it the slide's text, and you or another tool build the slide from the spec"
+            },
+            {
+              "label": "Includes",
+              "text": "four color schemes, four font pairings, and sources for icons, stock photos and palettes"
+            }
+          ],
+          "text": "From Claude Office Skills, a collection of skills for office work. You share a slide's content, its purpose and audience, and any problem with its current design, then pick a direction: minimalist, corporate, creative, data-focused or storytelling. The agent chooses a layout pattern and writes the spec in a fixed format: a wireframe, the placement of each piece of text with its font, size and hex color, icons with suggested sources, images, shapes, a palette, a typography table, animation suggestions and implementation notes. It applies a few principles throughout: one idea per slide, a clear visual hierarchy, the rule of thirds, contrast for emphasis and alignment to an invisible grid, and shows how a bulleted list of figures becomes a grid of metric tiles. Its frontmatter names two deck-building tools of the repo's office-mcp server, but its instructions never call them.",
+          "permalink": "https://github.com/claude-office-skills/skills/tree/9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11/ppt-visual"
+        },
+        "tags": [
+          "category:documents",
+          "category:design",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:microsoft-office",
+          "slides",
+          "design"
+        ]
+      }
+    },
+    {
+      "id": "claude-office-skills/skills/data-analysis",
+      "name": "data-analysis",
+      "skills.sh": {
+        "url": "https://skills.sh/claude-office-skills/skills/data-analysis",
+        "installs": 8100,
+        "weeklyInstalls": [108, 133, 122, 101, 142, 300, 234, 114],
+        "firstSeen": "2026-03-05"
+      },
+      "skillMd": {
+        "version": "9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Explores spreadsheet or CSV data you share and writes up its statistics, insights, recommended charts and Excel formulas.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you have an Excel or CSV file and want to know what's in it, answer a question about it, or need a formula or chart"
+            },
+            {
+              "label": "It does",
+              "text": "describes the dataset and its quality issues, summarizes its statistics and trends, and picks a chart type for each kind of data"
+            },
+            {
+              "label": "You get",
+              "text": "Markdown write-ups in fixed shapes: a dataset overview, a statistical summary, an insight report with recommendations, and formula, chart, pivot-table and cohort specs"
+            },
+            {
+              "label": "Formulas",
+              "text": "for Excel and Google Sheets, such as SUMIFS or VLOOKUP, with each argument explained and where to put it"
+            },
+            {
+              "label": "Limits",
+              "text": "by its own account it can't run code on your data, and large datasets may need sampling"
+            }
+          ],
+          "text": "From Claude Office Skills. You share a spreadsheet and say what you're after: an overview, an answer to a specific question such as revenue by region or whether two columns correlate, a chart, or a formula. The agent answers in the skill's templates. A dataset overview lists rows, columns and date range, each column's type, completeness and sample values, and flags missing values and likely duplicates. A statistical summary gives mean, median, standard deviation and range with findings, and an insight report opens with an executive summary, then key metrics, trends and recommendations. Chart choices follow a table: line for trends, pie for part of a whole, bar for comparisons, histogram for distributions, scatter for correlation, map for geography. It also specifies pivot tables and cohort tables, and lays out sales, customer and financial analyses as sequences of questions. Its best practices: clean the data first, define each metric, consider seasonality and benchmarks, label charts, don't truncate axes misleadingly, and allow for colorblind readers. Its frontmatter lists spreadsheet, chart and pivot-table tools of the repo's office-mcp server, but its instructions never call them, and every output is a Markdown write-up.",
+          "permalink": "https://github.com/claude-office-skills/skills/tree/9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11/data-analysis"
+        },
+        "tags": [
+          "category:science",
+          "category:documents",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:microsoft-office",
+          "spreadsheets",
+          "charts"
+        ]
+      }
+    },
+    {
+      "id": "claude-office-skills/skills/stock-analysis",
+      "name": "stock-analysis",
+      "skills.sh": {
+        "url": "https://skills.sh/claude-office-skills/skills/stock-analysis",
+        "installs": 7100,
+        "weeklyInstalls": [61, 83, 63, 69, 106, 232, 188, 89],
+        "firstSeen": "2026-03-09"
+      },
+      "skillMd": {
+        "version": "9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes a structured stock report on valuation, profitability, growth, financial health, technicals and risks for US, A-share or Hong Kong stocks.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a structured first look at a listed company in the US, China A-share or Hong Kong markets"
+            },
+            {
+              "label": "It does",
+              "text": "reads valuation, profitability, growth and balance-sheet ratios against rule-of-thumb thresholds, such as P/E under 15 as undervalued and over 25 as expensive, plus chart patterns"
+            },
+            {
+              "label": "You get",
+              "text": "a Markdown report with a bullish, neutral or bearish rating, a risk level, key metrics against the industry, bull and bear cases and a disclaimer"
+            },
+            {
+              "label": "Limits",
+              "text": "it has no live market data, so give it recent financials; it says it isn't investment advice"
+            },
+            {
+              "label": "Analysis types",
+              "text": "quick analysis, deep dive, technical review or peer comparison"
+            }
+          ],
+          "text": "From Claude Office Skills. You give a ticker, such as AAPL, 600519.SH or 0700.HK, or paste financial data, and choose a quick analysis, a deep dive, a technical review or a peer comparison. The agent works from a fixed framework with a benchmark for reading each figure: valuation ratios (P/E, P/B, P/S, EV/EBITDA, PEG), profitability (gross, operating and net margin, ROE, ROIC), growth in revenue, EPS and free cash flow, and financial health (debt to equity, current ratio, interest coverage, FCF yield). The technical side covers 50- and 200-day moving-average crossovers, MACD, RSI, support and resistance, and patterns such as head and shoulders or double tops. The report follows one template: an executive summary with a rating and risk level, key metrics against the industry, business overview, financial performance, valuation, price trend and key levels, risk factors, bull and bear cases, and a disclaimer. It can't access real-time market data and works from publicly available information, so its tips ask for recent financials, your investment horizon and the peers to compare.",
+          "permalink": "https://github.com/claude-office-skills/skills/tree/9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11/stock-analysis"
+        },
+        "tags": [
+          "category:science",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "finance",
+          "research"
+        ]
+      }
+    },
+    {
+      "id": "claude-office-skills/skills/tiktok-marketing",
+      "name": "tiktok-marketing",
+      "skills.sh": {
+        "url": "https://skills.sh/claude-office-skills/skills/tiktok-marketing",
+        "installs": 7000,
+        "weeklyInstalls": [74, 100, 75, 72, 119, 257, 202, 85],
+        "firstSeen": "2026-03-09"
+      },
+      "skillMd": {
+        "version": "9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Plans TikTok content: pillars, a weekly calendar, hook-content-CTA scripts, hashtag mixes, posting times and a weekly performance report.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're planning a brand's TikTok content or need a script for one video"
+            },
+            {
+              "label": "It does",
+              "text": "splits content into pillars (educational 40%, entertainment 30%, promotional and community 15% each), fills a weekly calendar and scripts videos as hook, content, call to action"
+            },
+            {
+              "label": "You get",
+              "text": "scripts with timings, on-screen text, 5-7 hashtags, a suggested sound and posting time, plus a template for a weekly performance report"
+            },
+            {
+              "label": "Also has",
+              "text": "two n8n workflow outlines: a daily AI video pipeline that posts to TikTok, and cross-posting one video to TikTok, Reels and Shorts"
+            },
+            {
+              "label": "Doesn't",
+              "text": "post or read analytics itself: the social-media MCP tools in its frontmatter are never called in its instructions"
+            }
+          ],
+          "text": "From Claude Office Skills. A TikTok playbook the agent applies when you ask for a strategy or a script. Content splits into four pillars with target ratios, laid out in a weekly calendar that gives each day a format, a hook type and a call to action. Scripts open with a hook in the first three seconds, deliver one message with a pattern interrupt every few seconds, and end on a call to action, with templates for an educational video and for joining a trend within 48 hours of its sound taking off. Hashtags mix two or three niche tags, one or two trending, one branded and one community tag. It gives posting times for US, UK, Chinese and global audiences, at least one video a day and two or three at best, targets for watch time, engagement, shares, follows and profile visits with a fix for each shortfall, and where to spot trends early. The two n8n workflows, through Google Sheets and Drive, OpenAI, ElevenLabs, DALL-E, Airtable and Slack, are written as YAML outlines of their nodes, not as n8n files to import.",
+          "permalink": "https://github.com/claude-office-skills/skills/tree/9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11/tiktok-marketing"
+        },
+        "tags": [
+          "category:marketing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:tiktok",
+          "stack:n8n",
+          "social-media",
+          "video",
+          "copywriting",
+          "marketing"
+        ]
+      }
+    },
+    {
+      "id": "imbad0202/academic-research-skills/academic-paper",
+      "name": "academic-paper",
+      "skills.sh": {
+        "url": "https://skills.sh/imbad0202/academic-research-skills/academic-paper",
+        "installs": 11200,
+        "weeklyInstalls": [304, 280, 267, 248, 250, 314, 301, 250],
+        "firstSeen": "2026-03-10"
+      },
+      "skillMd": {
+        "version": "6d9388674de1ad0437ad95db3d52f92b92204d84",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Drafts, revises and formats academic papers through an interview-first, phase-by-phase pipeline with citation checks and a simulated peer review.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want help with a paper, from planning its chapters and drafting it to answering reviewer comments, checking citations or converting it to LaTeX"
+            },
+            {
+              "label": "It does",
+              "text": "interviews you on paper type, discipline, journal, citation style and length, then searches, outlines, argues, drafts, cites, writes abstracts and reviews the draft"
+            },
+            {
+              "label": "You get",
+              "text": "a paper draft, with abstracts in two languages if you want them (Traditional Chinese and English by default), as Markdown, LaTeX, DOCX via Pandoc or PDF"
+            },
+            {
+              "label": "Waits for you",
+              "text": "to confirm the configuration and approve the outline; critical review issues block formatting"
+            },
+            {
+              "label": "Modes",
+              "text": "11, among them plan (guided, chapter by chapter), revision, revision-coach (reviewer comments to a roadmap), citation-check, disclosure (a venue's AI-use statement) and rebuttal-audit (checks your response letter)"
+            },
+            {
+              "label": "Needs",
+              "text": "the whole repo, as the plugin installs it, for files in shared/ and the other ARS skills; Python for revision mode, Pandoc for DOCX, LaTeX for PDF"
+            },
+            {
+              "label": "Unlike",
+              "text": "academic-paper-reviewer's five-seat journal panel, its own review is a self-check inside the writing run"
+            }
+          ],
+          "text": "The writing skill of Academic Research Skills (ARS). Full mode runs eight phases, each handled by one of twelve role prompts, which run inline in your session unless dispatched as subagents: a configuration interview you confirm, a literature search strategy, an outline you approve, claim-evidence chains, a section-by-section draft, citation checks and bilingual abstracts in parallel, a simulated review on five criteria with at most two revision loops, then formatting. Points still open become an Acknowledged Limitations section. Every citation must be verified by DOI or web search, and every paper carries data availability, ethics, CRediT authorship, conflict-of-interest and funding statements. Revision mode changes only the blocks a revision targets, through patches a script applies, so the rest stays byte-identical. Optional style calibration learns your voice from three or more past papers. It picks up deep-research's question brief, bibliography and synthesis when you hand them over, and academic-pipeline runs it for its writing, revision and formatting stages.",
+          "permalink": "https://github.com/imbad0202/academic-research-skills/tree/6d9388674de1ad0437ad95db3d52f92b92204d84/academic-paper"
+        },
+        "tags": [
+          "category:writing",
+          "category:science",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "writing",
+          "research",
+          "verification"
+        ],
+        "note": "Some steps read protocols from the repo's shared/ folder and the other ARS skills' folders, which a whole-repo install such as the plugin brings and a single-skill copy doesn't."
+      }
+    },
+    {
+      "id": "imbad0202/academic-research-skills/academic-paper-reviewer",
+      "name": "academic-paper-reviewer",
+      "skills.sh": {
+        "url": "https://skills.sh/imbad0202/academic-research-skills/academic-paper-reviewer",
+        "installs": 10200,
+        "weeklyInstalls": [263, 259, 228, 221, 214, 276, 281, 243],
+        "firstSeen": "2026-03-10"
+      },
+      "skillMd": {
+        "version": "6d9388674de1ad0437ad95db3d52f92b92204d84",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Simulates a journal peer review of your paper with five reviewer roles, then writes an editorial decision letter and a revision roadmap.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a manuscript critiqued the way a journal panel would before you submit it, or want to check that a revision answered earlier comments"
+            },
+            {
+              "label": "It does",
+              "text": "works out the paper's field, sets up reviewer identities for you to confirm, then reviews it from five seats: journal fit, methodology, domain, cross-disciplinary and Devil's Advocate"
+            },
+            {
+              "label": "You get",
+              "text": "five reports, an editorial decision letter (accept, minor or major revision, or reject) and a revision roadmap; it never edits the manuscript"
+            },
+            {
+              "label": "Modes",
+              "text": "full, quick, methodology-focus, guided (Socratic, issue by issue), re-review of a revision, and calibration against papers you've already judged"
+            },
+            {
+              "label": "Waits for you",
+              "text": "after showing the reviewer configuration cards; no review starts until you accept them"
+            },
+            {
+              "label": "Needs",
+              "text": "the whole repo, as the plugin installs it, for contracts in shared/ and deep-research's coaching questions; Python for the attachments, which become one-line notes without it"
+            },
+            {
+              "label": "Sends out",
+              "text": "suggested references' titles to bibliographic indexes for an existence check; the manuscript to a second model provider only with cross-model setup and your consent"
+            }
+          ],
+          "text": "The review skill of Academic Research Skills (ARS). A field analyst reads the paper and writes configuration cards for a Journal-Fit Reviewer and three peer reviewers (methodology, domain, cross-disciplinary perspective); a fixed Devil's Advocate takes the fifth seat, looking for the strongest counter-argument, cherry-picking and confirmation bias. The seats write their reports without seeing each other's, and an editorial synthesizer combines them into a decision and roadmap built only from what the reports say. Every critical Devil's Advocate issue is adjudicated in the open, and one that is validated or unresolved blocks a silent accept. After a revision decision it can coach you through the comments with questions and record which items you'll address. The letter carries advisory attachments from Python scripts: an acronym check, whether the works the reviewers suggest exist in four bibliographic indexes, and whether the manuscript contradicts the panel's findings, judged by a subagent. None feeds the decision. With cross-model verification configured and your consent, a full review runs Reviewer 2 on another model family. Live reviews are labelled NOT_CALIBRATED, since no error profile measured in calibration mode is applied to them, and re-review checks each concern against the revised manuscript.",
+          "permalink": "https://github.com/imbad0202/academic-research-skills/tree/6d9388674de1ad0437ad95db3d52f92b92204d84/academic-paper-reviewer"
+        },
+        "tags": [
+          "category:writing",
+          "category:science",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "research",
+          "writing"
+        ],
+        "note": "Some steps read protocols from the repo's shared/ folder and the other ARS skills' folders, which a whole-repo install such as the plugin brings and a single-skill copy doesn't."
+      }
+    },
+    {
+      "id": "imbad0202/academic-research-skills/deep-research",
+      "name": "deep-research",
+      "skills.sh": {
+        "url": "https://skills.sh/imbad0202/academic-research-skills/deep-research",
+        "installs": 8000,
+        "weeklyInstalls": [244, 213, 188, 174, 164, 212, 231, 166],
+        "firstSeen": "2026-03-10"
+      },
+      "skillMd": {
+        "version": "6d9388674de1ad0437ad95db3d52f92b92204d84",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Researches any academic topic, from framing the question and grading sources to a cited APA 7.0 report, with a Socratic mode for vague ideas.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need a literature review, a systematic review, a fact-check or a research brief, or want help turning a vague interest into a research question"
+            },
+            {
+              "label": "It does",
+              "text": "frames a question you confirm, searches and grades sources, synthesizes them, drafts a report, then has editorial, ethics and Devil's Advocate reviewers check it"
+            },
+            {
+              "label": "You get",
+              "text": "a report, from a 500-word brief to a 15,000-word PRISMA 2020 systematic review, or in Socratic mode a research plan built from your own answers"
+            },
+            {
+              "label": "Modes",
+              "text": "full, quick, review, lit-review, three-way-scan (papers compared on why, how and what), fact-check, socratic, and systematic-review with optional meta-analysis"
+            },
+            {
+              "label": "Rules",
+              "text": "every claim cited, and a reference it can't confirm is left out; Socratic mode only asks questions until you ask for suggestions"
+            },
+            {
+              "label": "Needs",
+              "text": "the whole repo, as the plugin installs it: its report, three-way-scan and ethics steps read files from academic-paper, academic-paper-reviewer and the repo's shared/ folder"
+            },
+            {
+              "label": "Unlike",
+              "text": "academic-paper, which writes a journal-ready paper in several citation styles, it produces a research report"
+            }
+          ],
+          "text": "The research skill of Academic Research Skills (ARS), built from thirteen role prompts. Full mode runs six phases. A research-question agent scores the question on the FINER criteria (feasible, interesting, novel, ethical, relevant) and an architect designs the method; a Devil's Advocate checks both, and you confirm before the search starts. A bibliography agent searches systematically, and a verification agent grades each source on an evidence hierarchy, screens for predatory journals and flags conflicts of interest. A synthesis maps where sources agree and conflict, the Devil's Advocate checks it for cherry-picking and confirmation bias, a compiler writes an APA 7.0 report, and an editor, an ethics reviewer and the Devil's Advocate review it, followed by at most two revision rounds; what's left becomes acknowledged limitations. Critical issues stop progress. Before a literature review it asks which form you want (systematic, scoping, narrative, rapid or none) and recommends none of them. Systematic-review mode adds risk-of-bias assessment with RoB 2 and ROBINS-I, meta-analysis and GRADE. When you ask for a paper, its question brief, bibliography and synthesis hand over to academic-paper.",
+          "permalink": "https://github.com/imbad0202/academic-research-skills/tree/6d9388674de1ad0437ad95db3d52f92b92204d84/deep-research"
+        },
+        "tags": [
+          "category:science",
+          "category:writing",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "research",
+          "writing",
+          "interview"
+        ],
+        "note": "Some steps read protocols from the repo's shared/ folder and the other ARS skills' folders, which a whole-repo install such as the plugin brings and a single-skill copy doesn't."
+      }
+    },
+    {
+      "id": "imbad0202/academic-research-skills/academic-pipeline",
+      "name": "academic-pipeline",
+      "skills.sh": {
+        "url": "https://skills.sh/imbad0202/academic-research-skills/academic-pipeline",
+        "installs": 7500,
+        "weeklyInstalls": [204, 193, 176, 175, 158, 217, 239, 191],
+        "firstSeen": "2026-03-10"
+      },
+      "skillMd": {
+        "version": "6d9388674de1ad0437ad95db3d52f92b92204d84",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Takes a paper from research to finished manuscript in ten stages, calling sibling skills, with integrity checks and your approval between stages.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want one guided run from a research question to a finished paper, or to enter midway with a draft or reviewer comments"
+            },
+            {
+              "label": "It does",
+              "text": "research, write, integrity check, review, revise, re-review, revise again if needed, final integrity check, format, then a record of how the paper was made"
+            },
+            {
+              "label": "You get",
+              "text": "the final paper in Markdown, plus DOCX, a PDF compiled from LaTeX or the .tex source as you choose, and, unless you decline it, a process record scoring the collaboration"
+            },
+            {
+              "label": "Stops for you",
+              "text": "after every stage; integrity checks and review decisions can't be skipped, and going past a failed check needs your recorded decision"
+            },
+            {
+              "label": "Midway entry",
+              "text": "a draft you bring goes through the integrity check before any review"
+            },
+            {
+              "label": "Needs",
+              "text": "the other three ARS skills and the repo's shared/ and scripts/ folders, as the plugin installs them; Python for its checkers, Pandoc and tectonic for DOCX and PDF"
+            }
+          ],
+          "text": "The orchestrator of Academic Research Skills (ARS): it does no research, writing or reviewing. It works out which stage your materials put you at, recommends modes (socratic, plan and guided when you want guidance, full for direct output, quick when time is short), loads each stage's skill and waits for your confirmation before moving on. Its own integrity agent runs before review and again from scratch before formatting: it checks references, citation context, statistics, originality and claims, plus a seven-mode checklist of AI research failures such as hallucinated results and fabricated methods. A failed check is fixed and rechecked up to three times, and a suspected failure mode blocks until you confirm, override with a reason or revise. Revision gets one round after the review and one after the re-review; what's left becomes acknowledged limitations. At the start it estimates token cost and the revision round-trips. Stage 6 writes a process record with a collaboration evaluation scored 1-100 on six dimensions and an AI self-reflection, and an advisory observer scores your collaboration pattern at checkpoints without ever blocking. Opt-in flags add a claim-to-source audit, external-model audits, and resuming in a fresh session from the Material Passport, its saved run state.",
+          "permalink": "https://github.com/imbad0202/academic-research-skills/tree/6d9388674de1ad0437ad95db3d52f92b92204d84/academic-pipeline"
+        },
+        "tags": [
+          "category:science",
+          "category:writing",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "research",
+          "writing",
+          "verification"
+        ],
+        "note": "Needs the repo's deep-research, academic-paper and academic-paper-reviewer skills, and its shared/ folder, which the plugin install brings."
+      }
+    },
+    {
+      "id": "modelstudioai/cli/skills/bailian-gen",
+      "name": "bailian-gen",
+      "skills.sh": {
+        "url": "https://skills.sh/modelstudioai/cli/bailian-gen",
+        "installs": 9300,
+        "weeklyInstalls": [319, 221, 162, 113, 121, 113, 89, 93],
+        "firstSeen": "2026-07-30"
+      },
+      "skillMd": {
+        "version": "cadc301d078f0fd1f2c56f7bf94f32c55bbb055d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Generates and edits images, video and speech, transcribes audio and describes images and video through Alibaba Cloud's Bailian bl CLI.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want images, video or speech made or edited, audio transcribed, or an image or video described with Alibaba Cloud's Bailian (Model Studio) models"
+            },
+            {
+              "label": "It does",
+              "text": "picks the matching bl command (image, video, speech, vision describe or omni), passes your local files by path and leaves the model to your profile's default"
+            },
+            {
+              "label": "You get",
+              "text": "image and speech files saved locally right away; videos come from an async job it downloads or polls"
+            },
+            {
+              "label": "Asks first",
+              "text": "when you name no provider, it recommends Bailian and asks once, since it may charge; it doesn't ask again for polling, downloads or retries"
+            },
+            {
+              "label": "Needs",
+              "text": "the bl CLI, a Bailian API key or console login, and the repo's bailian-protocol skill"
+            },
+            {
+              "label": "Default models",
+              "text": "qwen-image-3.0 for images, wan3.0-video for video, cosyvoice-v3-flash for speech, fun-asr for transcription, qwen3-vl-plus for image questions"
+            }
+          ],
+          "text": "Alibaba Cloud Model Studio's own skill for its media models, run through its bl command line. Text-to-image, image edits and multi-image merges, text- or image-to-video, video edits and style transfer, reference-to-video with voice, speech synthesis, speech recognition, and image, video or audio-video understanding each map to one bl command. For transcription it can add hot words, inline or as a reusable vocabulary, to get domain terms right. Local files go in by path: the CLI uploads them to DashScope's temporary storage for 48 hours. Video clips run about 2 to 10 seconds; to join clips or mix audio it points to ffmpeg. Generated and edited images and videos carry a watermark by default, which a bl config setting turns off. Simple image questions your agent can answer itself stay with the agent unless you name Bailian. Every bl command follows the shared bailian-protocol: a version check before the first one, environment variables tagging each call with your agent's and the skill's name, confirmation before high-risk operations, and an offer to file a GitHub issue when the CLI itself fails. It ends with a one-line summary of the commands it ran and the files they made.",
+          "permalink": "https://github.com/modelstudioai/cli/tree/cadc301d078f0fd1f2c56f7bf94f32c55bbb055d/skills/bailian-gen"
+        },
+        "tags": [
+          "category:media",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:bailian",
+          "image",
+          "video",
+          "audio",
+          "ai-generation"
+        ],
+        "note": "Fires on any image, video or speech request that names no provider and recommends Bailian, asking once. Loads the repo's bailian-protocol support package, so install that alongside; bl skill init installs both."
+      }
+    },
+    {
+      "id": "backnotprop/plannotator/apps/skills/extra/plannotator-setup-goal",
+      "name": "plannotator-setup-goal",
+      "skills.sh": {
+        "url": "https://skills.sh/backnotprop/plannotator/plannotator-setup-goal",
+        "installs": 12400,
+        "weeklyInstalls": [451, 460, 574, 569, 792, 710, 659, 634],
+        "firstSeen": "2026-05-07"
+      },
+      "skillMd": {
+        "version": "b5bab995016a0f8443c7c4fb5d82b78fbcf0dba3",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Turns an idea into a /goal-ready package: an interview and fact review in Plannotator, then a codebase plan you approve.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you have an idea or objective and want it pinned down into testable outcomes and a plan before an agent runs it with /goal"
+            },
+            {
+              "label": "It does",
+              "text": "restates your goal, interviews you with one bundle of questions in Plannotator's browser UI, has you review the resulting facts, then explores the code and writes a plan"
+            },
+            {
+              "label": "You get",
+              "text": "a goals/<slug>/ folder with facts.md, plan.md and goal.md, plus JSON of your answers, ready to launch with /goal"
+            },
+            {
+              "label": "Facts",
+              "text": "plain, testable statements of what the finished work does, each marked for automated verification or not"
+            },
+            {
+              "label": "Plan approval",
+              "text": "the plan opens in Plannotator as a gate; if you deny it, the agent revises from your notes until you approve"
+            },
+            {
+              "label": "Needs",
+              "text": "the Plannotator CLI"
+            },
+            {
+              "label": "Runs",
+              "text": "only when you call it"
+            }
+          ],
+          "text": "One of Plannotator's extra skills. Plannotator is a local, browser-based review surface for agents' plans and code. Setup goal starts by restating what you want in two or three sentences and waits for you to confirm. For a vague goal with many linked decisions it suggests, and runs on request, an optional grilling pass first: one question at a time, adapted verbatim from Matt Pocock's grill-me skill. The interview bundle holds only questions that need your judgment, each with a recommended answer and options; anything the codebase can answer, it looks up instead of asking. If your answers carry doubts or questions, it settles them in chat before writing facts. Facts you accept, edit or remove in the UI are applied as given, and those marked for automated verification need concrete automated checks in the plan. The plan lists the approach, ordered steps with the files each touches, a check for each step, and risks. It waits as long as you take in each browser session, and stops if you close one.",
+          "permalink": "https://github.com/backnotprop/plannotator/tree/b5bab995016a0f8443c7c4fb5d82b78fbcf0dba3/apps/skills/extra/plannotator-setup-goal"
+        },
+        "tags": [
+          "category:planning",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:official",
+          "stack:plannotator",
+          "planning",
+          "requirements",
+          "interview"
+        ],
+        "note": "Needs the Plannotator CLI for its interview, fact-review and plan-approval pages."
       }
     }
   ]

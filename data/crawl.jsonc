@@ -29,32 +29,6 @@
       }
     },
     {
-      "name": "ppt-visual",
-      "repo": "claude-office-skills/skills",
-      "official": false,
-      "stars": 567,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/claude-office-skills/skills/ppt-visual",
-        "installs": 12400,
-        "weeklyInstalls": [122, 146, 146, 148, 208, 391, 367, 214],
-        "firstSeen": "2026-03-09"
-      }
-    },
-    {
-      "name": "plannotator-setup-goal",
-      "repo": "backnotprop/plannotator",
-      "official": false,
-      "stars": 9874,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/backnotprop/plannotator/plannotator-setup-goal",
-        "installs": 12400,
-        "weeklyInstalls": [451, 460, 574, 569, 792, 710, 659, 634],
-        "firstSeen": "2026-05-07"
-      }
-    },
-    {
       "name": "dogfood",
       "repo": "callstack/agent-device",
       "official": true,
@@ -130,19 +104,6 @@
         "installs": 11300,
         "weeklyInstalls": [122, 107, 74, 85, 60, 57, 47, 60],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "academic-paper",
-      "repo": "imbad0202/academic-research-skills",
-      "official": false,
-      "stars": 55632,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/imbad0202/academic-research-skills/academic-paper",
-        "installs": 11200,
-        "weeklyInstalls": [304, 280, 267, 248, 250, 314, 301, 250],
-        "firstSeen": "2026-03-10"
       }
     },
     {
@@ -247,19 +208,6 @@
         "installs": 10300,
         "weeklyInstalls": [110, 79, 72, 63, 77, 65, 67, 72],
         "firstSeen": "2026-01-21"
-      }
-    },
-    {
-      "name": "academic-paper-reviewer",
-      "repo": "imbad0202/academic-research-skills",
-      "official": false,
-      "stars": 55632,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/imbad0202/academic-research-skills/academic-paper-reviewer",
-        "installs": 10200,
-        "weeklyInstalls": [263, 259, 228, 221, 214, 276, 281, 243],
-        "firstSeen": "2026-03-10"
       }
     },
     {
@@ -377,19 +325,6 @@
         "installs": 9400,
         "weeklyInstalls": [389, 406, 316, 279, 281, 356, 450, 413],
         "firstSeen": "2026-04-22"
-      }
-    },
-    {
-      "name": "bailian-gen",
-      "repo": "modelstudioai/cli",
-      "official": false,
-      "stars": 369,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/modelstudioai/cli/bailian-gen",
-        "installs": 9300,
-        "weeklyInstalls": [319, 221, 162, 113, 121, 113, 89, 93],
-        "firstSeen": "2026-07-30"
       }
     },
     {
@@ -679,19 +614,6 @@
       }
     },
     {
-      "name": "data-analysis",
-      "repo": "claude-office-skills/skills",
-      "official": false,
-      "stars": 567,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/claude-office-skills/skills/data-analysis",
-        "installs": 8100,
-        "weeklyInstalls": [108, 133, 122, 101, 142, 300, 234, 114],
-        "firstSeen": "2026-03-05"
-      }
-    },
-    {
       "name": "baoyu-electron-extract",
       "repo": "jimliu/baoyu-skills",
       "official": false,
@@ -728,19 +650,6 @@
         "installs": 8000,
         "weeklyInstalls": [146, 237, 223, 252, 234, 255, 272, 368],
         "firstSeen": "2026-01-21"
-      }
-    },
-    {
-      "name": "deep-research",
-      "repo": "imbad0202/academic-research-skills",
-      "official": false,
-      "stars": 55632,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/imbad0202/academic-research-skills/deep-research",
-        "installs": 8000,
-        "weeklyInstalls": [244, 213, 188, 174, 164, 212, 231, 166],
-        "firstSeen": "2026-03-10"
       }
     },
     {
@@ -923,19 +832,6 @@
         "installs": 7500,
         "weeklyInstalls": [10, 11, 8, 20, 12, 17, 27, 28],
         "firstSeen": "2026-02-10"
-      }
-    },
-    {
-      "name": "academic-pipeline",
-      "repo": "imbad0202/academic-research-skills",
-      "official": false,
-      "stars": 55632,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/imbad0202/academic-research-skills/academic-pipeline",
-        "installs": 7500,
-        "weeklyInstalls": [204, 193, 176, 175, 158, 217, 239, 191],
-        "firstSeen": "2026-03-10"
       }
     },
     {
@@ -1147,19 +1043,6 @@
       }
     },
     {
-      "name": "stock-analysis",
-      "repo": "claude-office-skills/skills",
-      "official": false,
-      "stars": 567,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/claude-office-skills/skills/stock-analysis",
-        "installs": 7100,
-        "weeklyInstalls": [61, 83, 63, 69, 106, 232, 188, 89],
-        "firstSeen": "2026-03-09"
-      }
-    },
-    {
       "name": "embedded-systems",
       "repo": "jeffallan/claude-skills",
       "official": false,
@@ -1235,19 +1118,6 @@
         "installs": 7000,
         "weeklyInstalls": [151, 116, 137, 126, 147, 130, 121, 118],
         "firstSeen": "2026-05-07"
-      }
-    },
-    {
-      "name": "tiktok-marketing",
-      "repo": "claude-office-skills/skills",
-      "official": false,
-      "stars": 567,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/claude-office-skills/skills/tiktok-marketing",
-        "installs": 7000,
-        "weeklyInstalls": [74, 100, 75, 72, 119, 257, 202, 85],
-        "firstSeen": "2026-03-09"
       }
     },
     {
