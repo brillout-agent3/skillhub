@@ -2175,6 +2175,87 @@
         "description": "Agile Ai Driven Development — turn an idea or change request into working software without giving up the thinking.",
         "note": "Its default branch is v7, a preview alpha whose skills change often; the stable v6.12 installs with npx bmad-method install and lives on the V6.12 branch."
       }
+    },
+    {
+      "id": "kunchenguid/lavish-axi",
+      "stars": 4416,
+      "agentReview": {
+        "kind": "project",
+        "description": "Lavish Editor: opens agent-made HTML artifacts in a local browser so you can annotate them and send feedback to the agent."
+      }
+    },
+    {
+      "id": "lottiefiles/motion-design-skill",
+      "stars": 2839,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Universal motion design principles for AI agents. Philosophy-first, implementation-agnostic."
+      }
+    },
+    {
+      "id": "iannuttall/seo",
+      "stars": 607,
+      "agentReview": {
+        "kind": "project",
+        "description": "A Google Search Console MCP server and CLI that gives agents your real SEO data instead of guesses."
+      }
+    },
+    {
+      "id": "getsentry/skills",
+      "stars": 1129,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Agent skills for Sentry employees, following the Agent Skills open format.",
+        "note": "Written for Sentry's own engineers: some skills follow Sentry's own conventions and brand. Skills for setting up Sentry itself are in getsentry/sentry-for-ai."
+      }
+    },
+    {
+      "id": "hugohe3/ppt-master",
+      "stars": 74253,
+      "agentReview": {
+        "kind": "skills",
+        "description": "AI generates native, editable PowerPoint from any document."
+      }
+    },
+    {
+      "id": "lewislulu/html-ppt-skill",
+      "stars": 9001,
+      "agentReview": {
+        "kind": "skills",
+        "description": "An agent skill for HTML presentations: 36 themes, 15 full-deck templates, 36 layouts, 47 animations and a presenter mode."
+      }
+    },
+    {
+      "id": "millionco/react-doctor",
+      "stars": 15104,
+      "agentReview": {
+        "kind": "project",
+        "description": "React Doctor runs deterministic checks on your code: state and effects, performance, architecture, security, accessibility and maintainability."
+      }
+    },
+    {
+      "id": "callstack/agent-device",
+      "stars": 5286,
+      "agentReview": {
+        "kind": "project",
+        "description": "Open source device layer for AI coding agents."
+      }
+    },
+    {
+      "id": "hardikpandya/stop-slop",
+      "stars": 18693,
+      "agentReview": {
+        "kind": "skills",
+        "description": "A skill for removing AI tells from prose."
+      }
+    },
+    {
+      "id": "ast-grep/agent-skill",
+      "stars": 902,
+      "agentReview": {
+        "kind": "skills",
+        "description": "A Claude Code plugin marketplace with the ast-grep skill, for structural code search with AST patterns."
+      }
     }
   ],
   "bundles": [
@@ -4169,6 +4250,81 @@
           {
             "label": "Any agent, with the skills CLI, plus the repo's 13 other skills, among them Sofia (bmad-agent-po), bmad-facilitate and the module records setup needs",
             "command": "npx skills add bmad-code-org/BMAD-METHOD --skill '*'"
+          }
+        ]
+      }
+    },
+    {
+      "id": "tavily-ai/skills@search",
+      "skew": 0,
+      "agentReview": {
+        "name": "Tavily search and research",
+        "description": "Web search, page reading and site crawling through Tavily, plus in-depth research that turns many sources into a cited report.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "the agent needs the live web, from one current fact to a report that weighs many sources"
+            },
+            {
+              "label": "It does",
+              "text": "tavily-search searches, reads pages and maps or crawls sites through Tavily; tavily-research splits a big question into subtopics and researches each through tavily-search"
+            },
+            {
+              "label": "You get",
+              "text": "web results and page text, searched until two independent sources agree on a fact, or a cited report that opens with the answer"
+            },
+            {
+              "label": "Needs",
+              "text": "the tvly CLI or Tavily's MCP server; search and page reads work without an account up to a rate limit, map and crawl need one"
+            },
+            {
+              "label": "Installs with",
+              "text": "the repo's four other skills, by most routes: CRM records, capped tables of matches, recurring checks and the Tavily SDK; the skills CLI can add just these two"
+            }
+          ],
+          "text": "Tavily's search and research skills split web work by size. tavily-search handles any task that needs the web: it uses Tavily's MCP tools when they're connected and the tvly CLI otherwise, runs advanced searches for ten results, follows leads, extracts the pages worth citing, keeps long results in files, and stops once two independent sources agree. When you want an analysis, a comparison across several criteria or an in-depth investigation, it hands the job to tavily-research, installing it first if it's missing. tavily-research splits the question into subtopics that don't overlap and, when subagents are available, gives each its own researcher, which searches through tavily-search and writes a notes file where every finding carries its URL. One writer then turns the notes into reports/{title}.md: the answer first, headings that state findings, inline citations and a conclusion about what the findings imply. Without subagents, the agent researches each subtopic itself and writes the report as its reply.",
+          "permalink": "https://github.com/tavily-ai/skills/tree/e9440da82b4153c71d5f9b62b122533f612239df"
+        },
+        "skills": [
+          {
+            "id": "tavily-ai/skills/skills/core/tavily-search",
+            "standalone": true
+          },
+          {
+            "id": "tavily-ai/skills/skills/tasks/tavily-research",
+            "standalone": false,
+            "note": "Searches and reads pages the way tavily-search describes and loads that skill first; its research subagents install it if it's missing."
+          }
+        ],
+        "install": [
+          {
+            "label": "Claude Code, Codex and Cursor: installs the Tavily CLI, and on a fresh interactive desktop install starts tvly init, which signs you in and adds all six of the repo's skills",
+            "command": "curl -fsSL https://cli.tavily.com/install.sh | bash"
+          },
+          {
+            "label": "Claude Code, Codex and Cursor, once the Tavily CLI is installed; signs you in and adds all six of the repo's skills, pinned to the CLI release, so run tvly update first when refreshing them",
+            "command": "tvly init"
+          },
+          {
+            "label": "The same without signing in: search and extract work up to a keyless rate limit, map and crawl need a sign-in",
+            "command": "tvly init --skip-auth"
+          },
+          {
+            "label": "Any agent, with the skills CLI; adds just these two skills, not the Tavily CLI or MCP server",
+            "command": "npx skills add https://github.com/tavily-ai/skills --skill tavily-search --skill tavily-research"
+          },
+          {
+            "label": "Any agent, with the skills CLI, with the repo's four other skills",
+            "command": "npx skills add https://github.com/tavily-ai/skills"
+          },
+          {
+            "label": "Claude Code plugin; also adds the repo's four other skills, the hosted Tavily MCP server and a session-start hook",
+            "command": "/plugin install tavily --marketplace tavily-ai/skills"
+          },
+          {
+            "label": "Codex, then install Tavily from /plugins; also adds the repo's four other skills and the hosted Tavily MCP server",
+            "command": "codex plugin marketplace add tavily-ai/skills"
           }
         ]
       }
@@ -30730,6 +30886,792 @@
           "learning"
         ],
         "note": "Needs uv and BMad set up in the project: it runs scripts from the _bmad/ folder that the bmad skill's setup creates."
+      }
+    },
+    {
+      "id": "kunchenguid/lavish-axi/skills/lavish",
+      "name": "lavish",
+      "skills.sh": {
+        "url": "https://skills.sh/kunchenguid/lavish-axi/lavish",
+        "installs": 24100,
+        "weeklyInstalls": [844, 1134, 879, 905, 919, 991, 931, 741],
+        "firstSeen": "2026-06-10"
+      },
+      "skillMd": {
+        "version": "69bf3090b24a04773ffd05d2e0b23d91ca41923b",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Turns plans, comparisons, diagrams and reports into HTML pages you annotate in your browser, sending the feedback back to the agent.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a plan, comparison, diagram, table, code diff or report would be clearer as a page than as prose, and you want to mark it up"
+            },
+            {
+              "label": "It does",
+              "text": "builds the response as an HTML file and opens it in Lavish Editor, a local browser page where you annotate it and send feedback to the agent"
+            },
+            {
+              "label": "You get",
+              "text": "an HTML artifact and a review loop on it, with the agent posting its replies through the lavish-axi CLI"
+            },
+            {
+              "label": "Runs",
+              "text": "on its own when a reply is easier to grasp visually; /lavish with a request builds that artifact"
+            },
+            {
+              "label": "Needs",
+              "text": "Node, to run the lavish-axi CLI through npx; nothing is installed globally"
+            },
+            {
+              "label": "Stays current",
+              "text": "the skill is a short stub: the review-loop steps, design rules and playbooks come from the CLI each time, so an installed copy can't go stale"
+            }
+          ],
+          "text": "Lavish Editor is a local page in your browser for reviewing HTML that an agent wrote. Instead of describing a plan, comparison, diagram, table, code diff, report or prototype in prose, the agent builds it as an HTML file and opens it with the lavish-axi CLI, run through npx. You annotate the page and send feedback; the agent answers through the CLI's reply command. The skill itself holds almost no instructions. It tells the agent to read the CLI's help for its commands and the review-loop workflow, lavish-axi design for design direction and current snippets, and lavish-axi playbook for guidance on a given kind of artifact, so what it does follows the CLI's current version. Called as /lavish with a request, it builds that artifact; called with nothing, or picked up by the agent on its own, it works out what to show from the conversation.",
+          "permalink": "https://github.com/kunchenguid/lavish-axi/tree/69bf3090b24a04773ffd05d2e0b23d91ca41923b/skills/lavish"
+        },
+        "tags": [
+          "category:output-style",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "by:official",
+          "stack:lavish-axi",
+          "output-style",
+          "diagrams"
+        ]
+      }
+    },
+    {
+      "id": "cursor/plugins/thermos/skills/thermo-nuclear-code-quality-review",
+      "name": "thermo-nuclear-code-quality-review",
+      "skills.sh": {
+        "url": "https://skills.sh/cursor/plugins/thermo-nuclear-code-quality-review",
+        "installs": 23600,
+        "weeklyInstalls": [1205, 1555, 1190, 1250, 714, 697, 742, 595],
+        "firstSeen": "2026-05-21"
+      },
+      "skillMd": {
+        "version": "2776ddd2355d6d6c8747d3964600f28daf62f049",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Reviews a branch's changes for maintainability against a very high bar, pushing for restructurings that delete complexity instead of moving it.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a harsh review of a branch's code quality, not its bugs: abstractions, sprawling files, ad-hoc conditionals, needless wrappers"
+            },
+            {
+              "label": "It does",
+              "text": "audits the current branch's changes against eight standing rules, hunting for \"code judo\": restructurings that keep behavior but make whole branches, helpers or layers disappear"
+            },
+            {
+              "label": "You get",
+              "text": "a few high-conviction findings, structural regressions first and no flood of cosmetic nits, in a direct tone, with no approval just because the code works"
+            },
+            {
+              "label": "Blocks on",
+              "text": "a file pushed past 1,000 lines, special-case branches scattered into shared code, or a clear simplification left on the table, unless the author justifies it"
+            },
+            {
+              "label": "Runs",
+              "text": "only when you call it; the agent never starts it on its own"
+            },
+            {
+              "label": "Part of",
+              "text": "Cursor's Thermos plugin, alongside a bug and security review and a thermos skill that runs both reviews as parallel subagents"
+            }
+          ],
+          "text": "A review prompt from Cursor's plugins repo with one goal: keep the codebase simple. Called by name, the agent audits the current branch's changes and asks of each one whether a \"code judo\" move, a restructuring that preserves behavior but makes branches, helpers, modes or layers disappear, would make it dramatically simpler. Eight standing rules back that up: be ambitious about structural simplification; don't let a PR push a file from under to over 1,000 lines without a strong reason; no ad-hoc conditionals in unrelated flows; push for the cleaner design, not just working code; prefer direct, boring code over magic or thin wrappers; question casts, any, unknown and needless optionality; keep logic in its canonical layer and reuse existing helpers; and treat needlessly sequential or half-applied updates as design smells. Findings come ordered from structural regressions down to legibility, few and high-conviction rather than a flood of nits, in a direct but not rude tone, with sample phrasings. Working code isn't enough to approve: the listed problems are presumptive blockers unless the author justifies them.",
+          "permalink": "https://github.com/cursor/plugins/tree/2776ddd2355d6d6c8747d3964600f28daf62f049/thermos/skills/thermo-nuclear-code-quality-review"
+        },
+        "tags": [
+          "category:debugging",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "code-review",
+          "code-quality",
+          "refactoring"
+        ]
+      }
+    },
+    {
+      "id": "tavily-ai/skills/skills/tasks/tavily-research",
+      "name": "tavily-research",
+      "skills.sh": {
+        "url": "https://skills.sh/tavily-ai/skills/tavily-research",
+        "installs": 23400,
+        "weeklyInstalls": [609, 819, 653, 592, 572, 558, 627, 816],
+        "firstSeen": "2026-03-16"
+      },
+      "skillMd": {
+        "version": "e9440da82b4153c71d5f9b62b122533f612239df",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Researches a topic in depth through Tavily, splitting the question into subtopics and writing a report that cites its sources.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a question needs many sources weighed together: a market, policy or technology analysis, a comparison across criteria, or a literature review"
+            },
+            {
+              "label": "It does",
+              "text": "splits the question into subtopics that don't overlap, usually three to five, researches them in parallel, one subagent each when it can, and fills thin parts before writing"
+            },
+            {
+              "label": "You get",
+              "text": "a report that opens with the answer, uses headings that state findings and cites figures inline; saved to reports/ when subagents wrote it or you asked for a file"
+            },
+            {
+              "label": "Unlike tavily-search",
+              "text": "which finds a single fact or answer, it builds an answer from many sources and hands the searching itself to that skill"
+            },
+            {
+              "label": "Needs",
+              "text": "Tavily's MCP tools or tvly CLI, through tavily-search; subagents are optional, and without them the agent researches every subtopic itself"
+            }
+          ],
+          "text": "Tavily's skill for questions that need many sources weighed together. The agent asks only when a term, place or name is ambiguous, then splits the question into subtopics that don't overlap: three by default, four for a comparison, five for separate entities, regions or domains. Each subtopic carries your limits on dates, places and scope. With subagents, each subtopic gets one: it searches through tavily-search, prefers the authoritative source, stops by about twelve calls and writes a notes file in research_notes/ where every finding has its URL and what it couldn't answer is recorded as a gap. One agent then writes reports/{title}.md from those notes alone. Without subagents, the agent runs each subtopic's searches in parallel itself and keeps the findings in context. Before writing, it runs another round for any part that would be thin. The report opens with a paragraph that answers the question, uses headings that state findings, cites figures, dates and attributed positions inline, says where sources disagree and which it takes, and ends with implications rather than a summary. A follow-up on the same subject builds on the earlier report.",
+          "permalink": "https://github.com/tavily-ai/skills/tree/e9440da82b4153c71d5f9b62b122533f612239df/skills/tasks/tavily-research"
+        },
+        "tags": [
+          "category:browser",
+          "category:writing",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:tavily",
+          "research",
+          "web-search"
+        ],
+        "note": "Searches and reads pages through tavily-search, from the same repo, which it loads first."
+      }
+    },
+    {
+      "id": "lottiefiles/motion-design-skill/skills/motion-design",
+      "name": "motion-design",
+      "skills.sh": {
+        "url": "https://skills.sh/lottiefiles/motion-design-skill/motion-design",
+        "installs": 23100,
+        "weeklyInstalls": [733, 652, 820, 1192, 1750, 1770, 1858, 1782],
+        "firstSeen": "2026-04-13"
+      },
+      "skillMd": {
+        "version": "f9a8a041b85185ee4881b3471d3415e939aac772",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Applies motion design principles, from emotional intent to timing, easing and choreography, to UI animations in any animation system.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're making UI animations, transitions, micro-interactions or loading states and want them to feel intentional rather than default"
+            },
+            {
+              "label": "It does",
+              "text": "runs an 8-step checklist before any animation: emotional target, one of four motion personalities, property, duration, easing, hero element, supporting layers and its 1/3 rules"
+            },
+            {
+              "label": "You get",
+              "text": "animations whose durations, curves and staggers come from its tables, such as 120–180ms for a button press and entrances 30–50% longer than exits"
+            },
+            {
+              "label": "Never",
+              "text": "linear easing for movement, opacity alone for an important state change, or motion across more than a third of the screen without a keyframe"
+            },
+            {
+              "label": "Works with",
+              "text": "CSS, Framer Motion, GSAP, Lottie, springs or any other animation system"
+            },
+            {
+              "label": "Unlike emil-design-eng",
+              "text": "which asks whether to animate and how fast, it starts from the feeling an animation should give, with personalities, an emotion map and Disney's animation principles"
+            }
+          ],
+          "text": "LottieFiles' guide has the agent think like a motion director before writing animation code. Every animation must answer three questions first: what the viewer should feel, what micro-story it tells, and what makes it believable. The project gets one of four personalities, Playful, Premium, Corporate or Energetic, each with its own durations, easing and overshoot; Corporate is the default for UI, Playful for illustrations. The rest is tables: which property to animate for each effect, durations by element from 80–120ms tooltips to 400–600ms page transitions, easing by direction (ease-out to enter, ease-in to exit) and by material, weights, stagger budgets that keep a sequence under 500ms, and an emotion-to-motion map. Each animation should have three layers, a primary action, secondary detail and ambient life, and follow 1/3 rules on how far things travel and how many move at once. Recipes cover a button press, a card entrance, a success state and an error shake, and a troubleshooting table maps symptoms such as \"looks robotic\" to fixes. Deeper files on Disney's principles, choreography and patterns load when needed.",
+          "permalink": "https://github.com/lottiefiles/motion-design-skill/tree/f9a8a041b85185ee4881b3471d3415e939aac772/skills/motion-design"
+        },
+        "tags": [
+          "category:design",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:official",
+          "animation",
+          "design"
+        ]
+      }
+    },
+    {
+      "id": "iannuttall/seo/skills/seo",
+      "name": "seo",
+      "skills.sh": {
+        "url": "https://skills.sh/iannuttall/seo/seo",
+        "installs": 23000,
+        "weeklyInstalls": [69, 38, 42, 48, 29, 4515, 6977, 6112],
+        "firstSeen": "2026-07-11"
+      },
+      "skillMd": {
+        "version": "defe17e561e45ac46694a4ac6f17b13da84ff537",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Answers SEO questions from your own Search Console, Analytics and Bing data, plus site crawls and keyword and backlink research.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to know why Google traffic dropped, which pages are close to page one, whether a page is indexed, or how a Google update hit you"
+            },
+            {
+              "label": "It does",
+              "text": "runs the free seo CLI or its MCP tools: Search Console reports, before-and-after comparisons, index checks, crawls, internal links, keyword and backlink research"
+            },
+            {
+              "label": "You get",
+              "text": "answers from your own numbers, each result ending with the next command to run"
+            },
+            {
+              "label": "Keeps",
+              "text": "a list of the issues it found, with the ones you marked fixed or ignored, so old issues aren't reported again as new"
+            },
+            {
+              "label": "Needs",
+              "text": "the seo CLI, run through npx, or its hosted MCP server, and a Google sign-in for your data; crawls and the AI-writing lint need no sign-in"
+            },
+            {
+              "label": "Also",
+              "text": "lints drafts for lines that read as AI-written, and builds a new data-driven site on Astro and Cloudflare, one step at a time"
+            }
+          ],
+          "text": "seo is a free SEO tool for agents, shipped as a CLI and an MCP server, and this skill is its map. The agent uses the MCP tools when they're connected, hosted at seoskill.dev or run locally, and otherwise the seo command. Crawling a site, local and staging ones included, needs no sign-in, and neither does the lint that flags AI-sounding lines in drafts and live pages. Your own data, from Search Console reports and raw rows to Google Analytics, Bing Webmaster Tools and Clicky, needs a sign-in link you approve. Other commands inspect one URL's index status and queries, compare a site before and after a date alongside Google's updates, label Google's indexing reasons, suggest internal links, research keywords, competitors and backlinks through DataForSEO or Ahrefs, and scaffold a data-driven site on Astro and Cloudflare. Results start small and expand by section or detail. The skill also tells the agent to keep a list of issues between sessions, in issues.json or a file in your project, report a Google update's effect as timing rather than its cause, and rerun the indexing check weekly with the same settings, keeping each result to compare by URL.",
+          "permalink": "https://github.com/iannuttall/seo/tree/defe17e561e45ac46694a4ac6f17b13da84ff537/skills/seo"
+        },
+        "tags": [
+          "category:marketing",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:google-search-console",
+          "seo",
+          "marketing"
+        ]
+      }
+    },
+    {
+      "id": "getsentry/skills/skills/security-review",
+      "name": "security-review",
+      "skills.sh": {
+        "url": "https://skills.sh/getsentry/skills/security-review",
+        "installs": 22700,
+        "weeklyInstalls": [584, 452, 451, 1892, 920, 785, 847, 853],
+        "firstSeen": "2026-01-29"
+      },
+      "skillMd": {
+        "version": "e94f22214528d69899d09c627b3315ddc3544816",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Reviews code for exploitable security vulnerabilities, reporting only high-confidence findings after tracing where each input really comes from.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a security review of a file, diff or component: injection, XSS, authentication, authorization, cryptography, SSRF and the like"
+            },
+            {
+              "label": "It does",
+              "text": "loads reference guides for the kind of code and its language, researches the whole codebase to trace each input, and reports only what it confirms is exploitable"
+            },
+            {
+              "label": "You get",
+              "text": "a report of findings rated Critical to Low, each with location, impact, evidence and fix, plus a separate Needs verification list"
+            },
+            {
+              "label": "Won't flag",
+              "text": "test files, dead code, constants, server-side settings, code reachable only after authentication, or framework patterns that already escape or parameterize, unless they're bypassed"
+            },
+            {
+              "label": "Language guides",
+              "text": "Python and JavaScript; other languages rely on its general references and the framework's protections checked in the code"
+            }
+          ],
+          "text": "Sentry's security review hunts only for vulnerabilities an attacker could actually exploit. It reports on the file, diff or code you give it, but researches the whole codebase first: where each input really comes from, whether it's validated elsewhere, and what configuration and the framework already protect. Values from settings, environment variables or constants count as server-controlled, and auto-escaped templates or ORM queries are flagged only when bypassed, as with mark_safe, dangerouslySetInnerHTML, v-html or raw SQL. For each kind of code, such as endpoints, templates, file uploads, crypto, serialization or CI, it loads matching reference guides based on OWASP's cheat sheets, plus a Python or JavaScript guide and, for Dockerfiles, a Docker guide. Only high-confidence findings are reported; medium-confidence ones go under Needs verification, and theoretical or best-practice issues are left out. Some patterns are always flagged, such as eval or pickle on user input, SQL built from strings and hardcoded secrets. If nothing qualifies, it says \"No high-confidence vulnerabilities identified.\" For Django access control and GitHub Actions workflows, it uses the same repo's django-access-review and gha-security-review when they're installed.",
+          "permalink": "https://github.com/getsentry/skills/tree/e94f22214528d69899d09c627b3315ddc3544816/skills/security-review"
+        },
+        "tags": [
+          "category:security",
+          "category:debugging",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:official",
+          "security",
+          "code-review"
+        ]
+      }
+    },
+    {
+      "id": "hugohe3/ppt-master/skills/ppt-master",
+      "name": "ppt-master",
+      "skills.sh": {
+        "url": "https://skills.sh/hugohe3/ppt-master/ppt-master",
+        "installs": 21900,
+        "weeklyInstalls": [828, 774, 671, 436, 716, 945, 1248, 1269],
+        "firstSeen": "2026-03-21"
+      },
+      "skillMd": {
+        "version": "769547394107870a0c7b5ad8d1c0c75035123aef",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Generates natively editable PowerPoint decks from your material, and builds templates, fills existing PPTX files or redesigns finished decks.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a real, editable .pptx from a topic or documents, or want to beautify, template, refill or add narration and animation to a deck"
+            },
+            {
+              "label": "It does",
+              "text": "runs a bundled Python check, then routes the request to one workflow: generate (default, quick, from images, or beautify), create a template, or edit a native PPTX"
+            },
+            {
+              "label": "You get",
+              "text": "an editable .pptx whose pages can use Office's 187 preset shapes, connectors, gradients, native shadows and layered images"
+            },
+            {
+              "label": "Asks first",
+              "text": "at every blocking gate, where it waits for your confirmation instead of deciding for you"
+            },
+            {
+              "label": "Needs",
+              "text": "Python 3, to run the scripts that ship with the skill"
+            },
+            {
+              "label": "Unlike html-ppt",
+              "text": "which builds static HTML slide pages, it outputs PowerPoint files you keep editing in PowerPoint"
+            }
+          ],
+          "text": "PPT Master turns a topic or your source material into a PowerPoint deck built from native, editable objects. Its SKILL.md is an entry point: it first runs a bundled Python integrity check and stops if that fails, then reads its routing file and picks exactly one route. Generating a deck has four profiles: the default, a quick one, image to PPTX, which recreates pages from pictures, and beautify, which redesigns an existing deck. The other routes create a reusable brand, style, layout or deck template, or edit a native PPTX in place. Every route is one cycle: plan until every input exists as a file or recorded decision, then author the pages, run the route's checks, repair at whichever layer owns a fault, and export. At each blocking gate it stops for your confirmation. Pages can use emphasis runs, pull quotes and hero numbers, Office's 187 preset shapes and connectors, full-bleed or shaped images, gradients, shadows and glow, and one motif varied across pages. It works in your language, while its design spec keeps English headings.",
+          "permalink": "https://github.com/hugohe3/ppt-master/tree/769547394107870a0c7b5ad8d1c0c75035123aef/skills/ppt-master"
+        },
+        "tags": [
+          "category:documents",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "stack:microsoft-office",
+          "stack:python",
+          "slides"
+        ]
+      }
+    },
+    {
+      "id": "lewislulu/html-ppt-skill",
+      "name": "html-ppt",
+      "skills.sh": {
+        "url": "https://skills.sh/lewislulu/html-ppt-skill/html-ppt",
+        "installs": 21300,
+        "weeklyInstalls": [279, 298, 236, 187, 187, 269, 235, 292],
+        "firstSeen": "2026-04-15"
+      },
+      "skillMd": {
+        "version": "fd1629067909ff55b36b905476de4e5f26062a1f",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds static HTML slide decks from 36 themes, 36 layouts and 15 full-deck templates, with animations, keyboard navigation and a presenter window.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a talk, pitch deck, report or Xiaohongshu (RedNote) image post as a tasteful HTML deck rather than a PowerPoint file"
+            },
+            {
+              "label": "It does",
+              "text": "asks or proposes the content and audience, a theme and a starting template first, then scaffolds the deck with a script and fills in copied layouts"
+            },
+            {
+              "label": "You get",
+              "text": "an HTML deck with arrow-key and swipe navigation, theme cycling, CSS and canvas animations, and a presenter window with next slide, script and timer"
+            },
+            {
+              "label": "For talks",
+              "text": "it uses the presenter-mode template and writes 150–300 words of speaker script per slide, kept off the slides themselves"
+            },
+            {
+              "label": "Exports",
+              "text": "slides to PNG through a headless Chrome script, written for Chrome's macOS path"
+            },
+            {
+              "label": "Unlike ppt-master",
+              "text": "which outputs editable PowerPoint files, it makes static HTML, CSS and JavaScript with no build step"
+            }
+          ],
+          "text": "html-ppt is a kit for slide decks as plain HTML, CSS and JavaScript, with no build step. Before writing anything, the agent confirms the content, audience and length, recommends two or three of its 36 themes by tone, and points to the closest of 15 full-deck templates, such as pitch-deck, product-launch, tech-sharing, weekly-report or a 3:4 Xiaohongshu post. A script scaffolds the deck so asset paths resolve; slides are copied from 36 layouts and filled in, with colors from theme tokens, images in frames that crop or letterbox, a logo declared once, and any of 27 CSS entry animations and 20 canvas effects such as confetti or a force-directed graph. Text meant for the presenter goes in notes, never on the slide. Decks run with arrow keys or swipes, T cycles themes, O shows an overview, and S opens a presenter window of draggable cards for the current and next slide, the script and a timer, kept in sync with the audience view. For a talk, it uses the presenter-mode template and writes a speaker script for every slide. A headless Chrome script exports slides to PNG.",
+          "permalink": "https://github.com/lewislulu/html-ppt-skill/tree/fd1629067909ff55b36b905476de4e5f26062a1f"
+        },
+        "tags": [
+          "category:documents",
+          "type:workflow",
+          "effect:local",
+          "needs:browser",
+          "by:community",
+          "slides",
+          "animation"
+        ]
+      }
+    },
+    {
+      "id": "google-labs-code/stitch-skills/plugins/stitch-utilities/skills/taste-design",
+      "name": "taste-design",
+      "skills.sh": {
+        "url": "https://skills.sh/google-labs-code/stitch-skills/taste-design",
+        "installs": 20800,
+        "weeklyInstalls": [459, 424, 412, 405, 427, 407, 468, 427],
+        "firstSeen": "2026-03-30"
+      },
+      "skillMd": {
+        "version": "0337446dadde6f8c94210444e2aa9d546126480f",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes a DESIGN.md for Google Stitch that enforces a premium, non-generic look: strict type, one muted accent, asymmetric layouts and spring motion.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you generate screens with Google Stitch, Google's AI tool that designs UI from text, and don't want them to look AI-made"
+            },
+            {
+              "label": "It does",
+              "text": "sets the project's density, variance and motion levels, then writes rules for color, type, components, layout, responsiveness and motion, and a list of banned AI tells"
+            },
+            {
+              "label": "You get",
+              "text": "a DESIGN.md in a fixed seven-section format, with named hex colors and exact values, for Stitch to follow when it generates screens"
+            },
+            {
+              "label": "Bans",
+              "text": "Inter, generic serifs, pure black, purple neon glows, three equal cards in a row, emojis, invented metrics and copy like \"Elevate\" or \"Seamless\""
+            },
+            {
+              "label": "Needs",
+              "text": "access to Google Stitch to use the file; the Stitch MCP server is optional"
+            }
+          ],
+          "text": "A skill from Google Labs' Stitch repo, which turns anti-slop frontend rules into the DESIGN.md that Stitch, Google's tool for generating UI screens from text, reads as its design system. The agent first sets the project's density, variance and motion on 1–10 scales, defaulting to creativity 9, variance 8, motion 6 and density 5 and adjusting to the vibe you describe. It then writes seven sections: atmosphere, a palette of named hex colors with one accent under 80% saturation, typography, component behavior, layout, motion and banned patterns. The rules are strict: Geist, Outfit, Cabinet Grotesk or Satoshi instead of Inter, no serifs in dashboards, no centered hero when variance is high, no three equal cards in a row, skeleton loaders instead of spinners, spring physics and perpetual micro-animations, and a single column below 768px. It also bans emojis, invented statistics, fake names such as John Doe, and copy such as \"Elevate\" or \"Seamless\". Everything is written in plain descriptive language with exact values in parentheses, the way Stitch interprets design.",
+          "permalink": "https://github.com/google-labs-code/stitch-skills/tree/0337446dadde6f8c94210444e2aa9d546126480f/plugins/stitch-utilities/skills/taste-design"
+        },
+        "tags": [
+          "category:design",
+          "type:workflow",
+          "effect:local",
+          "needs:account",
+          "by:official",
+          "stack:stitch",
+          "design",
+          "design-system",
+          "anti-slop"
+        ]
+      }
+    },
+    {
+      "id": "millionco/react-doctor/skills/react-doctor",
+      "name": "react-doctor",
+      "skills.sh": {
+        "url": "https://skills.sh/millionco/react-doctor/react-doctor",
+        "installs": 20700,
+        "weeklyInstalls": [343, 209, 424, 677, 908, 1562, 1048, 1005],
+        "firstSeen": "2026-02-17"
+      },
+      "skillMd": {
+        "version": "9791c32f61fb1477a4f8dd596ff80184ad26b2e3",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Scans React code with the React Doctor CLI for security, performance, correctness and architecture issues, scores it, and fixes what regressed.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you've changed React code and want to catch regressions before committing, or want a cleanup pass, a UI design audit or a runtime performance trace"
+            },
+            {
+              "label": "It does",
+              "text": "runs npx react-doctor scans scoped to your changes or the whole codebase and fixes issues by severity, errors first"
+            },
+            {
+              "label": "You get",
+              "text": "a 0–100 health score, findings by rule with file and line, and fixes in your working tree; it never commits or opens PRs"
+            },
+            {
+              "label": "Traces",
+              "text": "slow interactions in an isolated Chrome profile while you reproduce them, highlighting components as they render"
+            },
+            {
+              "label": "Runs",
+              "text": "after React changes on its own, or as /doctor for a full triage"
+            }
+          ],
+          "text": "React Doctor is a CLI that scans React codebases for security, performance, correctness and architecture issues and scores them from 0 to 100. The skill tells the agent which scan fits. After React code changes, it scans only what changed against the base branch and fixes any drop in the score before committing. For a cleanup, it scans the whole codebase and fixes errors before warnings. A design subcommand runs only the UI rules for composition, typography, interaction, accessibility and motion. For slow interactions, scan with a URL opens an isolated Chrome profile, records a DevTools trace while you reproduce the problem and outlines components as they render; the trace stays on your machine unless you allow an upload. Typing /doctor fetches the maintainers' current triage playbook from react.doctor and follows it: scan, filter, triage, fix and validate, editing the working tree but never committing or opening PRs. It can also explain a rule and disable or tune it in your config, report only findings that are new against a saved baseline scan, and give GitLab CI a separate exit code for warnings.",
+          "permalink": "https://github.com/millionco/react-doctor/tree/9791c32f61fb1477a4f8dd596ff80184ad26b2e3/skills/react-doctor"
+        },
+        "tags": [
+          "category:debugging",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "needs:browser",
+          "by:official",
+          "stack:react",
+          "stack:react-doctor",
+          "code-quality",
+          "performance",
+          "accessibility",
+          "debugging"
+        ],
+        "note": "Its /doctor triage fetches and follows a playbook from react.doctor each time it runs, so those steps can change without a reinstall."
+      }
+    },
+    {
+      "id": "callstack/agent-device/skills/agent-device",
+      "name": "agent-device",
+      "skills.sh": {
+        "url": "https://skills.sh/callstack/agent-device/agent-device",
+        "installs": 20300,
+        "weeklyInstalls": [815, 899, 878, 923, 869, 699, 788, 897],
+        "firstSeen": "2026-02-03"
+      },
+      "skillMd": {
+        "version": "463fd7b4d8168aadffc1b1613df96a342a47953e",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Drives apps on iOS, Android, TV and macOS devices and simulators from the terminal: tap, type, scroll, snapshot and verify.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "the agent needs to use an app on an iPhone, Android phone, Apple TV, Fire TV, Mac or a simulator: navigate, tap, type, take screenshots, collect evidence"
+            },
+            {
+              "label": "It does",
+              "text": "opens the app with agent-device, then acts on elements by the refs in its accessibility snapshot, reads the printed diff and checks the expected text after each step"
+            },
+            {
+              "label": "You get",
+              "text": "an agent that taps what's on screen instead of guessing coordinates, falling back to screenshots only when the snapshot is sparse"
+            },
+            {
+              "label": "Needs",
+              "text": "the agent-device CLI and a device, simulator or emulator"
+            },
+            {
+              "label": "Unlike argent-device-interact",
+              "text": "which drives phones through the Argent MCP server and doesn't do TVs, it works from a CLI and covers TV apps"
+            }
+          ],
+          "text": "agent-device is a CLI for driving apps on Apple platforms, Android devices including Android TV and Fire TV, and Amazon Vega OS TV apps. The skill keeps the agent from wasting turns: it starts straight away with agent-device open, which returns an interactive snapshot of the screen whose elements carry refs such as @e12. It then loops: press, fill, scroll or go back with --settle, continue from the printed diff, confirm the expected text or state, and close the session, shutting down any simulator it booted unless you want it kept. It reaches an off-screen element with one scroll --until rather than scrolling and checking, copies refs exactly, and prefers refs and id, label or role selectors to coordinates. When the snapshot is sparse, it takes a screenshot, works from coordinates and snapshots again later. Error output carries fixes, which it follows instead of re-planning, and agent-device help covers specialized work such as gestures, scripting, TVs, macOS, remote devices and debugging.",
+          "permalink": "https://github.com/callstack/agent-device/tree/463fd7b4d8168aadffc1b1613df96a342a47953e/skills/agent-device"
+        },
+        "tags": [
+          "category:debugging",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "by:official",
+          "stack:agent-device",
+          "mobile",
+          "testing",
+          "computer-use"
+        ]
+      }
+    },
+    {
+      "id": "emilkowalski/skills/skills/remove-animations",
+      "name": "remove-animations",
+      "skills.sh": {
+        "url": "https://skills.sh/emilkowalski/skills/remove-animations",
+        "installs": 20300,
+        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 9405],
+        "firstSeen": null
+      },
+      "skillMd": {
+        "version": "c8a79627b59d72d764d6ab6f2c87c09a48169833",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Finds the animations an interface doesn't need, deletes or tones them down, and cleans up the code they leave behind.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "an app feels slow or over-animated and you want motion taken out, not added or tuned"
+            },
+            {
+              "label": "It does",
+              "text": "puts every animation through a decision tree: keyboard-triggered, seen 100+ times a day or on data you read means delete; frequent or over 300ms means reduce"
+            },
+            {
+              "label": "You get",
+              "text": "the edits in your code, then a report of what it removed or reduced and why, 2–5 animations it kept and their purpose, and the cleanup"
+            },
+            {
+              "label": "Checks first",
+              "text": "what a deletion would break, such as elements left at opacity 0, code waiting for an animation to end, or a layout jump the animation hid"
+            },
+            {
+              "label": "Won't",
+              "text": "add motion, change easing or retune springs, and it asks before uninstalling a motion library"
+            },
+            {
+              "label": "Unlike find-animation-opportunities",
+              "text": "which looks for places that should animate, it takes motion away, and leaves fixing the animations it keeps to improve-animations"
+            }
+          ],
+          "text": "Built on Emil Kowalski's essay \"You Don't Need Animations\", this skill reverses the burden of proof: an animation stays only if it can defend itself. The agent maps where motion lives and how often each animated surface is seen, then sweeps for kinds that rarely survive, such as fade-in on scroll, hover scale on cards, animated command palettes, charts that redraw from zero and spinners on operations under 300ms. Each candidate goes through a decision tree. Keyboard-triggered, very frequent or data animations are deleted; frequent ones and any over 300ms are reduced to a smaller version of the same motion; rare first-time moments, the delight budget, stay. Marketing pages get more latitude than product UI. Before deleting, it checks what depends on the animation: hidden start states, listeners waiting for it to end, exit animations delaying unmount, focus moves and tests. It then removes orphaned keyframes, motion.div wrappers and imports, runs the type checker and tests, and greps to confirm nothing still refers to what it deleted. Badly built animations it keeps are listed for improve-animations.",
+          "permalink": "https://github.com/emilkowalski/skills/tree/c8a79627b59d72d764d6ab6f2c87c09a48169833/skills/remove-animations"
+        },
+        "tags": [
+          "category:design",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "animation",
+          "design"
+        ]
+      }
+    },
+    {
+      "id": "hardikpandya/stop-slop",
+      "name": "stop-slop",
+      "skills.sh": {
+        "url": "https://skills.sh/hardikpandya/stop-slop/stop-slop",
+        "installs": 19100,
+        "weeklyInstalls": [805, 704, 654, 647, 633, 621, 622, 636],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "8da1f030185bdfe8471220585162991eaeb970e9",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Keeps AI writing patterns out of prose: filler, adverbs, formulaic contrasts, passive voice, em dashes and pull-quote lines.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "the agent is drafting, editing or reviewing prose and you don't want it to read as AI-written"
+            },
+            {
+              "label": "It does",
+              "text": "applies eight rules, such as cutting filler and every adverb, active voice with a human subject, no \"not X, it's Y\" contrasts and no em dashes"
+            },
+            {
+              "label": "Checks",
+              "text": "each draft before delivery against a list of tells, and can score it 1–10 on five dimensions, revising anything under 35 of 50"
+            },
+            {
+              "label": "Unlike unslop",
+              "text": "which you call to rewrite a finished text, it is a rule set the agent applies whenever it writes or edits prose"
+            }
+          ],
+          "text": "Stop Slop is a short rule set for prose that doesn't read as generated. Its eight rules: cut filler phrases and all adverbs; break formulaic structures such as binary contrasts, negative lists, dramatic fragments and rhetorical setups; use active voice with a human subject, never an inanimate thing doing a human action; name the specific thing instead of a vague declarative; put the reader in the room, with \"you\" over \"people\"; vary sentence length and paragraph endings, prefer two items to three and use no em dashes; state facts without softening; and rewrite anything that sounds like a pull-quote. Before delivering, the agent runs a checklist of the same tells, plus sentences that open with a Wh- word and meta-joiners such as \"the rest of this essay\". A score from 1 to 10 on directness, rhythm, trust, authenticity and density sends anything under 35 of 50 back for revision. Lists of phrases and structures to cut, and before-and-after examples, are in its reference files.",
+          "permalink": "https://github.com/hardikpandya/stop-slop/tree/8da1f030185bdfe8471220585162991eaeb970e9"
+        },
+        "tags": [
+          "category:writing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "anti-slop",
+          "writing"
+        ]
+      }
+    },
+    {
+      "id": "ast-grep/agent-skill/ast-grep/skills/ast-grep",
+      "name": "ast-grep",
+      "skills.sh": {
+        "url": "https://skills.sh/ast-grep/agent-skill/ast-grep",
+        "installs": 19100,
+        "weeklyInstalls": [389, 540, 384, 341, 433, 482, 570, 465],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "0613dc7f82bbfb3b557380b54726b92f73358460",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Searches code by its structure instead of its text, turning a plain-language request into an ast-grep rule it tests before running.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "text search can't express what you're looking for, such as async functions without a try-catch or console.log calls inside class methods"
+            },
+            {
+              "label": "It does",
+              "text": "writes a small example of the code to match, drafts an ast-grep pattern or YAML rule, tests it on the example, then searches the codebase"
+            },
+            {
+              "label": "You get",
+              "text": "the matches, as text or as JSON with file and line, and the rule that found them"
+            },
+            {
+              "label": "Debugs",
+              "text": "a rule that matches nothing by simplifying it, adding stopBy: end and dumping the syntax tree to check node kinds"
+            },
+            {
+              "label": "Needs",
+              "text": "the ast-grep CLI"
+            }
+          ],
+          "text": "ast-grep searches code by its syntax tree rather than its text, so it finds structures plain search can't, such as functions that await but have no try-catch. This skill has the agent translate your request into an ast-grep rule step by step. It asks about the pattern, language and edge cases when they're unclear, saves a small example of the code to match to a temporary file, and drafts a rule: a simple pattern first, then node kinds, relational rules such as has or inside, and all, any or not only as needed. It tests the rule on the example, inline or from a YAML file. When nothing matches, it simplifies the rule, adds stopBy: end to relational rules, and uses --debug-query to see how the code and the pattern were parsed. Only then does it search the codebase, with run for single-node patterns or scan for full rules, optionally as JSON that it can filter with jq. A reference file covers the full rule syntax, and ast-grep's online docs are the last resort.",
+          "permalink": "https://github.com/ast-grep/agent-skill/tree/0613dc7f82bbfb3b557380b54726b92f73358460/ast-grep/skills/ast-grep"
+        },
+        "tags": [
+          "category:engineering",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "by:official",
+          "stack:ast-grep",
+          "code-quality"
+        ]
       }
     }
   ]
