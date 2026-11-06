@@ -172,19 +172,6 @@
       }
     },
     {
-      "name": "n8n-workflow-patterns",
-      "repo": "czlonkowski/n8n-skills",
-      "official": false,
-      "stars": 6598,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/czlonkowski/n8n-skills/n8n-workflow-patterns",
-        "installs": 12000,
-        "weeklyInstalls": [167, 167, 159, 169, 163, 195, 207, 197],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
       "name": "security-best-practices",
       "repo": "openai/skills",
       "official": true,
@@ -939,19 +926,6 @@
       }
     },
     {
-      "name": "linear",
-      "repo": "openai/skills",
-      "official": true,
-      "stars": 28550,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/openai/skills/linear",
-        "installs": 10700,
-        "weeklyInstalls": [1337, 405, 138, 235, 198, 194, 123, 114],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
       "name": "team-composition-analysis",
       "repo": "wshobson/agents",
       "official": false,
@@ -988,19 +962,6 @@
         "installs": 10600,
         "weeklyInstalls": [168, 177, 205, 271, 218, 182, 181, 166],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "clickhouse-architecture-advisor",
-      "repo": "clickhouse/agent-skills",
-      "official": true,
-      "stars": 564,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/clickhouse/agent-skills/clickhouse-architecture-advisor",
-        "installs": 10600,
-        "weeklyInstalls": [177, 184, 212, 249, 335, 417, 367, 470],
-        "firstSeen": "2026-04-14"
       }
     },
     {
@@ -1651,19 +1612,6 @@
         "installs": 9700,
         "weeklyInstalls": [244, 246, 254, 273, 305, 477, 477, 320],
         "firstSeen": "2026-03-24"
-      }
-    },
-    {
-      "name": "chdb-sql",
-      "repo": "clickhouse/agent-skills",
-      "official": true,
-      "stars": 564,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/clickhouse/agent-skills/chdb-sql",
-        "installs": 9700,
-        "weeklyInstalls": [137, 144, 170, 229, 292, 388, 341, 423],
-        "firstSeen": "2026-04-14"
       }
     },
     {
@@ -2343,19 +2291,6 @@
       }
     },
     {
-      "name": "n8n-mcp-tools-expert",
-      "repo": "czlonkowski/n8n-skills",
-      "official": false,
-      "stars": 6598,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/czlonkowski/n8n-skills/n8n-mcp-tools-expert",
-        "installs": 8500,
-        "weeklyInstalls": [142, 135, 115, 125, 104, 149, 150, 147],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
       "name": "karpathy-llm-wiki",
       "repo": "astro-han/karpathy-llm-wiki",
       "official": false,
@@ -2603,19 +2538,6 @@
       }
     },
     {
-      "name": "chdb-datastore",
-      "repo": "clickhouse/agent-skills",
-      "official": true,
-      "stars": 564,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/clickhouse/agent-skills/chdb-datastore",
-        "installs": 8100,
-        "weeklyInstalls": [136, 124, 118, 114, 89, 139, 91, 63],
-        "firstSeen": "2026-04-14"
-      }
-    },
-    {
       "name": "nature-image2ppt",
       "repo": "yuan1z0825/nature-skills",
       "official": false,
@@ -2798,19 +2720,6 @@
       }
     },
     {
-      "name": "n8n-node-configuration",
-      "repo": "czlonkowski/n8n-skills",
-      "official": false,
-      "stars": 6598,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/czlonkowski/n8n-skills/n8n-node-configuration",
-        "installs": 7800,
-        "weeklyInstalls": [144, 130, 107, 124, 117, 142, 155, 148],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
       "name": "seo-geo",
       "repo": "agricidaniel/claude-seo",
       "official": false,
@@ -2873,19 +2782,6 @@
         "installs": 7700,
         "weeklyInstalls": [309, 290, 331, 281, 264, 280, 273, 390],
         "firstSeen": "2026-03-30"
-      }
-    },
-    {
-      "name": "clickhouse-js-node-troubleshooting",
-      "repo": "clickhouse/agent-skills",
-      "official": true,
-      "stars": 564,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/clickhouse/agent-skills/clickhouse-js-node-troubleshooting",
-        "installs": 7700,
-        "weeklyInstalls": [154, 130, 127, 113, 95, 138, 98, 84],
-        "firstSeen": "2026-05-13"
       }
     },
     {
@@ -3305,19 +3201,6 @@
       }
     },
     {
-      "name": "n8n-code-javascript",
-      "repo": "czlonkowski/n8n-skills",
-      "official": false,
-      "stars": 6598,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/czlonkowski/n8n-skills/n8n-code-javascript",
-        "installs": 7400,
-        "weeklyInstalls": [138, 137, 123, 130, 116, 152, 166, 155],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
       "name": "code-maturity-assessor",
       "repo": "trailofbits/skills",
       "official": true,
@@ -3695,19 +3578,6 @@
       }
     },
     {
-      "name": "clickhouse-js-node-coding",
-      "repo": "clickhouse/agent-skills",
-      "official": true,
-      "stars": 564,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/clickhouse/agent-skills/clickhouse-js-node-coding",
-        "installs": 7100,
-        "weeklyInstalls": [144, 122, 115, 103, 90, 129, 92, 82],
-        "firstSeen": "2026-05-21"
-      }
-    },
-    {
       "name": "seo-programmatic",
       "repo": "agricidaniel/claude-seo",
       "official": false,
@@ -3978,19 +3848,6 @@
         "installs": 7000,
         "weeklyInstalls": [416, 345, 481, 382, 372, 328, 321, 288],
         "firstSeen": "2026-05-22"
-      }
-    },
-    {
-      "name": "n8n-validation-expert",
-      "repo": "czlonkowski/n8n-skills",
-      "official": false,
-      "stars": 6598,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/czlonkowski/n8n-skills/n8n-validation-expert",
-        "installs": 7000,
-        "weeklyInstalls": [147, 131, 117, 131, 112, 144, 151, 147],
-        "firstSeen": "2026-01-20"
       }
     },
     {
@@ -35405,6 +35262,50 @@
     {
       "url": "https://skills.sh/elevenlabs/skills/speech-engine",
       "note": "Tool docs: an agent's manual for elevenlabs."
+    },
+    {
+      "url": "https://skills.sh/czlonkowski/n8n-skills/n8n-workflow-patterns",
+      "note": "Tool docs: an agent's manual for n8n."
+    },
+    {
+      "url": "https://skills.sh/czlonkowski/n8n-skills/n8n-mcp-tools-expert",
+      "note": "Tool docs: an agent's manual for n8n-mcp."
+    },
+    {
+      "url": "https://skills.sh/czlonkowski/n8n-skills/n8n-node-configuration",
+      "note": "Tool docs: an agent's manual for n8n."
+    },
+    {
+      "url": "https://skills.sh/czlonkowski/n8n-skills/n8n-code-javascript",
+      "note": "Tool docs: an agent's manual for n8n."
+    },
+    {
+      "url": "https://skills.sh/czlonkowski/n8n-skills/n8n-validation-expert",
+      "note": "Tool docs: an agent's manual for n8n and n8n-mcp."
+    },
+    {
+      "url": "https://skills.sh/openai/skills/linear",
+      "note": "Tool docs: an agent's manual for linear."
+    },
+    {
+      "url": "https://skills.sh/clickhouse/agent-skills/clickhouse-architecture-advisor",
+      "note": "Tool docs: an agent's manual for clickhouse."
+    },
+    {
+      "url": "https://skills.sh/clickhouse/agent-skills/chdb-sql",
+      "note": "Tool docs: an agent's manual for chdb."
+    },
+    {
+      "url": "https://skills.sh/clickhouse/agent-skills/chdb-datastore",
+      "note": "Tool docs: an agent's manual for chdb."
+    },
+    {
+      "url": "https://skills.sh/clickhouse/agent-skills/clickhouse-js-node-troubleshooting",
+      "note": "Tool docs: an agent's manual for clickhouse and node."
+    },
+    {
+      "url": "https://skills.sh/clickhouse/agent-skills/clickhouse-js-node-coding",
+      "note": "Tool docs: an agent's manual for clickhouse and node."
     }
   ]
 }
