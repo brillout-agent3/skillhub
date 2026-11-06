@@ -3916,162 +3916,6 @@
       }
     },
     {
-      "name": "recipe-collect-form-responses",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/recipe-collect-form-responses",
-        "installs": 30700,
-        "weeklyInstalls": [526, 475, 528, 529, 340, 506, 309, 318],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
-      "name": "recipe-create-events-from-sheet",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/recipe-create-events-from-sheet",
-        "installs": 30600,
-        "weeklyInstalls": [525, 473, 531, 531, 341, 506, 309, 314],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
-      "name": "persona-it-admin",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/persona-it-admin",
-        "installs": 30600,
-        "weeklyInstalls": [529, 474, 530, 533, 336, 514, 313, 311],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
-      "name": "recipe-create-vacation-responder",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/recipe-create-vacation-responder",
-        "installs": 30600,
-        "weeklyInstalls": [540, 475, 524, 539, 342, 512, 312, 316],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
-      "name": "recipe-share-folder-with-team",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/recipe-share-folder-with-team",
-        "installs": 30600,
-        "weeklyInstalls": [527, 476, 527, 529, 340, 510, 308, 312],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
-      "name": "persona-customer-support",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/persona-customer-support",
-        "installs": 30500,
-        "weeklyInstalls": [533, 472, 526, 534, 336, 515, 307, 314],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
-      "name": "recipe-forward-labeled-emails",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/recipe-forward-labeled-emails",
-        "installs": 30500,
-        "weeklyInstalls": [527, 472, 528, 532, 341, 507, 310, 314],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
-      "name": "persona-event-coordinator",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/persona-event-coordinator",
-        "installs": 30500,
-        "weeklyInstalls": [529, 472, 527, 529, 333, 510, 308, 312],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
-      "name": "persona-sales-ops",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/persona-sales-ops",
-        "installs": 30500,
-        "weeklyInstalls": [528, 473, 526, 532, 336, 513, 312, 313],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
-      "name": "gws-modelarmor",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/gws-modelarmor",
-        "installs": 30500,
-        "weeklyInstalls": [533, 477, 532, 538, 344, 531, 309, 316],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
-      "name": "recipe-create-meet-space",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/recipe-create-meet-space",
-        "installs": 30500,
-        "weeklyInstalls": [527, 472, 525, 531, 338, 507, 311, 311],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
-      "name": "recipe-create-expense-tracker",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/recipe-create-expense-tracker",
-        "installs": 30500,
-        "weeklyInstalls": [525, 471, 527, 534, 342, 506, 310, 315],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
       "name": "best-practices",
       "repo": "addyosmani/web-quality-skills",
       "official": false,
@@ -4082,58 +3926,6 @@
         "installs": 30400,
         "weeklyInstalls": [1046, 912, 802, 799, 858, 862, 914, 902],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "recipe-create-feedback-form",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/recipe-create-feedback-form",
-        "installs": 30400,
-        "weeklyInstalls": [523, 474, 524, 529, 339, 506, 309, 315],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
-      "name": "recipe-post-mortem-setup",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/recipe-post-mortem-setup",
-        "installs": 30400,
-        "weeklyInstalls": [524, 473, 522, 526, 339, 510, 307, 312],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
-      "name": "gws-modelarmor-create-template",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/gws-modelarmor-create-template",
-        "installs": 30400,
-        "weeklyInstalls": [534, 473, 529, 543, 341, 527, 312, 316],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
-      "name": "persona-hr-coordinator",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/persona-hr-coordinator",
-        "installs": 30300,
-        "weeklyInstalls": [527, 472, 527, 527, 336, 511, 309, 313],
-        "firstSeen": "2026-03-04"
       }
     },
     {
@@ -4163,19 +3955,6 @@
       }
     },
     {
-      "name": "recipe-share-event-materials",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/recipe-share-event-materials",
-        "installs": 30200,
-        "weeklyInstalls": [526, 471, 525, 527, 339, 506, 309, 311],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
       "name": "expo-brownfield",
       "repo": "expo/skills",
       "official": true,
@@ -4189,58 +3968,6 @@
       }
     },
     {
-      "name": "recipe-send-team-announcement",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/recipe-send-team-announcement",
-        "installs": 30200,
-        "weeklyInstalls": [524, 469, 523, 528, 339, 506, 308, 309],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
-      "name": "gws-modelarmor-sanitize-prompt",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/gws-modelarmor-sanitize-prompt",
-        "installs": 30200,
-        "weeklyInstalls": [534, 473, 530, 538, 341, 527, 310, 314],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
-      "name": "recipe-log-deal-update",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/recipe-log-deal-update",
-        "installs": 30100,
-        "weeklyInstalls": [524, 470, 524, 527, 339, 505, 309, 312],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
-      "name": "gws-classroom",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/gws-classroom",
-        "installs": 30100,
-        "weeklyInstalls": [538, 481, 530, 546, 346, 531, 315, 314],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
       "name": "anatomy",
       "repo": "wheresryan22/anatomy",
       "official": false,
@@ -4251,19 +3978,6 @@
         "installs": 30100,
         "weeklyInstalls": [0, 0, 0, 0, 2079, 12874, 6637, 5289],
         "firstSeen": "2026-10-10"
-      }
-    },
-    {
-      "name": "gws-modelarmor-sanitize-response",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/gws-modelarmor-sanitize-response",
-        "installs": 30100,
-        "weeklyInstalls": [534, 472, 528, 540, 342, 528, 310, 315],
-        "firstSeen": "2026-03-04"
       }
     },
     {
@@ -4290,19 +4004,6 @@
         "installs": 29900,
         "weeklyInstalls": [985, 583, 645, 1045, 763, 998, 895, 769],
         "firstSeen": "2026-03-22"
-      }
-    },
-    {
-      "name": "recipe-create-classroom-course",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/recipe-create-classroom-course",
-        "installs": 29900,
-        "weeklyInstalls": [521, 468, 523, 529, 338, 505, 309, 308],
-        "firstSeen": "2026-03-04"
       }
     },
     {
@@ -51343,6 +51044,98 @@
     {
       "url": "https://skills.sh/samber/cc-skills-golang/golang-benchmark",
       "note": "Tool docs: an agent's manual for go."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/recipe-collect-form-responses",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/recipe-create-events-from-sheet",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/persona-it-admin",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/recipe-create-vacation-responder",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/recipe-share-folder-with-team",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/persona-customer-support",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/recipe-forward-labeled-emails",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/persona-event-coordinator",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/persona-sales-ops",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/gws-modelarmor",
+      "note": "Tool docs: an agent's manual for google-workspace and google-cloud."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/recipe-create-meet-space",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/recipe-create-expense-tracker",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/recipe-create-feedback-form",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/recipe-post-mortem-setup",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/gws-modelarmor-create-template",
+      "note": "Tool docs: an agent's manual for google-workspace and google-cloud."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/persona-hr-coordinator",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/recipe-share-event-materials",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/recipe-send-team-announcement",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/gws-modelarmor-sanitize-prompt",
+      "note": "Tool docs: an agent's manual for google-workspace and google-cloud."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/recipe-log-deal-update",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/gws-classroom",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/gws-modelarmor-sanitize-response",
+      "note": "Tool docs: an agent's manual for google-workspace and google-cloud."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/recipe-create-classroom-course",
+      "note": "Tool docs: an agent's manual for google-workspace."
     }
   ]
 }
