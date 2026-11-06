@@ -6802,71 +6802,6 @@
       }
     },
     {
-      "name": "logistics-exception-management",
-      "repo": "affaan-m/ecc",
-      "official": false,
-      "stars": 298421,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/affaan-m/ecc/logistics-exception-management",
-        "installs": 5200,
-        "weeklyInstalls": [284, 257, 159, 141, 231, 411, 409, 474],
-        "firstSeen": "2026-05-19"
-      }
-    },
-    {
-      "name": "energy-procurement",
-      "repo": "affaan-m/ecc",
-      "official": false,
-      "stars": 298421,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/affaan-m/ecc/energy-procurement",
-        "installs": 5200,
-        "weeklyInstalls": [284, 256, 157, 140, 231, 409, 401, 466],
-        "firstSeen": "2026-05-19"
-      }
-    },
-    {
-      "name": "claude-devfleet",
-      "repo": "affaan-m/ecc",
-      "official": false,
-      "stars": 298421,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/affaan-m/ecc/claude-devfleet",
-        "installs": 5200,
-        "weeklyInstalls": [283, 260, 162, 138, 233, 410, 403, 472],
-        "firstSeen": "2026-05-19"
-      }
-    },
-    {
-      "name": "returns-reverse-logistics",
-      "repo": "affaan-m/ecc",
-      "official": false,
-      "stars": 298421,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/affaan-m/ecc/returns-reverse-logistics",
-        "installs": 5200,
-        "weeklyInstalls": [284, 254, 157, 139, 234, 410, 404, 472],
-        "firstSeen": "2026-05-19"
-      }
-    },
-    {
-      "name": "dmux-workflows",
-      "repo": "affaan-m/ecc",
-      "official": false,
-      "stars": 298421,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/affaan-m/ecc/dmux-workflows",
-        "installs": 5200,
-        "weeklyInstalls": [284, 255, 160, 137, 228, 410, 398, 476],
-        "firstSeen": "2026-05-19"
-      }
-    },
-    {
       "name": "team-builder",
       "repo": "affaan-m/ecc",
       "official": false,
@@ -6876,45 +6811,6 @@
         "url": "https://skills.sh/affaan-m/ecc/team-builder",
         "installs": 5200,
         "weeklyInstalls": [286, 255, 159, 143, 232, 409, 402, 470],
-        "firstSeen": "2026-05-19"
-      }
-    },
-    {
-      "name": "x-api",
-      "repo": "affaan-m/ecc",
-      "official": false,
-      "stars": 298421,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/affaan-m/ecc/x-api",
-        "installs": 5200,
-        "weeklyInstalls": [283, 256, 159, 140, 226, 409, 403, 469],
-        "firstSeen": "2026-05-19"
-      }
-    },
-    {
-      "name": "perl-patterns",
-      "repo": "affaan-m/ecc",
-      "official": false,
-      "stars": 298421,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/affaan-m/ecc/perl-patterns",
-        "installs": 5200,
-        "weeklyInstalls": [284, 255, 157, 136, 228, 406, 399, 469],
-        "firstSeen": "2026-05-19"
-      }
-    },
-    {
-      "name": "perl-testing",
-      "repo": "affaan-m/ecc",
-      "official": false,
-      "stars": 298421,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/affaan-m/ecc/perl-testing",
-        "installs": 5200,
-        "weeklyInstalls": [285, 256, 156, 135, 225, 406, 397, 470],
         "firstSeen": "2026-05-19"
       }
     },
@@ -6941,19 +6837,6 @@
         "url": "https://skills.sh/affaan-m/ecc/santa-method",
         "installs": 5200,
         "weeklyInstalls": [285, 253, 163, 139, 234, 409, 401, 480],
-        "firstSeen": "2026-05-19"
-      }
-    },
-    {
-      "name": "laravel-plugin-discovery",
-      "repo": "affaan-m/ecc",
-      "official": false,
-      "stars": 298421,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/affaan-m/ecc/laravel-plugin-discovery",
-        "installs": 5200,
-        "weeklyInstalls": [291, 261, 160, 141, 234, 408, 403, 471],
         "firstSeen": "2026-05-19"
       }
     },
@@ -28102,6 +27985,42 @@
     {
       "url": "https://skills.sh/affaan-m/ecc/csharp-testing",
       "note": "Tool docs: an agent's manual for xunit and dotnet."
+    },
+    {
+      "url": "https://skills.sh/affaan-m/ecc/logistics-exception-management",
+      "note": "A copy of ai-evos/agent-skills/capabilities/logistics-exception-management."
+    },
+    {
+      "url": "https://skills.sh/affaan-m/ecc/energy-procurement",
+      "note": "A copy of ai-evos/agent-skills/capabilities/energy-procurement."
+    },
+    {
+      "url": "https://skills.sh/affaan-m/ecc/claude-devfleet",
+      "note": "Tool docs: an agent's manual for claude-devfleet."
+    },
+    {
+      "url": "https://skills.sh/affaan-m/ecc/returns-reverse-logistics",
+      "note": "A copy of ai-evos/agent-skills/capabilities/returns-reverse-logistics."
+    },
+    {
+      "url": "https://skills.sh/affaan-m/ecc/dmux-workflows",
+      "note": "Tool docs: an agent's manual for dmux."
+    },
+    {
+      "url": "https://skills.sh/affaan-m/ecc/x-api",
+      "note": "Tool docs: an agent's manual for x-twitter."
+    },
+    {
+      "url": "https://skills.sh/affaan-m/ecc/perl-patterns",
+      "note": "Tool docs: an agent's manual for perl."
+    },
+    {
+      "url": "https://skills.sh/affaan-m/ecc/perl-testing",
+      "note": "Tool docs: an agent's manual for perl."
+    },
+    {
+      "url": "https://skills.sh/affaan-m/ecc/laravel-plugin-discovery",
+      "note": "Tool docs: an agent's manual for laravel and the LaraPlugins MCP server."
     }
   ]
 }
