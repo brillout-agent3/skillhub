@@ -1992,19 +1992,6 @@
       }
     },
     {
-      "name": "golang-code-style",
-      "repo": "samber/cc-skills-golang",
-      "official": false,
-      "stars": 3806,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/samber/cc-skills-golang/golang-code-style",
-        "installs": 45800,
-        "weeklyInstalls": [841, 893, 876, 1219, 1680, 1526, 1235, 1095],
-        "firstSeen": "2026-03-22"
-      }
-    },
-    {
       "name": "banner-design",
       "repo": "nextlevelbuilder/ui-ux-pro-max-skill",
       "official": false,
@@ -2015,32 +2002,6 @@
         "installs": 45600,
         "weeklyInstalls": [1917, 1891, 1832, 1865, 2176, 2512, 3302, 3854],
         "firstSeen": "2026-06-25"
-      }
-    },
-    {
-      "name": "golang-testing",
-      "repo": "samber/cc-skills-golang",
-      "official": false,
-      "stars": 3806,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/samber/cc-skills-golang/golang-testing",
-        "installs": 45100,
-        "weeklyInstalls": [840, 887, 857, 1201, 1693, 1524, 1250, 1091],
-        "firstSeen": "2026-03-22"
-      }
-    },
-    {
-      "name": "golang-error-handling",
-      "repo": "samber/cc-skills-golang",
-      "official": false,
-      "stars": 3806,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/samber/cc-skills-golang/golang-error-handling",
-        "installs": 45000,
-        "weeklyInstalls": [826, 880, 846, 1187, 1685, 1542, 1227, 1105],
-        "firstSeen": "2026-03-22"
       }
     },
     {
@@ -2148,58 +2109,6 @@
       }
     },
     {
-      "name": "golang-security",
-      "repo": "samber/cc-skills-golang",
-      "official": false,
-      "stars": 3806,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/samber/cc-skills-golang/golang-security",
-        "installs": 43900,
-        "weeklyInstalls": [772, 829, 798, 1150, 1660, 1486, 1193, 1075],
-        "firstSeen": "2026-03-22"
-      }
-    },
-    {
-      "name": "golang-design-patterns",
-      "repo": "samber/cc-skills-golang",
-      "official": false,
-      "stars": 3806,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/samber/cc-skills-golang/golang-design-patterns",
-        "installs": 43500,
-        "weeklyInstalls": [772, 822, 776, 1104, 1584, 1415, 1119, 970],
-        "firstSeen": "2026-03-22"
-      }
-    },
-    {
-      "name": "golang-performance",
-      "repo": "samber/cc-skills-golang",
-      "official": false,
-      "stars": 3806,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/samber/cc-skills-golang/golang-performance",
-        "installs": 43400,
-        "weeklyInstalls": [759, 824, 744, 1096, 1571, 1383, 1111, 965],
-        "firstSeen": "2026-03-22"
-      }
-    },
-    {
-      "name": "golang-concurrency",
-      "repo": "samber/cc-skills-golang",
-      "official": false,
-      "stars": 3806,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/samber/cc-skills-golang/golang-concurrency",
-        "installs": 43300,
-        "weeklyInstalls": [802, 830, 781, 1151, 1630, 1467, 1185, 1036],
-        "firstSeen": "2026-03-22"
-      }
-    },
-    {
       "name": "performance",
       "repo": "addyosmani/web-quality-skills",
       "official": false,
@@ -2210,45 +2119,6 @@
         "installs": 43100,
         "weeklyInstalls": [1354, 1165, 1131, 1011, 1048, 1057, 1110, 1091],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "golang-context",
-      "repo": "samber/cc-skills-golang",
-      "official": false,
-      "stars": 3806,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/samber/cc-skills-golang/golang-context",
-        "installs": 42500,
-        "weeklyInstalls": [755, 803, 748, 1104, 1596, 1438, 1118, 1005],
-        "firstSeen": "2026-03-22"
-      }
-    },
-    {
-      "name": "golang-naming",
-      "repo": "samber/cc-skills-golang",
-      "official": false,
-      "stars": 3806,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/samber/cc-skills-golang/golang-naming",
-        "installs": 42300,
-        "weeklyInstalls": [729, 777, 749, 1082, 1572, 1399, 1110, 970],
-        "firstSeen": "2026-03-22"
-      }
-    },
-    {
-      "name": "golang-database",
-      "repo": "samber/cc-skills-golang",
-      "official": false,
-      "stars": 3806,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/samber/cc-skills-golang/golang-database",
-        "installs": 42300,
-        "weeklyInstalls": [744, 805, 764, 1089, 1584, 1400, 1108, 993],
-        "firstSeen": "2026-03-22"
       }
     },
     {
@@ -2265,32 +2135,6 @@
       }
     },
     {
-      "name": "golang-safety",
-      "repo": "samber/cc-skills-golang",
-      "official": false,
-      "stars": 3806,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/samber/cc-skills-golang/golang-safety",
-        "installs": 42000,
-        "weeklyInstalls": [726, 775, 747, 1072, 1564, 1386, 1107, 974],
-        "firstSeen": "2026-03-22"
-      }
-    },
-    {
-      "name": "golang-project-layout",
-      "repo": "samber/cc-skills-golang",
-      "official": false,
-      "stars": 3806,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/samber/cc-skills-golang/golang-project-layout",
-        "installs": 41900,
-        "weeklyInstalls": [715, 783, 706, 1065, 1561, 1391, 1111, 972],
-        "firstSeen": "2026-03-22"
-      }
-    },
-    {
       "name": "flutter-fix-layout-issues",
       "repo": "flutter/agent-plugins",
       "official": false,
@@ -2301,58 +2145,6 @@
         "installs": 41800,
         "weeklyInstalls": [996, 1125, 1282, 1224, 1187, 1250, 1354, 1161],
         "firstSeen": "2026-04-24"
-      }
-    },
-    {
-      "name": "golang-documentation",
-      "repo": "samber/cc-skills-golang",
-      "official": false,
-      "stars": 3806,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/samber/cc-skills-golang/golang-documentation",
-        "installs": 41800,
-        "weeklyInstalls": [699, 767, 709, 1036, 1527, 1327, 1050, 921],
-        "firstSeen": "2026-03-22"
-      }
-    },
-    {
-      "name": "golang-modernize",
-      "repo": "samber/cc-skills-golang",
-      "official": false,
-      "stars": 3806,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/samber/cc-skills-golang/golang-modernize",
-        "installs": 41700,
-        "weeklyInstalls": [705, 762, 716, 1049, 1542, 1352, 1055, 932],
-        "firstSeen": "2026-03-22"
-      }
-    },
-    {
-      "name": "golang-lint",
-      "repo": "samber/cc-skills-golang",
-      "official": false,
-      "stars": 3806,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/samber/cc-skills-golang/golang-lint",
-        "installs": 41700,
-        "weeklyInstalls": [719, 774, 710, 1062, 1558, 1363, 1097, 950],
-        "firstSeen": "2026-03-22"
-      }
-    },
-    {
-      "name": "golang-data-structures",
-      "repo": "samber/cc-skills-golang",
-      "official": false,
-      "stars": 3806,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/samber/cc-skills-golang/golang-data-structures",
-        "installs": 41600,
-        "weeklyInstalls": [700, 769, 717, 1037, 1516, 1323, 1027, 893],
-        "firstSeen": "2026-03-22"
       }
     },
     {
@@ -2369,58 +2161,6 @@
       }
     },
     {
-      "name": "golang-troubleshooting",
-      "repo": "samber/cc-skills-golang",
-      "official": false,
-      "stars": 3806,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/samber/cc-skills-golang/golang-troubleshooting",
-        "installs": 41300,
-        "weeklyInstalls": [686, 753, 717, 1040, 1535, 1327, 1052, 913],
-        "firstSeen": "2026-03-22"
-      }
-    },
-    {
-      "name": "golang-observability",
-      "repo": "samber/cc-skills-golang",
-      "official": false,
-      "stars": 3806,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/samber/cc-skills-golang/golang-observability",
-        "installs": 41300,
-        "weeklyInstalls": [695, 745, 692, 1032, 1534, 1355, 1051, 918],
-        "firstSeen": "2026-03-22"
-      }
-    },
-    {
-      "name": "golang-dependency-management",
-      "repo": "samber/cc-skills-golang",
-      "official": false,
-      "stars": 3806,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/samber/cc-skills-golang/golang-dependency-management",
-        "installs": 41200,
-        "weeklyInstalls": [695, 757, 680, 1035, 1535, 1341, 1047, 920],
-        "firstSeen": "2026-03-22"
-      }
-    },
-    {
-      "name": "golang-structs-interfaces",
-      "repo": "samber/cc-skills-golang",
-      "official": false,
-      "stars": 3806,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/samber/cc-skills-golang/golang-structs-interfaces",
-        "installs": 41100,
-        "weeklyInstalls": [681, 734, 692, 1042, 1527, 1343, 1072, 932],
-        "firstSeen": "2026-03-22"
-      }
-    },
-    {
       "name": "flutter-add-widget-test",
       "repo": "flutter/agent-plugins",
       "official": false,
@@ -2431,32 +2171,6 @@
         "installs": 41000,
         "weeklyInstalls": [994, 1095, 1279, 1218, 1159, 1261, 1353, 1149],
         "firstSeen": "2026-04-24"
-      }
-    },
-    {
-      "name": "golang-cli",
-      "repo": "samber/cc-skills-golang",
-      "official": false,
-      "stars": 3806,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/samber/cc-skills-golang/golang-cli",
-        "installs": 40900,
-        "weeklyInstalls": [669, 760, 666, 1027, 1510, 1313, 1048, 966],
-        "firstSeen": "2026-03-22"
-      }
-    },
-    {
-      "name": "golang-benchmark",
-      "repo": "samber/cc-skills-golang",
-      "official": false,
-      "stars": 3806,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/samber/cc-skills-golang/golang-benchmark",
-        "installs": 40800,
-        "weeklyInstalls": [687, 739, 681, 1019, 1499, 1314, 1031, 887],
-        "firstSeen": "2026-03-22"
       }
     },
     {
@@ -51540,6 +51254,94 @@
     },
     {
       "url": "https://skills.sh/samber/cc-skills-golang/golang-how-to",
+      "note": "Tool docs: an agent's manual for go."
+    },
+    {
+      "url": "https://skills.sh/samber/cc-skills-golang/golang-code-style",
+      "note": "Tool docs: an agent's manual for go."
+    },
+    {
+      "url": "https://skills.sh/samber/cc-skills-golang/golang-testing",
+      "note": "Tool docs: an agent's manual for go."
+    },
+    {
+      "url": "https://skills.sh/samber/cc-skills-golang/golang-error-handling",
+      "note": "Tool docs: an agent's manual for go."
+    },
+    {
+      "url": "https://skills.sh/samber/cc-skills-golang/golang-security",
+      "note": "Tool docs: an agent's manual for go."
+    },
+    {
+      "url": "https://skills.sh/samber/cc-skills-golang/golang-design-patterns",
+      "note": "Tool docs: an agent's manual for go."
+    },
+    {
+      "url": "https://skills.sh/samber/cc-skills-golang/golang-performance",
+      "note": "Tool docs: an agent's manual for go."
+    },
+    {
+      "url": "https://skills.sh/samber/cc-skills-golang/golang-concurrency",
+      "note": "Tool docs: an agent's manual for go."
+    },
+    {
+      "url": "https://skills.sh/samber/cc-skills-golang/golang-context",
+      "note": "Tool docs: an agent's manual for go."
+    },
+    {
+      "url": "https://skills.sh/samber/cc-skills-golang/golang-naming",
+      "note": "Tool docs: an agent's manual for go."
+    },
+    {
+      "url": "https://skills.sh/samber/cc-skills-golang/golang-database",
+      "note": "Tool docs: an agent's manual for go."
+    },
+    {
+      "url": "https://skills.sh/samber/cc-skills-golang/golang-safety",
+      "note": "Tool docs: an agent's manual for go."
+    },
+    {
+      "url": "https://skills.sh/samber/cc-skills-golang/golang-project-layout",
+      "note": "Tool docs: an agent's manual for go."
+    },
+    {
+      "url": "https://skills.sh/samber/cc-skills-golang/golang-documentation",
+      "note": "Tool docs: an agent's manual for go."
+    },
+    {
+      "url": "https://skills.sh/samber/cc-skills-golang/golang-modernize",
+      "note": "Tool docs: an agent's manual for go."
+    },
+    {
+      "url": "https://skills.sh/samber/cc-skills-golang/golang-lint",
+      "note": "Tool docs: an agent's manual for go and golangci-lint."
+    },
+    {
+      "url": "https://skills.sh/samber/cc-skills-golang/golang-data-structures",
+      "note": "Tool docs: an agent's manual for go."
+    },
+    {
+      "url": "https://skills.sh/samber/cc-skills-golang/golang-troubleshooting",
+      "note": "Tool docs: an agent's manual for go."
+    },
+    {
+      "url": "https://skills.sh/samber/cc-skills-golang/golang-observability",
+      "note": "Tool docs: an agent's manual for go and prometheus and opentelemetry."
+    },
+    {
+      "url": "https://skills.sh/samber/cc-skills-golang/golang-dependency-management",
+      "note": "Tool docs: an agent's manual for go."
+    },
+    {
+      "url": "https://skills.sh/samber/cc-skills-golang/golang-structs-interfaces",
+      "note": "Tool docs: an agent's manual for go."
+    },
+    {
+      "url": "https://skills.sh/samber/cc-skills-golang/golang-cli",
+      "note": "Tool docs: an agent's manual for go and cobra and viper."
+    },
+    {
+      "url": "https://skills.sh/samber/cc-skills-golang/golang-benchmark",
       "note": "Tool docs: an agent's manual for go."
     }
   ]
