@@ -2513,6 +2513,46 @@
         "description": "Agentation is an agent-agnostic visual feedback tool: click elements on your page, add notes, and copy structured output that helps AI coding agents find the exact code you're referring to.",
         "note": "Licensed under PolyForm Shield 1.0.0, a source-available license rather than an open-source one."
       }
+    },
+    {
+      "id": "virgiliojr94/book-to-skill",
+      "stars": 37136,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Turn any technical book, document folder, or collection of sources into a unified agent skill."
+      }
+    },
+    {
+      "id": "danyuchn/asd-ste100-skill",
+      "stars": 6152,
+      "agentReview": {
+        "kind": "skills",
+        "description": "A Claude Code skill that rewrites dense, ambiguous English into ASD-STE100 Simplified Technical English for agent output."
+      }
+    },
+    {
+      "id": "coleam00/excalidraw-diagram-skill",
+      "stars": 5204,
+      "agentReview": {
+        "kind": "skills",
+        "description": "A coding agent skill that generates Excalidraw diagrams from natural language descriptions, with a render pipeline that checks its own output."
+      }
+    },
+    {
+      "id": "op7418/claude-to-im-skill",
+      "stars": 2901,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Bridge Claude Code / Codex to IM platforms: chat with AI coding agents from Telegram, Discord, Feishu/Lark, QQ, or WeChat."
+      }
+    },
+    {
+      "id": "zanwei/design-dna",
+      "stars": 2084,
+      "agentReview": {
+        "kind": "skills",
+        "description": "An agent skill for extracting, structuring, and applying visual design identity as machine-readable \"Design DNA\" across three dimensions: design tokens, qualitative style, and visual effects."
+      }
     }
   ],
   "bundles": [
@@ -48578,6 +48618,309 @@
           "browser-automation"
         ],
         "note": "Needs the Agentation toolbar mounted in the page you review (the repo's agentation skill sets it up) and the agent-browser CLI; it opens a visible browser window."
+      }
+    },
+    {
+      "id": "virgiliojr94/book-to-skill",
+      "name": "book-to-skill",
+      "skills.sh": {
+        "url": "https://skills.sh/virgiliojr94/book-to-skill/book-to-skill",
+        "installs": 9200,
+        "weeklyInstalls": [756, 743, 664, 601, 613, 564, 498, 500],
+        "firstSeen": "2026-05-04"
+      },
+      "skillMd": {
+        "version": "e7bb659d3261491c8b28793dcb9102fa64a46c22",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Turns books and documents, from PDF and EPUB to Markdown, into an agent skill of the author's frameworks, principles, techniques and anti-patterns.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want an agent to apply a book's frameworks while you work, or to study and look up its chapters later"
+            },
+            {
+              "label": "It does",
+              "text": "extracts the text with a bundled Python script, estimates the token cost, then writes chapter summaries, a glossary, patterns and a decision cheatsheet"
+            },
+            {
+              "label": "You get",
+              "text": "a new skill folder, by default in ~/.agents/skills with a Claude Code symlink, holding SKILL.md, chapters/, glossary.md, patterns.md and cheatsheet.md"
+            },
+            {
+              "label": "Modes",
+              "text": "full conversion, analyze only, generate from an earlier analysis, or fold new sources into an existing book skill"
+            },
+            {
+              "label": "Asks",
+              "text": "whether the content is technical or prose, what the skill should help you do, its name, and to confirm the cost estimate"
+            },
+            {
+              "label": "Publishes",
+              "text": "only if you agree, to a private GitHub repo unless you reply with the bare word \"public\" and may redistribute the content"
+            }
+          ],
+          "text": "It extracts structure rather than summaries: named frameworks in the author's exact wording, actionable principles, step-by-step techniques, anti-patterns and the author's voice. Inputs can be one or many files, folders or globs in PDF, EPUB, DOCX, HTML, Markdown, plain text, RTF, or MOBI and AZW through Calibre. Technical mode tries Docling for layout-aware PDF extraction; text mode uses the fastest extractor. For books over about 50,000 tokens it pulls chapters with grep and sed instead of reading the whole text. Chapter files hold a core idea, frameworks, mental models and takeaways, plus code and tables for technical books, with depth set by whether you want study or reference. The cheatsheet holds decision rules, trade-offs and thresholds rather than definitions, and the master SKILL.md stays under 4,000 tokens with chapter and topic indexes. Before reporting success it runs a bundled security scan of the generated skill and stops for a human if it flags anything. It picks the right skill folder for GitHub Copilot CLI, Amp, Claude Code, Codex, Hermes Agent, OpenCode or OpenClaw.",
+          "permalink": "https://github.com/virgiliojr94/book-to-skill/tree/e7bb659d3261491c8b28793dcb9102fa64a46c22"
+        },
+        "tags": [
+          "category:skill-tools",
+          "type:workflow",
+          "effect:remote",
+          "needs:none",
+          "by:community",
+          "skill-authoring",
+          "learning",
+          "documents",
+          "pdf"
+        ],
+        "note": "Needs Python 3 for its bundled extractor; better PDF or MOBI extraction uses optional tools such as Docling or Calibre, which it asks before installing."
+      }
+    },
+    {
+      "id": "danyuchn/asd-ste100-skill",
+      "name": "asd-ste100",
+      "skills.sh": {
+        "url": "https://skills.sh/danyuchn/asd-ste100-skill/asd-ste100",
+        "installs": 9100,
+        "weeklyInstalls": [492, 426, 438, 948, 1716, 1280, 1155, 1028],
+        "firstSeen": "2026-08-13"
+      },
+      "skillMd": {
+        "version": "fd86652be0d5d3485c69e1529dfd1fa3c9a7a640",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Rewrites ambiguous English, such as tool descriptions, error messages and agent instructions, into Simplified Technical English that a reader can't misparse.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "text will be read by an agent or system with no human to clear up ambiguity, such as a tool description, error message, prompt or status report"
+            },
+            {
+              "label": "It does",
+              "text": "applies ASD-STE100, the aerospace standard for maintenance English: active voice, simple tenses, one instruction per sentence, short sentences, no phrasal verbs or semicolons"
+            },
+            {
+              "label": "You get",
+              "text": "the rewritten text alone, ready to paste, plus a \"Kept as-is:\" line when it kept a longer phrase on purpose; a rule table on request"
+            },
+            {
+              "label": "Two modes",
+              "text": "Strict for procedures, errors and tool descriptions; STE-flavored for READMEs, PR descriptions and prose, keeping the sentence rules but loosening word choice"
+            },
+            {
+              "label": "Keeps",
+              "text": "every fact, condition and hedge: \"may have failed\" never becomes \"failed\""
+            },
+            {
+              "label": "Not for",
+              "text": "creative or marketing copy, where voice is the point"
+            }
+          ],
+          "text": "ASD-STE100 is a controlled language the aerospace and defense industry built so technicians can't misread instructions: one meaning per word, one structure per sentence. This skill applies it to text an AI agent or downstream system must parse alone. It splits the rules in two. Structural ones, such as active voice, simple tenses, caps of 20 words per instruction and 25 per description, noun stacks of at most three words and lists for three or more steps, are applied fully. Lexical ones depend on ASD's roughly 900-word dictionary, which the skill doesn't reproduce for copyright reasons, so it only prefers plain words and won't claim dictionary compliance. Before rewriting it scans for six habits: synonym rotation, hedge stacking, nominalization, marketing adjectives, run-on sentences and soft phrasal verbs like \"spin up\". A bundled Python linter can make a first pass over the structural rules. If the text already complies, it says so. Unlike a general plain-language rewrite, it never upgrades a hedge to a fact or adds a cause the source didn't state.",
+          "permalink": "https://github.com/danyuchn/asd-ste100-skill/tree/fd86652be0d5d3485c69e1529dfd1fa3c9a7a640"
+        },
+        "tags": [
+          "category:writing",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "writing",
+          "docs-writing",
+          "agent-development"
+        ]
+      }
+    },
+    {
+      "id": "coleam00/excalidraw-diagram-skill",
+      "name": "excalidraw-diagram",
+      "skills.sh": {
+        "url": "https://skills.sh/coleam00/excalidraw-diagram-skill/excalidraw-diagram",
+        "installs": 8700,
+        "weeklyInstalls": [144, 137, 138, 108, 99, 142, 125, 103],
+        "firstSeen": "2026-03-02"
+      },
+      "skillMd": {
+        "version": "8646fcc9f74f38539c6cdb4c969723336a96ddcd",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Creates Excalidraw diagrams that argue visually, rendering each to PNG and fixing what it sees until the layout is clean.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a workflow, architecture or concept drawn as a diagram that teaches, not a grid of labelled boxes"
+            },
+            {
+              "label": "It does",
+              "text": "picks simple or comprehensive depth, researches real formats and event names for technical diagrams, maps each concept to a visual pattern, then writes the JSON"
+            },
+            {
+              "label": "You get",
+              "text": "a .excalidraw file and a PNG render, checked against a 27-point quality list"
+            },
+            {
+              "label": "Renders",
+              "text": "each draft to PNG with a bundled Playwright script, views it and fixes clipped text, overlaps and stray arrows, usually in 2–4 rounds"
+            },
+            {
+              "label": "Brand it",
+              "text": "all colors live in references/color-palette.md; edit that one file to restyle every diagram"
+            },
+            {
+              "label": "Needs",
+              "text": "uv and Playwright's Chromium for rendering, set up once with uv sync"
+            }
+          ],
+          "text": "Its rule is that a diagram should argue, not display: with the text removed, the structure alone should still carry the concept. Technical diagrams must include evidence artifacts, such as real code snippets, JSON payloads, event sequences or UI mockups, and work at three zoom levels: a summary flow, labelled sections, and detail inside them. It favors free-floating text and lines over boxes, keeping under 30% of text inside containers, and draws on patterns such as fan-out, convergence, tree, cycle and assembly line. Large diagrams are built section by section in hand-written JSON, never through a generator script. Elements follow set defaults: font family 3, roughness 0 for a clean look, full opacity. Unlike a skill that only writes the JSON, it can't finish until it has rendered the diagram, looked at the PNG and repaired what it saw, until the result matches its plan.",
+          "permalink": "https://github.com/coleam00/excalidraw-diagram-skill/tree/8646fcc9f74f38539c6cdb4c969723336a96ddcd"
+        },
+        "tags": [
+          "category:science",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "needs:browser",
+          "by:community",
+          "stack:excalidraw",
+          "stack:playwright",
+          "diagrams",
+          "architecture"
+        ],
+        "note": "Its render loop needs uv and Playwright's Chromium, and its commands expect the skill at .claude/skills/excalidraw-diagram."
+      }
+    },
+    {
+      "id": "op7418/claude-to-im-skill",
+      "name": "claude-to-im",
+      "skills.sh": {
+        "url": "https://skills.sh/op7418/claude-to-im-skill/claude-to-im",
+        "installs": 7100,
+        "weeklyInstalls": [9, 10, 8, 9, 4, 14, 7, 5],
+        "firstSeen": "2026-03-05"
+      },
+      "skillMd": {
+        "version": "536908f5e9bd65a151ca4cb4b08d3fedc1a43b4d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Bridges your Claude Code or Codex session to Telegram, Discord, Feishu/Lark, QQ or WeChat, so you can chat with it from your phone.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to keep talking to your Claude Code or Codex session from your phone, through a messaging app"
+            },
+            {
+              "label": "It does",
+              "text": "runs a background daemon that passes your chat messages to the agent and sends its replies and permission requests back to the chat"
+            },
+            {
+              "label": "Commands",
+              "text": "setup, start, stop, status, logs, reconfigure and doctor, as in /claude-to-im setup"
+            },
+            {
+              "label": "Needs",
+              "text": "a bot or app on each platform you enable, Node.js, and the Claude Code or Codex CLI; WeChat links one account by QR code instead"
+            },
+            {
+              "label": "Keeps",
+              "text": "settings and tokens in ~/.claude-to-im/config.env, readable only by you, and shows secrets masked to their last four characters"
+            },
+            {
+              "label": "Runs",
+              "text": "in the background, under launchd, setsid or WinSW/NSSM, until you stop it; the config survives across sessions"
+            }
+          ],
+          "text": "A bridge between a coding-agent session and the chat apps on your phone. In Claude Code, setup is a wizard that asks one question at a time: which channels to enable, then each credential, masked when read back, then the runtime (Claude, Codex, or auto, which falls back to Codex when the Claude CLI is missing), working directory, model and mode (code, plan or ask). It writes ~/.claude-to-im/config.env, restricts it to your user and checks each token before you start. In Codex, which can't ask questions this way, it shows the example config for you to fill in. Channels differ: Telegram gets a streaming preview and permission buttons, Discord access control by server, channel and user, and Feishu streaming cards, tool progress and buttons; QQ supports private chats only and WeChat one linked account, both approving tools with text /perm commands. Telegram and Discord reject every message until you allow a chat, user or channel. Feishu needs two publish rounds with admin approval, the second while the bridge runs. doctor runs a health-check script and suggests fixes, such as reinstalling dependencies or rebuilding the daemon; logs shows the last 50 lines by default.",
+          "permalink": "https://github.com/op7418/claude-to-im-skill/tree/536908f5e9bd65a151ca4cb4b08d3fedc1a43b4d"
+        },
+        "tags": [
+          "category:agents",
+          "type:tool",
+          "effect:remote",
+          "needs:cli",
+          "needs:account",
+          "by:community",
+          "stack:claude",
+          "stack:codex",
+          "stack:telegram",
+          "stack:discord",
+          "stack:lark",
+          "stack:qq",
+          "stack:wechat",
+          "messaging",
+          "agent-workflows"
+        ],
+        "note": "Leaves a bridge daemon running in the background until you stop it. Each platform needs its own bot or app credentials, and a Feishu app also needs admin approval."
+      }
+    },
+    {
+      "id": "zanwei/design-dna",
+      "name": "design-dna",
+      "skills.sh": {
+        "url": "https://skills.sh/zanwei/design-dna/design-dna",
+        "installs": 7000,
+        "weeklyInstalls": [299, 236, 226, 253, 405, 366, 369, 333],
+        "firstSeen": "2026-03-24"
+      },
+      "skillMd": {
+        "version": "593e39bc9e3652734653bd75544a333d7d43615e",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Turns reference screenshots or URLs into a Design DNA JSON of tokens, style and visual effects, then generates new designs from it.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you have screenshots or URLs of a design you like and want its look captured as a reusable spec, or applied to your own content"
+            },
+            {
+              "label": "It does",
+              "text": "fills every field of a three-part schema: design tokens, qualitative style such as mood and composition, and visual effects such as WebGL, particles or scroll animation"
+            },
+            {
+              "label": "You get",
+              "text": "a Design DNA JSON with no empty fields and, from it, a self-contained HTML page with inline CSS and JavaScript by default"
+            },
+            {
+              "label": "Measures colors",
+              "text": "from image references with a bundled script instead of guessing hexes by eye, then scores a screenshot of its output against them, PASS or FAIL per color"
+            },
+            {
+              "label": "Phases",
+              "text": "show the schema, analyze references, generate a design; use any one alone or chain them"
+            },
+            {
+              "label": "Needs",
+              "text": "Node.js, to install and run the measurement scripts"
+            }
+          ],
+          "text": "Design DNA splits a visual identity into three parts. The design system is what you can measure: color, type, spacing, layout, shape, elevation, motion and components. The style is what you feel: mood, visual language, composition, imagery, interaction feel and brand voice. Visual effects are what CSS alone can't express, such as WebGL and 3D scenes, particles, shaders, cursor effects and glassmorphism. To analyze, the agent extracts or infers a value for every schema field from your references, noting the dominant pattern when they conflict, then asks whether to adjust anything. For an image it measures the palette first and uses those hexes verbatim, keeping the measurement settings in the JSON so verification can reuse them. To generate, it turns tokens into CSS custom properties, lets the style fields guide judgment calls, fetches real assets from the source URL rather than recreating them, and picks technology by weight, from CSS and SVG up to Three.js and GLSL shaders. When the DNA holds a measured palette, it scores a screenshot of its output, fixes failing colors and verifies again, rather than asking you to judge by eye.",
+          "permalink": "https://github.com/zanwei/design-dna/tree/593e39bc9e3652734653bd75544a333d7d43615e"
+        },
+        "tags": [
+          "category:design",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "design-system",
+          "design",
+          "animation"
+        ]
       }
     }
   ]
