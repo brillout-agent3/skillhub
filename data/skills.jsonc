@@ -2455,6 +2455,64 @@
         "description": "The official command-line interface for Aliyun Model Studio (DashScope) AI Platform.",
         "note": "App orchestration, MCP setup, fine-tuning, deployment and account operations work only for China-site (aliyun.com) accounts."
       }
+    },
+    {
+      "id": "google-gemini/gemini-cli",
+      "stars": 108752,
+      "agentReview": {
+        "kind": "project",
+        "description": "An open-source terminal agent maintained for enterprise Gemini Code Assist workflows on Google Cloud.",
+        "note": "Its skills sit in .gemini/skills for work on gemini-cli itself, so some steps assume that repo's own scripts."
+      }
+    },
+    {
+      "id": "backnotprop/bro",
+      "stars": 173,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Practical quality-of-life skills for daily work with AI, such as plain-language restatements, recaps, status boards and one-page HTML explainers."
+      }
+    },
+    {
+      "id": "conardli/garden-skills",
+      "stars": 14503,
+      "agentReview": {
+        "kind": "skills",
+        "description": "A curated collection of production-ready Agent Skills for Claude Code, Cursor, Codex, and other AI coding agents."
+      }
+    },
+    {
+      "id": "obra/episodic-memory",
+      "stars": 499,
+      "agentReview": {
+        "kind": "project",
+        "description": "Semantic search for Claude Code, Codex, Cursor, opencode, and Oh My Pi (OMP) conversations. Remember past discussions, decisions, and patterns."
+      }
+    },
+    {
+      "id": "bahayonghang/drawio-skills",
+      "stars": 299,
+      "agentReview": {
+        "kind": "skills",
+        "description": "A YAML-first, offline-first draw.io skill for Claude and Codex, with an academic overlay for publication figures."
+      }
+    },
+    {
+      "id": "aahl/skills",
+      "stars": 164,
+      "agentReview": {
+        "kind": "skills",
+        "description": "A personal collection of skills that wrap CLIs and MCP servers, for Home Assistant, text-to-speech, speech recognition, search, Lark and Chinese data services."
+      }
+    },
+    {
+      "id": "benjitaylor/agentation",
+      "stars": 5299,
+      "agentReview": {
+        "kind": "project",
+        "description": "Agentation is an agent-agnostic visual feedback tool: click elements on your page, add notes, and copy structured output that helps AI coding agents find the exact code you're referring to.",
+        "note": "Licensed under PolyForm Shield 1.0.0, a source-available license rather than an open-source one."
+      }
     }
   ],
   "bundles": [
@@ -47943,6 +48001,583 @@
           "interview"
         ],
         "note": "Needs the Plannotator CLI for its interview, fact-review and plan-approval pages."
+      }
+    },
+    {
+      "id": "google-gemini/gemini-cli/.gemini/skills/code-reviewer",
+      "name": "code-reviewer",
+      "skills.sh": {
+        "url": "https://skills.sh/google-gemini/gemini-cli/code-reviewer",
+        "installs": 9700,
+        "weeklyInstalls": [83, 93, 164, 219, 59, 27, 31, 21],
+        "firstSeen": "2026-01-21"
+      },
+      "skillMd": {
+        "version": "62bab5b232c15b925d31e655ce844ab939c882b7",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Reviews your local changes or a GitHub pull request for correctness, maintainability, security and tests, ending with an approve or request-changes verdict.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a review of your staged and unstaged changes, or of a pull request you name by number or URL"
+            },
+            {
+              "label": "It does",
+              "text": "reads the diff, or checks the PR out with gh and runs the project's checks, then weighs correctness, maintainability, readability, efficiency, security, edge cases and tests"
+            },
+            {
+              "label": "You get",
+              "text": "a summary, findings sorted into critical, improvements and optional nitpicks, and a clear verdict: Approved or Request Changes"
+            },
+            {
+              "label": "Needs",
+              "text": "the gh CLI for pull requests; local reviews use git alone"
+            },
+            {
+              "label": "Written for",
+              "text": "the Gemini CLI repository, where it lives: its pull-request step runs npm run preflight, that project's verification suite"
+            }
+          ],
+          "text": "A general code-review routine from the Gemini CLI repository. With no PR named, it reviews your working tree: git status, then git diff for unstaged and staged changes, and on a substantial change it asks whether to run npm run preflight first. Given a PR number or URL, it checks the PR out with gh pr checkout, runs npm run preflight to catch automated failures, and reads the PR description and existing comments. It then weighs the changes for correctness, maintainability, readability against the project's style, efficiency, security, edge cases and error handling, and whether tests cover the new code, suggesting extra test cases. Feedback opens with a summary, lists critical findings (bugs, security issues, breaking changes), then improvements and optional nitpicks, explains why each change is requested, and ends with a recommendation. The tone is constructive, and approvals name what the contribution adds. After a PR review it asks whether to switch back to the default branch. None of its steps post the review to GitHub.",
+          "permalink": "https://github.com/google-gemini/gemini-cli/tree/62bab5b232c15b925d31e655ce844ab939c882b7/.gemini/skills/code-reviewer"
+        },
+        "tags": [
+          "category:debugging",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:official",
+          "stack:github",
+          "stack:git",
+          "code-review"
+        ],
+        "note": "Written for gemini-cli's own repo: on a pull request it runs npm run preflight, that project's check script, which most other repos don't have."
+      }
+    },
+    {
+      "id": "backnotprop/bro/skills/bro",
+      "name": "bro",
+      "skills.sh": {
+        "url": "https://skills.sh/backnotprop/bro/bro",
+        "installs": 9700,
+        "weeklyInstalls": [117, 114, 64, 94, 3424, 5278, 71, 74],
+        "firstSeen": "2026-06-18"
+      },
+      "skillMd": {
+        "version": "f98fbb31ce1e0bb9ed5672746984f4f93439cc29",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Restates the agent's last message in plain, jargon-free language, like one person talking to another.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "the agent's last reply was dense or full of jargon and you want it said simply"
+            },
+            {
+              "label": "It does",
+              "text": "restates that message more simply and concisely, like one human talking to another"
+            },
+            {
+              "label": "You get",
+              "text": "a plain-language version of the same reply; the agent's style for later replies doesn't change"
+            },
+            {
+              "label": "Runs",
+              "text": "only when you call it"
+            },
+            {
+              "label": "Part of",
+              "text": "backnotprop/bro, a set of small alignment skills such as readback, recap and status"
+            }
+          ],
+          "text": "The whole skill is one instruction: restate your last message, stop using jargon, speak coherently, and say it more simply and concisely, like one human talking to another. It acts on a single reply. Unlike output-style modes that stay on for the session, you call it each time a reply loses you, and the agent goes back to its usual voice afterwards. Its frontmatter turns off automatic invocation, so the agent never applies it on its own.",
+          "permalink": "https://github.com/backnotprop/bro/tree/f98fbb31ce1e0bb9ed5672746984f4f93439cc29/skills/bro"
+        },
+        "tags": [
+          "category:output-style",
+          "type:command",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "output-style"
+        ]
+      }
+    },
+    {
+      "id": "conardli/garden-skills/skills/web-design-engineer",
+      "name": "web-design-engineer",
+      "skills.sh": {
+        "url": "https://skills.sh/conardli/garden-skills/web-design-engineer",
+        "installs": 9400,
+        "weeklyInstalls": [389, 406, 316, 279, 281, 356, 450, 413],
+        "firstSeen": "2026-04-22"
+      },
+      "skillMd": {
+        "version": "2b9a89340b70f632d31c0f1c69fce94a7912423e",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Designs polished web pages, prototypes, slide decks and dashboards in HTML, checking a design system and a rough first draft with you.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a web page, dashboard, prototype, HTML slide deck, animation or UI mockup that looks designed rather than generated"
+            },
+            {
+              "label": "It does",
+              "text": "checks facts about named products, asks only what the brief lacks, gathers brand assets, declares a design system and waits for your OK before coding"
+            },
+            {
+              "label": "You get",
+              "text": "HTML files built in stages: a v0 with placeholders for early correction, then the full build, with a Tweaks panel for live settings and variants"
+            },
+            {
+              "label": "When you're unsure",
+              "text": "it proposes three contrasting design directions, each tied to a named designer or studio, instead of a list of taste questions"
+            },
+            {
+              "label": "Avoids",
+              "text": "AI clichés such as purple-to-pink gradients, emoji icons and Inter headlines unless your brand uses them, and never invents stats or testimonials"
+            },
+            {
+              "label": "Browser QA",
+              "text": "only when you ask for acceptance testing, QA or responsive checks; otherwise a code and design self-check"
+            }
+          ],
+          "text": "The agent works as a design engineer whose output is always HTML, CSS and JavaScript or React. It verifies facts about any named product before designing, then decides how much to ask: a vague brief gets questions, a detailed one gets built. Context comes in priority order, from your screenshots, Figma files or code down to a named style such as \"Linear-style\", which loads one of its style recipes. For branded work it insists on the real logo and product images, listed in a brand-spec.md file, and stops to ask when it can't find a logo. Before coding it sums up the brief as a design read with five 1–10 dials (variance, motion, density, asset dependence, brand fidelity) and declares colors, type, spacing, radius, shadows and motion. Three checkpoints follow: confirm the system, review the v0, and confirm non-trivial decisions during the build. On request it critiques a design on five dimensions scored 0–10, with fixes and quick wins. It also sets rules for prototypes, 1920×1080 slide decks, Chart.js or D3 dashboards and animations.",
+          "permalink": "https://github.com/conardli/garden-skills/tree/2b9a89340b70f632d31c0f1c69fce94a7912423e/skills/web-design-engineer"
+        },
+        "tags": [
+          "category:design",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "stack:react",
+          "design",
+          "prototyping",
+          "design-system",
+          "slides",
+          "anti-slop"
+        ]
+      }
+    },
+    {
+      "id": "obra/episodic-memory/skills/remembering-conversations",
+      "name": "remembering-conversations",
+      "skills.sh": {
+        "url": "https://skills.sh/obra/episodic-memory/remembering-conversations",
+        "installs": 9200,
+        "weeklyInstalls": [29, 21, 11, 17, 10, 7, 5, 4],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "7e06519357777badd7a115d2014a7ef845904310",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Searches your past agent conversations, indexed by episodic-memory, for earlier decisions, fixes and context before the agent guesses or starts over.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a task resembles past work, or you say \"last time\", \"we discussed\" or \"why did we\", and the answer lives in an earlier conversation"
+            },
+            {
+              "label": "It does",
+              "text": "in Claude Code, hands the search to episodic-memory's search-conversations subagent; elsewhere it calls the search and read tools itself"
+            },
+            {
+              "label": "You get",
+              "text": "a synthesis of the top 2–5 matching conversations, with pointers to the originals so you can check them"
+            },
+            {
+              "label": "Runs",
+              "text": "on its own and often: it's told to search before saying \"I don't know\", guessing, or treating any topic as new"
+            },
+            {
+              "label": "Skips",
+              "text": "questions about the current code, which it explores directly, and anything already in the conversation"
+            },
+            {
+              "label": "Needs",
+              "text": "episodic-memory's MCP server, from its Claude Code, Codex or opencode plugin"
+            }
+          ],
+          "text": "episodic-memory makes past agent conversations searchable; this skill tells the agent when and how to use it. It announces \"Searching past conversations for [topic]\" and, in Claude Code, dispatches the search-conversations subagent with a focused prompt about the decisions, patterns, gotchas or code examples it needs. The subagent searches, reads the top 2–5 results and returns a 200–1,000-word synthesis with sources, which the skill says saves 50–100 times the context of loading raw conversations. In Codex and opencode it uses that agent if present, or calls the search and read MCP tools directly and reads only the most relevant conversations or line ranges. It triggers broadly: on historical cues, when the agent is stuck, when a task resembles earlier work or needs a workflow repeated, and before answering from uncertainty. Unlike memory skills that save notes you pick, it only reads back what earlier conversations actually said.",
+          "permalink": "https://github.com/obra/episodic-memory/tree/7e06519357777badd7a115d2014a7ef845904310/skills/remembering-conversations"
+        },
+        "tags": [
+          "category:agents",
+          "type:tool",
+          "effect:none",
+          "needs:mcp",
+          "by:official",
+          "stack:episodic-memory",
+          "memory"
+        ],
+        "note": "Needs the episodic-memory plugin or package for its search tools. Its description tells the agent to search past conversations before it guesses or says \"I don't know\", however trivial the question."
+      }
+    },
+    {
+      "id": "firecrawl/skills/skills/core/firecrawl-developer-index",
+      "name": "firecrawl-developer-index",
+      "skills.sh": {
+        "url": "https://skills.sh/firecrawl/skills/firecrawl-developer-index",
+        "installs": 9100,
+        "weeklyInstalls": [643, 668, 705, 564, 577, 705, 920, 571],
+        "firstSeen": "2026-08-04"
+      },
+      "skillMd": {
+        "version": "458d9d0331fb31121fd38e0e09ae5036f952784b",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Looks up docs, release notes, issues and pull requests for a library or API in Firecrawl's developer index, citing the passages it finds.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a question names a library version, an upgrade, a pasted error, or how to configure or migrate a specific library, API or CLI"
+            },
+            {
+              "label": "It does",
+              "text": "searches Firecrawl's index of documentation, READMEs, and issues and pull requests from public repositories, choosing its approach by the kind of question"
+            },
+            {
+              "label": "You get",
+              "text": "an answer that quotes the matched passages and cites their URLs, telling a merged fix apart from the release that ships it"
+            },
+            {
+              "label": "Needs",
+              "text": "the Firecrawl CLI, its MCP tools or its HTTP endpoint; the index works without an API key, which only raises rate limits"
+            },
+            {
+              "label": "Unlike",
+              "text": "firecrawl-research-index, which finds research papers; this one covers developer sources and leaves comparisons and opinions to web search"
+            },
+            {
+              "label": "Misses",
+              "text": "private repositories: for those, the agent reads the code directly"
+            }
+          ],
+          "text": "Firecrawl's skill for its developer index of documentation pages, READMEs, and issues and pull requests from public repositories. It aims to answer from the primary source: the issue that reported a bug, the merged pull request that fixed it, or the page that states the contract, not a blog post. There's no fixed recipe. A literal error string is searched in issues and pull requests, then retried without paths and IDs if nothing matches. A how-to question goes to docs and READMEs. A known bug is traced from its issue to the fixing pull request, and to a release containing it before it's called the user's behavior. An API contract is checked in READMEs and docs. Searches start broad and are narrowed by type, repository or documentation source once the hits show where to look. Comparisons, opinions, news and unindexed projects go to Firecrawl's web search and scrape. For documentation questions, a reference file sets the steps: search with the CLI, match the exact version, and cite what was read. An identical copy ships in firecrawl/cli.",
+          "permalink": "https://github.com/firecrawl/skills/tree/458d9d0331fb31121fd38e0e09ae5036f952784b/skills/core/firecrawl-developer-index"
+        },
+        "tags": [
+          "category:browser",
+          "category:debugging",
+          "type:tool",
+          "effect:none",
+          "needs:cli",
+          "by:official",
+          "stack:firecrawl",
+          "web-search",
+          "research",
+          "debugging",
+          "flag:mirror"
+        ]
+      }
+    },
+    {
+      "id": "warpdotdev/common-skills/.agents/skills/skill-doctor",
+      "name": "skill-doctor",
+      "skills.sh": {
+        "url": "https://skills.sh/warpdotdev/common-skills/skill-doctor",
+        "installs": 8800,
+        "weeklyInstalls": [1066, 807, 680, 982, 608, 439, 446, 187],
+        "firstSeen": "2026-08-22"
+      },
+      "skillMd": {
+        "version": "8792394ff1b655e0af451b8fabb68ef0cfcbd208",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Grades your agent skills by scoring recent local conversations, then drafts skill edits and a shareable HTML report.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to know which of your installed skills actually help, judged from your real conversation history"
+            },
+            {
+              "label": "It does",
+              "text": "samples up to 12 conversations from the last 45 days by default, scores each for efficiency, code quality, procedure compliance and verbosity, and grades the setup"
+            },
+            {
+              "label": "You get",
+              "text": "report.html in a temporary folder: a scorecard, three top findings and suggested skill edits as diffs, with a button that exports a share image"
+            },
+            {
+              "label": "Keeps",
+              "text": "everything local: transcripts are never uploaded, and your skill files stay untouched until you agree to apply the edits"
+            },
+            {
+              "label": "Runs in",
+              "text": "Warp, Claude Code, Codex, Pi, Grok Build, ZCode and Hermes; in any other agent it stops before reading anything"
+            },
+            {
+              "label": "Needs",
+              "text": "Python 3 for its collector and report scripts"
+            }
+          ],
+          "text": "skill-doctor comes from Warp's shared skills. It first asks which conversations to grade (this repository, all, or chosen projects) and whether to include global skills, then runs a bundled Python collector over the supported agents' local conversation stores. Each sampled transcript is judged against four rubric files; code quality counts only where the transcript changed code. Scores are curved and weighted into an overall grade that also counts skill coverage, the share of sessions where an installed skill was detected. A conversation fails when any applicable score is below 0.5, and only failed conversations count as evidence for suggestions, such as fixing a trigger description that never fired, adding a missing step, or creating a new skill. Each suggestion cites the session behind it, and the agent writes full proposed SKILL.md files and unified diffs to the report folder, never into your repo. It then tells you the grade and three findings, adds the Warp Factories link, and asks whether to apply the edits.",
+          "permalink": "https://github.com/warpdotdev/common-skills/tree/8792394ff1b655e0af451b8fabb68ef0cfcbd208/.agents/skills/skill-doctor"
+        },
+        "tags": [
+          "category:skill-tools",
+          "category:agents",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "skill-authoring",
+          "self-improvement",
+          "agent-workflows"
+        ],
+        "note": "Runs only in Warp, Claude Code, Codex, Pi, Grok Build, ZCode and Hermes, and ends every reply with a link to request access to Warp Factories."
+      }
+    },
+    {
+      "id": "bahayonghang/drawio-skills/skills/drawio",
+      "name": "drawio",
+      "skills.sh": {
+        "url": "https://skills.sh/bahayonghang/drawio-skills/drawio",
+        "installs": 8700,
+        "weeklyInstalls": [155, 117, 130, 139, 91, 114, 120, 114],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "2aa612ef9d5b65179eeebe7ab33f97f39d2315b4",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Creates, edits, imports and exports draw.io diagrams through a bundled offline CLI that renders a YAML spec into a .drawio file and PNG.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need an architecture, network, flowchart, UML, ER or org-chart diagram as an editable .drawio file"
+            },
+            {
+              "label": "It does",
+              "text": "turns a description, Mermaid, CSV, an imported .drawio or a screenshot into a YAML spec, validates it and renders it with its own CLI"
+            },
+            {
+              "label": "You get",
+              "text": "a .drawio file and a 300dpi PNG, with the spec and other sidecars kept in .drawio-tmp/ for later edits"
+            },
+            {
+              "label": "Imports",
+              "text": "declared Terraform, Kubernetes, Compose, SQL DDL, OpenAPI and CI configs, and module relationships from Python, JavaScript/TypeScript, Go or Rust code"
+            },
+            {
+              "label": "Needs",
+              "text": "Node 20+; draw.io Desktop for PNG, PDF and JPG, otherwise a standalone SVG"
+            },
+            {
+              "label": "Not for",
+              "text": "paper or thesis figures, which it routes to the sibling drawio-academic-skills overlay"
+            }
+          ],
+          "text": "The YAML spec is the source of truth: Mermaid, CSV, config files, plain descriptions and imported .drawio files all become YAML before rendering, so edits happen on the spec and the diagram is regenerated. The skill routes each request to one of 19 paths, such as create, edit, replicate a screenshot, network topology, cloud and vendor stencils, formulas or edge audits, and loads only that path's references. Rendering runs offline through its bundled CLI, with validation that reports overlaps, edge crossings and avoidable bends; connectors are bound edges with open arrowheads by default. Themes and palettes carry colorblind and grayscale safety flags, and it asks about palettes only when color comes up. Cloud, Kubernetes and Cisco icons are checked against a bundled catalog first. It inspects the exported PNG itself before claiming completion and ends with a report of files, commands and checks. A live browser-refinement backend through an MCP server is optional; offline authoring never needs it.",
+          "permalink": "https://github.com/bahayonghang/drawio-skills/tree/2aa612ef9d5b65179eeebe7ab33f97f39d2315b4/skills/drawio"
+        },
+        "tags": [
+          "category:science",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "stack:drawio",
+          "diagrams",
+          "architecture",
+          "infrastructure"
+        ],
+        "note": "Needs Node 20 or later; PNG, PDF and JPG exports need draw.io Desktop, and without it you get an SVG instead."
+      }
+    },
+    {
+      "id": "aahl/skills/skills/edge-tts",
+      "name": "edge-tts",
+      "skills.sh": {
+        "url": "https://skills.sh/aahl/skills/edge-tts",
+        "installs": 8600,
+        "weeklyInstalls": [147, 120, 122, 133, 151, 158, 163, 208],
+        "firstSeen": "2026-02-10"
+      },
+      "skillMd": {
+        "version": "47edd621dff44253677d2ed14c223393ca020407",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Turns text into spoken audio with Microsoft Edge's neural voices through uvx edge-tts, choosing voice, speed, volume and pitch.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you say \"tts\" or want a reply spoken, say while driving or cooking, or need a particular voice, speed, pitch or format"
+            },
+            {
+              "label": "It does",
+              "text": "runs uvx edge-tts on the text, which uses Microsoft Edge's neural text-to-speech service"
+            },
+            {
+              "label": "You get",
+              "text": "an MP3 in a temporary folder, with subtitles if you ask"
+            },
+            {
+              "label": "Voices",
+              "text": "33 listed English, French and Chinese voices, including two Chinese dialects, plus the command that lists the rest"
+            },
+            {
+              "label": "Needs",
+              "text": "uv, for its uvx command"
+            }
+          ],
+          "text": "A short skill that gives the agent the edge-tts commands it needs. It writes audio with --write-media, adds subtitles with --write-subtitles, changes speed and volume with percentages such as --rate=+50%, pitch in hertz, and the voice with --voice, such as zh-CN-XiaoxiaoNeural. The SKILL.md lists each voice's gender, content categories, such as news or conversation, and personality, such as warm or cheerful, and edge-tts --list-voices shows every other voice. The text is spoken by Microsoft's service, not a local model.",
+          "permalink": "https://github.com/aahl/skills/tree/47edd621dff44253677d2ed14c223393ca020407/skills/edge-tts"
+        },
+        "tags": [
+          "category:media",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "stack:edge-tts",
+          "audio",
+          "ai-generation"
+        ]
+      }
+    },
+    {
+      "id": "jakubkrehel/skills/skills/state-machine",
+      "name": "state-machine",
+      "skills.sh": {
+        "url": "https://skills.sh/jakubkrehel/skills/state-machine",
+        "installs": 7100,
+        "weeklyInstalls": [0, 0, 0, 0, 1038, 1226, 1402, 1991],
+        "firstSeen": "2026-10-06"
+      },
+      "skillMd": {
+        "version": "60bf140e43c98b248e6594487384ec967e89d98a",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Renders every state of one component on a throwaway page, with mock data and a switcher, while you work on its visuals.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're working on how one component looks and want each of its states, such as loading, empty, error or a locked feature, one keypress away"
+            },
+            {
+              "label": "It does",
+              "text": "finds the states the component's code can reach and feeds each mock data from the page, through props or the app's own data seam"
+            },
+            {
+              "label": "You get",
+              "text": "a scratch page with the real, untouched component and a switcher where every state is a link, plus the state list and the switcher keys"
+            },
+            {
+              "label": "Unlike break",
+              "text": "from the same repo, which stacks worst-case scenarios on one page for a single look, this is a workbench that stays up while you change the visuals"
+            },
+            {
+              "label": "Won't",
+              "text": "add a branch to show a state the code can't reach, edit the component without asking, or change how a state looks unasked"
+            },
+            {
+              "label": "Runs",
+              "text": "only when you call it"
+            }
+          ],
+          "text": "Part of Jakub Krehel's interface skills. It scopes the run to one component, then reads its code and data hooks for every branch: data states such as loading, empty, error, one item or a list long enough to scroll; account states such as plan tier and role; feature states such as flags, trials and limits. It writes the set down before building, grouped and named the way the product talks, and lists states the design shows but the code lacks instead of rendering them. The page sits in one folder inside the app, so it inherits the app's layout, fonts and providers; in Next it's a client page, so fixtures survive the server boundary. Mock data looks like the product, with real-shaped names, amounts and counts, and loading states stay pending until you switch. The switcher is styled deliberately outside your design system, sets a __state URL parameter, steps through states with the arrow keys and hides with H for screenshots. It checks every state once in a browser if one is at hand, and again after each visual change. On your word, it deletes the folder and searches for leftover route and fixture names.",
+          "permalink": "https://github.com/jakubkrehel/skills/tree/60bf140e43c98b248e6594487384ec967e89d98a/skills/state-machine"
+        },
+        "tags": [
+          "category:design",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "design",
+          "prototyping"
+        ],
+        "note": "Adds a scratch route to your app and leaves it there until you say you're done with it."
+      }
+    },
+    {
+      "id": "benjitaylor/agentation/skills/agentation-self-driving",
+      "name": "agentation-self-driving",
+      "skills.sh": {
+        "url": "https://skills.sh/benjitaylor/agentation/agentation-self-driving",
+        "installs": 7100,
+        "weeklyInstalls": [153, 119, 97, 92, 88, 99, 61, 60],
+        "firstSeen": "2026-02-15"
+      },
+      "skillMd": {
+        "version": "0e3236eb1a0f5577852ab7bb5121f5dd46d42f1d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Autonomously critiques a page's design in a visible browser, pinning five to eight annotations to its elements with the Agentation toolbar.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want an agent to review a page's design and leave its feedback pinned to the elements while you watch"
+            },
+            {
+              "label": "It does",
+              "text": "opens the page in a headed agent-browser, works top to bottom and writes a two-to-three-sentence critique into Agentation's annotation dialog for each element it picks"
+            },
+            {
+              "label": "You get",
+              "text": "five to eight annotations on the page unless you ask otherwise, each naming the design principle at stake, one or two concrete alternatives and a comparable product"
+            },
+            {
+              "label": "Full self-driving",
+              "text": "with Agentation's MCP server connected, annotations go to a second agent session that edits the code to address each one"
+            },
+            {
+              "label": "Needs",
+              "text": "the Agentation toolbar on the page and the agent-browser CLI; it stops and tells you if the toolbar isn't found"
+            }
+          ],
+          "text": "A design review you watch happen. Agentation is a feedback toolbar mounted in your own page, whose annotations a coding agent can read; this skill makes the agent the reviewer. It checks that agent-browser is installed, opens the page headed, never headless, confirms the toolbar is there and expands it, with Block page interactions on. For each annotation it scrolls an element into view, reads its position, clicks its center with coordinate-based mouse events, since ordinary element clicks don't open the annotation dialog, fills the dialog and checks that the annotation count went up. It covers the hero, navigation, demos, content sections, key taglines, calls to action and footer, looking at hierarchy, grouping, spacing rhythm, typography and conversion weight. Each critique is specific, such as stacking a command below a subheading at 16px, names a principle like Gestalt grouping, and points to how products such as Stripe, Linear or Vercel handle it. Fixing is left to a second session running agentation_watch_annotations, when the MCP connection is on. Tables cover troubleshooting and agent-browser pitfalls, such as commands that crash on element references.",
+          "permalink": "https://github.com/benjitaylor/agentation/tree/0e3236eb1a0f5577852ab7bb5121f5dd46d42f1d/skills/agentation-self-driving"
+        },
+        "tags": [
+          "category:design",
+          "category:debugging",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "needs:browser",
+          "by:official",
+          "stack:agentation",
+          "stack:agent-browser",
+          "design",
+          "browser-automation"
+        ],
+        "note": "Needs the Agentation toolbar mounted in the page you review (the repo's agentation skill sets it up) and the agent-browser CLI; it opens a visible browser window."
       }
     }
   ]

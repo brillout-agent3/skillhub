@@ -289,58 +289,6 @@
       }
     },
     {
-      "name": "code-reviewer",
-      "repo": "google-gemini/gemini-cli",
-      "official": false,
-      "stars": 108752,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google-gemini/gemini-cli/code-reviewer",
-        "installs": 9700,
-        "weeklyInstalls": [83, 93, 164, 219, 59, 27, 31, 21],
-        "firstSeen": "2026-01-21"
-      }
-    },
-    {
-      "name": "bro",
-      "repo": "backnotprop/bro",
-      "official": false,
-      "stars": 173,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/backnotprop/bro/bro",
-        "installs": 9700,
-        "weeklyInstalls": [117, 114, 64, 94, 3424, 5278, 71, 74],
-        "firstSeen": "2026-06-18"
-      }
-    },
-    {
-      "name": "web-design-engineer",
-      "repo": "conardli/garden-skills",
-      "official": false,
-      "stars": 14503,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/conardli/garden-skills/web-design-engineer",
-        "installs": 9400,
-        "weeklyInstalls": [389, 406, 316, 279, 281, 356, 450, 413],
-        "firstSeen": "2026-04-22"
-      }
-    },
-    {
-      "name": "remembering-conversations",
-      "repo": "obra/episodic-memory",
-      "official": false,
-      "stars": 499,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/obra/episodic-memory/remembering-conversations",
-        "installs": 9200,
-        "weeklyInstalls": [29, 21, 11, 17, 10, 7, 5, 4],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
       "name": "book-to-skill",
       "repo": "virgiliojr94/book-to-skill",
       "official": false,
@@ -351,19 +299,6 @@
         "installs": 9200,
         "weeklyInstalls": [756, 743, 664, 601, 613, 564, 498, 500],
         "firstSeen": "2026-05-04"
-      }
-    },
-    {
-      "name": "firecrawl-developer-index",
-      "repo": "firecrawl/skills",
-      "official": false,
-      "stars": 147,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/firecrawl/skills/firecrawl-developer-index",
-        "installs": 9100,
-        "weeklyInstalls": [643, 668, 705, 564, 577, 705, 920, 571],
-        "firstSeen": "2026-08-04"
       }
     },
     {
@@ -432,19 +367,6 @@
       }
     },
     {
-      "name": "skill-doctor",
-      "repo": "warpdotdev/common-skills",
-      "official": false,
-      "stars": 653,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/warpdotdev/common-skills/skill-doctor",
-        "installs": 8800,
-        "weeklyInstalls": [1066, 807, 680, 982, 608, 439, 446, 187],
-        "firstSeen": "2026-08-22"
-      }
-    },
-    {
       "name": "excalidraw-diagram",
       "repo": "coleam00/excalidraw-diagram-skill",
       "official": false,
@@ -471,19 +393,6 @@
       }
     },
     {
-      "name": "drawio",
-      "repo": "bahayonghang/drawio-skills",
-      "official": false,
-      "stars": 299,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/bahayonghang/drawio-skills/drawio",
-        "installs": 8700,
-        "weeklyInstalls": [155, 117, 130, 139, 91, 114, 120, 114],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
       "name": "link-building",
       "repo": "coreyhaines31/marketingskills",
       "official": false,
@@ -494,19 +403,6 @@
         "installs": 8700,
         "weeklyInstalls": [0, 0, 0, 0, 0, 0, 2711, 3524],
         "firstSeen": "2026-10-19"
-      }
-    },
-    {
-      "name": "edge-tts",
-      "repo": "aahl/skills",
-      "official": false,
-      "stars": 164,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aahl/skills/edge-tts",
-        "installs": 8600,
-        "weeklyInstalls": [147, 120, 122, 133, 151, 158, 163, 208],
-        "firstSeen": "2026-02-10"
       }
     },
     {
@@ -1066,32 +962,6 @@
         "installs": 7100,
         "weeklyInstalls": [128, 110, 122, 118, 119, 177, 160, 176],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "state-machine",
-      "repo": "jakubkrehel/skills",
-      "official": false,
-      "stars": 11240,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/jakubkrehel/skills/state-machine",
-        "installs": 7100,
-        "weeklyInstalls": [0, 0, 0, 0, 1038, 1226, 1402, 1991],
-        "firstSeen": "2026-10-06"
-      }
-    },
-    {
-      "name": "agentation-self-driving",
-      "repo": "benjitaylor/agentation",
-      "official": false,
-      "stars": 5299,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/benjitaylor/agentation/agentation-self-driving",
-        "installs": 7100,
-        "weeklyInstalls": [153, 119, 97, 92, 88, 99, 61, 60],
-        "firstSeen": "2026-02-15"
       }
     },
     {
