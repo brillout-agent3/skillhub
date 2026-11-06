@@ -19,11 +19,11 @@
           "properties": {
             "installs": {
               "type": "string",
-              "description": "When the installs were collected, which crawl.ts does daily."
+              "description": "When the installs were collected.\n\nSource: scripts/crawl.ts, which .github/workflows/crawl.yml runs daily, sets it to the day it runs."
             },
             "stars": {
               "type": "string",
-              "description": "When the GitHub stars were collected, which crawl.ts does daily."
+              "description": "When the GitHub stars were collected.\n\nSource: scripts/crawl.ts sets it to the day it runs, when it got stars from GitHub."
             },
             "tags": {
               "type": "string",
@@ -154,19 +154,19 @@
       "properties": {
         "id": {
           "type": "string",
-          "description": "GitHub `owner/name`: its page is https://github.com/<id>."
+          "description": "GitHub `owner/name`: its page is https://github.com/<id>.\n\nSource: the agent that approves the repo's first skill, with the add-skill skill."
         },
         "stars": {
           "type": ["number", "null"],
-          "description": "GitHub stars, or null when unknown. crawl.ts refreshes them for the repos of approved skills and bundles."
+          "description": "GitHub stars, or null when unknown.\n\nSource: the GitHub API, by scripts/crawl.ts, which .github/workflows/crawl.yml runs daily: the `stargazers_count` of https://api.github.com/repos/<id>, when GITHUB_TOKEN is set. A request that fails keeps the last number."
         },
         "leaderboardSkills": {
           "type": ["number", "null"],
-          "description": "How many of the repo's skills were in the skills.sh all-time top 600."
+          "description": "How many of the repo's skills were in the skills.sh all-time top 600.\n\nSource: scripts/crawl.ts, daily, counts the entries of the leaderboard it scrapes from the HTML of https://www.skills.sh/ whose `source` is the repo. An agent adding a repo leaves it null for the next crawl."
         },
         "agentReview": {
           "$ref": "#/definitions/RepoReview",
-          "description": "What an agent wrote about the repo: everything else is collected by scripts."
+          "description": "What an agent wrote about the repo: everything else is collected by scripts.\n\nSource: the agent that approves the repo's first skill, with the add-skill skill."
         }
       },
       "required": ["id", "stars", "leaderboardSkills", "agentReview"],
@@ -197,15 +197,15 @@
       "properties": {
         "id": {
           "type": "string",
-          "description": "The GitHub repo, `owner/name`, or `owner/name@part` for one of several bundles in a repo."
+          "description": "The GitHub repo, `owner/name`, or `owner/name@part` for one of several bundles in a repo.\n\nSource: the agent that records the bundle, with the add-skill skill."
         },
         "skew": {
           "type": "number",
-          "description": "Words added plus words removed across its skills' SKILL.md since the commit the TLDR summarizes, or all their words when there's no TLDR."
+          "description": "Words added plus words removed across its skills' SKILL.md since the commit the TLDR summarizes, or all their words when there's no TLDR.\n\nSource: scripts/sync.ts, daily, when one of its skills' SKILL.md changed: it compares each skill's copy with its SKILL.md at the commit of the bundle's TLDR permalink, fetched from https://raw.githubusercontent.com/, with `skew()` of website/skill-md.ts. `pnpm run tldr` resets it to 0 when it sets the TLDR."
         },
         "agentReview": {
           "$ref": "#/definitions/BundleReview",
-          "description": "What an agent wrote about the bundle: all of it but its id and skew."
+          "description": "What an agent wrote about the bundle: all of it but its id and skew.\n\nSource: the agent that records the bundle, with the add-skill skill; and an agent with the write-tldr skill, which sets its TLDR with `pnpm run tldr`."
         }
       },
       "required": ["id", "skew", "agentReview"],
@@ -285,7 +285,7 @@
         },
         "permalink": {
           "type": "string",
-          "description": "GitHub permalink to what the TLDR summarizes: the skill's directory at a commit. For a bundle, its repo at a commit."
+          "description": "GitHub permalink to what the TLDR summarizes: the skill's directory at a commit. For a bundle, its repo at a commit.\n\nSource: scripts/tldr.ts, when it sets the TLDR: for a skill, its directory at the commit of its copy (`skillMd.version`); for a bundle, its repo at the commit of the repo's HEAD, once its skills' copies match it."
         }
       },
       "required": ["glance", "text", "permalink"],
@@ -315,23 +315,23 @@
       "properties": {
         "id": {
           "type": "string",
-          "description": "Unique: where the skill's SKILL.md lives, as the GitHub repo and the directory inside it, `owner/name/path/to/dir` (just `owner/name` for a SKILL.md at the root). The repo has an entry in `repos`."
+          "description": "Unique: where the skill's SKILL.md lives, as the GitHub repo and the directory inside it, `owner/name/path/to/dir` (just `owner/name` for a SKILL.md at the root). The repo has an entry in `repos`.\n\nSource: the agent that approves the skill, with the add-skill skill, from where its SKILL.md is on GitHub."
         },
         "name": {
           "type": "string",
-          "description": "Its name on skills.sh: the end of its skills.sh page."
+          "description": "Its name on skills.sh: the end of its skills.sh page.\n\nSource: the `name` of its crawl.jsonc entry, which the agent that approves the skill copies."
         },
         "skills.sh": {
           "$ref": "#/definitions/SkillsSh",
-          "description": "Its listing on skills.sh."
+          "description": "Its listing on skills.sh.\n\nSource: its crawl.jsonc entry, which the agent that approves the skill copies; scripts/crawl.ts then keeps its numbers current."
         },
         "skillMd": {
           "$ref": "#/definitions/SkillMd",
-          "description": "The copy of the skill's SKILL.md at `data/skill-snapshots/<id>.md`, which `sync.ts` keeps current."
+          "description": "The copy of the skill's SKILL.md at `data/skill-snapshots/<id>.md`, which `sync.ts` keeps current.\n\nSource: scripts/sync.ts, which .github/workflows/sync.yml runs daily: it fetches the SKILL.md from https://raw.githubusercontent.com/<repo>/<commit>/<dir>/SKILL.md, at the commit of the repo's HEAD, and updates the copy and this field when the text changed."
         },
         "agentReview": {
           "$ref": "#/definitions/SkillReview",
-          "description": "What an agent wrote about the skill: everything else is collected by scripts."
+          "description": "What an agent wrote about the skill: everything else is collected by scripts.\n\nSource: the agent that approves the skill, with the add-skill skill, which writes its description, tags and note; and an agent with the write-tldr skill, which sets its TLDR with `pnpm run tldr`."
         }
       },
       "required": ["id", "name", "skills.sh", "agentReview"],
@@ -343,7 +343,7 @@
       "properties": {
         "url": {
           "type": "string",
-          "description": "The skill's page on skills.sh."
+          "description": "The skill's page on skills.sh.\n\nSource: scripts/crawl.ts, when it records the skill: `pageOf()` builds it from the `source` and `skillId` of its leaderboard entry."
         },
         "installs": {
           "type": ["number", "null"],
@@ -376,15 +376,15 @@
       "properties": {
         "version": {
           "type": "string",
-          "description": "The GitHub commit the copy was taken from."
+          "description": "The GitHub commit the copy was taken from.\n\nSource: scripts/sync.ts: `git ls-remote https://github.com/<repo> HEAD`, when the copy changes."
         },
         "updated": {
           "type": "string",
-          "description": "When the copy last changed (YYYY-MM-DD)."
+          "description": "When the copy last changed (YYYY-MM-DD).\n\nSource: scripts/sync.ts sets it to the day it finds the SKILL.md changed."
         },
         "skew": {
           "type": "number",
-          "description": "Words added plus words removed since the SKILL.md the TLDR summarizes, or all its words when there's no TLDR."
+          "description": "Words added plus words removed since the SKILL.md the TLDR summarizes, or all its words when there's no TLDR.\n\nSource: scripts/sync.ts, when the SKILL.md changed: it compares the new text with the SKILL.md at the TLDR's permalink, fetched from https://raw.githubusercontent.com/, with `skew()` of website/skill-md.ts. `pnpm run tldr` resets it to 0 when it sets the TLDR."
         }
       },
       "required": ["version", "updated", "skew"],

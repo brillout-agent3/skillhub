@@ -14,9 +14,18 @@ export interface Data {
   updated: string;
   /** When each kind of data is from (YYYY-MM-DD). */
   asOf: {
-    /** When the installs were collected, which crawl.ts does daily. */
+    /**
+     * When the installs were collected.
+     *
+     * Source: scripts/crawl.ts, which .github/workflows/crawl.yml runs daily, sets it to the day
+     * it runs.
+     */
     installs: string;
-    /** When the GitHub stars were collected, which crawl.ts does daily. */
+    /**
+     * When the GitHub stars were collected.
+     *
+     * Source: scripts/crawl.ts sets it to the day it runs, when it got stars from GitHub.
+     */
     stars: string;
     /** When the tags were last assigned. */
     tags: string;
@@ -40,30 +49,76 @@ export interface Data {
 export interface Crawl {
   /** The JSON Schema of this file, generated from this interface: for editors. */
   $schema: string;
-  /** When crawl.ts last ran (YYYY-MM-DD). */
+  /**
+   * When crawl.ts last ran (YYYY-MM-DD).
+   *
+   * Source: scripts/crawl.ts, which .github/workflows/crawl.yml runs daily, sets it to the day it
+   * runs.
+   */
   asOf: string;
   /**
    * At the minimums (`MINIMUMS` in ../scripts/data.ts) or above, most installed first: waiting for
    * an agent to approve or disqualify them, with the add-skill skill.
+   *
+   * Source: scripts/crawl.ts sorts every skill of the top 600 it saw that day into `qualified` or
+   * `unqualified`, with `passes()` of scripts/data.ts; a skill that left the top 600 keeps its
+   * state.
    */
   qualified: Crawled[];
-  /** Below the minimums, most installed first. */
+  /**
+   * Below the minimums, most installed first.
+   *
+   * Source: scripts/crawl.ts, as for `qualified`.
+   */
   unqualified: Crawled[];
-  /** Not to be shown, each with why, and with no agent data: no tags, no TLDR, no copy of its SKILL.md. */
+  /**
+   * Not to be shown, each with why, and with no agent data: no tags, no TLDR, no copy of its
+   * SKILL.md.
+   *
+   * Source: scripts/crawl.ts adds the skills of the top 600 that aren't on GitHub, scripts/sync.ts
+   * the approved skills whose SKILL.md is gone from their repo, and an agent, with the add-skill
+   * skill, the qualified skills it turns down.
+   */
   disqualified: Disqualified[];
 }
 
 /** A skill of the skills.sh top 600 that's qualified or unqualified. */
 export interface Crawled {
-  /** Its name on skills.sh: the end of its skills.sh page. */
+  /**
+   * Its name on skills.sh: the end of its skills.sh page.
+   *
+   * Source: scraped by scripts/crawl.ts when it records the skill: `topSkills()` takes `name`
+   * from the leaderboard JSON in the HTML of https://www.skills.sh/.
+   */
   name: string;
-  /** Its GitHub repo, `owner/name`, as skills.sh names it: possibly an old name the repo redirects from. */
+  /**
+   * Its GitHub repo, `owner/name`, as skills.sh names it: possibly an old name the repo redirects
+   * from.
+   *
+   * Source: scraped by scripts/crawl.ts when it records the skill: the `source` of its
+   * leaderboard entry.
+   */
   repo: string;
-  /** Whether skills.sh shows its publisher as verified. */
+  /**
+   * Whether skills.sh shows its publisher as verified.
+   *
+   * Source: scraped by scripts/crawl.ts, daily while the skill is in the top 600: the
+   * `isOfficial` of its leaderboard entry.
+   */
   official: boolean;
-  /** Its repo's GitHub stars, or null when unknown. */
+  /**
+   * Its repo's GitHub stars, or null when unknown.
+   *
+   * Source: the GitHub API, by scripts/crawl.ts, daily while the skill is in the top 600: the
+   * `stargazers_count` of https://api.github.com/repos/<repo>, when GITHUB_TOKEN is set. A
+   * request that fails keeps the last number.
+   */
   stars: number | null;
-  /** The last day the crawl saw it in the top 600, which its numbers are from (YYYY-MM-DD). */
+  /**
+   * The last day the crawl saw it in the top 600, which its numbers are from (YYYY-MM-DD).
+   *
+   * Source: scripts/crawl.ts sets it to the day it runs, for every skill of the top 600.
+   */
   seen: string;
   /** Its `skills.sh` field once it's approved. */
   "skills.sh": SkillsSh;
@@ -72,7 +127,11 @@ export interface Crawled {
 export interface Disqualified {
   /** Its skills.sh page. */
   url: string;
-  /** Why it's disqualified. */
+  /**
+   * Why it's disqualified.
+   *
+   * Source: whoever disqualified it, as for `disqualified`.
+   */
   note: string;
 }
 
@@ -112,13 +171,33 @@ export interface Facet {
 }
 
 export interface Repo {
-  /** GitHub `owner/name`: its page is https://github.com/<id>. */
+  /**
+   * GitHub `owner/name`: its page is https://github.com/<id>.
+   *
+   * Source: the agent that approves the repo's first skill, with the add-skill skill.
+   */
   id: string;
-  /** GitHub stars, or null when unknown. crawl.ts refreshes them for the repos of approved skills and bundles. */
+  /**
+   * GitHub stars, or null when unknown.
+   *
+   * Source: the GitHub API, by scripts/crawl.ts, which .github/workflows/crawl.yml runs daily:
+   * the `stargazers_count` of https://api.github.com/repos/<id>, when GITHUB_TOKEN is set. A
+   * request that fails keeps the last number.
+   */
   stars: number | null;
-  /** How many of the repo's skills were in the skills.sh all-time top 600. */
+  /**
+   * How many of the repo's skills were in the skills.sh all-time top 600.
+   *
+   * Source: scripts/crawl.ts, daily, counts the entries of the leaderboard it scrapes from the
+   * HTML of https://www.skills.sh/ whose `source` is the repo. An agent adding a repo leaves it
+   * null for the next crawl.
+   */
   leaderboardSkills: number | null;
-  /** What an agent wrote about the repo: everything else is collected by scripts. */
+  /**
+   * What an agent wrote about the repo: everything else is collected by scripts.
+   *
+   * Source: the agent that approves the repo's first skill, with the add-skill skill.
+   */
   agentReview: RepoReview;
 }
 
@@ -137,15 +216,40 @@ export interface Skill {
    * Unique: where the skill's SKILL.md lives, as the GitHub repo and the directory inside it,
    * `owner/name/path/to/dir` (just `owner/name` for a SKILL.md at the root). The repo has an
    * entry in `repos`.
+   *
+   * Source: the agent that approves the skill, with the add-skill skill, from where its SKILL.md
+   * is on GitHub.
    */
   id: string;
-  /** Its name on skills.sh: the end of its skills.sh page. */
+  /**
+   * Its name on skills.sh: the end of its skills.sh page.
+   *
+   * Source: the `name` of its crawl.jsonc entry, which the agent that approves the skill copies.
+   */
   name: string;
-  /** Its listing on skills.sh. */
+  /**
+   * Its listing on skills.sh.
+   *
+   * Source: its crawl.jsonc entry, which the agent that approves the skill copies; scripts/crawl.ts
+   * then keeps its numbers current.
+   */
   "skills.sh": SkillsSh;
-  /** The copy of the skill's SKILL.md at `data/skill-snapshots/<id>.md`, which `sync.ts` keeps current. */
+  /**
+   * The copy of the skill's SKILL.md at `data/skill-snapshots/<id>.md`, which `sync.ts` keeps
+   * current.
+   *
+   * Source: scripts/sync.ts, which .github/workflows/sync.yml runs daily: it fetches the SKILL.md
+   * from https://raw.githubusercontent.com/<repo>/<commit>/<dir>/SKILL.md, at the commit of the
+   * repo's HEAD, and updates the copy and this field when the text changed.
+   */
   skillMd?: SkillMd;
-  /** What an agent wrote about the skill: everything else is collected by scripts. */
+  /**
+   * What an agent wrote about the skill: everything else is collected by scripts.
+   *
+   * Source: the agent that approves the skill, with the add-skill skill, which writes its
+   * description, tags and note; and an agent with the write-tldr skill, which sets its TLDR with
+   * `pnpm run tldr`.
+   */
   agentReview: SkillReview;
 }
 
@@ -165,11 +269,28 @@ export interface SkillReview {
  * are listed inside its entry; those worth installing alone also get an entry of their own.
  */
 export interface Bundle {
-  /** The GitHub repo, `owner/name`, or `owner/name@part` for one of several bundles in a repo. */
+  /**
+   * The GitHub repo, `owner/name`, or `owner/name@part` for one of several bundles in a repo.
+   *
+   * Source: the agent that records the bundle, with the add-skill skill.
+   */
   id: string;
-  /** Words added plus words removed across its skills' SKILL.md since the commit the TLDR summarizes, or all their words when there's no TLDR. */
+  /**
+   * Words added plus words removed across its skills' SKILL.md since the commit the TLDR
+   * summarizes, or all their words when there's no TLDR.
+   *
+   * Source: scripts/sync.ts, daily, when one of its skills' SKILL.md changed: it compares each
+   * skill's copy with its SKILL.md at the commit of the bundle's TLDR permalink, fetched from
+   * https://raw.githubusercontent.com/, with `skew()` of website/skill-md.ts. `pnpm run tldr`
+   * resets it to 0 when it sets the TLDR.
+   */
   skew: number;
-  /** What an agent wrote about the bundle: all of it but its id and skew. */
+  /**
+   * What an agent wrote about the bundle: all of it but its id and skew.
+   *
+   * Source: the agent that records the bundle, with the add-skill skill; and an agent with the
+   * write-tldr skill, which sets its TLDR with `pnpm run tldr`.
+   */
   agentReview: BundleReview;
 }
 
@@ -214,21 +335,49 @@ export interface Tldr {
   }[];
   /** Prose that explains what the skill does. */
   text: string;
-  /** GitHub permalink to what the TLDR summarizes: the skill's directory at a commit. For a bundle, its repo at a commit. */
+  /**
+   * GitHub permalink to what the TLDR summarizes: the skill's directory at a commit. For a
+   * bundle, its repo at a commit.
+   *
+   * Source: scripts/tldr.ts, when it sets the TLDR: for a skill, its directory at the commit of
+   * its copy (`skillMd.version`); for a bundle, its repo at the commit of the repo's HEAD, once
+   * its skills' copies match it.
+   */
   permalink: string;
 }
 
 export interface SkillMd {
-  /** The GitHub commit the copy was taken from. */
+  /**
+   * The GitHub commit the copy was taken from.
+   *
+   * Source: scripts/sync.ts: `git ls-remote https://github.com/<repo> HEAD`, when the copy
+   * changes.
+   */
   version: string;
-  /** When the copy last changed (YYYY-MM-DD). */
+  /**
+   * When the copy last changed (YYYY-MM-DD).
+   *
+   * Source: scripts/sync.ts sets it to the day it finds the SKILL.md changed.
+   */
   updated: string;
-  /** Words added plus words removed since the SKILL.md the TLDR summarizes, or all its words when there's no TLDR. */
+  /**
+   * Words added plus words removed since the SKILL.md the TLDR summarizes, or all its words when
+   * there's no TLDR.
+   *
+   * Source: scripts/sync.ts, when the SKILL.md changed: it compares the new text with the
+   * SKILL.md at the TLDR's permalink, fetched from https://raw.githubusercontent.com/, with
+   * `skew()` of website/skill-md.ts. `pnpm run tldr` resets it to 0 when it sets the TLDR.
+   */
   skew: number;
 }
 
 export interface SkillsSh {
-  /** The skill's page on skills.sh. */
+  /**
+   * The skill's page on skills.sh.
+   *
+   * Source: scripts/crawl.ts, when it records the skill: `pageOf()` builds it from the `source`
+   * and `skillId` of its leaderboard entry.
+   */
   url: string;
   /**
    * All-time installs, or null when unknown: exact for a skill in the skills.sh all-time top 600,

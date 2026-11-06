@@ -12,28 +12,28 @@
         },
         "asOf": {
           "type": "string",
-          "description": "When crawl.ts last ran (YYYY-MM-DD)."
+          "description": "When crawl.ts last ran (YYYY-MM-DD).\n\nSource: scripts/crawl.ts, which .github/workflows/crawl.yml runs daily, sets it to the day it runs."
         },
         "qualified": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/Crawled"
           },
-          "description": "At the minimums (`MINIMUMS` in ../scripts/data.ts) or above, most installed first: waiting for an agent to approve or disqualify them, with the add-skill skill."
+          "description": "At the minimums (`MINIMUMS` in ../scripts/data.ts) or above, most installed first: waiting for an agent to approve or disqualify them, with the add-skill skill.\n\nSource: scripts/crawl.ts sorts every skill of the top 600 it saw that day into `qualified` or `unqualified`, with `passes()` of scripts/data.ts; a skill that left the top 600 keeps its state."
         },
         "unqualified": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/Crawled"
           },
-          "description": "Below the minimums, most installed first."
+          "description": "Below the minimums, most installed first.\n\nSource: scripts/crawl.ts, as for `qualified`."
         },
         "disqualified": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/Disqualified"
           },
-          "description": "Not to be shown, each with why, and with no agent data: no tags, no TLDR, no copy of its SKILL.md."
+          "description": "Not to be shown, each with why, and with no agent data: no tags, no TLDR, no copy of its SKILL.md.\n\nSource: scripts/crawl.ts adds the skills of the top 600 that aren't on GitHub, scripts/sync.ts the approved skills whose SKILL.md is gone from their repo, and an agent, with the add-skill skill, the qualified skills it turns down."
         }
       },
       "required": ["$schema", "asOf", "qualified", "unqualified", "disqualified"],
@@ -45,23 +45,23 @@
       "properties": {
         "name": {
           "type": "string",
-          "description": "Its name on skills.sh: the end of its skills.sh page."
+          "description": "Its name on skills.sh: the end of its skills.sh page.\n\nSource: scraped by scripts/crawl.ts when it records the skill: `topSkills()` takes `name` from the leaderboard JSON in the HTML of https://www.skills.sh/."
         },
         "repo": {
           "type": "string",
-          "description": "Its GitHub repo, `owner/name`, as skills.sh names it: possibly an old name the repo redirects from."
+          "description": "Its GitHub repo, `owner/name`, as skills.sh names it: possibly an old name the repo redirects from.\n\nSource: scraped by scripts/crawl.ts when it records the skill: the `source` of its leaderboard entry."
         },
         "official": {
           "type": "boolean",
-          "description": "Whether skills.sh shows its publisher as verified."
+          "description": "Whether skills.sh shows its publisher as verified.\n\nSource: scraped by scripts/crawl.ts, daily while the skill is in the top 600: the `isOfficial` of its leaderboard entry."
         },
         "stars": {
           "type": ["number", "null"],
-          "description": "Its repo's GitHub stars, or null when unknown."
+          "description": "Its repo's GitHub stars, or null when unknown.\n\nSource: the GitHub API, by scripts/crawl.ts, daily while the skill is in the top 600: the `stargazers_count` of https://api.github.com/repos/<repo>, when GITHUB_TOKEN is set. A request that fails keeps the last number."
         },
         "seen": {
           "type": "string",
-          "description": "The last day the crawl saw it in the top 600, which its numbers are from (YYYY-MM-DD)."
+          "description": "The last day the crawl saw it in the top 600, which its numbers are from (YYYY-MM-DD).\n\nSource: scripts/crawl.ts sets it to the day it runs, for every skill of the top 600."
         },
         "skills.sh": {
           "$ref": "#/definitions/SkillsSh",
@@ -77,7 +77,7 @@
       "properties": {
         "url": {
           "type": "string",
-          "description": "The skill's page on skills.sh."
+          "description": "The skill's page on skills.sh.\n\nSource: scripts/crawl.ts, when it records the skill: `pageOf()` builds it from the `source` and `skillId` of its leaderboard entry."
         },
         "installs": {
           "type": ["number", "null"],
@@ -114,7 +114,7 @@
         },
         "note": {
           "type": "string",
-          "description": "Why it's disqualified."
+          "description": "Why it's disqualified.\n\nSource: whoever disqualified it, as for `disqualified`."
         }
       },
       "required": ["url", "note"],
