@@ -848,19 +848,6 @@
       }
     },
     {
-      "name": "python-resource-management",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/python-resource-management",
-        "installs": 11300,
-        "weeklyInstalls": [188, 202, 245, 297, 227, 210, 202, 196],
-        "firstSeen": "2026-01-30"
-      }
-    },
-    {
       "name": "binary-analysis-patterns",
       "repo": "wshobson/agents",
       "official": false,
@@ -926,32 +913,6 @@
       }
     },
     {
-      "name": "dbt-transformation-patterns",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/dbt-transformation-patterns",
-        "installs": 11300,
-        "weeklyInstalls": [178, 187, 214, 286, 218, 187, 187, 171],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "airflow-dag-patterns",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/airflow-dag-patterns",
-        "installs": 11300,
-        "weeklyInstalls": [179, 192, 214, 278, 218, 183, 188, 167],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
       "name": "meme-rush",
       "repo": "binance/binance-skills-hub",
       "official": false,
@@ -978,19 +939,6 @@
       }
     },
     {
-      "name": "paypal-integration",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/paypal-integration",
-        "installs": 11300,
-        "weeklyInstalls": [166, 178, 291, 417, 207, 195, 240, 194],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
       "name": "query-token-info",
       "repo": "binance/binance-skills-hub",
       "official": false,
@@ -1001,19 +949,6 @@
         "installs": 11300,
         "weeklyInstalls": [88, 83, 76, 84, 85, 65, 680, 2793],
         "firstSeen": "2026-03-02"
-      }
-    },
-    {
-      "name": "temporal-python-testing",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/temporal-python-testing",
-        "installs": 11200,
-        "weeklyInstalls": [175, 186, 213, 273, 215, 180, 180, 172],
-        "firstSeen": "2026-01-20"
       }
     },
     {
@@ -1134,19 +1069,6 @@
       }
     },
     {
-      "name": "angular-migration",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/angular-migration",
-        "installs": 11200,
-        "weeklyInstalls": [174, 189, 220, 279, 213, 187, 190, 171],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
       "name": "bmad-retrospective",
       "repo": "bmad-code-org/bmad-method",
       "official": false,
@@ -1157,19 +1079,6 @@
         "installs": 11200,
         "weeklyInstalls": [934, 938, 1195, 2311, 2541, 1335, 12, 195],
         "firstSeen": "2026-03-17"
-      }
-    },
-    {
-      "name": "nx-workspace-patterns",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/nx-workspace-patterns",
-        "installs": 11200,
-        "weeklyInstalls": [166, 180, 211, 278, 220, 198, 246, 191],
-        "firstSeen": "2026-01-20"
       }
     },
     {
@@ -1290,32 +1199,6 @@
       }
     },
     {
-      "name": "web3-testing",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/web3-testing",
-        "installs": 11100,
-        "weeklyInstalls": [170, 183, 213, 265, 208, 180, 187, 175],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "distributed-tracing",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/distributed-tracing",
-        "installs": 11100,
-        "weeklyInstalls": [173, 187, 224, 278, 221, 189, 195, 179],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
       "name": "make-repo-contribution",
       "repo": "github/awesome-copilot",
       "official": true,
@@ -1390,19 +1273,6 @@
         "url": "https://skills.sh/wshobson/agents/multi-cloud-architecture",
         "installs": 11000,
         "weeklyInstalls": [169, 182, 214, 268, 209, 176, 182, 171],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "spark-optimization",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/spark-optimization",
-        "installs": 11000,
-        "weeklyInstalls": [169, 183, 214, 270, 211, 181, 183, 165],
         "firstSeen": "2026-01-20"
       }
     },
@@ -38325,6 +38195,46 @@
     {
       "url": "https://skills.sh/wshobson/agents/evaluation-methodology",
       "note": "Tool docs: an agent's manual for plugin-eval."
+    },
+    {
+      "url": "https://skills.sh/wshobson/agents/python-resource-management",
+      "note": "Tool docs: an agent's manual for python."
+    },
+    {
+      "url": "https://skills.sh/wshobson/agents/dbt-transformation-patterns",
+      "note": "Tool docs: an agent's manual for dbt."
+    },
+    {
+      "url": "https://skills.sh/wshobson/agents/airflow-dag-patterns",
+      "note": "Tool docs: an agent's manual for airflow."
+    },
+    {
+      "url": "https://skills.sh/wshobson/agents/paypal-integration",
+      "note": "Tool docs: an agent's manual for paypal."
+    },
+    {
+      "url": "https://skills.sh/wshobson/agents/temporal-python-testing",
+      "note": "Tool docs: an agent's manual for temporal and pytest."
+    },
+    {
+      "url": "https://skills.sh/wshobson/agents/angular-migration",
+      "note": "Tool docs: an agent's manual for angular."
+    },
+    {
+      "url": "https://skills.sh/wshobson/agents/nx-workspace-patterns",
+      "note": "Tool docs: an agent's manual for nx."
+    },
+    {
+      "url": "https://skills.sh/wshobson/agents/web3-testing",
+      "note": "Tool docs: an agent's manual for hardhat and foundry."
+    },
+    {
+      "url": "https://skills.sh/wshobson/agents/distributed-tracing",
+      "note": "Tool docs: an agent's manual for jaeger and tempo."
+    },
+    {
+      "url": "https://skills.sh/wshobson/agents/spark-optimization",
+      "note": "Tool docs: an agent's manual for spark."
     }
   ]
 }
