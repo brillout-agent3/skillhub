@@ -2353,6 +2353,14 @@
         "description": "Plugins that turn Claude into a specialist for your role, team, and company.",
         "note": "Built for Claude Cowork, also compatible with Claude Code."
       }
+    },
+    {
+      "id": "paramchoudhary/resumeskills",
+      "stars": 3062,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Resume skills for Claude Code. ATS optimization, bullet writing, job matching, interview prep, and career development."
+      }
     }
   ],
   "bundles": [
@@ -38058,6 +38066,1107 @@
           "stack:csharp",
           "architecture",
           "implementation"
+        ]
+      }
+    },
+    {
+      "id": "paramchoudhary/resumeskills/skills/resume-ats-optimizer",
+      "name": "resume-ats-optimizer",
+      "skills.sh": {
+        "url": "https://skills.sh/paramchoudhary/resumeskills/resume-ats-optimizer",
+        "installs": 12400,
+        "weeklyInstalls": [595, 505, 452, 482, 565, 555, 575, 542],
+        "firstSeen": "2026-05-20"
+      },
+      "skillMd": {
+        "version": "74ae19e7c62b0516d1c298328e5544976c12da5d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Checks a resume against applicant tracking systems: formatting that breaks their parsers, keyword match with a job posting, and where to add missing terms.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "your applications get no replies, or you want to know whether a resume will get through automated screening for a job"
+            },
+            {
+              "label": "It does",
+              "text": "checks formatting that breaks resume parsers, then scores keyword match: required keywords found divided by those in the job description, aiming for 80% or more"
+            },
+            {
+              "label": "You get",
+              "text": "an ATS compatibility report: overall score, formatting issues, found and missing keywords, before-and-after rewrites and an estimated new match score"
+            },
+            {
+              "label": "Unlike resume-formatter",
+              "text": "which covers layout alone, this one also matches your resume's keywords against a specific posting"
+            }
+          ],
+          "text": "An applicant tracking system (ATS) is the software employers use to read resumes into structured data and rank them by keywords before a person sees them. This skill first checks for what breaks that reading: tables, columns, text boxes, headers and footers, images, unusual fonts, and section names such as \"My Journey\" instead of \"Experience\". It then pulls the job description's keywords in three groups, hard skills, soft skills and industry terms, and checks each for exact phrases, synonyms, how often it appears and where. Missing keywords get suggested placements: five to eight of the most important in the summary, the posting's exact phrasing in the skills section, and the rest worked into experience bullets, with critical terms appearing two to four times and no keyword stuffing. It adjusts for tech, finance, healthcare and marketing resumes, for career changers, recent graduates and executives, and for employment gaps, then re-scores the resume after the suggested changes.",
+          "permalink": "https://github.com/paramchoudhary/resumeskills/tree/74ae19e7c62b0516d1c298328e5544976c12da5d/skills/resume-ats-optimizer"
+        },
+        "tags": [
+          "category:personal",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "personal"
+        ]
+      }
+    },
+    {
+      "id": "paramchoudhary/resumeskills/skills/resume-bullet-writer",
+      "name": "resume-bullet-writer",
+      "skills.sh": {
+        "url": "https://skills.sh/paramchoudhary/resumeskills/resume-bullet-writer",
+        "installs": 10800,
+        "weeklyInstalls": [513, 448, 374, 396, 505, 511, 498, 538],
+        "firstSeen": "2026-05-20"
+      },
+      "skillMd": {
+        "version": "74ae19e7c62b0516d1c298328e5544976c12da5d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Rewrites resume bullets from duties into achievements, with a strong verb, at least one number and the result, using formulas like Google's X-Y-Z.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "your resume bullets read like job duties (\"responsible for\", \"helped with\") and show no results"
+            },
+            {
+              "label": "It does",
+              "text": "asks what you did, at what scale and with what outcome, then rebuilds each bullet with the X-Y-Z, STAR or CAR formula"
+            },
+            {
+              "label": "You get",
+              "text": "each original bullet with its issues, an improved version and a note on what changed"
+            },
+            {
+              "label": "Unlike resume-quantifier",
+              "text": "which, from the same repo, focuses on finding and estimating the numbers, this rewrites the whole bullet: verb, scale, action and result"
+            }
+          ],
+          "text": "Most resume bullets list duties instead of achievements; this skill turns them around. Its main formula is Google's X-Y-Z: accomplished X, as measured by Y, by doing Z. STAR (situation, task, action, result) and CAR (challenge, action, result) are the alternatives. For each weak bullet the agent asks clarifying questions, such as which platforms, how many followers, what growth and what business impact, then applies a formula and trims the result to one or two lines. Every bullet should start with a strong verb, carry at least one number (money, percentages, time, scale or before and after), state an outcome and fit the target role. When you lack exact figures it suggests approximations with ~, ranges, conservative estimates, or counting inputs such as interviews run. It includes lists of strong verbs by category, weak-versus-strong examples for software, product, sales, marketing, customer success, data and operations roles, and advice for graduates, career changers and employment gaps.",
+          "permalink": "https://github.com/paramchoudhary/resumeskills/tree/74ae19e7c62b0516d1c298328e5544976c12da5d/skills/resume-bullet-writer"
+        },
+        "tags": [
+          "category:personal",
+          "category:writing",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "personal",
+          "writing"
+        ]
+      }
+    },
+    {
+      "id": "paramchoudhary/resumeskills/skills/linkedin-profile-optimizer",
+      "name": "linkedin-profile-optimizer",
+      "skills.sh": {
+        "url": "https://skills.sh/paramchoudhary/resumeskills/linkedin-profile-optimizer",
+        "installs": 10500,
+        "weeklyInstalls": [486, 430, 347, 393, 461, 499, 486, 454],
+        "firstSeen": "2026-05-20"
+      },
+      "skillMd": {
+        "version": "74ae19e7c62b0516d1c298328e5544976c12da5d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Rewrites your LinkedIn headline, About section and experience entries around the keywords recruiters search for, with a checklist for photo, skills and recommendations.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're job hunting and want recruiters to find you on LinkedIn, or your profile doesn't match your resume"
+            },
+            {
+              "label": "It does",
+              "text": "rewrites your headline (role, expertise, value), About section and experience entries around the terms recruiters search for"
+            },
+            {
+              "label": "You get",
+              "text": "a profile assessment with scores, rewritten sections, skills and keywords to add, and a checklist of changes to make"
+            },
+            {
+              "label": "Unlike a resume",
+              "text": "the profile can be longer and more conversational, and is keyed to your whole industry rather than one posting"
+            }
+          ],
+          "text": "A guide to a LinkedIn profile written for job searching. It starts from how LinkedIn differs from a resume: longer, more conversational, keyed to the whole industry rather than one employer, and always current. The headline, up to 220 characters and the part it treats as most important for search, follows a role, expertise and value formula. The About section opens with a hook in the first lines that show before \"see more\", then covers who you are, key achievements, what you're looking for, a keyword list and how to reach you. Each experience entry gets a short description, four to six achievement bullets and media where possible. It also covers the photo and banner, using all 50 skill slots, the Featured section, five to ten recommendations, Open to Work visibility, posting at least weekly, and what to keep the same, expand or adjust when syncing the profile with your resume. You make the changes on LinkedIn yourself, from its checklist.",
+          "permalink": "https://github.com/paramchoudhary/resumeskills/tree/74ae19e7c62b0516d1c298328e5544976c12da5d/skills/linkedin-profile-optimizer"
+        },
+        "tags": [
+          "category:personal",
+          "category:writing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:linkedin",
+          "personal",
+          "writing",
+          "social-media"
+        ]
+      }
+    },
+    {
+      "id": "paramchoudhary/resumeskills/skills/job-description-analyzer",
+      "name": "job-description-analyzer",
+      "skills.sh": {
+        "url": "https://skills.sh/paramchoudhary/resumeskills/job-description-analyzer",
+        "installs": 10200,
+        "weeklyInstalls": [456, 411, 325, 348, 442, 472, 684, 772],
+        "firstSeen": "2026-05-20"
+      },
+      "skillMd": {
+        "version": "74ae19e7c62b0516d1c298328e5544976c12da5d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Scores how well you match a job posting, separates must-haves from nice-to-haves, spots warning signs, and recommends whether and how to apply.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're asking \"should I apply to this job?\" or \"am I qualified?\" before spending time tailoring a resume"
+            },
+            {
+              "label": "It does",
+              "text": "weights required skills 70% and preferred ones 30% into a match score, then sorts each gap as critical, major or minor"
+            },
+            {
+              "label": "You get",
+              "text": "a job analysis report: match score and recommendation, strengths to lead with, gap strategies, resume changes, cover letter talking points, red flags and a timeline"
+            },
+            {
+              "label": "Thresholds",
+              "text": "75-89% is an excellent fit, 60-74% good, under 50% a skip unless it's a dream job, and 90% or more overqualified"
+            }
+          ],
+          "text": "The step before tailoring a resume. Its own advice is to apply to 10-15 jobs at a 70-90% match rather than 50 blindly. It splits the posting into required qualifications, preferred ones and culture signals, using wording cues (\"must have\", \"bonus if\") and how often each comes up, and pulls out hard skills, soft skills and domain terms. The match score weights required skills at 70% and preferred at 30%. Each missing requirement is a critical gap (don't apply), a major one (address it in the cover letter) or a minor one (downplay it or stress related skills); dealbreakers include a required license, clearance, degree or location you can't meet. It scans for red flags in workload, culture and pay language, such as \"wear many hats\", \"like a family\" or \"competitive salary\" with no range. The report also lists checks to run on Glassdoor, LinkedIn and Levels.fyi, an application timeline and the reasons for and against applying. Vague, multi-role, internal and reposted listings get their own handling. resume-tailor, from the same repo, says to run it first.",
+          "permalink": "https://github.com/paramchoudhary/resumeskills/tree/74ae19e7c62b0516d1c298328e5544976c12da5d/skills/job-description-analyzer"
+        },
+        "tags": [
+          "category:personal",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "personal"
+        ]
+      }
+    },
+    {
+      "id": "paramchoudhary/resumeskills/skills/resume-tailor",
+      "name": "resume-tailor",
+      "skills.sh": {
+        "url": "https://skills.sh/paramchoudhary/resumeskills/resume-tailor",
+        "installs": 10100,
+        "weeklyInstalls": [481, 439, 347, 382, 490, 494, 480, 531],
+        "firstSeen": "2026-05-20"
+      },
+      "skillMd": {
+        "version": "74ae19e7c62b0516d1c298328e5544976c12da5d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Adapts your resume to one job posting: rewrites the summary, reorders skills, jobs and bullets, and adds its keywords without inventing experience.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're applying to a specific job and want your resume aimed at it"
+            },
+            {
+              "label": "It does",
+              "text": "rewrites your summary for the role, puts the most relevant skills, jobs and bullets first, and works the posting's keywords into true statements"
+            },
+            {
+              "label": "You get",
+              "text": "a list of tailored changes, before and after, with keywords added, bullets moved or modified and an estimated new match score"
+            },
+            {
+              "label": "Won't",
+              "text": "add skills you don't have, change numbers, invent experience, or claim titles or certifications you didn't earn"
+            },
+            {
+              "label": "Works best after",
+              "text": "job-description-analyzer, from the same repo, which it says to run first"
+            }
+          ],
+          "text": "Tailoring here means choosing from your true experience, not adding to it: the skill treats your full history as a library and picks what each employer wants. After the posting is analyzed, it audits each section of the resume for relevance to this role. The summary is rewritten to mirror the job's main requirements; its examples show one person's summary aimed at an operations role and at a project management role. Skills are reordered so the posting's top requirements come first, a more relevant older job can move above a recent one, bullets are swapped so the most relevant lead, and vague wording such as \"worked with various teams\" takes the posting's terms when they're accurate. It has strategies for technical roles at non-tech companies, management roles, and moves between startups and big companies, plus a ten-point check before you submit. It also recommends keeping a master resume with every bullet, and naming each tailored file by name, role, company and date.",
+          "permalink": "https://github.com/paramchoudhary/resumeskills/tree/74ae19e7c62b0516d1c298328e5544976c12da5d/skills/resume-tailor"
+        },
+        "tags": [
+          "category:personal",
+          "category:writing",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "personal",
+          "writing"
+        ]
+      }
+    },
+    {
+      "id": "paramchoudhary/resumeskills/skills/tech-resume-optimizer",
+      "name": "tech-resume-optimizer",
+      "skills.sh": {
+        "url": "https://skills.sh/paramchoudhary/resumeskills/tech-resume-optimizer",
+        "installs": 10000,
+        "weeklyInstalls": [515, 427, 341, 363, 467, 479, 470, 513],
+        "firstSeen": "2026-05-20"
+      },
+      "skillMd": {
+        "version": "74ae19e7c62b0516d1c298328e5544976c12da5d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Restructures resumes for software engineering, data, DevOps and technical PM roles: a categorized skills section, bullets with scale and stack, projects and GitHub.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're applying for software engineering, data, DevOps or SRE, or technical product roles"
+            },
+            {
+              "label": "It does",
+              "text": "rewrites bullets as action, technical work, scale or impact, and the technology used, and groups the skills section by category"
+            },
+            {
+              "label": "You get",
+              "text": "a restructured skills section, improved bullets, projects to highlight, GitHub to-dos and ways to address technical gaps"
+            },
+            {
+              "label": "Unlike resume-bullet-writer",
+              "text": "which covers any role, this adds tech metrics such as latency, uptime and requests per second, plus projects and GitHub"
+            }
+          ],
+          "text": "Resume advice for technical roles, written to pass ATS keyword screening and impress technical recruiters. The recommended order puts contact details with GitHub and portfolio links first, then an optional summary, technical skills, experience, projects, education and certifications. Skills can be grouped by category (languages, frameworks, databases, cloud, tools), by proficiency or as a flat list, leaving out Microsoft Office, skill bars and anything touched once. Bullets follow one formula, an action verb plus the technical work, its scale or impact, and the technology used, with metrics such as daily active users, requests per second, latency, uptime and cloud costs; examples cover software, data, DevOps and technical PM roles. Projects matter most for juniors, career changers and bootcamp graduates, and should have real users or depth, not tutorial apps. It also covers education formats for degrees, bootcamps and self-taught engineers, a GitHub profile with pinned repos and READMEs, and claiming only technologies you can discuss in depth in an interview.",
+          "permalink": "https://github.com/paramchoudhary/resumeskills/tree/74ae19e7c62b0516d1c298328e5544976c12da5d/skills/tech-resume-optimizer"
+        },
+        "tags": [
+          "category:personal",
+          "category:writing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "personal",
+          "writing"
+        ]
+      }
+    },
+    {
+      "id": "paramchoudhary/resumeskills/skills/resume-formatter",
+      "name": "resume-formatter",
+      "skills.sh": {
+        "url": "https://skills.sh/paramchoudhary/resumeskills/resume-formatter",
+        "installs": 9300,
+        "weeklyInstalls": [448, 381, 316, 329, 427, 447, 423, 417],
+        "firstSeen": "2026-05-20"
+      },
+      "skillMd": {
+        "version": "74ae19e7c62b0516d1c298328e5544976c12da5d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Reviews a resume's layout for ATS-safe, scannable formatting: page length, margins, fonts, section order, dates and file type, with recommended changes.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "your resume looks messy or hard to read, or you're unsure its layout will get through applicant tracking software"
+            },
+            {
+              "label": "It does",
+              "text": "applies layout rules that work for parsers and recruiters alike: one column, standard fonts at 10-12pt, 0.5-1 inch margins, standard section headers"
+            },
+            {
+              "label": "You get",
+              "text": "a formatting review: current issues, recommended setup, section order, visual and ATS fixes, and a before-and-after preview"
+            },
+            {
+              "label": "Unlike resume-ats-optimizer",
+              "text": "which also scores keywords against a posting, this covers layout only"
+            }
+          ],
+          "text": "Formatting rules for a resume that has to pass two readers: applicant tracking systems (ATS) that parse the text, and recruiters who scan it. Length goes by experience: one page up to five years, one or two up to fifteen, two beyond that and at most three for executives. It sets margins, fonts and sizes for the name, headers and body, line spacing and a standard section order. The don'ts are what breaks parsing: tables, text boxes, multiple columns, important details in headers or footers, images, skill bars, emojis and color that carries meaning. It gives formats for contact details (city and state, no photo, birth date or marital status), experience entries with consistent dates and three to six bullets per role, skills and education, plus visual hierarchy and white space. Files go out as .docx or text-based PDF, named like FirstName_LastName_Resume.pdf. For a designed resume for creative roles, the repo has creative-portfolio-resume.",
+          "permalink": "https://github.com/paramchoudhary/resumeskills/tree/74ae19e7c62b0516d1c298328e5544976c12da5d/skills/resume-formatter"
+        },
+        "tags": [
+          "category:personal",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "personal",
+          "documents"
+        ]
+      }
+    },
+    {
+      "id": "paramchoudhary/resumeskills/skills/interview-prep-generator",
+      "name": "interview-prep-generator",
+      "skills.sh": {
+        "url": "https://skills.sh/paramchoudhary/resumeskills/interview-prep-generator",
+        "installs": 9200,
+        "weeklyInstalls": [443, 378, 311, 323, 418, 438, 410, 399],
+        "firstSeen": "2026-05-20"
+      },
+      "skillMd": {
+        "version": "74ae19e7c62b0516d1c298328e5544976c12da5d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Predicts interview questions from a job description, turns your resume bullets into STAR stories, and drafts your pitch and questions to ask.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you have a job interview coming up and want your stories and answers ready"
+            },
+            {
+              "label": "It does",
+              "text": "picks the competencies the role will test, then expands each resume bullet into a STAR story: situation, task, action, and a result with metrics"
+            },
+            {
+              "label": "You get",
+              "text": "a prep sheet: predicted questions linked to stories, a story bank, a two-minute \"tell me about yourself\" script, questions to ask and company notes"
+            },
+            {
+              "label": "Story lengths",
+              "text": "two minutes in full, 60 seconds for follow-ups, and a 15-second one-liner"
+            }
+          ],
+          "text": "Interview preparation in three phases: analyze the role, build a bank of stories, then prepare for practice with likely questions, questions to ask and company research. From the job description it picks the competencies likely to be tested and predicts questions by probability. Stories follow STAR (situation, task, action, result), with a quantified result and about two minutes for the full version. The bank should hold eight to ten stories covering leadership, problem-solving, collaboration, achievement and failure, each mapped to the questions it answers. It lists common behavioral, role-specific (product, engineering, marketing, sales) and standard questions, questions to ask hiring managers, team members and executives, and ones to avoid. Hard questions get formulas: a real weakness with the steps you're taking, a forward-looking reason for leaving, a genuine failure and what you learned, and a line that deflects salary questions until you're pressed. Its checklist ends with practicing out loud, logistics, a review the day before and thank-you notes.",
+          "permalink": "https://github.com/paramchoudhary/resumeskills/tree/74ae19e7c62b0516d1c298328e5544976c12da5d/skills/interview-prep-generator"
+        },
+        "tags": [
+          "category:personal",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "personal"
+        ]
+      }
+    },
+    {
+      "id": "paramchoudhary/resumeskills/skills/cover-letter-generator",
+      "name": "cover-letter-generator",
+      "skills.sh": {
+        "url": "https://skills.sh/paramchoudhary/resumeskills/cover-letter-generator",
+        "installs": 9100,
+        "weeklyInstalls": [437, 390, 311, 334, 425, 440, 419, 406],
+        "firstSeen": "2026-05-20"
+      },
+      "skillMd": {
+        "version": "74ae19e7c62b0516d1c298328e5544976c12da5d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes a 250-400 word cover letter from your resume and the job description, opening with a specific hook and addressing any gaps.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need a cover letter for a specific job"
+            },
+            {
+              "label": "It does",
+              "text": "opens with a hook (company knowledge, a mutual connection, their problem, an achievement or an industry insight), then matches your strongest experience to their top need"
+            },
+            {
+              "label": "You get",
+              "text": "the letter, two alternative openings, and talking points from it to expand on in the interview"
+            },
+            {
+              "label": "Avoids",
+              "text": "\"I am writing to apply\", \"please find my resume attached\" and \"I look forward to hearing from you\""
+            }
+          ],
+          "text": "A cover letter should add what a resume can't: why you, why now, why here. This skill writes one in three or four paragraphs. The opening hooks with something specific, never \"I am writing to apply\" or a first word of \"I\". The first body paragraph ties your strongest experience to their top requirement with a result; the second adds more value and handles gaps head-on, such as SQL you're still learning, set against related strengths. The close names a contribution you'd make and asks to talk. Tone shifts by industry: technical detail for engineering, some creativity for marketing, formality for finance and consulting, scrappiness for startups. It covers unknown hiring managers (no \"To Whom It May Concern\"), referrals, being under- or overqualified, and career changes, and checks each draft against a ten-point list that includes a metric and the word count. It suggests analyzing the job description first; its output header has a slot for the match score from job-description-analyzer, in the same repo.",
+          "permalink": "https://github.com/paramchoudhary/resumeskills/tree/74ae19e7c62b0516d1c298328e5544976c12da5d/skills/cover-letter-generator"
+        },
+        "tags": [
+          "category:personal",
+          "category:writing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "personal",
+          "writing"
+        ]
+      }
+    },
+    {
+      "id": "paramchoudhary/resumeskills/skills/resume-quantifier",
+      "name": "resume-quantifier",
+      "skills.sh": {
+        "url": "https://skills.sh/paramchoudhary/resumeskills/resume-quantifier",
+        "installs": 9100,
+        "weeklyInstalls": [440, 376, 315, 329, 409, 433, 424, 397],
+        "firstSeen": "2026-05-20"
+      },
+      "skillMd": {
+        "version": "74ae19e7c62b0516d1c298328e5544976c12da5d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Finds numbers for resume bullets that have none, asking about scale and impact and estimating conservatively when exact figures aren't available.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "your resume bullets have no numbers, or you feel you \"don't have metrics\""
+            },
+            {
+              "label": "It does",
+              "text": "asks scale, impact and before-and-after questions, then estimates low, as ranges, as minimums, or from known totals and frequencies"
+            },
+            {
+              "label": "You get",
+              "text": "each bullet quantified, with the questions asked, the metrics added, how each estimate was made and the questions still open"
+            },
+            {
+              "label": "Rule",
+              "text": "every number should be conservative and one you can defend in an interview"
+            }
+          ],
+          "text": "Built on the claim that every bullet can be quantified. It sorts metrics into money, time, percentages, volume, quality and frequency, and lists what to measure by role, from quota attainment in sales to uptime in engineering and time to fill in HR. To find hidden numbers it asks scale questions (how many people, what budget), impact questions (what changed because of you) and comparison questions (before versus after). When exact data is missing it estimates: conservatively (if you think 100 hours, say 75+), as a range, as a minimum (\"100+\"), as a share of a known total, or by multiplying a frequency, such as 30 invoices a day over 250 days. It has templates for before-and-after, scale, volume and ranking bullets, and answers for \"I was just one person on a team\", confidential results and entry-level work. Its numbers to avoid include inflated ones, ones you can't explain and confidential ones. Unlike resume-bullet-writer, from the same repo, which rewrites the whole bullet, this one concentrates on the numbers.",
+          "permalink": "https://github.com/paramchoudhary/resumeskills/tree/74ae19e7c62b0516d1c298328e5544976c12da5d/skills/resume-quantifier"
+        },
+        "tags": [
+          "category:personal",
+          "category:writing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "personal",
+          "writing"
+        ]
+      }
+    },
+    {
+      "id": "paramchoudhary/resumeskills/skills/portfolio-case-study-writer",
+      "name": "portfolio-case-study-writer",
+      "skills.sh": {
+        "url": "https://skills.sh/paramchoudhary/resumeskills/portfolio-case-study-writer",
+        "installs": 8800,
+        "weeklyInstalls": [421, 369, 293, 311, 388, 416, 398, 376],
+        "firstSeen": "2026-05-20"
+      },
+      "skillMd": {
+        "version": "74ae19e7c62b0516d1c298328e5544976c12da5d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Expands a resume bullet into a portfolio case study: overview, problem, process, solution, results and learnings, with a list of visuals to add.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need portfolio case studies, common for PM, UX and creative roles, or a project write-up for your site"
+            },
+            {
+              "label": "It does",
+              "text": "tells the project in six parts, overview, problem, process, solution, results and learnings, to show how and why, not just what"
+            },
+            {
+              "label": "You get",
+              "text": "a Markdown case study with quick facts, a before-and-after results table and a list of the images or screenshots it needs"
+            },
+            {
+              "label": "Reading time",
+              "text": "3-5 minutes for a quick read, 10-15 for a deep dive"
+            }
+          ],
+          "text": "Resumes show what you did; case studies show how and why. This skill turns a resume bullet into a write-up in six sections. The overview gives the project, company, your role, timeline, team and a one-line result. The problem sets out the business context, user pain points, goals and constraints. The process shows the research, the options considered and the decisions made, with reasons. The solution describes what you built, with places for mockups and screenshots. Results compare before and after with numbers and a timeframe, and learnings cover what worked, what you'd do differently and the skills you gained. Its worked example is a checkout redesign that cut cart abandonment by 35%. The emphasis shifts by role: strategy and stakeholders for product managers, research and design process for designers, architecture for engineers, targeting and ROI for marketers. A checklist covers making your own contribution clear, honesty about challenges, and being able to discuss it in detail in an interview.",
+          "permalink": "https://github.com/paramchoudhary/resumeskills/tree/74ae19e7c62b0516d1c298328e5544976c12da5d/skills/portfolio-case-study-writer"
+        },
+        "tags": [
+          "category:personal",
+          "category:writing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "personal",
+          "writing"
+        ]
+      }
+    },
+    {
+      "id": "paramchoudhary/resumeskills/skills/resume-section-builder",
+      "name": "resume-section-builder",
+      "skills.sh": {
+        "url": "https://skills.sh/paramchoudhary/resumeskills/resume-section-builder",
+        "installs": 8800,
+        "weeklyInstalls": [418, 364, 293, 306, 394, 412, 393, 370],
+        "firstSeen": "2026-05-20"
+      },
+      "skillMd": {
+        "version": "74ae19e7c62b0516d1c298328e5544976c12da5d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Recommends which resume sections to include, in what order and format, for your career stage and role, and drafts a summary when one fits.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're unsure what goes in a resume section, or which sections a graduate, career changer or executive needs"
+            },
+            {
+              "label": "It does",
+              "text": "picks a section order for your situation and sets what goes in the summary, skills, experience, education and extras such as projects or volunteering"
+            },
+            {
+              "label": "You get",
+              "text": "section-by-section recommendations: the order with reasons, include or skip for each, a drafted summary and an organized skills list"
+            },
+            {
+              "label": "Unlike resume-formatter",
+              "text": "which handles layout and fonts, this decides what each section holds"
+            }
+          ],
+          "text": "Section-by-section guidance for building a resume. A professional summary is recommended for career changers, senior people, those returning to work and specialists, skipped for entry-level or straightforward careers, and written as title, years, key skills and value, with sample summaries for each career stage. Skills can be a simple list, grouped by category or by proficiency, leaving out Microsoft Office, basic skills and soft skills. Experience gets three to six bullets for recent roles, depending on career stage, and two or three for older ones, with formats for several roles at one company, short tenures and freelance work. Education shrinks as a career grows: GPA and coursework for graduates, just degree and school for senior people, who may drop the year to avoid age discrimination. Projects, volunteering, languages, publications and awards each have a rule for when they belong. Section order differs for standard, technical, recent-graduate, executive and career-changer resumes.",
+          "permalink": "https://github.com/paramchoudhary/resumeskills/tree/74ae19e7c62b0516d1c298328e5544976c12da5d/skills/resume-section-builder"
+        },
+        "tags": [
+          "category:personal",
+          "category:writing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "personal",
+          "writing"
+        ]
+      }
+    },
+    {
+      "id": "paramchoudhary/resumeskills/skills/academic-cv-builder",
+      "name": "academic-cv-builder",
+      "skills.sh": {
+        "url": "https://skills.sh/paramchoudhary/resumeskills/academic-cv-builder",
+        "installs": 8700,
+        "weeklyInstalls": [417, 367, 295, 309, 387, 402, 386, 359],
+        "firstSeen": "2026-05-20"
+      },
+      "skillMd": {
+        "version": "74ae19e7c62b0516d1c298328e5544976c12da5d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Structures an academic CV for faculty, postdoc, lecturer or research roles, with publications, grants, teaching, mentoring and service formatted to field conventions.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're applying for a faculty, postdoc, lecturer or research scientist position"
+            },
+            {
+              "label": "It does",
+              "text": "orders the academic sections for the position type and formats each: publications, presentations, grants, teaching, mentoring, service and more"
+            },
+            {
+              "label": "You get",
+              "text": "a CV structure with formatted sections, notes on your field's conventions and a list of items to add or update"
+            },
+            {
+              "label": "Unlike a resume",
+              "text": "it's a complete record, not a selection: 2-4 pages for a graduate student, 15-30 or more for senior faculty"
+            }
+          ],
+          "text": "An academic CV is a full record rather than a selection, and it grows with a career: two to four pages for a graduate student, ten to twenty for mid-career faculty. This skill lays out the standard sections, from contact details with ORCID and education with dissertation, advisor and committee, through appointments, publications, presentations, grants, teaching, mentoring, service and memberships to honors. Research positions lead with publications and grants, teaching positions with teaching, administrative ones with service. Publications can be numbered or grouped by type, with your name in bold, DOIs, and student co-authors marked. Grants list the agency, mechanism, your role, title, dates and amount, including your lab's share. It says what to emphasize for tenure-track, postdoc, lecturer and research scientist roles, and covers the conventions of the sciences (author order matters), the humanities (single-author work and books) and the social sciences.",
+          "permalink": "https://github.com/paramchoudhary/resumeskills/tree/74ae19e7c62b0516d1c298328e5544976c12da5d/skills/academic-cv-builder"
+        },
+        "tags": [
+          "category:personal",
+          "category:writing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "personal",
+          "writing"
+        ]
+      }
+    },
+    {
+      "id": "paramchoudhary/resumeskills/skills/creative-portfolio-resume",
+      "name": "creative-portfolio-resume",
+      "skills.sh": {
+        "url": "https://skills.sh/paramchoudhary/resumeskills/creative-portfolio-resume",
+        "installs": 8700,
+        "weeklyInstalls": [415, 368, 290, 316, 388, 396, 383, 371],
+        "firstSeen": "2026-05-20"
+      },
+      "skillMd": {
+        "version": "74ae19e7c62b0516d1c298328e5544976c12da5d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Plans two resumes for creative roles: an ATS-safe version for online applications and a designed one for networking and portfolios, with design specs.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you work in design, marketing, writing or another creative field and want your resume to show it without failing ATS screening"
+            },
+            {
+              "label": "It does",
+              "text": "splits it into two versions and says when to send each: the plain one through portals and job boards, the designed one by email or at interviews"
+            },
+            {
+              "label": "You get",
+              "text": "a strategy with typography, color hex codes and layout specs, portfolio links and content adjustments for your field"
+            },
+            {
+              "label": "Covers",
+              "text": "graphic and UX designers, marketing and brand roles, writers, and photographers or video makers"
+            }
+          ],
+          "text": "Creative professionals want their resume to show their design skills, but applicant tracking systems (ATS) often fail to read heavily designed ones. This skill's answer is two versions. The ATS-compatible one goes through online portals and job boards and stays creative only through white space, typography, bold and italic, simple dividers, sparing color in the name or headers, and portfolio links, never columns, text boxes, icons or skill bars. The designed one is for networking, direct emails to hiring managers, your portfolio site, interviews and agencies that expect one, and can use two columns, a brand color, icons and a personal logo, as long as information stays easy to find. It gives approaches for graphic designers, UX designers, marketing and brand roles, writers and photographers, ways to link specific case studies from bullets, checklists for typography, layout and color, and tools to use (InDesign, Figma, Canva, Word) or avoid (PowerPoint, random online builders).",
+          "permalink": "https://github.com/paramchoudhary/resumeskills/tree/74ae19e7c62b0516d1c298328e5544976c12da5d/skills/creative-portfolio-resume"
+        },
+        "tags": [
+          "category:personal",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "personal",
+          "design",
+          "documents"
+        ]
+      }
+    },
+    {
+      "id": "paramchoudhary/resumeskills/skills/salary-negotiation-prep",
+      "name": "salary-negotiation-prep",
+      "skills.sh": {
+        "url": "https://skills.sh/paramchoudhary/resumeskills/salary-negotiation-prep",
+        "installs": 8600,
+        "weeklyInstalls": [411, 366, 283, 305, 387, 407, 387, 365],
+        "firstSeen": "2026-05-20"
+      },
+      "skillMd": {
+        "version": "74ae19e7c62b0516d1c298328e5544976c12da5d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds a negotiation plan for a job offer: market range, total compensation, a counter-offer email or call script, and fallbacks for pushback.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you have a job offer and want to negotiate it, or a recruiter asks your salary expectations"
+            },
+            {
+              "label": "It does",
+              "text": "builds a market range (25th to 90th percentile) from sources such as Levels.fyi and Glassdoor, totals the compensation, then plans the counter"
+            },
+            {
+              "label": "You get",
+              "text": "a negotiation strategy: market summary, their offer against your counter with reasons, a script, a Plan B, your walk-away point and questions to clarify"
+            },
+            {
+              "label": "Rules",
+              "text": "negotiate once the offer is in writing, mention competing offers only if they're real, and get the final terms in writing"
+            }
+          ],
+          "text": "It treats negotiation as expected, since companies budget for it. Research comes first: a market range from sources such as Levels.fyi, Glassdoor, LinkedIn Salary, Blind and public H1B data, what raises or limits your worth, and total compensation as base plus bonus, equity and benefits, with RSUs, options, vesting and refresh grants explained. The counter follows five steps: enthusiasm, your value, a specific ask, the justification, then an open discussion. It has an email template and a call script, and scripts for a low first offer, being asked for your expectations first (deflect, then give a range), a base that won't move (ask for a signing bonus, equity, an earlier review, vacation or a better title instead), competing offers, and questions about your current salary, which it notes are illegal in many states. A timeline runs from the verbal offer to a signed agreement over about ten days. For a fuller comparison of several offers, the repo has offer-comparison-analyzer.",
+          "permalink": "https://github.com/paramchoudhary/resumeskills/tree/74ae19e7c62b0516d1c298328e5544976c12da5d/skills/salary-negotiation-prep"
+        },
+        "tags": [
+          "category:personal",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "personal",
+          "email",
+          "finance"
+        ]
+      }
+    },
+    {
+      "id": "paramchoudhary/resumeskills/skills/resume-version-manager",
+      "name": "resume-version-manager",
+      "skills.sh": {
+        "url": "https://skills.sh/paramchoudhary/resumeskills/resume-version-manager",
+        "installs": 8600,
+        "weeklyInstalls": [416, 355, 281, 307, 385, 401, 384, 360],
+        "firstSeen": "2026-05-20"
+      },
+      "skillMd": {
+        "version": "74ae19e7c62b0516d1c298328e5544976c12da5d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Organizes your resume versions: a master resume holding every bullet, tailored copies named by role, company and date, and an application tracker.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're applying to many roles and losing track of which resume went to which company"
+            },
+            {
+              "label": "It does",
+              "text": "lays out a filing system: one master resume holding everything, with each tailored version made from a copy of it rather than by editing the master"
+            },
+            {
+              "label": "You get",
+              "text": "a version summary: the master's status, active versions by role type, an update queue and recommended actions"
+            },
+            {
+              "label": "Suggests",
+              "text": "a folder structure, file names like Smith_SWE_Stripe_Feb2024.pdf, and a tracker of version, date, status and notes for each application"
+            }
+          ],
+          "text": "A filing system for job seekers juggling many resumes. The master resume holds everything: every job, every bullet you've written, grouped by focus, summary versions for each role type, all skills, certifications and projects, and the keywords each job covers. Tailored versions start from a copy of it: analyze the posting, pick bullets and a summary, reorder skills, add keywords, trim to length, save under the naming pattern and log it in the tracker. It suggests folders for the master, tailored versions by role, cover letters and an application spreadsheet, and versions by target role, industry or seniority. The master is updated right away after a new job, project, certification or award, and reviewed every quarter. Its rules: never edit the master for an application, no names like resume_final_v2, archive old versions instead of deleting them, and back up to cloud storage.",
+          "permalink": "https://github.com/paramchoudhary/resumeskills/tree/74ae19e7c62b0516d1c298328e5544976c12da5d/skills/resume-version-manager"
+        },
+        "tags": [
+          "category:personal",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "personal",
+          "documents"
+        ]
+      }
+    },
+    {
+      "id": "paramchoudhary/resumeskills/skills/career-changer-translator",
+      "name": "career-changer-translator",
+      "skills.sh": {
+        "url": "https://skills.sh/paramchoudhary/resumeskills/career-changer-translator",
+        "installs": 8600,
+        "weeklyInstalls": [409, 356, 287, 307, 388, 401, 390, 360],
+        "firstSeen": "2026-05-20"
+      },
+      "skillMd": {
+        "version": "74ae19e7c62b0516d1c298328e5544976c12da5d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Reframes your experience for a new industry: finds transferable skills, swaps your field's terms for the target's, and drafts your career-change story.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're switching careers or industries and your experience doesn't map directly to the new role"
+            },
+            {
+              "label": "It does",
+              "text": "translates your bullets and vocabulary into the target field's, so lesson plans become training curriculum and a platoon becomes a team"
+            },
+            {
+              "label": "You get",
+              "text": "transferable skills with reasons, reframed bullets, a term translation table, gaps with ways to bridge them, a draft \"why I'm changing\" story and a resume structure"
+            },
+            {
+              "label": "Worked examples",
+              "text": "teachers, military, retail, hospitality and healthcare moving into corporate roles, plus entry points into tech, finance and healthcare"
+            }
+          ],
+          "text": "Career changers compete with people who have direct experience, so this skill rewrites yours in the new field's language. It groups universal transferable skills under leadership, communication, analysis and operations, and gives worked translations with term tables: teacher to corporate trainer, military to corporate, retail to account management, hospitality to customer success, healthcare to tech or pharma. The resume strategy leads with a summary built on transferable skills, uses a functional or hybrid format that groups bullets by skill rather than by job, and adds bridge experience: volunteering, freelance work, certifications, side projects or courses in the target field. It prepares the \"why are you changing?\" answer as discovery, connection, action and vision, and lists reasons not to give, such as burnout or money. For tech, finance and healthcare it names the best entry points and bridge activities, such as customer success from any client-facing role.",
+          "permalink": "https://github.com/paramchoudhary/resumeskills/tree/74ae19e7c62b0516d1c298328e5544976c12da5d/skills/career-changer-translator"
+        },
+        "tags": [
+          "category:personal",
+          "category:writing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "personal",
+          "writing"
+        ]
+      }
+    },
+    {
+      "id": "paramchoudhary/resumeskills/skills/executive-resume-writer",
+      "name": "executive-resume-writer",
+      "skills.sh": {
+        "url": "https://skills.sh/paramchoudhary/resumeskills/executive-resume-writer",
+        "installs": 8500,
+        "weeklyInstalls": [404, 356, 282, 307, 376, 396, 376, 354],
+        "firstSeen": "2026-05-20"
+      },
+      "skillMd": {
+        "version": "74ae19e7c62b0516d1c298328e5544976c12da5d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes VP and C-suite resumes around leadership brand and business transformation: an executive profile, career highlights, P&L scope and board roles.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're applying for director, VP or C-suite roles and need a resume that reads as strategic, not tactical"
+            },
+            {
+              "label": "It does",
+              "text": "writes bullets as leadership action, strategic initiative and business outcome at scale, with company context, reporting lines and P&L for each role"
+            },
+            {
+              "label": "You get",
+              "text": "an executive resume (profile, competency grid, career highlights, experience, board roles, education) plus notes on your narrative and differentiator"
+            },
+            {
+              "label": "Length",
+              "text": "two pages for VP and SVP, two to three for the C-suite"
+            }
+          ],
+          "text": "Executive resumes sell a leadership brand and organizational change rather than skills and tasks, for readers such as executive recruiters, board members, investors and CEOs. The structure opens with an executive profile instead of a summary: a title line, a statement of who you are as a leader, your track record with scope and scale, and what you're known for. Core competencies are framed as leadership themes, and four to six career highlights with metrics come before the chronological experience. Each role starts with company context (revenue, headcount, stage), reporting lines and P&L, followed by strategic initiatives and results such as margins, EBITDA, acquisitions, team growth and IPO preparation. Board and advisory roles get their own section. It covers transformation stories (inherited, implemented, achieved), hinting at how you lead, framing short and long tenures, and keeping confidential figures to percentages or ranges. Its tone rules: strategic verbs, no first person, no tactical words like \"managed\" or \"assisted\", and achievements that will survive fact-checking.",
+          "permalink": "https://github.com/paramchoudhary/resumeskills/tree/74ae19e7c62b0516d1c298328e5544976c12da5d/skills/executive-resume-writer"
+        },
+        "tags": [
+          "category:personal",
+          "category:writing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "personal",
+          "writing"
+        ]
+      }
+    },
+    {
+      "id": "paramchoudhary/resumeskills/skills/offer-comparison-analyzer",
+      "name": "offer-comparison-analyzer",
+      "skills.sh": {
+        "url": "https://skills.sh/paramchoudhary/resumeskills/offer-comparison-analyzer",
+        "installs": 8500,
+        "weeklyInstalls": [404, 353, 275, 298, 379, 395, 373, 355],
+        "firstSeen": "2026-05-20"
+      },
+      "skillMd": {
+        "version": "74ae19e7c62b0516d1c298328e5544976c12da5d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Compares job offers side by side: total compensation for year one and after, scored non-money factors, and a weighted decision matrix with a recommendation.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you have two or more job offers and can't decide between them"
+            },
+            {
+              "label": "It does",
+              "text": "totals cash, equity, benefits and perks for year one and after, then scores growth, work-life, culture and risk out of 10 against weights you set"
+            },
+            {
+              "label": "You get",
+              "text": "a comparison: compensation and non-monetary tables, weighted scores, key differences, a recommendation, questions to clarify and negotiation openings"
+            },
+            {
+              "label": "Also flags",
+              "text": "vague bonus language, a vesting cliff over a year, non-competes, recent layoffs and promises that aren't in writing"
+            }
+          ],
+          "text": "A systematic way to choose between offers whose pay is structured differently. Total compensation adds base pay, signing and target bonuses, equity (options valued at current price minus strike, RSUs at current price times shares, spread over the vesting period), benefits such as the 401(k) match and the employer's share of health insurance, and perks given a dollar value, such as extra vacation days or commute savings. Year-one and ongoing totals are kept apart, since a signing bonus comes once. The non-monetary factors are career growth, work-life balance, team and culture, and risk, including that startup equity could be worth nothing. The weighted matrix has you set weights that add up to 100%, score each offer from 1 to 10 on each factor, and multiply. It lists red flags in the offer, the company and the role, and gut checks such as which job you'd want to wake up for on Monday and which choice you'd regret. For negotiating the offer you pick, salary-negotiation-prep in the same repo has scripts.",
+          "permalink": "https://github.com/paramchoudhary/resumeskills/tree/74ae19e7c62b0516d1c298328e5544976c12da5d/skills/offer-comparison-analyzer"
+        },
+        "tags": [
+          "category:personal",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "personal",
+          "finance"
+        ]
+      }
+    },
+    {
+      "id": "paramchoudhary/resumeskills/skills/reference-list-builder",
+      "name": "reference-list-builder",
+      "skills.sh": {
+        "url": "https://skills.sh/paramchoudhary/resumeskills/reference-list-builder",
+        "installs": 8400,
+        "weeklyInstalls": [400, 352, 275, 295, 376, 391, 370, 347],
+        "firstSeen": "2026-05-20"
+      },
+      "skillMd": {
+        "version": "74ae19e7c62b0516d1c298328e5544976c12da5d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Helps you choose three to five job references, format their details for a separate page, and draft the permission request, briefing email and thank-you.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "an employer asks for references, or you're preparing them ahead of final-round interviews"
+            },
+            {
+              "label": "It does",
+              "text": "ranks who to ask, recent direct managers first, and plans three steps: ask permission, brief each reference, follow up afterwards"
+            },
+            {
+              "label": "You get",
+              "text": "a reference list with backups and what each person can speak to, a permission script, a briefing email and a thank-you template"
+            },
+            {
+              "label": "Key question",
+              "text": "brief your references for \"would you rehire them?\", which it calls the most important one"
+            }
+          ],
+          "text": "This skill treats references as something to prepare, not just list. It ranks who makes a good reference, from a recent direct supervisor down to clients and professors, and who to avoid: your current employer without permission, friends, people who barely know you, and anyone who might be lukewarm. The list goes on a separate page in your resume's style, with name, title, company, phone, email and your working relationship for each of three to five people. Preparation has three steps: ask permission with a short script, brief each reference with your resume, the job description and the points and projects to mention, and thank them afterwards whatever the outcome. It covers an employer who doesn't know you're looking, a manager who has left, a bad relationship with a past manager and little work experience, lists what reference checkers usually ask, and says to share the list only when asked, usually in the final rounds, confirming permission each time.",
+          "permalink": "https://github.com/paramchoudhary/resumeskills/tree/74ae19e7c62b0516d1c298328e5544976c12da5d/skills/reference-list-builder"
+        },
+        "tags": [
+          "category:personal",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "personal",
+          "email"
+        ]
+      }
+    },
+    {
+      "id": "paramchoudhary/resumeskills/skills/application-form-filler",
+      "name": "application-form-filler",
+      "skills.sh": {
+        "url": "https://skills.sh/paramchoudhary/resumeskills/application-form-filler",
+        "installs": 7300,
+        "weeklyInstalls": [408, 353, 280, 308, 381, 399, 386, 370],
+        "firstSeen": "2026-06-19"
+      },
+      "skillMd": {
+        "version": "74ae19e7c62b0516d1c298328e5544976c12da5d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Drafts answers to job application form questions from your CV and the job description, sized to each field and ready to paste.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're answering text fields on Greenhouse, Lever, Ashby, Workday or another applicant tracking system"
+            },
+            {
+              "label": "It does",
+              "text": "reads the job description, your CV and the exact question, asking for whichever is missing, then answers in the format for that type of question"
+            },
+            {
+              "label": "You get",
+              "text": "each answer in its own code block, labelled by field, to copy and paste"
+            },
+            {
+              "label": "Doesn't",
+              "text": "fill in the form itself; it writes the text you paste"
+            },
+            {
+              "label": "Rules",
+              "text": "honest years and ratings, every claim tied to a real project, and no trait statements like \"I'm passionate about\""
+            }
+          ],
+          "text": "Despite the name, it writes answers rather than filling in forms: each comes in a plain code block, ready to paste into the field. Its premise is that a form answer isn't a cover letter in a text box: answer what the field asks, then stop. Before writing it reads the job description, your CV and the question, and asks for the CV or job description if you haven't given them. Seven question types get their own format: experience (technology, years, one project), why this company (something specific, linked to real work, under 150 words), portfolio links (most relevant first, live demo before GitHub), technical skills (years plus context, gaps acknowledged, honest ratings), tell us about yourself (current role first, 100-200 words), behavioral questions (condensed STAR without the labels) and opinion questions (commit to a view). A length table runs from one sentence for single-line fields to 300 words, and when in doubt, shorter wins. It warns against repeating the job description, generic traits, apologizing for missing years and padding with irrelevant projects.",
+          "permalink": "https://github.com/paramchoudhary/resumeskills/tree/74ae19e7c62b0516d1c298328e5544976c12da5d/skills/application-form-filler"
+        },
+        "tags": [
+          "category:personal",
+          "category:writing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "personal",
+          "writing"
+        ]
+      }
+    },
+    {
+      "id": "paramchoudhary/resumeskills/skills/cold-email-writer",
+      "name": "cold-email-writer",
+      "skills.sh": {
+        "url": "https://skills.sh/paramchoudhary/resumeskills/cold-email-writer",
+        "installs": 7300,
+        "weeklyInstalls": [411, 358, 280, 307, 385, 396, 381, 360],
+        "firstSeen": "2026-06-19"
+      },
+      "skillMd": {
+        "version": "74ae19e7c62b0516d1c298328e5544976c12da5d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes cold emails to hiring managers and founders that open with something specific about the company, not a pitch, ready to copy.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to reach a hiring manager, founder or recruiter about a role you weren't referred to"
+            },
+            {
+              "label": "It does",
+              "text": "opens with one specific thing about the company, then your current role, one or two projects and why you fit, in 200-300 words"
+            },
+            {
+              "label": "You get",
+              "text": "one email with a \"Quick intro — [name]\" subject line, in a code block to copy"
+            },
+            {
+              "label": "Unlike a cover letter",
+              "text": "it reads like a note from a colleague: no achievement lists, no \"I would love the opportunity to\""
+            }
+          ],
+          "text": "Cold email for job seekers, built on one idea: it should sound like a smart person who noticed something specific about the company, not a candidate broadcasting credentials. Before writing, the agent gathers one specific angle from the company's website, job description or About page (asking for the site, or fetching it, when you only give the job description), the recipient's name from LinkedIn, a team page or AngelList, your most relevant projects, and any real overlap in tech stack. The email opens with that hook (a stat, a product decision or a technical insight, never \"I love what you're building\"), says early and casually if you're based in another country, briefly acknowledges an experience gap without apologizing, then gives your current role, past context and one or two projects with a proof point. A sentence bridges to what the role needs, followed by a portfolio link and a low-pressure close. It runs 200 to 300 words, 400 at most, and comes with a full worked example.",
+          "permalink": "https://github.com/paramchoudhary/resumeskills/tree/74ae19e7c62b0516d1c298328e5544976c12da5d/skills/cold-email-writer"
+        },
+        "tags": [
+          "category:personal",
+          "category:writing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "personal",
+          "email",
+          "writing"
         ]
       }
     }
