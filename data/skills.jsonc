@@ -1933,6 +1933,14 @@
         "kind": "skills",
         "description": "Remove 20+ patterns of AI slop from your writing without flattening your personal voice."
       }
+    },
+    {
+      "id": "tw93/waza",
+      "stars": 7523,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Tw93's engineering habits, turned into your skills."
+      }
     }
   ],
   "bundles": [
@@ -3433,6 +3441,88 @@
           {
             "label": "Warp, with the repo's 27 other skills",
             "command": "npx skills@latest add warpdotdev/common-skills --skill '*' --agent warp --global"
+          }
+        ]
+      }
+    },
+    {
+      "id": "tw93/waza",
+      "skew": 0,
+      "agentReview": {
+        "name": "Waza",
+        "description": "Seven skills for an engineer's core habits with an agent: plan, debug, review and ship, read links and PDFs, research, write, and audit the agent's setup.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a few focused skills for a coding agent's core habits, not a large framework like Superpowers"
+            },
+            {
+              "label": "It does",
+              "text": "gives each habit one skill: think plans, hunt debugs, check reviews and ships, read fetches, learn researches, write edits prose, health audits the agent's setup"
+            },
+            {
+              "label": "You get",
+              "text": "skills you chain yourself, such as think, then check before merging, or read, learn, then write"
+            },
+            {
+              "label": "Runs",
+              "text": "when you type a skill's slash command, such as /check, or when a request matches its triggers, in English or Chinese"
+            },
+            {
+              "label": "Works with",
+              "text": "Claude Code, Codex, Cursor, Pi and other agents that read ~/.agents/skills, and Claude Desktop as an uploaded ZIP"
+            }
+          ],
+          "text": "Waza (技, Japanese for technique) is Tw93's engineering habits turned into skills, each with one job, its red lines and how its result gets checked, refined over 300+ sessions. Every skill stops at the outcome you asked for, and review, diagnosis and audit requests stay report-only until you authorize a change. The README suggests three chains. To plan a feature, think settles the plan, the agent implements it once you approve, in think or by handing the plan to check, and check reviews before merging. To ship a fix, hunt finds the root cause, then check reviews the change and can also commit, push, release and follow up on issues. To research, read fetches sources, learn turns them into notes or an article, and write polishes the prose. health stands apart: it audits Claude Code, Codex or Pi configuration and how maintainable the project is for agents. Each skill works alone, and they hand off where it helps: think sends bug reports to hunt, check sends document review to write, and learn fetches through read. The installs below also add the repo's eighth skill, ui, for frontend design. A statusline and optional always-on rules install separately, from scripts.",
+          "permalink": "https://github.com/tw93/waza/tree/58217546cd94fcf5ddcde4265c00a9377ed3192c"
+        },
+        "skills": [
+          {
+            "id": "tw93/waza/skills/think",
+            "standalone": true
+          },
+          {
+            "id": "tw93/waza/skills/hunt",
+            "standalone": true
+          },
+          {
+            "id": "tw93/waza/skills/check",
+            "standalone": true
+          },
+          {
+            "id": "tw93/waza/skills/read",
+            "standalone": true
+          },
+          {
+            "id": "tw93/waza/skills/learn",
+            "standalone": true
+          },
+          {
+            "id": "tw93/waza/skills/write",
+            "standalone": true
+          },
+          {
+            "id": "tw93/waza/skills/health",
+            "standalone": true
+          }
+        ],
+        "install": [
+          {
+            "label": "Claude Code, Codex, Cursor and other agents that read ~/.agents/skills, with the skills CLI; also adds the repo's ui skill",
+            "command": "npx skills add tw93/Waza -a claude-code codex cursor -g -y"
+          },
+          {
+            "label": "Claude Code plugin, with the repo's ui skill; skills are namespaced, as /waza:check",
+            "command": "claude plugin marketplace add tw93/Waza && claude plugin install waza@waza"
+          },
+          {
+            "label": "Codex plugin, with the repo's ui skill; skills are namespaced, as /waza:check",
+            "command": "codex plugin marketplace add tw93/Waza && codex plugin add waza@waza"
+          },
+          {
+            "label": "Pi, with the repo's ui skill",
+            "command": "pi install npm:@tw93/waza"
           }
         ]
       }
@@ -23974,6 +24064,406 @@
           "by:community",
           "docs-writing",
           "research"
+        ]
+      }
+    },
+    {
+      "id": "tw93/waza/skills/health",
+      "name": "health",
+      "skills.sh": {
+        "url": "https://skills.sh/tw93/waza/health",
+        "installs": 16300,
+        "weeklyInstalls": [261, 298, 278, 178, 397, 376, 219, 359],
+        "firstSeen": "2026-04-04"
+      },
+      "skillMd": {
+        "version": "58217546cd94fcf5ddcde4265c00a9377ed3192c",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Audits your Claude Code, Codex or Pi setup and the project's AI maintainability, and reports each finding with a copy-pasteable fix.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "Claude Code, Codex or Pi seems to ignore instructions, or hooks, MCP servers or settings don't work; not for app bugs or PR review"
+            },
+            {
+              "label": "It does",
+              "text": "runs its bundled collector scripts read-only and checks instruction files, permissions, hooks, MCP servers, skills, memory and whether important outcomes have an executable check"
+            },
+            {
+              "label": "You get",
+              "text": "a health report: passing checks, then Critical, Structural and Incremental findings, each with its evidence and an exact command or edit"
+            },
+            {
+              "label": "Keeps",
+              "text": "to reporting unless you ask for repairs; a plain audit runs no project tests, builds or installers"
+            },
+            {
+              "label": "Deep audit",
+              "text": "on request or when you name a problem like config drift or code rot; it warns first, scans every past session of the project, and splits analysis across inspector subagents"
+            }
+          ],
+          "text": "Health checks two things in one report. Agent config: whether the instruction files each runtime actually loads agree with each other, whether Codex trusts the project, whether hook and MCP executables exist, and whether settings deny credential directories and pipe-to-shell installers where the runtime can enforce it. It treats memory and third-party skills as a supply chain too, flagging secrets in memory, skills and plugins not pinned to a release, and MCP servers trusted by wildcard. AI maintainability: whether non-obvious project rules reach the agent when relevant, whether important outcomes have an executable check where they can actually break, and whether docs or verifier output point at stale paths. Its summary pass also scans up to three recent sessions of the project in Claude and Codex, unless you ask only about instructions and config; a deep audit streams all of them and splits the analysis across up to three inspector subagents, falling back to local analysis if one fails. Findings in global config are labelled global and reported once, and secrets only ever appear as [REDACTED]. Like the rest of Waza, its replies start with 🥷.",
+          "permalink": "https://github.com/tw93/waza/tree/58217546cd94fcf5ddcde4265c00a9377ed3192c/skills/health"
+        },
+        "tags": [
+          "category:agents",
+          "category:debugging",
+          "category:security",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "stack:claude",
+          "stack:codex",
+          "stack:pi",
+          "agent-workflows",
+          "security",
+          "guardrails",
+          "code-quality",
+          "verification"
+        ]
+      }
+    },
+    {
+      "id": "tw93/waza/skills/check",
+      "name": "check",
+      "skills.sh": {
+        "url": "https://skills.sh/tw93/waza/check",
+        "installs": 16300,
+        "weeklyInstalls": [260, 341, 265, 175, 414, 365, 221, 377],
+        "firstSeen": "2026-04-04"
+      },
+      "skillMd": {
+        "version": "58217546cd94fcf5ddcde4265c00a9377ed3192c",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Reviews a diff or PR for drift, over-design and hard stops, then handles approved commits, pushes, releases and issue follow-up.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a diff or PR is ready for review, or you want to commit, push, release, or triage issues and PRs"
+            },
+            {
+              "label": "It does",
+              "text": "checks the diff against your stated goal, flags removable parts and must-fix risks at a depth set by size and risk, then runs the project's own checks"
+            },
+            {
+              "label": "You get",
+              "text": "findings grouped by bug class with file:line, then a sign-off block saying exactly what was committed, pushed, released or blocked"
+            },
+            {
+              "label": "Keeps",
+              "text": "reviews read-only: it edits, commits, pushes, publishes or comments only with your go-ahead, and asks before stashing or switching branches"
+            },
+            {
+              "label": "Unlike",
+              "text": "a plain code review, it carries release and issue follow-through to the end and closes ship runs with a ledger of what is done, not applicable or remaining"
+            }
+          ],
+          "text": "Check first reads git status, treats every uncommitted file as your work, and takes the baseline from your words: local changes, a branch, everything since the last release. It sizes the review as quick, standard or deep by lines and files, and any diff touching CI, release or signing, auth, billing, installers or deletion paths needs a human maintainer's review. Every review asks whether each changed file traces to the stated goal, lists layers that could be removed, and, when a fix covers one instance of a bug, greps for its siblings. A finding needs a file:line, a trigger and a severity a senior reviewer would raise; a clean review is a valid result. Standard and deep reviews add specialist reviewers, and deep ones an adversarial pass. Other modes load their own reference files: triaging issues and PRs, whether a release is worth it, ship and release follow-through, and a whole-project audit scorecard. Handed a plan from think, it skips the review, implements it and runs the project's checks; a \"ship if green\" rule in AGENTS.md lets it ship after a clean review unasked. Any claim that tests pass must come from a command run this session.",
+          "permalink": "https://github.com/tw93/waza/tree/58217546cd94fcf5ddcde4265c00a9377ed3192c/skills/check"
+        },
+        "tags": [
+          "category:debugging",
+          "category:engineering",
+          "type:workflow",
+          "effect:remote",
+          "needs:issue-tracker",
+          "by:community",
+          "stack:git",
+          "stack:github",
+          "code-review",
+          "verification",
+          "scope-control",
+          "git",
+          "issue-tracking"
+        ]
+      }
+    },
+    {
+      "id": "tw93/waza/skills/write",
+      "name": "write",
+      "skills.sh": {
+        "url": "https://skills.sh/tw93/waza/write",
+        "installs": 15800,
+        "weeklyInstalls": [297, 385, 263, 187, 447, 371, 206, 347],
+        "firstSeen": "2026-04-04"
+      },
+      "skillMd": {
+        "version": "58217546cd94fcf5ddcde4265c00a9377ed3192c",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Rewrites Chinese or English prose to remove AI tone while keeping the author's meaning and voice, with modes for release notes, replies and tweets.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a draft in Chinese or English reads as AI-written, or you need release notes, a maintainer reply or a social post"
+            },
+            {
+              "label": "It does",
+              "text": "cuts AI tells such as repetition, summary tone and em dashes, keeping the meaning, structure and the author's own voice"
+            },
+            {
+              "label": "You get",
+              "text": "the edited text, or a scoped diff for files in a repo; your own finished draft gets light fixes plus a list of every changed sentence"
+            },
+            {
+              "label": "Also runs",
+              "text": "a bundled punctuation checker for the output language before returning any text"
+            },
+            {
+              "label": "Unlike",
+              "text": "phrase-by-phrase rewording, it mostly cuts, and counts over-editing as a failure as bad as under-editing"
+            }
+          ],
+          "text": "Write treats its rules as a catalog of AI smells, not a checklist. It reads the text first, asks about the audience only when it can't be inferred, and loads a Chinese or English reference, plus bilingual and localization guides when copy spans languages. The default is a line-level rewrite in place: no reordered sections, no deleted links or images without saying why, and no invented anecdotes when writing as you. Banned-phrase lists are examples, so a flagged word that reads naturally stays. Modes cover release notes, public issue or PR replies, installation steps and error text, long drafts that need structural work (proposed first), comparing two versions of a text, document review with a privacy scan, paragraph coherence and social posts. When asked to write rather than edit, it counts the material it actually has before choosing a length, and researches, asks or writes shorter instead of padding. It never outputs em or en dashes. Code comments and commit messages are out of scope.",
+          "permalink": "https://github.com/tw93/waza/tree/58217546cd94fcf5ddcde4265c00a9377ed3192c/skills/write"
+        },
+        "tags": [
+          "category:writing",
+          "category:marketing",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "anti-slop",
+          "writing",
+          "docs-writing",
+          "copywriting"
+        ]
+      }
+    },
+    {
+      "id": "tw93/waza/skills/think",
+      "name": "think",
+      "skills.sh": {
+        "url": "https://skills.sh/tw93/waza/think",
+        "installs": 15200,
+        "weeklyInstalls": [261, 303, 270, 179, 419, 262, 170, 187],
+        "firstSeen": "2026-04-04"
+      },
+      "skillMd": {
+        "version": "58217546cd94fcf5ddcde4265c00a9377ed3192c",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Turns a rough idea into an approved, decision-complete plan another engineer or agent can implement, writing no code before you approve.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're about to build something new and want the approach settled first, or need to judge whether it's worth building"
+            },
+            {
+              "label": "It does",
+              "text": "reads the repo, its rules and official solutions, then recommends one approach beside a minimal option and names its most fragile assumption"
+            },
+            {
+              "label": "You get",
+              "text": "an approved design summary, or a handoff plan another agent can execute without re-deciding anything"
+            },
+            {
+              "label": "Keeps",
+              "text": "to no code, scaffolding or pseudo-code until you approve; \"just do it\" then lets it implement without another round"
+            },
+            {
+              "label": "Unlike",
+              "text": "an interview skill such as grill-me, it leads with its own position and says what evidence would change it"
+            }
+          ],
+          "text": "Think turns a rough idea into a plan concrete enough to execute. Before proposing, it reads AGENTS.md or CLAUDE.md and the one rule that matches, skims past decisions, lifts live config values instead of quoting defaults, and checks for a built-in or official solution; for a hard problem it studies how two or three mature projects solve it. It then gives one recommended approach with effort, risk and what it builds on, always with a minimal option, and prefers forms that ask no setup of users. Plans that touch external services, high load or data migration are attacked for dependency failure, 10x scale and rollback cost. A simplicity gate makes every added layer, retry or config knob justify itself against the brute-force version. Approved plans have no TBDs, and each phase must be shippable on its own. A defined problem gets a lightweight mode: one fix in two or three sentences, with its files and one risk. Value or keep-or-remove questions, and batches of requests, load their own reference files, and bug reports go to hunt.",
+          "permalink": "https://github.com/tw93/waza/tree/58217546cd94fcf5ddcde4265c00a9377ed3192c/skills/think"
+        },
+        "tags": [
+          "category:planning",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "planning",
+          "architecture",
+          "handoff",
+          "scope-control"
+        ]
+      }
+    },
+    {
+      "id": "tw93/waza/skills/hunt",
+      "name": "hunt",
+      "skills.sh": {
+        "url": "https://skills.sh/tw93/waza/hunt",
+        "installs": 15200,
+        "weeklyInstalls": [254, 293, 265, 176, 265, 229, 156, 173],
+        "firstSeen": "2026-04-04"
+      },
+      "skillMd": {
+        "version": "58217546cd94fcf5ddcde4265c00a9377ed3192c",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Finds and proves a bug's root cause before any fix, then checks the repo for the same bug pattern and verifies the fix.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "something errors, crashes, regresses or used to work"
+            },
+            {
+              "label": "It does",
+              "text": "touches no code until it can state the root cause in one sentence with evidence, and runs the probe that would disprove it"
+            },
+            {
+              "label": "You get",
+              "text": "the root cause and fix with file:line, a sweep for the same bug elsewhere, the evidence, and a regression test for bugs that came back"
+            },
+            {
+              "label": "Keeps",
+              "text": "\"diagnose\" or \"why\" requests report-only; it fixes only when you ask, and a request to fix never covers committing or pushing"
+            },
+            {
+              "label": "Stops",
+              "text": "after three failed hypotheses, with a handoff of what was checked, ruled out and still unknown"
+            }
+          ],
+          "text": "Hunt is Waza's debugging skill. A hypothesis has to name a file, function, line or condition and explain every symptom, including ones the reporter waved off; \"I'll just try this\" counts as having none. Regressions get their own mode: read the diff from the last good version first, or git bisect in a temporary worktree so uncommitted work stays untouched. Another mode treats a known-good screenshot or build as the reference to diff against, and after a fix it greps the repo for the same bug pattern and records each match as same bug, safe or unsure. Before calling a bug fixed it climbs an evidence ladder from source trace and repro to logs, tests and, for UI or visual bugs, a real runtime check. Rules cover logs that each answer a yes-or-no question, measuring performance before and after, and stopping after three rounds of tuning a magic number. A bug that came back isn't done until its regression test has run red on the old code and green on the fix. Native-app freezes, rendering bugs and IME issues load their own reference files.",
+          "permalink": "https://github.com/tw93/waza/tree/58217546cd94fcf5ddcde4265c00a9377ed3192c/skills/hunt"
+        },
+        "tags": [
+          "category:debugging",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "debugging",
+          "verification",
+          "testing"
+        ]
+      }
+    },
+    {
+      "id": "tw93/waza/skills/read",
+      "name": "read",
+      "skills.sh": {
+        "url": "https://skills.sh/tw93/waza/read",
+        "installs": 14400,
+        "weeklyInstalls": [289, 339, 225, 178, 262, 238, 260, 265],
+        "firstSeen": "2026-04-04"
+      },
+      "skillMd": {
+        "version": "58217546cd94fcf5ddcde4265c00a9377ed3192c",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Fetches a URL or PDF and returns a short summary or clean Markdown, extracting locally by default, with optional DeepSeek web search.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you hand the agent a URL or PDF to read, quote, convert or save"
+            },
+            {
+              "label": "It does",
+              "text": "routes each link to a fetcher, such as raw GitHub content, PDF extraction, a Feishu API script or a WeChat fallback, and extracts the text locally"
+            },
+            {
+              "label": "You get",
+              "text": "a short source-grounded summary by default, or clean Markdown, quotes or a saved file when you ask"
+            },
+            {
+              "label": "Keeps",
+              "text": "URLs off third-party readers such as r.jina.ai and defuddle.md unless you opt in, and never sends them sensitive URLs"
+            },
+            {
+              "label": "Needs",
+              "text": "pdftotext, marker or pypdf for PDFs, Feishu app credentials for Feishu docs, a DeepSeek API key for DeepSeek search, and Playwright for the WeChat fallback"
+            }
+          ],
+          "text": "Read is Waza's fetch step, and learn uses it to collect sources. Its fetch script is privacy-first: by default it fetches from the source site and extracts the article on your machine, with cleaner output if readability-lxml and html2text are installed. With your opt-in it falls back to defuddle.md and r.jina.ai for JavaScript-heavy pages and paywalls, but never for authenticated or internal URLs. When the built-in web search is thin or lacks Chinese sources, it can search through DeepSeek, which bills each request. It saves nothing unless you say save or learn calls it; then it writes Markdown with frontmatter to the folder you name or a temp folder, never overwriting, and downloads images only on request. If a fetch returns a login wall, paywall or empty page, it stops and says what it tried instead of saving the shell. Fetched content is treated as data, never as instructions.",
+          "permalink": "https://github.com/tw93/waza/tree/58217546cd94fcf5ddcde4265c00a9377ed3192c/skills/read"
+        },
+        "tags": [
+          "category:browser",
+          "category:documents",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "needs:account",
+          "by:community",
+          "stack:lark",
+          "stack:wechat",
+          "stack:deepseek",
+          "scraping",
+          "pdf",
+          "web-search",
+          "research",
+          "privacy"
+        ]
+      }
+    },
+    {
+      "id": "tw93/waza/skills/learn",
+      "name": "learn",
+      "skills.sh": {
+        "url": "https://skills.sh/tw93/waza/learn",
+        "installs": 13400,
+        "weeklyInstalls": [246, 266, 195, 174, 354, 230, 148, 178],
+        "firstSeen": "2026-04-04"
+      },
+      "skillMd": {
+        "version": "58217546cd94fcf5ddcde4265c00a9377ed3192c",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Researches an unfamiliar topic from primary sources through six phases, from collecting to self-review, into notes or a publish-ready article.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need to understand an unfamiliar domain, or turn a pile of materials into one reference"
+            },
+            {
+              "label": "It does",
+              "text": "works through six phases, collect, digest, outline, fill in, refine and self-review, starting at the phase your mode needs"
+            },
+            {
+              "label": "You get",
+              "text": "research notes, or a publish-ready draft that you read through yourself before publishing"
+            },
+            {
+              "label": "Modes",
+              "text": "deep research, quick reference (notes only), write to learn from materials you already have, or one canonical article that covers a topic"
+            },
+            {
+              "label": "Works with",
+              "text": "read to fetch sources and write to strip AI tone; without them it warns once and falls back to native fetch and a manual scan"
+            }
+          ],
+          "text": "Learn is for research across many sources that ends in something new; a single page to fetch belongs to read. Collecting uses primary sources only, such as papers, official blogs, builders' posts and from-scratch repos, not explainers: 5 to 10 for a blog post, 15 to 20 for a technical survey. Digesting means building a mental model, not summarizing: a claim reaches the outline only if it passes at least two of three tests, such as showing up in more than one context and not being generic wisdom. Every outline section needs a source behind it, and a section that's hard to write sends it back to digest that sub-topic. Refining only edits, then strips AI patterns. The last phase is yours: you read the whole draft yourself, at least twice. Contradictions between sources stay visible, and it never posts or uploads anything unless asked. It can also distill conversations or review reports into durable rules, keeping only patterns with repeated evidence.",
+          "permalink": "https://github.com/tw93/waza/tree/58217546cd94fcf5ddcde4265c00a9377ed3192c/skills/learn"
+        },
+        "tags": [
+          "category:writing",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "research",
+          "writing",
+          "learning"
         ]
       }
     }
