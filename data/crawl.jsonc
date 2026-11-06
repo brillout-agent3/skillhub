@@ -42,19 +42,6 @@
       }
     },
     {
-      "name": "ponytail-review",
-      "repo": "dietrichgebert/ponytail",
-      "official": false,
-      "stars": 185733,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/dietrichgebert/ponytail/ponytail-review",
-        "installs": 65997,
-        "weeklyInstalls": [2613, 2591, 2486, 3221, 8440, 10867, 6013, 5776],
-        "firstSeen": "2026-06-12"
-      }
-    },
-    {
       "name": "stitch-loop",
       "repo": "google-labs-code/stitch-skills",
       "official": false,
@@ -81,58 +68,6 @@
       }
     },
     {
-      "name": "ponytail-audit",
-      "repo": "dietrichgebert/ponytail",
-      "official": false,
-      "stars": 185733,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/dietrichgebert/ponytail/ponytail-audit",
-        "installs": 53900,
-        "weeklyInstalls": [2464, 2370, 2293, 3020, 4843, 5407, 5602, 5460],
-        "firstSeen": "2026-06-14"
-      }
-    },
-    {
-      "name": "ponytail-debt",
-      "repo": "dietrichgebert/ponytail",
-      "official": false,
-      "stars": 185733,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/dietrichgebert/ponytail/ponytail-debt",
-        "installs": 50900,
-        "weeklyInstalls": [2303, 2212, 2149, 2834, 4437, 5426, 5415, 5262],
-        "firstSeen": "2026-06-15"
-      }
-    },
-    {
-      "name": "ponytail-help",
-      "repo": "dietrichgebert/ponytail",
-      "official": false,
-      "stars": 185733,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/dietrichgebert/ponytail/ponytail-help",
-        "installs": 50900,
-        "weeklyInstalls": [2332, 2222, 2172, 2839, 4493, 5290, 5460, 5230],
-        "firstSeen": "2026-06-12"
-      }
-    },
-    {
-      "name": "design-system",
-      "repo": "nextlevelbuilder/ui-ux-pro-max-skill",
-      "official": false,
-      "stars": 146091,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/nextlevelbuilder/ui-ux-pro-max-skill/design-system",
-        "installs": 48900,
-        "weeklyInstalls": [2167, 2132, 1999, 1986, 2291, 2654, 3485, 3926],
-        "firstSeen": "2026-06-25"
-      }
-    },
-    {
       "name": "planning-with-files",
       "repo": "othmanadi/planning-with-files",
       "official": false,
@@ -146,45 +81,6 @@
       }
     },
     {
-      "name": "design",
-      "repo": "nextlevelbuilder/ui-ux-pro-max-skill",
-      "official": false,
-      "stars": 146091,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/nextlevelbuilder/ui-ux-pro-max-skill/design",
-        "installs": 47400,
-        "weeklyInstalls": [2054, 2070, 1915, 1902, 2171, 2671, 3385, 3873],
-        "firstSeen": "2026-06-25"
-      }
-    },
-    {
-      "name": "brand",
-      "repo": "nextlevelbuilder/ui-ux-pro-max-skill",
-      "official": false,
-      "stars": 146091,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/nextlevelbuilder/ui-ux-pro-max-skill/brand",
-        "installs": 45900,
-        "weeklyInstalls": [1932, 1978, 1883, 1869, 2212, 2589, 3375, 3809],
-        "firstSeen": "2026-06-25"
-      }
-    },
-    {
-      "name": "banner-design",
-      "repo": "nextlevelbuilder/ui-ux-pro-max-skill",
-      "official": false,
-      "stars": 146091,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/nextlevelbuilder/ui-ux-pro-max-skill/banner-design",
-        "installs": 45600,
-        "weeklyInstalls": [1917, 1891, 1832, 1865, 2176, 2512, 3302, 3854],
-        "firstSeen": "2026-06-25"
-      }
-    },
-    {
       "name": "karpathy-guidelines",
       "repo": "multica-ai/andrej-karpathy-skills",
       "official": false,
@@ -195,32 +91,6 @@
         "installs": 45000,
         "weeklyInstalls": [977, 1035, 1045, 1075, 945, 1259, 1676, 1307],
         "firstSeen": "2026-01-28"
-      }
-    },
-    {
-      "name": "slides",
-      "repo": "nextlevelbuilder/ui-ux-pro-max-skill",
-      "official": false,
-      "stars": 146091,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/nextlevelbuilder/ui-ux-pro-max-skill/slides",
-        "installs": 44700,
-        "weeklyInstalls": [1901, 1866, 1800, 1830, 2106, 2461, 3211, 3699],
-        "firstSeen": "2026-06-25"
-      }
-    },
-    {
-      "name": "better-ui",
-      "repo": "jakubkrehel/skills",
-      "official": false,
-      "stars": 11240,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/jakubkrehel/skills/better-ui",
-        "installs": 44500,
-        "weeklyInstalls": [2447, 4851, 3106, 3571, 3236, 2260, 2556, 3276],
-        "firstSeen": "2026-07-10"
       }
     },
     {
@@ -276,19 +146,6 @@
       }
     },
     {
-      "name": "better-typography",
-      "repo": "jakubkrehel/skills",
-      "official": false,
-      "stars": 11240,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/jakubkrehel/skills/better-typography",
-        "installs": 39100,
-        "weeklyInstalls": [2416, 2718, 2475, 3146, 2735, 1763, 2045, 2950],
-        "firstSeen": "2026-07-10"
-      }
-    },
-    {
       "name": "anysearch",
       "repo": "anysearch-ai/anysearch-skill",
       "official": false,
@@ -312,19 +169,6 @@
         "installs": 37600,
         "weeklyInstalls": [745, 965, 747, 663, 658, 653, 678, 889],
         "firstSeen": "2026-03-16"
-      }
-    },
-    {
-      "name": "better-colors",
-      "repo": "jakubkrehel/skills",
-      "official": false,
-      "stars": 11240,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/jakubkrehel/skills/better-colors",
-        "installs": 37200,
-        "weeklyInstalls": [2211, 2429, 2297, 3061, 2722, 1748, 2021, 2922],
-        "firstSeen": "2026-07-10"
       }
     },
     {
@@ -354,19 +198,6 @@
       }
     },
     {
-      "name": "better-layout",
-      "repo": "jakubkrehel/skills",
-      "official": false,
-      "stars": 11240,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/jakubkrehel/skills/better-layout",
-        "installs": 35300,
-        "weeklyInstalls": [2240, 2550, 2327, 3042, 2675, 1687, 2001, 2864],
-        "firstSeen": "2026-07-24"
-      }
-    },
-    {
       "name": "baoyu-post-to-wechat",
       "repo": "jimliu/baoyu-skills",
       "official": false,
@@ -377,19 +208,6 @@
         "installs": 34800,
         "weeklyInstalls": [294, 295, 118, 127, 175, 164, 168, 191],
         "firstSeen": "2026-01-19"
-      }
-    },
-    {
-      "name": "better-interface",
-      "repo": "jakubkrehel/skills",
-      "official": false,
-      "stars": 11240,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/jakubkrehel/skills/better-interface",
-        "installs": 34400,
-        "weeklyInstalls": [2155, 2401, 2504, 2956, 2508, 1624, 1875, 2748],
-        "firstSeen": "2026-07-24"
       }
     },
     {
@@ -406,19 +224,6 @@
       }
     },
     {
-      "name": "better-accessibility",
-      "repo": "jakubkrehel/skills",
-      "official": false,
-      "stars": 11240,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/jakubkrehel/skills/better-accessibility",
-        "installs": 34100,
-        "weeklyInstalls": [2144, 2379, 2182, 2926, 2588, 1619, 1931, 2809],
-        "firstSeen": "2026-07-23"
-      }
-    },
-    {
       "name": "core-web-vitals",
       "repo": "addyosmani/web-quality-skills",
       "official": false,
@@ -429,19 +234,6 @@
         "installs": 33900,
         "weeklyInstalls": [1220, 1074, 1024, 1030, 1061, 1058, 1118, 1057],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "better-writing",
-      "repo": "jakubkrehel/skills",
-      "official": false,
-      "stars": 11240,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/jakubkrehel/skills/better-writing",
-        "installs": 33300,
-        "weeklyInstalls": [2103, 2310, 2160, 2854, 2520, 1579, 1826, 2688],
-        "firstSeen": "2026-07-24"
       }
     },
     {

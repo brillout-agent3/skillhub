@@ -1827,6 +1827,14 @@
         "kind": "skills",
         "description": "AI agent skills for solopreneurs, indie hackers and one-person companies."
       }
+    },
+    {
+      "id": "jakubkrehel/skills",
+      "stars": 11240,
+      "agentReview": {
+        "kind": "skills",
+        "description": "A collection of agent skills that cover UI, typography, colors, accessibility, layout, product writing and help you build a great interface."
+      }
     }
   ],
   "bundles": [
@@ -2953,6 +2961,232 @@
           {
             "label": "Editors the Argent installer supports, via pnpm; also sets up the MCP server and 12 more of the repo's skills",
             "command": "pnpm dlx @swmansion/argent@latest init"
+          }
+        ]
+      }
+    },
+    {
+      "id": "jakubkrehel/skills@better-interface",
+      "skew": 0,
+      "agentReview": {
+        "name": "Better Interface",
+        "description": "Six skills that set and review accessibility, layout, copy, typography, color and UI polish, plus one that runs all six and merges their findings into one ranked report.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a screen or flow built or reviewed for accessibility, layout, copy, typography, color and visual polish, one domain at a time or all at once"
+            },
+            {
+              "label": "It does",
+              "text": "six skills each own one domain; better-interface loads all six in a fixed order, accessibility first, and merges their findings into one table ranked by user impact"
+            },
+            {
+              "label": "You get",
+              "text": "a findings table with file, line, before and after for each problem, the checks run and a verdict, Block or Approve; better-interface merges all six into one"
+            },
+            {
+              "label": "Unlike make-interfaces-feel-better",
+              "text": "the same author's one-skill polish checklist, better-ui hands typography and hit areas to their own skills, gates motion behind the reduced-motion setting, and has no quick review mode"
+            },
+            {
+              "label": "Change reviews",
+              "text": "go to the repo's interface-review skill, which isn't in this bundle: for a branch, pull request or uncommitted change, better-interface asks you to run it"
+            },
+            {
+              "label": "Edits code",
+              "text": "not during a better-interface review unless you also ask for the fixes; a failing contrast pair is reported, and its colors changed only when you ask"
+            },
+            {
+              "label": "Checks",
+              "text": "the code without a browser; with one, the rendered states too, such as 320px width, 200% zoom and right-to-left mirroring. Anything unchecked is marked Not verified"
+            }
+          ],
+          "text": "Jakub Krehel's better-* skills split interface quality into six domains, each naming the sibling that owns what it leaves out. better-accessibility checks keyboard and focus behavior, accessible names, forms and screen-reader announcements against WCAG 2.2. better-layout sets grouping, alignment and reading order, then tests it resized, translated and mirrored for right-to-left languages. better-writing writes labels, errors, empty states and confirmations in the product's existing voice and terms. better-typography sets the type scale, wrapping, truncation and punctuation. better-colors builds palettes, names tokens by role and measures contrast against the background text renders on. better-ui gives exact values for corner radii, shadows, icon swaps and animation. Each works alone, in the project's existing styling and voice, and ends with a checklist of code patterns to catch. better-interface runs all six in that order, so polish never hides a basic failure. It first reads the project's interface guidelines, then merges the findings into one table of at most 15, ranked by severity, then by how far one fix reaches. Thirteen symptoms, such as a control with no accessible name or meaning carried only by color, are high severity on sight. A domain whose skill isn't installed is marked Not reviewed, never guessed.",
+          "permalink": "https://github.com/jakubkrehel/skills/tree/60bf140e43c98b248e6594487384ec967e89d98a"
+        },
+        "skills": [
+          {
+            "id": "jakubkrehel/skills/skills/better-interface",
+            "standalone": false,
+            "note": "Loads the six better-* skills as the sources of truth for its domain reviews and marks any it can't load Not reviewed, without recreating its rules, so alone it reviews no domain."
+          },
+          {
+            "id": "jakubkrehel/skills/skills/better-accessibility",
+            "standalone": true
+          },
+          {
+            "id": "jakubkrehel/skills/skills/better-layout",
+            "standalone": true
+          },
+          {
+            "id": "jakubkrehel/skills/skills/better-writing",
+            "standalone": true
+          },
+          {
+            "id": "jakubkrehel/skills/skills/better-typography",
+            "standalone": true
+          },
+          {
+            "id": "jakubkrehel/skills/skills/better-colors",
+            "standalone": true
+          },
+          {
+            "id": "jakubkrehel/skills/skills/better-ui",
+            "standalone": true
+          }
+        ],
+        "install": [
+          {
+            "label": "Any agent, with the skills CLI",
+            "command": "npx skills add https://github.com/jakubkrehel/skills --skill better-interface --skill better-accessibility --skill better-layout --skill better-writing --skill better-typography --skill better-colors --skill better-ui"
+          },
+          {
+            "label": "Claude Code plugin, with 7 more of the repo's skills",
+            "command": "claude plugin marketplace add jakubkrehel/skills && claude plugin install interfaces@interfaces"
+          }
+        ]
+      }
+    },
+    {
+      "id": "dietrichgebert/ponytail",
+      "skew": 0,
+      "agentReview": {
+        "name": "Ponytail",
+        "description": "A lean-code mode for coding agents, with reviews of a change or a whole repo and a ledger of the shortcuts it deferred.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "your coding agent over-engineers: abstractions, options, dependencies or code nobody asked for"
+            },
+            {
+              "label": "It does",
+              "text": "keeps the agent to the smallest change that fully solves the task, then reviews a change or audits a whole repo for what will actually break"
+            },
+            {
+              "label": "You get",
+              "text": "short diffs and replies that end with what was skipped and any risk, numbered plain-English findings with a verdict, and a ledger of deferred shortcuts"
+            },
+            {
+              "label": "Runs",
+              "text": "ponytail stays on for the session until you say \"stop ponytail\"; the other four are one-shot and change no code"
+            },
+            {
+              "label": "Levels",
+              "text": "lite only names the smaller option, full is the default, ultra also pushes back on the request before building"
+            },
+            {
+              "label": "Never cuts",
+              "text": "validation of untrusted input, error handling that prevents data loss, security, accessibility, or anything you asked for"
+            }
+          ],
+          "text": "Ponytail casts the agent as a lazy senior developer: the best code is the code never written. Its core skill, ponytail, stays on for the session. Before writing, the agent reads the code the task touches and lists every place the change must reach; then it takes the first option that fully works, from skipping what wasn't asked for to reusing the codebase, the standard library or an installed dependency, and only then writes the minimum, with one small test for non-trivial logic. Each known shortcut gets a comment: shortcut: <the limit>, <when to upgrade>. The other skills run once and change no code. ponytail-review checks one change, reading its callers, tests and README, and ponytail-audit maps a whole repo and traces its data flows. Both rank findings as correct, safe, holds under load, tested, fast and lean, need a concrete failing case for each, number them so you can say \"fix 2 and 5\", and count a shortcut: comment that names its limit as a decision. ponytail-debt gathers those comments into one ledger and tags the ones with no upgrade trigger, and ponytail-help prints the levels, commands and settings.",
+          "permalink": "https://github.com/dietrichgebert/ponytail/tree/96608e078b2d5ea607c5c3b8b5a54d1c1fba6846"
+        },
+        "skills": [
+          {
+            "id": "dietrichgebert/ponytail/skills/ponytail",
+            "standalone": true
+          },
+          {
+            "id": "dietrichgebert/ponytail/skills/ponytail-review",
+            "standalone": true
+          },
+          {
+            "id": "dietrichgebert/ponytail/skills/ponytail-audit",
+            "standalone": true
+          },
+          {
+            "id": "dietrichgebert/ponytail/skills/ponytail-debt",
+            "standalone": false,
+            "note": "Builds its ledger from the shortcut: comments, each naming a limit and when to upgrade, that the ponytail skill writes; without them it can only list a marker word you name."
+          },
+          {
+            "id": "dietrichgebert/ponytail/skills/ponytail-help",
+            "standalone": false,
+            "note": "A reference card for ponytail's levels, settings and skills, so it only helps once they're installed."
+          }
+        ],
+        "install": [
+          {
+            "label": "Claude Code plugin",
+            "command": "claude plugin marketplace add DietrichGebert/ponytail && claude plugin install ponytail@ponytail"
+          },
+          {
+            "label": "Codex plugin, then trust its two hooks in /hooks",
+            "command": "codex plugin marketplace add DietrichGebert/ponytail && codex plugin add ponytail@ponytail"
+          }
+        ]
+      }
+    },
+    {
+      "id": "nextlevelbuilder/ui-ux-pro-max-skill",
+      "skew": 0,
+      "agentReview": {
+        "name": "UI/UX Pro Max",
+        "description": "UI design intelligence plus brand guidelines, design tokens, and generated logos, icons, banners, social images and HTML decks.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want one install for building an interface and making its brand material: guidelines, tokens, logos, icons, banners, social images and decks"
+            },
+            {
+              "label": "It does",
+              "text": "ui-ux-pro-max picks styles, palettes and fonts for the UI; five skills by ClaudeKit keep a brand file in sync with design tokens and generate brand assets"
+            },
+            {
+              "label": "You get",
+              "text": "a design system for your interface, brand guidelines synced to token CSS, Gemini-made logos, mockups and SVG icons, PNG banners and social images, and HTML decks"
+            },
+            {
+              "label": "Needs",
+              "text": "Python 3 and Node for the scripts, and a Gemini API key and two Python packages for design's logos, mockups and icons"
+            }
+          ],
+          "text": "Its best-known skill, ui-ux-pro-max, searches local data on styles, palettes, font pairings and UX rules to give the agent a design system for the interface it builds. The repo's installer, uipro init, and its Claude Code plugin put design skills written by ClaudeKit next to it, and those lean on one another. brand keeps docs/brand-guidelines.md as the source of truth and syncs its colors into design-tokens.json and design-tokens.css. design-system layers tokens into primitive, semantic and component values, flags hardcoded ones in your code, and builds HTML decks that must import the token CSS; slides is a thin index whose references run design-system's slide search. design is the hub for brand assets: it hands brand, token and component work to its siblings, generates logos, identity mockups and SVG icons with Gemini, offers a logo gallery made with ui-ux-pro-max, and builds banners and social images in HTML, the social images by way of brand, design-system and ui-ux-pro-max. banner-design is a fuller, self-contained version of its banner workflow. Both installs also add ui-styling, for shadcn/ui and Tailwind setup.",
+          "permalink": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/b7d5353e0130feb8c5574ef1251f8a1db1873ccb"
+        },
+        "skills": [
+          {
+            "id": "nextlevelbuilder/ui-ux-pro-max-skill/cli/assets/skills/brand",
+            "standalone": true
+          },
+          {
+            "id": "nextlevelbuilder/ui-ux-pro-max-skill/cli/assets/skills/design-system",
+            "standalone": true
+          },
+          {
+            "id": "nextlevelbuilder/ui-ux-pro-max-skill/.claude/skills/ui-ux-pro-max",
+            "standalone": true
+          },
+          {
+            "id": "nextlevelbuilder/ui-ux-pro-max-skill/cli/assets/skills/design",
+            "standalone": true
+          },
+          {
+            "id": "nextlevelbuilder/ui-ux-pro-max-skill/cli/assets/skills/banner-design",
+            "standalone": true
+          },
+          {
+            "id": "nextlevelbuilder/ui-ux-pro-max-skill/cli/assets/skills/slides",
+            "standalone": false,
+            "note": "Its references run the slide search script that ships with design-system, which also holds the slide data and the fuller slide workflow."
+          }
+        ],
+        "install": [
+          {
+            "label": "Claude Code plugin",
+            "command": "claude plugin marketplace add nextlevelbuilder/ui-ux-pro-max-skill && claude plugin install ui-ux-pro-max@ui-ux-pro-max-skill"
+          },
+          {
+            "label": "Claude Code, with the uipro CLI",
+            "command": "npx ui-ux-pro-max-cli init --ai claude"
+          },
+          {
+            "label": "Cursor, with the uipro CLI; for another agent, such as codex or gemini, put its name after --ai",
+            "command": "npx ui-ux-pro-max-cli init --ai cursor"
           }
         ]
       }
@@ -16812,6 +17046,828 @@
           "seo",
           "marketing"
         ]
+      }
+    },
+    {
+      "id": "jakubkrehel/skills/skills/better-ui",
+      "name": "better-ui",
+      "skills.sh": {
+        "url": "https://skills.sh/jakubkrehel/skills/better-ui",
+        "installs": 44500,
+        "weeklyInstalls": [2447, 4851, 3106, 3571, 3236, 2260, 2556, 3276],
+        "firstSeen": "2026-07-10"
+      },
+      "skillMd": {
+        "version": "60bf140e43c98b248e6594487384ec967e89d98a",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Polishes surfaces, icons and motion in UI code with exact values for corner radius, shadows, press scale and animation timing.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "your UI works but its surfaces, icons or motion feel slightly off"
+            },
+            {
+              "label": "It does",
+              "text": "applies exact values, such as an outer radius equal to the inner radius plus padding, buttons pressing to 0.96 over 150ms, and 100ms staggers"
+            },
+            {
+              "label": "You get",
+              "text": "polished UI code, or a review: findings by severity with file, before and after, ending in Block or Approve"
+            },
+            {
+              "label": "Unlike make-interfaces-feel-better",
+              "text": "the same author's all-in-one checklist, it leaves typography, hit areas, layout and color to the other better-* skills"
+            }
+          ],
+          "text": "The visual-polish part of Jakub Krehel's better-* interface skills. Its values are exact, not ranges: nested surfaces with an even inset get an outer radius equal to the inner radius plus the padding; borders that only fake depth become layered transparent shadows, keeping a transparent border so forced-colors mode still draws an edge; content images get a 1px pure black or white outline at 10% opacity; a pressed button scales to 0.96 over 150ms, and a disabled one never does. State changes use transitions rather than keyframes so they can reverse mid-flight, keystrokes and row hovers respond instantly, staged entrances stagger by 100ms, exits are shorter than entrances, and movement runs only when the reduced-motion setting allows, with an opacity cross-fade otherwise. It also matches icon stroke to text weight, recolors one currentColor SVG per state, keeps hover styles to hover-capable pointers and stops overlays from scrolling the page behind. The project's own library, tokens and conventions win wherever no rule sets a value. A review checks every state, replays motion at 10% speed when a browser is available, marks what it couldn't check as Not verified, and blocks while any high-severity finding remains.",
+          "permalink": "https://github.com/jakubkrehel/skills/tree/60bf140e43c98b248e6594487384ec967e89d98a/skills/better-ui"
+        },
+        "tags": [
+          "category:design",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "design",
+          "animation"
+        ]
+      }
+    },
+    {
+      "id": "jakubkrehel/skills/skills/better-typography",
+      "name": "better-typography",
+      "skills.sh": {
+        "url": "https://skills.sh/jakubkrehel/skills/better-typography",
+        "installs": 39100,
+        "weeklyInstalls": [2416, 2718, 2475, 3146, 2735, 1763, 2045, 2950],
+        "firstSeen": "2026-07-10"
+      },
+      "skillMd": {
+        "version": "60bf140e43c98b248e6594487384ec967e89d98a",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Sets and reviews how text renders in UI code: type scale, line-height, letter-spacing, wrapping, truncation, font loading and punctuation.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're setting up or reviewing the type in an interface: sizes, spacing, wrapping and fonts"
+            },
+            {
+              "label": "It does",
+              "text": "applies measured rules, such as unitless line-height, weight 400 or heavier below 18px, a 60–75 character line and 16px inputs on iOS"
+            },
+            {
+              "label": "You get",
+              "text": "fixes in your project's styling system, with Tailwind equivalents, or a review ending in Block or Approve"
+            },
+            {
+              "label": "Won't",
+              "text": "propose a new typeface, paid or free, unless the task asks for a type change"
+            }
+          ],
+          "text": "The typography part of Jakub Krehel's better-* interface skills. It separates measured rules from heuristics: unitless line-height, weights of 400 or more under 18px, a 60–75 character line length, 16px inputs so iOS Safari doesn't zoom the page, and tabular numbers on timers, prices and counters are findings when missed, while letter-spacing, font pairing and scale ratios are reported only where they break the project's own scale. It sets line-height by role (1.1 for display, 1.2–1.3 for headings, 1.5–1.6 for body), tracking by size in em, a small type scale named by use on teams, and headings that shrink with their level. It prefers CSS properties over raw OpenType tags, loads every face the design uses instead of letting the browser synthesize weights or styles, balances headings and keeps lone words off the last line of paragraphs, and swaps keyboard stand-ins for curly quotes, dashes and the ellipsis character. A cheat sheet maps each declaration to its Tailwind utility. With a browser, a review compares computed values and resizes the viewport with real content; anything it couldn't check is marked Not verified.",
+          "permalink": "https://github.com/jakubkrehel/skills/tree/60bf140e43c98b248e6594487384ec967e89d98a/skills/better-typography"
+        },
+        "tags": [
+          "category:design",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "design"
+        ]
+      }
+    },
+    {
+      "id": "jakubkrehel/skills/skills/better-colors",
+      "name": "better-colors",
+      "skills.sh": {
+        "url": "https://skills.sh/jakubkrehel/skills/better-colors",
+        "installs": 37200,
+        "weeklyInstalls": [2211, 2429, 2297, 3061, 2722, 1748, 2021, 2922],
+        "firstSeen": "2026-07-10"
+      },
+      "skillMd": {
+        "version": "60bf140e43c98b248e6594487384ec967e89d98a",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds and audits color systems: generates ramps with a color library, maps steps to semantic tokens, converts notation and measures contrast.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're building a palette and color tokens, or checking existing ones for broken roles and failing contrast"
+            },
+            {
+              "label": "It does",
+              "text": "builds one-hue ramps with a color library, gives every step a role, and names tokens in two tiers: by hue, then by job"
+            },
+            {
+              "label": "You get",
+              "text": "tokens in your project's notation, OKLCH for a new system, and a measured contrast value for each rendered pair"
+            },
+            {
+              "label": "Won't",
+              "text": "change a failing color unless asked: it reports the pair, its measured value and the threshold it misses"
+            }
+          ],
+          "text": "The color part of Jakub Krehel's better-* interface skills. A color system here is ramps, not colors: one neutral, one accent and only the status ramps the product actually renders, each holding one hue, built with a color library rather than by eye, and with no step that no role uses. Primitive tokens name a value, like --blue-600, and are never used in components; semantic tokens name a job, like --color-text-secondary, and are the only ones components reference, so a theme can repoint colors without touching them. A token is never borrowed for another role because its value happens to match. Hues within 15° in OKLCH count as the same color, so each color keeps one meaning, and color never carries meaning alone. Where filled color marks the primary action, only one action per view gets it. Contrast is measured against the background the text actually renders on, never estimated. A checklist catches common slips, such as white text on a Tailwind 500 fill, a dark theme made by reversing the light ramp, and vivid OKLCH colors with no sRGB fallback.",
+          "permalink": "https://github.com/jakubkrehel/skills/tree/60bf140e43c98b248e6594487384ec967e89d98a/skills/better-colors"
+        },
+        "tags": [
+          "category:design",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "design",
+          "design-system",
+          "accessibility"
+        ]
+      }
+    },
+    {
+      "id": "jakubkrehel/skills/skills/better-layout",
+      "name": "better-layout",
+      "skills.sh": {
+        "url": "https://skills.sh/jakubkrehel/skills/better-layout",
+        "installs": 35300,
+        "weeklyInstalls": [2240, 2550, 2327, 3042, 2675, 1687, 2001, 2864],
+        "firstSeen": "2026-07-24"
+      },
+      "skillMd": {
+        "version": "60bf140e43c98b248e6594487384ec967e89d98a",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Sets grouping, alignment, reading order and responsive structure in UI code, then checks it survives resizing, translation and right-to-left mirroring.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a layout has to hold up at narrow widths, at 200% zoom, in longer languages or mirrored for right-to-left"
+            },
+            {
+              "label": "It does",
+              "text": "groups with space before lines, aligns to shared edges, keeps visual order equal to source order and writes direction-dependent CSS as start and end"
+            },
+            {
+              "label": "You get",
+              "text": "fixes in your project's own spacing tokens, or a review whose findings each show a clip, overlap, broken mirror or misread group"
+            },
+            {
+              "label": "Starting values",
+              "text": "8px within a group and 16px or more between groups, used only when the project has no spacing scale"
+            }
+          ],
+          "text": "The layout part of Jakub Krehel's better-* interface skills. It sets structure, then stress-tests it by resizing, translating and mirroring. Groups are made with space first, background shapes second and separator lines last, with gaps between groups at least twice those within. Controls get a shape, border, underline or fixed zone so they never read as static text, and each view gets one primary action, with secondary actions moved into a menu past three. Direction-dependent layout uses logical properties such as margin-inline-start, so it mirrors for right-to-left languages, and content is never reordered away from its source order. Hidden or scrolled-off content gets a visible cue, and breakpoints come from the content, with container queries for components. Text containers use max-width and min-height rather than fixed sizes, since translated strings, short labels most of all, grow; it suggests testing with pseudo-localization and German. A checklist catches traps such as 100vw causing a horizontal scroll, 100vh hidden under mobile toolbars, and safe-area insets that stay zero without viewport-fit=cover. A value that merely differs from its starting points is not a finding.",
+          "permalink": "https://github.com/jakubkrehel/skills/tree/60bf140e43c98b248e6594487384ec967e89d98a/skills/better-layout"
+        },
+        "tags": [
+          "category:design",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "design"
+        ]
+      }
+    },
+    {
+      "id": "jakubkrehel/skills/skills/better-interface",
+      "name": "better-interface",
+      "skills.sh": {
+        "url": "https://skills.sh/jakubkrehel/skills/better-interface",
+        "installs": 34400,
+        "weeklyInstalls": [2155, 2401, 2504, 2956, 2508, 1624, 1875, 2748],
+        "firstSeen": "2026-07-24"
+      },
+      "skillMd": {
+        "version": "60bf140e43c98b248e6594487384ec967e89d98a",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Reviews a screen, flow or whole interface by running the six better-* domain reviews, then merges their findings into one ranked report.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a screen, flow or whole interface reviewed for accessibility, layout, copy, type, color and polish at once"
+            },
+            {
+              "label": "It does",
+              "text": "loads each better-* skill in a fixed order, from accessibility to polish, and merges their findings into one table ranked by user impact"
+            },
+            {
+              "label": "You get",
+              "text": "one read-only report of at most 15 findings, each citing file and line, with the scope covered, what was verified and a verdict"
+            },
+            {
+              "label": "Needs",
+              "text": "the six better-* skills installed; a domain whose skill is missing is marked Not reviewed"
+            },
+            {
+              "label": "Unlike interface-review",
+              "text": "which reviews only what a branch, pull request or uncommitted change introduced; this one reviews what exists"
+            }
+          ],
+          "text": "The orchestrator of Jakub Krehel's better-* interface skills: it owns no design rules of its own. It first settles the scope, narrowing a request too large to inspect to one complete flow and saying what it left out. It identifies the framework, styling system, tokens and supported viewports, and reads the project's own interface docs, such as CONTRIBUTING.md, AGENTS.md or a design-system doc, so fixes are written in the project's idiom and documented conventions settle matters of taste. Then it loads better-accessibility, better-layout, better-writing, better-typography, better-colors and better-ui in that order, so basic failures aren't hidden behind polish. Thirteen escalation triggers, such as a control with no accessible name, body text failing contrast or an error with no way to recover, are always high severity. For each finding it proposes the cheapest fix that works: delete, use the platform, reuse the project's tokens, correct a value, and only then add something. One root cause is one finding listing every place it occurs. It runs the project's safe checks, marks what it couldn't check as Not verified, and edits no code unless you also ask for the fixes. Asked about a branch or pull request, it sends you to interface-review.",
+          "permalink": "https://github.com/jakubkrehel/skills/tree/60bf140e43c98b248e6594487384ec967e89d98a/skills/better-interface"
+        },
+        "tags": [
+          "category:design",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "design",
+          "accessibility",
+          "code-review"
+        ],
+        "note": "Loads the six better-* skills from the same repo; without them, it marks their domains Not reviewed."
+      }
+    },
+    {
+      "id": "jakubkrehel/skills/skills/better-accessibility",
+      "name": "better-accessibility",
+      "skills.sh": {
+        "url": "https://skills.sh/jakubkrehel/skills/better-accessibility",
+        "installs": 34100,
+        "weeklyInstalls": [2144, 2379, 2182, 2926, 2588, 1619, 1931, 2809],
+        "firstSeen": "2026-07-23"
+      },
+      "skillMd": {
+        "version": "60bf140e43c98b248e6594487384ec967e89d98a",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Reviews and fixes keyboard and focus behavior, ARIA, accessible names, forms, announcements, motion and zoom, citing the WCAG 2.2 criterion each failure breaks.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're building or reviewing UI and want it to work by keyboard and screen reader and meet WCAG 2.2 AA"
+            },
+            {
+              "label": "It does",
+              "text": "walks each flow keyboard-only, then as a screen-reader user, checking names, roles, states, focus, forms, announcements, motion and zoom"
+            },
+            {
+              "label": "You get",
+              "text": "fixes in your project's styling, or findings that each cite a WCAG criterion by number, ending in Block or Approve"
+            },
+            {
+              "label": "Rule of thumb",
+              "text": "native elements over ARIA, and when unsure, remove ARIA rather than add it"
+            }
+          ],
+          "text": "The accessibility part of Jakub Krehel's better-* interface skills. Only a failure of a WCAG 2.2 Level A or AA criterion, or a task an assistive-technology user can't complete, counts as a finding; AAA criteria, ARIA pattern conventions and the larger 44px and 40px targets are recommendations, never high severity. Native elements come first: a button for actions, a link for navigation, never a clickable div. It covers focus rings on :focus-visible with 3:1 contrast, focus never hidden behind sticky headers, keyboard support following the ARIA Authoring Practices key maps, dialogs that trap focus and return it on close, focus moved on client-side route changes, 24px minimum targets, a single-pointer alternative to every drag, labelled inputs with autocomplete and paste allowed, errors checked on submit and announced, accessible names, a second cue beside color, reduced motion, pause controls for anything moving longer than five seconds, live regions for updates, alt text by purpose, and reflow at 320px width and 200% zoom. It decides which contrast ratio applies, while better-colors measures it. With a browser, it tabs through each flow, reads names and roles from the accessibility tree and runs an automated audit.",
+          "permalink": "https://github.com/jakubkrehel/skills/tree/60bf140e43c98b248e6594487384ec967e89d98a/skills/better-accessibility"
+        },
+        "tags": [
+          "category:design",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "accessibility"
+        ]
+      }
+    },
+    {
+      "id": "jakubkrehel/skills/skills/better-writing",
+      "name": "better-writing",
+      "skills.sh": {
+        "url": "https://skills.sh/jakubkrehel/skills/better-writing",
+        "installs": 33300,
+        "weeklyInstalls": [2103, 2310, 2160, 2854, 2520, 1579, 1826, 2688],
+        "firstSeen": "2026-07-24"
+      },
+      "skillMd": {
+        "version": "60bf140e43c98b248e6594487384ec967e89d98a",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes and reviews interface copy, such as buttons, errors, empty states and confirmations, in the product's existing voice and vocabulary.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're writing or reviewing the words in an interface: labels, buttons, errors, empty states and confirmations"
+            },
+            {
+              "label": "It does",
+              "text": "first lists the nouns, verbs and capitalization the product already uses, then writes or checks copy against them and its rules"
+            },
+            {
+              "label": "You get",
+              "text": "copy in the product's voice, or findings by severity with file, before and after, ending in Block or Approve"
+            },
+            {
+              "label": "Won't",
+              "text": "flag a deliberate brand voice, or rewording that only suits its taste"
+            }
+          ],
+          "text": "The copy part of Jakub Krehel's better-* interface skills. Before writing, it finds where strings live, from translation calls and locale files to a CMS, and lists the word used for each object and action, so new copy says \"Archive\" wherever the menu already does. Tone follows the stakes: warm for success and empty states, calm and plain for errors and destructive actions. Buttons start with a verb, links name their destination instead of \"Click here\", toggles describe what happens when they're on, and errors sit beside the field and say how to fix it, with no \"Oops\" and no exclamation marks. It prefers undo for frequent reversible actions, and confirms irreversible ones with a title naming the action and the object, verb-and-object buttons, and, for an account, workspace or repository, typing its name. Empty states say what the place is for and offer one next step. Strings are built whole with placeholders and the locale's plural rules, never stitched around a variable, and dates and numbers go through Intl. A checklist flags words such as \"successfully\" and \"Please\" in routine copy.",
+          "permalink": "https://github.com/jakubkrehel/skills/tree/60bf140e43c98b248e6594487384ec967e89d98a/skills/better-writing"
+        },
+        "tags": [
+          "category:design",
+          "category:writing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "writing",
+          "design"
+        ]
+      }
+    },
+    {
+      "id": "nextlevelbuilder/ui-ux-pro-max-skill/cli/assets/skills/design-system",
+      "name": "design-system",
+      "skills.sh": {
+        "url": "https://skills.sh/nextlevelbuilder/ui-ux-pro-max-skill/design-system",
+        "installs": 48900,
+        "weeklyInstalls": [2167, 2132, 1999, 1986, 2291, 2654, 3485, 3926],
+        "firstSeen": "2026-06-25"
+      },
+      "skillMd": {
+        "version": "b7d5353e0130feb8c5574ef1251f8a1db1873ccb",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds three-layer design tokens with scripts that generate and validate them, plus token-based HTML slide decks with Chart.js charts.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're setting up design tokens or component state specs, or want an HTML pitch deck that sticks to them"
+            },
+            {
+              "label": "It does",
+              "text": "layers tokens as raw values, purpose aliases and per-component values, and runs scripts that turn a JSON config into CSS variables and flag hardcoded values"
+            },
+            {
+              "label": "You get",
+              "text": "a tokens CSS file, and for slides, HTML decks that import it, draw charts with Chart.js and navigate by keyboard, click and progress bar"
+            },
+            {
+              "label": "Works with",
+              "text": "brand, a sibling skill whose brand colors and fonts become the primitive tokens"
+            }
+          ],
+          "text": "One of the design skills, written by ClaudeKit, that ship next to ui-ux-pro-max in the UI UX Pro Max repo. Tokens come in three layers: primitives hold raw values such as --color-blue-600, semantic tokens alias them by purpose such as --color-primary, and component tokens such as --button-bg point at those, so a theme can switch without touching components. generate-tokens.cjs turns a JSON config into CSS variables, validate-tokens.cjs scans your source for hardcoded values, and a starter JSON template is included. References cover each layer, component specs, states and variants, and Tailwind integration. The slide half builds persuasive HTML decks: a BM25 search over bundled CSV data picks a deck structure with an emotional arc, then for each slide a layout, type scale, color treatment and, if needed, a background image; the agent writes the HTML on the tokens and checks it with a validator script. Every slide must import the tokens CSS, use only CSS variables, draw charts with Chart.js and include navigation.",
+          "permalink": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/b7d5353e0130feb8c5574ef1251f8a1db1873ccb/cli/assets/skills/design-system"
+        },
+        "tags": [
+          "category:design",
+          "type:tool",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "design-system",
+          "slides"
+        ]
+      }
+    },
+    {
+      "id": "nextlevelbuilder/ui-ux-pro-max-skill/cli/assets/skills/design",
+      "name": "design",
+      "skills.sh": {
+        "url": "https://skills.sh/nextlevelbuilder/ui-ux-pro-max-skill/design",
+        "installs": 47400,
+        "weeklyInstalls": [2054, 2070, 1915, 1902, 2171, 2671, 3385, 3873],
+        "firstSeen": "2026-06-25"
+      },
+      "skillMd": {
+        "version": "b7d5353e0130feb8c5574ef1251f8a1db1873ccb",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Generates logos, brand identity mockups and SVG icons with Gemini, and designs slides, banners and social media images.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need brand assets made: a logo, business cards and stationery, icons, a pitch deck, banners or social media images"
+            },
+            {
+              "label": "It does",
+              "text": "searches bundled style, color and industry data to write a brief, then runs Python scripts that generate the images with Gemini"
+            },
+            {
+              "label": "You get",
+              "text": "logo images, identity mockups in an HTML presentation, SVG icons, HTML slides, and banners and social images exported as PNG"
+            },
+            {
+              "label": "Needs",
+              "text": "a Gemini API key and two Python packages; social images also need headless Chrome, Playwright or Puppeteer"
+            },
+            {
+              "label": "Hands off",
+              "text": "brand voice, design tokens and shadcn or Tailwind work to its sibling skills brand, design-system and ui-styling"
+            }
+          ],
+          "text": "An all-in-one design skill, written by ClaudeKit, that ships next to ui-ux-pro-max in the UI UX Pro Max repo. Logos start from a design brief that a BM25 search builds from 55 styles, 30 palettes and 25 industry guides; a script then generates them with Gemini, or with Atlas Cloud or MuAPI, always on a white background, and the agent offers an HTML preview gallery. A corporate identity program works the same way: pick deliverables such as business cards and letterheads, generate mockups with Gemini, ideally from your logo, and render them into an HTML presentation. Icons come out as SVG text from Gemini 3.1 Pro, in 15 styles, singly, in batches or at several sizes. Slides, banners and social images are built in HTML and CSS: banners at exact platform sizes with safe zones and one call to action; social images per platform, screenshotted at exact pixels, inspected and re-exported, with a report saved to plans/reports/. Brand voice, tokens and component styling go to the sibling skills brand, design-system and ui-styling, and banners and social images take style guidance from ui-ux-pro-max. When a script fails, the agent is told to fix it itself.",
+          "permalink": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/b7d5353e0130feb8c5574ef1251f8a1db1873ccb/cli/assets/skills/design"
+        },
+        "tags": [
+          "category:design",
+          "category:media",
+          "category:marketing",
+          "type:tool",
+          "effect:local",
+          "needs:account",
+          "needs:browser",
+          "by:community",
+          "stack:gemini",
+          "design",
+          "image",
+          "ai-generation",
+          "slides",
+          "social-media"
+        ],
+        "note": "Needs a Gemini API key for logos, mockups and icons; Atlas Cloud and MuAPI are optional providers."
+      }
+    },
+    {
+      "id": "nextlevelbuilder/ui-ux-pro-max-skill/cli/assets/skills/brand",
+      "name": "brand",
+      "skills.sh": {
+        "url": "https://skills.sh/nextlevelbuilder/ui-ux-pro-max-skill/brand",
+        "installs": 45900,
+        "weeklyInstalls": [1932, 1978, 1883, 1869, 2212, 2589, 3375, 3809],
+        "firstSeen": "2026-06-25"
+      },
+      "skillMd": {
+        "version": "b7d5353e0130feb8c5574ef1251f8a1db1873ccb",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Defines brand voice and visual identity in one guidelines file, syncs its colors into design tokens, and checks assets against it.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want one source of truth for a brand's colors, fonts and voice that design tokens and generated content follow"
+            },
+            {
+              "label": "It does",
+              "text": "keeps docs/brand-guidelines.md as the source, syncs it to design-tokens.json and design-tokens.css, and extracts brand context for prompts"
+            },
+            {
+              "label": "You get",
+              "text": "an updated guidelines file and token files, a summary of the theme and colors, and checks on asset files and image colors"
+            },
+            {
+              "label": "Stops",
+              "text": "when your project already has a token source, such as :root variables or a Tailwind theme, rather than build a second one"
+            }
+          ],
+          "text": "One of the design skills, written by ClaudeKit, that ship next to ui-ux-pro-max in the UI UX Pro Max repo. It treats docs/brand-guidelines.md as the brand's source of truth, with a starter template for new brands, and a script syncs it to design-tokens.json and design-tokens.css. Its update command asks for a theme name, primary, secondary and accent colors with hex codes, and mood keywords for image generation, or takes one of five presets such as ocean-professional; it then edits the guidelines, runs the sync, checks the output and reports the theme and the files it changed. The sync refuses to run beside an existing token system unless you pass --force for its own earlier output. Other scripts extract brand context to inject into prompts, validate an asset's name, size and format, and pull colors from an image to compare with the palette. References cover voice, visual identity, messaging, consistency, asset organization, color, typography, logo usage and approval checklists.",
+          "permalink": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/b7d5353e0130feb8c5574ef1251f8a1db1873ccb/cli/assets/skills/brand"
+        },
+        "tags": [
+          "category:design",
+          "category:marketing",
+          "type:tool",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "design-system",
+          "marketing"
+        ]
+      }
+    },
+    {
+      "id": "nextlevelbuilder/ui-ux-pro-max-skill/cli/assets/skills/banner-design",
+      "name": "banner-design",
+      "skills.sh": {
+        "url": "https://skills.sh/nextlevelbuilder/ui-ux-pro-max-skill/banner-design",
+        "installs": 45600,
+        "weeklyInstalls": [1917, 1891, 1832, 1865, 2176, 2512, 3302, 3854],
+        "firstSeen": "2026-06-25"
+      },
+      "skillMd": {
+        "version": "b7d5353e0130feb8c5574ef1251f8a1db1873ccb",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Designs banners for social media, ads, website heroes and print in several art directions, built in HTML and CSS and exported as PNG.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need a social cover, ad, website hero or print banner, and want a few directions to choose from"
+            },
+            {
+              "label": "It does",
+              "text": "asks about purpose, size, copy, brand and style, picks two or three art directions, and builds each in HTML and CSS at the platform's exact size"
+            },
+            {
+              "label": "You get",
+              "text": "PNGs named by style and size in assets/banners/<campaign>/, shown side by side, or the HTML and CSS when capture isn't available"
+            },
+            {
+              "label": "Needs",
+              "text": "nothing outside the skill; browser research, image generation and screenshots are used only when the agent has them"
+            }
+          ],
+          "text": "One of the design skills, written by ClaudeKit, that ship next to ui-ux-pro-max in the UI UX Pro Max repo, and a fuller version of the banner section in its design skill. It starts by asking six questions: purpose, platform or size, copy, brand assets, style, and how many options, three by default. A bundled reference gives sizes, safe zones and 22 art styles, from minimalist and gradient to glassmorphism and neon. Each option is built in HTML and CSS with critical content in the central 70–80%, at most two typefaces, one call to action, text contrast of at least 4.5:1, and only the brand rules you supplied. Visuals come from your assets, CSS shapes and gradients, or an image generator if the agent has one, prompted without text so the copy stays editable. Each banner is captured as a PNG at its exact size and checked for dimensions, crop and fonts; then all options are shown together with their rationale, file path and size, and refined until you approve one. It handles banners only, not video, full websites or print production.",
+          "permalink": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/b7d5353e0130feb8c5574ef1251f8a1db1873ccb/cli/assets/skills/banner-design"
+        },
+        "tags": [
+          "category:design",
+          "category:marketing",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "design",
+          "image",
+          "social-media"
+        ]
+      }
+    },
+    {
+      "id": "nextlevelbuilder/ui-ux-pro-max-skill/cli/assets/skills/slides",
+      "name": "slides",
+      "skills.sh": {
+        "url": "https://skills.sh/nextlevelbuilder/ui-ux-pro-max-skill/slides",
+        "installs": 44700,
+        "weeklyInstalls": [1901, 1866, 1800, 1830, 2106, 2461, 3211, 3699],
+        "firstSeen": "2026-06-25"
+      },
+      "skillMd": {
+        "version": "b7d5353e0130feb8c5574ef1251f8a1db1873ccb",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Creates persuasive HTML slide decks from deck strategies, slide layouts, copywriting formulas, design tokens and Chart.js charts.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a pitch deck, sales pitch or other presentation as one HTML page rather than a PowerPoint file"
+            },
+            {
+              "label": "It does",
+              "text": "picks one of 15 deck structures, such as a YC seed deck, then a layout and a copywriting formula for each slide"
+            },
+            {
+              "label": "You get",
+              "text": "HTML slides on design tokens, with Chart.js charts and arrow-key, click and progress-bar navigation"
+            },
+            {
+              "label": "Needs",
+              "text": "design-system from the same repo, whose slide search script its references run"
+            }
+          ],
+          "text": "One of the design skills, written by ClaudeKit, that ship next to ui-ux-pro-max in the UI UX Pro Max repo. Its SKILL.md is a short index: a create command, which tells the agent to build persuasive HTML slides with design tokens, Chart.js and the slide knowledge base, and four references. Deck strategies give 15 structures, from a YC seed deck to a QBR or a webinar, each with an emotional arc, plus the Duarte sparkline that alternates what is with what could be. Layout patterns give slide layouts with their CSS and animation classes, the HTML template gives a full deck with navigation and Chart.js, and the copywriting reference gives formulas such as problem-agitate-solution and AIDA, mapped to slide types, with headline patterns. Three of the references also run the slide search script that lives in design-system. design-system holds the fuller slide workflow and its data, and the design skill has a slides section of its own.",
+          "permalink": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/b7d5353e0130feb8c5574ef1251f8a1db1873ccb/cli/assets/skills/slides"
+        },
+        "tags": [
+          "category:design",
+          "type:tool",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "slides",
+          "charts",
+          "copywriting"
+        ],
+        "note": "Runs the slide search script that ships with design-system, from the same repo."
+      }
+    },
+    {
+      "id": "dietrichgebert/ponytail/skills/ponytail-review",
+      "name": "ponytail-review",
+      "skills.sh": {
+        "url": "https://skills.sh/dietrichgebert/ponytail/ponytail-review",
+        "installs": 65997,
+        "weeklyInstalls": [2613, 2591, 2486, 3221, 8440, 10867, 6013, 5776],
+        "firstSeen": "2026-06-12"
+      },
+      "skillMd": {
+        "version": "96608e078b2d5ea607c5c3b8b5a54d1c1fba6846",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Reviews a code change like the developer who'll be paged when it breaks: bugs, security, load, missing tests, speed and needless code.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a diff, branch, pull request or your last commit reviewed for what will actually break, not for style"
+            },
+            {
+              "label": "It does",
+              "text": "reads the change and the code around it, such as callers, tests and the README, then checks correctness, safety, load, tests, speed and needless code, in that order"
+            },
+            {
+              "label": "You get",
+              "text": "numbered plain-English findings under Must fix, Should fix and Nice to have, each with what the code does, the problem, the fix and the cost of skipping it"
+            },
+            {
+              "label": "Ends with",
+              "text": "a verdict, such as \"Ship.\" or \"fix 1 and 3 first\", and how many lines could go"
+            },
+            {
+              "label": "Unlike ponytail-audit",
+              "text": "which runs the same checks across a whole repo instead of one change"
+            },
+            {
+              "label": "Won't",
+              "text": "change code, or report style taste or a finding without a concrete failing case"
+            }
+          ],
+          "text": "Ponytail is a skill set that makes coding agents write the least code that fully solves a task; this is its reviewer, modelled on the senior developer who gets paged when a change breaks. With no target named, it reviews uncommitted changes, or the last commit if there are none. It reads past the diff, to the callers of every changed function, the functions it calls, the tests and the README, and greps every caller when a signature or return value changes. It looks in the repo for the expected load, from one person running a script to many users at once, and says which it assumed. Findings rank by correct, safe, holds under load, tested, fast, lean: missed edge cases and broken callers, injection and data loss, races and a query per item, risky logic with no test, real slowdowns, and code to delete, reuse, merge or split. Each needs a concrete case that goes wrong, and a shortcut marked with a shortcut: comment naming its limit counts as a decision. Findings are numbered so you can say \"fix 2 and 5\", and written in short everyday sentences for a reader who's never seen the code.",
+          "permalink": "https://github.com/dietrichgebert/ponytail/tree/96608e078b2d5ea607c5c3b8b5a54d1c1fba6846/skills/ponytail-review"
+        },
+        "tags": [
+          "category:debugging",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "code-review",
+          "code-quality"
+        ]
+      }
+    },
+    {
+      "id": "dietrichgebert/ponytail/skills/ponytail-audit",
+      "name": "ponytail-audit",
+      "skills.sh": {
+        "url": "https://skills.sh/dietrichgebert/ponytail/ponytail-audit",
+        "installs": 53900,
+        "weeklyInstalls": [2464, 2370, 2293, 3020, 4843, 5407, 5602, 5460],
+        "firstSeen": "2026-06-14"
+      },
+      "skillMd": {
+        "version": "96608e078b2d5ea607c5c3b8b5a54d1c1fba6846",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Audits a whole repo for bugs, security holes, what breaks under real load, untested risky code, slow paths and code to delete.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you've inherited a codebase, or want to know what in yours to fix or delete first"
+            },
+            {
+              "label": "It does",
+              "text": "maps the repo first, from README, deploy config and dependencies to entry points and tests, then traces the main data flows end to end"
+            },
+            {
+              "label": "You get",
+              "text": "up to 20 ranked findings in plain English, each with the problem, the fix and the cost of skipping it, and a verdict on what to fix first"
+            },
+            {
+              "label": "Also reports",
+              "text": "how many lines and dependencies could go, and which parts it didn't read or couldn't run"
+            },
+            {
+              "label": "Unlike ponytail-review",
+              "text": "which checks one change and the code it touches"
+            },
+            {
+              "label": "Won't",
+              "text": "change any code; it's a one-shot report"
+            }
+          ],
+          "text": "Ponytail is a skill set that makes coding agents write the least code that fully solves a task; this skill audits a whole repo, or a folder or package you name, like the senior developer who just inherited it. It reads the README, build and deploy config, dependency list, entry points and tests, works out the expected load and says what it assumed, and traces how data comes in, is stored and goes out, reading the riskiest paths in full: user input, money, auth, data writes, background jobs and anything shared between processes. On a big repo it goes deep where a mistake costs most and names the parts it skipped. Findings rank by correct, safe, holds under load, tested, fast and lean, and lean findings name what to delete, reuse, merge or split, such as an interface with one implementation or a dependency doing what a few lines could. Before calling code unused, it greps the whole tree, including tests, config and dynamic references. Every finding needs a concrete case that goes wrong, and they come grouped as Must fix, Should fix and Nice to have, numbered so you can pick which to fix.",
+          "permalink": "https://github.com/dietrichgebert/ponytail/tree/96608e078b2d5ea607c5c3b8b5a54d1c1fba6846/skills/ponytail-audit"
+        },
+        "tags": [
+          "category:debugging",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "code-review",
+          "code-quality"
+        ]
+      }
+    },
+    {
+      "id": "dietrichgebert/ponytail/skills/ponytail-debt",
+      "name": "ponytail-debt",
+      "skills.sh": {
+        "url": "https://skills.sh/dietrichgebert/ponytail/ponytail-debt",
+        "installs": 50900,
+        "weeklyInstalls": [2303, 2212, 2149, 2834, 4437, 5426, 5415, 5262],
+        "firstSeen": "2026-06-15"
+      },
+      "skillMd": {
+        "version": "96608e078b2d5ea607c5c3b8b5a54d1c1fba6846",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Collects the shortcut: comments ponytail leaves in code into a ledger of deferred work, with each one's limit and upgrade trigger.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you've used ponytail for a while and want to see which shortcuts it deferred, before they become permanent"
+            },
+            {
+              "label": "It does",
+              "text": "greps the repo for shortcut: comments, and older ponytail: ones, skipping .git and ignored files, or for a marker word you name, such as TODO"
+            },
+            {
+              "label": "You get",
+              "text": "one line per marker, grouped by file: what was simplified, its limit and its upgrade trigger, with no-trigger on those that name none"
+            },
+            {
+              "label": "Writes",
+              "text": "nothing, unless you ask it to save the ledger to a file such as PONYTAIL-DEBT.md"
+            }
+          ],
+          "text": "Ponytail, a skill set that makes coding agents write the least code that fully solves a task, marks each deliberate shortcut with a comment in the form shortcut: <the limit>, <when to upgrade>. This skill gathers those comments into one ledger, so a deferral can't quietly become permanent. It runs one git grep over comment markers, skipping .git and everything .gitignore excludes, and drops hits that aren't deferrals, such as a note about a keyboard shortcut. Each row gives the file and line, what was simplified, the limit and the upgrade trigger, pulled straight from the comment; markers that name no trigger are tagged no-trigger, since those are the ones that rot. It ends with a count of markers and of those with no trigger, and git blame can add an owner to each row. It's one-shot and changes nothing.",
+          "permalink": "https://github.com/dietrichgebert/ponytail/tree/96608e078b2d5ea607c5c3b8b5a54d1c1fba6846/skills/ponytail-debt"
+        },
+        "tags": [
+          "category:engineering",
+          "type:command",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "code-quality"
+        ],
+        "note": "Lists the shortcut: comments that the ponytail skill leaves in code; for any other marker, you name the word."
+      }
+    },
+    {
+      "id": "dietrichgebert/ponytail/skills/ponytail-help",
+      "name": "ponytail-help",
+      "skills.sh": {
+        "url": "https://skills.sh/dietrichgebert/ponytail/ponytail-help",
+        "installs": 50900,
+        "weeklyInstalls": [2332, 2222, 2172, 2839, 4493, 5290, 5460, 5230],
+        "firstSeen": "2026-06-12"
+      },
+      "skillMd": {
+        "version": "96608e078b2d5ea607c5c3b8b5a54d1c1fba6846",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Shows a quick-reference card for ponytail's levels, skills and commands.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you've installed ponytail and want a reminder of its levels, commands and settings"
+            },
+            {
+              "label": "It does",
+              "text": "prints one reference card, without changing the mode or saving anything"
+            },
+            {
+              "label": "Lists",
+              "text": "the lite, full and ultra levels, the six skills, how to turn ponytail off, the Claude Code band commands, default-mode settings and updating"
+            },
+            {
+              "label": "Runs",
+              "text": "when you type /ponytail-help or ask for ponytail help"
+            }
+          ],
+          "text": "A one-shot cheat sheet for Ponytail, a skill set that makes coding agents write the least code that fully solves a task. It shows the three levels: lite builds what was asked and names the smaller option, full is the default, and ultra also pushes back on the request before building. It lists the six skills, ponytail itself, ponytail-review, ponytail-audit, ponytail-debt, ponytail-gain and this card, and how to call them in Codex. It reminds you that \"stop ponytail\" or \"normal mode\" turns it off, explains how to hide the band Ponytail shows above the prompt in Claude Code or import past sessions into it, and how to set the default level with the PONYTAIL_DEFAULT_MODE variable or ~/.config/ponytail/config.json, including off. It also says how to turn on the plugin's auto-update in Claude Code. It's only useful once the other ponytail skills are installed.",
+          "permalink": "https://github.com/dietrichgebert/ponytail/tree/96608e078b2d5ea607c5c3b8b5a54d1c1fba6846/skills/ponytail-help"
+        },
+        "tags": [
+          "category:engineering",
+          "type:command",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "scope-control"
+        ],
+        "note": "A reference card for the ponytail skills, so it only helps once they're installed."
       }
     }
   ]
