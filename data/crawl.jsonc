@@ -1953,19 +1953,6 @@
       }
     },
     {
-      "name": "image-enhancer",
-      "repo": "composiohq/awesome-claude-skills",
-      "official": true,
-      "stars": 78931,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/composiohq/awesome-claude-skills/image-enhancer",
-        "installs": 5200,
-        "weeklyInstalls": [89, 106, 101, 150, 120, 116, 114, 113],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
       "name": "substack-ghostwriting",
       "repo": "samber/cc-skills",
       "official": false,
@@ -22683,6 +22670,10 @@
     {
       "url": "https://skills.sh/testdino-hq/playwright-skill/playwright-skill",
       "note": "Tool docs: an agent's manual for playwright."
+    },
+    {
+      "url": "https://skills.sh/composiohq/awesome-claude-skills/image-enhancer",
+      "note": "It does nothing for whoever installs it: it names no tool or method for enhancing images."
     }
   ]
 }
