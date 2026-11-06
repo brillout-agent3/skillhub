@@ -2,16 +2,8 @@
 
 import raw from "../data/skills.jsonc";
 import { esc, href, plural } from "./format.ts";
-import {
-  bundleRepo,
-  github,
-  type Bundle,
-  type BundleSkill,
-  type Data,
-  type Facet,
-  type Skill,
-  type Tldr,
-} from "../data/types.ts";
+import type { Bundle, BundleSkill, Data, Facet, Skill, Tldr } from "../data/types.ts";
+import { bundleRepo, github } from "./github.ts";
 
 export const data = raw as Data;
 export const GITHUB = "https://github.com/brillout/skillhub";

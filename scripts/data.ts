@@ -7,7 +7,8 @@ import { execFileSync } from "node:child_process";
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { parse, stringify, type CommentToken } from "comment-json";
 import { fileURLToPath } from "node:url";
-import { github, type Crawl, type Crawled, type Data } from "../data/types.ts";
+import type { Crawl, Crawled, Data, Tldr } from "../data/types.ts";
+import { github } from "../website/github.ts";
 
 export const root = fileURLToPath(new URL("..", import.meta.url));
 const path = `${root}data/skills.jsonc`;
@@ -145,3 +146,30 @@ export function approvedPages(data: Data): Set<string> {
 /** Whether a crawled skill passes the minimums. Unknown stars don't. */
 export const passes = ({ minimums }: Pick<Crawl, "minimums">, c: Crawled) =>
   (c["skills.sh"].installs ?? 0) >= minimums.installs && (c.stars ?? -1) >= minimums.stars;
+
+// -------------------------------------------------------------------- TLDRs
+
+/** The most a TLDR may hold; there's no minimum. */
+export const TLDR_LIMITS = { glanceItems: 8, labelWords: 4, glanceWords: 30, textWords: 200 };
+
+/** What's wrong with a TLDR's glance and text, if anything. */
+export function tldrProblems({ glance, text }: Pick<Tldr, "glance" | "text">): string[] {
+  const words = (s: string) => s.split(/\s+/).filter(Boolean).length;
+  const { glanceItems, labelWords, glanceWords, textWords } = TLDR_LIMITS;
+  const problems: string[] = [];
+  if (!text?.trim()) problems.push("the TLDR text is empty");
+  else if (words(text) > textWords)
+    problems.push(`the TLDR text has ${words(text)} words, at most ${textWords}`);
+  if (!Array.isArray(glance)) return [...problems, "glance must be a list"];
+  if (glance.length > glanceItems)
+    problems.push(`glance has ${glance.length} items, at most ${glanceItems}`);
+  for (const item of glance) {
+    if (!item?.label?.trim() || !item?.text?.trim())
+      problems.push("a glance item needs a label and a text");
+    else if (words(item.label) > labelWords)
+      problems.push(`glance label "${item.label}" has over ${labelWords} words`);
+    else if (words(item.text) > glanceWords)
+      problems.push(`glance item "${item.label}" has over ${glanceWords} words`);
+  }
+  return problems;
+}

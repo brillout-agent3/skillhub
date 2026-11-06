@@ -13,16 +13,10 @@
 
 import { execFileSync } from "node:child_process";
 import { readFileSync } from "node:fs";
-import { readData, root, writeData } from "./data.ts";
+import { readData, root, tldrProblems, writeData } from "./data.ts";
 import { copyPath, rawUrl } from "../website/skill-md.ts";
-import {
-  bundleRepo,
-  github,
-  tldrProblems,
-  type Bundle,
-  type Skill,
-  type Tldr,
-} from "../data/types.ts";
+import type { Bundle, Skill, Tldr } from "../data/types.ts";
+import { bundleRepo, github } from "../website/github.ts";
 
 const git = (...args: string[]) =>
   execFileSync("git", ["-C", root, ...args], { encoding: "utf8" }).trim();

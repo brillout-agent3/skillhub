@@ -7,10 +7,11 @@
 
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
-import { approvedPages, pageKey, readCrawl, readData, readJsonc } from "./data.ts";
+import { approvedPages, pageKey, readCrawl, readData, readJsonc, tldrProblems } from "./data.ts";
 import { generate, SCHEMAS } from "./schema.ts";
 import { copyPath } from "../website/skill-md.ts";
-import { bundleRepo, github, tldrProblems, type Facet } from "../data/types.ts";
+import type { Facet } from "../data/types.ts";
+import { bundleRepo, github } from "../website/github.ts";
 
 const root = new URL("../", import.meta.url);
 const data = readData();

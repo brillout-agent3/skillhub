@@ -17,7 +17,8 @@ import { promisify } from "node:util";
 import { readCrawl, readData, root, writeCrawl, writeData } from "./data.ts";
 import { get, pool } from "./fetch.ts";
 import { copyPath, rawUrl, skew } from "../website/skill-md.ts";
-import { github, type Bundle, type Skill, type SkillMd } from "../data/types.ts";
+import type { Bundle, Skill, SkillMd } from "../data/types.ts";
+import { github } from "../website/github.ts";
 
 const today = new Date().toISOString().slice(0, 10);
 const git = (args: string[]) =>

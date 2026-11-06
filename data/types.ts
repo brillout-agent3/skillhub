@@ -150,9 +150,6 @@ export interface BundleSkill {
   note?: string;
 }
 
-/** The repo a bundle is in. */
-export const bundleRepo = (bundle: Bundle) => bundle.id.split("@")[0];
-
 export interface Tldr {
   /** Short labelled facts to place the skill quickly, most telling first, such as "Use it when". */
   glance: { label: string; text: string }[];
@@ -162,31 +159,6 @@ export interface Tldr {
   permalink: string;
 }
 
-/** The most a TLDR may hold; there's no minimum. */
-export const TLDR_LIMITS = { glanceItems: 8, labelWords: 4, glanceWords: 30, textWords: 200 };
-
-/** What's wrong with a TLDR's glance and text, if anything. */
-export function tldrProblems({ glance, text }: Pick<Tldr, "glance" | "text">): string[] {
-  const words = (s: string) => s.split(/\s+/).filter(Boolean).length;
-  const { glanceItems, labelWords, glanceWords, textWords } = TLDR_LIMITS;
-  const problems: string[] = [];
-  if (!text?.trim()) problems.push("the TLDR text is empty");
-  else if (words(text) > textWords)
-    problems.push(`the TLDR text has ${words(text)} words, at most ${textWords}`);
-  if (!Array.isArray(glance)) return [...problems, "glance must be a list"];
-  if (glance.length > glanceItems)
-    problems.push(`glance has ${glance.length} items, at most ${glanceItems}`);
-  for (const item of glance) {
-    if (!item?.label?.trim() || !item?.text?.trim())
-      problems.push("a glance item needs a label and a text");
-    else if (words(item.label) > labelWords)
-      problems.push(`glance label "${item.label}" has over ${labelWords} words`);
-    else if (words(item.text) > glanceWords)
-      problems.push(`glance item "${item.label}" has over ${glanceWords} words`);
-  }
-  return problems;
-}
-
 export interface SkillMd {
   /** The GitHub commit the copy was taken from. */
   version: string;
@@ -194,12 +166,6 @@ export interface SkillMd {
   updated: string;
   /** Words added plus words removed since the SKILL.md the TLDR summarizes, or all its words when there's no TLDR. */
   skew: number;
-}
-
-/** The GitHub repo (`owner/name`) a skill lives in, and the directory inside it. */
-export function github(skill: Skill): { repo: string; dir: string } {
-  const [owner, name, ...dir] = skill.id.split("/");
-  return { repo: `${owner}/${name}`, dir: dir.join("/") };
 }
 
 export interface SkillsSh {

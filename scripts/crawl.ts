@@ -28,7 +28,8 @@ import {
   writeData,
 } from "./data.ts";
 import { get, pool } from "./fetch.ts";
-import { bundleRepo, github, type Crawled } from "../data/types.ts";
+import type { Crawled } from "../data/types.ts";
+import { bundleRepo, github } from "../website/github.ts";
 
 const today = new Date().toISOString().slice(0, 10);
 const errors: string[] = [];
