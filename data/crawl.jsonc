@@ -354,19 +354,6 @@
       }
     },
     {
-      "name": "google-ads-manager",
-      "repo": "claude-office-skills/skills",
-      "official": false,
-      "stars": 567,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/claude-office-skills/skills/google-ads-manager",
-        "installs": 6400,
-        "weeklyInstalls": [81, 106, 83, 91, 124, 238, 190, 75],
-        "firstSeen": "2026-03-09"
-      }
-    },
-    {
       "name": "dogfood",
       "repo": "nousresearch/hermes-agent",
       "official": false,
@@ -549,19 +536,6 @@
       }
     },
     {
-      "name": "calendar-automation",
-      "repo": "claude-office-skills/skills",
-      "official": false,
-      "stars": 567,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/claude-office-skills/skills/calendar-automation",
-        "installs": 6300,
-        "weeklyInstalls": [48, 74, 58, 58, 101, 222, 176, 61],
-        "firstSeen": "2026-03-09"
-      }
-    },
-    {
       "name": "playwright-skill",
       "repo": "testdino-hq/playwright-skill",
       "official": true,
@@ -637,19 +611,6 @@
         "installs": 6200,
         "weeklyInstalls": [879, 491, 468, 324, 304, 370, 284, 253],
         "firstSeen": "2026-08-04"
-      }
-    },
-    {
-      "name": "academic-search",
-      "repo": "claude-office-skills/skills",
-      "official": false,
-      "stars": 567,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/claude-office-skills/skills/academic-search",
-        "installs": 6200,
-        "weeklyInstalls": [65, 88, 66, 63, 106, 226, 189, 67],
-        "firstSeen": "2026-03-09"
       }
     },
     {
@@ -1017,19 +978,6 @@
       }
     },
     {
-      "name": "proposal-writer",
-      "repo": "claude-office-skills/skills",
-      "official": false,
-      "stars": 567,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/claude-office-skills/skills/proposal-writer",
-        "installs": 6000,
-        "weeklyInstalls": [62, 99, 70, 69, 130, 244, 201, 79],
-        "firstSeen": "2026-03-09"
-      }
-    },
-    {
       "name": "explore-data",
       "repo": "anthropics/knowledge-work-plugins",
       "official": true,
@@ -1290,19 +1238,6 @@
       }
     },
     {
-      "name": "chart-designer",
-      "repo": "claude-office-skills/skills",
-      "official": false,
-      "stars": 567,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/claude-office-skills/skills/chart-designer",
-        "installs": 5900,
-        "weeklyInstalls": [140, 124, 94, 87, 160, 247, 230, 118],
-        "firstSeen": "2026-03-09"
-      }
-    },
-    {
       "name": "react-native-best-practices",
       "repo": "software-mansion-labs/skills",
       "official": false,
@@ -1472,19 +1407,6 @@
       }
     },
     {
-      "name": "meeting-notes",
-      "repo": "claude-office-skills/skills",
-      "official": false,
-      "stars": 567,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/claude-office-skills/skills/meeting-notes",
-        "installs": 5800,
-        "weeklyInstalls": [70, 98, 64, 66, 110, 237, 187, 70],
-        "firstSeen": "2026-03-09"
-      }
-    },
-    {
       "name": "frontend-design-deslop",
       "repo": "samber/cc-skills",
       "official": false,
@@ -1534,19 +1456,6 @@
         "installs": 5700,
         "weeklyInstalls": [260, 268, 236, 201, 221, 182, 199, 152],
         "firstSeen": "2026-06-21"
-      }
-    },
-    {
-      "name": "social-publisher",
-      "repo": "claude-office-skills/skills",
-      "official": false,
-      "stars": 567,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/claude-office-skills/skills/social-publisher",
-        "installs": 5700,
-        "weeklyInstalls": [68, 90, 73, 78, 125, 254, 193, 79],
-        "firstSeen": "2026-03-09"
       }
     },
     {
@@ -1693,19 +1602,6 @@
       }
     },
     {
-      "name": "image-generation",
-      "repo": "claude-office-skills/skills",
-      "official": false,
-      "stars": 567,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/claude-office-skills/skills/image-generation",
-        "installs": 5700,
-        "weeklyInstalls": [50, 82, 64, 59, 99, 228, 185, 67],
-        "firstSeen": "2026-03-05"
-      }
-    },
-    {
       "name": "convex",
       "repo": "waynesutton/builder-skills",
       "official": false,
@@ -1823,19 +1719,6 @@
       }
     },
     {
-      "name": "ads-copywriter",
-      "repo": "claude-office-skills/skills",
-      "official": false,
-      "stars": 567,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/claude-office-skills/skills/ads-copywriter",
-        "installs": 5600,
-        "weeklyInstalls": [70, 94, 66, 66, 107, 232, 183, 71],
-        "firstSeen": "2026-03-09"
-      }
-    },
-    {
       "name": "paseo",
       "repo": "getpaseo/paseo",
       "official": false,
@@ -1911,32 +1794,6 @@
         "installs": 5600,
         "weeklyInstalls": [113, 110, 110, 96, 121, 126, 154, 167],
         "firstSeen": "2026-01-19"
-      }
-    },
-    {
-      "name": "contract-review",
-      "repo": "claude-office-skills/skills",
-      "official": false,
-      "stars": 567,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/claude-office-skills/skills/contract-review",
-        "installs": 5600,
-        "weeklyInstalls": [50, 76, 68, 70, 113, 231, 187, 77],
-        "firstSeen": "2026-03-09"
-      }
-    },
-    {
-      "name": "crm-automation",
-      "repo": "claude-office-skills/skills",
-      "official": false,
-      "stars": 567,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/claude-office-skills/skills/crm-automation",
-        "installs": 5600,
-        "weeklyInstalls": [51, 84, 56, 62, 100, 228, 181, 63],
-        "firstSeen": "2026-03-09"
       }
     },
     {
@@ -2096,19 +1953,6 @@
       }
     },
     {
-      "name": "weekly-report",
-      "repo": "claude-office-skills/skills",
-      "official": false,
-      "stars": 567,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/claude-office-skills/skills/weekly-report",
-        "installs": 5500,
-        "weeklyInstalls": [61, 89, 64, 61, 104, 233, 180, 69],
-        "firstSeen": "2026-03-09"
-      }
-    },
-    {
       "name": "constant-time-testing",
       "repo": "trailofbits/skills",
       "official": true,
@@ -2239,19 +2083,6 @@
       }
     },
     {
-      "name": "investment-memo",
-      "repo": "claude-office-skills/skills",
-      "official": false,
-      "stars": 567,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/claude-office-skills/skills/investment-memo",
-        "installs": 5500,
-        "weeklyInstalls": [57, 81, 59, 64, 103, 228, 179, 67],
-        "firstSeen": "2026-03-09"
-      }
-    },
-    {
       "name": "react-native-testing",
       "repo": "callstack/react-native-testing-library",
       "official": true,
@@ -2301,19 +2132,6 @@
         "installs": 5500,
         "weeklyInstalls": [112, 103, 102, 94, 118, 120, 153, 159],
         "firstSeen": "2026-01-19"
-      }
-    },
-    {
-      "name": "resume-tailor",
-      "repo": "claude-office-skills/skills",
-      "official": false,
-      "stars": 567,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/claude-office-skills/skills/resume-tailor",
-        "installs": 5500,
-        "weeklyInstalls": [47, 79, 60, 62, 100, 226, 180, 65],
-        "firstSeen": "2026-03-09"
       }
     },
     {
@@ -2525,19 +2343,6 @@
       }
     },
     {
-      "name": "report-generator",
-      "repo": "claude-office-skills/skills",
-      "official": false,
-      "stars": 567,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/claude-office-skills/skills/report-generator",
-        "installs": 5300,
-        "weeklyInstalls": [50, 89, 72, 67, 108, 234, 186, 72],
-        "firstSeen": "2026-03-09"
-      }
-    },
-    {
       "name": "invoice-organizer",
       "repo": "composiohq/awesome-claude-skills",
       "official": true,
@@ -2707,19 +2512,6 @@
       }
     },
     {
-      "name": "competitive-analysis",
-      "repo": "claude-office-skills/skills",
-      "official": false,
-      "stars": 567,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/claude-office-skills/skills/competitive-analysis",
-        "installs": 5300,
-        "weeklyInstalls": [58, 94, 59, 58, 103, 226, 183, 64],
-        "firstSeen": "2026-03-09"
-      }
-    },
-    {
       "name": "standup",
       "repo": "anthropics/knowledge-work-plugins",
       "official": true,
@@ -2730,45 +2522,6 @@
         "installs": 5200,
         "weeklyInstalls": [66, 77, 45, 35, 54, 52, 55, 45],
         "firstSeen": "2026-03-13"
-      }
-    },
-    {
-      "name": "financial-modeling",
-      "repo": "claude-office-skills/skills",
-      "official": false,
-      "stars": 567,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/claude-office-skills/skills/financial-modeling",
-        "installs": 5200,
-        "weeklyInstalls": [60, 89, 63, 69, 108, 235, 193, 71],
-        "firstSeen": "2026-03-09"
-      }
-    },
-    {
-      "name": "infographic",
-      "repo": "claude-office-skills/skills",
-      "official": false,
-      "stars": 567,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/claude-office-skills/skills/infographic",
-        "installs": 5200,
-        "weeklyInstalls": [56, 84, 66, 71, 106, 231, 192, 67],
-        "firstSeen": "2026-03-09"
-      }
-    },
-    {
-      "name": "news-monitor",
-      "repo": "claude-office-skills/skills",
-      "official": false,
-      "stars": 567,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/claude-office-skills/skills/news-monitor",
-        "installs": 5200,
-        "weeklyInstalls": [51, 83, 58, 57, 100, 227, 182, 63],
-        "firstSeen": "2026-03-09"
       }
     },
     {
@@ -2811,19 +2564,6 @@
       }
     },
     {
-      "name": "company-research",
-      "repo": "claude-office-skills/skills",
-      "official": false,
-      "stars": 567,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/claude-office-skills/skills/company-research",
-        "installs": 5200,
-        "weeklyInstalls": [60, 87, 60, 63, 105, 232, 184, 74],
-        "firstSeen": "2026-03-09"
-      }
-    },
-    {
       "name": "image-enhancer",
       "repo": "composiohq/awesome-claude-skills",
       "official": true,
@@ -2863,19 +2603,6 @@
       }
     },
     {
-      "name": "dcf-valuation",
-      "repo": "claude-office-skills/skills",
-      "official": false,
-      "stars": 567,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/claude-office-skills/skills/dcf-valuation",
-        "installs": 5200,
-        "weeklyInstalls": [47, 82, 56, 60, 103, 225, 181, 63],
-        "firstSeen": "2026-03-09"
-      }
-    },
-    {
       "name": "source-management",
       "repo": "anthropics/knowledge-work-plugins",
       "official": true,
@@ -2899,32 +2626,6 @@
         "installs": 5200,
         "weeklyInstalls": [36, 44, 42, 43, 42, 44, 42, 41],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "cover-letter",
-      "repo": "claude-office-skills/skills",
-      "official": false,
-      "stars": 567,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/claude-office-skills/skills/cover-letter",
-        "installs": 5200,
-        "weeklyInstalls": [52, 79, 55, 59, 104, 228, 179, 63],
-        "firstSeen": "2026-03-09"
-      }
-    },
-    {
-      "name": "invoice-generator",
-      "repo": "claude-office-skills/skills",
-      "official": false,
-      "stars": 567,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/claude-office-skills/skills/invoice-generator",
-        "installs": 5200,
-        "weeklyInstalls": [49, 83, 61, 70, 107, 225, 180, 66],
-        "firstSeen": "2026-03-09"
       }
     },
     {
@@ -3006,19 +2707,6 @@
       }
     },
     {
-      "name": "deep-research",
-      "repo": "claude-office-skills/skills",
-      "official": false,
-      "stars": 567,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/claude-office-skills/skills/deep-research",
-        "installs": 5100,
-        "weeklyInstalls": [52, 85, 57, 64, 110, 234, 189, 66],
-        "firstSeen": "2026-03-09"
-      }
-    },
-    {
       "name": "dfam-check",
       "repo": "earthtojake/text-to-cad",
       "official": false,
@@ -3029,19 +2717,6 @@
         "installs": 5100,
         "weeklyInstalls": [575, 503, 313, 319, 478, 596, 540, 871],
         "firstSeen": "2026-08-21"
-      }
-    },
-    {
-      "name": "email-marketing",
-      "repo": "claude-office-skills/skills",
-      "official": false,
-      "stars": 567,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/claude-office-skills/skills/email-marketing",
-        "installs": 5100,
-        "weeklyInstalls": [44, 81, 65, 57, 101, 224, 177, 62],
-        "firstSeen": "2026-03-09"
       }
     },
     {
@@ -3094,32 +2769,6 @@
         "installs": 5100,
         "weeklyInstalls": [174, 185, 214, 240, 206, 181, 188, 210],
         "firstSeen": "2026-03-15"
-      }
-    },
-    {
-      "name": "subscription-management",
-      "repo": "claude-office-skills/skills",
-      "official": false,
-      "stars": 567,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/claude-office-skills/skills/subscription-management",
-        "installs": 5100,
-        "weeklyInstalls": [43, 73, 52, 55, 99, 223, 177, 62],
-        "firstSeen": "2026-03-09"
-      }
-    },
-    {
-      "name": "diagram-creator",
-      "repo": "claude-office-skills/skills",
-      "official": false,
-      "stars": 567,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/claude-office-skills/skills/diagram-creator",
-        "installs": 5100,
-        "weeklyInstalls": [51, 83, 65, 60, 104, 228, 182, 63],
-        "firstSeen": "2026-03-05"
       }
     },
     {
@@ -3237,19 +2886,6 @@
         "installs": 5100,
         "weeklyInstalls": [222, 259, 321, 376, 315, 248, 274, 294],
         "firstSeen": "2026-06-08"
-      }
-    },
-    {
-      "name": "saas-metrics",
-      "repo": "claude-office-skills/skills",
-      "official": false,
-      "stars": 567,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/claude-office-skills/skills/saas-metrics",
-        "installs": 5100,
-        "weeklyInstalls": [52, 81, 60, 60, 105, 233, 180, 67],
-        "firstSeen": "2026-03-09"
       }
     },
     {
@@ -3383,19 +3019,6 @@
       }
     },
     {
-      "name": "data-pipeline",
-      "repo": "claude-office-skills/skills",
-      "official": false,
-      "stars": 567,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/claude-office-skills/skills/data-pipeline",
-        "installs": 5000,
-        "weeklyInstalls": [52, 83, 58, 59, 99, 224, 176, 63],
-        "firstSeen": "2026-03-05"
-      }
-    },
-    {
       "name": "let-fate-decide",
       "repo": "trailofbits/skills",
       "official": true,
@@ -3409,19 +3032,6 @@
       }
     },
     {
-      "name": "hr-automation",
-      "repo": "claude-office-skills/skills",
-      "official": false,
-      "stars": 567,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/claude-office-skills/skills/hr-automation",
-        "installs": 5000,
-        "weeklyInstalls": [48, 77, 55, 57, 103, 227, 178, 64],
-        "firstSeen": "2026-03-09"
-      }
-    },
-    {
       "name": "debug-mantra",
       "repo": "thananon/9arm-skills",
       "official": false,
@@ -3432,19 +3042,6 @@
         "installs": 5000,
         "weeklyInstalls": [138, 119, 84, 84, 92, 68, 74, 63],
         "firstSeen": "2026-05-20"
-      }
-    },
-    {
-      "name": "ai-slides",
-      "repo": "claude-office-skills/skills",
-      "official": false,
-      "stars": 567,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/claude-office-skills/skills/ai-slides",
-        "installs": 5000,
-        "weeklyInstalls": [50, 77, 57, 59, 104, 224, 181, 65],
-        "firstSeen": "2026-03-09"
       }
     },
     {
@@ -3471,19 +3068,6 @@
         "installs": 5000,
         "weeklyInstalls": [214, 246, 295, 249, 245, 245, 234, 236],
         "firstSeen": "2026-03-07"
-      }
-    },
-    {
-      "name": "ai-agent-builder",
-      "repo": "claude-office-skills/skills",
-      "official": false,
-      "stars": 567,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/claude-office-skills/skills/ai-agent-builder",
-        "installs": 5000,
-        "weeklyInstalls": [48, 77, 55, 60, 103, 227, 178, 65],
-        "firstSeen": "2026-03-05"
       }
     },
     {

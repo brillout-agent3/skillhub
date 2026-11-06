@@ -64147,6 +64147,1734 @@
           "planning"
         ]
       }
+    },
+    {
+      "id": "claude-office-skills/skills/google-ads-manager",
+      "name": "google-ads-manager",
+      "skills.sh": {
+        "url": "https://skills.sh/claude-office-skills/skills/google-ads-manager",
+        "installs": 6400,
+        "weeklyInstalls": [81, 106, 83, 91, 124, 238, 190, 75],
+        "firstSeen": "2026-03-09"
+      },
+      "skillMd": {
+        "version": "9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Plans Google Ads search campaigns: account structure, keyword groups and negatives, responsive search ad copy, bidding strategy and performance reports.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're planning Google Ads search campaigns for a product, or reviewing an account's results to decide what to pause and where to move budget"
+            },
+            {
+              "label": "You get",
+              "text": "a Markdown campaign plan: budget and bidding per campaign, keywords and headlines per ad group, account-level negative keywords, and estimated clicks, conversions and CPA"
+            },
+            {
+              "label": "It does",
+              "text": "splits the account into brand, non-brand, competitor and Performance Max campaigns, groups keywords by intent with match types, and picks a bidding strategy"
+            },
+            {
+              "label": "Unlike",
+              "text": "the repo's ads-copywriter, which only writes the ads, it also covers account structure, keywords, bids and reporting"
+            },
+            {
+              "label": "Doesn't",
+              "text": "create campaigns or pull reports itself: its instructions never call the ads MCP tools named in its frontmatter"
+            }
+          ],
+          "text": "From Claude Office Skills. A paid-search playbook the agent applies when you ask for a campaign structure, keywords, ad copy or a performance review. Accounts split into brand, non-brand, competitor and Performance Max campaigns, with search ad groups of at most 15 to 20 keywords that share intent and a similar landing page. Keyword research starts from seed terms (your product, competitors' ads, customer and support language), expands with Google Keyword Planner and tools like SEMrush, and assigns broad, phrase or exact match, with negatives such as \"free\" or \"jobs\". Responsive search ads get 15 headlines of up to 30 characters, pinned as keyword, value proposition and call to action, and 4 descriptions of up to 90, from templates by angle. A selection guide says when to use Maximize Conversions, Target CPA (30+ conversions a month), Target ROAS, Maximize Clicks or manual CPC, with suggested bid adjustments by device, location, schedule and audience. Its report template tables spend, clicks, conversions, CPA and ROAS per campaign, checks CTR and conversion rate against benchmarks and lists keywords to pause, and weekly and monthly checklists cover search terms, quality scores, landing pages and budget shifts.",
+          "permalink": "https://github.com/claude-office-skills/skills/tree/9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11/google-ads-manager"
+        },
+        "tags": [
+          "category:marketing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:google-ads",
+          "marketing",
+          "copywriting",
+          "conversion"
+        ]
+      }
+    },
+    {
+      "id": "claude-office-skills/skills/calendar-automation",
+      "name": "calendar-automation",
+      "skills.sh": {
+        "url": "https://skills.sh/claude-office-skills/skills/calendar-automation",
+        "installs": 6300,
+        "weeklyInstalls": [48, 74, 58, 58, 101, 222, 176, 61],
+        "firstSeen": "2026-03-09"
+      },
+      "skillMd": {
+        "version": "9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Designs calendar automations, from a morning schedule digest in Slack and meeting-prep reminders to weekly time blocking and calendar analytics.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want your calendar to brief you each morning, prepare you before meetings or protect focus time, and plan to build that in n8n"
+            },
+            {
+              "label": "You get",
+              "text": "a setup write-up: the workflow as a YAML outline of trigger and steps, a sample of the message it sends, and the n8n nodes to build it"
+            },
+            {
+              "label": "Workflows",
+              "text": "a Slack morning digest, meeting prep an hour ahead, Sunday time blocking, Calendly bookings into Google Calendar and HubSpot, and a Friday calendar report"
+            },
+            {
+              "label": "Also has",
+              "text": "two time-blocking templates: a maker schedule with two deep-work blocks and a manager schedule built around 1:1s"
+            },
+            {
+              "label": "Doesn't",
+              "text": "read or change your calendar itself: its instructions never call the calendar and Slack MCP tools named in its frontmatter"
+            }
+          ],
+          "text": "From Claude Office Skills. You describe the calendar routine you want automated and the agent writes it up as a workflow: a trigger, such as 6 AM on weekdays or an hour before a meeting of 30 minutes or more, then numbered steps and the message to send. Its five workflows count meetings, hours, free time and back-to-back slots for a Slack morning digest; draft a meeting prep doc with attendee profiles from LinkedIn and your CRM, recent emails, a suggested agenda and talking points; block deep work, admin time and buffers for the coming week around high-priority tasks from Todoist, Asana or Notion; turn Calendly bookings into calendar events, HubSpot records, a confirmation email and a Slack alert; and report time spent by category, meeting fragmentation and a productivity score each Friday. Its example for the digest ends with the n8n nodes to add, from a schedule trigger to Google Calendar, a code node and Slack, and an offer to generate the full n8n workflow JSON. The workflows are outlines for you to build, not files to import.",
+          "permalink": "https://github.com/claude-office-skills/skills/tree/9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11/calendar-automation"
+        },
+        "tags": [
+          "category:documents",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:google-workspace",
+          "stack:slack",
+          "stack:n8n",
+          "calendar",
+          "messaging"
+        ]
+      }
+    },
+    {
+      "id": "claude-office-skills/skills/academic-search",
+      "name": "academic-search",
+      "skills.sh": {
+        "url": "https://skills.sh/claude-office-skills/skills/academic-search",
+        "installs": 6200,
+        "weeklyInstalls": [65, 88, 66, 63, 106, 226, 189, 67],
+        "firstSeen": "2026-03-09"
+      },
+      "skillMd": {
+        "version": "9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Plans academic literature searches with Boolean queries, databases to try and key terms, and structures literature reviews from the papers you share.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're starting a literature review or thesis chapter and need a search plan, or want papers you've collected summarized and organized"
+            },
+            {
+              "label": "You get",
+              "text": "a search strategy with a Boolean query, variants, ranked databases, synonyms and an order to search in, or a literature review by theme with methods, findings and gaps"
+            },
+            {
+              "label": "Doesn't",
+              "text": "run searches or open papers: by its own account it can't query databases, reach paywalled text or know papers past its training cutoff, so you share abstracts or papers"
+            },
+            {
+              "label": "Includes",
+              "text": "general and field databases and preprint servers, the PICO framework, citation chaining, a three-pass reading method, and APA, IEEE and Chicago citation formats"
+            }
+          ],
+          "text": "From Claude Office Skills. You give your research question, field, scope and purpose, and the agent drafts a search plan: an optimized Boolean query with broader, narrower and related variants, a ranked list of databases with reasons, key terms and synonyms per concept, and the order to search them in, with citation chaining on key papers and quality signs to check, such as a peer-reviewed venue and reproducible results. Its reference tables cover general databases like Google Scholar, Semantic Scholar, Scopus and Web of Science, field databases from PubMed to IEEE Xplore and Westlaw, and preprint servers such as arXiv, bioRxiv and SSRN. For health questions it frames queries with PICO (population, intervention, comparison, outcome). When you share papers or abstracts, it summarizes their findings and methods and writes a literature review grouped by theme, with a comparison of methods, key findings, research gaps and directions for future work. It also gives a three-pass reading method and critical questions about a paper's research question, method, results and limitations. It formats references in APA 7, IEEE or Chicago.",
+          "permalink": "https://github.com/claude-office-skills/skills/tree/9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11/academic-search"
+        },
+        "tags": [
+          "category:science",
+          "category:writing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "research"
+        ]
+      }
+    },
+    {
+      "id": "claude-office-skills/skills/proposal-writer",
+      "name": "proposal-writer",
+      "skills.sh": {
+        "url": "https://skills.sh/claude-office-skills/skills/proposal-writer",
+        "installs": 6000,
+        "weeklyInstalls": [62, 99, 70, 69, 130, 244, 201, 79],
+        "firstSeen": "2026-03-09"
+      },
+      "skillMd": {
+        "version": "9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes sales, project and partnership proposals and quick quotes from templates, with pricing options, a timeline and clear next steps.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need a sales or service proposal, a quick quote, a partnership proposal or an RFP response for a specific client"
+            },
+            {
+              "label": "You get",
+              "text": "a Markdown proposal: executive summary, the client's needs, solution and deliverables, pricing options, timeline, why your company, next steps and terms"
+            },
+            {
+              "label": "Needs from you",
+              "text": "the client and their requirements, your solution and your prices: it doesn't research the client or set pricing"
+            },
+            {
+              "label": "Its advice",
+              "text": "write the executive summary last and lead with client benefits, offer pricing options with the higher one first, and make the next step easy to say yes to"
+            }
+          ],
+          "text": "From Claude Office Skills. You describe the opportunity, your solution and pricing, and the type and length of proposal you need, and the agent fills one of three templates. The full sales or service proposal covers an executive summary that can stand alone, the client's situation, goals and requirements, the proposed solution with deliverables and phases, priced options with one marked as recommended, what is and isn't included, a timeline, case studies and team, next steps and terms. A quick quote has the scope, a line-item price table with tax, dates, terms and a signature line; a partnership proposal sets out the value for each side, roles, revenue sharing and a pilot with KPIs. Its writing advice: show you understand the client in their own terms, focus on outcomes rather than activities, anchor pricing with the higher option first, and remove friction from saying yes. You can ask for brief, standard or comprehensive length, a conservative, modern or technical style, and a document, slides or email-friendly format, all written as Markdown: the Word and PowerPoint tools its frontmatter names are never called. It notes that legal terms should be reviewed by counsel.",
+          "permalink": "https://github.com/claude-office-skills/skills/tree/9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11/proposal-writer"
+        },
+        "tags": [
+          "category:writing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "writing",
+          "documents"
+        ]
+      }
+    },
+    {
+      "id": "claude-office-skills/skills/chart-designer",
+      "name": "chart-designer",
+      "skills.sh": {
+        "url": "https://skills.sh/claude-office-skills/skills/chart-designer",
+        "installs": 5900,
+        "weeklyInstalls": [140, 124, 94, 87, 160, 247, 230, 118],
+        "firstSeen": "2026-03-09"
+      },
+      "skillMd": {
+        "version": "9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Picks the right chart for your data and writes ECharts or Chart.js configurations, with color palettes and data visualization best practices.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you have data for a dashboard, report or presentation and aren't sure which chart tells its story best"
+            },
+            {
+              "label": "It does",
+              "text": "matches what you want to show, such as a comparison, composition, distribution, relationship or flow, to a chart through a decision tree and selection tables"
+            },
+            {
+              "label": "You get",
+              "text": "a chart design write-up: the recommended chart, ECharts and Chart.js configurations, colors and type sizes, the best practices applied and alternative charts"
+            },
+            {
+              "label": "Doesn't",
+              "text": "render charts or read your files: you paste its configurations into your own tool"
+            },
+            {
+              "label": "Includes",
+              "text": "four palettes, one of them colorblind-friendly, and ECharts snippets for bar, line, pie and scatter charts"
+            }
+          ],
+          "text": "From Claude Office Skills. You describe your data, the story it should tell, your audience and where the chart will appear. The agent picks a chart from tables grouped by purpose (comparison, trend, distribution, part-to-whole, and specialized charts such as funnel, gauge, heatmap, radar and Sankey) and a decision tree: bars to compare items, lines over time, pie or donut only for five items or fewer, a treemap for hierarchies, a histogram or box plot for distributions, scatter or bubble charts for relationships, a funnel or Sankey for flows. Its write-up gives the recommended chart with ECharts and Chart.js configurations, a color palette and type sizes, the best practices it applied and alternatives for other conditions; it also offers Excel chart setup instructions and CSS styling tips. The rules it applies: little ink that isn't data, clear titles and labeled axes with units, bar charts starting at zero, consistent scales, seven colors at most, attention to colorblind viewers, and tooltips, zoom or drill-down where data is dense.",
+          "permalink": "https://github.com/claude-office-skills/skills/tree/9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11/chart-designer"
+        },
+        "tags": [
+          "category:science",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:echarts",
+          "stack:chartjs",
+          "charts"
+        ]
+      }
+    },
+    {
+      "id": "claude-office-skills/skills/meeting-notes",
+      "name": "meeting-notes",
+      "skills.sh": {
+        "url": "https://skills.sh/claude-office-skills/skills/meeting-notes",
+        "installs": 5800,
+        "weeklyInstalls": [70, 98, 64, 66, 110, 237, 187, 70],
+        "firstSeen": "2026-03-09"
+      },
+      "skillMd": {
+        "version": "9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Turns raw meeting notes or transcripts into structured summaries with key points, decisions, action items with owners and next steps.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you have messy notes or a transcript from a standup, client call, project review or brainstorm and need something to send round"
+            },
+            {
+              "label": "You get",
+              "text": "a Markdown summary with an overview, key points, decisions, a table of actions with owner, due date and priority, next steps and a parking lot"
+            },
+            {
+              "label": "It does",
+              "text": "spots actions and decisions from phrases like \"John will…\" or \"we've decided\", assigns owners when named, and flags tasks nobody owns"
+            },
+            {
+              "label": "Templates",
+              "text": "a standard summary, a daily standup, a client meeting with both sides' commitments, and a project review with status, metrics and risks"
+            }
+          ],
+          "text": "From Claude Office Skills. You paste raw notes, a transcript or a description of the meeting, say what kind of meeting it was and any format you need, and the agent restructures it. It picks out action items from phrases like \"we need to\", \"can you\" or a name followed by a verb, decisions from \"we've decided\", \"agreed\" or consensus language, and owners when someone is named or a role is given, otherwise defaulting to the organizer and flagging unassigned items for follow-up. Its default output gives date and attendees, a two-to-three sentence summary, key points, decisions, an action table with owner, due date and priority, next steps and a parking lot for items to handle later. It also has templates for standups (yesterday, today and blockers per person), client meetings (their requests, your commitments and theirs) and project reviews (status, metrics against targets, risks and decisions needed). You can ask for bullets, tables, prose or formal minutes, at executive, standard or detailed length. It warns that it can't verify commitments or deadlines, so review the notes before sending them.",
+          "permalink": "https://github.com/claude-office-skills/skills/tree/9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11/meeting-notes"
+        },
+        "tags": [
+          "category:writing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "notes",
+          "writing"
+        ]
+      }
+    },
+    {
+      "id": "claude-office-skills/skills/social-publisher",
+      "name": "social-publisher",
+      "skills.sh": {
+        "url": "https://skills.sh/claude-office-skills/skills/social-publisher",
+        "installs": 5700,
+        "weeklyInstalls": [68, 90, 73, 78, 125, 254, 193, 79],
+        "firstSeen": "2026-03-09"
+      },
+      "skillMd": {
+        "version": "9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Adapts one piece of content into captions for TikTok, Instagram, YouTube, LinkedIn and X, with hashtags, posting times and an n8n publishing outline.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you have a video or post to share on several platforms and want each caption written for its platform"
+            },
+            {
+              "label": "You get",
+              "text": "a caption per platform, such as a casual TikTok line with 3-5 hashtags, an Instagram caption with up to 15, a YouTube title and timestamped description, plus a posting schedule"
+            },
+            {
+              "label": "Doesn't",
+              "text": "post anything, despite its name: its instructions never call the publishing MCP tools named in its frontmatter"
+            },
+            {
+              "label": "Also has",
+              "text": "an n8n workflow outline from a Google Drive folder to AI captions, parallel posting, an Airtable log and a Slack alert, plus a weekly calendar and report template"
+            }
+          ],
+          "text": "From Claude Office Skills. You share what a piece of content is about and the agent rewrites it for each platform: casual and trendy for TikTok, engaging and story-driven for Instagram, an SEO title and timestamped description for YouTube Shorts, a professional thought-leadership post for LinkedIn, and a short punchy line or thread for X. Each platform gets its own hashtag rule, from one or two on X to five to fifteen on Instagram, and a table suggests posting times for eight platforms, including Facebook, Threads and Pinterest. For publishing at scale, it outlines an n8n workflow that watches a Google Drive folder for videos, has GPT-4 write a caption per platform, publishes to TikTok, Instagram, YouTube and LinkedIn in parallel, logs the links in Airtable and announces them in Slack, plus a weekly batch that sorts videos by type, schedules posts at least four hours apart and queues them for review a day ahead. It also has a template for a weekly cross-platform report of reach, engagement and follower change, with recommendations. The workflow is an outline of steps, not an n8n file to import.",
+          "permalink": "https://github.com/claude-office-skills/skills/tree/9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11/social-publisher"
+        },
+        "tags": [
+          "category:marketing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:tiktok",
+          "stack:meta",
+          "stack:youtube",
+          "stack:linkedin",
+          "stack:x-twitter",
+          "stack:n8n",
+          "social-media",
+          "copywriting",
+          "marketing"
+        ]
+      }
+    },
+    {
+      "id": "claude-office-skills/skills/image-generation",
+      "name": "image-generation",
+      "skills.sh": {
+        "url": "https://skills.sh/claude-office-skills/skills/image-generation",
+        "installs": 5700,
+        "weeklyInstalls": [50, 82, 64, 59, 99, 228, 185, 67],
+        "firstSeen": "2026-03-05"
+      },
+      "skillMd": {
+        "version": "9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes image prompts for DALL-E 3, Midjourney and Stable Diffusion, each in its own syntax, with variations, style options and negative prompts.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need an image for a slide, social post, product shot or blog header and want a well-built prompt for your image tool"
+            },
+            {
+              "label": "You get",
+              "text": "prompts for DALL-E 3 in plain sentences, Midjourney as keywords with parameters like --ar, and Stable Diffusion with weighted terms and a negative prompt, plus three variations"
+            },
+            {
+              "label": "Doesn't",
+              "text": "generate images itself: you paste the prompts into DALL-E, Midjourney or Stable Diffusion"
+            },
+            {
+              "label": "Includes",
+              "text": "keyword tables for photography and art styles, moods and lighting, and starter prompts for headshots, product flat lays, presentation graphics and blog headers"
+            }
+          ],
+          "text": "From Claude Office Skills. You describe what you want to see, what it's for, the style and mood, then pick a platform, an aspect ratio and anything to avoid. The agent builds the prompt from subject, action, setting, composition (camera angle, framing, depth of field), style, lighting, color, mood and technical modifiers, and writes it the way each tool reads best: natural descriptive sentences for DALL-E 3, comma-separated keywords with parameters such as --ar 16:9, --style raw and --v 6 for Midjourney, and weighted terms like (warm ambient lighting:1.3) with a separate negative prompt for Stable Diffusion. Its write-up gives a primary prompt per platform, three variations, two style alternatives, tips for that image and adjustments to try if the result misses. Reference tables list keywords for photography and art styles, moods and lighting, with starter prompts for business headshots, social media flat lays, presentation graphics and blog headers. By its own account it can't generate images or predict exactly how a tool will read a prompt.",
+          "permalink": "https://github.com/claude-office-skills/skills/tree/9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11/image-generation"
+        },
+        "tags": [
+          "category:media",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:openai",
+          "stack:midjourney",
+          "stack:stable-diffusion",
+          "image",
+          "ai-generation"
+        ]
+      }
+    },
+    {
+      "id": "claude-office-skills/skills/ads-copywriter",
+      "name": "ads-copywriter",
+      "skills.sh": {
+        "url": "https://skills.sh/claude-office-skills/skills/ads-copywriter",
+        "installs": 5600,
+        "weeklyInstalls": [70, 94, 66, 66, 107, 232, 183, 71],
+        "firstSeen": "2026-03-09"
+      },
+      "skillMd": {
+        "version": "9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes ad copy for Google, Meta, TikTok and LinkedIn within each format's character limits, using AIDA, PAS or BAB, with A/B test variants.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need ad copy for one product across several ad platforms, or variants to A/B test"
+            },
+            {
+              "label": "You get",
+              "text": "copy sized to each format: 15 headlines and 4 descriptions for a Google search ad, two Meta feed ads, TikTok captions, and LinkedIn intro text and headline"
+            },
+            {
+              "label": "It does",
+              "text": "builds copy on AIDA, problem-agitation-solution or before-after-bridge, with headline templates by keyword, benefit, urgency, trust and call to action"
+            },
+            {
+              "label": "A/B tests",
+              "text": "3-5 variants per ad group on elements like emotional versus rational headlines or soft versus hard calls to action, with a suggested test of 7-14 days minimum to 95% significance"
+            },
+            {
+              "label": "Unlike",
+              "text": "the repo's google-ads-manager, it writes only the ads, not the campaign structure, keywords or bids"
+            }
+          ],
+          "text": "From Claude Office Skills. You name the product and platforms, and the agent writes copy that fits each format's limits. For Google, a responsive search ad's 15 headlines of 30 characters and 4 descriptions of 90, with the keyword, brand, a call to action and numbers each in several headlines, plus Performance Max and display formats. For Meta, feed primary text with the first 125 characters visible, a 40-character headline and a call-to-action button, plus Stories and Reels. For TikTok, 100-character in-feed text and Spark Ads captions with 3-5 hashtags; for LinkedIn, sponsored content and message ads. Copy follows one of three frameworks: AIDA (attention, interest, desire, action), PAS (problem, agitation, solution) or BAB (before, after, bridge), with headline templates by angle and three Facebook templates: problem-solution, story and direct offer. For testing, it writes 3-5 variants per ad group, with example tests that pit an offer, social proof and a problem headline against each other, or a free start, a discount claim and a how-it-works call to action.",
+          "permalink": "https://github.com/claude-office-skills/skills/tree/9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11/ads-copywriter"
+        },
+        "tags": [
+          "category:marketing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:google-ads",
+          "stack:meta",
+          "stack:tiktok",
+          "stack:linkedin",
+          "copywriting",
+          "marketing",
+          "conversion"
+        ]
+      }
+    },
+    {
+      "id": "claude-office-skills/skills/contract-review",
+      "name": "contract-review",
+      "skills.sh": {
+        "url": "https://skills.sh/claude-office-skills/skills/contract-review",
+        "installs": 5600,
+        "weeklyInstalls": [50, 76, 68, 70, 113, 231, 187, 77],
+        "firstSeen": "2026-03-09"
+      },
+      "skillMd": {
+        "version": "9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Reviews a contract from your side for 15 risks and missing clauses, then ranks what to negotiate, with US, EU, China and UK notes.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you've been sent an employment contract, NDA, service agreement or lease and want to know what's risky before you sign"
+            },
+            {
+              "label": "You get",
+              "text": "a Markdown report: risks by severity with an overall verdict, each flagged clause quoted with its problem, impact and suggested change, a completeness check and negotiation priorities"
+            },
+            {
+              "label": "It checks",
+              "text": "15 risk patterns, from unlimited liability and broad IP assignment to auto-renewal, broad non-competes and perpetual confidentiality, plus a 15-item completeness checklist"
+            },
+            {
+              "label": "Jurisdictions",
+              "text": "notes for the US (with California, Texas and New York), the EU, China and the UK, mostly on employment contracts"
+            },
+            {
+              "label": "Not",
+              "text": "legal advice: each report ends with a disclaimer, and it recommends a lawyer for high-stakes contracts"
+            }
+          ],
+          "text": "From Claude Office Skills. You share the contract as PDF, Word or text and say what kind it is, which party you are, the jurisdiction and any concerns. The agent reads it against 15 risk patterns, each with the wording to look for and a fix: six high risks (unlimited liability, broad IP assignment, unilateral termination, one-sided indemnification, broad waivers of rights, missing data protection), eight medium ones such as auto-renewal traps, excessive penalties, broad non-competes, perpetual confidentiality, an unfavorable venue or payment terms, uncontrolled scope changes and missing force majeure, and one low (no audit rights). A completeness checklist covers parties, dates, term, scope, payment, termination, key clauses and signatures. Jurisdiction notes cover US at-will employment, overtime and California's ban on non-competes, EU data protection and notice periods, China's labor contract rules and paid non-competes, and UK statutory rights. The report ends with must, should and nice-to-have changes and a disclaimer, and you can follow up to have a clause explained or plan a negotiation. Its frontmatter points to knowledge files in the repo's office-mcp server, but its instructions never load them.",
+          "permalink": "https://github.com/claude-office-skills/skills/tree/9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11/contract-review"
+        },
+        "tags": [
+          "category:documents",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "documents"
+        ]
+      }
+    },
+    {
+      "id": "claude-office-skills/skills/crm-automation",
+      "name": "crm-automation",
+      "skills.sh": {
+        "url": "https://skills.sh/claude-office-skills/skills/crm-automation",
+        "installs": 5600,
+        "weeklyInstalls": [51, 84, 56, 62, 100, 228, 181, 63],
+        "firstSeen": "2026-03-09"
+      },
+      "skillMd": {
+        "version": "9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Designs CRM automations for HubSpot, Salesforce and Pipedrive: lead capture, scoring and routing, deal-stage actions, follow-up sequences, cross-CRM sync and pipeline reports.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're setting up sales automation in a CRM and want the lead flow, scoring rules and follow-ups worked out"
+            },
+            {
+              "label": "You get",
+              "text": "workflow outlines in YAML, in the style of n8n: triggers, steps and rules, plus a sample n8n node list for syncing contacts between CRMs"
+            },
+            {
+              "label": "Includes",
+              "text": "a rule-based lead score with thresholds at 50, 75 and 90, an AI scoring prompt, two 14-day follow-up sequences and a weekly pipeline report template"
+            },
+            {
+              "label": "Doesn't",
+              "text": "change your CRM itself: its instructions never call the CRM MCP tools named in its frontmatter"
+            }
+          ],
+          "text": "From Claude Office Skills. A sales-operations playbook the agent draws on when you ask how to automate your CRM. Leads from forms, landing pages or Calendly are enriched with Clearbit, scored on company size, industry and seniority, routed to an enterprise team, an SMB team or marketing nurture, created in HubSpot and started on a welcome sequence. Each deal stage, from appointment scheduled to closed won or lost, gets its own tasks, Slack alerts, forecast updates and, for contracts over $50,000, a heads-up to legal. A sync plan makes HubSpot the master for contacts and Salesforce for deals, with field mappings, most-recent-wins conflict handling and deduplication by OpenAI. Two sequences mix emails, LinkedIn and call tasks over 14 days, one for new leads and one for proposal follow-up, and recipes connect Calendly and LinkedIn to HubSpot. It ends with a weekly pipeline report template and data hygiene and security rules, such as weekly deduplication, archiving contacts after 180 days without activity and rotating API keys quarterly.",
+          "permalink": "https://github.com/claude-office-skills/skills/tree/9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11/crm-automation"
+        },
+        "tags": [
+          "category:marketing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:hubspot",
+          "stack:salesforce",
+          "stack:pipedrive",
+          "stack:n8n",
+          "marketing",
+          "email",
+          "conversion"
+        ]
+      }
+    },
+    {
+      "id": "claude-office-skills/skills/weekly-report",
+      "name": "weekly-report",
+      "skills.sh": {
+        "url": "https://skills.sh/claude-office-skills/skills/weekly-report",
+        "installs": 5500,
+        "weeklyInstalls": [61, 89, 64, 61, 104, 233, 180, 69],
+        "firstSeen": "2026-03-09"
+      },
+      "skillMd": {
+        "version": "9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Turns what you did this week into a status report for your manager, team, executives or a client, with blockers and next week's priorities.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need to tell your manager, team, leadership or a client what got done this week, what's stuck and what's next"
+            },
+            {
+              "label": "You get",
+              "text": "a Markdown report in one of four templates: individual, team rollup, executive summary with status and risks, or a client update written as a letter"
+            },
+            {
+              "label": "Its rules",
+              "text": "lead accomplishments with action verbs and numbers, give each blocker its impact and the help needed, and keep next week to the top 3-5 items"
+            },
+            {
+              "label": "Adapts",
+              "text": "length, audience, focus and tone, and works for daily, bi-weekly or monthly reports too"
+            }
+          ],
+          "text": "From Claude Office Skills. You list what you finished, what's blocked and what's next, and say who the report is for. The agent picks a template: an individual report with a summary, accomplishments, an in-progress table, blockers, priorities, metrics and notes; a team rollup with velocity, key wins, each member's update, a blocker table with escalations and progress against goals; an executive update with an on-track, at-risk or off-track status, a TL;DR, progress against plan, budget, risks and decisions needed; or a client progress letter with deliverables, milestones and items needing their input. Its writing guidelines turn vague lines into specific ones: \"Reduced API response time by 40%\" rather than \"Worked on performance improvements\", and a blocker names the ticket, the impact and the escalation needed. You can set length, audience, focus and tone. It can't see your work systems or calendar, so everything comes from what you tell it, and it says to review the report before sending.",
+          "permalink": "https://github.com/claude-office-skills/skills/tree/9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11/weekly-report"
+        },
+        "tags": [
+          "category:writing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "writing"
+        ]
+      }
+    },
+    {
+      "id": "claude-office-skills/skills/investment-memo",
+      "name": "investment-memo",
+      "skills.sh": {
+        "url": "https://skills.sh/claude-office-skills/skills/investment-memo",
+        "installs": 5500,
+        "weeklyInstalls": [57, 81, 59, 64, 103, 228, 179, 67],
+        "firstSeen": "2026-03-09"
+      },
+      "skillMd": {
+        "version": "9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes investment committee memos for venture, private equity or public-market deals: thesis, market, team, traction, terms, return scenarios, risks and a recommendation.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you've done diligence on a startup round, buyout or other deal and need to write it up for an investment committee"
+            },
+            {
+              "label": "You get",
+              "text": "a Markdown memo with an executive summary and recommendation, then company, market, competition, team, traction, financials, terms and cap table, return scenarios and risks"
+            },
+            {
+              "label": "Formats",
+              "text": "a full IC memo, a one-to-two-page deal summary, a quick take on the thesis, or a follow-on memo for an existing position"
+            },
+            {
+              "label": "Needs from you",
+              "text": "the deal, terms, financials and diligence findings: it doesn't do diligence, reach deal data or give investment advice"
+            }
+          ],
+          "text": "From Claude Office Skills. You give the type of investment (venture, private equity, public or credit), the company and deal, terms if known, your fund's criteria and your diligence findings, then choose a format. The agent follows a nine-part outline for venture memos and a twelve-part one for private equity, which adds a value creation plan, projections and returns analysis. Its memo opens with the opportunity, the round and your share, a three-point thesis, key risks and an invest, pass or more-diligence call, then fills tables for the business model, TAM, SAM and SOM, competitors with funding, strengths and weaknesses, founders, KPIs, unit economics with LTV/CAC against a benchmark of over 3x, historical financials with burn and runway, deal terms such as liquidation preference and anti-dilution, a pro-forma cap table and use of funds, base, bull and bear exits with multiple and IRR, and risks with likelihood, impact and mitigants. It closes with proposed terms, how your firm will help after investing, next steps and appendices. It works only from what you provide and says it isn't investment advice.",
+          "permalink": "https://github.com/claude-office-skills/skills/tree/9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11/investment-memo"
+        },
+        "tags": [
+          "category:writing",
+          "category:science",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "finance",
+          "writing"
+        ]
+      }
+    },
+    {
+      "id": "claude-office-skills/skills/resume-tailor",
+      "name": "resume-tailor",
+      "skills.sh": {
+        "url": "https://skills.sh/claude-office-skills/skills/resume-tailor",
+        "installs": 5500,
+        "weeklyInstalls": [47, 79, 60, 62, 100, 226, 180, 65],
+        "firstSeen": "2026-03-09"
+      },
+      "skillMd": {
+        "version": "9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Tailors your resume to a job posting, matching its requirements and keywords for applicant tracking systems, and rewrites bullets around quantified results.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're applying for a specific job and don't want to send the same generic resume"
+            },
+            {
+              "label": "You get",
+              "text": "a table of the job's requirements against your experience, keywords to add, the full tailored resume, each change with its reason, and tips for the cover letter, LinkedIn and interview"
+            },
+            {
+              "label": "Its rules",
+              "text": "use the posting's exact keywords and standard headers, avoid tables and graphics that trip up applicant tracking systems, and write bullets as verb, what, number and context"
+            },
+            {
+              "label": "Won't",
+              "text": "invent experience: it asks about gaps, such as a skill the posting wants that your resume doesn't mention"
+            }
+          ],
+          "text": "From Claude Office Skills. You paste your resume and the full job description, plus any context such as a career change or an internal transfer. The agent lists the posting's key requirements, marks which you meet and which are gaps, and asks about experience you may have left out. It then rewrites the resume: keywords copied exactly from the posting, acronyms both spelled out and abbreviated, standard section headers and plain formatting so applicant tracking systems can parse it, and bullets rebuilt as power verb, what you did, a quantified result and context. It lists power verbs by category, and must-have sections and keywords for tech, business, marketing, healthcare and finance roles; for a career change it maps your old field's terms to the new one's, such as lesson plans to learning curricula. Its answer includes the full tailored resume with every change explained and suggestions for the cover letter, LinkedIn and interview prep, and it answers common questions such as page length by years of experience. It can't see your formatting, so you apply the changes yourself.",
+          "permalink": "https://github.com/claude-office-skills/skills/tree/9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11/resume-tailor"
+        },
+        "tags": [
+          "category:personal",
+          "category:writing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "personal",
+          "writing"
+        ]
+      }
+    },
+    {
+      "id": "claude-office-skills/skills/report-generator",
+      "name": "report-generator",
+      "skills.sh": {
+        "url": "https://skills.sh/claude-office-skills/skills/report-generator",
+        "installs": 5300,
+        "weeklyInstalls": [50, 89, 72, 67, 108, 234, 186, 72],
+        "firstSeen": "2026-03-09"
+      },
+      "skillMd": {
+        "version": "9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Generates a sales or KPI report from your data, using sample Python that writes an HTML page with KPI cards and matplotlib charts.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you have a CSV of sales or business data and want a quick report with KPIs and charts"
+            },
+            {
+              "label": "It does",
+              "text": "computes totals, averages and the top product with pandas, plots bar and line charts with matplotlib, and fills an HTML template of KPI cards"
+            },
+            {
+              "label": "You get",
+              "text": "an HTML report and a PNG of its charts, from the skill's sample sales-report script"
+            },
+            {
+              "label": "Limits",
+              "text": "short sample Python to adapt, whose parts don't fit together as written; the ReportLab PDF route is a stub, and its frontmatter's office-mcp tools are never called"
+            },
+            {
+              "label": "Needs",
+              "text": "Python with pandas and matplotlib"
+            }
+          ],
+          "text": "From Claude Office Skills. You provide data as CSV, Excel or JSON, or describe it, and say what report you need, such as a sales report, a monthly KPI dashboard or an executive summary with charts. The skill gives the agent a report outline (executive summary, KPI dashboard, detailed analysis, charts, recommendations) and sample Python to adapt. Its sales-report example reads a CSV, computes total revenue, order count, average order and top product, draws revenue by product and by month with matplotlib and saves the charts as a PNG, then writes an HTML page with styled KPI cards. As written the pieces don't fit: the HTML template expects figures named revenue and growth, which the sales example never sets, so the code needs adapting before it runs. Another function sketches a PDF version with ReportLab but leaves the PDF code out. It links Matplotlib, Plotly and ReportLab as resources.",
+          "permalink": "https://github.com/claude-office-skills/skills/tree/9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11/report-generator"
+        },
+        "tags": [
+          "category:science",
+          "category:documents",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "stack:python",
+          "charts"
+        ]
+      }
+    },
+    {
+      "id": "claude-office-skills/skills/competitive-analysis",
+      "name": "competitive-analysis",
+      "skills.sh": {
+        "url": "https://skills.sh/claude-office-skills/skills/competitive-analysis",
+        "installs": 5300,
+        "weeklyInstalls": [58, 94, 59, 58, 103, 226, 183, 64],
+        "firstSeen": "2026-03-09"
+      },
+      "skillMd": {
+        "version": "9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes a competitive analysis report with competitor profiles, feature and pricing matrices, a positioning map, SWOT, recommendations and sales battle cards.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need to compare your product with competitors for strategy, positioning or a sales team"
+            },
+            {
+              "label": "It does",
+              "text": "profiles each competitor's strengths, weaknesses and strategy, compares features and pricing tiers, and places everyone on a positioning map"
+            },
+            {
+              "label": "You get",
+              "text": "a Markdown report: executive summary, market overview, profiles, feature and pricing tables, positioning map, SWOT, advantages, recommendations and one battle card per competitor"
+            },
+            {
+              "label": "Analysis types",
+              "text": "a quick comparison, a full profile, a strategic analysis or a sales battle card"
+            },
+            {
+              "label": "Limits",
+              "text": "it works from public information and what you share: no competitors' internal data, live pricing or ongoing monitoring"
+            }
+          ],
+          "text": "From Claude Office Skills. You give your own company or product for context, the competitors to analyze (or ask the agent to identify them), the market, region and the aspects that matter, and pick a quick comparison, a full profile, a strategic analysis or a battle card. The agent works from Porter's competitor analysis (each rival's goals, current strategy, assumptions and capabilities, combined into how it's likely to respond) and a positioning matrix of price against breadth of focus. The report follows one template: market size and growth, a profile per competitor, a feature matrix rated strong, partial or absent, pricing by tier, a positioning map, your SWOT, your advantages and theirs, immediate and medium-term actions, and battle cards covering their pitch, your counter, differentiators, win themes and objection handling. It closes by reminding you that competitive intelligence goes stale and key figures need checking. Its frontmatter lists document, spreadsheet and chart tools of the repo's office-mcp server, but its instructions never call them.",
+          "permalink": "https://github.com/claude-office-skills/skills/tree/9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11/competitive-analysis"
+        },
+        "tags": [
+          "category:marketing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "research",
+          "marketing"
+        ]
+      }
+    },
+    {
+      "id": "claude-office-skills/skills/financial-modeling",
+      "name": "financial-modeling",
+      "skills.sh": {
+        "url": "https://skills.sh/claude-office-skills/skills/financial-modeling",
+        "installs": 5200,
+        "weeklyInstalls": [60, 89, 63, 69, 108, 235, 193, 71],
+        "firstSeen": "2026-03-09"
+      },
+      "skillMd": {
+        "version": "9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds three-statement financial projections, linking income statement, balance sheet and cash flow, from your historical figures and driver assumptions.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need a five-year projection of a company's income statement, balance sheet and cash flow for a valuation, budget or plan"
+            },
+            {
+              "label": "It does",
+              "text": "projects each line from drivers such as growth, gross margin, SG&A and capex as shares of revenue, and receivable, inventory and payable days"
+            },
+            {
+              "label": "You get",
+              "text": "Markdown tables of assumptions, the three statements with a balance check, and a summary of margins, ROE, debt to equity and free cash flow"
+            },
+            {
+              "label": "Scope",
+              "text": "income statement only, income statement plus balance sheet, or the full three-statement model"
+            },
+            {
+              "label": "Limits",
+              "text": "simplified taxes, no currency effects, no complex corporate structures or automatic one-off items; it isn't accounting advice"
+            }
+          ],
+          "text": "From Claude Office Skills. You provide two or three years of historical income statements and balance sheets (cash flow optional), set the drivers, and choose the model's scope. The agent links the statements the standard way: net income flows into retained earnings, cash is the balancing item on the balance sheet, changes in balance sheet items drive the cash flow statement, and ending cash flows back. It spells out each formula, for example revenue as last year's times one plus growth, receivables as revenue times DSO over 365, PP&E as prior PP&E plus capex minus depreciation, and operating cash flow as net income plus D&A less increases in working capital. The output is a fixed set of Markdown tables, a base year plus five projected years. Its tips suggest asking for scenarios and sensitivity tables. Its frontmatter lists spreadsheet and chart tools of the repo's office-mcp server, but its instructions never call them, so you get tables in the reply, not a spreadsheet.",
+          "permalink": "https://github.com/claude-office-skills/skills/tree/9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11/financial-modeling"
+        },
+        "tags": [
+          "category:science",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "finance"
+        ]
+      }
+    },
+    {
+      "id": "claude-office-skills/skills/infographic",
+      "name": "infographic",
+      "skills.sh": {
+        "url": "https://skills.sh/claude-office-skills/skills/infographic",
+        "installs": 5200,
+        "weeklyInstalls": [56, 84, 66, 71, 106, 231, 192, 67],
+        "firstSeen": "2026-03-09"
+      },
+      "skillMd": {
+        "version": "9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Plans infographics as design specs: layout wireframe, section copy, icons and charts, colors, fonts and sizes, for a designer to build.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want an infographic for social media, print or the web and need its structure and copy before anyone designs it"
+            },
+            {
+              "label": "It does",
+              "text": "works in one of seven types you choose, such as statistical, timeline, process or comparison, and orders the content from title and hero statistic down to sources"
+            },
+            {
+              "label": "You get",
+              "text": "a spec with dimensions, an ASCII wireframe, ready-to-use copy per section, the icons, charts and images needed, a five-color palette with hex codes and a typography table"
+            },
+            {
+              "label": "Doesn't",
+              "text": "make the graphic or any image; it suggests Canva, Piktochart, Venngage, Illustrator or Figma to build it"
+            },
+            {
+              "label": "Includes",
+              "text": "pixel sizes for Instagram, Pinterest, Twitter, LinkedIn and Facebook, for A4, Letter and A3 print at 300 DPI, and web widths"
+            }
+          ],
+          "text": "From Claude Office Skills. You give the topic, the one message to land, the audience, where it will appear and any data, then choose a type: statistical, timeline, process, comparison, geographic, hierarchical or list. Five of the types come with an ASCII layout. The agent fills a fixed spec: an overview, a content outline from header to footer with a call to action and sources, a wireframe, the visual elements needed, colors, typography, exact copy for every section and design notes. Its principles: one main message, lead with the most interesting number, round figures, a clear hierarchy from title down to sources, white space, a top-to-bottom or left-to-right flow, and one icon style and palette throughout. Unlike the repo's ppt-visual, which specs slides, this specs a single standalone graphic.",
+          "permalink": "https://github.com/claude-office-skills/skills/tree/9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11/infographic"
+        },
+        "tags": [
+          "category:design",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "design",
+          "charts"
+        ]
+      }
+    },
+    {
+      "id": "claude-office-skills/skills/news-monitor",
+      "name": "news-monitor",
+      "skills.sh": {
+        "url": "https://skills.sh/claude-office-skills/skills/news-monitor",
+        "installs": 5200,
+        "weeklyInstalls": [51, 83, 58, 57, 100, 227, 182, 63],
+        "firstSeen": "2026-03-09"
+      },
+      "skillMd": {
+        "version": "9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Plans news and brand monitoring: Boolean keyword queries, sources by tier, alert setups and tools, plus templates for news digests and media analysis.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to track mentions of your brand, executives, competitors or industry, or turn a batch of news into a briefing"
+            },
+            {
+              "label": "It does",
+              "text": "writes Boolean queries with exclusions, ranks sources in four authority tiers, recommends tools from Google Alerts to Meltwater, and sets daily, weekly and monthly routines"
+            },
+            {
+              "label": "You get",
+              "text": "a monitoring strategy, an alert setup guide, or a news digest or its blank template: top stories, coverage by category, sentiment counts, themes, action items and events to watch"
+            },
+            {
+              "label": "Doesn't",
+              "text": "monitor anything itself: it can't read live or paywalled news, so you set the strategy up"
+            },
+            {
+              "label": "Measures",
+              "text": "volume, reach, share of voice, sentiment and how often your key messages appear"
+            }
+          ],
+          "text": "From Claude Office Skills. You say what to track (brand, products, people, competitors, topics or regulation), the region, languages, source types, how often and when to alert, and pick an output: a strategy, an alert guide, a digest template or a media analysis framework. The agent builds keyword lists and Boolean queries, such as a brand name AND launch OR partnership, NOT jobs or careers, and suggests alert categories with a frequency for each, from as-it-happens for brand mentions and complaints to weekly for executives and industry trends. Sources are weighted by tier, from WSJ, NYT, Reuters and FT at ten times down to blogs at one. It walks through setting up Google Alerts and compares seven tools by type and cost. The strategy template adds a source matrix, daily triage, a weekly digest and monthly review, who receives what, and success metrics. Its frontmatter lists a Word tool of the repo's office-mcp server, but its instructions never call it.",
+          "permalink": "https://github.com/claude-office-skills/skills/tree/9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11/news-monitor"
+        },
+        "tags": [
+          "category:marketing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "research",
+          "marketing"
+        ]
+      }
+    },
+    {
+      "id": "claude-office-skills/skills/company-research",
+      "name": "company-research",
+      "skills.sh": {
+        "url": "https://skills.sh/claude-office-skills/skills/company-research",
+        "installs": 5200,
+        "weeklyInstalls": [60, 87, 60, 63, 105, 232, 184, 74],
+        "firstSeen": "2026-03-09"
+      },
+      "skillMd": {
+        "version": "9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes a company research report on business model, market size, competitors, moats, SWOT, management, financials and risks, for investment or partnership decisions.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're weighing a company as an investment, partner, acquisition target or competitor and want a structured first look"
+            },
+            {
+              "label": "It does",
+              "text": "classifies the revenue model, places the company in its value chain, rates Porter's five forces and checks six kinds of moat, such as network effects or switching costs"
+            },
+            {
+              "label": "You get",
+              "text": "a Markdown report with an attractive, neutral or caution verdict, TAM, SAM and SOM, a competitor table, SWOT, leadership and governance, a financial snapshot and a risk table"
+            },
+            {
+              "label": "Unlike",
+              "text": "the repo's stock-analysis, it covers the business and its market rather than share-price ratios and chart patterns"
+            },
+            {
+              "label": "Depth",
+              "text": "a one-page overview, a standard report, a due-diligence deep dive, or chosen aspects only"
+            },
+            {
+              "label": "Limits",
+              "text": "public information only: no proprietary databases, interviews or real-time data, and it can't verify what it states"
+            }
+          ],
+          "text": "From Claude Office Skills. You name the company (with its ticker if listed), its sector and region, whether it's public or private, the depth you need and what the research is for. The agent works through fixed frameworks: the revenue model (subscription, transaction, licensing, advertising, hardware or services), where the company sits from upstream to end user, Porter's five forces rated low, medium or high with a rationale, a positioning matrix of price against value, and SWOT. The report opens with a summary and a suitability verdict, then covers the business and its revenue streams, the market with TAM, SAM and SOM, competitors with market share, moats, management and board, insider and institutional ownership, margins, ROE and debt to equity, and risks rated by likelihood and impact with mitigations, ending with next steps and a disclaimer that it isn't investment advice. Its frontmatter lists document, spreadsheet and chart tools of the repo's office-mcp server, but its instructions never call them.",
+          "permalink": "https://github.com/claude-office-skills/skills/tree/9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11/company-research"
+        },
+        "tags": [
+          "category:science",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "research",
+          "finance"
+        ]
+      }
+    },
+    {
+      "id": "claude-office-skills/skills/dcf-valuation",
+      "name": "dcf-valuation",
+      "skills.sh": {
+        "url": "https://skills.sh/claude-office-skills/skills/dcf-valuation",
+        "installs": 5200,
+        "weeklyInstalls": [47, 82, 56, 60, 103, 225, 181, 63],
+        "firstSeen": "2026-03-09"
+      },
+      "skillMd": {
+        "version": "9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds a discounted cash flow valuation: free cash flow projections, WACC, terminal value, value per share and a WACC-by-growth sensitivity table.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want an estimate of what a company's shares are worth from its future cash flows, compared with the market price"
+            },
+            {
+              "label": "It does",
+              "text": "projects unlevered free cash flow, computes WACC with CAPM, values the terminal year by Gordon growth or an exit multiple, and discounts it all back"
+            },
+            {
+              "label": "You get",
+              "text": "a Markdown model: value per share against the current price with an undervalued, fair or overvalued call, assumptions, FCF table, valuation bridge, sensitivity tables and risks"
+            },
+            {
+              "label": "Models",
+              "text": "a standard five-year DCF, two-stage or three-stage"
+            },
+            {
+              "label": "Defaults",
+              "text": "assumptions you leave out get industry defaults; its framework puts terminal growth at 2-3% and sector exit multiples between 5x and 15x EBITDA"
+            },
+            {
+              "label": "Limits",
+              "text": "results hinge on assumptions, terminal value is often 60-80% of the total, and it doesn't suit early-stage unprofitable companies; not investment advice"
+            }
+          ],
+          "text": "From Claude Office Skills. You provide three to five years of revenue, EBITDA, capex and D&A, shares outstanding, optionally the share price, and the sector, then set growth, margin, capex, working-capital, terminal-growth and discount-rate assumptions or leave them to industry defaults. The agent follows four steps: unlevered free cash flow as EBIT after tax plus D&A minus capex and the change in working capital; WACC from the cost of equity by CAPM and the after-tax cost of debt; terminal value by the Gordon growth model or an EBITDA exit multiple; and enterprise value discounted at WACC, turned into equity value and divided by shares outstanding. Its bridge to equity value subtracts net debt and then adds cash, which counts cash twice if net debt already nets it out, so check that line. The report fills one template, with a grid of value per share across WACC from 8% to 10% and terminal growth from 1.5% to 3%, and the effect of moving each key driver. Its tips suggest cross-checking against P/E and EV/EBITDA multiples. Its frontmatter lists spreadsheet and chart tools of the repo's office-mcp server, but its instructions never call them.",
+          "permalink": "https://github.com/claude-office-skills/skills/tree/9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11/dcf-valuation"
+        },
+        "tags": [
+          "category:science",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "finance"
+        ]
+      }
+    },
+    {
+      "id": "claude-office-skills/skills/cover-letter",
+      "name": "cover-letter",
+      "skills.sh": {
+        "url": "https://skills.sh/claude-office-skills/skills/cover-letter",
+        "installs": 5200,
+        "weeklyInstalls": [52, 79, 55, 59, 104, 228, 179, 63],
+        "firstSeen": "2026-03-09"
+      },
+      "skillMd": {
+        "version": "9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes a cover letter tailored to a job posting and your experience, with a hook opening, quantified achievements and why you want this company.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're applying for a job, changing careers, moving internally or following up a referral, and need a cover letter"
+            },
+            {
+              "label": "It does",
+              "text": "follows a four-part shape: an opening hook, two paragraphs matching your achievements to the role, why this company and why now, and a close asking for next steps"
+            },
+            {
+              "label": "You get",
+              "text": "the letter, the points it highlighted with the requirement each one matches, and suggestions for personalizing it further"
+            },
+            {
+              "label": "Templates",
+              "text": "standard, referral, career change and new graduate"
+            },
+            {
+              "label": "Options",
+              "text": "tone, length of 250, 350 or 450 words, focus and industry"
+            },
+            {
+              "label": "Needs from you",
+              "text": "the job posting's text, since it can't open postings, and your real achievements and figures; its own example adds numbers the request never gave, so check every one"
+            }
+          ],
+          "text": "From Claude Office Skills. You share the job posting or describe the role, tell the agent about your relevant experience and anything to highlight, and it writes a tailored letter of three or four paragraphs on one page. Its rules: open with a specific achievement, connection or referral instead of \"I am writing to apply\" or \"To whom it may concern\", turn duties into numbers (\"grew sales 45% YoY, adding $2M in revenue\" rather than \"increased sales\"), show research into the company's news, products or values, and focus on what you offer rather than what you want. It warns against repeating your resume, being generic, typos, the wrong company name, raising salary and negative language. A worked example writes a letter for a senior software engineer applying to Stripe and fills it with figures the request never gave, such as $50M a month processed and transaction failures cut by 40%. Its frontmatter lists Word and PDF tools of the repo's office-mcp server, but its instructions never call them.",
+          "permalink": "https://github.com/claude-office-skills/skills/tree/9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11/cover-letter"
+        },
+        "tags": [
+          "category:personal",
+          "category:writing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "personal",
+          "writing"
+        ],
+        "note": "Its frontmatter description is only \">\", so an agent has nothing to pick it up by: ask for it by name."
+      }
+    },
+    {
+      "id": "claude-office-skills/skills/invoice-generator",
+      "name": "invoice-generator",
+      "skills.sh": {
+        "url": "https://skills.sh/claude-office-skills/skills/invoice-generator",
+        "installs": 5200,
+        "weeklyInstalls": [49, 83, 61, 70, 107, 225, 180, 66],
+        "firstSeen": "2026-03-09"
+      },
+      "skillMd": {
+        "version": "9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Drafts freelance and small-business invoices with line items, tax, payment terms and bank details, as Markdown to paste into Word or Google Docs.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need to bill a client and want a correctly laid-out invoice without an invoicing app"
+            },
+            {
+              "label": "It does",
+              "text": "numbers the invoice, adds dates, both parties, line items and totals, applies VAT, GST or sales tax, and states payment terms and late fees"
+            },
+            {
+              "label": "You get",
+              "text": "invoice text in Markdown, or HTML or plain text on request, to paste into Word, Google Docs or a web page"
+            },
+            {
+              "label": "Tax notes",
+              "text": "invoice requirements and example rates for the US, EU, China and Australia, including the EU reverse charge and Chinese fapiao"
+            },
+            {
+              "label": "Limits",
+              "text": "no PDF, no accounting-software link and no payment processing; tax figures are estimates to check with an accountant"
+            }
+          ],
+          "text": "From Claude Office Skills. You give your business details, the client, the items with quantities and rates, an invoice number (or let it suggest one), the currency, any tax, and the payment terms. The agent lays out the invoice with the required elements (number, issue and due dates, from, bill to, line items, total) and adds optional ones when they apply, such as a tax ID, PO number, tax breakdown, late-fee terms, bank details or a payment link. Reference tables cover payment terms from due on receipt to 2/10 net 30, late-fee caps in the US, UK and EU, and numbering schemes such as year-sequence or client-sequence, never reusing a number. It works in English or Chinese. Its frontmatter lists Word, template and PDF tools of the repo's office-mcp server, but its instructions never call them, and it says itself that it produces text, not PDFs.",
+          "permalink": "https://github.com/claude-office-skills/skills/tree/9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11/invoice-generator"
+        },
+        "tags": [
+          "category:documents",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "finance",
+          "documents"
+        ]
+      }
+    },
+    {
+      "id": "claude-office-skills/skills/deep-research",
+      "name": "deep-research",
+      "skills.sh": {
+        "url": "https://skills.sh/claude-office-skills/skills/deep-research",
+        "installs": 5100,
+        "weeklyInstalls": [52, 85, 57, 64, 110, 234, 189, 66],
+        "firstSeen": "2026-03-09"
+      },
+      "skillMd": {
+        "version": "9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Works through a research question in five phases, from scoping to synthesis, and writes a structured report with findings, viewpoints and recommendations.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need a balanced overview of a topic for a decision, from a quick brief to a long report"
+            },
+            {
+              "label": "It does",
+              "text": "scopes the question, gathers aspects and viewpoints, sorts them by theme, weighs reliability and bias, then draws conclusions and recommendations"
+            },
+            {
+              "label": "You get",
+              "text": "a Markdown report: executive summary, background and key terms, main sections, perspectives compared, gaps, conclusions, recommendations and sources"
+            },
+            {
+              "label": "Lengths",
+              "text": "a 1-2 page executive brief, a 5-10 page report, a 15+ page deep dive, or slide-ready bullets"
+            },
+            {
+              "label": "Frameworks",
+              "text": "PESTEL for markets and industries, 5W1H for any topic, and argument maps of claims, evidence and counter-arguments"
+            },
+            {
+              "label": "Limits",
+              "text": "by its own account it can't search the live web unless the agent has tools for it, read paywalled sources or run surveys"
+            }
+          ],
+          "text": "From Claude Office Skills. You give the main question and any sub-questions, why you need the answer, and the scope, perspectives (technical, business, social, legal), time frame and depth. The agent then works in five phases: scoping (key terms, boundaries, what success looks like), gathering (subtopics, diverse perspectives, facts and quotes), analysis (themes, patterns, comparing viewpoints, judging reliability and bias), synthesis (insights, conclusions, gaps, recommendations) and reporting, with balanced perspectives and cited sources. The report template runs from an executive summary with key findings and a recommendation to appendices, and ends with a reminder to verify findings with primary sources before critical decisions. Unless the agent has search tools, it works from what the model already knows, which has a training cutoff. Its frontmatter lists document and spreadsheet tools of the repo's office-mcp server, but its instructions never call them.",
+          "permalink": "https://github.com/claude-office-skills/skills/tree/9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11/deep-research"
+        },
+        "tags": [
+          "category:writing",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "research",
+          "writing"
+        ]
+      }
+    },
+    {
+      "id": "claude-office-skills/skills/email-marketing",
+      "name": "email-marketing",
+      "skills.sh": {
+        "url": "https://skills.sh/claude-office-skills/skills/email-marketing",
+        "installs": 5100,
+        "weeklyInstalls": [44, 81, 65, 57, 101, 224, 177, 62],
+        "firstSeen": "2026-03-09"
+      },
+      "skillMd": {
+        "version": "9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Plans email marketing: welcome, cart-recovery and win-back sequences, newsletters and promos with copy, A/B tests, segments, deliverability rules and KPI benchmarks.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're planning email campaigns or automated sequences and want structure, timing and copy to start from"
+            },
+            {
+              "label": "It does",
+              "text": "maps sequences day by day, such as a 14-day welcome series or cart recovery at 1, 24 and 72 hours, each email with a subject and goal"
+            },
+            {
+              "label": "You get",
+              "text": "full email drafts with subject lines and placeholders, like its sample five-email SaaS welcome sequence with exit and branch rules"
+            },
+            {
+              "label": "Also covers",
+              "text": "what to A/B test first, segments by behavior, demographics and lifecycle, SPF, DKIM and DMARC, list hygiene and domain warm-up"
+            },
+            {
+              "label": "Benchmarks",
+              "text": "open rate 20-25%, clicks 2-5%, conversion 1-3%, unsubscribes under 0.5%, bounces under 2%, spam complaints under 0.1%"
+            },
+            {
+              "label": "Doesn't",
+              "text": "send anything: the Mailchimp, SendGrid and Klaviyo tools in its frontmatter are never called in its instructions"
+            }
+          ],
+          "text": "From Claude Office Skills. A playbook the agent applies when you ask for a campaign or sequence. Templates cover a welcome series that moves from delivering a lead magnet to a last-chance offer on day 14, a weekly newsletter of three to five sections with curated links, a sale announcement with urgency, social proof and a P.S., a three-email cart recovery ending in a free-shipping code, and a win-back flow whose last email offers to take inactive subscribers off the list. A/B testing ranks subject line, send time and call-to-action button as high impact, with sample hypotheses on emoji, personalization, curiosity and urgency. Deliverability rules include authentication, removing bounces and unsubscribes at once, avoiding spam words, a 60:40 text-to-image ratio, a physical address for CAN-SPAM and raising volume by at most 20% a week. A reporting template summarizes campaigns, list health, top subjects and recommendations.",
+          "permalink": "https://github.com/claude-office-skills/skills/tree/9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11/email-marketing"
+        },
+        "tags": [
+          "category:marketing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "email",
+          "copywriting",
+          "marketing"
+        ]
+      }
+    },
+    {
+      "id": "claude-office-skills/skills/subscription-management",
+      "name": "subscription-management",
+      "skills.sh": {
+        "url": "https://skills.sh/claude-office-skills/skills/subscription-management",
+        "installs": 5100,
+        "weeklyInstalls": [43, 73, 52, 55, 99, 223, 177, 62],
+        "firstSeen": "2026-03-09"
+      },
+      "skillMd": {
+        "version": "9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Designs SaaS subscription operations: pricing tiers, upgrade triggers, downgrade save flows, customer health scores, dunning for failed payments and billing rules.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you run a SaaS product and want to reduce churn, recover failed payments or set up pricing and upgrade paths"
+            },
+            {
+              "label": "It does",
+              "text": "defines lifecycle stages from trial to win-back, triggers upgrade offers at usage limits, intercepts downgrades with pause or discount offers, and scores customer health"
+            },
+            {
+              "label": "You get",
+              "text": "playbooks as YAML outlines and Markdown, such as a churn prevention workflow with alerts, day-by-day interventions and a save-offer matrix by churn reason"
+            },
+            {
+              "label": "Health score",
+              "text": "usage 40%, engagement 30%, relationship 20%, financial 10%, banded from critical (under 40) to healthy (90 and up), each band with an action"
+            },
+            {
+              "label": "Dunning",
+              "text": "payment retries on days 0, 3, 7 and 14, suspension to read-only on day 21, data deletion after day 90"
+            },
+            {
+              "label": "Doesn't",
+              "text": "change any billing system: the Stripe, Chargebee and Paddle tools in its frontmatter are never called in its instructions"
+            }
+          ],
+          "text": "From Claude Office Skills. A subscription operations playbook the agent draws on when you ask for a churn workflow, a pricing structure or a billing process. It includes a four-tier pricing template from a $29 starter plan to custom enterprise pricing with add-ons, and compares charging per seat, by usage, by feature tier or as a hybrid, with pros, cons and where each fits. Upgrades are prompted at 80% of a limit, when someone tries a locked feature, after three months of overage or for power users, then prorated and unlocked at once. Downgrade requests first get a pause, a discount or a free month, a reason survey and a response tailored to the reason, with the change scheduled for the end of the billing cycle. Billing rules cover invoices a week before renewal, proration, approval for discounts above 30% and ratable revenue recognition, and a dashboard template reports MRR movements, health by tier, at-risk accounts and churn.",
+          "permalink": "https://github.com/claude-office-skills/skills/tree/9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11/subscription-management"
+        },
+        "tags": [
+          "category:marketing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "payments",
+          "conversion"
+        ]
+      }
+    },
+    {
+      "id": "claude-office-skills/skills/diagram-creator",
+      "name": "diagram-creator",
+      "skills.sh": {
+        "url": "https://skills.sh/claude-office-skills/skills/diagram-creator",
+        "installs": 5100,
+        "weeklyInstalls": [51, 83, 65, 60, 104, 228, 182, 63],
+        "firstSeen": "2026-03-05"
+      },
+      "skillMd": {
+        "version": "9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes diagrams as Mermaid or PlantUML code: flowcharts, sequence, architecture, ER, class, state, Gantt, mind maps and git graphs, ready to render.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a process, system, data model or timeline drawn as a diagram you can paste into docs, GitHub or Notion"
+            },
+            {
+              "label": "It does",
+              "text": "picks the diagram type for what you describe and writes it in Mermaid, with a PlantUML version as an alternative"
+            },
+            {
+              "label": "You get",
+              "text": "a Markdown block with the type, purpose, diagram code, where to render it, theme and direction options, and notes on assumptions"
+            },
+            {
+              "label": "Doesn't",
+              "text": "render images: you paste the code into Mermaid Live, GitHub, VS Code or Notion"
+            },
+            {
+              "label": "Formats",
+              "text": "Mermaid and PlantUML with examples; it also offers ASCII and D2 but shows no examples of them"
+            }
+          ],
+          "text": "From Claude Office Skills. You describe what to visualize, the diagram type, the level of detail and the audience, then pick a format and style. The skill holds a Mermaid example for each of nine types (flowchart, sequence, architecture with subgraphs, entity-relationship, class, state, Gantt, mind map and git graph) and PlantUML examples of a sequence and a component diagram. Its output template gives the Mermaid code with an optional PlantUML alternative, rendering instructions and customization: one of four Mermaid themes and the flow direction. Its tips: keep it simple, use clear labels, group related items, match the type to the concept, use color only for emphasis, and add a legend when symbols or colors carry meaning. It lists Mermaid Live, the PlantUML server, draw.io, Excalidraw and Lucidchart for rendering or editing by hand.",
+          "permalink": "https://github.com/claude-office-skills/skills/tree/9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11/diagram-creator"
+        },
+        "tags": [
+          "category:science",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:mermaid",
+          "stack:plantuml",
+          "diagrams",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "id": "claude-office-skills/skills/saas-metrics",
+      "name": "saas-metrics",
+      "skills.sh": {
+        "url": "https://skills.sh/claude-office-skills/skills/saas-metrics",
+        "installs": 5100,
+        "weeklyInstalls": [52, 81, 60, 60, 105, 233, 180, 67],
+        "firstSeen": "2026-03-09"
+      },
+      "skillMd": {
+        "version": "9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Calculates SaaS metrics such as MRR movements, churn, net revenue retention, LTV to CAC, payback, quick ratio and cohorts, with investor report templates.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you run or invest in a SaaS business and need its metrics calculated, judged against benchmarks or reported to investors"
+            },
+            {
+              "label": "It does",
+              "text": "breaks MRR into new, expansion, reactivation, contraction and churn, computes churn three ways, NRR, LTV, CAC, payback and the quick ratio, and builds cohort retention tables"
+            },
+            {
+              "label": "You get",
+              "text": "an analysis with strengths, areas to improve and recommendations, or a monthly investor report with MRR waterfall, segments, runway, goals against actuals and outlook"
+            },
+            {
+              "label": "Benchmarks",
+              "text": "LTV:CAC of 3-5x as great, NRR above 120% as best in class, logo churn under 5% a month for SMB and 2% for enterprise"
+            },
+            {
+              "label": "Also has",
+              "text": "a bottom-up 12-month MRR forecast from new customers, expansion, contraction and churn rates"
+            },
+            {
+              "label": "Doesn't",
+              "text": "pull data itself: the Stripe, Chargebee and Mixpanel tools in its frontmatter are never called, so you supply the figures"
+            }
+          ],
+          "text": "From Claude Office Skills. You share your subscription figures and ask for an analysis, a churn breakdown, a forecast or an investor update. The agent works from fixed formulas: ARR as MRR times 12, net new MRR as new plus expansion plus reactivation minus contraction and churn, LTV as ARPU times gross margin over churn, CAC as sales and marketing spend over new customers, CAC payback, and the quick ratio, where under 1 means shrinking and over 4 hypergrowth potential. Each metric has a benchmark, including CAC payback by segment and gross margin by business type. Templates cover a churn analysis by reason and cohort, a retention matrix by signup month, segment tables by plan, industry and company size, and the monthly metrics report with runway and burn. Its sample analysis opens with an executive summary, then strengths, areas to improve against targets, four recommendations and a metrics table.",
+          "permalink": "https://github.com/claude-office-skills/skills/tree/9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11/saas-metrics"
+        },
+        "tags": [
+          "category:science",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "finance"
+        ]
+      }
+    },
+    {
+      "id": "claude-office-skills/skills/data-pipeline",
+      "name": "data-pipeline",
+      "skills.sh": {
+        "url": "https://skills.sh/claude-office-skills/skills/data-pipeline",
+        "installs": 5000,
+        "weeklyInstalls": [52, 83, 58, 59, 99, 224, 176, 63],
+        "firstSeen": "2026-03-05"
+      },
+      "skillMd": {
+        "version": "9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Designs ETL pipelines: sources to extract from, cleaning and mapping steps, warehouse or sheet destinations, schedules, retries, failure alerts and data quality checks.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need to move data between apps, databases and a warehouse or spreadsheet on a schedule, such as daily sales into BigQuery"
+            },
+            {
+              "label": "It does",
+              "text": "plans each stage: extract from databases, APIs, files or SaaS apps; clean, map, aggregate and enrich; load to warehouses, databases, storage, sheets or webhooks"
+            },
+            {
+              "label": "You get",
+              "text": "a pipeline spec with schedule, retries, extract settings, a JavaScript transform, destinations, quality checks and alert channels, like its daily Shopify-and-Stripe sales example"
+            },
+            {
+              "label": "Also covers",
+              "text": "cron schedules, dependencies, retries with exponential backoff, alerts on failures, row-count anomalies and stale data, and schema, null-rate and business-rule checks"
+            },
+            {
+              "label": "Doesn't",
+              "text": "run anything: it says it's based on n8n templates, but its workflows are YAML outlines and the data-mcp tools in its frontmatter are never called"
+            }
+          ],
+          "text": "From Claude Office Skills. You describe the data you have and where it should end up, and the agent designs the pipeline from its patterns. Sources include PostgreSQL, MySQL and MongoDB, REST and GraphQL APIs, CSV, Excel and JSON files, and Salesforce, HubSpot, Stripe and Shopify; destinations include BigQuery, Snowflake, Redshift, Postgres, MySQL, S3, Google Cloud Storage, Google Sheets, Airtable and webhooks. Transformations are listed by kind (cleaning, mapping, aggregation, enrichment, filtering), with JavaScript functions that normalize records and total them by date and category. Its monitoring tracks rows processed, run time, errors and freshness, and posts failures to Slack or PagerDuty. Quality checks validate required fields, types and allowed values, keep null and duplicate rates low, test business rules such as totals matching line items, and flag row counts more than two standard deviations from the mean.",
+          "permalink": "https://github.com/claude-office-skills/skills/tree/9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11/data-pipeline"
+        },
+        "tags": [
+          "category:science",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:n8n",
+          "databases"
+        ]
+      }
+    },
+    {
+      "id": "claude-office-skills/skills/hr-automation",
+      "name": "hr-automation",
+      "skills.sh": {
+        "url": "https://skills.sh/claude-office-skills/skills/hr-automation",
+        "installs": 5000,
+        "weeklyInstalls": [48, 77, 55, 57, 103, 227, 178, 64],
+        "firstSeen": "2026-03-09"
+      },
+      "skillMd": {
+        "version": "9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Designs HR automations for recruiting, AI resume screening, interview scheduling, onboarding, time off, performance reviews, offboarding and compliance documents.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're planning automations for the emails, reminders, approvals and checklists around hiring, onboarding, time off, reviews or departures"
+            },
+            {
+              "label": "Auto-rejects applicants",
+              "text": "its GPT-4 resume screen scores applicants out of 10; anyone under 5 is rejected and emailed automatically, with no person reviewing, while 5 to 7 are flagged for review"
+            },
+            {
+              "label": "It does",
+              "text": "maps each process to triggers and actions: candidate stage changes, interview invites and reminders, onboarding tasks from two weeks before day one, PTO routing, quarterly reviews, offboarding"
+            },
+            {
+              "label": "You get",
+              "text": "YAML outlines and checklists, such as an onboarding checklist with tasks for the new hire, manager and IT, escalating reminders and an n8n outline"
+            },
+            {
+              "label": "Doesn't",
+              "text": "connect to an HR system: the Greenhouse, Workday and BambooHR tools in its frontmatter are never called in its instructions"
+            }
+          ],
+          "text": "From Claude Office Skills, based, it says, on n8n's HR workflow templates. You ask for an HR automation and the agent designs it from its templates. Recruiting covers a seven-stage pipeline from applied to hired, with confirmations, Slack alerts and stage-specific emails. Its AI screen gives GPT-4 the resume and job requirements and asks for skill and experience ratings from 1 to 10, without saying how they become the one score its rules act on: 8 or more advances the candidate, 5 to 7 is flagged for review, and under 5 is rejected and sent a rejection email automatically, with no person looking. Interview scheduling finds slots with a 15-minute buffer, sends invites and prep material, reminds everyone a day and an hour before and collects feedback. Onboarding runs from document collection and equipment two weeks out to a 30-day survey, with deadlines for the I-9, direct deposit and benefits. Time-off requests go to the manager for up to three days and to HR as well beyond that. Offboarding revokes email, SSO, VPN and building access at once on termination, removes licenses and repositories within 24 hours, and audits the revocations.",
+          "permalink": "https://github.com/claude-office-skills/skills/tree/9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11/hr-automation"
+        },
+        "tags": [
+          "category:documents",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:n8n",
+          "messaging",
+          "calendar",
+          "email"
+        ]
+      }
+    },
+    {
+      "id": "claude-office-skills/skills/ai-slides",
+      "name": "ai-slides",
+      "skills.sh": {
+        "url": "https://skills.sh/claude-office-skills/skills/ai-slides",
+        "installs": 5000,
+        "weeklyInstalls": [50, 77, 57, 59, 104, 224, 181, 65],
+        "firstSeen": "2026-03-09"
+      },
+      "skillMd": {
+        "version": "9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Generates a full slide deck from a topic or outline as Marp Markdown: title, agenda, three to five content sections, summary and closing.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need a first draft of a whole presentation, such as a pitch deck, training session or tech talk, from a topic, outline or notes"
+            },
+            {
+              "label": "It does",
+              "text": "outlines the deck, writes three to five bullets or a visual per content slide, suggests visuals, and formats it all as Marp Markdown"
+            },
+            {
+              "label": "You get",
+              "text": "Markdown for Marp, a Markdown slide tool, in its gaia theme with page numbers; its example is a ten-slide introduction to Docker"
+            },
+            {
+              "label": "Unlike",
+              "text": "the repo's ppt-visual, which specs the design of one slide, this drafts the content of a whole deck"
+            },
+            {
+              "label": "Rules",
+              "text": "know your audience, one idea per slide, at most six bullets of six words, suggest images or diagrams, open with a hook and close with a call to action"
+            },
+            {
+              "label": "Doesn't",
+              "text": "write a PowerPoint file: the office-mcp slide tools in its frontmatter are never called in its instructions"
+            }
+          ],
+          "text": "From Claude Office Skills. You give a topic, outline or rough notes, the audience and how many slides, and the agent drafts the whole deck. Its structure: a title slide with subtitle and presenter, an agenda of three to five topics, an introduction with a hook and why it matters, three to five main sections each with a heading, three to five bullets or a visual and supporting data, a summary of takeaways with a call to action, and a closing slide with thanks, contact details and a prompt for questions. The skill shows this as Python pseudo-code that outlines, expands each section, adds visual suggestions and converts the slides to Marp Markdown, plus a finished ten-slide Docker talk as an example. It points to Marp, Slidev and reveal.js as tools for Markdown and HTML slides.",
+          "permalink": "https://github.com/claude-office-skills/skills/tree/9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11/ai-slides"
+        },
+        "tags": [
+          "category:documents",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:marp",
+          "slides"
+        ]
+      }
+    },
+    {
+      "id": "claude-office-skills/skills/ai-agent-builder",
+      "name": "ai-agent-builder",
+      "skills.sh": {
+        "url": "https://skills.sh/claude-office-skills/skills/ai-agent-builder",
+        "installs": 5000,
+        "weeklyInstalls": [48, 77, 55, 60, 103, 227, 178, 65],
+        "firstSeen": "2026-03-05"
+      },
+      "skillMd": {
+        "version": "9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Designs AI agents: architecture, tool definitions, memory and context strategies, ReAct and plan-then-execute reasoning, and Slack, Telegram or web chat front ends.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're planning a chatbot or agent, such as a support, research or scheduling assistant, and want its design on paper first"
+            },
+            {
+              "label": "It does",
+              "text": "picks an agent type from reactive to multi-agent, defines its tools with parameters and the API each calls, and chooses memory, context limits and a reasoning pattern"
+            },
+            {
+              "label": "You get",
+              "text": "a design write-up: capabilities, each tool's inputs and outputs, a sample conversation showing the agent's thoughts and actions, and an n8n outline"
+            },
+            {
+              "label": "Memory options",
+              "text": "keep the last messages, summarize older ones, store them in a vector database, or track named entities, within a token budget"
+            },
+            {
+              "label": "Templates",
+              "text": "a customer support agent with escalation triggers and a research agent that cites its sources"
+            },
+            {
+              "label": "Doesn't",
+              "text": "build or run the agent: designs come as YAML outlines and pseudo-code, with n8n's LangChain agent node as the implementation example"
+            }
+          ],
+          "text": "From Claude Office Skills, based, it says, on n8n's AI workflow templates. You describe the agent you want and the agent drafts its design. It sorts agents into five types by complexity: reactive, conversational, tool-using, reasoning and multi-agent. Tools are grouped into data retrieval, actions, computation and generation, each defined with a name, description, parameters and the API it calls. Memory can be a buffer of recent messages, a rolling summary, a vector store or an entity tracker, and the context window is managed by a sliding window, relevance ranking or tiers, within a sample 8,000-token budget split across system prompt, tools, memory, query and response. Reasoning follows ReAct (thought, action, observation) or a plan, execute and synthesize loop. Platform outlines cover a Slack bot that reads thread history, a Telegram bot that handles voice, images and documents, and a streaming web chat with sessions in Redis.",
+          "permalink": "https://github.com/claude-office-skills/skills/tree/9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11/ai-agent-builder"
+        },
+        "tags": [
+          "category:agents",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:n8n",
+          "agent-development",
+          "memory"
+        ]
+      }
     }
   ]
 }
