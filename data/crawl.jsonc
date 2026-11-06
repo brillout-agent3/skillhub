@@ -484,19 +484,6 @@
       }
     },
     {
-      "name": "claude-automation-recommender",
-      "repo": "anthropics/claude-plugins-official",
-      "official": true,
-      "stars": 46288,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/anthropics/claude-plugins-official/claude-automation-recommender",
-        "installs": 10400,
-        "weeklyInstalls": [232, 215, 138, 112, 203, 418, 598, 741],
-        "firstSeen": "2026-01-21"
-      }
-    },
-    {
       "name": "tailored-resume-generator",
       "repo": "composiohq/awesome-claude-skills",
       "official": true,
@@ -640,19 +627,6 @@
       }
     },
     {
-      "name": "semgrep",
-      "repo": "trailofbits/skills",
-      "official": true,
-      "stars": 8045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/trailofbits/skills/semgrep",
-        "installs": 10100,
-        "weeklyInstalls": [198, 200, 216, 228, 248, 279, 329, 363],
-        "firstSeen": "2026-01-19"
-      }
-    },
-    {
       "name": "notebooklm",
       "repo": "teng-lin/notebooklm-py",
       "official": false,
@@ -793,19 +767,6 @@
         "installs": 9800,
         "weeklyInstalls": [381, 360, 394, 379, 335, 356, 363, 494],
         "firstSeen": "2026-02-10"
-      }
-    },
-    {
-      "name": "differential-review",
-      "repo": "trailofbits/skills",
-      "official": true,
-      "stars": 8045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/trailofbits/skills/differential-review",
-        "installs": 9800,
-        "weeklyInstalls": [189, 246, 266, 295, 357, 488, 709, 594],
-        "firstSeen": "2026-01-19"
       }
     },
     {
@@ -1160,19 +1121,6 @@
       }
     },
     {
-      "name": "supply-chain-risk-auditor",
-      "repo": "trailofbits/skills",
-      "official": true,
-      "stars": 8045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/trailofbits/skills/supply-chain-risk-auditor",
-        "installs": 8800,
-        "weeklyInstalls": [174, 183, 201, 219, 270, 293, 353, 371],
-        "firstSeen": "2026-02-26"
-      }
-    },
-    {
       "name": "excalidraw-diagram",
       "repo": "coleam00/excalidraw-diagram-skill",
       "official": false,
@@ -1183,19 +1131,6 @@
         "installs": 8700,
         "weeklyInstalls": [144, 137, 138, 108, 99, 142, 125, 103],
         "firstSeen": "2026-03-02"
-      }
-    },
-    {
-      "name": "codeql",
-      "repo": "trailofbits/skills",
-      "official": true,
-      "stars": 8045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/trailofbits/skills/codeql",
-        "installs": 8700,
-        "weeklyInstalls": [168, 193, 159, 156, 168, 191, 244, 263],
-        "firstSeen": "2026-01-19"
       }
     },
     {
@@ -1274,19 +1209,6 @@
         "installs": 8600,
         "weeklyInstalls": [147, 120, 122, 133, 151, 158, 163, 208],
         "firstSeen": "2026-02-10"
-      }
-    },
-    {
-      "name": "playground",
-      "repo": "anthropics/claude-plugins-official",
-      "official": true,
-      "stars": 46288,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/anthropics/claude-plugins-official/playground",
-        "installs": 8500,
-        "weeklyInstalls": [187, 178, 66, 54, 138, 308, 260, 297],
-        "firstSeen": "2026-01-30"
       }
     },
     {
@@ -1797,32 +1719,6 @@
       }
     },
     {
-      "name": "secure-workflow-guide",
-      "repo": "trailofbits/skills",
-      "official": true,
-      "stars": 8045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/trailofbits/skills/secure-workflow-guide",
-        "installs": 7700,
-        "weeklyInstalls": [145, 139, 110, 121, 140, 151, 179, 185],
-        "firstSeen": "2026-01-19"
-      }
-    },
-    {
-      "name": "skill-development",
-      "repo": "anthropics/claude-plugins-official",
-      "official": true,
-      "stars": 46288,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/anthropics/claude-plugins-official/skill-development",
-        "installs": 7600,
-        "weeklyInstalls": [190, 182, 88, 53, 140, 315, 259, 305],
-        "firstSeen": "2026-02-05"
-      }
-    },
-    {
       "name": "seo-schema",
       "repo": "agricidaniel/claude-seo",
       "official": false,
@@ -1953,19 +1849,6 @@
       }
     },
     {
-      "name": "property-based-testing",
-      "repo": "trailofbits/skills",
-      "official": true,
-      "stars": 8045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/trailofbits/skills/property-based-testing",
-        "installs": 7600,
-        "weeklyInstalls": [181, 188, 207, 211, 272, 278, 299, 344],
-        "firstSeen": "2026-01-19"
-      }
-    },
-    {
       "name": "seo-aeo-best-practices",
       "repo": "sanity-io/agent-toolkit",
       "official": true,
@@ -2002,19 +1885,6 @@
         "installs": 7500,
         "weeklyInstalls": [220, 185, 215, 158, 178, 309, 264, 222],
         "firstSeen": "2026-02-02"
-      }
-    },
-    {
-      "name": "sharp-edges",
-      "repo": "trailofbits/skills",
-      "official": true,
-      "stars": 8045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/trailofbits/skills/sharp-edges",
-        "installs": 7500,
-        "weeklyInstalls": [151, 159, 186, 208, 272, 289, 294, 352],
-        "firstSeen": "2026-01-19"
       }
     },
     {
@@ -2096,19 +1966,6 @@
       }
     },
     {
-      "name": "fp-check",
-      "repo": "trailofbits/skills",
-      "official": true,
-      "stars": 8045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/trailofbits/skills/fp-check",
-        "installs": 7400,
-        "weeklyInstalls": [140, 142, 134, 163, 169, 195, 221, 269],
-        "firstSeen": "2026-03-03"
-      }
-    },
-    {
       "name": "antislop-human",
       "repo": "miqdadbadjuber/anti-slop",
       "official": false,
@@ -2132,19 +1989,6 @@
         "installs": 7400,
         "weeklyInstalls": [288, 261, 240, 235, 260, 355, 298, 321],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "code-maturity-assessor",
-      "repo": "trailofbits/skills",
-      "official": true,
-      "stars": 8045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/trailofbits/skills/code-maturity-assessor",
-        "installs": 7400,
-        "weeklyInstalls": [142, 135, 114, 110, 133, 130, 166, 176],
-        "firstSeen": "2026-01-19"
       }
     },
     {
@@ -2262,32 +2106,6 @@
         "installs": 7300,
         "weeklyInstalls": [305, 292, 329, 287, 258, 276, 271, 389],
         "firstSeen": "2026-04-15"
-      }
-    },
-    {
-      "name": "build-mcp-server",
-      "repo": "anthropics/claude-plugins-official",
-      "official": true,
-      "stars": 46288,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/anthropics/claude-plugins-official/build-mcp-server",
-        "installs": 7300,
-        "weeklyInstalls": [210, 209, 85, 65, 144, 324, 266, 308],
-        "firstSeen": "2026-03-20"
-      }
-    },
-    {
-      "name": "audit-context-building",
-      "repo": "trailofbits/skills",
-      "official": true,
-      "stars": 8045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/trailofbits/skills/audit-context-building",
-        "installs": 7300,
-        "weeklyInstalls": [159, 165, 156, 137, 195, 231, 262, 282],
-        "firstSeen": "2026-01-19"
       }
     },
     {
@@ -2613,19 +2431,6 @@
         "installs": 7100,
         "weeklyInstalls": [128, 110, 122, 118, 119, 177, 160, 176],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "agentic-actions-auditor",
-      "repo": "trailofbits/skills",
-      "official": true,
-      "stars": 8045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/trailofbits/skills/agentic-actions-auditor",
-        "installs": 7100,
-        "weeklyInstalls": [127, 132, 122, 122, 149, 154, 187, 200],
-        "firstSeen": "2026-02-26"
       }
     },
     {

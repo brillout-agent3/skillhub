@@ -41566,6 +41566,788 @@
         ],
         "note": "Its presets use the agent-teams plugin's team-lead, team-reviewer, team-debugger and team-implementer agents, which installing the skill alone doesn't add; the plugin's README also turns on the experimental Agent Teams feature with CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1."
       }
+    },
+    {
+      "id": "anthropics/claude-plugins-official/plugins/claude-code-setup/skills/claude-automation-recommender",
+      "name": "claude-automation-recommender",
+      "skills.sh": {
+        "url": "https://skills.sh/anthropics/claude-plugins-official/claude-automation-recommender",
+        "installs": 10400,
+        "weeklyInstalls": [232, 215, 138, 112, 203, 418, 598, 741],
+        "firstSeen": "2026-01-21"
+      },
+      "skillMd": {
+        "version": "c07c748f1c680734a813eefd909bc073f8a9103f",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Scans your codebase and recommends the Claude Code hooks, subagents, skills, plugins and MCP servers that would help it most, without changing files.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're setting up Claude Code on a project, or want to know which of its automation features would pay off there"
+            },
+            {
+              "label": "It does",
+              "text": "inspects the project's manifests, dependencies, folders and existing .claude config, then picks the top one or two automations of each type"
+            },
+            {
+              "label": "You get",
+              "text": "a report with a codebase profile and, per category, each recommendation with why it fits and where it goes, such as .claude/settings.json"
+            },
+            {
+              "label": "Read-only",
+              "text": "it creates and changes no files; you build the recommendations yourself or ask the agent separately"
+            }
+          ],
+          "text": "From Anthropic's claude-code-setup plugin. It looks at what the project is built with: package.json, pyproject.toml and similar files, frameworks and libraries such as React, Prisma, Supabase or Stripe, test and CI setup, issue-tracker references, and any existing .claude folder or CLAUDE.md. It maps those signals to Claude Code's five extension types. MCP servers connect outside tools, for example context7 for live library docs, Playwright for browser testing or the GitHub MCP server for issues and PRs. Skills package repeatable tasks, such as a create-migration or release-notes skill, with a note on whether you, Claude or both should invoke each. Hooks run on tool events, like auto-formatting after an edit or blocking edits to .env and lock files. Subagents are specialized reviewers, such as a security reviewer or test writer. Plugins bundle skills to install. It recommends one or two per category, three to five if you ask about one type, skips categories that don't apply, and uses web search to go beyond its reference lists. The report ends by offering more options or help implementing them.",
+          "permalink": "https://github.com/anthropics/claude-plugins-official/tree/c07c748f1c680734a813eefd909bc073f8a9103f/plugins/claude-code-setup/skills/claude-automation-recommender"
+        },
+        "tags": [
+          "category:agents",
+          "category:skill-tools",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:official",
+          "stack:claude",
+          "agent-workflows",
+          "skill-discovery"
+        ]
+      }
+    },
+    {
+      "id": "anthropics/claude-plugins-official/plugins/playground/skills/playground",
+      "name": "playground",
+      "skills.sh": {
+        "url": "https://skills.sh/anthropics/claude-plugins-official/playground",
+        "installs": 8500,
+        "weeklyInstalls": [187, 178, 66, 54, 138, 308, 260, 297],
+        "firstSeen": "2026-01-30"
+      },
+      "skillMd": {
+        "version": "c07c748f1c680734a813eefd909bc073f8a9103f",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds a single-file interactive HTML playground with controls, a live preview and a generated prompt you copy back to the agent.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a choice is easier to make by tweaking controls and watching a preview than by describing it, such as a layout, a query or a diff review"
+            },
+            {
+              "label": "It does",
+              "text": "picks the closest of six templates, builds the page, then opens it in your default browser"
+            },
+            {
+              "label": "You get",
+              "text": "one self-contained HTML file with controls, an instant preview, 3 to 5 presets and a copyable prompt"
+            },
+            {
+              "label": "The prompt",
+              "text": "a plain-language instruction naming only what you changed, ready to paste back into the chat"
+            }
+          ],
+          "text": "From Anthropic's playground plugin for Claude Code. A playground is a page with controls on one side, a live preview on the other and a prompt at the bottom with a copy button. Its six templates cover visual design decisions (components, layouts, spacing, color, typography), data and query building (SQL, APIs, pipelines, regex), concept maps for learning and scoping, document critique with approve, reject and comment, code review of diffs, commits and PRs with line comments, and codebase architecture maps. Every playground inlines its CSS and JavaScript with no external dependencies, re-renders on every change with no Apply button, uses a dark theme and looks good on first load. The prompt reads as an instruction rather than a dump of values, mentions only non-default choices and carries enough context to act on without seeing the page. After writing the file it runs open to launch it in your browser.",
+          "permalink": "https://github.com/anthropics/claude-plugins-official/tree/c07c748f1c680734a813eefd909bc073f8a9103f/plugins/playground/skills/playground"
+        },
+        "tags": [
+          "category:design",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:official",
+          "prototyping",
+          "design"
+        ]
+      }
+    },
+    {
+      "id": "anthropics/claude-plugins-official/plugins/plugin-dev/skills/skill-development",
+      "name": "skill-development",
+      "skills.sh": {
+        "url": "https://skills.sh/anthropics/claude-plugins-official/skill-development",
+        "installs": 7600,
+        "weeklyInstalls": [190, 182, 88, 53, 140, 315, 259, 305],
+        "firstSeen": "2026-02-05"
+      },
+      "skillMd": {
+        "version": "c07c748f1c680734a813eefd909bc073f8a9103f",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Guides writing a skill for a Claude Code plugin, from concrete use cases to a lean SKILL.md with references, examples and scripts.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're adding a skill to a Claude Code plugin, or tightening an existing skill's description and layout"
+            },
+            {
+              "label": "It does",
+              "text": "walks six steps: gather concrete examples, plan scripts, references and assets, create the folder, write SKILL.md, validate, iterate"
+            },
+            {
+              "label": "You get",
+              "text": "a skill folder whose SKILL.md body stays around 1,500 to 2,000 words, with detail moved to references/, examples/ and scripts/"
+            },
+            {
+              "label": "Unlike",
+              "text": "Anthropic's general skill-creator, it skips the init script and packaging: plugin skills live in the plugin's skills/ folder and ship with it"
+            }
+          ],
+          "text": "From Anthropic's plugin-dev plugin for Claude Code, adapting the original skill-creator method to plugins. Its core idea is progressive disclosure: the name and description are always in context, the SKILL.md body loads when the skill triggers, and bundled files load only as needed, so the body stays lean and detail moves to references/. It asks for a third-person description packed with the exact phrases users would say (\"This skill should be used when the user asks to...\") and an imperative, verb-first body rather than second person. A validation checklist covers structure, description quality, writing style, referenced files that actually exist and working examples; testing means loading the plugin locally with --plugin-dir and asking questions that should trigger the skill. The plugin's own hook, agent and settings skills serve as worked examples, and it suggests the plugin's skill-reviewer agent for a final review.",
+          "permalink": "https://github.com/anthropics/claude-plugins-official/tree/c07c748f1c680734a813eefd909bc073f8a9103f/plugins/plugin-dev/skills/skill-development"
+        },
+        "tags": [
+          "category:skill-tools",
+          "type:workflow",
+          "effect:local",
+          "needs:claude-code",
+          "by:official",
+          "stack:claude",
+          "skill-authoring"
+        ]
+      }
+    },
+    {
+      "id": "anthropics/claude-plugins-official/plugins/mcp-server-dev/skills/build-mcp-server",
+      "name": "build-mcp-server",
+      "skills.sh": {
+        "url": "https://skills.sh/anthropics/claude-plugins-official/build-mcp-server",
+        "installs": 7300,
+        "weeklyInstalls": [210, 209, 85, 65, 144, 324, 266, 308],
+        "firstSeen": "2026-03-20"
+      },
+      "skillMd": {
+        "version": "c07c748f1c680734a813eefd909bc073f8a9103f",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Designs an MCP server with you, choosing deployment, tool layout, framework and auth, then scaffolds it or hands off to a specialized skill.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to build an MCP server that exposes an API or tool to Claude and aren't sure what shape it should take"
+            },
+            {
+              "label": "It does",
+              "text": "asks what it connects to, who will use it, how many actions it has, whether tools need user input or UI, and what auth the service uses"
+            },
+            {
+              "label": "You get",
+              "text": "one recommended deployment model, tool pattern and framework, then a scaffold for a remote HTTP server or a local stdio prototype"
+            },
+            {
+              "label": "Hands off",
+              "text": "to build-mcp-app for interactive widgets or build-mcpb for a bundled local server, passing a one-paragraph design brief"
+            }
+          ],
+          "text": "From Anthropic's mcp-server-dev plugin. Discovery comes before code: it first fetches Claude's connector docs so its advice reflects Claude's auth types, review criteria and limits, then asks its questions in one batch. Its default is a remote streamable-HTTP server, which users add by URL and which works across Claude's apps and other MCP hosts; MCPB, a local server packaged with its runtime, is for servers that must touch the user's machine; plain npx or uvx stdio is for personal prototypes. Under about 15 actions it gives each its own tool; for large APIs it exposes one search tool and one execute tool so the context stays lean. It recommends the official TypeScript SDK, or FastMCP 3.x for Python, and suggests elicitation, a form the host renders, before building UI. Once the server runs, it points you to testing it as a custom connector in Claude, the pre-submission checklist and submission to the Anthropic Directory.",
+          "permalink": "https://github.com/anthropics/claude-plugins-official/tree/c07c748f1c680734a813eefd909bc073f8a9103f/plugins/mcp-server-dev/skills/build-mcp-server"
+        },
+        "tags": [
+          "category:agents",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:official",
+          "stack:mcp",
+          "stack:claude",
+          "agent-development",
+          "architecture"
+        ],
+        "note": "For an MCP app with UI widgets or a bundled local server (MCPB) it loads the plugin's build-mcp-app or build-mcpb skill; install the mcp-server-dev plugin to get them."
+      }
+    },
+    {
+      "id": "trailofbits/skills/plugins/static-analysis/skills/semgrep",
+      "name": "semgrep",
+      "skills.sh": {
+        "url": "https://skills.sh/trailofbits/skills/semgrep",
+        "installs": 10100,
+        "weeklyInstalls": [198, 200, 216, 228, 248, 279, 329, 363],
+        "firstSeen": "2026-01-19"
+      },
+      "skillMd": {
+        "version": "e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Runs a Semgrep security scan over your codebase with third-party rulesets, after you approve the plan, and merges the findings into one SARIF file.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a first-pass static security scan of a codebase, before or alongside code review"
+            },
+            {
+              "label": "It does",
+              "text": "detects languages, checks for Semgrep Pro, proposes rulesets and a mode, waits for your explicit yes, then runs them through its bundled script"
+            },
+            {
+              "label": "You get",
+              "text": "per-scan output and one merged results.sarif in an output folder, plus a report that lists any ruleset that failed or was skipped"
+            },
+            {
+              "label": "Modes",
+              "text": "\"run all\" reports everything; \"important only\" keeps security findings of medium-to-high confidence and impact"
+            },
+            {
+              "label": "Needs",
+              "text": "the Semgrep CLI, jq and uv; Semgrep Pro is optional and adds cross-file taint tracking"
+            }
+          ],
+          "text": "Trail of Bits' Semgrep skill, from its static-analysis plugin. It always adds third-party rulesets from Trail of Bits, 0xdea and Decurity when the language matches, because they catch bugs the official registry misses. Every command runs with --metrics=off so the scan sends no telemetry, and its run-scans.sh script, not the agent, writes the semgrep commands, runs them in parallel batches and records what ran, failed or was skipped in scans.json. The approval step is a hard gate: asking for a scan isn't approval, and the agent may not add rulesets you didn't approve. With Semgrep Pro it tracks taint across files; without it, analysis stays within single files. Cloned rule repos are deleted at the end. The plugin also ships a /static-analysis:semgrep-scan command that runs the same scan without stopping for approval, and for writing your own rules it points to the semgrep-rule-creator skill.",
+          "permalink": "https://github.com/trailofbits/skills/tree/e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff/plugins/static-analysis/skills/semgrep"
+        },
+        "tags": [
+          "category:security",
+          "category:debugging",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "by:official",
+          "stack:semgrep",
+          "security",
+          "code-review"
+        ],
+        "note": "Needs the Semgrep CLI and uv; Semgrep Pro, if you have it, adds cross-file taint analysis. Results go to ./static_analysis_semgrep_N unless you name a folder."
+      }
+    },
+    {
+      "id": "trailofbits/skills/plugins/differential-review/skills/differential-review",
+      "name": "differential-review",
+      "skills.sh": {
+        "url": "https://skills.sh/trailofbits/skills/differential-review",
+        "installs": 9800,
+        "weeklyInstalls": [189, 246, 266, 295, 357, 488, 709, 594],
+        "firstSeen": "2026-01-19"
+      },
+      "skillMd": {
+        "version": "e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Reviews a PR, commit or diff for security risks using git history, blast radius and test coverage, and writes a markdown report of findings.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're checking a change for vulnerabilities, a re-introduced old bug, what else it could break, or modified code no test covers"
+            },
+            {
+              "label": "It does",
+              "text": "rates each changed file's risk, git-blames removed code, counts callers to size the blast radius, checks test coverage and models attackers for high-risk changes"
+            },
+            {
+              "label": "You get",
+              "text": "a markdown report file with findings tied to line numbers and commits, concrete attack scenarios and stated coverage limits"
+            },
+            {
+              "label": "Scales",
+              "text": "reads everything on small codebases, one hop of dependencies on medium ones and only critical paths on large ones"
+            }
+          ],
+          "text": "Trail of Bits' security review for code changes. How risky a change is, not how few lines it touches, decides how closely it is examined: authentication, crypto, external calls, value transfer and removed validation count as high risk, and a refactor is treated as high until shown otherwise. Blast radius is the number of callers a changed function has, counted rather than guessed. Removed code from commits about security, CVEs or fixes, dropped access-control modifiers and validation removed without replacement trigger adversarial analysis even in a quick triage. Its detailed methods live in separate methodology, adversarial, reporting and patterns files, and its plugin's adversarial-modeler agent can build exploit scenarios for high-risk changes. On large audits it pairs with the audit-context-building skill for baseline context. It isn't meant for greenfield code with nothing to compare against, or for documentation and formatting-only changes, and it always writes the report to a file rather than only to chat.",
+          "permalink": "https://github.com/trailofbits/skills/tree/e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff/plugins/differential-review/skills/differential-review"
+        },
+        "tags": [
+          "category:security",
+          "category:debugging",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:official",
+          "stack:git",
+          "security",
+          "code-review",
+          "testing"
+        ]
+      }
+    },
+    {
+      "id": "trailofbits/skills/plugins/supply-chain-risk-auditor/skills/supply-chain-risk-auditor",
+      "name": "supply-chain-risk-auditor",
+      "skills.sh": {
+        "url": "https://skills.sh/trailofbits/skills/supply-chain-risk-auditor",
+        "installs": 8800,
+        "weeklyInstalls": [174, 183, 201, 219, 270, 293, 353, 371],
+        "firstSeen": "2026-02-26"
+      },
+      "skillMd": {
+        "version": "e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Audits a project's npm, PyPI and Go dependencies for known advisories, abandoned upstreams, publisher concentration and install scripts, and writes a risk report.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need to judge the third-party package risk in a project, for example before a security engagement"
+            },
+            {
+              "label": "It does",
+              "text": "runs a bundled collector over each direct dependency and the whole lockfile tree, renders its report, then adds upgrade paths and replacement candidates"
+            },
+            {
+              "label": "You get",
+              "text": "report.md and findings.json, written outside the audited repo, with every criterion marked clean, flagged or unassessable"
+            },
+            {
+              "label": "Never",
+              "text": "installs, builds or executes anything; it reads manifests, lockfiles and registry, advisory and repository metadata"
+            },
+            {
+              "label": "Needs",
+              "text": "uv to run its scripts, and a logged-in gh; without it, GitHub rate limits leave repository checks unassessable"
+            }
+          ],
+          "text": "Trail of Bits rebuilt this audit around scripts after hand-collected figures came out wrong, such as GitHub contributor counts that overstated how many people can publish a package. So a collector measures advisories matched to exact versions, abandoned or archived upstreams, how few npm publishers control a package, and install-time scripts, and the agent quotes its numbers verbatim instead of estimating them from gh, web search or memory. Missing data is never treated as risk, and a run that measured nothing fails rather than report a clean result. It covers npm, PyPI and Go only, and reads package-lock.json, npm-shrinkwrap.json, uv.lock and Go 1.17+ go.mod for exact versions; yarn, pnpm and poetry lockfiles are noted but not read. On top of the measured report the agent adds a short narrative of what to act on first, whether each advisory fix is a patch or a major version away, verified replacements for abandoned packages, and whether npm ci --ignore-scripts would work, all in an impersonal security-report style. License compliance and scanning your own source are out of scope.",
+          "permalink": "https://github.com/trailofbits/skills/tree/e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff/plugins/supply-chain-risk-auditor/skills/supply-chain-risk-auditor"
+        },
+        "tags": [
+          "category:security",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "by:official",
+          "stack:node",
+          "stack:python",
+          "stack:go",
+          "security"
+        ],
+        "note": "Needs uv, and gh signed in: unauthenticated GitHub allows 60 requests an hour, so repository checks come back unassessable without it. It reads only manifests, lockfiles and registry metadata, and never installs or runs your code."
+      }
+    },
+    {
+      "id": "trailofbits/skills/plugins/static-analysis/skills/codeql",
+      "name": "codeql",
+      "skills.sh": {
+        "url": "https://skills.sh/trailofbits/skills/codeql",
+        "installs": 8700,
+        "weeklyInstalls": [168, 193, 159, 156, 168, 191, 244, 263],
+        "firstSeen": "2026-01-19"
+      },
+      "skillMd": {
+        "version": "e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Scans a codebase for vulnerabilities with CodeQL data-flow and taint analysis: builds and checks the database, models project APIs and outputs SARIF.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want interprocedural security analysis of Python, JavaScript/TypeScript, Go, Java/Kotlin, C/C++, C#, Ruby or Swift code"
+            },
+            {
+              "label": "It does",
+              "text": "builds a CodeQL database, checks it really extracted code, adds data-extension models for project-specific sources and sinks, then runs an explicit query suite"
+            },
+            {
+              "label": "You get",
+              "text": "an output folder with the database, build log, extensions, and raw and final results.sarif"
+            },
+            {
+              "label": "Unlike",
+              "text": "the semgrep skill, meant for fast pattern matching or code with no build, it tracks data flow across functions"
+            },
+            {
+              "label": "Needs",
+              "text": "the CodeQL CLI, jq and uv on PATH; it stops before building if any is missing"
+            }
+          ],
+          "text": "Trail of Bits' CodeQL skill, from its static-analysis plugin. It is built around results you can trust: a database that builds may still have extracted nothing, so a quality script runs after every build, and zero findings is a reason to investigate rather than a clean bill. Pack names are never passed straight to the analyzer, whose default suites can silently drop queries; it generates an explicit suite and verifies it resolves to a non-zero query count. Run-all mode imports both security-and-quality and security-experimental; important-only keeps high-precision results. It uses Trail of Bits and community query packs where available, and data extensions describe the project's own wrappers around databases, request parsing and shell calls that CodeQL doesn't model. If databases already exist it asks whether to reuse one or build new. On Apple Silicon it works around arm64e build failures before falling back to build-mode=none. The plugin also ships a /static-analysis:codeql-build command that drives the database build unattended.",
+          "permalink": "https://github.com/trailofbits/skills/tree/e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff/plugins/static-analysis/skills/codeql"
+        },
+        "tags": [
+          "category:security",
+          "category:debugging",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "by:official",
+          "stack:codeql",
+          "security",
+          "code-review"
+        ],
+        "note": "Needs the CodeQL CLI, jq and uv; compiled languages need a working build. Everything goes to ./static_analysis_codeql_N unless you name a folder."
+      }
+    },
+    {
+      "id": "trailofbits/skills/plugins/building-secure-contracts/skills/secure-workflow-guide",
+      "name": "secure-workflow-guide",
+      "skills.sh": {
+        "url": "https://skills.sh/trailofbits/skills/secure-workflow-guide",
+        "installs": 7700,
+        "weeklyInstalls": [145, 139, 110, 121, 140, 151, 179, 185],
+        "firstSeen": "2026-01-19"
+      },
+      "skillMd": {
+        "version": "e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Walks a smart contract project through Trail of Bits' five-step security workflow, from Slither scans and diagrams to properties and manual review.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to secure a smart contract end to end, on every check-in or before deployment, rather than hunt one bug"
+            },
+            {
+              "label": "It does",
+              "text": "runs Slither's detectors and the upgradeability and ERC checks that apply, draws three security diagrams, helps write security properties, then reviews what tools miss"
+            },
+            {
+              "label": "You get",
+              "text": "a security report with findings and fixes, diagrams, documented properties, manual-review findings and a prioritized action plan with a step checklist"
+            },
+            {
+              "label": "Needs",
+              "text": "Slither installed, plus Echidna or Manticore for the fuzzing or symbolic-execution setup"
+            }
+          ],
+          "text": "Trail of Bits' secure development workflow for smart contracts, from its building-secure-contracts plugin. Step one runs Slither's 70+ detectors and triages the findings. Step two runs only the special checks that apply: slither-check-upgradeability for upgradeable contracts, slither-check-erc for token standards, slither-prop for ERC20 properties, and a pointer to the token-integration-analyzer skill. Step three generates an inheritance graph, a function summary showing visibility and access control, and a map of who can write each state variable. Step four, which it calls the most important, documents security properties such as invariants, access rules and arithmetic limits, and sets up Echidna fuzzing, Manticore symbolic execution or custom Slither checks. Step five searches the code for what tools miss: on-chain secrets, front-running and MEV, weak randomness and signature issues, and oracle or flash-loan risks. It refuses shortcuts such as marking a step not applicable without searching the code first.",
+          "permalink": "https://github.com/trailofbits/skills/tree/e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff/plugins/building-secure-contracts/skills/secure-workflow-guide"
+        },
+        "tags": [
+          "category:security",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:official",
+          "stack:solidity",
+          "stack:slither",
+          "security",
+          "web3",
+          "testing"
+        ],
+        "note": "Needs Slither installed; the property-testing step sets up Echidna or Manticore."
+      }
+    },
+    {
+      "id": "trailofbits/skills/plugins/property-based-testing/skills/property-based-testing",
+      "name": "property-based-testing",
+      "skills.sh": {
+        "url": "https://skills.sh/trailofbits/skills/property-based-testing",
+        "installs": 7600,
+        "weeklyInstalls": [181, 188, 207, 211, 272, 278, 299, 344],
+        "firstSeen": "2026-01-19"
+      },
+      "skillMd": {
+        "version": "e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes, reviews and debugs property-based tests that check a rule across all inputs, from encode/decode roundtrips to Solidity contract invariants.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "code has an algebraic shape, such as encode/decode pairs, parsers, normalizers, sort order or contract state, that example tests only spot-check"
+            },
+            {
+              "label": "It does",
+              "text": "picks the strongest property the code supports from a catalog, and loads its guide for writing, refactoring, reviewing or reading a failure"
+            },
+            {
+              "label": "You get",
+              "text": "property tests in the project's existing library, a review of existing ones, or a verdict that the code suits example tests better"
+            },
+            {
+              "label": "Catches",
+              "text": "tests that restate the implementation, and assume() filters that let nearly every case pass untested"
+            },
+            {
+              "label": "Works with",
+              "text": "Hypothesis, fast-check, proptest, jqwik, rapid, and Echidna or Medusa for Solidity"
+            }
+          ],
+          "text": "From Trail of Bits. An example test checks one input; a property states a rule, such as decode(encode(x)) == x, and lets a generator hunt for a counterexample. Its catalog covers roundtrip, inverse, oracle (matching a reference implementation), idempotence, invariants, easy-to-verify outputs, commutativity, associativity and identity, ranked from weakest (no crash) to strongest (roundtrip or oracle). When a calculation is buried in I/O or mutation, it looks for a refactor that exposes the property before concluding there is nothing to assert, and calling code a poor fit for property tests is a valid result. It also covers adding cases to existing suites, judging whether property tests assert anything real, and telling a wrong property from a genuine bug once a counterexample has shrunk. If the project has no property-testing library, it offers one once, with the property it would write, and leaves the choice to you. It isn't for coverage-guided fuzzing, mutation testing or end-to-end UI tests.",
+          "permalink": "https://github.com/trailofbits/skills/tree/e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff/plugins/property-based-testing/skills/property-based-testing"
+        },
+        "tags": [
+          "category:debugging",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:official",
+          "testing"
+        ]
+      }
+    },
+    {
+      "id": "trailofbits/skills/plugins/sharp-edges/skills/sharp-edges",
+      "name": "sharp-edges",
+      "skills.sh": {
+        "url": "https://skills.sh/trailofbits/skills/sharp-edges",
+        "installs": 7500,
+        "weeklyInstalls": [151, 159, 186, 208, 272, 289, 294, 352],
+        "firstSeen": "2026-01-19"
+      },
+      "skillMd": {
+        "version": "e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Finds APIs, configuration options and interfaces whose easy path leads to security mistakes, such as algorithm choice, dangerous defaults and silent failures.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're reviewing an API, library, config schema or auth interface for how easily developers could misuse it"
+            },
+            {
+              "label": "It does",
+              "text": "maps security-relevant choice points, probes zero, empty, negative and swapped values, and imagines a malicious, a lazy and a confused developer"
+            },
+            {
+              "label": "You get",
+              "text": "findings rated Critical to Low by how easy the misuse is, each checked for real exploitability"
+            },
+            {
+              "label": "Not for",
+              "text": "implementation bugs or business-logic flaws, which it leaves to ordinary code review"
+            }
+          ],
+          "text": "Trail of Bits' check for footguns: designs where the secure choice isn't the path of least resistance. It looks in six places: APIs that let callers pick algorithms or modes (the JWT alg: none problem), defaults that are insecure or where 0 or an empty string switches security off, raw-bytes APIs where keys, nonces and signatures can be swapped without a type error, configuration cliffs where one typo disables protection, silent failures such as verify functions that return true on bad input, and security values passed around as plain strings. It rejects excuses like \"it's documented\" or \"advanced users need flexibility\". Language guides cover footguns in C/C++, Go, Rust, Swift, Java, Kotlin, C#, PHP, JavaScript/TypeScript, Python and Ruby, with separate references on crypto APIs, configuration, authentication and real-world case studies. Its plugin also has a sharp-edges-analyzer agent that runs the whole four-phase analysis on its own.",
+          "permalink": "https://github.com/trailofbits/skills/tree/e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff/plugins/sharp-edges/skills/sharp-edges"
+        },
+        "tags": [
+          "category:security",
+          "category:debugging",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:official",
+          "security",
+          "code-review",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "id": "trailofbits/skills/plugins/fp-check/skills/fp-check",
+      "name": "fp-check",
+      "skills.sh": {
+        "url": "https://skills.sh/trailofbits/skills/fp-check",
+        "installs": 7400,
+        "weeklyInstalls": [140, 142, 134, 163, 169, 195, 221, 269],
+        "firstSeen": "2026-03-03"
+      },
+      "skillMd": {
+        "version": "e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Checks whether suspected security bugs are real, tracing data flow, exploitability and impact before giving each a true- or false-positive verdict.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a scanner, reviewer or another agent flagged a bug and you need to know if it's real and exploitable, not hunt for new ones"
+            },
+            {
+              "label": "It does",
+              "text": "restates each claim, traces source to sink, proves attacker control and impact, sketches a proof of concept, argues against itself, then applies six gates"
+            },
+            {
+              "label": "You get",
+              "text": "a TRUE POSITIVE or FALSE POSITIVE verdict per bug with documented evidence, then the counts and both lists"
+            },
+            {
+              "label": "Two paths",
+              "text": "a linear checklist for clear single-component bugs; deep, task-tracked verification with subagents for races, cross-component or ambiguous claims"
+            }
+          ],
+          "text": "From Trail of Bits. It starts by restating each claim precisely, with the exact bug, root cause, trigger, impact, threat model and bug class, because many false positives fall apart there. The standard path then traces data from source to sink across trust boundaries and validation, checks API contracts and compiler, runtime or OS protections, proves the attacker controls the input (with algebraic proofs for bounds bugs), separates real security impact from robustness issues and sketches a pseudocode proof of concept. A devil's-advocate step asks whether the code only looks dangerous, and also whether a real bug is being dismissed. Unresolved doubt escalates to deep verification, which splits each phase into dependent tasks, hands data-flow, exploitability and proof-of-concept work to the plugin's agents, running each phase's independent sub-steps in parallel, and builds executable or unit-test proofs of concept when feasible. With several bugs it restates them all first, then checks whether rejected findings chain into a viable attack. It rejects shortcuts such as rushing the remaining bugs or calling a pattern a vulnerability without tracing it.",
+          "permalink": "https://github.com/trailofbits/skills/tree/e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff/plugins/fp-check/skills/fp-check"
+        },
+        "tags": [
+          "category:security",
+          "category:debugging",
+          "type:workflow",
+          "effect:local",
+          "needs:subagents",
+          "by:official",
+          "security",
+          "verification",
+          "debugging"
+        ],
+        "note": "Deep verification delegates to the fp-check plugin's data-flow-analyzer, exploitability-verifier and poc-builder agents, which come with the Claude Code plugin rather than the skill alone."
+      }
+    },
+    {
+      "id": "trailofbits/skills/plugins/building-secure-contracts/skills/code-maturity-assessor",
+      "name": "code-maturity-assessor",
+      "skills.sh": {
+        "url": "https://skills.sh/trailofbits/skills/code-maturity-assessor",
+        "installs": 7400,
+        "weeklyInstalls": [142, 135, 114, 110, 133, 130, 166, 176],
+        "firstSeen": "2026-01-19"
+      },
+      "skillMd": {
+        "version": "e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Scores a smart contract codebase's maturity across Trail of Bits' nine categories, with evidence for each rating and a prioritized improvement roadmap.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to grade how mature, tested and documented a smart contract or blockchain project is against a fixed rubric"
+            },
+            {
+              "label": "It does",
+              "text": "explores the code, rates nine categories from Missing to Strong with file:line evidence, and asks you about processes the code can't show"
+            },
+            {
+              "label": "You get",
+              "text": "an executive summary, a scorecard, per-category analysis and a roadmap ranked Critical, High and Medium with effort estimates"
+            },
+            {
+              "label": "Takes",
+              "text": "about 30 to 40 minutes, plus your knowledge of monitoring, incident response and team practices"
+            }
+          ],
+          "text": "Trail of Bits' Code Maturity Evaluation, from its building-secure-contracts plugin. The nine categories are arithmetic (overflow protection, precision, rounding), auditing (events, monitoring, incident response), authentication and access controls, complexity management, decentralization (centralization risk, upgrade control, timelocks and multisigs), documentation, transaction-ordering risks such as MEV, front-running and oracle security, low-level manipulation such as assembly and low-level calls, and testing and verification, including fuzzing, formal verification and CI. Each category is rated 0 to 4, and any criterion at Weak makes the whole category Weak. It presents its findings with file references, discusses borderline cases with you and settles the ratings together. It won't call the assessment done until all nine categories have evidence, and won't mark MEV or low-level risks as not applicable without searching the code first.",
+          "permalink": "https://github.com/trailofbits/skills/tree/e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff/plugins/building-secure-contracts/skills/code-maturity-assessor"
+        },
+        "tags": [
+          "category:security",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:official",
+          "security",
+          "web3",
+          "code-quality"
+        ]
+      }
+    },
+    {
+      "id": "trailofbits/skills/plugins/audit-context-building/skills/audit-context-building",
+      "name": "audit-context-building",
+      "skills.sh": {
+        "url": "https://skills.sh/trailofbits/skills/audit-context-building",
+        "installs": 7300,
+        "weeklyInstalls": [159, 165, 156, 137, 195, 231, 262, 282],
+        "firstSeen": "2026-01-19"
+      },
+      "skillMd": {
+        "version": "e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Maps what each function in unfamiliar code assumes, guarantees and depends on, before any bug hunting, and writes a dossier of the results.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're starting an audit, threat model or architecture review on code you don't know yet"
+            },
+            {
+              "label": "It does",
+              "text": "dispatches a workflow that analyzes each function in its own subagent and returns compact records, keeping the long analysis out of your context"
+            },
+            {
+              "label": "You get",
+              "text": "audit-context/DOSSIER.md plus one file per function under audit-context/functions/"
+            },
+            {
+              "label": "Doesn't",
+              "text": "name vulnerabilities, suggest fixes, write proofs of concept or rate severity; that's the bug-hunting phase that follows"
+            }
+          ],
+          "text": "Trail of Bits' first pass on an audit: build understanding, not verdicts. For a codebase it runs the plugin's audit-context command; for a single function, its function-analyzer agent. Each record lists what must always be true, with the line that shows it, what the function takes on faith and what establishes it, what it needs from each function it calls, and what is still unclear. The dossier adds rules that span several functions, who can reach what, and where complexity clusters. Its core rule is to follow the calls: read each called function and every path through it, cite a line for every claim, and write \"nothing found\" when nothing makes an assumption true. Those unenforced assumptions and the open questions are what it hands the bug-hunting phase. Where two records disagree, both are quoted rather than reconciled. The same format covers smart contracts, C and C++, decompiled firmware and web services.",
+          "permalink": "https://github.com/trailofbits/skills/tree/e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff/plugins/audit-context-building/skills/audit-context-building"
+        },
+        "tags": [
+          "category:security",
+          "type:workflow",
+          "effect:local",
+          "needs:claude-code",
+          "needs:subagents",
+          "by:official",
+          "security",
+          "architecture"
+        ],
+        "note": "Runs through its Claude Code plugin's /audit-context-building:audit-context command and function-analyzer agent, so install the plugin from the trailofbits/skills marketplace, not the skill alone."
+      }
+    },
+    {
+      "id": "trailofbits/skills/plugins/agentic-actions-auditor/skills/agentic-actions-auditor",
+      "name": "agentic-actions-auditor",
+      "skills.sh": {
+        "url": "https://skills.sh/trailofbits/skills/agentic-actions-auditor",
+        "installs": 7100,
+        "weeklyInstalls": [127, 132, 122, 122, 149, 154, 187, 200],
+        "firstSeen": "2026-02-26"
+      },
+      "skillMd": {
+        "version": "e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Audits GitHub Actions workflows that run AI coding agents for paths where attacker-controlled input reaches the agent, and reports each finding with a fix.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "your CI runs Claude Code Action, Gemini CLI, OpenAI Codex or GitHub AI Inference and you want to know whether outsiders can steer it"
+            },
+            {
+              "label": "It does",
+              "text": "finds the AI steps, follows composite actions and reusable workflows one level deep, captures triggers, env, permissions and sandbox settings, then checks nine attack vectors"
+            },
+            {
+              "label": "You get",
+              "text": "one report with findings grouped by workflow and ordered by severity, each with evidence, an attacker-to-agent data-flow trace and action-specific remediation"
+            },
+            {
+              "label": "Works on",
+              "text": "a local checkout, or a remote owner/repo whose workflow files it fetches with gh"
+            }
+          ],
+          "text": "From Trail of Bits. The nine vectors are env-var intermediaries (event data reaching the prompt through an env: block, the most often missed), direct ${{ }} expression injection, prompts that fetch issue or PR text with gh, pull_request_target with a checkout of the PR head, CI logs or dispatch inputs fed to the prompt, allowed tools that permit $() subshell expansion, eval of the agent's output, dangerous sandbox settings such as danger-full-access, Bash(*) or --yolo, and wildcard user allowlists. Severity depends on context: external triggers, loose sandboxes, wildcard allowlists, broad permissions and secret access raise it, and a dangerous setting with no injection path is only Info or Low. It treats fetched YAML strictly as data, uses Bash only for gh api calls and doesn't modify workflow files. A clean repo still gets a report of what was scanned. It covers GitHub Actions only, not Jenkins, GitLab CI or CircleCI.",
+          "permalink": "https://github.com/trailofbits/skills/tree/e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff/plugins/agentic-actions-auditor/skills/agentic-actions-auditor"
+        },
+        "tags": [
+          "category:security",
+          "category:agents",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:official",
+          "stack:github",
+          "security",
+          "ci",
+          "guardrails"
+        ]
+      }
     }
   ]
 }
