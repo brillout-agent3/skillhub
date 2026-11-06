@@ -406,19 +406,6 @@
       }
     },
     {
-      "name": "dev",
-      "repo": "microsoft/playwright-cli",
-      "official": true,
-      "stars": 15006,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/microsoft/playwright-cli/dev",
-        "installs": 6200,
-        "weeklyInstalls": [178, 169, 186, 211, 233, 289, 239, 238],
-        "firstSeen": "2026-02-15"
-      }
-    },
-    {
       "name": "ccc",
       "repo": "cocoindex-io/cocoindex-code",
       "official": false,
@@ -445,19 +432,6 @@
       }
     },
     {
-      "name": "portless",
-      "repo": "vercel-labs/portless",
-      "official": true,
-      "stars": 12851,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/vercel-labs/portless/portless",
-        "installs": 6100,
-        "weeklyInstalls": [73, 127, 82, 141, 108, 71, 89, 96],
-        "firstSeen": "2026-02-15"
-      }
-    },
-    {
       "name": "orca-emulator",
       "repo": "stablyai/orca",
       "official": true,
@@ -468,32 +442,6 @@
         "installs": 6100,
         "weeklyInstalls": [717, 476, 479, 522, 295, 556, 704, 189],
         "firstSeen": "2026-06-13"
-      }
-    },
-    {
-      "name": "building-pydantic-ai-agents",
-      "repo": "pydantic/skills",
-      "official": false,
-      "stars": 151,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/pydantic/skills/building-pydantic-ai-agents",
-        "installs": 6100,
-        "weeklyInstalls": [205, 215, 386, 284, 188, 200, 208, 227],
-        "firstSeen": "2026-03-26"
-      }
-    },
-    {
-      "name": "node",
-      "repo": "mcollina/skills",
-      "official": false,
-      "stars": 1961,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/mcollina/skills/node",
-        "installs": 6100,
-        "weeklyInstalls": [99, 123, 144, 107, 112, 97, 124, 125],
-        "firstSeen": "2026-03-13"
       }
     },
     {
@@ -510,19 +458,6 @@
       }
     },
     {
-      "name": "marimo-notebook",
-      "repo": "marimo-team/skills",
-      "official": false,
-      "stars": 177,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/marimo-team/skills/marimo-notebook",
-        "installs": 6100,
-        "weeklyInstalls": [120, 141, 137, 134, 162, 103, 97, 96],
-        "firstSeen": "2026-02-10"
-      }
-    },
-    {
       "name": "latex-paper-en",
       "repo": "bahayonghang/academic-writing-skills",
       "official": false,
@@ -533,19 +468,6 @@
         "installs": 6100,
         "weeklyInstalls": [152, 117, 101, 69, 89, 100, 90, 114],
         "firstSeen": "2026-01-27"
-      }
-    },
-    {
-      "name": "shadcn-vue",
-      "repo": "unovue/shadcn-vue",
-      "official": false,
-      "stars": 10782,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/unovue/shadcn-vue/shadcn-vue",
-        "installs": 6000,
-        "weeklyInstalls": [225, 199, 206, 204, 186, 188, 201, 170],
-        "firstSeen": "2026-05-11"
       }
     },
     {
@@ -585,19 +507,6 @@
         "installs": 6000,
         "weeklyInstalls": [15, 16, 14, 13, 16, 34, 22, 20],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "powerpoint",
-      "repo": "igorwarzocha/opencode-workflows",
-      "official": false,
-      "stars": 122,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/igorwarzocha/opencode-workflows/powerpoint",
-        "installs": 6000,
-        "weeklyInstalls": [67, 62, 48, 21, 20, 25, 16, 18],
-        "firstSeen": "2026-01-25"
       }
     },
     {
@@ -822,19 +731,6 @@
       }
     },
     {
-      "name": "mcp",
-      "repo": "vercel-labs/json-render",
-      "official": true,
-      "stars": 18938,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/vercel-labs/json-render/mcp",
-        "installs": 5900,
-        "weeklyInstalls": [774, 52, 43, 30, 30, 19, 26, 27],
-        "firstSeen": "2026-03-07"
-      }
-    },
-    {
       "name": "design-review",
       "repo": "julianoczkowski/designer-skills",
       "official": false,
@@ -861,19 +757,6 @@
       }
     },
     {
-      "name": "swiftui-liquid-glass",
-      "repo": "dimillian/skills",
-      "official": false,
-      "stars": 4027,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/dimillian/skills/swiftui-liquid-glass",
-        "installs": 5900,
-        "weeklyInstalls": [119, 238, 116, 275, 153, 147, 208, 247],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
       "name": "orca-emulator-android",
       "repo": "stablyai/orca",
       "official": true,
@@ -884,32 +767,6 @@
         "installs": 5900,
         "weeklyInstalls": [706, 471, 468, 513, 293, 547, 707, 187],
         "firstSeen": "2026-06-29"
-      }
-    },
-    {
-      "name": "django-expert",
-      "repo": "vintasoftware/django-ai-plugins",
-      "official": false,
-      "stars": 171,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/vintasoftware/django-ai-plugins/django-expert",
-        "installs": 5900,
-        "weeklyInstalls": [81, 75, 86, 70, 72, 61, 65, 76],
-        "firstSeen": "2026-01-21"
-      }
-    },
-    {
-      "name": "react-native-best-practices",
-      "repo": "software-mansion-labs/skills",
-      "official": false,
-      "stars": 302,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/software-mansion-labs/skills/react-native-best-practices",
-        "installs": 5900,
-        "weeklyInstalls": [229, 207, 189, 213, 186, 131, 143, 115],
-        "firstSeen": "2026-03-06"
       }
     },
     {
@@ -22544,6 +22401,50 @@
     {
       "url": "https://skills.sh/composiohq/awesome-claude-skills/image-enhancer",
       "note": "It does nothing for whoever installs it: it names no tool or method for enhancing images."
+    },
+    {
+      "url": "https://skills.sh/microsoft/playwright-cli/dev",
+      "note": "Internal: an agent's manual for playwright-cli's own repo maintenance."
+    },
+    {
+      "url": "https://skills.sh/vercel-labs/portless/portless",
+      "note": "Tool docs: an agent's manual for portless."
+    },
+    {
+      "url": "https://skills.sh/pydantic/skills/building-pydantic-ai-agents",
+      "note": "Tool docs: an agent's manual for pydantic-ai."
+    },
+    {
+      "url": "https://skills.sh/mcollina/skills/node",
+      "note": "Tool docs: an agent's manual for node and typescript."
+    },
+    {
+      "url": "https://skills.sh/marimo-team/skills/marimo-notebook",
+      "note": "Tool docs: an agent's manual for marimo."
+    },
+    {
+      "url": "https://skills.sh/unovue/shadcn-vue/shadcn-vue",
+      "note": "Tool docs: an agent's manual for shadcn-vue and vue and tailwind."
+    },
+    {
+      "url": "https://skills.sh/igorwarzocha/opencode-workflows/powerpoint",
+      "note": "A copy of anthropics/skills/skills/pptx."
+    },
+    {
+      "url": "https://skills.sh/vercel-labs/json-render/mcp",
+      "note": "Tool docs: an agent's manual for json-render and mcp."
+    },
+    {
+      "url": "https://skills.sh/dimillian/skills/swiftui-liquid-glass",
+      "note": "Tool docs: an agent's manual for swiftui."
+    },
+    {
+      "url": "https://skills.sh/vintasoftware/django-ai-plugins/django-expert",
+      "note": "Tool docs: an agent's manual for django."
+    },
+    {
+      "url": "https://skills.sh/software-mansion-labs/skills/react-native-best-practices",
+      "note": "Tool docs: an agent's manual for react-native and expo."
     }
   ]
 }
