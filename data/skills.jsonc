@@ -874,7 +874,6 @@
     {
       "id": "obra/superpowers",
       "stars": 313103,
-      "leaderboardSkills": 14,
       "agentReview": {
         "kind": "skills",
         "description": "An agentic skills framework & software development methodology that works."
@@ -883,7 +882,6 @@
     {
       "id": "mattpocock/skills",
       "stars": 315520,
-      "leaderboardSkills": 53,
       "agentReview": {
         "kind": "skills",
         "description": "Skills for Real Engineers."
@@ -892,7 +890,6 @@
     {
       "id": "anthropics/skills",
       "stars": 187819,
-      "leaderboardSkills": 18,
       "agentReview": {
         "kind": "skills",
         "description": "Public repository for Agent Skills"
@@ -901,7 +898,6 @@
     {
       "id": "multica-ai/andrej-karpathy-skills",
       "stars": 174000,
-      "leaderboardSkills": 0,
       "agentReview": {
         "kind": "skills",
         "description": "Four behavioral principles for coding agents, after Andrej Karpathy's observations.",
@@ -911,7 +907,6 @@
     {
       "id": "anthropics/claude-code",
       "stars": 147117,
-      "leaderboardSkills": 0,
       "agentReview": {
         "kind": "project",
         "description": "Anthropic's coding agent, which also ships skills such as frontend-design."
@@ -920,7 +915,6 @@
     {
       "id": "dietrichgebert/ponytail",
       "stars": 185323,
-      "leaderboardSkills": 2,
       "agentReview": {
         "kind": "skills",
         "description": "Makes your AI agent think like the laziest senior dev in the room."
@@ -929,7 +923,6 @@
     {
       "id": "nextlevelbuilder/ui-ux-pro-max-skill",
       "stars": 145776,
-      "leaderboardSkills": 1,
       "agentReview": {
         "kind": "skills",
         "description": "An AI skill that provides design intelligence for building professional UI/UX across multiple platforms."
@@ -938,7 +931,6 @@
     {
       "id": "shadcn/ui",
       "stars": 127394,
-      "leaderboardSkills": 1,
       "agentReview": {
         "kind": "project",
         "description": "Composable, accessible components with thoughtful defaults."
@@ -947,7 +939,6 @@
     {
       "id": "browser-use/browser-use",
       "stars": 120153,
-      "leaderboardSkills": 1,
       "agentReview": {
         "kind": "project",
         "description": "Agents that use the browser."
@@ -956,7 +947,6 @@
     {
       "id": "garrytan/gstack",
       "stars": 110000,
-      "leaderboardSkills": 0,
       "agentReview": {
         "kind": "skills",
         "description": "Role-based slash-command workflow for Claude Code.",
@@ -966,7 +956,6 @@
     {
       "id": "juliusbrussee/caveman",
       "stars": 117809,
-      "leaderboardSkills": 20,
       "agentReview": {
         "kind": "skills",
         "description": "🪨 why use many token when few token do trick."
@@ -975,7 +964,6 @@
     {
       "id": "addyosmani/agent-skills",
       "stars": 113543,
-      "leaderboardSkills": 20,
       "agentReview": {
         "kind": "skills",
         "description": "Production-grade engineering skills: TDD, debugging, review, security, performance and ADRs."
@@ -984,7 +972,6 @@
     {
       "id": "leonxlnx/taste-skill",
       "stars": 110782,
-      "leaderboardSkills": 13,
       "agentReview": {
         "kind": "skills",
         "description": "Taste-Skill - gives your AI good taste."
@@ -993,7 +980,6 @@
     {
       "id": "Egonex-AI/Understand-Anything",
       "stars": 83446,
-      "leaderboardSkills": 0,
       "agentReview": {
         "kind": "skills",
         "description": "Turns any codebase into an interactive knowledge graph."
@@ -1002,7 +988,6 @@
     {
       "id": "bytedance/deer-flow",
       "stars": 82758,
-      "leaderboardSkills": 0,
       "agentReview": {
         "kind": "project",
         "description": "Long-horizon super-agent harness that researches, codes and creates."
@@ -1011,7 +996,6 @@
     {
       "id": "ComposioHQ/awesome-claude-skills",
       "stars": 75402,
-      "leaderboardSkills": 0,
       "agentReview": {
         "kind": "index",
         "description": "Curated index of more than 1,000 skills."
@@ -1020,7 +1004,6 @@
     {
       "id": "stablyai/orca",
       "stars": 115860,
-      "leaderboardSkills": 3,
       "agentReview": {
         "kind": "project",
         "description": "Orca is the ADE for working with a fleet of parallel agents."
@@ -1029,7 +1012,6 @@
     {
       "id": "pbakaus/impeccable",
       "stars": 104081,
-      "leaderboardSkills": 14,
       "agentReview": {
         "kind": "skills",
         "description": "The design language that makes your AI harness better at design."
@@ -1038,7 +1020,6 @@
     {
       "id": "code-yeongyu/oh-my-openagent",
       "stars": 69227,
-      "leaderboardSkills": 0,
       "agentReview": {
         "kind": "project",
         "description": "Agent workflow tooling for OpenCode."
@@ -1047,7 +1028,6 @@
     {
       "id": "tt-a1i/archify",
       "stars": 93942,
-      "leaderboardSkills": 1,
       "agentReview": {
         "kind": "skills",
         "description": "Agent skill for beautiful, verifiable architecture, workflow, sequence, data-flow, and lifecycle diagrams—self-contained HTML with…"
@@ -1056,7 +1036,6 @@
     {
       "id": "shanraisshan/claude-code-best-practice",
       "stars": 66134,
-      "leaderboardSkills": 0,
       "agentReview": {
         "kind": "skills",
         "description": "Practices for going from vibe coding to agentic engineering."
@@ -1065,7 +1044,6 @@
     {
       "id": "heygen-com/hyperframes",
       "stars": 79657,
-      "leaderboardSkills": 31,
       "agentReview": {
         "kind": "project",
         "description": "Write HTML."
@@ -1074,7 +1052,6 @@
     {
       "id": "coreyhaines31/marketingskills",
       "stars": 58759,
-      "leaderboardSkills": 44,
       "agentReview": {
         "kind": "skills",
         "description": "Marketing skills for Claude Code and AI agents."
@@ -1083,7 +1060,6 @@
     {
       "id": "ayghri/i-have-adhd",
       "stars": 49228,
-      "leaderboardSkills": 0,
       "agentReview": {
         "kind": "skills",
         "description": "Stops the agent from burying the answer."
@@ -1092,7 +1068,6 @@
     {
       "id": "kepano/obsidian-skills",
       "stars": 50849,
-      "leaderboardSkills": 5,
       "agentReview": {
         "kind": "skills",
         "description": "Agent skills for Obsidian."
@@ -1101,7 +1076,6 @@
     {
       "id": "sickn33/agentic-awesome-skills",
       "stars": 46649,
-      "leaderboardSkills": 0,
       "agentReview": {
         "kind": "index",
         "description": "Agent-first catalog and control plane for skills."
@@ -1110,7 +1084,6 @@
     {
       "id": "K-Dense-AI/scientific-agent-skills",
       "stars": 45777,
-      "leaderboardSkills": 0,
       "agentReview": {
         "kind": "skills",
         "description": "The largest library of science skills."
@@ -1119,7 +1092,6 @@
     {
       "id": "vercel-labs/agent-browser",
       "stars": 46016,
-      "leaderboardSkills": 1,
       "agentReview": {
         "kind": "project",
         "description": "Browser automation CLI for AI agents"
@@ -1128,7 +1100,6 @@
     {
       "id": "herdrdev/herdr",
       "stars": 48339,
-      "leaderboardSkills": 1,
       "agentReview": {
         "kind": "project",
         "description": "Runtime for coding agents."
@@ -1137,7 +1108,6 @@
     {
       "id": "wshobson/agents",
       "stars": 42245,
-      "leaderboardSkills": 2,
       "agentReview": {
         "kind": "skills",
         "description": "Multi-harness agentic plugin marketplace for Claude Code, Codex, Cursor, OpenCode, GitHub Copilot, Google Antigravity, and Pi"
@@ -1146,7 +1116,6 @@
     {
       "id": "emilkowalski/skills",
       "stars": 53896,
-      "leaderboardSkills": 14,
       "agentReview": {
         "kind": "skills",
         "description": "Skills for Designers and Engineers."
@@ -1155,7 +1124,6 @@
     {
       "id": "mukul975/Anthropic-Cybersecurity-Skills",
       "stars": 33037,
-      "leaderboardSkills": 0,
       "agentReview": {
         "kind": "skills",
         "description": "817 cybersecurity skills mapped to MITRE ATT&CK and NIST CSF."
@@ -1164,7 +1132,6 @@
     {
       "id": "vercel-labs/skills",
       "stars": 38286,
-      "leaderboardSkills": 1,
       "agentReview": {
         "kind": "project",
         "description": "The open agent skills tool - npx skills"
@@ -1173,7 +1140,6 @@
     {
       "id": "vercel-labs/agent-skills",
       "stars": 33609,
-      "leaderboardSkills": 9,
       "agentReview": {
         "kind": "skills",
         "description": "Vercel's official collection of agent skills"
@@ -1182,7 +1148,6 @@
     {
       "id": "vercel/turborepo",
       "stars": 31306,
-      "leaderboardSkills": 1,
       "agentReview": {
         "kind": "project",
         "description": "Build system optimized for JavaScript and TypeScript, written in Rust"
@@ -1191,7 +1156,6 @@
     {
       "id": "googleworkspace/cli",
       "stars": 32134,
-      "leaderboardSkills": 4,
       "agentReview": {
         "kind": "project",
         "description": "Google Workspace CLI — one command-line tool for Drive, Gmail, Calendar, Sheets, Docs, Chat, Admin, and more."
@@ -1200,7 +1164,6 @@
     {
       "id": "davila7/claude-code-templates",
       "stars": 30858,
-      "leaderboardSkills": 0,
       "agentReview": {
         "kind": "project",
         "description": "CLI for configuring and monitoring Claude Code."
@@ -1209,7 +1172,6 @@
     {
       "id": "nanocoai/nanoclaw",
       "stars": 30808,
-      "leaderboardSkills": 0,
       "agentReview": {
         "kind": "project",
         "description": "Lightweight, containerized alternative to OpenClaw."
@@ -1218,7 +1180,6 @@
     {
       "id": "nutlope/hallmark",
       "stars": 48897,
-      "leaderboardSkills": 1,
       "agentReview": {
         "kind": "skills",
         "description": "Anti-AI-slop design skill for Claude Code, Cursor, and Codex."
@@ -1227,7 +1188,6 @@
     {
       "id": "OthmanAdi/planning-with-files",
       "stars": 27022,
-      "leaderboardSkills": 0,
       "agentReview": {
         "kind": "skills",
         "description": "Crash-proof Markdown plans for long-running agent tasks."
@@ -1236,7 +1196,6 @@
     {
       "id": "vercel/ai",
       "stars": 27750,
-      "leaderboardSkills": 1,
       "agentReview": {
         "kind": "project",
         "description": "The AI Toolkit for TypeScript."
@@ -1245,7 +1204,6 @@
     {
       "id": "phuryn/pm-skills",
       "stars": 26464,
-      "leaderboardSkills": 0,
       "agentReview": {
         "kind": "skills",
         "description": "More than 100 product-management skills, commands and plugins."
@@ -1254,7 +1212,6 @@
     {
       "id": "EveryInc/compound-engineering-plugin",
       "stars": 25179,
-      "leaderboardSkills": 0,
       "agentReview": {
         "kind": "skills",
         "description": "Compound Engineering plugin for Claude Code, Codex and Cursor."
@@ -1263,7 +1220,6 @@
     {
       "id": "mksglu/context-mode",
       "stars": 23772,
-      "leaderboardSkills": 0,
       "agentReview": {
         "kind": "project",
         "description": "Sandboxes tool output and persists session memory to save context."
@@ -1272,7 +1228,6 @@
     {
       "id": "teng-lin/notebooklm-py",
       "stars": 19402,
-      "leaderboardSkills": 0,
       "agentReview": {
         "kind": "project",
         "description": "Python API and agent skill for Google NotebookLM."
@@ -1281,7 +1236,6 @@
     {
       "id": "cloudflare/security-audit-skill",
       "stars": 61892,
-      "leaderboardSkills": 1,
       "agentReview": {
         "kind": "skills",
         "description": "Multi-phase security audits with verified findings."
@@ -1290,7 +1244,6 @@
     {
       "id": "op7418/Humanizer-zh",
       "stars": 17616,
-      "leaderboardSkills": 0,
       "agentReview": {
         "kind": "skills",
         "description": "Chinese version of the humanizer skill."
@@ -1299,7 +1252,6 @@
     {
       "id": "larksuite/cli",
       "stars": 17988,
-      "leaderboardSkills": 27,
       "agentReview": {
         "kind": "project",
         "description": "Official Lark CLI; mirrors the open.feishu.cn Lark skills."
@@ -1308,7 +1260,6 @@
     {
       "id": "AgriciDaniel/claude-seo",
       "stars": 17310,
-      "leaderboardSkills": 0,
       "agentReview": {
         "kind": "skills",
         "description": "SEO and GEO toolkit with 25 sub-skills and 18 sub-agents."
@@ -1317,7 +1268,6 @@
     {
       "id": "vercel-labs/json-render",
       "stars": 17303,
-      "leaderboardSkills": 0,
       "agentReview": {
         "kind": "project",
         "description": "Generative UI framework with its own skills."
@@ -1326,7 +1276,6 @@
     {
       "id": "greensock/gsap-skills",
       "stars": 17956,
-      "leaderboardSkills": 8,
       "agentReview": {
         "kind": "skills",
         "description": "Official AI skills for GSAP."
@@ -1335,7 +1284,6 @@
     {
       "id": "yusufkaraaslan/Skill_Seekers",
       "stars": 15014,
-      "leaderboardSkills": 0,
       "agentReview": {
         "kind": "project",
         "description": "Turns documentation sites, repos and PDFs into skills."
@@ -1344,7 +1292,6 @@
     {
       "id": "NevaMind-AI/memU",
       "stars": 14418,
-      "leaderboardSkills": 0,
       "agentReview": {
         "kind": "project",
         "description": "Personal memory across agents."
@@ -1353,7 +1300,6 @@
     {
       "id": "microsoft/playwright-cli",
       "stars": 14993,
-      "leaderboardSkills": 1,
       "agentReview": {
         "kind": "project",
         "description": "CLI for common Playwright actions."
@@ -1362,7 +1308,6 @@
     {
       "id": "Orchestra-Research/AI-Research-SKILLs",
       "stars": 12888,
-      "leaderboardSkills": 0,
       "agentReview": {
         "kind": "skills",
         "description": "AI research and engineering skills."
@@ -1371,7 +1316,6 @@
     {
       "id": "yizhiyanhua-ai/fireworks-tech-graph",
       "stars": 11491,
-      "leaderboardSkills": 0,
       "agentReview": {
         "kind": "skills",
         "description": "Technical diagrams from natural language."
@@ -1380,7 +1324,6 @@
     {
       "id": "google-labs-code/stitch-skills",
       "stars": 8680,
-      "leaderboardSkills": 1,
       "agentReview": {
         "kind": "skills",
         "description": "A library of Agent Skills designed to work with the Stitch MCP server."
@@ -1389,7 +1332,6 @@
     {
       "id": "trailofbits/skills",
       "stars": 7179,
-      "leaderboardSkills": 0,
       "agentReview": {
         "kind": "skills",
         "description": "Trail of Bits' skills for security research and audits."
@@ -1398,7 +1340,6 @@
     {
       "id": "google/agents-cli",
       "stars": 6301,
-      "leaderboardSkills": 7,
       "agentReview": {
         "kind": "project",
         "description": "The CLI and skills that turn any coding assistant into an expert at creating, evaluating, and deploying AI agents on Google Cloud."
@@ -1407,7 +1348,6 @@
     {
       "id": "browser-act/skills",
       "stars": 6325,
-      "leaderboardSkills": 2,
       "agentReview": {
         "kind": "skills",
         "description": "Browser automation CLI built for AI agents."
@@ -1416,7 +1356,6 @@
     {
       "id": "antfu/skills",
       "stars": 5902,
-      "leaderboardSkills": 0,
       "agentReview": {
         "kind": "skills",
         "description": "Anthony Fu's skills, including vitest and pnpm."
@@ -1425,7 +1364,6 @@
     {
       "id": "remotion-dev/skills",
       "stars": 6431,
-      "leaderboardSkills": 12,
       "agentReview": {
         "kind": "skills",
         "description": "Agent Skills"
@@ -1434,7 +1372,6 @@
     {
       "id": "jakubkrehel/make-interfaces-feel-better",
       "stars": 3923,
-      "leaderboardSkills": 1,
       "agentReview": {
         "kind": "skills",
         "description": "An agent skill that helps make your interface feel better."
@@ -1443,7 +1380,6 @@
     {
       "id": "cloudflare/skills",
       "stars": 3286,
-      "leaderboardSkills": 13,
       "agentReview": {
         "kind": "skills",
         "description": "Skills for teaching agents how to build on Cloudflare."
@@ -1452,7 +1388,6 @@
     {
       "id": "addyosmani/web-quality-skills",
       "stars": 3044,
-      "leaderboardSkills": 1,
       "agentReview": {
         "kind": "skills",
         "description": "Agent Skills for optimizing web quality based on Lighthouse and Core Web Vitals."
@@ -1461,7 +1396,6 @@
     {
       "id": "supabase/agent-skills",
       "stars": 3005,
-      "leaderboardSkills": 2,
       "agentReview": {
         "kind": "skills",
         "description": "Agent Skills to help developers using AI agents with Supabase"
@@ -1470,7 +1404,6 @@
     {
       "id": "expo/skills",
       "stars": 4054,
-      "leaderboardSkills": 1,
       "agentReview": {
         "kind": "skills",
         "description": "A collection of AI agent skills for working with Expo projects and Expo Application Services"
@@ -1479,7 +1412,6 @@
     {
       "id": "mcollina/skills",
       "stars": 1963,
-      "leaderboardSkills": 1,
       "agentReview": {
         "kind": "skills",
         "description": "My own collection of skills for modern Node.js development"
@@ -1488,7 +1420,6 @@
     {
       "id": "stripe/ai",
       "stars": 2043,
-      "leaderboardSkills": 3,
       "agentReview": {
         "kind": "project",
         "description": "One-stop shop for building AI-powered products and businesses with Stripe."
@@ -1497,7 +1428,6 @@
     {
       "id": "microsoft/azure-skills",
       "stars": 1622,
-      "leaderboardSkills": 33,
       "agentReview": {
         "kind": "skills",
         "description": "Official agent plugin providing skills and MCP server configurations for Azure scenarios."
@@ -1506,7 +1436,6 @@
     {
       "id": "typesafe-ai/skills",
       "stars": 2876,
-      "leaderboardSkills": 1,
       "agentReview": {
         "kind": "skills",
         "description": "Agent skills for building with TypeSafe's System One API"
@@ -1515,7 +1444,6 @@
     {
       "id": "higgsfield-ai/skills",
       "stars": 1897,
-      "leaderboardSkills": 8,
       "agentReview": {
         "kind": "skills",
         "description": null
@@ -1524,7 +1452,6 @@
     {
       "id": "nexscope-ai/ecommerce-skills",
       "stars": 1340,
-      "leaderboardSkills": 0,
       "agentReview": {
         "kind": "skills",
         "description": "E-commerce skills for AI agents — product research, marketing automation, supply chain optimization, and business analytics for online…"
@@ -1533,7 +1460,6 @@
     {
       "id": "nexscope-ai/amazon-skills",
       "stars": 839,
-      "leaderboardSkills": 1,
       "agentReview": {
         "kind": "skills",
         "description": "Free AI agent skills for Amazon sellers— keyword research, competitor analysis, listing audit & more."
@@ -1542,7 +1468,6 @@
     {
       "id": "firecrawl/cli",
       "stars": 678,
-      "leaderboardSkills": 8,
       "agentReview": {
         "kind": "project",
         "description": "CLI and Agent Skill for Firecrawl - Add scrape, search, and browsing capabilities to your AI agents"
@@ -1551,7 +1476,6 @@
     {
       "id": "LinklyAI/best-skills",
       "stars": 580,
-      "leaderboardSkills": 0,
       "agentReview": {
         "kind": "index",
         "description": "Daily cross-registry rankings of agent skills."
@@ -1560,7 +1484,6 @@
     {
       "id": "solana-foundation/solana-dev-skill",
       "stars": 584,
-      "leaderboardSkills": 1,
       "agentReview": {
         "kind": "skills",
         "description": "Skills for agentic development on Solana"
@@ -1569,7 +1492,6 @@
     {
       "id": "antibrow/anti-detect-browser-skills",
       "stars": 21,
-      "leaderboardSkills": 3,
       "agentReview": {
         "kind": "skills",
         "description": "Launch and manage anti-detect browsers with unique real-device fingerprints for multi-account operations, web scraping, ad verification,…"
@@ -1578,7 +1500,6 @@
     {
       "id": "lllllllama/rigorpilot-skills",
       "stars": 486,
-      "leaderboardSkills": 11,
       "agentReview": {
         "kind": "skills",
         "description": "README-first research reproduction skills with bounded execution, auditable evidence, and byte-preserving README annotations."
@@ -1587,7 +1508,6 @@
     {
       "id": "firebase/agent-skills",
       "stars": 504,
-      "leaderboardSkills": 11,
       "agentReview": {
         "kind": "skills",
         "description": "Agent Skills for Firebase"
@@ -1596,7 +1516,6 @@
     {
       "id": "currents-dev/playwright-best-practices-skill",
       "stars": 419,
-      "leaderboardSkills": 1,
       "agentReview": {
         "kind": "skills",
         "description": "AI Skill for Playwright Best Practices—made by Currents.dev"
@@ -1605,7 +1524,6 @@
     {
       "id": "sveltejs/ai-tools",
       "stars": 328,
-      "leaderboardSkills": 0,
       "agentReview": {
         "kind": "project",
         "description": "Svelte's official MCP server and skills."
@@ -1614,7 +1532,6 @@
     {
       "id": "intellectronica/agent-skills",
       "stars": 299,
-      "leaderboardSkills": 1,
       "agentReview": {
         "kind": "skills",
         "description": "@intellectronica's agent skills"
@@ -1623,7 +1540,6 @@
     {
       "id": "liarjsdev/liarjs-skills",
       "stars": 5,
-      "leaderboardSkills": 4,
       "agentReview": {
         "kind": "skills",
         "description": "Agent Skills for browser fingerprint testing: run liarjs from Claude Code, Codex, Cursor or Copilot to score a browser against itself -…"
@@ -1632,7 +1548,6 @@
     {
       "id": "arvindrk/extract-design-system",
       "stars": 270,
-      "leaderboardSkills": 1,
       "agentReview": {
         "kind": "skills",
         "description": "Extract design tokens (colors, typography, spacing, border radius, shadows) from any public website."
@@ -1641,7 +1556,6 @@
     {
       "id": "msmps/opentui-skill",
       "stars": 228,
-      "leaderboardSkills": 1,
       "agentReview": {
         "kind": "skills",
         "description": "OpenTUI skill for use with OpenCode"
@@ -1650,7 +1564,6 @@
     {
       "id": "better-auth/skills",
       "stars": 229,
-      "leaderboardSkills": 1,
       "agentReview": {
         "kind": "skills",
         "description": null
@@ -1659,7 +1572,6 @@
     {
       "id": "mitsuhiko/gh-issue-sync",
       "stars": 169,
-      "leaderboardSkills": 0,
       "agentReview": {
         "kind": "project",
         "description": "A github issue sync tool for working with issues locally"
@@ -1668,7 +1580,6 @@
     {
       "id": "degausai/wonda",
       "stars": 160,
-      "leaderboardSkills": 1,
       "agentReview": {
         "kind": "project",
         "description": "Wonda CLI — AI-powered content creation from your terminal"
@@ -1677,7 +1588,6 @@
     {
       "id": "wind-alice/alicemarket",
       "stars": 153,
-      "leaderboardSkills": 1,
       "agentReview": {
         "kind": "skills",
         "description": "将 Wind 丰富的金融数据、专业工具、技能Skill与专家Agent能力开放给各类 Agent 和智能应用。通过 MCP、Skill、API 等标准化方式，为不同场景下的 Agent…"
@@ -1686,7 +1596,6 @@
     {
       "id": "squirrelscan/skills",
       "stars": 106,
-      "leaderboardSkills": 1,
       "agentReview": {
         "kind": "skills",
         "description": "Agent skills for squirrelscan website audit tool"
@@ -1695,7 +1604,6 @@
     {
       "id": "scrapegraphai/just-scrape",
       "stars": 74,
-      "leaderboardSkills": 1,
       "agentReview": {
         "kind": "project",
         "description": "CLI for AI-powered web scraping, structured data extraction, web search, multi-page crawling, and scheduled page-change monitoring…"
@@ -1704,7 +1612,6 @@
     {
       "id": "prisma/skills",
       "stars": 80,
-      "leaderboardSkills": 10,
       "agentReview": {
         "kind": "skills",
         "description": null
@@ -1713,7 +1620,6 @@
     {
       "id": "get-convex/agent-skills",
       "stars": 69,
-      "leaderboardSkills": 0,
       "agentReview": {
         "kind": "skills",
         "description": "Convex Skills for Agents"
@@ -1722,7 +1628,6 @@
     {
       "id": "autonnel/autonnel-skills",
       "stars": 8,
-      "leaderboardSkills": 6,
       "agentReview": {
         "kind": "skills",
         "description": null
@@ -1731,7 +1636,6 @@
     {
       "id": "prime-skills/runcomfy-agent-skills",
       "stars": 61,
-      "leaderboardSkills": 30,
       "agentReview": {
         "kind": "skills",
         "description": "Another republished copy of RunComfy's skills."
@@ -1740,7 +1644,6 @@
     {
       "id": "useosint/skills",
       "stars": 61,
-      "leaderboardSkills": 0,
       "agentReview": {
         "kind": "skills",
         "description": "28 OSINT Agent Skills that turn Cursor, Claude & AI coding agents into a full open-source intelligence platform — reconnaissance,…"
@@ -1749,7 +1652,6 @@
     {
       "id": "genkit-ai/skills",
       "stars": 39,
-      "leaderboardSkills": 0,
       "agentReview": {
         "kind": "skills",
         "description": "Agent Skills that teach AI coding agents how to build applications with the Genkit framework (JS/TS, Go, Dart)."
@@ -1758,7 +1660,6 @@
     {
       "id": "nozomio-labs/nia-skill",
       "stars": 26,
-      "leaderboardSkills": 0,
       "agentReview": {
         "kind": "skills",
         "description": "Skill for Nia AI - index and search repos, docs, papers, datasets"
@@ -1767,7 +1668,6 @@
     {
       "id": "momentic-ai/skills",
       "stars": 17,
-      "leaderboardSkills": 2,
       "agentReview": {
         "kind": "skills",
         "description": "Claude Agent SDK with a E2E testing tool"
@@ -1776,7 +1676,6 @@
     {
       "id": "genmedia-labs/skills",
       "stars": 27,
-      "leaderboardSkills": 0,
       "agentReview": {
         "kind": "skills",
         "description": null
@@ -1785,7 +1684,6 @@
     {
       "id": "designed-by-ai/skills",
       "stars": 27,
-      "leaderboardSkills": 1,
       "agentReview": {
         "kind": "skills",
         "description": "Agent skills"
@@ -1794,7 +1692,6 @@
     {
       "id": "flowkit-labs/skills",
       "stars": 31,
-      "leaderboardSkills": 1,
       "agentReview": {
         "kind": "skills",
         "description": null
@@ -1803,7 +1700,6 @@
     {
       "id": "ejirocodes/agent-skills",
       "stars": 6,
-      "leaderboardSkills": 0,
       "agentReview": {
         "kind": "skills",
         "description": "Includes Svelte 5 best practices."
@@ -1812,7 +1708,6 @@
     {
       "id": "2dmurali/review-loop-skill",
       "stars": 7,
-      "leaderboardSkills": 1,
       "agentReview": {
         "kind": "skills",
         "description": null
@@ -1821,7 +1716,6 @@
     {
       "id": "101-skills/superpowers",
       "stars": 19,
-      "leaderboardSkills": 10,
       "agentReview": {
         "kind": "skills",
         "description": "Agent superpowers"
@@ -1830,7 +1724,6 @@
     {
       "id": "neondatabase/agent-skills",
       "stars": 112,
-      "leaderboardSkills": 2,
       "agentReview": {
         "kind": "skills",
         "description": null
@@ -1839,7 +1732,6 @@
     {
       "id": "agentix-cloud/skills",
       "stars": 1,
-      "leaderboardSkills": 1,
       "agentReview": {
         "kind": "skills",
         "description": "Agent skills for Agentix — AI agent collaboration platform"
@@ -1848,7 +1740,6 @@
     {
       "id": "agentspace-so/runcomfy-skills",
       "stars": null,
-      "leaderboardSkills": 0,
       "agentReview": {
         "kind": "skills",
         "description": "RunComfy's original skills."
@@ -1857,7 +1748,6 @@
     {
       "id": "inference-sh/skills",
       "stars": null,
-      "leaderboardSkills": 0,
       "agentReview": {
         "kind": "skills",
         "description": "inference.sh's original skills."
@@ -1866,7 +1756,6 @@
     {
       "id": "sleekdotdesign/agent-skills",
       "stars": null,
-      "leaderboardSkills": 0,
       "agentReview": {
         "kind": "skills",
         "description": "Sleek's original mobile-design skill."
@@ -1875,7 +1764,6 @@
     {
       "id": "doany-skills/skills",
       "stars": null,
-      "leaderboardSkills": 0,
       "agentReview": {
         "kind": "skills",
         "description": "Original reddit-automation skill by doany.ai."
@@ -1884,7 +1772,6 @@
     {
       "id": "getsentry/cli",
       "stars": 124,
-      "leaderboardSkills": 0,
       "agentReview": {
         "kind": "project",
         "description": "Sentry CLI; serves its skill at cli.sentry.dev."

@@ -156,16 +156,12 @@
           "type": ["number", "null"],
           "description": "GitHub stars, or null when unknown.\n\nSource: the GitHub API, by scripts/crawl.ts, which .github/workflows/crawl.yml runs daily: the `stargazers_count` of https://api.github.com/repos/<id>, when GITHUB_TOKEN is set. A request that fails keeps the last number."
         },
-        "leaderboardSkills": {
-          "type": ["number", "null"],
-          "description": "How many of the repo's skills were in the skills.sh all-time top 600.\n\nSource: scripts/crawl.ts, daily, counts the entries of the leaderboard it scrapes from the HTML of https://www.skills.sh/ whose `source` is the repo. An agent adding a repo leaves it null for the next crawl."
-        },
         "agentReview": {
           "$ref": "#/definitions/RepoReview",
           "description": "What an agent wrote about the repo: everything else is collected by scripts.\n\nSource: the agent that approves the repo's first skill, with the add-skill skill."
         }
       },
-      "required": ["id", "stars", "leaderboardSkills", "agentReview"],
+      "required": ["id", "stars", "agentReview"],
       "additionalProperties": false
     },
     "RepoReview": {

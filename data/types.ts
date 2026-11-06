@@ -188,14 +188,6 @@ export interface Repo {
    */
   stars: number | null;
   /**
-   * How many of the repo's skills were in the skills.sh all-time top 600.
-   *
-   * Source: scripts/crawl.ts, daily, counts the entries of the leaderboard it scrapes from the
-   * HTML of https://www.skills.sh/ whose `source` is the repo. An agent adding a repo leaves it
-   * null for the next crawl.
-   */
-  leaderboardSkills: number | null;
-  /**
    * What an agent wrote about the repo: everything else is collected by scripts.
    *
    * Source: the agent that approves the repo's first skill, with the add-skill skill.

@@ -7,8 +7,7 @@
  * - gives every approved skill (skills.jsonc) its installs and weekly installs: from the top 600,
  *   or for a skill outside it, from its own skills.sh page, which also gives a missing first-seen
  *   date;
- * - gives the repos of approved skills and bundles their GitHub stars (when GITHUB_TOKEN is set),
- *   and every repo the count of its skills in the top 600;
+ * - gives the repos of approved skills and bundles their GitHub stars (when GITHUB_TOKEN is set);
  * - records the other skills of the top 600 in crawl.jsonc, never removing one: a skill on GitHub
  *   is qualified while it reaches the minimums and unqualified while it doesn't, and a website's is
  *   disqualified (not on GitHub). A skill that leaves the top 600 keeps its state and its last
@@ -223,10 +222,6 @@ await pool(board, 4, async (e) => {
 
 // For the repos of approved skills and bundles, and of the qualified and unqualified skills the
 // crawl just saw.
-const perRepo = new Map<string, number>();
-for (const e of board)
-  perRepo.set(e.source.toLowerCase(), (perRepo.get(e.source.toLowerCase()) ?? 0) + 1);
-for (const repo of data.repos) repo.leaderboardSkills = perRepo.get(repo.id.toLowerCase()) ?? 0;
 const token = process.env.GITHUB_TOKEN;
 const seenToday = [...recorded.values()].filter((c) => c.seen === today);
 const repos = new Set([
