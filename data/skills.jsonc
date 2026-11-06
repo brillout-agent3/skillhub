@@ -1785,6 +1785,15 @@
         "description": "Common agent skills to share across repositories.",
         "note": "Some skills still carry Warp's own repo paths, commands or assumptions, as its README says."
       }
+    },
+    {
+      "id": "firecrawl/firecrawl-workflows",
+      "stars": 218,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Outcome-focused Firecrawl workflow skills for AI coding agents: research reports, SEO audits, QA reports, knowledge bases, lead lists and website design systems.",
+        "note": "The source of Firecrawl's workflow skills; CI copies them into the firecrawl/skills catalog, which Firecrawl promotes as the install path."
+      }
     }
   ],
   "bundles": [
@@ -2447,6 +2456,125 @@
           {
             "label": "Warp, with the repo's 25 other skills",
             "command": "npx skills@latest add warpdotdev/common-skills --skill '*' --agent warp --global"
+          }
+        ]
+      }
+    },
+    {
+      "id": "firecrawl/firecrawl-workflows",
+      "skew": 0,
+      "agentReview": {
+        "name": "Firecrawl Workflows",
+        "description": "Firecrawl's outcome-focused skills that turn web search, scraping and browsing into research reports, audits, lead lists, knowledge bases and design systems.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want finished, sourced work from the live web, such as a research report, SEO audit, QA report, lead list or local copy of a docs site"
+            },
+            {
+              "label": "It does",
+              "text": "sends each request to one of its workflow skills, which gathers evidence with Firecrawl's search, scraping and browser and writes the deliverable"
+            },
+            {
+              "label": "You get",
+              "text": "one deliverable per request, such as a cited report, a ranked lead CSV, a DESIGN.md or a folder of Markdown docs, most ending with inputs to rerun it"
+            },
+            {
+              "label": "Needs",
+              "text": "the Firecrawl CLI and a Firecrawl API key; lead data and SEO ranking figures come from Alexandria providers, which need a signed-in Firecrawl account"
+            },
+            {
+              "label": "Unlike the firecrawl skill",
+              "text": "that one gives the agent Firecrawl's raw commands; these skills package them into whole jobs with a set output"
+            },
+            {
+              "label": "Also installs",
+              "text": "three workflows not listed here: published business contacts, current job openings and fantasy-sports decisions"
+            }
+          ],
+          "text": "Firecrawl Workflows turns Firecrawl, a web search, scraping and browser service, into complete jobs. firecrawl-workflows is the entry point. It matches a request to one workflow, or runs a generic process that gathers evidence and writes it up when none fits. Most workflows follow one pattern: infer the inputs, ask at most three questions and only when blocked, collect evidence with Firecrawl, split independent parts across subagents where the agent has them, and end with sources and the inputs to rerun the job. For research there are web reports (deep-research), literature reviews over Firecrawl's paper index (research-papers), market figures and competitor tracking. Lead work runs from exporting directories (company-directories) to finding prospects through Alexandria, Firecrawl's catalog of data providers (lead-gen), to enriching people and companies you already have (lead-research). Other workflows audit a site's SEO, test a live site, walk through a product's flows, extract a site's design system and read dashboard metrics. knowledge-base saves web docs as local files, and knowledge-ingest does the same for portals that need a browser. shop compares products and adds one to a cart only when asked. Some skills hand off to others: deep-research passes literature to research-papers.",
+          "permalink": "https://github.com/firecrawl/firecrawl-workflows/tree/d2a986240f9d786ae54fc33fcfd9ad37308e9cc3"
+        },
+        "skills": [
+          {
+            "id": "firecrawl/firecrawl-workflows/skills/firecrawl-workflows",
+            "standalone": false,
+            "note": "Picks which of the other workflow skills to load for a request; alone, it only has its generic fallback process."
+          },
+          {
+            "id": "firecrawl/firecrawl-workflows/skills/firecrawl-deep-research",
+            "standalone": true
+          },
+          {
+            "id": "firecrawl/firecrawl-workflows/skills/firecrawl-research-papers",
+            "standalone": true
+          },
+          {
+            "id": "firecrawl/firecrawl-workflows/skills/firecrawl-market-research",
+            "standalone": true
+          },
+          {
+            "id": "firecrawl/firecrawl-workflows/skills/firecrawl-competitive-intel",
+            "standalone": true
+          },
+          {
+            "id": "firecrawl/firecrawl-workflows/skills/firecrawl-company-directories",
+            "standalone": true
+          },
+          {
+            "id": "firecrawl/firecrawl-workflows/skills/firecrawl-lead-gen",
+            "standalone": true
+          },
+          {
+            "id": "firecrawl/firecrawl-workflows/skills/firecrawl-lead-research",
+            "standalone": true
+          },
+          {
+            "id": "firecrawl/firecrawl-workflows/skills/firecrawl-seo-audit",
+            "standalone": true
+          },
+          {
+            "id": "firecrawl/firecrawl-workflows/skills/firecrawl-qa",
+            "standalone": true
+          },
+          {
+            "id": "firecrawl/firecrawl-workflows/skills/firecrawl-demo-walkthrough",
+            "standalone": true
+          },
+          {
+            "id": "firecrawl/firecrawl-workflows/skills/firecrawl-website-design-clone",
+            "standalone": true
+          },
+          {
+            "id": "firecrawl/firecrawl-workflows/skills/firecrawl-dashboard-reporting",
+            "standalone": true
+          },
+          {
+            "id": "firecrawl/firecrawl-workflows/skills/firecrawl-knowledge-base",
+            "standalone": true
+          },
+          {
+            "id": "firecrawl/firecrawl-workflows/skills/firecrawl-knowledge-ingest",
+            "standalone": true
+          },
+          {
+            "id": "firecrawl/firecrawl-workflows/skills/firecrawl-shop",
+            "standalone": true
+          }
+        ],
+        "install": [
+          {
+            "label": "Any agent, with the skills CLI",
+            "command": "npx skills add firecrawl/firecrawl-workflows"
+          },
+          {
+            "label": "With the Firecrawl CLI installed",
+            "command": "firecrawl setup workflows"
+          },
+          {
+            "label": "Any agent, with Firecrawl's full catalog, CLI skills included",
+            "command": "npx skills add firecrawl/skills"
           }
         ]
       }
@@ -12601,6 +12729,917 @@
           "output-style"
         ],
         "note": "Replies in Classical Chinese, so it's only useful if you read it."
+      }
+    },
+    {
+      "id": "firecrawl/firecrawl-workflows/skills/firecrawl-deep-research",
+      "name": "firecrawl-deep-research",
+      "skills.sh": {
+        "url": "https://skills.sh/firecrawl/firecrawl-workflows/firecrawl-deep-research",
+        "installs": 35900,
+        "weeklyInstalls": [340, 389, 337, 326, 270, 259, 214, 255],
+        "firstSeen": "2026-05-15"
+      },
+      "skillMd": {
+        "version": "d2a986240f9d786ae54fc33fcfd9ad37308e9cc3",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Researches a complex topic across the web with Firecrawl and writes a formal, cited report with contrarian views and open questions.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need a rigorous, cited report on a complex technical, policy, market or scientific topic, not a quick answer or a product pick"
+            },
+            {
+              "label": "It does",
+              "text": "asks how long it should run, then searches and scrapes from 5 to 25 or more web sources through Firecrawl to match"
+            },
+            {
+              "label": "You get",
+              "text": "a Markdown report: executive summary, numbered findings with links, analysis, contrarian views and risks, open questions, every source, and rerun inputs"
+            },
+            {
+              "label": "Needs",
+              "text": "the Firecrawl CLI, or another way to call Firecrawl, and a Firecrawl API key"
+            },
+            {
+              "label": "Unlike firecrawl-research-papers",
+              "text": "it gathers evidence from web pages; literature reviews over published papers go to that skill"
+            }
+          ],
+          "text": "Firecrawl's workflow for report-scale research, meant only for questions a short search can't answer; Firecrawl is a web search and scraping service. Before starting it asks how long the task should run and maps the answer to a depth: a few minutes means 3 to 5 searches and 5 to 10 scraped sources, 10 to 15 minutes means 5 to 10 searches from different angles and 15 to 25 sources, and longer means 10 or more searches and 25 or more sources, including primary sources, papers, expert and contrarian views. Where the agent can run subagents, it can split the work by angle: overview, technical detail, market context, contrarian views and primary sources, each returning claims, URLs, notes on source quality and uncertainty. The report cites sources for factual claims, prefers primary sources, flags conflicting evidence and synthesizes rather than listing page summaries. When the evidence is published literature, it hands that part to firecrawl-research-papers, which queries Firecrawl's paper index, and merges the results. The closing rerun inputs record the topic, depth and format so the same research can be repeated.",
+          "permalink": "https://github.com/firecrawl/firecrawl-workflows/tree/d2a986240f9d786ae54fc33fcfd9ad37308e9cc3/skills/firecrawl-deep-research"
+        },
+        "tags": [
+          "category:writing",
+          "category:browser",
+          "type:workflow",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:firecrawl",
+          "effect:none",
+          "research",
+          "web-search",
+          "flag:mirror"
+        ]
+      }
+    },
+    {
+      "id": "firecrawl/firecrawl-workflows/skills/firecrawl-research-papers",
+      "name": "firecrawl-research-papers",
+      "skills.sh": {
+        "url": "https://skills.sh/firecrawl/firecrawl-workflows/firecrawl-research-papers",
+        "installs": 34000,
+        "weeklyInstalls": [158, 173, 168, 188, 195, 314, 247, 161],
+        "firstSeen": "2026-05-15"
+      },
+      "skillMd": {
+        "version": "d2a986240f9d786ae54fc33fcfd9ad37308e9cc3",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes a sourced literature review from Firecrawl's index of research papers, finding related work and checking claims inside papers.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a literature review, survey of studies or paper summary, especially on biomedical, clinical or computer-science topics"
+            },
+            {
+              "label": "It does",
+              "text": "searches Firecrawl's paper index of PubMed, bioRxiv, medRxiv and arXiv abstracts, expands to similar, citing and cited papers, and reads papers to verify claims"
+            },
+            {
+              "label": "You get",
+              "text": "a Markdown literature review: abstract, key papers with methods and findings, consensus, debates, emerging trends, sources and rerun inputs"
+            },
+            {
+              "label": "Needs",
+              "text": "a Firecrawl API key, and the Firecrawl CLI or MCP server"
+            },
+            {
+              "label": "Unlike firecrawl-deep-research",
+              "text": "that skill searches web pages; this one queries paper records, using web search only for whitepapers, leaderboards and other material outside the index"
+            }
+          ],
+          "text": "Through the Firecrawl CLI or MCP server it has four paper tools: semantic search over abstracts, expansion from strong seed papers to similar papers, papers that cite them or papers they cite, canonical metadata for a paper, and a read that answers one question inside a paper's full text. It matches the approach to the request: one named paper takes a single search, a topic family takes searching then expanding, and constraints such as author, venue, date or method are checked in the metadata or the paper body before a candidate is kept. For rankings and leaderboards it uses ordinary web search, then maps the top entries back to papers. It errs toward including the relevant family of papers rather than one best hit, and drops only clearly off-topic ones. The index is mostly PubMed, bioRxiv and medRxiv, plus arXiv in computer science, physics and maths; coverage elsewhere is thinner. It warns that Firecrawl's research search category only filters web results to research sites and doesn't query the index. Work can be split across subagents by source type or sub-topic. The review separates peer-reviewed work from blogs and vendor reports and notes PDFs it couldn't read.",
+          "permalink": "https://github.com/firecrawl/firecrawl-workflows/tree/d2a986240f9d786ae54fc33fcfd9ad37308e9cc3/skills/firecrawl-research-papers"
+        },
+        "tags": [
+          "category:science",
+          "category:writing",
+          "type:workflow",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:firecrawl",
+          "effect:none",
+          "research",
+          "flag:mirror"
+        ]
+      }
+    },
+    {
+      "id": "firecrawl/firecrawl-workflows/skills/firecrawl-website-design-clone",
+      "name": "firecrawl-website-design-clone",
+      "skills.sh": {
+        "url": "https://skills.sh/firecrawl/firecrawl-workflows/firecrawl-website-design-clone",
+        "installs": 33400,
+        "weeklyInstalls": [167, 153, 134, 124, 112, 114, 200, 185],
+        "firstSeen": "2026-05-15"
+      },
+      "skillMd": {
+        "version": "d2a986240f9d786ae54fc33fcfd9ad37308e9cc3",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Extracts an existing website's design system into a DESIGN.md, or collects its logo, colors, fonts and messaging, using Firecrawl.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to build UI that matches a reference website, document its design patterns, or match a slide or proposal to a company's brand"
+            },
+            {
+              "label": "It does",
+              "text": "scrapes the site's branding data, text and images with Firecrawl, downloads a full-page screenshot and inspects it before describing the look"
+            },
+            {
+              "label": "You get",
+              "text": "a DESIGN.md of tokens, typography, spacing, components, section order and implementation guidance, tied to evidence; or a compact asset reference for a document"
+            },
+            {
+              "label": "Needs",
+              "text": "the Firecrawl CLI and a Firecrawl API key"
+            },
+            {
+              "label": "Won't",
+              "text": "promise a pixel-perfect copy, invent a new brand, or imply you have rights to the site's logos, images or copy"
+            }
+          ],
+          "text": "Its design-system mode starts from the URL you give, or finds the official site when you only name a company, and captures one representative page with Firecrawl's branding, Markdown and image formats plus a full-page screenshot. The screenshot comes back as an expiring link, so the agent downloads it into .firecrawl/ and looks at the actual pixels before making visual claims, using HTML or stylesheets to fill in missing fonts or tokens. It extracts color roles, typography, spacing, containers, borders, shadows, component patterns, section order and how images are treated, and keeps extracted values, visual estimates and its own suggestions apart. A desktop screenshot isn't taken as evidence of mobile layout, hover states or animation. DESIGN.md lists source URLs, capture context, the screenshot, tokens, components, image references, guidance adapted to your stack when you name one, and unresolved details, saved as a file when the agent can. If you only need a logo, palette, fonts or homepage messaging for a document, it skips the design-system report and returns a short asset reference instead.",
+          "permalink": "https://github.com/firecrawl/firecrawl-workflows/tree/d2a986240f9d786ae54fc33fcfd9ad37308e9cc3/skills/firecrawl-website-design-clone"
+        },
+        "tags": [
+          "category:design",
+          "type:workflow",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:firecrawl",
+          "effect:local",
+          "design-system",
+          "design",
+          "scraping",
+          "flag:mirror"
+        ]
+      }
+    },
+    {
+      "id": "firecrawl/firecrawl-workflows/skills/firecrawl-workflows",
+      "name": "firecrawl-workflows",
+      "skills.sh": {
+        "url": "https://skills.sh/firecrawl/firecrawl-workflows/firecrawl-workflows",
+        "installs": 32900,
+        "weeklyInstalls": [268, 302, 266, 253, 189, 201, 184, 149],
+        "firstSeen": "2026-05-15"
+      },
+      "skillMd": {
+        "version": "d2a986240f9d786ae54fc33fcfd9ad37308e9cc3",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Picks the Firecrawl workflow skill that fits your request, such as research, SEO audits, QA or lead lists, with a generic fallback process.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a finished, sourced deliverable from the web, such as a report, audit or lead list, and don't know which Firecrawl workflow fits"
+            },
+            {
+              "label": "It does",
+              "text": "routes the request to one of Firecrawl's workflow skills, or follows a generic process when none fits"
+            },
+            {
+              "label": "You get",
+              "text": "whatever the chosen workflow produces; from the fallback, a summary, the evidence used, the analysis, next steps and rerun inputs"
+            },
+            {
+              "label": "Needs",
+              "text": "the other Firecrawl workflow skills, the Firecrawl CLI and a Firecrawl API key"
+            },
+            {
+              "label": "Unlike the firecrawl skill",
+              "text": "that one gives the agent Firecrawl's commands for any web task, from search to crawling; this one picks a workflow that ends in a finished deliverable"
+            }
+          ],
+          "text": "The entry point of Firecrawl's workflow skills. It lists which workflow handles what: finding new prospects, researching named people and companies, published business contacts, current job openings, fantasy-sports decisions, a website's brand assets or design system, literature reviews, web research reports, SEO audits, live-site QA, competitor monitoring, company directories, dashboard metrics, knowledge bases, docs-portal exports, market research, product walkthroughs and shopping research. Questions about official documentation go to firecrawl-developer-index, a skill installed with the Firecrawl CLI. It infers the inputs and asks at most three short questions, only when something missing blocks the work. When no workflow fits, it gathers evidence with Firecrawl, keeps sources traceable, runs independent units such as one competitor or one URL in parallel subagents where available, and writes a deliverable with a summary, the evidence base, the analysis, recommendations and a block of inputs for rerunning it, so the pattern could become a new skill; a checklist for writing such skills comes with it. Focused workflows keep their own outputs: a contact card or fantasy pick doesn't turn into a research report.",
+          "permalink": "https://github.com/firecrawl/firecrawl-workflows/tree/d2a986240f9d786ae54fc33fcfd9ad37308e9cc3/skills/firecrawl-workflows"
+        },
+        "tags": [
+          "category:skill-tools",
+          "type:router",
+          "effect:none",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:firecrawl",
+          "skill-discovery",
+          "research",
+          "flag:mirror"
+        ],
+        "note": "Routes each request to the other Firecrawl workflow skills, so it needs them installed; alone, only its short generic process is left."
+      }
+    },
+    {
+      "id": "firecrawl/firecrawl-workflows/skills/firecrawl-knowledge-base",
+      "name": "firecrawl-knowledge-base",
+      "skills.sh": {
+        "url": "https://skills.sh/firecrawl/firecrawl-workflows/firecrawl-knowledge-base",
+        "installs": 32800,
+        "weeklyInstalls": [272, 295, 267, 237, 175, 190, 127, 152],
+        "firstSeen": "2026-05-15"
+      },
+      "skillMd": {
+        "version": "d2a986240f9d786ae54fc33fcfd9ad37308e9cc3",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Turns websites or topics into organized, LLM-ready Markdown with Firecrawl: reference docs, RAG chunks, training data or docs mirrors.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want web docs or a topic collected as local files for reference, retrieval by an AI (RAG), fine-tuning or a Markdown mirror of a docs site"
+            },
+            {
+              "label": "It does",
+              "text": "maps documentation sites or searches a topic with Firecrawl, scrapes pages into Markdown with code and tables kept, and files them by host and path"
+            },
+            {
+              "label": "You get",
+              "text": "files under .firecrawl/ plus, depending on the goal, sources.json, chunk files and a manifest, or training JSONL, and a summary of coverage"
+            },
+            {
+              "label": "Needs",
+              "text": "the Firecrawl CLI and a Firecrawl API key"
+            },
+            {
+              "label": "Unlike firecrawl-knowledge-ingest",
+              "text": "that one clicks through JavaScript-heavy or login-gated docs portals in a browser; this one maps and scrapes pages"
+            }
+          ],
+          "text": "It turns URLs or topics into content an AI model can use. You say the source and the goal, and it picks one of four outputs: reference (Markdown files with an index.md and sources.json), RAG (Markdown plus chunk files and a manifest.json, for retrieval-augmented generation, where a model looks up passages before answering), training (the scraped files plus training-data.jsonl and its metadata, for fine-tuning) or a docs mirror (a complete Markdown copy with a table of contents). For documentation sites it lists the site's URLs first; for topics it searches. Pages are saved as .firecrawl/<host>/<path>/index.md, with navigation boilerplate removed where possible, code examples and formatting kept, and source URLs in each file's metadata. It asks up to three questions only when the source, goal or training format is unclear. Work can be split across subagents by docs section or source type. It ends with a summary of what was collected, the file structure, coverage counts, usage notes and rerun inputs.",
+          "permalink": "https://github.com/firecrawl/firecrawl-workflows/tree/d2a986240f9d786ae54fc33fcfd9ad37308e9cc3/skills/firecrawl-knowledge-base"
+        },
+        "tags": [
+          "category:browser",
+          "type:workflow",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:firecrawl",
+          "effect:local",
+          "scraping",
+          "flag:mirror"
+        ]
+      }
+    },
+    {
+      "id": "firecrawl/firecrawl-workflows/skills/firecrawl-market-research",
+      "name": "firecrawl-market-research",
+      "skills.sh": {
+        "url": "https://skills.sh/firecrawl/firecrawl-workflows/firecrawl-market-research",
+        "installs": 32700,
+        "weeklyInstalls": [140, 114, 130, 131, 100, 96, 192, 181],
+        "firstSeen": "2026-05-15"
+      },
+      "skillMd": {
+        "version": "d2a986240f9d786ae54fc33fcfd9ad37308e9cc3",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Researches markets and companies with Firecrawl, returning current, cited figures on size, growth, financials and trends in comparison tables.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want market size, growth, trends or company financials by the numbers, which change faster than the agent's training data"
+            },
+            {
+              "label": "It does",
+              "text": "searches and scrapes investor-relations pages, SEC filings, earnings releases, financial portals, industry reports and news, using a browser for tabs and charts"
+            },
+            {
+              "label": "You get",
+              "text": "a report: market overview, company profiles, tables of revenue, margins, valuation multiples and growth, trends and outlook, sources and rerun inputs"
+            },
+            {
+              "label": "Needs",
+              "text": "the Firecrawl CLI and a Firecrawl API key"
+            },
+            {
+              "label": "Won't",
+              "text": "give financial advice"
+            }
+          ],
+          "text": "A short recipe for sourced market and financial research. It infers the market or companies, the data focus, the timeframe and the output format, asking up to three questions only when blocked. Evidence comes from Firecrawl searches and scrapes, with Firecrawl's browser for charts, tabs, period selectors or financial portals that need clicking. Where the agent can run subagents, it can split the work into company financials, market metrics, industry trends, news and analyst commentary, and source validation. It cross-checks key numbers where possible, notes when sources disagree, and gives the period and unit for every metric. Output is Markdown or JSON, ending with rerun inputs: the query, companies, data points and format, so the research can be repeated later.",
+          "permalink": "https://github.com/firecrawl/firecrawl-workflows/tree/d2a986240f9d786ae54fc33fcfd9ad37308e9cc3/skills/firecrawl-market-research"
+        },
+        "tags": [
+          "category:science",
+          "type:workflow",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:firecrawl",
+          "effect:none",
+          "research",
+          "finance",
+          "flag:mirror"
+        ]
+      }
+    },
+    {
+      "id": "firecrawl/firecrawl-workflows/skills/firecrawl-seo-audit",
+      "name": "firecrawl-seo-audit",
+      "skills.sh": {
+        "url": "https://skills.sh/firecrawl/firecrawl-workflows/firecrawl-seo-audit",
+        "installs": 32300,
+        "weeklyInstalls": [138, 91, 134, 120, 88, 95, 192, 159],
+        "firstSeen": "2026-05-15"
+      },
+      "skillMd": {
+        "version": "d2a986240f9d786ae54fc33fcfd9ad37308e9cc3",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Audits a website's on-page and technical SEO with Firecrawl and returns source-backed findings with prioritized fixes.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a site's titles, descriptions, headings, canonicals, structured data and internal links checked, or pages compared for target keywords"
+            },
+            {
+              "label": "It does",
+              "text": "starts from your pages or maps the site, picks pages covering each template, scrapes fresh raw HTML and links, and judges findings against each page's purpose"
+            },
+            {
+              "label": "You get",
+              "text": "a concise audit, top fixes first: affected URLs, evidence, likely impact, the fix and how to verify it, with confirmed defects kept apart from opportunities"
+            },
+            {
+              "label": "Needs",
+              "text": "the Firecrawl CLI and a Firecrawl API key; ranking, keyword and backlink figures need a signed-in CLI and a fitting data provider"
+            },
+            {
+              "label": "Won't",
+              "text": "invent an overall score, forecast traffic gains or edit the website"
+            }
+          ],
+          "text": "It works from the pages you give, or lists a site's URLs with Firecrawl to pick pages covering each page template, and records what it inspected, since a sample isn't the whole site. Each page is scraped fresh as Markdown, raw HTML and links, so metadata is checked in the actual head markup; checks that need source it couldn't get are marked unverified. It reviews titles, descriptions, headings, relevance, image alt text, internal links, canonicals, robots directives and structured data, reading robots.txt or sitemaps when needed, and keeps apart things that are easy to confuse: crawl blocks versus indexing directives, declared versus search-engine-chosen canonicals, a scrape error versus a broken link. Keyword comparisons use a live search, with the query and date recorded. For ranking, keyword or backlink numbers it looks for a data provider in Alexandria, Firecrawl's catalog of data tools; without one it says what stays unmeasured rather than guessing traffic, indexing or Core Web Vitals. It never accepts a provider's terms without your approval. Shared template issues are grouped, and fixes are ranked by impact, confidence and effort.",
+          "permalink": "https://github.com/firecrawl/firecrawl-workflows/tree/d2a986240f9d786ae54fc33fcfd9ad37308e9cc3/skills/firecrawl-seo-audit"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:firecrawl",
+          "effect:none",
+          "seo",
+          "flag:mirror"
+        ]
+      }
+    },
+    {
+      "id": "firecrawl/firecrawl-workflows/skills/firecrawl-dashboard-reporting",
+      "name": "firecrawl-dashboard-reporting",
+      "skills.sh": {
+        "url": "https://skills.sh/firecrawl/firecrawl-workflows/firecrawl-dashboard-reporting",
+        "installs": 31800,
+        "weeklyInstalls": [118, 92, 108, 95, 71, 86, 174, 154],
+        "firstSeen": "2026-05-15"
+      },
+      "skillMd": {
+        "version": "d2a986240f9d786ae54fc33fcfd9ad37308e9cc3",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Reads numbers off web dashboards with Firecrawl's browser, including ones you're signed in to, and turns them into a report.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want KPIs, tables or chart values from public stats or status pages, or analytics tools you can sign in to, as a report or date-range table"
+            },
+            {
+              "label": "It does",
+              "text": "opens each dashboard in Firecrawl's browser, sets the date range, clicks tabs, expands sections and scrolls tables to read the visible metrics"
+            },
+            {
+              "label": "You get",
+              "text": "highlights and alerts, metrics by dashboard with unit, change and period, captured tables or exports, caveats and rerun inputs, as Markdown or JSON"
+            },
+            {
+              "label": "Needs",
+              "text": "the Firecrawl CLI and a Firecrawl API key; private dashboards need a signed-in browser profile"
+            },
+            {
+              "label": "Won't",
+              "text": "bypass access controls; when a login has expired it asks you to sign in again"
+            }
+          ],
+          "text": "It extracts the metrics visible on dashboards you can legitimately access. It infers the URLs, metrics, date range and output format, asking up to three questions only when blocked, such as whether a dashboard needs a signed-in profile. In Firecrawl's browser it opens each dashboard, sets or checks the date range, reads KPI cards, tables and labels, clicks tabs, expands sections and scrolls tables, and uses export or download buttons only when appropriate and allowed. It records actual numbers rather than chart labels and says when a chart can't be read precisely. Where the agent can run subagents, it can split the work by platform or metric category. JSON output has a set shape: report time, date range, dashboards, metrics, tables, exports and a summary.",
+          "permalink": "https://github.com/firecrawl/firecrawl-workflows/tree/d2a986240f9d786ae54fc33fcfd9ad37308e9cc3/skills/firecrawl-dashboard-reporting"
+        },
+        "tags": [
+          "category:browser",
+          "type:workflow",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:firecrawl",
+          "effect:none",
+          "scraping",
+          "browser-automation",
+          "flag:mirror"
+        ]
+      }
+    },
+    {
+      "id": "firecrawl/firecrawl-workflows/skills/firecrawl-lead-gen",
+      "name": "firecrawl-lead-gen",
+      "skills.sh": {
+        "url": "https://skills.sh/firecrawl/firecrawl-workflows/firecrawl-lead-gen",
+        "installs": 31700,
+        "weeklyInstalls": [107, 82, 101, 93, 59, 73, 164, 139],
+        "firstSeen": "2026-05-15"
+      },
+      "skillMd": {
+        "version": "d2a986240f9d786ae54fc33fcfd9ad37308e9cc3",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds a ranked, sourced list of prospects or target accounts matching your criteria from Firecrawl's people and company data providers.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a lead list: people by role, seniority, company, industry, size, location or technology, or companies that fit your criteria"
+            },
+            {
+              "label": "It does",
+              "text": "finds a people or company provider in Alexandria, Firecrawl's catalog of data tools, checks which filters it supports, searches, deduplicates, ranks and fills missing fields"
+            },
+            {
+              "label": "You get",
+              "text": "a ranked table or CSV of name, title, company, size, location, LinkedIn URL, work email only if asked, why each fits, and sources"
+            },
+            {
+              "label": "Needs",
+              "text": "the Firecrawl CLI and a Firecrawl API key; some providers need an organization admin to accept their terms in the Firecrawl dashboard"
+            },
+            {
+              "label": "Unlike firecrawl-lead-research",
+              "text": "that one enriches people and companies you already have; this one finds new ones"
+            },
+            {
+              "label": "Won't",
+              "text": "guess emails or profile URLs, ask for personal emails or phone numbers, create CRM records or send outreach"
+            }
+          ],
+          "text": "Profile and contact fields come only from the data providers. The web is used just to find candidates for criteria only it shows, such as a recent news item or an event's speaker list, which are then looked up through the providers. When company criteria apply, it finds matching companies first, then searches for people at their domains, following pagination until it reaches your count or the results run out. It skips results that failed, and treats a masked surname or a flag that an email exists as incomplete until enriched. It never relaxes a required filter to reach the count, and ends with how many people and companies it found, the total the provider reported, any shortfall and the criteria it couldn't confirm. If you name a directory or database, it extracts that first, using Firecrawl's interact command for filters and pagination; a plain export of a company directory goes to firecrawl-company-directories instead. Run the same search again later and it returns only new prospects, plus anyone who changed role or employer.",
+          "permalink": "https://github.com/firecrawl/firecrawl-workflows/tree/d2a986240f9d786ae54fc33fcfd9ad37308e9cc3/skills/firecrawl-lead-gen"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:firecrawl",
+          "effect:local",
+          "research",
+          "marketing",
+          "flag:dual-use",
+          "flag:mirror"
+        ]
+      }
+    },
+    {
+      "id": "firecrawl/firecrawl-workflows/skills/firecrawl-lead-research",
+      "name": "firecrawl-lead-research",
+      "skills.sh": {
+        "url": "https://skills.sh/firecrawl/firecrawl-workflows/firecrawl-lead-research",
+        "installs": 31600,
+        "weeklyInstalls": [106, 80, 101, 94, 59, 77, 162, 142],
+        "firstSeen": "2026-05-15"
+      },
+      "skillMd": {
+        "version": "d2a986240f9d786ae54fc33fcfd9ad37308e9cc3",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Enriches people and companies you name or supply with Firecrawl's data providers: roles, firmographics, missing CSV columns and meeting briefs.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want background on a named person or company, a check that someone still holds a role, missing columns filled in a lead CSV, or a pre-call brief"
+            },
+            {
+              "label": "It does",
+              "text": "picks a people or company provider in Alexandria, Firecrawl's catalog of data tools, that accepts your identifiers, runs it, and adds web context such as news when needed"
+            },
+            {
+              "label": "You get",
+              "text": "for a person, title, company, LinkedIn URL, location and work email if asked; for a company, industry, headcount, founding year, HQ and funding; each with its source"
+            },
+            {
+              "label": "Needs",
+              "text": "the Firecrawl CLI and a Firecrawl API key; some providers need an organization admin to accept their terms in the Firecrawl dashboard"
+            },
+            {
+              "label": "Unlike firecrawl-lead-gen",
+              "text": "that one finds new prospects; this one researches the ones you already have"
+            },
+            {
+              "label": "Won't",
+              "text": "guess emails or profile URLs, ask for personal emails or phone numbers, create CRM records or send outreach"
+            }
+          ],
+          "text": "Fields come only from the data providers. The web adds context such as news or talks but never fills a field a provider didn't return, and empty fields are named as missing. For a list or CSV it keeps every input column, row and row order, adds the requested fields plus a match status (matched, not found or error) and sources, and uses a provider's bulk lookup when there is one. Masked values and flags that an email exists don't count as data. Asked to refresh a list it enriched before, it runs again and reports only what changed, such as new titles, employers, headcount or funding. A meeting brief follows a guide that comes with the skill: it enriches the company and each attendee, searches for dated news, funding, launches and hiring, and finds their talks or posts. It then sets out what the company sells, each attendee's role, recent activity newest first, talking points and likely priorities marked as hypotheses. It sticks to professional context and collects no private details.",
+          "permalink": "https://github.com/firecrawl/firecrawl-workflows/tree/d2a986240f9d786ae54fc33fcfd9ad37308e9cc3/skills/firecrawl-lead-research"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:firecrawl",
+          "effect:local",
+          "research",
+          "marketing",
+          "flag:dual-use",
+          "flag:mirror"
+        ]
+      }
+    },
+    {
+      "id": "firecrawl/firecrawl-workflows/skills/firecrawl-company-directories",
+      "name": "firecrawl-company-directories",
+      "skills.sh": {
+        "url": "https://skills.sh/firecrawl/firecrawl-workflows/firecrawl-company-directories",
+        "installs": 31600,
+        "weeklyInstalls": [113, 85, 103, 86, 61, 75, 171, 153],
+        "firstSeen": "2026-05-15"
+      },
+      "skillMd": {
+        "version": "d2a986240f9d786ae54fc33fcfd9ad37308e9cc3",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Extracts company lists from directories such as YC, Crunchbase, Product Hunt or VC portfolios into CSV, JSON or a table with Firecrawl.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want the companies of an accelerator batch, VC portfolio, member or sponsor list, marketplace or app directory as a structured list"
+            },
+            {
+              "label": "It does",
+              "text": "scrapes or maps static listings, and uses Firecrawl's browser for filters, pagination, infinite scroll and profile clicks"
+            },
+            {
+              "label": "You get",
+              "text": "a deduplicated list of names, descriptions, industry, stage, founding year, location, team size, funding, tags and URLs, as CSV, JSON or Markdown, with rerun inputs"
+            },
+            {
+              "label": "Needs",
+              "text": "the Firecrawl CLI and a Firecrawl API key"
+            },
+            {
+              "label": "Unlike firecrawl-lead-gen",
+              "text": "it exports what a directory shows rather than qualifying prospects through data providers"
+            }
+          ],
+          "text": "It records only the fields a directory actually shows, leaving the rest blank rather than guessing. It infers the directory, filters, result count and format from your request and asks up to three questions only if blocked. It tracks pagination progress, removes duplicates, and notes rate limits, login walls or CAPTCHA blocks it runs into. The summary states the filters, how many companies it extracted and the limits of the run.",
+          "permalink": "https://github.com/firecrawl/firecrawl-workflows/tree/d2a986240f9d786ae54fc33fcfd9ad37308e9cc3/skills/firecrawl-company-directories"
+        },
+        "tags": [
+          "category:browser",
+          "category:marketing",
+          "type:workflow",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:firecrawl",
+          "effect:local",
+          "scraping",
+          "research",
+          "browser-automation",
+          "flag:mirror"
+        ]
+      }
+    },
+    {
+      "id": "firecrawl/firecrawl-workflows/skills/firecrawl-qa",
+      "name": "firecrawl-qa",
+      "skills.sh": {
+        "url": "https://skills.sh/firecrawl/firecrawl-workflows/firecrawl-qa",
+        "installs": 31600,
+        "weeklyInstalls": [99, 76, 91, 97, 54, 69, 154, 138],
+        "firstSeen": "2026-05-15"
+      },
+      "skillMd": {
+        "version": "d2a986240f9d786ae54fc33fcfd9ad37308e9cc3",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Tests a live website with Firecrawl's browser and writes a QA report of broken links, forms, mobile layout, performance and errors.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a pre-launch check, a bug hunt or confirmation that a deployed site works"
+            },
+            {
+              "label": "It does",
+              "text": "maps the site's pages, then tests links, forms, content, layouts, error states or performance in Firecrawl's browser, with testers that can run as parallel subagents"
+            },
+            {
+              "label": "You get",
+              "text": "a QA report: a health score out of 10, critical, major and minor issues, steps to reproduce the serious ones, what works well, pages tested and rerun inputs"
+            },
+            {
+              "label": "Needs",
+              "text": "the Firecrawl CLI and a Firecrawl API key; credentials if you want protected flows tested"
+            },
+            {
+              "label": "Unlike webapp-testing",
+              "text": "it tests a deployed site through Firecrawl's browser; Anthropic's webapp-testing writes Playwright scripts against an app on your machine"
+            }
+          ],
+          "text": "You give a URL and optionally a focus: full, forms, navigation, responsive or performance. Each focus splits into four testers. A full run covers navigation and links, forms and interactions, content and visuals, and error states; a forms run covers discovery, the happy path, edge cases and validation; navigation covers the sitemap, menus, links and routing; responsive covers desktop, tablet, mobile and interaction; performance covers page load, assets, content efficiency and comparison. Each tester returns severity, URL, description, evidence and steps to reproduce. The report merges duplicate findings across testers and leaves out speculative bugs without evidence. The result is a report, not fixes.",
+          "permalink": "https://github.com/firecrawl/firecrawl-workflows/tree/d2a986240f9d786ae54fc33fcfd9ad37308e9cc3/skills/firecrawl-qa"
+        },
+        "tags": [
+          "category:debugging",
+          "type:workflow",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:firecrawl",
+          "effect:remote",
+          "testing",
+          "browser-automation",
+          "flag:mirror"
+        ]
+      }
+    },
+    {
+      "id": "firecrawl/firecrawl-workflows/skills/firecrawl-shop",
+      "name": "firecrawl-shop",
+      "skills.sh": {
+        "url": "https://skills.sh/firecrawl/firecrawl-workflows/firecrawl-shop",
+        "installs": 31500,
+        "weeklyInstalls": [92, 73, 96, 85, 57, 68, 143, 119],
+        "firstSeen": "2026-05-15"
+      },
+      "skillMd": {
+        "version": "d2a986240f9d786ae54fc33fcfd9ad37308e9cc3",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Researches products across retailers and review sites with Firecrawl and recommends what to buy within your budget, with current prices.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to compare products, find the best option within a budget or check reviews before buying"
+            },
+            {
+              "label": "It does",
+              "text": "compares prices, specs, reviews, sellers and shipping across product pages, review sites and forums such as Reddit, then picks one"
+            },
+            {
+              "label": "You get",
+              "text": "a recommendation with reasons, a comparison of price, seller, specs, pros and cons, review patterns, sources and rerun inputs"
+            },
+            {
+              "label": "Needs",
+              "text": "the Firecrawl CLI and a Firecrawl API key; adding to a cart also needs a signed-in browser profile"
+            },
+            {
+              "label": "Asks first",
+              "text": "adds an item to a cart only when you ask, and stops before checkout unless you explicitly say otherwise"
+            }
+          ],
+          "text": "Prices and models change faster than the agent's training data, so it researches current listings rather than answering from memory. It infers the product, budget, preferences, preferred sites and where to stop, asking up to three questions only when blocked, such as whether cart actions are allowed. It names exact model numbers, prices and sellers, and flags affiliate, sponsored or unreliable sources when it can see them. With your go-ahead and a signed-in profile, it opens the shop in Firecrawl's browser, adds the item and reports the cart status. It doesn't buy or check out without explicit approval.",
+          "permalink": "https://github.com/firecrawl/firecrawl-workflows/tree/d2a986240f9d786ae54fc33fcfd9ad37308e9cc3/skills/firecrawl-shop"
+        },
+        "tags": [
+          "category:personal",
+          "type:workflow",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:firecrawl",
+          "effect:remote",
+          "research",
+          "ecommerce",
+          "personal",
+          "flag:mirror"
+        ]
+      }
+    },
+    {
+      "id": "firecrawl/firecrawl-workflows/skills/firecrawl-knowledge-ingest",
+      "name": "firecrawl-knowledge-ingest",
+      "skills.sh": {
+        "url": "https://skills.sh/firecrawl/firecrawl-workflows/firecrawl-knowledge-ingest",
+        "installs": 31500,
+        "weeklyInstalls": [109, 81, 96, 86, 61, 67, 166, 144],
+        "firstSeen": "2026-05-15"
+      },
+      "skillMd": {
+        "version": "d2a986240f9d786ae54fc33fcfd9ad37308e9cc3",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Exports documentation portals and help centers, including JavaScript-heavy or login-gated ones, into local Markdown or JSON with Firecrawl's browser.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a docs site, help center or support knowledge base saved as files, and plain scraping misses pages behind menus, pagination or a login"
+            },
+            {
+              "label": "It does",
+              "text": "opens the portal in Firecrawl's browser, follows the sidebar, next links, pagination and load-more buttons, and scrapes each article as Markdown with its metadata"
+            },
+            {
+              "label": "You get",
+              "text": "JSON, Markdown or one merged file, a summary of sections and article counts, failed or restricted pages, sources and rerun inputs"
+            },
+            {
+              "label": "Needs",
+              "text": "the Firecrawl CLI and a Firecrawl API key, and access to the portal if it needs a login"
+            },
+            {
+              "label": "Unlike firecrawl-knowledge-base",
+              "text": "that one maps and scrapes pages into reference, RAG or training sets; this one clicks through portals that need a browser"
+            }
+          ],
+          "text": "It inspects the portal's navigation to find sections, categories and article URLs, using Firecrawl's URL map only as a supplement for public pages. Each article keeps its title, section, last-updated date, author and tags, with code examples, tables and formatting preserved and navigation, headers and footers stripped. It tracks progress and page failures and stays within authentication boundaries. It asks up to three questions only when blocked: the portal URL, whether a login is needed, or the output format.",
+          "permalink": "https://github.com/firecrawl/firecrawl-workflows/tree/d2a986240f9d786ae54fc33fcfd9ad37308e9cc3/skills/firecrawl-knowledge-ingest"
+        },
+        "tags": [
+          "category:browser",
+          "type:workflow",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:firecrawl",
+          "effect:local",
+          "scraping",
+          "browser-automation",
+          "flag:mirror"
+        ]
+      }
+    },
+    {
+      "id": "firecrawl/firecrawl-workflows/skills/firecrawl-competitive-intel",
+      "name": "firecrawl-competitive-intel",
+      "skills.sh": {
+        "url": "https://skills.sh/firecrawl/firecrawl-workflows/firecrawl-competitive-intel",
+        "installs": 31500,
+        "weeklyInstalls": [118, 86, 102, 87, 67, 83, 63, 94],
+        "firstSeen": "2026-05-15"
+      },
+      "skillMd": {
+        "version": "d2a986240f9d786ae54fc33fcfd9ad37308e9cc3",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Tracks competitors' pricing, features and changelogs with Firecrawl and reports alerts, per-competitor breakdowns and a comparison matrix.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want recurring checks on competitors' pricing tiers, features, changelogs, release notes or product changes"
+            },
+            {
+              "label": "It does",
+              "text": "scrapes or clicks through pricing pages, including monthly and annual toggles, feature pages, changelogs, blogs and docs updates, one competitor per subagent where available"
+            },
+            {
+              "label": "You get",
+              "text": "alerts on notable changes, a breakdown per competitor, a pricing table and feature matrix, suggested follow-ups, sources and rerun inputs"
+            },
+            {
+              "label": "Needs",
+              "text": "the Firecrawl CLI and a Firecrawl API key"
+            },
+            {
+              "label": "Unlike firecrawl-monitor",
+              "text": "that skill sets up alerts that Firecrawl runs on a schedule; this one writes a comparison report each time you run it"
+            }
+          ],
+          "text": "It's for watching competitors over time, not a one-off broad competitor analysis. It records real plan names, limits and dates, notes contact-sales or gated details rather than guessing, and visits authenticated dashboards only when you have legitimate access. Sources are kept so a later run can be compared with this one. Structured output, when asked, has a set JSON shape: generation time, competitors, pricing, recent changes, features and sources. The rerun inputs record the competitors, the focus (pricing, features, changelog or all) and a cadence: one-off, weekly or monthly.",
+          "permalink": "https://github.com/firecrawl/firecrawl-workflows/tree/d2a986240f9d786ae54fc33fcfd9ad37308e9cc3/skills/firecrawl-competitive-intel"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:firecrawl",
+          "effect:none",
+          "research",
+          "marketing",
+          "flag:mirror"
+        ]
+      }
+    },
+    {
+      "id": "firecrawl/firecrawl-workflows/skills/firecrawl-demo-walkthrough",
+      "name": "firecrawl-demo-walkthrough",
+      "skills.sh": {
+        "url": "https://skills.sh/firecrawl/firecrawl-workflows/firecrawl-demo-walkthrough",
+        "installs": 31300,
+        "weeklyInstalls": [112, 79, 95, 86, 59, 70, 49, 80],
+        "firstSeen": "2026-05-15"
+      },
+      "skillMd": {
+        "version": "d2a986240f9d786ae54fc33fcfd9ad37308e9cc3",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Walks through a product's key flows in Firecrawl's browser and writes a step-by-step UX walkthrough with friction points and recommendations.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're preparing a product demo, doing a UX teardown, or studying a product's signup, onboarding, pricing, docs or dashboard experience"
+            },
+            {
+              "label": "It does",
+              "text": "opens the product in Firecrawl's browser, navigates each flow, takes a snapshot at every step and records what you see and can do"
+            },
+            {
+              "label": "You get",
+              "text": "a walkthrough: product overview, numbered steps per flow, first impressions, friction points, UX and product recommendations, pages visited and rerun inputs"
+            },
+            {
+              "label": "Needs",
+              "text": "the Firecrawl CLI and a Firecrawl API key; credentials if protected areas are in scope"
+            },
+            {
+              "label": "Asks first",
+              "text": "won't submit real credentials, make purchases or take irreversible actions unless you explicitly tell it to and have permission"
+            }
+          ],
+          "text": "It infers the product URL and which flows to cover (full, signup, pricing, docs or dashboard) and asks up to three questions only when blocked. Where the agent can run subagents, separate walkers can take the homepage and marketing, signup and onboarding, pricing, docs and developer experience, the dashboard and core product, and help and support, each returning screens visited, actions taken, observations, friction and URLs. The write-up names specific screens, calls to action, forms and transitions, and keeps observation apart from opinion.",
+          "permalink": "https://github.com/firecrawl/firecrawl-workflows/tree/d2a986240f9d786ae54fc33fcfd9ad37308e9cc3/skills/firecrawl-demo-walkthrough"
+        },
+        "tags": [
+          "category:design",
+          "category:browser",
+          "type:workflow",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:firecrawl",
+          "effect:remote",
+          "design",
+          "browser-automation",
+          "flag:mirror"
+        ]
       }
     }
   ]
