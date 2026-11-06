@@ -5558,6 +5558,184 @@
           }
         ]
       }
+    },
+    {
+      "id": "AgriciDaniel/claude-seo",
+      "skew": 0,
+      "agentReview": {
+        "name": "Claude SEO",
+        "description": "An SEO plugin for Claude Code: full-site audits by parallel subagents, plus skills for each area of SEO, Google and DataForSEO data, planning, briefs and drift checks.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want SEO work done in Claude Code, from a full-site audit or one page to a plan, a content brief or a check after a deploy"
+            },
+            {
+              "label": "It does",
+              "text": "/seo routes each command to one of its skills; /seo audit sends specialist subagents across the site at once and merges their findings"
+            },
+            {
+              "label": "You get",
+              "text": "Markdown reports with scores out of 100 and action plans sorted from Critical to Low, plus an optional PDF"
+            },
+            {
+              "label": "Needs",
+              "text": "Claude Code with the whole plugin; /seo setup creates its own Python runtime and headless Chromium"
+            },
+            {
+              "label": "Accounts",
+              "text": "none for the audits; free Google, Moz and Bing keys add real data, while DataForSEO is billed per call and image generation costs money"
+            },
+            {
+              "label": "Also adds",
+              "text": "a footer promoting the author's Skool communities, AI Marketing Hub Free and Pro, at the end of audits and most other reports; quick checks skip it"
+            },
+            {
+              "label": "Unlike",
+              "text": "instruction-only SEO skills such as coreyhaines31's seo-audit, it runs its own Python tools and parallel subagents and saves its reports as files"
+            }
+          ],
+          "text": "Claude SEO is a Claude Code plugin whose skills share Python tools and subagents kept outside their folders, and many read the seo skill's references, so it's meant to be installed whole. seo is the entry point: /seo <command> <url> loads the matching skill. seo-audit crawls up to 500 pages, has subagents check technical SEO, content, schema, sitemaps, speed, visuals, AI search, agent readiness, search experience and backlinks in parallel, adds local, maps, clustering, e-commerce or drift checks when they apply, and scores the site out of 100; seo-page reviews one URL. Each other skill takes one job: seo-technical, seo-sitemap, seo-images, seo-hreflang, seo-schema, seo-content for E-E-A-T (Google's experience, expertise, authoritativeness and trust criteria), seo-geo for citations in AI answers, seo-sxo for whether a page is the type that ranks, seo-local, seo-maps, seo-backlinks and seo-ecommerce. seo-google and seo-dataforseo bring Google's own figures and live search data. seo-plan, seo-cluster, seo-content-brief, seo-competitor-pages and seo-programmatic plan sites and pages, seo-image-gen makes images, seo-flow supplies the author's FLOW prompts, and seo-drift snapshots a page to catch regressions. The plugin also installs seo-agentic, which SkillHub doesn't list.",
+          "permalink": "https://github.com/AgriciDaniel/claude-seo/tree/6be93f45064ffbadced572b5d5c95f55fd263af0"
+        },
+        "skills": [
+          {
+            "id": "AgriciDaniel/claude-seo/skills/seo",
+            "standalone": false,
+            "note": "Loads the other Claude SEO skills for each /seo command, hands audits to the plugin's subagents and runs the plugin's Python tools; alone, it only has its scoring and quality rules."
+          },
+          {
+            "id": "AgriciDaniel/claude-seo/skills/seo-audit",
+            "standalone": false,
+            "note": "Hands each area to the specialist subagents that come with the Claude SEO plugin, or runs their checks inline, and renders pages and builds its PDF with the plugin's Python tools."
+          },
+          {
+            "id": "AgriciDaniel/claude-seo/skills/seo-page",
+            "standalone": false,
+            "note": "Runs the plugin's metadata script to catch templated descriptions, and takes its word-count floors from the seo skill's quality-gates reference."
+          },
+          {
+            "id": "AgriciDaniel/claude-seo/skills/seo-plan",
+            "standalone": true
+          },
+          {
+            "id": "AgriciDaniel/claude-seo/skills/seo-technical",
+            "standalone": false,
+            "note": "Runs the plugin's Python tools for its sitemap, JavaScript-rendering and agent checks, and for Google field data."
+          },
+          {
+            "id": "AgriciDaniel/claude-seo/skills/seo-sitemap",
+            "standalone": false,
+            "note": "Finds sitemaps with the plugin's discovery script and generates new ones from the industry templates in seo-plan's folder."
+          },
+          {
+            "id": "AgriciDaniel/claude-seo/skills/seo-images",
+            "standalone": false,
+            "note": "Runs the plugin's HTML parser to tell lazy-loaders apart and its IPTC script to audit and add the AI-image label; file conversion uses exiftool, cwebp, ImageMagick or FFmpeg directly."
+          },
+          {
+            "id": "AgriciDaniel/claude-seo/skills/seo-hreflang",
+            "standalone": true
+          },
+          {
+            "id": "AgriciDaniel/claude-seo/skills/seo-programmatic",
+            "standalone": false,
+            "note": "Runs the plugin's metadata script over the whole page set, a gate that fails the set when its titles and descriptions share one generated shape."
+          },
+          {
+            "id": "AgriciDaniel/claude-seo/skills/seo-google",
+            "standalone": false,
+            "note": "Every command runs one of the plugin's Python scripts for Google's APIs, from the credential check to its PDF report builder."
+          },
+          {
+            "id": "AgriciDaniel/claude-seo/skills/seo-drift",
+            "standalone": false,
+            "note": "Baseline, compare and history are the plugin's drift scripts, which fetch and parse pages with its other tools and keep snapshots in SQLite."
+          },
+          {
+            "id": "AgriciDaniel/claude-seo/skills/seo-content",
+            "standalone": false,
+            "note": "Reads its E-E-A-T criteria and score bands from the seo skill's folder, and cleans drafts with a script that ships with the plugin."
+          },
+          {
+            "id": "AgriciDaniel/claude-seo/skills/seo-content-brief",
+            "standalone": true
+          },
+          {
+            "id": "AgriciDaniel/claude-seo/skills/seo-cluster",
+            "standalone": false,
+            "note": "Fetches pages with the plugin's render script and checks DataForSEO costs with its cost script; its clustering method, link rules and map template are in its own folder."
+          },
+          {
+            "id": "AgriciDaniel/claude-seo/skills/seo-sxo",
+            "standalone": false,
+            "note": "Renders and parses the page with the plugin's render_page.py and parse_html.py, which its quality checklist requires; its taxonomy, persona and wireframe references are in its own folder."
+          },
+          {
+            "id": "AgriciDaniel/claude-seo/skills/seo-flow",
+            "standalone": false,
+            "note": "Runs the plugin's sync script for /seo flow sync, the command that refreshes its prompts; the 41 prompts themselves are in its own folder."
+          },
+          {
+            "id": "AgriciDaniel/claude-seo/skills/seo-competitor-pages",
+            "standalone": true
+          },
+          {
+            "id": "AgriciDaniel/claude-seo/skills/seo-schema",
+            "standalone": false,
+            "note": "Reads its full list of schema types from the seo skill's folder; its templates and extraction script ship with the plugin, not the skill."
+          },
+          {
+            "id": "AgriciDaniel/claude-seo/skills/seo-geo",
+            "standalone": false,
+            "note": "Runs the plugin's Google update ledger to check AI-search visibility changes against confirmed updates; its other references are in its own folder."
+          },
+          {
+            "id": "AgriciDaniel/claude-seo/skills/seo-local",
+            "standalone": false,
+            "note": "Reads its ranking-factor, local schema and citation references from the seo skill's folder."
+          },
+          {
+            "id": "AgriciDaniel/claude-seo/skills/seo-maps",
+            "standalone": false,
+            "note": "Reads its geo-grid method, Business Profile checklist, map API references and local schema types from the seo skill's folder."
+          },
+          {
+            "id": "AgriciDaniel/claude-seo/skills/seo-backlinks",
+            "standalone": false,
+            "note": "Pulls every data source and runs its required report validator through the plugin's Python tools, and reads toxic-link criteria from the seo skill's folder."
+          },
+          {
+            "id": "AgriciDaniel/claude-seo/skills/seo-ecommerce",
+            "standalone": false,
+            "note": "Renders and parses pages, calls DataForSEO's Merchant API, checks costs and probes UCP profiles with the plugin's Python scripts."
+          },
+          {
+            "id": "AgriciDaniel/claude-seo/skills/seo-dataforseo",
+            "standalone": false,
+            "note": "Checks and logs every DataForSEO call with the plugin's cost script, and gets its MCP server from the plugin's DataForSEO extension installer."
+          },
+          {
+            "id": "AgriciDaniel/claude-seo/skills/seo-image-gen",
+            "standalone": true
+          }
+        ],
+        "install": [
+          {
+            "label": "Claude Code plugin, with the repo's seo-agentic skill, 19 subagents and its hooks; then run /seo setup in Claude Code for its Python runtime and headless Chromium",
+            "command": "claude plugin marketplace add AgriciDaniel/claude-seo && claude plugin install claude-seo@agricidaniel-claude-seo"
+          },
+          {
+            "label": "macOS and Linux, without the plugin system: copies the skills and subagents into ~/.claude and sets up the Python runtime itself; read install.sh first",
+            "command": "git clone --depth 1 https://github.com/AgriciDaniel/claude-seo.git && bash claude-seo/install.sh"
+          },
+          {
+            "label": "Windows PowerShell, without the plugin system: does the same as install.sh; read install.ps1 first",
+            "command": "git clone --depth 1 https://github.com/AgriciDaniel/claude-seo.git; powershell -ExecutionPolicy Bypass -File claude-seo\\install.ps1"
+          }
+        ]
+      }
     }
   ],
   "skills": [
@@ -48920,6 +49098,1391 @@
           "design-system",
           "design",
           "animation"
+        ]
+      }
+    },
+    {
+      "id": "AgriciDaniel/claude-seo/skills/seo",
+      "name": "seo",
+      "skills.sh": {
+        "url": "https://skills.sh/agricidaniel/claude-seo/seo",
+        "installs": 9800,
+        "weeklyInstalls": [381, 360, 394, 379, 335, 356, 363, 494],
+        "firstSeen": "2026-02-10"
+      },
+      "skillMd": {
+        "version": "6be93f45064ffbadced572b5d5c95f55fd263af0",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Routes /seo commands to Claude SEO's sub-skills and runs full-site audits with parallel subagents, scored out of 100.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want SEO help in Claude Code and aren't sure which of its checks to run"
+            },
+            {
+              "label": "It does",
+              "text": "maps /seo commands such as audit, page, schema or local to the matching sub-skill, and runs /seo audit as parallel specialist subagents"
+            },
+            {
+              "label": "You get",
+              "text": "one report with an SEO Health Score from 0 to 100 and an action plan sorted Critical, High, Medium, Low"
+            },
+            {
+              "label": "Keeps",
+              "text": "rules such as INP instead of FID, no HowTo schema, and a hard stop at 50+ location pages"
+            },
+            {
+              "label": "Also adds",
+              "text": "a footer promoting the author's Skool communities, AI Marketing Hub Free and Pro, at the end of audits and most other reports; quick checks skip it"
+            },
+            {
+              "label": "Needs",
+              "text": "the Claude SEO plugin; /seo setup creates its Python runtime and headless Chromium"
+            }
+          ],
+          "text": "The entry point of Claude SEO. Typed as /seo <command> <url>, it loads the sub-skill for that command, and for an unknown command it lists them all and suggests the closest. For /seo audit it detects the business type (SaaS, local, e-commerce, publisher or agency), spawns subagents for technical SEO, content, schema, sitemaps, performance, visuals, AI search, agent readiness, search experience and backlinks, and adds local, maps, Google, Matomo, clustering, e-commerce or drift checks when it finds the signals, credentials or a stored baseline. It merges the results into one score weighted by category: content 23%, technical 22%, on-page 20%, schema, performance and AI search 10% each, images 5%. Findings go through a ten-principle framework before they're sorted by priority, and each recommendation is meant to carry the observation it rests on, what it depends on, how you'd know it failed and an early indicator to watch. Questions about Google updates are answered from a bundled ledger of confirmed updates rather than from memory. After any analysis it offers a PDF report. It treats fetched pages as data, never as instructions.",
+          "permalink": "https://github.com/AgriciDaniel/claude-seo/tree/6be93f45064ffbadced572b5d5c95f55fd263af0/skills/seo"
+        },
+        "tags": [
+          "category:marketing",
+          "type:router",
+          "effect:none",
+          "needs:subagents",
+          "needs:claude-code",
+          "by:community",
+          "seo",
+          "marketing",
+          "multi-agent"
+        ],
+        "note": "Appends a footer promoting the author's Skool communities after major reports, and needs the Claude SEO plugin with /seo setup run once."
+      }
+    },
+    {
+      "id": "AgriciDaniel/claude-seo/skills/seo-audit",
+      "name": "seo-audit",
+      "skills.sh": {
+        "url": "https://skills.sh/agricidaniel/claude-seo/seo-audit",
+        "installs": 8700,
+        "weeklyInstalls": [329, 325, 354, 292, 274, 302, 290, 403],
+        "firstSeen": "2026-02-10"
+      },
+      "skillMd": {
+        "version": "6be93f45064ffbadced572b5d5c95f55fd263af0",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Audits a whole website for SEO with parallel subagents, then writes a scored report and a prioritized action plan.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a whole site checked, not one page or one area"
+            },
+            {
+              "label": "It does",
+              "text": "crawls up to 500 internal pages within robots.txt and hands each area to a specialist subagent, or runs them one after another"
+            },
+            {
+              "label": "You get",
+              "text": "a {domain}-audit folder: the full report, an action plan from Critical to Low, per-area findings, screenshots and JSON for a PDF"
+            },
+            {
+              "label": "Score",
+              "text": "an SEO Health Score out of 100: content 23%, technical 22%, on-page 20%, schema, speed and AI search 10% each, images 5%"
+            },
+            {
+              "label": "Unlike",
+              "text": "seo-page, which checks one URL, or seo-technical, which covers the technical layer only"
+            }
+          ],
+          "text": "It renders the homepage first, capturing raw and rendered HTML so JavaScript apps are judged as visitors see them, works out the business type, then crawls. Technical, content, schema, sitemap, performance, visual, AI-search, agent-readiness and search-experience checks always run, with backlinks from Common Crawl data; local SEO, maps, topic clustering, e-commerce and drift (a comparison with a stored baseline) join when the site or its history calls for them. Google Search Console and Analytics, Matomo, Moz, Bing or DataForSEO data is added when their credentials or MCP server are present. Before blaming a traffic change on anything, it lists the confirmed Google updates in that window from a bundled ledger, and treats an overlap as a hypothesis, not proof. Each subagent saves partial findings early, so a long crawl that runs out of turns still reports. It always offers a PDF report with charts, an executive summary and a phased roadmap, built by the plugin's report script.",
+          "permalink": "https://github.com/AgriciDaniel/claude-seo/tree/6be93f45064ffbadced572b5d5c95f55fd263af0/skills/seo-audit"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:local",
+          "needs:subagents",
+          "needs:browser",
+          "needs:claude-code",
+          "by:community",
+          "seo",
+          "marketing",
+          "multi-agent"
+        ]
+      }
+    },
+    {
+      "id": "AgriciDaniel/claude-seo/skills/seo-content",
+      "name": "seo-content",
+      "skills.sh": {
+        "url": "https://skills.sh/agricidaniel/claude-seo/seo-content",
+        "installs": 8400,
+        "weeklyInstalls": [314, 302, 332, 280, 265, 297, 293, 408],
+        "firstSeen": "2026-02-19"
+      },
+      "skillMd": {
+        "version": "6be93f45064ffbadced572b5d5c95f55fd263af0",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Scores a page's content for E-E-A-T, readability, thinness and AI citation readiness, and cleans AI-typical phrasing from your own drafts.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to know whether a page's content deserves to rank or be quoted in AI answers"
+            },
+            {
+              "label": "It does",
+              "text": "runs Google's who, how and why test, then scores E-E-A-T: experience, expertise, authoritativeness and trust, the criteria Google's raters use"
+            },
+            {
+              "label": "You get",
+              "text": "a content quality score out of 100, an E-E-A-T breakdown weighted toward trust, an AI citation readiness score, issues and fixes"
+            },
+            {
+              "label": "Also does",
+              "text": "on request (\"humanize this\", \"remove watermarks\"), strips invisible Unicode characters it calls watermarks from your own drafts and swaps AI-typical phrases, using a plugin script"
+            },
+            {
+              "label": "Unlike",
+              "text": "seo-page, it leaves technical metadata aside and looks only at the content"
+            }
+          ],
+          "text": "It checks word count against floors per page type, such as 500 for a homepage and 1,500 for a blog post, while saying word count isn't a ranking factor, along with readability, keyword use without a density target, heading structure, internal and external links, images and video, and freshness. AI-assisted content is judged by quality markers, not by who wrote it, and it follows Google's line that optimizing for AI search is still SEO: no special AI files or chunking. Its E-E-A-T weights (trust 30, expertise and authoritativeness 25 each, experience 20) are its own model, and reports must say its scores are heuristics, not Google signals. The draft cleanup removes zero-width, directional and hidden tag characters, which it calls watermarks, keeps emoji intact, and makes conservative swaps such as \"delve into\" to \"explore\". It says no tool removes statistical watermarks like SynthID, and declines to strip provenance from content you don't own. With DataForSEO connected, it pulls real keyword volume, difficulty and intent.",
+          "permalink": "https://github.com/AgriciDaniel/claude-seo/tree/6be93f45064ffbadced572b5d5c95f55fd263af0/skills/seo-content"
+        },
+        "tags": [
+          "category:marketing",
+          "category:writing",
+          "type:workflow",
+          "effect:local",
+          "needs:claude-code",
+          "by:community",
+          "seo",
+          "writing",
+          "anti-slop"
+        ]
+      }
+    },
+    {
+      "id": "AgriciDaniel/claude-seo/skills/seo-competitor-pages",
+      "name": "seo-competitor-pages",
+      "skills.sh": {
+        "url": "https://skills.sh/agricidaniel/claude-seo/seo-competitor-pages",
+        "installs": 8200,
+        "weeklyInstalls": [297, 287, 322, 273, 258, 269, 274, 386],
+        "firstSeen": "2026-02-10"
+      },
+      "skillMd": {
+        "version": "6be93f45064ffbadced572b5d5c95f55fd263af0",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Outlines \"X vs Y\", \"alternatives to X\" and roundup pages: structure, feature table, schema markup and target keywords.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want pages that rank for \"[competitor] alternatives\", \"A vs B\" or \"best [category] tools\""
+            },
+            {
+              "label": "It does",
+              "text": "picks one of four page types and lays out the feature matrix, title and H1 patterns, calls to action and social proof"
+            },
+            {
+              "label": "You get",
+              "text": "COMPARISON-PAGE.md with sections and an outline of at least 1,500 words, comparison-schema.json, and a keyword strategy"
+            },
+            {
+              "label": "Holds to",
+              "text": "claims verifiable from public sources, dated prices, your affiliation disclosed, and competitors' strengths acknowledged"
+            }
+          ],
+          "text": "The four page types are head-to-head \"X vs Y\" pages, \"alternatives to X\" lists, \"best [category] tools\" roundups and comparison tables of several products. For each it gives keyword patterns such as \"is A better than B\" or \"A vs B pricing\", title formulas with the year, and where calls to action go: above the fold, after the table and at the end, but not inside competitor descriptions, where they cost trust. Schema comes as Product with AggregateRating, SoftwareApplication or ItemList JSON-LD. Its fairness rules forbid unverifiable or misleading claims about competitors, ask for a source link per competitor data point and \"as of [date]\" on prices, and mark missing data \"Not publicly available\" rather than guessing. It also plans internal links between related comparisons and suggests new comparison pages worth building. Unlike seo-programmatic from the same repo, which plans many pages from one template, it shapes individual comparison pages.",
+          "permalink": "https://github.com/AgriciDaniel/claude-seo/tree/6be93f45064ffbadced572b5d5c95f55fd263af0/skills/seo-competitor-pages"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "seo",
+          "conversion",
+          "marketing"
+        ]
+      }
+    },
+    {
+      "id": "AgriciDaniel/claude-seo/skills/seo-local",
+      "name": "seo-local",
+      "skills.sh": {
+        "url": "https://skills.sh/agricidaniel/claude-seo/seo-local",
+        "installs": 7900,
+        "weeklyInstalls": [256, 277, 283, 291, 315, 349, 373, 440],
+        "firstSeen": "2026-03-23"
+      },
+      "skillMd": {
+        "version": "6be93f45064ffbadced572b5d5c95f55fd263af0",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Audits a local business site's Google Business Profile signals, reviews, NAP consistency, citations and local schema, and scores it out of 100.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a business with a shop, office or service area wants to show up in Google's map pack and local results"
+            },
+            {
+              "label": "It does",
+              "text": "detects brick-and-mortar, service-area or hybrid and the industry, then scores six areas, from Business Profile signals to local links"
+            },
+            {
+              "label": "You get",
+              "text": "LOCAL-SEO-ANALYSIS-{domain}.md with a score, NAP and citation checks, a ready-to-use schema fix and the top 10 actions"
+            },
+            {
+              "label": "NAP means",
+              "text": "the business name, address and phone, compared across the page, its schema and any visible Business Profile data"
+            },
+            {
+              "label": "Unlike",
+              "text": "seo-maps from the same repo, it doesn't track rankings on a geo-grid, and it lists what it couldn't assess"
+            }
+          ],
+          "text": "Weights are Business Profile signals 25%, reviews 20%, local on-page SEO 20%, NAP and citations 15%, schema 10%, and links and authority 10%. Detection decides the checks: a service-area business skips address and map checks, and restaurants, healthcare, legal, home services, real estate and automotive get their own schema types and directories. Location pages face a swap test: if the city name could be swapped and the text still made sense, it's a doorway page. It flags review gating as prohibited, checks Yelp and BBB listings with site: searches, and puts claiming Apple and Bing listings first among its quick wins, saying Bing Places feeds ChatGPT, Copilot and Alexa and ChatGPT doesn't read Google's profiles. Checks come with ranking-factor figures from studies such as Whitespark's. The report ends with the top 10 actions by priority and what it couldn't measure, such as live map pack positions, with the paid tools that could. With DataForSEO connected it pulls live listings and local pack positions.",
+          "permalink": "https://github.com/AgriciDaniel/claude-seo/tree/6be93f45064ffbadced572b5d5c95f55fd263af0/skills/seo-local"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "seo",
+          "marketing"
+        ]
+      }
+    },
+    {
+      "id": "AgriciDaniel/claude-seo/skills/seo-sitemap",
+      "name": "seo-sitemap",
+      "skills.sh": {
+        "url": "https://skills.sh/agricidaniel/claude-seo/seo-sitemap",
+        "installs": 7800,
+        "weeklyInstalls": [233, 256, 240, 238, 234, 257, 269, 347],
+        "firstSeen": "2026-02-10"
+      },
+      "skillMd": {
+        "version": "6be93f45064ffbadced572b5d5c95f55fd263af0",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Validates a site's XML sitemaps against Google's limits and rules, or generates new ones from an industry template.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to check that a sitemap works, or need one for a new or restructured site"
+            },
+            {
+              "label": "It does",
+              "text": "finds sitemaps through robots.txt and common paths, then checks size limits, status codes, lastmod accuracy and stray noindexed, redirected or non-canonical URLs"
+            },
+            {
+              "label": "You get",
+              "text": "VALIDATION-REPORT.md with issues by severity, or sitemap.xml files split under an index, with STRUCTURE.md"
+            },
+            {
+              "label": "Also checks",
+              "text": "image, video and news sitemaps, which have their own caps, such as 1,000 news items per file"
+            }
+          ],
+          "text": "Analysis starts with the plugin's discovery script, which reads every Sitemap: line in robots.txt and still probes common paths, so a sitemap is reported missing only when nothing is found. The checks follow Google's rules: at most 50,000 URLs or 50 MB per file, a lastmod date only when it reflects a real content change, priority and changefreq flagged as ignored, and only canonical, indexable HTTPS URLs that return 200. Generation asks for the business type, loads that industry's template from seo-plan, plans the structure with you and applies its quality gates: a warning at 30 location pages and a hard stop at 50 without justification. It lists which programmatic pages are safe at scale, such as integration, glossary and product pages with real content, and which risk penalties, such as location pages that only swap the city name.",
+          "permalink": "https://github.com/AgriciDaniel/claude-seo/tree/6be93f45064ffbadced572b5d5c95f55fd263af0/skills/seo-sitemap"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:local",
+          "needs:claude-code",
+          "by:community",
+          "seo"
+        ]
+      }
+    },
+    {
+      "id": "AgriciDaniel/claude-seo/skills/seo-technical",
+      "name": "seo-technical",
+      "skills.sh": {
+        "url": "https://skills.sh/agricidaniel/claude-seo/seo-technical",
+        "installs": 7800,
+        "weeklyInstalls": [249, 271, 260, 250, 258, 278, 292, 375],
+        "firstSeen": "2026-02-19"
+      },
+      "skillMd": {
+        "version": "6be93f45064ffbadced572b5d5c95f55fd263af0",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Audits a site's technical SEO across nine areas, from crawlability and indexing to Core Web Vitals and JavaScript rendering.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you suspect Google can't crawl, index or render your pages, or the site is slow"
+            },
+            {
+              "label": "It does",
+              "text": "checks crawlability, indexability, security, URLs, mobile, Core Web Vitals, structured data, JavaScript rendering and IndexNow support"
+            },
+            {
+              "label": "You get",
+              "text": "a technical score out of 100 with pass, warn or fail per area, scoring only what it measured, and fixes by priority"
+            },
+            {
+              "label": "Covers",
+              "text": "which AI crawlers to allow or block in robots.txt, and which bot governs training versus search citations"
+            },
+            {
+              "label": "Unlike",
+              "text": "seo-audit, it leaves content strategy and backlinks out"
+            }
+          ],
+          "text": "Core Web Vitals are judged by LCP, INP and CLS, with INP replacing FID everywhere. To find content hidden from crawlers, it compares the words in the raw HTML with the rendered page, using the plugin's scripts, when Chromium is available. Among the rules it applies: Googlebot reads only the first 2 MB of HTML, rel=next/prev no longer counts, dynamic rendering is technical debt, and canonical and noindex tags must match between raw and rendered HTML. It flags back-button hijacking as a spam-policy violation and, from the normal response only, detects a server stack with a known critical CVE; it asks whether you own the site before requesting other paths and never sends exploit payloads. Agent readiness gets two signals here and is left to seo-agentic. With Google API keys it adds real PageSpeed and Chrome field data and per-URL indexing status; with DataForSEO, Lighthouse and on-page checks. Local or staging hosts are refused unless you list them in an environment variable.",
+          "permalink": "https://github.com/AgriciDaniel/claude-seo/tree/6be93f45064ffbadced572b5d5c95f55fd263af0/skills/seo-technical"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:none",
+          "needs:claude-code",
+          "by:community",
+          "seo",
+          "performance",
+          "security"
+        ]
+      }
+    },
+    {
+      "id": "AgriciDaniel/claude-seo/skills/seo-geo",
+      "name": "seo-geo",
+      "skills.sh": {
+        "url": "https://skills.sh/agricidaniel/claude-seo/seo-geo",
+        "installs": 7800,
+        "weeklyInstalls": [264, 277, 263, 278, 253, 273, 278, 354],
+        "firstSeen": "2026-02-10"
+      },
+      "skillMd": {
+        "version": "6be93f45064ffbadced572b5d5c95f55fd263af0",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Audits how likely AI Overviews, ChatGPT, Perplexity and other answer engines are to cite your pages, and what to change.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want your pages quoted in Google's AI Overviews and AI Mode, ChatGPT, Perplexity or Gemini"
+            },
+            {
+              "label": "It does",
+              "text": "scores citability, structure, multimedia, authority and brand signals, and technical access, and checks each AI crawler in robots.txt"
+            },
+            {
+              "label": "You get",
+              "text": "GEO-ANALYSIS.md: a readiness score, access per crawler, brand presence on Wikipedia, Reddit, YouTube and LinkedIn, and passages to rewrite"
+            },
+            {
+              "label": "GEO means",
+              "text": "generative engine optimization, getting cited in AI answers; it follows Google's line that this is still SEO"
+            },
+            {
+              "label": "Unlike",
+              "text": "seo-technical, which covers AI crawlers briefly and points here for the full table, it scores how quotable the content is and the brand's presence elsewhere"
+            }
+          ],
+          "text": "Its five weighted criteria are citability (25%: self-contained, quotable answer blocks near the top of the page), structural readability (20%), multimedia (15%), authority and brand signals (20%), and technical accessibility (20%: server-side rendering and crawler access). Each claim about access is tied to the right bot: GPTBot is OpenAI's training crawler, while OAI-SearchBot decides ChatGPT Search citations, and the same split holds for ClaudeBot and Claude-SearchBot, Google-Extended and Googlebot, Applebot-Extended and Applebot. llms.txt is reported but carries no weight, since Google says it doesn't help. Platform scores are given only when measured with a tool such as DataForSEO; otherwise readiness is described, not scored. It treats AI Overviews and AI Mode as separate citation engines, notes that brand mentions correlate with AI visibility more than backlinks, and quotes third-party figures only with their source and date. It lists quick wins, such as a definition in the first 60 words, and longer plays like original research or a Wikipedia presence. With DataForSEO it can check what ChatGPT's search actually returns.",
+          "permalink": "https://github.com/AgriciDaniel/claude-seo/tree/6be93f45064ffbadced572b5d5c95f55fd263af0/skills/seo-geo"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:local",
+          "by:community",
+          "seo",
+          "marketing",
+          "needs:claude-code"
+        ]
+      }
+    },
+    {
+      "id": "AgriciDaniel/claude-seo/skills/seo-backlinks",
+      "name": "seo-backlinks",
+      "skills.sh": {
+        "url": "https://skills.sh/agricidaniel/claude-seo/seo-backlinks",
+        "installs": 7700,
+        "weeklyInstalls": [309, 290, 331, 281, 264, 280, 273, 390],
+        "firstSeen": "2026-03-30"
+      },
+      "skillMd": {
+        "version": "6be93f45064ffbadced572b5d5c95f55fd263af0",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Analyzes a site's backlinks, anchor text, toxic links and competitor gaps from free and paid link data, without scoring what it didn't measure.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to know who links to a site, whether any links look toxic, and where competitors get links you don't"
+            },
+            {
+              "label": "It does",
+              "text": "detects which link sources you have set up, then covers profile, anchors, referring domains, toxic links, top pages, gaps and new or lost links"
+            },
+            {
+              "label": "You get",
+              "text": "a backlink health score out of 100 with a source and confidence on every figure, or INSUFFICIENT DATA, plus link-building opportunities"
+            },
+            {
+              "label": "Free data",
+              "text": "Common Crawl domain metrics and a crawler that checks known links still exist; free Moz, Bing Webmaster and Keywords Everywhere keys add more"
+            },
+            {
+              "label": "Premium",
+              "text": "DataForSEO, its only source for new and lost links over time"
+            }
+          ],
+          "text": "Each source carries a confidence weight (DataForSEO 1.0, Moz 0.85, Bing 0.70, Common Crawl 0.50), and a numeric score needs data for at least four of its seven factors. With only Common Crawl it gives no number at all and writes Not Assessed instead; the plugin's validator fails any report that breaks this rule, and the agent must fix and rerun it before showing results. Anchor text is compared with healthy ranges, such as 30-50% branded and 3-10% exact-match keywords, and toxic patterns such as private blog networks, link farms and sitewide paid links are flagged, with disavow recommendations. A mandatory pre-delivery checklist catches false findings, such as a JavaScript-rendered page reported as \"link removed\". /seo backlinks setup explains how to add the free API keys, and it offers a PDF report at the end.",
+          "permalink": "https://github.com/AgriciDaniel/claude-seo/tree/6be93f45064ffbadced572b5d5c95f55fd263af0/skills/seo-backlinks"
+        },
+        "tags": [
+          "category:marketing",
+          "effect:local",
+          "needs:claude-code",
+          "by:community",
+          "seo",
+          "marketing",
+          "type:workflow"
+        ],
+        "note": "With Common Crawl alone it gives no score; free Moz, Bing Webmaster or Keywords Everywhere keys, or DataForSEO, make the profile scoreable."
+      }
+    },
+    {
+      "id": "AgriciDaniel/claude-seo/skills/seo-schema",
+      "name": "seo-schema",
+      "skills.sh": {
+        "url": "https://skills.sh/agricidaniel/claude-seo/seo-schema",
+        "installs": 7600,
+        "weeklyInstalls": [239, 265, 244, 243, 248, 265, 281, 359],
+        "firstSeen": "2026-02-19"
+      },
+      "skillMd": {
+        "version": "6be93f45064ffbadced572b5d5c95f55fd263af0",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Detects, validates and generates Schema.org JSON-LD for a page, and flags structured data types Google has retired.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want rich results, or need to know whether a page's structured data is valid"
+            },
+            {
+              "label": "It does",
+              "text": "finds JSON-LD, Microdata and RDFa, checks required properties and common errors, and writes markup for the page type"
+            },
+            {
+              "label": "You get",
+              "text": "SCHEMA-REPORT.md with a status per block, and generated-schema.json with ready-to-use JSON-LD"
+            },
+            {
+              "label": "Keeps current",
+              "text": "never recommends HowTo or other retired types, and flags existing FAQPage markup only as Info, since Google dropped FAQ rich results"
+            }
+          ],
+          "text": "Detection flags any block without @context or @type, since Google can't attach it to anything. Validation catches invalid types, wrong data types, placeholder text, relative URLs and bad dates. Its status list, checked in October 2026, sorts types into active, no rich results but worth keeping, deprecated with dates (HowTo, SpecialAnnouncement, ClaimReview for search and others), and still supported despite earlier notices, such as Book Actions. Generated markup uses only truthful data, with clear placeholders for you to fill, and review markup refuses fake or undisclosed incentivized reviews. Time-sensitive Product and Offer markup belongs in the server-rendered HTML rather than injected by JavaScript. It recommends JSON-LD as the main format and includes Organization, LocalBusiness and Article templates.",
+          "permalink": "https://github.com/AgriciDaniel/claude-seo/tree/6be93f45064ffbadced572b5d5c95f55fd263af0/skills/seo-schema"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "seo"
+        ]
+      }
+    },
+    {
+      "id": "AgriciDaniel/claude-seo/skills/seo-page",
+      "name": "seo-page",
+      "skills.sh": {
+        "url": "https://skills.sh/agricidaniel/claude-seo/seo-page",
+        "installs": 7500,
+        "weeklyInstalls": [229, 244, 239, 232, 241, 261, 269, 346],
+        "firstSeen": "2026-02-10"
+      },
+      "skillMd": {
+        "version": "6be93f45064ffbadced572b5d5c95f55fd263af0",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Reviews one URL's titles, headings, content, metadata, schema and images, and returns a score card with prioritized fixes.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want one page checked in depth, such as a pricing or landing page"
+            },
+            {
+              "label": "It does",
+              "text": "checks title and description length, headings, links, content quality, canonical and robots tags, social preview tags, schema and images"
+            },
+            {
+              "label": "You get",
+              "text": "an overall score with sub-scores for on-page, content, technical, schema and images, issues by priority, and JSON-LD for missing schema"
+            },
+            {
+              "label": "Unlike",
+              "text": "seo-audit, it stays on one URL"
+            }
+          ],
+          "text": "Beyond length targets (titles of 50-60 characters, descriptions of 150-160), it runs a plugin script that catches templated metadata: a description that opens by repeating its title and closes on a stock call to action, the shape bulk generators leave across a site. Keyword use is judged as natural language, with no density target. Images are checked for alt text, size (a warning over 200 KB, critical over 500 KB), modern formats, dimensions and lazy loading, without faulting JavaScript lazy-loaders that drop the native attribute on purpose. Core Web Vitals can't be measured from HTML, so it only flags likely causes, such as huge hero images or render-blocking resources. With DataForSEO connected it adds live rankings and backlink data.",
+          "permalink": "https://github.com/AgriciDaniel/claude-seo/tree/6be93f45064ffbadced572b5d5c95f55fd263af0/skills/seo-page"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:none",
+          "by:community",
+          "seo",
+          "needs:claude-code"
+        ]
+      }
+    },
+    {
+      "id": "AgriciDaniel/claude-seo/skills/seo-images",
+      "name": "seo-images",
+      "skills.sh": {
+        "url": "https://skills.sh/agricidaniel/claude-seo/seo-images",
+        "installs": 7300,
+        "weeklyInstalls": [231, 246, 235, 228, 230, 246, 257, 335],
+        "firstSeen": "2026-02-19"
+      },
+      "skillMd": {
+        "version": "6be93f45064ffbadced572b5d5c95f55fd263af0",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Audits a page's images for alt text, size, format, dimensions and lazy loading, and converts files to WebP or AVIF with SEO metadata.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "images slow a page down, lack alt text, or don't show up in Google Images"
+            },
+            {
+              "label": "It does",
+              "text": "checks alt text, file size by image role, format, responsive srcset, lazy loading, dimensions, file names and CDN use"
+            },
+            {
+              "label": "You get",
+              "text": "an image audit table, a list sorted by biggest savings and recommendations; /seo images optimize also converts and tags the files"
+            },
+            {
+              "label": "Needs",
+              "text": "exiftool, cwebp, ImageMagick or FFmpeg to optimize files, and DataForSEO to compare with image search results"
+            },
+            {
+              "label": "Also checks",
+              "text": "the IPTC label Google Merchant Center requires on AI-generated product images, and adds it"
+            }
+          ],
+          "text": "Size thresholds depend on the image's role: thumbnails should stay under 50 KB, content images under 100 KB and hero images under 200 KB. It recommends AVIF and WebP with a JPEG fallback in a picture element, fetchpriority=\"high\" on the main hero image and never lazy-loading it, and width and height on every image to stop layout shift. A plugin script tells native lazy loading apart from JavaScript lazy-loaders, so a missing loading=\"lazy\" isn't flagged as a fault. Optimizing converts to WebP or AVIF, makes 400, 800 and 1,200-pixel variants, writes the IPTC and XMP creator, credit and copyright fields Google Images can display, and generates the picture HTML. For AI-generated assets it asks you to confirm the source type and writes the matching DigitalSourceType value. With DataForSEO it compares your images with those in a keyword's search results, when that data exists. It is clear that IPTC fields affect display, not ranking.",
+          "permalink": "https://github.com/AgriciDaniel/claude-seo/tree/6be93f45064ffbadced572b5d5c95f55fd263af0/skills/seo-images"
+        },
+        "tags": [
+          "category:marketing",
+          "category:media",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "seo",
+          "image",
+          "performance",
+          "needs:claude-code"
+        ]
+      }
+    },
+    {
+      "id": "AgriciDaniel/claude-seo/skills/seo-hreflang",
+      "name": "seo-hreflang",
+      "skills.sh": {
+        "url": "https://skills.sh/agricidaniel/claude-seo/seo-hreflang",
+        "installs": 7300,
+        "weeklyInstalls": [231, 241, 223, 236, 235, 250, 278, 336],
+        "firstSeen": "2026-02-10"
+      },
+      "skillMd": {
+        "version": "6be93f45064ffbadced572b5d5c95f55fd263af0",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Validates and generates hreflang tags for multilingual sites, and checks content parity and cultural fit across language versions.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a site serves several languages or countries and the wrong version shows up in search"
+            },
+            {
+              "label": "It does",
+              "text": "checks self-references, return tags, x-default, language and region codes, canonical alignment and protocol consistency"
+            },
+            {
+              "label": "You get",
+              "text": "a validation table per language, corrected hreflang as HTML tags, HTTP headers or a sitemap, and recommendations"
+            },
+            {
+              "label": "Hreflang is",
+              "text": "the tag that tells Google which language or country version of a page to show: a hint, not a directive"
+            },
+            {
+              "label": "Goes further",
+              "text": "scores each language version's cultural adaptation and content parity, and checks its number, date and currency formats"
+            }
+          ],
+          "text": "Common mistakes are ranked by severity: a missing self-referencing or return tag is critical, since Google then ignores the set; codes such as eng, jp, en-uk or es-LA are invalid; hreflang on a non-canonical URL is ignored. It explains when to use HTML link tags, HTTP headers (for PDFs) or an XML sitemap (for large or cross-domain sites), and notes that Search Console's country-targeting setting is gone. Generation detects languages from paths, subdomains, domains and lang attributes, maps equivalent pages and writes the full set for each. Beyond tags, cultural profiles for German-, French- and Spanish-speaking and Japanese markets check calls to action and trust signals, a parity audit compares page existence, structure, metadata and word-count ratios across versions, and locale checks catch formats such as 1,000.00 on a German page. It also flags unreviewed machine translation, which Google treats as scaled content abuse, and notes search features found only in the EEA, Türkiye or South Africa.",
+          "permalink": "https://github.com/AgriciDaniel/claude-seo/tree/6be93f45064ffbadced572b5d5c95f55fd263af0/skills/seo-hreflang"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "seo"
+        ]
+      }
+    },
+    {
+      "id": "AgriciDaniel/claude-seo/skills/seo-plan",
+      "name": "seo-plan",
+      "skills.sh": {
+        "url": "https://skills.sh/agricidaniel/claude-seo/seo-plan",
+        "installs": 7300,
+        "weeklyInstalls": [224, 241, 221, 218, 226, 246, 253, 336],
+        "firstSeen": "2026-02-10"
+      },
+      "skillMd": {
+        "version": "6be93f45064ffbadced572b5d5c95f55fd263af0",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes an SEO strategy for a new or existing site: competitor analysis, site structure, content calendar and a 12-month roadmap.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're starting SEO for a site, or need a plan rather than a list of fixes"
+            },
+            {
+              "label": "It does",
+              "text": "starts from your business, audience, competitors, goals and budget, studies five competitors, then designs structure, content and technical foundations"
+            },
+            {
+              "label": "You get",
+              "text": "SEO-STRATEGY.md, COMPETITOR-ANALYSIS.md, CONTENT-CALENDAR.md, IMPLEMENTATION-ROADMAP.md and SITE-STRUCTURE.md, with KPI targets at 3, 6 and 12 months"
+            },
+            {
+              "label": "Templates",
+              "text": "SaaS, local service, e-commerce, publisher, agency or a generic business"
+            }
+          ],
+          "text": "The roadmap runs in four phases: foundation in weeks 1-4 (technical setup, core pages, essential schema, analytics), expansion in weeks 5-12 (content, a blog, internal links, local SEO), scale in weeks 13-24 (link building, AI search optimization, performance) and authority in months 7-12 (thought leadership, PR, advanced schema). Competitor analysis covers content strategy, schema, technical setup, keyword gaps and E-E-A-T signals (Google's experience, expertise, authoritativeness and trust criteria). Without a URL it plans a new site and skips the gap analysis. With DataForSEO connected it uses real competitor, traffic and keyword data. Its strategy file can seed seo-cluster from the same repo, which imports the plan's keywords into topic clusters.",
+          "permalink": "https://github.com/AgriciDaniel/claude-seo/tree/6be93f45064ffbadced572b5d5c95f55fd263af0/skills/seo-plan"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "seo",
+          "marketing"
+        ]
+      }
+    },
+    {
+      "id": "AgriciDaniel/claude-seo/skills/seo-cluster",
+      "name": "seo-cluster",
+      "skills.sh": {
+        "url": "https://skills.sh/agricidaniel/claude-seo/seo-cluster",
+        "installs": 7300,
+        "weeklyInstalls": [305, 292, 329, 287, 258, 276, 271, 389],
+        "firstSeen": "2026-04-15"
+      },
+      "skillMd": {
+        "version": "6be93f45064ffbadced572b5d5c95f55fd263af0",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Groups keywords by how many Google results they share and designs pillar-and-spoke content clusters with an internal link plan.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you have a seed keyword and want to know which articles to write and how they should link"
+            },
+            {
+              "label": "It does",
+              "text": "expands the seed to 30-50 keywords, searches pairs and counts shared top-10 results: 7+ means one post, 4-6 the same cluster"
+            },
+            {
+              "label": "You get",
+              "text": "cluster-plan.json and cluster-plan.md, an interactive cluster-map.html, and a link matrix giving every post at least three internal links"
+            },
+            {
+              "label": "Then",
+              "text": "/seo cluster execute writes the posts with claude-blog's blog-write skill if installed, or saves one brief per post"
+            },
+            {
+              "label": "Unlike",
+              "text": "grouping by similar wording, it groups keywords the way Google ranks them"
+            }
+          ],
+          "text": "Keywords come from related searches, People Also Ask questions, modifiers such as \"best\" or \"vs\", and question variants; navigational ones such as brand names are dropped. To save searches it pre-groups by intent and only cross-checks boundary pairs. A plan has one pillar page of 2,500-4,000 words and two to five clusters of two to four spoke posts of 1,200-1,800 words, each with a template chosen by intent, such as how-to, comparison or best-of, and no two posts sharing a primary keyword. Spokes and pillar link both ways with keyword anchors. It can import keywords from a seo-plan strategy file instead of a seed. Execution writes the pillar first, then spokes by search volume, fills in links back as posts appear, resumes where it stopped and ends with a scorecard on coverage, link density, orphan pages and keyword overlap. With DataForSEO it uses live search data, checking the cost before each batch and asking you when it needs approval.",
+          "permalink": "https://github.com/AgriciDaniel/claude-seo/tree/6be93f45064ffbadced572b5d5c95f55fd263af0/skills/seo-cluster"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:local",
+          "by:community",
+          "seo",
+          "marketing",
+          "needs:claude-code"
+        ]
+      }
+    },
+    {
+      "id": "AgriciDaniel/claude-seo/skills/seo-programmatic",
+      "name": "seo-programmatic",
+      "skills.sh": {
+        "url": "https://skills.sh/agricidaniel/claude-seo/seo-programmatic",
+        "installs": 7100,
+        "weeklyInstalls": [222, 241, 218, 218, 214, 232, 247, 326],
+        "firstSeen": "2026-02-19"
+      },
+      "skillMd": {
+        "version": "6be93f45064ffbadced572b5d5c95f55fd263af0",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Plans and audits pages generated at scale from data, with quality gates against thin content, templated pages and index bloat.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're building or auditing hundreds of pages from one template, such as location, integration or glossary pages"
+            },
+            {
+              "label": "It does",
+              "text": "assesses the data source, template uniqueness, URL patterns, internal linking, canonicals, sitemaps and noindex rules"
+            },
+            {
+              "label": "You get",
+              "text": "a programmatic SEO score out of 100 across six areas, with issues from critical to backlog"
+            },
+            {
+              "label": "Stops at",
+              "text": "500+ pages without justification or under 30% unique content, until you approve; it warns at 100+ unreviewed pages"
+            }
+          ],
+          "text": "It treats Google's scaled content abuse policy as the main risk. Each page should pass a standalone value test (would it be worth publishing if no similar pages existed?) and have at least 30-40% unique content against every other page in the set, measured on body copy with shared navigation excluded. It recommends human review of 5-10% of generated pages and publishing in batches of 50-100, watching indexing and rankings for 2-4 weeks before expanding. Metadata is checked separately by a plugin script, so a set whose titles and descriptions all share one generated shape fails even when the body copy passes. It lists page types that are safe at scale, such as integration pages with real setup docs or glossary entries of 200+ words, and ones that risk penalties, such as location pages that only swap the city. It also covers hub pages, breadcrumbs, related-item links, canonical rules and keeping noindexed pages out of sitemaps.",
+          "permalink": "https://github.com/AgriciDaniel/claude-seo/tree/6be93f45064ffbadced572b5d5c95f55fd263af0/skills/seo-programmatic"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:none",
+          "by:community",
+          "seo",
+          "marketing",
+          "needs:claude-code"
+        ]
+      }
+    },
+    {
+      "id": "AgriciDaniel/claude-seo/skills/seo-google",
+      "name": "seo-google",
+      "skills.sh": {
+        "url": "https://skills.sh/agricidaniel/claude-seo/seo-google",
+        "installs": 7000,
+        "weeklyInstalls": [248, 248, 239, 242, 234, 237, 257, 335],
+        "firstSeen": "2026-03-28"
+      },
+      "skillMd": {
+        "version": "6be93f45064ffbadced572b5d5c95f55fd263af0",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Pulls Search Console performance, indexing status, Core Web Vitals field data and GA4 organic traffic from Google's APIs for SEO analysis.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want Google's own numbers on your site, such as real users' page speed, index status and search clicks, rather than estimates from a crawl"
+            },
+            {
+              "label": "It does",
+              "text": "runs the plugin's scripts against PageSpeed Insights, CrUX, Search Console, URL Inspection, the Indexing API and GA4, and reports the results"
+            },
+            {
+              "label": "You get",
+              "text": "GOOGLE-API-REPORT-{domain}.md with Core Web Vitals rated Good, Needs Improvement or Poor and data tables, and a PDF with charts on request"
+            },
+            {
+              "label": "Unlocks in tiers",
+              "text": "an API key covers PageSpeed, CrUX, YouTube and NLP; a service account or OAuth adds Search Console and indexing; a GA4 property ID adds traffic; Ads tokens add keywords"
+            },
+            {
+              "label": "Also has",
+              "text": "YouTube search, entity and sentiment analysis, Knowledge Graph and Web Risk checks, and Keyword Planner volumes with a Google Ads account"
+            },
+            {
+              "label": "Unlike",
+              "text": "the bundle's crawl-based audits, it reports what Google itself measured: Chrome users' speed, index status, clicks and organic sessions"
+            }
+          ],
+          "text": "Before each command it checks your credentials and says which tier you're on. PageSpeed runs Lighthouse for mobile and desktop and adds 28 days of CrUX field data, metrics from real Chrome users, at URL level or else for the whole origin; crux-history shows 25 weeks of trend per metric. Search Console gives clicks, impressions, CTR and position for 28 days, flags quick wins at positions 4 to 10 with high impressions, inspects URLs one at a time or in batches of up to 2,000 a day, and lists sitemap status. Submitting URLs to the Indexing API is capped at 200 a day, and it tells you Google officially supports it only for job postings and livestream videos. GA4 reports organic sessions, users and top landing pages. It warns that a Search Console logging error made impressions, CTR and position unreliable from May 2025 to April 2026, that AI Mode traffic can't be split from normal totals, and that GA4's AI Assistants channel undercounts. After any analysis it offers a PDF or HTML report.",
+          "permalink": "https://github.com/AgriciDaniel/claude-seo/tree/6be93f45064ffbadced572b5d5c95f55fd263af0/skills/seo-google"
+        },
+        "tags": [
+          "category:marketing",
+          "type:tool",
+          "effect:remote",
+          "needs:claude-code",
+          "needs:account",
+          "by:community",
+          "stack:google-search-console",
+          "stack:google-analytics",
+          "seo",
+          "performance",
+          "marketing"
+        ],
+        "note": "Needs a Google Cloud project with an API key, plus a service account or OAuth for Search Console and GA4; /seo google setup walks you through it."
+      }
+    },
+    {
+      "id": "AgriciDaniel/claude-seo/skills/seo-maps",
+      "name": "seo-maps",
+      "skills.sh": {
+        "url": "https://skills.sh/agricidaniel/claude-seo/seo-maps",
+        "installs": 6800,
+        "weeklyInstalls": [238, 249, 227, 219, 217, 236, 248, 328],
+        "firstSeen": "2026-03-27"
+      },
+      "skillMd": {
+        "version": "6be93f45064ffbadced572b5d5c95f55fd263af0",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Audits how a local business shows up on Google Maps, Bing, Apple and OpenStreetMap: geo-grid rankings, Business Profile, reviews, competitors and listing consistency.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a local business wants to know where it ranks on the map across its area, and how its profile, listings and reviews compare"
+            },
+            {
+              "label": "It does",
+              "text": "detects which data tier you have, then audits the Business Profile, reviews, nearby competitors and listings on four map platforms"
+            },
+            {
+              "label": "You get",
+              "text": "MAPS-ANALYSIS-{domain}.md with a Maps Health Score out of 100, a geo-grid heatmap, a LocalBusiness JSON-LD block and the top 10 actions"
+            },
+            {
+              "label": "Geo-grid means",
+              "text": "searching Google Maps from 49 points in a 7x7 grid over a 5 km radius and recording your rank at each; it shows the cost and asks first"
+            },
+            {
+              "label": "Tiers",
+              "text": "free: OpenStreetMap and Geoapify; DataForSEO adds geo-grids, live profiles and reviews; a Google Maps key adds place details and photo analysis"
+            },
+            {
+              "label": "Unlike",
+              "text": "seo-local from the same repo, which reads local signals on the website, it looks at the business on the map platforms themselves"
+            }
+          ],
+          "text": "The geo-grid gives SoLV, the share of grid points where the business ranks in the top 3, and each grid is saved as dated JSON so later scans can be compared. The Business Profile audit scores 25 fields, 2 points for present and optimized and 1 for present, with industry weights, normalized to 100; without DataForSEO it reads what the website shows and marks the rest unknown. Review analysis covers how many reviews arrive per month over six months, gaps between them, the rating spread, the owner's response rate and Tripadvisor and Trustpilot, and flags reviews that match two or more fake-review signals, such as same-day bursts or near-identical text. Competitor mapping lists businesses of the same kind within a radius from OpenStreetMap, or the top 20 from Maps results with ratings and competitors per square km. Listing checks compare name, address and phone across Google, Bing, Apple and OpenStreetMap, rating a name mismatch critical. Generated schema leaves out self-serving review markup. The report ends with the credits spent and what the current tier couldn't assess.",
+          "permalink": "https://github.com/AgriciDaniel/claude-seo/tree/6be93f45064ffbadced572b5d5c95f55fd263af0/skills/seo-maps"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:local",
+          "needs:mcp",
+          "needs:account",
+          "by:community",
+          "stack:dataforseo",
+          "seo",
+          "marketing"
+        ],
+        "note": "Geo-grid rank tracking, live Business Profile audits and review analysis need the DataForSEO MCP server, billed per call; without it, a free tier uses OpenStreetMap data."
+      }
+    },
+    {
+      "id": "AgriciDaniel/claude-seo/skills/seo-ecommerce",
+      "name": "seo-ecommerce",
+      "skills.sh": {
+        "url": "https://skills.sh/agricidaniel/claude-seo/seo-ecommerce",
+        "installs": 6800,
+        "weeklyInstalls": [248, 266, 243, 242, 243, 252, 282, 347],
+        "firstSeen": "2026-04-15"
+      },
+      "skillMd": {
+        "version": "6be93f45064ffbadced572b5d5c95f55fd263af0",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Audits product pages and Product schema for e-commerce SEO, and with DataForSEO compares Google Shopping and Amazon prices, sellers and keyword gaps.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you run a store and want product pages, Product schema and Shopping visibility checked; it's only for stores, catalogs or product listings"
+            },
+            {
+              "label": "It does",
+              "text": "renders and parses a product page, scores it against a checklist from titles to images, and checks Product schema against Google's merchant listing rules"
+            },
+            {
+              "label": "You get",
+              "text": "an e-commerce SEO report with an overall score out of 100, a score per area and recommendations marked Critical, High or Medium"
+            },
+            {
+              "label": "With DataForSEO",
+              "text": "price spread, top sellers and listing quality on Google Shopping and Amazon, and keywords where you rank organically but not in Shopping, or the reverse"
+            },
+            {
+              "label": "Guards spend",
+              "text": "runs a cost check before every DataForSEO call, asks you when approval is needed, always for Amazon, stops at the daily budget and logs each cost"
+            },
+            {
+              "label": "Also checks",
+              "text": "a store's Universal Commerce Protocol profile at /.well-known/ucp, the open standard that lets AI agents buy from merchants"
+            }
+          ],
+          "text": "Product pages are weighted schema completeness 25%, images and content 20% each, title and meta 15%, internal linking and technical 10% each. The checklist asks for titles under 60 characters with the brand, meta descriptions under 155 with a price and a call to action, one H1, at least three images with descriptive alt text and file names, breadcrumbs, a unique description of at least 200 words, a specs table and reviews on the page. Product schema needs a name, an image and an Offer with a price above zero, and scores from 50 for those fields to 100 with ratings, product identifiers, shipping, a return policy and three reviews; fake or undisclosed incentivized reviews are ruled out. Price analysis gives the median, quartiles and outliers more than two standard deviations out. Keyword gaps fall into four types, each with an action, such as a Merchant Center feed for keywords that only rank organically. Given a category page or homepage, it runs the store-level checks and asks for a product URL. Pages are fetched and parsed by the Claude SEO plugin's scripts.",
+          "permalink": "https://github.com/AgriciDaniel/claude-seo/tree/6be93f45064ffbadced572b5d5c95f55fd263af0/skills/seo-ecommerce"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:local",
+          "needs:claude-code",
+          "by:community",
+          "seo",
+          "ecommerce",
+          "marketing",
+          "needs:browser",
+          "needs:account",
+          "needs:mcp",
+          "stack:dataforseo"
+        ],
+        "note": "Google Shopping, Amazon and keyword-gap commands need DataForSEO credentials and are billed per call; page and schema checks work without them."
+      }
+    },
+    {
+      "id": "AgriciDaniel/claude-seo/skills/seo-dataforseo",
+      "name": "seo-dataforseo",
+      "skills.sh": {
+        "url": "https://skills.sh/agricidaniel/claude-seo/seo-dataforseo",
+        "installs": 6700,
+        "weeklyInstalls": [223, 215, 212, 223, 213, 237, 254, 323],
+        "firstSeen": "2026-03-27"
+      },
+      "skillMd": {
+        "version": "6be93f45064ffbadced572b5d5c95f55fd263af0",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Fetches live SERPs, keyword volume and difficulty, backlinks, competitor traffic and ChatGPT citations through the DataForSEO MCP server, with a spending guard.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want real search data, such as rankings, search volume, backlinks or the sources ChatGPT cites, instead of estimates"
+            },
+            {
+              "label": "It does",
+              "text": "maps 23 /seo dataforseo commands to DataForSEO's MCP tools with US and English defaults, and reports results in tables marked as live data"
+            },
+            {
+              "label": "Covers",
+              "text": "Google, Bing, Yahoo and YouTube results, keyword ideas, intent and trends, backlinks and spam scores, competitor traffic, on-page Lighthouse, tech stacks and WHOIS"
+            },
+            {
+              "label": "AI visibility",
+              "text": "scrapes which sources ChatGPT's web search cites for a query, and tracks how often LLMs mention a brand, domain or topic"
+            },
+            {
+              "label": "Guards spend",
+              "text": "runs the plugin's cost script before every call: it proceeds, asks you, or stops at your daily budget, then logs what each call cost"
+            },
+            {
+              "label": "Works with",
+              "text": "other Claude SEO skills, such as seo-audit, seo-content and seo-geo, which draw on the same tools when the server is connected"
+            }
+          ],
+          "text": "DataForSEO is a paid API of search data, and this skill gets it through the 79-plus tools of DataForSEO's MCP server. Before any call it checks that the server is connected, and if not, says how to install it. Each command names the tools it calls and their defaults, such as US location, English and the top 100 results for a search. The agent is told to prefer bulk endpoints, not to fetch the same data twice in a session, and to warn you before costly runs such as full backlink crawls or long keyword lists. Image results aren't available on the server version it pins, and it says so rather than calling a tool that doesn't exist. You can review spending by day or over seven days, and set the approval threshold, with /seo dataforseo costs. When a query returns nothing it reports no data rather than guessing, and findings are sorted Critical to Low with scores out of 100 where they apply.",
+          "permalink": "https://github.com/AgriciDaniel/claude-seo/tree/6be93f45064ffbadced572b5d5c95f55fd263af0/skills/seo-dataforseo"
+        },
+        "tags": [
+          "category:marketing",
+          "type:tool",
+          "effect:local",
+          "needs:mcp",
+          "needs:account",
+          "needs:claude-code",
+          "by:community",
+          "stack:dataforseo",
+          "seo",
+          "research",
+          "marketing"
+        ],
+        "note": "Needs a DataForSEO account, billed per API call, and its MCP server, which the plugin's DataForSEO extension installs."
+      }
+    },
+    {
+      "id": "AgriciDaniel/claude-seo/skills/seo-image-gen",
+      "name": "seo-image-gen",
+      "skills.sh": {
+        "url": "https://skills.sh/agricidaniel/claude-seo/seo-image-gen",
+        "installs": 6600,
+        "weeklyInstalls": [215, 216, 214, 217, 209, 232, 241, 327],
+        "firstSeen": "2026-03-27"
+      },
+      "skillMd": {
+        "version": "6be93f45064ffbadced572b5d5c95f55fd263af0",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Generates social previews, blog heroes, product shots and infographics with Gemini through the nanobanana MCP server, then suggests alt text, file names and markup.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a page needs an Open Graph preview, blog hero, product photo, infographic, favicon or Pinterest pin; it's not for general artwork"
+            },
+            {
+              "label": "It does",
+              "text": "picks the aspect ratio, resolution and style for the use case, writes a detailed prompt and generates the image with Gemini"
+            },
+            {
+              "label": "You get",
+              "text": "the saved image, the prompt it sent and its settings, plus suggested alt text, an SEO file name, WebP conversion and ImageObject or og:image markup"
+            },
+            {
+              "label": "Defaults",
+              "text": "16:9 at 1K for social previews, 16:9 at 2K for heroes, 4:3 at 2K for products on white, 2:3 at 4K for infographics"
+            },
+            {
+              "label": "Costs",
+              "text": "shows an estimate before generating, especially for batches of variations, three by default, and logs each generation where the MCP setup allows"
+            },
+            {
+              "label": "Unlike",
+              "text": "seo-images from the same repo, which audits the images a page already has; its findings can drive what this skill makes"
+            },
+            {
+              "label": "Built on",
+              "text": "Claude Banana, the author's standalone image generation skill, with SEO use cases and presets added"
+            }
+          ],
+          "text": "Commands are og, hero, product, infographic, custom and batch. Each use case maps to a style mode, such as Product, Cinema, Editorial, Infographic or Logo, that shapes the prompt, which follows a six-part system from its reference files and describes concretely what the camera sees. It checks the MCP server's tools are there before generating, and if not, says how to install them. Brand presets apply when you have them. The model follows the job: a fast default for social previews, a higher-quality one for heroes and products, a text-capable one for infographics with text, and a draft model at 512 for quick drafts. After each image it walks you through alt text, renaming to keyword-description-widthxheight.webp, converting with ImageMagick, keeping heroes under 200 KB and thumbnails under 100 KB, and the Open Graph tags for social previews. A safety-filter refusal gets a rephrased prompt. During a site audit, a separate agent of the plugin only plans which images to make and never generates them.",
+          "permalink": "https://github.com/AgriciDaniel/claude-seo/tree/6be93f45064ffbadced572b5d5c95f55fd263af0/skills/seo-image-gen"
+        },
+        "tags": [
+          "category:marketing",
+          "category:media",
+          "type:tool",
+          "effect:local",
+          "needs:mcp",
+          "needs:account",
+          "by:community",
+          "stack:gemini",
+          "seo",
+          "image",
+          "ai-generation"
+        ],
+        "note": "Needs the nanobanana MCP server with a Google AI Studio API key, which the repo's banana extension installer sets up; each image costs money."
+      }
+    },
+    {
+      "id": "AgriciDaniel/claude-seo/skills/seo-content-brief",
+      "name": "seo-content-brief",
+      "skills.sh": {
+        "url": "https://skills.sh/agricidaniel/claude-seo/seo-content-brief",
+        "installs": 6500,
+        "weeklyInstalls": [277, 278, 287, 251, 235, 270, 271, 371],
+        "firstSeen": "2026-05-09"
+      },
+      "skillMd": {
+        "version": "6be93f45064ffbadced572b5d5c95f55fd263af0",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes SEO content briefs from the top-ranking competitors: an outline with word counts per section, keyword placement, meta tags and content gaps.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a writer needs to know what a page must cover to outrank the current top results, for a new page or one you already have"
+            },
+            {
+              "label": "It does",
+              "text": "reads your site and sitemap, scores the top 5 real competitors on depth, formatting, SEO and UX, and finds topic, depth and quality gaps"
+            },
+            {
+              "label": "You get",
+              "text": "a brief in a fixed format: intent, competitor table, gaps, an outline with word counts and a keyword per section, meta tags and internal links"
+            },
+            {
+              "label": "Holds to",
+              "text": "only topics your site can credibly deliver, one specific piece of new value no ranking page has, and no fixed keyword density"
+            },
+            {
+              "label": "Also does",
+              "text": "an outline-only version on request, without the competitor table, gaps, new-value and E-E-A-T sections"
+            },
+            {
+              "label": "Unlike",
+              "text": "seo-content from the same repo, which scores a page's content as it stands, it tells a writer what to write or add"
+            }
+          ],
+          "text": "Given a URL, it works in improve mode: it keeps what's strong, marks each section keep, strengthen or add, and avoids recommending a rewrite when targeted changes would win. Given a keyword, it reads the site only for context and briefs a new page. Competitors exclude Wikipedia, Reddit, Amazon, YouTube, directories, SEO tool pages and other non-rivals, and each scores out of 40; gaps are ranked by impact times competitive advantage over effort. It classifies intent as informational, commercial, transactional or navigational, notes which format Google rewards, then applies a template for the page type. Every suggested heading must be something the site can actually deliver, and a hub page's outline covers every category the site has, no more and no less. The primary keyword goes in the title, H1, URL slug, meta description and first 100 words; titles run 50 to 60 characters and descriptions 130 to 150. The brief lists the trust signals the content needs (E-E-A-T: experience, expertise, authoritativeness and trust), names no researchers or tools, and uses DataForSEO or Ahrefs data when their MCP servers are connected.",
+          "permalink": "https://github.com/AgriciDaniel/claude-seo/tree/6be93f45064ffbadced572b5d5c95f55fd263af0/skills/seo-content-brief"
+        },
+        "tags": [
+          "category:marketing",
+          "category:writing",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "seo",
+          "writing",
+          "marketing"
+        ]
+      }
+    },
+    {
+      "id": "AgriciDaniel/claude-seo/skills/seo-drift",
+      "name": "seo-drift",
+      "skills.sh": {
+        "url": "https://skills.sh/agricidaniel/claude-seo/seo-drift",
+        "installs": 6200,
+        "weeklyInstalls": [226, 240, 220, 231, 222, 231, 251, 324],
+        "firstSeen": "2026-04-15"
+      },
+      "skillMd": {
+        "version": "6be93f45064ffbadced572b5d5c95f55fd263af0",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Snapshots a page's SEO elements as a baseline and diffs later states against it, to catch regressions after deploys.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're about to deploy, or traffic dropped, and want to know what changed in a page's SEO"
+            },
+            {
+              "label": "It does",
+              "text": "baseline stores the title, meta tags, canonical, robots, headings, JSON-LD, Open Graph, status code, Core Web Vitals and hashes; compare checks 17 rules against it"
+            },
+            {
+              "label": "You get",
+              "text": "a JSON diff of every triggered rule with old and new values, severity and action, an optional HTML report, and a history per URL"
+            },
+            {
+              "label": "Severities",
+              "text": "Critical for SEO-breaking changes to fix now, Warning to look into within a week, Info for changes that may be intentional"
+            },
+            {
+              "label": "Keeps",
+              "text": "every baseline and comparison in a local SQLite database at ~/.cache/claude-seo/drift/baselines.db"
+            },
+            {
+              "label": "Next step",
+              "text": "points each finding to the skill that goes deeper, such as seo-schema for changed schema or seo-technical for a new noindex"
+            }
+          ],
+          "text": "Its own pitch is Git for SEO. Baseline fetches the page through the plugin's fetch script, which blocks private and internal addresses, parses it, adds Core Web Vitals from PageSpeed Insights unless you skip them or have no key, hashes the HTML and the schema, and saves the snapshot. URLs are normalized first, with UTM parameters, default ports and trailing slashes removed and query parameters sorted, so the same page always matches. Compare loads the latest baseline, or one you name by ID, fetches the page again and classifies each change by severity. A page that returns an error is still captured, since the status code is one of the tracked fields. Typical uses are a baseline before a deploy and a compare after, another compare weeks later for ongoing monitoring, and history to find when something changed during a traffic drop.",
+          "permalink": "https://github.com/AgriciDaniel/claude-seo/tree/6be93f45064ffbadced572b5d5c95f55fd263af0/skills/seo-drift"
+        },
+        "tags": [
+          "category:marketing",
+          "category:debugging",
+          "type:tool",
+          "effect:local",
+          "needs:claude-code",
+          "by:community",
+          "seo",
+          "verification",
+          "observability"
+        ]
+      }
+    },
+    {
+      "id": "AgriciDaniel/claude-seo/skills/seo-sxo",
+      "name": "seo-sxo",
+      "skills.sh": {
+        "url": "https://skills.sh/agricidaniel/claude-seo/seo-sxo",
+        "installs": 6200,
+        "weeklyInstalls": [216, 237, 215, 220, 211, 226, 248, 321],
+        "firstSeen": "2026-04-15"
+      },
+      "skillMd": {
+        "version": "6be93f45064ffbadced572b5d5c95f55fd263af0",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Checks whether a page is the type Google rewards for its keyword, then scores it against personas and user stories drawn from search results.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a page is technically sound but won't rank, and you suspect it's the wrong kind of page for what searchers want"
+            },
+            {
+              "label": "It does",
+              "text": "classifies the top 10 results by page type, finds the dominant one and flags a mismatch with your page, from aligned to critical"
+            },
+            {
+              "label": "You get",
+              "text": "an SXO report: the results landscape, a page-type verdict, 3-5 user stories, an SXO Gap Score out of 100, persona cards and priority actions"
+            },
+            {
+              "label": "SXO means",
+              "text": "search experience optimization: whether a page fits what Google rewards and what the searcher needs, scored apart from the SEO Health Score"
+            },
+            {
+              "label": "Wireframe",
+              "text": "/seo sxo wireframe outlines the page as it is and as it should be, as HTML sections with concrete placeholders"
+            },
+            {
+              "label": "Unlike",
+              "text": "the bundle's technical and content audits, which check a page on its own, it judges the page against what ranks now"
+            }
+          ],
+          "text": "A blog post up against product pages is a critical mismatch, and the advice is a dedicated product page; when no type dominates, it notes room to stand out. Consensus is strong above 60% of results, mixed at 40 to 60% and fragmented below. User stories come from People Also Ask questions, ad copy, related searches, featured snippets and AI Overviews, in the form \"As a…, I want to…, because…, but I'm blocked by…\". The gap score gives page type, content depth, UX signals, schema, media and authority 15 points each and freshness 10. Four to seven personas each get 25 points for relevance, clarity, trust and action, and recommendations start with the weakest persona. If you give no keyword, it takes one from the overlap of the title and H1. The page is rendered and parsed with the plugin's scripts, and results come from web search, or from DataForSEO after a cost estimate you confirm. A limitations section says what it couldn't assess.",
+          "permalink": "https://github.com/AgriciDaniel/claude-seo/tree/6be93f45064ffbadced572b5d5c95f55fd263af0/skills/seo-sxo"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:none",
+          "needs:claude-code",
+          "by:community",
+          "seo",
+          "conversion",
+          "marketing",
+          "needs:browser"
+        ]
+      }
+    },
+    {
+      "id": "AgriciDaniel/claude-seo/skills/seo-flow",
+      "name": "seo-flow",
+      "skills.sh": {
+        "url": "https://skills.sh/agricidaniel/claude-seo/seo-flow",
+        "installs": 5900,
+        "weeklyInstalls": [223, 237, 216, 225, 212, 232, 244, 320],
+        "firstSeen": "2026-04-26"
+      },
+      "skillMd": {
+        "version": "6be93f45064ffbadced572b5d5c95f55fd263af0",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Applies prompts from the FLOW SEO framework to your URL or topic, one stage at a time: find, leverage, optimize, win or local.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want ready-written, structured AI prompts for the SEO task in front of you instead of improvising one"
+            },
+            {
+              "label": "It does",
+              "text": "loads the FLOW overview, then only the prompts for the stage you name, and applies them to your URL or topic"
+            },
+            {
+              "label": "FLOW means",
+              "text": "the loop Find, Leverage, Optimize, Win: keyword research and gaps, backlinks and off-site authority, on-page, technical and content fixes, then bottom-of-funnel conversion"
+            },
+            {
+              "label": "Stages",
+              "text": "find: 5 prompts for keywords and gaps; leverage: 1 for backlinks; optimize: 21, of which it picks 2-3; win: 3 for conversion; local: 11"
+            },
+            {
+              "label": "Prints",
+              "text": "an attribution line for the framework, licensed CC BY 4.0, before every run"
+            },
+            {
+              "label": "Keeps current",
+              "text": "/seo flow sync pulls the latest prompts from the FLOW GitHub repo through the plugin's sync script"
+            }
+          ],
+          "text": "FLOW is an SEO framework by the plugin's author, published separately under CC BY 4.0, and this skill carries its 41 prompts. With no stage named, it shows the stages and asks which fits your situation. For optimize, it picks 2 or 3 of the 21 prompts by your industry (SaaS leans to on-page and technical, local businesses to citations and Business Profile, publishers to E-E-A-T and freshness), by what other Claude SEO skills found earlier in the conversation, and by the kind of URL, and says why it chose them. Local prompts cover Business Profile optimization, title tags, meta descriptions and local audits. Each stage ends by pointing to the skill that goes deeper, such as seo-cluster after find or seo-sxo after win. /seo flow prompts lists every prompt with its stage and when to use it.",
+          "permalink": "https://github.com/AgriciDaniel/claude-seo/tree/6be93f45064ffbadced572b5d5c95f55fd263af0/skills/seo-flow"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:local",
+          "by:community",
+          "seo",
+          "marketing",
+          "needs:claude-code"
         ]
       }
     }
