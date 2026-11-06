@@ -35,11 +35,11 @@ export interface Crawl {
   unqualified: Crawled[];
   /**
    * At the minimums (`MINIMUMS` in ../scripts/data.ts) or above, most installed first: waiting for
-   * an agent to approve or skip them, with the add-skill skill.
+   * an agent to approve or disqualify them, with the add-skill skill.
    */
   qualified: Crawled[];
   /** Not to be shown, each with why, and with no agent data: no tags, no TLDR, no copy of its SKILL.md. */
-  skipped: Skipped[];
+  disqualified: Disqualified[];
 }
 
 export interface Crawled {
@@ -56,7 +56,7 @@ export interface Crawled {
   "skills.sh": SkillsSh;
 }
 
-export interface Skipped {
+export interface Disqualified {
   /** Its skills.sh page. */
   url: string;
   note: string;

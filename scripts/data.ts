@@ -56,8 +56,8 @@ function entryNames(array: unknown[]): string[] {
   const taken = new Set<string>();
   return array.map((entry, i) => {
     const o = (entry ?? {}) as Record<string, any>;
-    // Skills, bundles, repos and facet values have an id, skipped skills a url, crawled skills only
-    // their skills.sh page, facet groups a name, TLDR glance items and install commands a label.
+    // Skills, bundles, repos and facet values have an id, disqualified skills a url, the other
+    // skills of crawl.jsonc only their skills.sh page, facet groups a name, TLDR glance items and install commands a label.
     const id =
       typeof entry === "string"
         ? entry

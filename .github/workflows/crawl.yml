@@ -1,6 +1,6 @@
 # Once a day, crawl skills.sh and GitHub: refresh the numbers and record the skills of the
 # skills.sh top 600 in data/crawl.jsonc, then commit to the default branch and redeploy the site.
-# Approving or skipping the qualified skills is an agent's job, with the add-skill skill.
+# Approving or disqualifying the qualified skills is an agent's job, with the add-skill skill.
 name: Crawl skills.sh
 
 on:

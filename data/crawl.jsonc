@@ -4962,8 +4962,7 @@
       }
     }
   ],
-  // TODO/ai rename prop to "disqualified" ?
-  "skipped": [
+  "disqualified": [
     {
       "url": "https://skills.sh/mattpocock/skills/writing-great-skills",
       "note": "Gone from mattpocock/skills since 2026-07-31."

@@ -147,7 +147,7 @@ for (const bundle of data.bundles) {
 }
 
 // crawl.jsonc: every skill has one state, approved (skills.jsonc), qualified, unqualified or
-// skipped, under its skills.sh page. It's lenient: a skipped skill can be a website's.
+// disqualified, under its skills.sh page. It's lenient: a disqualified skill can be a website's.
 const crawl = readCrawl();
 const states = new Map<string, string>([...approvedPages(data)].map((page) => [page, "approved"]));
 const state = (at: string, url: string, name: string) => {
@@ -170,16 +170,16 @@ for (const [name, list] of [
     const weekly = c["skills.sh"].weeklyInstalls;
     if (weekly && weekly.length !== 8) fail(at, "weeklyInstalls must have 8 weeks");
   }
-for (const { url, note } of crawl.skipped) {
-  const at = `skipped ${url}`;
+for (const { url, note } of crawl.disqualified) {
+  const at = `disqualified ${url}`;
   if (
     !/^https:\/\/skills\.sh\/(site\/)?[^/]+\/[^/]+$|^https:\/\/skills\.sh\/[^/.]+\/[^/]+\/[^/]+$/.test(
       url,
     )
   )
     fail(at, "the url must be a skill's page on skills.sh");
-  state(at, url, "skipped");
-  if (!note) fail(at, "needs a note saying why it's skipped");
+  state(at, url, "disqualified");
+  if (!note) fail(at, "needs a note saying why it's disqualified");
 }
 
 const copies = new Set(data.skills.map(copyPath));
@@ -209,5 +209,5 @@ if (errors.length > 0) {
   process.exit(1);
 }
 console.log(
-  `skills.jsonc is valid: ${data.skills.length} skills, ${data.bundles.length} bundles, ${data.repos.length} repos. crawl.jsonc is too: ${crawl.qualified.length} qualified, ${crawl.unqualified.length} unqualified, ${crawl.skipped.length} skipped.`,
+  `skills.jsonc is valid: ${data.skills.length} skills, ${data.bundles.length} bundles, ${data.repos.length} repos. crawl.jsonc is too: ${crawl.qualified.length} qualified, ${crawl.unqualified.length} unqualified, ${crawl.disqualified.length} disqualified.`,
 );

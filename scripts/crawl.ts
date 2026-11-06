@@ -11,8 +11,8 @@
  *   and every repo the count of its skills in the top 600;
  * - records the other skills of the top 600 in crawl.jsonc, never removing one: a skill on GitHub
  *   is qualified while it reaches the minimums and unqualified while it doesn't, and a website's is
- *   skipped (not on GitHub). A skill that leaves the top
- *   600 keeps its state and its last numbers. An agent approves or skips the qualified skills with the add-skill skill.
+ *   disqualified (not on GitHub). A skill that leaves the top 600 keeps its state and its last
+ *   numbers. An agent approves or disqualifies the qualified skills with the add-skill skill.
  *
  * Run: pnpm run crawl
  */
@@ -174,19 +174,19 @@ data.asOf.installs = today;
 // ------------------------------------------------------------------- the crawl
 
 // Every skill of the top 600 lands in crawl.jsonc, unless it's approved. A skill already there
-// keeps its install command and first-seen date, and a skipped one stays as it is.
+// keeps its install command and first-seen date, and a disqualified one stays as it is.
 const approved = approvedPages(data);
-const skipped = new Set(crawl.skipped.map((s) => pageKey(s.url)));
+const disqualified = new Set(crawl.disqualified.map((s) => pageKey(s.url)));
 const recorded = new Map(
   [...crawl.qualified, ...crawl.unqualified].map((c) => [pageKey(c["skills.sh"].url), c]),
 );
 const added: string[] = [];
 await pool(board, 4, async (e) => {
   const url = pageOf(e);
-  if (approved.has(pageKey(url)) || skipped.has(pageKey(url))) return;
+  if (approved.has(pageKey(url)) || disqualified.has(pageKey(url))) return;
   if (!onGitHub(e)) {
-    crawl.skipped.push({ url, note: `Not on GitHub: skills.sh lists it from ${e.source}.` });
-    added.push(`skipped ${url}`);
+    crawl.disqualified.push({ url, note: `Not on GitHub: skills.sh lists it from ${e.source}.` });
+    added.push(`disqualified ${url}`);
     return;
   }
   let c = recorded.get(pageKey(url));
@@ -274,7 +274,7 @@ writeData(data);
 writeCrawl(crawl);
 
 console.log(
-  `Crawled the skills.sh top ${board.length}: refreshed ${data.skills.length} approved skills (${fromPages} from their own page)${stars.size ? ` and the stars of ${stars.size} repos` : ""}. crawl.jsonc: ${crawl.qualified.length} qualified (${newlyQualified.length} new), ${crawl.unqualified.length} unqualified, ${crawl.skipped.length} skipped.`,
+  `Crawled the skills.sh top ${board.length}: refreshed ${data.skills.length} approved skills (${fromPages} from their own page)${stars.size ? ` and the stars of ${stars.size} repos` : ""}. crawl.jsonc: ${crawl.qualified.length} qualified (${newlyQualified.length} new), ${crawl.unqualified.length} unqualified, ${crawl.disqualified.length} disqualified.`,
 );
 for (const line of added) console.log(`  ${line}`);
 for (const c of newlyQualified) console.log(`  qualified ${c["skills.sh"].url}`);

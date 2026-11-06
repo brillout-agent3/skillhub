@@ -5,7 +5,8 @@
  * differs from the copy, it rewrites the copy, records the commit in the skill's `skillMd` and
  * recomputes `skew`, how far the text has moved from the SKILL.md the skill's TLDR summarizes.
  * When a bundle's skill changes, it recomputes the bundle's skew too. A skill whose SKILL.md is
- * gone from its repo is skipped: it moves to `skipped` in data/crawl.jsonc, without its agent data.
+ * gone from its repo is disqualified: it moves to `disqualified` in data/crawl.jsonc, without its
+ * agent data.
  *
  * Run: pnpm run sync [id prefix...]
  */
@@ -126,12 +127,12 @@ await pool(skills, 8, (skill) =>
   }),
 );
 
-// Skip the skills gone from their repo, and take them out of their bundles.
+// Disqualify the skills gone from their repo, and take them out of their bundles.
 if (gone.length) {
   const crawl = readCrawl();
   const ids = new Set(gone.map((s) => s.id));
   for (const skill of gone) {
-    crawl.skipped.push({
+    crawl.disqualified.push({
       url: skill["skills.sh"].url,
       note: `Gone from ${github(skill).repo} since ${today}.`,
     });
@@ -168,9 +169,9 @@ if (!only.length) {
 writeData(data);
 
 console.log(
-  `Checked ${skills.length} skills: ${changed.size} changed, ${gone.length} gone from their repo and skipped, ${errors.length} failed.`,
+  `Checked ${skills.length} skills: ${changed.size} changed, ${gone.length} gone from their repo and disqualified, ${errors.length} failed.`,
 );
 for (const id of changed) console.log(`  changed ${id}`);
-for (const skill of gone) console.log(`  skipped ${skill.id}: gone from its repo`);
+for (const skill of gone) console.log(`  disqualified ${skill.id}: gone from its repo`);
 for (const e of errors) console.error(`  failed ${e}`);
 if (errors.length) process.exit(1);

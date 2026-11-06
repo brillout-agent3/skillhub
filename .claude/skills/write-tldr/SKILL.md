@@ -15,7 +15,7 @@ Start from an up-to-date checkout of `main`. Then list the skills and bundles wh
 pnpm run tldr 20    # the 20 with the largest skew: skew, id, the copies to read
 ```
 
-The skew is how many words the SKILL.md gained or lost since its TLDR was written, or its whole word count when there's no TLDR yet. Only approved skills, the ones in `data/skills.jsonc`, get a TLDR: skipped ones get no agent data.
+The skew is how many words the SKILL.md gained or lost since its TLDR was written, or its whole word count when there's no TLDR yet. Only approved skills, the ones in `data/skills.jsonc`, get a TLDR: disqualified ones get no agent data.
 
 ## 2. Read
 
