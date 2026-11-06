@@ -312,13 +312,17 @@ const repos = new Set([
   ...seenToday.map((c) => c.repo),
 ]);
 const stars = new Map<string, number>();
+// A repo gone from GitHub is an error for an approved skill or bundle only: a skill of crawl.jsonc
+// whose repo is gone keeps no stars, so it stays unqualified.
+const ours = new Set([...data.skills.map((s) => github(s).repo), ...data.bundles.map(bundleRepo)]);
 if (token) {
   const headers = { authorization: `Bearer ${token}`, accept: "application/vnd.github+json" };
   await pool([...repos], 4, async (repo) => {
     try {
       const json = await get(`https://api.github.com/repos/${repo}`, headers);
-      if (json === null) errors.push(`repo ${repo}: not found on GitHub`);
-      else stars.set(repo, (JSON.parse(json) as { stargazers_count: number }).stargazers_count);
+      if (json === null) {
+        if (ours.has(repo)) errors.push(`repo ${repo}: not found on GitHub`);
+      } else stars.set(repo, (JSON.parse(json) as { stargazers_count: number }).stargazers_count);
     } catch (error) {
       errors.push(`repo ${repo}: ${message(error)}`);
     }

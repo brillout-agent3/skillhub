@@ -48,7 +48,9 @@ jobs:
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit --quiet -m "Sync SKILL.md copies" -m "$(git diff --cached --name-only -- data/skill-snapshots)"
+          # From a file, as a run that changes many copies would list too many for -m.
+          { echo "Sync SKILL.md copies"; echo; git diff --cached --name-only -- data/skill-snapshots | head -n 100; } > "$RUNNER_TEMP/message.txt"
+          git commit --quiet -F "$RUNNER_TEMP/message.txt"
           git pull --rebase --quiet
           git push
           gh workflow run deploy.yml --ref "${{ github.ref_name }}"

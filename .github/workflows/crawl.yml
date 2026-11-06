@@ -55,7 +55,10 @@ jobs:
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit --quiet -m "Crawl skills.sh" -m "$(cat "$RUNNER_TEMP/summary.txt")"
+          # From a file: a run that records many skills has a summary too long for -m. Its first
+          # 100 lines say enough; the run's log has the rest.
+          { echo "Crawl skills.sh"; echo; head -n 100 "$RUNNER_TEMP/summary.txt"; } > "$RUNNER_TEMP/message.txt"
+          git commit --quiet -F "$RUNNER_TEMP/message.txt"
           git pull --rebase --quiet
           git push
           gh workflow run deploy.yml --ref "${{ github.ref_name }}"
