@@ -224,19 +224,6 @@
       }
     },
     {
-      "name": "wecomcli-doc",
-      "repo": "wecomteam/wecom-cli",
-      "official": false,
-      "stars": 3308,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wecomteam/wecom-cli/wecomcli-doc",
-        "installs": 26000,
-        "weeklyInstalls": [800, 833, 506, 300, 336, 816, 779, 982],
-        "firstSeen": "2026-04-02"
-      }
-    },
-    {
       "name": "release-skills",
       "repo": "jimliu/baoyu-skills",
       "official": false,
@@ -260,45 +247,6 @@
         "installs": 25700,
         "weeklyInstalls": [559, 736, 666, 584, 530, 804, 1337, 855],
         "firstSeen": "2026-01-22"
-      }
-    },
-    {
-      "name": "wecomcli-todo",
-      "repo": "wecomteam/wecom-cli",
-      "official": false,
-      "stars": 3308,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wecomteam/wecom-cli/wecomcli-todo",
-        "installs": 25700,
-        "weeklyInstalls": [792, 816, 508, 291, 329, 806, 775, 975],
-        "firstSeen": "2026-04-02"
-      }
-    },
-    {
-      "name": "wecomcli-contact",
-      "repo": "wecomteam/wecom-cli",
-      "official": false,
-      "stars": 3308,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wecomteam/wecom-cli/wecomcli-contact",
-        "installs": 25700,
-        "weeklyInstalls": [783, 806, 500, 291, 328, 806, 771, 976],
-        "firstSeen": "2026-04-02"
-      }
-    },
-    {
-      "name": "wecomcli-meeting",
-      "repo": "wecomteam/wecom-cli",
-      "official": false,
-      "stars": 3308,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wecomteam/wecom-cli/wecomcli-meeting",
-        "installs": 25700,
-        "weeklyInstalls": [792, 819, 506, 295, 329, 808, 773, 976],
-        "firstSeen": "2026-04-02"
       }
     },
     {
@@ -393,19 +341,6 @@
       }
     },
     {
-      "name": "next-cache-components-adoption",
-      "repo": "vercel/next.js",
-      "official": true,
-      "stars": 143367,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/vercel/next.js/next-cache-components-adoption",
-        "installs": 24800,
-        "weeklyInstalls": [1261, 1163, 1138, 1075, 1161, 1664, 1707, 1861],
-        "firstSeen": "2026-06-22"
-      }
-    },
-    {
       "name": "hypit",
       "repo": "hypit-ai/hypit",
       "official": false,
@@ -468,19 +403,6 @@
         "installs": 24300,
         "weeklyInstalls": [797, 776, 834, 894, 988, 937, 864, 622],
         "firstSeen": "2026-01-28"
-      }
-    },
-    {
-      "name": "next-dev-loop",
-      "repo": "vercel/next.js",
-      "official": true,
-      "stars": 143367,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/vercel/next.js/next-dev-loop",
-        "installs": 24300,
-        "weeklyInstalls": [1450, 1436, 1426, 1354, 1250, 1441, 1426, 1336],
-        "firstSeen": "2026-05-22"
       }
     },
     {
@@ -1004,19 +926,6 @@
       }
     },
     {
-      "name": "wecomcli-smartsheet",
-      "repo": "wecomteam/wecom-cli",
-      "official": false,
-      "stars": 3308,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wecomteam/wecom-cli/wecomcli-smartsheet",
-        "installs": 21100,
-        "weeklyInstalls": [790, 815, 505, 293, 331, 812, 779, 975],
-        "firstSeen": "2026-04-29"
-      }
-    },
-    {
       "name": "threat-mitigation-mapping",
       "repo": "wshobson/agents",
       "official": false,
@@ -1196,19 +1105,6 @@
         "installs": 20300,
         "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 9405],
         "firstSeen": null
-      }
-    },
-    {
-      "name": "next-cache-components-optimizer",
-      "repo": "vercel/next.js",
-      "official": true,
-      "stars": 143367,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/vercel/next.js/next-cache-components-optimizer",
-        "installs": 20200,
-        "weeklyInstalls": [1168, 1093, 1012, 933, 1021, 1128, 923, 914],
-        "firstSeen": "2026-05-25"
       }
     },
     {
@@ -2746,19 +2642,6 @@
       }
     },
     {
-      "name": "argent-ios-device-setup",
-      "repo": "software-mansion/argent",
-      "official": true,
-      "stars": 3170,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/software-mansion/argent/argent-ios-device-setup",
-        "installs": 14000,
-        "weeklyInstalls": [1438, 1320, 1469, 1487, 1550, 1613, 1663, 1597],
-        "firstSeen": "2026-09-03"
-      }
-    },
-    {
       "name": "bmad-build-auto",
       "repo": "bmad-code-org/bmad-method",
       "official": false,
@@ -3539,19 +3422,6 @@
       }
     },
     {
-      "name": "wecomcli-sheet",
-      "repo": "wecomteam/wecom-cli",
-      "official": false,
-      "stars": 3308,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wecomteam/wecom-cli/wecomcli-sheet",
-        "installs": 12800,
-        "weeklyInstalls": [788, 819, 500, 295, 328, 809, 787, 984],
-        "firstSeen": "2026-07-02"
-      }
-    },
-    {
       "name": "music",
       "repo": "elevenlabs/skills",
       "official": true,
@@ -3601,19 +3471,6 @@
         "installs": 12700,
         "weeklyInstalls": [972, 957, 749, 517, 662, 655, 590, 436],
         "firstSeen": "2026-07-06"
-      }
-    },
-    {
-      "name": "wecomcli-smartpage",
-      "repo": "wecomteam/wecom-cli",
-      "official": false,
-      "stars": 3308,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wecomteam/wecom-cli/wecomcli-smartpage",
-        "installs": 12700,
-        "weeklyInstalls": [784, 812, 500, 292, 327, 809, 774, 975],
-        "firstSeen": "2026-07-02"
       }
     },
     {
@@ -45441,6 +45298,50 @@
     {
       "url": "https://skills.sh/bmad-code-org/bmad-method/bmod-method",
       "note": "Module record: its SKILL.md is metadata for BMad's setup and says never to invoke it."
+    },
+    {
+      "url": "https://skills.sh/software-mansion/argent/argent-ios-device-setup",
+      "note": "Tool docs: an agent's manual for argent."
+    },
+    {
+      "url": "https://skills.sh/wecomteam/wecom-cli/wecomcli-doc",
+      "note": "In Chinese. Tool docs: an agent's manual for wecom."
+    },
+    {
+      "url": "https://skills.sh/wecomteam/wecom-cli/wecomcli-todo",
+      "note": "In Chinese. Tool docs: an agent's manual for wecom."
+    },
+    {
+      "url": "https://skills.sh/wecomteam/wecom-cli/wecomcli-contact",
+      "note": "In Chinese. Tool docs: an agent's manual for wecom."
+    },
+    {
+      "url": "https://skills.sh/wecomteam/wecom-cli/wecomcli-meeting",
+      "note": "In Chinese. Tool docs: an agent's manual for wecom."
+    },
+    {
+      "url": "https://skills.sh/wecomteam/wecom-cli/wecomcli-smartsheet",
+      "note": "In Chinese. Tool docs: an agent's manual for wecom."
+    },
+    {
+      "url": "https://skills.sh/wecomteam/wecom-cli/wecomcli-sheet",
+      "note": "In Chinese. Tool docs: an agent's manual for wecom."
+    },
+    {
+      "url": "https://skills.sh/wecomteam/wecom-cli/wecomcli-smartpage",
+      "note": "In Chinese. Tool docs: an agent's manual for wecom."
+    },
+    {
+      "url": "https://skills.sh/vercel/next.js/next-cache-components-adoption",
+      "note": "Tool docs: an agent's manual for nextjs."
+    },
+    {
+      "url": "https://skills.sh/vercel/next.js/next-dev-loop",
+      "note": "Tool docs: an agent's manual for nextjs."
+    },
+    {
+      "url": "https://skills.sh/vercel/next.js/next-cache-components-optimizer",
+      "note": "Tool docs: an agent's manual for nextjs."
     }
   ]
 }
