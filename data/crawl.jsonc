@@ -68,19 +68,6 @@
       }
     },
     {
-      "name": "storing-and-querying-vectors",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3418,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/storing-and-querying-vectors",
-        "installs": 7000,
-        "weeklyInstalls": [270, 251, 266, 224, 208, 256, 249, 215],
-        "firstSeen": "2026-05-06"
-      }
-    },
-    {
       "name": "baoyu-design",
       "repo": "jimliu/baoyu-design",
       "official": false,
@@ -143,19 +130,6 @@
         "installs": 6900,
         "weeklyInstalls": [374, 355, 245, 243, 317, 530, 488, 579],
         "firstSeen": "2026-05-19"
-      }
-    },
-    {
-      "name": "connecting-lambda-to-api-gateway",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3418,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/connecting-lambda-to-api-gateway",
-        "installs": 6900,
-        "weeklyInstalls": [273, 268, 290, 229, 216, 267, 253, 218],
-        "firstSeen": "2026-05-07"
       }
     },
     {
@@ -237,19 +211,6 @@
       }
     },
     {
-      "name": "aws-sdk-swift-usage",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3418,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/aws-sdk-swift-usage",
-        "installs": 6900,
-        "weeklyInstalls": [278, 252, 275, 231, 218, 268, 262, 226],
-        "firstSeen": "2026-05-06"
-      }
-    },
-    {
       "name": "pixijs-scene-graphics",
       "repo": "pixijs/pixijs-skills",
       "official": false,
@@ -260,19 +221,6 @@
         "installs": 6900,
         "weeklyInstalls": [227, 182, 204, 198, 208, 341, 452, 402],
         "firstSeen": "2026-04-15"
-      }
-    },
-    {
-      "name": "ingesting-into-data-lake",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3418,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/ingesting-into-data-lake",
-        "installs": 6900,
-        "weeklyInstalls": [270, 250, 269, 224, 206, 254, 246, 214],
-        "firstSeen": "2026-05-06"
       }
     },
     {
@@ -315,19 +263,6 @@
       }
     },
     {
-      "name": "aws-amplify",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3418,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/aws-amplify",
-        "installs": 6900,
-        "weeklyInstalls": [275, 280, 294, 232, 212, 264, 245, 212],
-        "firstSeen": "2026-05-06"
-      }
-    },
-    {
       "name": "asc-workflow",
       "repo": "rorkai/app-store-connect-cli-skills",
       "official": false,
@@ -338,32 +273,6 @@
         "installs": 6900,
         "weeklyInstalls": [120, 117, 75, 93, 157, 134, 99, 112],
         "firstSeen": "2026-02-18"
-      }
-    },
-    {
-      "name": "creating-data-lake-table",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3418,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/creating-data-lake-table",
-        "installs": 6900,
-        "weeklyInstalls": [271, 253, 268, 224, 205, 256, 244, 216],
-        "firstSeen": "2026-05-06"
-      }
-    },
-    {
-      "name": "finding-data-lake-assets",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3418,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/finding-data-lake-assets",
-        "installs": 6900,
-        "weeklyInstalls": [270, 253, 268, 227, 204, 254, 244, 212],
-        "firstSeen": "2026-05-06"
       }
     },
     {
@@ -575,19 +484,6 @@
       }
     },
     {
-      "name": "connecting-lambda-to-dynamodb",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3418,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/connecting-lambda-to-dynamodb",
-        "installs": 6800,
-        "weeklyInstalls": [272, 269, 292, 229, 212, 265, 257, 215],
-        "firstSeen": "2026-05-07"
-      }
-    },
-    {
       "name": "n8n-expression-syntax",
       "repo": "czlonkowski/n8n-skills",
       "official": false,
@@ -598,19 +494,6 @@
         "installs": 6800,
         "weeklyInstalls": [143, 133, 118, 131, 112, 140, 156, 147],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "troubleshooting-application-failures",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3418,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/troubleshooting-application-failures",
-        "installs": 6800,
-        "weeklyInstalls": [275, 253, 276, 231, 212, 259, 269, 228],
-        "firstSeen": "2026-05-07"
       }
     },
     {
@@ -796,19 +679,6 @@
       }
     },
     {
-      "name": "configuring-vpc-endpoints-for-private-aws-service-access",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3418,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/configuring-vpc-endpoints-for-private-aws-service-access",
-        "installs": 6800,
-        "weeklyInstalls": [273, 266, 286, 228, 212, 259, 250, 213],
-        "firstSeen": "2026-05-06"
-      }
-    },
-    {
       "name": "pixijs-scene-text",
       "repo": "pixijs/pixijs-skills",
       "official": false,
@@ -858,19 +728,6 @@
         "installs": 6800,
         "weeklyInstalls": [225, 177, 201, 194, 204, 331, 446, 401],
         "firstSeen": "2026-04-15"
-      }
-    },
-    {
-      "name": "debugging-lambda-timeouts",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3418,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/debugging-lambda-timeouts",
-        "installs": 6700,
-        "weeklyInstalls": [271, 259, 285, 232, 216, 265, 250, 212],
-        "firstSeen": "2026-05-07"
       }
     },
     {
@@ -939,19 +796,6 @@
       }
     },
     {
-      "name": "setting-up-cloudwatch-alarm-notifications",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3418,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/setting-up-cloudwatch-alarm-notifications",
-        "installs": 6700,
-        "weeklyInstalls": [271, 254, 281, 227, 212, 257, 245, 218],
-        "firstSeen": "2026-05-06"
-      }
-    },
-    {
       "name": "google-ads-api-account-diagnostics",
       "repo": "google/skills",
       "official": true,
@@ -991,19 +835,6 @@
       }
     },
     {
-      "name": "launching-ec2-instance-with-best-practices",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3418,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/launching-ec2-instance-with-best-practices",
-        "installs": 6700,
-        "weeklyInstalls": [269, 257, 286, 233, 215, 260, 245, 213],
-        "firstSeen": "2026-05-07"
-      }
-    },
-    {
       "name": "pixijs-custom-rendering",
       "repo": "pixijs/pixijs-skills",
       "official": false,
@@ -1040,19 +871,6 @@
         "installs": 6700,
         "weeklyInstalls": [182, 156, 139, 202, 231, 372, 296, 264],
         "firstSeen": "2026-03-11"
-      }
-    },
-    {
-      "name": "troubleshooting-s3-files",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3418,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/troubleshooting-s3-files",
-        "installs": 6700,
-        "weeklyInstalls": [270, 249, 263, 225, 207, 261, 242, 207],
-        "firstSeen": "2026-05-06"
       }
     },
     {
@@ -1118,19 +936,6 @@
         "installs": 6600,
         "weeklyInstalls": [336, 306, 212, 188, 293, 487, 544, 655],
         "firstSeen": "2026-05-19"
-      }
-    },
-    {
-      "name": "creating-api-gateway-stage",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3418,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/creating-api-gateway-stage",
-        "installs": 6600,
-        "weeklyInstalls": [269, 261, 274, 228, 208, 255, 248, 209],
-        "firstSeen": "2026-05-07"
       }
     },
     {
@@ -1368,19 +1173,6 @@
       }
     },
     {
-      "name": "setting-up-ec2-instance-profiles",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3418,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/setting-up-ec2-instance-profiles",
-        "installs": 6600,
-        "weeklyInstalls": [262, 248, 276, 226, 213, 260, 246, 209],
-        "firstSeen": "2026-05-07"
-      }
-    },
-    {
       "name": "refactor-module",
       "repo": "hashicorp/agent-skills",
       "official": true,
@@ -1417,19 +1209,6 @@
         "installs": 6500,
         "weeklyInstalls": [125, 111, 98, 95, 76, 124, 92, 63],
         "firstSeen": "2026-06-30"
-      }
-    },
-    {
-      "name": "creating-production-vpc-multi-az",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3418,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/creating-production-vpc-multi-az",
-        "installs": 6500,
-        "weeklyInstalls": [264, 263, 276, 226, 209, 257, 246, 206],
-        "firstSeen": "2026-05-07"
       }
     },
     {
@@ -1537,19 +1316,6 @@
       }
     },
     {
-      "name": "signing-in-to-aws",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3418,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/signing-in-to-aws",
-        "installs": 6500,
-        "weeklyInstalls": [300, 293, 299, 250, 243, 285, 282, 236],
-        "firstSeen": "2026-06-16"
-      }
-    },
-    {
       "name": "claude-delegate",
       "repo": "amelnagdy/delegate-skills",
       "official": false,
@@ -1602,19 +1368,6 @@
       }
     },
     {
-      "name": "aws-transform",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3418,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/aws-transform",
-        "installs": 6500,
-        "weeklyInstalls": [266, 255, 276, 223, 203, 254, 241, 208],
-        "firstSeen": "2026-05-07"
-      }
-    },
-    {
       "name": "roblox-ui",
       "repo": "gamedev-skills/awesome-gamedev-agent-skills",
       "official": false,
@@ -1664,19 +1417,6 @@
         "installs": 6400,
         "weeklyInstalls": [340, 320, 208, 217, 298, 474, 478, 539],
         "firstSeen": "2026-05-19"
-      }
-    },
-    {
-      "name": "connecting-vpcs-with-peering",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3418,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/connecting-vpcs-with-peering",
-        "installs": 6400,
-        "weeklyInstalls": [263, 252, 275, 223, 207, 253, 241, 210],
-        "firstSeen": "2026-05-07"
       }
     },
     {
@@ -29488,6 +29228,86 @@
     {
       "url": "https://skills.sh/affaan-m/ecc/springboot-patterns",
       "note": "Tool docs: an agent's manual for spring-boot and java."
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/storing-and-querying-vectors",
+      "note": "Tool docs: an agent's manual for aws."
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/connecting-lambda-to-api-gateway",
+      "note": "Tool docs: an agent's manual for aws."
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/aws-sdk-swift-usage",
+      "note": "Tool docs: an agent's manual for aws."
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/ingesting-into-data-lake",
+      "note": "Tool docs: an agent's manual for aws."
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/aws-amplify",
+      "note": "Tool docs: an agent's manual for aws."
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/creating-data-lake-table",
+      "note": "Tool docs: an agent's manual for aws."
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/finding-data-lake-assets",
+      "note": "Tool docs: an agent's manual for aws."
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/connecting-lambda-to-dynamodb",
+      "note": "Tool docs: an agent's manual for aws."
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/troubleshooting-application-failures",
+      "note": "Tool docs: an agent's manual for aws."
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/configuring-vpc-endpoints-for-private-aws-service-access",
+      "note": "Tool docs: an agent's manual for aws."
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/debugging-lambda-timeouts",
+      "note": "Tool docs: an agent's manual for aws."
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/setting-up-cloudwatch-alarm-notifications",
+      "note": "Tool docs: an agent's manual for aws."
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/launching-ec2-instance-with-best-practices",
+      "note": "Tool docs: an agent's manual for aws."
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/troubleshooting-s3-files",
+      "note": "Tool docs: an agent's manual for aws."
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/creating-api-gateway-stage",
+      "note": "Tool docs: an agent's manual for aws."
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/setting-up-ec2-instance-profiles",
+      "note": "Tool docs: an agent's manual for aws."
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/creating-production-vpc-multi-az",
+      "note": "Tool docs: an agent's manual for aws."
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/signing-in-to-aws",
+      "note": "Tool docs: an agent's manual for aws."
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/aws-transform",
+      "note": "Tool docs: an agent's manual for aws."
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/connecting-vpcs-with-peering",
+      "note": "Tool docs: an agent's manual for aws."
     }
   ]
 }
