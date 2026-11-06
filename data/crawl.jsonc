@@ -29,19 +29,6 @@
       }
     },
     {
-      "name": "figma-implement-design",
-      "repo": "openai/skills",
-      "official": true,
-      "stars": 28550,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/openai/skills/figma-implement-design",
-        "installs": 6900,
-        "weeklyInstalls": [204, 202, 179, 237, 134, 145, 143, 148],
-        "firstSeen": "2026-02-01"
-      }
-    },
-    {
       "name": "architecture",
       "repo": "anthropics/knowledge-work-plugins",
       "official": true,
@@ -104,19 +91,6 @@
         "installs": 6800,
         "weeklyInstalls": [406, 373, 436, 528, 614, 548, 565, 601],
         "firstSeen": "2026-06-17"
-      }
-    },
-    {
-      "name": "clickhouse-managed-postgres-rca",
-      "repo": "clickhouse/agent-skills",
-      "official": true,
-      "stars": 564,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/clickhouse/agent-skills/clickhouse-managed-postgres-rca",
-        "installs": 6700,
-        "weeklyInstalls": [124, 109, 97, 94, 76, 122, 81, 53],
-        "firstSeen": "2026-06-08"
       }
     },
     {
@@ -276,19 +250,6 @@
       }
     },
     {
-      "name": "asc-aso-audit",
-      "repo": "rorkai/app-store-connect-cli-skills",
-      "official": false,
-      "stars": 1125,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/rorkai/app-store-connect-cli-skills/asc-aso-audit",
-        "installs": 6300,
-        "weeklyInstalls": [153, 105, 79, 104, 121, 119, 95, 108],
-        "firstSeen": "2026-03-14"
-      }
-    },
-    {
       "name": "why",
       "repo": "cursor/plugins",
       "official": false,
@@ -299,19 +260,6 @@
         "installs": 6300,
         "weeklyInstalls": [364, 400, 459, 548, 533, 604, 492, 383],
         "firstSeen": "2026-05-24"
-      }
-    },
-    {
-      "name": "screenshot",
-      "repo": "openai/skills",
-      "official": true,
-      "stars": 28550,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/openai/skills/screenshot",
-        "installs": 6300,
-        "weeklyInstalls": [181, 165, 142, 210, 100, 105, 108, 110],
-        "firstSeen": "2026-01-28"
       }
     },
     {
@@ -442,19 +390,6 @@
         "installs": 6100,
         "weeklyInstalls": [717, 476, 479, 522, 295, 556, 704, 189],
         "firstSeen": "2026-06-13"
-      }
-    },
-    {
-      "name": "imagegen",
-      "repo": "openai/skills",
-      "official": true,
-      "stars": 28550,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/openai/skills/imagegen",
-        "installs": 6100,
-        "weeklyInstalls": [203, 211, 212, 282, 187, 205, 222, 226],
-        "firstSeen": "2026-01-28"
       }
     },
     {
@@ -614,19 +549,6 @@
       }
     },
     {
-      "name": "eval-engineering",
-      "repo": "langchain-ai/langchain-skills",
-      "official": false,
-      "stars": 1324,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/langchain-ai/langchain-skills/eval-engineering",
-        "installs": 6000,
-        "weeklyInstalls": [487, 520, 487, 430, 389, 392, 358, 372],
-        "firstSeen": "2026-07-22"
-      }
-    },
-    {
       "name": "browser",
       "repo": "browserbase/skills",
       "official": false,
@@ -637,19 +559,6 @@
         "installs": 5900,
         "weeklyInstalls": [48, 53, 58, 40, 41, 49, 61, 61],
         "firstSeen": "2026-01-22"
-      }
-    },
-    {
-      "name": "knowledge-agent",
-      "repo": "thedotmack/claude-mem",
-      "official": false,
-      "stars": 113905,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/thedotmack/claude-mem/knowledge-agent",
-        "installs": 5900,
-        "weeklyInstalls": [126, 101, 95, 92, 94, 122, 113, 135],
-        "firstSeen": "2026-04-09"
       }
     },
     {
@@ -744,19 +653,6 @@
       }
     },
     {
-      "name": "asc-whats-new-writer",
-      "repo": "rorkai/app-store-connect-cli-skills",
-      "official": false,
-      "stars": 1125,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/rorkai/app-store-connect-cli-skills/asc-whats-new-writer",
-        "installs": 5900,
-        "weeklyInstalls": [108, 78, 61, 89, 97, 114, 90, 96],
-        "firstSeen": "2026-03-14"
-      }
-    },
-    {
       "name": "orca-emulator-android",
       "repo": "stablyai/orca",
       "official": true,
@@ -780,19 +676,6 @@
         "installs": 5800,
         "weeklyInstalls": [264, 230, 178, 151, 176, 176, 248, 189],
         "firstSeen": "2026-05-12"
-      }
-    },
-    {
-      "name": "jupyter-notebook",
-      "repo": "openai/skills",
-      "official": true,
-      "stars": 28550,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/openai/skills/jupyter-notebook",
-        "installs": 5800,
-        "weeklyInstalls": [214, 203, 179, 228, 156, 149, 131, 143],
-        "firstSeen": "2026-02-01"
       }
     },
     {
@@ -1030,19 +913,6 @@
       }
     },
     {
-      "name": "playwright-interactive",
-      "repo": "openai/skills",
-      "official": true,
-      "stars": 28550,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/openai/skills/playwright-interactive",
-        "installs": 5600,
-        "weeklyInstalls": [193, 181, 149, 199, 98, 112, 101, 121],
-        "firstSeen": "2026-03-05"
-      }
-    },
-    {
       "name": "uncodixfy",
       "repo": "cyxzdev/uncodixfy",
       "official": false,
@@ -1092,19 +962,6 @@
         "installs": 5600,
         "weeklyInstalls": [224, 297, 236, 269, 315, 343, 457, 475],
         "firstSeen": "2026-05-04"
-      }
-    },
-    {
-      "name": "learn-codebase",
-      "repo": "thedotmack/claude-mem",
-      "official": false,
-      "stars": 113905,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/thedotmack/claude-mem/learn-codebase",
-        "installs": 5600,
-        "weeklyInstalls": [133, 114, 98, 94, 95, 140, 119, 137],
-        "firstSeen": "2026-05-02"
       }
     },
     {
@@ -1498,19 +1355,6 @@
       }
     },
     {
-      "name": "pathfinder",
-      "repo": "thedotmack/claude-mem",
-      "official": false,
-      "stars": 113905,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/thedotmack/claude-mem/pathfinder",
-        "installs": 5400,
-        "weeklyInstalls": [123, 99, 93, 88, 93, 124, 110, 131],
-        "firstSeen": "2026-04-25"
-      }
-    },
-    {
       "name": "design-flow",
       "repo": "julianoczkowski/designer-skills",
       "official": false,
@@ -1784,19 +1628,6 @@
       }
     },
     {
-      "name": "babysit",
-      "repo": "thedotmack/claude-mem",
-      "official": false,
-      "stars": 113905,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/thedotmack/claude-mem/babysit",
-        "installs": 5200,
-        "weeklyInstalls": [164, 109, 100, 98, 109, 127, 121, 150],
-        "firstSeen": "2026-05-06"
-      }
-    },
-    {
       "name": "principle-type-system-discipline",
       "repo": "cursor/plugins",
       "official": false,
@@ -1862,19 +1693,6 @@
       }
     },
     {
-      "name": "test-anti-patterns",
-      "repo": "dotnet/skills",
-      "official": true,
-      "stars": 5845,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/dotnet/skills/test-anti-patterns",
-        "installs": 5100,
-        "weeklyInstalls": [302, 269, 312, 292, 315, 371, 367, 439],
-        "firstSeen": "2026-03-24"
-      }
-    },
-    {
       "name": "check-understanding",
       "repo": "rohitg00/ai-engineering-from-scratch",
       "official": false,
@@ -1924,19 +1742,6 @@
         "installs": 5100,
         "weeklyInstalls": [254, 195, 275, 451, 385, 310, 326, 354],
         "firstSeen": "2026-05-23"
-      }
-    },
-    {
-      "name": "skill-creator",
-      "repo": "openai/skills",
-      "official": true,
-      "stars": 28550,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/openai/skills/skill-creator",
-        "installs": 5100,
-        "weeklyInstalls": [240, 194, 190, 235, 130, 136, 110, 123],
-        "firstSeen": "2026-01-20"
       }
     },
     {
@@ -2067,19 +1872,6 @@
         "installs": 5000,
         "weeklyInstalls": [12, 42, 165, 374, 531, 668, 726, 584],
         "firstSeen": "2026-04-13"
-      }
-    },
-    {
-      "name": "gh-address-comments",
-      "repo": "openai/skills",
-      "official": true,
-      "stars": 28550,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/openai/skills/gh-address-comments",
-        "installs": 5000,
-        "weeklyInstalls": [189, 188, 151, 238, 212, 209, 144, 145],
-        "firstSeen": "2026-01-20"
       }
     },
     {

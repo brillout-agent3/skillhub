@@ -2790,6 +2790,39 @@
         "kind": "skills",
         "description": "A skill for designing mobile app interfaces on principles from apps such as Airbnb, Duolingo and Spotify."
       }
+    },
+    {
+      "id": "rorkai/app-store-connect-cli-skills",
+      "stars": 1125,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Agent Skills for shipping apps with the asc App Store Connect CLI: builds, TestFlight, metadata, submissions, signing and Apple Ads.",
+        "note": "Community-maintained and not affiliated with Apple; it comes from the makers of the asc CLI."
+      }
+    },
+    {
+      "id": "langchain-ai/langchain-skills",
+      "stars": 1324,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Agent skills for building agents with LangChain, LangGraph, and Deep Agents."
+      }
+    },
+    {
+      "id": "dotnet/skills",
+      "stars": 5845,
+      "agentReview": {
+        "kind": "skills",
+        "description": "The .NET team's curated set of portable skills and host-specific custom agents for coding agents."
+      }
+    },
+    {
+      "id": "clickhouse/agent-skills",
+      "stars": 564,
+      "agentReview": {
+        "kind": "skills",
+        "description": "The official Agent Skills for ClickHouse and chdb, for open-source ClickHouse and ClickHouse Cloud."
+      }
     }
   ],
   "bundles": [
@@ -68095,6 +68128,927 @@
           "social-media",
           "copywriting"
         ]
+      }
+    },
+    {
+      "id": "openai/skills/skills/.curated/figma-implement-design",
+      "name": "figma-implement-design",
+      "skills.sh": {
+        "url": "https://skills.sh/openai/skills/figma-implement-design",
+        "installs": 6900,
+        "weeklyInstalls": [204, 202, 179, 237, 134, 145, 143, 148],
+        "firstSeen": "2026-02-01"
+      },
+      "skillMd": {
+        "version": "49f948faa9258a0c61caceaf225e179651397431",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Turns a Figma frame or component into code built from your project's components and tokens, checked against a Figma screenshot for 1:1 parity.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you have a link to a Figma frame or component and want it built in your codebase to match the design"
+            },
+            {
+              "label": "It does",
+              "text": "fetches the node's design context, a screenshot and its assets through the Figma MCP server, then rewrites Figma's React and Tailwind output in your project's conventions"
+            },
+            {
+              "label": "You get",
+              "text": "components that reuse or extend your existing ones and use your tokens, validated against the screenshot for layout, type, color, states, responsiveness, assets and accessibility"
+            },
+            {
+              "label": "When they conflict",
+              "text": "your design-system tokens win over raw Figma values, with spacing or sizes adjusted minimally to keep the look, and deviations explained in code comments"
+            },
+            {
+              "label": "Not for",
+              "text": "editing the Figma file itself, building screens in Figma or writing Code Connect mappings: it sends those to the repo's other Figma skills"
+            }
+          ],
+          "text": "A design-to-code workflow from OpenAI's catalog of Codex skills, built on the Figma MCP server. From a Figma URL the agent extracts the file key and node ID; with the figma-desktop server it uses the node selected in the open file instead. It fetches the node's structured design context (layout, typography, colors, tokens, variants, spacing), falling back to a metadata map and child-by-child fetches when the response is too large, then a screenshot that stays the source of truth throughout. Images and SVGs come from the server's localhost asset endpoint: no new icon packages, no placeholders. Figma's output, usually React with Tailwind, is treated as a description of design and behavior, not as code to keep: the agent reuses your existing components, extending one rather than duplicating it, maps Figma values to your color, type and spacing tokens, and follows your routing, state and data-fetching patterns. New components get typed props and JSDoc comments. Before finishing it validates against the screenshot, including hover, active and disabled states, responsive constraints and WCAG accessibility. The openai/skills repository is marked deprecated; its README points to openai/plugins for current Codex skills.",
+          "permalink": "https://github.com/openai/skills/tree/49f948faa9258a0c61caceaf225e179651397431/skills/.curated/figma-implement-design"
+        },
+        "tags": [
+          "category:design",
+          "category:engineering",
+          "type:workflow",
+          "effect:local",
+          "needs:mcp",
+          "needs:account",
+          "by:official",
+          "stack:figma",
+          "implementation",
+          "design-system",
+          "verification"
+        ],
+        "note": "Needs the Figma MCP server connected and access to the Figma file; with the figma-desktop server, the Figma desktop app open with a node selected."
+      }
+    },
+    {
+      "id": "openai/skills/skills/.curated/screenshot",
+      "name": "screenshot",
+      "skills.sh": {
+        "url": "https://skills.sh/openai/skills/screenshot",
+        "installs": 6300,
+        "weeklyInstalls": [181, 165, 142, 210, 100, 105, 108, 110],
+        "firstSeen": "2026-01-28"
+      },
+      "skillMd": {
+        "version": "49f948faa9258a0c61caceaf225e179651397431",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Captures the whole screen, an app's windows, the active window or a pixel region on macOS, Linux or Windows with bundled scripts.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you ask for a desktop screenshot, or the agent needs to see an app that no browser or Figma tool can capture"
+            },
+            {
+              "label": "It does",
+              "text": "runs a Python helper on macOS and Linux, or a PowerShell one on Windows, to capture the full screen, an app's windows, the active window or a region"
+            },
+            {
+              "label": "Saves to",
+              "text": "the path you give, else the OS's screenshot folder; captures the agent takes to inspect for itself go to the temp folder"
+            },
+            {
+              "label": "Needs",
+              "text": "on macOS, Screen Recording permission, requested once by a preflight script; on Linux, scrot, gnome-screenshot or ImageMagick"
+            },
+            {
+              "label": "Unlike browser screenshots",
+              "text": "from Playwright or agent-browser, which it prefers for web pages and Electron apps, this one captures the operating system's desktop"
+            }
+          ],
+          "text": "A screen-capture skill from OpenAI's catalog of Codex skills. It follows three save rules every time: your path if you give one, the OS's default screenshot location if you just ask for a screenshot, and the temp directory when the agent captures something to look at itself. On macOS a preflight script checks Screen Recording permission and asks for it in one place, and the agent chains it with the capture to avoid repeated approval prompts. The Python helper takes the full screen, a pixel region or the frontmost window, and on macOS also every window of an app matched by name, one window by title or id, and a list of window ids. On Linux it uses the first of scrot, gnome-screenshot or ImageMagick's import that it finds. A PowerShell helper covers Windows, and plain screencapture, scrot, gnome-screenshot and import commands are the fallback. On macOS each display or matching window gets its own file; the agent views them in order and always reports where it saved them. One example workflow captures a running app to compare it with its Figma design. The openai/skills repository is marked deprecated; its README points to openai/plugins for current Codex skills.",
+          "permalink": "https://github.com/openai/skills/tree/49f948faa9258a0c61caceaf225e179651397431/skills/.curated/screenshot"
+        },
+        "tags": [
+          "category:debugging",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "by:official",
+          "computer-use",
+          "image",
+          "verification"
+        ]
+      }
+    },
+    {
+      "id": "openai/skills/skills/.system/imagegen",
+      "name": "imagegen",
+      "skills.sh": {
+        "url": "https://skills.sh/openai/skills/imagegen",
+        "installs": 6100,
+        "weeklyInstalls": [203, 211, 212, 282, 187, 205, 222, 226],
+        "firstSeen": "2026-01-28"
+      },
+      "skillMd": {
+        "version": "49f948faa9258a0c61caceaf225e179651397431",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Generates and edits bitmap images, from photos and mockups to sprites and transparent cutouts, through Codex's image tool or OpenAI's API.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a project needs a raster asset, new or edited: a photo, illustration, texture, sprite, mockup or transparent cutout"
+            },
+            {
+              "label": "It does",
+              "text": "decides between a new image and an edit, labels each input image's role, rewrites your prompt as a labelled spec, generates, inspects and changes one thing at a time"
+            },
+            {
+              "label": "You get",
+              "text": "the chosen image copied into your workspace, plus the final prompt and which mode made it; an existing file gets a versioned sibling, not an overwrite"
+            },
+            {
+              "label": "Two modes",
+              "text": "Codex's built-in image_gen tool by default; a bundled Python CLI with generate, edit and batch commands only when you ask for it"
+            },
+            {
+              "label": "Skips",
+              "text": "simple shapes, diagrams and icons better made in SVG, HTML/CSS or canvas, and anything that should match an existing icon set or logo system in the repo"
+            }
+          ],
+          "text": "OpenAI's image-generation skill, a system skill that the latest Codex installs automatically. The agent first decides whether the request is a new image or an edit (reference images alone mean a new one) and whether it needs one asset or many, then collects the prompt, exact text, constraints and input images, labelling each image as a reference, the edit target or a compositing input. The prompt becomes a short labelled spec: a use case from a fixed list of 16 (product mockup, logo, style transfer, background extraction and others), asset type, subject, style, composition, lighting, palette, verbatim text, constraints and things to avoid. Detail is added only to generic prompts, never extra characters, brands or slogans, and edits restate what must stay unchanged on every pass. After each image it checks subject, style, composition, text accuracy and constraints, then iterates with one targeted change. Only the selected finals are copied into the workspace; previews are just shown inline. The CLI fallback, scripts/image_gen.py, needs the openai Python package and an OPENAI_API_KEY, and writes under output/imagegen/; the agent never switches to it on its own. The openai/skills repository is marked deprecated; its README points to openai/plugins for current Codex skills.",
+          "permalink": "https://github.com/openai/skills/tree/49f948faa9258a0c61caceaf225e179651397431/skills/.system/imagegen"
+        },
+        "tags": [
+          "category:media",
+          "type:workflow",
+          "effect:local",
+          "needs:account",
+          "by:official",
+          "stack:openai",
+          "stack:codex",
+          "image",
+          "ai-generation"
+        ],
+        "note": "Made for Codex's built-in image_gen tool; in another agent you must ask for its CLI mode, which needs an OPENAI_API_KEY. Prompts and input images go to OpenAI."
+      }
+    },
+    {
+      "id": "openai/skills/skills/.curated/jupyter-notebook",
+      "name": "jupyter-notebook",
+      "skills.sh": {
+        "url": "https://skills.sh/openai/skills/jupyter-notebook",
+        "installs": 5800,
+        "weeklyInstalls": [214, 203, 179, 228, 156, 149, 131, 143],
+        "firstSeen": "2026-02-01"
+      },
+      "skillMd": {
+        "version": "49f948faa9258a0c61caceaf225e179651397431",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Creates or refactors Jupyter notebooks for experiments or tutorials, starting from bundled templates and running them top to bottom when it can.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a new .ipynb notebook, or rough notes, a script or a messy notebook turned into one that others can read and re-run"
+            },
+            {
+              "label": "It does",
+              "text": "picks an experiment or a tutorial layout, scaffolds the file from a bundled template with a Python script, then fills it with small cells, each explained in Markdown"
+            },
+            {
+              "label": "You get",
+              "text": "a notebook with a descriptive filename, run top to bottom when the environment allows, or a note on how to validate it locally"
+            },
+            {
+              "label": "Needs",
+              "text": "uv and Python 3.12 for the scaffold script, which uses only the standard library; JupyterLab and ipykernel only to execute the notebook"
+            },
+            {
+              "label": "Runs from",
+              "text": "Codex's skills folder: its script path assumes ~/.codex/skills unless CODEX_HOME says otherwise"
+            }
+          ],
+          "text": "A notebook skill from OpenAI's catalog of Codex skills. It has two kinds of notebook: experiment, for exploratory, analytical or hypothesis-driven work, and tutorial, for step-by-step teaching aimed at an audience; editing an existing notebook counts as a refactor that keeps its intent. The agent first pins down the kind, the objective, the audience and what done looks like, then runs new_notebook.py, which loads the matching template, sets the title cell and writes the notebook, so no raw notebook JSON is written by hand. Each code cell does one step, with a short Markdown cell giving its purpose and expected result, and short summaries replace large, noisy outputs. Experiments and tutorials each follow their own patterns file, raw JSON edits go through a notebook-structure guide first, and a quality checklist closes the work. In existing notebooks it prefers targeted edits to rewrites and reorders cells only when that improves the top-to-bottom story. Intermediate files go in tmp/jupyter-notebook/ and are deleted when done. The openai/skills repository is marked deprecated; its README points to openai/plugins for current Codex skills.",
+          "permalink": "https://github.com/openai/skills/tree/49f948faa9258a0c61caceaf225e179651397431/skills/.curated/jupyter-notebook"
+        },
+        "tags": [
+          "category:science",
+          "category:documents",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:official",
+          "stack:jupyter",
+          "stack:python",
+          "research",
+          "documents"
+        ]
+      }
+    },
+    {
+      "id": "openai/skills/skills/.curated/playwright-interactive",
+      "name": "playwright-interactive",
+      "skills.sh": {
+        "url": "https://skills.sh/openai/skills/playwright-interactive",
+        "installs": 5600,
+        "weeklyInstalls": [193, 181, 149, 199, 98, 112, 101, 121],
+        "firstSeen": "2026-03-05"
+      },
+      "skillMd": {
+        "version": "49f948faa9258a0c61caceaf225e179651397431",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Keeps one Playwright session alive in Codex's js_repl to test a local web or Electron app, functionally and visually, after every code change.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "the agent is building a local web or Electron app in Codex and should check its own work in a real browser before calling it done"
+            },
+            {
+              "label": "It does",
+              "text": "keeps Playwright's browser, page and Electron handles alive in a js_repl kernel, reloading for renderer changes and relaunching for main-process ones"
+            },
+            {
+              "label": "Checks against",
+              "text": "a QA inventory written first: every requirement, control, state and claim it means to sign off on, plus at least two off-happy-path scenarios"
+            },
+            {
+              "label": "You get",
+              "text": "signoff only after functional QA with real input, a separate visual pass backed by screenshots, viewport-fit checks and a short exploratory pass"
+            },
+            {
+              "label": "Needs",
+              "text": "Codex with js_repl enabled, run with --sandbox danger-full-access for now, and Playwright installed with npm in the project"
+            },
+            {
+              "label": "Unlike playwright",
+              "text": "OpenAI's CLI-based skill, which drives any site command by command, this one is a QA loop for your own app with handles kept alive"
+            }
+          ],
+          "text": "A QA workflow from OpenAI's catalog of Codex skills, built on Codex's js_repl tool, a persistent JavaScript kernel. Setup installs Playwright in the project; a bootstrap cell loads it once, and top-level handles for the browser, its pages and the Electron app are reused across iterations. Web apps run at an explicit viewport by default (1600×900, or 390×844 with touch for mobile), with a separate native-window pass when window size or DPI matters; Electron always runs as a native window. Before testing, the agent writes a QA inventory from your requirements, what it actually built and the claims it plans to make, and maps every item to a check. Functional QA uses real clicks, keys and taps, takes each toggle through its full cycle and ends with 30 to 90 seconds of exploration. Visual QA is a separate pass over the initial viewport, the densest and post-interaction states and a smaller window, looking for clipping, contrast, spacing and weak aesthetics, with screenshots as evidence that metrics can't overrule. Cleanup is manual: leaving Codex doesn't close the browser or Electron app. The openai/skills repository is marked deprecated; its README points to openai/plugins for current Codex skills.",
+          "permalink": "https://github.com/openai/skills/tree/49f948faa9258a0c61caceaf225e179651397431/skills/.curated/playwright-interactive"
+        },
+        "tags": [
+          "category:debugging",
+          "category:browser",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "needs:browser",
+          "by:official",
+          "stack:playwright",
+          "stack:electron",
+          "stack:codex",
+          "testing",
+          "verification",
+          "browser-automation"
+        ],
+        "note": "Codex only: needs its js_repl feature enabled and, for now, Codex started with sandboxing off (--sandbox danger-full-access)."
+      }
+    },
+    {
+      "id": "openai/skills/skills/.system/skill-creator",
+      "name": "skill-creator",
+      "skills.sh": {
+        "url": "https://skills.sh/openai/skills/skill-creator",
+        "installs": 5100,
+        "weeklyInstalls": [240, 194, 190, 235, 130, 136, 110, 123],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "49f948faa9258a0c61caceaf225e179651397431",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Creates or updates a Codex skill, from concrete examples to a lean SKILL.md with scripts, references and assets, scaffolded and checked by bundled scripts.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to write a new skill for Codex or update one you have"
+            },
+            {
+              "label": "It does",
+              "text": "asks for concrete examples of use, plans the scripts, references and assets they call for, scaffolds the folder with init_skill.py and checks it with quick_validate.py"
+            },
+            {
+              "label": "You get",
+              "text": "a skill folder with SKILL.md, optional scripts/, references/ and assets/, and agents/openai.yaml, the metadata Codex shows in its skill list"
+            },
+            {
+              "label": "Its rules",
+              "text": "assume the agent is already smart, keep SKILL.md under 500 lines, put all trigger text in the description, keep references one level deep, add no README"
+            },
+            {
+              "label": "Unlike Anthropic's skill-creator",
+              "text": "it has no evals or benchmarks: improvement comes from using the skill on real tasks"
+            }
+          ],
+          "text": "OpenAI's guide to writing skills, a system skill that the latest Codex installs automatically. It explains what a skill is, a folder with a required SKILL.md and optional scripts for code that would otherwise be rewritten, references loaded into context only when needed, and assets used in the output, and the progressive loading behind it: the name and description are always in context, the body loads when the skill triggers, and bundled files load as needed. The process has six steps: gather concrete examples of how the skill will be used, asking you a few questions at a time; work out which scripts, references and assets those examples need; run init_skill.py to generate the folder, a SKILL.md template with TODO placeholders and agents/openai.yaml; write the resources, testing scripts by running them, then SKILL.md in the imperative; validate with quick_validate.py, which checks the frontmatter and naming rules; and iterate after real use. It also matches how specific instructions are to how fragile the task is, from free text to fixed scripts, and names skills in lowercase hyphen-case under 64 characters. The openai/skills repository is marked deprecated; its README points to openai/plugins for current Codex skills.",
+          "permalink": "https://github.com/openai/skills/tree/49f948faa9258a0c61caceaf225e179651397431/skills/.system/skill-creator"
+        },
+        "tags": [
+          "category:skill-tools",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:official",
+          "stack:codex",
+          "skill-authoring"
+        ]
+      }
+    },
+    {
+      "id": "openai/skills/skills/.curated/gh-address-comments",
+      "name": "gh-address-comments",
+      "skills.sh": {
+        "url": "https://skills.sh/openai/skills/gh-address-comments",
+        "installs": 5000,
+        "weeklyInstalls": [189, 188, 151, 238, 212, 209, 144, 145],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "49f948faa9258a0c61caceaf225e179651397431",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Fetches the review threads and comments on the current branch's GitHub PR with gh, numbers and summarizes them, and fixes the ones you pick.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "reviewers have left comments on the open pull request for your current branch and you want them worked through"
+            },
+            {
+              "label": "It does",
+              "text": "checks gh is logged in, runs a bundled Python script that prints every comment and review thread, then numbers them with what each fix would take"
+            },
+            {
+              "label": "You choose",
+              "text": "which numbered comments to address; the agent applies fixes for those only"
+            },
+            {
+              "label": "Needs",
+              "text": "the GitHub CLI, gh, logged in with repo and workflow scopes, and Python for the script"
+            },
+            {
+              "label": "Unlike respond-to-pr-comments-in-blocklist",
+              "text": "Warp's skill, which also posts replies and resolves threads after you approve, this one stops at the code fixes"
+            }
+          ],
+          "text": "A short PR-review loop from OpenAI's catalog of Codex skills. The agent confirms gh is authenticated, asking you to run gh auth login if not, and runs gh with elevated network access, retrying with escalated permissions if a sandbox blocks it. A bundled script, fetch_comments.py, prints all comments and review threads on the open PR for the current branch. The agent numbers each one with a short summary of what fixing it would take and asks which to address, then applies the fixes for those you pick. If gh hits an auth or rate-limit problem midway, it asks you to log in again and retries. The SKILL.md has no step for replying on GitHub, resolving threads or committing. The openai/skills repository is marked deprecated; its README points to openai/plugins for current Codex skills.",
+          "permalink": "https://github.com/openai/skills/tree/49f948faa9258a0c61caceaf225e179651397431/skills/.curated/gh-address-comments"
+        },
+        "tags": [
+          "category:debugging",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:official",
+          "stack:github",
+          "code-review"
+        ]
+      }
+    },
+    {
+      "id": "rorkai/app-store-connect-cli-skills/skills/asc-aso-audit",
+      "name": "asc-aso-audit",
+      "skills.sh": {
+        "url": "https://skills.sh/rorkai/app-store-connect-cli-skills/asc-aso-audit",
+        "installs": 6300,
+        "weeklyInstalls": [153, 105, 79, 104, 121, 119, 95, 108],
+        "firstSeen": "2026-03-14"
+      },
+      "skillMd": {
+        "version": "7de1ef7cc831f62d205dfa589063f3831f66391b",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Audits your App Store listing's metadata for wasted, missing and unlocalized keywords, and finds keyword gaps against competitors with Astro MCP.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to check an App Store listing's name, subtitle, keywords and description for wasted or missing search terms"
+            },
+            {
+              "label": "It does",
+              "text": "runs offline checks on your local metadata files, then, with Astro MCP, compares your keywords with competitors' and Astro's suggestions"
+            },
+            {
+              "label": "You get",
+              "text": "one report: field usage against character limits, findings by severity per locale, keyword gaps ranked by popularity, and prioritized recommendations"
+            },
+            {
+              "label": "Changes",
+              "text": "none of your metadata: Astro keyword tracking is added only if you separately allow it, and edits are left to asc's keyword commands"
+            },
+            {
+              "label": "Needs",
+              "text": "metadata pulled with asc into ./metadata; Astro MCP with your app tracked is optional, for the gap analysis"
+            }
+          ],
+          "text": "ASO, App Store Optimization, is search optimization for an app's store listing. The audit reads the latest version's metadata for each locale, with en-US as the primary unless you say otherwise. Its offline checks flag words from the subtitle or name repeated in the keyword field, which Apple already indexes; keyword fields under 90 of 100 characters and subtitles under 20 of 30; empty fields; spaces, semicolons or pipes between keywords; locales whose keywords match en-US exactly, a sign they weren't localized; and keywords missing from the description, which isn't indexed but affects downloads. It splits Chinese, Japanese and Korean text by punctuation or character rather than spaces, and matches Arabic words with and without the ال prefix. It can add Apple's generated app tags as context and, with Apple Ads credentials, asc's experimental read-only Apple search plan, which saves CSV and JSON files for review. With Astro, it pulls tracked keywords, rankings, competitor keywords and suggestions per store, diffs them against your metadata, and flags combinations across title, subtitle and keywords, such as one added word that completes a popular two-word search.",
+          "permalink": "https://github.com/rorkai/app-store-connect-cli-skills/tree/7de1ef7cc831f62d205dfa589063f3831f66391b/skills/asc-aso-audit"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:none",
+          "needs:cli",
+          "needs:mcp",
+          "by:official",
+          "stack:app-store",
+          "stack:astro",
+          "seo",
+          "mobile",
+          "marketing",
+          "stack:asc"
+        ],
+        "note": "Reads metadata in the layout that asc metadata pull writes to ./metadata, so it needs the asc CLI or files in that layout. The keyword gap analysis needs the Astro MCP server with your app tracked; the offline checks run without it."
+      }
+    },
+    {
+      "id": "rorkai/app-store-connect-cli-skills/skills/asc-whats-new-writer",
+      "name": "asc-whats-new-writer",
+      "skills.sh": {
+        "url": "https://skills.sh/rorkai/app-store-connect-cli-skills/asc-whats-new-writer",
+        "installs": 5900,
+        "weeklyInstalls": [108, 78, 61, 89, 97, 114, 90, 96],
+        "firstSeen": "2026-03-14"
+      },
+      "skillMd": {
+        "version": "7de1ef7cc831f62d205dfa589063f3831f66391b",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes App Store release notes from your commits or notes, localizes them and uploads them with asc once you approve.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're shipping an app update and need its App Store \"What's New\" text in every language your listing has"
+            },
+            {
+              "label": "It does",
+              "text": "turns git commits since your last tag, rough bullets or a description into New, Improved and Fixed sections, then translates the approved draft"
+            },
+            {
+              "label": "You get",
+              "text": "release notes for each locale, optionally with 170-character promotional text, uploaded through asc once you approve them"
+            },
+            {
+              "label": "Leads with",
+              "text": "the single biggest change, in the first ~170 characters, the only part shown before \"more\""
+            },
+            {
+              "label": "Needs",
+              "text": "the asc CLI signed in to App Store Connect; keywords come from metadata pulled into ./metadata, or from you"
+            }
+          ],
+          "text": "The agent drafts the primary locale first, en-US unless you say otherwise. From a git log it drops merges, dependency bumps, CI and formatting commits, and keeps what users would notice. The copy is benefit-focused and addressed to \"you\", with specific improvements rather than \"Bug fixes and improvements\". It weaves in words from the listing's keyword field where they fit the changes: What's New isn't indexed for search, so this is for conversion, not ranking. It aims for 500 to 1,500 characters, leaving room for languages that run longer, and shows you the draft with its character count. Once you approve, it translates into every locale already in the metadata, in a formal register (Sie, vous, usted), adapting idioms and echoing each locale's own keywords, within 4,000 characters and shortening rather than cutting mid-sentence. It shows a table of every locale with character counts, waits for your OK, then uploads per locale or with asc metadata push, and reports any locales that failed, offering to retry them.",
+          "permalink": "https://github.com/rorkai/app-store-connect-cli-skills/tree/7de1ef7cc831f62d205dfa589063f3831f66391b/skills/asc-whats-new-writer"
+        },
+        "tags": [
+          "category:marketing",
+          "category:writing",
+          "type:workflow",
+          "effect:remote",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:app-store",
+          "copywriting",
+          "mobile",
+          "marketing",
+          "stack:asc"
+        ],
+        "note": "Uploads through the asc CLI, so it needs asc signed in to App Store Connect with an API key. It shows every locale's text and waits for your OK before uploading."
+      }
+    },
+    {
+      "id": "thedotmack/claude-mem/plugin/skills/knowledge-agent",
+      "name": "knowledge-agent",
+      "skills.sh": {
+        "url": "https://skills.sh/thedotmack/claude-mem/knowledge-agent",
+        "installs": 5900,
+        "weeklyInstalls": [126, 101, 95, 92, 94, 122, 113, 135],
+        "firstSeen": "2026-04-09"
+      },
+      "skillMd": {
+        "version": "31ebffbb112260183c91bbf901a4da22e241018f",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds focused knowledge bases from your claude-mem history and answers questions about past work from an AI session primed with them.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to ask questions of one slice of your claude-mem history, such as everything about a subsystem or last month's decisions"
+            },
+            {
+              "label": "It does",
+              "text": "collects matching observations into a named corpus, loads it into an AI session, and answers your questions from it"
+            },
+            {
+              "label": "You get",
+              "text": "a reusable knowledge base: prime it once, ask many questions, with follow-ups keeping context"
+            },
+            {
+              "label": "Filters by",
+              "text": "project, observation type such as decision or bugfix, concept tags, files, a semantic query and dates, up to 500 observations by default"
+            },
+            {
+              "label": "Needs",
+              "text": "claude-mem and its MCP tools"
+            }
+          ],
+          "text": "claude-mem records observations, notes on what happened in your agent sessions. This skill turns a filtered set of them, a corpus, into what it calls a knowledge agent, or a \"brain\". build_corpus collects the observations, prime_corpus loads them into an AI session, and query_corpus asks that session a question; list_corpora shows each corpus with its stats and whether it's primed. Its tips: focused corpora such as \"hooks architecture\" work better than everything at once; prime once and query many times; reprime to clear a conversation that drifted while keeping the corpus; and when new observations arrive, rebuild the corpus, then reprime.",
+          "permalink": "https://github.com/thedotmack/claude-mem/tree/31ebffbb112260183c91bbf901a4da22e241018f/plugin/skills/knowledge-agent"
+        },
+        "tags": [
+          "category:agents",
+          "type:tool",
+          "effect:local",
+          "needs:mcp",
+          "by:official",
+          "stack:claude-mem",
+          "memory"
+        ],
+        "note": "Needs claude-mem installed with its MCP server. Per claude-mem's docs, priming loads the whole corpus into a separate Claude session through the Agent SDK, so a large corpus costs tokens up front."
+      }
+    },
+    {
+      "id": "thedotmack/claude-mem/plugin/skills/learn-codebase",
+      "name": "learn-codebase",
+      "skills.sh": {
+        "url": "https://skills.sh/thedotmack/claude-mem/learn-codebase",
+        "installs": 5600,
+        "weeklyInstalls": [133, 114, 98, 94, 95, 140, 119, 137],
+        "firstSeen": "2026-05-02"
+      },
+      "skillMd": {
+        "version": "31ebffbb112260183c91bbf901a4da22e241018f",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Has the agent read every source file of a project in full before you start working on it.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you start on a new or unfamiliar project and want the agent to know all of it before working"
+            },
+            {
+              "label": "It does",
+              "text": "has the agent read every source file in full, however many there are, paging through large files in chunks"
+            },
+            {
+              "label": "You get",
+              "text": "an agent that has read the whole codebase; it writes nothing"
+            },
+            {
+              "label": "Costs",
+              "text": "many tokens and much of the context window, more the larger the codebase; the skill argues this up-front cost makes later work cheaper"
+            },
+            {
+              "label": "Unlike smart-explore",
+              "text": "from the same plugin, which fetches only the symbols a task needs, it reads everything at once"
+            }
+          ],
+          "text": "The whole skill is one instruction: read every source file in full, which it calls critical and non-negotiable, using the Read tool's offset and limit to page through big files. It includes a note asking reviewers not to warn you about the cost, since front-loading the codebase is meant to make development cheaper over the project's life; on a large codebase the reading still takes many tokens and much of the context window. With claude-mem installed, each read also becomes a memory observation, and claude-mem's how-it-works skill suggests running it to load a whole repo into memory in one pass.",
+          "permalink": "https://github.com/thedotmack/claude-mem/tree/31ebffbb112260183c91bbf901a4da22e241018f/plugin/skills/learn-codebase"
+        },
+        "tags": [
+          "category:engineering",
+          "type:command",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "agent-workflows"
+        ],
+        "note": "Reads every source file in full, however large the codebase, which can take many tokens and much of the context window."
+      }
+    },
+    {
+      "id": "thedotmack/claude-mem/plugin/skills/pathfinder",
+      "name": "pathfinder",
+      "skills.sh": {
+        "url": "https://skills.sh/thedotmack/claude-mem/pathfinder",
+        "installs": 5400,
+        "weeklyInstalls": [123, 99, 93, 88, 93, 124, 110, 131],
+        "firstSeen": "2026-04-25"
+      },
+      "skillMd": {
+        "version": "31ebffbb112260183c91bbf901a4da22e241018f",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Maps a codebase into per-feature flowcharts, finds duplicated systems and proposes a unified architecture, with make-plan prompts for each change.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you suspect a codebase solves the same problem in several places and want an architecture audit before refactoring"
+            },
+            {
+              "label": "It does",
+              "text": "sends subagents to map each feature as a Mermaid flowchart labelled with file:line, then hunts duplicated concerns within and across features"
+            },
+            {
+              "label": "You get",
+              "text": "a PATHFINDER-<date>/ folder: feature inventory, flowcharts, duplication report, unified architecture proposal and copy-paste make-plan prompts"
+            },
+            {
+              "label": "Won't",
+              "text": "write implementation code; it stops at the handoff prompts"
+            },
+            {
+              "label": "Next",
+              "text": "make-plan, then do, from the same plugin"
+            },
+            {
+              "label": "Needs",
+              "text": "an agent that can start subagents"
+            }
+          ],
+          "text": "The main agent orchestrates and keeps the judgment calls; subagents read files and trace flows, and any report without exact files and line ranges is sent back. First one subagent proposes feature boundaries from the source tree, imports and names, and the agent settles them before fanning out. Then one subagent per feature traces its main path from entry point to end state, with side effects and the features it calls. Two more hunt duplication, inside features and across them, and say whether each divergence is legitimate specialization, such as different trust models or data sources, or accidental; every claim cites at least two file:line locations. The agent writes the unified proposal itself: the simplest design for each accidental duplication, what each old call site becomes, any capability lost, and one combined flowchart. It rejects new abstraction layers, feature flags that keep both paths, and registries where a switch would do. Each handoff prompt names the target component, the call sites to rewrite, its flowchart and guards against those anti-patterns.",
+          "permalink": "https://github.com/thedotmack/claude-mem/tree/31ebffbb112260183c91bbf901a4da22e241018f/plugin/skills/pathfinder"
+        },
+        "tags": [
+          "category:planning",
+          "category:agents",
+          "type:workflow",
+          "effect:local",
+          "needs:subagents",
+          "by:community",
+          "stack:mermaid",
+          "architecture",
+          "refactoring",
+          "diagrams",
+          "multi-agent"
+        ]
+      }
+    },
+    {
+      "id": "thedotmack/claude-mem/plugin/skills/babysit",
+      "name": "babysit",
+      "skills.sh": {
+        "url": "https://skills.sh/thedotmack/claude-mem/babysit",
+        "installs": 5200,
+        "weeklyInstalls": [164, 109, 100, 98, 109, 127, 121, 150],
+        "firstSeen": "2026-05-06"
+      },
+      "skillMd": {
+        "version": "31ebffbb112260183c91bbf901a4da22e241018f",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Watches a pull request until it can merge: waits on checks, fixes review comments, pushes and resolves threads until nothing actionable remains.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want the agent to stay on a pull request until it's ready to merge"
+            },
+            {
+              "label": "It does",
+              "text": "watches pending checks, reads new comments and unresolved review threads, fixes real issues, pushes, then checks again"
+            },
+            {
+              "label": "You get",
+              "text": "a PR with passing checks and no open threads, plus a report: commit SHA, check results, open threads, tests run and uncommitted local files left alone"
+            },
+            {
+              "label": "Won't",
+              "text": "resolve a review thread until it has verified the code addresses it, or stop while actionable comments remain"
+            },
+            {
+              "label": "Needs",
+              "text": "the GitHub CLI (gh) signed in, and jq"
+            }
+          ],
+          "text": "The agent finds the PR, its branch and base, checks it isn't a draft, and reads its status with gh pr view: mergeability, checks, review decision and comments. It lists unresolved review threads through GitHub's GraphQL API, paging through all of them, and polls pending checks, usually every 30 to 60 seconds. Bot comments are leads, not facts: it checks each finding against the code, and whether a thread refers to stale code. Real issues get focused commits, the relevant tests or builds, and a push, then the loop starts again. When a generated file ships with the code, it makes sure the source and the generated file agree before resolving the comment. It stops only when checks pass or are intentionally skipped, the review decision is acceptable and no actionable comments or unresolved threads remain, and does one last sweep, including local git status, before reporting. claude-mem's build skill runs it last, after make-plan and do.",
+          "permalink": "https://github.com/thedotmack/claude-mem/tree/31ebffbb112260183c91bbf901a4da22e241018f/plugin/skills/babysit"
+        },
+        "tags": [
+          "category:debugging",
+          "type:workflow",
+          "effect:remote",
+          "needs:cli",
+          "by:community",
+          "stack:github",
+          "code-review",
+          "ci",
+          "git"
+        ],
+        "note": "Commits and pushes fixes to the PR's branch and resolves review threads on GitHub without stopping to ask, and keeps polling until the PR is clean. Needs gh signed in, and jq."
+      }
+    },
+    {
+      "id": "langchain-ai/langchain-skills/config/skills/eval-engineering",
+      "name": "eval-engineering",
+      "skills.sh": {
+        "url": "https://skills.sh/langchain-ai/langchain-skills/eval-engineering",
+        "installs": 6000,
+        "weeklyInstalls": [487, 520, 487, 430, 389, 392, 358, 372],
+        "firstSeen": "2026-07-22"
+      },
+      "skillMd": {
+        "version": "126c384d8552dcb476b226c244172186cc3f4328",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Designs, builds and audits eval tasks for your own agent with Harbor, from a spec you approve to a fully read run.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want evals for an agent you're building: tasks that run it in a controlled setup and score what it did"
+            },
+            {
+              "label": "It does",
+              "text": "reads your agent's code, any traces and existing evals, proposes one task grounded in them, writes its spec with you, then builds, checks and runs it through Harbor"
+            },
+            {
+              "label": "You get",
+              "text": "a Harbor task folder per eval, with instruction, Docker environment, verifier tests and a hidden Task.md spec, plus run results and evidence"
+            },
+            {
+              "label": "Keeps",
+              "text": "a World Knowledge Skill: a small skill in your repo of reusable facts about the project, reused and corrected with each later task"
+            },
+            {
+              "label": "Asks you",
+              "text": "to approve each spec and World Skill change, unless you ask for an end-to-end build, and to confirm model, trials, timeout and maximum cost before scored runs"
+            },
+            {
+              "label": "Needs",
+              "text": "Harbor, the framework that packages and runs these eval tasks, with Docker locally or another environment Harbor supports"
+            }
+          ],
+          "text": "A loop for building agent evaluations one task at a time, from LangChain. The agent first reads your agent's harness (prompts, model loop, tools, memory), any traces you supply and existing evals, then proposes one task grounded in that evidence. It writes a Task Spec, a Task.md holding the exact request, starting state, scoring and fairness rules, which is never shown to the agent under test, and drafts the World Knowledge Skill, the repo-local skill of reusable project facts, alongside it. You revise both until you approve. It then builds the Harbor task, tests its verifier against a valid result, a valid alternative, a wrong one, a shortcut, a forbidden side change and missing evidence, runs your real agent and reads the whole trajectory, not just the score. Failed runs are sorted into agent failures and defects in the harness, environment or verifier, and only the non-agent ones get fixed. It defaults to local, frozen or simulated dependencies, never writes to production and never asks you to paste secrets. Once several tasks have proved the shared knowledge, it can propose several specs at once and build the approved ones in parallel.",
+          "permalink": "https://github.com/langchain-ai/langchain-skills/tree/126c384d8552dcb476b226c244172186cc3f4328/config/skills/eval-engineering"
+        },
+        "tags": [
+          "category:agents",
+          "category:debugging",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "stack:harbor",
+          "stack:docker",
+          "agent-development",
+          "testing",
+          "verification",
+          "skill-authoring"
+        ],
+        "note": "Needs Harbor, the agent-eval framework, run locally with Docker or in a supported cloud environment; scored runs of your agent cost model usage."
+      }
+    },
+    {
+      "id": "dotnet/skills/plugins/dotnet-test/skills/test-anti-patterns",
+      "name": "test-anti-patterns",
+      "skills.sh": {
+        "url": "https://skills.sh/dotnet/skills/test-anti-patterns",
+        "installs": 5100,
+        "weeklyInstalls": [302, 269, 312, 292, 315, 371, 367, 439],
+        "firstSeen": "2026-03-24"
+      },
+      "skillMd": {
+        "version": "96c3d68dad2855e3ab5178aa1a262789d86a1466",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Audits a test suite for tests that verify nothing, flaky or order-dependent tests and other anti-patterns, with a severity-ranked report and fixes.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to know whether your tests actually prove anything, or why some of them are flaky"
+            },
+            {
+              "label": "It does",
+              "text": "inventories every test and fixture in scope, checks each against an anti-pattern catalog in four severity tiers, and reads the production code behind suspicious ones"
+            },
+            {
+              "label": "You get",
+              "text": "a report with counts by severity, each Critical or High finding with its location and a replacement assertion holding the exact expected value, plus what the tests do well"
+            },
+            {
+              "label": "Doesn't",
+              "text": "edit or run your tests; fixes come in the report for you to apply"
+            },
+            {
+              "label": "Works with",
+              "text": "test code in .NET, Python, JavaScript and TypeScript, Java, Go, Ruby, Rust, Kotlin, Swift, PowerShell and C++, in each framework's own terms"
+            },
+            {
+              "label": "Unlike test-smell-detection",
+              "text": "the same plugin's deeper audit against the testsmells.org catalog, this is a quick pragmatic review; exhaustive behavioral gaps go to test-gap-analysis"
+            }
+          ],
+          "text": "A pragmatic test review from the .NET team that works across languages. Critical anti-patterns give false confidence: no assertions, un-awaited async assertions, \"coverage touching\" (calling every public member just to raise coverage), assertions that compare a value with itself, swallowed exceptions and always-true checks. High covers flakiness (sleeps, wall-clock reads, unseeded randomness), order dependency through shared state, over-mocking, testing private internals, broad exception assertions, and transformation tests whose input is already in the expected form. Medium and Low cover vague names, magic values, near-identical tests that should be parametrized, giant tests, leftover prints and undisposed resources. Before reporting, the agent keeps a private ledger so no test is skipped, and checks the real production contract before calling an assertion tautological. It is told not to inflate severity: a clean suite gets a clean verdict, and idioms such as Go table-driven tests or bare pytest asserts aren't flagged. Untested branches next to a finding go in a separate adjacent-gaps section, not the anti-pattern count.",
+          "permalink": "https://github.com/dotnet/skills/tree/96c3d68dad2855e3ab5178aa1a262789d86a1466/plugins/dotnet-test/skills/test-anti-patterns"
+        },
+        "tags": [
+          "category:debugging",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:official",
+          "testing",
+          "code-review",
+          "code-quality"
+        ]
+      }
+    },
+    {
+      "id": "clickhouse/agent-skills/skills/clickhouse-managed-postgres-rca",
+      "name": "clickhouse-managed-postgres-rca",
+      "skills.sh": {
+        "url": "https://skills.sh/clickhouse/agent-skills/clickhouse-managed-postgres-rca",
+        "installs": 6700,
+        "weeklyInstalls": [124, 109, 97, 94, 76, 122, 81, 53],
+        "firstSeen": "2026-06-08"
+      },
+      "skillMd": {
+        "version": "d3b2b5ba43a8b80c2d08858b68d53edc701b5ace",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Finds the likely cause of slowness on a ClickHouse-managed Postgres instance from its metrics and slow-query stats, and recommends a fix without applying it.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a Postgres instance hosted on ClickHouse Cloud is slow, CPU-bound, low on throughput or thrashing its cache"
+            },
+            {
+              "label": "It does",
+              "text": "scrapes the instance's Prometheus metrics once, pulls per-query-pattern runtime, IO and call counts, and matches the signal to a known problem shape"
+            },
+            {
+              "label": "You get",
+              "text": "a write-up of symptom, evidence, hypothesis with any alternative cause it can't rule out, a short-term fix and long-term follow-ups"
+            },
+            {
+              "label": "Doesn't",
+              "text": "run DDL or cancel or terminate backends; you apply the fix"
+            },
+            {
+              "label": "Can't see",
+              "text": "query plans, per-table scan counters or vacuum and ANALYZE times, so it reasons from IO and timing"
+            },
+            {
+              "label": "Needs",
+              "text": "a ClickHouse Cloud API key and secret, plus the organization and service IDs"
+            }
+          ],
+          "text": "ClickHouse's own root-cause workflow for Postgres on ClickHouse Cloud, in six fixed steps. Because the two APIs it uses are in beta, it first fetches the OpenAPI spec and maps the field names it will cite instead of trusting memory. It scrapes the Prometheus endpoint once for current values: a cache hit ratio well below about 95%, or connections climbing toward the pool limit, is a signal on its own, and a second scrape for deadlock and rollback rates happens only when writes look congested. In parallel it pulls the Slow Query Patterns API, which totals calls, runtime, blocks and rows per normalized query. The combined signal is matched to one of three shapes, each with its own heuristic: a read-path full scan, an N+1 hot loop from the app, or write congestion. If nothing matches, it shows the top patterns and asks which workload you recognize rather than inventing a cause; if no pattern carries real duration, it stops and says what it looked at.",
+          "permalink": "https://github.com/clickhouse/agent-skills/tree/d3b2b5ba43a8b80c2d08858b68d53edc701b5ace/skills/clickhouse-managed-postgres-rca"
+        },
+        "tags": [
+          "category:debugging",
+          "category:cloud",
+          "type:workflow",
+          "effect:none",
+          "needs:account",
+          "by:official",
+          "stack:clickhouse",
+          "stack:postgres",
+          "stack:prometheus",
+          "databases",
+          "performance",
+          "debugging",
+          "observability"
+        ],
+        "note": "Needs a ClickHouse Cloud API key and secret, plus the organization and service IDs of the Postgres instance."
       }
     }
   ]
