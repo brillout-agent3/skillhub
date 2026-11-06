@@ -2902,19 +2902,6 @@
       }
     },
     {
-      "name": "pdftk-server",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/pdftk-server",
-        "installs": 10000,
-        "weeklyInstalls": [7, 11, 20, 13, 2, 5, 6, 6],
-        "firstSeen": "2026-02-16"
-      }
-    },
-    {
       "name": "cmux",
       "repo": "manaflow-ai/cmux",
       "official": false,
@@ -3149,19 +3136,6 @@
       }
     },
     {
-      "name": "dataverse-python-production-code",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/dataverse-python-production-code",
-        "installs": 9800,
-        "weeklyInstalls": [14, 17, 21, 20, 6, 5, 9, 17],
-        "firstSeen": "2026-02-25"
-      }
-    },
-    {
       "name": "seo",
       "repo": "agricidaniel/claude-seo",
       "official": false,
@@ -3172,19 +3146,6 @@
         "installs": 9800,
         "weeklyInstalls": [381, 360, 394, 379, 335, 356, 363, 494],
         "firstSeen": "2026-02-10"
-      }
-    },
-    {
-      "name": "kotlin-springboot",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/kotlin-springboot",
-        "installs": 9800,
-        "weeklyInstalls": [27, 28, 32, 19, 19, 13, 8, 19],
-        "firstSeen": "2026-02-25"
       }
     },
     {
@@ -3211,32 +3172,6 @@
         "installs": 9800,
         "weeklyInstalls": [26, 23, 30, 35, 20, 13, 18, 20],
         "firstSeen": "2026-02-25"
-      }
-    },
-    {
-      "name": "image-manipulation-image-magick",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/image-manipulation-image-magick",
-        "installs": 9800,
-        "weeklyInstalls": [22, 23, 21, 30, 27, 29, 41, 31],
-        "firstSeen": "2026-01-22"
-      }
-    },
-    {
-      "name": "plantuml-ascii",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/plantuml-ascii",
-        "installs": 9800,
-        "weeklyInstalls": [39, 27, 37, 25, 16, 36, 25, 13],
-        "firstSeen": "2026-01-23"
       }
     },
     {
@@ -3357,19 +3292,6 @@
       }
     },
     {
-      "name": "csharp-docs",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/csharp-docs",
-        "installs": 9700,
-        "weeklyInstalls": [46, 36, 52, 55, 24, 14, 18, 14],
-        "firstSeen": "2026-02-25"
-      }
-    },
-    {
       "name": "shader-programming",
       "repo": "gamedev-skills/awesome-gamedev-agent-skills",
       "official": false,
@@ -3435,19 +3357,6 @@
       }
     },
     {
-      "name": "mcp-cli",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/mcp-cli",
-        "installs": 9700,
-        "weeklyInstalls": [13, 19, 20, 17, 5, 1, 11, 8],
-        "firstSeen": "2026-01-23"
-      }
-    },
-    {
       "name": "context-map",
       "repo": "github/awesome-copilot",
       "official": true,
@@ -3471,19 +3380,6 @@
         "installs": 9700,
         "weeklyInstalls": [137, 144, 170, 229, 292, 388, 341, 423],
         "firstSeen": "2026-04-14"
-      }
-    },
-    {
-      "name": "ef-core",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/ef-core",
-        "installs": 9600,
-        "weeklyInstalls": [36, 55, 58, 50, 40, 32, 27, 25],
-        "firstSeen": "2026-02-25"
       }
     },
     {
@@ -3536,19 +3432,6 @@
         "installs": 9600,
         "weeklyInstalls": [495, 527, 513, 436, 389, 387, 351, 372],
         "firstSeen": "2026-05-21"
-      }
-    },
-    {
-      "name": "azure-deployment-preflight",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/azure-deployment-preflight",
-        "installs": 9600,
-        "weeklyInstalls": [11, 12, 21, 19, 16, 15, 3, 7],
-        "firstSeen": "2026-01-23"
       }
     },
     {
@@ -3666,32 +3549,6 @@
         "installs": 9600,
         "weeklyInstalls": [364, 348, 418, 417, 510, 691, 1539, 1906],
         "firstSeen": "2026-06-27"
-      }
-    },
-    {
-      "name": "create-spring-boot-java-project",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/create-spring-boot-java-project",
-        "installs": 9500,
-        "weeklyInstalls": [15, 25, 24, 28, 16, 11, 5, 12],
-        "firstSeen": "2026-02-25"
-      }
-    },
-    {
-      "name": "appinsights-instrumentation",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/appinsights-instrumentation",
-        "installs": 9500,
-        "weeklyInstalls": [11, 10, 16, 15, 5, 4, 1, 4],
-        "firstSeen": "2026-01-20"
       }
     },
     {
@@ -6165,32 +6022,6 @@
       }
     },
     {
-      "name": "intercity-bus-booking",
-      "repo": "nomadamas/k-skill",
-      "official": false,
-      "stars": 8286,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/nomadamas/k-skill/intercity-bus-booking",
-        "installs": 8500,
-        "weeklyInstalls": [197, 315, 427, 395, 502, 494, 626, 1517],
-        "firstSeen": "2026-05-13"
-      }
-    },
-    {
-      "name": "express-bus-booking",
-      "repo": "nomadamas/k-skill",
-      "official": false,
-      "stars": 8286,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/nomadamas/k-skill/express-bus-booking",
-        "installs": 8500,
-        "weeklyInstalls": [200, 331, 427, 398, 516, 503, 637, 1523],
-        "firstSeen": "2026-05-13"
-      }
-    },
-    {
       "name": "postgres",
       "repo": "planetscale/database-skills",
       "official": true,
@@ -6438,19 +6269,6 @@
       }
     },
     {
-      "name": "daishin-report-search",
-      "repo": "nomadamas/k-skill",
-      "official": false,
-      "stars": 8286,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/nomadamas/k-skill/daishin-report-search",
-        "installs": 8400,
-        "weeklyInstalls": [199, 329, 427, 398, 501, 490, 624, 1519],
-        "firstSeen": "2026-05-14"
-      }
-    },
-    {
       "name": "ctf-writeup",
       "repo": "ljagiello/ctf-skills",
       "official": false,
@@ -6490,19 +6308,6 @@
       }
     },
     {
-      "name": "daangn-cars-search",
-      "repo": "nomadamas/k-skill",
-      "official": false,
-      "stars": 8286,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/nomadamas/k-skill/daangn-cars-search",
-        "installs": 8400,
-        "weeklyInstalls": [195, 328, 423, 407, 499, 498, 631, 1519],
-        "firstSeen": "2026-05-14"
-      }
-    },
-    {
       "name": "devtools",
       "repo": "vercel-labs/json-render",
       "official": true,
@@ -6513,32 +6318,6 @@
         "installs": 8400,
         "weeklyInstalls": [1225, 1351, 806, 527, 37, 25, 28, 32],
         "firstSeen": "2026-04-17"
-      }
-    },
-    {
-      "name": "daangn-jobs-search",
-      "repo": "nomadamas/k-skill",
-      "official": false,
-      "stars": 8286,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/nomadamas/k-skill/daangn-jobs-search",
-        "installs": 8400,
-        "weeklyInstalls": [199, 330, 424, 397, 502, 490, 622, 1519],
-        "firstSeen": "2026-05-14"
-      }
-    },
-    {
-      "name": "donation-place-search",
-      "repo": "nomadamas/k-skill",
-      "official": false,
-      "stars": 8286,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/nomadamas/k-skill/donation-place-search",
-        "installs": 8400,
-        "weeklyInstalls": [194, 325, 424, 394, 500, 492, 621, 1513],
-        "firstSeen": "2026-05-13"
       }
     },
     {
@@ -6568,19 +6347,6 @@
       }
     },
     {
-      "name": "korean-humanizer",
-      "repo": "nomadamas/k-skill",
-      "official": false,
-      "stars": 8286,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/nomadamas/k-skill/korean-humanizer",
-        "installs": 8300,
-        "weeklyInstalls": [245, 344, 454, 439, 558, 533, 689, 1602],
-        "firstSeen": "2026-06-12"
-      }
-    },
-    {
       "name": "context7-cli",
       "repo": "upstash/context7",
       "official": false,
@@ -6591,32 +6357,6 @@
         "installs": 8300,
         "weeklyInstalls": [302, 224, 193, 186, 269, 283, 303, 334],
         "firstSeen": "2026-03-11"
-      }
-    },
-    {
-      "name": "myrealtrip-search",
-      "repo": "nomadamas/k-skill",
-      "official": false,
-      "stars": 8286,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/nomadamas/k-skill/myrealtrip-search",
-        "installs": 8300,
-        "weeklyInstalls": [190, 312, 421, 399, 503, 495, 628, 1519],
-        "firstSeen": "2026-05-13"
-      }
-    },
-    {
-      "name": "seoul-density",
-      "repo": "nomadamas/k-skill",
-      "official": false,
-      "stars": 8286,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/nomadamas/k-skill/seoul-density",
-        "installs": 8300,
-        "weeklyInstalls": [188, 312, 420, 398, 502, 495, 623, 1512],
-        "firstSeen": "2026-05-14"
       }
     },
     {
@@ -6659,19 +6399,6 @@
       }
     },
     {
-      "name": "korean-marathon-schedule",
-      "repo": "nomadamas/k-skill",
-      "official": false,
-      "stars": 8286,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/nomadamas/k-skill/korean-marathon-schedule",
-        "installs": 8300,
-        "weeklyInstalls": [190, 309, 416, 393, 495, 490, 623, 1512],
-        "firstSeen": "2026-05-13"
-      }
-    },
-    {
       "name": "aws-sdk-python-usage",
       "repo": "aws/agent-toolkit-for-aws",
       "official": false,
@@ -6682,19 +6409,6 @@
         "installs": 8300,
         "weeklyInstalls": [311, 280, 306, 265, 239, 293, 292, 249],
         "firstSeen": "2026-05-06"
-      }
-    },
-    {
-      "name": "ticket-availability",
-      "repo": "nomadamas/k-skill",
-      "official": false,
-      "stars": 8286,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/nomadamas/k-skill/ticket-availability",
-        "installs": 8300,
-        "weeklyInstalls": [190, 310, 418, 395, 497, 492, 622, 1515],
-        "firstSeen": "2026-05-14"
       }
     },
     {
@@ -6721,19 +6435,6 @@
         "installs": 8200,
         "weeklyInstalls": [170, 142, 89, 104, 195, 150, 114, 181],
         "firstSeen": "2026-01-28"
-      }
-    },
-    {
-      "name": "korean-cinema-search",
-      "repo": "nomadamas/k-skill",
-      "official": false,
-      "stars": 8286,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/nomadamas/k-skill/korean-cinema-search",
-        "installs": 8200,
-        "weeklyInstalls": [194, 311, 419, 394, 504, 492, 621, 1517],
-        "firstSeen": "2026-05-19"
       }
     },
     {
@@ -6789,19 +6490,6 @@
       }
     },
     {
-      "name": "kstartup-search",
-      "repo": "nomadamas/k-skill",
-      "official": false,
-      "stars": 8286,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/nomadamas/k-skill/kstartup-search",
-        "installs": 8200,
-        "weeklyInstalls": [192, 312, 418, 398, 507, 493, 631, 1520],
-        "firstSeen": "2026-05-19"
-      }
-    },
-    {
       "name": "email-best-practices",
       "repo": "resend/email-best-practices",
       "official": false,
@@ -6828,19 +6516,6 @@
       }
     },
     {
-      "name": "emergency-room-beds",
-      "repo": "nomadamas/k-skill",
-      "official": false,
-      "stars": 8286,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/nomadamas/k-skill/emergency-room-beds",
-        "installs": 8200,
-        "weeklyInstalls": [193, 322, 423, 397, 501, 492, 625, 1518],
-        "firstSeen": "2026-05-19"
-      }
-    },
-    {
       "name": "itch-publish",
       "repo": "gamedev-skills/awesome-gamedev-agent-skills",
       "official": false,
@@ -6851,32 +6526,6 @@
         "installs": 8200,
         "weeklyInstalls": [320, 292, 355, 354, 407, 586, 1375, 1723],
         "firstSeen": "2026-06-27"
-      }
-    },
-    {
-      "name": "ohou-today-deal",
-      "repo": "nomadamas/k-skill",
-      "official": false,
-      "stars": 8286,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/nomadamas/k-skill/ohou-today-deal",
-        "installs": 8200,
-        "weeklyInstalls": [188, 311, 416, 404, 499, 496, 630, 1521],
-        "firstSeen": "2026-05-19"
-      }
-    },
-    {
-      "name": "sh-notice-search",
-      "repo": "nomadamas/k-skill",
-      "official": false,
-      "stars": 8286,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/nomadamas/k-skill/sh-notice-search",
-        "installs": 8200,
-        "weeklyInstalls": [190, 309, 419, 399, 500, 490, 629, 1519],
-        "firstSeen": "2026-05-19"
       }
     },
     {
@@ -7033,19 +6682,6 @@
         "installs": 8100,
         "weeklyInstalls": [321, 308, 353, 350, 402, 579, 1347, 1677],
         "firstSeen": "2026-06-27"
-      }
-    },
-    {
-      "name": "kakao-map",
-      "repo": "nomadamas/k-skill",
-      "official": false,
-      "stars": 8286,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/nomadamas/k-skill/kakao-map",
-        "installs": 8100,
-        "weeklyInstalls": [202, 315, 427, 402, 505, 496, 632, 1516],
-        "firstSeen": "2026-05-26"
       }
     },
     {
@@ -7244,19 +6880,6 @@
       }
     },
     {
-      "name": "seoul-bike",
-      "repo": "nomadamas/k-skill",
-      "official": false,
-      "stars": 8286,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/nomadamas/k-skill/seoul-bike",
-        "installs": 8000,
-        "weeklyInstalls": [189, 308, 418, 395, 497, 492, 622, 1513],
-        "firstSeen": "2026-05-26"
-      }
-    },
-    {
       "name": "reflect",
       "repo": "backnotprop/pstack",
       "official": false,
@@ -7384,19 +7007,6 @@
         "installs": 7900,
         "weeklyInstalls": [368, 461, 470, 427, 401, 439, 462, 422],
         "firstSeen": "2026-06-14"
-      }
-    },
-    {
-      "name": "korean-middle-korean",
-      "repo": "nomadamas/k-skill",
-      "official": false,
-      "stars": 8286,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/nomadamas/k-skill/korean-middle-korean",
-        "installs": 7900,
-        "weeklyInstalls": [191, 312, 417, 396, 497, 490, 622, 1516],
-        "firstSeen": "2026-05-26"
       }
     },
     {
@@ -7803,19 +7413,6 @@
       }
     },
     {
-      "name": "biz-health-check",
-      "repo": "nomadamas/k-skill",
-      "official": false,
-      "stars": 8286,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/nomadamas/k-skill/biz-health-check",
-        "installs": 7700,
-        "weeklyInstalls": [199, 331, 424, 402, 523, 500, 634, 1527],
-        "firstSeen": "2026-06-15"
-      }
-    },
-    {
       "name": "system-design",
       "repo": "anthropics/knowledge-work-plugins",
       "official": true,
@@ -7881,19 +7478,6 @@
       }
     },
     {
-      "name": "g2b-sanctioned-supplier",
-      "repo": "nomadamas/k-skill",
-      "official": false,
-      "stars": 8286,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/nomadamas/k-skill/g2b-sanctioned-supplier",
-        "installs": 7600,
-        "weeklyInstalls": [197, 316, 424, 400, 511, 495, 626, 1517],
-        "firstSeen": "2026-06-15"
-      }
-    },
-    {
       "name": "clean-architecture",
       "repo": "wondelai/skills",
       "official": false,
@@ -7917,19 +7501,6 @@
         "installs": 7600,
         "weeklyInstalls": [415, 307, 315, 322, 325, 320, 339, 266],
         "firstSeen": "2026-05-15"
-      }
-    },
-    {
-      "name": "fsc-corporate-info",
-      "repo": "nomadamas/k-skill",
-      "official": false,
-      "stars": 8286,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/nomadamas/k-skill/fsc-corporate-info",
-        "installs": 7600,
-        "weeklyInstalls": [197, 319, 423, 398, 505, 491, 623, 1518],
-        "firstSeen": "2026-06-15"
       }
     },
     {
@@ -7982,19 +7553,6 @@
         "installs": 7600,
         "weeklyInstalls": [295, 334, 282, 197, 271, 205, 174, 93],
         "firstSeen": "2026-05-26"
-      }
-    },
-    {
-      "name": "national-pension-workplace",
-      "repo": "nomadamas/k-skill",
-      "official": false,
-      "stars": 8286,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/nomadamas/k-skill/national-pension-workplace",
-        "installs": 7600,
-        "weeklyInstalls": [191, 312, 418, 397, 503, 490, 620, 1515],
-        "firstSeen": "2026-06-15"
       }
     },
     {
@@ -39927,6 +39485,142 @@
     {
       "url": "https://skills.sh/github/awesome-copilot/msstore-cli",
       "note": "Tool docs: an agent's manual for the Microsoft Store CLI."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/pdftk-server",
+      "note": "Tool docs: an agent's manual for pdftk."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/dataverse-python-production-code",
+      "note": "Tool docs: an agent's manual for dataverse and python."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/kotlin-springboot",
+      "note": "Tool docs: an agent's manual for spring-boot and kotlin."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/image-manipulation-image-magick",
+      "note": "Tool docs: an agent's manual for imagemagick."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/plantuml-ascii",
+      "note": "Tool docs: an agent's manual for plantuml."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/csharp-docs",
+      "note": "Tool docs: an agent's manual for csharp."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/mcp-cli",
+      "note": "Tool docs: an agent's manual for mcp-cli."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/ef-core",
+      "note": "Tool docs: an agent's manual for ef-core and dotnet."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/azure-deployment-preflight",
+      "note": "Tool docs: an agent's manual for azure."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/create-spring-boot-java-project",
+      "note": "Tool docs: an agent's manual for spring-boot and java."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/appinsights-instrumentation",
+      "note": "Tool docs: an agent's manual for azure."
+    },
+    {
+      "url": "https://skills.sh/nomadamas/k-skill/daishin-report-search",
+      "note": "Before each use, its CLI installs all of k-skill's skills globally, without asking."
+    },
+    {
+      "url": "https://skills.sh/nomadamas/k-skill/daangn-cars-search",
+      "note": "In Korean."
+    },
+    {
+      "url": "https://skills.sh/nomadamas/k-skill/daangn-jobs-search",
+      "note": "In Korean."
+    },
+    {
+      "url": "https://skills.sh/nomadamas/k-skill/donation-place-search",
+      "note": "In Korean."
+    },
+    {
+      "url": "https://skills.sh/nomadamas/k-skill/korean-humanizer",
+      "note": "In Korean."
+    },
+    {
+      "url": "https://skills.sh/nomadamas/k-skill/myrealtrip-search",
+      "note": "In Korean."
+    },
+    {
+      "url": "https://skills.sh/nomadamas/k-skill/seoul-density",
+      "note": "In Korean."
+    },
+    {
+      "url": "https://skills.sh/nomadamas/k-skill/korean-marathon-schedule",
+      "note": "Before each use, its CLI installs all of k-skill's skills globally, without asking."
+    },
+    {
+      "url": "https://skills.sh/nomadamas/k-skill/ticket-availability",
+      "note": "In Korean."
+    },
+    {
+      "url": "https://skills.sh/nomadamas/k-skill/korean-cinema-search",
+      "note": "In Korean."
+    },
+    {
+      "url": "https://skills.sh/nomadamas/k-skill/kstartup-search",
+      "note": "In Korean."
+    },
+    {
+      "url": "https://skills.sh/nomadamas/k-skill/emergency-room-beds",
+      "note": "In Korean."
+    },
+    {
+      "url": "https://skills.sh/nomadamas/k-skill/ohou-today-deal",
+      "note": "In Korean."
+    },
+    {
+      "url": "https://skills.sh/nomadamas/k-skill/sh-notice-search",
+      "note": "Before each use, its CLI installs all of k-skill's skills globally, without asking."
+    },
+    {
+      "url": "https://skills.sh/nomadamas/k-skill/kakao-map",
+      "note": "In Korean."
+    },
+    {
+      "url": "https://skills.sh/nomadamas/k-skill/seoul-bike",
+      "note": "In Korean."
+    },
+    {
+      "url": "https://skills.sh/nomadamas/k-skill/korean-middle-korean",
+      "note": "In Korean."
+    },
+    {
+      "url": "https://skills.sh/nomadamas/k-skill/biz-health-check",
+      "note": "In Korean."
+    },
+    {
+      "url": "https://skills.sh/nomadamas/k-skill/g2b-sanctioned-supplier",
+      "note": "In Korean."
+    },
+    {
+      "url": "https://skills.sh/nomadamas/k-skill/fsc-corporate-info",
+      "note": "In Korean."
+    },
+    {
+      "url": "https://skills.sh/nomadamas/k-skill/national-pension-workplace",
+      "note": "In Korean."
+    },
+    {
+      "url": "https://skills.sh/nomadamas/k-skill/intercity-bus-booking",
+      "note": "Before each use, its CLI installs all of k-skill's skills globally, without asking."
+    },
+    {
+      "url": "https://skills.sh/nomadamas/k-skill/express-bus-booking",
+      "note": "Before each use, its CLI installs all of k-skill's skills globally, without asking."
     }
   ]
 }
