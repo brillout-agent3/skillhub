@@ -44,9 +44,10 @@ Both files are JSONC and may hold comments, which the scripts keep. Edit them in
    5. Add one to five topics, preferring existing ones.
    6. Add a `flag:` only with evidence, such as a matching original.
 4. Have the tags reviewed. Tagging goes wrong often: a review of all 280 skills once corrected 59 of them, mostly effects, needs and categories that didn't match the skill's own steps. If you can start a subagent, give a fresh one only the copy, the `facets` of `data/skills.jsonc` and your tags, and ask it to check each tag against the SKILL.md and the tag's meaning, and to name any tag that's missing. Settle each disagreement by rereading the SKILL.md. Without subagents, recheck each tag against its meaning yourself.
-5. Check whether it belongs to a bundle (below).
-6. Run `pnpm run check`, which rejects tags outside the vocabulary, then commit and push to `main`.
-7. Write its TLDR with the write-tldr skill.
+5. Set `asOf.tags` in `data/skills.jsonc` to today's date: the tags page says when the tags were last assigned.
+6. Check whether it belongs to a bundle (below).
+7. Run `pnpm run check`, which rejects tags outside the vocabulary, then commit and push to `main`.
+8. Write its TLDR with the write-tldr skill.
 
 ## Bundles
 

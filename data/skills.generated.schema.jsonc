@@ -23,7 +23,7 @@
             },
             "tags": {
               "type": "string",
-              "description": "When the tags were last assigned."
+              "description": "When the tags were last assigned, which the tags page shows.\n\nSource: the agent that tags or retags a skill, with the add-skill skill, sets it to that day."
             }
           },
           "required": ["installs", "stars", "tags"],

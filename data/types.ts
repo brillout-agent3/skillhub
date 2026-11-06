@@ -25,7 +25,11 @@ export interface Data {
      * Source: scripts/crawl.ts sets it to the day it runs, when it got stars from GitHub.
      */
     stars: string;
-    /** When the tags were last assigned. */
+    /**
+     * When the tags were last assigned, which the tags page shows.
+     *
+     * Source: the agent that tags or retags a skill, with the add-skill skill, sets it to that day.
+     */
     tags: string;
   };
   /** The tag dimensions, with the values their tags can take. */
