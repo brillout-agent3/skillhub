@@ -31,13 +31,13 @@ export interface Crawl {
   $schema: string;
   /** When crawl.ts last ran (YYYY-MM-DD). */
   asOf: string;
-  /** Below the minimums, most installed first. */
-  unqualified: Crawled[];
   /**
    * At the minimums (`MINIMUMS` in ../scripts/data.ts) or above, most installed first: waiting for
    * an agent to approve or disqualify them, with the add-skill skill.
    */
   qualified: Crawled[];
+  /** Below the minimums, most installed first. */
+  unqualified: Crawled[];
   /** Not to be shown, each with why, and with no agent data: no tags, no TLDR, no copy of its SKILL.md. */
   disqualified: Disqualified[];
 }

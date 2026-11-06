@@ -1,1801 +1,6 @@
 {
   "$schema": "./crawl.generated.schema.jsonc",
   "asOf": "2026-11-06",
-  "unqualified": [
-    {
-      "name": "reddit-automation",
-      "repo": "flowkit-labs/skills",
-      "official": false,
-      "stars": 31,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/flowkit-labs/skills/reddit-automation",
-        "install": "npx skills add https://github.com/flowkit-labs/skills --skill reddit-automation",
-        "installs": 1261071,
-        "weeklyInstalls": [108855, 113373, 113916, 114322, 113172, 96986, 103833, 104996],
-        "firstSeen": "2026-08-12"
-      }
-    },
-    {
-      "name": "design-mobile-apps",
-      "repo": "designed-by-ai/skills",
-      "official": false,
-      "stars": 27,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/designed-by-ai/skills/design-mobile-apps",
-        "install": "npx skills add https://github.com/designed-by-ai/skills --skill design-mobile-apps",
-        "installs": 1255483,
-        "weeklyInstalls": [140172, 138476, 141029, 142502, 140054, 140289, 136799, 136787],
-        "firstSeen": "2026-09-04"
-      }
-    },
-    {
-      "name": "ai-video-generation",
-      "repo": "101-skills/superpowers",
-      "official": false,
-      "stars": 19,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/101-skills/superpowers/ai-video-generation",
-        "install": "npx skills add https://github.com/101-skills/superpowers --skill ai-video-generation",
-        "installs": 968979,
-        "weeklyInstalls": [64317, 213120, 240489, 130740, 72792, 67895, 67605, 58925],
-        "firstSeen": "2026-08-31"
-      }
-    },
-    {
-      "name": "ai-image-generation",
-      "repo": "101-skills/superpowers",
-      "official": false,
-      "stars": 19,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/101-skills/superpowers/ai-image-generation",
-        "install": "npx skills add https://github.com/101-skills/superpowers --skill ai-image-generation",
-        "installs": 967391,
-        "weeklyInstalls": [63881, 213213, 240509, 130600, 72599, 67708, 67369, 58684],
-        "firstSeen": "2026-08-31"
-      }
-    },
-    {
-      "name": "ai-avatar-video",
-      "repo": "101-skills/superpowers",
-      "official": false,
-      "stars": 19,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/101-skills/superpowers/ai-avatar-video",
-        "install": "npx skills add https://github.com/101-skills/superpowers --skill ai-avatar-video",
-        "installs": 966715,
-        "weeklyInstalls": [63412, 213289, 240428, 130550, 72510, 67623, 67288, 58592],
-        "firstSeen": "2026-08-31"
-      }
-    },
-    {
-      "name": "ai-image-generation",
-      "repo": "magentosh/superpowers",
-      "official": false,
-      "stars": 4,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/magentosh/superpowers/ai-image-generation",
-        "install": "npx skills add https://github.com/magentosh/superpowers --skill ai-image-generation",
-        "installs": 858104,
-        "weeklyInstalls": [15349, 51625, 67330, 122406, 176375, 201368, 114583, 58159],
-        "firstSeen": "2026-08-28"
-      }
-    },
-    {
-      "name": "ai-video-generation",
-      "repo": "magentosh/superpowers",
-      "official": false,
-      "stars": 4,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/magentosh/superpowers/ai-video-generation",
-        "install": "npx skills add https://github.com/magentosh/superpowers --skill ai-video-generation",
-        "installs": 857640,
-        "weeklyInstalls": [15414, 51727, 67328, 122372, 176297, 201265, 114502, 58114],
-        "firstSeen": "2026-08-28"
-      }
-    },
-    {
-      "name": "ai-avatar-video",
-      "repo": "magentosh/superpowers",
-      "official": false,
-      "stars": 4,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/magentosh/superpowers/ai-avatar-video",
-        "install": "npx skills add https://github.com/magentosh/superpowers --skill ai-avatar-video",
-        "installs": 857527,
-        "weeklyInstalls": [15473, 51618, 67328, 122369, 176289, 201238, 114482, 58098],
-        "firstSeen": "2026-08-28"
-      }
-    },
-    {
-      "name": "twitter-automation",
-      "repo": "magentosh/superpowers",
-      "official": false,
-      "stars": 4,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/magentosh/superpowers/twitter-automation",
-        "install": "npx skills add https://github.com/magentosh/superpowers --skill twitter-automation",
-        "installs": 857404,
-        "weeklyInstalls": [15355, 51522, 67330, 122368, 176283, 201236, 114481, 58096],
-        "firstSeen": "2026-08-28"
-      }
-    },
-    {
-      "name": "ai-image-generation",
-      "repo": "skills-shell/superpowers",
-      "official": false,
-      "stars": 5,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/skills-shell/superpowers/ai-image-generation",
-        "install": "npx skills add https://github.com/skills-shell/superpowers --skill ai-image-generation",
-        "installs": 691699,
-        "weeklyInstalls": [15341, 51745, 66909, 67299, 67099, 67188, 89771, 143630],
-        "firstSeen": "2026-09-02"
-      }
-    },
-    {
-      "name": "ai-video-generation",
-      "repo": "skills-shell/superpowers",
-      "official": false,
-      "stars": 5,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/skills-shell/superpowers/ai-video-generation",
-        "install": "npx skills add https://github.com/skills-shell/superpowers --skill ai-video-generation",
-        "installs": 691646,
-        "weeklyInstalls": [15657, 51506, 66911, 67301, 67104, 67191, 89754, 143585],
-        "firstSeen": "2026-09-02"
-      }
-    },
-    {
-      "name": "twitter-automation",
-      "repo": "skills-shell/superpowers",
-      "official": false,
-      "stars": 5,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/skills-shell/superpowers/twitter-automation",
-        "install": "npx skills add https://github.com/skills-shell/superpowers --skill twitter-automation",
-        "installs": 691578,
-        "weeklyInstalls": [15519, 51651, 66909, 67299, 67098, 67189, 89743, 143567],
-        "firstSeen": "2026-09-02"
-      }
-    },
-    {
-      "name": "ai-avatar-video",
-      "repo": "skills-shell/superpowers",
-      "official": false,
-      "stars": 5,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/skills-shell/superpowers/ai-avatar-video",
-        "install": "npx skills add https://github.com/skills-shell/superpowers --skill ai-avatar-video",
-        "installs": 691291,
-        "weeklyInstalls": [15340, 51567, 66909, 67299, 67098, 67187, 89744, 143567],
-        "firstSeen": "2026-09-02"
-      }
-    },
-    {
-      "name": "ai-avatar-video",
-      "repo": "qu-skills/superpowers",
-      "official": false,
-      "stars": 4,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/qu-skills/superpowers/ai-avatar-video",
-        "install": "npx skills add https://github.com/qu-skills/superpowers --skill ai-avatar-video",
-        "installs": 650941,
-        "weeklyInstalls": [31275, 102861, 134154, 77715, 66985, 66995, 67258, 58486],
-        "firstSeen": "2026-09-02"
-      }
-    },
-    {
-      "name": "twitter-automation",
-      "repo": "qu-skills/superpowers",
-      "official": false,
-      "stars": 4,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/qu-skills/superpowers/twitter-automation",
-        "install": "npx skills add https://github.com/qu-skills/superpowers --skill twitter-automation",
-        "installs": 650517,
-        "weeklyInstalls": [30950, 102604, 134148, 77712, 66981, 66991, 67242, 58473],
-        "firstSeen": "2026-09-02"
-      }
-    },
-    {
-      "name": "ai-video-generation",
-      "repo": "qu-skills/superpowers",
-      "official": false,
-      "stars": 4,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/qu-skills/superpowers/ai-video-generation",
-        "install": "npx skills add https://github.com/qu-skills/superpowers --skill ai-video-generation",
-        "installs": 650393,
-        "weeklyInstalls": [30726, 102710, 134169, 77717, 66995, 66997, 67252, 58478],
-        "firstSeen": "2026-09-02"
-      }
-    },
-    {
-      "name": "ai-image-generation",
-      "repo": "qu-skills/superpowers",
-      "official": false,
-      "stars": 4,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/qu-skills/superpowers/ai-image-generation",
-        "install": "npx skills add https://github.com/qu-skills/superpowers --skill ai-image-generation",
-        "installs": 650358,
-        "weeklyInstalls": [30674, 102693, 134154, 77727, 66987, 66994, 67243, 58474],
-        "firstSeen": "2026-09-02"
-      }
-    },
-    {
-      "name": "ai-image-generation",
-      "repo": "its-a-skill-issue/superpowers",
-      "official": false,
-      "stars": 0,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/its-a-skill-issue/superpowers/ai-image-generation",
-        "install": "npx skills add https://github.com/its-a-skill-issue/superpowers --skill ai-image-generation",
-        "installs": 498602,
-        "weeklyInstalls": [15106, 51731, 66935, 66372, 67413, 67113, 66763, 58420],
-        "firstSeen": "2026-09-07"
-      }
-    },
-    {
-      "name": "twitter-automation",
-      "repo": "its-a-skill-issue/superpowers",
-      "official": false,
-      "stars": 0,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/its-a-skill-issue/superpowers/twitter-automation",
-        "install": "npx skills add https://github.com/its-a-skill-issue/superpowers --skill twitter-automation",
-        "installs": 498501,
-        "weeklyInstalls": [14971, 51775, 66935, 66372, 67411, 67113, 66762, 58416],
-        "firstSeen": "2026-09-07"
-      }
-    },
-    {
-      "name": "ai-avatar-video",
-      "repo": "its-a-skill-issue/superpowers",
-      "official": false,
-      "stars": 0,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/its-a-skill-issue/superpowers/ai-avatar-video",
-        "install": "npx skills add https://github.com/its-a-skill-issue/superpowers --skill ai-avatar-video",
-        "installs": 498463,
-        "weeklyInstalls": [15065, 51638, 66935, 66374, 67411, 67113, 66763, 58416],
-        "firstSeen": "2026-09-07"
-      }
-    },
-    {
-      "name": "ai-video-generation",
-      "repo": "its-a-skill-issue/superpowers",
-      "official": false,
-      "stars": 0,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/its-a-skill-issue/superpowers/ai-video-generation",
-        "install": "npx skills add https://github.com/its-a-skill-issue/superpowers --skill ai-video-generation",
-        "installs": 498255,
-        "weeklyInstalls": [14822, 51660, 66937, 66373, 67413, 67116, 66763, 58423],
-        "firstSeen": "2026-09-07"
-      }
-    },
-    {
-      "name": "ai-image-generation",
-      "repo": "bankai-skills/superpowers",
-      "official": false,
-      "stars": 0,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/bankai-skills/superpowers/ai-image-generation",
-        "install": "npx skills add https://github.com/bankai-skills/superpowers --skill ai-image-generation",
-        "installs": 484135,
-        "weeklyInstalls": [0, 50711, 67419, 67381, 67183, 67068, 66504, 58408],
-        "firstSeen": "2026-09-14"
-      }
-    },
-    {
-      "name": "ai-avatar-video",
-      "repo": "bankai-skills/superpowers",
-      "official": false,
-      "stars": 0,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/bankai-skills/superpowers/ai-avatar-video",
-        "install": "npx skills add https://github.com/bankai-skills/superpowers --skill ai-avatar-video",
-        "installs": 484080,
-        "weeklyInstalls": [0, 50664, 67418, 67381, 67183, 67068, 66502, 58406],
-        "firstSeen": "2026-09-14"
-      }
-    },
-    {
-      "name": "ai-video-generation",
-      "repo": "bankai-skills/superpowers",
-      "official": false,
-      "stars": 0,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/bankai-skills/superpowers/ai-video-generation",
-        "install": "npx skills add https://github.com/bankai-skills/superpowers --skill ai-video-generation",
-        "installs": 484023,
-        "weeklyInstalls": [0, 50586, 67420, 67384, 67184, 67074, 66506, 58409],
-        "firstSeen": "2026-09-14"
-      }
-    },
-    {
-      "name": "twitter-automation",
-      "repo": "bankai-skills/superpowers",
-      "official": false,
-      "stars": 0,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/bankai-skills/superpowers/twitter-automation",
-        "install": "npx skills add https://github.com/bankai-skills/superpowers --skill twitter-automation",
-        "installs": 484012,
-        "weeklyInstalls": [0, 50590, 67419, 67383, 67184, 67069, 66502, 58406],
-        "firstSeen": "2026-09-14"
-      }
-    },
-    {
-      "name": "video-edit",
-      "repo": "prime-skills/runcomfy-agent-skills",
-      "official": false,
-      "stars": 61,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/video-edit",
-        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill video-edit",
-        "installs": 444753,
-        "weeklyInstalls": [3761, 3245, 3239, 3468, 3764, 3237, 3571, 3101],
-        "firstSeen": "2026-04-30"
-      }
-    },
-    {
-      "name": "image-to-video",
-      "repo": "prime-skills/runcomfy-agent-skills",
-      "official": false,
-      "stars": 61,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/image-to-video",
-        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill image-to-video",
-        "installs": 442953,
-        "weeklyInstalls": [3711, 3241, 3226, 3446, 3724, 3221, 3556, 3075],
-        "firstSeen": "2026-04-30"
-      }
-    },
-    {
-      "name": "nano-banana-2",
-      "repo": "prime-skills/runcomfy-agent-skills",
-      "official": false,
-      "stars": 61,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/nano-banana-2",
-        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill nano-banana-2",
-        "installs": 442638,
-        "weeklyInstalls": [3708, 3251, 3237, 3457, 3716, 3204, 3555, 3074],
-        "firstSeen": "2026-04-30"
-      }
-    },
-    {
-      "name": "image-edit",
-      "repo": "prime-skills/runcomfy-agent-skills",
-      "official": false,
-      "stars": 61,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/image-edit",
-        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill image-edit",
-        "installs": 442191,
-        "weeklyInstalls": [3737, 3248, 3232, 3445, 3714, 3187, 3541, 3070],
-        "firstSeen": "2026-04-30"
-      }
-    },
-    {
-      "name": "nano-banana-edit",
-      "repo": "prime-skills/runcomfy-agent-skills",
-      "official": false,
-      "stars": 61,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/nano-banana-edit",
-        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill nano-banana-edit",
-        "installs": 442015,
-        "weeklyInstalls": [3684, 3219, 3216, 3432, 3686, 3174, 3533, 3052],
-        "firstSeen": "2026-04-30"
-      }
-    },
-    {
-      "name": "flux-kontext",
-      "repo": "prime-skills/runcomfy-agent-skills",
-      "official": false,
-      "stars": 61,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/flux-kontext",
-        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill flux-kontext",
-        "installs": 441808,
-        "weeklyInstalls": [3693, 3223, 3218, 3428, 3687, 3172, 3527, 3053],
-        "firstSeen": "2026-04-30"
-      }
-    },
-    {
-      "name": "wan-2-7",
-      "repo": "prime-skills/runcomfy-agent-skills",
-      "official": false,
-      "stars": 61,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/wan-2-7",
-        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill wan-2-7",
-        "installs": 441243,
-        "weeklyInstalls": [3686, 3217, 3216, 3425, 3689, 3169, 3527, 3051],
-        "firstSeen": "2026-04-30"
-      }
-    },
-    {
-      "name": "seedance-v2",
-      "repo": "prime-skills/runcomfy-agent-skills",
-      "official": false,
-      "stars": 61,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/seedance-v2",
-        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill seedance-v2",
-        "installs": 441093,
-        "weeklyInstalls": [3690, 3218, 3218, 3428, 3688, 3176, 3533, 3055],
-        "firstSeen": "2026-04-30"
-      }
-    },
-    {
-      "name": "gpt-image-edit",
-      "repo": "prime-skills/runcomfy-agent-skills",
-      "official": false,
-      "stars": 61,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/gpt-image-edit",
-        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill gpt-image-edit",
-        "installs": 441091,
-        "weeklyInstalls": [3686, 3216, 3218, 3432, 3691, 3171, 3528, 3056],
-        "firstSeen": "2026-04-30"
-      }
-    },
-    {
-      "name": "happyhorse-1-0",
-      "repo": "prime-skills/runcomfy-agent-skills",
-      "official": false,
-      "stars": 61,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/happyhorse-1-0",
-        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill happyhorse-1-0",
-        "installs": 441004,
-        "weeklyInstalls": [3685, 3216, 3214, 3424, 3682, 3169, 3525, 3045],
-        "firstSeen": "2026-04-30"
-      }
-    },
-    {
-      "name": "flux-2-klein",
-      "repo": "prime-skills/runcomfy-agent-skills",
-      "official": false,
-      "stars": 61,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/flux-2-klein",
-        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill flux-2-klein",
-        "installs": 440837,
-        "weeklyInstalls": [3684, 3215, 3212, 3426, 3685, 3170, 3526, 3047],
-        "firstSeen": "2026-04-30"
-      }
-    },
-    {
-      "name": "ai-music",
-      "repo": "gencraft-labs/skills",
-      "official": false,
-      "stars": 0,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/gencraft-labs/skills/ai-music",
-        "install": "npx skills add https://github.com/gencraft-labs/skills --skill ai-music",
-        "installs": 439565,
-        "weeklyInstalls": [0, 0, 0, 0, 73745, 97074, 104607, 105207],
-        "firstSeen": "2026-10-06"
-      }
-    },
-    {
-      "name": "ai-video-generation",
-      "repo": "gencraft-labs/skills",
-      "official": false,
-      "stars": 0,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/gencraft-labs/skills/ai-video-generation",
-        "install": "npx skills add https://github.com/gencraft-labs/skills --skill ai-video-generation",
-        "installs": 439230,
-        "weeklyInstalls": [0, 0, 0, 0, 73635, 96894, 104041, 105574],
-        "firstSeen": "2026-10-06"
-      }
-    },
-    {
-      "name": "video-edit",
-      "repo": "gencraft-labs/skills",
-      "official": false,
-      "stars": 0,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/gencraft-labs/skills/video-edit",
-        "install": "npx skills add https://github.com/gencraft-labs/skills --skill video-edit",
-        "installs": 439161,
-        "weeklyInstalls": [0, 0, 0, 0, 73613, 97002, 103998, 105503],
-        "firstSeen": "2026-10-06"
-      }
-    },
-    {
-      "name": "ai-image-generation",
-      "repo": "gencraft-labs/skills",
-      "official": false,
-      "stars": 0,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/gencraft-labs/skills/ai-image-generation",
-        "install": "npx skills add https://github.com/gencraft-labs/skills --skill ai-image-generation",
-        "installs": 438954,
-        "weeklyInstalls": [0, 0, 0, 0, 73790, 96854, 103789, 105316],
-        "firstSeen": "2026-10-06"
-      }
-    },
-    {
-      "name": "image-to-video",
-      "repo": "gencraft-labs/skills",
-      "official": false,
-      "stars": 0,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/gencraft-labs/skills/image-to-video",
-        "install": "npx skills add https://github.com/gencraft-labs/skills --skill image-to-video",
-        "installs": 438243,
-        "weeklyInstalls": [0, 0, 0, 0, 73599, 96803, 103765, 105083],
-        "firstSeen": "2026-10-06"
-      }
-    },
-    {
-      "name": "kling-3-0",
-      "repo": "prime-skills/runcomfy-agent-skills",
-      "official": false,
-      "stars": 61,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/kling-3-0",
-        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill kling-3-0",
-        "installs": 418063,
-        "weeklyInstalls": [3699, 3230, 3220, 3432, 3692, 3181, 3535, 3053],
-        "firstSeen": "2026-05-06"
-      }
-    },
-    {
-      "name": "codex-pet",
-      "repo": "prime-skills/runcomfy-agent-skills",
-      "official": false,
-      "stars": 61,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/codex-pet",
-        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill codex-pet",
-        "installs": 406431,
-        "weeklyInstalls": [3701, 3227, 3221, 3427, 3684, 3174, 3532, 3053],
-        "firstSeen": "2026-05-09"
-      }
-    },
-    {
-      "name": "prisma-postgres-setup",
-      "repo": "prisma/skills",
-      "official": true,
-      "stars": 80,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/prisma/skills/prisma-postgres-setup",
-        "install": "npx skills add https://github.com/prisma/skills --skill prisma-postgres-setup",
-        "installs": 398205,
-        "weeklyInstalls": [17387, 17142, 17445, 16784, 18672, 16843, 18833, 14456],
-        "firstSeen": "2026-04-02"
-      }
-    },
-    {
-      "name": "prisma-driver-adapter-implementation",
-      "repo": "prisma/skills",
-      "official": true,
-      "stars": 80,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/prisma/skills/prisma-driver-adapter-implementation",
-        "install": "npx skills add https://github.com/prisma/skills --skill prisma-driver-adapter-implementation",
-        "installs": 398162,
-        "weeklyInstalls": [17294, 17023, 17340, 16678, 18510, 16699, 18669, 14323],
-        "firstSeen": "2026-02-23"
-      }
-    },
-    {
-      "name": "prisma-upgrade-v7",
-      "repo": "prisma/skills",
-      "official": true,
-      "stars": 80,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/prisma/skills/prisma-upgrade-v7",
-        "install": "npx skills add https://github.com/prisma/skills --skill prisma-upgrade-v7",
-        "installs": 397954,
-        "weeklyInstalls": [17265, 17005, 17336, 16669, 18519, 16712, 18704, 14331],
-        "firstSeen": "2026-02-04"
-      }
-    },
-    {
-      "name": "prisma-compute",
-      "repo": "prisma/skills",
-      "official": true,
-      "stars": 80,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/prisma/skills/prisma-compute",
-        "install": "npx skills add https://github.com/prisma/skills --skill prisma-compute",
-        "installs": 393075,
-        "weeklyInstalls": [17245, 16993, 17317, 16644, 18488, 16680, 18661, 14303],
-        "firstSeen": "2026-06-09"
-      }
-    },
-    {
-      "name": "prisma-mongodb-upgrade",
-      "repo": "prisma/skills",
-      "official": true,
-      "stars": 80,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/prisma/skills/prisma-mongodb-upgrade",
-        "install": "npx skills add https://github.com/prisma/skills --skill prisma-mongodb-upgrade",
-        "installs": 391607,
-        "weeklyInstalls": [17218, 16960, 17285, 16625, 18456, 16667, 18650, 14295],
-        "firstSeen": "2026-07-06"
-      }
-    },
-    {
-      "name": "ai-image-generation",
-      "repo": "prime-skills/runcomfy-agent-skills",
-      "official": false,
-      "stars": 61,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/ai-image-generation",
-        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill ai-image-generation",
-        "installs": 387988,
-        "weeklyInstalls": [3750, 3341, 3268, 3469, 3765, 3248, 3596, 3103],
-        "firstSeen": "2026-05-13"
-      }
-    },
-    {
-      "name": "ai-video-generation",
-      "repo": "prime-skills/runcomfy-agent-skills",
-      "official": false,
-      "stars": 61,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/ai-video-generation",
-        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill ai-video-generation",
-        "installs": 387861,
-        "weeklyInstalls": [3737, 3260, 3234, 3446, 3706, 3198, 3546, 3059],
-        "firstSeen": "2026-05-13"
-      }
-    },
-    {
-      "name": "runcomfy-cli",
-      "repo": "prime-skills/runcomfy-agent-skills",
-      "official": false,
-      "stars": 61,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/runcomfy-cli",
-        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill runcomfy-cli",
-        "installs": 385004,
-        "weeklyInstalls": [3704, 3227, 3223, 3431, 3693, 3181, 3533, 3050],
-        "firstSeen": "2026-05-13"
-      }
-    },
-    {
-      "name": "ai-avatar-video",
-      "repo": "prime-skills/runcomfy-agent-skills",
-      "official": false,
-      "stars": 61,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/ai-avatar-video",
-        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill ai-avatar-video",
-        "installs": 384799,
-        "weeklyInstalls": [3702, 3237, 3219, 3434, 3696, 3177, 3536, 3053],
-        "firstSeen": "2026-05-13"
-      }
-    },
-    {
-      "name": "face-swap",
-      "repo": "prime-skills/runcomfy-agent-skills",
-      "official": false,
-      "stars": 61,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/face-swap",
-        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill face-swap",
-        "installs": 384668,
-        "weeklyInstalls": [3696, 3223, 3213, 3430, 3690, 3172, 3534, 3053],
-        "firstSeen": "2026-05-13"
-      }
-    },
-    {
-      "name": "video-inpainting",
-      "repo": "prime-skills/runcomfy-agent-skills",
-      "official": false,
-      "stars": 61,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/video-inpainting",
-        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill video-inpainting",
-        "installs": 383024,
-        "weeklyInstalls": [3693, 3230, 3216, 3424, 3690, 3176, 3528, 3055],
-        "firstSeen": "2026-05-13"
-      }
-    },
-    {
-      "name": "image-inpainting",
-      "repo": "prime-skills/runcomfy-agent-skills",
-      "official": false,
-      "stars": 61,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/image-inpainting",
-        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill image-inpainting",
-        "installs": 382551,
-        "weeklyInstalls": [3700, 3222, 3219, 3426, 3690, 3175, 3537, 3059],
-        "firstSeen": "2026-05-13"
-      }
-    },
-    {
-      "name": "controlnet-pose",
-      "repo": "prime-skills/runcomfy-agent-skills",
-      "official": false,
-      "stars": 61,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/controlnet-pose",
-        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill controlnet-pose",
-        "installs": 382285,
-        "weeklyInstalls": [3689, 3215, 3210, 3426, 3686, 3168, 3529, 3048],
-        "firstSeen": "2026-05-13"
-      }
-    },
-    {
-      "name": "lipsync",
-      "repo": "prime-skills/runcomfy-agent-skills",
-      "official": false,
-      "stars": 61,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/lipsync",
-        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill lipsync",
-        "installs": 382270,
-        "weeklyInstalls": [3691, 3224, 3214, 3423, 3688, 3175, 3531, 3052],
-        "firstSeen": "2026-05-13"
-      }
-    },
-    {
-      "name": "video-extend",
-      "repo": "prime-skills/runcomfy-agent-skills",
-      "official": false,
-      "stars": 61,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/video-extend",
-        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill video-extend",
-        "installs": 381859,
-        "weeklyInstalls": [3692, 3221, 3211, 3425, 3686, 3175, 3529, 3050],
-        "firstSeen": "2026-05-13"
-      }
-    },
-    {
-      "name": "elevenlabs-music-generation",
-      "repo": "prime-skills/runcomfy-agent-skills",
-      "official": false,
-      "stars": 61,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/elevenlabs-music-generation",
-        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill elevenlabs-music-generation",
-        "installs": 381778,
-        "weeklyInstalls": [3691, 3227, 3219, 3437, 3692, 3180, 3535, 3066],
-        "firstSeen": "2026-05-14"
-      }
-    },
-    {
-      "name": "image-outpainting",
-      "repo": "prime-skills/runcomfy-agent-skills",
-      "official": false,
-      "stars": 61,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/image-outpainting",
-        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill image-outpainting",
-        "installs": 381587,
-        "weeklyInstalls": [3690, 3218, 3220, 3428, 3687, 3173, 3529, 3050],
-        "firstSeen": "2026-05-13"
-      }
-    },
-    {
-      "name": "relight",
-      "repo": "prime-skills/runcomfy-agent-skills",
-      "official": false,
-      "stars": 61,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/relight",
-        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill relight",
-        "installs": 381490,
-        "weeklyInstalls": [3686, 3217, 3213, 3427, 3686, 3172, 3528, 3049],
-        "firstSeen": "2026-05-13"
-      }
-    },
-    {
-      "name": "video-outpainting",
-      "repo": "prime-skills/runcomfy-agent-skills",
-      "official": false,
-      "stars": 61,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/video-outpainting",
-        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill video-outpainting",
-        "installs": 381396,
-        "weeklyInstalls": [3691, 3222, 3210, 3424, 3686, 3175, 3526, 3051],
-        "firstSeen": "2026-05-13"
-      }
-    },
-    {
-      "name": "ai-music",
-      "repo": "prime-skills/runcomfy-agent-skills",
-      "official": false,
-      "stars": 61,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/ai-music",
-        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill ai-music",
-        "installs": 373882,
-        "weeklyInstalls": [3707, 3234, 3227, 3438, 3700, 3187, 3543, 3064],
-        "firstSeen": "2026-05-15"
-      }
-    },
-    {
-      "name": "ace-step",
-      "repo": "prime-skills/runcomfy-agent-skills",
-      "official": false,
-      "stars": 61,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/ace-step",
-        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill ace-step",
-        "installs": 373276,
-        "weeklyInstalls": [3686, 3216, 3216, 3425, 3684, 3171, 3528, 3049],
-        "firstSeen": "2026-05-15"
-      }
-    },
-    {
-      "name": "uizze-ui",
-      "repo": "uizze/uizze",
-      "official": false,
-      "stars": 85,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/uizze/uizze/uizze-ui",
-        "install": "npx skills add https://github.com/uizze/uizze --skill uizze-ui",
-        "installs": 315142,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 89282, 54682, 108363],
-        "firstSeen": "2026-10-12"
-      }
-    },
-    {
-      "name": "just-scrape",
-      "repo": "scrapegraphai/just-scrape",
-      "official": false,
-      "stars": 74,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/scrapegraphai/just-scrape/just-scrape",
-        "install": "npx skills add https://github.com/scrapegraphai/just-scrape --skill just-scrape",
-        "installs": 245014,
-        "weeklyInstalls": [6, 7, 8, 9, 9, 6, 6, 6],
-        "firstSeen": "2026-02-13"
-      }
-    },
-    {
-      "name": "agent-browser",
-      "repo": "101-skills/superpowers",
-      "official": false,
-      "stars": 19,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/101-skills/superpowers/agent-browser",
-        "install": "npx skills add https://github.com/101-skills/superpowers --skill agent-browser",
-        "installs": 182743,
-        "weeklyInstalls": [12081, 39936, 45866, 24608, 13736, 12726, 12676, 11142],
-        "firstSeen": "2026-08-31"
-      }
-    },
-    {
-      "name": "agent-browser",
-      "repo": "magentosh/superpowers",
-      "official": false,
-      "stars": 4,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/magentosh/superpowers/agent-browser",
-        "install": "npx skills add https://github.com/magentosh/superpowers --skill agent-browser",
-        "installs": 160813,
-        "weeklyInstalls": [2955, 9605, 12594, 23179, 33059, 37509, 21489, 10975],
-        "firstSeen": "2026-08-28"
-      }
-    },
-    {
-      "name": "anti-detect-browser",
-      "repo": "antibrow/anti-detect-browser-skills",
-      "official": false,
-      "stars": 21,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/antibrow/anti-detect-browser-skills/anti-detect-browser",
-        "install": "npx skills add https://github.com/antibrow/anti-detect-browser-skills --skill anti-detect-browser",
-        "installs": 149956,
-        "weeklyInstalls": [8884, 8940, 8951, 8988, 8991, 8625, 8157, 8190],
-        "firstSeen": "2026-03-18"
-      }
-    },
-    {
-      "name": "convex-quickstart",
-      "repo": "convex/agent-skills",
-      "official": false,
-      "stars": 69,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/convex/agent-skills/convex-quickstart",
-        "install": "npx skills add https://github.com/convex/agent-skills --skill convex-quickstart",
-        "installs": 135264,
-        "weeklyInstalls": [3230, 2614, 2521, 2568, 2574, 2649, 2291, 2663],
-        "firstSeen": "2026-02-18"
-      }
-    },
-    {
-      "name": "convex-create-component",
-      "repo": "convex/agent-skills",
-      "official": false,
-      "stars": 69,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/convex/agent-skills/convex-create-component",
-        "install": "npx skills add https://github.com/convex/agent-skills --skill convex-create-component",
-        "installs": 135068,
-        "weeklyInstalls": [3272, 2648, 2572, 2630, 2587, 2648, 2293, 2661],
-        "firstSeen": "2026-03-16"
-      }
-    },
-    {
-      "name": "agent-browser",
-      "repo": "skills-shell/superpowers",
-      "official": false,
-      "stars": 5,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/skills-shell/superpowers/agent-browser",
-        "install": "npx skills add https://github.com/skills-shell/superpowers --skill agent-browser",
-        "installs": 130135,
-        "weeklyInstalls": [2894, 9742, 12534, 12563, 12597, 12768, 16714, 27178],
-        "firstSeen": "2026-09-02"
-      }
-    },
-    {
-      "name": "agent-browser",
-      "repo": "qu-skills/superpowers",
-      "official": false,
-      "stars": 4,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/qu-skills/superpowers/agent-browser",
-        "install": "npx skills add https://github.com/qu-skills/superpowers --skill agent-browser",
-        "installs": 122775,
-        "weeklyInstalls": [5809, 19552, 25452, 14901, 12488, 12641, 12556, 10893],
-        "firstSeen": "2026-09-02"
-      }
-    },
-    {
-      "name": "web-search",
-      "repo": "101-skills/superpowers",
-      "official": false,
-      "stars": 19,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/101-skills/superpowers/web-search",
-        "install": "npx skills add https://github.com/101-skills/superpowers --skill web-search",
-        "installs": 122260,
-        "weeklyInstalls": [8283, 26677, 30304, 16363, 9029, 8762, 8601, 7562],
-        "firstSeen": "2026-08-31"
-      }
-    },
-    {
-      "name": "remotion-render",
-      "repo": "101-skills/superpowers",
-      "official": false,
-      "stars": 19,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/101-skills/superpowers/remotion-render",
-        "install": "npx skills add https://github.com/101-skills/superpowers --skill remotion-render",
-        "installs": 121880,
-        "weeklyInstalls": [8258, 26782, 30237, 16335, 8974, 8684, 8545, 7479],
-        "firstSeen": "2026-08-31"
-      }
-    },
-    {
-      "name": "infsh-cli",
-      "repo": "101-skills/superpowers",
-      "official": false,
-      "stars": 19,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/101-skills/superpowers/infsh-cli",
-        "install": "npx skills add https://github.com/101-skills/superpowers --skill infsh-cli",
-        "installs": 121859,
-        "weeklyInstalls": [8181, 26778, 30238, 16332, 8969, 8681, 8543, 7475],
-        "firstSeen": "2026-08-31"
-      }
-    },
-    {
-      "name": "agent-tools",
-      "repo": "101-skills/superpowers",
-      "official": false,
-      "stars": 19,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/101-skills/superpowers/agent-tools",
-        "install": "npx skills add https://github.com/101-skills/superpowers --skill agent-tools",
-        "installs": 121833,
-        "weeklyInstalls": [8265, 26695, 30237, 16334, 8975, 8685, 8545, 7478],
-        "firstSeen": "2026-08-31"
-      }
-    },
-    {
-      "name": "python-executor",
-      "repo": "101-skills/superpowers",
-      "official": false,
-      "stars": 19,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/101-skills/superpowers/python-executor",
-        "install": "npx skills add https://github.com/101-skills/superpowers --skill python-executor",
-        "installs": 121830,
-        "weeklyInstalls": [8136, 26804, 30242, 16338, 8970, 8691, 8545, 7478],
-        "firstSeen": "2026-08-31"
-      }
-    },
-    {
-      "name": "image-to-ui",
-      "repo": "uizze/uizze",
-      "official": false,
-      "stars": 85,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/uizze/uizze/image-to-ui",
-        "install": "npx skills add https://github.com/uizze/uizze --skill image-to-ui",
-        "installs": 121075,
-        "weeklyInstalls": [0, 0, 0, 0, 20737, 24450, 18311, 36582],
-        "firstSeen": "2026-10-09"
-      }
-    },
-    {
-      "name": "multi-account-isolation",
-      "repo": "antibrow/anti-detect-browser-skills",
-      "official": false,
-      "stars": 21,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/antibrow/anti-detect-browser-skills/multi-account-isolation",
-        "install": "npx skills add https://github.com/antibrow/anti-detect-browser-skills --skill multi-account-isolation",
-        "installs": 119445,
-        "weeklyInstalls": [8868, 8896, 8923, 8940, 8942, 8630, 8143, 8196],
-        "firstSeen": "2026-08-01"
-      }
-    },
-    {
-      "name": "browser-mcp-agent",
-      "repo": "antibrow/anti-detect-browser-skills",
-      "official": false,
-      "stars": 21,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/antibrow/anti-detect-browser-skills/browser-mcp-agent",
-        "install": "npx skills add https://github.com/antibrow/anti-detect-browser-skills --skill browser-mcp-agent",
-        "installs": 119429,
-        "weeklyInstalls": [8857, 8904, 8902, 8983, 8963, 8621, 8131, 8157],
-        "firstSeen": "2026-07-31"
-      }
-    },
-    {
-      "name": "landing-page-conversion-audit",
-      "repo": "autonnel/autonnel-skills",
-      "official": false,
-      "stars": 8,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/autonnel/autonnel-skills/landing-page-conversion-audit",
-        "install": "npx skills add https://github.com/autonnel/autonnel-skills --skill landing-page-conversion-audit",
-        "installs": 117583,
-        "weeklyInstalls": [9028, 9071, 9024, 9100, 9069, 8699, 8203, 8272],
-        "firstSeen": "2026-08-05"
-      }
-    },
-    {
-      "name": "sales-funnel-blueprint",
-      "repo": "autonnel/autonnel-skills",
-      "official": false,
-      "stars": 8,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/autonnel/autonnel-skills/sales-funnel-blueprint",
-        "install": "npx skills add https://github.com/autonnel/autonnel-skills --skill sales-funnel-blueprint",
-        "installs": 115946,
-        "weeklyInstalls": [8890, 8917, 8935, 8988, 8951, 8593, 8116, 8164],
-        "firstSeen": "2026-08-05"
-      }
-    },
-    {
-      "name": "server-side-conversion-tracking",
-      "repo": "autonnel/autonnel-skills",
-      "official": false,
-      "stars": 8,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/autonnel/autonnel-skills/server-side-conversion-tracking",
-        "install": "npx skills add https://github.com/autonnel/autonnel-skills --skill server-side-conversion-tracking",
-        "installs": 115625,
-        "weeklyInstalls": [8842, 8931, 8895, 8988, 8964, 8566, 8102, 8079],
-        "firstSeen": "2026-08-05"
-      }
-    },
-    {
-      "name": "post-purchase-upsell-flow",
-      "repo": "autonnel/autonnel-skills",
-      "official": false,
-      "stars": 8,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/autonnel/autonnel-skills/post-purchase-upsell-flow",
-        "install": "npx skills add https://github.com/autonnel/autonnel-skills --skill post-purchase-upsell-flow",
-        "installs": 115612,
-        "weeklyInstalls": [8849, 8895, 8912, 9003, 8938, 8600, 8108, 8131],
-        "firstSeen": "2026-08-05"
-      }
-    },
-    {
-      "name": "funnel-platform-picker",
-      "repo": "autonnel/autonnel-skills",
-      "official": false,
-      "stars": 8,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/autonnel/autonnel-skills/funnel-platform-picker",
-        "install": "npx skills add https://github.com/autonnel/autonnel-skills --skill funnel-platform-picker",
-        "installs": 115567,
-        "weeklyInstalls": [8824, 8879, 8883, 8937, 8959, 8600, 8132, 8117],
-        "firstSeen": "2026-08-05"
-      }
-    },
-    {
-      "name": "self-hosted-funnel-launch",
-      "repo": "autonnel/autonnel-skills",
-      "official": false,
-      "stars": 8,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/autonnel/autonnel-skills/self-hosted-funnel-launch",
-        "install": "npx skills add https://github.com/autonnel/autonnel-skills --skill self-hosted-funnel-launch",
-        "installs": 115466,
-        "weeklyInstalls": [8835, 8902, 8904, 8951, 8940, 8595, 8075, 8111],
-        "firstSeen": "2026-08-05"
-      }
-    },
-    {
-      "name": "browser-fingerprint-audit",
-      "repo": "liarjsdev/liarjs-skills",
-      "official": false,
-      "stars": 5,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/liarjsdev/liarjs-skills/browser-fingerprint-audit",
-        "install": "npx skills add https://github.com/liarjsdev/liarjs-skills --skill browser-fingerprint-audit",
-        "installs": 114738,
-        "weeklyInstalls": [8840, 8920, 8893, 8923, 8940, 8467, 7846, 7849],
-        "firstSeen": "2026-08-05"
-      }
-    },
-    {
-      "name": "playwright-stealth-verify",
-      "repo": "liarjsdev/liarjs-skills",
-      "official": false,
-      "stars": 5,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/liarjsdev/liarjs-skills/playwright-stealth-verify",
-        "install": "npx skills add https://github.com/liarjsdev/liarjs-skills --skill playwright-stealth-verify",
-        "installs": 114699,
-        "weeklyInstalls": [8859, 8877, 8866, 8949, 8925, 8441, 7850, 7875],
-        "firstSeen": "2026-08-05"
-      }
-    },
-    {
-      "name": "fingerprint-ci-gate",
-      "repo": "liarjsdev/liarjs-skills",
-      "official": false,
-      "stars": 5,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/liarjsdev/liarjs-skills/fingerprint-ci-gate",
-        "install": "npx skills add https://github.com/liarjsdev/liarjs-skills --skill fingerprint-ci-gate",
-        "installs": 114636,
-        "weeklyInstalls": [8821, 8873, 8888, 8955, 8955, 8421, 7815, 7866],
-        "firstSeen": "2026-08-05"
-      }
-    },
-    {
-      "name": "fingerprint-failure-triage",
-      "repo": "liarjsdev/liarjs-skills",
-      "official": false,
-      "stars": 5,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/liarjsdev/liarjs-skills/fingerprint-failure-triage",
-        "install": "npx skills add https://github.com/liarjsdev/liarjs-skills --skill fingerprint-failure-triage",
-        "installs": 114611,
-        "weeklyInstalls": [8844, 8876, 8882, 8968, 8915, 8475, 7823, 7873],
-        "firstSeen": "2026-08-05"
-      }
-    },
-    {
-      "name": "convex",
-      "repo": "convex/agent-skills",
-      "official": false,
-      "stars": 69,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/convex/agent-skills/convex",
-        "install": "npx skills add https://github.com/convex/agent-skills --skill convex",
-        "installs": 112263,
-        "weeklyInstalls": [3298, 2737, 2641, 2670, 2647, 2710, 2355, 2719],
-        "firstSeen": "2026-04-17"
-      }
-    },
-    {
-      "name": "review-loop",
-      "repo": "2dmurali/review-loop-skill",
-      "official": false,
-      "stars": 7,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/2dmurali/review-loop-skill/review-loop",
-        "install": "npx skills add https://github.com/2dmurali/review-loop-skill --skill review-loop",
-        "installs": 110844,
-        "weeklyInstalls": [8671, 8996, 8872, 9137, 5311, 2787, 5454, 5950],
-        "firstSeen": "2026-05-08"
-      }
-    },
-    {
-      "name": "web-search",
-      "repo": "magentosh/superpowers",
-      "official": false,
-      "stars": 4,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/magentosh/superpowers/web-search",
-        "install": "npx skills add https://github.com/magentosh/superpowers --skill web-search",
-        "installs": 107300,
-        "weeklyInstalls": [1958, 6614, 8395, 15305, 22003, 24884, 14247, 7362],
-        "firstSeen": "2026-08-28"
-      }
-    },
-    {
-      "name": "agent-tools",
-      "repo": "magentosh/superpowers",
-      "official": false,
-      "stars": 4,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/magentosh/superpowers/agent-tools",
-        "install": "npx skills add https://github.com/magentosh/superpowers --skill agent-tools",
-        "installs": 107263,
-        "weeklyInstalls": [1968, 6620, 8394, 15308, 21997, 24878, 14245, 7361],
-        "firstSeen": "2026-08-28"
-      }
-    },
-    {
-      "name": "remotion-render",
-      "repo": "magentosh/superpowers",
-      "official": false,
-      "stars": 4,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/magentosh/superpowers/remotion-render",
-        "install": "npx skills add https://github.com/magentosh/superpowers --skill remotion-render",
-        "installs": 107257,
-        "weeklyInstalls": [2012, 6576, 8394, 15305, 21998, 24880, 14246, 7359],
-        "firstSeen": "2026-08-28"
-      }
-    },
-    {
-      "name": "python-executor",
-      "repo": "magentosh/superpowers",
-      "official": false,
-      "stars": 4,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/magentosh/superpowers/python-executor",
-        "install": "npx skills add https://github.com/magentosh/superpowers --skill python-executor",
-        "installs": 107245,
-        "weeklyInstalls": [2019, 6555, 8394, 15305, 21997, 24878, 14245, 7360],
-        "firstSeen": "2026-08-28"
-      }
-    },
-    {
-      "name": "infsh-cli",
-      "repo": "magentosh/superpowers",
-      "official": false,
-      "stars": 4,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/magentosh/superpowers/infsh-cli",
-        "install": "npx skills add https://github.com/magentosh/superpowers --skill infsh-cli",
-        "installs": 107093,
-        "weeklyInstalls": [2006, 6525, 8394, 15305, 21997, 24878, 14244, 7362],
-        "firstSeen": "2026-08-28"
-      }
-    },
-    {
-      "name": "convex-performance-audit",
-      "repo": "convex/agent-skills",
-      "official": false,
-      "stars": 69,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/convex/agent-skills/convex-performance-audit",
-        "install": "npx skills add https://github.com/convex/agent-skills --skill convex-performance-audit",
-        "installs": 94263,
-        "weeklyInstalls": [0, 0, 0, 0, 1, 2, 0, 0],
-        "firstSeen": "2026-03-16"
-      }
-    },
-    {
-      "name": "convex-setup-auth",
-      "repo": "convex/agent-skills",
-      "official": false,
-      "stars": 69,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/convex/agent-skills/convex-setup-auth",
-        "install": "npx skills add https://github.com/convex/agent-skills --skill convex-setup-auth",
-        "installs": 93853,
-        "weeklyInstalls": [0, 0, 0, 0, 1, 1, 0, 0],
-        "firstSeen": "2026-03-16"
-      }
-    },
-    {
-      "name": "convex-migration-helper",
-      "repo": "convex/agent-skills",
-      "official": false,
-      "stars": 69,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/convex/agent-skills/convex-migration-helper",
-        "install": "npx skills add https://github.com/convex/agent-skills --skill convex-migration-helper",
-        "installs": 93834,
-        "weeklyInstalls": [0, 0, 0, 0, 1, 2, 0, 0],
-        "firstSeen": "2026-03-16"
-      }
-    },
-    {
-      "name": "agent-browser",
-      "repo": "its-a-skill-issue/superpowers",
-      "official": false,
-      "stars": 0,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/its-a-skill-issue/superpowers/agent-browser",
-        "install": "npx skills add https://github.com/its-a-skill-issue/superpowers --skill agent-browser",
-        "installs": 93746,
-        "weeklyInstalls": [2822, 9514, 12697, 12617, 12691, 12494, 12518, 10989],
-        "firstSeen": "2026-09-07"
-      }
-    },
-    {
-      "name": "agent-browser",
-      "repo": "bankai-skills/superpowers",
-      "official": false,
-      "stars": 0,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/bankai-skills/superpowers/agent-browser",
-        "install": "npx skills add https://github.com/bankai-skills/superpowers --skill agent-browser",
-        "installs": 90633,
-        "weeklyInstalls": [0, 9437, 12452, 12501, 12600, 12592, 12673, 11145],
-        "firstSeen": "2026-09-14"
-      }
-    },
-    {
-      "name": "prisma-orm-setup",
-      "repo": "prisma/skills",
-      "official": true,
-      "stars": 80,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/prisma/skills/prisma-orm-setup",
-        "install": "npx skills add https://github.com/prisma/skills --skill prisma-orm-setup",
-        "installs": 89437,
-        "weeklyInstalls": [0, 0, 0, 12832, 18697, 16874, 18890, 14523],
-        "firstSeen": "2026-09-29"
-      }
-    },
-    {
-      "name": "gpt-image-2",
-      "repo": "prime-skills/runcomfy-agent-skills",
-      "official": false,
-      "stars": 61,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/gpt-image-2",
-        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill gpt-image-2",
-        "installs": 89166,
-        "weeklyInstalls": [3726, 3247, 3234, 3448, 3698, 3188, 3537, 3060],
-        "firstSeen": "2026-04-30"
-      }
-    },
-    {
-      "name": "python-executor",
-      "repo": "skills-shell/superpowers",
-      "official": false,
-      "stars": 5,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/skills-shell/superpowers/python-executor",
-        "install": "npx skills add https://github.com/skills-shell/superpowers --skill python-executor",
-        "installs": 87289,
-        "weeklyInstalls": [2032, 6486, 8602, 8439, 8433, 8529, 11152, 17971],
-        "firstSeen": "2026-09-02"
-      }
-    },
-    {
-      "name": "remotion-render",
-      "repo": "skills-shell/superpowers",
-      "official": false,
-      "stars": 5,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/skills-shell/superpowers/remotion-render",
-        "install": "npx skills add https://github.com/skills-shell/superpowers --skill remotion-render",
-        "installs": 87207,
-        "weeklyInstalls": [1987, 6483, 8602, 8439, 8433, 8529, 11152, 17968],
-        "firstSeen": "2026-09-02"
-      }
-    },
-    {
-      "name": "infsh-cli",
-      "repo": "skills-shell/superpowers",
-      "official": false,
-      "stars": 5,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/skills-shell/superpowers/infsh-cli",
-        "install": "npx skills add https://github.com/skills-shell/superpowers --skill infsh-cli",
-        "installs": 87202,
-        "weeklyInstalls": [1975, 6513, 8602, 8439, 8433, 8529, 11152, 17969],
-        "firstSeen": "2026-09-02"
-      }
-    },
-    {
-      "name": "agent-tools",
-      "repo": "skills-shell/superpowers",
-      "official": false,
-      "stars": 5,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/skills-shell/superpowers/agent-tools",
-        "install": "npx skills add https://github.com/skills-shell/superpowers --skill agent-tools",
-        "installs": 87154,
-        "weeklyInstalls": [1916, 6474, 8602, 8439, 8433, 8530, 11152, 17970],
-        "firstSeen": "2026-09-02"
-      }
-    },
-    {
-      "name": "web-search",
-      "repo": "skills-shell/superpowers",
-      "official": false,
-      "stars": 5,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/skills-shell/superpowers/web-search",
-        "install": "npx skills add https://github.com/skills-shell/superpowers --skill web-search",
-        "installs": 87096,
-        "weeklyInstalls": [1921, 6431, 8603, 8439, 8434, 8530, 11154, 17977],
-        "firstSeen": "2026-09-02"
-      }
-    },
-    {
-      "name": "nx-workspace",
-      "repo": "nrwl/nx-ai-agents-config",
-      "official": false,
-      "stars": 30,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/nrwl/nx-ai-agents-config/nx-workspace",
-        "install": "npx skills add https://github.com/nrwl/nx-ai-agents-config --skill nx-workspace",
-        "installs": 86815,
-        "weeklyInstalls": [3883, 3957, 5387, 4973, 5870, 4950, 6330, 6141],
-        "firstSeen": "2026-01-27"
-      }
-    },
-    {
-      "name": "infsh-cli",
-      "repo": "qu-skills/superpowers",
-      "official": false,
-      "stars": 4,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/qu-skills/superpowers/infsh-cli",
-        "install": "npx skills add https://github.com/qu-skills/superpowers --skill infsh-cli",
-        "installs": 81943,
-        "weeklyInstalls": [3963, 13050, 16786, 9907, 8487, 8327, 8456, 7363],
-        "firstSeen": "2026-09-02"
-      }
-    },
-    {
-      "name": "agent-tools",
-      "repo": "qu-skills/superpowers",
-      "official": false,
-      "stars": 4,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/qu-skills/superpowers/agent-tools",
-        "install": "npx skills add https://github.com/qu-skills/superpowers --skill agent-tools",
-        "installs": 81940,
-        "weeklyInstalls": [4002, 12957, 16787, 9909, 8487, 8327, 8457, 7364],
-        "firstSeen": "2026-09-02"
-      }
-    },
-    {
-      "name": "remotion-render",
-      "repo": "qu-skills/superpowers",
-      "official": false,
-      "stars": 4,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/qu-skills/superpowers/remotion-render",
-        "install": "npx skills add https://github.com/qu-skills/superpowers --skill remotion-render",
-        "installs": 81866,
-        "weeklyInstalls": [4001, 12919, 16787, 9906, 8487, 8329, 8457, 7363],
-        "firstSeen": "2026-09-02"
-      }
-    },
-    {
-      "name": "web-search",
-      "repo": "qu-skills/superpowers",
-      "official": false,
-      "stars": 4,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/qu-skills/superpowers/web-search",
-        "install": "npx skills add https://github.com/qu-skills/superpowers --skill web-search",
-        "installs": 81852,
-        "weeklyInstalls": [3900, 12973, 16787, 9914, 8491, 8328, 8456, 7364],
-        "firstSeen": "2026-09-02"
-      }
-    },
-    {
-      "name": "python-executor",
-      "repo": "qu-skills/superpowers",
-      "official": false,
-      "stars": 4,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/qu-skills/superpowers/python-executor",
-        "install": "npx skills add https://github.com/qu-skills/superpowers --skill python-executor",
-        "installs": 81823,
-        "weeklyInstalls": [4000, 12911, 16789, 9908, 8487, 8329, 8457, 7364],
-        "firstSeen": "2026-09-02"
-      }
-    },
-    {
-      "name": "momentic-test",
-      "repo": "momentic-ai/skills",
-      "official": false,
-      "stars": 17,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/momentic-ai/skills/momentic-test",
-        "install": "npx skills add https://github.com/momentic-ai/skills --skill momentic-test",
-        "installs": 68543,
-        "weeklyInstalls": [2659, 1972, 2229, 2925, 3449, 4264, 2819, 8],
-        "firstSeen": "2026-04-08"
-      }
-    },
-    {
-      "name": "momentic-result-classification",
-      "repo": "momentic-ai/skills",
-      "official": false,
-      "stars": 17,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/momentic-ai/skills/momentic-result-classification",
-        "install": "npx skills add https://github.com/momentic-ai/skills --skill momentic-result-classification",
-        "installs": 68513,
-        "weeklyInstalls": [2658, 1971, 2230, 2925, 3447, 4265, 2815, 5],
-        "firstSeen": "2026-04-08"
-      }
-    },
-    {
-      "name": "is-this-photo-real",
-      "repo": "useosint/skills",
-      "official": false,
-      "stars": 61,
-      "seen": "2026-11-05",
-      "skills.sh": {
-        "url": "https://skills.sh/useosint/skills/is-this-photo-real",
-        "install": "npx skills add https://github.com/useosint/skills --skill is-this-photo-real",
-        "installs": 58300,
-        "weeklyInstalls": [23, 30, 14, 13, 20, 14, 20, 19],
-        "firstSeen": "2026-08-02"
-      }
-    },
-    {
-      "name": "investigate-without-getting-made",
-      "repo": "useosint/skills",
-      "official": false,
-      "stars": 61,
-      "seen": "2026-11-05",
-      "skills.sh": {
-        "url": "https://skills.sh/useosint/skills/investigate-without-getting-made",
-        "install": "npx skills add https://github.com/useosint/skills --skill investigate-without-getting-made",
-        "installs": 58200,
-        "weeklyInstalls": [18, 30, 18, 14, 21, 11, 24, 15],
-        "firstSeen": "2026-08-02"
-      }
-    },
-    {
-      "name": "what-leaked-about-you",
-      "repo": "useosint/skills",
-      "official": false,
-      "stars": 61,
-      "seen": "2026-11-05",
-      "skills.sh": {
-        "url": "https://skills.sh/useosint/skills/what-leaked-about-you",
-        "install": "npx skills add https://github.com/useosint/skills --skill what-leaked-about-you",
-        "installs": 57800,
-        "weeklyInstalls": [21, 30, 15, 16, 20, 13, 22, 17],
-        "firstSeen": "2026-08-02"
-      }
-    },
-    {
-      "name": "find-the-original-image",
-      "repo": "useosint/skills",
-      "official": false,
-      "stars": 61,
-      "seen": "2026-11-05",
-      "skills.sh": {
-        "url": "https://skills.sh/useosint/skills/find-the-original-image",
-        "install": "npx skills add https://github.com/useosint/skills --skill find-the-original-image",
-        "installs": 56600,
-        "weeklyInstalls": [26, 35, 16, 17, 21, 17, 22, 20],
-        "firstSeen": "2026-08-02"
-      }
-    },
-    {
-      "name": "nia",
-      "repo": "nozomio-labs/nia-skill",
-      "official": false,
-      "stars": 26,
-      "seen": "2026-11-05",
-      "skills.sh": {
-        "url": "https://skills.sh/nozomio-labs/nia-skill/nia",
-        "install": "npx skills add https://github.com/nozomio-labs/nia-skill --skill Nia",
-        "installs": 56300,
-        "weeklyInstalls": [122, 80, 69, 77, 139, 582, 80, 17],
-        "firstSeen": "2026-02-04"
-      }
-    },
-    {
-      "name": "video-edit",
-      "repo": "genmedia-labs/skills",
-      "official": false,
-      "stars": 27,
-      "seen": "2026-11-05",
-      "skills.sh": {
-        "url": "https://skills.sh/genmedia-labs/skills/video-edit",
-        "install": "npx skills add https://github.com/genmedia-labs/skills --skill video-edit",
-        "installs": 13,
-        "weeklyInstalls": [11, 11, 11, 11, 10, 1, 2, 2],
-        "firstSeen": "2026-08-12"
-      }
-    },
-    {
-      "name": "ai-music",
-      "repo": "genmedia-labs/skills",
-      "official": false,
-      "stars": 27,
-      "seen": "2026-11-05",
-      "skills.sh": {
-        "url": "https://skills.sh/genmedia-labs/skills/ai-music",
-        "install": "npx skills add https://github.com/genmedia-labs/skills --skill ai-music",
-        "installs": 13,
-        "weeklyInstalls": [11, 11, 11, 11, 10, 0, 1, 0],
-        "firstSeen": "2026-08-12"
-      }
-    },
-    {
-      "name": "ai-video-generation",
-      "repo": "genmedia-labs/skills",
-      "official": false,
-      "stars": 27,
-      "seen": "2026-11-05",
-      "skills.sh": {
-        "url": "https://skills.sh/genmedia-labs/skills/ai-video-generation",
-        "install": "npx skills add https://github.com/genmedia-labs/skills --skill ai-video-generation",
-        "installs": 13,
-        "weeklyInstalls": [11, 11, 11, 11, 10, 1, 2, 1],
-        "firstSeen": "2026-08-12"
-      }
-    },
-    {
-      "name": "image-to-video",
-      "repo": "genmedia-labs/skills",
-      "official": false,
-      "stars": 27,
-      "seen": "2026-11-05",
-      "skills.sh": {
-        "url": "https://skills.sh/genmedia-labs/skills/image-to-video",
-        "install": "npx skills add https://github.com/genmedia-labs/skills --skill image-to-video",
-        "installs": 13,
-        "weeklyInstalls": [11, 11, 11, 11, 10, 1, 2, 2],
-        "firstSeen": "2026-08-12"
-      }
-    },
-    {
-      "name": "ai-image-generation",
-      "repo": "genmedia-labs/skills",
-      "official": false,
-      "stars": 27,
-      "seen": "2026-11-05",
-      "skills.sh": {
-        "url": "https://skills.sh/genmedia-labs/skills/ai-image-generation",
-        "install": "npx skills add https://github.com/genmedia-labs/skills --skill ai-image-generation",
-        "installs": 13,
-        "weeklyInstalls": [11, 11, 11, 11, 10, 1, 2, 1],
-        "firstSeen": "2026-08-12"
-      }
-    }
-  ],
-  // TODO/ai move it to the top?
   "qualified": [
     {
       "name": "hyperframes-animation",
@@ -4959,6 +3164,1800 @@
         "installs": 64670,
         "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
         "firstSeen": "2026-03-16"
+      }
+    }
+  ],
+  "unqualified": [
+    {
+      "name": "reddit-automation",
+      "repo": "flowkit-labs/skills",
+      "official": false,
+      "stars": 31,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/flowkit-labs/skills/reddit-automation",
+        "install": "npx skills add https://github.com/flowkit-labs/skills --skill reddit-automation",
+        "installs": 1261071,
+        "weeklyInstalls": [108855, 113373, 113916, 114322, 113172, 96986, 103833, 104996],
+        "firstSeen": "2026-08-12"
+      }
+    },
+    {
+      "name": "design-mobile-apps",
+      "repo": "designed-by-ai/skills",
+      "official": false,
+      "stars": 27,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/designed-by-ai/skills/design-mobile-apps",
+        "install": "npx skills add https://github.com/designed-by-ai/skills --skill design-mobile-apps",
+        "installs": 1255483,
+        "weeklyInstalls": [140172, 138476, 141029, 142502, 140054, 140289, 136799, 136787],
+        "firstSeen": "2026-09-04"
+      }
+    },
+    {
+      "name": "ai-video-generation",
+      "repo": "101-skills/superpowers",
+      "official": false,
+      "stars": 19,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/101-skills/superpowers/ai-video-generation",
+        "install": "npx skills add https://github.com/101-skills/superpowers --skill ai-video-generation",
+        "installs": 968979,
+        "weeklyInstalls": [64317, 213120, 240489, 130740, 72792, 67895, 67605, 58925],
+        "firstSeen": "2026-08-31"
+      }
+    },
+    {
+      "name": "ai-image-generation",
+      "repo": "101-skills/superpowers",
+      "official": false,
+      "stars": 19,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/101-skills/superpowers/ai-image-generation",
+        "install": "npx skills add https://github.com/101-skills/superpowers --skill ai-image-generation",
+        "installs": 967391,
+        "weeklyInstalls": [63881, 213213, 240509, 130600, 72599, 67708, 67369, 58684],
+        "firstSeen": "2026-08-31"
+      }
+    },
+    {
+      "name": "ai-avatar-video",
+      "repo": "101-skills/superpowers",
+      "official": false,
+      "stars": 19,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/101-skills/superpowers/ai-avatar-video",
+        "install": "npx skills add https://github.com/101-skills/superpowers --skill ai-avatar-video",
+        "installs": 966715,
+        "weeklyInstalls": [63412, 213289, 240428, 130550, 72510, 67623, 67288, 58592],
+        "firstSeen": "2026-08-31"
+      }
+    },
+    {
+      "name": "ai-image-generation",
+      "repo": "magentosh/superpowers",
+      "official": false,
+      "stars": 4,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/magentosh/superpowers/ai-image-generation",
+        "install": "npx skills add https://github.com/magentosh/superpowers --skill ai-image-generation",
+        "installs": 858104,
+        "weeklyInstalls": [15349, 51625, 67330, 122406, 176375, 201368, 114583, 58159],
+        "firstSeen": "2026-08-28"
+      }
+    },
+    {
+      "name": "ai-video-generation",
+      "repo": "magentosh/superpowers",
+      "official": false,
+      "stars": 4,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/magentosh/superpowers/ai-video-generation",
+        "install": "npx skills add https://github.com/magentosh/superpowers --skill ai-video-generation",
+        "installs": 857640,
+        "weeklyInstalls": [15414, 51727, 67328, 122372, 176297, 201265, 114502, 58114],
+        "firstSeen": "2026-08-28"
+      }
+    },
+    {
+      "name": "ai-avatar-video",
+      "repo": "magentosh/superpowers",
+      "official": false,
+      "stars": 4,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/magentosh/superpowers/ai-avatar-video",
+        "install": "npx skills add https://github.com/magentosh/superpowers --skill ai-avatar-video",
+        "installs": 857527,
+        "weeklyInstalls": [15473, 51618, 67328, 122369, 176289, 201238, 114482, 58098],
+        "firstSeen": "2026-08-28"
+      }
+    },
+    {
+      "name": "twitter-automation",
+      "repo": "magentosh/superpowers",
+      "official": false,
+      "stars": 4,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/magentosh/superpowers/twitter-automation",
+        "install": "npx skills add https://github.com/magentosh/superpowers --skill twitter-automation",
+        "installs": 857404,
+        "weeklyInstalls": [15355, 51522, 67330, 122368, 176283, 201236, 114481, 58096],
+        "firstSeen": "2026-08-28"
+      }
+    },
+    {
+      "name": "ai-image-generation",
+      "repo": "skills-shell/superpowers",
+      "official": false,
+      "stars": 5,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/skills-shell/superpowers/ai-image-generation",
+        "install": "npx skills add https://github.com/skills-shell/superpowers --skill ai-image-generation",
+        "installs": 691699,
+        "weeklyInstalls": [15341, 51745, 66909, 67299, 67099, 67188, 89771, 143630],
+        "firstSeen": "2026-09-02"
+      }
+    },
+    {
+      "name": "ai-video-generation",
+      "repo": "skills-shell/superpowers",
+      "official": false,
+      "stars": 5,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/skills-shell/superpowers/ai-video-generation",
+        "install": "npx skills add https://github.com/skills-shell/superpowers --skill ai-video-generation",
+        "installs": 691646,
+        "weeklyInstalls": [15657, 51506, 66911, 67301, 67104, 67191, 89754, 143585],
+        "firstSeen": "2026-09-02"
+      }
+    },
+    {
+      "name": "twitter-automation",
+      "repo": "skills-shell/superpowers",
+      "official": false,
+      "stars": 5,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/skills-shell/superpowers/twitter-automation",
+        "install": "npx skills add https://github.com/skills-shell/superpowers --skill twitter-automation",
+        "installs": 691578,
+        "weeklyInstalls": [15519, 51651, 66909, 67299, 67098, 67189, 89743, 143567],
+        "firstSeen": "2026-09-02"
+      }
+    },
+    {
+      "name": "ai-avatar-video",
+      "repo": "skills-shell/superpowers",
+      "official": false,
+      "stars": 5,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/skills-shell/superpowers/ai-avatar-video",
+        "install": "npx skills add https://github.com/skills-shell/superpowers --skill ai-avatar-video",
+        "installs": 691291,
+        "weeklyInstalls": [15340, 51567, 66909, 67299, 67098, 67187, 89744, 143567],
+        "firstSeen": "2026-09-02"
+      }
+    },
+    {
+      "name": "ai-avatar-video",
+      "repo": "qu-skills/superpowers",
+      "official": false,
+      "stars": 4,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/qu-skills/superpowers/ai-avatar-video",
+        "install": "npx skills add https://github.com/qu-skills/superpowers --skill ai-avatar-video",
+        "installs": 650941,
+        "weeklyInstalls": [31275, 102861, 134154, 77715, 66985, 66995, 67258, 58486],
+        "firstSeen": "2026-09-02"
+      }
+    },
+    {
+      "name": "twitter-automation",
+      "repo": "qu-skills/superpowers",
+      "official": false,
+      "stars": 4,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/qu-skills/superpowers/twitter-automation",
+        "install": "npx skills add https://github.com/qu-skills/superpowers --skill twitter-automation",
+        "installs": 650517,
+        "weeklyInstalls": [30950, 102604, 134148, 77712, 66981, 66991, 67242, 58473],
+        "firstSeen": "2026-09-02"
+      }
+    },
+    {
+      "name": "ai-video-generation",
+      "repo": "qu-skills/superpowers",
+      "official": false,
+      "stars": 4,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/qu-skills/superpowers/ai-video-generation",
+        "install": "npx skills add https://github.com/qu-skills/superpowers --skill ai-video-generation",
+        "installs": 650393,
+        "weeklyInstalls": [30726, 102710, 134169, 77717, 66995, 66997, 67252, 58478],
+        "firstSeen": "2026-09-02"
+      }
+    },
+    {
+      "name": "ai-image-generation",
+      "repo": "qu-skills/superpowers",
+      "official": false,
+      "stars": 4,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/qu-skills/superpowers/ai-image-generation",
+        "install": "npx skills add https://github.com/qu-skills/superpowers --skill ai-image-generation",
+        "installs": 650358,
+        "weeklyInstalls": [30674, 102693, 134154, 77727, 66987, 66994, 67243, 58474],
+        "firstSeen": "2026-09-02"
+      }
+    },
+    {
+      "name": "ai-image-generation",
+      "repo": "its-a-skill-issue/superpowers",
+      "official": false,
+      "stars": 0,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/its-a-skill-issue/superpowers/ai-image-generation",
+        "install": "npx skills add https://github.com/its-a-skill-issue/superpowers --skill ai-image-generation",
+        "installs": 498602,
+        "weeklyInstalls": [15106, 51731, 66935, 66372, 67413, 67113, 66763, 58420],
+        "firstSeen": "2026-09-07"
+      }
+    },
+    {
+      "name": "twitter-automation",
+      "repo": "its-a-skill-issue/superpowers",
+      "official": false,
+      "stars": 0,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/its-a-skill-issue/superpowers/twitter-automation",
+        "install": "npx skills add https://github.com/its-a-skill-issue/superpowers --skill twitter-automation",
+        "installs": 498501,
+        "weeklyInstalls": [14971, 51775, 66935, 66372, 67411, 67113, 66762, 58416],
+        "firstSeen": "2026-09-07"
+      }
+    },
+    {
+      "name": "ai-avatar-video",
+      "repo": "its-a-skill-issue/superpowers",
+      "official": false,
+      "stars": 0,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/its-a-skill-issue/superpowers/ai-avatar-video",
+        "install": "npx skills add https://github.com/its-a-skill-issue/superpowers --skill ai-avatar-video",
+        "installs": 498463,
+        "weeklyInstalls": [15065, 51638, 66935, 66374, 67411, 67113, 66763, 58416],
+        "firstSeen": "2026-09-07"
+      }
+    },
+    {
+      "name": "ai-video-generation",
+      "repo": "its-a-skill-issue/superpowers",
+      "official": false,
+      "stars": 0,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/its-a-skill-issue/superpowers/ai-video-generation",
+        "install": "npx skills add https://github.com/its-a-skill-issue/superpowers --skill ai-video-generation",
+        "installs": 498255,
+        "weeklyInstalls": [14822, 51660, 66937, 66373, 67413, 67116, 66763, 58423],
+        "firstSeen": "2026-09-07"
+      }
+    },
+    {
+      "name": "ai-image-generation",
+      "repo": "bankai-skills/superpowers",
+      "official": false,
+      "stars": 0,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/bankai-skills/superpowers/ai-image-generation",
+        "install": "npx skills add https://github.com/bankai-skills/superpowers --skill ai-image-generation",
+        "installs": 484135,
+        "weeklyInstalls": [0, 50711, 67419, 67381, 67183, 67068, 66504, 58408],
+        "firstSeen": "2026-09-14"
+      }
+    },
+    {
+      "name": "ai-avatar-video",
+      "repo": "bankai-skills/superpowers",
+      "official": false,
+      "stars": 0,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/bankai-skills/superpowers/ai-avatar-video",
+        "install": "npx skills add https://github.com/bankai-skills/superpowers --skill ai-avatar-video",
+        "installs": 484080,
+        "weeklyInstalls": [0, 50664, 67418, 67381, 67183, 67068, 66502, 58406],
+        "firstSeen": "2026-09-14"
+      }
+    },
+    {
+      "name": "ai-video-generation",
+      "repo": "bankai-skills/superpowers",
+      "official": false,
+      "stars": 0,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/bankai-skills/superpowers/ai-video-generation",
+        "install": "npx skills add https://github.com/bankai-skills/superpowers --skill ai-video-generation",
+        "installs": 484023,
+        "weeklyInstalls": [0, 50586, 67420, 67384, 67184, 67074, 66506, 58409],
+        "firstSeen": "2026-09-14"
+      }
+    },
+    {
+      "name": "twitter-automation",
+      "repo": "bankai-skills/superpowers",
+      "official": false,
+      "stars": 0,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/bankai-skills/superpowers/twitter-automation",
+        "install": "npx skills add https://github.com/bankai-skills/superpowers --skill twitter-automation",
+        "installs": 484012,
+        "weeklyInstalls": [0, 50590, 67419, 67383, 67184, 67069, 66502, 58406],
+        "firstSeen": "2026-09-14"
+      }
+    },
+    {
+      "name": "video-edit",
+      "repo": "prime-skills/runcomfy-agent-skills",
+      "official": false,
+      "stars": 61,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/video-edit",
+        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill video-edit",
+        "installs": 444753,
+        "weeklyInstalls": [3761, 3245, 3239, 3468, 3764, 3237, 3571, 3101],
+        "firstSeen": "2026-04-30"
+      }
+    },
+    {
+      "name": "image-to-video",
+      "repo": "prime-skills/runcomfy-agent-skills",
+      "official": false,
+      "stars": 61,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/image-to-video",
+        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill image-to-video",
+        "installs": 442953,
+        "weeklyInstalls": [3711, 3241, 3226, 3446, 3724, 3221, 3556, 3075],
+        "firstSeen": "2026-04-30"
+      }
+    },
+    {
+      "name": "nano-banana-2",
+      "repo": "prime-skills/runcomfy-agent-skills",
+      "official": false,
+      "stars": 61,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/nano-banana-2",
+        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill nano-banana-2",
+        "installs": 442638,
+        "weeklyInstalls": [3708, 3251, 3237, 3457, 3716, 3204, 3555, 3074],
+        "firstSeen": "2026-04-30"
+      }
+    },
+    {
+      "name": "image-edit",
+      "repo": "prime-skills/runcomfy-agent-skills",
+      "official": false,
+      "stars": 61,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/image-edit",
+        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill image-edit",
+        "installs": 442191,
+        "weeklyInstalls": [3737, 3248, 3232, 3445, 3714, 3187, 3541, 3070],
+        "firstSeen": "2026-04-30"
+      }
+    },
+    {
+      "name": "nano-banana-edit",
+      "repo": "prime-skills/runcomfy-agent-skills",
+      "official": false,
+      "stars": 61,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/nano-banana-edit",
+        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill nano-banana-edit",
+        "installs": 442015,
+        "weeklyInstalls": [3684, 3219, 3216, 3432, 3686, 3174, 3533, 3052],
+        "firstSeen": "2026-04-30"
+      }
+    },
+    {
+      "name": "flux-kontext",
+      "repo": "prime-skills/runcomfy-agent-skills",
+      "official": false,
+      "stars": 61,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/flux-kontext",
+        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill flux-kontext",
+        "installs": 441808,
+        "weeklyInstalls": [3693, 3223, 3218, 3428, 3687, 3172, 3527, 3053],
+        "firstSeen": "2026-04-30"
+      }
+    },
+    {
+      "name": "wan-2-7",
+      "repo": "prime-skills/runcomfy-agent-skills",
+      "official": false,
+      "stars": 61,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/wan-2-7",
+        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill wan-2-7",
+        "installs": 441243,
+        "weeklyInstalls": [3686, 3217, 3216, 3425, 3689, 3169, 3527, 3051],
+        "firstSeen": "2026-04-30"
+      }
+    },
+    {
+      "name": "seedance-v2",
+      "repo": "prime-skills/runcomfy-agent-skills",
+      "official": false,
+      "stars": 61,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/seedance-v2",
+        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill seedance-v2",
+        "installs": 441093,
+        "weeklyInstalls": [3690, 3218, 3218, 3428, 3688, 3176, 3533, 3055],
+        "firstSeen": "2026-04-30"
+      }
+    },
+    {
+      "name": "gpt-image-edit",
+      "repo": "prime-skills/runcomfy-agent-skills",
+      "official": false,
+      "stars": 61,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/gpt-image-edit",
+        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill gpt-image-edit",
+        "installs": 441091,
+        "weeklyInstalls": [3686, 3216, 3218, 3432, 3691, 3171, 3528, 3056],
+        "firstSeen": "2026-04-30"
+      }
+    },
+    {
+      "name": "happyhorse-1-0",
+      "repo": "prime-skills/runcomfy-agent-skills",
+      "official": false,
+      "stars": 61,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/happyhorse-1-0",
+        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill happyhorse-1-0",
+        "installs": 441004,
+        "weeklyInstalls": [3685, 3216, 3214, 3424, 3682, 3169, 3525, 3045],
+        "firstSeen": "2026-04-30"
+      }
+    },
+    {
+      "name": "flux-2-klein",
+      "repo": "prime-skills/runcomfy-agent-skills",
+      "official": false,
+      "stars": 61,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/flux-2-klein",
+        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill flux-2-klein",
+        "installs": 440837,
+        "weeklyInstalls": [3684, 3215, 3212, 3426, 3685, 3170, 3526, 3047],
+        "firstSeen": "2026-04-30"
+      }
+    },
+    {
+      "name": "ai-music",
+      "repo": "gencraft-labs/skills",
+      "official": false,
+      "stars": 0,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/gencraft-labs/skills/ai-music",
+        "install": "npx skills add https://github.com/gencraft-labs/skills --skill ai-music",
+        "installs": 439565,
+        "weeklyInstalls": [0, 0, 0, 0, 73745, 97074, 104607, 105207],
+        "firstSeen": "2026-10-06"
+      }
+    },
+    {
+      "name": "ai-video-generation",
+      "repo": "gencraft-labs/skills",
+      "official": false,
+      "stars": 0,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/gencraft-labs/skills/ai-video-generation",
+        "install": "npx skills add https://github.com/gencraft-labs/skills --skill ai-video-generation",
+        "installs": 439230,
+        "weeklyInstalls": [0, 0, 0, 0, 73635, 96894, 104041, 105574],
+        "firstSeen": "2026-10-06"
+      }
+    },
+    {
+      "name": "video-edit",
+      "repo": "gencraft-labs/skills",
+      "official": false,
+      "stars": 0,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/gencraft-labs/skills/video-edit",
+        "install": "npx skills add https://github.com/gencraft-labs/skills --skill video-edit",
+        "installs": 439161,
+        "weeklyInstalls": [0, 0, 0, 0, 73613, 97002, 103998, 105503],
+        "firstSeen": "2026-10-06"
+      }
+    },
+    {
+      "name": "ai-image-generation",
+      "repo": "gencraft-labs/skills",
+      "official": false,
+      "stars": 0,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/gencraft-labs/skills/ai-image-generation",
+        "install": "npx skills add https://github.com/gencraft-labs/skills --skill ai-image-generation",
+        "installs": 438954,
+        "weeklyInstalls": [0, 0, 0, 0, 73790, 96854, 103789, 105316],
+        "firstSeen": "2026-10-06"
+      }
+    },
+    {
+      "name": "image-to-video",
+      "repo": "gencraft-labs/skills",
+      "official": false,
+      "stars": 0,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/gencraft-labs/skills/image-to-video",
+        "install": "npx skills add https://github.com/gencraft-labs/skills --skill image-to-video",
+        "installs": 438243,
+        "weeklyInstalls": [0, 0, 0, 0, 73599, 96803, 103765, 105083],
+        "firstSeen": "2026-10-06"
+      }
+    },
+    {
+      "name": "kling-3-0",
+      "repo": "prime-skills/runcomfy-agent-skills",
+      "official": false,
+      "stars": 61,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/kling-3-0",
+        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill kling-3-0",
+        "installs": 418063,
+        "weeklyInstalls": [3699, 3230, 3220, 3432, 3692, 3181, 3535, 3053],
+        "firstSeen": "2026-05-06"
+      }
+    },
+    {
+      "name": "codex-pet",
+      "repo": "prime-skills/runcomfy-agent-skills",
+      "official": false,
+      "stars": 61,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/codex-pet",
+        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill codex-pet",
+        "installs": 406431,
+        "weeklyInstalls": [3701, 3227, 3221, 3427, 3684, 3174, 3532, 3053],
+        "firstSeen": "2026-05-09"
+      }
+    },
+    {
+      "name": "prisma-postgres-setup",
+      "repo": "prisma/skills",
+      "official": true,
+      "stars": 80,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/prisma/skills/prisma-postgres-setup",
+        "install": "npx skills add https://github.com/prisma/skills --skill prisma-postgres-setup",
+        "installs": 398205,
+        "weeklyInstalls": [17387, 17142, 17445, 16784, 18672, 16843, 18833, 14456],
+        "firstSeen": "2026-04-02"
+      }
+    },
+    {
+      "name": "prisma-driver-adapter-implementation",
+      "repo": "prisma/skills",
+      "official": true,
+      "stars": 80,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/prisma/skills/prisma-driver-adapter-implementation",
+        "install": "npx skills add https://github.com/prisma/skills --skill prisma-driver-adapter-implementation",
+        "installs": 398162,
+        "weeklyInstalls": [17294, 17023, 17340, 16678, 18510, 16699, 18669, 14323],
+        "firstSeen": "2026-02-23"
+      }
+    },
+    {
+      "name": "prisma-upgrade-v7",
+      "repo": "prisma/skills",
+      "official": true,
+      "stars": 80,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/prisma/skills/prisma-upgrade-v7",
+        "install": "npx skills add https://github.com/prisma/skills --skill prisma-upgrade-v7",
+        "installs": 397954,
+        "weeklyInstalls": [17265, 17005, 17336, 16669, 18519, 16712, 18704, 14331],
+        "firstSeen": "2026-02-04"
+      }
+    },
+    {
+      "name": "prisma-compute",
+      "repo": "prisma/skills",
+      "official": true,
+      "stars": 80,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/prisma/skills/prisma-compute",
+        "install": "npx skills add https://github.com/prisma/skills --skill prisma-compute",
+        "installs": 393075,
+        "weeklyInstalls": [17245, 16993, 17317, 16644, 18488, 16680, 18661, 14303],
+        "firstSeen": "2026-06-09"
+      }
+    },
+    {
+      "name": "prisma-mongodb-upgrade",
+      "repo": "prisma/skills",
+      "official": true,
+      "stars": 80,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/prisma/skills/prisma-mongodb-upgrade",
+        "install": "npx skills add https://github.com/prisma/skills --skill prisma-mongodb-upgrade",
+        "installs": 391607,
+        "weeklyInstalls": [17218, 16960, 17285, 16625, 18456, 16667, 18650, 14295],
+        "firstSeen": "2026-07-06"
+      }
+    },
+    {
+      "name": "ai-image-generation",
+      "repo": "prime-skills/runcomfy-agent-skills",
+      "official": false,
+      "stars": 61,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/ai-image-generation",
+        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill ai-image-generation",
+        "installs": 387988,
+        "weeklyInstalls": [3750, 3341, 3268, 3469, 3765, 3248, 3596, 3103],
+        "firstSeen": "2026-05-13"
+      }
+    },
+    {
+      "name": "ai-video-generation",
+      "repo": "prime-skills/runcomfy-agent-skills",
+      "official": false,
+      "stars": 61,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/ai-video-generation",
+        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill ai-video-generation",
+        "installs": 387861,
+        "weeklyInstalls": [3737, 3260, 3234, 3446, 3706, 3198, 3546, 3059],
+        "firstSeen": "2026-05-13"
+      }
+    },
+    {
+      "name": "runcomfy-cli",
+      "repo": "prime-skills/runcomfy-agent-skills",
+      "official": false,
+      "stars": 61,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/runcomfy-cli",
+        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill runcomfy-cli",
+        "installs": 385004,
+        "weeklyInstalls": [3704, 3227, 3223, 3431, 3693, 3181, 3533, 3050],
+        "firstSeen": "2026-05-13"
+      }
+    },
+    {
+      "name": "ai-avatar-video",
+      "repo": "prime-skills/runcomfy-agent-skills",
+      "official": false,
+      "stars": 61,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/ai-avatar-video",
+        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill ai-avatar-video",
+        "installs": 384799,
+        "weeklyInstalls": [3702, 3237, 3219, 3434, 3696, 3177, 3536, 3053],
+        "firstSeen": "2026-05-13"
+      }
+    },
+    {
+      "name": "face-swap",
+      "repo": "prime-skills/runcomfy-agent-skills",
+      "official": false,
+      "stars": 61,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/face-swap",
+        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill face-swap",
+        "installs": 384668,
+        "weeklyInstalls": [3696, 3223, 3213, 3430, 3690, 3172, 3534, 3053],
+        "firstSeen": "2026-05-13"
+      }
+    },
+    {
+      "name": "video-inpainting",
+      "repo": "prime-skills/runcomfy-agent-skills",
+      "official": false,
+      "stars": 61,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/video-inpainting",
+        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill video-inpainting",
+        "installs": 383024,
+        "weeklyInstalls": [3693, 3230, 3216, 3424, 3690, 3176, 3528, 3055],
+        "firstSeen": "2026-05-13"
+      }
+    },
+    {
+      "name": "image-inpainting",
+      "repo": "prime-skills/runcomfy-agent-skills",
+      "official": false,
+      "stars": 61,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/image-inpainting",
+        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill image-inpainting",
+        "installs": 382551,
+        "weeklyInstalls": [3700, 3222, 3219, 3426, 3690, 3175, 3537, 3059],
+        "firstSeen": "2026-05-13"
+      }
+    },
+    {
+      "name": "controlnet-pose",
+      "repo": "prime-skills/runcomfy-agent-skills",
+      "official": false,
+      "stars": 61,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/controlnet-pose",
+        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill controlnet-pose",
+        "installs": 382285,
+        "weeklyInstalls": [3689, 3215, 3210, 3426, 3686, 3168, 3529, 3048],
+        "firstSeen": "2026-05-13"
+      }
+    },
+    {
+      "name": "lipsync",
+      "repo": "prime-skills/runcomfy-agent-skills",
+      "official": false,
+      "stars": 61,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/lipsync",
+        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill lipsync",
+        "installs": 382270,
+        "weeklyInstalls": [3691, 3224, 3214, 3423, 3688, 3175, 3531, 3052],
+        "firstSeen": "2026-05-13"
+      }
+    },
+    {
+      "name": "video-extend",
+      "repo": "prime-skills/runcomfy-agent-skills",
+      "official": false,
+      "stars": 61,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/video-extend",
+        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill video-extend",
+        "installs": 381859,
+        "weeklyInstalls": [3692, 3221, 3211, 3425, 3686, 3175, 3529, 3050],
+        "firstSeen": "2026-05-13"
+      }
+    },
+    {
+      "name": "elevenlabs-music-generation",
+      "repo": "prime-skills/runcomfy-agent-skills",
+      "official": false,
+      "stars": 61,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/elevenlabs-music-generation",
+        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill elevenlabs-music-generation",
+        "installs": 381778,
+        "weeklyInstalls": [3691, 3227, 3219, 3437, 3692, 3180, 3535, 3066],
+        "firstSeen": "2026-05-14"
+      }
+    },
+    {
+      "name": "image-outpainting",
+      "repo": "prime-skills/runcomfy-agent-skills",
+      "official": false,
+      "stars": 61,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/image-outpainting",
+        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill image-outpainting",
+        "installs": 381587,
+        "weeklyInstalls": [3690, 3218, 3220, 3428, 3687, 3173, 3529, 3050],
+        "firstSeen": "2026-05-13"
+      }
+    },
+    {
+      "name": "relight",
+      "repo": "prime-skills/runcomfy-agent-skills",
+      "official": false,
+      "stars": 61,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/relight",
+        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill relight",
+        "installs": 381490,
+        "weeklyInstalls": [3686, 3217, 3213, 3427, 3686, 3172, 3528, 3049],
+        "firstSeen": "2026-05-13"
+      }
+    },
+    {
+      "name": "video-outpainting",
+      "repo": "prime-skills/runcomfy-agent-skills",
+      "official": false,
+      "stars": 61,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/video-outpainting",
+        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill video-outpainting",
+        "installs": 381396,
+        "weeklyInstalls": [3691, 3222, 3210, 3424, 3686, 3175, 3526, 3051],
+        "firstSeen": "2026-05-13"
+      }
+    },
+    {
+      "name": "ai-music",
+      "repo": "prime-skills/runcomfy-agent-skills",
+      "official": false,
+      "stars": 61,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/ai-music",
+        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill ai-music",
+        "installs": 373882,
+        "weeklyInstalls": [3707, 3234, 3227, 3438, 3700, 3187, 3543, 3064],
+        "firstSeen": "2026-05-15"
+      }
+    },
+    {
+      "name": "ace-step",
+      "repo": "prime-skills/runcomfy-agent-skills",
+      "official": false,
+      "stars": 61,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/ace-step",
+        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill ace-step",
+        "installs": 373276,
+        "weeklyInstalls": [3686, 3216, 3216, 3425, 3684, 3171, 3528, 3049],
+        "firstSeen": "2026-05-15"
+      }
+    },
+    {
+      "name": "uizze-ui",
+      "repo": "uizze/uizze",
+      "official": false,
+      "stars": 85,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/uizze/uizze/uizze-ui",
+        "install": "npx skills add https://github.com/uizze/uizze --skill uizze-ui",
+        "installs": 315142,
+        "weeklyInstalls": [0, 0, 0, 0, 0, 89282, 54682, 108363],
+        "firstSeen": "2026-10-12"
+      }
+    },
+    {
+      "name": "just-scrape",
+      "repo": "scrapegraphai/just-scrape",
+      "official": false,
+      "stars": 74,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/scrapegraphai/just-scrape/just-scrape",
+        "install": "npx skills add https://github.com/scrapegraphai/just-scrape --skill just-scrape",
+        "installs": 245014,
+        "weeklyInstalls": [6, 7, 8, 9, 9, 6, 6, 6],
+        "firstSeen": "2026-02-13"
+      }
+    },
+    {
+      "name": "agent-browser",
+      "repo": "101-skills/superpowers",
+      "official": false,
+      "stars": 19,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/101-skills/superpowers/agent-browser",
+        "install": "npx skills add https://github.com/101-skills/superpowers --skill agent-browser",
+        "installs": 182743,
+        "weeklyInstalls": [12081, 39936, 45866, 24608, 13736, 12726, 12676, 11142],
+        "firstSeen": "2026-08-31"
+      }
+    },
+    {
+      "name": "agent-browser",
+      "repo": "magentosh/superpowers",
+      "official": false,
+      "stars": 4,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/magentosh/superpowers/agent-browser",
+        "install": "npx skills add https://github.com/magentosh/superpowers --skill agent-browser",
+        "installs": 160813,
+        "weeklyInstalls": [2955, 9605, 12594, 23179, 33059, 37509, 21489, 10975],
+        "firstSeen": "2026-08-28"
+      }
+    },
+    {
+      "name": "anti-detect-browser",
+      "repo": "antibrow/anti-detect-browser-skills",
+      "official": false,
+      "stars": 21,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/antibrow/anti-detect-browser-skills/anti-detect-browser",
+        "install": "npx skills add https://github.com/antibrow/anti-detect-browser-skills --skill anti-detect-browser",
+        "installs": 149956,
+        "weeklyInstalls": [8884, 8940, 8951, 8988, 8991, 8625, 8157, 8190],
+        "firstSeen": "2026-03-18"
+      }
+    },
+    {
+      "name": "convex-quickstart",
+      "repo": "convex/agent-skills",
+      "official": false,
+      "stars": 69,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/convex/agent-skills/convex-quickstart",
+        "install": "npx skills add https://github.com/convex/agent-skills --skill convex-quickstart",
+        "installs": 135264,
+        "weeklyInstalls": [3230, 2614, 2521, 2568, 2574, 2649, 2291, 2663],
+        "firstSeen": "2026-02-18"
+      }
+    },
+    {
+      "name": "convex-create-component",
+      "repo": "convex/agent-skills",
+      "official": false,
+      "stars": 69,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/convex/agent-skills/convex-create-component",
+        "install": "npx skills add https://github.com/convex/agent-skills --skill convex-create-component",
+        "installs": 135068,
+        "weeklyInstalls": [3272, 2648, 2572, 2630, 2587, 2648, 2293, 2661],
+        "firstSeen": "2026-03-16"
+      }
+    },
+    {
+      "name": "agent-browser",
+      "repo": "skills-shell/superpowers",
+      "official": false,
+      "stars": 5,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/skills-shell/superpowers/agent-browser",
+        "install": "npx skills add https://github.com/skills-shell/superpowers --skill agent-browser",
+        "installs": 130135,
+        "weeklyInstalls": [2894, 9742, 12534, 12563, 12597, 12768, 16714, 27178],
+        "firstSeen": "2026-09-02"
+      }
+    },
+    {
+      "name": "agent-browser",
+      "repo": "qu-skills/superpowers",
+      "official": false,
+      "stars": 4,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/qu-skills/superpowers/agent-browser",
+        "install": "npx skills add https://github.com/qu-skills/superpowers --skill agent-browser",
+        "installs": 122775,
+        "weeklyInstalls": [5809, 19552, 25452, 14901, 12488, 12641, 12556, 10893],
+        "firstSeen": "2026-09-02"
+      }
+    },
+    {
+      "name": "web-search",
+      "repo": "101-skills/superpowers",
+      "official": false,
+      "stars": 19,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/101-skills/superpowers/web-search",
+        "install": "npx skills add https://github.com/101-skills/superpowers --skill web-search",
+        "installs": 122260,
+        "weeklyInstalls": [8283, 26677, 30304, 16363, 9029, 8762, 8601, 7562],
+        "firstSeen": "2026-08-31"
+      }
+    },
+    {
+      "name": "remotion-render",
+      "repo": "101-skills/superpowers",
+      "official": false,
+      "stars": 19,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/101-skills/superpowers/remotion-render",
+        "install": "npx skills add https://github.com/101-skills/superpowers --skill remotion-render",
+        "installs": 121880,
+        "weeklyInstalls": [8258, 26782, 30237, 16335, 8974, 8684, 8545, 7479],
+        "firstSeen": "2026-08-31"
+      }
+    },
+    {
+      "name": "infsh-cli",
+      "repo": "101-skills/superpowers",
+      "official": false,
+      "stars": 19,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/101-skills/superpowers/infsh-cli",
+        "install": "npx skills add https://github.com/101-skills/superpowers --skill infsh-cli",
+        "installs": 121859,
+        "weeklyInstalls": [8181, 26778, 30238, 16332, 8969, 8681, 8543, 7475],
+        "firstSeen": "2026-08-31"
+      }
+    },
+    {
+      "name": "agent-tools",
+      "repo": "101-skills/superpowers",
+      "official": false,
+      "stars": 19,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/101-skills/superpowers/agent-tools",
+        "install": "npx skills add https://github.com/101-skills/superpowers --skill agent-tools",
+        "installs": 121833,
+        "weeklyInstalls": [8265, 26695, 30237, 16334, 8975, 8685, 8545, 7478],
+        "firstSeen": "2026-08-31"
+      }
+    },
+    {
+      "name": "python-executor",
+      "repo": "101-skills/superpowers",
+      "official": false,
+      "stars": 19,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/101-skills/superpowers/python-executor",
+        "install": "npx skills add https://github.com/101-skills/superpowers --skill python-executor",
+        "installs": 121830,
+        "weeklyInstalls": [8136, 26804, 30242, 16338, 8970, 8691, 8545, 7478],
+        "firstSeen": "2026-08-31"
+      }
+    },
+    {
+      "name": "image-to-ui",
+      "repo": "uizze/uizze",
+      "official": false,
+      "stars": 85,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/uizze/uizze/image-to-ui",
+        "install": "npx skills add https://github.com/uizze/uizze --skill image-to-ui",
+        "installs": 121075,
+        "weeklyInstalls": [0, 0, 0, 0, 20737, 24450, 18311, 36582],
+        "firstSeen": "2026-10-09"
+      }
+    },
+    {
+      "name": "multi-account-isolation",
+      "repo": "antibrow/anti-detect-browser-skills",
+      "official": false,
+      "stars": 21,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/antibrow/anti-detect-browser-skills/multi-account-isolation",
+        "install": "npx skills add https://github.com/antibrow/anti-detect-browser-skills --skill multi-account-isolation",
+        "installs": 119445,
+        "weeklyInstalls": [8868, 8896, 8923, 8940, 8942, 8630, 8143, 8196],
+        "firstSeen": "2026-08-01"
+      }
+    },
+    {
+      "name": "browser-mcp-agent",
+      "repo": "antibrow/anti-detect-browser-skills",
+      "official": false,
+      "stars": 21,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/antibrow/anti-detect-browser-skills/browser-mcp-agent",
+        "install": "npx skills add https://github.com/antibrow/anti-detect-browser-skills --skill browser-mcp-agent",
+        "installs": 119429,
+        "weeklyInstalls": [8857, 8904, 8902, 8983, 8963, 8621, 8131, 8157],
+        "firstSeen": "2026-07-31"
+      }
+    },
+    {
+      "name": "landing-page-conversion-audit",
+      "repo": "autonnel/autonnel-skills",
+      "official": false,
+      "stars": 8,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/autonnel/autonnel-skills/landing-page-conversion-audit",
+        "install": "npx skills add https://github.com/autonnel/autonnel-skills --skill landing-page-conversion-audit",
+        "installs": 117583,
+        "weeklyInstalls": [9028, 9071, 9024, 9100, 9069, 8699, 8203, 8272],
+        "firstSeen": "2026-08-05"
+      }
+    },
+    {
+      "name": "sales-funnel-blueprint",
+      "repo": "autonnel/autonnel-skills",
+      "official": false,
+      "stars": 8,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/autonnel/autonnel-skills/sales-funnel-blueprint",
+        "install": "npx skills add https://github.com/autonnel/autonnel-skills --skill sales-funnel-blueprint",
+        "installs": 115946,
+        "weeklyInstalls": [8890, 8917, 8935, 8988, 8951, 8593, 8116, 8164],
+        "firstSeen": "2026-08-05"
+      }
+    },
+    {
+      "name": "server-side-conversion-tracking",
+      "repo": "autonnel/autonnel-skills",
+      "official": false,
+      "stars": 8,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/autonnel/autonnel-skills/server-side-conversion-tracking",
+        "install": "npx skills add https://github.com/autonnel/autonnel-skills --skill server-side-conversion-tracking",
+        "installs": 115625,
+        "weeklyInstalls": [8842, 8931, 8895, 8988, 8964, 8566, 8102, 8079],
+        "firstSeen": "2026-08-05"
+      }
+    },
+    {
+      "name": "post-purchase-upsell-flow",
+      "repo": "autonnel/autonnel-skills",
+      "official": false,
+      "stars": 8,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/autonnel/autonnel-skills/post-purchase-upsell-flow",
+        "install": "npx skills add https://github.com/autonnel/autonnel-skills --skill post-purchase-upsell-flow",
+        "installs": 115612,
+        "weeklyInstalls": [8849, 8895, 8912, 9003, 8938, 8600, 8108, 8131],
+        "firstSeen": "2026-08-05"
+      }
+    },
+    {
+      "name": "funnel-platform-picker",
+      "repo": "autonnel/autonnel-skills",
+      "official": false,
+      "stars": 8,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/autonnel/autonnel-skills/funnel-platform-picker",
+        "install": "npx skills add https://github.com/autonnel/autonnel-skills --skill funnel-platform-picker",
+        "installs": 115567,
+        "weeklyInstalls": [8824, 8879, 8883, 8937, 8959, 8600, 8132, 8117],
+        "firstSeen": "2026-08-05"
+      }
+    },
+    {
+      "name": "self-hosted-funnel-launch",
+      "repo": "autonnel/autonnel-skills",
+      "official": false,
+      "stars": 8,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/autonnel/autonnel-skills/self-hosted-funnel-launch",
+        "install": "npx skills add https://github.com/autonnel/autonnel-skills --skill self-hosted-funnel-launch",
+        "installs": 115466,
+        "weeklyInstalls": [8835, 8902, 8904, 8951, 8940, 8595, 8075, 8111],
+        "firstSeen": "2026-08-05"
+      }
+    },
+    {
+      "name": "browser-fingerprint-audit",
+      "repo": "liarjsdev/liarjs-skills",
+      "official": false,
+      "stars": 5,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/liarjsdev/liarjs-skills/browser-fingerprint-audit",
+        "install": "npx skills add https://github.com/liarjsdev/liarjs-skills --skill browser-fingerprint-audit",
+        "installs": 114738,
+        "weeklyInstalls": [8840, 8920, 8893, 8923, 8940, 8467, 7846, 7849],
+        "firstSeen": "2026-08-05"
+      }
+    },
+    {
+      "name": "playwright-stealth-verify",
+      "repo": "liarjsdev/liarjs-skills",
+      "official": false,
+      "stars": 5,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/liarjsdev/liarjs-skills/playwright-stealth-verify",
+        "install": "npx skills add https://github.com/liarjsdev/liarjs-skills --skill playwright-stealth-verify",
+        "installs": 114699,
+        "weeklyInstalls": [8859, 8877, 8866, 8949, 8925, 8441, 7850, 7875],
+        "firstSeen": "2026-08-05"
+      }
+    },
+    {
+      "name": "fingerprint-ci-gate",
+      "repo": "liarjsdev/liarjs-skills",
+      "official": false,
+      "stars": 5,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/liarjsdev/liarjs-skills/fingerprint-ci-gate",
+        "install": "npx skills add https://github.com/liarjsdev/liarjs-skills --skill fingerprint-ci-gate",
+        "installs": 114636,
+        "weeklyInstalls": [8821, 8873, 8888, 8955, 8955, 8421, 7815, 7866],
+        "firstSeen": "2026-08-05"
+      }
+    },
+    {
+      "name": "fingerprint-failure-triage",
+      "repo": "liarjsdev/liarjs-skills",
+      "official": false,
+      "stars": 5,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/liarjsdev/liarjs-skills/fingerprint-failure-triage",
+        "install": "npx skills add https://github.com/liarjsdev/liarjs-skills --skill fingerprint-failure-triage",
+        "installs": 114611,
+        "weeklyInstalls": [8844, 8876, 8882, 8968, 8915, 8475, 7823, 7873],
+        "firstSeen": "2026-08-05"
+      }
+    },
+    {
+      "name": "convex",
+      "repo": "convex/agent-skills",
+      "official": false,
+      "stars": 69,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/convex/agent-skills/convex",
+        "install": "npx skills add https://github.com/convex/agent-skills --skill convex",
+        "installs": 112263,
+        "weeklyInstalls": [3298, 2737, 2641, 2670, 2647, 2710, 2355, 2719],
+        "firstSeen": "2026-04-17"
+      }
+    },
+    {
+      "name": "review-loop",
+      "repo": "2dmurali/review-loop-skill",
+      "official": false,
+      "stars": 7,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/2dmurali/review-loop-skill/review-loop",
+        "install": "npx skills add https://github.com/2dmurali/review-loop-skill --skill review-loop",
+        "installs": 110844,
+        "weeklyInstalls": [8671, 8996, 8872, 9137, 5311, 2787, 5454, 5950],
+        "firstSeen": "2026-05-08"
+      }
+    },
+    {
+      "name": "web-search",
+      "repo": "magentosh/superpowers",
+      "official": false,
+      "stars": 4,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/magentosh/superpowers/web-search",
+        "install": "npx skills add https://github.com/magentosh/superpowers --skill web-search",
+        "installs": 107300,
+        "weeklyInstalls": [1958, 6614, 8395, 15305, 22003, 24884, 14247, 7362],
+        "firstSeen": "2026-08-28"
+      }
+    },
+    {
+      "name": "agent-tools",
+      "repo": "magentosh/superpowers",
+      "official": false,
+      "stars": 4,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/magentosh/superpowers/agent-tools",
+        "install": "npx skills add https://github.com/magentosh/superpowers --skill agent-tools",
+        "installs": 107263,
+        "weeklyInstalls": [1968, 6620, 8394, 15308, 21997, 24878, 14245, 7361],
+        "firstSeen": "2026-08-28"
+      }
+    },
+    {
+      "name": "remotion-render",
+      "repo": "magentosh/superpowers",
+      "official": false,
+      "stars": 4,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/magentosh/superpowers/remotion-render",
+        "install": "npx skills add https://github.com/magentosh/superpowers --skill remotion-render",
+        "installs": 107257,
+        "weeklyInstalls": [2012, 6576, 8394, 15305, 21998, 24880, 14246, 7359],
+        "firstSeen": "2026-08-28"
+      }
+    },
+    {
+      "name": "python-executor",
+      "repo": "magentosh/superpowers",
+      "official": false,
+      "stars": 4,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/magentosh/superpowers/python-executor",
+        "install": "npx skills add https://github.com/magentosh/superpowers --skill python-executor",
+        "installs": 107245,
+        "weeklyInstalls": [2019, 6555, 8394, 15305, 21997, 24878, 14245, 7360],
+        "firstSeen": "2026-08-28"
+      }
+    },
+    {
+      "name": "infsh-cli",
+      "repo": "magentosh/superpowers",
+      "official": false,
+      "stars": 4,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/magentosh/superpowers/infsh-cli",
+        "install": "npx skills add https://github.com/magentosh/superpowers --skill infsh-cli",
+        "installs": 107093,
+        "weeklyInstalls": [2006, 6525, 8394, 15305, 21997, 24878, 14244, 7362],
+        "firstSeen": "2026-08-28"
+      }
+    },
+    {
+      "name": "convex-performance-audit",
+      "repo": "convex/agent-skills",
+      "official": false,
+      "stars": 69,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/convex/agent-skills/convex-performance-audit",
+        "install": "npx skills add https://github.com/convex/agent-skills --skill convex-performance-audit",
+        "installs": 94263,
+        "weeklyInstalls": [0, 0, 0, 0, 1, 2, 0, 0],
+        "firstSeen": "2026-03-16"
+      }
+    },
+    {
+      "name": "convex-setup-auth",
+      "repo": "convex/agent-skills",
+      "official": false,
+      "stars": 69,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/convex/agent-skills/convex-setup-auth",
+        "install": "npx skills add https://github.com/convex/agent-skills --skill convex-setup-auth",
+        "installs": 93853,
+        "weeklyInstalls": [0, 0, 0, 0, 1, 1, 0, 0],
+        "firstSeen": "2026-03-16"
+      }
+    },
+    {
+      "name": "convex-migration-helper",
+      "repo": "convex/agent-skills",
+      "official": false,
+      "stars": 69,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/convex/agent-skills/convex-migration-helper",
+        "install": "npx skills add https://github.com/convex/agent-skills --skill convex-migration-helper",
+        "installs": 93834,
+        "weeklyInstalls": [0, 0, 0, 0, 1, 2, 0, 0],
+        "firstSeen": "2026-03-16"
+      }
+    },
+    {
+      "name": "agent-browser",
+      "repo": "its-a-skill-issue/superpowers",
+      "official": false,
+      "stars": 0,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/its-a-skill-issue/superpowers/agent-browser",
+        "install": "npx skills add https://github.com/its-a-skill-issue/superpowers --skill agent-browser",
+        "installs": 93746,
+        "weeklyInstalls": [2822, 9514, 12697, 12617, 12691, 12494, 12518, 10989],
+        "firstSeen": "2026-09-07"
+      }
+    },
+    {
+      "name": "agent-browser",
+      "repo": "bankai-skills/superpowers",
+      "official": false,
+      "stars": 0,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/bankai-skills/superpowers/agent-browser",
+        "install": "npx skills add https://github.com/bankai-skills/superpowers --skill agent-browser",
+        "installs": 90633,
+        "weeklyInstalls": [0, 9437, 12452, 12501, 12600, 12592, 12673, 11145],
+        "firstSeen": "2026-09-14"
+      }
+    },
+    {
+      "name": "prisma-orm-setup",
+      "repo": "prisma/skills",
+      "official": true,
+      "stars": 80,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/prisma/skills/prisma-orm-setup",
+        "install": "npx skills add https://github.com/prisma/skills --skill prisma-orm-setup",
+        "installs": 89437,
+        "weeklyInstalls": [0, 0, 0, 12832, 18697, 16874, 18890, 14523],
+        "firstSeen": "2026-09-29"
+      }
+    },
+    {
+      "name": "gpt-image-2",
+      "repo": "prime-skills/runcomfy-agent-skills",
+      "official": false,
+      "stars": 61,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/prime-skills/runcomfy-agent-skills/gpt-image-2",
+        "install": "npx skills add https://github.com/prime-skills/runcomfy-agent-skills --skill gpt-image-2",
+        "installs": 89166,
+        "weeklyInstalls": [3726, 3247, 3234, 3448, 3698, 3188, 3537, 3060],
+        "firstSeen": "2026-04-30"
+      }
+    },
+    {
+      "name": "python-executor",
+      "repo": "skills-shell/superpowers",
+      "official": false,
+      "stars": 5,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/skills-shell/superpowers/python-executor",
+        "install": "npx skills add https://github.com/skills-shell/superpowers --skill python-executor",
+        "installs": 87289,
+        "weeklyInstalls": [2032, 6486, 8602, 8439, 8433, 8529, 11152, 17971],
+        "firstSeen": "2026-09-02"
+      }
+    },
+    {
+      "name": "remotion-render",
+      "repo": "skills-shell/superpowers",
+      "official": false,
+      "stars": 5,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/skills-shell/superpowers/remotion-render",
+        "install": "npx skills add https://github.com/skills-shell/superpowers --skill remotion-render",
+        "installs": 87207,
+        "weeklyInstalls": [1987, 6483, 8602, 8439, 8433, 8529, 11152, 17968],
+        "firstSeen": "2026-09-02"
+      }
+    },
+    {
+      "name": "infsh-cli",
+      "repo": "skills-shell/superpowers",
+      "official": false,
+      "stars": 5,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/skills-shell/superpowers/infsh-cli",
+        "install": "npx skills add https://github.com/skills-shell/superpowers --skill infsh-cli",
+        "installs": 87202,
+        "weeklyInstalls": [1975, 6513, 8602, 8439, 8433, 8529, 11152, 17969],
+        "firstSeen": "2026-09-02"
+      }
+    },
+    {
+      "name": "agent-tools",
+      "repo": "skills-shell/superpowers",
+      "official": false,
+      "stars": 5,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/skills-shell/superpowers/agent-tools",
+        "install": "npx skills add https://github.com/skills-shell/superpowers --skill agent-tools",
+        "installs": 87154,
+        "weeklyInstalls": [1916, 6474, 8602, 8439, 8433, 8530, 11152, 17970],
+        "firstSeen": "2026-09-02"
+      }
+    },
+    {
+      "name": "web-search",
+      "repo": "skills-shell/superpowers",
+      "official": false,
+      "stars": 5,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/skills-shell/superpowers/web-search",
+        "install": "npx skills add https://github.com/skills-shell/superpowers --skill web-search",
+        "installs": 87096,
+        "weeklyInstalls": [1921, 6431, 8603, 8439, 8434, 8530, 11154, 17977],
+        "firstSeen": "2026-09-02"
+      }
+    },
+    {
+      "name": "nx-workspace",
+      "repo": "nrwl/nx-ai-agents-config",
+      "official": false,
+      "stars": 30,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/nrwl/nx-ai-agents-config/nx-workspace",
+        "install": "npx skills add https://github.com/nrwl/nx-ai-agents-config --skill nx-workspace",
+        "installs": 86815,
+        "weeklyInstalls": [3883, 3957, 5387, 4973, 5870, 4950, 6330, 6141],
+        "firstSeen": "2026-01-27"
+      }
+    },
+    {
+      "name": "infsh-cli",
+      "repo": "qu-skills/superpowers",
+      "official": false,
+      "stars": 4,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/qu-skills/superpowers/infsh-cli",
+        "install": "npx skills add https://github.com/qu-skills/superpowers --skill infsh-cli",
+        "installs": 81943,
+        "weeklyInstalls": [3963, 13050, 16786, 9907, 8487, 8327, 8456, 7363],
+        "firstSeen": "2026-09-02"
+      }
+    },
+    {
+      "name": "agent-tools",
+      "repo": "qu-skills/superpowers",
+      "official": false,
+      "stars": 4,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/qu-skills/superpowers/agent-tools",
+        "install": "npx skills add https://github.com/qu-skills/superpowers --skill agent-tools",
+        "installs": 81940,
+        "weeklyInstalls": [4002, 12957, 16787, 9909, 8487, 8327, 8457, 7364],
+        "firstSeen": "2026-09-02"
+      }
+    },
+    {
+      "name": "remotion-render",
+      "repo": "qu-skills/superpowers",
+      "official": false,
+      "stars": 4,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/qu-skills/superpowers/remotion-render",
+        "install": "npx skills add https://github.com/qu-skills/superpowers --skill remotion-render",
+        "installs": 81866,
+        "weeklyInstalls": [4001, 12919, 16787, 9906, 8487, 8329, 8457, 7363],
+        "firstSeen": "2026-09-02"
+      }
+    },
+    {
+      "name": "web-search",
+      "repo": "qu-skills/superpowers",
+      "official": false,
+      "stars": 4,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/qu-skills/superpowers/web-search",
+        "install": "npx skills add https://github.com/qu-skills/superpowers --skill web-search",
+        "installs": 81852,
+        "weeklyInstalls": [3900, 12973, 16787, 9914, 8491, 8328, 8456, 7364],
+        "firstSeen": "2026-09-02"
+      }
+    },
+    {
+      "name": "python-executor",
+      "repo": "qu-skills/superpowers",
+      "official": false,
+      "stars": 4,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/qu-skills/superpowers/python-executor",
+        "install": "npx skills add https://github.com/qu-skills/superpowers --skill python-executor",
+        "installs": 81823,
+        "weeklyInstalls": [4000, 12911, 16789, 9908, 8487, 8329, 8457, 7364],
+        "firstSeen": "2026-09-02"
+      }
+    },
+    {
+      "name": "momentic-test",
+      "repo": "momentic-ai/skills",
+      "official": false,
+      "stars": 17,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/momentic-ai/skills/momentic-test",
+        "install": "npx skills add https://github.com/momentic-ai/skills --skill momentic-test",
+        "installs": 68543,
+        "weeklyInstalls": [2659, 1972, 2229, 2925, 3449, 4264, 2819, 8],
+        "firstSeen": "2026-04-08"
+      }
+    },
+    {
+      "name": "momentic-result-classification",
+      "repo": "momentic-ai/skills",
+      "official": false,
+      "stars": 17,
+      "seen": "2026-11-06",
+      "skills.sh": {
+        "url": "https://skills.sh/momentic-ai/skills/momentic-result-classification",
+        "install": "npx skills add https://github.com/momentic-ai/skills --skill momentic-result-classification",
+        "installs": 68513,
+        "weeklyInstalls": [2658, 1971, 2230, 2925, 3447, 4265, 2815, 5],
+        "firstSeen": "2026-04-08"
+      }
+    },
+    {
+      "name": "is-this-photo-real",
+      "repo": "useosint/skills",
+      "official": false,
+      "stars": 61,
+      "seen": "2026-11-05",
+      "skills.sh": {
+        "url": "https://skills.sh/useosint/skills/is-this-photo-real",
+        "install": "npx skills add https://github.com/useosint/skills --skill is-this-photo-real",
+        "installs": 58300,
+        "weeklyInstalls": [23, 30, 14, 13, 20, 14, 20, 19],
+        "firstSeen": "2026-08-02"
+      }
+    },
+    {
+      "name": "investigate-without-getting-made",
+      "repo": "useosint/skills",
+      "official": false,
+      "stars": 61,
+      "seen": "2026-11-05",
+      "skills.sh": {
+        "url": "https://skills.sh/useosint/skills/investigate-without-getting-made",
+        "install": "npx skills add https://github.com/useosint/skills --skill investigate-without-getting-made",
+        "installs": 58200,
+        "weeklyInstalls": [18, 30, 18, 14, 21, 11, 24, 15],
+        "firstSeen": "2026-08-02"
+      }
+    },
+    {
+      "name": "what-leaked-about-you",
+      "repo": "useosint/skills",
+      "official": false,
+      "stars": 61,
+      "seen": "2026-11-05",
+      "skills.sh": {
+        "url": "https://skills.sh/useosint/skills/what-leaked-about-you",
+        "install": "npx skills add https://github.com/useosint/skills --skill what-leaked-about-you",
+        "installs": 57800,
+        "weeklyInstalls": [21, 30, 15, 16, 20, 13, 22, 17],
+        "firstSeen": "2026-08-02"
+      }
+    },
+    {
+      "name": "find-the-original-image",
+      "repo": "useosint/skills",
+      "official": false,
+      "stars": 61,
+      "seen": "2026-11-05",
+      "skills.sh": {
+        "url": "https://skills.sh/useosint/skills/find-the-original-image",
+        "install": "npx skills add https://github.com/useosint/skills --skill find-the-original-image",
+        "installs": 56600,
+        "weeklyInstalls": [26, 35, 16, 17, 21, 17, 22, 20],
+        "firstSeen": "2026-08-02"
+      }
+    },
+    {
+      "name": "nia",
+      "repo": "nozomio-labs/nia-skill",
+      "official": false,
+      "stars": 26,
+      "seen": "2026-11-05",
+      "skills.sh": {
+        "url": "https://skills.sh/nozomio-labs/nia-skill/nia",
+        "install": "npx skills add https://github.com/nozomio-labs/nia-skill --skill Nia",
+        "installs": 56300,
+        "weeklyInstalls": [122, 80, 69, 77, 139, 582, 80, 17],
+        "firstSeen": "2026-02-04"
+      }
+    },
+    {
+      "name": "video-edit",
+      "repo": "genmedia-labs/skills",
+      "official": false,
+      "stars": 27,
+      "seen": "2026-11-05",
+      "skills.sh": {
+        "url": "https://skills.sh/genmedia-labs/skills/video-edit",
+        "install": "npx skills add https://github.com/genmedia-labs/skills --skill video-edit",
+        "installs": 13,
+        "weeklyInstalls": [11, 11, 11, 11, 10, 1, 2, 2],
+        "firstSeen": "2026-08-12"
+      }
+    },
+    {
+      "name": "ai-music",
+      "repo": "genmedia-labs/skills",
+      "official": false,
+      "stars": 27,
+      "seen": "2026-11-05",
+      "skills.sh": {
+        "url": "https://skills.sh/genmedia-labs/skills/ai-music",
+        "install": "npx skills add https://github.com/genmedia-labs/skills --skill ai-music",
+        "installs": 13,
+        "weeklyInstalls": [11, 11, 11, 11, 10, 0, 1, 0],
+        "firstSeen": "2026-08-12"
+      }
+    },
+    {
+      "name": "ai-video-generation",
+      "repo": "genmedia-labs/skills",
+      "official": false,
+      "stars": 27,
+      "seen": "2026-11-05",
+      "skills.sh": {
+        "url": "https://skills.sh/genmedia-labs/skills/ai-video-generation",
+        "install": "npx skills add https://github.com/genmedia-labs/skills --skill ai-video-generation",
+        "installs": 13,
+        "weeklyInstalls": [11, 11, 11, 11, 10, 1, 2, 1],
+        "firstSeen": "2026-08-12"
+      }
+    },
+    {
+      "name": "image-to-video",
+      "repo": "genmedia-labs/skills",
+      "official": false,
+      "stars": 27,
+      "seen": "2026-11-05",
+      "skills.sh": {
+        "url": "https://skills.sh/genmedia-labs/skills/image-to-video",
+        "install": "npx skills add https://github.com/genmedia-labs/skills --skill image-to-video",
+        "installs": 13,
+        "weeklyInstalls": [11, 11, 11, 11, 10, 1, 2, 2],
+        "firstSeen": "2026-08-12"
+      }
+    },
+    {
+      "name": "ai-image-generation",
+      "repo": "genmedia-labs/skills",
+      "official": false,
+      "stars": 27,
+      "seen": "2026-11-05",
+      "skills.sh": {
+        "url": "https://skills.sh/genmedia-labs/skills/ai-image-generation",
+        "install": "npx skills add https://github.com/genmedia-labs/skills --skill ai-image-generation",
+        "installs": 13,
+        "weeklyInstalls": [11, 11, 11, 11, 10, 1, 2, 1],
+        "firstSeen": "2026-08-12"
       }
     }
   ],

@@ -124,8 +124,10 @@ export function writeData(data: Data) {
 
 // ------------------------------------------------------------------- crawl
 
+const CRAWL_ORDER = ["$schema", "asOf", "qualified", "unqualified", "disqualified"];
+
 export const readCrawl = (): Crawl => readJsonc(crawlPath);
-export const writeCrawl = (crawl: Crawl) => writeJsonc(crawlPath, crawl);
+export const writeCrawl = (crawl: Crawl) => writeJsonc(crawlPath, sorted(crawl, CRAWL_ORDER));
 
 /** A skills.sh page as a key: skills.sh doesn't care about case. */
 export const pageKey = (url: string) => url.toLowerCase().replace(/\/+$/, "");

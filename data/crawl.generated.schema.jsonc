@@ -14,19 +14,19 @@
           "type": "string",
           "description": "When crawl.ts last ran (YYYY-MM-DD)."
         },
-        "unqualified": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Crawled"
-          },
-          "description": "Below the minimums, most installed first."
-        },
         "qualified": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/Crawled"
           },
           "description": "At the minimums (`MINIMUMS` in ../scripts/data.ts) or above, most installed first: waiting for an agent to approve or disqualify them, with the add-skill skill."
+        },
+        "unqualified": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Crawled"
+          },
+          "description": "Below the minimums, most installed first."
         },
         "disqualified": {
           "type": "array",
@@ -36,7 +36,7 @@
           "description": "Not to be shown, each with why, and with no agent data: no tags, no TLDR, no copy of its SKILL.md."
         }
       },
-      "required": ["$schema", "asOf", "unqualified", "qualified", "disqualified"],
+      "required": ["$schema", "asOf", "qualified", "unqualified", "disqualified"],
       "additionalProperties": false,
       "description": "The shape of data/crawl.jsonc: every skill the crawl has seen in the skills.sh all-time top 600 that isn't approved (the approved ones are in skills.jsonc), keyed by its skills.sh page. The two files are cumulative: a skill that lands in either never leaves them, only its state changes. Unlike skills.jsonc, crawl.jsonc takes any skill, such as one a website publishes."
     },
