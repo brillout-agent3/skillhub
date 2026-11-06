@@ -29,32 +29,6 @@
       }
     },
     {
-      "name": "firebase-crashlytics",
-      "repo": "firebase/agent-skills",
-      "official": true,
-      "stars": 505,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/firebase/agent-skills/firebase-crashlytics",
-        "installs": 137535,
-        "weeklyInstalls": [4667, 4063, 4410, 3993, 3676, 3590, 3480, 3613],
-        "firstSeen": "2026-04-30"
-      }
-    },
-    {
-      "name": "xcode-project-setup",
-      "repo": "firebase/agent-skills",
-      "official": true,
-      "stars": 505,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/firebase/agent-skills/xcode-project-setup",
-        "installs": 136536,
-        "weeklyInstalls": [4648, 4076, 4351, 3924, 3620, 3573, 3457, 3598],
-        "firstSeen": "2026-04-30"
-      }
-    },
-    {
       "name": "cold-email",
       "repo": "coreyhaines31/marketingskills",
       "official": false,
@@ -91,19 +65,6 @@
         "installs": 127117,
         "weeklyInstalls": [3028, 2714, 2785, 3391, 3685, 3194, 3295, 3688],
         "firstSeen": "2026-02-19"
-      }
-    },
-    {
-      "name": "firebase-remote-config-basics",
-      "repo": "firebase/agent-skills",
-      "official": true,
-      "stars": 505,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/firebase/agent-skills/firebase-remote-config-basics",
-        "installs": 127075,
-        "weeklyInstalls": [4663, 4033, 4407, 3962, 3651, 3569, 3459, 3601],
-        "firstSeen": "2026-05-11"
       }
     },
     {
@@ -172,19 +133,6 @@
       }
     },
     {
-      "name": "caveman-learn",
-      "repo": "juliusbrussee/caveman",
-      "official": false,
-      "stars": 117970,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/juliusbrussee/caveman/caveman-learn",
-        "installs": 119021,
-        "weeklyInstalls": [12561, 13152, 10925, 10409, 8547, 7412, 7898, 7349],
-        "firstSeen": "2026-08-11"
-      }
-    },
-    {
       "name": "discover-azure-skills",
       "repo": "microsoft/azure-skills",
       "official": true,
@@ -195,19 +143,6 @@
         "installs": 118147,
         "weeklyInstalls": [0, 0, 4649, 12202, 11512, 8817, 6956, 7690],
         "firstSeen": "2026-09-24"
-      }
-    },
-    {
-      "name": "caveman-optimize",
-      "repo": "juliusbrussee/caveman",
-      "official": false,
-      "stars": 117970,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/juliusbrussee/caveman/caveman-optimize",
-        "installs": 117988,
-        "weeklyInstalls": [12544, 13151, 10939, 10149, 8387, 7208, 7577, 7211],
-        "firstSeen": "2026-08-11"
       }
     },
     {
@@ -237,32 +172,6 @@
       }
     },
     {
-      "name": "caveman-evidence-review",
-      "repo": "juliusbrussee/caveman",
-      "official": false,
-      "stars": 117970,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/juliusbrussee/caveman/caveman-evidence-review",
-        "installs": 116577,
-        "weeklyInstalls": [12367, 13027, 10789, 10050, 8280, 7142, 7518, 7131],
-        "firstSeen": "2026-08-11"
-      }
-    },
-    {
-      "name": "caveman-discover",
-      "repo": "juliusbrussee/caveman",
-      "official": false,
-      "stars": 117970,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/juliusbrussee/caveman/caveman-discover",
-        "installs": 116513,
-        "weeklyInstalls": [12328, 13031, 10815, 10049, 8300, 7155, 7508, 7139],
-        "firstSeen": "2026-08-11"
-      }
-    },
-    {
       "name": "higgsfield-youtube-thumbnail",
       "repo": "higgsfield-ai/skills",
       "official": false,
@@ -273,19 +182,6 @@
         "installs": 116293,
         "weeklyInstalls": [10552, 9086, 7712, 6886, 8729, 9256, 9144, 8443],
         "firstSeen": "2026-08-03"
-      }
-    },
-    {
-      "name": "caveman-manage",
-      "repo": "juliusbrussee/caveman",
-      "official": false,
-      "stars": 117970,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/juliusbrussee/caveman/caveman-manage",
-        "installs": 116280,
-        "weeklyInstalls": [12350, 12975, 10775, 10026, 8258, 7127, 7503, 7113],
-        "firstSeen": "2026-08-11"
       }
     },
     {
@@ -312,19 +208,6 @@
         "installs": 116085,
         "weeklyInstalls": [10564, 9103, 7701, 6879, 8712, 9199, 9084, 8402],
         "firstSeen": "2026-08-03"
-      }
-    },
-    {
-      "name": "caveman-setup",
-      "repo": "juliusbrussee/caveman",
-      "official": false,
-      "stars": 117970,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/juliusbrussee/caveman/caveman-setup",
-        "installs": 115542,
-        "weeklyInstalls": [12152, 12927, 10756, 9996, 8248, 7126, 7495, 7110],
-        "firstSeen": "2026-08-11"
       }
     },
     {
@@ -1446,19 +1329,6 @@
       }
     },
     {
-      "name": "extension-to-functions-codebase",
-      "repo": "firebase/agent-skills",
-      "official": false,
-      "stars": 505,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/firebase/agent-skills/extension-to-functions-codebase",
-        "installs": 62200,
-        "weeklyInstalls": [4628, 4002, 4299, 3874, 3588, 3537, 3441, 3586],
-        "firstSeen": "2026-07-27"
-      }
-    },
-    {
       "name": "observability-and-instrumentation",
       "repo": "addyosmani/agent-skills",
       "official": false,
@@ -2005,19 +1875,6 @@
       }
     },
     {
-      "name": "flutter-apply-architecture-best-practices",
-      "repo": "flutter/agent-plugins",
-      "official": false,
-      "stars": 3158,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/flutter/agent-plugins/flutter-apply-architecture-best-practices",
-        "installs": 45000,
-        "weeklyInstalls": [1100, 1200, 1424, 1298, 1265, 1374, 1447, 1210],
-        "firstSeen": "2026-04-24"
-      }
-    },
-    {
       "name": "karpathy-guidelines",
       "repo": "multica-ai/andrej-karpathy-skills",
       "official": false,
@@ -2054,19 +1911,6 @@
         "installs": 44700,
         "weeklyInstalls": [507, 503, 558, 518, 614, 748, 1367, 1246],
         "firstSeen": "2026-01-21"
-      }
-    },
-    {
-      "name": "flutter-build-responsive-layout",
-      "repo": "flutter/agent-plugins",
-      "official": false,
-      "stars": 3158,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/flutter/agent-plugins/flutter-build-responsive-layout",
-        "installs": 44600,
-        "weeklyInstalls": [1086, 1302, 1435, 1390, 1343, 1389, 1534, 1330],
-        "firstSeen": "2026-04-24"
       }
     },
     {
@@ -2135,19 +1979,6 @@
       }
     },
     {
-      "name": "flutter-fix-layout-issues",
-      "repo": "flutter/agent-plugins",
-      "official": false,
-      "stars": 3158,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/flutter/agent-plugins/flutter-fix-layout-issues",
-        "installs": 41800,
-        "weeklyInstalls": [996, 1125, 1282, 1224, 1187, 1250, 1354, 1161],
-        "firstSeen": "2026-04-24"
-      }
-    },
-    {
       "name": "vite",
       "repo": "antfu/skills",
       "official": false,
@@ -2158,19 +1989,6 @@
         "installs": 41500,
         "weeklyInstalls": [625, 614, 488, 847, 619, 781, 1410, 945],
         "firstSeen": "2026-01-28"
-      }
-    },
-    {
-      "name": "flutter-add-widget-test",
-      "repo": "flutter/agent-plugins",
-      "official": false,
-      "stars": 3158,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/flutter/agent-plugins/flutter-add-widget-test",
-        "installs": 41000,
-        "weeklyInstalls": [994, 1095, 1279, 1218, 1159, 1261, 1353, 1149],
-        "firstSeen": "2026-04-24"
       }
     },
     {
@@ -2213,19 +2031,6 @@
       }
     },
     {
-      "name": "flutter-add-integration-test",
-      "repo": "flutter/agent-plugins",
-      "official": false,
-      "stars": 3158,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/flutter/agent-plugins/flutter-add-integration-test",
-        "installs": 39800,
-        "weeklyInstalls": [948, 1053, 1231, 1170, 1086, 1185, 1285, 1085],
-        "firstSeen": "2026-04-24"
-      }
-    },
-    {
       "name": "python-testing-patterns",
       "repo": "wshobson/agents",
       "official": false,
@@ -2249,19 +2054,6 @@
         "installs": 39400,
         "weeklyInstalls": [1503, 1423, 1319, 1379, 1311, 1374, 1491, 1587],
         "firstSeen": "2026-04-23"
-      }
-    },
-    {
-      "name": "flutter-setup-declarative-routing",
-      "repo": "flutter/agent-plugins",
-      "official": false,
-      "stars": 3158,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/flutter/agent-plugins/flutter-setup-declarative-routing",
-        "installs": 39300,
-        "weeklyInstalls": [911, 1029, 1198, 1113, 1060, 1156, 1247, 1029],
-        "firstSeen": "2026-04-24"
       }
     },
     {
@@ -2291,19 +2083,6 @@
       }
     },
     {
-      "name": "flutter-implement-json-serialization",
-      "repo": "flutter/agent-plugins",
-      "official": false,
-      "stars": 3158,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/flutter/agent-plugins/flutter-implement-json-serialization",
-        "installs": 39000,
-        "weeklyInstalls": [907, 1015, 1220, 1214, 1111, 1240, 1319, 1021],
-        "firstSeen": "2026-04-24"
-      }
-    },
-    {
       "name": "ultracave",
       "repo": "juliusbrussee/caveman",
       "official": false,
@@ -2327,32 +2106,6 @@
         "installs": 38600,
         "weeklyInstalls": [196, 178, 160, 100, 156, 142, 86, 93],
         "firstSeen": "2026-04-30"
-      }
-    },
-    {
-      "name": "flutter-add-widget-preview",
-      "repo": "flutter/agent-plugins",
-      "official": false,
-      "stars": 3158,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/flutter/agent-plugins/flutter-add-widget-preview",
-        "installs": 38400,
-        "weeklyInstalls": [898, 1002, 1184, 1092, 1017, 1116, 1311, 1084],
-        "firstSeen": "2026-04-24"
-      }
-    },
-    {
-      "name": "flutter-setup-localization",
-      "repo": "flutter/agent-plugins",
-      "official": false,
-      "stars": 3158,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/flutter/agent-plugins/flutter-setup-localization",
-        "installs": 38300,
-        "weeklyInstalls": [905, 1009, 1186, 1091, 1035, 1138, 1240, 1013],
-        "firstSeen": "2026-04-24"
       }
     },
     {
@@ -2418,19 +2171,6 @@
         "installs": 37600,
         "weeklyInstalls": [745, 965, 747, 663, 658, 653, 678, 889],
         "firstSeen": "2026-03-16"
-      }
-    },
-    {
-      "name": "flutter-use-http-package",
-      "repo": "flutter/agent-plugins",
-      "official": false,
-      "stars": 3158,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/flutter/agent-plugins/flutter-use-http-package",
-        "installs": 37600,
-        "weeklyInstalls": [872, 975, 1166, 1054, 1004, 1124, 1202, 971],
-        "firstSeen": "2026-04-24"
       }
     },
     {
@@ -3198,19 +2938,6 @@
         "installs": 31200,
         "weeklyInstalls": [336, 351, 401, 463, 400, 425, 411, 469],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "firestore-rules-creation",
-      "repo": "firebase/agent-skills",
-      "official": false,
-      "stars": 505,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/firebase/agent-skills/firestore-rules-creation",
-        "installs": 31200,
-        "weeklyInstalls": [2069, 4047, 4356, 3930, 3639, 3583, 3502, 3636],
-        "firstSeen": "2026-09-10"
       }
     },
     {
@@ -50722,6 +50449,90 @@
     {
       "url": "https://skills.sh/googleworkspace/cli/recipe-batch-invite-to-event",
       "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/juliusbrussee/caveman/caveman-learn",
+      "note": "Tool docs: an agent's manual for the caveman proxy."
+    },
+    {
+      "url": "https://skills.sh/juliusbrussee/caveman/caveman-optimize",
+      "note": "Tool docs: an agent's manual for the caveman proxy."
+    },
+    {
+      "url": "https://skills.sh/juliusbrussee/caveman/caveman-evidence-review",
+      "note": "Tool docs: an agent's manual for the caveman proxy."
+    },
+    {
+      "url": "https://skills.sh/juliusbrussee/caveman/caveman-discover",
+      "note": "Tool docs: an agent's manual for the caveman proxy."
+    },
+    {
+      "url": "https://skills.sh/juliusbrussee/caveman/caveman-manage",
+      "note": "Tool docs: an agent's manual for the caveman proxy."
+    },
+    {
+      "url": "https://skills.sh/juliusbrussee/caveman/caveman-setup",
+      "note": "Tool docs: an agent's manual for the caveman proxy."
+    },
+    {
+      "url": "https://skills.sh/flutter/agent-plugins/flutter-apply-architecture-best-practices",
+      "note": "Tool docs: an agent's manual for flutter."
+    },
+    {
+      "url": "https://skills.sh/flutter/agent-plugins/flutter-build-responsive-layout",
+      "note": "Tool docs: an agent's manual for flutter."
+    },
+    {
+      "url": "https://skills.sh/flutter/agent-plugins/flutter-fix-layout-issues",
+      "note": "Tool docs: an agent's manual for flutter."
+    },
+    {
+      "url": "https://skills.sh/flutter/agent-plugins/flutter-add-widget-test",
+      "note": "Tool docs: an agent's manual for flutter."
+    },
+    {
+      "url": "https://skills.sh/flutter/agent-plugins/flutter-add-integration-test",
+      "note": "Tool docs: an agent's manual for flutter."
+    },
+    {
+      "url": "https://skills.sh/flutter/agent-plugins/flutter-setup-declarative-routing",
+      "note": "Tool docs: an agent's manual for flutter and go-router."
+    },
+    {
+      "url": "https://skills.sh/flutter/agent-plugins/flutter-implement-json-serialization",
+      "note": "Tool docs: an agent's manual for flutter."
+    },
+    {
+      "url": "https://skills.sh/flutter/agent-plugins/flutter-add-widget-preview",
+      "note": "Tool docs: an agent's manual for flutter."
+    },
+    {
+      "url": "https://skills.sh/flutter/agent-plugins/flutter-setup-localization",
+      "note": "Tool docs: an agent's manual for flutter."
+    },
+    {
+      "url": "https://skills.sh/flutter/agent-plugins/flutter-use-http-package",
+      "note": "Tool docs: an agent's manual for flutter."
+    },
+    {
+      "url": "https://skills.sh/firebase/agent-skills/firebase-crashlytics",
+      "note": "Tool docs: an agent's manual for firebase."
+    },
+    {
+      "url": "https://skills.sh/firebase/agent-skills/xcode-project-setup",
+      "note": "Tool docs: an agent's manual for xcode."
+    },
+    {
+      "url": "https://skills.sh/firebase/agent-skills/firebase-remote-config-basics",
+      "note": "Tool docs: an agent's manual for firebase."
+    },
+    {
+      "url": "https://skills.sh/firebase/agent-skills/extension-to-functions-codebase",
+      "note": "Tool docs: an agent's manual for firebase."
+    },
+    {
+      "url": "https://skills.sh/firebase/agent-skills/firestore-rules-creation",
+      "note": "Tool docs: an agent's manual for firebase."
     }
   ]
 }
