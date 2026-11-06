@@ -16,19 +16,6 @@
       }
     },
     {
-      "name": "higgsfield-video-explainer",
-      "repo": "higgsfield-ai/skills",
-      "official": false,
-      "stars": 1902,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/higgsfield-ai/skills/higgsfield-video-explainer",
-        "installs": 137954,
-        "weeklyInstalls": [10571, 9094, 7708, 6895, 8727, 9238, 9103, 8429],
-        "firstSeen": "2026-07-16"
-      }
-    },
-    {
       "name": "cold-email",
       "repo": "coreyhaines31/marketingskills",
       "official": false,
@@ -1082,32 +1069,6 @@
       }
     },
     {
-      "name": "firecrawl-build-scrape",
-      "repo": "firecrawl/skills",
-      "official": false,
-      "stars": 147,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/firecrawl/skills/firecrawl-build-scrape",
-        "installs": 62400,
-        "weeklyInstalls": [316, 281, 300, 356, 313, 438, 568, 430],
-        "firstSeen": "2026-04-08"
-      }
-    },
-    {
-      "name": "firecrawl-build-search",
-      "repo": "firecrawl/skills",
-      "official": false,
-      "stars": 147,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/firecrawl/skills/firecrawl-build-search",
-        "installs": 62300,
-        "weeklyInstalls": [315, 280, 296, 349, 312, 438, 564, 427],
-        "firstSeen": "2026-04-08"
-      }
-    },
-    {
       "name": "observability-and-instrumentation",
       "repo": "addyosmani/agent-skills",
       "official": false,
@@ -1121,32 +1082,6 @@
       }
     },
     {
-      "name": "firecrawl-build-onboarding",
-      "repo": "firecrawl/skills",
-      "official": false,
-      "stars": 147,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/firecrawl/skills/firecrawl-build-onboarding",
-        "installs": 62000,
-        "weeklyInstalls": [312, 313, 340, 376, 328, 443, 564, 431],
-        "firstSeen": "2026-04-08"
-      }
-    },
-    {
-      "name": "firecrawl-build-interact",
-      "repo": "firecrawl/skills",
-      "official": false,
-      "stars": 147,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/firecrawl/skills/firecrawl-build-interact",
-        "installs": 62000,
-        "weeklyInstalls": [326, 280, 294, 355, 312, 438, 559, 428],
-        "firstSeen": "2026-04-08"
-      }
-    },
-    {
       "name": "public-relations",
       "repo": "coreyhaines31/marketingskills",
       "official": false,
@@ -1157,19 +1092,6 @@
         "installs": 61100,
         "weeklyInstalls": [2581, 2349, 2208, 2513, 2778, 2866, 3197, 3560],
         "firstSeen": "2026-06-10"
-      }
-    },
-    {
-      "name": "enhance-prompt",
-      "repo": "google-labs-code/stitch-skills",
-      "official": false,
-      "stars": 8689,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google-labs-code/stitch-skills/enhance-prompt",
-        "installs": 59200,
-        "weeklyInstalls": [542, 514, 514, 531, 551, 476, 517, 519],
-        "firstSeen": "2026-01-29"
       }
     },
     {
@@ -1248,19 +1170,6 @@
         "installs": 54200,
         "weeklyInstalls": [1343, 1192, 1095, 1118, 1187, 1183, 1210, 1181],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "shadcn-ui",
-      "repo": "google-labs-code/stitch-skills",
-      "official": false,
-      "stars": 8689,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google-labs-code/stitch-skills/shadcn-ui",
-        "installs": 54200,
-        "weeklyInstalls": [519, 494, 486, 481, 503, 438, 481, 458],
-        "firstSeen": "2026-02-03"
       }
     },
     {
@@ -1355,19 +1264,6 @@
       }
     },
     {
-      "name": "better-auth-security-best-practices",
-      "repo": "better-auth/skills",
-      "official": false,
-      "stars": 229,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/better-auth/skills/better-auth-security-best-practices",
-        "installs": 50300,
-        "weeklyInstalls": [2759, 2941, 2368, 2580, 4016, 2406, 1519, 1657],
-        "firstSeen": "2026-02-11"
-      }
-    },
-    {
       "name": "binance-agentic-wallet",
       "repo": "binance/binance-skills-hub",
       "official": false,
@@ -1378,19 +1274,6 @@
         "installs": 49600,
         "weeklyInstalls": [113, 90, 103, 112, 95, 84, 12000, 25746],
         "firstSeen": "2026-04-20"
-      }
-    },
-    {
-      "name": "email-and-password-best-practices",
-      "repo": "better-auth/skills",
-      "official": false,
-      "stars": 229,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/better-auth/skills/email-and-password-best-practices",
-        "installs": 49500,
-        "weeklyInstalls": [1478, 1517, 1433, 1861, 3857, 2546, 1383, 2031],
-        "firstSeen": "2026-02-10"
       }
     },
     {
@@ -1732,45 +1615,6 @@
       }
     },
     {
-      "name": "neon-object-storage",
-      "repo": "neondatabase/agent-skills",
-      "official": true,
-      "stars": 111,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/neondatabase/agent-skills/neon-object-storage",
-        "installs": 38200,
-        "weeklyInstalls": [2471, 2949, 3335, 3539, 3838, 4082, 4161, 5122],
-        "firstSeen": "2026-06-12"
-      }
-    },
-    {
-      "name": "organization-best-practices",
-      "repo": "better-auth/skills",
-      "official": false,
-      "stars": 229,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/better-auth/skills/organization-best-practices",
-        "installs": 37900,
-        "weeklyInstalls": [825, 762, 826, 806, 826, 1032, 580, 1051],
-        "firstSeen": "2026-02-10"
-      }
-    },
-    {
-      "name": "neon-functions",
-      "repo": "neondatabase/agent-skills",
-      "official": true,
-      "stars": 111,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/neondatabase/agent-skills/neon-functions",
-        "installs": 37800,
-        "weeklyInstalls": [2471, 2930, 3315, 3503, 3810, 4040, 4102, 5103],
-        "firstSeen": "2026-06-12"
-      }
-    },
-    {
       "name": "tavily-search",
       "repo": "tavily-ai/skills",
       "official": false,
@@ -1794,19 +1638,6 @@
         "installs": 37600,
         "weeklyInstalls": [0, 0, 0, 1979, 8235, 7173, 7612, 7203],
         "firstSeen": "2026-10-03"
-      }
-    },
-    {
-      "name": "neon-ai-gateway",
-      "repo": "neondatabase/agent-skills",
-      "official": true,
-      "stars": 111,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/neondatabase/agent-skills/neon-ai-gateway",
-        "installs": 37600,
-        "weeklyInstalls": [2461, 2923, 3305, 3468, 3785, 4015, 4080, 5052],
-        "firstSeen": "2026-06-12"
       }
     },
     {
@@ -1859,19 +1690,6 @@
         "installs": 36400,
         "weeklyInstalls": [465, 368, 331, 486, 445, 379, 362, 380],
         "firstSeen": "2026-01-28"
-      }
-    },
-    {
-      "name": "two-factor-authentication-best-practices",
-      "repo": "better-auth/skills",
-      "official": false,
-      "stars": 229,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/better-auth/skills/two-factor-authentication-best-practices",
-        "installs": 36300,
-        "weeklyInstalls": [800, 726, 776, 751, 779, 921, 536, 1468],
-        "firstSeen": "2026-02-10"
       }
     },
     {
@@ -2522,19 +2340,6 @@
         "installs": 30300,
         "weeklyInstalls": [289, 304, 123, 125, 192, 191, 190, 232],
         "firstSeen": "2026-01-19"
-      }
-    },
-    {
-      "name": "neon-auth",
-      "repo": "neondatabase/agent-skills",
-      "official": true,
-      "stars": 111,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/neondatabase/agent-skills/neon-auth",
-        "installs": 30300,
-        "weeklyInstalls": [0, 1405, 3305, 3488, 3812, 4022, 4104, 5119],
-        "firstSeen": "2026-09-17"
       }
     },
     {
@@ -50056,6 +49861,66 @@
     {
       "url": "https://skills.sh/mastra-ai/skills/mastra",
       "note": "Tool docs: an agent's manual for mastra."
+    },
+    {
+      "url": "https://skills.sh/firecrawl/skills/firecrawl-build-scrape",
+      "note": "Tool docs: an agent's manual for firecrawl."
+    },
+    {
+      "url": "https://skills.sh/firecrawl/skills/firecrawl-build-search",
+      "note": "Tool docs: an agent's manual for firecrawl."
+    },
+    {
+      "url": "https://skills.sh/firecrawl/skills/firecrawl-build-onboarding",
+      "note": "Tool docs: an agent's manual for firecrawl."
+    },
+    {
+      "url": "https://skills.sh/firecrawl/skills/firecrawl-build-interact",
+      "note": "Tool docs: an agent's manual for firecrawl."
+    },
+    {
+      "url": "https://skills.sh/google-labs-code/stitch-skills/enhance-prompt",
+      "note": "Tool docs: an agent's manual for stitch."
+    },
+    {
+      "url": "https://skills.sh/google-labs-code/stitch-skills/shadcn-ui",
+      "note": "Tool docs: an agent's manual for shadcn and react and tailwind."
+    },
+    {
+      "url": "https://skills.sh/better-auth/skills/better-auth-security-best-practices",
+      "note": "Tool docs: an agent's manual for better-auth."
+    },
+    {
+      "url": "https://skills.sh/better-auth/skills/email-and-password-best-practices",
+      "note": "Tool docs: an agent's manual for better-auth."
+    },
+    {
+      "url": "https://skills.sh/better-auth/skills/organization-best-practices",
+      "note": "Tool docs: an agent's manual for better-auth."
+    },
+    {
+      "url": "https://skills.sh/better-auth/skills/two-factor-authentication-best-practices",
+      "note": "Tool docs: an agent's manual for better-auth."
+    },
+    {
+      "url": "https://skills.sh/neondatabase/agent-skills/neon-object-storage",
+      "note": "Tool docs: an agent's manual for neon."
+    },
+    {
+      "url": "https://skills.sh/neondatabase/agent-skills/neon-functions",
+      "note": "Tool docs: an agent's manual for neon."
+    },
+    {
+      "url": "https://skills.sh/neondatabase/agent-skills/neon-ai-gateway",
+      "note": "Tool docs: an agent's manual for neon."
+    },
+    {
+      "url": "https://skills.sh/neondatabase/agent-skills/neon-auth",
+      "note": "Tool docs: an agent's manual for neon and better-auth."
+    },
+    {
+      "url": "https://skills.sh/higgsfield-ai/skills/higgsfield-video-explainer",
+      "note": "Retired. Its SKILL.md now points to higgsfield-faceless-video."
     }
   ]
 }
