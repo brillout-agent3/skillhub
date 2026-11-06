@@ -4462,32 +4462,6 @@
       }
     },
     {
-      "name": "google-cloud-solution-agentic-analytics-spark-knowledge-catalog",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/google-cloud-solution-agentic-analytics-spark-knowledge-catalog",
-        "installs": 5700,
-        "weeklyInstalls": [399, 457, 323, 361, 401, 369, 291, 345],
-        "firstSeen": "2026-07-17"
-      }
-    },
-    {
-      "name": "gke-platform-security",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/gke-platform-security",
-        "installs": 5700,
-        "weeklyInstalls": [404, 450, 319, 378, 404, 371, 288, 355],
-        "firstSeen": "2026-07-23"
-      }
-    },
-    {
       "name": "react",
       "repo": "lobehub/lobehub",
       "official": true,
@@ -4511,19 +4485,6 @@
         "installs": 5700,
         "weeklyInstalls": [69, 63, 39, 368, 68, 146, 78, 122],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "google-cloud-solution-rag-enterprise-search-gke-sqldb",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/google-cloud-solution-rag-enterprise-search-gke-sqldb",
-        "installs": 5700,
-        "weeklyInstalls": [396, 441, 315, 360, 403, 367, 282, 345],
-        "firstSeen": "2026-07-15"
       }
     },
     {
@@ -4735,19 +4696,6 @@
       }
     },
     {
-      "name": "google-cloud-solution-n-tier-serverless-web-app",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/google-cloud-solution-n-tier-serverless-web-app",
-        "installs": 5600,
-        "weeklyInstalls": [400, 446, 322, 366, 407, 370, 283, 347],
-        "firstSeen": "2026-07-20"
-      }
-    },
-    {
       "name": "langchain-python-quickstart",
       "repo": "langchain-ai/langchain-skills",
       "official": false,
@@ -4757,19 +4705,6 @@
         "url": "https://skills.sh/langchain-ai/langchain-skills/langchain-python-quickstart",
         "installs": 5600,
         "weeklyInstalls": [469, 504, 481, 417, 376, 375, 342, 357],
-        "firstSeen": "2026-07-23"
-      }
-    },
-    {
-      "name": "gke-workload-security",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/gke-workload-security",
-        "installs": 5600,
-        "weeklyInstalls": [402, 451, 314, 377, 403, 370, 288, 352],
         "firstSeen": "2026-07-23"
       }
     },
@@ -5122,19 +5057,6 @@
         "installs": 5600,
         "weeklyInstalls": [24, 55, 195, 400, 588, 750, 817, 647],
         "firstSeen": "2026-04-13"
-      }
-    },
-    {
-      "name": "agent-platform-troubleshooting",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/agent-platform-troubleshooting",
-        "installs": 5600,
-        "weeklyInstalls": [415, 461, 341, 373, 419, 389, 319, 393],
-        "firstSeen": "2026-07-29"
       }
     },
     {
@@ -5697,19 +5619,6 @@
       }
     },
     {
-      "name": "cloud-logging-cross-project-configuration",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/cloud-logging-cross-project-configuration",
-        "installs": 5500,
-        "weeklyInstalls": [408, 455, 332, 370, 413, 411, 311, 354],
-        "firstSeen": "2026-07-29"
-      }
-    },
-    {
       "name": "investment-memo",
       "repo": "claude-office-skills/skills",
       "official": false,
@@ -5733,19 +5642,6 @@
         "installs": 5500,
         "weeklyInstalls": [261, 184, 195, 180, 153, 109, 112, 90],
         "firstSeen": "2026-02-10"
-      }
-    },
-    {
-      "name": "gke-service-networking",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/gke-service-networking",
-        "installs": 5500,
-        "weeklyInstalls": [402, 447, 315, 374, 402, 369, 281, 354],
-        "firstSeen": "2026-07-23"
       }
     },
     {
@@ -6087,19 +5983,6 @@
       }
     },
     {
-      "name": "cloud-monitoring-chart-generation",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/cloud-monitoring-chart-generation",
-        "installs": 5400,
-        "weeklyInstalls": [405, 456, 328, 374, 431, 391, 304, 361],
-        "firstSeen": "2026-07-31"
-      }
-    },
-    {
       "name": "search-strategy",
       "repo": "anthropics/knowledge-work-plugins",
       "official": true,
@@ -6136,19 +6019,6 @@
         "installs": 5400,
         "weeklyInstalls": [169, 143, 146, 131, 146, 262, 194, 125],
         "firstSeen": "2026-02-10"
-      }
-    },
-    {
-      "name": "gke-productionize",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/gke-productionize",
-        "installs": 5400,
-        "weeklyInstalls": [397, 446, 314, 362, 400, 369, 281, 353],
-        "firstSeen": "2026-07-23"
       }
     },
     {
@@ -6256,19 +6126,6 @@
       }
     },
     {
-      "name": "ima-sdk-client-side",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/ima-sdk-client-side",
-        "installs": 5400,
-        "weeklyInstalls": [423, 465, 329, 375, 422, 454, 435, 506],
-        "firstSeen": "2026-08-11"
-      }
-    },
-    {
       "name": "workflow",
       "repo": "vercel/workflow",
       "official": true,
@@ -6344,19 +6201,6 @@
         "installs": 5400,
         "weeklyInstalls": [15, 45, 188, 389, 574, 763, 808, 654],
         "firstSeen": "2026-05-15"
-      }
-    },
-    {
-      "name": "google-cloud-solution-guided-gke-ai-migration",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/google-cloud-solution-guided-gke-ai-migration",
-        "installs": 5400,
-        "weeklyInstalls": [394, 442, 311, 362, 400, 365, 282, 343],
-        "firstSeen": "2026-07-23"
       }
     },
     {
@@ -7023,19 +6867,6 @@
       }
     },
     {
-      "name": "gke-ai-troubleshooting-handle-disruption-gpu-tpu",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/gke-ai-troubleshooting-handle-disruption-gpu-tpu",
-        "installs": 5300,
-        "weeklyInstalls": [398, 439, 310, 362, 401, 366, 289, 349],
-        "firstSeen": "2026-07-24"
-      }
-    },
-    {
       "name": "invoice-organizer",
       "repo": "composiohq/awesome-claude-skills",
       "official": true,
@@ -7228,19 +7059,6 @@
         "installs": 5300,
         "weeklyInstalls": [158, 132, 140, 127, 129, 246, 181, 119],
         "firstSeen": "2026-02-10"
-      }
-    },
-    {
-      "name": "ima-dai-sdk",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/ima-dai-sdk",
-        "installs": 5300,
-        "weeklyInstalls": [424, 463, 326, 377, 422, 454, 434, 508],
-        "firstSeen": "2026-08-14"
       }
     },
     {
@@ -7894,19 +7712,6 @@
       }
     },
     {
-      "name": "gke-manifest-generation",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/gke-manifest-generation",
-        "installs": 5200,
-        "weeklyInstalls": [399, 440, 313, 364, 398, 365, 282, 348],
-        "firstSeen": "2026-07-28"
-      }
-    },
-    {
       "name": "3d-web-experience",
       "repo": "sickn33/agentic-awesome-skills",
       "official": false,
@@ -8011,19 +7816,6 @@
       }
     },
     {
-      "name": "gke-workload-troubleshooting",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/gke-workload-troubleshooting",
-        "installs": 5200,
-        "weeklyInstalls": [400, 456, 314, 361, 400, 369, 280, 351],
-        "firstSeen": "2026-07-30"
-      }
-    },
-    {
       "name": "interrogate",
       "repo": "cursor/plugins",
       "official": false,
@@ -8060,19 +7852,6 @@
         "installs": 5200,
         "weeklyInstalls": [80, 70, 86, 102, 87, 119, 105, 120],
         "firstSeen": "2026-01-21"
-      }
-    },
-    {
-      "name": "spanner-basics",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/spanner-basics",
-        "installs": 5200,
-        "weeklyInstalls": [399, 441, 312, 364, 406, 388, 285, 351],
-        "firstSeen": "2026-07-29"
       }
     },
     {
@@ -8271,19 +8050,6 @@
       }
     },
     {
-      "name": "developer-device-platform-basics",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/developer-device-platform-basics",
-        "installs": 5200,
-        "weeklyInstalls": [394, 440, 318, 362, 407, 367, 297, 354],
-        "firstSeen": "2026-08-04"
-      }
-    },
-    {
       "name": "contract-template",
       "repo": "claude-office-skills/skills",
       "official": false,
@@ -8346,19 +8112,6 @@
         "installs": 5200,
         "weeklyInstalls": [136, 178, 111, 111, 86, 117, 111, 125],
         "firstSeen": "2026-03-03"
-      }
-    },
-    {
-      "name": "gke-ai-troubleshooting-jobset-interruption",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/gke-ai-troubleshooting-jobset-interruption",
-        "installs": 5200,
-        "weeklyInstalls": [397, 438, 311, 358, 398, 367, 287, 347],
-        "firstSeen": "2026-07-30"
       }
     },
     {
@@ -8700,19 +8453,6 @@
       }
     },
     {
-      "name": "finding-google-skills",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/finding-google-skills",
-        "installs": 5100,
-        "weeklyInstalls": [493, 546, 391, 452, 491, 446, 489, 492],
-        "firstSeen": "2026-08-28"
-      }
-    },
-    {
       "name": "twitter-algorithm-optimizer",
       "repo": "composiohq/awesome-claude-skills",
       "official": true,
@@ -9051,19 +8791,6 @@
       }
     },
     {
-      "name": "gke-ai-troubleshooting-tpu-vbar-oom",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/gke-ai-troubleshooting-tpu-vbar-oom",
-        "installs": 5000,
-        "weeklyInstalls": [397, 438, 309, 358, 397, 366, 283, 348],
-        "firstSeen": "2026-08-04"
-      }
-    },
-    {
       "name": "integrate-whatsapp",
       "repo": "gokapso/agent-skills",
       "official": false,
@@ -9386,19 +9113,6 @@
         "installs": 5000,
         "weeklyInstalls": [48, 77, 55, 57, 103, 227, 178, 64],
         "firstSeen": "2026-03-09"
-      }
-    },
-    {
-      "name": "google-cloud-slo-alert-configuration",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/google-cloud-slo-alert-configuration",
-        "installs": 5000,
-        "weeklyInstalls": [396, 446, 314, 361, 414, 373, 275, 348],
-        "firstSeen": "2026-08-06"
       }
     },
     {
@@ -28579,6 +28293,94 @@
     {
       "url": "https://skills.sh/affaan-m/ecc/customs-trade-compliance",
       "note": "A copy of ai-evos/agent-skills/capabilities/customs-trade-compliance."
+    },
+    {
+      "url": "https://skills.sh/google/skills/google-cloud-solution-agentic-analytics-spark-knowledge-catalog",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/gke-platform-security",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/google-cloud-solution-rag-enterprise-search-gke-sqldb",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/google-cloud-solution-n-tier-serverless-web-app",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/gke-workload-security",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/agent-platform-troubleshooting",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/cloud-logging-cross-project-configuration",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/gke-service-networking",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/cloud-monitoring-chart-generation",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/gke-productionize",
+      "note": "Tool docs: it routes to google/skills' GKE skills, each an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/ima-sdk-client-side",
+      "note": "Tool docs: an agent's manual for google-ima-sdk."
+    },
+    {
+      "url": "https://skills.sh/google/skills/google-cloud-solution-guided-gke-ai-migration",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/gke-ai-troubleshooting-handle-disruption-gpu-tpu",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/ima-dai-sdk",
+      "note": "Tool docs: an agent's manual for google-ima-sdk."
+    },
+    {
+      "url": "https://skills.sh/google/skills/gke-manifest-generation",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/gke-workload-troubleshooting",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/spanner-basics",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/developer-device-platform-basics",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/gke-ai-troubleshooting-jobset-interruption",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/finding-google-skills",
+      "note": "Tool docs: it fetches google/skills' catalog and routes to its skills, each an agent's manual for a Google product."
+    },
+    {
+      "url": "https://skills.sh/google/skills/gke-ai-troubleshooting-tpu-vbar-oom",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/google-cloud-slo-alert-configuration",
+      "note": "Tool docs: an agent's manual for google-cloud."
     }
   ]
 }
