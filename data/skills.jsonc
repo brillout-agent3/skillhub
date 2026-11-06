@@ -2550,7 +2550,7 @@
       "skew": 0,
       "agentReview": {
         "name": "Warp spec workflow",
-        "description": "Spec-first feature work: a product spec, a tech spec when warranted, then code built from them, with the specs kept current in the same PR.",
+        "description": "Spec-first feature work: a product spec, a tech spec when warranted, then code built from them and checked against them, with the specs kept current in the same PR.",
         "tldr": {
           "glance": [
             {
@@ -2559,7 +2559,7 @@
             },
             {
               "label": "It does",
-              "text": "decides whether specs are worth it, writes a product spec, then a tech spec when warranted, and builds the feature from them"
+              "text": "decides whether specs are worth it, writes a product spec and, when warranted, a tech spec, builds the feature from them, and finally checks code and specs agree"
             },
             {
               "label": "You get",
@@ -2574,7 +2574,7 @@
               "text": "Matt Pocock's to-spec, which publishes the spec to an issue tracker, the specs here are files checked into the repo and reviewed with the code"
             }
           ],
-          "text": "Four skills from Warp's shared repo that take a substantial feature from intent to code. spec-driven-implementation is the entry point: it decides whether the feature needs specs at all (small bug fixes, simple refactors and narrow UI tweaks usually don't), makes sure a Linear issue exists to name the specs folder after, and hands each step to the others. write-product-spec writes PRODUCT.md: the feature's behavior from its user's side, as numbered rules that can each be tested, with no implementation details and no test plan, after asking for a Figma mock when there's UI. write-tech-spec reads that spec and the code, then writes TECH.md: the current system, the proposed changes and trade-offs, and a test or check for each important rule, with code references pinned to a commit. implement-specs builds from the approved specs and may offer a PROJECT_LOG.md or DECISIONS.md for large features. Throughout, the specs are updated as soon as the implementation changes, in the same PR as the code when practical, so they describe what actually ships. They're written for Warp's own features, with examples from its app and code. The two spec writers also work alone.",
+          "text": "Five skills from Warp's shared repo that take a substantial feature from intent to checked code. spec-driven-implementation is the entry point: it decides whether the feature needs specs at all (small bug fixes, simple refactors and narrow UI tweaks usually don't), makes sure a Linear issue exists to name the specs folder after, and hands its three main steps to the next three skills. write-product-spec writes PRODUCT.md: the feature's behavior from its user's side, as numbered, testable rules with no implementation details, after asking for a Figma mock when there's UI. write-tech-spec reads that spec and the code, then writes TECH.md: the current system, the proposed changes and trade-offs, and a test or check for each important rule. implement-specs builds from the approved specs, updating them as soon as the implementation changes, in the same PR when practical, so they describe what ships. validate-changes-match-specs, which you run yourself near the end or in review, lists each material mismatch between the branch's specs and its code, checks what security specs allow and prevent, and asks whether to fix the code or the spec. They're written for Warp's own features; all but the entry point and implement-specs also work alone.",
           "permalink": "https://github.com/warpdotdev/common-skills/tree/8792394ff1b655e0af451b8fabb68ef0cfcbd208"
         },
         "skills": [
@@ -2595,15 +2595,19 @@
             "id": "warpdotdev/common-skills/.agents/skills/implement-specs",
             "standalone": false,
             "note": "Starts only once PRODUCT.md, and TECH.md when warranted, exist and are approved: the specs that write-product-spec and write-tech-spec write."
+          },
+          {
+            "id": "warpdotdev/common-skills/.agents/skills/validate-changes-match-specs",
+            "standalone": true
           }
         ],
         "install": [
           {
             "label": "Warp, with the skills CLI",
-            "command": "npx skills@latest add warpdotdev/common-skills --skill spec-driven-implementation --skill write-product-spec --skill write-tech-spec --skill implement-specs --agent warp --global"
+            "command": "npx skills@latest add warpdotdev/common-skills --skill spec-driven-implementation --skill write-product-spec --skill write-tech-spec --skill implement-specs --skill validate-changes-match-specs --agent warp --global"
           },
           {
-            "label": "Warp, with the repo's 25 other skills",
+            "label": "Warp, with the repo's 24 other skills",
             "command": "npx skills@latest add warpdotdev/common-skills --skill '*' --agent warp --global"
           }
         ]
@@ -3374,6 +3378,61 @@
           {
             "label": "Gemini CLI extension",
             "command": "gemini extensions install https://github.com/addyosmani/web-quality-skills"
+          }
+        ]
+      }
+    },
+    {
+      "id": "warpdotdev/common-skills@pr-review",
+      "skew": 0,
+      "agentReview": {
+        "name": "Warp PR review",
+        "description": "An automated pull request review that writes severity-labelled comments to review.json, checking the code against the PR's spec when one is supplied.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a CI job checks out a pull request and should get the agent's review as a file to publish"
+            },
+            {
+              "label": "It does",
+              "text": "reviews the changed lines for correctness, security, error handling, performance, comments and tests, and checks them against spec_context.md when there is one"
+            },
+            {
+              "label": "You get",
+              "text": "review.json with an APPROVE or REJECT verdict, a summary and inline comments labelled by severity, spec drift included"
+            },
+            {
+              "label": "Needs",
+              "text": "a workflow that supplies a line-annotated pr_diff.txt and the PR description and publishes review.json itself, plus Python 3 for the bundled validator"
+            },
+            {
+              "label": "Unlike",
+              "text": "validate-changes-match-specs, from the same repo, which checks a branch against its specs with you and fixes each mismatch; here spec drift only becomes review comments"
+            }
+          ],
+          "text": "Two skills from Warp's shared repo for an automated review step. review-pr does the review: from the annotated diff and the PR description it writes review.json, with a verdict, a summary and inline comments that each start with CRITICAL, IMPORTANT, SUGGESTION or NIT, and checks it with a bundled validator. When there's a spec, in spec_context.md from the workflow or from review-pr's own resolve_spec_context.py script when the prompt points to it, review-pr hands the comparison to check-impl-against-spec if it's installed. That skill lists the spec's commitments, compares them with the code, and adds only material drift to the same review.json: missing behavior, contradictions, significant unplanned scope, or a skipped validation or migration step, each at least an important concern. Neither posts to GitHub; the workflow publishes the file.",
+          "permalink": "https://github.com/warpdotdev/common-skills/tree/8792394ff1b655e0af451b8fabb68ef0cfcbd208"
+        },
+        "skills": [
+          {
+            "id": "warpdotdev/common-skills/.agents/skills/review-pr",
+            "standalone": true
+          },
+          {
+            "id": "warpdotdev/common-skills/.agents/skills/check-impl-against-spec",
+            "standalone": false,
+            "note": "Runs only within review-pr's review, when spec_context.md exists, and adds its findings to the review.json that review-pr writes."
+          }
+        ],
+        "install": [
+          {
+            "label": "Warp, with the skills CLI",
+            "command": "npx skills@latest add warpdotdev/common-skills --skill review-pr --skill check-impl-against-spec --agent warp --global"
+          },
+          {
+            "label": "Warp, with the repo's 27 other skills",
+            "command": "npx skills@latest add warpdotdev/common-skills --skill '*' --agent warp --global"
           }
         ]
       }
@@ -23358,6 +23417,563 @@
           "by:community",
           "accessibility",
           "testing"
+        ]
+      }
+    },
+    {
+      "id": "warpdotdev/common-skills/.agents/skills/pr-walkthrough",
+      "name": "pr-walkthrough",
+      "skills.sh": {
+        "url": "https://skills.sh/warpdotdev/common-skills/pr-walkthrough",
+        "installs": 28300,
+        "weeklyInstalls": [845, 643, 588, 930, 493, 370, 374, 116],
+        "firstSeen": "2026-05-14"
+      },
+      "skillMd": {
+        "version": "8792394ff1b655e0af451b8fabb68ef0cfcbd208",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds a static, interactive D3 site that walks a reviewer through a pull request in four views, each with a guided tour.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you have a pull request's branch checked out and want a map of what it touches before reading the diff"
+            },
+            {
+              "label": "It does",
+              "text": "reads the PR, its diff, changed specs, review comments and the surrounding code, then draws a system overview plus data-flow, dependency and user-action graphs"
+            },
+            {
+              "label": "You get",
+              "text": ".warp/pr-walkthrough/index.html: one self-contained page that opens from a file:// URL, with zoom, search, keyboard shortcuts and links into the PR's diff"
+            },
+            {
+              "label": "Unlike a review",
+              "text": "it adds no findings or verdict; anything it notices is framed as an area to inspect"
+            },
+            {
+              "label": "Needs",
+              "text": "the GitHub CLI, gh, and Playwright with Chromium for its bundled validator; the page loads D3 7.9.0 from jsDelivr"
+            },
+            {
+              "label": "Looks like",
+              "text": "Warp's brand: dark surfaces, pink accents and Matter fonts, from Warp's hosted guide through the brandalf skill, or built-in fallback values"
+            }
+          ],
+          "text": "An experiment in reading a PR on a canvas instead of a diff. The agent finds the current branch's PR with gh and collects the diff, description, changed specs, and human and agent review comments, then reads the full changed files and their neighbours so explanations rest on the real code, not just the hunks. It builds four views a reviewer toggles between: a system overview of cards that explains the touched subsystem without mentioning the PR, a data-flow graph, a code dependency graph and a user-action graph, each graph with directed, labelled edges, and every view with a guided tour. Size follows the PR: a tiny change gets two or three nodes per view. Screenshots, mocks and Figma exports are saved into the site's assets rather than hotlinked, and each changed file links to its anchor in the PR's Files changed tab. Bundled Python scripts, which its commands call at .agents/skills/pr-walkthrough/scripts/ in your repo, generate the page and check it in a browser; it isn't called ready until that passes, and without a browser it's reported as unverified. On request it publishes the folder to Cloudflare Pages with wrangler.",
+          "permalink": "https://github.com/warpdotdev/common-skills/tree/8792394ff1b655e0af451b8fabb68ef0cfcbd208/.agents/skills/pr-walkthrough"
+        },
+        "tags": [
+          "category:debugging",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "needs:browser",
+          "by:community",
+          "stack:github",
+          "stack:d3",
+          "code-review",
+          "diagrams"
+        ],
+        "note": "Styled in Warp's brand. Publishing to a public Cloudflare Pages URL happens only when you ask, and needs a Cloudflare account."
+      }
+    },
+    {
+      "id": "warpdotdev/common-skills/.agents/skills/council",
+      "name": "council",
+      "skills.sh": {
+        "url": "https://skills.sh/warpdotdev/common-skills/council",
+        "installs": 28000,
+        "weeklyInstalls": [875, 658, 614, 974, 544, 395, 395, 158],
+        "firstSeen": "2026-05-20"
+      },
+      "skillMd": {
+        "version": "8792394ff1b655e0af451b8fabb68ef0cfcbd208",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Sends one decision to several subagents on different models and angles, then synthesizes their reports into a single recommendation.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want second opinions on a judgment call: an architecture tradeoff, a risky fix, a rollout decision, or whether an alternative is worth pursuing"
+            },
+            {
+              "label": "It does",
+              "text": "gives each subagent a model and an angle, such as Opus on correctness, GPT on testability and an open-source model as contrarian, and keeps them independent"
+            },
+            {
+              "label": "You get",
+              "text": "a short decision memo: recommendation, why, tradeoffs and risks, and a final call, weighed by evidence rather than votes"
+            },
+            {
+              "label": "Needs",
+              "text": "an agent that can launch subagents on different models; it's written for Warp's run_agents tool, one call per model"
+            }
+          ],
+          "text": "A council is for questions where judgment matters more than lookup. The agent states the decision in one sentence, with the options, the code or artifact to inspect, the decision criteria and whether members may edit code. Model diversity comes first: the default roster is the strongest Claude model, the strongest GPT or Codex model and an open-source model such as Kimi or GLM, with any substitution noted; each also gets its own angle, like red-team or implementation cost. On an explicit request it tells you whom it will launch and waits for your approval. Read-only members share the checkout; members who prototype get their own git worktree and branch. Each reports the evidence inspected, current behavior, the alternative, risks, cost, a recommendation and confidence, and a thin report gets a follow-up question to the same member rather than a replacement. The final answer leads with the recommendation, notes consensus and disagreement, and separates what to do now from later hardening.",
+          "permalink": "https://github.com/warpdotdev/common-skills/tree/8792394ff1b655e0af451b8fabb68ef0cfcbd208/.agents/skills/council"
+        },
+        "tags": [
+          "category:agents",
+          "type:workflow",
+          "effect:none",
+          "needs:subagents",
+          "by:community",
+          "multi-agent",
+          "architecture",
+          "agent-workflows"
+        ]
+      }
+    },
+    {
+      "id": "warpdotdev/common-skills/.agents/skills/check-impl-against-spec",
+      "name": "check-impl-against-spec",
+      "skills.sh": {
+        "url": "https://skills.sh/warpdotdev/common-skills/check-impl-against-spec",
+        "installs": 27100,
+        "weeklyInstalls": [845, 639, 584, 929, 495, 363, 361, 107],
+        "firstSeen": "2026-05-20"
+      },
+      "skillMd": {
+        "version": "8792394ff1b655e0af451b8fabb68ef0cfcbd208",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Checks a pull request's code against its spec context during an automated review and adds material mismatches to review.json.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "an automated review with review-pr finds spec_context.md, the PR's spec context: product behavior, tech details or both"
+            },
+            {
+              "label": "It does",
+              "text": "lists the spec's commitments, compares them with the diff and checked-out code, and flags only material drift: missing behavior, contradictions, significant unplanned scope, skipped validation or migration steps"
+            },
+            {
+              "label": "You get",
+              "text": "spec findings folded into review.json: broad drift in the summary, inline comments only on changed lines, each at least an important concern"
+            },
+            {
+              "label": "Doesn't",
+              "text": "write its own report, post to GitHub, or flag harmless differences in naming, structure or technique"
+            }
+          ],
+          "text": "A supplement to review-pr, not a separate review. It runs only when spec_context.md exists, alongside pr_diff.txt and, when present, the PR description. From the spec it extracts the required behaviors, the files or subsystems it said to change, its constraints, and any required validation, migration or follow-up steps, then checks the diff and the checked-out branch for each. Small implementation choices that keep the spec's intent are accepted: it doesn't demand a one-to-one match or speculate about details the spec doesn't state. Material drift goes into the same review.json that review-pr writes, in the summary or as inline comments tied to changed lines, and nothing is added just to say the code matches.",
+          "permalink": "https://github.com/warpdotdev/common-skills/tree/8792394ff1b655e0af451b8fabb68ef0cfcbd208/.agents/skills/check-impl-against-spec"
+        },
+        "tags": [
+          "category:debugging",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "code-review",
+          "verification",
+          "ci"
+        ],
+        "note": "Works only inside review-pr's review, when spec_context.md exists: it adds to the review.json that skill writes."
+      }
+    },
+    {
+      "id": "warpdotdev/common-skills/.agents/skills/reproduce-bug-report",
+      "name": "reproduce-bug-report",
+      "skills.sh": {
+        "url": "https://skills.sh/warpdotdev/common-skills/reproduce-bug-report",
+        "installs": 26900,
+        "weeklyInstalls": [843, 640, 582, 924, 493, 361, 357, 108],
+        "firstSeen": "2026-05-20"
+      },
+      "skillMd": {
+        "version": "8792394ff1b655e0af451b8fabb68ef0cfcbd208",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Launches Warp's Oz cloud agents with computer use to reproduce a UI bug report and bring back a screen recording and findings.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a GitHub issue, Linear ticket, support report or prompt describes a visible bug: rendering, layout, settings, onboarding or another interaction"
+            },
+            {
+              "label": "It does",
+              "text": "extracts the reported and expected behavior, steps and environment, then sends one cloud agent, or several with distinct hypotheses, to run the app and try it"
+            },
+            {
+              "label": "You get",
+              "text": "one summary: confirmed, partially confirmed, not reproduced or blocked, what each variant tested, exact steps, environment and versions, and a screen recording with screenshots"
+            },
+            {
+              "label": "Needs",
+              "text": "Oz cloud agents with computer use, launched through Warp's run_agents tool"
+            },
+            {
+              "label": "Keeps",
+              "text": "secrets and account details out of recordings and reports; agents don't sign in or post anywhere unless authorized, except the recording to a Slack thread they're given"
+            }
+          ],
+          "text": "The parent agent doesn't try the bug itself unless you ask; it briefs cloud agents that can run the app and record the screen. It first decides whether the skill fits: purely backend, CI or build problems are out of scope, and a report that needs credentials or private state is reported as blocked rather than guessed at. One agent follows the report's steps exactly; others test variants such as a different OS, a fresh versus existing setup, or a stable versus dev build, and when steps are missing one traces UI strings and settings in the code to choose a likely path. Each installs the version closest to the reporter's and records any fallback, saves a recording, numbered screenshots and a manifest to its own directory, and tries at most two targeted variations if the bug doesn't appear. Given a Slack thread, it posts the recording back there, and to no other channel. A repository can add a reproduce-bug-report-local skill for its own setup. The parent waits for every agent, then summarizes what was tested, the evidence, the findings and one next step.",
+          "permalink": "https://github.com/warpdotdev/common-skills/tree/8792394ff1b655e0af451b8fabb68ef0cfcbd208/.agents/skills/reproduce-bug-report"
+        },
+        "tags": [
+          "category:debugging",
+          "category:agents",
+          "type:workflow",
+          "effect:remote",
+          "needs:account",
+          "needs:subagents",
+          "by:official",
+          "stack:oz",
+          "debugging",
+          "testing",
+          "computer-use",
+          "multi-agent"
+        ],
+        "note": "Needs Warp's Oz cloud agents with computer use, launched through Warp's run_agents tool."
+      }
+    },
+    {
+      "id": "warpdotdev/common-skills/.agents/skills/respond-to-pr-comments-in-blocklist",
+      "name": "respond-to-pr-comments-in-blocklist",
+      "skills.sh": {
+        "url": "https://skills.sh/warpdotdev/common-skills/respond-to-pr-comments-in-blocklist",
+        "installs": 25300,
+        "weeklyInstalls": [841, 636, 578, 922, 488, 357, 354, 104],
+        "firstSeen": "2026-05-30"
+      },
+      "skillMd": {
+        "version": "8792394ff1b655e0af451b8fabb68ef0cfcbd208",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Walks you through a PR's review comments one by one, makes the fixes you pick, then posts replies and resolves threads after you approve.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to answer a PR's review comments and post the replies back to GitHub, not just read them or fix code"
+            },
+            {
+              "label": "It does",
+              "text": "skips bot overviews and threads you already answered, then asks per comment: apply the recommended fix, explain it, acknowledge without changes, or something else"
+            },
+            {
+              "label": "You get",
+              "text": "the fixes made and checked, an optional commit and push, then replies posted with gh and approved threads resolved"
+            },
+            {
+              "label": "Modes",
+              "text": "one by one, fixing as you go, or collect every decision first and apply the fixes in a batch"
+            },
+            {
+              "label": "Needs",
+              "text": "the GitHub CLI, gh, and an ask_user_question tool for its multiple-choice prompts, as in Warp's agent"
+            }
+          ],
+          "text": "Written for Warp's agent, which supplies the ask_user_question and insert_code_review_comments tools it calls. It starts from comments already shown in the conversation, typically by the /pr-comments skill, or fetches and displays them first with gh. Automated status comments from Warp, Oz or code-review bots, resolved threads and threads whose latest reply is yours are skipped; when unsure, a comment stays in. For each one the agent restates the author, location and gist with a path:line reference, inspects the code when the fix isn't obvious, and asks what to do, always with an Other option for your own approach; choosing explain gets you context and the question again. It keeps a decision record with a draft reply per comment, changes only what the comments ask, preserves unrelated work, runs the narrowest useful checks and reviews the diff. It asks before committing and pushing, so reviewers see the code before the replies. Nothing reaches GitHub until you approve a preview grouped by comment; replies go through the REST API and threads are resolved through GraphQL.",
+          "permalink": "https://github.com/warpdotdev/common-skills/tree/8792394ff1b655e0af451b8fabb68ef0cfcbd208/.agents/skills/respond-to-pr-comments-in-blocklist"
+        },
+        "tags": [
+          "category:debugging",
+          "type:workflow",
+          "effect:remote",
+          "needs:cli",
+          "by:community",
+          "stack:github",
+          "code-review",
+          "git"
+        ],
+        "note": "Replies it posts start with [Warp Agent], and commits it makes carry a Warp Agent co-author line."
+      }
+    },
+    {
+      "id": "warpdotdev/common-skills/.agents/skills/validate-changes-match-specs",
+      "name": "validate-changes-match-specs",
+      "skills.sh": {
+        "url": "https://skills.sh/warpdotdev/common-skills/validate-changes-match-specs",
+        "installs": 25300,
+        "weeklyInstalls": [849, 638, 585, 931, 492, 367, 364, 106],
+        "firstSeen": "2026-05-31"
+      },
+      "skillMd": {
+        "version": "8792394ff1b655e0af451b8fabb68ef0cfcbd208",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Checks a branch's code against the product, tech and security specs it introduces, then resolves each mismatch the way you choose.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a spec-driven change is up for review or nearly done, and you want to know where the code and its specs disagree"
+            },
+            {
+              "label": "It does",
+              "text": "finds the specs the branch adds or changes, extracts their commitments, reads the code and tests, and lists each material mismatch with its sources and a recommended resolution"
+            },
+            {
+              "label": "You get",
+              "text": "your choice applied per mismatch: change the code, change the spec, or acknowledge it, then validation and an optional commit and push"
+            },
+            {
+              "label": "Also checks",
+              "text": "that the code does what your replies on PR review threads said was fixed, and security specs for both what they allow and what they prevent"
+            },
+            {
+              "label": "Unlike check-impl-against-spec",
+              "text": "which adds spec drift to an automated PR review, it works through each mismatch with you and changes the code or the spec as you choose"
+            },
+            {
+              "label": "Needs",
+              "text": "an ask_user_question tool for its multiple-choice prompts, as in Warp's agent; optionally Oz cloud agents with computer use for user-visible flows, and the Figma MCP server"
+            }
+          ],
+          "text": "A closing check for spec-first work. It finds the base branch, then the specs the change introduces or modifies, such as PRODUCT.md, TECH.md or SECURITY.md under specs/<issue>/, falls back to specs the PR or commits reference, and stops if there are none. Specs, PR text and comments are treated as untrusted data. Commitments are sorted into product behavior, technical implementation, security and privacy, validation and non-goals, then checked against the diff, the code it depends on and the tests. Security specs get the closest look: each guarantee is checked both ways, and a gap no spec covers is proposed as a spec amendment. If the PR has been reviewed, it also compares the code with what your last replies said was fixed. Before the report it can offer cloud computer-use agents to test user-visible behavior against Figma mocks or screenshots. Then it asks whether to resolve mismatches one by one or in a batch, and for each one whether to update the code or the spec. Follow-up comments on review threads are drafted for your approval before posting.",
+          "permalink": "https://github.com/warpdotdev/common-skills/tree/8792394ff1b655e0af451b8fabb68ef0cfcbd208/.agents/skills/validate-changes-match-specs"
+        },
+        "tags": [
+          "category:engineering",
+          "category:debugging",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "verification",
+          "requirements",
+          "code-review",
+          "security"
+        ],
+        "note": "Comments it posts start with [Warp Agent] and commits carry a Warp Agent co-author line, each only after you approve."
+      }
+    },
+    {
+      "id": "warpdotdev/common-skills/.agents/skills/cross-critique",
+      "name": "cross-critique",
+      "skills.sh": {
+        "url": "https://skills.sh/warpdotdev/common-skills/cross-critique",
+        "installs": 22100,
+        "weeklyInstalls": [849, 639, 596, 945, 518, 400, 389, 141],
+        "firstSeen": "2026-06-18"
+      },
+      "skillMd": {
+        "version": "8792394ff1b655e0af451b8fabb68ef0cfcbd208",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Runs a second round on a contested decision: each subagent critiques the others' proposals, then the agent synthesizes a recommendation.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "independent subagents produced divergent proposals on an architecture choice, a review disagreement or competing root-cause theories"
+            },
+            {
+              "label": "It does",
+              "text": "sends each author the other proposals, labelled neutrally, and asks for pros and cons of each, whether they'd revise their own, and a ranking with confidence"
+            },
+            {
+              "label": "You get",
+              "text": "a recommendation, how the critiques shifted things, why the winner survives them, and the remaining risks and unknowns"
+            },
+            {
+              "label": "Needs",
+              "text": "proposals from a first round, such as the council or research skill, and the same subagents to critique them"
+            },
+            {
+              "label": "Skip it when",
+              "text": "the proposals already agree, or the answer can be checked directly"
+            }
+          ],
+          "text": "Synthesizing several subagents' reports alone makes the main agent the bottleneck: it only sees the tradeoffs it happens to notice. This skill has the authors poke holes in each other's reasoning instead. It assumes round one is done, with proposals made independently, by council, by parallel research subagents or ad hoc. The agent condenses each proposal to its recommendation and reasoning, labels them A, B, C and, where practical, hides who wrote which to reduce bias toward the most confident model. It then asks the same subagents, who keep their context, to weigh each rival with both pros and cons, say whether they'd change their own answer, and rank the options. A thin critique gets a follow-up to its author rather than being dropped. The synthesis weighs evidence rather than votes, treats agreement reached after critique as a strong signal, and surfaces the sharpest objection to each option. The round stays read-only unless the task involves changes.",
+          "permalink": "https://github.com/warpdotdev/common-skills/tree/8792394ff1b655e0af451b8fabb68ef0cfcbd208/.agents/skills/cross-critique"
+        },
+        "tags": [
+          "category:agents",
+          "type:workflow",
+          "effect:none",
+          "needs:subagents",
+          "by:community",
+          "multi-agent",
+          "architecture",
+          "agent-workflows"
+        ]
+      }
+    },
+    {
+      "id": "warpdotdev/common-skills/.agents/skills/research",
+      "name": "research",
+      "skills.sh": {
+        "url": "https://skills.sh/warpdotdev/common-skills/research",
+        "installs": 22000,
+        "weeklyInstalls": [849, 644, 586, 924, 498, 365, 362, 113],
+        "firstSeen": "2026-06-18"
+      },
+      "skillMd": {
+        "version": "8792394ff1b655e0af451b8fabb68ef0cfcbd208",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Delegates noisy codebase investigation to subagents and works from their distilled answer, keeping the main agent's context clean.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "an answer means reading many files, long logs or a big diff: how X works, where Y is used, why Z fails"
+            },
+            {
+              "label": "It does",
+              "text": "briefs one local, read-only subagent, or several in parallel for independent sub-questions, on the exact question, where to look and what to return"
+            },
+            {
+              "label": "You get",
+              "text": "a direct answer, the key file paths and symbols as evidence, and any caveats, without the noise in the main context"
+            },
+            {
+              "label": "Skip it when",
+              "text": "you'd read two or three known files, run one grep, or need the raw files to edit next"
+            },
+            {
+              "label": "Models",
+              "text": "names gpt-6-luna-medium for simple searches and gpt-6-luna-xhigh for involved ones"
+            }
+          ],
+          "text": "Context is the main agent's scarcest resource, and reading twenty files to find the three that matter fills it with noise. This skill hands the digging to a subagent and keeps only the conclusion. The test is whether the noise avoided outweighs a subagent's latency and tokens: good fits are a failing test's root cause, how a class is used across a repo, or a summary of a 4,000-line PR. Subagents always run locally, even under a cloud agent, and use a search model rather than the parent's. One is the default; several run in parallel only when the question splits into independent parts. The brief states the question, where to look, that the work is read-only, and that it should return a distilled answer with file:line evidence rather than a transcript. A bloated report gets a follow-up to the same subagent. Afterwards the agent works from the result and reads files itself only when it needs to edit them.",
+          "permalink": "https://github.com/warpdotdev/common-skills/tree/8792394ff1b655e0af451b8fabb68ef0cfcbd208/.agents/skills/research"
+        },
+        "tags": [
+          "category:agents",
+          "type:workflow",
+          "effect:none",
+          "needs:subagents",
+          "by:community",
+          "multi-agent",
+          "token-saving",
+          "agent-workflows",
+          "research"
+        ]
+      }
+    },
+    {
+      "id": "warpdotdev/common-skills/.agents/skills/saga",
+      "name": "saga",
+      "skills.sh": {
+        "url": "https://skills.sh/warpdotdev/common-skills/saga",
+        "installs": 20800,
+        "weeklyInstalls": [839, 636, 582, 922, 491, 362, 356, 114],
+        "firstSeen": "2026-06-24"
+      },
+      "skillMd": {
+        "version": "8792394ff1b655e0af451b8fabb68ef0cfcbd208",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Runs a large feature end to end: plans an airtight spec tree with you, then has worker subagents build and validate each task.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a medium-to-large feature should be built mostly autonomously, or you're resuming a saga from its directory"
+            },
+            {
+              "label": "It does",
+              "text": "asks multiple-choice questions until no requirement is open, splits the work into milestones and tasks with validation criteria, then delegates tasks to parallel workers"
+            },
+            {
+              "label": "You get",
+              "text": "the feature built on saga branches and integrated milestone by milestone, plus a spec tree and PROGRESS.md log under ~/.sagas/, outside the repo"
+            },
+            {
+              "label": "You step in",
+              "text": "to approve the spec, on blockers the spec can't settle, and for final acceptance"
+            },
+            {
+              "label": "Needs",
+              "text": "subagents, through Warp's run_agents tool, with a git worktree for each local worker, and an ask_user_question tool for its multiple-choice questions"
+            }
+          ],
+          "text": "The bet behind a saga is that if every task's validation criteria are tight enough to be a contract, workers can run in parallel and check themselves. Phase 1 is planning with you: the agent creates a saga directory under ~/.sagas/, works out what kind of program it is, whether computer use is available and which build and test commands run, then asks multiple-choice questions until scope, edge cases and the acceptance bar are settled. It writes saga-level exit criteria, then SAGA.md, a MILESTONE.md per milestone and a file per task, and waits for your approval. Phase 2 delegates: the orchestrator writes no feature code, launching each milestone's independent tasks as one batch, each local worker in its own worktree on a branch named saga/<name>/m<M>t<T>-<slug>. Workers validate in a loop, commit or hand off a patch before removing their worktree, and report compactly; PROGRESS.md records run IDs and status so a fresh agent can resume. Phase 3 checks the exit criteria with the strongest method available and asks you to accept or report issues, which become new tasks.",
+          "permalink": "https://github.com/warpdotdev/common-skills/tree/8792394ff1b655e0af451b8fabb68ef0cfcbd208/.agents/skills/saga"
+        },
+        "tags": [
+          "category:agents",
+          "category:engineering",
+          "category:planning",
+          "type:workflow",
+          "effect:local",
+          "needs:subagents",
+          "by:community",
+          "multi-agent",
+          "planning",
+          "implementation",
+          "verification",
+          "agent-workflows"
+        ]
+      }
+    },
+    {
+      "id": "warpdotdev/common-skills/.agents/skills/readout",
+      "name": "readout",
+      "skills.sh": {
+        "url": "https://skills.sh/warpdotdev/common-skills/readout",
+        "installs": 17700,
+        "weeklyInstalls": [838, 637, 577, 922, 486, 358, 356, 106],
+        "firstSeen": "2026-07-08"
+      },
+      "skillMd": {
+        "version": "8792394ff1b655e0af451b8fabb68ef0cfcbd208",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes a polished, self-contained HTML document that explains something or captures a conversation's findings, saved under ~/.readouts with an index.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you say \"write this up\" mid-investigation, or want a readable explainer such as how a server processes webhook events"
+            },
+            {
+              "label": "It does",
+              "text": "asks two to four scoping questions with concrete options, then hands a short brief to one local child agent that mines the conversation or researches the code"
+            },
+            {
+              "label": "You get",
+              "text": "~/.readouts/<date>-<topic>.html built from a shared template, with linked and embedded code references, plus a regenerated index.html of every readout"
+            },
+            {
+              "label": "Modes",
+              "text": "snapshot, from what the conversation already found; research, starting fresh from the codebase"
+            },
+            {
+              "label": "Runs",
+              "text": "as a side task: the main agent launches the child and carries on, then relays the file path"
+            }
+          ],
+          "text": "A readout is meant to be read weeks later by someone with none of the original context. The main agent's part is small: sharpen the scope, always settling depth and audience but skipping questions when the request is already specific, then write a brief of 10 to 20 lines with pointers rather than pasted findings: the questions to answer, what to cover and exclude, repo paths, and each repo's URL and commit for code links. One child agent, launched locally through Warp's run_agents tool so the file lands on your machine, does the writing. In snapshot mode it searches the parent conversation by run ID and verifies file references; in research mode it traces the real code paths and grounds claims in file:line references, separating verified from inferred. It follows the skill's doc guide and HTML template, embeds snippets and refreshes the index with bundled Python scripts, and opens the file unless the machine is headless. Without subagents, the main agent writes the document itself.",
+          "permalink": "https://github.com/warpdotdev/common-skills/tree/8792394ff1b655e0af451b8fabb68ef0cfcbd208/.agents/skills/readout"
+        },
+        "tags": [
+          "category:writing",
+          "type:workflow",
+          "effect:local",
+          "needs:subagents",
+          "by:community",
+          "docs-writing",
+          "research"
         ]
       }
     }

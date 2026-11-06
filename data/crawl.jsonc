@@ -16,32 +16,6 @@
       }
     },
     {
-      "name": "pr-walkthrough",
-      "repo": "warpdotdev/common-skills",
-      "official": false,
-      "stars": 653,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/warpdotdev/common-skills/pr-walkthrough",
-        "installs": 28300,
-        "weeklyInstalls": [845, 643, 588, 930, 493, 370, 374, 116],
-        "firstSeen": "2026-05-14"
-      }
-    },
-    {
-      "name": "council",
-      "repo": "warpdotdev/common-skills",
-      "official": false,
-      "stars": 653,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/warpdotdev/common-skills/council",
-        "installs": 28000,
-        "weeklyInstalls": [875, 658, 614, 974, 544, 395, 395, 158],
-        "firstSeen": "2026-05-20"
-      }
-    },
-    {
       "name": "argent-screenshot-diff",
       "repo": "software-mansion/argent",
       "official": true,
@@ -55,19 +29,6 @@
       }
     },
     {
-      "name": "check-impl-against-spec",
-      "repo": "warpdotdev/common-skills",
-      "official": false,
-      "stars": 653,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/warpdotdev/common-skills/check-impl-against-spec",
-        "installs": 27100,
-        "weeklyInstalls": [845, 639, 584, 929, 495, 363, 361, 107],
-        "firstSeen": "2026-05-20"
-      }
-    },
-    {
       "name": "summarize",
       "repo": "openclaw/openclaw",
       "official": false,
@@ -78,19 +39,6 @@
         "installs": 27000,
         "weeklyInstalls": [409, 226, 167, 159, 49, 46, 55, 56],
         "firstSeen": "2026-01-24"
-      }
-    },
-    {
-      "name": "reproduce-bug-report",
-      "repo": "warpdotdev/common-skills",
-      "official": false,
-      "stars": 653,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/warpdotdev/common-skills/reproduce-bug-report",
-        "installs": 26900,
-        "weeklyInstalls": [843, 640, 582, 924, 493, 361, 357, 108],
-        "firstSeen": "2026-05-20"
       }
     },
     {
@@ -156,32 +104,6 @@
         "installs": 25500,
         "weeklyInstalls": [1526, 1379, 1514, 1527, 1579, 1632, 1684, 1614],
         "firstSeen": "2026-06-17"
-      }
-    },
-    {
-      "name": "respond-to-pr-comments-in-blocklist",
-      "repo": "warpdotdev/common-skills",
-      "official": false,
-      "stars": 653,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/warpdotdev/common-skills/respond-to-pr-comments-in-blocklist",
-        "installs": 25300,
-        "weeklyInstalls": [841, 636, 578, 922, 488, 357, 354, 104],
-        "firstSeen": "2026-05-30"
-      }
-    },
-    {
-      "name": "validate-changes-match-specs",
-      "repo": "warpdotdev/common-skills",
-      "official": false,
-      "stars": 653,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/warpdotdev/common-skills/validate-changes-match-specs",
-        "installs": 25300,
-        "weeklyInstalls": [849, 638, 585, 931, 492, 367, 364, 106],
-        "firstSeen": "2026-05-31"
       }
     },
     {
@@ -471,19 +393,6 @@
       }
     },
     {
-      "name": "cross-critique",
-      "repo": "warpdotdev/common-skills",
-      "official": false,
-      "stars": 653,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/warpdotdev/common-skills/cross-critique",
-        "installs": 22100,
-        "weeklyInstalls": [849, 639, 596, 945, 518, 400, 389, 141],
-        "firstSeen": "2026-06-18"
-      }
-    },
-    {
       "name": "agent-reach",
       "repo": "panniantong/agent-reach",
       "official": false,
@@ -494,19 +403,6 @@
         "installs": 22000,
         "weeklyInstalls": [642, 735, 567, 731, 777, 799, 931, 916],
         "firstSeen": "2026-02-25"
-      }
-    },
-    {
-      "name": "research",
-      "repo": "warpdotdev/common-skills",
-      "official": false,
-      "stars": 653,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/warpdotdev/common-skills/research",
-        "installs": 22000,
-        "weeklyInstalls": [849, 644, 586, 924, 498, 365, 362, 113],
-        "firstSeen": "2026-06-18"
       }
     },
     {
@@ -559,19 +455,6 @@
         "installs": 20800,
         "weeklyInstalls": [459, 424, 412, 405, 427, 407, 468, 427],
         "firstSeen": "2026-03-30"
-      }
-    },
-    {
-      "name": "saga",
-      "repo": "warpdotdev/common-skills",
-      "official": false,
-      "stars": 653,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/warpdotdev/common-skills/saga",
-        "installs": 20800,
-        "weeklyInstalls": [839, 636, 582, 922, 491, 362, 356, 114],
-        "firstSeen": "2026-06-24"
       }
     },
     {
@@ -949,19 +832,6 @@
         "installs": 17900,
         "weeklyInstalls": [1142, 1059, 1037, 1089, 1141, 1556, 1580, 1617],
         "firstSeen": "2026-08-07"
-      }
-    },
-    {
-      "name": "readout",
-      "repo": "warpdotdev/common-skills",
-      "official": false,
-      "stars": 653,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/warpdotdev/common-skills/readout",
-        "installs": 17700,
-        "weeklyInstalls": [838, 637, 577, 922, 486, 358, 356, 106],
-        "firstSeen": "2026-07-08"
       }
     },
     {
