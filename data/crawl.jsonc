@@ -302,19 +302,6 @@
       }
     },
     {
-      "name": "eas-app-stores",
-      "repo": "expo/skills",
-      "official": true,
-      "stars": 4073,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/expo/skills/eas-app-stores",
-        "installs": 26000,
-        "weeklyInstalls": [1655, 1612, 1508, 2035, 1560, 1611, 1753, 1855],
-        "firstSeen": "2026-07-07"
-      }
-    },
-    {
       "name": "release-skills",
       "repo": "jimliu/baoyu-skills",
       "official": false,
@@ -523,32 +510,6 @@
       }
     },
     {
-      "name": "expo-project-structure",
-      "repo": "expo/skills",
-      "official": true,
-      "stars": 4073,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/expo/skills/expo-project-structure",
-        "installs": 24700,
-        "weeklyInstalls": [1636, 1606, 1470, 1520, 1511, 1609, 1731, 1769],
-        "firstSeen": "2026-07-14"
-      }
-    },
-    {
-      "name": "eas-workflows",
-      "repo": "expo/skills",
-      "official": true,
-      "stars": 4073,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/expo/skills/eas-workflows",
-        "installs": 24600,
-        "weeklyInstalls": [1572, 1519, 1441, 1923, 1430, 1506, 1600, 1709],
-        "firstSeen": "2026-07-07"
-      }
-    },
-    {
       "name": "gstack",
       "repo": "garrytan/gstack",
       "official": false,
@@ -637,19 +598,6 @@
         "installs": 24200,
         "weeklyInstalls": [219, 243, 237, 414, 2567, 1098, 406, 528],
         "firstSeen": "2026-03-09"
-      }
-    },
-    {
-      "name": "expo-skill-eval",
-      "repo": "expo/skills",
-      "official": true,
-      "stars": 4073,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/expo/skills/expo-skill-eval",
-        "installs": 24100,
-        "weeklyInstalls": [1443, 1401, 1285, 1285, 1241, 1284, 1323, 1493],
-        "firstSeen": "2026-06-24"
       }
     },
     {
@@ -806,19 +754,6 @@
         "installs": 23400,
         "weeklyInstalls": [1098, 1078, 975, 883, 829, 779, 740, 710],
         "firstSeen": "2026-06-10"
-      }
-    },
-    {
-      "name": "expo-dom",
-      "repo": "expo/skills",
-      "official": true,
-      "stars": 4073,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/expo/skills/expo-dom",
-        "installs": 23400,
-        "weeklyInstalls": [1481, 1419, 1344, 1805, 1382, 1378, 1503, 1567],
-        "firstSeen": "2026-07-07"
       }
     },
     {
@@ -1017,19 +952,6 @@
       }
     },
     {
-      "name": "expo-migrate-module",
-      "repo": "expo/skills",
-      "official": true,
-      "stars": 4073,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/expo/skills/expo-migrate-module",
-        "installs": 22300,
-        "weeklyInstalls": [1583, 1610, 1489, 1452, 1526, 1561, 1559, 1758],
-        "firstSeen": "2026-07-20"
-      }
-    },
-    {
       "name": "interface-review",
       "repo": "jakubkrehel/skills",
       "official": false,
@@ -1040,19 +962,6 @@
         "installs": 22200,
         "weeklyInstalls": [1547, 1852, 1459, 1940, 1556, 1385, 1644, 2363],
         "firstSeen": "2026-08-06"
-      }
-    },
-    {
-      "name": "expo-app-clip",
-      "repo": "expo/skills",
-      "official": true,
-      "stars": 4073,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/expo/skills/expo-app-clip",
-        "installs": 22200,
-        "weeklyInstalls": [1446, 1405, 1302, 1335, 1313, 1377, 1483, 1502],
-        "firstSeen": "2026-07-07"
       }
     },
     {
@@ -1209,32 +1118,6 @@
         "installs": 21700,
         "weeklyInstalls": [193, 265, 215, 272, 216, 214, 201, 203],
         "firstSeen": "2026-02-25"
-      }
-    },
-    {
-      "name": "eas-observe",
-      "repo": "expo/skills",
-      "official": true,
-      "stars": 4073,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/expo/skills/eas-observe",
-        "installs": 21600,
-        "weeklyInstalls": [1413, 1371, 1272, 1312, 1226, 1375, 1483, 1559],
-        "firstSeen": "2026-07-07"
-      }
-    },
-    {
-      "name": "eas-hosting",
-      "repo": "expo/skills",
-      "official": true,
-      "stars": 4073,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/expo/skills/eas-hosting",
-        "installs": 21600,
-        "weeklyInstalls": [1434, 1370, 1282, 1298, 1227, 1332, 1434, 1532],
-        "firstSeen": "2026-07-07"
       }
     },
     {
@@ -1641,19 +1524,6 @@
       }
     },
     {
-      "name": "deep-agents-memory",
-      "repo": "langchain-ai/langchain-skills",
-      "official": false,
-      "stars": 1324,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/langchain-ai/langchain-skills/deep-agents-memory",
-        "installs": 19700,
-        "weeklyInstalls": [529, 570, 533, 473, 418, 424, 387, 394],
-        "firstSeen": "2026-03-03"
-      }
-    },
-    {
       "name": "dart-use-pattern-matching",
       "repo": "dart-lang/skills",
       "official": false,
@@ -1927,19 +1797,6 @@
       }
     },
     {
-      "name": "langgraph-fundamentals",
-      "repo": "langchain-ai/langchain-skills",
-      "official": false,
-      "stars": 1324,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/langchain-ai/langchain-skills/langgraph-fundamentals",
-        "installs": 18800,
-        "weeklyInstalls": [522, 596, 603, 540, 521, 503, 487, 483],
-        "firstSeen": "2026-03-03"
-      }
-    },
-    {
       "name": "bigquery-basics",
       "repo": "google/skills",
       "official": true,
@@ -1979,19 +1836,6 @@
       }
     },
     {
-      "name": "langgraph-persistence",
-      "repo": "langchain-ai/langchain-skills",
-      "official": false,
-      "stars": 1324,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/langchain-ai/langchain-skills/langgraph-persistence",
-        "installs": 18700,
-        "weeklyInstalls": [551, 595, 571, 504, 463, 457, 432, 420],
-        "firstSeen": "2026-03-03"
-      }
-    },
-    {
       "name": "async-python-patterns",
       "repo": "wshobson/agents",
       "official": false,
@@ -2028,19 +1872,6 @@
         "installs": 18500,
         "weeklyInstalls": [160, 179, 133, 94, 115, 146, 178, 182],
         "firstSeen": "2026-03-19"
-      }
-    },
-    {
-      "name": "expo-animation",
-      "repo": "expo/skills",
-      "official": true,
-      "stars": 4073,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/expo/skills/expo-animation",
-        "installs": 18500,
-        "weeklyInstalls": [1620, 1622, 1498, 1567, 1569, 1696, 1839, 1999],
-        "firstSeen": "2026-08-18"
       }
     },
     {
@@ -2109,19 +1940,6 @@
       }
     },
     {
-      "name": "langchain-rag",
-      "repo": "langchain-ai/langchain-skills",
-      "official": false,
-      "stars": 1324,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/langchain-ai/langchain-skills/langchain-rag",
-        "installs": 18200,
-        "weeklyInstalls": [530, 571, 537, 469, 445, 451, 406, 421],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
       "name": "story-long-write",
       "repo": "zenstory-ai/oh-story-claudecode",
       "official": false,
@@ -2187,19 +2005,6 @@
       }
     },
     {
-      "name": "expo-overview",
-      "repo": "expo/skills",
-      "official": true,
-      "stars": 4073,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/expo/skills/expo-overview",
-        "installs": 18100,
-        "weeklyInstalls": [1628, 1637, 1528, 1558, 1553, 1662, 1794, 1850],
-        "firstSeen": "2026-08-20"
-      }
-    },
-    {
       "name": "godot-gdscript-patterns",
       "repo": "wshobson/agents",
       "official": false,
@@ -2223,19 +2028,6 @@
         "installs": 18100,
         "weeklyInstalls": [1231, 829, 766, 627, 546, 495, 755, 706],
         "firstSeen": "2026-03-14"
-      }
-    },
-    {
-      "name": "langchain-fundamentals",
-      "repo": "langchain-ai/langchain-skills",
-      "official": false,
-      "stars": 1324,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/langchain-ai/langchain-skills/langchain-fundamentals",
-        "installs": 18100,
-        "weeklyInstalls": [529, 564, 546, 473, 441, 419, 389, 403],
-        "firstSeen": "2026-02-21"
       }
     },
     {
@@ -2353,19 +2145,6 @@
         "installs": 17900,
         "weeklyInstalls": [212, 193, 180, 143, 143, 213, 225, 218],
         "firstSeen": "2026-04-07"
-      }
-    },
-    {
-      "name": "langgraph-human-in-the-loop",
-      "repo": "langchain-ai/langchain-skills",
-      "official": false,
-      "stars": 1324,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/langchain-ai/langchain-skills/langgraph-human-in-the-loop",
-        "installs": 17900,
-        "weeklyInstalls": [528, 570, 547, 487, 436, 426, 409, 412],
-        "firstSeen": "2026-03-03"
       }
     },
     {
@@ -2850,19 +2629,6 @@
       }
     },
     {
-      "name": "langchain-middleware",
-      "repo": "langchain-ai/langchain-skills",
-      "official": false,
-      "stars": 1324,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/langchain-ai/langchain-skills/langchain-middleware",
-        "installs": 16800,
-        "weeklyInstalls": [501, 551, 520, 453, 413, 393, 360, 374],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
       "name": "postgresql-optimization",
       "repo": "github/awesome-copilot",
       "official": true,
@@ -2886,19 +2652,6 @@
         "installs": 16700,
         "weeklyInstalls": [405, 342, 536, 886, 829, 1025, 1590, 1850],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "deep-agents-orchestration",
-      "repo": "langchain-ai/langchain-skills",
-      "official": false,
-      "stars": 1324,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/langchain-ai/langchain-skills/deep-agents-orchestration",
-        "installs": 16700,
-        "weeklyInstalls": [482, 526, 506, 456, 396, 408, 385, 385],
-        "firstSeen": "2026-03-03"
       }
     },
     {
@@ -2941,19 +2694,6 @@
       }
     },
     {
-      "name": "langchain-dependencies",
-      "repo": "langchain-ai/langchain-skills",
-      "official": false,
-      "stars": 1324,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/langchain-ai/langchain-skills/langchain-dependencies",
-        "installs": 16600,
-        "weeklyInstalls": [507, 549, 531, 464, 425, 399, 369, 383],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
       "name": "design-system-patterns",
       "repo": "wshobson/agents",
       "official": false,
@@ -2964,19 +2704,6 @@
         "installs": 16600,
         "weeklyInstalls": [240, 295, 358, 386, 338, 287, 325, 378],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "deep-agents-core",
-      "repo": "langchain-ai/langchain-skills",
-      "official": false,
-      "stars": 1324,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/langchain-ai/langchain-skills/deep-agents-core",
-        "installs": 16600,
-        "weeklyInstalls": [488, 533, 504, 457, 398, 403, 371, 380],
-        "firstSeen": "2026-03-03"
       }
     },
     {
@@ -5252,19 +4979,6 @@
         "installs": 13300,
         "weeklyInstalls": [998, 971, 760, 502, 649, 656, 573, 433],
         "firstSeen": "2026-06-14"
-      }
-    },
-    {
-      "name": "eas-update",
-      "repo": "expo/skills",
-      "official": true,
-      "stars": 4073,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/expo/skills/eas-update",
-        "installs": 13300,
-        "weeklyInstalls": [1409, 1394, 1290, 1770, 1286, 1434, 1504, 1617],
-        "firstSeen": "2026-09-03"
       }
     },
     {
@@ -46961,6 +46675,94 @@
     {
       "url": "https://skills.sh/dontbesilent2025/dbskill/dbs-standard-answer",
       "note": "In Chinese."
+    },
+    {
+      "url": "https://skills.sh/expo/skills/eas-app-stores",
+      "note": "Tool docs: an agent's manual for expo."
+    },
+    {
+      "url": "https://skills.sh/expo/skills/expo-project-structure",
+      "note": "Tool docs: an agent's manual for expo and react-native."
+    },
+    {
+      "url": "https://skills.sh/expo/skills/eas-workflows",
+      "note": "Tool docs: an agent's manual for expo."
+    },
+    {
+      "url": "https://skills.sh/expo/skills/expo-skill-eval",
+      "note": "Internal: evals expo/skills' own skills, and the repo leaves it out of its published plugins."
+    },
+    {
+      "url": "https://skills.sh/expo/skills/expo-dom",
+      "note": "Tool docs: an agent's manual for expo and react-native."
+    },
+    {
+      "url": "https://skills.sh/expo/skills/expo-migrate-module",
+      "note": "Tool docs: an agent's manual for expo and react-native."
+    },
+    {
+      "url": "https://skills.sh/expo/skills/expo-app-clip",
+      "note": "Tool docs: an agent's manual for expo and react-native."
+    },
+    {
+      "url": "https://skills.sh/expo/skills/eas-observe",
+      "note": "Tool docs: an agent's manual for expo."
+    },
+    {
+      "url": "https://skills.sh/expo/skills/eas-hosting",
+      "note": "Tool docs: an agent's manual for expo."
+    },
+    {
+      "url": "https://skills.sh/expo/skills/expo-animation",
+      "note": "A copy of emilkowalski/skills/skills/animate-expo."
+    },
+    {
+      "url": "https://skills.sh/expo/skills/expo-overview",
+      "note": "Tool docs: an agent's manual for expo."
+    },
+    {
+      "url": "https://skills.sh/expo/skills/eas-update",
+      "note": "Tool docs: an agent's manual for expo."
+    },
+    {
+      "url": "https://skills.sh/langchain-ai/langchain-skills/deep-agents-memory",
+      "note": "Tool docs: an agent's manual for deep-agents."
+    },
+    {
+      "url": "https://skills.sh/langchain-ai/langchain-skills/langgraph-fundamentals",
+      "note": "Tool docs: an agent's manual for langgraph."
+    },
+    {
+      "url": "https://skills.sh/langchain-ai/langchain-skills/langgraph-persistence",
+      "note": "Tool docs: an agent's manual for langgraph."
+    },
+    {
+      "url": "https://skills.sh/langchain-ai/langchain-skills/langchain-rag",
+      "note": "Tool docs: an agent's manual for langchain."
+    },
+    {
+      "url": "https://skills.sh/langchain-ai/langchain-skills/langchain-fundamentals",
+      "note": "Tool docs: an agent's manual for langchain."
+    },
+    {
+      "url": "https://skills.sh/langchain-ai/langchain-skills/langgraph-human-in-the-loop",
+      "note": "Tool docs: an agent's manual for langgraph."
+    },
+    {
+      "url": "https://skills.sh/langchain-ai/langchain-skills/langchain-middleware",
+      "note": "Tool docs: an agent's manual for langchain."
+    },
+    {
+      "url": "https://skills.sh/langchain-ai/langchain-skills/deep-agents-orchestration",
+      "note": "Tool docs: an agent's manual for deep-agents."
+    },
+    {
+      "url": "https://skills.sh/langchain-ai/langchain-skills/langchain-dependencies",
+      "note": "Tool docs: an agent's manual for langchain."
+    },
+    {
+      "url": "https://skills.sh/langchain-ai/langchain-skills/deep-agents-core",
+      "note": "Tool docs: an agent's manual for deep-agents."
     }
   ]
 }
