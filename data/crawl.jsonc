@@ -2746,45 +2746,6 @@
       }
     },
     {
-      "name": "gws-chat",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/gws-chat",
-        "installs": 33800,
-        "weeklyInstalls": [584, 512, 587, 574, 388, 581, 370, 365],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
-      "name": "gws-people",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/gws-people",
-        "installs": 33700,
-        "weeklyInstalls": [565, 495, 551, 569, 387, 574, 360, 410],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
-      "name": "gws-gmail-reply-all",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/gws-gmail-reply-all",
-        "installs": 33600,
-        "weeklyInstalls": [574, 517, 562, 587, 397, 593, 363, 370],
-        "firstSeen": "2026-03-09"
-      }
-    },
-    {
       "name": "firecrawl-monitor",
       "repo": "firecrawl/cli",
       "official": false,
@@ -2863,19 +2824,6 @@
       }
     },
     {
-      "name": "gws-workflow-email-to-task",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/gws-workflow-email-to-task",
-        "installs": 33100,
-        "weeklyInstalls": [546, 502, 549, 558, 354, 544, 327, 331],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
       "name": "mcp-apps-builder",
       "repo": "mcp-use/mcp-use",
       "official": false,
@@ -2886,19 +2834,6 @@
         "installs": 33100,
         "weeklyInstalls": [178, 167, 1028, 901, 1182, 386, 828, 807],
         "firstSeen": "2026-02-17"
-      }
-    },
-    {
-      "name": "recipe-create-presentation",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/recipe-create-presentation",
-        "installs": 33000,
-        "weeklyInstalls": [563, 495, 546, 553, 357, 523, 324, 331],
-        "firstSeen": "2026-03-04"
       }
     },
     {
@@ -2967,19 +2902,6 @@
       }
     },
     {
-      "name": "gws-chat-send",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/gws-chat-send",
-        "installs": 32600,
-        "weeklyInstalls": [573, 501, 572, 561, 376, 570, 354, 350],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
       "name": "baoyu-cover-image",
       "repo": "jimliu/baoyu-skills",
       "official": false,
@@ -2990,19 +2912,6 @@
         "installs": 32500,
         "weeklyInstalls": [317, 314, 140, 129, 182, 197, 189, 204],
         "firstSeen": "2026-01-19"
-      }
-    },
-    {
-      "name": "gws-workflow-meeting-prep",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/gws-workflow-meeting-prep",
-        "installs": 32500,
-        "weeklyInstalls": [546, 498, 551, 564, 358, 551, 333, 337],
-        "firstSeen": "2026-03-04"
       }
     },
     {
@@ -3058,32 +2967,6 @@
       }
     },
     {
-      "name": "gws-workflow-weekly-digest",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/gws-workflow-weekly-digest",
-        "installs": 32200,
-        "weeklyInstalls": [544, 500, 549, 560, 355, 551, 322, 324],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
-      "name": "gws-workflow-standup-report",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/gws-workflow-standup-report",
-        "installs": 32200,
-        "weeklyInstalls": [543, 496, 546, 555, 355, 544, 325, 325],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
       "name": "i-have-adhd",
       "repo": "ayghri/i-have-adhd",
       "official": false,
@@ -3094,84 +2977,6 @@
         "installs": 32200,
         "weeklyInstalls": [3005, 2540, 1736, 1508, 2431, 2099, 1925, 1706],
         "firstSeen": "2026-05-14"
-      }
-    },
-    {
-      "name": "recipe-draft-email-from-doc",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/recipe-draft-email-from-doc",
-        "installs": 32100,
-        "weeklyInstalls": [531, 477, 527, 534, 339, 513, 315, 320],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
-      "name": "persona-project-manager",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/persona-project-manager",
-        "installs": 32100,
-        "weeklyInstalls": [556, 493, 537, 532, 342, 516, 325, 316],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
-      "name": "gws-events",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/gws-events",
-        "installs": 32000,
-        "weeklyInstalls": [542, 481, 533, 548, 351, 536, 321, 322],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
-      "name": "recipe-email-drive-link",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/recipe-email-drive-link",
-        "installs": 32000,
-        "weeklyInstalls": [532, 474, 528, 536, 340, 511, 313, 316],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
-      "name": "persona-researcher",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/persona-researcher",
-        "installs": 31900,
-        "weeklyInstalls": [537, 498, 547, 586, 371, 529, 332, 359],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
-      "name": "recipe-create-gmail-filter",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/recipe-create-gmail-filter",
-        "installs": 31900,
-        "weeklyInstalls": [536, 475, 535, 539, 345, 517, 315, 321],
-        "firstSeen": "2026-03-04"
       }
     },
     {
@@ -3240,19 +3045,6 @@
       }
     },
     {
-      "name": "recipe-save-email-attachments",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/recipe-save-email-attachments",
-        "installs": 31600,
-        "weeklyInstalls": [531, 479, 529, 531, 342, 522, 314, 323],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
       "name": "react-native-best-practices",
       "repo": "callstackincubator/agent-skills",
       "official": false,
@@ -3276,32 +3068,6 @@
         "installs": 31600,
         "weeklyInstalls": [315, 313, 159, 150, 203, 233, 241, 235],
         "firstSeen": "2026-01-19"
-      }
-    },
-    {
-      "name": "recipe-organize-drive-folder",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/recipe-organize-drive-folder",
-        "installs": 31600,
-        "weeklyInstalls": [532, 477, 532, 541, 348, 519, 311, 324],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
-      "name": "recipe-backup-sheet-as-csv",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/recipe-backup-sheet-as-csv",
-        "installs": 31600,
-        "weeklyInstalls": [540, 487, 540, 545, 347, 517, 314, 319],
-        "firstSeen": "2026-03-04"
       }
     },
     {
@@ -3370,32 +3136,6 @@
       }
     },
     {
-      "name": "persona-exec-assistant",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/persona-exec-assistant",
-        "installs": 31500,
-        "weeklyInstalls": [535, 476, 530, 537, 339, 515, 313, 317],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
-      "name": "recipe-find-free-time",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/recipe-find-free-time",
-        "installs": 31400,
-        "weeklyInstalls": [535, 480, 535, 539, 345, 513, 314, 317],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
       "name": "multi-stage-dockerfile",
       "repo": "github/awesome-copilot",
       "official": true,
@@ -3409,32 +3149,6 @@
       }
     },
     {
-      "name": "gws-workflow-file-announce",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/gws-workflow-file-announce",
-        "installs": 31400,
-        "weeklyInstalls": [539, 490, 530, 542, 346, 533, 314, 318],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
-      "name": "recipe-compare-sheet-tabs",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/recipe-compare-sheet-tabs",
-        "installs": 31300,
-        "weeklyInstalls": [535, 483, 537, 541, 345, 514, 308, 316],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
       "name": "nestjs-best-practices",
       "repo": "kadajett/agent-nestjs-skills",
       "official": false,
@@ -3445,45 +3159,6 @@
         "installs": 31300,
         "weeklyInstalls": [528, 539, 543, 585, 612, 524, 545, 536],
         "firstSeen": "2026-01-19"
-      }
-    },
-    {
-      "name": "persona-content-creator",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/persona-content-creator",
-        "installs": 31300,
-        "weeklyInstalls": [536, 486, 541, 569, 366, 524, 328, 347],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
-      "name": "gws-events-subscribe",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/gws-events-subscribe",
-        "installs": 31300,
-        "weeklyInstalls": [541, 480, 528, 545, 348, 534, 321, 321],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
-      "name": "gws-events-renew",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/gws-events-renew",
-        "installs": 31300,
-        "weeklyInstalls": [541, 479, 528, 542, 349, 534, 319, 321],
-        "firstSeen": "2026-03-04"
       }
     },
     {
@@ -3513,45 +3188,6 @@
       }
     },
     {
-      "name": "recipe-plan-weekly-schedule",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/recipe-plan-weekly-schedule",
-        "installs": 31300,
-        "weeklyInstalls": [535, 478, 535, 536, 343, 512, 313, 319],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
-      "name": "recipe-bulk-download-folder",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/recipe-bulk-download-folder",
-        "installs": 31300,
-        "weeklyInstalls": [536, 478, 533, 538, 346, 515, 314, 317],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
-      "name": "recipe-create-doc-from-template",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/recipe-create-doc-from-template",
-        "installs": 31300,
-        "weeklyInstalls": [528, 475, 530, 534, 342, 513, 318, 320],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
       "name": "api-design-principles",
       "repo": "wshobson/agents",
       "official": false,
@@ -3578,32 +3214,6 @@
       }
     },
     {
-      "name": "recipe-sync-contacts-to-sheet",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/recipe-sync-contacts-to-sheet",
-        "installs": 31200,
-        "weeklyInstalls": [524, 470, 524, 527, 338, 506, 309, 312],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
-      "name": "gws-admin-reports",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/gws-admin-reports",
-        "installs": 31200,
-        "weeklyInstalls": [541, 484, 534, 544, 346, 539, 319, 322],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
       "name": "expo-upgrade",
       "repo": "expo/skills",
       "official": true,
@@ -3614,19 +3224,6 @@
         "installs": 31200,
         "weeklyInstalls": [1884, 1903, 1778, 2231, 1910, 1912, 2007, 2139],
         "firstSeen": "2026-07-07"
-      }
-    },
-    {
-      "name": "recipe-generate-report-from-sheet",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/recipe-generate-report-from-sheet",
-        "installs": 31100,
-        "weeklyInstalls": [529, 478, 531, 540, 348, 512, 317, 318],
-        "firstSeen": "2026-03-04"
       }
     },
     {
@@ -3653,97 +3250,6 @@
         "installs": 31000,
         "weeklyInstalls": [989, 586, 654, 1054, 787, 1002, 901, 779],
         "firstSeen": "2026-03-20"
-      }
-    },
-    {
-      "name": "recipe-label-and-archive-emails",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/recipe-label-and-archive-emails",
-        "installs": 31000,
-        "weeklyInstalls": [528, 473, 530, 529, 342, 516, 310, 320],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
-      "name": "recipe-reschedule-meeting",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/recipe-reschedule-meeting",
-        "installs": 31000,
-        "weeklyInstalls": [535, 475, 526, 533, 340, 509, 311, 314],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
-      "name": "recipe-save-email-to-doc",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/recipe-save-email-to-doc",
-        "installs": 30900,
-        "weeklyInstalls": [531, 477, 530, 532, 342, 514, 310, 316],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
-      "name": "recipe-block-focus-time",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/recipe-block-focus-time",
-        "installs": 30900,
-        "weeklyInstalls": [533, 480, 535, 537, 344, 507, 310, 314],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
-      "name": "recipe-watch-drive-changes",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/recipe-watch-drive-changes",
-        "installs": 30900,
-        "weeklyInstalls": [531, 471, 523, 536, 340, 511, 309, 310],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
-      "name": "recipe-create-shared-drive",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/recipe-create-shared-drive",
-        "installs": 30900,
-        "weeklyInstalls": [531, 472, 532, 540, 345, 509, 310, 312],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
-      "name": "persona-team-lead",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/persona-team-lead",
-        "installs": 30900,
-        "weeklyInstalls": [531, 471, 530, 530, 339, 512, 315, 312],
-        "firstSeen": "2026-03-04"
       }
     },
     {
@@ -3786,84 +3292,6 @@
       }
     },
     {
-      "name": "recipe-share-doc-and-notify",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/recipe-share-doc-and-notify",
-        "installs": 30800,
-        "weeklyInstalls": [529, 474, 528, 529, 339, 514, 307, 314],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
-      "name": "recipe-find-large-files",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/recipe-find-large-files",
-        "installs": 30800,
-        "weeklyInstalls": [528, 473, 532, 536, 341, 509, 309, 317],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
-      "name": "recipe-create-task-list",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/recipe-create-task-list",
-        "installs": 30800,
-        "weeklyInstalls": [525, 471, 527, 530, 341, 507, 311, 313],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
-      "name": "recipe-schedule-recurring-event",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/recipe-schedule-recurring-event",
-        "installs": 30800,
-        "weeklyInstalls": [527, 472, 526, 526, 343, 508, 310, 312],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
-      "name": "recipe-copy-sheet-for-new-month",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/recipe-copy-sheet-for-new-month",
-        "installs": 30700,
-        "weeklyInstalls": [525, 473, 526, 532, 340, 508, 309, 314],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
-      "name": "recipe-review-overdue-tasks",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/recipe-review-overdue-tasks",
-        "installs": 30700,
-        "weeklyInstalls": [532, 481, 533, 536, 344, 508, 309, 314],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
       "name": "dbs-deconstruct",
       "repo": "dontbesilent2025/dbskill",
       "official": false,
@@ -3874,32 +3302,6 @@
         "installs": 30700,
         "weeklyInstalls": [985, 578, 645, 1053, 768, 995, 890, 769],
         "firstSeen": "2026-03-20"
-      }
-    },
-    {
-      "name": "recipe-review-meet-participants",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/recipe-review-meet-participants",
-        "installs": 30700,
-        "weeklyInstalls": [550, 516, 577, 559, 361, 525, 323, 323],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
-      "name": "recipe-batch-invite-to-event",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/recipe-batch-invite-to-event",
-        "installs": 30700,
-        "weeklyInstalls": [529, 474, 527, 531, 340, 506, 310, 312],
-        "firstSeen": "2026-03-04"
       }
     },
     {
@@ -51135,6 +50537,190 @@
     },
     {
       "url": "https://skills.sh/googleworkspace/cli/recipe-create-classroom-course",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/gws-chat",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/gws-people",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/gws-gmail-reply-all",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/gws-workflow-email-to-task",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/recipe-create-presentation",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/gws-chat-send",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/gws-workflow-meeting-prep",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/gws-workflow-weekly-digest",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/gws-workflow-standup-report",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/recipe-draft-email-from-doc",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/persona-project-manager",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/gws-events",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/recipe-email-drive-link",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/persona-researcher",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/recipe-create-gmail-filter",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/recipe-save-email-attachments",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/recipe-organize-drive-folder",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/recipe-backup-sheet-as-csv",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/persona-exec-assistant",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/recipe-find-free-time",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/gws-workflow-file-announce",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/recipe-compare-sheet-tabs",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/persona-content-creator",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/gws-events-subscribe",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/gws-events-renew",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/recipe-plan-weekly-schedule",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/recipe-bulk-download-folder",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/recipe-create-doc-from-template",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/recipe-sync-contacts-to-sheet",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/gws-admin-reports",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/recipe-generate-report-from-sheet",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/recipe-label-and-archive-emails",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/recipe-reschedule-meeting",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/recipe-save-email-to-doc",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/recipe-block-focus-time",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/recipe-watch-drive-changes",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/recipe-create-shared-drive",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/persona-team-lead",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/recipe-share-doc-and-notify",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/recipe-find-large-files",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/recipe-create-task-list",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/recipe-schedule-recurring-event",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/recipe-copy-sheet-for-new-month",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/recipe-review-overdue-tasks",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/recipe-review-meet-participants",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/recipe-batch-invite-to-event",
       "note": "Tool docs: an agent's manual for google-workspace."
     }
   ]
