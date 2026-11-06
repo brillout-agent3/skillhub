@@ -380,19 +380,6 @@
       }
     },
     {
-      "name": "financial-insights",
-      "repo": "stripe/link-cli",
-      "official": false,
-      "stars": 894,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/stripe/link-cli/financial-insights",
-        "installs": 22900,
-        "weeklyInstalls": [1113, 1564, 1353, 2063, 2538, 3881, 4021, 1721],
-        "firstSeen": "2026-08-12"
-      }
-    },
-    {
       "name": "brag",
       "repo": "latent-spaces/brag",
       "official": false,
@@ -536,19 +523,6 @@
       }
     },
     {
-      "name": "workers-profiling",
-      "repo": "cloudflare/skills",
-      "official": false,
-      "stars": 3291,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/cloudflare/skills/workers-profiling",
-        "installs": 21800,
-        "weeklyInstalls": [0, 0, 0, 0, 928, 5927, 5885, 5397],
-        "firstSeen": "2026-10-10"
-      }
-    },
-    {
       "name": "simplify",
       "repo": "brianlovin/agent-config",
       "official": false,
@@ -572,19 +546,6 @@
         "installs": 21300,
         "weeklyInstalls": [279, 298, 236, 187, 187, 269, 235, 292],
         "firstSeen": "2026-04-15"
-      }
-    },
-    {
-      "name": "okx-dex-market",
-      "repo": "okx/onchainos-skills",
-      "official": false,
-      "stars": 346,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/okx/onchainos-skills/okx-dex-market",
-        "installs": 21200,
-        "weeklyInstalls": [437, 424, 269, 292, 256, 248, 279, 1798],
-        "firstSeen": "2026-02-28"
       }
     },
     {
@@ -663,19 +624,6 @@
         "installs": 20700,
         "weeklyInstalls": [650, 759, 709, 660, 714, 694, 612, 541],
         "firstSeen": "2026-02-15"
-      }
-    },
-    {
-      "name": "cf-cli",
-      "repo": "cloudflare/skills",
-      "official": false,
-      "stars": 3291,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/cloudflare/skills/cf-cli",
-        "installs": 20600,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 5330, 5959, 5527],
-        "firstSeen": "2026-10-12"
       }
     },
     {
@@ -780,19 +728,6 @@
         "installs": 19700,
         "weeklyInstalls": [246, 272, 222, 230, 3474, 5382, 236, 124],
         "firstSeen": "2026-02-04"
-      }
-    },
-    {
-      "name": "okx-agentic-wallet",
-      "repo": "okx/onchainos-skills",
-      "official": false,
-      "stars": 346,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/okx/onchainos-skills/okx-agentic-wallet",
-        "installs": 19500,
-        "weeklyInstalls": [445, 425, 272, 294, 250, 244, 280, 1814],
-        "firstSeen": "2026-03-17"
       }
     },
     {
@@ -1017,19 +952,6 @@
       }
     },
     {
-      "name": "shopify-admin",
-      "repo": "shopify/shopify-ai-toolkit",
-      "official": false,
-      "stars": 630,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/shopify/shopify-ai-toolkit/shopify-admin",
-        "installs": 17800,
-        "weeklyInstalls": [1113, 915, 710, 218, 227, 217, 208, 155],
-        "firstSeen": "2026-04-07"
-      }
-    },
-    {
       "name": "readout",
       "repo": "warpdotdev/common-skills",
       "official": false,
@@ -1079,19 +1001,6 @@
         "installs": 17400,
         "weeklyInstalls": [1392, 1625, 1242, 1671, 1357, 1264, 1453, 1977],
         "firstSeen": "2026-08-19"
-      }
-    },
-    {
-      "name": "gateway-workers",
-      "repo": "cloudflare/skills",
-      "official": false,
-      "stars": 3291,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/cloudflare/skills/gateway-workers",
-        "installs": 17300,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 2547, 5807, 5312],
-        "firstSeen": "2026-10-15"
       }
     },
     {
@@ -1209,19 +1118,6 @@
         "installs": 16700,
         "weeklyInstalls": [1484, 1488, 1074, 1510, 945, 1106, 674, 1113],
         "firstSeen": "2026-03-07"
-      }
-    },
-    {
-      "name": "okx-dapp-discovery",
-      "repo": "okx/onchainos-skills",
-      "official": false,
-      "stars": 346,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/okx/onchainos-skills/okx-dapp-discovery",
-        "installs": 16500,
-        "weeklyInstalls": [426, 418, 268, 288, 246, 238, 276, 1794],
-        "firstSeen": "2026-04-27"
       }
     },
     {
@@ -1391,19 +1287,6 @@
         "installs": 15800,
         "weeklyInstalls": [268, 355, 416, 258, 305, 339, 330, 1147],
         "firstSeen": "2026-03-09"
-      }
-    },
-    {
-      "name": "okx-agent-payments-protocol",
-      "repo": "okx/onchainos-skills",
-      "official": false,
-      "stars": 346,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/okx/onchainos-skills/okx-agent-payments-protocol",
-        "installs": 15800,
-        "weeklyInstalls": [426, 417, 269, 286, 248, 238, 273, 1793],
-        "firstSeen": "2026-05-11"
       }
     },
     {
@@ -2239,19 +2122,6 @@
       }
     },
     {
-      "name": "shopify-storefront-graphql",
-      "repo": "shopify/shopify-ai-toolkit",
-      "official": false,
-      "stars": 630,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/shopify/shopify-ai-toolkit/shopify-storefront-graphql",
-        "installs": 13700,
-        "weeklyInstalls": [800, 613, 497, 209, 223, 209, 205, 152],
-        "firstSeen": "2026-04-08"
-      }
-    },
-    {
       "name": "design-motion-principles",
       "repo": "kylezantos/design-motion-principles",
       "official": false,
@@ -2486,19 +2356,6 @@
       }
     },
     {
-      "name": "shopify-liquid",
-      "repo": "shopify/shopify-ai-toolkit",
-      "official": false,
-      "stars": 630,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/shopify/shopify-ai-toolkit/shopify-liquid",
-        "installs": 13000,
-        "weeklyInstalls": [666, 537, 415, 25, 21, 21, 16, 5],
-        "firstSeen": "2026-04-08"
-      }
-    },
-    {
       "name": "daisyui",
       "repo": "saadeghi/daisyui",
       "official": false,
@@ -2561,19 +2418,6 @@
         "installs": 12700,
         "weeklyInstalls": [0, 0, 1742, 3500, 1917, 1726, 1821, 1349],
         "firstSeen": "2026-09-24"
-      }
-    },
-    {
-      "name": "shopify-dev",
-      "repo": "shopify/shopify-ai-toolkit",
-      "official": false,
-      "stars": 630,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/shopify/shopify-ai-toolkit/shopify-dev",
-        "installs": 12700,
-        "weeklyInstalls": [625, 453, 376, 28, 22, 24, 15, 4],
-        "firstSeen": "2026-04-07"
       }
     },
     {
@@ -44503,6 +44347,54 @@
     {
       "url": "https://skills.sh/googleworkspace/cli/gws-script-push",
       "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/okx/onchainos-skills/okx-dex-market",
+      "note": "Tool docs: an agent's manual for okx."
+    },
+    {
+      "url": "https://skills.sh/okx/onchainos-skills/okx-agentic-wallet",
+      "note": "Tool docs: an agent's manual for okx."
+    },
+    {
+      "url": "https://skills.sh/okx/onchainos-skills/okx-dapp-discovery",
+      "note": "Tool docs: an agent's manual for okx."
+    },
+    {
+      "url": "https://skills.sh/okx/onchainos-skills/okx-agent-payments-protocol",
+      "note": "Tool docs: an agent's manual for okx."
+    },
+    {
+      "url": "https://skills.sh/shopify/shopify-ai-toolkit/shopify-admin",
+      "note": "Deprecated. Its SKILL.md now points to shopify. Tool docs: an agent's manual for shopify."
+    },
+    {
+      "url": "https://skills.sh/shopify/shopify-ai-toolkit/shopify-storefront-graphql",
+      "note": "Deprecated. Its SKILL.md now points to shopify. Tool docs: an agent's manual for shopify."
+    },
+    {
+      "url": "https://skills.sh/shopify/shopify-ai-toolkit/shopify-liquid",
+      "note": "Deprecated. Its SKILL.md now points to shopify. Tool docs: an agent's manual for shopify."
+    },
+    {
+      "url": "https://skills.sh/shopify/shopify-ai-toolkit/shopify-dev",
+      "note": "Deprecated. Its SKILL.md now points to shopify. Tool docs: an agent's manual for shopify."
+    },
+    {
+      "url": "https://skills.sh/cloudflare/skills/workers-profiling",
+      "note": "Tool docs: an agent's manual for cloudflare."
+    },
+    {
+      "url": "https://skills.sh/cloudflare/skills/cf-cli",
+      "note": "Tool docs: an agent's manual for cloudflare."
+    },
+    {
+      "url": "https://skills.sh/cloudflare/skills/gateway-workers",
+      "note": "Tool docs: an agent's manual for cloudflare."
+    },
+    {
+      "url": "https://skills.sh/stripe/link-cli/financial-insights",
+      "note": "Tool docs: an agent's manual for link-cli."
     }
   ]
 }
