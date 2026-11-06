@@ -55,19 +55,6 @@
       }
     },
     {
-      "name": "google-mobile-ads-android-migrate-to-next-gen",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/google-mobile-ads-android-migrate-to-next-gen",
-        "installs": 7000,
-        "weeklyInstalls": [435, 477, 357, 389, 445, 472, 453, 518],
-        "firstSeen": "2026-06-24"
-      }
-    },
-    {
       "name": "baoyu-design",
       "repo": "jimliu/baoyu-design",
       "official": false,
@@ -289,19 +276,6 @@
       }
     },
     {
-      "name": "datalineage-bigquery-asset-impact-analysis",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/datalineage-bigquery-asset-impact-analysis",
-        "installs": 6900,
-        "weeklyInstalls": [404, 448, 320, 362, 414, 395, 306, 354],
-        "firstSeen": "2026-06-30"
-      }
-    },
-    {
       "name": "pixijs-assets",
       "repo": "pixijs/pixijs-skills",
       "official": false,
@@ -419,19 +393,6 @@
       }
     },
     {
-      "name": "google-mobile-ads-get-started",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/google-mobile-ads-get-started",
-        "installs": 6800,
-        "weeklyInstalls": [440, 476, 347, 388, 442, 472, 453, 523],
-        "firstSeen": "2026-06-24"
-      }
-    },
-    {
       "name": "block-no-verify-hook",
       "repo": "wshobson/agents",
       "official": false,
@@ -507,45 +468,6 @@
         "installs": 6800,
         "weeklyInstalls": [228, 181, 196, 192, 204, 326, 445, 393],
         "firstSeen": "2026-04-15"
-      }
-    },
-    {
-      "name": "google-mobile-ads-banner",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/google-mobile-ads-banner",
-        "installs": 6800,
-        "weeklyInstalls": [429, 471, 349, 389, 446, 466, 451, 518],
-        "firstSeen": "2026-06-24"
-      }
-    },
-    {
-      "name": "google-mobile-ads-rewarded",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/google-mobile-ads-rewarded",
-        "installs": 6800,
-        "weeklyInstalls": [433, 472, 344, 391, 439, 469, 456, 518],
-        "firstSeen": "2026-06-24"
-      }
-    },
-    {
-      "name": "google-mobile-ads-interstitial",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/google-mobile-ads-interstitial",
-        "installs": 6800,
-        "weeklyInstalls": [430, 472, 346, 390, 445, 468, 453, 518],
-        "firstSeen": "2026-06-24"
       }
     },
     {
@@ -783,32 +705,6 @@
       }
     },
     {
-      "name": "google-cloud-solution-architecture",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/google-cloud-solution-architecture",
-        "installs": 6700,
-        "weeklyInstalls": [435, 480, 359, 418, 430, 401, 325, 375],
-        "firstSeen": "2026-07-08"
-      }
-    },
-    {
-      "name": "google-ads-api-account-diagnostics",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/google-ads-api-account-diagnostics",
-        "installs": 6700,
-        "weeklyInstalls": [524, 571, 418, 485, 556, 188, 260, 613],
-        "firstSeen": "2026-07-24"
-      }
-    },
-    {
       "name": "build-live-game",
       "repo": "unity-technologies/skills",
       "official": false,
@@ -962,19 +858,6 @@
         "installs": 6600,
         "weeklyInstalls": [76, 99, 80, 79, 124, 247, 199, 78],
         "firstSeen": "2026-03-09"
-      }
-    },
-    {
-      "name": "cloud-logging-query-generation",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/cloud-logging-query-generation",
-        "installs": 6600,
-        "weeklyInstalls": [439, 478, 371, 408, 470, 445, 348, 399],
-        "firstSeen": "2026-07-13"
       }
     },
     {
@@ -2044,19 +1927,6 @@
       }
     },
     {
-      "name": "google-cloud-storage-basics",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/google-cloud-storage-basics",
-        "installs": 6200,
-        "weeklyInstalls": [441, 495, 373, 413, 473, 450, 314, 377],
-        "firstSeen": "2026-07-22"
-      }
-    },
-    {
       "name": "youtube-downloader",
       "repo": "composiohq/awesome-claude-skills",
       "official": true,
@@ -2236,19 +2106,6 @@
         "installs": 6200,
         "weeklyInstalls": [36, 40, 43, 18, 10, 14, 21, 14],
         "firstSeen": "2026-01-21"
-      }
-    },
-    {
-      "name": "cloud-monitoring-metric-selection",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/cloud-monitoring-metric-selection",
-        "installs": 6200,
-        "weeklyInstalls": [413, 458, 344, 381, 437, 407, 315, 375],
-        "firstSeen": "2026-07-16"
       }
     },
     {
@@ -2460,19 +2317,6 @@
       }
     },
     {
-      "name": "gke-cluster-autoscaler",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/gke-cluster-autoscaler",
-        "installs": 6100,
-        "weeklyInstalls": [405, 447, 318, 372, 402, 370, 291, 355],
-        "firstSeen": "2026-07-07"
-      }
-    },
-    {
       "name": "okx-cex-auth",
       "repo": "okx/agent-skills",
       "official": false,
@@ -2483,19 +2327,6 @@
         "installs": 6100,
         "weeklyInstalls": [131, 125, 128, 110, 116, 121, 114, 115],
         "firstSeen": "2026-04-17"
-      }
-    },
-    {
-      "name": "google-cloud-solution-agentic-ai-bidirectional-streaming",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/google-cloud-solution-agentic-ai-bidirectional-streaming",
-        "installs": 6100,
-        "weeklyInstalls": [398, 448, 318, 367, 402, 369, 291, 347],
-        "firstSeen": "2026-07-08"
       }
     },
     {
@@ -3123,32 +2954,6 @@
       }
     },
     {
-      "name": "gemini-live-api",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/gemini-live-api",
-        "installs": 5900,
-        "weeklyInstalls": [413, 464, 335, 385, 419, 390, 307, 374],
-        "firstSeen": "2026-07-20"
-      }
-    },
-    {
-      "name": "google-cloud-global-frontend-configuration",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/google-cloud-global-frontend-configuration",
-        "installs": 5900,
-        "weeklyInstalls": [404, 456, 323, 371, 403, 377, 296, 354],
-        "firstSeen": "2026-07-13"
-      }
-    },
-    {
       "name": "wordpress-router",
       "repo": "wordpress/agent-skills",
       "official": false,
@@ -3760,32 +3565,6 @@
       }
     },
     {
-      "name": "google-cloud-solution-agentic-ai-data-science-workflow",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/google-cloud-solution-agentic-ai-data-science-workflow",
-        "installs": 5800,
-        "weeklyInstalls": [398, 455, 316, 360, 418, 394, 297, 346],
-        "firstSeen": "2026-07-14"
-      }
-    },
-    {
-      "name": "gke-workload-scaling",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/gke-workload-scaling",
-        "installs": 5800,
-        "weeklyInstalls": [402, 444, 318, 364, 401, 370, 281, 352],
-        "firstSeen": "2026-07-17"
-      }
-    },
-    {
       "name": "langgraph-python-quickstart",
       "repo": "langchain-ai/langchain-skills",
       "official": false,
@@ -3874,19 +3653,6 @@
         "installs": 5800,
         "weeklyInstalls": [261, 224, 176, 149, 175, 177, 247, 192],
         "firstSeen": "2026-05-12"
-      }
-    },
-    {
-      "name": "google-cloud-solution-build-deploy-agents",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/google-cloud-solution-build-deploy-agents",
-        "installs": 5800,
-        "weeklyInstalls": [404, 460, 325, 371, 416, 379, 292, 362],
-        "firstSeen": "2026-07-21"
       }
     },
     {
@@ -4033,19 +3799,6 @@
       }
     },
     {
-      "name": "cloud-logging-configuration-basics",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/cloud-logging-configuration-basics",
-        "installs": 5700,
-        "weeklyInstalls": [420, 461, 355, 386, 441, 403, 318, 378],
-        "firstSeen": "2026-07-28"
-      }
-    },
-    {
       "name": "security-review",
       "repo": "github/awesome-copilot",
       "official": true,
@@ -4056,19 +3809,6 @@
         "installs": 5700,
         "weeklyInstalls": [70, 99, 83, 102, 96, 74, 95, 112],
         "firstSeen": "2026-03-30"
-      }
-    },
-    {
-      "name": "google-cloud-solution-agentic-ai-borderless-data-lakehouse",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/google-cloud-solution-agentic-ai-borderless-data-lakehouse",
-        "installs": 5700,
-        "weeklyInstalls": [398, 457, 313, 359, 404, 365, 287, 343],
-        "firstSeen": "2026-07-14"
       }
     },
     {
@@ -4124,19 +3864,6 @@
       }
     },
     {
-      "name": "gke-cost-optimization",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/gke-cost-optimization",
-        "installs": 5700,
-        "weeklyInstalls": [405, 448, 316, 370, 403, 370, 289, 355],
-        "firstSeen": "2026-07-22"
-      }
-    },
-    {
       "name": "gravitas",
       "repo": "udaysharmadev/gravitas",
       "official": false,
@@ -4160,19 +3887,6 @@
         "installs": 5700,
         "weeklyInstalls": [8, 8, 10, 17, 4, 4, 2, 8],
         "firstSeen": "2026-03-03"
-      }
-    },
-    {
-      "name": "gke-cost-analysis",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/gke-cost-analysis",
-        "installs": 5700,
-        "weeklyInstalls": [403, 447, 317, 368, 404, 367, 290, 353],
-        "firstSeen": "2026-07-22"
       }
     },
     {
@@ -4212,19 +3926,6 @@
         "installs": 5700,
         "weeklyInstalls": [83, 101, 98, 155, 131, 127, 129, 135],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "datalineage-summary",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/datalineage-summary",
-        "installs": 5700,
-        "weeklyInstalls": [401, 447, 315, 362, 413, 387, 303, 351],
-        "firstSeen": "2026-07-16"
       }
     },
     {
@@ -28380,6 +28081,98 @@
     },
     {
       "url": "https://skills.sh/google/skills/google-cloud-slo-alert-configuration",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/google-mobile-ads-android-migrate-to-next-gen",
+      "note": "Tool docs: an agent's manual for google-mobile-ads and android."
+    },
+    {
+      "url": "https://skills.sh/google/skills/datalineage-bigquery-asset-impact-analysis",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/google-mobile-ads-get-started",
+      "note": "Tool docs: an agent's manual for google-mobile-ads."
+    },
+    {
+      "url": "https://skills.sh/google/skills/google-mobile-ads-banner",
+      "note": "Tool docs: an agent's manual for google-mobile-ads."
+    },
+    {
+      "url": "https://skills.sh/google/skills/google-mobile-ads-rewarded",
+      "note": "Tool docs: an agent's manual for google-mobile-ads."
+    },
+    {
+      "url": "https://skills.sh/google/skills/google-mobile-ads-interstitial",
+      "note": "Tool docs: an agent's manual for google-mobile-ads."
+    },
+    {
+      "url": "https://skills.sh/google/skills/google-cloud-solution-architecture",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/google-ads-api-account-diagnostics",
+      "note": "Tool docs: an agent's manual for google-ads."
+    },
+    {
+      "url": "https://skills.sh/google/skills/cloud-logging-query-generation",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/google-cloud-storage-basics",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/cloud-monitoring-metric-selection",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/gke-cluster-autoscaler",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/google-cloud-solution-agentic-ai-bidirectional-streaming",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/gemini-live-api",
+      "note": "Tool docs: an agent's manual for gemini and google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/google-cloud-global-frontend-configuration",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/google-cloud-solution-agentic-ai-data-science-workflow",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/gke-workload-scaling",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/google-cloud-solution-build-deploy-agents",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/cloud-logging-configuration-basics",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/google-cloud-solution-agentic-ai-borderless-data-lakehouse",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/gke-cost-optimization",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/gke-cost-analysis",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/datalineage-summary",
       "note": "Tool docs: an agent's manual for google-cloud."
     }
   ]
