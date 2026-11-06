@@ -62544,6 +62544,1609 @@
         ],
         "note": "Its workers push branches, open pull requests and reply to review comments on GitHub; --yes or --cron skip asking which issues to take, and --watch keeps polling until you say stop. It keeps claim files in ~/.openclaw and notifies through OpenClaw when you name a channel."
       }
+    },
+    {
+      "id": "wondelai/skills/clean-code",
+      "name": "clean-code",
+      "skills.sh": {
+        "url": "https://skills.sh/wondelai/skills/clean-code",
+        "installs": 6900,
+        "weeklyInstalls": [197, 179, 190, 180, 200, 321, 262, 180],
+        "firstSeen": "2026-02-23"
+      },
+      "skillMd": {
+        "version": "d8d5d75f83da9f16d8aad5bab5f5b341a4770a30",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Makes code readable with Robert C. Martin's Clean Code rules for naming, small functions, comments, error handling and unit tests.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a function is too long, names are unclear, or you're reviewing a pull request for readability"
+            },
+            {
+              "label": "It does",
+              "text": "applies six disciplines from Clean Code: names that reveal intent, small functions, comments only for why plus consistent formatting, exceptions instead of error codes, clean tests and code smells"
+            },
+            {
+              "label": "You get",
+              "text": "code advice and a score out of 10, with the changes needed to reach 10"
+            },
+            {
+              "label": "Unlike refactoring-patterns",
+              "text": "the same repo's catalog of named transformations, it sets the standard the code should meet"
+            }
+          ],
+          "text": "Based on Robert C. Martin's Clean Code. Its premise is that code is read far more often than it is written, so every choice should serve the reader, and the Boy Scout Rule applies: leave code cleaner than you found it. Names reveal intent, with no prefixes or encodings and one word per concept. Functions are small, do one thing at one level of abstraction, take no more than two arguments without good reason, avoid flag arguments, and either change state or return a value, never both. Comments explain why, never what, and commented-out code is deleted. Formatting is agreed once and automated, with high-level functions at the top of a file. Errors use exceptions that carry context rather than return codes, and nothing returns or passes null: empty collections, Optional or a Null Object take its place. Tests are kept as clean as production code, one concept per test, following F.I.R.S.T. (fast, independent, repeatable, self-validating, timely). A catalog of smells, such as feature envy and magic numbers, points to targeted fixes. Ten diagnostic questions, such as whether every function is under 20 lines, guide a review. Reference files cover naming, functions, comments, error handling, testing and smells.",
+          "permalink": "https://github.com/wondelai/skills/tree/d8d5d75f83da9f16d8aad5bab5f5b341a4770a30/clean-code"
+        },
+        "tags": [
+          "category:engineering",
+          "category:debugging",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "code-quality",
+          "refactoring",
+          "testing",
+          "code-review"
+        ]
+      }
+    },
+    {
+      "id": "wondelai/skills/refactoring-patterns",
+      "name": "refactoring-patterns",
+      "skills.sh": {
+        "url": "https://skills.sh/wondelai/skills/refactoring-patterns",
+        "installs": 6600,
+        "weeklyInstalls": [190, 173, 175, 154, 163, 287, 232, 162],
+        "firstSeen": "2026-02-23"
+      },
+      "skillMd": {
+        "version": "d8d5d75f83da9f16d8aad5bab5f5b341a4770a30",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Restructures code without changing its behavior using Martin Fowler's named refactorings, matching each code smell to its fix in small tested steps.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "code smells, a method is too long, conditionals are tangled, or you need to clean up before adding a feature"
+            },
+            {
+              "label": "It does",
+              "text": "names the smell, picks the refactoring Fowler's catalog prescribes for it, and applies it in small steps, running tests before and after each and committing when they pass"
+            },
+            {
+              "label": "You get",
+              "text": "a score out of 10 from eight checks, the smells pulling it down and the refactorings that fix them"
+            },
+            {
+              "label": "Unlike clean-code",
+              "text": "the same repo's skill for what good code looks like, it is the catalog of moves that get you there"
+            }
+          ],
+          "text": "Based on Martin Fowler's Refactoring. Refactoring here means small changes that keep behavior the same, each backed by tests, never a big-bang rewrite. Code smells are the triggers, in five families: bloaters such as long methods, object-orientation abusers such as switch statements, change preventers such as shotgun surgery, dispensables such as duplicate code, and couplers such as feature envy. Each maps to named refactorings: Extract Method, which it calls the most important, Inline Method, Replace Temp with Query, Move Method, Extract Class, Hide Delegate, Replace Magic Number, Replace Data Value with Object, Decompose Conditional, guard clauses, Replace Conditional with Polymorphism and Special Case. The loop is fixed: tests green, one transformation, tests green, commit; if tests go red, revert instead of debugging. It refactors on the third copy of duplicated logic, cleans the spot where a feature will go before adding it, never refactors and adds features at once, and leaves alone code that will soon be deleted. Large changes in production use Branch by Abstraction and Parallel Change. Reference files give step-by-step mechanics with before-and-after code.",
+          "permalink": "https://github.com/wondelai/skills/tree/d8d5d75f83da9f16d8aad5bab5f5b341a4770a30/refactoring-patterns"
+        },
+        "tags": [
+          "category:engineering",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "refactoring",
+          "code-quality"
+        ]
+      }
+    },
+    {
+      "id": "wondelai/skills/hooked-ux",
+      "name": "hooked-ux",
+      "skills.sh": {
+        "url": "https://skills.sh/wondelai/skills/hooked-ux",
+        "installs": 6500,
+        "weeklyInstalls": [170, 161, 167, 144, 157, 301, 246, 166],
+        "firstSeen": "2026-01-30"
+      },
+      "skillMd": {
+        "version": "d8d5d75f83da9f16d8aad5bab5f5b341a4770a30",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Designs habit-forming product loops with Nir Eyal's Hook Model of trigger, action, variable reward and investment, checked against an ethics test.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "users sign up but don't come back, or you're designing notifications, streaks or engagement loops"
+            },
+            {
+              "label": "It does",
+              "text": "finds the feeling that should bring users back, then checks each phase of the loop: trigger, action, reward and investment"
+            },
+            {
+              "label": "You get",
+              "text": "a score out of 10 from four checks, capped at 3 when the product fails its ethics test"
+            },
+            {
+              "label": "Unlike improve-retention",
+              "text": "the same repo's skill for making the key action easier, it designs the whole habit loop, from trigger to variable reward and investment"
+            },
+            {
+              "label": "Also has",
+              "text": "an onboarding checklist for the first pass through the loop"
+            }
+          ],
+          "text": "Based on Nir Eyal's Hooked. A habit forms through repeated passes through four phases. A trigger starts it: external, such as a notification, or internal, such as boredom, loneliness or FOMO. The action is the simplest thing done in anticipation of a reward, made easier by cutting time, money, effort and choices. The reward varies so it stays unpredictable, and comes from other people, from finding things or from personal mastery. Then the user invests something, such as data, content or reputation, that improves the next use and loads the next trigger; it asks for that only after the reward. The aim is to move users from external to internal triggers within about 30 days. A grid weighs how often a product is used against how much each use is worth, and a habit counts as formed once 5% of users come back unprompted. Eyal's Manipulation Matrix sorts products by whether they improve users' lives and whether the maker uses them. A product that does neither, or one that targets vulnerable users such as children, scores 3 at most. Each phase comes with copy patterns and an ethical limit.",
+          "permalink": "https://github.com/wondelai/skills/tree/d8d5d75f83da9f16d8aad5bab5f5b341a4770a30/hooked-ux"
+        },
+        "tags": [
+          "category:design",
+          "category:marketing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "design",
+          "marketing"
+        ]
+      }
+    },
+    {
+      "id": "wondelai/skills/system-design",
+      "name": "system-design",
+      "skills.sh": {
+        "url": "https://skills.sh/wondelai/skills/system-design",
+        "installs": 6500,
+        "weeklyInstalls": [190, 191, 186, 164, 171, 301, 234, 183],
+        "firstSeen": "2026-02-23"
+      },
+      "skillMd": {
+        "version": "d8d5d75f83da9f16d8aad5bab5f5b341a4770a30",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Designs scalable distributed systems with Alex Xu's four-step method: requirements first, back-of-the-envelope estimates, standard building blocks and stated tradeoffs.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're designing a service for scale, estimating capacity, or preparing for a system design interview"
+            },
+            {
+              "label": "It does",
+              "text": "scopes requirements, estimates traffic and storage, chooses load balancers, caches, queues and database scaling, then goes deep on the riskiest parts"
+            },
+            {
+              "label": "You get",
+              "text": "a design checked against eight questions, with a score out of 10 and a fix for each failure"
+            },
+            {
+              "label": "Unlike clean-architecture",
+              "text": "the same repo's skill for layers inside one codebase, it designs the servers, caches, queues and databases around the code"
+            }
+          ],
+          "text": "Based on Alex Xu's System Design Interview. Its rule is requirements before solutions, in four steps: agree on scope and scale (daily users, queries per second, storage), sketch a high-level design with APIs and data flow, go deep on the two or three hardest components, then name the tradeoffs and bottlenecks. Estimates use powers of two, standard latency numbers and simple formulas, such as daily users times actions divided by 86,400 seconds, rounded to an order of magnitude. Its building blocks are DNS, CDNs, layer 4 and layer 7 load balancers, cache layers and strategies, message queues and consistent hashing, each added only once its bottleneck appears. Databases scale up first, then add read replicas, then shard by hash, range or directory. It carries a library of known designs: URL shortener, rate limiter, news feed, chat, autocomplete, web crawler and unique ID generator. Operations count as design too: health checks, metrics, logs and traces, rolling, blue-green and canary deploys, recovery targets and autoscaling. Eight diagnostic questions, such as whether every component is redundant, set the score.",
+          "permalink": "https://github.com/wondelai/skills/tree/d8d5d75f83da9f16d8aad5bab5f5b341a4770a30/system-design"
+        },
+        "tags": [
+          "category:engineering",
+          "category:planning",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "architecture",
+          "backend",
+          "infrastructure",
+          "databases"
+        ]
+      }
+    },
+    {
+      "id": "wondelai/skills/storybrand-messaging",
+      "name": "storybrand-messaging",
+      "skills.sh": {
+        "url": "https://skills.sh/wondelai/skills/storybrand-messaging",
+        "installs": 6400,
+        "weeklyInstalls": [189, 163, 171, 145, 172, 301, 249, 188],
+        "firstSeen": "2026-01-30"
+      },
+      "skillMd": {
+        "version": "d8d5d75f83da9f16d8aad5bab5f5b341a4770a30",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Rewrites brand messaging and website copy with Donald Miller's StoryBrand framework, casting the customer as the hero and your brand as the guide.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "your homepage, pitch or emails aren't landing, or you need a one-liner that says what you do"
+            },
+            {
+              "label": "It does",
+              "text": "builds the message on Miller's seven-part story: a hero who wants one thing, a problem, a guide, a plan, a call to action, failure to avoid and success"
+            },
+            {
+              "label": "You get",
+              "text": "copy built from those parts and a score out of 10 from seven checks plus a one-liner test"
+            },
+            {
+              "label": "Unlike made-to-stick",
+              "text": "the same repo's skill for making any idea memorable, it gives brand copy one story structure"
+            }
+          ],
+          "text": "Based on Donald Miller's Building a StoryBrand. Its premise is that customers buy what they understand fastest, and a brand that casts itself as the hero competes with its own customer. Its seven parts, called SB7: the customer as hero with one specific want; a problem named on three levels, external, internal (how it feels) and philosophical (why it's wrong), with a concrete villain; the brand as guide, showing empathy and authority such as testimonials and logos; a plan of three or four steps plus promises that remove risk; one direct call to action, such as Buy Now, repeated down the page, with a lower-commitment one such as a free guide; a glimpse of what failure costs; and a vivid picture of success. Each part comes with copy patterns and examples for homepages, emails, ads and sales calls. The one-liner, \"We help [character] who struggle with [problem] to [solution] so they can [result]\", must pass the cocktail party test: someone can repeat it after hearing it once. Reference files hold a BrandScript worksheet, website wireframes, email sequences and sales scripts.",
+          "permalink": "https://github.com/wondelai/skills/tree/d8d5d75f83da9f16d8aad5bab5f5b341a4770a30/storybrand-messaging"
+        },
+        "tags": [
+          "category:marketing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "copywriting",
+          "marketing"
+        ]
+      }
+    },
+    {
+      "id": "wondelai/skills/software-design-philosophy",
+      "name": "software-design-philosophy",
+      "skills.sh": {
+        "url": "https://skills.sh/wondelai/skills/software-design-philosophy",
+        "installs": 6400,
+        "weeklyInstalls": [181, 157, 168, 143, 155, 295, 221, 170],
+        "firstSeen": "2026-02-23"
+      },
+      "skillMd": {
+        "version": "d8d5d75f83da9f16d8aad5bab5f5b341a4770a30",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Reduces software complexity with John Ousterhout's A Philosophy of Software Design: deep modules, information hiding and comments that record design intent.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "an API feels too complex, classes only pass calls along, or one change forces edits in many places"
+            },
+            {
+              "label": "It does",
+              "text": "judges each module by how much it hides behind how simple its interface is, and hunts for design decisions leaking between modules"
+            },
+            {
+              "label": "You get",
+              "text": "design advice and a score out of 10 from eight checks, with the change each failed check needs"
+            },
+            {
+              "label": "Unlike clean-code",
+              "text": "the same repo's skill that favors very short functions, it says depth matters more than size"
+            }
+          ],
+          "text": "Based on John Ousterhout's A Philosophy of Software Design. It treats complexity as the enemy: it shows up as change amplification (one change, many edits), cognitive load and unknown unknowns, and comes from dependencies and obscurity. A deep module hides a lot of functionality behind a simple interface, like Unix file I/O; a shallow one adds an interface without hiding much, and many small shallow classes, which it calls classitis, add load instead of removing it. Information leakage, one design decision reflected in several modules, is a key red flag, often caused by splitting code by when things happen instead of by what each part knows. Interfaces should be somewhat general-purpose: the simplest one that covers all current needs, with complexity pushed down into lower modules and few configuration parameters. Comments record what code can't, such as intent, invariants and why one approach was chosen, and can be written before the code. Strategic programming spends 10–20% extra on design with every change, unlike the tactical tornado who ships fast and leaves wreckage. Eight diagnostic questions set the score.",
+          "permalink": "https://github.com/wondelai/skills/tree/d8d5d75f83da9f16d8aad5bab5f5b341a4770a30/software-design-philosophy"
+        },
+        "tags": [
+          "category:engineering",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "architecture",
+          "code-quality"
+        ]
+      }
+    },
+    {
+      "id": "wondelai/skills/cro-methodology",
+      "name": "cro-methodology",
+      "skills.sh": {
+        "url": "https://skills.sh/wondelai/skills/cro-methodology",
+        "installs": 6400,
+        "weeklyInstalls": [179, 146, 163, 134, 151, 268, 221, 153],
+        "firstSeen": "2026-01-29"
+      },
+      "skillMd": {
+        "version": "d8d5d75f83da9f16d8aad5bab5f5b341a4770a30",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Audits landing pages and funnels for why visitors don't convert, and plans research-backed A/B tests, following the method of Making Websites Win.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a landing page, signup or checkout isn't converting, or you're deciding what to A/B test"
+            },
+            {
+              "label": "It does",
+              "text": "grounds every change in research into why visitors leave, answers each objection with proof placed where it arises, and ranks test ideas by impact, confidence and ease"
+            },
+            {
+              "label": "You get",
+              "text": "a score out of 10 from seven checks, naming the ones that fail"
+            },
+            {
+              "label": "Insists on",
+              "text": "bold tests over button-color tweaks, a sample size set in advance, and no peeking or stopping early"
+            }
+          ],
+          "text": "Based on Making Websites Win by Karl Blanks and Ben Jesson of Conversion Rate Experts. Its rule is to discover, not guess, why visitors don't convert. A nine-step process runs from success metrics and a funnel map, which looks for busy but underperforming paths and missing stages, through visitor research, to experiments and scaling what wins. Exit surveys, chat logs, support tickets, sales calls and reviews reveal objections, usually about trust, price, fit, timing or effort. The core tool is the objection/counter-objection table: each objection gets evidence placed where the visitor feels it, such as a guarantee next to the payment form, and objections visitors won't admit are answered without being stated. It inventories persuasion assets such as testimonials, awards and guarantees, and has you acquire missing ones. Each test gets a written hypothesis and an ICE score (impact, confidence, ease), and changes that couldn't multiply results tenfold are deprioritized. Tests need a sample size set in advance, at least one full business cycle and honest reporting of whatever they return. Fake testimonials and inflated statistics are ruled out.",
+          "permalink": "https://github.com/wondelai/skills/tree/d8d5d75f83da9f16d8aad5bab5f5b341a4770a30/cro-methodology"
+        },
+        "tags": [
+          "category:marketing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "conversion",
+          "research",
+          "marketing"
+        ]
+      }
+    },
+    {
+      "id": "wondelai/skills/negotiation",
+      "name": "negotiation",
+      "skills.sh": {
+        "url": "https://skills.sh/wondelai/skills/negotiation",
+        "installs": 6100,
+        "weeklyInstalls": [188, 158, 161, 139, 140, 263, 206, 139],
+        "firstSeen": "2026-02-05"
+      },
+      "skillMd": {
+        "version": "d8d5d75f83da9f16d8aad5bab5f5b341a4770a30",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Prepares negotiations with Chris Voss's Never Split the Difference: tactical empathy, mirroring, labeling emotions, calibrated questions and Ackerman bargaining.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're negotiating a salary, contract or price, or facing a hard conversation where the other side won't budge"
+            },
+            {
+              "label": "It does",
+              "text": "prepares an accusation audit, calibrated \"how\" and \"what\" questions and your walk-away point, aiming to get the other side to say \"that's right\""
+            },
+            {
+              "label": "You get",
+              "text": "a score out of 10 for preparation and execution, with the gaps to close"
+            },
+            {
+              "label": "Unlike influence-psychology",
+              "text": "the same repo's skill for persuasion in products and copy, it is for negotiating with a counterpart, in person, by phone or in writing"
+            }
+          ],
+          "text": "Based on former FBI hostage negotiator Chris Voss's Never Split the Difference. Its premise is that people want to feel understood and safe, so empathy and listening move a deal more than argument or compromise, and no deal beats a bad deal. Its techniques: tactical empathy, voicing the other side's situation; mirroring, repeating their last few words as a question, then waiting; labeling emotions with \"It seems like...\"; calibrated questions that start with how or what, never why, such as \"How am I supposed to do that?\"; an accusation audit that names every negative thing they might think before they say it; and summarizing their view until they answer \"That's right\" rather than \"You're right\". Ackerman bargaining sets a target, opens at 65% of it and moves to 85%, 95% and 100%, ending on a precise number with a non-monetary extra. It hunts for Black Swans, hidden facts that change the deal, and adapts to analyst, accommodator and assertive counterparts. A reference file holds all 21 techniques. Six preparation checks and four execution points set the score.",
+          "permalink": "https://github.com/wondelai/skills/tree/d8d5d75f83da9f16d8aad5bab5f5b341a4770a30/negotiation"
+        },
+        "tags": [
+          "category:personal",
+          "category:marketing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "personal",
+          "marketing"
+        ]
+      }
+    },
+    {
+      "id": "wondelai/skills/lean-startup",
+      "name": "lean-startup",
+      "skills.sh": {
+        "url": "https://skills.sh/wondelai/skills/lean-startup",
+        "installs": 6000,
+        "weeklyInstalls": [182, 150, 160, 151, 162, 265, 223, 141],
+        "firstSeen": "2026-02-10"
+      },
+      "skillMd": {
+        "version": "d8d5d75f83da9f16d8aad5bab5f5b341a4770a30",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Plans MVPs, experiments and pivot-or-persevere calls with Eric Ries's Lean Startup, testing the riskiest assumption first and measuring with actionable metrics.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "deciding what goes into a first version, testing a business idea cheaply, or weighing whether to pivot"
+            },
+            {
+              "label": "It does",
+              "text": "ranks the assumptions that would sink the business, picks the smallest MVP that tests the riskiest, and swaps vanity metrics for conversion rates and cohorts"
+            },
+            {
+              "label": "You get",
+              "text": "a score out of 10 from five checks, with double credit when sign-ups, deposits or use back it, and the weakest check to fix next"
+            },
+            {
+              "label": "Unlike mom-test",
+              "text": "the same repo's skill for customer conversations, it tests ideas by what customers actually do"
+            }
+          ],
+          "text": "Based on Eric Ries's The Lean Startup. It treats a plan as hypotheses to disprove and plans the Build-Measure-Learn loop backward: what to learn, how you'll know, then the least you can build to find out. A validation ladder ranks evidence from opinion through stated wants, sign-ups and deposits to active use, aiming for deposits or use before building at scale. MVP types include concierge (a manual service), Wizard of Oz (manual work behind a product that looks automated), smoke test (a landing page with no product), single feature and piecemeal (existing tools stitched together). Leap-of-faith assumptions about value, growth, retention and payment are tested riskiest first. Innovation accounting sets a baseline, tunes it with experiments, then decides whether to pivot or persevere, with ten kinds of pivot such as zoom-in and customer segment. It replaces vanity metrics like total sign-ups with conversion rates and cohorts, picks one of three engines of growth (sticky, viral or paid), and uses the Five Whys for root causes and small batches for faster feedback.",
+          "permalink": "https://github.com/wondelai/skills/tree/d8d5d75f83da9f16d8aad5bab5f5b341a4770a30/lean-startup"
+        },
+        "tags": [
+          "category:marketing",
+          "category:planning",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "research",
+          "prototyping",
+          "marketing"
+        ]
+      }
+    },
+    {
+      "id": "wondelai/skills/influence-psychology",
+      "name": "influence-psychology",
+      "skills.sh": {
+        "url": "https://skills.sh/wondelai/skills/influence-psychology",
+        "installs": 6000,
+        "weeklyInstalls": [171, 146, 163, 142, 152, 278, 225, 146],
+        "firstSeen": "2026-02-10"
+      },
+      "skillMd": {
+        "version": "d8d5d75f83da9f16d8aad5bab5f5b341a4770a30",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Makes product flows, copy and sales more persuasive with Robert Cialdini's seven principles of influence, within explicit ethical limits.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "copy isn't persuasive, trust signals are weak, or you're designing testimonials, onboarding or urgency messages"
+            },
+            {
+              "label": "It does",
+              "text": "picks and layers Cialdini's principles: reciprocity, commitment, social proof, authority, liking, scarcity and unity"
+            },
+            {
+              "label": "You get",
+              "text": "copy patterns and a score out of 10, capped at 3 for any fake proof, fake scarcity or hidden cost"
+            },
+            {
+              "label": "Its ethics test",
+              "text": "would the tactic still work if the user knew the strategy?"
+            },
+            {
+              "label": "Unlike negotiation",
+              "text": "the same repo's skill for live deal-making, it applies persuasion to products and copy"
+            }
+          ],
+          "text": "Based on Robert Cialdini's Influence. Its premise is that people decide through mental shortcuts, and each of seven principles names one: reciprocity (give first, then ask), commitment and consistency (small yeses lead to bigger ones), social proof (specific numbers from similar people), authority (credentials, and admitting a weakness first), liking (similarity, compliments, cooperation), scarcity (real limits on time or quantity) and unity (a shared identity, such as \"for remote-first teams\"). Each principle comes with product examples and copy patterns, and four carry an ethical limit, such as never inventing scarcity or using countdown timers that reset. The strongest persuasion layers several principles, shown for a SaaS landing page and a referral program. A seven-question diagnostic asks which principles are used and whether they are combined, whether claims are true, whether the tactic helps the user, whether it survives the user knowing the strategy, whether decisions can be reversed and whether it is safe for vulnerable users. Reference files cover each principle, copywriting, case studies, and an ethics guide on regulation and vulnerable users.",
+          "permalink": "https://github.com/wondelai/skills/tree/d8d5d75f83da9f16d8aad5bab5f5b341a4770a30/influence-psychology"
+        },
+        "tags": [
+          "category:marketing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "conversion",
+          "copywriting",
+          "marketing"
+        ]
+      }
+    },
+    {
+      "id": "wondelai/skills/hundred-million-offers",
+      "name": "hundred-million-offers",
+      "skills.sh": {
+        "url": "https://skills.sh/wondelai/skills/hundred-million-offers",
+        "installs": 6000,
+        "weeklyInstalls": [178, 155, 160, 152, 171, 293, 236, 151],
+        "firstSeen": "2026-02-10"
+      },
+      "skillMd": {
+        "version": "d8d5d75f83da9f16d8aad5bab5f5b341a4770a30",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds offers people find hard to refuse with Alex Hormozi's $100M Offers: the Value Equation, bonuses, guarantees, real scarcity and a memorable name.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "prospects say it's too expensive, or you're packaging a product, adding bonuses or designing a guarantee"
+            },
+            {
+              "label": "It does",
+              "text": "raises the dream outcome and the buyer's confidence while cutting time and effort, then adds bonuses, a guarantee and real urgency"
+            },
+            {
+              "label": "You get",
+              "text": "an offer built in ten steps, from picking a market to naming it, and a score out of 10 from seven checks"
+            },
+            {
+              "label": "Unlike obviously-awesome",
+              "text": "the same repo's skill for which category you compete in, it designs what you sell and at what price"
+            }
+          ],
+          "text": "Based on Alex Hormozi's $100M Offers. Its premise is that the offer matters more than the marketing: a Grand Slam Offer packs so much value into one bundle that it can't be compared on price. The Value Equation scores value as the dream outcome times the perceived likelihood of reaching it, divided by the time it takes times the effort and sacrifice. It starts from a starving crowd, a market with great pain, money to spend, easy reach and growth. It lists every obstacle between the customer and the outcome and turns each into something delivered, then trims costly low-value items and stacks cheap high-value ones until the bundle is worth ten times its price. Price follows value, not cost. Each bonus answers one objection and carries a dollar value, guarantees range from unconditional to performance-based, and the MAGIC formula names the offer by a reason, the audience, the goal, a time frame and a format word such as blueprint. Most sections set an ethical limit: dollar values must be what a part would really sell for, scarcity must be true, and guarantees must be easy to claim. Reference files hold a worksheet and six before-and-after redesigns.",
+          "permalink": "https://github.com/wondelai/skills/tree/d8d5d75f83da9f16d8aad5bab5f5b341a4770a30/hundred-million-offers"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "marketing",
+          "conversion",
+          "copywriting"
+        ]
+      }
+    },
+    {
+      "id": "wondelai/skills/pragmatic-programmer",
+      "name": "pragmatic-programmer",
+      "skills.sh": {
+        "url": "https://skills.sh/wondelai/skills/pragmatic-programmer",
+        "installs": 6000,
+        "weeklyInstalls": [183, 155, 152, 141, 152, 266, 208, 137],
+        "firstSeen": "2026-02-23"
+      },
+      "skillMd": {
+        "version": "d8d5d75f83da9f16d8aad5bab5f5b341a4770a30",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Applies Hunt and Thomas's The Pragmatic Programmer: no duplicated knowledge, independent components, tracer bullets, design by contract, reversible decisions and ranged estimates.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "code is rotting, you're estimating work, starting a project with vague requirements, or deciding build-vs-buy and how to keep a vendor choice reversible"
+            },
+            {
+              "label": "It does",
+              "text": "checks a codebase and team habits against seven principles, from no duplicated knowledge to learning something every week"
+            },
+            {
+              "label": "You get",
+              "text": "a score out of 10 from seven checks, naming each failure and its fix"
+            },
+            {
+              "label": "Unlike clean-code",
+              "text": "the same repo's skill for code-level quality, it works at the level of systems and habits"
+            }
+          ],
+          "text": "Based on Andrew Hunt and David Thomas's The Pragmatic Programmer, 20th anniversary edition. DRY (don't repeat yourself) is about knowledge, not text: each business rule or setting lives in one place, while two identical blocks serving different rules aren't duplication. Orthogonal components change without affecting each other, helped by layers, dependency injection and no global state. Tracer bullets are thin end-to-end slices of real code you keep, unlike prototypes, which explore one risk and are thrown away. Design by contract states what must be true before a routine runs, after it and always, and a broken contract crashes the program at once. Broken windows, hacks left unrepaired, invite more; one that can't be fixed now gets boarded up with a tracked ticket. Decisions stay reversible by hiding vendors and databases behind your own interfaces. Estimates come as ranges, using PERT (optimistic plus four times most likely plus pessimistic, divided by six) and a log of estimates against actuals. A knowledge portfolio means learning regularly, including beyond your stack.",
+          "permalink": "https://github.com/wondelai/skills/tree/d8d5d75f83da9f16d8aad5bab5f5b341a4770a30/pragmatic-programmer"
+        },
+        "tags": [
+          "category:engineering",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "code-quality",
+          "architecture",
+          "prototyping"
+        ]
+      }
+    },
+    {
+      "id": "wondelai/skills/obviously-awesome",
+      "name": "obviously-awesome",
+      "skills.sh": {
+        "url": "https://skills.sh/wondelai/skills/obviously-awesome",
+        "installs": 5900,
+        "weeklyInstalls": [190, 165, 163, 162, 174, 291, 224, 143],
+        "firstSeen": "2026-02-10"
+      },
+      "skillMd": {
+        "version": "d8d5d75f83da9f16d8aad5bab5f5b341a4770a30",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Positions a product with April Dunford's Obviously Awesome, from what customers would use instead to the market category that makes its value obvious.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "prospects don't get what you do, you're launching into a crowded market, or your team describes the product differently"
+            },
+            {
+              "label": "It does",
+              "text": "works through five steps: what customers would use instead, what only you have, the value it enables, who cares most, and the category to compete in"
+            },
+            {
+              "label": "You get",
+              "text": "a filled positioning canvas, from competitive alternatives to messaging, and a score out of 10"
+            },
+            {
+              "label": "Unlike storybrand-messaging",
+              "text": "the same repo's skill for the words, it sets the context the words are judged in"
+            }
+          ],
+          "text": "Based on April Dunford's Obviously Awesome. Its premise is that positioning is context, not messaging: it sets what customers compare you to and how they judge your value. Five steps build it. Competitive alternatives come from interviewing 15 to 20 happy customers about what they'd use if you vanished, often a spreadsheet, a manual process or doing nothing. Unique attributes must pass an \"only we\" test. Each goes through repeated \"so what?\" questions until it reaches value a customer cares about, grouped into two or three themes. Best-fit customers are defined by traits you can spot before talking to them, such as job title or company size, plus signs that someone isn't a fit. The market category can be an existing one, a subcategory or a new one, which means paying to teach the market what it is. Trends can support the positioning but shouldn't carry it. A ten-part canvas holds the result, and a team workshop runs the five steps so everyone describes the product the same way.",
+          "permalink": "https://github.com/wondelai/skills/tree/d8d5d75f83da9f16d8aad5bab5f5b341a4770a30/obviously-awesome"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "marketing",
+          "research"
+        ]
+      }
+    },
+    {
+      "id": "wondelai/skills/mom-test",
+      "name": "mom-test",
+      "skills.sh": {
+        "url": "https://skills.sh/wondelai/skills/mom-test",
+        "installs": 5900,
+        "weeklyInstalls": [184, 156, 162, 157, 168, 320, 257, 196],
+        "firstSeen": "2026-02-23"
+      },
+      "skillMd": {
+        "version": "d8d5d75f83da9f16d8aad5bab5f5b341a4770a30",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Plans and reviews customer interviews with Rob Fitzpatrick's Mom Test, asking about people's past behavior instead of their opinion of your idea.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're validating an idea, writing an interview script, or people say they want your product but don't buy it"
+            },
+            {
+              "label": "It does",
+              "text": "steers questions toward specific past behavior, treats compliments and hypotheticals as bad data, and plans the commitment to ask for"
+            },
+            {
+              "label": "You get",
+              "text": "a score out of 7 for a conversation or interview plan, with a fix for each failed check"
+            },
+            {
+              "label": "Unlike jobs-to-be-done",
+              "text": "the same repo's wider theory of why customers buy, it is about running the conversation itself"
+            }
+          ],
+          "text": "Based on Rob Fitzpatrick's The Mom Test. Its premise is that people, even your mom, will be polite rather than truthful if you ask about your idea, so three rules apply: talk about their life, not your idea; ask about specifics in the past, not hypotheticals about the future; and talk less, letting them speak 80% of the time. Questions like \"Would you buy this?\" give way to \"Tell me about the last time you...\" or \"What are you currently paying to solve this?\". Compliments, fluff such as \"I usually\", and feature requests count as bad data to deflect or dig into. Every conversation should end in a commitment of time, reputation or money, such as an intro, a pilot or a pre-order, rather than a polite lead that goes nowhere. It prefers casual settings to formal interviews, rules out disguising a sales call as research, and has the team process notes together: separating facts from interpretations and updating beliefs about the problem, the customer segment and the solution after each batch.",
+          "permalink": "https://github.com/wondelai/skills/tree/d8d5d75f83da9f16d8aad5bab5f5b341a4770a30/mom-test"
+        },
+        "tags": [
+          "category:marketing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "research",
+          "requirements",
+          "marketing"
+        ]
+      }
+    },
+    {
+      "id": "wondelai/skills/design-everyday-things",
+      "name": "design-everyday-things",
+      "skills.sh": {
+        "url": "https://skills.sh/wondelai/skills/design-everyday-things",
+        "installs": 5900,
+        "weeklyInstalls": [180, 163, 162, 145, 158, 283, 236, 158],
+        "firstSeen": "2026-02-10"
+      },
+      "skillMd": {
+        "version": "d8d5d75f83da9f16d8aad5bab5f5b341a4770a30",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Finds why a product confuses people with Don Norman's The Design of Everyday Things: affordances, signifiers, mappings, constraints, feedback and mental models.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "users keep making mistakes, can't find a feature, or say the product is unintuitive"
+            },
+            {
+              "label": "It does",
+              "text": "checks whether users can see what to do, tell what happened and recover from errors, walking an interaction through Norman's seven stages of action"
+            },
+            {
+              "label": "You get",
+              "text": "design fixes and a score out of 10 from five checks"
+            },
+            {
+              "label": "Unlike ux-heuristics",
+              "text": "the same repo's usability audit against Nielsen's heuristics, it teaches the underlying principles, for physical products as well as software"
+            }
+          ],
+          "text": "Based on Don Norman's The Design of Everyday Things. Its premise is that when people struggle, the design is at fault, not the user. Every interaction crosses two gulfs: execution (how do I do what I want?) and evaluation (what happened?). Seven principles narrow them: discoverability; affordances, what an object can be used for, which only help when people perceive them; signifiers that show where to act; natural mappings between controls and their effects; constraints that make wrong actions impossible; feedback within 0.1 seconds; and conceptual models, so the user's idea of how it works matches the designer's. It splits errors into slips, the right goal with the wrong action, and mistakes, the wrong goal, each with design fixes, plus a checklist for error messages that say what went wrong and how to fix it without blaming the user. Norman's seven stages of action, from forming a goal to comparing the result, locate where users get stuck. A human-centered loop of observing, generating ideas, prototyping and testing with about five real users closes it.",
+          "permalink": "https://github.com/wondelai/skills/tree/d8d5d75f83da9f16d8aad5bab5f5b341a4770a30/design-everyday-things"
+        },
+        "tags": [
+          "category:design",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "design"
+        ]
+      }
+    },
+    {
+      "id": "wondelai/skills/made-to-stick",
+      "name": "made-to-stick",
+      "skills.sh": {
+        "url": "https://skills.sh/wondelai/skills/made-to-stick",
+        "installs": 5900,
+        "weeklyInstalls": [166, 148, 163, 143, 165, 303, 261, 182],
+        "firstSeen": "2026-02-10"
+      },
+      "skillMd": {
+        "version": "d8d5d75f83da9f16d8aad5bab5f5b341a4770a30",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Makes pitches, taglines and messages memorable with Chip and Dan Heath's SUCCESs traits: simple, unexpected, concrete, credible, emotional, stories.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "nobody remembers your pitch, a tagline or value proposition falls flat, or a product explanation is too complex"
+            },
+            {
+              "label": "It does",
+              "text": "rates a message on six traits, simple, unexpected, concrete, credible, emotional and told as a story, then fixes the weakest first"
+            },
+            {
+              "label": "You get",
+              "text": "a score out of 10 and fixes for the lowest-rated traits, with examples for landing pages, demos and onboarding"
+            },
+            {
+              "label": "Unlike storybrand-messaging",
+              "text": "the same repo's one story structure for brand copy, it works on any message, from pitches to presentations"
+            }
+          ],
+          "text": "Based on Chip and Dan Heath's Made to Stick. Its premise is that the curse of knowledge, being unable to imagine not knowing what you know, is the biggest barrier to being understood. Six traits make ideas stick, though not every message needs all of them. Simple means finding the one core idea, the commander's intent, and leading with it. Unexpected means breaking a pattern and opening a curiosity gap tied to that core. Concrete means specific numbers and sensory detail, so \"saves 16 hours a month\" rather than \"saves 40%\". Credible favors proof from within the message, such as vivid detail, human-scale statistics and the Sinatra Test: one example so strong it settles every doubt. Emotional means one person's story over statistics, and appeals to who people want to be. Stories follow challenge, connection or creativity plots. Each trait is rated 1 to 10 and the total of 6 to 60 maps to the score. It shows how the six apply to landing pages, product demos and onboarding, and suggests testing messages on outsiders.",
+          "permalink": "https://github.com/wondelai/skills/tree/d8d5d75f83da9f16d8aad5bab5f5b341a4770a30/made-to-stick"
+        },
+        "tags": [
+          "category:marketing",
+          "category:writing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "copywriting",
+          "writing",
+          "marketing"
+        ]
+      }
+    },
+    {
+      "id": "wondelai/skills/lean-ux",
+      "name": "lean-ux",
+      "skills.sh": {
+        "url": "https://skills.sh/wondelai/skills/lean-ux",
+        "installs": 5800,
+        "weeklyInstalls": [174, 153, 161, 132, 150, 259, 209, 139],
+        "firstSeen": "2026-02-23"
+      },
+      "skillMd": {
+        "version": "d8d5d75f83da9f16d8aad5bab5f5b341a4770a30",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Replaces heavy UX deliverables with Gothelf and Seiden's Lean UX: declared assumptions, testable hypotheses, the cheapest useful experiment and whole-team design sessions.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "design work is buried in specs and handoffs, or a team argues over a design instead of testing it"
+            },
+            {
+              "label": "It does",
+              "text": "turns assumptions into hypotheses with success criteria set in advance, then picks the cheapest experiment that can settle each"
+            },
+            {
+              "label": "You get",
+              "text": "process advice and a score out of 10 from eight checks, with the fix for each failed one"
+            },
+            {
+              "label": "Unlike ux-heuristics",
+              "text": "the same repo's skill for auditing an interface's usability, it changes how a team decides what to design"
+            }
+          ],
+          "text": "Based on Lean UX by Jeff Gothelf and Josh Seiden. Its premise is outcomes over outputs: a design is judged by the change in user behavior it causes, not by how polished its deliverables are. The team writes down its business and user assumptions together and tests the riskiest, least-known ones first. Each becomes a hypothesis in a fixed format, \"We believe [outcome] will happen if [persona] achieves [action] with [feature]\", with what counts as validated agreed before the test. Experiments start at the lowest fidelity that can answer the question, such as a paper prototype shown to five users, a landing page that counts sign-ups, or a pricing page shown before billing exists (a painted door), disclosed as a test. Design happens in Design Studio sessions where engineers, PMs and designers sketch alone, critique and converge, with a designer synthesizing the result. Research is small and weekly, discovery runs one sprint ahead of delivery, stories carry a hypothesis alongside their acceptance criteria, and invalidated items leave the backlog. Eight diagnostic questions set the score, including whether the team can point to a recently invalidated hypothesis. Reference files hold workshop protocols, experiment types, outcome metrics and case studies.",
+          "permalink": "https://github.com/wondelai/skills/tree/d8d5d75f83da9f16d8aad5bab5f5b341a4770a30/lean-ux"
+        },
+        "tags": [
+          "category:design",
+          "category:planning",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "design",
+          "prototyping",
+          "research"
+        ]
+      }
+    },
+    {
+      "id": "wondelai/skills/improve-retention",
+      "name": "improve-retention",
+      "skills.sh": {
+        "url": "https://skills.sh/wondelai/skills/improve-retention",
+        "installs": 5700,
+        "weeklyInstalls": [165, 144, 156, 128, 147, 265, 206, 137],
+        "firstSeen": "2026-02-19"
+      },
+      "skillMd": {
+        "version": "d8d5d75f83da9f16d8aad5bab5f5b341a4770a30",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Diagnoses why new users don't stick around with BJ Fogg's B=MAP behavior model, then makes the core action easier, better prompted and celebrated.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "users sign up but don't come back, activation is low, or onboarding loses people"
+            },
+            {
+              "label": "It does",
+              "text": "checks whether motivation, ability and a prompt meet at each key action, and which of six factors, such as time or mental effort, makes the action hard"
+            },
+            {
+              "label": "You get",
+              "text": "a diagnosis by drop-off point and a score out of 10 that names each failed check"
+            },
+            {
+              "label": "Unlike hooked-ux",
+              "text": "the same repo's skill for habit loops and variable rewards, it relies on making the action easier rather than on motivation"
+            }
+          ],
+          "text": "Based on BJ Fogg's Tiny Habits and his Behavior Model, B=MAP: a behavior happens only when motivation, ability and a prompt come together. Motivation rises and falls in waves, so it designs for low-motivation moments and treats making the action easier as the reliable lever. Ability depends on the scarcest of six resources, the Ability Chain: time, money, physical effort, mental effort, social deviance (doing something unusual among peers) and non-routine. A prompt sent to someone not yet motivated and able is spam, so it prefers prompts tied to real events. From Tiny Habits it takes a recipe, \"After I [anchor moment], I will [tiny behavior], then I [celebration]\", and Starter Steps, such as filling in one field. Its five-step process starts from the user's aspiration, not the product's goal, lists and matches possible behaviors, shrinks the best to a starter step, then expands it. A table maps metrics, from low activation to notification fatigue, to causes. Six diagnostic questions set the score, such as whether a new user can do the core action in under 60 seconds. It rules out inventing a loss to drive a session. Reference files hold case studies of Instagram, Duolingo and Slack.",
+          "permalink": "https://github.com/wondelai/skills/tree/d8d5d75f83da9f16d8aad5bab5f5b341a4770a30/improve-retention"
+        },
+        "tags": [
+          "category:design",
+          "category:marketing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "design",
+          "conversion"
+        ]
+      }
+    },
+    {
+      "id": "wondelai/skills/design-sprint",
+      "name": "design-sprint",
+      "skills.sh": {
+        "url": "https://skills.sh/wondelai/skills/design-sprint",
+        "installs": 5700,
+        "weeklyInstalls": [164, 146, 145, 135, 142, 263, 194, 131],
+        "firstSeen": "2026-02-10"
+      },
+      "skillMd": {
+        "version": "d8d5d75f83da9f16d8aad5bab5f5b341a4770a30",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Plans and scores a five-day Google Ventures design sprint, from mapping the problem Monday to testing a prototype with five customers Friday.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a team is stuck debating a high-stakes product idea, or wants to test it with users before building"
+            },
+            {
+              "label": "It does",
+              "text": "lays out the sprint day by day: map the problem, sketch, decide, build a prototype, then test it with five customers"
+            },
+            {
+              "label": "You get",
+              "text": "a plan for the week and a score out of 10 from ten checks, with the missing items"
+            },
+            {
+              "label": "Unlike lean-ux",
+              "text": "the same repo's skill for ongoing experiments within agile sprints, it answers one big question in a single week"
+            }
+          ],
+          "text": "Based on Sprint by Jake Knapp, John Zeratsky and Braden Kowitz, the process Knapp created at Google and refined at Google Ventures. A Decider, who has the final say, and four to seven others spend five days from 10am to 5pm on one big question, led by a facilitator. Monday sets a two-year goal, lists the sprint's questions, maps the customer journey and picks one target customer and moment. Tuesday everyone sketches alone, including Crazy 8s, eight ideas in eight minutes, ending with an anonymous three-panel solution sketch. Wednesday the team marks the sketches silently, the Decider makes the final call, and a 10-15 panel storyboard is drawn. Thursday the team builds a prototype that looks real without working, testable in 5-15 minutes. Friday one interviewer runs five-act interviews with five target customers while the team watches and marks what worked and what didn't, then decides what to do next. The score is one point for each of ten checks, capped at 6 without a Decider, real users or a prototype built in a day. It also covers four-day and remote variants, and when not to run a sprint.",
+          "permalink": "https://github.com/wondelai/skills/tree/d8d5d75f83da9f16d8aad5bab5f5b341a4770a30/design-sprint"
+        },
+        "tags": [
+          "category:design",
+          "category:planning",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "prototyping",
+          "research",
+          "design"
+        ]
+      }
+    },
+    {
+      "id": "wondelai/skills/ddia-systems",
+      "name": "ddia-systems",
+      "skills.sh": {
+        "url": "https://skills.sh/wondelai/skills/ddia-systems",
+        "installs": 5600,
+        "weeklyInstalls": [170, 149, 160, 134, 147, 265, 204, 147],
+        "firstSeen": "2026-02-23"
+      },
+      "skillMd": {
+        "version": "d8d5d75f83da9f16d8aad5bab5f5b341a4770a30",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Guides data-system choices with Martin Kleppmann's Designing Data-Intensive Applications: data models, storage engines, replication, partitioning, transactions, streams and fault tolerance.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "choosing a database, planning replication or sharding, or chasing stale reads and data that differs across replicas"
+            },
+            {
+              "label": "It does",
+              "text": "makes each data-layer trade-off explicit, from data model and storage engine to isolation level and failure handling"
+            },
+            {
+              "label": "You get",
+              "text": "architecture advice and a score out of 10 from seven checks, with the improvements needed to reach 10"
+            },
+            {
+              "label": "Unlike release-it",
+              "text": "the same repo's skill for keeping services up through failures, it focuses on the data layer"
+            }
+          ],
+          "text": "Based on Martin Kleppmann's Designing Data-Intensive Applications. Its premise is that data outlives code, so the data layer's correctness and ability to evolve matter most, and every choice should be a deliberate trade-off rather than habit. It covers seven areas: data models (relational for many-to-many relationships, document for self-contained records, graph for traversals); storage engines (LSM trees for heavy writes, B-trees for mixed reads and writes, column stores for analytics); replication with one, several or no leaders, and the anomalies replication lag causes; partitioning by key range or hash, and hot keys; transactions and isolation levels, warning that most databases don't default to serializable and so allow write skew, where two transactions read the same data and each write a different row; batch and stream processing, change data capture and event sourcing; and fault tolerance with timeouts, retries and consensus. Examples name systems such as PostgreSQL, Cassandra, Kafka and Flink. Seven diagnostic questions set the score, such as whether you know your database's default isolation level and have tested failover. Reference files go deeper on each area. It points to system-design for whole-system design and to release-it for resilience.",
+          "permalink": "https://github.com/wondelai/skills/tree/d8d5d75f83da9f16d8aad5bab5f5b341a4770a30/ddia-systems"
+        },
+        "tags": [
+          "category:engineering",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "databases",
+          "architecture",
+          "backend"
+        ]
+      }
+    },
+    {
+      "id": "wondelai/skills/blue-ocean-strategy",
+      "name": "blue-ocean-strategy",
+      "skills.sh": {
+        "url": "https://skills.sh/wondelai/skills/blue-ocean-strategy",
+        "installs": 5600,
+        "weeklyInstalls": [167, 141, 142, 134, 138, 264, 198, 133],
+        "firstSeen": "2026-02-10"
+      },
+      "skillMd": {
+        "version": "d8d5d75f83da9f16d8aad5bab5f5b341a4770a30",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Finds uncontested market space with Kim and Mauborgne's Blue Ocean Strategy: strategy canvases, the eliminate-reduce-raise-create grid and non-customers.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "your market is crowded, you're stuck in a price war, or you're looking for a new category or overlooked buyers"
+            },
+            {
+              "label": "It does",
+              "text": "plots what your industry competes on, then decides what to eliminate, reduce, raise and create so value rises while cost falls"
+            },
+            {
+              "label": "You get",
+              "text": "a score out of 10 from five checks and the moves needed to reach 10"
+            },
+            {
+              "label": "Unlike crossing-the-chasm",
+              "text": "the same repo's skill for taking a tech product to the mainstream, it looks for a market nobody competes in yet"
+            }
+          ],
+          "text": "Based on Blue Ocean Strategy by W. Chan Kim and Renée Mauborgne. Red oceans are existing markets where rivals fight over the same customers; blue oceans are new market space where competition doesn't matter yet. The way there is value innovation: being different and cheaper at once. Its main tool is the strategy canvas, a chart of the factors an industry competes on and each player's level on them, where look-alike curves mean a red ocean. The Four Actions, or ERRC grid, ask which factors to eliminate and reduce, which cuts cost, and which to raise and create, which adds value, as Cirque du Soleil dropped animal acts and star performers and added themes. Six Paths look across alternative industries, strategic groups, the chain of buyers, complementary offerings, functional versus emotional appeal, and trends over time. It targets three tiers of non-customers rather than rivals' customers, and checks an idea in order: buyer utility, then price, then cost, then adoption. Five diagnostic questions set the score. Reference files hold worked cases such as Netflix, Yellow Tail and Nintendo Wii, canvas and workshop templates, and rollout guidance.",
+          "permalink": "https://github.com/wondelai/skills/tree/d8d5d75f83da9f16d8aad5bab5f5b341a4770a30/blue-ocean-strategy"
+        },
+        "tags": [
+          "category:marketing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "marketing",
+          "research"
+        ]
+      }
+    },
+    {
+      "id": "wondelai/skills/contagious",
+      "name": "contagious",
+      "skills.sh": {
+        "url": "https://skills.sh/wondelai/skills/contagious",
+        "installs": 5600,
+        "weeklyInstalls": [158, 140, 148, 137, 153, 290, 220, 166],
+        "firstSeen": "2026-02-10"
+      },
+      "skillMd": {
+        "version": "d8d5d75f83da9f16d8aad5bab5f5b341a4770a30",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Designs word of mouth into products, campaigns and content with Jonah Berger's six STEPPS drivers of why people share.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a product, campaign or piece of content to spread by word of mouth, or nothing you make gets shared"
+            },
+            {
+              "label": "It does",
+              "text": "rates six drivers of sharing, STEPPS: social currency, triggers, emotion, public visibility, practical value and stories"
+            },
+            {
+              "label": "You get",
+              "text": "a score out of 10 and the drivers to strengthen next, plus copy patterns for each"
+            },
+            {
+              "label": "Unlike made-to-stick",
+              "text": "the same repo's skill for sticky messages, it is about why people pass things on"
+            }
+          ],
+          "text": "Based on Jonah Berger's Contagious: Why Things Catch On. Its premise is that sharing can be engineered, and that most word of mouth happens offline, so it is about the psychology of sharing more than social media mechanics. STEPPS names six drivers. Social currency: people share what makes them look good, such as Spotify Wrapped or achievement cards. Triggers: everyday cues keep a product top of mind, and frequent cues beat strong rare ones, like Kit Kat and coffee breaks. Emotion: high-arousal feelings such as awe, amusement or anger drive sharing, while sadness and contentment don't. Public: usage others can see gets copied, like Hotmail's signature line. Practical value: useful tips and deals that are easy to forward, framed with the Rule of 100 (percent off under $100, dollars off above). Stories: a narrative people retell that can't be told without the brand, its Trojan Horse test. Each driver scores 0 to 2, and the total out of 12 maps to the score. Tables combine drivers for launches, content and features, and each driver has an ethical line, such as no false scarcity. Reference files cover each driver, with case studies.",
+          "permalink": "https://github.com/wondelai/skills/tree/d8d5d75f83da9f16d8aad5bab5f5b341a4770a30/contagious"
+        },
+        "tags": [
+          "category:marketing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "marketing",
+          "copywriting",
+          "social-media"
+        ]
+      }
+    },
+    {
+      "id": "wondelai/skills/predictable-revenue",
+      "name": "predictable-revenue",
+      "skills.sh": {
+        "url": "https://skills.sh/wondelai/skills/predictable-revenue",
+        "installs": 5500,
+        "weeklyInstalls": [167, 138, 140, 128, 129, 249, 185, 114],
+        "firstSeen": "2026-02-10"
+      },
+      "skillMd": {
+        "version": "d8d5d75f83da9f16d8aad5bab5f5b341a4770a30",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Designs an outbound B2B sales system from Aaron Ross's Predictable Revenue: separate prospecting and closing, referral cold emails, ANUM qualification, pipeline math.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're building a B2B outbound sales team, your pipeline swings between feast and famine, or salespeople both prospect and close"
+            },
+            {
+              "label": "It does",
+              "text": "splits sales into prospecting, closing and account roles, and fills the pipeline with short emails asking senior people who to talk to"
+            },
+            {
+              "label": "You get",
+              "text": "a sales process design, pipeline math worked back from a revenue goal, and a score out of 10 from five checks"
+            },
+            {
+              "label": "Unlike one-page-marketing",
+              "text": "the same repo's skill for a whole marketing plan, it builds the outbound sales machine"
+            }
+          ],
+          "text": "Based on Predictable Revenue by Aaron Ross and Marylou Tyler, from the outbound process Ross built at Salesforce. It sorts leads into seeds (referrals and word of mouth), nets (marketing and inbound) and spears (outbound prospecting), and its first rule is that the people who prospect shouldn't also close. Sales development reps (SDRs) find and qualify opportunities, account executives close them, and customer success managers keep and grow accounts. Its outbound method, Cold Calling 2.0, emails someone above the decision maker asking only who the right person is, in under 100 words with no pitch, then follows up on days 3, 7, 14 and 30. Prospects are qualified with ANUM, for authority, need, urgency and money, before a structured handoff to the account executive. Pipeline math works back from the revenue goal to the deals, opportunities and emails needed, with benchmarks such as 9-15% response rates. It also covers hiring, ramping and paying SDRs, and which metrics to track, and says to follow spam laws and honor opt-outs at once. Five diagnostic questions set the score.",
+          "permalink": "https://github.com/wondelai/skills/tree/d8d5d75f83da9f16d8aad5bab5f5b341a4770a30/predictable-revenue"
+        },
+        "tags": [
+          "category:marketing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "marketing",
+          "conversion",
+          "email"
+        ]
+      }
+    },
+    {
+      "id": "wondelai/skills/one-page-marketing",
+      "name": "one-page-marketing",
+      "skills.sh": {
+        "url": "https://skills.sh/wondelai/skills/one-page-marketing",
+        "installs": 5500,
+        "weeklyInstalls": [162, 135, 144, 128, 134, 260, 194, 122],
+        "firstSeen": "2026-02-10"
+      },
+      "skillMd": {
+        "version": "d8d5d75f83da9f16d8aad5bab5f5b341a4770a30",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds a marketing plan on Allan Dib's nine-square 1-Page Marketing Plan, from target market and message to lead nurture, lifetime value and referrals.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you don't know where to start with marketing, or need a plan from finding customers to getting referrals"
+            },
+            {
+              "label": "It does",
+              "text": "fills a three-by-three grid: target market, message and media; lead capture, nurture and conversion; experience, lifetime value and referrals"
+            },
+            {
+              "label": "You get",
+              "text": "a one-page marketing plan and a score out of 10 by how many squares pass their check"
+            },
+            {
+              "label": "Unlike scorecard-marketing",
+              "text": "the same repo's skill for quiz funnels, one way to capture leads, it plans the whole customer journey"
+            }
+          ],
+          "text": "Based on Allan Dib's The 1-Page Marketing Plan. It treats marketing as a process rather than scattered tactics, in three phases. Before: choose a niche with the PVP Index (personal fulfillment, value to the market, profitability), write a USP (unique selling proposition, why buy from you and not a competitor) that a rival's name couldn't fit, and pick channels by where the audience is, mastering one before adding another. During: capture leads with a lead magnet, something useful exchanged for contact details, nurture them, mostly by email, with about three value messages per ask, and convert with risk reversal such as guarantees and trials. After: deliver an experience worth talking about, raise lifetime value with upsells and tiers, and ask for referrals at the moment of peak satisfaction. Every ad follows direct response rules: trackable, with a specific offer and a reason to act now. Each square has copy patterns and most have an ethical line, such as one-click unsubscribe and only real deadlines. A square counts toward the score only when it passes its diagnostic question, such as completing \"We are the only ___ that ___\". Reference files hold a blank template, worked examples and a guide per square.",
+          "permalink": "https://github.com/wondelai/skills/tree/d8d5d75f83da9f16d8aad5bab5f5b341a4770a30/one-page-marketing"
+        },
+        "tags": [
+          "category:marketing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "marketing",
+          "conversion",
+          "copywriting"
+        ]
+      }
+    },
+    {
+      "id": "wondelai/skills/release-it",
+      "name": "release-it",
+      "skills.sh": {
+        "url": "https://skills.sh/wondelai/skills/release-it",
+        "installs": 5500,
+        "weeklyInstalls": [166, 136, 146, 132, 137, 259, 188, 134],
+        "firstSeen": "2026-02-23"
+      },
+      "skillMd": {
+        "version": "d8d5d75f83da9f16d8aad5bab5f5b341a4770a30",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Designs production systems that survive failure with Michael Nygard's Release It!: timeouts, circuit breakers, bulkheads, load testing, safe deploys and observability.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a service keeps crashing, one slow dependency takes others down, or deploys cause outages"
+            },
+            {
+              "label": "It does",
+              "text": "guards every integration point with timeouts, circuit breakers and isolated pools, and separates deploying code from releasing it"
+            },
+            {
+              "label": "You get",
+              "text": "a score out of 8 from eight checks, the failing ones and the fix for each"
+            },
+            {
+              "label": "Unlike ddia-systems",
+              "text": "the same repo's skill for databases and consistency, it keeps services running through failures"
+            }
+          ],
+          "text": "Based on Michael Nygard's Release It!, which argues that software that passes QA is not software that survives production. It names stability anti-patterns, such as integration points (every remote call can fail or hang), slow responses, unbounded result sets and blocked threads, and counters them with patterns: circuit breakers that stop calling a failing dependency, bulkheads that give each dependency its own pool, connect and read timeouts on every call, retries with backoff, jitter and a budget, failing fast, and automatic cleanup. Capacity limits are found with load, stress, soak and spike tests, and pools are sized from measured concurrency. Deploying and releasing are separate: blue-green or canary deploys, feature flags, backward-compatible schema changes and fast rollback. Observability means deep health checks, correlated logs, metrics and traces, and alerts on what users feel, such as errors and latency, rather than CPU. Chaos engineering is treated as planning: it says failure injection is for authorized engineers with approvals and rollback plans, not for the agent to run. Eight diagnostic questions set the score. Reference files go deeper on each pattern.",
+          "permalink": "https://github.com/wondelai/skills/tree/d8d5d75f83da9f16d8aad5bab5f5b341a4770a30/release-it"
+        },
+        "tags": [
+          "category:engineering",
+          "category:cloud",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "architecture",
+          "deployment",
+          "observability"
+        ]
+      }
+    },
+    {
+      "id": "wondelai/skills/high-perf-browser",
+      "name": "high-perf-browser",
+      "skills.sh": {
+        "url": "https://skills.sh/wondelai/skills/high-perf-browser",
+        "installs": 5500,
+        "weeklyInstalls": [167, 143, 152, 126, 137, 259, 188, 132],
+        "firstSeen": "2026-02-23"
+      },
+      "skillMd": {
+        "version": "d8d5d75f83da9f16d8aad5bab5f5b341a4770a30",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Speeds up web pages with Ilya Grigorik's High Performance Browser Networking: fewer round trips, layered caching, HTTP/2 and HTTP/3, and Core Web Vitals.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "pages load slowly, Core Web Vitals are red, or you're choosing caching rules, an HTTP version or WebSocket versus server-sent events"
+            },
+            {
+              "label": "It does",
+              "text": "cuts round trips across DNS, TCP, TLS and HTTP, unblocks rendering, layers caches and picks the right real-time transport"
+            },
+            {
+              "label": "You get",
+              "text": "a score out of 10 from eight checks, weighted toward real-user metrics, with the fix for each failure"
+            },
+            {
+              "label": "Its thresholds",
+              "text": "time to first byte under 800ms, LCP under 2.5s, INP under 200ms and CLS under 0.1"
+            }
+          ],
+          "text": "Based on Ilya Grigorik's High Performance Browser Networking. Its premise is that latency, not bandwidth, is the bottleneck: every request pays for a DNS lookup, the TCP handshake and TLS negotiation before data flows, so the biggest wins come from fewer round trips. It covers preconnect and DNS prefetch hints, TLS 1.3 and connection reuse; HTTP/2 multiplexing, which makes old workarounds like domain sharding harmful, HTTP/3, and 103 Early Hints instead of server push; the critical rendering path, with critical CSS inlined, scripts deferred, key resources preloaded and images lazy-loaded; caching with Cache-Control, content-hashed file names, ETags, service workers and correct Vary headers on CDNs; Core Web Vitals (LCP, INP and CLS, for loading, responsiveness and layout stability), measured on real users; and WebSocket versus server-sent events for live data, with heartbeats and reconnection. Examples are HTML tags, HTTP headers and short server or JavaScript snippets. A page with any of the four field metrics in the red scores 3 or less. Reference files go deeper on each area.",
+          "permalink": "https://github.com/wondelai/skills/tree/d8d5d75f83da9f16d8aad5bab5f5b341a4770a30/high-perf-browser"
+        },
+        "tags": [
+          "category:engineering",
+          "category:debugging",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "performance",
+          "backend"
+        ]
+      }
+    },
+    {
+      "id": "wondelai/skills/scorecard-marketing",
+      "name": "scorecard-marketing",
+      "skills.sh": {
+        "url": "https://skills.sh/wondelai/skills/scorecard-marketing",
+        "installs": 5400,
+        "weeklyInstalls": [162, 137, 138, 120, 134, 248, 189, 117],
+        "firstSeen": "2026-01-29"
+      },
+      "skillMd": {
+        "version": "d8d5d75f83da9f16d8aad5bab5f5b341a4770a30",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Designs quiz and assessment funnels that score prospects and turn them into qualified leads, after Daniel Priestley's Scorecard Marketing.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a quiz, assessment or grader that brings in qualified leads instead of a PDF download"
+            },
+            {
+              "label": "It does",
+              "text": "designs four parts: a landing page hook, scored questions after an email form, results by tier, and follow-up by score"
+            },
+            {
+              "label": "You get",
+              "text": "a funnel design, a launch checklist and a score out of 10 from six checks"
+            },
+            {
+              "label": "Unlike one-page-marketing",
+              "text": "the same repo's skill for a whole marketing plan, it builds one lead-capture funnel"
+            }
+          ],
+          "text": "Based on Scorecard Marketing by Daniel Priestley and Glen Carlson; Priestley co-founded ScoreApp, a platform built around the method. The premise is that a quiz scoring people on something they care about uncovers needs they hadn't acted on, and it cites 30-50% conversion against 3-10% for PDF lead magnets. The landing page leads with a concept hook, one of five types such as moving toward a goal or readiness for a decision, and says it takes under three minutes. The questionnaire asks for name and email first, so abandoned quizzes still yield leads, then 8-15 questions for cold traffic, grouped into two to seven scored categories, plus qualifying questions such as budget. The results page shows the overall and per-category score, with different content and a different next step per tier, from a free event for low scorers to a consultation for high ones. Follow-up emails send results at once and nurture each tier separately. Its ethical lines include never adjusting a score to steer someone to the offer. Six diagnostic questions set the score. Reference files hold 50+ concepts by industry, the psychology, building the tool and funnel analytics.",
+          "permalink": "https://github.com/wondelai/skills/tree/d8d5d75f83da9f16d8aad5bab5f5b341a4770a30/scorecard-marketing"
+        },
+        "tags": [
+          "category:marketing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "marketing",
+          "conversion",
+          "copywriting"
+        ]
+      }
+    },
+    {
+      "id": "wondelai/skills/continuous-discovery",
+      "name": "continuous-discovery",
+      "skills.sh": {
+        "url": "https://skills.sh/wondelai/skills/continuous-discovery",
+        "installs": 5400,
+        "weeklyInstalls": [164, 140, 139, 127, 128, 258, 194, 127],
+        "firstSeen": "2026-02-23"
+      },
+      "skillMd": {
+        "version": "d8d5d75f83da9f16d8aad5bab5f5b341a4770a30",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds Teresa Torres's continuous discovery habits for product teams: weekly customer interviews, an opportunity solution tree and quick tests of risky assumptions.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "your team keeps building things nobody uses, rarely talks to customers, or can't tie research to the roadmap"
+            },
+            {
+              "label": "It does",
+              "text": "sets up weekly customer interviews by the product manager, designer and engineer, mapped onto an opportunity solution tree"
+            },
+            {
+              "label": "You get",
+              "text": "a discovery practice and a score out of 10 from seven checks, with the fix for each failure"
+            },
+            {
+              "label": "Unlike inspired-product",
+              "text": "the same repo's skill for team structure and product vision, it is the weekly routine of discovery"
+            }
+          ],
+          "text": "Based on Teresa Torres's Continuous Discovery Habits. Its benchmark is at least one customer conversation every week by the product trio: a product manager, a designer and an engineer. An opportunity solution tree links a desired outcome to customer opportunities (needs, pain points and desires, framed from the customer's side), then to possible solutions and the experiments that test them, and is updated weekly. Experience maps show how customers reach a goal today, step by step, to surface opportunities. Interviews ask for stories about specific past events, \"Tell me about the last time…\", and each becomes a one-page snapshot the whole team can see. Before building, it lists the assumptions a solution rests on (that customers want it and can use it, that it can be built, that the business can sustain it) and tests the important ones with the least evidence first, in days. Opportunities are compared against each other rather than scored alone. To keep the habit, recruiting is automated and a recurring slot blocked. Seven diagnostic questions set the score, which starts at 3. Reference files cover each part, with case studies.",
+          "permalink": "https://github.com/wondelai/skills/tree/d8d5d75f83da9f16d8aad5bab5f5b341a4770a30/continuous-discovery"
+        },
+        "tags": [
+          "category:planning",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "research",
+          "requirements"
+        ]
+      }
+    },
+    {
+      "id": "wondelai/skills/drive-motivation",
+      "name": "drive-motivation",
+      "skills.sh": {
+        "url": "https://skills.sh/wondelai/skills/drive-motivation",
+        "installs": 5400,
+        "weeklyInstalls": [159, 133, 142, 123, 144, 280, 213, 137],
+        "firstSeen": "2026-02-10"
+      },
+      "skillMd": {
+        "version": "d8d5d75f83da9f16d8aad5bab5f5b341a4770a30",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Designs motivation into products and teams with Daniel Pink's Drive, replacing if-then rewards with autonomy, mastery and purpose.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "rewards or gamification aren't working, a team is disengaged, or you're designing progression into a product"
+            },
+            {
+              "label": "It does",
+              "text": "checks a product or team for autonomy, mastery and purpose, and for if-then rewards that crowd them out"
+            },
+            {
+              "label": "You get",
+              "text": "a score out of 10 from six checks and the fixes needed to reach 10"
+            },
+            {
+              "label": "Unlike improve-retention",
+              "text": "the same repo's skill for making key actions easier, it is about why people want to do them"
+            }
+          ],
+          "text": "Based on Daniel Pink's Drive. Its premise is that for any work needing thought, if-then rewards (\"do X and get Y\") don't work or make things worse, and it lists seven ways they backfire, from killing interest and creativity to encouraging cheating and short-term thinking. Lasting engagement comes from three needs. Autonomy: choice over task, time, technique and team, so in products no forced linear tutorials, unskippable steps or mandatory notifications. Mastery: getting better at something that matters, with visible progress, challenge matched to skill so people reach flow, and failure framed as learning. Purpose: connecting actions to something larger, such as showing a user's or a community's impact. For gamification it contrasts opt-in challenges and meaningful milestones with points for everything and discouraging leaderboards, and warns that streaks can turn into fear of loss. For teams, it says to pay fairly enough to take money off the table, hand over the goal rather than the method, and prefer unexpected \"now-that\" recognition to promised bonuses. The score starts at 5, adds a point for each of five checks passed and loses 2 when if-then rewards do the motivating. Reference files cover each pillar, with case studies.",
+          "permalink": "https://github.com/wondelai/skills/tree/d8d5d75f83da9f16d8aad5bab5f5b341a4770a30/drive-motivation"
+        },
+        "tags": [
+          "category:design",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "design"
+        ]
+      }
+    },
+    {
+      "id": "wondelai/skills/crossing-the-chasm",
+      "name": "crossing-the-chasm",
+      "skills.sh": {
+        "url": "https://skills.sh/wondelai/skills/crossing-the-chasm",
+        "installs": 5400,
+        "weeklyInstalls": [169, 143, 146, 131, 146, 262, 194, 125],
+        "firstSeen": "2026-02-10"
+      },
+      "skillMd": {
+        "version": "d8d5d75f83da9f16d8aad5bab5f5b341a4770a30",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Plans a tech product's jump from early adopters to the mainstream with Geoffrey Moore's Crossing the Chasm: one beachhead, a whole product, proof-led messaging.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "growth stalled after early adopters, or you're planning go-to-market for a technical product"
+            },
+            {
+              "label": "It does",
+              "text": "picks one narrow beachhead segment, fills out the whole product with partners, and repositions from revolution to proven value"
+            },
+            {
+              "label": "You get",
+              "text": "a go-to-market plan and a score out of 10 from seven checks, with the fix for each failure"
+            },
+            {
+              "label": "Unlike blue-ocean-strategy",
+              "text": "the same repo's skill for creating a new market, it takes a new technology from enthusiasts to mainstream buyers"
+            }
+          ],
+          "text": "Based on Geoffrey Moore's Crossing the Chasm. The technology adoption life cycle runs from innovators and early adopters to the early majority, late majority and laggards. The chasm sits between early adopters, visionaries who tolerate bugs to get ahead, and the early majority, pragmatists who want proven solutions and references from peers like them. Since pragmatists won't buy without references that don't exist yet, it follows a D-Day plan: pick one narrow beachhead segment with an urgent, expensive problem, scored from 20 or more candidates; build the whole product pragmatists expect, including integrations, onboarding, support and partners; position with a fill-in formula against the real alternative, often spreadsheets or manual work; and sell through channels pragmatists trust, with case studies and \"proven solution\" messaging. After the beachhead it expands segment by segment, each one's references winning the next (the bowling-pin strategy), until demand takes off (the tornado). Seven diagnostic questions set the score. For freemium and product-led B2B SaaS it reads a reference file first that remaps each step. Other reference files hold scoring worksheets and case studies such as Salesforce and Zoom.",
+          "permalink": "https://github.com/wondelai/skills/tree/d8d5d75f83da9f16d8aad5bab5f5b341a4770a30/crossing-the-chasm"
+        },
+        "tags": [
+          "category:marketing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "marketing"
+        ]
+      }
+    },
+    {
+      "id": "wondelai/skills/inspired-product",
+      "name": "inspired-product",
+      "skills.sh": {
+        "url": "https://skills.sh/wondelai/skills/inspired-product",
+        "installs": 5300,
+        "weeklyInstalls": [159, 137, 134, 119, 126, 251, 185, 115],
+        "firstSeen": "2026-02-23"
+      },
+      "skillMd": {
+        "version": "d8d5d75f83da9f16d8aad5bab5f5b341a4770a30",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Moves product teams from feature factory to empowered with Marty Cagan's Inspired: problems to solve, discovery that tests four risks, outcome-based roadmaps.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "your roadmap is a list of features, teams just ship what they're handed, or you're deciding what to build next"
+            },
+            {
+              "label": "It does",
+              "text": "gives teams problems instead of features, and tests ideas for value, usability, feasibility and viability before building"
+            },
+            {
+              "label": "You get",
+              "text": "team and process advice and a score out of 7 from seven checks"
+            },
+            {
+              "label": "Unlike continuous-discovery",
+              "text": "the same repo's skill for a weekly interview routine, it also covers team structure, vision and strategy"
+            }
+          ],
+          "text": "Based on Marty Cagan's Inspired, with Empowered by Cagan and Chris Jones as further reading. Its premise is that most products fail because nobody wants them, and that empowered teams, a product manager, a designer and engineers given a problem to solve and judged on outcomes, beat feature teams handed a roadmap. Product work runs on two tracks: discovery decides what to build, delivery builds it. Discovery tests four risks, value, usability, feasibility and viability, with prototypes, tests with five real users, interviews about behavior and short engineering spikes, and expects 10-20 iterations per idea that reaches delivery. Before design work, an opportunity assessment asks which business objective an idea serves, for whom, what problem it solves and how success will be measured. A vision two to five years out and a strategy that sequences markets and problems give teams context, turned into OKRs and outcome-based roadmaps. Delivery ships small, instrumented increments behind feature flags. It also covers stakeholders who hand over solutions. Seven diagnostic questions set the score.",
+          "permalink": "https://github.com/wondelai/skills/tree/d8d5d75f83da9f16d8aad5bab5f5b341a4770a30/inspired-product"
+        },
+        "tags": [
+          "category:planning",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "requirements",
+          "prototyping",
+          "planning"
+        ]
+      }
+    },
+    {
+      "id": "wondelai/skills/traction-eos",
+      "name": "traction-eos",
+      "skills.sh": {
+        "url": "https://skills.sh/wondelai/skills/traction-eos",
+        "installs": 5300,
+        "weeklyInstalls": [158, 132, 140, 127, 129, 246, 181, 119],
+        "firstSeen": "2026-02-10"
+      },
+      "skillMd": {
+        "version": "d8d5d75f83da9f16d8aad5bab5f5b341a4770a30",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Helps a growing company adopt Gino Wickman's Entrepreneurial Operating System: a shared vision, 90-day priorities, a weekly scorecard and weekly leadership meetings.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a growing company feels chaotic, the same problems keep coming back, or leadership isn't aligned"
+            },
+            {
+              "label": "It does",
+              "text": "puts the six EOS components in place, vision, people, data, issues, process and traction, each with its own tool"
+            },
+            {
+              "label": "You get",
+              "text": "a score out of 10 from six checks, a 1-5 checkup per component and the next action for each gap"
+            },
+            {
+              "label": "Made for",
+              "text": "companies with $2M-$50M in revenue and 10-250 employees"
+            }
+          ],
+          "text": "Based on Gino Wickman's Traction, which describes the Entrepreneurial Operating System (EOS), a way of running a business. Vision goes on a two-page Vision/Traction Organizer: core values, core focus, a 10-year target, marketing strategy, a 3-year picture, a 1-year plan, quarterly priorities and an issues list. People are placed on an accountability chart with one owner per seat, under a Visionary and an Integrator who runs the business day to day, and judged by fit with the core values and whether they get, want and have the capacity for their role. Data is a weekly scorecard of 5-15 numbers, each with an owner and a goal. Issues are solved with IDS: identify the root cause, discuss, then solve with assigned action items. Core processes are documented in 5-20 steps and followed by all. Traction comes from rocks, three to seven 90-day priorities that are either done or not, and the Level 10 meeting: 90 minutes every week, same agenda, 60 of them for solving issues, rated 1 to 10 at the end. It sketches a two-year rollout and when to hire a certified EOS Implementer.",
+          "permalink": "https://github.com/wondelai/skills/tree/d8d5d75f83da9f16d8aad5bab5f5b341a4770a30/traction-eos"
+        },
+        "tags": [
+          "category:planning",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "planning"
+        ]
+      }
     }
   ]
 }
