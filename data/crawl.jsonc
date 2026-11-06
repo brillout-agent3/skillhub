@@ -55,19 +55,6 @@
       }
     },
     {
-      "name": "orca-per-workspace-env",
-      "repo": "stablyai/orca",
-      "official": true,
-      "stars": 117623,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/stablyai/orca/orca-per-workspace-env",
-        "installs": 12500,
-        "weeklyInstalls": [1564, 965, 854, 862, 615, 1254, 1246, 227],
-        "firstSeen": "2026-07-01"
-      }
-    },
-    {
       "name": "mobile-app-ui-design",
       "repo": "ceorkm/mobile-app-ui-design",
       "official": false,
@@ -1355,19 +1342,6 @@
       }
     },
     {
-      "name": "aws-iam",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3418,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/aws-iam",
-        "installs": 10800,
-        "weeklyInstalls": [363, 372, 397, 352, 323, 369, 447, 337],
-        "firstSeen": "2026-05-06"
-      }
-    },
-    {
       "name": "ctf-reverse",
       "repo": "ljagiello/ctf-skills",
       "official": false,
@@ -1404,19 +1378,6 @@
         "installs": 10800,
         "weeklyInstalls": [167, 179, 211, 263, 206, 178, 178, 158],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "aws-serverless",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3418,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/aws-serverless",
-        "installs": 10800,
-        "weeklyInstalls": [362, 405, 419, 408, 400, 460, 435, 350],
-        "firstSeen": "2026-05-06"
       }
     },
     {
@@ -1521,19 +1482,6 @@
         "installs": 10600,
         "weeklyInstalls": [165, 178, 206, 263, 206, 173, 177, 159],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "aws-observability",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3418,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/aws-observability",
-        "installs": 10600,
-        "weeklyInstalls": [381, 415, 470, 410, 428, 401, 453, 380],
-        "firstSeen": "2026-05-06"
       }
     },
     {
@@ -2174,32 +2122,6 @@
       }
     },
     {
-      "name": "aws-containers",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3418,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/aws-containers",
-        "installs": 10000,
-        "weeklyInstalls": [373, 396, 439, 400, 392, 400, 415, 373],
-        "firstSeen": "2026-05-06"
-      }
-    },
-    {
-      "name": "aws-cdk",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3418,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/aws-cdk",
-        "installs": 10000,
-        "weeklyInstalls": [353, 366, 406, 356, 362, 376, 405, 322],
-        "firstSeen": "2026-05-06"
-      }
-    },
-    {
       "name": "fallow",
       "repo": "fallow-rs/fallow-skills",
       "official": false,
@@ -2785,19 +2707,6 @@
       }
     },
     {
-      "name": "aws-billing-and-cost-management",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3418,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/aws-billing-and-cost-management",
-        "installs": 9500,
-        "weeklyInstalls": [327, 359, 387, 336, 349, 383, 397, 317],
-        "firstSeen": "2026-05-06"
-      }
-    },
-    {
       "name": "hindsight-docs",
       "repo": "vectorize-io/hindsight",
       "official": false,
@@ -3042,19 +2951,6 @@
         "installs": 9300,
         "weeklyInstalls": [166, 169, 122, 124, 142, 180, 161, 125],
         "firstSeen": "2026-03-13"
-      }
-    },
-    {
-      "name": "aws-cloudformation",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3418,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/aws-cloudformation",
-        "installs": 9300,
-        "weeklyInstalls": [309, 341, 364, 329, 325, 349, 344, 290],
-        "firstSeen": "2026-05-06"
       }
     },
     {
@@ -3640,19 +3536,6 @@
         "installs": 9000,
         "weeklyInstalls": [7, 11, 12, 12, 1, 0, 2, 2],
         "firstSeen": "2026-02-25"
-      }
-    },
-    {
-      "name": "amazon-bedrock",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3418,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/amazon-bedrock",
-        "installs": 9000,
-        "weeklyInstalls": [314, 296, 324, 311, 265, 322, 333, 294],
-        "firstSeen": "2026-05-06"
       }
     },
     {
@@ -4475,19 +4358,6 @@
       }
     },
     {
-      "name": "aws-messaging-and-streaming",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3418,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/aws-messaging-and-streaming",
-        "installs": 8600,
-        "weeklyInstalls": [320, 324, 339, 310, 322, 341, 340, 282],
-        "firstSeen": "2026-05-06"
-      }
-    },
-    {
       "name": "executive-resume-writer",
       "repo": "paramchoudhary/resumeskills",
       "official": false,
@@ -4670,19 +4540,6 @@
       }
     },
     {
-      "name": "aws-sdk-js-v3-usage",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3418,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/aws-sdk-js-v3-usage",
-        "installs": 8400,
-        "weeklyInstalls": [317, 301, 345, 268, 277, 305, 312, 278],
-        "firstSeen": "2026-05-06"
-      }
-    },
-    {
       "name": "okx-sentiment-tracker",
       "repo": "okx/agent-skills",
       "official": false,
@@ -4849,19 +4706,6 @@
         "installs": 8300,
         "weeklyInstalls": [239, 290, 359, 534, 601, 629, 797, 852],
         "firstSeen": "2026-04-22"
-      }
-    },
-    {
-      "name": "aws-sdk-python-usage",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3418,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/aws-sdk-python-usage",
-        "installs": 8300,
-        "weeklyInstalls": [311, 280, 306, 265, 239, 293, 292, 249],
-        "firstSeen": "2026-05-06"
       }
     },
     {
@@ -6308,19 +6152,6 @@
       }
     },
     {
-      "name": "securing-s3-buckets",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3418,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/securing-s3-buckets",
-        "installs": 7300,
-        "weeklyInstalls": [283, 271, 293, 248, 243, 300, 276, 238],
-        "firstSeen": "2026-05-06"
-      }
-    },
-    {
       "name": "seo-hreflang",
       "repo": "agricidaniel/claude-seo",
       "official": false,
@@ -6620,19 +6451,6 @@
       }
     },
     {
-      "name": "connecting-to-data-source",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3418,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/connecting-to-data-source",
-        "installs": 7200,
-        "weeklyInstalls": [276, 259, 270, 226, 211, 261, 247, 220],
-        "firstSeen": "2026-05-06"
-      }
-    },
-    {
       "name": "platform-apex-test-run",
       "repo": "forcedotcom/sf-skills",
       "official": true,
@@ -6851,19 +6669,6 @@
         "installs": 7100,
         "weeklyInstalls": [9, 10, 8, 9, 4, 14, 7, 5],
         "firstSeen": "2026-03-05"
-      }
-    },
-    {
-      "name": "creating-secrets-using-best-practices",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3418,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/creating-secrets-using-best-practices",
-        "installs": 7100,
-        "weeklyInstalls": [282, 267, 287, 243, 229, 285, 281, 231],
-        "firstSeen": "2026-05-07"
       }
     },
     {
@@ -7163,32 +6968,6 @@
         "installs": 7000,
         "weeklyInstalls": [126, 104, 97, 93, 92, 129, 119, 136],
         "firstSeen": "2026-03-18"
-      }
-    },
-    {
-      "name": "exploring-data-catalog",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3418,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/exploring-data-catalog",
-        "installs": 7000,
-        "weeklyInstalls": [272, 256, 271, 234, 210, 259, 246, 214],
-        "firstSeen": "2026-05-06"
-      }
-    },
-    {
-      "name": "querying-data-lake",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3418,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/querying-data-lake",
-        "installs": 7000,
-        "weeklyInstalls": [273, 257, 267, 233, 211, 258, 250, 217],
-        "firstSeen": "2026-05-06"
       }
     },
     {
@@ -38064,6 +37843,74 @@
     {
       "url": "https://skills.sh/okx/onchainos-skills/okx-defi",
       "note": "Tool docs: an agent's manual for okx."
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/aws-iam",
+      "note": "Tool docs: an agent's manual for aws."
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/aws-serverless",
+      "note": "Tool docs: an agent's manual for aws."
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/aws-observability",
+      "note": "Tool docs: an agent's manual for aws."
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/aws-containers",
+      "note": "Tool docs: an agent's manual for aws."
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/aws-cdk",
+      "note": "Tool docs: an agent's manual for aws."
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/aws-billing-and-cost-management",
+      "note": "Tool docs: an agent's manual for aws."
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/aws-cloudformation",
+      "note": "Tool docs: an agent's manual for aws."
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/amazon-bedrock",
+      "note": "Tool docs: an agent's manual for aws."
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/aws-messaging-and-streaming",
+      "note": "Tool docs: an agent's manual for aws."
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/aws-sdk-js-v3-usage",
+      "note": "Tool docs: an agent's manual for aws."
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/aws-sdk-python-usage",
+      "note": "Tool docs: an agent's manual for aws."
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/securing-s3-buckets",
+      "note": "Tool docs: an agent's manual for aws."
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/connecting-to-data-source",
+      "note": "Tool docs: an agent's manual for aws."
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/creating-secrets-using-best-practices",
+      "note": "Tool docs: an agent's manual for aws."
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/exploring-data-catalog",
+      "note": "Tool docs: an agent's manual for aws."
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/querying-data-lake",
+      "note": "Tool docs: an agent's manual for aws."
+    },
+    {
+      "url": "https://skills.sh/stablyai/orca/orca-per-workspace-env",
+      "note": "Tool docs: an agent's manual for orca."
     }
   ]
 }
