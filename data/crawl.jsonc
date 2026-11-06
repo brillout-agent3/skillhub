@@ -3,474 +3,6 @@
   "asOf": "2026-11-06",
   "qualified": [
     {
-      "name": "azure-validate",
-      "repo": "microsoft/azure-skills",
-      "official": true,
-      "stars": 1622,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/microsoft/azure-skills/azure-validate",
-        "installs": 640630,
-        "weeklyInstalls": [11420, 11089, 12383, 12240, 11635, 9078, 7050, 7992],
-        "firstSeen": "2026-02-04"
-      }
-    },
-    {
-      "name": "azure-storage",
-      "repo": "microsoft/azure-skills",
-      "official": true,
-      "stars": 1622,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/microsoft/azure-skills/azure-storage",
-        "installs": 639775,
-        "weeklyInstalls": [11420, 11095, 12385, 12219, 11664, 9093, 7051, 7763],
-        "firstSeen": "2026-02-04"
-      }
-    },
-    {
-      "name": "appinsights-instrumentation",
-      "repo": "microsoft/azure-skills",
-      "official": true,
-      "stars": 1622,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/microsoft/azure-skills/appinsights-instrumentation",
-        "installs": 639166,
-        "weeklyInstalls": [11422, 11095, 12371, 12214, 11660, 9134, 7038, 7745],
-        "firstSeen": "2026-02-04"
-      }
-    },
-    {
-      "name": "azure-resource-lookup",
-      "repo": "microsoft/azure-skills",
-      "official": true,
-      "stars": 1622,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/microsoft/azure-skills/azure-resource-lookup",
-        "installs": 639119,
-        "weeklyInstalls": [11422, 11094, 12396, 12247, 11637, 9083, 7026, 7742],
-        "firstSeen": "2026-02-18"
-      }
-    },
-    {
-      "name": "azure-resource-visualizer",
-      "repo": "microsoft/azure-skills",
-      "official": true,
-      "stars": 1622,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/microsoft/azure-skills/azure-resource-visualizer",
-        "installs": 639074,
-        "weeklyInstalls": [11423, 11084, 12369, 12234, 11623, 9069, 7025, 7751],
-        "firstSeen": "2026-02-04"
-      }
-    },
-    {
-      "name": "azure-kusto",
-      "repo": "microsoft/azure-skills",
-      "official": true,
-      "stars": 1622,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/microsoft/azure-skills/azure-kusto",
-        "installs": 638779,
-        "weeklyInstalls": [11414, 11078, 12371, 12209, 11602, 9137, 7047, 7748],
-        "firstSeen": "2026-02-04"
-      }
-    },
-    {
-      "name": "azure-aigateway",
-      "repo": "microsoft/azure-skills",
-      "official": true,
-      "stars": 1622,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/microsoft/azure-skills/azure-aigateway",
-        "installs": 638380,
-        "weeklyInstalls": [11412, 11079, 12368, 12218, 11540, 8847, 6977, 7715],
-        "firstSeen": "2026-02-04"
-      }
-    },
-    {
-      "name": "azure-messaging",
-      "repo": "microsoft/azure-skills",
-      "official": true,
-      "stars": 1622,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/microsoft/azure-skills/azure-messaging",
-        "installs": 630033,
-        "weeklyInstalls": [11412, 11079, 12372, 12211, 11528, 8847, 6978, 7706],
-        "firstSeen": "2026-02-20"
-      }
-    },
-    {
-      "name": "azure-compute",
-      "repo": "microsoft/azure-skills",
-      "official": true,
-      "stars": 1622,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/microsoft/azure-skills/azure-compute",
-        "installs": 594864,
-        "weeklyInstalls": [11413, 11085, 12375, 12214, 11535, 8858, 7003, 7726],
-        "firstSeen": "2026-02-27"
-      }
-    },
-    {
-      "name": "azure-cloud-migrate",
-      "repo": "microsoft/azure-skills",
-      "official": true,
-      "stars": 1622,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/microsoft/azure-skills/azure-cloud-migrate",
-        "installs": 587629,
-        "weeklyInstalls": [11421, 11086, 12372, 12209, 11528, 8853, 6986, 7711],
-        "firstSeen": "2026-02-28"
-      }
-    },
-    {
-      "name": "remotion-to-hyperframes",
-      "repo": "heygen-com/hyperframes",
-      "official": false,
-      "stars": 79997,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/heygen-com/hyperframes/remotion-to-hyperframes",
-        "installs": 577292,
-        "weeklyInstalls": [14538, 42093, 23681, 31040, 54542, 43765, 37927, 44877],
-        "firstSeen": "2026-04-28"
-      }
-    },
-    {
-      "name": "azure-quotas",
-      "repo": "microsoft/azure-skills",
-      "official": true,
-      "stars": 1622,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/microsoft/azure-skills/azure-quotas",
-        "installs": 543406,
-        "weeklyInstalls": [11406, 11079, 12370, 12205, 11526, 9145, 7122, 7755],
-        "firstSeen": "2026-03-10"
-      }
-    },
-    {
-      "name": "azure-upgrade",
-      "repo": "microsoft/azure-skills",
-      "official": true,
-      "stars": 1622,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/microsoft/azure-skills/azure-upgrade",
-        "installs": 536555,
-        "weeklyInstalls": [11401, 11077, 12366, 12204, 11521, 9128, 7427, 7809],
-        "firstSeen": "2026-03-13"
-      }
-    },
-    {
-      "name": "azure-enterprise-infra-planner",
-      "repo": "microsoft/azure-skills",
-      "official": true,
-      "stars": 1622,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/microsoft/azure-skills/azure-enterprise-infra-planner",
-        "installs": 513180,
-        "weeklyInstalls": [11427, 11089, 12375, 12239, 11636, 9106, 7040, 7758],
-        "firstSeen": "2026-03-20"
-      }
-    },
-    {
-      "name": "azure-kubernetes",
-      "repo": "microsoft/azure-skills",
-      "official": true,
-      "stars": 1622,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/microsoft/azure-skills/azure-kubernetes",
-        "installs": 507532,
-        "weeklyInstalls": [11418, 11091, 12377, 12212, 11615, 9146, 7371, 8159],
-        "firstSeen": "2026-03-25"
-      }
-    },
-    {
-      "name": "lark-shared",
-      "repo": "larksuite/cli",
-      "official": false,
-      "stars": 18001,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/larksuite/cli/lark-shared",
-        "installs": 485203,
-        "weeklyInstalls": [7308, 7028, 6727, 3590, 4230, 5517, 5452, 6195],
-        "firstSeen": "2026-03-28"
-      }
-    },
-    {
-      "name": "slideshow",
-      "repo": "heygen-com/hyperframes",
-      "official": false,
-      "stars": 79997,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/heygen-com/hyperframes/slideshow",
-        "installs": 483152,
-        "weeklyInstalls": [13722, 41746, 21638, 25989, 53188, 45731, 46763, 41602],
-        "firstSeen": "2026-06-19"
-      }
-    },
-    {
-      "name": "lark-wiki",
-      "repo": "larksuite/cli",
-      "official": false,
-      "stars": 18001,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/larksuite/cli/lark-wiki",
-        "installs": 481670,
-        "weeklyInstalls": [6927, 6858, 6540, 3374, 4136, 5438, 5386, 6057],
-        "firstSeen": "2026-03-28"
-      }
-    },
-    {
-      "name": "lark-whiteboard",
-      "repo": "larksuite/cli",
-      "official": false,
-      "stars": 18001,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/larksuite/cli/lark-whiteboard",
-        "installs": 479987,
-        "weeklyInstalls": [6802, 6723, 6486, 3344, 4101, 5381, 5326, 6021],
-        "firstSeen": "2026-03-28"
-      }
-    },
-    {
-      "name": "lark-task",
-      "repo": "larksuite/cli",
-      "official": false,
-      "stars": 18001,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/larksuite/cli/lark-task",
-        "installs": 479910,
-        "weeklyInstalls": [6812, 6769, 6491, 3359, 4158, 5426, 5336, 6095],
-        "firstSeen": "2026-03-28"
-      }
-    },
-    {
-      "name": "lark-event",
-      "repo": "larksuite/cli",
-      "official": false,
-      "stars": 18001,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/larksuite/cli/lark-event",
-        "installs": 476637,
-        "weeklyInstalls": [6722, 6621, 6428, 3336, 4062, 5347, 5320, 6039],
-        "firstSeen": "2026-03-28"
-      }
-    },
-    {
-      "name": "lark-vc",
-      "repo": "larksuite/cli",
-      "official": false,
-      "stars": 18001,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/larksuite/cli/lark-vc",
-        "installs": 476617,
-        "weeklyInstalls": [6679, 6589, 6408, 3328, 4054, 5323, 5280, 5979],
-        "firstSeen": "2026-03-28"
-      }
-    },
-    {
-      "name": "lark-contact",
-      "repo": "larksuite/cli",
-      "official": false,
-      "stars": 18001,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/larksuite/cli/lark-contact",
-        "installs": 476383,
-        "weeklyInstalls": [6706, 6628, 6436, 3336, 4069, 5379, 5322, 6049],
-        "firstSeen": "2026-03-28"
-      }
-    },
-    {
-      "name": "lark-workflow-meeting-summary",
-      "repo": "larksuite/cli",
-      "official": false,
-      "stars": 18001,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/larksuite/cli/lark-workflow-meeting-summary",
-        "installs": 475568,
-        "weeklyInstalls": [6676, 6585, 6409, 3333, 4051, 5321, 5241, 5966],
-        "firstSeen": "2026-03-28"
-      }
-    },
-    {
-      "name": "lark-workflow-standup-report",
-      "repo": "larksuite/cli",
-      "official": false,
-      "stars": 18001,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/larksuite/cli/lark-workflow-standup-report",
-        "installs": 474715,
-        "weeklyInstalls": [6656, 6569, 6387, 3310, 4030, 5303, 5238, 5963],
-        "firstSeen": "2026-03-28"
-      }
-    },
-    {
-      "name": "lark-openapi-explorer",
-      "repo": "larksuite/cli",
-      "official": false,
-      "stars": 18001,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/larksuite/cli/lark-openapi-explorer",
-        "installs": 474568,
-        "weeklyInstalls": [6653, 6573, 6387, 3317, 4033, 5301, 5251, 5973],
-        "firstSeen": "2026-03-28"
-      }
-    },
-    {
-      "name": "lark-skill-maker",
-      "repo": "larksuite/cli",
-      "official": false,
-      "stars": 18001,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/larksuite/cli/lark-skill-maker",
-        "installs": 474215,
-        "weeklyInstalls": [6643, 6557, 6375, 3315, 4027, 5294, 5230, 5957],
-        "firstSeen": "2026-03-28"
-      }
-    },
-    {
-      "name": "lark-approval",
-      "repo": "larksuite/cli",
-      "official": false,
-      "stars": 18001,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/larksuite/cli/lark-approval",
-        "installs": 450177,
-        "weeklyInstalls": [6706, 6637, 6435, 3342, 4073, 5371, 5323, 6044],
-        "firstSeen": "2026-04-02"
-      }
-    },
-    {
-      "name": "airunway-aks-setup",
-      "repo": "microsoft/azure-skills",
-      "official": true,
-      "stars": 1622,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/microsoft/azure-skills/airunway-aks-setup",
-        "installs": 432722,
-        "weeklyInstalls": [11403, 11076, 12362, 12199, 11590, 9134, 7040, 7739],
-        "firstSeen": "2026-04-21"
-      }
-    },
-    {
-      "name": "lark-slides",
-      "repo": "larksuite/cli",
-      "official": false,
-      "stars": 18001,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/larksuite/cli/lark-slides",
-        "installs": 430750,
-        "weeklyInstalls": [6743, 6664, 6444, 3344, 4087, 5384, 5301, 6007],
-        "firstSeen": "2026-04-10"
-      }
-    },
-    {
-      "name": "lark-attendance",
-      "repo": "larksuite/cli",
-      "official": false,
-      "stars": 18001,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/larksuite/cli/lark-attendance",
-        "installs": 427729,
-        "weeklyInstalls": [6655, 6570, 6388, 3310, 4034, 5330, 5279, 6019],
-        "firstSeen": "2026-04-11"
-      }
-    },
-    {
-      "name": "entra-agent-id",
-      "repo": "microsoft/azure-skills",
-      "official": true,
-      "stars": 1622,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/microsoft/azure-skills/entra-agent-id",
-        "installs": 408825,
-        "weeklyInstalls": [11400, 11074, 12361, 12202, 11519, 8829, 6962, 7699],
-        "firstSeen": "2026-04-29"
-      }
-    },
-    {
-      "name": "lark-markdown",
-      "repo": "larksuite/cli",
-      "official": false,
-      "stars": 18001,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/larksuite/cli/lark-markdown",
-        "installs": 395445,
-        "weeklyInstalls": [6794, 6751, 6500, 3357, 4116, 5392, 5332, 6059],
-        "firstSeen": "2026-04-30"
-      }
-    },
-    {
-      "name": "figma",
-      "repo": "heygen-com/hyperframes",
-      "official": false,
-      "stars": 79997,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/heygen-com/hyperframes/figma",
-        "installs": 394999,
-        "weeklyInstalls": [11027, 37872, 16093, 26931, 52025, 42094, 34979, 40421],
-        "firstSeen": "2026-07-03"
-      }
-    },
-    {
-      "name": "azure-reliability",
-      "repo": "microsoft/azure-skills",
-      "official": true,
-      "stars": 1622,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/microsoft/azure-skills/azure-reliability",
-        "installs": 372171,
-        "weeklyInstalls": [11410, 11087, 12372, 12244, 11592, 9019, 7004, 7726],
-        "firstSeen": "2026-05-13"
-      }
-    },
-    {
-      "name": "lark-vc-agent",
-      "repo": "larksuite/cli",
-      "official": false,
-      "stars": 18001,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/larksuite/cli/lark-vc-agent",
-        "installs": 364927,
-        "weeklyInstalls": [6654, 6559, 6396, 3312, 4038, 5302, 5242, 5954],
-        "firstSeen": "2026-05-11"
-      }
-    },
-    {
       "name": "analyze-project",
       "repo": "lllllllama/rigorpilot-skills",
       "official": false,
@@ -549,110 +81,6 @@
       }
     },
     {
-      "name": "lark-apps",
-      "repo": "larksuite/cli",
-      "official": false,
-      "stars": 18001,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/larksuite/cli/lark-apps",
-        "installs": 325778,
-        "weeklyInstalls": [6707, 6673, 6438, 3361, 4073, 5413, 5309, 6139],
-        "firstSeen": "2026-05-20"
-      }
-    },
-    {
-      "name": "python-appservice-deploy",
-      "repo": "microsoft/azure-skills",
-      "official": true,
-      "stars": 1622,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/microsoft/azure-skills/python-appservice-deploy",
-        "installs": 302389,
-        "weeklyInstalls": [11411, 11082, 12370, 12206, 11519, 8831, 6966, 7703],
-        "firstSeen": "2026-06-15"
-      }
-    },
-    {
-      "name": "remotion-interactivity",
-      "repo": "remotion-dev/skills",
-      "official": true,
-      "stars": 6472,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/remotion-dev/skills/remotion-interactivity",
-        "installs": 272148,
-        "weeklyInstalls": [7628, 8407, 12164, 20600, 24015, 25271, 36790, 39963],
-        "firstSeen": "2026-07-11"
-      }
-    },
-    {
-      "name": "remotion-docs",
-      "repo": "remotion-dev/skills",
-      "official": true,
-      "stars": 6472,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/remotion-dev/skills/remotion-docs",
-        "installs": 270095,
-        "weeklyInstalls": [7773, 8544, 12468, 20920, 24340, 25603, 37190, 40314],
-        "firstSeen": "2026-07-16"
-      }
-    },
-    {
-      "name": "remotion-saas",
-      "repo": "remotion-dev/skills",
-      "official": true,
-      "stars": 6472,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/remotion-dev/skills/remotion-saas",
-        "installs": 269847,
-        "weeklyInstalls": [7472, 8313, 12161, 20460, 23892, 25126, 36667, 39870],
-        "firstSeen": "2026-07-11"
-      }
-    },
-    {
-      "name": "remotion-upgrade",
-      "repo": "remotion-dev/skills",
-      "official": true,
-      "stars": 6472,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/remotion-dev/skills/remotion-upgrade",
-        "installs": 261196,
-        "weeklyInstalls": [7483, 8341, 12154, 20582, 24071, 25308, 36903, 40011],
-        "firstSeen": "2026-07-19"
-      }
-    },
-    {
-      "name": "remotion-multimedia",
-      "repo": "remotion-dev/skills",
-      "official": true,
-      "stars": 6472,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/remotion-dev/skills/remotion-multimedia",
-        "installs": 256823,
-        "weeklyInstalls": [7941, 8617, 12429, 20957, 24267, 25547, 37115, 40340],
-        "firstSeen": "2026-07-27"
-      }
-    },
-    {
-      "name": "remotion-maps",
-      "repo": "remotion-dev/skills",
-      "official": true,
-      "stars": 6472,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/remotion-dev/skills/remotion-maps",
-        "installs": 254615,
-        "weeklyInstalls": [7514, 8351, 12098, 20534, 23955, 25196, 36772, 39990],
-        "firstSeen": "2026-07-24"
-      }
-    },
-    {
       "name": "improve-animations",
       "repo": "emilkowalski/skills",
       "official": false,
@@ -666,32 +94,6 @@
       }
     },
     {
-      "name": "lark-note",
-      "repo": "larksuite/cli",
-      "official": false,
-      "stars": 18001,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/larksuite/cli/lark-note",
-        "installs": 251962,
-        "weeklyInstalls": [6657, 6565, 6390, 3300, 4024, 5298, 5241, 5952],
-        "firstSeen": "2026-06-11"
-      }
-    },
-    {
-      "name": "remotion-studio",
-      "repo": "remotion-dev/skills",
-      "official": true,
-      "stars": 6472,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/remotion-dev/skills/remotion-studio",
-        "installs": 247549,
-        "weeklyInstalls": [8003, 8656, 12468, 21063, 24439, 25709, 37357, 40587],
-        "firstSeen": "2026-08-04"
-      }
-    },
-    {
       "name": "find-animation-opportunities",
       "repo": "emilkowalski/skills",
       "official": false,
@@ -702,32 +104,6 @@
         "installs": 236915,
         "weeklyInstalls": [11517, 13163, 13998, 15153, 16897, 16874, 18619, 16822],
         "firstSeen": "2026-07-15"
-      }
-    },
-    {
-      "name": "azure-app-onboard",
-      "repo": "microsoft/azure-skills",
-      "official": true,
-      "stars": 1622,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/microsoft/azure-skills/azure-app-onboard",
-        "installs": 226953,
-        "weeklyInstalls": [11409, 11076, 12370, 12227, 11589, 8985, 6997, 7719],
-        "firstSeen": "2026-07-24"
-      }
-    },
-    {
-      "name": "azure-app-onboard-prereq",
-      "repo": "microsoft/azure-skills",
-      "official": true,
-      "stars": 1622,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/microsoft/azure-skills/azure-app-onboard-prereq",
-        "installs": 226747,
-        "weeklyInstalls": [11405, 11076, 12360, 12220, 11570, 8945, 6984, 7713],
-        "firstSeen": "2026-07-24"
       }
     },
     {
@@ -780,71 +156,6 @@
         "installs": 200558,
         "weeklyInstalls": [10865, 12392, 13324, 13677, 15642, 15654, 17432, 15729],
         "firstSeen": "2026-07-27"
-      }
-    },
-    {
-      "name": "firebase-auth-basics",
-      "repo": "firebase/agent-skills",
-      "official": true,
-      "stars": 505,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/firebase/agent-skills/firebase-auth-basics",
-        "installs": 180757,
-        "weeklyInstalls": [4763, 4178, 4562, 4118, 3813, 3699, 3591, 3721],
-        "firstSeen": "2026-02-11"
-      }
-    },
-    {
-      "name": "firebase-hosting-basics",
-      "repo": "firebase/agent-skills",
-      "official": true,
-      "stars": 505,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/firebase/agent-skills/firebase-hosting-basics",
-        "installs": 176171,
-        "weeklyInstalls": [4683, 4063, 4364, 3927, 3670, 3609, 3496, 3632],
-        "firstSeen": "2026-02-11"
-      }
-    },
-    {
-      "name": "firebase-app-hosting-basics",
-      "repo": "firebase/agent-skills",
-      "official": true,
-      "stars": 505,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/firebase/agent-skills/firebase-app-hosting-basics",
-        "installs": 175542,
-        "weeklyInstalls": [4669, 4039, 4326, 3910, 3661, 3576, 3515, 3652],
-        "firstSeen": "2026-02-11"
-      }
-    },
-    {
-      "name": "firebase-data-connect",
-      "repo": "firebase/agent-skills",
-      "official": true,
-      "stars": 505,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/firebase/agent-skills/firebase-data-connect",
-        "installs": 174605,
-        "weeklyInstalls": [4648, 4024, 4352, 3934, 3655, 3567, 3449, 3601],
-        "firstSeen": "2026-02-17"
-      }
-    },
-    {
-      "name": "ask-sonner",
-      "repo": "emilkowalski/skills",
-      "official": false,
-      "stars": 54082,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/emilkowalski/skills/ask-sonner",
-        "installs": 165794,
-        "weeklyInstalls": [10357, 11728, 12448, 13268, 14909, 15016, 16800, 15147],
-        "firstSeen": "2026-08-10"
       }
     },
     {
@@ -913,32 +224,6 @@
       }
     },
     {
-      "name": "firebase-security-rules-auditor",
-      "repo": "firebase/agent-skills",
-      "official": true,
-      "stars": 505,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/firebase/agent-skills/firebase-security-rules-auditor",
-        "installs": 144736,
-        "weeklyInstalls": [4787, 4170, 4545, 4045, 3771, 3717, 3607, 3766],
-        "firstSeen": "2026-04-27"
-      }
-    },
-    {
-      "name": "write-swift",
-      "repo": "emilkowalski/skills",
-      "official": false,
-      "stars": 54082,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/emilkowalski/skills/write-swift",
-        "installs": 144105,
-        "weeklyInstalls": [10159, 11473, 12208, 12501, 14527, 14739, 16541, 14821],
-        "firstSeen": "2026-08-21"
-      }
-    },
-    {
       "name": "ad-creative",
       "repo": "coreyhaines31/marketingskills",
       "official": false,
@@ -949,32 +234,6 @@
         "installs": 142120,
         "weeklyInstalls": [3428, 3111, 3198, 3984, 4515, 4161, 4235, 4886],
         "firstSeen": "2026-02-19"
-      }
-    },
-    {
-      "name": "firebase-ai-logic-basics",
-      "repo": "firebase/agent-skills",
-      "official": true,
-      "stars": 505,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/firebase/agent-skills/firebase-ai-logic-basics",
-        "installs": 141578,
-        "weeklyInstalls": [4659, 4070, 4403, 3932, 3660, 3592, 3472, 3639],
-        "firstSeen": "2026-04-27"
-      }
-    },
-    {
-      "name": "firebase-firestore",
-      "repo": "firebase/agent-skills",
-      "official": true,
-      "stars": 505,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/firebase/agent-skills/firebase-firestore",
-        "installs": 141434,
-        "weeklyInstalls": [4808, 4211, 4553, 4084, 3787, 3700, 3643, 3757],
-        "firstSeen": "2026-04-30"
       }
     },
     {
@@ -53341,6 +52600,234 @@
     {
       "url": "https://skills.sh/heygen-com/hyperframes/hyperframes-media",
       "note": "Gone from heygen-com/hyperframes since 2026-11-06."
+    },
+    {
+      "url": "https://skills.sh/microsoft/azure-skills/azure-validate",
+      "note": "Tool docs: an agent's manual for azure."
+    },
+    {
+      "url": "https://skills.sh/microsoft/azure-skills/azure-storage",
+      "note": "Tool docs: an agent's manual for azure."
+    },
+    {
+      "url": "https://skills.sh/microsoft/azure-skills/appinsights-instrumentation",
+      "note": "Tool docs: an agent's manual for azure."
+    },
+    {
+      "url": "https://skills.sh/microsoft/azure-skills/azure-resource-lookup",
+      "note": "Tool docs: an agent's manual for azure."
+    },
+    {
+      "url": "https://skills.sh/microsoft/azure-skills/azure-resource-visualizer",
+      "note": "Tool docs: an agent's manual for azure."
+    },
+    {
+      "url": "https://skills.sh/microsoft/azure-skills/azure-kusto",
+      "note": "Tool docs: an agent's manual for azure."
+    },
+    {
+      "url": "https://skills.sh/microsoft/azure-skills/azure-aigateway",
+      "note": "Tool docs: an agent's manual for azure."
+    },
+    {
+      "url": "https://skills.sh/microsoft/azure-skills/azure-messaging",
+      "note": "Tool docs: an agent's manual for azure."
+    },
+    {
+      "url": "https://skills.sh/microsoft/azure-skills/azure-compute",
+      "note": "Tool docs: an agent's manual for azure."
+    },
+    {
+      "url": "https://skills.sh/microsoft/azure-skills/azure-cloud-migrate",
+      "note": "Tool docs: an agent's manual for azure."
+    },
+    {
+      "url": "https://skills.sh/microsoft/azure-skills/azure-quotas",
+      "note": "Tool docs: an agent's manual for azure."
+    },
+    {
+      "url": "https://skills.sh/microsoft/azure-skills/azure-upgrade",
+      "note": "Tool docs: an agent's manual for azure."
+    },
+    {
+      "url": "https://skills.sh/microsoft/azure-skills/azure-enterprise-infra-planner",
+      "note": "Tool docs: an agent's manual for azure."
+    },
+    {
+      "url": "https://skills.sh/microsoft/azure-skills/azure-kubernetes",
+      "note": "Tool docs: an agent's manual for azure."
+    },
+    {
+      "url": "https://skills.sh/microsoft/azure-skills/airunway-aks-setup",
+      "note": "Tool docs: an agent's manual for azure."
+    },
+    {
+      "url": "https://skills.sh/microsoft/azure-skills/entra-agent-id",
+      "note": "Tool docs: an agent's manual for azure."
+    },
+    {
+      "url": "https://skills.sh/microsoft/azure-skills/azure-reliability",
+      "note": "Tool docs: an agent's manual for azure."
+    },
+    {
+      "url": "https://skills.sh/microsoft/azure-skills/python-appservice-deploy",
+      "note": "Tool docs: an agent's manual for azure and python."
+    },
+    {
+      "url": "https://skills.sh/microsoft/azure-skills/azure-app-onboard",
+      "note": "Tool docs: an agent's manual for azure."
+    },
+    {
+      "url": "https://skills.sh/microsoft/azure-skills/azure-app-onboard-prereq",
+      "note": "Tool docs: an agent's manual for azure."
+    },
+    {
+      "url": "https://skills.sh/larksuite/cli/lark-shared",
+      "note": "In Chinese. Tool docs: an agent's manual for lark."
+    },
+    {
+      "url": "https://skills.sh/larksuite/cli/lark-wiki",
+      "note": "In Chinese. Tool docs: an agent's manual for lark."
+    },
+    {
+      "url": "https://skills.sh/larksuite/cli/lark-whiteboard",
+      "note": "In Chinese. Tool docs: an agent's manual for lark."
+    },
+    {
+      "url": "https://skills.sh/larksuite/cli/lark-task",
+      "note": "In Chinese. Tool docs: an agent's manual for lark."
+    },
+    {
+      "url": "https://skills.sh/larksuite/cli/lark-event",
+      "note": "Tool docs: an agent's manual for lark."
+    },
+    {
+      "url": "https://skills.sh/larksuite/cli/lark-vc",
+      "note": "Deprecated. Its SKILL.md now points to lark-meeting. In Chinese. Tool docs: an agent's manual for lark."
+    },
+    {
+      "url": "https://skills.sh/larksuite/cli/lark-contact",
+      "note": "In Chinese. Tool docs: an agent's manual for lark."
+    },
+    {
+      "url": "https://skills.sh/larksuite/cli/lark-workflow-meeting-summary",
+      "note": "In Chinese."
+    },
+    {
+      "url": "https://skills.sh/larksuite/cli/lark-workflow-standup-report",
+      "note": "In Chinese."
+    },
+    {
+      "url": "https://skills.sh/larksuite/cli/lark-openapi-explorer",
+      "note": "In Chinese. Tool docs: an agent's manual for lark."
+    },
+    {
+      "url": "https://skills.sh/larksuite/cli/lark-skill-maker",
+      "note": "In Chinese. Tool docs: an agent's manual for lark."
+    },
+    {
+      "url": "https://skills.sh/larksuite/cli/lark-approval",
+      "note": "In Chinese. Tool docs: an agent's manual for lark."
+    },
+    {
+      "url": "https://skills.sh/larksuite/cli/lark-slides",
+      "note": "In Chinese. Tool docs: an agent's manual for lark."
+    },
+    {
+      "url": "https://skills.sh/larksuite/cli/lark-attendance",
+      "note": "In Chinese. Tool docs: an agent's manual for lark."
+    },
+    {
+      "url": "https://skills.sh/larksuite/cli/lark-markdown",
+      "note": "In Chinese. Tool docs: an agent's manual for lark."
+    },
+    {
+      "url": "https://skills.sh/larksuite/cli/lark-vc-agent",
+      "note": "Deprecated. Its SKILL.md now points to lark-meeting. In Chinese. Tool docs: an agent's manual for lark."
+    },
+    {
+      "url": "https://skills.sh/larksuite/cli/lark-apps",
+      "note": "In Chinese. Tool docs: an agent's manual for lark."
+    },
+    {
+      "url": "https://skills.sh/larksuite/cli/lark-note",
+      "note": "Deprecated. Its SKILL.md now points to lark-meeting. In Chinese. Tool docs: an agent's manual for lark."
+    },
+    {
+      "url": "https://skills.sh/heygen-com/hyperframes/remotion-to-hyperframes",
+      "note": "Tool docs: an agent's manual for hyperframes and remotion."
+    },
+    {
+      "url": "https://skills.sh/heygen-com/hyperframes/slideshow",
+      "note": "Tool docs: an agent's manual for hyperframes."
+    },
+    {
+      "url": "https://skills.sh/heygen-com/hyperframes/figma",
+      "note": "Tool docs: an agent's manual for hyperframes and figma."
+    },
+    {
+      "url": "https://skills.sh/remotion-dev/skills/remotion-interactivity",
+      "note": "Tool docs: an agent's manual for remotion and react."
+    },
+    {
+      "url": "https://skills.sh/remotion-dev/skills/remotion-docs",
+      "note": "Tool docs: an agent's manual for remotion."
+    },
+    {
+      "url": "https://skills.sh/remotion-dev/skills/remotion-saas",
+      "note": "Tool docs: an agent's manual for remotion and react."
+    },
+    {
+      "url": "https://skills.sh/remotion-dev/skills/remotion-upgrade",
+      "note": "Tool docs: an agent's manual for remotion."
+    },
+    {
+      "url": "https://skills.sh/remotion-dev/skills/remotion-multimedia",
+      "note": "Tool docs: an agent's manual for remotion and mediabunny."
+    },
+    {
+      "url": "https://skills.sh/remotion-dev/skills/remotion-maps",
+      "note": "Tool docs: an agent's manual for remotion and react."
+    },
+    {
+      "url": "https://skills.sh/remotion-dev/skills/remotion-studio",
+      "note": "Tool docs: an agent's manual for remotion."
+    },
+    {
+      "url": "https://skills.sh/firebase/agent-skills/firebase-auth-basics",
+      "note": "Tool docs: an agent's manual for firebase."
+    },
+    {
+      "url": "https://skills.sh/firebase/agent-skills/firebase-hosting-basics",
+      "note": "Tool docs: an agent's manual for firebase."
+    },
+    {
+      "url": "https://skills.sh/firebase/agent-skills/firebase-app-hosting-basics",
+      "note": "Tool docs: an agent's manual for firebase."
+    },
+    {
+      "url": "https://skills.sh/firebase/agent-skills/firebase-data-connect",
+      "note": "Tool docs: an agent's manual for firebase and postgres."
+    },
+    {
+      "url": "https://skills.sh/firebase/agent-skills/firebase-security-rules-auditor",
+      "note": "Tool docs: an agent's manual for firebase."
+    },
+    {
+      "url": "https://skills.sh/firebase/agent-skills/firebase-ai-logic-basics",
+      "note": "Tool docs: an agent's manual for firebase."
+    },
+    {
+      "url": "https://skills.sh/firebase/agent-skills/firebase-firestore",
+      "note": "Tool docs: an agent's manual for firebase."
+    },
+    {
+      "url": "https://skills.sh/emilkowalski/skills/ask-sonner",
+      "note": "Tool docs: an agent's manual for sonner and react."
+    },
+    {
+      "url": "https://skills.sh/emilkowalski/skills/write-swift",
+      "note": "Tool docs: an agent's manual for swift."
     }
   ]
 }
