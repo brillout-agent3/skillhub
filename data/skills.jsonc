@@ -20658,6 +20658,639 @@
           "ci"
         ]
       }
+    },
+    {
+      "id": "jimliu/baoyu-skills/skills/baoyu-danger-x-to-markdown",
+      "name": "baoyu-danger-x-to-markdown",
+      "skills.sh": {
+        "url": "https://skills.sh/jimliu/baoyu-skills/baoyu-danger-x-to-markdown",
+        "installs": 28300,
+        "weeklyInstalls": [271, 264, 97, 89, 147, 138, 137, 152],
+        "firstSeen": "2026-01-19"
+      },
+      "skillMd": {
+        "version": "ca703c2d7c2c4399a1dc0cf82224f8551e05a96d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Saves X tweets, threads and X Articles as Markdown files with front matter, through an unofficial X API and your login.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a tweet, a thread or an X Article saved as a Markdown file"
+            },
+            {
+              "label": "It does",
+              "text": "fetches it with its bundled script through a reverse-engineered X API, signed in with your X cookies"
+            },
+            {
+              "label": "You get",
+              "text": "a Markdown file under x-to-markdown/<username>/<tweet-id>/, with the URL, author, tweet count and cover image in its front matter"
+            },
+            {
+              "label": "Asks first",
+              "text": "shows a disclaimer about the unofficial API (it may break, your account may be restricted) and stops unless you accept"
+            },
+            {
+              "label": "Media",
+              "text": "when the post has images or videos, asks whether to download them and relink them locally, unless your preferences already say"
+            },
+            {
+              "label": "Needs",
+              "text": "Bun or npx, and an X login: two cookie values in environment variables, or Chrome to log in once"
+            },
+            {
+              "label": "Unlike url-to-markdown",
+              "text": "baoyu-url-to-markdown, from the same repo, captures pages in Chrome; this one calls an X API directly with your cookies"
+            }
+          ],
+          "text": "It relies on a reverse-engineered X API rather than an official one. Before the first conversion it shows a disclaimer and saves your acceptance in a consent file; declining stops it. Also before its first conversion, it asks about downloading media, the output folder and where to keep these preferences, and never assumes defaults. It takes x.com and twitter.com status links and X Article links, and can print JSON instead of Markdown. Cookies come from the X_AUTH_TOKEN and X_CT0 environment variables or, failing those, from a Chrome window it opens for you to log in, whose cookies it caches locally; --login only refreshes them. When media downloading is left on ask, it saves the Markdown first, checks it for remote images or videos, and only then asks, rerunning with downloads if you say yes.",
+          "permalink": "https://github.com/jimliu/baoyu-skills/tree/ca703c2d7c2c4399a1dc0cf82224f8551e05a96d/skills/baoyu-danger-x-to-markdown"
+        },
+        "tags": [
+          "category:browser",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "needs:account",
+          "by:community",
+          "stack:x-twitter",
+          "scraping",
+          "social-media"
+        ],
+        "note": "Uses an unofficial, reverse-engineered X API with your login cookies: it may break, and X may restrict your account."
+      }
+    },
+    {
+      "id": "jimliu/baoyu-skills/skills/baoyu-danger-gemini-web",
+      "name": "baoyu-danger-gemini-web",
+      "skills.sh": {
+        "url": "https://skills.sh/jimliu/baoyu-skills/baoyu-danger-gemini-web",
+        "installs": 28200,
+        "weeklyInstalls": [277, 268, 103, 87, 149, 141, 138, 151],
+        "firstSeen": "2026-01-19"
+      },
+      "skillMd": {
+        "version": "ca703c2d7c2c4399a1dc0cf82224f8551e05a96d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Generates text and images with Gemini through an unofficial web API, signed in with your Google account instead of an API key.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want Gemini to answer a prompt or make an image, signed in with your Google account rather than an API key"
+            },
+            {
+              "label": "It does",
+              "text": "sends prompts, prompt files and reference images to Gemini's web app through a bundled reverse-engineered client, using your Google login cookies"
+            },
+            {
+              "label": "You get",
+              "text": "the reply as text or JSON, or an image file, generated.png unless you name one"
+            },
+            {
+              "label": "Conversations",
+              "text": "a session ID keeps a multi-turn chat going, saved as a JSON file in its data folder"
+            },
+            {
+              "label": "Asks first",
+              "text": "you accept a disclaimer about the unofficial API before first use; declining stops it"
+            },
+            {
+              "label": "Needs",
+              "text": "Bun or npx, a Google account, and Chrome, Chromium or Edge to log in on first run"
+            },
+            {
+              "label": "Unlike baoyu-image-gen",
+              "text": "the repo's image backend, which calls official image APIs with keys; this one goes through Gemini's web app with your login"
+            }
+          ],
+          "text": "A command-line client for Gemini's web app, built on a TypeScript port of the gemini_webapi library. On first use it shows a disclaimer and records your acceptance in a consent file. The first run opens a browser for you to sign in to Google, and the cookies are cached; --login refreshes them. Without a profile directory set, a refresh may reuse a Chrome or Chromium that's already running with its debugging port open. The default model is gemini-3-pro; gemini-3-flash, gemini-3-flash-thinking and gemini-3.1-pro-preview are the others. Reference images go in as vision input, so it can describe a picture or make a variation of it. Its description offers it as an image backend for other skills. Optional preferences set a default model, a proxy and a data folder, and a proxy can also come from HTTP_PROXY and HTTPS_PROXY.",
+          "permalink": "https://github.com/jimliu/baoyu-skills/tree/ca703c2d7c2c4399a1dc0cf82224f8551e05a96d/skills/baoyu-danger-gemini-web"
+        },
+        "tags": [
+          "category:media",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "needs:account",
+          "needs:browser",
+          "by:community",
+          "stack:gemini",
+          "image",
+          "ai-generation"
+        ],
+        "note": "Uses an unofficial, reverse-engineered Gemini web API with your Google login cookies; it may break without notice."
+      }
+    },
+    {
+      "id": "jimliu/baoyu-skills/skills/baoyu-translate",
+      "name": "baoyu-translate",
+      "skills.sh": {
+        "url": "https://skills.sh/jimliu/baoyu-skills/baoyu-translate",
+        "installs": 26000,
+        "weeklyInstalls": [336, 330, 145, 139, 189, 191, 184, 217],
+        "firstSeen": "2026-03-06"
+      },
+      "skillMd": {
+        "version": "ca703c2d7c2c4399a1dc0cf82224f8551e05a96d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Translates a file, a URL or pasted text in one of three modes, from a single quick pass to a reviewed, polished translation.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want an article or document translated so it reads as if written in the target language, Simplified Chinese by default"
+            },
+            {
+              "label": "It does",
+              "text": "analyzes the source, builds a translation prompt with a glossary, translates, and in refined mode critiques, revises and polishes"
+            },
+            {
+              "label": "You get",
+              "text": "translation.md in a folder next to the source, with each intermediate step's file kept beside it"
+            },
+            {
+              "label": "Modes",
+              "text": "quick translates in one pass; normal, the default, analyzes first; refined adds a critique, a revision and a final polish"
+            },
+            {
+              "label": "Long texts",
+              "text": "from 4,000 words, its script splits the text at Markdown blocks and subagents draft the chunks in parallel, when the agent has them"
+            },
+            {
+              "label": "Keeps",
+              "text": "the Markdown formatting, facts and data, and consistent terms from your glossaries plus a built-in English-to-Chinese one"
+            },
+            {
+              "label": "Asks first",
+              "text": "target language, mode, audience, style and where to save preferences, before its first translation"
+            },
+            {
+              "label": "Needs",
+              "text": "Bun or npx, to split long texts"
+            }
+          ],
+          "text": "Its rule is to rewrite rather than translate word for word: natural word order, long sentences broken up, idioms rendered by meaning, specialized terms followed by the original in parentheses the first time, and a few bold explanations where the audience may lack context. Audience presets (general, technical, academic, business) set how much it explains; style presets such as storytelling (the default), formal, literal, humorous or elegant set the voice, and both accept your own description. Saying 快翻 or quick picks quick mode, 精翻 or refined the refined one. After a normal translation you can reply 继续润色 or refine to run the review steps on it. Source frontmatter is kept, with its fields renamed with a source prefix and translated values added. At the end it lists images that probably still carry text in the source language, and leaves them alone unless you ask. Glossaries can be set inline or as files in its preferences, or passed per run.",
+          "permalink": "https://github.com/jimliu/baoyu-skills/tree/ca703c2d7c2c4399a1dc0cf82224f8551e05a96d/skills/baoyu-translate"
+        },
+        "tags": [
+          "category:writing",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "writing"
+        ]
+      }
+    },
+    {
+      "id": "jimliu/baoyu-skills/.claude/skills/release-skills",
+      "name": "release-skills",
+      "skills.sh": {
+        "url": "https://skills.sh/jimliu/baoyu-skills/release-skills",
+        "installs": 25900,
+        "weeklyInstalls": [272, 260, 196, 257, 135, 125, 142, 140],
+        "firstSeen": "2026-01-19"
+      },
+      "skillMd": {
+        "version": "ca703c2d7c2c4399a1dc0cf82224f8551e05a96d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Releases a project: bumps the version from its commits, writes changelogs in each language, commits, tags and publishes a GitHub Release.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a Node.js, Python, Rust, Claude plugin or plain VERSION-file project is ready for a new version"
+            },
+            {
+              "label": "It does",
+              "text": "reads the commits since the last tag, picks a semantic version bump, updates the version file and changelogs, commits and creates an annotated tag"
+            },
+            {
+              "label": "You get",
+              "text": "updated changelogs in every language your repo keeps, such as CHANGELOG.zh.md, a release commit, a tag and, if you agree, a GitHub Release"
+            },
+            {
+              "label": "When it asks",
+              "text": "just before the release commit, for the version, pushing and the GitHub Release; by then it has already committed pending changes per module and written the changelogs"
+            },
+            {
+              "label": "Watch out",
+              "text": "it triggers on \"push\" too, and runs all its release steps even when you only ask to push uncommitted changes"
+            },
+            {
+              "label": "Needs",
+              "text": "git, and the gh CLI signed in for GitHub Releases"
+            },
+            {
+              "label": "Origin",
+              "text": "the release tool baoyu-skills uses on itself, kept in its .claude folder rather than among its published skills"
+            }
+          ],
+          "text": "It detects the version file (package.json, pyproject.toml, Cargo.toml, marketplace.json or VERSION) and every CHANGELOG, HISTORY or CHANGES file, telling each one's language from its filename suffix. A breaking change means a major bump, a feat commit a minor one and anything else a patch, unless you force one with a flag. Each changelog gets entries written in its own language rather than translated, with (by @username) after changes merged from anyone but the repo owner. Changes are grouped by skill or module, as in a repo of skills/<name> folders, committed separately with conventional commit messages, and the READMEs checked for options or examples that need updating. A dry run previews everything without changing anything, and a backfill mode creates missing GitHub Releases for existing tags from their changelog sections, without bumping versions. A .releaserc.yml can override the detected files, changelog sections and tag format, or hand packaging and publishing to your own hooks.",
+          "permalink": "https://github.com/jimliu/baoyu-skills/tree/ca703c2d7c2c4399a1dc0cf82224f8551e05a96d/.claude/skills/release-skills"
+        },
+        "tags": [
+          "category:engineering",
+          "type:workflow",
+          "effect:remote",
+          "needs:cli",
+          "by:community",
+          "stack:git",
+          "stack:github",
+          "git"
+        ],
+        "note": "It also triggers on \"push\", and then runs its whole release process even when you only meant to push."
+      }
+    },
+    {
+      "id": "jimliu/baoyu-skills/skills/baoyu-youtube-transcript",
+      "name": "baoyu-youtube-transcript",
+      "skills.sh": {
+        "url": "https://skills.sh/jimliu/baoyu-skills/baoyu-youtube-transcript",
+        "installs": 22300,
+        "weeklyInstalls": [371, 355, 193, 182, 243, 272, 297, 326],
+        "firstSeen": "2026-03-22"
+      },
+      "skillMd": {
+        "version": "ca703c2d7c2c4399a1dc0cf82224f8551e05a96d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Downloads a YouTube video's transcript as Markdown or SRT, with chapters, speaker labels and its cover image, without an API key.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want the words of a YouTube video, or its thumbnail, saved as a file"
+            },
+            {
+              "label": "It does",
+              "text": "fetches captions with its bundled script through YouTube's InnerTube API, falling back to yt-dlp when YouTube blocks it"
+            },
+            {
+              "label": "You get",
+              "text": "transcript.md with timestamped paragraphs, or transcript.srt, plus meta.json and imgs/cover.jpg, under youtube-transcript/<channel>/<title>/"
+            },
+            {
+              "label": "Speakers",
+              "text": "by default a subagent labels who is speaking, from the title, channel, description and conversation cues, and splits the text into chapters"
+            },
+            {
+              "label": "Languages",
+              "text": "lists the available transcripts when you name no language, takes a language order, and can translate"
+            },
+            {
+              "label": "Caches",
+              "text": "raw data per video, so reformatting it or asking only for the cover doesn't fetch it again"
+            },
+            {
+              "label": "Needs",
+              "text": "Bun or npx, plus yt-dlp as a fallback, which the agent sets up itself if it's missing; no API key or browser"
+            }
+          ],
+          "text": "It works with manual and auto-generated captions and takes watch, youtu.be, embed and shorts links or bare video IDs, several at once. Chapters come from the timestamps in the video's description; without them, the text is grouped into paragraphs. For speaker identification, which it uses by default, the script saves a raw file with the metadata and the transcript in SRT form, then a subagent, which can be a cheaper model, rewrites it with speaker labels, short paragraphs and timestamps. Sentences are split on punctuation, including Chinese, Japanese and Korean, with timestamps shared out by length. When YouTube flags it as a bot, the script retries other client identities, then yt-dlp; passing your browser's cookies to yt-dlp is the last resort. It can skip auto-generated or manual transcripts, and --refresh ignores the cache.",
+          "permalink": "https://github.com/jimliu/baoyu-skills/tree/ca703c2d7c2c4399a1dc0cf82224f8551e05a96d/skills/baoyu-youtube-transcript"
+        },
+        "tags": [
+          "category:browser",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "needs:subagents",
+          "by:community",
+          "stack:youtube",
+          "video",
+          "scraping"
+        ],
+        "note": "When YouTube blocks its requests, it falls back to yt-dlp, and the agent installs yt-dlp without asking if it's missing."
+      }
+    },
+    {
+      "id": "jimliu/baoyu-skills/skills/baoyu-post-to-weibo",
+      "name": "baoyu-post-to-weibo",
+      "skills.sh": {
+        "url": "https://skills.sh/jimliu/baoyu-skills/baoyu-post-to-weibo",
+        "installs": 21900,
+        "weeklyInstalls": [271, 262, 94, 85, 140, 135, 139, 153],
+        "firstSeen": "2026-03-06"
+      },
+      "skillMd": {
+        "version": "ca703c2d7c2c4399a1dc0cf82224f8551e05a96d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Fills in Weibo posts with images or video, and long Markdown headline articles, in your logged-in Chrome, leaving publishing to you.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a post or a Markdown article on Weibo (微博) without composing it by hand"
+            },
+            {
+              "label": "It does",
+              "text": "opens Weibo in Chrome through its debugging protocol and fills in the text, images and videos, or an article's title, summary, body and cover"
+            },
+            {
+              "label": "You get",
+              "text": "a filled-in post or headline article (头条文章) in the browser, for you to review and publish"
+            },
+            {
+              "label": "Picks",
+              "text": "a Markdown file becomes a headline article; plain text, with or without images, a regular post of up to 18 files"
+            },
+            {
+              "label": "Checks",
+              "text": "after filling an article, it reports leftover image placeholders and any gap between expected and inserted images"
+            },
+            {
+              "label": "Needs",
+              "text": "Bun or npx, Chrome or Chromium, and a Weibo account you log in to once"
+            }
+          ],
+          "text": "Its scripts drive a real Chrome, which it says avoids Weibo's anti-bot detection, and the login from your first run persists. For an article, it converts the Markdown to HTML in the default theme, clicks 写文章 in Weibo's editor, fills in the title (32 characters at most, truncated with a warning) and summary (44 at most, regenerated from the content if longer), pastes the body, then swaps each image placeholder for its image through the clipboard. Title, summary and cover can come from the file's frontmatter or from options. If Chrome's debugging port doesn't answer, it kills only the Chrome instances running with its own profile, without asking, and retries. A preferences file can set a default Chrome profile.",
+          "permalink": "https://github.com/jimliu/baoyu-skills/tree/ca703c2d7c2c4399a1dc0cf82224f8551e05a96d/skills/baoyu-post-to-weibo"
+        },
+        "tags": [
+          "category:marketing",
+          "category:browser",
+          "type:tool",
+          "effect:remote",
+          "needs:cli",
+          "needs:account",
+          "needs:browser",
+          "by:community",
+          "stack:weibo",
+          "social-media",
+          "browser-automation"
+        ],
+        "note": "Needs Chrome logged in to your Weibo account; you publish each post yourself."
+      }
+    },
+    {
+      "id": "jimliu/baoyu-skills/skills/baoyu-diagram",
+      "name": "baoyu-diagram",
+      "skills.sh": {
+        "url": "https://skills.sh/jimliu/baoyu-skills/baoyu-diagram",
+        "installs": 15800,
+        "weeklyInstalls": [327, 338, 148, 156, 209, 215, 205, 232],
+        "firstSeen": "2026-04-12"
+      },
+      "skillMd": {
+        "version": "ca703c2d7c2c4399a1dc0cf82224f8551e05a96d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Draws architecture, flowchart, sequence and other diagrams as SVG the agent writes itself, in dark and light themes, plus 2x PNGs.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a system, process, data flow, state machine or org chart drawn as a clean technical diagram"
+            },
+            {
+              "label": "It does",
+              "text": "picks a diagram type, plans the layout, writes the SVG with every color as a CSS variable, then runs scripts for the light version and PNGs"
+            },
+            {
+              "label": "You get",
+              "text": "<name>.svg (dark), <name>.light.svg and a 2x PNG of each, in a diagram/ folder"
+            },
+            {
+              "label": "Types",
+              "text": "architecture, flowchart, sequence, structural (class, ER, org chart), mind map, timeline, state machine, illustrative and data flow"
+            },
+            {
+              "label": "Themes",
+              "text": "dark and light built in; add a JSON file of colors to its themes folder for your own"
+            },
+            {
+              "label": "Needs",
+              "text": "Bun or npx, and the sharp package installed once for PNGs; without it you get the SVGs only"
+            },
+            {
+              "label": "Unlike baoyu-infographic",
+              "text": "from the same repo, which has an image model make a picture, here the agent writes the SVG markup itself"
+            }
+          ],
+          "text": "It follows a fixed design system: a dark slate background with a grid, monospace type at set sizes, semi-transparent boxes colored by role (frontend, backend, database, cloud, security, queues), and an opaque mask under each box so arrows don't show through. Spacing rules, such as gaps of at least 40px vertically and 30px horizontally, legends outside boundaries and 30px of padding around the content, keep parts from overlapping. Each SVG is one self-contained file that loads no fonts, images or scripts from the network, and Chinese labels get a CJK font and wider boxes. For architecture, flowchart, sequence and structural diagrams it reads a reference for that type before laying out. The PNG script replaces each CSS variable with the theme's color, since its renderer doesn't understand them, and never installs sharp itself. Files go in a diagram/ folder next to the input file, or in diagram/<topic>/ in the project.",
+          "permalink": "https://github.com/jimliu/baoyu-skills/tree/ca703c2d7c2c4399a1dc0cf82224f8551e05a96d/skills/baoyu-diagram"
+        },
+        "tags": [
+          "category:science",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "stack:svg",
+          "diagrams",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "id": "expo/skills/plugins/expo/skills/eas-simulator",
+      "name": "eas-simulator",
+      "skills.sh": {
+        "url": "https://skills.sh/expo/skills/eas-simulator",
+        "installs": 23000,
+        "weeklyInstalls": [1430, 1468, 1344, 1378, 1288, 1381, 1514, 1554],
+        "firstSeen": "2026-07-02"
+      },
+      "skillMd": {
+        "version": "a9e5bd3fa00b4e61f632e43f85da73aee1942582",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Runs your Expo app on a cloud iOS simulator or Android emulator from EAS, where the agent taps, screenshots and records it.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need a simulator you can't run locally, such as iOS on Linux, in CI or in a cloud agent, or want the agent to click through your app"
+            },
+            {
+              "label": "It does",
+              "text": "starts an EAS Simulator session, installs a build of your app, drives it with agent-device, then stops the session"
+            },
+            {
+              "label": "You get",
+              "text": "screenshots or screen recordings of your app running, and a browser preview link to watch or drive it yourself"
+            },
+            {
+              "label": "Live edits",
+              "text": "need a development build connected to Metro through a tunnel, its default; a local release build or the default EAS simulator build never hot-reloads"
+            },
+            {
+              "label": "Unlike local simulators",
+              "text": "it works from any machine; on a Mac it's only for cloud, shareable or agent-driven sessions, not a plain 'run on the simulator'"
+            },
+            {
+              "label": "Needs",
+              "text": "an EAS account with access to this experimental feature, an Expo project, and eas-cli and agent-device, which it runs through npx"
+            },
+            {
+              "label": "Costs",
+              "text": "sessions are a paid EAS service: they count toward your plan's limits, and each stops at a set maximum duration"
+            }
+          ],
+          "text": "Expo's skill for EAS Simulator, an experimental, limited-access EAS feature that boots an iOS simulator or Android emulator in the cloud. The agent first checks that your account has access; if not, it says so and falls back to a local simulator or another route. A session is always start, install, drive, stop: eas-cli owns the session and writes its id and token to .env.eas-simulator, which should stay out of git, and agent-device taps, types, reads the accessibility tree, takes screenshots and records video, which it prefers for animations and gestures. The simulator boots blank, so the agent picks how to install your app: by default a development build connected to Metro through a tunnel so edits show live, and a local release build or an EAS build only when you ask for a static screenshot or artifact. Each session gets a short name saying what it's for. The agent stops the sessions it started when the work is done, while one kept for you in the browser preview runs until its maximum duration: 40 minutes on the free plan, 115 on paid ones. On iOS it reads crash reports and the device log when the app crashes.",
+          "permalink": "https://github.com/expo/skills/tree/a9e5bd3fa00b4e61f632e43f85da73aee1942582/plugins/expo/skills/eas-simulator"
+        },
+        "tags": [
+          "category:debugging",
+          "type:tool",
+          "effect:remote",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:expo",
+          "stack:agent-device",
+          "mobile",
+          "testing",
+          "verification"
+        ],
+        "note": "Needs an EAS account with EAS Simulator enabled, a limited-access feature still rolling out. Sessions count toward your plan's limits."
+      }
+    },
+    {
+      "id": "expo/skills/plugins/expo/skills/expo-web-to-native",
+      "name": "expo-web-to-native",
+      "skills.sh": {
+        "url": "https://skills.sh/expo/skills/expo-web-to-native",
+        "installs": 22000,
+        "weeklyInstalls": [1436, 1395, 1296, 1292, 1259, 1377, 1467, 1546],
+        "firstSeen": "2026-07-07"
+      },
+      "skillMd": {
+        "version": "a9e5bd3fa00b4e61f632e43f85da73aee1942582",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Migrates a React web app, from Next.js, Vite or CRA, to a native iOS and Android Expo app, one screen at a time.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to turn an existing React website, such as a Next.js, Vite or Create React App codebase, into an iOS and Android app without a rewrite"
+            },
+            {
+              "label": "It does",
+              "text": "runs the whole web UI inside a native shell first, then rebuilds screens natively in order of value, checking each against the running website"
+            },
+            {
+              "label": "You get",
+              "text": "a migration-progress.md worklist, an app you can ship from day one, and screens that move from a webview to native one at a time"
+            },
+            {
+              "label": "Runs",
+              "text": "best as a repeating /goal loop that re-reads the skill each turn; if your agent can't loop, it saves the goal to migration-goal.md for you to launch"
+            },
+            {
+              "label": "Unlike expo-dom",
+              "text": "which covers how web code runs inside a native app, it plans and orders the whole migration"
+            },
+            {
+              "label": "Needs",
+              "text": "agent-browser to capture the website and argent to drive the simulator, for the side-by-side checks"
+            }
+          ],
+          "text": "Expo's playbook for moving a web React app to native the way a strangler fig replaces a tree: there is no converter, so the app migrates screen by screen and stays shippable throughout. The agent first reads the repo and writes migration-progress.md, separating screens from server code and sorting each screen into port as-is, nativize now, nativize later or hybrid, while flagging browser SDKs and payments, since digital goods must go through the stores' in-app purchase. It scaffolds an Expo app whose routes mirror the web routes, then brings every screen over as a DOM component, web code running in a webview, so the whole app runs on a phone on day one. From there it redesigns the most valuable screens natively, reaching first for @expo/ui's real SwiftUI and Jetpack Compose components, rewires data, auth and storage, and ships through the app stores. Each step hands off to another Expo skill, such as expo-dom, expo-router, expo-data-fetching or eas-app-stores. A screen passes only when the running native app matches the running website in content and behavior, not pixels, with a recording for screens that move.",
+          "permalink": "https://github.com/expo/skills/tree/a9e5bd3fa00b4e61f632e43f85da73aee1942582/plugins/expo/skills/expo-web-to-native"
+        },
+        "tags": [
+          "category:frameworks",
+          "category:design",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "needs:browser",
+          "by:official",
+          "stack:expo",
+          "stack:react-native",
+          "stack:react",
+          "stack:nextjs",
+          "migration",
+          "mobile",
+          "design",
+          "verification"
+        ],
+        "note": "Its checks need agent-browser and Software Mansion's argent CLI; it asks, then installs them if they're missing."
+      }
+    },
+    {
+      "id": "expo/skills/plugins/expo/skills/expo-design-system",
+      "name": "expo-design-system",
+      "skills.sh": {
+        "url": "https://skills.sh/expo/skills/expo-design-system",
+        "installs": 19800,
+        "weeklyInstalls": [1660, 1673, 1514, 1598, 1602, 1720, 1868, 2007],
+        "firstSeen": "2026-08-13"
+      },
+      "skillMd": {
+        "version": "a9e5bd3fa00b4e61f632e43f85da73aee1942582",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds or audits a design system in an Expo app: one token theme, reusable components, and fixes for screens that look AI-generated.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "an Expo app's screens look inconsistent or generic, or you're setting up theme files and shared components"
+            },
+            {
+              "label": "It does",
+              "text": "extends the theme or styling library already in the app, or creates one theme of tokens for color, spacing, type, radius, shadow and motion"
+            },
+            {
+              "label": "You get",
+              "text": "one theme entry point, components with variant, size and state props, and a screenshot check of each screen you build"
+            },
+            {
+              "label": "Names",
+              "text": "the tells of AI-generated apps, such as The Web Modal and Everything's a Card, with the native alternative for each"
+            },
+            {
+              "label": "Unlike expo-native-ui",
+              "text": "which sets what values look native, it decides where values live and how they're reused"
+            }
+          ],
+          "text": "Expo's rules for giving an app one visual source of truth. In an app that already has screens, it adopts before it builds: it looks for a styling library such as NativeWind, Tamagui, Restyle or Unistyles and for a theme file, extends whatever exists in its own idiom, and never adds a second system beside it. Without one, tokens live under src/theme/: platform semantic colors that adapt to dark mode, a small brand set, a 4-point spacing scale, a text ramp that mirrors Apple's text styles, radii, shadow levels and motion durations. Any value used twice becomes a token, and nothing outside the theme hardcodes colors, font sizes or spacing. Shared components define variants, sizes, pressed and loading states, a style override merged last, and accessibility labels; a view moves into src/components/ only once two screens use it, it has a nameable role and its API is smaller than its code. After each screen, the agent screenshots it and checks hierarchy, spacing, repetition and alignment, fixing the shared token rather than the one screen. Its reference files hold a drift audit with grep checks and a scoring rubric, and 20 named tells of AI-generated apps.",
+          "permalink": "https://github.com/expo/skills/tree/a9e5bd3fa00b4e61f632e43f85da73aee1942582/plugins/expo/skills/expo-design-system"
+        },
+        "tags": [
+          "category:design",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:official",
+          "stack:expo",
+          "stack:react-native",
+          "design-system",
+          "design",
+          "mobile",
+          "anti-slop"
+        ]
+      }
     }
   ]
 }
