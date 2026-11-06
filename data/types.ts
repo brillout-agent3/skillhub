@@ -7,7 +7,6 @@
  * The shape of skills.jsonc, the single data file behind the site: the approved skills, the ones
  * it shows. The skills the crawl found but that aren't approved are in crawl.jsonc.
  */
-
 export interface Data {
   /** The JSON Schema of this file, generated from this interface: for editors. */
   $schema: string;
