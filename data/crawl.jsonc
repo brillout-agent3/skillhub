@@ -1628,19 +1628,6 @@
       }
     },
     {
-      "name": "create-auth",
-      "repo": "better-auth/skills",
-      "official": false,
-      "stars": 229,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/better-auth/skills/create-auth",
-        "installs": 14300,
-        "weeklyInstalls": [846, 786, 831, 829, 833, 763, 643, 568],
-        "firstSeen": "2026-07-11"
-      }
-    },
-    {
       "name": "bmad-agent-ux-designer",
       "repo": "bmad-code-org/bmad-method",
       "official": false,
@@ -1745,19 +1732,6 @@
       }
     },
     {
-      "name": "fastapi-python",
-      "repo": "mindrally/skills",
-      "official": false,
-      "stars": 300,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/mindrally/skills/fastapi-python",
-        "installs": 14000,
-        "weeklyInstalls": [141, 257, 228, 290, 196, 94, 85, 88],
-        "firstSeen": "2026-01-25"
-      }
-    },
-    {
       "name": "argent-ios-device-interact",
       "repo": "software-mansion/argent",
       "official": true,
@@ -1846,32 +1820,6 @@
         "installs": 13900,
         "weeklyInstalls": [540, 550, 548, 613, 709, 638, 589, 426],
         "firstSeen": "2026-03-15"
-      }
-    },
-    {
-      "name": "agentation",
-      "repo": "benjitaylor/agentation",
-      "official": false,
-      "stars": 5299,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/benjitaylor/agentation/agentation",
-        "installs": 13800,
-        "weeklyInstalls": [178, 135, 225, 285, 257, 157, 137, 124],
-        "firstSeen": "2026-01-22"
-      }
-    },
-    {
-      "name": "svelte-code-writer",
-      "repo": "sveltejs/ai-tools",
-      "official": false,
-      "stars": 337,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/sveltejs/ai-tools/svelte-code-writer",
-        "installs": 13800,
-        "weeklyInstalls": [411, 522, 401, 626, 371, 475, 588, 651],
-        "firstSeen": "2026-01-19"
       }
     },
     {
@@ -2031,45 +1979,6 @@
       }
     },
     {
-      "name": "upgrading-react-native",
-      "repo": "callstackincubator/agent-skills",
-      "official": false,
-      "stars": 1702,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/callstackincubator/agent-skills/upgrading-react-native",
-        "installs": 13500,
-        "weeklyInstalls": [439, 490, 470, 438, 486, 461, 405, 485],
-        "firstSeen": "2026-02-10"
-      }
-    },
-    {
-      "name": "slidev",
-      "repo": "slidevjs/slidev",
-      "official": false,
-      "stars": 49384,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/slidevjs/slidev/slidev",
-        "installs": 13500,
-        "weeklyInstalls": [251, 331, 255, 301, 287, 329, 315, 299],
-        "firstSeen": "2026-01-26"
-      }
-    },
-    {
-      "name": "marimo-pair",
-      "repo": "marimo-team/marimo-pair",
-      "official": false,
-      "stars": 432,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/marimo-team/marimo-pair/marimo-pair",
-        "installs": 13500,
-        "weeklyInstalls": [375, 436, 501, 568, 536, 395, 429, 456],
-        "firstSeen": "2026-03-04"
-      }
-    },
-    {
       "name": "learn",
       "repo": "tw93/waza",
       "official": false,
@@ -2174,71 +2083,6 @@
       }
     },
     {
-      "name": "ffmpeg",
-      "repo": "digitalsamba/claude-code-video-toolkit",
-      "official": false,
-      "stars": 2463,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/digitalsamba/claude-code-video-toolkit/ffmpeg",
-        "installs": 13100,
-        "weeklyInstalls": [528, 453, 552, 608, 487, 682, 642, 834],
-        "firstSeen": "2026-01-23"
-      }
-    },
-    {
-      "name": "tanstack-query-best-practices",
-      "repo": "deckardger/tanstack-agent-skills",
-      "official": false,
-      "stars": 229,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/deckardger/tanstack-agent-skills/tanstack-query-best-practices",
-        "installs": 13100,
-        "weeklyInstalls": [255, 297, 300, 298, 305, 240, 272, 199],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "terraform-style-guide",
-      "repo": "hashicorp/agent-skills",
-      "official": true,
-      "stars": 917,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/hashicorp/agent-skills/terraform-style-guide",
-        "installs": 13100,
-        "weeklyInstalls": [379, 339, 326, 358, 332, 300, 264, 274],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "ultracite",
-      "repo": "haydenbleasel/ultracite",
-      "official": false,
-      "stars": 3367,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/haydenbleasel/ultracite/ultracite",
-        "installs": 13000,
-        "weeklyInstalls": [283, 357, 271, 410, 554, 873, 1372, 947],
-        "firstSeen": "2026-02-19"
-      }
-    },
-    {
-      "name": "daisyui",
-      "repo": "saadeghi/daisyui",
-      "official": false,
-      "stars": 42757,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/saadeghi/daisyui/daisyui",
-        "installs": 12900,
-        "weeklyInstalls": [665, 558, 532, 531, 566, 542, 519, 537],
-        "firstSeen": "2026-05-21"
-      }
-    },
-    {
       "name": "refero-design",
       "repo": "referodesign/refero_skill",
       "official": false,
@@ -2249,19 +2093,6 @@
         "installs": 12900,
         "weeklyInstalls": [614, 583, 545, 639, 567, 542, 534, 506],
         "firstSeen": "2026-02-28"
-      }
-    },
-    {
-      "name": "gemini-watermark-remover",
-      "repo": "gargantuax/gemini-watermark-remover",
-      "official": false,
-      "stars": 5719,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/gargantuax/gemini-watermark-remover/gemini-watermark-remover",
-        "installs": 12900,
-        "weeklyInstalls": [15, 6, 9, 16, 6, 4, 5, 16],
-        "firstSeen": "2026-04-11"
       }
     },
     {
@@ -2340,19 +2171,6 @@
         "installs": 12600,
         "weeklyInstalls": [454, 469, 562, 584, 796, 713, 658, 678],
         "firstSeen": "2026-04-08"
-      }
-    },
-    {
-      "name": "swift-concurrency-pro",
-      "repo": "twostraws/swift-concurrency-agent-skill",
-      "official": false,
-      "stars": 583,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/twostraws/swift-concurrency-agent-skill/swift-concurrency-pro",
-        "installs": 12600,
-        "weeklyInstalls": [281, 381, 287, 461, 394, 370, 358, 428],
-        "firstSeen": "2026-03-11"
       }
     },
     {
@@ -44265,6 +44083,62 @@
     {
       "url": "https://skills.sh/stripe/link-cli/financial-insights",
       "note": "Tool docs: an agent's manual for link-cli."
+    },
+    {
+      "url": "https://skills.sh/better-auth/skills/create-auth",
+      "note": "Tool docs: an agent's manual for better-auth."
+    },
+    {
+      "url": "https://skills.sh/mindrally/skills/fastapi-python",
+      "note": "Tool docs: an agent's manual for fastapi and python."
+    },
+    {
+      "url": "https://skills.sh/benjitaylor/agentation/agentation",
+      "note": "Tool docs: an agent's manual for agentation."
+    },
+    {
+      "url": "https://skills.sh/sveltejs/ai-tools/svelte-code-writer",
+      "note": "Tool docs: an agent's manual for svelte."
+    },
+    {
+      "url": "https://skills.sh/callstackincubator/agent-skills/upgrading-react-native",
+      "note": "Tool docs: an agent's manual for react-native."
+    },
+    {
+      "url": "https://skills.sh/slidevjs/slidev/slidev",
+      "note": "Tool docs: an agent's manual for slidev."
+    },
+    {
+      "url": "https://skills.sh/marimo-team/marimo-pair/marimo-pair",
+      "note": "Tool docs: an agent's manual for marimo."
+    },
+    {
+      "url": "https://skills.sh/digitalsamba/claude-code-video-toolkit/ffmpeg",
+      "note": "Tool docs: an agent's manual for ffmpeg."
+    },
+    {
+      "url": "https://skills.sh/deckardger/tanstack-agent-skills/tanstack-query-best-practices",
+      "note": "Tool docs: an agent's manual for tanstack-query and react."
+    },
+    {
+      "url": "https://skills.sh/hashicorp/agent-skills/terraform-style-guide",
+      "note": "Tool docs: an agent's manual for terraform."
+    },
+    {
+      "url": "https://skills.sh/haydenbleasel/ultracite/ultracite",
+      "note": "Tool docs: an agent's manual for ultracite."
+    },
+    {
+      "url": "https://skills.sh/saadeghi/daisyui/daisyui",
+      "note": "Tool docs: an agent's manual for daisyui and tailwind."
+    },
+    {
+      "url": "https://skills.sh/gargantuax/gemini-watermark-remover/gemini-watermark-remover",
+      "note": "Strips the watermarks that mark images as AI-generated: SkillHub doesn't list tools that remove provenance."
+    },
+    {
+      "url": "https://skills.sh/twostraws/swift-concurrency-agent-skill/swift-concurrency-pro",
+      "note": "Tool docs: an agent's manual for swift."
     }
   ]
 }
