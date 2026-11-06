@@ -1803,6 +1803,30 @@
         "description": "Gives your AI assistant direct control of iOS simulators, Android emulators and devices, TVs and Electron/Chromium apps.",
         "note": "Argent collects telemetry unless you run argent telemetry disable, and its per-platform simulator-server binaries are proprietary."
       }
+    },
+    {
+      "id": "github/awesome-copilot",
+      "stars": 40873,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Community-created agents, instructions, skills, hooks and plugins for GitHub Copilot."
+      }
+    },
+    {
+      "id": "mvanhorn/last30days-skill",
+      "stars": 66832,
+      "agentReview": {
+        "kind": "skills",
+        "description": "An AI agent-led search engine scored by upvotes, likes, and real money, not editors."
+      }
+    },
+    {
+      "id": "resciencelab/opc-skills",
+      "stars": 1894,
+      "agentReview": {
+        "kind": "skills",
+        "description": "AI agent skills for solopreneurs, indie hackers and one-person companies."
+      }
     }
   ],
   "bundles": [
@@ -16354,6 +16378,440 @@
           "self-improvement"
         ],
         "note": "Runs retro, to-spec, to-tickets and implement-spec by reading their SKILL.md from beside it, so it needs them installed."
+      }
+    },
+    {
+      "id": "emilkowalski/skills/skills/mobile-native",
+      "name": "mobile-native",
+      "skills.sh": {
+        "url": "https://skills.sh/emilkowalski/skills/mobile-native",
+        "installs": 113901,
+        "weeklyInstalls": [0, 9291, 12906, 13601, 15968, 16291, 18007, 16357],
+        "firstSeen": "2026-09-15"
+      },
+      "skillMd": {
+        "version": "c8a79627b59d72d764d6ab6f2c87c09a48169833",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Removes the tells that make a web app feel like a website on a phone, such as sticky hover, tap flashes and input zoom.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a web app or PWA looks fine in desktop Chrome but feels like a website, not an app, on a phone"
+            },
+            {
+              "label": "It does",
+              "text": "matches what you see to a symptom table and applies the fix, usually a single CSS declaration or meta tag"
+            },
+            {
+              "label": "You get",
+              "text": "the fixes in your code, plus a few lines on what was wrong, what changed and what still needs a real phone to confirm"
+            },
+            {
+              "label": "Unlike animate-expo",
+              "text": "that skill is for React Native apps; this one is for web apps in a mobile browser, and leaves motion design to animate"
+            }
+          ],
+          "text": "Emil Kowalski's checklist for the platform layer of the mobile web: viewport, touch, scroll, safe areas and browser chrome. Each symptom maps to a fix and its reason. Hover styles that stick after a tap go behind a hover-and-fine-pointer media query; the gray tap flash is turned off; 100vh becomes 100dvh for app shells and 100svh for heroes; inputs get 16px text so iOS stops zooming in; taps get touch-action: manipulation and press feedback on :active; overscroll-behavior stops pull-to-refresh; viewport-fit=cover and safe-area insets handle the notch; controls stop selecting their label on long press; carousels claim their swipe axis; and theme-color is set per color scheme. Its hard rules: never disable zoom, detect touch with media queries rather than user agents, write for touch and mouse at once, and never call something fixed from device emulation. It also gives a baseline of meta tags and CSS for a new mobile-facing app and a never-ship table to check before finishing. When it can't test on hardware, it says which fixes it verified from code and which you must check on a phone.",
+          "permalink": "https://github.com/emilkowalski/skills/tree/c8a79627b59d72d764d6ab6f2c87c09a48169833/skills/mobile-native"
+        },
+        "tags": [
+          "category:design",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "mobile",
+          "design"
+        ]
+      }
+    },
+    {
+      "id": "emilkowalski/skills/skills/break-ui",
+      "name": "break-ui",
+      "skills.sh": {
+        "url": "https://skills.sh/emilkowalski/skills/break-ui",
+        "installs": 92872,
+        "weeklyInstalls": [0, 0, 0, 5165, 19562, 21800, 18352, 16461],
+        "firstSeen": "2026-10-02"
+      },
+      "skillMd": {
+        "version": "c8a79627b59d72d764d6ab6f2c87c09a48169833",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Stress-tests a component with realistic worst-case data behind a demo/worst-case toggle, then reports every break with its fix.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a component or screen looks right with demo data and you want to see what real users' data does to it"
+            },
+            {
+              "label": "It does",
+              "text": "builds a realistic worst-case dataset behind a dev-only Demo data / Worst case toggle, then checks it at several widths, 200% zoom, and dark mode or right-to-left if supported"
+            },
+            {
+              "label": "You get",
+              "text": "a table of breaks rated Broken, Ugly or Fragile, each with the value that caused it and a fix, with the toggle left running"
+            },
+            {
+              "label": "Fixes",
+              "text": "only when asked: \"fix all\" or \"fix 1, 3\" after the report, or \"fix\" in your first request, which still leaves the design decisions to you"
+            },
+            {
+              "label": "Unlike emil-design-eng",
+              "text": "that skill critiques visual design; this one feeds the UI bad data and records what breaks"
+            }
+          ],
+          "text": "An adversarial tester from Emil Kowalski's design skills. It plays the most annoying real user, from a double-barrelled surname and a very long email to an intern called Jo and a 1,284-member workspace. First it lists every value the component renders, including counts, timestamps, badges and avatars, and looks up each one's limit in validation schemas, migrations, API types and form maxLength attributes; a value with no limit is itself a finding. Then it builds one worst-case fixture next to the demo data, spreading failures across the first rows, plus empty, single-item and 1,000-row states. Values must be plausible or schema-backed, never random, and enter where the demo data does, never by editing markup. The toggle is a URL switch or prototype route in a project, or a standalone HTML file. It checks the real container width, 320px and the widest layout, 200% zoom, and dark mode and right-to-left when supported, with screenshots when it can. A table of failure signatures maps breaks such as a squished avatar or \"1 members\" to their usual cause and CSS or Intl fix. The report also lists decisions for you and what held up; after fixes, the fixture stays as a regression test.",
+          "permalink": "https://github.com/emilkowalski/skills/tree/c8a79627b59d72d764d6ab6f2c87c09a48169833/skills/break-ui"
+        },
+        "tags": [
+          "category:design",
+          "category:debugging",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "testing",
+          "design"
+        ],
+        "note": "Leaves a worst-case fixture and a dev-only toggle in your project afterwards, unless you say otherwise."
+      }
+    },
+    {
+      "id": "emilkowalski/skills/skills/animation-performance",
+      "name": "animation-performance",
+      "skills.sh": {
+        "url": "https://skills.sh/emilkowalski/skills/animation-performance",
+        "installs": 64873,
+        "weeklyInstalls": [0, 0, 0, 0, 1148, 16579, 18512, 16767],
+        "firstSeen": "2026-10-11"
+      },
+      "skillMd": {
+        "version": "c8a79627b59d72d764d6ab6f2c87c09a48169833",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Finds why a web animation drops frames, from the wrong animated property to a busy main thread, and proposes a fix for each.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "an animation stutters or drops frames, or you're choosing which property to animate, or CSS versus JavaScript, on performance grounds"
+            },
+            {
+              "label": "It does",
+              "text": "lists every animation with what drives it and what it animates, then works down seven causes ordered by how often each is to blame"
+            },
+            {
+              "label": "You get",
+              "text": "one finding per element with file and line, its cause, before and after code, and whether it was verified from code or needs a device recording"
+            },
+            {
+              "label": "Unlike animate",
+              "text": "which picks easing, duration and whether to animate at all; this one only asks whether each frame finishes in time"
+            },
+            {
+              "label": "Fixes",
+              "text": "applied only when you ask; it reports and stops"
+            }
+          ],
+          "text": "Emil Kowalski's frame-budget rules for web motion. At 60fps the browser has 16.7ms per frame, and 8ms on a 120Hz screen, so it designs against the smaller number and treats a fast laptop as proof of nothing. It sorts properties into three costs: composite-only (transform, opacity), paint (box-shadow, border-radius, color) and layout (width, height, margin, top), and swaps down a tier, such as scale() for width or drop-shadow() for box-shadow. It explains which animations can run off the main thread (CSS and the Web Animations API) and which can't (requestAnimationFrame loops, Motion's layout animations), and from which version Motion's x and y shorthands are accelerated. It covers two traps that use transform and still stutter: animating an inherited CSS variable, which recalculates every child, and large blur values. Its diagnosis runs from the animated properties, a busy main thread and React re-rendering every frame, to growing content, CSS variables, blur, and last will-change, added only once a shift or dropped frames are seen. It wants findings confirmed by a DevTools recording on a real mid-range phone, not by feel, marks which it could only check in code, and never writes transition: all.",
+          "permalink": "https://github.com/emilkowalski/skills/tree/c8a79627b59d72d764d6ab6f2c87c09a48169833/skills/animation-performance"
+        },
+        "tags": [
+          "category:design",
+          "category:debugging",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "animation",
+          "performance",
+          "debugging"
+        ]
+      }
+    },
+    {
+      "id": "github/awesome-copilot/skills/git-commit",
+      "name": "git-commit",
+      "skills.sh": {
+        "url": "https://skills.sh/github/awesome-copilot/git-commit",
+        "installs": 48200,
+        "weeklyInstalls": [497, 517, 486, 446, 430, 425, 624, 585],
+        "firstSeen": "2026-01-23"
+      },
+      "skillMd": {
+        "version": "797337f33f73e35d08d82f840e21c4b8c4932d88",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Commits your changes with Conventional Commits messages read from the diff, one logical change per commit.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want the agent to commit your work, or split it into several commits, with Conventional Commits messages"
+            },
+            {
+              "label": "It does",
+              "text": "reads your repo's commit rules, examines the diff, stages one logical change, writes a type(scope): summary message and runs git commit"
+            },
+            {
+              "label": "You get",
+              "text": "local commits, checked with git log; it never pushes, amends or rewrites history unless you ask"
+            },
+            {
+              "label": "Unlike caveman-commit",
+              "text": "which only writes a message; this one stages the files and makes the commit"
+            },
+            {
+              "label": "Handles",
+              "text": "an interrupted merge: it keeps Git's prepared message, stages only safely resolved files and asks you about the rest"
+            }
+          ],
+          "text": "A commit workflow built on the Conventional Commits 1.0.0 spec, with the extra types from commitlint's conventional config: docs, refactor, perf, test, ci, chore and others alongside feat and fix. The repository's own rules come first: a commitlint config, CONTRIBUTING.md and the style of the last ten messages override the skill's defaults. It examines the staged and unstaged diff, then checks for a merge, cherry-pick, revert or rebase in progress and for unmerged files. With none, it unstages anything that belongs to another change and stages this one by path, never with interactive git add -p, and leaves out secrets such as .env files or private keys. During a merge it doesn't unstage or split anything, stages only cleanly resolved text files, asks before adding other edited paths, and stops on a rebase. The message's first line is 72 characters or less, with an imperative summary and no period, an optional body on what changed and why, and footers such as Closes #123; breaking changes get a ! or a BREAKING CHANGE footer. It never changes Git config, doesn't skip hooks with --no-verify unless told, and after a failed hook fixes the problem and commits again rather than amending.",
+          "permalink": "https://github.com/github/awesome-copilot/tree/797337f33f73e35d08d82f840e21c4b8c4932d88/skills/git-commit"
+        },
+        "tags": [
+          "category:engineering",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:official",
+          "stack:git",
+          "git"
+        ]
+      }
+    },
+    {
+      "id": "github/awesome-copilot/skills/excalidraw-diagram-generator",
+      "name": "excalidraw-diagram-generator",
+      "skills.sh": {
+        "url": "https://skills.sh/github/awesome-copilot/excalidraw-diagram-generator",
+        "installs": 34300,
+        "weeklyInstalls": [408, 508, 628, 445, 423, 338, 345, 1251],
+        "firstSeen": "2026-02-04"
+      },
+      "skillMd": {
+        "version": "797337f33f73e35d08d82f840e21c4b8c4932d88",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Turns a description into an Excalidraw diagram file, such as a flowchart, mind map, architecture, sequence or ER diagram.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you ask for a flowchart, mind map, architecture, data-flow, swimlane, class, sequence or ER diagram"
+            },
+            {
+              "label": "It does",
+              "text": "picks the diagram type, pulls out the steps, entities and relationships, and lays them out as Excalidraw JSON"
+            },
+            {
+              "label": "You get",
+              "text": "a .excalidraw file to open at excalidraw.com or in the VS Code extension, plus a summary with its element count"
+            },
+            {
+              "label": "Icons",
+              "text": "AWS, GCP or other cloud icons once you download an Excalidraw library and split it with a bundled Python script"
+            },
+            {
+              "label": "Limits",
+              "text": "about 20 elements per diagram, no embedded images and no automatic collision detection"
+            }
+          ],
+          "text": "It turns a plain description into a diagram file you can keep editing by hand. The agent first decides the diagram type from your wording, such as \"steps\" for a flowchart or \"database\" for an ER diagram, then pulls out what that type needs: decision points for a flowchart, actors and lanes for a swimlane, cardinality for an ER diagram, lifelines and messages for a sequence diagram. It writes rectangles, ellipses, diamonds, arrows and text with set spacing, a consistent color scheme and the hand-drawn Excalifont on every label, then checks unique IDs, overlaps, readability and valid JSON before delivering. For requests with too many parts it suggests an overview plus detailed sub-diagrams. Cloud architecture diagrams can use real service icons: you download a library from libraries.excalidraw.com, a bundled script splits it into one file per icon, and other scripts place icons and arrows without loading the icon data into the agent's context. Without a library it falls back to labelled shapes.",
+          "permalink": "https://github.com/github/awesome-copilot/tree/797337f33f73e35d08d82f840e21c4b8c4932d88/skills/excalidraw-diagram-generator"
+        },
+        "tags": [
+          "category:science",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:official",
+          "stack:excalidraw",
+          "diagrams",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "id": "cloudflare/security-audit-skill/skills/security-audit",
+      "name": "security-audit",
+      "skills.sh": {
+        "url": "https://skills.sh/cloudflare/security-audit-skill/security-audit",
+        "installs": 87613,
+        "weeklyInstalls": [478, 7354, 4990, 3766, 7657, 7535, 16762, 19665],
+        "firstSeen": "2026-06-18"
+      },
+      "skillMd": {
+        "version": "c1c8a8c1471069fb0e188eeaff69b8e8db6564a8",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Audits a codebase for vulnerabilities that cross a real trust boundary, with independent verification and a report of evidence, severity and fixes.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you have a security question, want a focused review, or explicitly ask for a full audit or pen test of a codebase"
+            },
+            {
+              "label": "It does",
+              "text": "in a full audit, maps trust boundaries, sends subagents hunting by attack class, has fresh agents verify each candidate, and validates the findings"
+            },
+            {
+              "label": "You get",
+              "text": "REPORT.md, FINDINGS-DETAIL.md and NEEDS-VALIDATION.md in a new run folder outside your repo, with severity only for confirmed findings and the smallest source fix for each"
+            },
+            {
+              "label": "Runs",
+              "text": "as guidance by default; the six-phase audit only when you explicitly ask, and it asks first when unclear"
+            },
+            {
+              "label": "Never",
+              "text": "probes live services, edits your source, or runs your code outside a sandbox with no network"
+            }
+          ],
+          "text": "Cloudflare's defensive, source-first audit method. A finding counts only if it names a lower-trust actor, the input they control, the control it defeats, the boundary crossed and a concrete result; missing best practices, guessed deployment behavior and self-inflicted effects don't qualify. Facts that live outside the repository, such as proxy or identity settings, become \"needs validation\" items with a safe plan instead of guesses. A full audit runs six phases: reconnaissance builds a coverage ledger, a list of the code areas and attack classes the run must cover; waves of isolated hunter subagents work through it, with critic passes looking for gaps; a fresh verifier checks each candidate; findings go to a JSON file checked against a schema; independent agents re-verify the final records; and the reports are written from them. Profiles trade breadth for cost: quick, standard or deep, optionally scoped to some paths or a diff, with an optional cap on agent calls. Severity runs from critical to informational and can't exceed the impact shown. Earlier runs are read:unchanged confirmed findings carry over after fresh verification, and changed code is rechecked. Target code runs only in an OS-enforced sandbox; without one, it doesn't run it.",
+          "permalink": "https://github.com/cloudflare/security-audit-skill/tree/c1c8a8c1471069fb0e188eeaff69b8e8db6564a8/skills/security-audit"
+        },
+        "tags": [
+          "category:security",
+          "category:debugging",
+          "type:workflow",
+          "effect:local",
+          "needs:subagents",
+          "by:official",
+          "security",
+          "code-review"
+        ],
+        "note": "A full audit runs many subagents and writes its reports to ~/security-audit-skill/<repo>/run-N; it runs your code only inside a sandbox without network."
+      }
+    },
+    {
+      "id": "mvanhorn/last30days-skill/skills/last30days",
+      "name": "last30days",
+      "skills.sh": {
+        "url": "https://skills.sh/mvanhorn/last30days-skill/last30days",
+        "installs": 58900,
+        "weeklyInstalls": [1747, 1572, 1266, 1533, 2236, 2494, 3911, 4089],
+        "firstSeen": "2026-02-07"
+      },
+      "skillMd": {
+        "version": "71dc2a1529f23dfe7b0d0e3b3e11d4a7e8afd428",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Researches what people said about a topic in the last 30 days on Reddit, X, YouTube, TikTok, Hacker News, Polymarket and the web.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to know what people are actually saying about a topic, product or person in the last 30 days"
+            },
+            {
+              "label": "It does",
+              "text": "runs its Python engine across Reddit, X, YouTube, TikTok, Hacker News, Polymarket, GitHub and the web, with a query plan the agent writes"
+            },
+            {
+              "label": "You get",
+              "text": "a cited \"What I learned\" brief quoting real comments, with key patterns and a source footer, saved as Markdown in ~/Documents/Last30Days"
+            },
+            {
+              "label": "Also does",
+              "text": "comparisons, trending-topic discovery, competitor and hiring-signal research, an HTML brief, and a doctor check for broken sources"
+            },
+            {
+              "label": "Needs",
+              "text": "Python 3.12+ and Node, yt-dlp for YouTube, and API keys or cookies for some sources; Hacker News and Polymarket work without any"
+            }
+          ],
+          "text": "A research engine for recent community opinion. The agent checks for a usable web-search tool and, on first run, walks you through setup, asking before it reads browser cookies. For a topic, it resolves the relevant handles, subreddits and hashtags, writes a JSON query plan itself and passes it to the bundled engine, which searches each source and returns ranked evidence with engagement counts. The agent turns that into prose paragraphs with inline links, weaves in at least two quoted, attributed comments when qualifying ones exist, gives Polymarket odds as percentages, and ends with the engine's source footer; when nothing solid turned up, it says so instead of padding. Other modes compare two or three things, rank what's trending in a field, look at competitors or hiring signals, recommend items, answer follow-ups from saved research, or export an HTML brief, which it publishes to ht-ml.app only if you ask, where it's public unless password-protected. Keyed calls to ScrapeCreators spend credits. It never posts, likes or edits anything on these platforms.",
+          "permalink": "https://github.com/mvanhorn/last30days-skill/tree/71dc2a1529f23dfe7b0d0e3b3e11d4a7e8afd428/skills/last30days"
+        },
+        "tags": [
+          "category:browser",
+          "category:marketing",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "needs:account",
+          "by:community",
+          "stack:reddit",
+          "stack:x-twitter",
+          "stack:youtube",
+          "stack:tiktok",
+          "stack:hacker-news",
+          "stack:polymarket",
+          "stack:github",
+          "research",
+          "social-media",
+          "web-search"
+        ],
+        "note": "Runs a bundled engine that needs Python 3.12+. TikTok and Instagram need a ScrapeCreators API key, whose calls spend credits; X needs a token or your browser cookies."
+      }
+    },
+    {
+      "id": "resciencelab/opc-skills/skills/seo-geo",
+      "name": "seo-geo",
+      "skills.sh": {
+        "url": "https://skills.sh/resciencelab/opc-skills/seo-geo",
+        "installs": 55800,
+        "weeklyInstalls": [1268, 1268, 1191, 1182, 1224, 1121, 1100, 1101],
+        "firstSeen": "2026-01-21"
+      },
+      "skillMd": {
+        "version": "febd071a873968a7d4214dbff0dfc7908b5cd453",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Audits a website's SEO and plans changes for both classic search and AI answer engines such as ChatGPT and Perplexity.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a site found in Google and Bing and cited by AI answer engines such as ChatGPT, Perplexity and Claude"
+            },
+            {
+              "label": "It does",
+              "text": "checks the site's meta tags, robots.txt, sitemap and load time, researches keywords by web search, then works through SEO and GEO checklists"
+            },
+            {
+              "label": "You get",
+              "text": "a report of what's in place and prioritized recommendations, with meta tag and JSON-LD schema templates to fill in"
+            },
+            {
+              "label": "GEO means",
+              "text": "generative engine optimization: getting cited by AI search, which cites sources rather than ranking pages"
+            }
+          ],
+          "text": "Covers classic search and AI search in one pass. A bundled Python script runs a free technical check of the title, meta description, H1, robots.txt, sitemap and load time, and curl checks confirm the meta tags and that AI crawlers such as GPTBot, PerplexityBot and ClaudeBot are allowed. Keyword research uses web searches for volume, difficulty and competitors. For AI engines it weighs nine methods from Princeton's GEO research by the visibility change it attributes to each: citing sources, adding statistics and quotations, an authoritative tone and plainer language help, while keyword stuffing hurts. It generates FAQPage schema and suggests an answer-first structure with short paragraphs, lists and tables. For classic search it gives title, description, Open Graph and Twitter card templates, JSON-LD types per kind of page and a content checklist, then opens Google's Rich Results Test and the Schema.org validator and checks indexing with site: searches. Platform notes cover ChatGPT, Perplexity, Google AI Overviews, Copilot and Bing, and Claude, which it says relies on Brave Search.",
+          "permalink": "https://github.com/resciencelab/opc-skills/tree/febd071a873968a7d4214dbff0dfc7908b5cd453/skills/seo-geo"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "seo",
+          "marketing"
+        ]
       }
     }
   ]

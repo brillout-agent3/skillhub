@@ -29,32 +29,6 @@
       }
     },
     {
-      "name": "mobile-native",
-      "repo": "emilkowalski/skills",
-      "official": false,
-      "stars": 54082,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/emilkowalski/skills/mobile-native",
-        "installs": 113901,
-        "weeklyInstalls": [0, 9291, 12906, 13601, 15968, 16291, 18007, 16357],
-        "firstSeen": "2026-09-15"
-      }
-    },
-    {
-      "name": "break-ui",
-      "repo": "emilkowalski/skills",
-      "official": false,
-      "stars": 54082,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/emilkowalski/skills/break-ui",
-        "installs": 92872,
-        "weeklyInstalls": [0, 0, 0, 5165, 19562, 21800, 18352, 16461],
-        "firstSeen": "2026-10-02"
-      }
-    },
-    {
       "name": "design-doc-mermaid",
       "repo": "spillwavesolutions/design-doc-mermaid",
       "official": false,
@@ -65,19 +39,6 @@
         "installs": 92489,
         "weeklyInstalls": [4007, 4062, 5401, 5276, 5890, 5247, 6517, 6318],
         "firstSeen": "2026-02-06"
-      }
-    },
-    {
-      "name": "security-audit",
-      "repo": "cloudflare/security-audit-skill",
-      "official": true,
-      "stars": 63476,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/cloudflare/security-audit-skill/security-audit",
-        "installs": 87613,
-        "weeklyInstalls": [478, 7354, 4990, 3766, 7657, 7535, 16762, 19665],
-        "firstSeen": "2026-06-18"
       }
     },
     {
@@ -94,32 +55,6 @@
       }
     },
     {
-      "name": "animation-performance",
-      "repo": "emilkowalski/skills",
-      "official": false,
-      "stars": 54082,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/emilkowalski/skills/animation-performance",
-        "installs": 64873,
-        "weeklyInstalls": [0, 0, 0, 0, 1148, 16579, 18512, 16767],
-        "firstSeen": "2026-10-11"
-      }
-    },
-    {
-      "name": "last30days",
-      "repo": "mvanhorn/last30days-skill",
-      "official": false,
-      "stars": 66832,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/mvanhorn/last30days-skill/last30days",
-        "installs": 58900,
-        "weeklyInstalls": [1747, 1572, 1266, 1533, 2236, 2494, 3911, 4089],
-        "firstSeen": "2026-02-07"
-      }
-    },
-    {
       "name": "stitch-loop",
       "repo": "google-labs-code/stitch-skills",
       "official": false,
@@ -130,19 +65,6 @@
         "installs": 57000,
         "weeklyInstalls": [484, 459, 445, 470, 495, 591, 502, 426],
         "firstSeen": "2026-01-23"
-      }
-    },
-    {
-      "name": "seo-geo",
-      "repo": "resciencelab/opc-skills",
-      "official": false,
-      "stars": 1894,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/resciencelab/opc-skills/seo-geo",
-        "installs": 55800,
-        "weeklyInstalls": [1268, 1268, 1191, 1182, 1224, 1121, 1100, 1101],
-        "firstSeen": "2026-01-21"
       }
     },
     {
@@ -221,19 +143,6 @@
         "installs": 48300,
         "weeklyInstalls": [686, 748, 624, 620, 586, 729, 829, 876],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "git-commit",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/git-commit",
-        "installs": 48200,
-        "weeklyInstalls": [497, 517, 486, 446, 430, 425, 624, 585],
-        "firstSeen": "2026-01-23"
       }
     },
     {
@@ -481,19 +390,6 @@
         "installs": 34400,
         "weeklyInstalls": [2155, 2401, 2504, 2956, 2508, 1624, 1875, 2748],
         "firstSeen": "2026-07-24"
-      }
-    },
-    {
-      "name": "excalidraw-diagram-generator",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/excalidraw-diagram-generator",
-        "installs": 34300,
-        "weeklyInstalls": [408, 508, 628, 445, 423, 338, 345, 1251],
-        "firstSeen": "2026-02-04"
       }
     },
     {
