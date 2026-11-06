@@ -1975,6 +1975,80 @@
         "description": "Persistent memory for AI coding agents across sessions and tools, for Claude Code, Codex, Cursor, Gemini CLI and any MCP client.",
         "note": "The skills call a local memory server, which npx @agentmemory/agentmemory sets up; its plugins add hooks that record your agent sessions, with secrets scrubbed."
       }
+    },
+    {
+      "id": "sanyuan0704/sanyuan-skills",
+      "stars": 3975,
+      "agentReview": {
+        "kind": "skills",
+        "description": "A collection of production-grade agent skills for Claude Code and other AI agent terminals."
+      }
+    },
+    {
+      "id": "tw93/kami",
+      "stars": 12298,
+      "agentReview": {
+        "kind": "skills",
+        "description": "A quiet design system for professional documents.",
+        "note": "Its default Chinese serif font, TsangerJinKai02, is free for personal use only; commercial use needs a license from tsanger.cn, as its README says."
+      }
+    },
+    {
+      "id": "openai/skills",
+      "stars": 28550,
+      "agentReview": {
+        "kind": "skills",
+        "description": "A catalog of skills for Codex.",
+        "note": "Deprecated: its README points to openai/plugins for current Codex skills and plugins."
+      }
+    },
+    {
+      "id": "kylezantos/design-motion-principles",
+      "stars": 1518,
+      "agentReview": {
+        "kind": "skills",
+        "description": "A motion and interaction design skill with two modes: build interactive components with purposeful motion, or audit existing animations."
+      }
+    },
+    {
+      "id": "benjitaylor/skills",
+      "stars": 2213,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Skills I use with coding agents for design and motion work."
+      }
+    },
+    {
+      "id": "dickwu/apple-design-skill",
+      "stars": 2899,
+      "agentReview": {
+        "kind": "skills",
+        "description": "An AI design reviewer grounded in Apple's Human Interface Guidelines, packaged as an agent skill."
+      }
+    },
+    {
+      "id": "firecrawl/anydoc",
+      "stars": 23394,
+      "agentReview": {
+        "kind": "project",
+        "description": "Fast Rust library that converts documents (Word, PowerPoint, Excel, OpenDocument, RTF, EPUB, CSV, and PDF) into clean GitHub-Flavored Markdown."
+      }
+    },
+    {
+      "id": "referodesign/refero_skill",
+      "stars": 337,
+      "agentReview": {
+        "kind": "project",
+        "description": "Refero packages one design skill and one read-only MCP connection for AI design work."
+      }
+    },
+    {
+      "id": "sfkislev/flue",
+      "stars": 104,
+      "agentReview": {
+        "kind": "project",
+        "description": "Let agents control desktop software."
+      }
     }
   ],
   "bundles": [
@@ -25759,6 +25833,543 @@
           "computer-use"
         ],
         "note": "Covers only what differs on a physical iPhone; argent-device-interact still applies to everything else."
+      }
+    },
+    {
+      "id": "sanyuan0704/sanyuan-skills/skills/code-review-expert",
+      "name": "code-review-expert",
+      "skills.sh": {
+        "url": "https://skills.sh/sanyuan0704/sanyuan-skills/code-review-expert",
+        "installs": 13700,
+        "weeklyInstalls": [143, 147, 83, 75, 97, 113, 117, 92],
+        "firstSeen": "2026-02-04"
+      },
+      "skillMd": {
+        "version": "08b6572ef108f22d4e8a3ecf9182a4bbef097744",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Reviews your current git changes for design, security and reliability problems, ranks them P0 to P3, and fixes only what you pick.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a senior-engineer review of your current git changes before they merge"
+            },
+            {
+              "label": "It does",
+              "text": "checks the diff for SOLID and architecture smells, dead code, security and reliability risks, and error-handling, performance and edge-case bugs"
+            },
+            {
+              "label": "You get",
+              "text": "findings ranked P0 (critical) to P3 (style), each with file, line and a suggested fix, plus an overall verdict: approve, request changes or comment"
+            },
+            {
+              "label": "Then",
+              "text": "asks whether to fix everything, only P0 and P1, specific items or nothing, and changes no code until you choose"
+            }
+          ],
+          "text": "It scopes the change with git status and git diff, looks up related modules when needed, and notes the critical paths the change touches, such as auth, payments and data writes. A diff over 500 lines is summarised by file first, then reviewed in batches by feature. It then works through four checklists that ship with it. SOLID and architecture smells, with a minimal, safe split proposed for any refactor, or an incremental plan when the refactor is big. Removal candidates, split into safe to delete now and deferred with a plan. A security and reliability scan covering injection, XSS, SSRF, auth gaps, leaked secrets, race conditions and unsafe defaults, rating both exploitability and impact. And a code-quality scan for swallowed errors, N+1 queries and boundary bugs. Findings are numbered across four levels, from P0, which blocks the merge, to P3, optional polish. A clean review still says what was checked, what wasn't, and what risk remains. It's review-first: nothing changes until you pick which findings to fix.",
+          "permalink": "https://github.com/sanyuan0704/sanyuan-skills/tree/08b6572ef108f22d4e8a3ecf9182a4bbef097744/skills/code-review-expert"
+        },
+        "tags": [
+          "category:debugging",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "code-review",
+          "security",
+          "code-quality",
+          "refactoring",
+          "category:security"
+        ]
+      }
+    },
+    {
+      "id": "tw93/kami/skills/kami",
+      "name": "kami",
+      "skills.sh": {
+        "url": "https://skills.sh/tw93/kami/kami",
+        "installs": 13700,
+        "weeklyInstalls": [301, 325, 239, 145, 190, 232, 256, 272],
+        "firstSeen": "2026-04-20"
+      },
+      "skillMd": {
+        "version": "588a727e1f11fd911efa166af2aa59416a002268",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Typesets resumes, one-pagers, letters, long reports, slides and social cards from its own serif templates, then renders and checks the PDF.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a document that looks typeset: a resume, one-pager, letter, white paper, portfolio, equity report, changelog, slide deck or social cards"
+            },
+            {
+              "label": "It does",
+              "text": "distills your content into the template that fits, fills it, then runs its build script until the PDF passes its checks"
+            },
+            {
+              "label": "You get",
+              "text": "the HTML source and a PDF, plus PNG or an editable PPTX when called for; a landing page comes as one static HTML file"
+            },
+            {
+              "label": "Look",
+              "text": "serif type, a warm background and one ink-blue accent; not for dark, multi-color or Material-style designs"
+            },
+            {
+              "label": "Never guesses",
+              "text": "missing facts, logos or figures are marked [DATA NEEDED] in the page and listed for you"
+            },
+            {
+              "label": "Languages",
+              "text": "templates in Chinese, English and Korean; Japanese and other languages are best-effort"
+            },
+            {
+              "label": "Needs",
+              "text": "Python for its build script, which renders PDFs with WeasyPrint; Node.js only for math formulas"
+            }
+          ],
+          "text": "Kami first locks a short contract and states it in one line without waiting: language, template, output formats, length, what counts as visually done and how to verify it. It asks at most one question, only when purpose, audience or constraints are truly unclear, and picks the template from cues such as one page for investors or two pages of career story. Text edits and complaints about how a page looks are handled as separate modes that keep what already works. For a new document it writes your distilled content and the brief to content.json, checked against a schema for that document type, so every fact, number and name you gave lands on the page or in a gap report. It copies the template rather than writing HTML from scratch, and generates charts from your numbers with its script. One command checks the HTML, renders the PDF, checks page count, fonts, placeholders and orphans, and exports page images the agent inspects, fixing the three worst defects per round for up to three rounds. An optional brand profile in ~/.config/kami/brand.md fills in your defaults. Each task starts with a check, at most daily, for a newer release on GitHub.",
+          "permalink": "https://github.com/tw93/kami/tree/588a727e1f11fd911efa166af2aa59416a002268/skills/kami"
+        },
+        "tags": [
+          "category:documents",
+          "category:design",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "documents",
+          "pdf",
+          "slides",
+          "design"
+        ]
+      }
+    },
+    {
+      "id": "openai/skills/skills/.curated/pdf",
+      "name": "pdf",
+      "skills.sh": {
+        "url": "https://skills.sh/openai/skills/pdf",
+        "installs": 13700,
+        "weeklyInstalls": [255, 221, 200, 272, 165, 147, 147, 161],
+        "firstSeen": "2026-01-28"
+      },
+      "skillMd": {
+        "version": "49f948faa9258a0c61caceaf225e179651397431",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Creates and reads PDFs with Python libraries, rendering every page to an image to check the layout before delivering.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're creating or reviewing a PDF where layout and visuals matter"
+            },
+            {
+              "label": "It does",
+              "text": "builds PDFs with reportlab, extracts text with pdfplumber or pypdf, and renders pages to PNG with Poppler to look at them"
+            },
+            {
+              "label": "You get",
+              "text": "a finished PDF that has passed a page-by-page visual check, with intermediate files removed"
+            },
+            {
+              "label": "Unlike Anthropic's pdf",
+              "text": "it has no recipes for merging, splitting or filling forms; it centres on generating PDFs and checking how they render"
+            },
+            {
+              "label": "Needs",
+              "text": "Python with reportlab, pdfplumber and pypdf, and Poppler's pdftoppm; it installs them if missing"
+            }
+          ],
+          "text": "A short workflow from OpenAI's catalog of Codex skills. The agent prefers visual review: it renders PDF pages to PNG images with pdftoppm and inspects them, because text extraction with pdfplumber or pypdf is only for quick checks and says nothing reliable about layout. New documents are built with reportlab, and after each meaningful change the pages are rendered again and checked for alignment, spacing and legibility. Its quality bar asks for consistent typography, margins and section hierarchy; sharp, aligned and labelled charts, tables and images; no clipped or overlapping text, broken tables, black squares or unreadable glyphs; plain ASCII hyphens instead of Unicode dashes; and citations with no leftover tool tokens or placeholders. It doesn't deliver until the latest render shows no defects. Intermediate files go in tmp/pdfs/ and are cleaned up. If a dependency can't be installed, it tells you which one is missing and how to install it yourself. The openai/skills repository it comes from is now marked deprecated; its README points to openai/plugins for current Codex skills.",
+          "permalink": "https://github.com/openai/skills/tree/49f948faa9258a0c61caceaf225e179651397431/skills/.curated/pdf"
+        },
+        "tags": [
+          "category:documents",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "by:official",
+          "stack:python",
+          "pdf",
+          "documents"
+        ]
+      }
+    },
+    {
+      "id": "kylezantos/design-motion-principles/skills/design-motion-principles",
+      "name": "design-motion-principles",
+      "skills.sh": {
+        "url": "https://skills.sh/kylezantos/design-motion-principles/design-motion-principles",
+        "installs": 13600,
+        "weeklyInstalls": [272, 490, 453, 638, 663, 640, 561, 536],
+        "firstSeen": "2026-01-19"
+      },
+      "skillMd": {
+        "version": "4a9ca879f24a361f4dca4174fe2da0f67b5ddee3",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds UI animations or audits existing ones through three designers' lenses, weighted by your project, with an HTML audit report.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're adding motion to a component, or want existing animations reviewed for purpose, polish and AI-generated tells"
+            },
+            {
+              "label": "It does",
+              "text": "weighs the published approaches of Emil Kowalski (restraint), Jakub Krehel (production polish) and Jhey Tompkins (playful experiments) by project type"
+            },
+            {
+              "label": "You get",
+              "text": "in Create mode, components with motion built in; in Audit mode, an HTML report in motion-audits/ with looping demos beside Critical and Important findings"
+            },
+            {
+              "label": "Always",
+              "text": "handles prefers-reduced-motion and animates only transform, opacity and filter"
+            },
+            {
+              "label": "Waits",
+              "text": "for you to confirm which designer leads before a full audit or a non-trivial build"
+            },
+            {
+              "label": "Unlike Emil Kowalski's skills",
+              "text": "it sets three designers' views against each other, such as Jakub and Jhey first for a kids' app, instead of one set of rules"
+            }
+          ],
+          "text": "It works in two modes picked from your request: Create builds or improves a component's motion, Audit reviews what's there. Both start by reading the project, its CLAUDE.md, package.json and existing animations, to work out what kind of product it is and propose which designer leads. Every animation passes a frequency gate first: rare moments can be expressive, interactions used hundreds of times a day get little or no motion, and keyboard-triggered ones are never animated. Durations follow the weighting: under 300ms when Emil leads, 200 to 500ms for Jakub's polish, whatever serves the effect for Jhey. Create mode takes its code from a bundled motion cookbook, checks it against a list of mistakes Claude makes when writing motion, and explains its choices. Audit mode also hunts for motion gaps, UI that appears or swaps with no transition, and flags AI-slop patterns such as pulsing indicators, hover-scale on everything and stagger spam. It writes a self-contained HTML report to motion-audits/ in your project, opens it in your browser and prints a three-line summary; ask for terminal mode to get the full report inline instead.",
+          "permalink": "https://github.com/kylezantos/design-motion-principles/tree/4a9ca879f24a361f4dca4174fe2da0f67b5ddee3/skills/design-motion-principles"
+        },
+        "tags": [
+          "category:design",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "animation",
+          "design",
+          "accessibility",
+          "code-review",
+          "anti-slop"
+        ]
+      }
+    },
+    {
+      "id": "benjitaylor/skills/stageshow",
+      "name": "stageshow",
+      "skills.sh": {
+        "url": "https://skills.sh/benjitaylor/skills/stageshow",
+        "installs": 13400,
+        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 4264],
+        "firstSeen": null
+      },
+      "skillMd": {
+        "version": "299140fafd08df55a9c234e610c3f64af3f45531",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds believable fake product UI in React, as stills or animated cursor demos for marketing pages, then films them to check the result.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need a hero image, feature card or walkthrough animation that looks like a real app without being a screenshot"
+            },
+            {
+              "label": "It does",
+              "text": "plans the story, copies the closest of its gold examples, restyles it as your product and crops it; animations get a scripted 10 to 16 second story"
+            },
+            {
+              "label": "You get",
+              "text": "a React component built from its copy-in kit, a redesigned phone-width version, and a REHEARSAL.md noting what was and wasn't checked"
+            },
+            {
+              "label": "Checks",
+              "text": "films the loop in headless Chrome into contact sheets and won't hand over until its gate reports \"rehearsal passed\""
+            },
+            {
+              "label": "Needs",
+              "text": "a React project, Node.js, and playwright-core with a local Chrome for filming"
+            },
+            {
+              "label": "Not",
+              "text": "browser automation: the cursor's clicks are drawn, they don't operate a real app"
+            }
+          ],
+          "text": "Stageshow makes miniature product UI: a believable interface, framed for where it will sit, as one still or a short animation in which one thing happens. It names five ways these fail: too much detail, a bare wireframe, a whole window shrunk into a box, everything at the same weight, and a bland gray window that ignores the brief. The agent writes the plan first: still or loop, where it sits and at what size, the focal object, the action and the payoff. It maps the product's colors and type to the kit's tokens and picks a fidelity, from gray bars only to real content throughout. It copies the closest gold example rather than starting fresh, replaces its look and words with your product's, and crops to the panel where the story happens. Motion is scripted with the kit's Act API in three to five beats, with a poster frame that tells the story on its own. Each round it films at full and phone width, fixes the largest visible fault first and compares against the gold. Studies of Figma, Linear, Slack and other real products are there to borrow interactions, not identities.",
+          "permalink": "https://github.com/benjitaylor/skills/tree/299140fafd08df55a9c234e610c3f64af3f45531/stageshow"
+        },
+        "tags": [
+          "category:design",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "needs:browser",
+          "by:community",
+          "stack:react",
+          "design",
+          "animation",
+          "marketing"
+        ]
+      }
+    },
+    {
+      "id": "dickwu/apple-design-skill",
+      "name": "apple-design",
+      "skills.sh": {
+        "url": "https://skills.sh/dickwu/apple-design-skill/apple-design",
+        "installs": 13200,
+        "weeklyInstalls": [948, 1356, 1079, 839, 1234, 1687, 1980, 2521],
+        "firstSeen": "2026-03-27"
+      },
+      "skillMd": {
+        "version": "ff4ebddf0488598723a82bfdce1afb04de0b1c44",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Reviews mobile and desktop app designs against Apple's Human Interface Guidelines, citing its bundled copy, and flags generic, templated looks.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want screenshots, mockups or UI code of an iOS, macOS, Flutter, React Native, Tauri or Electron app reviewed"
+            },
+            {
+              "label": "It does",
+              "text": "loads 8 to 12 of its 123 HIG pages for what's on screen and audits accessibility, platform conventions, craft, interaction and writing, in that order"
+            },
+            {
+              "label": "You get",
+              "text": "a report rated from Excellent to Critical issues, each finding tagged by severity, citing file and heading, with a concrete fix in your framework"
+            },
+            {
+              "label": "Unlike emilkowalski's apple-design",
+              "text": "that one brings Apple's motion and gestures to web code; this one reviews whole app designs against Apple's guideline text"
+            },
+            {
+              "label": "Also",
+              "text": "an improvement mode that plans colors, type, layout and one signature element, and critiques the plan before proposing changes"
+            }
+          ],
+          "text": "The agent plays two roles at once: a reviewer who knows Apple's Human Interface Guidelines and a studio design lead who wants the app to have a point of view. The guidelines ship with the skill as 123 Markdown pages pulled from developer.apple.com, plus a curated Liquid Glass guide and a file that translates Apple's terms for Flutter, React Native, Tauri and Electron. It must open a page before citing it, quoting it as file and heading, and labels anything else as its own judgment. A review first pins down platform, framework, audience and the screen's single job, then applies Apple's eight design principles and five lenses in order. Accessibility failures, such as small text below 4.5:1 contrast, are Critical, and findings come with numbers rather than adjectives. The craft lens names three looks that dominate generated interfaces, such as warm cream with a serif and a terracotta accent, and asks what the design will be remembered by. Specialized modes cover app icons, dark mode, Liquid Glass, Apple Pay buttons, iPhone Duo layouts, widgets, onboarding and code audits. Web and Android-only apps get the principles and foundations, not Apple's platform conventions.",
+          "permalink": "https://github.com/dickwu/apple-design-skill/tree/ff4ebddf0488598723a82bfdce1afb04de0b1c44"
+        },
+        "tags": [
+          "category:design",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "design",
+          "accessibility",
+          "mobile",
+          "code-review",
+          "stack:apple"
+        ]
+      }
+    },
+    {
+      "id": "firecrawl/anydoc/skills/convert-documents-to-markdown",
+      "name": "convert-documents-to-markdown",
+      "skills.sh": {
+        "url": "https://skills.sh/firecrawl/anydoc/convert-documents-to-markdown",
+        "installs": 13100,
+        "weeklyInstalls": [804, 694, 694, 848, 790, 667, 522, 382],
+        "firstSeen": "2026-08-04"
+      },
+      "skillMd": {
+        "version": "e7178e099b6bf9171e2c52b832cbdb4134b69112",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Converts Word, PowerPoint, Excel, OpenDocument, RTF, EPUB, CSV and PDF files to Markdown with Firecrawl's anydoc CLI so the agent can read them.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "the agent needs the contents of an office document, spreadsheet, presentation, ebook or PDF it can't read directly"
+            },
+            {
+              "label": "It does",
+              "text": "runs npx @firecrawl/anydoc on the file, which detects the format from the file's content"
+            },
+            {
+              "label": "You get",
+              "text": "GitHub-flavored Markdown, in the chat or written to a file the agent reads in parts"
+            },
+            {
+              "label": "Scanned pages",
+              "text": "anydoc does no OCR, so the agent reruns with --ocr hosted, which sends the document to Firecrawl Parse"
+            },
+            {
+              "label": "Needs",
+              "text": "Node.js 20 or later; no install or signup, and an API key only for higher OCR limits"
+            },
+            {
+              "label": "In code",
+              "text": "inside a Node, Python or Rust project it uses the anydoc library instead of the CLI"
+            }
+          ],
+          "text": "A short guide to anydoc, Firecrawl's document-to-Markdown converter. The agent runs it through npx, so nothing is installed, and gets Markdown on stdout; for a large document it writes to a file and reads only the parts it needs instead of pulling everything into context. It handles Word, PowerPoint and Excel files, old and new, their OpenDocument equivalents, RTF, EPUB, CSV and PDF. The format is detected from the file itself; the agent names it only for CSV on stdin or a missing or wrong extension. Exit codes tell it what happened: success, a document that couldn't be converted, a usage error, or PDF pages that need OCR. The CLI never prompts. Scanned and image-only pages can't be read locally, so the agent reruns with --ocr hosted, which uploads the document to Firecrawl Parse; no signup is needed, and a Firecrawl API key raises the limits.",
+          "permalink": "https://github.com/firecrawl/anydoc/tree/e7178e099b6bf9171e2c52b832cbdb4134b69112/skills/convert-documents-to-markdown"
+        },
+        "tags": [
+          "category:documents",
+          "type:tool",
+          "effect:remote",
+          "needs:cli",
+          "by:official",
+          "stack:firecrawl",
+          "stack:microsoft-office",
+          "documents",
+          "pdf",
+          "spreadsheets",
+          "slides"
+        ],
+        "note": "When local conversion can't read scanned or image-only pages, the agent reruns with hosted OCR, which uploads the document to Firecrawl Parse."
+      }
+    },
+    {
+      "id": "referodesign/refero_skill/skills/refero-design",
+      "name": "refero-design",
+      "skills.sh": {
+        "url": "https://skills.sh/referodesign/refero_skill/refero-design",
+        "installs": 12900,
+        "weeklyInstalls": [614, 583, 545, 639, 567, 542, 534, 506],
+        "firstSeen": "2026-02-28"
+      },
+      "skillMd": {
+        "version": "2382e518f90096df607196b9a635da2d1bc142f9",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Grounds UI and web design work in researched references, styles, real screens and user flows, before building, then checks the result against them.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're designing or redesigning a landing page, product screen, dashboard or flow and want it based on real references, not the model's default taste"
+            },
+            {
+              "label": "It does",
+              "text": "researches Refero's styles for visual direction, screens for UI patterns and flows for multi-step journeys, then picks one dominant direction"
+            },
+            {
+              "label": "You get",
+              "text": "a research summary, a \"reference lock\" of traits that must survive, and a decision ledger tracing each choice to a source, before any code"
+            },
+            {
+              "label": "Needs",
+              "text": "the Refero MCP server and a Refero sign-in for live research, which its README says takes a paid plan; the bundled guides need no account"
+            },
+            {
+              "label": "Without Refero",
+              "text": "it falls back on its bundled craft guides and any references you give, with the same lock-and-ledger process"
+            },
+            {
+              "label": "Wants to lead",
+              "text": "it tells the agent not to use other design skills as a parallel authority, only for implementation details"
+            }
+          ],
+          "text": "A research-first design method from Refero, a library of design references. Research is mandatory: the agent first writes a short brief, what is being designed, for whom, on which platform, the feeling and the main objection, then researches. Styles are design references extracted from real marketing and product pages, with tokens, typography, layout and do/don't rules; screens show how real products solve a specific UI problem; flows give the steps of journeys such as signup, checkout or cancellation. It studies several references and refuses to average them into a safe middle: one primary source sets mood, density and structure, others lend one or two details, and each token keeps its original role, so a CTA color stays CTA-only. That becomes a reference lock, a short list of traits to preserve, borrowed details, media strategy and defaults to reject. Work is routed by size: a direct build for small fixes, three reference-locked options to choose from for a redesign or landing page, an audit, or generated images only when needed. Its craft rules warn against current AI defaults, such as cream canvases with terracotta accents. A quality gate and a visual check against the lock come before handoff.",
+          "permalink": "https://github.com/referodesign/refero_skill/tree/2382e518f90096df607196b9a635da2d1bc142f9/skills/refero-design"
+        },
+        "tags": [
+          "category:design",
+          "type:workflow",
+          "effect:local",
+          "needs:mcp",
+          "needs:account",
+          "by:official",
+          "stack:refero",
+          "design",
+          "research",
+          "anti-slop"
+        ],
+        "note": "Live research needs the Refero MCP server and a Refero sign-in, which its README says takes a paid plan. It also tells the agent to treat it as the lead design skill, over any other design skills you have installed."
+      }
+    },
+    {
+      "id": "sfkislev/flue/skills",
+      "name": "flue",
+      "skills.sh": {
+        "url": "https://skills.sh/sfkislev/flue/flue",
+        "installs": 12600,
+        "weeklyInstalls": [1, 4, 6, 2, 5, 7, 7, 2],
+        "firstSeen": "2026-05-08"
+      },
+      "skillMd": {
+        "version": "840bb1a3faaddc31689b7431a899038e2d1042ba",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Lets the agent work inside desktop apps such as Photoshop, Premiere, Blender, Unity and Office through Flue's scripting bridges.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want the agent to inspect or edit a live document, scene or project inside a desktop app"
+            },
+            {
+              "label": "It does",
+              "text": "sends small scripts into the app's own scripting runtime through a Flue bridge command and reads back JSON"
+            },
+            {
+              "label": "Works with",
+              "text": "Photoshop, Illustrator, InDesign, After Effects, Premiere, Audition, Blender, Unity, Houdini, 3ds Max, Word, Excel and PowerPoint"
+            },
+            {
+              "label": "Needs",
+              "text": "the Flue Python package and the app itself; the agent won't install Flue without your approval"
+            },
+            {
+              "label": "Unlike an MCP server",
+              "text": "it's plain shell commands, script in on stdin and JSON out, which Flue calls simpler; it still has a setup step and per-app quirks"
+            },
+            {
+              "label": "Runs",
+              "text": "as an entry point: after setup, Flue's installed skill and app-specific docs take over"
+            }
+          ],
+          "text": "Coding agents can edit files and run shell commands but can't act inside a desktop application; Flue, a Python package, bridges that gap. For each app it has an adapter that passes a script from the shell into the app's own automation surface, such as ExtendScript for Adobe apps, bpy for Blender, Unity's editor APIs, COM or AppleScript, and returns the result or the error as JSON. The skill shows the pattern with a Photoshop script that draws three colored shapes as layers. It treats you as the driver: small, inspectable steps, nothing destructive unless you ask, real app state over guesses from training, and no unattended background work. This file is only the entry point. If Flue isn't on the machine, the agent says so and gives you the install command, but doesn't install it without your approval in that session; after setup, it follows Flue's installed skill and app docs.",
+          "permalink": "https://github.com/sfkislev/flue/tree/840bb1a3faaddc31689b7431a899038e2d1042ba/skills"
+        },
+        "tags": [
+          "category:media",
+          "category:documents",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "by:official",
+          "stack:flue",
+          "stack:adobe",
+          "stack:microsoft-office",
+          "computer-use",
+          "image",
+          "video",
+          "documents",
+          "stack:blender",
+          "stack:unity",
+          "stack:houdini",
+          "stack:autodesk"
+        ],
+        "note": "Needs Flue (pip install flue, then flue setup) and the apps it drives. This skill only introduces Flue; once set up, Flue's installed skill takes over."
       }
     }
   ]
