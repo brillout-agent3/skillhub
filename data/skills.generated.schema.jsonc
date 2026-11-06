@@ -160,29 +160,40 @@
           "type": "string",
           "description": "Its GitHub page."
         },
+        "stars": {
+          "type": ["number", "null"],
+          "description": "GitHub stars, or null when unknown. crawl.ts refreshes them for the repos of approved skills and bundles."
+        },
+        "leaderboardSkills": {
+          "type": ["number", "null"],
+          "description": "How many of the repo's skills were in the skills.sh all-time top 600."
+        },
+        "agentReview": {
+          "$ref": "#/definitions/RepoReview",
+          "description": "What an agent wrote about the repo: everything else is collected by scripts."
+        }
+      },
+      "required": ["id", "url", "stars", "leaderboardSkills", "agentReview"],
+      "additionalProperties": false
+    },
+    "RepoReview": {
+      "type": "object",
+      "properties": {
         "kind": {
           "type": "string",
           "enum": ["skills", "project", "index"],
           "description": "`skills`: exists to ship skills. `project`: a product that also ships a skill. `index`: a curated list or catalog."
         },
-        "stars": {
-          "type": ["number", "null"],
-          "description": "GitHub stars, or null when unknown. crawl.ts refreshes them for the repos of approved skills and bundles."
-        },
         "description": {
           "type": ["string", "null"],
           "description": "The repo in one line, such as its GitHub description, or null when it has none."
-        },
-        "leaderboardSkills": {
-          "type": ["number", "null"],
-          "description": "How many of the repo's skills were in the skills.sh all-time top 600."
         },
         "note": {
           "type": "string",
           "description": "Something to know about the repo, such as where its star count comes from."
         }
       },
-      "required": ["id", "url", "kind", "stars", "description", "leaderboardSkills"],
+      "required": ["kind", "description"],
       "additionalProperties": false
     },
     "Bundle": {

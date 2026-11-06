@@ -875,908 +875,1134 @@
     {
       "id": "obra/superpowers",
       "url": "https://github.com/obra/superpowers",
-      "kind": "skills",
       "stars": 313103,
-      "description": "An agentic skills framework & software development methodology that works.",
-      "leaderboardSkills": 14
+      "leaderboardSkills": 14,
+      "agentReview": {
+        "kind": "skills",
+        "description": "An agentic skills framework & software development methodology that works."
+      }
     },
     {
       "id": "mattpocock/skills",
       "url": "https://github.com/mattpocock/skills",
-      "kind": "skills",
       "stars": 315520,
-      "description": "Skills for Real Engineers.",
-      "leaderboardSkills": 53
+      "leaderboardSkills": 53,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Skills for Real Engineers."
+      }
     },
     {
       "id": "anthropics/skills",
       "url": "https://github.com/anthropics/skills",
-      "kind": "skills",
       "stars": 187819,
-      "description": "Public repository for Agent Skills",
-      "leaderboardSkills": 18
+      "leaderboardSkills": 18,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Public repository for Agent Skills"
+      }
     },
     {
       "id": "multica-ai/andrej-karpathy-skills",
       "url": "https://github.com/multica-ai/andrej-karpathy-skills",
-      "kind": "skills",
       "stars": 174000,
-      "description": "Four behavioral principles for coding agents, after Andrej Karpathy's observations.",
       "leaderboardSkills": 0,
-      "note": "Ships as a CLAUDE.md, not a SKILL.md. Star count as reported by AWS in June 2026."
+      "agentReview": {
+        "kind": "skills",
+        "description": "Four behavioral principles for coding agents, after Andrej Karpathy's observations.",
+        "note": "Ships as a CLAUDE.md, not a SKILL.md. Star count as reported by AWS in June 2026."
+      }
     },
     {
       "id": "anthropics/claude-code",
       "url": "https://github.com/anthropics/claude-code",
-      "kind": "project",
       "stars": 147117,
-      "description": "Anthropic's coding agent, which also ships skills such as frontend-design.",
-      "leaderboardSkills": 0
+      "leaderboardSkills": 0,
+      "agentReview": {
+        "kind": "project",
+        "description": "Anthropic's coding agent, which also ships skills such as frontend-design."
+      }
     },
     {
       "id": "dietrichgebert/ponytail",
       "url": "https://github.com/dietrichgebert/ponytail",
-      "kind": "skills",
       "stars": 185323,
-      "description": "Makes your AI agent think like the laziest senior dev in the room.",
-      "leaderboardSkills": 2
+      "leaderboardSkills": 2,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Makes your AI agent think like the laziest senior dev in the room."
+      }
     },
     {
       "id": "nextlevelbuilder/ui-ux-pro-max-skill",
       "url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
-      "kind": "skills",
       "stars": 145776,
-      "description": "An AI skill that provides design intelligence for building professional UI/UX across multiple platforms.",
-      "leaderboardSkills": 1
+      "leaderboardSkills": 1,
+      "agentReview": {
+        "kind": "skills",
+        "description": "An AI skill that provides design intelligence for building professional UI/UX across multiple platforms."
+      }
     },
     {
       "id": "shadcn/ui",
       "url": "https://github.com/shadcn/ui",
-      "kind": "project",
       "stars": 127394,
-      "description": "Composable, accessible components with thoughtful defaults.",
-      "leaderboardSkills": 1
+      "leaderboardSkills": 1,
+      "agentReview": {
+        "kind": "project",
+        "description": "Composable, accessible components with thoughtful defaults."
+      }
     },
     {
       "id": "browser-use/browser-use",
       "url": "https://github.com/browser-use/browser-use",
-      "kind": "project",
       "stars": 120153,
-      "description": "Agents that use the browser.",
-      "leaderboardSkills": 1
+      "leaderboardSkills": 1,
+      "agentReview": {
+        "kind": "project",
+        "description": "Agents that use the browser."
+      }
     },
     {
       "id": "garrytan/gstack",
       "url": "https://github.com/garrytan/gstack",
-      "kind": "skills",
       "stars": 110000,
-      "description": "Role-based slash-command workflow for Claude Code.",
       "leaderboardSkills": 0,
-      "note": "Ships as slash commands, not a SKILL.md. Star count as reported by AWS in June 2026."
+      "agentReview": {
+        "kind": "skills",
+        "description": "Role-based slash-command workflow for Claude Code.",
+        "note": "Ships as slash commands, not a SKILL.md. Star count as reported by AWS in June 2026."
+      }
     },
     {
       "id": "juliusbrussee/caveman",
       "url": "https://github.com/juliusbrussee/caveman",
-      "kind": "skills",
       "stars": 117809,
-      "description": "🪨 why use many token when few token do trick.",
-      "leaderboardSkills": 20
+      "leaderboardSkills": 20,
+      "agentReview": {
+        "kind": "skills",
+        "description": "🪨 why use many token when few token do trick."
+      }
     },
     {
       "id": "addyosmani/agent-skills",
       "url": "https://github.com/addyosmani/agent-skills",
-      "kind": "skills",
       "stars": 113543,
-      "description": "Production-grade engineering skills: TDD, debugging, review, security, performance and ADRs.",
-      "leaderboardSkills": 20
+      "leaderboardSkills": 20,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Production-grade engineering skills: TDD, debugging, review, security, performance and ADRs."
+      }
     },
     {
       "id": "leonxlnx/taste-skill",
       "url": "https://github.com/leonxlnx/taste-skill",
-      "kind": "skills",
       "stars": 110782,
-      "description": "Taste-Skill - gives your AI good taste.",
-      "leaderboardSkills": 13
+      "leaderboardSkills": 13,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Taste-Skill - gives your AI good taste."
+      }
     },
     {
       "id": "Egonex-AI/Understand-Anything",
       "url": "https://github.com/Egonex-AI/Understand-Anything",
-      "kind": "skills",
       "stars": 83446,
-      "description": "Turns any codebase into an interactive knowledge graph.",
-      "leaderboardSkills": 0
+      "leaderboardSkills": 0,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Turns any codebase into an interactive knowledge graph."
+      }
     },
     {
       "id": "bytedance/deer-flow",
       "url": "https://github.com/bytedance/deer-flow",
-      "kind": "project",
       "stars": 82758,
-      "description": "Long-horizon super-agent harness that researches, codes and creates.",
-      "leaderboardSkills": 0
+      "leaderboardSkills": 0,
+      "agentReview": {
+        "kind": "project",
+        "description": "Long-horizon super-agent harness that researches, codes and creates."
+      }
     },
     {
       "id": "ComposioHQ/awesome-claude-skills",
       "url": "https://github.com/ComposioHQ/awesome-claude-skills",
-      "kind": "index",
       "stars": 75402,
-      "description": "Curated index of more than 1,000 skills.",
-      "leaderboardSkills": 0
+      "leaderboardSkills": 0,
+      "agentReview": {
+        "kind": "index",
+        "description": "Curated index of more than 1,000 skills."
+      }
     },
     {
       "id": "stablyai/orca",
       "url": "https://github.com/stablyai/orca",
-      "kind": "project",
       "stars": 115860,
-      "description": "Orca is the ADE for working with a fleet of parallel agents.",
-      "leaderboardSkills": 3
+      "leaderboardSkills": 3,
+      "agentReview": {
+        "kind": "project",
+        "description": "Orca is the ADE for working with a fleet of parallel agents."
+      }
     },
     {
       "id": "pbakaus/impeccable",
       "url": "https://github.com/pbakaus/impeccable",
-      "kind": "skills",
       "stars": 104081,
-      "description": "The design language that makes your AI harness better at design.",
-      "leaderboardSkills": 14
+      "leaderboardSkills": 14,
+      "agentReview": {
+        "kind": "skills",
+        "description": "The design language that makes your AI harness better at design."
+      }
     },
     {
       "id": "code-yeongyu/oh-my-openagent",
       "url": "https://github.com/code-yeongyu/oh-my-openagent",
-      "kind": "project",
       "stars": 69227,
-      "description": "Agent workflow tooling for OpenCode.",
-      "leaderboardSkills": 0
+      "leaderboardSkills": 0,
+      "agentReview": {
+        "kind": "project",
+        "description": "Agent workflow tooling for OpenCode."
+      }
     },
     {
       "id": "tt-a1i/archify",
       "url": "https://github.com/tt-a1i/archify",
-      "kind": "skills",
       "stars": 93942,
-      "description": "Agent skill for beautiful, verifiable architecture, workflow, sequence, data-flow, and lifecycle diagrams—self-contained HTML with…",
-      "leaderboardSkills": 1
+      "leaderboardSkills": 1,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Agent skill for beautiful, verifiable architecture, workflow, sequence, data-flow, and lifecycle diagrams—self-contained HTML with…"
+      }
     },
     {
       "id": "shanraisshan/claude-code-best-practice",
       "url": "https://github.com/shanraisshan/claude-code-best-practice",
-      "kind": "skills",
       "stars": 66134,
-      "description": "Practices for going from vibe coding to agentic engineering.",
-      "leaderboardSkills": 0
+      "leaderboardSkills": 0,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Practices for going from vibe coding to agentic engineering."
+      }
     },
     {
       "id": "heygen-com/hyperframes",
       "url": "https://github.com/heygen-com/hyperframes",
-      "kind": "project",
       "stars": 79657,
-      "description": "Write HTML.",
-      "leaderboardSkills": 31
+      "leaderboardSkills": 31,
+      "agentReview": {
+        "kind": "project",
+        "description": "Write HTML."
+      }
     },
     {
       "id": "coreyhaines31/marketingskills",
       "url": "https://github.com/coreyhaines31/marketingskills",
-      "kind": "skills",
       "stars": 58759,
-      "description": "Marketing skills for Claude Code and AI agents.",
-      "leaderboardSkills": 44
+      "leaderboardSkills": 44,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Marketing skills for Claude Code and AI agents."
+      }
     },
     {
       "id": "ayghri/i-have-adhd",
       "url": "https://github.com/ayghri/i-have-adhd",
-      "kind": "skills",
       "stars": 49228,
-      "description": "Stops the agent from burying the answer.",
-      "leaderboardSkills": 0
+      "leaderboardSkills": 0,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Stops the agent from burying the answer."
+      }
     },
     {
       "id": "kepano/obsidian-skills",
       "url": "https://github.com/kepano/obsidian-skills",
-      "kind": "skills",
       "stars": 50849,
-      "description": "Agent skills for Obsidian.",
-      "leaderboardSkills": 5
+      "leaderboardSkills": 5,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Agent skills for Obsidian."
+      }
     },
     {
       "id": "sickn33/agentic-awesome-skills",
       "url": "https://github.com/sickn33/agentic-awesome-skills",
-      "kind": "index",
       "stars": 46649,
-      "description": "Agent-first catalog and control plane for skills.",
-      "leaderboardSkills": 0
+      "leaderboardSkills": 0,
+      "agentReview": {
+        "kind": "index",
+        "description": "Agent-first catalog and control plane for skills."
+      }
     },
     {
       "id": "K-Dense-AI/scientific-agent-skills",
       "url": "https://github.com/K-Dense-AI/scientific-agent-skills",
-      "kind": "skills",
       "stars": 45777,
-      "description": "The largest library of science skills.",
-      "leaderboardSkills": 0
+      "leaderboardSkills": 0,
+      "agentReview": {
+        "kind": "skills",
+        "description": "The largest library of science skills."
+      }
     },
     {
       "id": "vercel-labs/agent-browser",
       "url": "https://github.com/vercel-labs/agent-browser",
-      "kind": "project",
       "stars": 46016,
-      "description": "Browser automation CLI for AI agents",
-      "leaderboardSkills": 1
+      "leaderboardSkills": 1,
+      "agentReview": {
+        "kind": "project",
+        "description": "Browser automation CLI for AI agents"
+      }
     },
     {
       "id": "herdrdev/herdr",
       "url": "https://github.com/herdrdev/herdr",
-      "kind": "project",
       "stars": 48339,
-      "description": "Runtime for coding agents.",
-      "leaderboardSkills": 1
+      "leaderboardSkills": 1,
+      "agentReview": {
+        "kind": "project",
+        "description": "Runtime for coding agents."
+      }
     },
     {
       "id": "wshobson/agents",
       "url": "https://github.com/wshobson/agents",
-      "kind": "skills",
       "stars": 42245,
-      "description": "Multi-harness agentic plugin marketplace for Claude Code, Codex, Cursor, OpenCode, GitHub Copilot, Google Antigravity, and Pi",
-      "leaderboardSkills": 2
+      "leaderboardSkills": 2,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Multi-harness agentic plugin marketplace for Claude Code, Codex, Cursor, OpenCode, GitHub Copilot, Google Antigravity, and Pi"
+      }
     },
     {
       "id": "emilkowalski/skills",
       "url": "https://github.com/emilkowalski/skills",
-      "kind": "skills",
       "stars": 53896,
-      "description": "Skills for Designers and Engineers.",
-      "leaderboardSkills": 14
+      "leaderboardSkills": 14,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Skills for Designers and Engineers."
+      }
     },
     {
       "id": "mukul975/Anthropic-Cybersecurity-Skills",
       "url": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills",
-      "kind": "skills",
       "stars": 33037,
-      "description": "817 cybersecurity skills mapped to MITRE ATT&CK and NIST CSF.",
-      "leaderboardSkills": 0
+      "leaderboardSkills": 0,
+      "agentReview": {
+        "kind": "skills",
+        "description": "817 cybersecurity skills mapped to MITRE ATT&CK and NIST CSF."
+      }
     },
     {
       "id": "vercel-labs/skills",
       "url": "https://github.com/vercel-labs/skills",
-      "kind": "project",
       "stars": 38286,
-      "description": "The open agent skills tool - npx skills",
-      "leaderboardSkills": 1
+      "leaderboardSkills": 1,
+      "agentReview": {
+        "kind": "project",
+        "description": "The open agent skills tool - npx skills"
+      }
     },
     {
       "id": "vercel-labs/agent-skills",
       "url": "https://github.com/vercel-labs/agent-skills",
-      "kind": "skills",
       "stars": 33609,
-      "description": "Vercel's official collection of agent skills",
-      "leaderboardSkills": 9
+      "leaderboardSkills": 9,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Vercel's official collection of agent skills"
+      }
     },
     {
       "id": "vercel/turborepo",
       "url": "https://github.com/vercel/turborepo",
-      "kind": "project",
       "stars": 31306,
-      "description": "Build system optimized for JavaScript and TypeScript, written in Rust",
-      "leaderboardSkills": 1
+      "leaderboardSkills": 1,
+      "agentReview": {
+        "kind": "project",
+        "description": "Build system optimized for JavaScript and TypeScript, written in Rust"
+      }
     },
     {
       "id": "googleworkspace/cli",
       "url": "https://github.com/googleworkspace/cli",
-      "kind": "project",
       "stars": 32134,
-      "description": "Google Workspace CLI — one command-line tool for Drive, Gmail, Calendar, Sheets, Docs, Chat, Admin, and more.",
-      "leaderboardSkills": 4
+      "leaderboardSkills": 4,
+      "agentReview": {
+        "kind": "project",
+        "description": "Google Workspace CLI — one command-line tool for Drive, Gmail, Calendar, Sheets, Docs, Chat, Admin, and more."
+      }
     },
     {
       "id": "davila7/claude-code-templates",
       "url": "https://github.com/davila7/claude-code-templates",
-      "kind": "project",
       "stars": 30858,
-      "description": "CLI for configuring and monitoring Claude Code.",
-      "leaderboardSkills": 0
+      "leaderboardSkills": 0,
+      "agentReview": {
+        "kind": "project",
+        "description": "CLI for configuring and monitoring Claude Code."
+      }
     },
     {
       "id": "nanocoai/nanoclaw",
       "url": "https://github.com/nanocoai/nanoclaw",
-      "kind": "project",
       "stars": 30808,
-      "description": "Lightweight, containerized alternative to OpenClaw.",
-      "leaderboardSkills": 0
+      "leaderboardSkills": 0,
+      "agentReview": {
+        "kind": "project",
+        "description": "Lightweight, containerized alternative to OpenClaw."
+      }
     },
     {
       "id": "nutlope/hallmark",
       "url": "https://github.com/nutlope/hallmark",
-      "kind": "skills",
       "stars": 48897,
-      "description": "Anti-AI-slop design skill for Claude Code, Cursor, and Codex.",
-      "leaderboardSkills": 1
+      "leaderboardSkills": 1,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Anti-AI-slop design skill for Claude Code, Cursor, and Codex."
+      }
     },
     {
       "id": "OthmanAdi/planning-with-files",
       "url": "https://github.com/OthmanAdi/planning-with-files",
-      "kind": "skills",
       "stars": 27022,
-      "description": "Crash-proof Markdown plans for long-running agent tasks.",
-      "leaderboardSkills": 0
+      "leaderboardSkills": 0,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Crash-proof Markdown plans for long-running agent tasks."
+      }
     },
     {
       "id": "vercel/ai",
       "url": "https://github.com/vercel/ai",
-      "kind": "project",
       "stars": 27750,
-      "description": "The AI Toolkit for TypeScript.",
-      "leaderboardSkills": 1
+      "leaderboardSkills": 1,
+      "agentReview": {
+        "kind": "project",
+        "description": "The AI Toolkit for TypeScript."
+      }
     },
     {
       "id": "phuryn/pm-skills",
       "url": "https://github.com/phuryn/pm-skills",
-      "kind": "skills",
       "stars": 26464,
-      "description": "More than 100 product-management skills, commands and plugins.",
-      "leaderboardSkills": 0
+      "leaderboardSkills": 0,
+      "agentReview": {
+        "kind": "skills",
+        "description": "More than 100 product-management skills, commands and plugins."
+      }
     },
     {
       "id": "EveryInc/compound-engineering-plugin",
       "url": "https://github.com/EveryInc/compound-engineering-plugin",
-      "kind": "skills",
       "stars": 25179,
-      "description": "Compound Engineering plugin for Claude Code, Codex and Cursor.",
-      "leaderboardSkills": 0
+      "leaderboardSkills": 0,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Compound Engineering plugin for Claude Code, Codex and Cursor."
+      }
     },
     {
       "id": "mksglu/context-mode",
       "url": "https://github.com/mksglu/context-mode",
-      "kind": "project",
       "stars": 23772,
-      "description": "Sandboxes tool output and persists session memory to save context.",
-      "leaderboardSkills": 0
+      "leaderboardSkills": 0,
+      "agentReview": {
+        "kind": "project",
+        "description": "Sandboxes tool output and persists session memory to save context."
+      }
     },
     {
       "id": "teng-lin/notebooklm-py",
       "url": "https://github.com/teng-lin/notebooklm-py",
-      "kind": "project",
       "stars": 19402,
-      "description": "Python API and agent skill for Google NotebookLM.",
-      "leaderboardSkills": 0
+      "leaderboardSkills": 0,
+      "agentReview": {
+        "kind": "project",
+        "description": "Python API and agent skill for Google NotebookLM."
+      }
     },
     {
       "id": "cloudflare/security-audit-skill",
       "url": "https://github.com/cloudflare/security-audit-skill",
-      "kind": "skills",
       "stars": 61892,
-      "description": "Multi-phase security audits with verified findings.",
-      "leaderboardSkills": 1
+      "leaderboardSkills": 1,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Multi-phase security audits with verified findings."
+      }
     },
     {
       "id": "op7418/Humanizer-zh",
       "url": "https://github.com/op7418/Humanizer-zh",
-      "kind": "skills",
       "stars": 17616,
-      "description": "Chinese version of the humanizer skill.",
-      "leaderboardSkills": 0
+      "leaderboardSkills": 0,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Chinese version of the humanizer skill."
+      }
     },
     {
       "id": "larksuite/cli",
       "url": "https://github.com/larksuite/cli",
-      "kind": "project",
       "stars": 17988,
-      "description": "Official Lark CLI; mirrors the open.feishu.cn Lark skills.",
-      "leaderboardSkills": 27
+      "leaderboardSkills": 27,
+      "agentReview": {
+        "kind": "project",
+        "description": "Official Lark CLI; mirrors the open.feishu.cn Lark skills."
+      }
     },
     {
       "id": "AgriciDaniel/claude-seo",
       "url": "https://github.com/AgriciDaniel/claude-seo",
-      "kind": "skills",
       "stars": 17310,
-      "description": "SEO and GEO toolkit with 25 sub-skills and 18 sub-agents.",
-      "leaderboardSkills": 0
+      "leaderboardSkills": 0,
+      "agentReview": {
+        "kind": "skills",
+        "description": "SEO and GEO toolkit with 25 sub-skills and 18 sub-agents."
+      }
     },
     {
       "id": "vercel-labs/json-render",
       "url": "https://github.com/vercel-labs/json-render",
-      "kind": "project",
       "stars": 17303,
-      "description": "Generative UI framework with its own skills.",
-      "leaderboardSkills": 0
+      "leaderboardSkills": 0,
+      "agentReview": {
+        "kind": "project",
+        "description": "Generative UI framework with its own skills."
+      }
     },
     {
       "id": "greensock/gsap-skills",
       "url": "https://github.com/greensock/gsap-skills",
-      "kind": "skills",
       "stars": 17956,
-      "description": "Official AI skills for GSAP.",
-      "leaderboardSkills": 8
+      "leaderboardSkills": 8,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Official AI skills for GSAP."
+      }
     },
     {
       "id": "yusufkaraaslan/Skill_Seekers",
       "url": "https://github.com/yusufkaraaslan/Skill_Seekers",
-      "kind": "project",
       "stars": 15014,
-      "description": "Turns documentation sites, repos and PDFs into skills.",
-      "leaderboardSkills": 0
+      "leaderboardSkills": 0,
+      "agentReview": {
+        "kind": "project",
+        "description": "Turns documentation sites, repos and PDFs into skills."
+      }
     },
     {
       "id": "NevaMind-AI/memU",
       "url": "https://github.com/NevaMind-AI/memU",
-      "kind": "project",
       "stars": 14418,
-      "description": "Personal memory across agents.",
-      "leaderboardSkills": 0
+      "leaderboardSkills": 0,
+      "agentReview": {
+        "kind": "project",
+        "description": "Personal memory across agents."
+      }
     },
     {
       "id": "microsoft/playwright-cli",
       "url": "https://github.com/microsoft/playwright-cli",
-      "kind": "project",
       "stars": 14993,
-      "description": "CLI for common Playwright actions.",
-      "leaderboardSkills": 1
+      "leaderboardSkills": 1,
+      "agentReview": {
+        "kind": "project",
+        "description": "CLI for common Playwright actions."
+      }
     },
     {
       "id": "Orchestra-Research/AI-Research-SKILLs",
       "url": "https://github.com/Orchestra-Research/AI-Research-SKILLs",
-      "kind": "skills",
       "stars": 12888,
-      "description": "AI research and engineering skills.",
-      "leaderboardSkills": 0
+      "leaderboardSkills": 0,
+      "agentReview": {
+        "kind": "skills",
+        "description": "AI research and engineering skills."
+      }
     },
     {
       "id": "yizhiyanhua-ai/fireworks-tech-graph",
       "url": "https://github.com/yizhiyanhua-ai/fireworks-tech-graph",
-      "kind": "skills",
       "stars": 11491,
-      "description": "Technical diagrams from natural language.",
-      "leaderboardSkills": 0
+      "leaderboardSkills": 0,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Technical diagrams from natural language."
+      }
     },
     {
       "id": "google-labs-code/stitch-skills",
       "url": "https://github.com/google-labs-code/stitch-skills",
-      "kind": "skills",
       "stars": 8680,
-      "description": "A library of Agent Skills designed to work with the Stitch MCP server.",
-      "leaderboardSkills": 1
+      "leaderboardSkills": 1,
+      "agentReview": {
+        "kind": "skills",
+        "description": "A library of Agent Skills designed to work with the Stitch MCP server."
+      }
     },
     {
       "id": "trailofbits/skills",
       "url": "https://github.com/trailofbits/skills",
-      "kind": "skills",
       "stars": 7179,
-      "description": "Trail of Bits' skills for security research and audits.",
-      "leaderboardSkills": 0
+      "leaderboardSkills": 0,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Trail of Bits' skills for security research and audits."
+      }
     },
     {
       "id": "google/agents-cli",
       "url": "https://github.com/google/agents-cli",
-      "kind": "project",
       "stars": 6301,
-      "description": "The CLI and skills that turn any coding assistant into an expert at creating, evaluating, and deploying AI agents on Google Cloud.",
-      "leaderboardSkills": 7
+      "leaderboardSkills": 7,
+      "agentReview": {
+        "kind": "project",
+        "description": "The CLI and skills that turn any coding assistant into an expert at creating, evaluating, and deploying AI agents on Google Cloud."
+      }
     },
     {
       "id": "browser-act/skills",
       "url": "https://github.com/browser-act/skills",
-      "kind": "skills",
       "stars": 6325,
-      "description": "Browser automation CLI built for AI agents.",
-      "leaderboardSkills": 2
+      "leaderboardSkills": 2,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Browser automation CLI built for AI agents."
+      }
     },
     {
       "id": "antfu/skills",
       "url": "https://github.com/antfu/skills",
-      "kind": "skills",
       "stars": 5902,
-      "description": "Anthony Fu's skills, including vitest and pnpm.",
-      "leaderboardSkills": 0
+      "leaderboardSkills": 0,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Anthony Fu's skills, including vitest and pnpm."
+      }
     },
     {
       "id": "remotion-dev/skills",
       "url": "https://github.com/remotion-dev/skills",
-      "kind": "skills",
       "stars": 6431,
-      "description": "Agent Skills",
-      "leaderboardSkills": 12
+      "leaderboardSkills": 12,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Agent Skills"
+      }
     },
     {
       "id": "jakubkrehel/make-interfaces-feel-better",
       "url": "https://github.com/jakubkrehel/make-interfaces-feel-better",
-      "kind": "skills",
       "stars": 3923,
-      "description": "An agent skill that helps make your interface feel better.",
-      "leaderboardSkills": 1
+      "leaderboardSkills": 1,
+      "agentReview": {
+        "kind": "skills",
+        "description": "An agent skill that helps make your interface feel better."
+      }
     },
     {
       "id": "cloudflare/skills",
       "url": "https://github.com/cloudflare/skills",
-      "kind": "skills",
       "stars": 3286,
-      "description": "Skills for teaching agents how to build on Cloudflare.",
-      "leaderboardSkills": 13
+      "leaderboardSkills": 13,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Skills for teaching agents how to build on Cloudflare."
+      }
     },
     {
       "id": "addyosmani/web-quality-skills",
       "url": "https://github.com/addyosmani/web-quality-skills",
-      "kind": "skills",
       "stars": 3044,
-      "description": "Agent Skills for optimizing web quality based on Lighthouse and Core Web Vitals.",
-      "leaderboardSkills": 1
+      "leaderboardSkills": 1,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Agent Skills for optimizing web quality based on Lighthouse and Core Web Vitals."
+      }
     },
     {
       "id": "supabase/agent-skills",
       "url": "https://github.com/supabase/agent-skills",
-      "kind": "skills",
       "stars": 3005,
-      "description": "Agent Skills to help developers using AI agents with Supabase",
-      "leaderboardSkills": 2
+      "leaderboardSkills": 2,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Agent Skills to help developers using AI agents with Supabase"
+      }
     },
     {
       "id": "expo/skills",
       "url": "https://github.com/expo/skills",
-      "kind": "skills",
       "stars": 4054,
-      "description": "A collection of AI agent skills for working with Expo projects and Expo Application Services",
-      "leaderboardSkills": 1
+      "leaderboardSkills": 1,
+      "agentReview": {
+        "kind": "skills",
+        "description": "A collection of AI agent skills for working with Expo projects and Expo Application Services"
+      }
     },
     {
       "id": "mcollina/skills",
       "url": "https://github.com/mcollina/skills",
-      "kind": "skills",
       "stars": 1963,
-      "description": "My own collection of skills for modern Node.js development",
-      "leaderboardSkills": 1
+      "leaderboardSkills": 1,
+      "agentReview": {
+        "kind": "skills",
+        "description": "My own collection of skills for modern Node.js development"
+      }
     },
     {
       "id": "stripe/ai",
       "url": "https://github.com/stripe/ai",
-      "kind": "project",
       "stars": 2043,
-      "description": "One-stop shop for building AI-powered products and businesses with Stripe.",
-      "leaderboardSkills": 3
+      "leaderboardSkills": 3,
+      "agentReview": {
+        "kind": "project",
+        "description": "One-stop shop for building AI-powered products and businesses with Stripe."
+      }
     },
     {
       "id": "microsoft/azure-skills",
       "url": "https://github.com/microsoft/azure-skills",
-      "kind": "skills",
       "stars": 1622,
-      "description": "Official agent plugin providing skills and MCP server configurations for Azure scenarios.",
-      "leaderboardSkills": 33
+      "leaderboardSkills": 33,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Official agent plugin providing skills and MCP server configurations for Azure scenarios."
+      }
     },
     {
       "id": "typesafe-ai/skills",
       "url": "https://github.com/typesafe-ai/skills",
-      "kind": "skills",
       "stars": 2876,
-      "description": "Agent skills for building with TypeSafe's System One API",
-      "leaderboardSkills": 1
+      "leaderboardSkills": 1,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Agent skills for building with TypeSafe's System One API"
+      }
     },
     {
       "id": "higgsfield-ai/skills",
       "url": "https://github.com/higgsfield-ai/skills",
-      "kind": "skills",
       "stars": 1897,
-      "description": null,
-      "leaderboardSkills": 8
+      "leaderboardSkills": 8,
+      "agentReview": {
+        "kind": "skills",
+        "description": null
+      }
     },
     {
       "id": "nexscope-ai/ecommerce-skills",
       "url": "https://github.com/nexscope-ai/ecommerce-skills",
-      "kind": "skills",
       "stars": 1340,
-      "description": "E-commerce skills for AI agents — product research, marketing automation, supply chain optimization, and business analytics for online…",
-      "leaderboardSkills": 0
+      "leaderboardSkills": 0,
+      "agentReview": {
+        "kind": "skills",
+        "description": "E-commerce skills for AI agents — product research, marketing automation, supply chain optimization, and business analytics for online…"
+      }
     },
     {
       "id": "nexscope-ai/amazon-skills",
       "url": "https://github.com/nexscope-ai/amazon-skills",
-      "kind": "skills",
       "stars": 839,
-      "description": "Free AI agent skills for Amazon sellers— keyword research, competitor analysis, listing audit & more.",
-      "leaderboardSkills": 1
+      "leaderboardSkills": 1,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Free AI agent skills for Amazon sellers— keyword research, competitor analysis, listing audit & more."
+      }
     },
     {
       "id": "firecrawl/cli",
       "url": "https://github.com/firecrawl/cli",
-      "kind": "project",
       "stars": 678,
-      "description": "CLI and Agent Skill for Firecrawl - Add scrape, search, and browsing capabilities to your AI agents",
-      "leaderboardSkills": 8
+      "leaderboardSkills": 8,
+      "agentReview": {
+        "kind": "project",
+        "description": "CLI and Agent Skill for Firecrawl - Add scrape, search, and browsing capabilities to your AI agents"
+      }
     },
     {
       "id": "LinklyAI/best-skills",
       "url": "https://github.com/LinklyAI/best-skills",
-      "kind": "index",
       "stars": 580,
-      "description": "Daily cross-registry rankings of agent skills.",
-      "leaderboardSkills": 0
+      "leaderboardSkills": 0,
+      "agentReview": {
+        "kind": "index",
+        "description": "Daily cross-registry rankings of agent skills."
+      }
     },
     {
       "id": "solana-foundation/solana-dev-skill",
       "url": "https://github.com/solana-foundation/solana-dev-skill",
-      "kind": "skills",
       "stars": 584,
-      "description": "Skills for agentic development on Solana",
-      "leaderboardSkills": 1
+      "leaderboardSkills": 1,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Skills for agentic development on Solana"
+      }
     },
     {
       "id": "antibrow/anti-detect-browser-skills",
       "url": "https://github.com/antibrow/anti-detect-browser-skills",
-      "kind": "skills",
       "stars": 21,
-      "description": "Launch and manage anti-detect browsers with unique real-device fingerprints for multi-account operations, web scraping, ad verification,…",
-      "leaderboardSkills": 3
+      "leaderboardSkills": 3,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Launch and manage anti-detect browsers with unique real-device fingerprints for multi-account operations, web scraping, ad verification,…"
+      }
     },
     {
       "id": "lllllllama/rigorpilot-skills",
       "url": "https://github.com/lllllllama/rigorpilot-skills",
-      "kind": "skills",
       "stars": 486,
-      "description": "README-first research reproduction skills with bounded execution, auditable evidence, and byte-preserving README annotations.",
-      "leaderboardSkills": 11
+      "leaderboardSkills": 11,
+      "agentReview": {
+        "kind": "skills",
+        "description": "README-first research reproduction skills with bounded execution, auditable evidence, and byte-preserving README annotations."
+      }
     },
     {
       "id": "firebase/agent-skills",
       "url": "https://github.com/firebase/agent-skills",
-      "kind": "skills",
       "stars": 504,
-      "description": "Agent Skills for Firebase",
-      "leaderboardSkills": 11
+      "leaderboardSkills": 11,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Agent Skills for Firebase"
+      }
     },
     {
       "id": "currents-dev/playwright-best-practices-skill",
       "url": "https://github.com/currents-dev/playwright-best-practices-skill",
-      "kind": "skills",
       "stars": 419,
-      "description": "AI Skill for Playwright Best Practices—made by Currents.dev",
-      "leaderboardSkills": 1
+      "leaderboardSkills": 1,
+      "agentReview": {
+        "kind": "skills",
+        "description": "AI Skill for Playwright Best Practices—made by Currents.dev"
+      }
     },
     {
       "id": "sveltejs/ai-tools",
       "url": "https://github.com/sveltejs/ai-tools",
-      "kind": "project",
       "stars": 328,
-      "description": "Svelte's official MCP server and skills.",
-      "leaderboardSkills": 0
+      "leaderboardSkills": 0,
+      "agentReview": {
+        "kind": "project",
+        "description": "Svelte's official MCP server and skills."
+      }
     },
     {
       "id": "intellectronica/agent-skills",
       "url": "https://github.com/intellectronica/agent-skills",
-      "kind": "skills",
       "stars": 299,
-      "description": "@intellectronica's agent skills",
-      "leaderboardSkills": 1
+      "leaderboardSkills": 1,
+      "agentReview": {
+        "kind": "skills",
+        "description": "@intellectronica's agent skills"
+      }
     },
     {
       "id": "liarjsdev/liarjs-skills",
       "url": "https://github.com/liarjsdev/liarjs-skills",
-      "kind": "skills",
       "stars": 5,
-      "description": "Agent Skills for browser fingerprint testing: run liarjs from Claude Code, Codex, Cursor or Copilot to score a browser against itself -…",
-      "leaderboardSkills": 4
+      "leaderboardSkills": 4,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Agent Skills for browser fingerprint testing: run liarjs from Claude Code, Codex, Cursor or Copilot to score a browser against itself -…"
+      }
     },
     {
       "id": "arvindrk/extract-design-system",
       "url": "https://github.com/arvindrk/extract-design-system",
-      "kind": "skills",
       "stars": 270,
-      "description": "Extract design tokens (colors, typography, spacing, border radius, shadows) from any public website.",
-      "leaderboardSkills": 1
+      "leaderboardSkills": 1,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Extract design tokens (colors, typography, spacing, border radius, shadows) from any public website."
+      }
     },
     {
       "id": "msmps/opentui-skill",
       "url": "https://github.com/msmps/opentui-skill",
-      "kind": "skills",
       "stars": 228,
-      "description": "OpenTUI skill for use with OpenCode",
-      "leaderboardSkills": 1
+      "leaderboardSkills": 1,
+      "agentReview": {
+        "kind": "skills",
+        "description": "OpenTUI skill for use with OpenCode"
+      }
     },
     {
       "id": "better-auth/skills",
       "url": "https://github.com/better-auth/skills",
-      "kind": "skills",
       "stars": 229,
-      "description": null,
-      "leaderboardSkills": 1
+      "leaderboardSkills": 1,
+      "agentReview": {
+        "kind": "skills",
+        "description": null
+      }
     },
     {
       "id": "mitsuhiko/gh-issue-sync",
       "url": "https://github.com/mitsuhiko/gh-issue-sync",
-      "kind": "project",
       "stars": 169,
-      "description": "A github issue sync tool for working with issues locally",
-      "leaderboardSkills": 0
+      "leaderboardSkills": 0,
+      "agentReview": {
+        "kind": "project",
+        "description": "A github issue sync tool for working with issues locally"
+      }
     },
     {
       "id": "degausai/wonda",
       "url": "https://github.com/degausai/wonda",
-      "kind": "project",
       "stars": 160,
-      "description": "Wonda CLI — AI-powered content creation from your terminal",
-      "leaderboardSkills": 1
+      "leaderboardSkills": 1,
+      "agentReview": {
+        "kind": "project",
+        "description": "Wonda CLI — AI-powered content creation from your terminal"
+      }
     },
     {
       "id": "wind-alice/alicemarket",
       "url": "https://github.com/wind-alice/alicemarket",
-      "kind": "skills",
       "stars": 153,
-      "description": "将 Wind 丰富的金融数据、专业工具、技能Skill与专家Agent能力开放给各类 Agent 和智能应用。通过 MCP、Skill、API 等标准化方式，为不同场景下的 Agent…",
-      "leaderboardSkills": 1
+      "leaderboardSkills": 1,
+      "agentReview": {
+        "kind": "skills",
+        "description": "将 Wind 丰富的金融数据、专业工具、技能Skill与专家Agent能力开放给各类 Agent 和智能应用。通过 MCP、Skill、API 等标准化方式，为不同场景下的 Agent…"
+      }
     },
     {
       "id": "squirrelscan/skills",
       "url": "https://github.com/squirrelscan/skills",
-      "kind": "skills",
       "stars": 106,
-      "description": "Agent skills for squirrelscan website audit tool",
-      "leaderboardSkills": 1
+      "leaderboardSkills": 1,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Agent skills for squirrelscan website audit tool"
+      }
     },
     {
       "id": "scrapegraphai/just-scrape",
       "url": "https://github.com/scrapegraphai/just-scrape",
-      "kind": "project",
       "stars": 74,
-      "description": "CLI for AI-powered web scraping, structured data extraction, web search, multi-page crawling, and scheduled page-change monitoring…",
-      "leaderboardSkills": 1
+      "leaderboardSkills": 1,
+      "agentReview": {
+        "kind": "project",
+        "description": "CLI for AI-powered web scraping, structured data extraction, web search, multi-page crawling, and scheduled page-change monitoring…"
+      }
     },
     {
       "id": "prisma/skills",
       "url": "https://github.com/prisma/skills",
-      "kind": "skills",
       "stars": 80,
-      "description": null,
-      "leaderboardSkills": 10
+      "leaderboardSkills": 10,
+      "agentReview": {
+        "kind": "skills",
+        "description": null
+      }
     },
     {
       "id": "get-convex/agent-skills",
       "url": "https://github.com/get-convex/agent-skills",
-      "kind": "skills",
       "stars": 69,
-      "description": "Convex Skills for Agents",
-      "leaderboardSkills": 0
+      "leaderboardSkills": 0,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Convex Skills for Agents"
+      }
     },
     {
       "id": "autonnel/autonnel-skills",
       "url": "https://github.com/autonnel/autonnel-skills",
-      "kind": "skills",
       "stars": 8,
-      "description": null,
-      "leaderboardSkills": 6
+      "leaderboardSkills": 6,
+      "agentReview": {
+        "kind": "skills",
+        "description": null
+      }
     },
     {
       "id": "prime-skills/runcomfy-agent-skills",
       "url": "https://github.com/prime-skills/runcomfy-agent-skills",
-      "kind": "skills",
       "stars": 61,
-      "description": "Another republished copy of RunComfy's skills.",
-      "leaderboardSkills": 30
+      "leaderboardSkills": 30,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Another republished copy of RunComfy's skills."
+      }
     },
     {
       "id": "useosint/skills",
       "url": "https://github.com/useosint/skills",
-      "kind": "skills",
       "stars": 61,
-      "description": "28 OSINT Agent Skills that turn Cursor, Claude & AI coding agents into a full open-source intelligence platform — reconnaissance,…",
-      "leaderboardSkills": 0
+      "leaderboardSkills": 0,
+      "agentReview": {
+        "kind": "skills",
+        "description": "28 OSINT Agent Skills that turn Cursor, Claude & AI coding agents into a full open-source intelligence platform — reconnaissance,…"
+      }
     },
     {
       "id": "genkit-ai/skills",
       "url": "https://github.com/genkit-ai/skills",
-      "kind": "skills",
       "stars": 39,
-      "description": "Agent Skills that teach AI coding agents how to build applications with the Genkit framework (JS/TS, Go, Dart).",
-      "leaderboardSkills": 0
+      "leaderboardSkills": 0,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Agent Skills that teach AI coding agents how to build applications with the Genkit framework (JS/TS, Go, Dart)."
+      }
     },
     {
       "id": "nozomio-labs/nia-skill",
       "url": "https://github.com/nozomio-labs/nia-skill",
-      "kind": "skills",
       "stars": 26,
-      "description": "Skill for Nia AI - index and search repos, docs, papers, datasets",
-      "leaderboardSkills": 0
+      "leaderboardSkills": 0,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Skill for Nia AI - index and search repos, docs, papers, datasets"
+      }
     },
     {
       "id": "momentic-ai/skills",
       "url": "https://github.com/momentic-ai/skills",
-      "kind": "skills",
       "stars": 17,
-      "description": "Claude Agent SDK with a E2E testing tool",
-      "leaderboardSkills": 2
+      "leaderboardSkills": 2,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Claude Agent SDK with a E2E testing tool"
+      }
     },
     {
       "id": "genmedia-labs/skills",
       "url": "https://github.com/genmedia-labs/skills",
-      "kind": "skills",
       "stars": 27,
-      "description": null,
-      "leaderboardSkills": 0
+      "leaderboardSkills": 0,
+      "agentReview": {
+        "kind": "skills",
+        "description": null
+      }
     },
     {
       "id": "designed-by-ai/skills",
       "url": "https://github.com/designed-by-ai/skills",
-      "kind": "skills",
       "stars": 27,
-      "description": "Agent skills",
-      "leaderboardSkills": 1
+      "leaderboardSkills": 1,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Agent skills"
+      }
     },
     {
       "id": "flowkit-labs/skills",
       "url": "https://github.com/flowkit-labs/skills",
-      "kind": "skills",
       "stars": 31,
-      "description": null,
-      "leaderboardSkills": 1
+      "leaderboardSkills": 1,
+      "agentReview": {
+        "kind": "skills",
+        "description": null
+      }
     },
     {
       "id": "ejirocodes/agent-skills",
       "url": "https://github.com/ejirocodes/agent-skills",
-      "kind": "skills",
       "stars": 6,
-      "description": "Includes Svelte 5 best practices.",
-      "leaderboardSkills": 0
+      "leaderboardSkills": 0,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Includes Svelte 5 best practices."
+      }
     },
     {
       "id": "2dmurali/review-loop-skill",
       "url": "https://github.com/2dmurali/review-loop-skill",
-      "kind": "skills",
       "stars": 7,
-      "description": null,
-      "leaderboardSkills": 1
+      "leaderboardSkills": 1,
+      "agentReview": {
+        "kind": "skills",
+        "description": null
+      }
     },
     {
       "id": "101-skills/superpowers",
       "url": "https://github.com/101-skills/superpowers",
-      "kind": "skills",
       "stars": 19,
-      "description": "Agent superpowers",
-      "leaderboardSkills": 10
+      "leaderboardSkills": 10,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Agent superpowers"
+      }
     },
     {
       "id": "neondatabase/agent-skills",
       "url": "https://github.com/neondatabase/agent-skills",
-      "kind": "skills",
       "stars": 112,
-      "description": null,
-      "leaderboardSkills": 2
+      "leaderboardSkills": 2,
+      "agentReview": {
+        "kind": "skills",
+        "description": null
+      }
     },
     {
       "id": "agentix-cloud/skills",
       "url": "https://github.com/agentix-cloud/skills",
-      "kind": "skills",
       "stars": 1,
-      "description": "Agent skills for Agentix — AI agent collaboration platform",
-      "leaderboardSkills": 1
+      "leaderboardSkills": 1,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Agent skills for Agentix — AI agent collaboration platform"
+      }
     },
     {
       "id": "agentspace-so/runcomfy-skills",
       "url": "https://github.com/agentspace-so/runcomfy-skills",
-      "kind": "skills",
       "stars": null,
-      "description": "RunComfy's original skills.",
-      "leaderboardSkills": 0
+      "leaderboardSkills": 0,
+      "agentReview": {
+        "kind": "skills",
+        "description": "RunComfy's original skills."
+      }
     },
     {
       "id": "inference-sh/skills",
       "url": "https://github.com/inference-sh/skills",
-      "kind": "skills",
       "stars": null,
-      "description": "inference.sh's original skills.",
-      "leaderboardSkills": 0
+      "leaderboardSkills": 0,
+      "agentReview": {
+        "kind": "skills",
+        "description": "inference.sh's original skills."
+      }
     },
     {
       "id": "sleekdotdesign/agent-skills",
       "url": "https://github.com/sleekdotdesign/agent-skills",
-      "kind": "skills",
       "stars": null,
-      "description": "Sleek's original mobile-design skill.",
-      "leaderboardSkills": 0
+      "leaderboardSkills": 0,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Sleek's original mobile-design skill."
+      }
     },
     {
       "id": "doany-skills/skills",
       "url": "https://github.com/doany-skills/skills",
-      "kind": "skills",
       "stars": null,
-      "description": "Original reddit-automation skill by doany.ai.",
-      "leaderboardSkills": 0
+      "leaderboardSkills": 0,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Original reddit-automation skill by doany.ai."
+      }
     },
     {
       "id": "getsentry/cli",
       "url": "https://github.com/getsentry/cli",
-      "kind": "project",
       "stars": 124,
-      "description": "Sentry CLI; serves its skill at cli.sentry.dev.",
-      "leaderboardSkills": 0
+      "leaderboardSkills": 0,
+      "agentReview": {
+        "kind": "project",
+        "description": "Sentry CLI; serves its skill at cli.sentry.dev."
+      }
     }
   ],
   "bundles": [

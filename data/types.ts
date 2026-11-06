@@ -116,14 +116,19 @@ export interface Repo {
   id: string;
   /** Its GitHub page. */
   url: string;
-  /** `skills`: exists to ship skills. `project`: a product that also ships a skill. `index`: a curated list or catalog. */
-  kind: "skills" | "project" | "index";
   /** GitHub stars, or null when unknown. crawl.ts refreshes them for the repos of approved skills and bundles. */
   stars: number | null;
-  /** The repo in one line, such as its GitHub description, or null when it has none. */
-  description: string | null;
   /** How many of the repo's skills were in the skills.sh all-time top 600. */
   leaderboardSkills: number | null;
+  /** What an agent wrote about the repo: everything else is collected by scripts. */
+  agentReview: RepoReview;
+}
+
+export interface RepoReview {
+  /** `skills`: exists to ship skills. `project`: a product that also ships a skill. `index`: a curated list or catalog. */
+  kind: "skills" | "project" | "index";
+  /** The repo in one line, such as its GitHub description, or null when it has none. */
+  description: string | null;
   /** Something to know about the repo, such as where its star count comes from. */
   note?: string;
 }
