@@ -3,19 +3,6 @@
   "asOf": "2026-11-06",
   "qualified": [
     {
-      "name": "okx-guide",
-      "repo": "okx/onchainos-skills",
-      "official": false,
-      "stars": 346,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/okx/onchainos-skills/okx-guide",
-        "installs": 12600,
-        "weeklyInstalls": [425, 415, 268, 288, 247, 238, 271, 1794],
-        "firstSeen": "2026-07-03"
-      }
-    },
-    {
       "name": "agents",
       "repo": "elevenlabs/skills",
       "official": true,
@@ -351,32 +338,6 @@
         "installs": 11900,
         "weeklyInstalls": [634, 666, 502, 911, 477, 252, 654, 744],
         "firstSeen": "2026-02-11"
-      }
-    },
-    {
-      "name": "okx-ai",
-      "repo": "okx/onchainos-skills",
-      "official": false,
-      "stars": 346,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/okx/onchainos-skills/okx-ai",
-        "installs": 11900,
-        "weeklyInstalls": [426, 419, 269, 286, 246, 240, 269, 1792],
-        "firstSeen": "2026-07-06"
-      }
-    },
-    {
-      "name": "okx-defi",
-      "repo": "okx/onchainos-skills",
-      "official": false,
-      "stars": 346,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/okx/onchainos-skills/okx-defi",
-        "installs": 11900,
-        "weeklyInstalls": [428, 418, 270, 289, 249, 237, 271, 1792],
-        "firstSeen": "2026-07-06"
       }
     },
     {
@@ -38091,6 +38052,18 @@
     {
       "url": "https://skills.sh/wondelai/skills/ios-hig-design",
       "note": "Tool docs: an agent's manual for ios and swiftui."
+    },
+    {
+      "url": "https://skills.sh/okx/onchainos-skills/okx-guide",
+      "note": "Tool docs: an agent's manual for okx."
+    },
+    {
+      "url": "https://skills.sh/okx/onchainos-skills/okx-ai",
+      "note": "Tool docs: an agent's manual for okx."
+    },
+    {
+      "url": "https://skills.sh/okx/onchainos-skills/okx-defi",
+      "note": "Tool docs: an agent's manual for okx."
     }
   ]
 }
