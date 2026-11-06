@@ -150,7 +150,7 @@ export function approvedPages(data: Data): Set<string> {
 }
 
 /** What a skill of the top 600 needs to qualify: all-time installs, and its GitHub repo's stars. */
-export const MINIMUMS = { installs: 10000, stars: 100 };
+export const MINIMUMS = { installs: 5000, stars: 100 };
 
 /** Whether a skill of the top 600 reaches the minimums. Unknown stars don't. */
 export const passes = (c: Crawled) =>
