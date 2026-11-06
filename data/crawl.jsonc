@@ -55,19 +55,6 @@
       }
     },
     {
-      "name": "gh-cli",
-      "repo": "trailofbits/skills",
-      "official": true,
-      "stars": 8045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/trailofbits/skills/gh-cli",
-        "installs": 7000,
-        "weeklyInstalls": [135, 129, 128, 123, 148, 153, 207, 184],
-        "firstSeen": "2026-03-16"
-      }
-    },
-    {
       "name": "bmad-toolsmith",
       "repo": "bmad-code-org/bmad-method",
       "official": false,
@@ -3396,19 +3383,6 @@
       }
     },
     {
-      "name": "cargo-fuzz",
-      "repo": "trailofbits/skills",
-      "official": true,
-      "stars": 8045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/trailofbits/skills/cargo-fuzz",
-        "installs": 5700,
-        "weeklyInstalls": [120, 115, 115, 107, 130, 132, 159, 167],
-        "firstSeen": "2026-01-19"
-      }
-    },
-    {
       "name": "image-generation",
       "repo": "claude-office-skills/skills",
       "official": false,
@@ -3484,19 +3458,6 @@
         "installs": 5700,
         "weeklyInstalls": [256, 268, 273, 293, 156, 154, 139, 139],
         "firstSeen": "2026-02-20"
-      }
-    },
-    {
-      "name": "address-sanitizer",
-      "repo": "trailofbits/skills",
-      "official": true,
-      "stars": 8045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/trailofbits/skills/address-sanitizer",
-        "installs": 5700,
-        "weeklyInstalls": [117, 112, 114, 106, 118, 131, 165, 166],
-        "firstSeen": "2026-01-19"
       }
     },
     {
@@ -27220,6 +27181,18 @@
     {
       "url": "https://skills.sh/trailofbits/skills/burpsuite-project-parser",
       "note": "Tool docs: an agent's manual for burp suite's project file parser."
+    },
+    {
+      "url": "https://skills.sh/trailofbits/skills/gh-cli",
+      "note": "Tool docs: an agent's manual for the gh CLI."
+    },
+    {
+      "url": "https://skills.sh/trailofbits/skills/cargo-fuzz",
+      "note": "Tool docs: an agent's manual for cargo-fuzz."
+    },
+    {
+      "url": "https://skills.sh/trailofbits/skills/address-sanitizer",
+      "note": "Tool docs: an agent's manual for AddressSanitizer."
     }
   ]
 }
