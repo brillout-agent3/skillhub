@@ -1966,6 +1966,15 @@
         "kind": "skills",
         "description": "Skills for Design Engineers."
       }
+    },
+    {
+      "id": "rohitg00/agentmemory",
+      "stars": 30175,
+      "agentReview": {
+        "kind": "project",
+        "description": "Persistent memory for AI coding agents across sessions and tools, for Claude Code, Codex, Cursor, Gemini CLI and any MCP client.",
+        "note": "The skills call a local memory server, which npx @agentmemory/agentmemory sets up; its plugins add hooks that record your agent sessions, with secrets scrubbed."
+      }
     }
   ],
   "bundles": [
@@ -3548,6 +3557,100 @@
           {
             "label": "Pi, with the repo's ui skill",
             "command": "pi install npm:@tw93/waza"
+          }
+        ]
+      }
+    },
+    {
+      "id": "rohitg00/agentmemory@commands",
+      "skew": 0,
+      "agentReview": {
+        "name": "agentmemory",
+        "description": "Commands over agentmemory, a memory server for coding agents: save, search and delete memories, resume or recap past sessions, and trace code to the sessions behind its commits.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want your coding agent to keep decisions across sessions, pick up where you left off, or find out why code changed"
+            },
+            {
+              "label": "It does",
+              "text": "gives the agent commands over agentmemory's store: save, search and delete memories, resume, list or recap past sessions, and trace commits to sessions"
+            },
+            {
+              "label": "You get",
+              "text": "memories tagged to be found again, a catch-up on your last session, timelines of past sessions and commits traced to their sessions, all as the tools returned them"
+            },
+            {
+              "label": "Start with",
+              "text": "handoff when a session starts without context, recall to search, and remember to save"
+            },
+            {
+              "label": "Needs",
+              "text": "agentmemory's memory server, set up with npx @agentmemory/agentmemory, and its MCP tools; the session views also need its capture hooks, from a plugin or native integration"
+            },
+            {
+              "label": "Installs with",
+              "text": "lesson, for rules learned from your corrections, memory-discipline, which has the agent search before work and save decisions unprompted, and seven reference skills"
+            },
+            {
+              "label": "Unlike planning-with-files",
+              "text": "which keeps a task's memory in Markdown files, this saves to agentmemory's searchable store"
+            }
+          ],
+          "text": "agentmemory is a memory server for coding agents, and these eight skills are the commands that work on its store through its MCP tools. remember saves a fact or decision with concept tags chosen to be found again, recall searches those memories and the session activity agentmemory captured, and forget deletes chosen memories once you confirm. handoff resumes the latest session for this project, leading with any question left open; session-history lists recent sessions, and recap groups a time window's sessions by date with highlights. commit-history lists commits linked to agent sessions, and commit-context traces a line, function or file back to the commit and session behind it. The session views read what agentmemory's capture hooks recorded, which installing the skills or connecting the MCP tools alone doesn't turn on, and commits are linked to sessions only when an integration records them; agentmemory's own plugin hooks don't. Each skill works alone, and they share one rule: show only what the tools returned, so an empty result is reported plainly, with other search terms or filters to try, never filled in from guesses.",
+          "permalink": "https://github.com/rohitg00/agentmemory/tree/f0f7378ac42849b863fcc5c8e753f120d5ec6f9d"
+        },
+        "skills": [
+          {
+            "id": "rohitg00/agentmemory/plugin/skills/handoff",
+            "standalone": true
+          },
+          {
+            "id": "rohitg00/agentmemory/plugin/skills/recall",
+            "standalone": true
+          },
+          {
+            "id": "rohitg00/agentmemory/plugin/skills/remember",
+            "standalone": true
+          },
+          {
+            "id": "rohitg00/agentmemory/plugin/skills/forget",
+            "standalone": true
+          },
+          {
+            "id": "rohitg00/agentmemory/plugin/skills/session-history",
+            "standalone": true
+          },
+          {
+            "id": "rohitg00/agentmemory/plugin/skills/recap",
+            "standalone": true
+          },
+          {
+            "id": "rohitg00/agentmemory/plugin/skills/commit-history",
+            "standalone": true
+          },
+          {
+            "id": "rohitg00/agentmemory/plugin/skills/commit-context",
+            "standalone": true
+          }
+        ],
+        "install": [
+          {
+            "label": "Any agent, with the skills CLI; adds the repo's 9 other skills too, but not its MCP server or capture hooks",
+            "command": "npx skills add rohitg00/agentmemory -y"
+          },
+          {
+            "label": "Claude Code plugin; also adds capture hooks, the MCP server and the repo's 9 other skills",
+            "command": "claude plugin marketplace add rohitg00/agentmemory && claude plugin install agentmemory"
+          },
+          {
+            "label": "Codex plugin; also adds capture hooks, the MCP server and the repo's 9 other skills",
+            "command": "codex plugin marketplace add rohitg00/agentmemory && codex plugin add agentmemory@agentmemory"
+          },
+          {
+            "label": "GitHub Copilot CLI plugin; also adds capture hooks and the repo's 9 other skills; wire the MCP server with agentmemory connect copilot-cli",
+            "command": "copilot plugin install rohitg00/agentmemory:plugin"
           }
         ]
       }
@@ -24863,6 +24966,438 @@
           "needs:none",
           "by:community",
           "seo"
+        ]
+      }
+    },
+    {
+      "id": "rohitg00/agentmemory/plugin/skills/remember",
+      "name": "remember",
+      "skills.sh": {
+        "url": "https://skills.sh/rohitg00/agentmemory/remember",
+        "installs": 14600,
+        "weeklyInstalls": [383, 402, 380, 350, 324, 340, 322, 312],
+        "firstSeen": "2026-04-07"
+      },
+      "skillMd": {
+        "version": "f0f7378ac42849b863fcc5c8e753f120d5ec6f9d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Saves an insight, decision or fact to agentmemory's long-term store, tagged with specific concepts so later searches find it.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want the agent to keep a decision, fact or insight for future sessions: \"remember this\", \"don't forget\", or /remember"
+            },
+            {
+              "label": "It does",
+              "text": "saves it to agentmemory in your own wording, with 2-5 specific concept tags and the files it mentions, then echoes the tags back"
+            },
+            {
+              "label": "You get",
+              "text": "a memory that recall finds later by those tags; saving a corrected version supersedes the old one"
+            },
+            {
+              "label": "Needs",
+              "text": "agentmemory's memory server running, with its MCP tools connected to your agent"
+            },
+            {
+              "label": "Unlike lesson",
+              "text": "which records rules learned from your corrections, this stores facts"
+            }
+          ],
+          "text": "Part of agentmemory, a memory server that keeps what coding agents learn across sessions. remember is its write side. The agent pulls the core insight, decision or fact out of what you said, keeping your phrasing rather than a paraphrase, picks two to five lowercase concept phrases specific enough to retrieve it, such as jwt-refresh-rotation rather than auth, adds the file paths it refers to, and saves it. In a multi-agent setup it passes the agent's id so the memory lands in that agent's scope. It confirms with the exact concepts it tagged, so you know what to search for later. To change a fact, it saves the corrected version: the near-duplicate supersedes the old record, which drops out of recall but stays in its version history. recall reads back what it saves, and forget removes a memory saved by mistake.",
+          "permalink": "https://github.com/rohitg00/agentmemory/tree/f0f7378ac42849b863fcc5c8e753f120d5ec6f9d/plugin/skills/remember"
+        },
+        "tags": [
+          "category:agents",
+          "type:tool",
+          "effect:local",
+          "needs:mcp",
+          "by:official",
+          "stack:agentmemory",
+          "memory"
+        ]
+      }
+    },
+    {
+      "id": "rohitg00/agentmemory/plugin/skills/recall",
+      "name": "recall",
+      "skills.sh": {
+        "url": "https://skills.sh/rohitg00/agentmemory/recall",
+        "installs": 14400,
+        "weeklyInstalls": [380, 403, 378, 349, 331, 346, 319, 307],
+        "firstSeen": "2026-04-07"
+      },
+      "skillMd": {
+        "version": "f0f7378ac42849b863fcc5c8e753f120d5ec6f9d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Searches agentmemory's saved memories and captured session activity for a topic, showing only what the search returns.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you ask \"what did we do about\", \"did we ever\" or \"have we seen\" something in past sessions"
+            },
+            {
+              "label": "It does",
+              "text": "runs agentmemory's hybrid keyword, vector and graph search, then fetches the full records of the results it quotes"
+            },
+            {
+              "label": "You get",
+              "text": "matches grouped by session, highest importance first, or two or three other search terms when nothing matches"
+            },
+            {
+              "label": "Needs",
+              "text": "agentmemory's memory server running, with its MCP tools connected to your agent"
+            },
+            {
+              "label": "Never",
+              "text": "invents an observation, session id or score the search didn't return"
+            }
+          ],
+          "text": "Part of agentmemory, a memory server that keeps what coding agents learn across sessions. recall is its read side. The agent searches with your words, scoped to a project or to one agent's history when you ask, and to saved memories, captured activity, or both. Search results are compact, so before quoting a fact or saying where it came from it fetches the full records; a title alone isn't treated as the fact, and a record that can't be fetched is reported as such. Results are grouped by session with their type, title and narrative, leading with those of importance 7 or more. When a response was cut short by its token budget, it checks how many results matched or were left out before calling something absent. The rule throughout is to show only what the tool returned: an empty search gets alternative search terms, never a guess at what was discussed.",
+          "permalink": "https://github.com/rohitg00/agentmemory/tree/f0f7378ac42849b863fcc5c8e753f120d5ec6f9d/plugin/skills/recall"
+        },
+        "tags": [
+          "category:agents",
+          "type:tool",
+          "effect:none",
+          "needs:mcp",
+          "by:official",
+          "stack:agentmemory",
+          "memory"
+        ]
+      }
+    },
+    {
+      "id": "rohitg00/agentmemory/plugin/skills/session-history",
+      "name": "session-history",
+      "skills.sh": {
+        "url": "https://skills.sh/rohitg00/agentmemory/session-history",
+        "installs": 14400,
+        "weeklyInstalls": [381, 396, 374, 344, 315, 327, 318, 300],
+        "firstSeen": "2026-04-07"
+      },
+      "skillMd": {
+        "version": "f0f7378ac42849b863fcc5c8e753f120d5ec6f9d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Lists recent agent sessions on the current project as a timeline, with each session's status, observation count and highlights.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you ask \"what did we do last time\" or want an overview of past sessions on this project"
+            },
+            {
+              "label": "It does",
+              "text": "fetches the project's 20 most recent sessions from agentmemory, newest first"
+            },
+            {
+              "label": "You get",
+              "text": "a timeline of short session ids, start times, status and observation counts, with key highlights and the decisions in each summary"
+            },
+            {
+              "label": "Needs",
+              "text": "agentmemory's memory server and MCP tools, plus its capture hooks recording your sessions: connecting the tools alone records no sessions"
+            },
+            {
+              "label": "Unlike recap",
+              "text": "which takes a time window and groups sessions by date, this lists the latest sessions"
+            }
+          ],
+          "text": "Part of agentmemory, a memory server that records what coding agents do in each session as observations. session-history shows what happened in recent sessions on the current project. The agent asks the server for the project's sessions by its exact identifier, and for one agent's when you ask; when the identifier is unknown it pages through all sessions and matches their working directory to this project by whole directory, never substituting another project. It lists the most recent 20 in reverse chronological order with each one's short id, project, start time and status, the type and title of its key observations, their total, and, when a summary exists, its title and key decisions. A partial page is labelled as one. Only sessions the tool returned are shown: an empty history is reported as empty, not filled in from the conversation.",
+          "permalink": "https://github.com/rohitg00/agentmemory/tree/f0f7378ac42849b863fcc5c8e753f120d5ec6f9d/plugin/skills/session-history"
+        },
+        "tags": [
+          "category:agents",
+          "type:tool",
+          "effect:none",
+          "needs:mcp",
+          "by:official",
+          "stack:agentmemory",
+          "memory"
+        ]
+      }
+    },
+    {
+      "id": "rohitg00/agentmemory/plugin/skills/forget",
+      "name": "forget",
+      "skills.sh": {
+        "url": "https://skills.sh/rohitg00/agentmemory/forget",
+        "installs": 14400,
+        "weeklyInstalls": [379, 398, 375, 348, 320, 333, 318, 307],
+        "firstSeen": "2026-04-07"
+      },
+      "skillMd": {
+        "version": "f0f7378ac42849b863fcc5c8e753f120d5ec6f9d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Deletes chosen memories from agentmemory after showing you the matches and getting an explicit yes.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a saved memory gone: \"forget this\", one saved by mistake, or data you want scrubbed for privacy"
+            },
+            {
+              "label": "It does",
+              "text": "searches saved memories, shows the matches with secrets redacted, and deletes them by id only after an explicit yes"
+            },
+            {
+              "label": "You get",
+              "text": "the count actually deleted, with ids not found or failed listed separately"
+            },
+            {
+              "label": "Can't",
+              "text": "erase captured observations or whole sessions; a lesson is deleted with its own call"
+            },
+            {
+              "label": "Needs",
+              "text": "agentmemory's memory server running, with its MCP tools connected to your agent"
+            }
+          ],
+          "text": "Part of agentmemory, a memory server that keeps what coding agents learn across sessions. forget is the undo for remember, and deletion can't be reversed, so it confirms first. The agent searches saved memories for what you described, within the project or agent you name; the results are relevance matches, not an inventory of everything stored. It lists the matching memory ids, titles and scope with secret values redacted and asks for an explicit yes: silence or a vague \"sure, whatever\" doesn't count. Then it deletes those ids, with a reason you can give. It explains up front that this removes selected memories only, not captured observations or a whole session, and lessons are removed with a separate delete. Afterwards it reports actual deletions apart from ids not found or failed, and checks the ids again before retrying a failed request.",
+          "permalink": "https://github.com/rohitg00/agentmemory/tree/f0f7378ac42849b863fcc5c8e753f120d5ec6f9d/plugin/skills/forget"
+        },
+        "tags": [
+          "category:agents",
+          "type:tool",
+          "effect:local",
+          "needs:mcp",
+          "by:official",
+          "stack:agentmemory",
+          "memory",
+          "privacy"
+        ]
+      }
+    },
+    {
+      "id": "rohitg00/agentmemory/plugin/skills/recap",
+      "name": "recap",
+      "skills.sh": {
+        "url": "https://skills.sh/rohitg00/agentmemory/recap",
+        "installs": 14300,
+        "weeklyInstalls": [376, 396, 372, 345, 314, 330, 321, 300],
+        "firstSeen": "2026-05-18"
+      },
+      "skillMd": {
+        "version": "f0f7378ac42849b863fcc5c8e753f120d5ec6f9d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Summarizes recent agent sessions on the current project, grouped by date, for today, this week or the last N sessions.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a rollup of recent work: \"recap\", \"what have we been doing\", today or this week"
+            },
+            {
+              "label": "It does",
+              "text": "fetches the project's sessions for the window you name, the last 10 by default, and searches memory for each one's highlights"
+            },
+            {
+              "label": "You get",
+              "text": "sessions grouped by date with id, title, observation count, status and highlights, ending with a line of totals"
+            },
+            {
+              "label": "Needs",
+              "text": "agentmemory's memory server and MCP tools, plus its capture hooks recording your sessions: connecting the tools alone records no sessions"
+            },
+            {
+              "label": "Unlike session-history",
+              "text": "it takes a time window and groups the sessions by date"
+            }
+          ],
+          "text": "Part of agentmemory, a memory server that records what coding agents do in each session as observations. recap takes a window: today, this week (the last seven days), the last N sessions, or the last 10 when you give none. The agent fetches the project's sessions, paging until the window is covered, and matches them to this project by working directory when its identifier is unknown. It groups them by local date and lists each session's short id, title or first prompt, observation count and status, with highlights from a memory search, kept only when they belong to that session. It ends with a totals line: N sessions across M days, K observations. An empty window is reported as empty, not summarized from the conversation.",
+          "permalink": "https://github.com/rohitg00/agentmemory/tree/f0f7378ac42849b863fcc5c8e753f120d5ec6f9d/plugin/skills/recap"
+        },
+        "tags": [
+          "category:agents",
+          "type:tool",
+          "effect:none",
+          "needs:mcp",
+          "by:official",
+          "stack:agentmemory",
+          "memory"
+        ]
+      }
+    },
+    {
+      "id": "rohitg00/agentmemory/plugin/skills/commit-context",
+      "name": "commit-context",
+      "skills.sh": {
+        "url": "https://skills.sh/rohitg00/agentmemory/commit-context",
+        "installs": 14200,
+        "weeklyInstalls": [375, 396, 372, 342, 312, 331, 319, 294],
+        "firstSeen": "2026-05-18"
+      },
+      "skillMd": {
+        "version": "f0f7378ac42849b863fcc5c8e753f120d5ec6f9d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Traces a file, function or line to its commit and the agent session that produced it, through git and agentmemory.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you ask why some code is here, who wrote it, or what the agent was doing when it changed"
+            },
+            {
+              "label": "It does",
+              "text": "finds the commit with git blame or git log, then looks it up in agentmemory for the agent session linked to it"
+            },
+            {
+              "label": "You get",
+              "text": "the commit's sha, branch, author and message, the linked session's summary and observation count, and its important observations"
+            },
+            {
+              "label": "Needs",
+              "text": "agentmemory's memory server and MCP tools, and git"
+            },
+            {
+              "label": "Older commits",
+              "text": "made before session linking show no session, and the agent says so rather than guessing intent from the diff"
+            }
+          ],
+          "text": "Part of agentmemory, a memory server that records what coding agents do in each session as observations. commit-context works backwards from code to the session linked to its commit. For a line range the agent runs git blame, for a function git log -L, and for a bare file path the last commit that touched it. It looks the full sha up in agentmemory and presents the commit, the linked sessions with their project, start and end, observation count and summary, and the observations of importance 7 or more when memory recall is available. When the lookup finds no commit record, the commit predates session linking: the agent says so and describes only what git shows, claiming no intent beyond what the observations state. commit-history lists many linked commits at once.",
+          "permalink": "https://github.com/rohitg00/agentmemory/tree/f0f7378ac42849b863fcc5c8e753f120d5ec6f9d/plugin/skills/commit-context"
+        },
+        "tags": [
+          "category:agents",
+          "category:engineering",
+          "type:tool",
+          "effect:none",
+          "needs:mcp",
+          "by:official",
+          "stack:agentmemory",
+          "stack:git",
+          "memory",
+          "git"
+        ]
+      }
+    },
+    {
+      "id": "rohitg00/agentmemory/plugin/skills/commit-history",
+      "name": "commit-history",
+      "skills.sh": {
+        "url": "https://skills.sh/rohitg00/agentmemory/commit-history",
+        "installs": 14200,
+        "weeklyInstalls": [372, 394, 373, 341, 312, 331, 315, 295],
+        "firstSeen": "2026-05-18"
+      },
+      "skillMd": {
+        "version": "f0f7378ac42849b863fcc5c8e753f120d5ec6f9d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Lists recent git commits linked to agent sessions in agentmemory, optionally by branch or repo, with each commit's session.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to see what the agent has shipped: commits alongside the sessions that produced them"
+            },
+            {
+              "label": "It does",
+              "text": "lists the git commits linked to agent sessions in agentmemory, filtered by branch or repo if you ask, up to 100 by default and 500 at most"
+            },
+            {
+              "label": "You get",
+              "text": "newest first: short sha, branch, date, first line of the message, linked session ids with observation counts, and file counts"
+            },
+            {
+              "label": "Needs",
+              "text": "agentmemory's memory server running, with its MCP tools connected to your agent"
+            },
+            {
+              "label": "Unlike commit-context",
+              "text": "which traces one piece of code to its session, this lists many commits"
+            }
+          ],
+          "text": "Part of agentmemory, a memory server that records what coding agents do in each session as observations. commit-history lists the git commits linked to those sessions. You can filter by branch and by repository URL or a fragment of it, and set a limit; a bare number is the limit, and by default there's no filter and up to 100 commits, capped at 500. The list shows only what the tool returned, newest first, with the short sha, branch, authored time, first line of the message, the linked sessions' short ids with their observation counts, and the number of files when given. An empty result means the filter matched nothing, and the agent suggests dropping the branch or repo filter. When the MCP tools are missing and it calls agentmemory's REST API instead, it URL-encodes every filter value.",
+          "permalink": "https://github.com/rohitg00/agentmemory/tree/f0f7378ac42849b863fcc5c8e753f120d5ec6f9d/plugin/skills/commit-history"
+        },
+        "tags": [
+          "category:agents",
+          "category:engineering",
+          "type:tool",
+          "effect:none",
+          "needs:mcp",
+          "by:official",
+          "stack:agentmemory",
+          "stack:git",
+          "memory",
+          "git"
+        ]
+      }
+    },
+    {
+      "id": "rohitg00/agentmemory/plugin/skills/handoff",
+      "name": "handoff",
+      "skills.sh": {
+        "url": "https://skills.sh/rohitg00/agentmemory/handoff",
+        "installs": 13900,
+        "weeklyInstalls": [355, 375, 329, 291, 293, 304, 299, 285],
+        "firstSeen": "2026-05-18"
+      },
+      "skillMd": {
+        "version": "f0f7378ac42849b863fcc5c8e753f120d5ec6f9d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Resumes the most recent agent session for the current project from agentmemory, leading with any question left unanswered.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a session starts without fresh context and you ask \"where were we\" or want to pick up where you left off"
+            },
+            {
+              "label": "It does",
+              "text": "finds the latest session whose directory matches this project, then searches memory for its key files, decisions and errors"
+            },
+            {
+              "label": "You get",
+              "text": "a short resume: any unanswered question first, then the session's summary, key files and decisions, and one next step"
+            },
+            {
+              "label": "Needs",
+              "text": "agentmemory's memory server and MCP tools, plus its capture hooks recording your sessions: connecting the tools alone records no sessions"
+            },
+            {
+              "label": "Unlike handoff documents",
+              "text": "it writes nothing at the end of a session; it reads the sessions agentmemory recorded"
+            }
+          ],
+          "text": "Part of agentmemory, a memory server that records coding agents' sessions. handoff resumes work in the current directory, or one you name. The agent fetches the project's sessions and picks the most recent whose working directory is this one, a folder inside it or a folder containing it, so a sibling such as /repo-a-staging is never taken for /repo-a, preferring completed sessions over abandoned ones. With no match it says so and stops, rather than resuming another project's session. If the session ended on a question for you, found in its summary or in recent conversation entries ending in a question mark, that comes first. Then it summarizes the title, key files and key decisions or errors from a memory search on the session's top concepts, keeping only results from that session or project, and ends with one concrete next step.",
+          "permalink": "https://github.com/rohitg00/agentmemory/tree/f0f7378ac42849b863fcc5c8e753f120d5ec6f9d/plugin/skills/handoff"
+        },
+        "tags": [
+          "category:agents",
+          "type:tool",
+          "effect:none",
+          "needs:mcp",
+          "by:official",
+          "stack:agentmemory",
+          "memory",
+          "handoff"
         ]
       }
     }
