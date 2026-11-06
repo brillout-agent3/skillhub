@@ -159,19 +159,6 @@
       }
     },
     {
-      "name": "github-actions",
-      "repo": "callstackincubator/agent-skills",
-      "official": false,
-      "stars": 1702,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/callstackincubator/agent-skills/github-actions",
-        "installs": 11800,
-        "weeklyInstalls": [422, 473, 461, 430, 459, 461, 400, 475],
-        "firstSeen": "2026-03-05"
-      }
-    },
-    {
       "name": "devops-engineer",
       "repo": "jeffallan/claude-skills",
       "official": false,
@@ -796,19 +783,6 @@
       }
     },
     {
-      "name": "tanstack-start-best-practices",
-      "repo": "deckardger/tanstack-agent-skills",
-      "official": false,
-      "stars": 229,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/deckardger/tanstack-agent-skills/tanstack-start-best-practices",
-        "installs": 9900,
-        "weeklyInstalls": [106, 116, 107, 110, 128, 71, 118, 82],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
       "name": "seo",
       "repo": "agricidaniel/claude-seo",
       "official": false,
@@ -887,32 +861,6 @@
       }
     },
     {
-      "name": "mcp-builder",
-      "repo": "mcp-use/mcp-use",
-      "official": false,
-      "stars": 10853,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/mcp-use/mcp-use/mcp-builder",
-        "installs": 9600,
-        "weeklyInstalls": [10, 12, 17, 10, 4, 3, 7, 8],
-        "firstSeen": "2026-02-02"
-      }
-    },
-    {
-      "name": "typescript-best-practices",
-      "repo": "cursor/plugins",
-      "official": false,
-      "stars": 15576,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/cursor/plugins/typescript-best-practices",
-        "installs": 9600,
-        "weeklyInstalls": [498, 440, 436, 875, 604, 740, 1024, 1047],
-        "firstSeen": "2026-05-24"
-      }
-    },
-    {
       "name": "web-typography",
       "repo": "wondelai/skills",
       "official": false,
@@ -975,19 +923,6 @@
         "installs": 9400,
         "weeklyInstalls": [241, 304, 248, 148, 195, 296, 272, 361],
         "firstSeen": "2026-02-01"
-      }
-    },
-    {
-      "name": "chatgpt-app-builder",
-      "repo": "mcp-use/mcp-use",
-      "official": false,
-      "stars": 10853,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/mcp-use/mcp-use/chatgpt-app-builder",
-        "installs": 9400,
-        "weeklyInstalls": [10, 5, 19, 10, 3, 3, 4, 10],
-        "firstSeen": "2026-02-02"
       }
     },
     {
@@ -1238,19 +1173,6 @@
       }
     },
     {
-      "name": "mysql",
-      "repo": "planetscale/database-skills",
-      "official": true,
-      "stars": 738,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/planetscale/database-skills/mysql",
-        "installs": 8800,
-        "weeklyInstalls": [141, 162, 144, 127, 157, 154, 138, 113],
-        "firstSeen": "2026-02-18"
-      }
-    },
-    {
       "name": "excalidraw-diagram",
       "repo": "coleam00/excalidraw-diagram-skill",
       "official": false,
@@ -1368,19 +1290,6 @@
       }
     },
     {
-      "name": "postgres",
-      "repo": "planetscale/database-skills",
-      "official": true,
-      "stars": 738,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/planetscale/database-skills/postgres",
-        "installs": 8500,
-        "weeklyInstalls": [179, 158, 171, 159, 192, 107, 115, 97],
-        "firstSeen": "2026-02-18"
-      }
-    },
-    {
       "name": "effect-ts",
       "repo": "effect-ts/skills",
       "official": false,
@@ -1443,19 +1352,6 @@
         "installs": 8400,
         "weeklyInstalls": [235, 297, 240, 142, 193, 281, 258, 338],
         "firstSeen": "2026-03-27"
-      }
-    },
-    {
-      "name": "context7-cli",
-      "repo": "upstash/context7",
-      "official": false,
-      "stars": 64282,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/upstash/context7/context7-cli",
-        "installs": 8300,
-        "weeklyInstalls": [302, 224, 193, 186, 269, 283, 303, 334],
-        "firstSeen": "2026-03-11"
       }
     },
     {
@@ -2018,19 +1914,6 @@
       }
     },
     {
-      "name": "validate-skills",
-      "repo": "callstackincubator/agent-skills",
-      "official": false,
-      "stars": 1702,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/callstackincubator/agent-skills/validate-skills",
-        "installs": 7600,
-        "weeklyInstalls": [159, 194, 165, 161, 132, 145, 199, 172],
-        "firstSeen": "2026-01-29"
-      }
-    },
-    {
       "name": "seo-content-writer",
       "repo": "aaron-he-zhu/seo-geo-claude-skills",
       "official": false,
@@ -2158,19 +2041,6 @@
         "installs": 7500,
         "weeklyInstalls": [219, 189, 196, 160, 187, 320, 248, 182],
         "firstSeen": "2026-02-23"
-      }
-    },
-    {
-      "name": "nextjs-best-practices",
-      "repo": "sickn33/agentic-awesome-skills",
-      "official": false,
-      "stars": 49273,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/sickn33/agentic-awesome-skills/nextjs-best-practices",
-        "installs": 7500,
-        "weeklyInstalls": [21, 54, 102, 99, 54, 60, 49, 56],
-        "firstSeen": "2026-01-20"
       }
     },
     {
@@ -2561,19 +2431,6 @@
         "installs": 7200,
         "weeklyInstalls": [658, 771, 832, 581, 762, 716, 778, 879],
         "firstSeen": "2026-08-15"
-      }
-    },
-    {
-      "name": "tanstack-router-best-practices",
-      "repo": "deckardger/tanstack-agent-skills",
-      "official": false,
-      "stars": 229,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/deckardger/tanstack-agent-skills/tanstack-router-best-practices",
-        "installs": 7200,
-        "weeklyInstalls": [106, 134, 122, 137, 117, 81, 123, 74],
-        "firstSeen": "2026-01-20"
       }
     },
     {
@@ -34433,6 +34290,50 @@
     {
       "url": "https://skills.sh/composiohq/composio/composio",
       "note": "Tool docs: an agent's manual for composio."
+    },
+    {
+      "url": "https://skills.sh/callstackincubator/agent-skills/github-actions",
+      "note": "Tool docs: an agent's manual for github-actions and react-native."
+    },
+    {
+      "url": "https://skills.sh/callstackincubator/agent-skills/validate-skills",
+      "note": "Internal: validates callstackincubator/agent-skills' own skills, and the repo leaves it out of its published skills."
+    },
+    {
+      "url": "https://skills.sh/cursor/plugins/typescript-best-practices",
+      "note": "Tool docs: an agent's manual for typescript."
+    },
+    {
+      "url": "https://skills.sh/upstash/context7/context7-cli",
+      "note": "Tool docs: an agent's manual for the ctx7 CLI."
+    },
+    {
+      "url": "https://skills.sh/deckardger/tanstack-agent-skills/tanstack-start-best-practices",
+      "note": "Tool docs: an agent's manual for tanstack-start and react."
+    },
+    {
+      "url": "https://skills.sh/deckardger/tanstack-agent-skills/tanstack-router-best-practices",
+      "note": "Tool docs: an agent's manual for tanstack-router and react."
+    },
+    {
+      "url": "https://skills.sh/mcp-use/mcp-use/mcp-builder",
+      "note": "Tool docs: an agent's manual for mcp-use."
+    },
+    {
+      "url": "https://skills.sh/mcp-use/mcp-use/chatgpt-app-builder",
+      "note": "Tool docs: an agent's manual for mcp-use."
+    },
+    {
+      "url": "https://skills.sh/sickn33/agentic-awesome-skills/nextjs-best-practices",
+      "note": "Tool docs: an agent's manual for nextjs."
+    },
+    {
+      "url": "https://skills.sh/planetscale/database-skills/mysql",
+      "note": "Tool docs: an agent's manual for mysql."
+    },
+    {
+      "url": "https://skills.sh/planetscale/database-skills/postgres",
+      "note": "Tool docs: an agent's manual for postgres and planetscale."
     }
   ]
 }
