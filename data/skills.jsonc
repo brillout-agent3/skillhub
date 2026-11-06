@@ -2618,6 +2618,120 @@
         "kind": "skills",
         "description": "Agent skills for the fallow codebase intelligence layer for TypeScript and JavaScript."
       }
+    },
+    {
+      "id": "astro-han/karpathy-llm-wiki",
+      "stars": 2692,
+      "agentReview": {
+        "kind": "skills",
+        "description": "A reusable skill for building Karpathy-style LLM wikis with Claude Code, Cursor, Codex and other Agent Skills tools."
+      }
+    },
+    {
+      "id": "resend/email-best-practices",
+      "stars": 147,
+      "agentReview": {
+        "kind": "skills",
+        "description": "A comprehensive agent skill for building production-ready email systems, from DNS authentication to webhook processing."
+      }
+    },
+    {
+      "id": "billionsnetwork/verified-agent-identity",
+      "stars": 757,
+      "agentReview": {
+        "kind": "skills",
+        "description": "A decentralized identity management toolkit for AI agents using the iden3 protocol on Billions Network."
+      }
+    },
+    {
+      "id": "bencium/bencium-marketplace",
+      "stars": 486,
+      "agentReview": {
+        "kind": "skills",
+        "description": "A Claude Code plugin marketplace with 17 skills and tools for design, marketing, architecture and productivity by bencium.io."
+      }
+    },
+    {
+      "id": "pleaseprompto/notebooklm-skill",
+      "stars": 7784,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Lets Claude Code chat directly with NotebookLM for source-grounded answers based only on your uploaded documents.",
+        "note": "Archived in September 2026: no longer maintained."
+      }
+    },
+    {
+      "id": "kunchenguid/chrome-devtools-axi",
+      "stars": 450,
+      "agentReview": {
+        "kind": "project",
+        "description": "Agent-ergonomic browser automation: an AXI-compliant CLI wrapping chrome-devtools-mcp, with compact output and next-step hints."
+      }
+    },
+    {
+      "id": "uditakhourii/adhd",
+      "stars": 4507,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Parallel divergent ideation for coding agents: a skill, with a Node library and CLI that run the same loop."
+      }
+    },
+    {
+      "id": "sanity-io/agent-toolkit",
+      "stars": 197,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Resources to help AI agents build better with Sanity: an MCP server, agent skills and plugins for Claude Code, Cursor and Codex."
+      }
+    },
+    {
+      "id": "lackeyjb/playwright-skill",
+      "stars": 3269,
+      "agentReview": {
+        "kind": "skills",
+        "description": "General-purpose Playwright automation for coding agents, as an Agent Skill and a Claude Code plugin."
+      }
+    },
+    {
+      "id": "qingyuna/answer-me-with-html",
+      "stars": 5766,
+      "agentReview": {
+        "kind": "skills",
+        "description": "An agent skill: ask a hard question, get a page you can actually read instead of a wall of text."
+      }
+    },
+    {
+      "id": "agents365-ai/drawio-skill",
+      "stars": 10621,
+      "agentReview": {
+        "kind": "skills",
+        "description": "A skill that turns natural language and real system sources into maintainable .drawio architecture models."
+      }
+    },
+    {
+      "id": "jsmastery-pro/skills",
+      "stars": 1602,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Engineering workflow skills that take a change from a vague idea to shipped, verified, documented code, one skill per phase."
+      }
+    },
+    {
+      "id": "alibaba/open-code-review",
+      "stars": 49562,
+      "agentReview": {
+        "kind": "project",
+        "description": "OpenCodeReview: an AI code review CLI that reads Git diffs and writes line-level review comments, from Alibaba's internal reviewer."
+      }
+    },
+    {
+      "id": "composio-community/skills",
+      "stars": 185,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Distributable agent skills for Composio developers: guides for building AI agents with Composio's Tool Router and Triggers.",
+        "note": "Its README installs it as composiohq/skills; skills.sh serves that name as the same listing."
+      }
     }
   ],
   "bundles": [
@@ -51394,6 +51508,781 @@
           "code-review"
         ],
         "note": "Needs the fallow CLI. Production runtime data needs Fallow Cloud, which its README calls an optional paid product; it never turns on fallow's telemetry for you."
+      }
+    },
+    {
+      "id": "astro-han/karpathy-llm-wiki",
+      "name": "karpathy-llm-wiki",
+      "skills.sh": {
+        "url": "https://skills.sh/astro-han/karpathy-llm-wiki/karpathy-llm-wiki",
+        "installs": 8400,
+        "weeklyInstalls": [198, 206, 159, 132, 154, 157, 183, 167],
+        "firstSeen": "2026-04-05"
+      },
+      "skillMd": {
+        "version": "eafcc77001e496cc43499e4923b663aec722c813",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds and maintains a personal Markdown wiki, compiling the sources you add into cited articles and answering questions from them.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a personal knowledge base that grows as you add articles, papers or pages, and answers from what you've collected"
+            },
+            {
+              "label": "It does",
+              "text": "saves each source's original text under raw/, never edited afterwards, then writes or updates topic articles under wiki/, with an index and a log"
+            },
+            {
+              "label": "You get",
+              "text": "a folder of Markdown articles in which every number, date and quote can be found in a saved source"
+            },
+            {
+              "label": "Three jobs",
+              "text": "ingest a source, answer questions from the wiki, and lint it for broken links, contradictions and facts it can't trace"
+            },
+            {
+              "label": "Needs",
+              "text": "Python 3 for the lint step's evidence check"
+            }
+          ],
+          "text": "Based on Andrej Karpathy's idea of a wiki the LLM writes and keeps while you read it and ask questions. Ingest fetches a source into raw/<topic>/, which is never edited afterwards, then decides whether it's new, updates an article, contradicts one, or adds nothing, in which case it's kept and logged with no article. Compiling merges into an article with the same thesis or creates one, then searches the rest of the wiki for articles the source affects. Claims a newer source replaces or disputes stay, marked Outdated or Disputed, instead of being rewritten. Before writing a number, date or quote, the agent must find it in the raw file and copy it exactly; the skill calls this its grounding invariant. Query reads the index, searches the wiki and answers with links to articles, writing nothing unless you ask to archive the answer as a page. Lint fixes index entries and broken links itself, runs a bundled script that checks facts against the raw files, and only reports contradictions, orphan pages and missing cross-references. A research mode gathers several sources on a topic, deliberately including ones that argue the other side.",
+          "permalink": "https://github.com/astro-han/karpathy-llm-wiki/tree/eafcc77001e496cc43499e4923b663aec722c813"
+        },
+        "tags": [
+          "category:documents",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "notes",
+          "research"
+        ]
+      }
+    },
+    {
+      "id": "resend/email-best-practices",
+      "name": "email-best-practices",
+      "skills.sh": {
+        "url": "https://skills.sh/resend/email-best-practices/email-best-practices",
+        "installs": 8200,
+        "weeklyInstalls": [82, 77, 76, 78, 95, 86, 90, 73],
+        "firstSeen": "2026-01-23"
+      },
+      "skillMd": {
+        "version": "cf5438cf10970d715dd204de721ffc89869d8f6d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Guides building email that reaches the inbox: SPF, DKIM and DMARC, consent and compliance, retries, webhooks, bounces and accessibility.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're adding email to an app, or emails land in spam, bounce, or need to meet CAN-SPAM, GDPR or CASL"
+            },
+            {
+              "label": "It does",
+              "text": "sends the agent to the one reference that fits: deliverability, transactional or marketing email, capture, compliance, sending, webhooks, lists or accessibility"
+            },
+            {
+              "label": "Starts from",
+              "text": "a map of the path from signup form through double opt-in, suppression checks and idempotent sends to webhook events and list cleanup"
+            },
+            {
+              "label": "Suggests an order",
+              "text": "for a new app, plan which emails it needs, then set up DNS authentication before sending the first one"
+            }
+          ],
+          "text": "Guidance from Resend for email that gets delivered, stays legal and is easy to read. A quick-reference table points the agent to eleven reference files: deliverability (SPF, DKIM, DMARC and spam fixes), transactional emails such as password resets and one-time codes, a catalog of the emails an app typically needs, email capture and validation, newsletters and promotions, CAN-SPAM, GDPR and CASL compliance, telling transactional from marketing email, retries and idempotent sending, delivery webhooks, bounce and complaint handling with suppression lists, and accessibility (lang and dir, presentational tables, headings, alt text, title and contrast). It also lays out paths through them: for spam problems, check authentication first, since Gmail and Yahoo reject unauthenticated mail; for marketing email, collect consent, check the legal requirements, then send; for production sending, add retries and idempotency, then webhooks to track delivery, then bounce handling.",
+          "permalink": "https://github.com/resend/email-best-practices/tree/cf5438cf10970d715dd204de721ffc89869d8f6d"
+        },
+        "tags": [
+          "category:marketing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "flag:mirror",
+          "email",
+          "backend",
+          "accessibility",
+          "marketing"
+        ]
+      }
+    },
+    {
+      "id": "billionsnetwork/verified-agent-identity",
+      "name": "verified-agent-identity",
+      "skills.sh": {
+        "url": "https://skills.sh/billionsnetwork/verified-agent-identity/verified-agent-identity",
+        "installs": 8200,
+        "weeklyInstalls": [1, 4, 7, 0, 3, 1, 2, 3],
+        "firstSeen": "2026-03-20"
+      },
+      "skillMd": {
+        "version": "f7ba72d001c91bb6dc1356a0064281e4dab6d730",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Gives your agent a decentralized identity on Billions Network, links it to a human owner, verifies identities by challenge, and pays for resources behind HTTP 402.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want your agent to have a verifiable identity tied to you, or to pay for a resource that answers 402 Payment Required"
+            },
+            {
+              "label": "It does",
+              "text": "runs bundled Node scripts that create a DID, link it to its human owner, sign and verify challenges, and build x402 payments"
+            },
+            {
+              "label": "Pays only",
+              "text": "after showing what the resource is, each option's price in plain currency and any attestations you lack, and you pick one"
+            },
+            {
+              "label": "Needs",
+              "text": "Node.js, with npm install run once in its scripts folder"
+            },
+            {
+              "label": "Keeps",
+              "text": "keys and identity data in ~/.openclaw/billions, the private keys in plain text unless you set a master key"
+            }
+          ],
+          "text": "Billions Network's skill for \"Know Your Agent\": giving an AI agent a decentralized identifier (DID), an identity based on the iden3 protocol, that can be tied to a real person. A short router sends the agent to one of two references. Identity covers creating an Ethereum-based DID or importing a private key, listing local identities, linking the agent to its owner through the Billions ERC-8004 registry and an attestation registry that checks the person is unique, signing a challenge to prove ownership, and verifying someone else's DID by sending them a challenge and checking their signed token. x402 covers servers that answer 402 Payment Required: a first script call fetches the resource and lists payment options without signing; the agent shows what you'd pay for, the amount, asset and network, and links to any attestations you still need; only after you choose does a second call sign the payment and retry the request. Strict rules apply throughout: check that an identity exists first, stop on any script error, and never generate keys or edit the identity files by hand.",
+          "permalink": "https://github.com/billionsnetwork/verified-agent-identity/tree/f7ba72d001c91bb6dc1356a0064281e4dab6d730"
+        },
+        "tags": [
+          "category:agents",
+          "category:security",
+          "type:tool",
+          "effect:remote",
+          "needs:cli",
+          "by:official",
+          "stack:billions",
+          "auth",
+          "web3",
+          "payments"
+        ],
+        "note": "It can sign crypto payments once you pick an option, and keeps private keys in ~/.openclaw/billions, unencrypted unless BILLIONS_NETWORK_MASTER_KMS_KEY is set."
+      }
+    },
+    {
+      "id": "bencium/bencium-marketplace/bencium-innovative-ux-designer/skills/bencium-innovative-ux-designer",
+      "name": "bencium-innovative-ux-designer",
+      "skills.sh": {
+        "url": "https://skills.sh/bencium/bencium-marketplace/bencium-innovative-ux-designer",
+        "installs": 8000,
+        "weeklyInstalls": [146, 237, 223, 252, 234, 255, 272, 368],
+        "firstSeen": "2026-01-21"
+      },
+      "skillMd": {
+        "version": "5de46a39b4640fa419560cd0b67e4c4b50dac802",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Creates ten independent typography-only HTML design directions for you to judge, then builds the one you lock into real artifacts and a style guide.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a brand, campaign, publication, site or product needs its own visual language, not a generic AI or Big Tech look"
+            },
+            {
+              "label": "It does",
+              "text": "writes ten HTML pages, A to J, each made only of type, flat color and whitespace, and has you judge them before any explanation"
+            },
+            {
+              "label": "You get",
+              "text": "once you explicitly lock one, the artifacts you asked for in that language, a ROUND-2-CONTEXT.md file and an HTML style guide"
+            },
+            {
+              "label": "Skip it for",
+              "text": "routine UI fixes, small components or applying an existing design system"
+            },
+            {
+              "label": "House rules",
+              "text": "no looking at other designers' work while inventing, no SVG at any stage, and the agent never renders or judges the first ten itself"
+            }
+          ],
+          "text": "A design workflow built to escape the familiar look of AI-made design. One author works from the subject, its language, place, people and purpose, and may not look at other designers, templates, design systems or font catalogues for inspiration. From a one-line purpose statement, usually with no questions first, it writes ten independent directions as dependency-free HTML pages: only words, fonts, sizes, spacing, flat text and background colors, and whitespace, with no shapes, images, icons or effects, and across the set at least one direction each with one, two, three and four text colors. Each gets a concept capsule recording its fonts, colors and rules, shown only after your first reaction. You open the pages and react before seeing any rationale, and can reject all ten and ask for another ten as often as you like. Praise doesn't lock a direction; you have to say so. Once you do, the other nine are dropped, the capsule goes into ROUND-2-CONTEXT.md, and Round 2 builds the real pieces, such as components and screens, a campaign family or publication spreads, where shapes, imagery and motion may enter. After you approve them, it writes an HTML style guide with prompts for asking for more.",
+          "permalink": "https://github.com/bencium/bencium-marketplace/tree/5de46a39b4640fa419560cd0b67e4c4b50dac802/bencium-innovative-ux-designer/skills/bencium-innovative-ux-designer"
+        },
+        "tags": [
+          "category:design",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "design",
+          "design-system",
+          "anti-slop"
+        ]
+      }
+    },
+    {
+      "id": "pleaseprompto/notebooklm-skill",
+      "name": "notebooklm",
+      "skills.sh": {
+        "url": "https://skills.sh/pleaseprompto/notebooklm-skill/notebooklm",
+        "installs": 7800,
+        "weeklyInstalls": [42, 39, 19, 23, 38, 39, 27, 39],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "c80722d3f27d65e06b6579add201bf69b99101d0",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Asks your Google NotebookLM notebooks questions through browser automation, for answers grounded only in the documents you uploaded there.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you've uploaded documents to NotebookLM and want the agent to answer from them, or you share a NotebookLM link"
+            },
+            {
+              "label": "It does",
+              "text": "opens a browser, asks your notebook the question, and keeps asking follow-ups until the answer covers your request"
+            },
+            {
+              "label": "You get",
+              "text": "Gemini's answers drawn only from your uploaded sources, combined by the agent into one reply"
+            },
+            {
+              "label": "Needs",
+              "text": "Python and a Google account you log into once in a visible browser; free accounts allow 50 questions a day"
+            },
+            {
+              "label": "Stealth",
+              "text": "on in its sample config, it types and acts like a person; its browser library, patchright, is built to evade bot detection"
+            },
+            {
+              "label": "Keeps",
+              "text": "a library of your notebooks with descriptions and topics, plus your Google session cookies, in ~/.claude/skills/notebooklm/data/"
+            }
+          ],
+          "text": "Instead of answering from its own knowledge, the agent queries NotebookLM, Google's notebook tool that answers from documents you upload. Bundled Python scripts do the work, run through a wrapper that creates a virtual environment and installs the dependencies and a browser on first use. You log in to Google once, by hand, in a visible window, and the session is saved for later questions. The browser runs through patchright, a Playwright fork built to evade bot detection, and a stealth setting, on in the sample config, types at human speed. You keep a library of notebooks, each saved with its URL, name, description and topics; when you add one without details, the agent first asks the notebook what it covers. Each question opens a fresh browser session, gets the answer and closes, so nothing carries over and the agent puts the context into each question. Every answer ends by asking whether that's all you need, and the agent is told to compare it with your request, ask follow-ups until nothing is missing, then combine the answers. You still upload documents to NotebookLM yourself.",
+          "permalink": "https://github.com/pleaseprompto/notebooklm-skill/tree/c80722d3f27d65e06b6579add201bf69b99101d0"
+        },
+        "tags": [
+          "category:browser",
+          "category:documents",
+          "type:tool",
+          "effect:remote",
+          "needs:cli",
+          "needs:account",
+          "needs:browser",
+          "by:community",
+          "flag:dual-use",
+          "stack:notebooklm",
+          "research",
+          "browser-automation"
+        ],
+        "note": "Its repo was archived in September 2026 and is no longer maintained, so it may stop working when NotebookLM changes."
+      }
+    },
+    {
+      "id": "kunchenguid/chrome-devtools-axi/skills/chrome-devtools-axi",
+      "name": "chrome-devtools-axi",
+      "skills.sh": {
+        "url": "https://skills.sh/kunchenguid/chrome-devtools-axi/chrome-devtools-axi",
+        "installs": 7600,
+        "weeklyInstalls": [162, 178, 407, 1033, 1403, 753, 355, 452],
+        "firstSeen": "2026-06-11"
+      },
+      "skillMd": {
+        "version": "1dbdac1ca1122e1d2b76d889bbc8a2dd2eb2dcd7",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Drives a real Chrome browser through the chrome-devtools-axi CLI: navigate, click, fill forms, run JavaScript, inspect console and network, take screenshots.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a task needs a real browser: testing a page, clicking through a flow, extracting content or debugging console and network errors"
+            },
+            {
+              "label": "It does",
+              "text": "runs the chrome-devtools-axi CLI through npx and follows the next-step hints it prints after each command"
+            },
+            {
+              "label": "Stays current",
+              "text": "the skill is a short stub that sends the agent to the CLI's own help, so an installed copy can't go stale"
+            },
+            {
+              "label": "Runs",
+              "text": "only when the agent decides a task needs a browser; it isn't a command you call by name"
+            },
+            {
+              "label": "Needs",
+              "text": "Node, for npx, and Chrome; nothing is installed globally"
+            }
+          ],
+          "text": "Kun Chen's skill for browser work through his chrome-devtools-axi CLI. It holds almost no instructions of its own. It names what it's for: navigating, taking snapshots of a page, clicking, filling forms, running JavaScript, inspecting console and network, screenshots and performance audits. Then it tells the agent not to trust commands written in the skill, but to read npx -y chrome-devtools-axi --help and each command's help, and to follow the hints the CLI prints after every command, so what it does follows the CLI's current version. It tells the agent to prefer it over other browser automation tools, and to skip the browser when a plain fetch or curl is enough. Since it isn't user-invocable, there's no slash command: the agent loads it when it sees a task that needs a browser.",
+          "permalink": "https://github.com/kunchenguid/chrome-devtools-axi/tree/1dbdac1ca1122e1d2b76d889bbc8a2dd2eb2dcd7/skills/chrome-devtools-axi"
+        },
+        "tags": [
+          "category:browser",
+          "category:debugging",
+          "type:tool",
+          "effect:remote",
+          "needs:cli",
+          "needs:browser",
+          "by:official",
+          "stack:chrome-devtools-axi",
+          "browser-automation",
+          "debugging",
+          "testing"
+        ]
+      }
+    },
+    {
+      "id": "uditakhourii/adhd/skills/adhd",
+      "name": "adhd",
+      "skills.sh": {
+        "url": "https://skills.sh/uditakhourii/adhd/adhd",
+        "installs": 7600,
+        "weeklyInstalls": [295, 334, 282, 197, 271, 205, 174, 93],
+        "firstSeen": "2026-05-26"
+      },
+      "skillMd": {
+        "version": "47beee24e4842fb748bd30c55e66ae77d6bb22f9",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Brainstorms wide answers to open design questions by sending isolated subagents to think under different frames, then scores, clusters and deepens the best.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "an architecture, API, naming or fuzzy-debugging decision has several viable answers and the obvious one would be costly if wrong"
+            },
+            {
+              "label": "It does",
+              "text": "runs five parallel subagents, each listing six ideas under a frame such as regulator, biology or speedrunner, with no judging"
+            },
+            {
+              "label": "You get",
+              "text": "every idea clustered by angle with novelty, viability and fit scores, a shortlist, named traps, three worked-out picks and one provocation"
+            },
+            {
+              "label": "Costs",
+              "text": "about ten subagent calls, 5 to 10 times a single answer"
+            },
+            {
+              "label": "Runs",
+              "text": "on /adhd, or on its own after checking that the question is open, high-stakes and not phrased as \"quick\" or \"standard\""
+            }
+          ],
+          "text": "Its premise: a model's first three answers are the ones a senior engineer gives in thirty seconds, correct and forgettable. It splits the work into two phases. To diverge, it picks five of fifteen frames, such as hardware engineer, 10-year-old, attacker, ant colony or a $0, one-hour budget, and gives each to its own subagent, in parallel and with no shared context, forbidden to evaluate or give the obvious answers. To focus, the main agent scores every idea for novelty, viability and fit, flags traps such as hidden costs or premature abstraction, groups the ideas into three to six clusters by their underlying angle, and sends the top three non-traps to new subagents for a sketch, the load-bearing risk, a first step and child ideas. The reply follows a fixed order: a brief, the full set with score chips, a shortlist with the non-obvious pick starred and the traps listed, the three deepened branches, and a closing provocation. Unless you call it, it answers directly when a question has one canonical answer, low stakes, or words like \"just\" or \"textbook\".",
+          "permalink": "https://github.com/uditakhourii/adhd/tree/47beee24e4842fb748bd30c55e66ae77d6bb22f9/skills/adhd"
+        },
+        "tags": [
+          "category:planning",
+          "type:workflow",
+          "effect:none",
+          "needs:subagents",
+          "by:community",
+          "architecture",
+          "planning",
+          "multi-agent"
+        ]
+      }
+    },
+    {
+      "id": "sanity-io/agent-toolkit/skills/seo-aeo-best-practices",
+      "name": "seo-aeo-best-practices",
+      "skills.sh": {
+        "url": "https://skills.sh/sanity-io/agent-toolkit/seo-aeo-best-practices",
+        "installs": 7500,
+        "weeklyInstalls": [256, 211, 170, 166, 187, 163, 160, 153],
+        "firstSeen": "2026-01-24"
+      },
+      "skillMd": {
+        "version": "3ed3a143f8d3413faa7790ac0b2274fd3a8a6320",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Guides SEO and answer-engine optimization: metadata, sitemaps, robots.txt, hreflang, JSON-LD structured data, EEAT, and content AI assistants will quote.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're adding page metadata, sitemaps, schema markup or hreflang, or want content picked up by Google and by assistants like ChatGPT and Perplexity"
+            },
+            {
+              "label": "It does",
+              "text": "loads the one reference the task needs: technical SEO, JSON-LD structured data, EEAT, or readiness for AI answers"
+            },
+            {
+              "label": "You get",
+              "text": "checklists and code patterns, with examples written for Sanity and Next.js"
+            },
+            {
+              "label": "On AI answers",
+              "text": "lead with the answer, phrase headings as questions, use lists and FAQs, and choose which AI crawlers robots.txt lets in"
+            }
+          ],
+          "text": "Sanity's guide to optimizing for classic search engines (SEO) and for AI answer engines (AEO), which pick one source to quote rather than ranking pages. The SKILL.md defines both and EEAT, Google's framework of experience, expertise, authoritativeness and trustworthiness, then sends the agent to one of four references. Technical SEO covers titles, meta descriptions, Open Graph, sitemaps, canonical URLs, redirects, performance, robots.txt and hreflang. Structured data gives JSON-LD patterns for articles, FAQs, organizations, products and breadcrumbs, combined in one @graph, with testing tools. EEAT covers showing who wrote a page, their credentials, dates and contact details, with a Sanity author schema. The AEO reference says to answer first and explain after, use question headings, lists, tables and FAQ pairs, keep content fresh and cited, and decide deliberately whether GPTBot, ClaudeBot, PerplexityBot and Google-Extended may crawl, since blocking them keeps content out of AI training but may cost citations. Code examples use Sanity schemas, GROQ and Next.js.",
+          "permalink": "https://github.com/sanity-io/agent-toolkit/tree/3ed3a143f8d3413faa7790ac0b2274fd3a8a6320/skills/seo-aeo-best-practices"
+        },
+        "tags": [
+          "category:marketing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:official",
+          "seo",
+          "marketing"
+        ]
+      }
+    },
+    {
+      "id": "lackeyjb/playwright-skill/skills/playwright-skill",
+      "name": "playwright-skill",
+      "skills.sh": {
+        "url": "https://skills.sh/lackeyjb/playwright-skill/playwright-skill",
+        "installs": 7400,
+        "weeklyInstalls": [288, 261, 240, 235, 260, 355, 298, 321],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "dd47a6a023e249eb1b36e9e943eab89d0900865d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes and runs Playwright scripts to test websites and automate browsers: screenshots, responsive checks, login flows and link checks.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to test a site or your local app in a browser, click through a flow, or automate any page"
+            },
+            {
+              "label": "It does",
+              "text": "finds your running dev servers, writes a Playwright script to a temp folder and runs it with the skill's executor in a visible browser"
+            },
+            {
+              "label": "You get",
+              "text": "a report of what it did and what failed, with paths to screenshots, and the script itself if you ask to keep it"
+            },
+            {
+              "label": "Needs",
+              "text": "Node 20+ and npm; a one-time setup installs Playwright and Chromium"
+            },
+            {
+              "label": "Unlike",
+              "text": "browser CLIs that take one command at a time, the agent writes whole scripts, like Anthropic's webapp-testing but in JavaScript"
+            }
+          ],
+          "text": "A general-purpose Playwright skill. For localhost work it first detects running dev servers: it uses the only one, asks when there are several, or offers to start one. The agent first works out where the skill is installed, then writes a focused script with the target URL in a constant and runs it through the skill's run.js executor; short tasks can run inline. The browser is visible unless you ask for headless or there's no display. It prefers locators by role, label, visible text or test ID, relies on Playwright's auto-waiting instead of fixed sleeps, and must check the resulting page before claiming success. Examples cover responsive screenshots at desktop and mobile sizes, a login flow with test credentials you supply, and connecting to a Chrome you already have open, which reuses its cookies. Helpers detect servers, launch browsers, dismiss cookie banners and take screenshots; environment variables choose Firefox or WebKit, headless mode, extra headers, and where scripts and screenshots are saved. A separate API reference covers network mocking, saved login state, video, device emulation and CI.",
+          "permalink": "https://github.com/lackeyjb/playwright-skill/tree/dd47a6a023e249eb1b36e9e943eab89d0900865d/skills/playwright-skill"
+        },
+        "tags": [
+          "category:browser",
+          "category:debugging",
+          "type:tool",
+          "effect:remote",
+          "needs:cli",
+          "needs:browser",
+          "by:community",
+          "stack:playwright",
+          "browser-automation",
+          "testing"
+        ]
+      }
+    },
+    {
+      "id": "qingyuna/answer-me-with-html/skills/answer-me-with-html",
+      "name": "answer-me-with-html",
+      "skills.sh": {
+        "url": "https://skills.sh/qingyuna/answer-me-with-html/answer-me-with-html",
+        "installs": 7300,
+        "weeklyInstalls": [0, 0, 0, 380, 2039, 1314, 1532, 1316],
+        "firstSeen": "2026-10-03"
+      },
+      "skillMd": {
+        "version": "053619b917c6bf2e17eae5496d05eb08e10fe889",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Turns answers into one-page visual HTML explainers with diagrams, tables and charts, laid out by a bundled CLI from a short Markdown draft.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "an answer explains how parts relate, compares options, ranks findings or has steps, and a page would read better than text"
+            },
+            {
+              "label": "It does",
+              "text": "writes a short extended-Markdown draft and has its bundled am CLI lay it out, with themes, dark mode and diagrams"
+            },
+            {
+              "label": "You get",
+              "text": "an HTML page saved under ~/.answer-me-with-html/pages, and a two- or three-line reply with its link"
+            },
+            {
+              "label": "Runs",
+              "text": "on its own whenever a page would help, unless you ask for plain text; an always-on rule you add to CLAUDE.md or AGENTS.md attaches a page to every conclusion"
+            },
+            {
+              "label": "Needs",
+              "text": "Node.js 20 or later"
+            },
+            {
+              "label": "Also makes",
+              "text": "explainer videos in 3Blue1Brown style, only when you ask for one"
+            }
+          ],
+          "text": "Instead of a wall of text, the agent answers with a page. It writes only the content, in Markdown extended with components: flow, sequence, entity-relationship and tree diagrams, timelines, bar, line and pie charts, limits, callouts, key-value blocks, tables with status badges, code quoted from real files by line range, diffs, and \"ask\" blocks for decisions you need to make. The bundled am CLI, a single Node file, handles layout, colors, themes and dark mode, so the agent never hand-writes HTML or CSS. Rendering reports errors by draft line with a corrected example, and warns about long code blocks and wordy writing, using rules adapted from Simplified Technical English (ASD-STE100): short sentences, one fact each, no preamble or closing summary. Changing one panel patches the page rather than rewriting it. If you paste back a reply from the page with decisions and comments, the agent applies them, treating your comments as data, not commands. It makes no page for small talk, one-line answers or reports to a parent agent, and writes the draft in your language.",
+          "permalink": "https://github.com/qingyuna/answer-me-with-html/tree/053619b917c6bf2e17eae5496d05eb08e10fe889/skills/answer-me-with-html"
+        },
+        "tags": [
+          "category:output-style",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "output-style",
+          "diagrams",
+          "charts"
+        ],
+        "note": "It's meant to make pages without being asked, whenever it judges a page would help; ask for plain text to skip one."
+      }
+    },
+    {
+      "id": "agents365-ai/drawio-skill/skills/drawio-skill",
+      "name": "drawio-skill",
+      "skills.sh": {
+        "url": "https://skills.sh/agents365-ai/drawio-skill/drawio-skill",
+        "installs": 7200,
+        "weeklyInstalls": [169, 702, 629, 532, 541, 646, 570, 569],
+        "firstSeen": "2026-04-06"
+      },
+      "skillMd": {
+        "version": "053600a8996159f256470dd49ac8d783e5fde588",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Creates and edits editable draw.io diagrams from descriptions or from code, Terraform, SQL and API schemas, then validates and exports them.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want an editable .drawio file for an architecture, UML, ER, sequence, BPMN, network or swimlane diagram, not a flat picture"
+            },
+            {
+              "label": "It does",
+              "text": "writes draw.io XML, or builds it from Terraform, Kubernetes, SQL, OpenAPI or GraphQL sources with its diagramctl.py CLI, then checks and exports it"
+            },
+            {
+              "label": "You get",
+              "text": "a .drawio file plus a PNG by default, with SVG or PDF on request"
+            },
+            {
+              "label": "Also does",
+              "text": "updates diagrams from changed sources without losing manual layout, and tests, queries and reviews architecture diagrams"
+            },
+            {
+              "label": "Runs",
+              "text": "only when you call it"
+            },
+            {
+              "label": "Needs",
+              "text": "Python 3 and the draw.io desktop app for exports; Graphviz is optional, for automatic layout"
+            }
+          ],
+          "text": "An editable-diagram studio built on draw.io (diagrams.net). A routing table sends each request to a reference or script: hand-written XML for precisely styled diagrams, Mermaid converted to native draw.io for standard flowcharts and timelines, automatic layout past about fifteen nodes, importers for code, infrastructure as code, Docker, Kubernetes, SQL, OpenAPI, AsyncAPI, Protocol Buffers and GraphQL, and screenshots or whiteboard photos redrawn as editable diagrams. Its diagramctl.py CLI shares one model across commands: build, sync with changed sources while keeping manual layout, project executive, system, deployment, data-flow and security views, test against architecture rules, review, query paths such as internet to database, simulate a component failing, and write an HTML walkthrough. The creation loop infers the type and audience, validates and scores the file, exports a draft PNG and checks it for overlaps, clipped labels and stray edges, with at most two repair rounds, shows you the draft, then exports the final formats. It can also post before-and-after diagram images on pull requests and enforce architecture rules in CI. It suggests Mermaid or PlantUML when diagrams-as-code is enough.",
+          "permalink": "https://github.com/agents365-ai/drawio-skill/tree/053600a8996159f256470dd49ac8d783e5fde588/skills/drawio-skill"
+        },
+        "tags": [
+          "category:science",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "stack:drawio",
+          "diagrams",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "id": "jsmastery-pro/skills/skills/architect",
+      "name": "architect",
+      "skills.sh": {
+        "url": "https://skills.sh/jsmastery-pro/skills/architect",
+        "installs": 7200,
+        "weeklyInstalls": [179, 699, 519, 415, 368, 321, 228, 241],
+        "firstSeen": "2026-05-15"
+      },
+      "skillMd": {
+        "version": "43b69e44c9ca905fe3a3418ccdf4102255e20d40",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Interviews you about a load-bearing technical decision, recommends an answer for each choice, and writes it up as a build spec in docs/specs/.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a stack, data model, provider, feature or page design is still undecided, or its sibling develop skill says a decision is owed"
+            },
+            {
+              "label": "It does",
+              "text": "infers what the repo shows, asks only what you alone know, and recommends each pick with a one-line reason and a runner-up"
+            },
+            {
+              "label": "You get",
+              "text": "a numbered spec in docs/specs/ with requirements, decision, build plan and consequences, and a separate rationale file for big decisions"
+            },
+            {
+              "label": "Part of",
+              "text": "jsmastery-pro's workflow of one skill per phase; it reads the scope and AGENTS.md files the others write, when they exist"
+            },
+            {
+              "label": "Writes",
+              "text": "in plain words with no dashes or hyphens, and never writes code"
+            }
+          ],
+          "text": "The design step of a workflow with one skill per phase: scope, audit, architect, develop, check, test, document, sync and debug. It works in four modes: a new feature, a new project's stack, improving something that exists, or a standard across the whole codebase. Before asking anything it fetches from git to warn you if teammates pushed changes, reads AGENTS.md, finds the matching feature in docs/scope/, and lists earlier specs, offering to update or supersede one that overlaps. Then it runs a staged design conversation from a file it must read first, sorting each question into infer, ask or recommend, and never offers a neutral menu. Cheap subagents only read a large codebase or fetch current facts from the web; the main thread writes the spec. A simple decision gets one file; a heavy one gets a folder with index.md for the builder and rationale.md for the reasoning. It always asks whether another model should cross-check the spec for values the builder would otherwise invent. It also ratifies \"Assumed\" specs that develop records when you build before deciding.",
+          "permalink": "https://github.com/jsmastery-pro/skills/tree/43b69e44c9ca905fe3a3418ccdf4102255e20d40/skills/architect"
+        },
+        "tags": [
+          "category:planning",
+          "type:workflow",
+          "effect:local",
+          "needs:subagents",
+          "by:community",
+          "architecture",
+          "planning",
+          "requirements",
+          "interview"
+        ]
+      }
+    },
+    {
+      "id": "alibaba/open-code-review/skills/open-code-review",
+      "name": "open-code-review",
+      "skills.sh": {
+        "url": "https://skills.sh/alibaba/open-code-review/open-code-review",
+        "installs": 7200,
+        "weeklyInstalls": [234, 837, 500, 315, 308, 299, 261, 193],
+        "firstSeen": "2026-05-29"
+      },
+      "skillMd": {
+        "version": "0d403392073bcb0d3894c5364b0a85e7b6a47e0d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Reviews your Git changes, a commit or a branch with Alibaba's ocr CLI, reporting line-level issues by severity and fixing them when asked.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a review of your working copy, a pull request branch or one commit"
+            },
+            {
+              "label": "It does",
+              "text": "works out what the change is for, runs ocr review with that context, and drops low-severity comments as likely nitpicks"
+            },
+            {
+              "label": "You get",
+              "text": "findings grouped as critical, high and medium, each with file, line, category and a recommendation"
+            },
+            {
+              "label": "Fixes",
+              "text": "only when you asked for \"review and fix\"; otherwise it asks first, and checks with you before committing"
+            },
+            {
+              "label": "Needs",
+              "text": "the ocr CLI, which the agent installs globally from npm if it's missing, and an LLM provider you set up: Anthropic, OpenAI or AWS Bedrock"
+            }
+          ],
+          "text": "Alibaba's skill for its open-source code review CLI, ocr. The agent first works out the business context of the change and passes it to the review as background. By default the review covers staged, unstaged and untracked changes; it can also take one commit or the diff between two refs. The result goes to a file the agent reads whole, since piping through head or tail would drop comments. Each comment carries a path, line range, a category such as bug, security or performance, a severity and often suggested code. The agent reports critical, high and medium findings in a fixed template, locates the code itself when a comment couldn't be placed, and applies safe fixes only with your go-ahead. Project rules live in .opencodereview/rule.json in the repo or your home folder, matched by file pattern, replacing or adding to the built-in ones. Other options exclude paths, cap the token budget, switch model for one run, resume an interrupted review, or output JSON or SARIF for code-scanning tools.",
+          "permalink": "https://github.com/alibaba/open-code-review/tree/0d403392073bcb0d3894c5364b0a85e7b6a47e0d/skills/open-code-review"
+        },
+        "tags": [
+          "category:debugging",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:open-code-review",
+          "code-review",
+          "code-quality"
+        ],
+        "note": "Needs an API key for the LLM provider the ocr CLI runs reviews on."
+      }
+    },
+    {
+      "id": "composio-community/skills/skills/composio",
+      "name": "composio",
+      "skills.sh": {
+        "url": "https://skills.sh/composio-community/skills/composio",
+        "installs": 7100,
+        "weeklyInstalls": [103, 89, 69, 69, 63, 76, 62, 56],
+        "firstSeen": "2026-02-05"
+      },
+      "skillMd": {
+        "version": "c4b270016aa8c832bb6d5824175da1bb94690b89",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Acts on 1000+ apps like Gmail, Slack and GitHub through the Composio CLI, or helps build agents using them with its SDK.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want the agent to send an email, file an issue or post a message in an outside app, or you're building an agent that uses apps"
+            },
+            {
+              "label": "It does",
+              "text": "searches Composio for the right tool, links your account to the app if needed, then runs the tool with JSON input"
+            },
+            {
+              "label": "Two paths",
+              "text": "the composio CLI to act directly with no code, or the Composio SDK when you write an agent, app or backend"
+            },
+            {
+              "label": "Needs",
+              "text": "the composio CLI, installed by a script from composio.dev, and a Composio login"
+            }
+          ],
+          "text": "Composio connects agents to outside apps through ready-made tools, each named by a slug such as GMAIL_SEND_EMAIL. The skill installs the CLI if it's missing and logs in, with a two-step flow for agents that can't open a browser: it prints a login URL for you, then checks back once you've finished. To act directly, the agent searches tools by use case, links your account to an app once through OAuth or credentials, and runs the tool with its parameters; it can also listen for trigger events as they happen. To build, it runs composio init in your project to set up the API key and follows a separate guide to the SDK: sessions, authentication flows, framework integrations, triggers for event-driven agents, and per-user connections for multi-user apps.",
+          "permalink": "https://github.com/composio-community/skills/tree/c4b270016aa8c832bb6d5824175da1bb94690b89/skills/composio"
+        },
+        "tags": [
+          "category:agents",
+          "type:tool",
+          "effect:remote",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:composio",
+          "agent-development",
+          "agent-workflows"
+        ],
+        "note": "The agent acts with your connected accounts, such as sending email or creating issues in your name."
       }
     }
   ]

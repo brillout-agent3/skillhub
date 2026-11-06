@@ -185,45 +185,6 @@
       }
     },
     {
-      "name": "karpathy-llm-wiki",
-      "repo": "astro-han/karpathy-llm-wiki",
-      "official": false,
-      "stars": 2692,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/astro-han/karpathy-llm-wiki/karpathy-llm-wiki",
-        "installs": 8400,
-        "weeklyInstalls": [198, 206, 159, 132, 154, 157, 183, 167],
-        "firstSeen": "2026-04-05"
-      }
-    },
-    {
-      "name": "email-best-practices",
-      "repo": "resend/email-best-practices",
-      "official": false,
-      "stars": 147,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/resend/email-best-practices/email-best-practices",
-        "installs": 8200,
-        "weeklyInstalls": [82, 77, 76, 78, 95, 86, 90, 73],
-        "firstSeen": "2026-01-23"
-      }
-    },
-    {
-      "name": "verified-agent-identity",
-      "repo": "billionsnetwork/verified-agent-identity",
-      "official": false,
-      "stars": 757,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/billionsnetwork/verified-agent-identity/verified-agent-identity",
-        "installs": 8200,
-        "weeklyInstalls": [1, 4, 7, 0, 3, 1, 2, 3],
-        "firstSeen": "2026-03-20"
-      }
-    },
-    {
       "name": "architecture-designer",
       "repo": "jeffallan/claude-skills",
       "official": false,
@@ -276,19 +237,6 @@
       }
     },
     {
-      "name": "bencium-innovative-ux-designer",
-      "repo": "bencium/bencium-marketplace",
-      "official": false,
-      "stars": 486,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/bencium/bencium-marketplace/bencium-innovative-ux-designer",
-        "installs": 8000,
-        "weeklyInstalls": [146, 237, 223, 252, 234, 255, 272, 368],
-        "firstSeen": "2026-01-21"
-      }
-    },
-    {
       "name": "ui-skills-root",
       "repo": "ibelick/ui-skills",
       "official": false,
@@ -328,58 +276,6 @@
       }
     },
     {
-      "name": "notebooklm",
-      "repo": "pleaseprompto/notebooklm-skill",
-      "official": false,
-      "stars": 7784,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/pleaseprompto/notebooklm-skill/notebooklm",
-        "installs": 7800,
-        "weeklyInstalls": [42, 39, 19, 23, 38, 39, 27, 39],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "chrome-devtools-axi",
-      "repo": "kunchenguid/chrome-devtools-axi",
-      "official": false,
-      "stars": 450,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/kunchenguid/chrome-devtools-axi/chrome-devtools-axi",
-        "installs": 7600,
-        "weeklyInstalls": [162, 178, 407, 1033, 1403, 753, 355, 452],
-        "firstSeen": "2026-06-11"
-      }
-    },
-    {
-      "name": "adhd",
-      "repo": "uditakhourii/adhd",
-      "official": false,
-      "stars": 4507,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/uditakhourii/adhd/adhd",
-        "installs": 7600,
-        "weeklyInstalls": [295, 334, 282, 197, 271, 205, 174, 93],
-        "firstSeen": "2026-05-26"
-      }
-    },
-    {
-      "name": "seo-aeo-best-practices",
-      "repo": "sanity-io/agent-toolkit",
-      "official": true,
-      "stars": 197,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/sanity-io/agent-toolkit/seo-aeo-best-practices",
-        "installs": 7500,
-        "weeklyInstalls": [256, 211, 170, 166, 187, 163, 160, 153],
-        "firstSeen": "2026-01-24"
-      }
-    },
-    {
       "name": "search",
       "repo": "brightdata/skills",
       "official": true,
@@ -406,19 +302,6 @@
       }
     },
     {
-      "name": "playwright-skill",
-      "repo": "lackeyjb/playwright-skill",
-      "official": false,
-      "stars": 3269,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/lackeyjb/playwright-skill/playwright-skill",
-        "installs": 7400,
-        "weeklyInstalls": [288, 261, 240, 235, 260, 355, 298, 321],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
       "name": "security-review",
       "repo": "affaan-m/ecc",
       "official": false,
@@ -432,19 +315,6 @@
       }
     },
     {
-      "name": "answer-me-with-html",
-      "repo": "qingyuna/answer-me-with-html",
-      "official": false,
-      "stars": 5766,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/qingyuna/answer-me-with-html/answer-me-with-html",
-        "installs": 7300,
-        "weeklyInstalls": [0, 0, 0, 380, 2039, 1314, 1532, 1316],
-        "firstSeen": "2026-10-03"
-      }
-    },
-    {
       "name": "find-bugs",
       "repo": "getsentry/skills",
       "official": true,
@@ -455,58 +325,6 @@
         "installs": 7300,
         "weeklyInstalls": [137, 124, 334, 538, 132, 201, 156, 182],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "drawio-skill",
-      "repo": "agents365-ai/drawio-skill",
-      "official": false,
-      "stars": 10621,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/agents365-ai/drawio-skill/drawio-skill",
-        "installs": 7200,
-        "weeklyInstalls": [169, 702, 629, 532, 541, 646, 570, 569],
-        "firstSeen": "2026-04-06"
-      }
-    },
-    {
-      "name": "architect",
-      "repo": "jsmastery-pro/skills",
-      "official": false,
-      "stars": 1602,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/jsmastery-pro/skills/architect",
-        "installs": 7200,
-        "weeklyInstalls": [179, 699, 519, 415, 368, 321, 228, 241],
-        "firstSeen": "2026-05-15"
-      }
-    },
-    {
-      "name": "open-code-review",
-      "repo": "alibaba/open-code-review",
-      "official": false,
-      "stars": 49562,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/alibaba/open-code-review/open-code-review",
-        "installs": 7200,
-        "weeklyInstalls": [234, 837, 500, 315, 308, 299, 261, 193],
-        "firstSeen": "2026-05-29"
-      }
-    },
-    {
-      "name": "composio",
-      "repo": "composio-community/skills",
-      "official": false,
-      "stars": 185,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/composio-community/skills/composio",
-        "installs": 7100,
-        "weeklyInstalls": [103, 89, 69, 69, 63, 76, 62, 56],
-        "firstSeen": "2026-02-05"
       }
     },
     {
