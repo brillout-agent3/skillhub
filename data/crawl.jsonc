@@ -55,32 +55,6 @@
       }
     },
     {
-      "name": "h3-prompt-writing",
-      "repo": "minimax-ai/minimax-h3",
-      "official": false,
-      "stars": 11554,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/minimax-ai/minimax-h3/h3-prompt-writing",
-        "installs": 12400,
-        "weeklyInstalls": [826, 809, 785, 561, 557, 569, 579, 498],
-        "firstSeen": "2026-08-05"
-      }
-    },
-    {
-      "name": "vue-options-api-best-practices",
-      "repo": "vuejs-ai/skills",
-      "official": false,
-      "stars": 3264,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/vuejs-ai/skills/vue-options-api-best-practices",
-        "installs": 12300,
-        "weeklyInstalls": [153, 178, 183, 134, 136, 165, 546, 497],
-        "firstSeen": "2026-01-28"
-      }
-    },
-    {
       "name": "dogfood",
       "repo": "callstack/agent-device",
       "official": true,
@@ -250,19 +224,6 @@
       }
     },
     {
-      "name": "vue-jsx-best-practices",
-      "repo": "vuejs-ai/skills",
-      "official": false,
-      "stars": 3264,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/vuejs-ai/skills/vue-jsx-best-practices",
-        "installs": 11700,
-        "weeklyInstalls": [147, 169, 177, 131, 128, 161, 522, 477],
-        "firstSeen": "2026-01-28"
-      }
-    },
-    {
       "name": "embedding-strategies",
       "repo": "wshobson/agents",
       "official": false,
@@ -325,19 +286,6 @@
         "installs": 11600,
         "weeklyInstalls": [187, 203, 235, 295, 237, 201, 207, 203],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "angular-component",
-      "repo": "analogjs/angular-skills",
-      "official": false,
-      "stars": 587,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/analogjs/angular-skills/angular-component",
-        "installs": 11600,
-        "weeklyInstalls": [86, 135, 95, 172, 124, 100, 147, 83],
-        "firstSeen": "2026-01-24"
       }
     },
     {
@@ -809,19 +757,6 @@
       }
     },
     {
-      "name": "apify-actor-development",
-      "repo": "apify/agent-skills",
-      "official": true,
-      "stars": 2493,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/apify/agent-skills/apify-actor-development",
-        "installs": 10900,
-        "weeklyInstalls": [75, 92, 80, 59, 48, 128, 84, 67],
-        "firstSeen": "2026-01-22"
-      }
-    },
-    {
       "name": "pci-compliance",
       "repo": "wshobson/agents",
       "official": false,
@@ -1212,19 +1147,6 @@
       }
     },
     {
-      "name": "apify-actorization",
-      "repo": "apify/agent-skills",
-      "official": true,
-      "stars": 2493,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/apify/agent-skills/apify-actorization",
-        "installs": 10200,
-        "weeklyInstalls": [68, 84, 66, 51, 40, 112, 82, 65],
-        "firstSeen": "2026-01-29"
-      }
-    },
-    {
       "name": "bambu-labs",
       "repo": "earthtojake/text-to-cad",
       "official": false,
@@ -1287,19 +1209,6 @@
         "installs": 10100,
         "weeklyInstalls": [198, 200, 216, 228, 248, 279, 329, 363],
         "firstSeen": "2026-01-19"
-      }
-    },
-    {
-      "name": "dart-write-documentation",
-      "repo": "flutter/agent-plugins",
-      "official": false,
-      "stars": 3158,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/flutter/agent-plugins/dart-write-documentation",
-        "installs": 10100,
-        "weeklyInstalls": [791, 900, 1097, 965, 939, 1056, 1148, 919],
-        "firstSeen": "2026-08-24"
       }
     },
     {
@@ -2031,32 +1940,6 @@
       }
     },
     {
-      "name": "angular-signals",
-      "repo": "analogjs/angular-skills",
-      "official": false,
-      "stars": 587,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/analogjs/angular-skills/angular-signals",
-        "installs": 8900,
-        "weeklyInstalls": [78, 113, 73, 149, 110, 86, 132, 64],
-        "firstSeen": "2026-01-24"
-      }
-    },
-    {
-      "name": "code-simplifier",
-      "repo": "getsentry/skills",
-      "official": true,
-      "stars": 1129,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/getsentry/skills/code-simplifier",
-        "installs": 8900,
-        "weeklyInstalls": [97, 76, 65, 387, 98, 135, 151, 158],
-        "firstSeen": "2026-02-01"
-      }
-    },
-    {
       "name": "gh-axi",
       "repo": "kunchenguid/gh-axi",
       "official": false,
@@ -2564,19 +2447,6 @@
       }
     },
     {
-      "name": "apify-generate-output-schema",
-      "repo": "apify/agent-skills",
-      "official": true,
-      "stars": 2493,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/apify/agent-skills/apify-generate-output-schema",
-        "installs": 8000,
-        "weeklyInstalls": [72, 87, 65, 53, 39, 105, 73, 56],
-        "firstSeen": "2026-03-20"
-      }
-    },
-    {
       "name": "voice-changer",
       "repo": "elevenlabs/skills",
       "official": true,
@@ -2730,19 +2600,6 @@
         "installs": 7800,
         "weeklyInstalls": [264, 277, 263, 278, 253, 273, 278, 354],
         "firstSeen": "2026-02-10"
-      }
-    },
-    {
-      "name": "dart-use-doc-examples",
-      "repo": "flutter/agent-plugins",
-      "official": false,
-      "stars": 3158,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/flutter/agent-plugins/dart-use-doc-examples",
-        "installs": 7800,
-        "weeklyInstalls": [284, 888, 1088, 962, 932, 1052, 1142, 914],
-        "firstSeen": "2026-09-10"
       }
     },
     {
@@ -2993,19 +2850,6 @@
       }
     },
     {
-      "name": "docker-patterns",
-      "repo": "affaan-m/ecc",
-      "official": false,
-      "stars": 298421,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/affaan-m/ecc/docker-patterns",
-        "installs": 7500,
-        "weeklyInstalls": [418, 384, 312, 325, 387, 656, 637, 668],
-        "firstSeen": "2026-05-19"
-      }
-    },
-    {
       "name": "seo-aeo-best-practices",
       "repo": "sanity-io/agent-toolkit",
       "official": true,
@@ -3185,19 +3029,6 @@
         "installs": 7400,
         "weeklyInstalls": [288, 261, 240, 235, 260, 355, 298, 321],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "dart-use-path-package",
-      "repo": "flutter/agent-plugins",
-      "official": false,
-      "stars": 3158,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/flutter/agent-plugins/dart-use-path-package",
-        "installs": 7400,
-        "weeklyInstalls": [0, 758, 1094, 966, 933, 1057, 1144, 918],
-        "firstSeen": "2026-09-14"
       }
     },
     {
@@ -3396,19 +3227,6 @@
       }
     },
     {
-      "name": "rust-testing",
-      "repo": "affaan-m/ecc",
-      "official": false,
-      "stars": 298421,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/affaan-m/ecc/rust-testing",
-        "installs": 7200,
-        "weeklyInstalls": [335, 307, 208, 236, 281, 763, 517, 1266],
-        "firstSeen": "2026-05-19"
-      }
-    },
-    {
       "name": "drawio-skill",
       "repo": "agents365-ai/drawio-skill",
       "official": false,
@@ -3445,19 +3263,6 @@
         "installs": 7200,
         "weeklyInstalls": [234, 837, 500, 315, 308, 299, 261, 193],
         "firstSeen": "2026-05-29"
-      }
-    },
-    {
-      "name": "angular-forms",
-      "repo": "analogjs/angular-skills",
-      "official": false,
-      "stars": 587,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/analogjs/angular-skills/angular-forms",
-        "installs": 7200,
-        "weeklyInstalls": [35, 62, 38, 47, 62, 60, 53, 54],
-        "firstSeen": "2026-01-24"
       }
     },
     {
@@ -35306,6 +35111,66 @@
     {
       "url": "https://skills.sh/clickhouse/agent-skills/clickhouse-js-node-coding",
       "note": "Tool docs: an agent's manual for clickhouse and node."
+    },
+    {
+      "url": "https://skills.sh/affaan-m/ecc/docker-patterns",
+      "note": "Tool docs: an agent's manual for docker."
+    },
+    {
+      "url": "https://skills.sh/affaan-m/ecc/rust-testing",
+      "note": "Tool docs: an agent's manual for rust."
+    },
+    {
+      "url": "https://skills.sh/analogjs/angular-skills/angular-component",
+      "note": "Retired. Its SKILL.md now points to angular/skills."
+    },
+    {
+      "url": "https://skills.sh/analogjs/angular-skills/angular-signals",
+      "note": "Retired. Its SKILL.md now points to angular/skills."
+    },
+    {
+      "url": "https://skills.sh/analogjs/angular-skills/angular-forms",
+      "note": "Retired. Its SKILL.md now points to angular/skills."
+    },
+    {
+      "url": "https://skills.sh/apify/agent-skills/apify-actor-development",
+      "note": "Tool docs: an agent's manual for apify."
+    },
+    {
+      "url": "https://skills.sh/apify/agent-skills/apify-actorization",
+      "note": "Tool docs: an agent's manual for apify."
+    },
+    {
+      "url": "https://skills.sh/apify/agent-skills/apify-generate-output-schema",
+      "note": "Retired. Its SKILL.md now points to apify-actor-development."
+    },
+    {
+      "url": "https://skills.sh/flutter/agent-plugins/dart-write-documentation",
+      "note": "A copy of dart-lang/skills/skills/dart-write-documentation. Tool docs: an agent's manual for dart."
+    },
+    {
+      "url": "https://skills.sh/flutter/agent-plugins/dart-use-doc-examples",
+      "note": "A copy of dart-lang/skills/skills/dart-use-doc-examples. Tool docs: an agent's manual for dart."
+    },
+    {
+      "url": "https://skills.sh/flutter/agent-plugins/dart-use-path-package",
+      "note": "A copy of dart-lang/skills/skills/dart-use-path-package. Tool docs: an agent's manual for dart."
+    },
+    {
+      "url": "https://skills.sh/getsentry/skills/code-simplifier",
+      "note": "A copy of anthropics/claude-plugins-official/plugins/code-simplifier, Anthropic's code-simplifier agent."
+    },
+    {
+      "url": "https://skills.sh/vuejs-ai/skills/vue-options-api-best-practices",
+      "note": "Tool docs: an agent's manual for vue."
+    },
+    {
+      "url": "https://skills.sh/vuejs-ai/skills/vue-jsx-best-practices",
+      "note": "Tool docs: an agent's manual for vue."
+    },
+    {
+      "url": "https://skills.sh/minimax-ai/minimax-h3/h3-prompt-writing",
+      "note": "Tool docs: an agent's manual for minimax."
     }
   ]
 }
