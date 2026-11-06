@@ -6074,32 +6074,6 @@
       }
     },
     {
-      "name": "inventory-demand-planning",
-      "repo": "affaan-m/ecc",
-      "official": false,
-      "stars": 298421,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/affaan-m/ecc/inventory-demand-planning",
-        "installs": 5300,
-        "weeklyInstalls": [290, 261, 164, 152, 244, 423, 414, 483],
-        "firstSeen": "2026-05-19"
-      }
-    },
-    {
-      "name": "kotlin-ktor-patterns",
-      "repo": "affaan-m/ecc",
-      "official": false,
-      "stars": 298421,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/affaan-m/ecc/kotlin-ktor-patterns",
-        "installs": 5300,
-        "weeklyInstalls": [288, 267, 165, 144, 238, 411, 409, 477],
-        "firstSeen": "2026-05-19"
-      }
-    },
-    {
       "name": "agent-eval",
       "repo": "affaan-m/ecc",
       "official": false,
@@ -6113,19 +6087,6 @@
       }
     },
     {
-      "name": "videodb",
-      "repo": "affaan-m/ecc",
-      "official": false,
-      "stars": 298421,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/affaan-m/ecc/videodb",
-        "installs": 5300,
-        "weeklyInstalls": [289, 257, 158, 140, 226, 409, 404, 475],
-        "firstSeen": "2026-05-19"
-      }
-    },
-    {
       "name": "crosspost",
       "repo": "affaan-m/ecc",
       "official": false,
@@ -6135,19 +6096,6 @@
         "url": "https://skills.sh/affaan-m/ecc/crosspost",
         "installs": 5300,
         "weeklyInstalls": [288, 258, 163, 137, 229, 415, 404, 474],
-        "firstSeen": "2026-05-19"
-      }
-    },
-    {
-      "name": "kotlin-exposed-patterns",
-      "repo": "affaan-m/ecc",
-      "official": false,
-      "stars": 298421,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/affaan-m/ecc/kotlin-exposed-patterns",
-        "installs": 5300,
-        "weeklyInstalls": [285, 263, 161, 139, 231, 409, 402, 472],
         "firstSeen": "2026-05-19"
       }
     },
@@ -6230,19 +6178,6 @@
       }
     },
     {
-      "name": "repo-scan",
-      "repo": "affaan-m/ecc",
-      "official": false,
-      "stars": 298421,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/affaan-m/ecc/repo-scan",
-        "installs": 5300,
-        "weeklyInstalls": [288, 256, 164, 142, 231, 411, 404, 474],
-        "firstSeen": "2026-05-19"
-      }
-    },
-    {
       "name": "product-lens",
       "repo": "affaan-m/ecc",
       "official": false,
@@ -6265,19 +6200,6 @@
         "url": "https://skills.sh/affaan-m/ecc/agent-payment-x402",
         "installs": 5300,
         "weeklyInstalls": [284, 261, 158, 137, 232, 414, 406, 479],
-        "firstSeen": "2026-05-19"
-      }
-    },
-    {
-      "name": "ck",
-      "repo": "affaan-m/ecc",
-      "official": false,
-      "stars": 298421,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/affaan-m/ecc/ck",
-        "installs": 5300,
-        "weeklyInstalls": [283, 259, 158, 139, 232, 415, 402, 484],
         "firstSeen": "2026-05-19"
       }
     },
@@ -6356,32 +6278,6 @@
         "url": "https://skills.sh/affaan-m/ecc/product-capability",
         "installs": 5300,
         "weeklyInstalls": [293, 265, 162, 142, 230, 412, 403, 475],
-        "firstSeen": "2026-05-19"
-      }
-    },
-    {
-      "name": "agent-sort",
-      "repo": "affaan-m/ecc",
-      "official": false,
-      "stars": 298421,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/affaan-m/ecc/agent-sort",
-        "installs": 5300,
-        "weeklyInstalls": [288, 262, 163, 142, 239, 413, 400, 470],
-        "firstSeen": "2026-05-19"
-      }
-    },
-    {
-      "name": "csharp-testing",
-      "repo": "affaan-m/ecc",
-      "official": false,
-      "stars": 298421,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/affaan-m/ecc/csharp-testing",
-        "installs": 5300,
-        "weeklyInstalls": [284, 260, 160, 151, 235, 412, 408, 476],
         "firstSeen": "2026-05-19"
       }
     },
@@ -28174,6 +28070,38 @@
     {
       "url": "https://skills.sh/google/skills/datalineage-summary",
       "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/affaan-m/ecc/inventory-demand-planning",
+      "note": "A copy of ai-evos/agent-skills/capabilities/inventory-demand-planning."
+    },
+    {
+      "url": "https://skills.sh/affaan-m/ecc/kotlin-ktor-patterns",
+      "note": "Tool docs: an agent's manual for ktor and kotlin."
+    },
+    {
+      "url": "https://skills.sh/affaan-m/ecc/videodb",
+      "note": "A copy of video-db/skills/python, VideoDB's own videodb skill."
+    },
+    {
+      "url": "https://skills.sh/affaan-m/ecc/kotlin-exposed-patterns",
+      "note": "Tool docs: an agent's manual for exposed and kotlin."
+    },
+    {
+      "url": "https://skills.sh/affaan-m/ecc/repo-scan",
+      "note": "A pointer: it installs haibindev/repo-scan's skill and does no scan itself."
+    },
+    {
+      "url": "https://skills.sh/affaan-m/ecc/ck",
+      "note": "A copy of sreedhargs89/context-keeper."
+    },
+    {
+      "url": "https://skills.sh/affaan-m/ecc/agent-sort",
+      "note": "Tool docs: it plans which of ECC's own skills, rules and hooks to install for a repo."
+    },
+    {
+      "url": "https://skills.sh/affaan-m/ecc/csharp-testing",
+      "note": "Tool docs: an agent's manual for xunit and dotnet."
     }
   ]
 }
