@@ -42,32 +42,6 @@
       }
     },
     {
-      "name": "higgsfield-faceless-video",
-      "repo": "higgsfield-ai/skills",
-      "official": false,
-      "stars": 1902,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/higgsfield-ai/skills/higgsfield-faceless-video",
-        "installs": 12300,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 6196],
-        "firstSeen": null
-      }
-    },
-    {
-      "name": "humanizer",
-      "repo": "blader/humanizer",
-      "official": false,
-      "stars": 65574,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/blader/humanizer/humanizer",
-        "installs": 12100,
-        "weeklyInstalls": [756, 689, 582, 553, 569, 790, 837, 944],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
       "name": "devops-engineer",
       "repo": "jeffallan/claude-skills",
       "official": false,
@@ -77,32 +51,6 @@
         "url": "https://skills.sh/jeffallan/claude-skills/devops-engineer",
         "installs": 11800,
         "weeklyInstalls": [190, 190, 203, 305, 356, 441, 344, 312],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "superdesign",
-      "repo": "superdesigndev/superdesign-skill",
-      "official": false,
-      "stars": 953,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/superdesigndev/superdesign-skill/superdesign",
-        "installs": 11700,
-        "weeklyInstalls": [311, 310, 230, 260, 348, 446, 339, 333],
-        "firstSeen": "2026-01-21"
-      }
-    },
-    {
-      "name": "context7",
-      "repo": "intellectronica/agent-skills",
-      "official": false,
-      "stars": 299,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/intellectronica/agent-skills/context7",
-        "installs": 11300,
-        "weeklyInstalls": [122, 107, 74, 85, 60, 57, 47, 60],
         "firstSeen": "2026-01-20"
       }
     },
@@ -120,45 +68,6 @@
       }
     },
     {
-      "name": "text-to-lottie",
-      "repo": "diffusionstudio/lottie",
-      "official": false,
-      "stars": 5695,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/diffusionstudio/lottie/text-to-lottie",
-        "installs": 11200,
-        "weeklyInstalls": [252, 200, 170, 225, 221, 279, 280, 285],
-        "firstSeen": "2026-06-08"
-      }
-    },
-    {
-      "name": "bmad-retrospective",
-      "repo": "bmad-code-org/bmad-method",
-      "official": false,
-      "stars": 55079,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/bmad-code-org/bmad-method/bmad-retrospective",
-        "installs": 11200,
-        "weeklyInstalls": [934, 938, 1195, 2311, 2541, 1335, 12, 195],
-        "firstSeen": "2026-03-17"
-      }
-    },
-    {
-      "name": "autofix",
-      "repo": "coderabbitai/skills",
-      "official": false,
-      "stars": 210,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/coderabbitai/skills/autofix",
-        "installs": 11200,
-        "weeklyInstalls": [458, 427, 363, 479, 481, 363, 424, 466],
-        "firstSeen": "2026-03-02"
-      }
-    },
-    {
       "name": "scrape",
       "repo": "brightdata/skills",
       "official": true,
@@ -169,58 +78,6 @@
         "installs": 10900,
         "weeklyInstalls": [13, 15, 8, 31, 15, 27, 31, 32],
         "firstSeen": "2026-02-10"
-      }
-    },
-    {
-      "name": "ui-animation",
-      "repo": "mblode/agent-skills",
-      "official": false,
-      "stars": 188,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/mblode/agent-skills/ui-animation",
-        "installs": 10800,
-        "weeklyInstalls": [252, 194, 259, 187, 240, 220, 230, 201],
-        "firstSeen": "2026-01-30"
-      }
-    },
-    {
-      "name": "videoagent-video-studio",
-      "repo": "pexoai/pexo-skills",
-      "official": false,
-      "stars": 822,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/pexoai/pexo-skills/videoagent-video-studio",
-        "installs": 10500,
-        "weeklyInstalls": [15, 10, 6, 9, 8, 7, 14, 4],
-        "firstSeen": "2026-03-07"
-      }
-    },
-    {
-      "name": "deep-research",
-      "repo": "199-biotechnologies/claude-deep-research-skill",
-      "official": false,
-      "stars": 1211,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/199-biotechnologies/claude-deep-research-skill/deep-research",
-        "installs": 10300,
-        "weeklyInstalls": [110, 79, 72, 63, 77, 65, 67, 72],
-        "firstSeen": "2026-01-21"
-      }
-    },
-    {
-      "name": "unlazy",
-      "repo": "leonxlnx/unlazy",
-      "official": false,
-      "stars": 4318,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/leonxlnx/unlazy/unlazy",
-        "installs": 10100,
-        "weeklyInstalls": [683, 874, 980, 622, 375, 430, 516, 426],
-        "firstSeen": "2026-08-10"
       }
     },
     {
@@ -247,19 +104,6 @@
         "installs": 10100,
         "weeklyInstalls": [554, 629, 690, 718, 449, 522, 536, 396],
         "firstSeen": "2026-02-18"
-      }
-    },
-    {
-      "name": "fallow",
-      "repo": "fallow-rs/fallow-skills",
-      "official": false,
-      "stars": 137,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/fallow-rs/fallow-skills/fallow",
-        "installs": 10000,
-        "weeklyInstalls": [272, 259, 319, 291, 376, 298, 290, 302],
-        "firstSeen": "2026-03-25"
       }
     },
     {
@@ -403,19 +247,6 @@
         "installs": 8100,
         "weeklyInstalls": [347, 332, 299, 292, 502, 790, 810, 869],
         "firstSeen": "2026-05-19"
-      }
-    },
-    {
-      "name": "codex-delegate",
-      "repo": "amelnagdy/delegate-skills",
-      "official": false,
-      "stars": 2570,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/amelnagdy/delegate-skills/codex-delegate",
-        "installs": 8100,
-        "weeklyInstalls": [934, 552, 481, 347, 336, 438, 309, 261],
-        "firstSeen": "2026-06-14"
       }
     },
     {
@@ -728,19 +559,6 @@
         "installs": 7000,
         "weeklyInstalls": [158, 145, 96, 111, 128, 129, 152, 149],
         "firstSeen": "2026-05-07"
-      }
-    },
-    {
-      "name": "opencode-delegate",
-      "repo": "amelnagdy/delegate-skills",
-      "official": false,
-      "stars": 2570,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/amelnagdy/delegate-skills/opencode-delegate",
-        "installs": 7000,
-        "weeklyInstalls": [767, 489, 445, 316, 300, 393, 302, 228],
-        "firstSeen": "2026-07-04"
       }
     },
     {

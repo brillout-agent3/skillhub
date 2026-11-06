@@ -2553,6 +2553,71 @@
         "kind": "skills",
         "description": "An agent skill for extracting, structuring, and applying visual design identity as machine-readable \"Design DNA\" across three dimensions: design tokens, qualitative style, and visual effects."
       }
+    },
+    {
+      "id": "amelnagdy/delegate-skills",
+      "stars": 2570,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Skills that hand coding tasks to implementer CLIs such as Codex, OpenCode, Cursor or Aider, while your orchestrating agent keeps the review and the commit."
+      }
+    },
+    {
+      "id": "blader/humanizer",
+      "stars": 65574,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Humanizer: makes AI-written text sound like a person wrote it without changing what it says, built on Wikipedia's Signs of AI writing."
+      }
+    },
+    {
+      "id": "superdesigndev/superdesign-skill",
+      "stars": 953,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Superdesign: UI, presentations and graphics for coding agents, powered by superdesign.dev.",
+        "note": "Not the archived superdesigndev/superdesign VS Code extension, an older, separate project."
+      }
+    },
+    {
+      "id": "diffusionstudio/lottie",
+      "stars": 5695,
+      "agentReview": {
+        "kind": "project",
+        "description": "Text-to-lottie: an open-source framework for generating production-ready Lottie animations with coding agents."
+      }
+    },
+    {
+      "id": "mblode/agent-skills",
+      "stars": 188,
+      "agentReview": {
+        "kind": "skills",
+        "description": "On-demand skills for coding agents: UI audits, typography, docs, PR review and releases."
+      }
+    },
+    {
+      "id": "199-biotechnologies/claude-deep-research-skill",
+      "stars": 1211,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Deep Research Skill for Claude Code: citation-backed reports with source credibility scoring, multi-provider search and automated validation."
+      }
+    },
+    {
+      "id": "leonxlnx/unlazy",
+      "stars": 4318,
+      "agentReview": {
+        "kind": "skills",
+        "description": "unlazy: completion discipline for substantial AI-agent work, backed by runnable gates."
+      }
+    },
+    {
+      "id": "fallow-rs/fallow-skills",
+      "stars": 137,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Agent skills for the fallow codebase intelligence layer for TypeScript and JavaScript."
+      }
     }
   ],
   "bundles": [
@@ -4410,7 +4475,7 @@
             },
             {
               "label": "It does",
-              "text": "gives each phase its own skills and named personas: explore and research, product and UX documents, architecture, then build, review and test"
+              "text": "gives each phase its own skills and named personas: explore and research, product and UX documents, architecture, then build, review and test, ending with a retrospective per epic"
             },
             {
               "label": "Start with",
@@ -4429,7 +4494,7 @@
               "text": "the default branch is v7, a preview alpha that changes often; the stable v6.12 installs separately, with npx bmad-method install"
             }
           ],
-          "text": "BMad Method keeps every decision explicit and carries it forward as files. After installing, ask the bmad skill to run setup: it creates the _bmad/ folder whose scripts the other skills run, and later answers what to run next from the installed modules' own help. Work is grouped into initiatives, each a ticket tree: the initiative, its epics and their stories. A small change goes straight to bmad-build, which plans, implements, has a subagent review the diff and commits locally; bmad-build-auto does the same unattended. Bigger work gets planning first. bmad-brainstorming, bmad-forge-idea, bmad-deep-recon and bmad-prfaq explore and test ideas; John (bmad-agent-pm) coaches PRDs and other product documents; bmad-ux writes DESIGN.md and EXPERIENCE.md; bmad-architecture records the decisions separately built parts must share. Sofia (bmad-agent-po), who turns those documents into an initiative's requirements, epics and stories, comes with the full install but isn't listed here. Mary, Sally, Winston and Amelia are personas that stay on and run these skills from a menu. After a build, bmad-code-review, bmad-walkthrough and bmad-qa-generate-e2e-tests check the result. bmad-party-mode, bmad-advanced-elicitation and bmad-review bring other views to a draft or a change, bmad-project-context keeps AGENTS.md's agent rules verified, and bmad-customize changes a skill through override files.",
+          "text": "BMad Method keeps every decision explicit and carries it forward as files. After installing, ask the bmad skill to run setup: it creates the _bmad/ folder whose scripts the other skills run, and later answers what to run next. Work is grouped into initiatives, each a ticket tree: the initiative, its epics and their stories. A small change goes straight to bmad-build, which plans, implements, has a subagent review the diff and commits locally; bmad-build-auto does the same unattended. Bigger work gets planning first. bmad-brainstorming, bmad-forge-idea, bmad-deep-recon and bmad-prfaq explore and test ideas; John (bmad-agent-pm) coaches PRDs and other product documents; bmad-ux writes DESIGN.md and EXPERIENCE.md; bmad-architecture records the decisions separately built parts must share. Sofia (bmad-agent-po), who turns those documents into an initiative's requirements, epics and stories, comes with the full install but isn't listed here. Mary, Sally, Winston and Amelia are personas that stay on and run these skills from a menu. After a build, bmad-code-review, bmad-walkthrough and bmad-qa-generate-e2e-tests check it; bmad-retrospective then judges each finished epic by its own criteria. bmad-party-mode, bmad-advanced-elicitation and bmad-review bring other views to a draft or a change, bmad-project-context keeps AGENTS.md's agent rules verified, and bmad-customize changes a skill through override files.",
           "permalink": "https://github.com/bmad-code-org/bmad-method/tree/e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6"
         },
         "skills": [
@@ -4517,6 +4582,11 @@
             "id": "bmad-code-org/bmad-method/skills/bmad-qa-generate-e2e-tests",
             "standalone": false,
             "note": "Its workflow is printed by a script in the _bmad/ folder that the bmad skill's setup creates, so it does nothing without that setup."
+          },
+          {
+            "id": "bmad-code-org/bmad-method/skills/bmad-retrospective",
+            "standalone": false,
+            "note": "Its workflow is printed by a script in the _bmad/ folder that the bmad skill's setup creates, and it reviews an epic from BMad's ticket tree, which Sofia (bmad-agent-po, not listed here) splits into tickets and the build skills carry out, so it does nothing without both."
           },
           {
             "id": "bmad-code-org/bmad-method/skills/bmad-project-context",
@@ -50484,6 +50554,846 @@
           "marketing",
           "needs:claude-code"
         ]
+      }
+    },
+    {
+      "id": "amelnagdy/delegate-skills/skills/codex-delegate",
+      "name": "codex-delegate",
+      "skills.sh": {
+        "url": "https://skills.sh/amelnagdy/delegate-skills/codex-delegate",
+        "installs": 8100,
+        "weeklyInstalls": [934, 552, 481, 347, 336, 438, 309, 261],
+        "firstSeen": "2026-06-14"
+      },
+      "skillMd": {
+        "version": "7f8ae3435e5bc68a54efdca9f67797e905845562",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Hands a bounded coding task to the OpenAI Codex CLI, then reviews its diff, re-runs your checks and commits the work itself.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want Codex to write the code for a task, or a queue of tasks, while your main agent stays the reviewer"
+            },
+            {
+              "label": "It does",
+              "text": "writes a self-contained brief, runs Codex through a bundled relay script, then re-runs your project's tests and lint and reads the diff against the brief"
+            },
+            {
+              "label": "You get",
+              "text": "verified changes committed by your main agent, plus a result.json with Codex's report, the files it touched and the session id for follow-up fixes"
+            },
+            {
+              "label": "Unlike codex-rescue",
+              "text": "the openai-codex plugin's agent, which forwards one task and returns the output, it reviews and lands each result itself"
+            },
+            {
+              "label": "Second opinions",
+              "text": "a read-only run asks Codex to defend or concede each contested point without touching files"
+            },
+            {
+              "label": "Needs",
+              "text": "the codex CLI signed in, Node 18+ and git"
+            }
+          ],
+          "text": "Your main agent is the orchestrator and Codex is the implementer. Codex sees only the brief, so the brief carries the goal, the current state, what to change and what to leave alone, the project's real check commands taken from CLAUDE.md, AGENTS.md or the Makefile, and a report format, and it tells Codex not to commit. The bundled relay.mjs wraps codex exec in a write-capable workspace sandbox, keeps its artifacts in a temp folder and blocks until Codex finishes, so Claude Code runs it in the background. The agent then distrusts Codex's self-report: it re-runs the checks, reads the diff for scope creep or gaps, round-trips migrations and greps for dangling references after removals. Only then does it commit. Rework goes back to the same Codex session as a short delta brief. It reports Codex's design choices instead of silently keeping them, and stops to ask before going beyond the brief. Flags add a time limit, web search or network access inside the sandbox.",
+          "permalink": "https://github.com/amelnagdy/delegate-skills/tree/7f8ae3435e5bc68a54efdca9f67797e905845562/skills/codex-delegate"
+        },
+        "tags": [
+          "category:agents",
+          "category:engineering",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "needs:account",
+          "by:community",
+          "stack:codex",
+          "stack:git",
+          "multi-agent",
+          "agent-workflows",
+          "implementation",
+          "code-review"
+        ],
+        "note": "Needs the Codex CLI signed in, Node 18+ and git. Codex edits in a write-capable sandbox by default, and once you've asked it to delegate, your agent commits work that passes review."
+      }
+    },
+    {
+      "id": "amelnagdy/delegate-skills/skills/opencode-delegate",
+      "name": "opencode-delegate",
+      "skills.sh": {
+        "url": "https://skills.sh/amelnagdy/delegate-skills/opencode-delegate",
+        "installs": 7000,
+        "weeklyInstalls": [767, 489, 445, 316, 300, 393, 302, 228],
+        "firstSeen": "2026-07-04"
+      },
+      "skillMd": {
+        "version": "7f8ae3435e5bc68a54efdca9f67797e905845562",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Hands a coding task to the OpenCode CLI on a model you approve, then reviews its diff, re-runs your checks and commits it.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want OpenCode to write the code for a task, or a queue of tasks, while your main agent stays the reviewer"
+            },
+            {
+              "label": "It does",
+              "text": "writes a self-contained brief, runs OpenCode headless through a bundled relay script, then re-runs your project's checks and reads the diff against the brief"
+            },
+            {
+              "label": "Picks the model",
+              "text": "from the models you allow, ideally listed in AGENTS.md or CLAUDE.md; with no list it asks, so a per-token model can't surprise you with a bill"
+            },
+            {
+              "label": "You get",
+              "text": "verified changes committed by your main agent, plus a result.json with OpenCode's report and the files it touched"
+            },
+            {
+              "label": "Read-only runs",
+              "text": "use OpenCode's plan agent, which never gets auto-approval, for reviews and diagnosis"
+            },
+            {
+              "label": "Needs",
+              "text": "the opencode CLI with a model provider signed in, Node 18+ and git"
+            }
+          ],
+          "text": "Your main agent is the orchestrator and OpenCode is the implementer. OpenCode has no default model, so each fresh run needs one: you decide which models are allowed, and the agent picks per task, a cheap fast one for a mechanical rename or removal, a strong one for a subtle bug or a payment path. The brief carries everything OpenCode needs, since it sees no chat history: the goal, what to change and leave alone, the project's real check commands and a report format, and it says not to commit. The bundled relay.mjs wraps opencode run with the write-capable build agent, passes --auto, which approves every permission request so a headless run never stalls (--no-auto keeps OpenCode's own rules), keeps its artifacts in a temp folder and blocks until done. The agent then re-runs the checks, reads the diff for scope creep or gaps, and commits only what holds; rework resumes the last OpenCode session with a delta brief. A fleet lane from the repo's delegate-setup skill can set the model and other options.",
+          "permalink": "https://github.com/amelnagdy/delegate-skills/tree/7f8ae3435e5bc68a54efdca9f67797e905845562/skills/opencode-delegate"
+        },
+        "tags": [
+          "category:agents",
+          "category:engineering",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "needs:account",
+          "by:community",
+          "stack:opencode",
+          "stack:git",
+          "multi-agent",
+          "agent-workflows",
+          "implementation",
+          "code-review"
+        ],
+        "note": "Needs the OpenCode CLI with a signed-in model provider, Node 18+ and git. Write runs auto-approve every OpenCode permission by default; pass --no-auto to keep its own rules."
+      }
+    },
+    {
+      "id": "higgsfield-ai/skills/higgsfield-faceless-video",
+      "name": "higgsfield-faceless-video",
+      "skills.sh": {
+        "url": "https://skills.sh/higgsfield-ai/skills/higgsfield-faceless-video",
+        "installs": 12300,
+        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 6196],
+        "firstSeen": null
+      },
+      "skillMd": {
+        "version": "27000402070db19d958789d05b3b52b6f4718d7c",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Makes a finished narrated faceless video through Higgsfield, such as an explainer, documentary, picture story or children's song, or edits one it made.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a narrated video with no on-screen presenter: an illustrated explainer, a documentary, a picture story or a sung children's video"
+            },
+            {
+              "label": "It does",
+              "text": "settles topic, length, aspect ratio, language, style, voice, music and subtitles, then generates scenes and narration and assembles them in order"
+            },
+            {
+              "label": "You get",
+              "text": "one finished video file, captioned if you asked, or a hosted Higgsfield link on request, with its actual duration, language and sources reported"
+            },
+            {
+              "label": "Checks",
+              "text": "each voice take's timing before making video, and rewrites a line that misses its time window rather than changing the audio's speed"
+            },
+            {
+              "label": "Before spending",
+              "text": "checks your account and tools, estimates costs, and stops before paid work if a model, tool or feature is missing"
+            },
+            {
+              "label": "Needs",
+              "text": "the higgsfield CLI and account, ffmpeg, ffprobe, Python, curl and awk; subtitles also need faster-whisper and a local transcription model"
+            }
+          ],
+          "text": "Higgsfield hosts many AI image, video and audio models; this skill chains them into one finished video. It picks a mode from the request: deliberate, diagram-led scenes for an explainer, fast-cut channel motion, stills for a picture story, a sung children's music video, talking characters or a presenter overlay only when asked, or edits to a video it made earlier. For an explainer it researches factual topics and keeps a source list, plans one scene and one narration line per 10-second block, creates a style image and reuses it, and checks the first clip before generating the rest. Each line is voiced with one chosen voice and timed by a bundled script; a line that misses its window is rewritten and regenerated, at most three times. Backgrounds come from a video model, with spoken words kept out of their prompts. A bundled script assembles clips and voices in order, adds an optional music bed and refuses to pass a failed timing or decoding check. It resumes from saved outputs instead of resubmitting jobs.",
+          "permalink": "https://github.com/higgsfield-ai/skills/tree/27000402070db19d958789d05b3b52b6f4718d7c/higgsfield-faceless-video"
+        },
+        "tags": [
+          "category:media",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:higgsfield",
+          "stack:ffmpeg",
+          "video",
+          "audio",
+          "ai-generation"
+        ],
+        "note": "Needs a Higgsfield account and its CLI, plus ffmpeg, ffprobe and Python; every generation spends Higgsfield credits, which it estimates before paid work where the CLI can."
+      }
+    },
+    {
+      "id": "blader/humanizer",
+      "name": "humanizer",
+      "skills.sh": {
+        "url": "https://skills.sh/blader/humanizer/humanizer",
+        "installs": 12100,
+        "weeklyInstalls": [756, 689, 582, 553, 569, 790, 837, 944],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "0ef9fe5bc3572734fd3ae6c448fe00a30cd5dcf0",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Rewrites AI-sounding text so it reads like a person wrote it, keeping every claim and adding no facts, from Wikipedia's Signs of AI writing.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a draft, post, PR description or doc reads as if a chatbot wrote it"
+            },
+            {
+              "label": "It does",
+              "text": "checks the text against 26 AI-writing patterns, strongest first, such as not-X-but-Y contrasts, one-line closers, forced triads, dashes and stock AI words, then restates each point plainly"
+            },
+            {
+              "label": "You get",
+              "text": "a draft, a short list of the tells that remain, and the final rewrite; given a file, only the final text, written to that file"
+            },
+            {
+              "label": "Keeps",
+              "text": "every supported claim, your voice from a sample you give, and code, commands, paths, metadata and link targets unchanged"
+            },
+            {
+              "label": "Won't",
+              "text": "add a fact, name, number, date, quote or citation that isn't in your text or from you, except in fiction"
+            }
+          ],
+          "text": "Built on Wikipedia's Signs of AI writing guide. It explains each tell as a model's default choice, made to suit the widest range of readers: staging a point instead of stating it, rhythm by rule, inflated significance, decoration on every item, chatbot leftovers, and replies that re-explain what the reader already knows. Patterns one to five justify an edit on one sighting; those marked weak alone need company. The agent reads the whole text, marks the tells, drafts a rewrite that keeps the information, then checks it: reads it aloud, looks for added or dropped facts, and searches again for the tells that most often survive, such as contrasts, closers, triads, dashes and bold labels. The final version has no em or en dashes unless your sample uses them. With a writing sample it matches your sentence length, words and punctuation; without one it takes the voice from the kind of text. It leaves watched phrases alone inside quotations, titles and names. Another skill can call it for a PR, commit message or document and get back only the final text.",
+          "permalink": "https://github.com/blader/humanizer/tree/0ef9fe5bc3572734fd3ae6c448fe00a30cd5dcf0"
+        },
+        "tags": [
+          "category:writing",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "anti-slop",
+          "writing"
+        ]
+      }
+    },
+    {
+      "id": "superdesigndev/superdesign-skill/skills/superdesign",
+      "name": "superdesign",
+      "skills.sh": {
+        "url": "https://skills.sh/superdesigndev/superdesign-skill/superdesign",
+        "installs": 11700,
+        "weeklyInstalls": [311, 310, 230, 260, 348, 446, 339, 333],
+        "firstSeen": "2026-01-21"
+      },
+      "skillMd": {
+        "version": "f9f05cd988c247dce6c072eaf9ac6b162f2ffc4b",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Designs or redesigns UI, slide decks and marketing graphics on Superdesign's canvas through its CLI, comparing AI models and reusing your codebase's design system.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a page, flow or new product designed, existing UI reproduced or improved, a slide deck, or a poster, cover or social graphic"
+            },
+            {
+              "label": "It does",
+              "text": "analyzes your frontend code once into context files, then generates and iterates design drafts on Superdesign's canvas, with a choice of design models"
+            },
+            {
+              "label": "You get",
+              "text": "drafts on a web canvas with preview links, opened in your browser; decks can come back as editable PPTX where supported"
+            },
+            {
+              "label": "Also",
+              "text": "extracts a live website's design language into design-system.md, and generates supporting images or video"
+            },
+            {
+              "label": "Remembers",
+              "text": "the project, draft and source files used for each target, so later edits resume without re-analyzing the codebase"
+            },
+            {
+              "label": "Needs",
+              "text": "a Superdesign account (it runs the login), Node.js for npx, and an agent that can run shell commands"
+            }
+          ],
+          "text": "Superdesign is a hosted AI product design tool; this skill drives it through npx @superdesign/cli. It first checks the workspace. With no frontend code it asks what you're building, for whom and in what style. With a real codebase it runs an init that writes six files to .superdesign/init/, covering components, layouts, routes, theme tokens, page dependency trees and components worth extracting, then passes the relevant source files with each design request. Graphics, decks and standalone image or video assets skip that analysis. You can pick a model, or have different models explore separate directions; replace refines one direction with version history, branch keeps alternatives to compare. Logos and fonts go into Brand Assets, and a logo position shows your real logo when one is available. Decks start from an outline you approve in chat. After each generation it offers two or three concrete next steps and waits for your pick, since every generation spends credits. A failed command is retried once; if drafting still fails, the agent writes the design itself.",
+          "permalink": "https://github.com/superdesigndev/superdesign-skill/tree/f9f05cd988c247dce6c072eaf9ac6b162f2ffc4b/skills/superdesign"
+        },
+        "tags": [
+          "category:design",
+          "category:marketing",
+          "category:media",
+          "type:tool",
+          "effect:remote",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:superdesign",
+          "design",
+          "design-system",
+          "prototyping",
+          "slides",
+          "ai-generation"
+        ],
+        "note": "Needs a Superdesign account and Node.js for its CLI; generations spend credits. In a real codebase it writes analysis files to .superdesign/ without asking and sends selected source files to Superdesign as context."
+      }
+    },
+    {
+      "id": "intellectronica/agent-skills/skills/context7",
+      "name": "context7",
+      "skills.sh": {
+        "url": "https://skills.sh/intellectronica/agent-skills/context7",
+        "installs": 11300,
+        "weeklyInstalls": [122, 107, 74, 85, 60, 57, 47, 60],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "9b0e00ad1b941165e2506545bbfddafa34cf2cb8",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Looks up current documentation and code examples for any programming library through the Context7 API, instead of relying on training data.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need current docs for a library or framework, or want to check an API that may have changed since the model was trained"
+            },
+            {
+              "label": "It does",
+              "text": "searches Context7 for the library's ID, then fetches documentation on your topic, with two curl calls"
+            },
+            {
+              "label": "You get",
+              "text": "relevant documentation snippets and code examples as plain text in the conversation"
+            },
+            {
+              "label": "Needs",
+              "text": "curl and jq; no API key for basic, rate-limited use"
+            }
+          ],
+          "text": "Context7 indexes documentation for software libraries and serves it by topic. This skill calls Context7's public HTTP API directly with curl. The first request searches by library name and a topic, such as react and hooks, and returns matches with an ID, title, description and snippet count. The second fetches documentation for that ID and a specific query, as readable plain text when type=txt is set. It includes worked examples for React hooks, Next.js routing and FastAPI dependency injection, and tips: be specific in the query, check further search results when the first is wrong, and URL-encode spaces.",
+          "permalink": "https://github.com/intellectronica/agent-skills/tree/9b0e00ad1b941165e2506545bbfddafa34cf2cb8/skills/context7"
+        },
+        "tags": [
+          "category:frameworks",
+          "type:tool",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:context7",
+          "implementation",
+          "verification"
+        ]
+      }
+    },
+    {
+      "id": "diffusionstudio/lottie/skills/text-to-lottie",
+      "name": "text-to-lottie",
+      "skills.sh": {
+        "url": "https://skills.sh/diffusionstudio/lottie/text-to-lottie",
+        "installs": 11200,
+        "weeklyInstalls": [252, 200, 170, 225, 221, 279, 280, 285],
+        "firstSeen": "2026-06-08"
+      },
+      "skillMd": {
+        "version": "3c72912fad543897f90045ed4d355813837927fc",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Creates, edits and fixes Lottie animations, such as logo reveals, loaders and lower thirds, and checks the render in a local Skottie player.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a Lottie animation made or fixed: a logo or text reveal, a loader or icon, a UI microinteraction, a lower third, a data animation or a product promo"
+            },
+            {
+              "label": "It does",
+              "text": "routes the request to a recipe, writes lottie.json and optional controls into the player project, then inspects pinned frames in the browser and fixes what looks wrong"
+            },
+            {
+              "label": "You get",
+              "text": "a Lottie JSON scene under public/projects/, with editable slots, such as the background color, in the player's properties panel"
+            },
+            {
+              "label": "Design defaults",
+              "text": "restraint: no cards, borders or dividers unless they do a job, one background tone, and easing chosen by each motion's behavior"
+            },
+            {
+              "label": "Backgrounds",
+              "text": "transparent for logos, icons, loaders, overlays and lower thirds; a full-frame scene gets a background layer with a color control"
+            },
+            {
+              "label": "Needs",
+              "text": "Node.js for the player's dev server and a browser to inspect frames; with no player project it downloads one with npx degit"
+            }
+          ],
+          "text": "Text-to-lottie pairs this skill with a local player built on Skia's Skottie renderer, where each animation is a scene at public/projects/<project>/<scene>/lottie.json, which the player's scene list picks up as soon as it is written. The skill reads only the references the task needs: one primary recipe, such as logo, typography, loaders and icons, SVG animation, camera moves, diagrams, data and stats, product promos or visual effects, plus guides to motion and design taste. It asks only when the answer changes the output, such as a transparent or full-frame background, brand constraints or supplied assets. It picks the target scene by authority, a file path first, then a browser route, then a known scene, otherwise a new one, and overwrites the starter scene only while it is still the untouched placeholder. Important values become slots with labelled controls. Native text renders when the scene ships its font file. Before finishing it validates the JSON, confirms the player lists the scene, and checks the first, middle and last frames for a blank canvas, missing assets, wrong layer order, bad easing, cropping and text overflow.",
+          "permalink": "https://github.com/diffusionstudio/lottie/tree/3c72912fad543897f90045ed4d355813837927fc/skills/text-to-lottie"
+        },
+        "tags": [
+          "category:media",
+          "category:design",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "needs:browser",
+          "by:official",
+          "stack:lottie",
+          "stack:text-to-lottie",
+          "animation",
+          "design"
+        ],
+        "note": "Works inside the repo's player project: if none exists, it downloads it with npx degit, runs npm install and starts the dev server."
+      }
+    },
+    {
+      "id": "bmad-code-org/bmad-method/skills/bmad-retrospective",
+      "name": "bmad-retrospective",
+      "skills.sh": {
+        "url": "https://skills.sh/bmad-code-org/bmad-method/bmad-retrospective",
+        "installs": 11200,
+        "weeklyInstalls": [934, 938, 1195, 2311, 2541, 1335, 12, 195],
+        "firstSeen": "2026-03-17"
+      },
+      "skillMd": {
+        "version": "e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Reviews a finished BMad epic from its tickets, plans, diffs and commits, and writes a retrospective with sourced findings, action items and a verdict.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "an epic in BMad's ticket tree is built and you want to know what it really produced and whether it met its own criteria"
+            },
+            {
+              "label": "It does",
+              "text": "inventories the epic's tickets, plans, diffs and commits, looks for defects no single ticket could show, and runs bmad-review on the whole diff"
+            },
+            {
+              "label": "You get",
+              "text": "epic-<slug>-retrospective.md in the epic folder, with sourced findings, owned action items and an accepted, accepted-with-open-items or rejected verdict"
+            },
+            {
+              "label": "Proposes, not applies",
+              "text": "fixes and spec changes become action items for you; besides decision records (ADRs) you approve, the document is all it writes"
+            },
+            {
+              "label": "Headless",
+              "text": "with -H and a named epic it asks nothing and records every assumption in the document"
+            },
+            {
+              "label": "Needs",
+              "text": "uv and BMad set up in the project: run the bmad skill's setup first"
+            }
+          ],
+          "text": "BMad's retrospective reads the record an epic left behind rather than anyone's memory of it. It resolves the epic from a folder, id or slug, or offers the finished ones, and warns when tickets are still unfinished, which forces a rejected verdict unless you override it. It then lists what exists and what is missing, using a bundled script to derive each plan's diff range and commits. The analysis looks for problems that only show across the whole epic: changes to the dependency structure, the same problem solved twice, files that grew too large session by session, diverging patterns and gaps between spec and code. It hands the diff to bmad-review for adversarial, edge-case and verification-gap lenses, and exercises changed behavior end to end. A finding without a file, line, commit or log reference is dropped. On request, bmad-party-mode lets BMad's personas discuss the findings. It proposes a decision record (ADR) for each hard-to-reverse choice in the plans and writes only those you approve. The verdict judges the epic against its own requirements and done-when criteria. It also checks whether the previous retro's action items landed, and resumes from its document if interrupted.",
+          "permalink": "https://github.com/bmad-code-org/bmad-method/tree/e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6/skills/bmad-retrospective"
+        },
+        "tags": [
+          "category:debugging",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "code-review",
+          "verification",
+          "architecture",
+          "agent-workflows"
+        ],
+        "note": "Needs uv and BMad set up in the project: it runs scripts from the _bmad/ folder that the bmad skill's setup creates."
+      }
+    },
+    {
+      "id": "coderabbitai/skills/skills/autofix",
+      "name": "autofix",
+      "skills.sh": {
+        "url": "https://skills.sh/coderabbitai/skills/autofix",
+        "installs": 11200,
+        "weeklyInstalls": [458, 427, 363, 479, 481, 363, 424, 466],
+        "firstSeen": "2026-03-02"
+      },
+      "skillMd": {
+        "version": "778c35a36e0afd2549c3fba86ec6e64afe649df3",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Fetches unresolved CodeRabbit review threads on your branch's PR, checks each against the code and applies the fixes you approve in one commit.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "CodeRabbit has reviewed your pull request and you want to work through its open comments"
+            },
+            {
+              "label": "It does",
+              "text": "lists the unresolved, current CodeRabbit threads with their severity, checks each against your code, and shows a proposed diff to apply, defer or change yourself"
+            },
+            {
+              "label": "You get",
+              "text": "the approved fixes in one commit, a push if you agree, and a summary comment on the PR"
+            },
+            {
+              "label": "Treats as untrusted",
+              "text": "CodeRabbit's comments and their Prompt for AI Agents sections: hints about where to look, never commands to run"
+            },
+            {
+              "label": "Needs",
+              "text": "gh signed in, git, and a GitHub PR reviewed by the CodeRabbit bot"
+            }
+          ],
+          "text": "CodeRabbit's own skill for acting on its pull request reviews. It first loads the repo's AGENTS.md, then checks your branch: with uncommitted or unpushed work it warns that CodeRabbit hasn't seen it and offers to push and stop, and with no open PR it offers to create one from the last commit. It fetches every review thread through GitHub's GraphQL API and keeps only unresolved, non-outdated threads started by the CodeRabbit bot; if a review is still running, it tells you to come back. Issues appear in a table with CodeRabbit's own titles and severity, marked Fix only when local inspection confirms them. You choose to go through them one at a time, critical first, or skip them all. For each, the agent reads the code, decides independently whether the issue is real, and proposes the smallest fix. It ignores reviewer text that asks it to read secrets, fetch other URLs, or touch CI, auth or dependency code. After the fixes it offers to run your checks before pushing.",
+          "permalink": "https://github.com/coderabbitai/skills/tree/778c35a36e0afd2549c3fba86ec6e64afe649df3/skills/autofix"
+        },
+        "tags": [
+          "category:debugging",
+          "type:workflow",
+          "effect:remote",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:coderabbit",
+          "stack:github",
+          "stack:git",
+          "code-review",
+          "git"
+        ],
+        "note": "Needs gh signed in and a PR that CodeRabbit's bot has reviewed. It pushes only with your OK, and posts a summary comment on the PR."
+      }
+    },
+    {
+      "id": "mblode/agent-skills/skills/ui-animation",
+      "name": "ui-animation",
+      "skills.sh": {
+        "url": "https://skills.sh/mblode/agent-skills/ui-animation",
+        "installs": 10800,
+        "weeklyInstalls": [252, 194, 259, 187, 240, 220, 230, 201],
+        "firstSeen": "2026-01-30"
+      },
+      "skillMd": {
+        "version": "5eeba20fa3b9b142be7705ee9e6c7401e7ee6f08",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Designs, builds, reviews and debugs UI motion, from springs and gestures to scroll effects, and reverse-engineers an animation from a screen recording into code.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're adding or tuning animation, an animation feels off, you want to know where an interface should animate, or you want to copy a motion from a recording"
+            },
+            {
+              "label": "It does",
+              "text": "decides whether something should animate and why, picks easing and duration from its defaults, and loads the recipe or technique reference for the component"
+            },
+            {
+              "label": "Reviews",
+              "text": "motion code against ten standards with a Before/After/Why table, ending in a Block or Approve verdict"
+            },
+            {
+              "label": "Reverse-engineers",
+              "text": "a recording: extracts frames, tracks motion, fits spring or cubic-bezier curves, and emits CSS, Motion, SwiftUI, React Native or UIKit code with a handoff spec"
+            },
+            {
+              "label": "Also covers",
+              "text": "naming a motion you describe vaguely, and sparse interface sound"
+            },
+            {
+              "label": "Needs",
+              "text": "nothing for building and reviewing; ffmpeg plus Python with OpenCV, NumPy and SciPy for measuring recordings"
+            }
+          ],
+          "text": "A motion design guide with workflows. Its core rules: animate for feedback, orientation, continuity or deliberate delight, keep focus and repeated navigation instant, prefer interruptible CSS transitions, and move things with transform and opacity only. Its principles include continuity over teleporting, overlays that emerge from their trigger, confirming a result on the control that caused it, and delight that shrinks as frequency grows. It gives a duration and curve table for buttons, popovers, modals, drawers and pages, and maps UI patterns to transition recipes such as container morphs, dropdowns, odometer rolls and error shakes. Validation asks for evidence: grep the diff for animated layout properties and transition: all, retoggle components to confirm they retarget, slow the DevTools Animations panel to 10%, test touch on real devices, and honor reduced motion, including in Motion's JavaScript animations. A discovery sweep reports which moments deserve motion and which don't. The reverse-engineer branch runs bundled scripts, measures opening and closing separately, and validates by recording its own output and comparing contact sheets.",
+          "permalink": "https://github.com/mblode/agent-skills/tree/5eeba20fa3b9b142be7705ee9e6c7401e7ee6f08/skills/ui-animation"
+        },
+        "tags": [
+          "category:design",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "animation",
+          "design",
+          "accessibility",
+          "performance",
+          "code-review",
+          "stack:css",
+          "stack:framer-motion"
+        ]
+      }
+    },
+    {
+      "id": "pexoai/pexo-skills/skills/videoagent-video-studio",
+      "name": "videoagent-video-studio",
+      "skills.sh": {
+        "url": "https://skills.sh/pexoai/pexo-skills/videoagent-video-studio",
+        "installs": 10500,
+        "weeklyInstalls": [15, 10, 6, 9, 8, 7, 14, 4],
+        "firstSeen": "2026-03-07"
+      },
+      "skillMd": {
+        "version": "f724267e45a065b6be445ea6f07312e62d3207cd",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Generates short AI video clips from text or an image through a keyless hosted proxy, with models such as Veo, Kling and Seedance.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a short clip from a description, or to animate a still image"
+            },
+            {
+              "label": "It does",
+              "text": "picks text-to-video or image-to-video, expands your prompt with subject, action, camera, lighting and style, and runs a bundled Node script"
+            },
+            {
+              "label": "You get",
+              "text": "a link to the generated video, usually 4 to 10 seconds, in the aspect ratio you ask for"
+            },
+            {
+              "label": "Models",
+              "text": "minimax, kling, veo, hunyuan, pixverse, grok or seedance by name, or auto to let the proxy pick"
+            },
+            {
+              "label": "Needs",
+              "text": "Node.js; no API key by default"
+            }
+          ],
+          "text": "A thin client for text-to-video and image-to-video generation. The agent first chooses the mode: a description alone becomes text-to-video, and a request to animate or move an image becomes image-to-video, which needs a public image URL. It rewrites the prompt to be specific about motion, such as a slow camera zoom or a character walking left to right, with reference files for prompt patterns and per-model details. It then runs tools/generate.js with the mode, prompt, duration and aspect ratio (16:9, 9:16, 1:1, 4:3 or 3:4), and optionally a model; the script returns JSON with the video URL, which the agent passes on. Other commands list the proxy's models and check an asynchronous job's status. All calls go through a hosted proxy, so by default there are no API keys to set up; environment variables point it at your own proxy or add a token.",
+          "permalink": "https://github.com/pexoai/pexo-skills/tree/f724267e45a065b6be445ea6f07312e62d3207cd/skills/videoagent-video-studio"
+        },
+        "tags": [
+          "category:media",
+          "type:tool",
+          "effect:remote",
+          "needs:cli",
+          "by:official",
+          "stack:pexo",
+          "video",
+          "ai-generation"
+        ],
+        "note": "Sends your prompts and image URLs to a hosted proxy at video-gen-proxy.vercel.app, which needs no key; VIDEO_STUDIO_PROXY_URL and VIDEO_STUDIO_TOKEN point it at another."
+      }
+    },
+    {
+      "id": "199-biotechnologies/claude-deep-research-skill",
+      "name": "deep-research",
+      "skills.sh": {
+        "url": "https://skills.sh/199-biotechnologies/claude-deep-research-skill/deep-research",
+        "installs": 10300,
+        "weeklyInstalls": [110, 79, 72, 63, 77, 65, 67, 72],
+        "firstSeen": "2026-01-21"
+      },
+      "skillMd": {
+        "version": "f2f2c0fa4e7617ca84c86b63f4bb40f77a746933",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Researches a question across many sources and writes a cited report in Markdown, HTML and PDF, with every claim checked against stored evidence.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a question needs many sources weighed, such as a technology comparison, market analysis or state-of-the-art review, not a quick lookup"
+            },
+            {
+              "label": "It does",
+              "text": "scopes and plans the question, searches in parallel with 3 to 5 subagents, triangulates sources, drafts section by section and verifies each claim"
+            },
+            {
+              "label": "Modes",
+              "text": "quick (3 phases), standard (6, the default), deep (8) and ultradeep (8 or more), from a few minutes to about 45"
+            },
+            {
+              "label": "You get",
+              "text": "a folder in ~/Documents with the report as Markdown, McKinsey-style HTML and PDF, both opened for you, plus source, evidence and claim ledgers and a run manifest"
+            },
+            {
+              "label": "Report",
+              "text": "executive summary, 4 to 8 cited findings, synthesis, limitations, recommendations, a complete bibliography and a methodology appendix"
+            },
+            {
+              "label": "Needs",
+              "text": "subagents for parallel retrieval and WeasyPrint for the PDF; its makers' search-cli is optional, with the agent's web search as fallback"
+            }
+          ],
+          "text": "A research pipeline that works on its own: it infers assumptions from context and states the important ones in the report's introduction instead of asking. Simple lookups and debugging are sent elsewhere. Retrieval, outlining, drafting and claim checks run as a loop per section: each source gets a stable ID in sources.jsonl, each quote and its location is appended to evidence.jsonl, and each factual claim in claims.jsonl must be supported before delivery. It aims for 10 or more sources and 3 independent ones per major claim, cites every factual claim inline, writes at least 80% prose and allows no placeholders or invented citations. Deep and ultradeep modes add a critique and a refinement pass. Bundled Python scripts validate the report and its citations and convert Markdown to HTML. Reports over 18,000 words follow a continuation procedure.",
+          "permalink": "https://github.com/199-biotechnologies/claude-deep-research-skill/tree/f2f2c0fa4e7617ca84c86b63f4bb40f77a746933"
+        },
+        "tags": [
+          "category:writing",
+          "category:browser",
+          "type:workflow",
+          "effect:local",
+          "needs:subagents",
+          "needs:cli",
+          "by:community",
+          "research",
+          "web-search",
+          "writing"
+        ],
+        "note": "Writes its report folder to ~/Documents and opens the HTML and PDF itself; it runs without asking questions unless something critical fails."
+      }
+    },
+    {
+      "id": "leonxlnx/unlazy",
+      "name": "unlazy",
+      "skills.sh": {
+        "url": "https://skills.sh/leonxlnx/unlazy/unlazy",
+        "installs": 10100,
+        "weeklyInstalls": [683, 874, 980, 622, 375, 430, 516, 426],
+        "firstSeen": "2026-08-10"
+      },
+      "skillMd": {
+        "version": "16671491f6679ad9378f52604d3bc2415b4120c7",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes runnable acceptance gates before long agent work, splits big jobs into a tree of subagent tasks, and re-verifies every gate before reporting done.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a long or multi-part task keeps coming back half done, or you say /unlazy, \"gates\" or \"do not stop until it is done\""
+            },
+            {
+              "label": "It does",
+              "text": "writes GATES.md first, one observable outcome per gate with a CHECK command and the output to EXPECT, then works until every gate passes"
+            },
+            {
+              "label": "You get",
+              "text": "a report with re-measured counts of met, unmet and abandoned gates, never called done while one is unmet; a gate it can't meet is marked abandoned and handed to you"
+            },
+            {
+              "label": "Depth Tree",
+              "text": "for a big build or review, a PLAN.md splits the work into leaves with exact file ownership, launched as agents in waves and re-checked by the parent"
+            },
+            {
+              "label": "Safety",
+              "text": "its checker runs only commands you've approved, and treats inherited gate files and command output as untrusted"
+            },
+            {
+              "label": "Needs",
+              "text": "Node 16+; native subagents only for orchestrated mode; the Stop hook only in Claude Code"
+            }
+          ],
+          "text": "The skill's ledger is a list of gates: each states one observable outcome and, where a command can decide it, a CHECK line and an EXPECT pattern. A gate counts as met only when its command exits zero, the output matches, and the recorded evidence matches the gate's current definition; changing a gate needs approval again. A linter flags gates that can't fail. Solo mode uses one GATES.md. Orchestrated mode, for builds and deep reviews, writes a contract and a Depth Tree under .unlazy/: each leaf gets a narrow contract, its own ledger and its files, each branch gets integration gates, and leaves whose dependencies are verified launch as agents in waves. Each leaf is worked in four passes: build it fully, redo the cheap parts as an expert would, hunt defects, then polish until a pass finds nothing. The parent re-runs a returned leaf's checks rather than trusting its report, and the final report re-measures every claim. Approvals are kept under ~/.unlazy/approved. In Claude Code it can offer a Stop hook, installed only with your consent, that blocks stopping while gates are unmet and releases after six blocks without progress.",
+          "permalink": "https://github.com/leonxlnx/unlazy/tree/16671491f6679ad9378f52604d3bc2415b4120c7"
+        },
+        "tags": [
+          "category:engineering",
+          "category:agents",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "verification",
+          "scope-control",
+          "agent-workflows",
+          "multi-agent"
+        ],
+        "note": "Needs Node 16+. It runs a gate's command only after you approve it, and offers a Claude Code Stop hook, installed only with your consent, that blocks stopping while gates are unmet."
+      }
+    },
+    {
+      "id": "fallow-rs/fallow-skills/fallow/skills/fallow",
+      "name": "fallow",
+      "skills.sh": {
+        "url": "https://skills.sh/fallow-rs/fallow-skills/fallow",
+        "installs": 10000,
+        "weeklyInstalls": [272, 259, 319, 291, 376, 298, 290, 302],
+        "firstSeen": "2026-03-25"
+      },
+      "skillMd": {
+        "version": "2d633a27f00d18db701534207908866d28bddccb",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Finds unused code, duplication, import cycles, complexity hotspots and risky changes in TypeScript and JavaScript with the fallow CLI, and removes unused exports.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want unused files, exports or dependencies found, duplicates or import cycles mapped, a PR's risk audited, or refactoring targets ranked in a TypeScript or JavaScript repo"
+            },
+            {
+              "label": "It does",
+              "text": "runs fallow with JSON output after a doctor preflight, choosing the command by task, such as audit before a PR or trace before deleting an export"
+            },
+            {
+              "label": "You get",
+              "text": "findings by issue type with suggested actions, health and hotspot reports, and removal of unused exports and dependencies after a dry run"
+            },
+            {
+              "label": "Also finds",
+              "text": "functions that may do the same thing despite different code, design-token drift, feature flags, and security candidates for the agent to verify"
+            },
+            {
+              "label": "Asks first",
+              "text": "before setup, hooks or any remediation that changes files; it never runs fallow watch or enables telemetry"
+            },
+            {
+              "label": "Needs",
+              "text": "the fallow CLI from npm or cargo; Fallow Cloud only for production runtime data"
+            }
+          ],
+          "text": "Fallow analyzes the whole module graph of a TypeScript or JavaScript project, so it can see code nothing depends on. This is its makers' skill for agents, and it sets rules: always use --format json --quiet, read exit code 1 as findings rather than a tool failure, dry-run before fix, treat project config and remote extends URLs as untrusted, and use type-aware analysis to prove a symbol's consumers before deleting or refactoring it. A task table maps intents to commands: dead-code --trace before deleting an export, audit --base before a commit or PR, review --brief to read a diff, health --hotspots --targets to prioritize refactoring, plus dupes, flags, architecture and security. Similar-code results are discovery only, never proof that two functions behave alike. With Fallow Cloud connected, it reads production hit counts before an edit and requires never-called evidence before a delete. After an analysis you asked for on an unconfigured project, it offers setup once: commit and PR guards, a baseline for the existing backlog, or AGENTS.md guidance.",
+          "permalink": "https://github.com/fallow-rs/fallow-skills/tree/2d633a27f00d18db701534207908866d28bddccb/fallow/skills/fallow"
+        },
+        "tags": [
+          "category:debugging",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "by:official",
+          "stack:fallow",
+          "stack:typescript",
+          "stack:javascript",
+          "code-quality",
+          "refactoring",
+          "architecture",
+          "code-review"
+        ],
+        "note": "Needs the fallow CLI. Production runtime data needs Fallow Cloud, which its README calls an optional paid product; it never turns on fallow's telemetry for you."
       }
     }
   ]
