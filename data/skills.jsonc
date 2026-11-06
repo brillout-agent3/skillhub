@@ -2394,6 +2394,24 @@
         "kind": "skills",
         "description": "GMGN Agent Skills: real-time multi-chain memecoin data, token and wallet analysis, and trading for AI agents, through gmgn-cli."
       }
+    },
+    {
+      "id": "shopify/shopify-ai-toolkit",
+      "stars": 630,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Connect your AI tools to the Shopify platform.",
+        "note": "Telemetry is on by default: its scripts and hooks send usage events to Shopify, including your latest prompt verbatim; opt out with ~/.config/shopify-ai-toolkit/opt-out or OPT_OUT_INSTRUMENTATION=true. Its per-topic skills, such as shopify-admin and shopify-liquid, are retired in favor of one shopify skill."
+      }
+    },
+    {
+      "id": "wondelai/skills",
+      "stars": 2615,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Business, marketing, UX and coding frameworks from bestselling books, plus metaskills that walk you through them step by step.",
+        "note": "The further-reading links in its skills are Amazon affiliate links."
+      }
     }
   ],
   "bundles": [
@@ -5031,6 +5049,104 @@
           {
             "label": "Any Agent Skills agent (incl. Claude Code)",
             "command": "npx skills add ljagiello/ctf-skills"
+          }
+        ]
+      }
+    },
+    {
+      "id": "earthtojake/text-to-cad",
+      "skew": 0,
+      "agentReview": {
+        "name": "text-to-cad",
+        "description": "Design physical parts with an agent: text-to-cad's skills for 3D models, purchasable parts, DXF drawings, robot descriptions, fabrication checks, slicing and printer handoff.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want an agent to design a physical part or a robot and carry it on toward cutting, printing or simulation"
+            },
+            {
+              "label": "It does",
+              "text": "cad models parts as Python build123d scripts; the other skills add catalog parts, DXF drawings, fabrication checks, slicing, printer handoff and robot description files"
+            },
+            {
+              "label": "You get",
+              "text": "Python model scripts; STEP, STL, 3MF, GLB, DXF, URDF, SRDF and SDF files; a CAD Viewer that follows every rebuild; preflight reports and printer-ready G-code"
+            },
+            {
+              "label": "Needs",
+              "text": "text-to-cad's cad command, which cad, dxf, urdf, srdf and sdf install with a curl-to-shell script if missing; OrcaSlicer, and Bambu Connect or Bambu Studio, for printing"
+            },
+            {
+              "label": "Telemetry",
+              "text": "text-to-cad sends usage stats and crash reports by default, never files, paths or prompts, its README says"
+            }
+          ],
+          "text": "Most of these skills run through text-to-cad's cad command and its local server, and show their results in the same CAD Viewer. cad is the core: it writes each part or assembly as a Python build123d function and exports STEP, STL, 3MF or GLB on request. step-parts fills an assembly with real purchasable parts from the step.parts catalog, which a model reads once the STEP is converted with cad export. dxf turns a modelled part, a vendor STEP or a fresh sketch into a cut-ready DXF, and sendcutsend checks that DXF or a STEP against SendCutSend's current specs before you order. For 3D printing, gcode slices an exported STL or 3MF with OrcaSlicer, and bambu-labs opens the sliced file in Bambu Connect, where you start the print. For robots, urdf writes the robot's links and joints, each link's mesh exported from a cad model of that link; srdf adds MoveIt planning groups on top of a validated URDF, and sdf writes Gazebo models and worlds, derived from the URDF when there is one. The cad command validates all three, and the viewer poses their joints. Each skill also works alone; one install command adds them all.",
+          "permalink": "https://github.com/earthtojake/text-to-cad/tree/4099cac3ddc56a5e696138c53fd7bee685e8ad9d"
+        },
+        "skills": [
+          {
+            "id": "earthtojake/text-to-cad/skills/cad",
+            "standalone": true
+          },
+          {
+            "id": "earthtojake/text-to-cad/skills/step-parts",
+            "standalone": true
+          },
+          {
+            "id": "earthtojake/text-to-cad/skills/dxf",
+            "standalone": true
+          },
+          {
+            "id": "earthtojake/text-to-cad/skills/sendcutsend",
+            "standalone": true
+          },
+          {
+            "id": "earthtojake/text-to-cad/skills/gcode",
+            "standalone": true
+          },
+          {
+            "id": "earthtojake/text-to-cad/skills/bambu-labs",
+            "standalone": true
+          },
+          {
+            "id": "earthtojake/text-to-cad/skills/urdf",
+            "standalone": true
+          },
+          {
+            "id": "earthtojake/text-to-cad/skills/srdf",
+            "standalone": true
+          },
+          {
+            "id": "earthtojake/text-to-cad/skills/sdf",
+            "standalone": true
+          }
+        ],
+        "install": [
+          {
+            "label": "macOS and Linux: installs uv if missing, the cad command and CAD's server, and in every agent app it finds the plugin, or the skills alone, with the repo's dfam-check, dfm and engineering-drawing skills too",
+            "command": "curl -fsSL https://texttocad.dev/install.sh | sh"
+          },
+          {
+            "label": "Windows, in PowerShell: the same; run it the first time in a terminal of its own, not in a Store app's shell such as the Claude desktop app's",
+            "command": "irm https://www.texttocad.dev/install.ps1 | iex"
+          },
+          {
+            "label": "Claude Code plugin, which needs uv; it brings CAD's server and the repo's 3 other skills, and Cursor and Grok Build load it too",
+            "command": "claude plugin marketplace add earthtojake/text-to-cad#latest && claude plugin install text-to-cad@earthtojake"
+          },
+          {
+            "label": "Codex plugin, which needs uv; it brings the CAD viewer and the repo's 3 other skills",
+            "command": "codex plugin marketplace add earthtojake/text-to-cad --ref latest && codex plugin add text-to-cad@earthtojake"
+          },
+          {
+            "label": "Gemini CLI extension, which needs uv; it brings CAD's server and the repo's 3 other skills",
+            "command": "gemini extensions install https://github.com/earthtojake/text-to-cad --ref latest --consent"
+          },
+          {
+            "label": "Any agent without a plugin, with the skills CLI, plus the repo's 3 other skills; cad, dxf, urdf, srdf and sdf need the cad command, which they install with the script above if missing",
+            "command": "npx skills add earthtojake/text-to-cad#latest"
           }
         ]
       }
@@ -45116,6 +45232,922 @@
           "by:community",
           "planning"
         ]
+      }
+    },
+    {
+      "id": "shopify/shopify-ai-toolkit/skills/ucp",
+      "name": "ucp",
+      "skills.sh": {
+        "url": "https://skills.sh/shopify/shopify-ai-toolkit/ucp",
+        "installs": 7600,
+        "weeklyInstalls": [415, 307, 315, 322, 325, 320, 339, 266],
+        "firstSeen": "2026-05-15"
+      },
+      "skillMd": {
+        "version": "a3d20f8dc284a2e8ae25272fa79520888abb5dcb",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Finds, compares, buys and tracks products from online stores through the UCP command-line tool, asking before each purchase step.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want the agent to find, compare, buy or track a product from online stores"
+            },
+            {
+              "label": "It does",
+              "text": "searches a catalog spanning many stores, then builds carts, checks out and tracks orders with stores that support UCP"
+            },
+            {
+              "label": "Asks first",
+              "text": "before each search, cart change, checkout and purchase, showing you the store, items and final total"
+            },
+            {
+              "label": "Hands off",
+              "text": "to the store's own checkout for shipping details, sign-in errors or anything else it can't finish in the protocol"
+            },
+            {
+              "label": "Needs",
+              "text": "the UCP CLI, plus a local profile made with ucp profile init for store-specific steps"
+            },
+            {
+              "label": "Sends",
+              "text": "your latest message verbatim and an end-of-turn feedback score to Shopify, unless you opt out"
+            }
+          ],
+          "text": "A shopping skill built on the UCP command-line tool. UCP is a protocol a store can support so an agent can check out with it directly. With no store named, it searches a global catalog spanning many stores, with soft context such as your country and hard filters such as a price cap. When you name a store, it first checks that the store supports UCP, and if it doesn't, says so and only looks elsewhere with your consent. It then builds one cart per seller, turns it into a checkout and completes the order, asking before each step. It never sends payment details, contact details or precise addresses: shipping or pickup details go in on the store's own checkout page, where it also sends you when a store asks for review or sign-in. It shows the store's totals and warnings as given, keeps legal notices such as allergens next to their item, and hands off instead of buying when the totals don't add up. Store text is treated as untrusted: request bodies go into files, and an id or domain with unexpected characters stops the flow. It also tracks orders; ucp doctor checks the local setup.",
+          "permalink": "https://github.com/shopify/shopify-ai-toolkit/tree/a3d20f8dc284a2e8ae25272fa79520888abb5dcb/skills/ucp"
+        },
+        "tags": [
+          "category:marketing",
+          "category:personal",
+          "type:tool",
+          "effect:remote",
+          "needs:cli",
+          "by:official",
+          "stack:ucp",
+          "ecommerce",
+          "personal"
+        ],
+        "note": "Needs the UCP CLI, and it can place real orders once you confirm the final total. On every use it has the agent send your latest message verbatim to Shopify, plus a feedback score at the end of the turn; opt out by creating ~/.config/shopify-ai-toolkit/opt-out or setting OPT_OUT_INSTRUMENTATION=true."
+      }
+    },
+    {
+      "id": "wondelai/skills/ux-heuristics",
+      "name": "ux-heuristics",
+      "skills.sh": {
+        "url": "https://skills.sh/wondelai/skills/ux-heuristics",
+        "installs": 10200,
+        "weeklyInstalls": [277, 258, 362, 277, 336, 582, 600, 523],
+        "firstSeen": "2026-01-30"
+      },
+      "skillMd": {
+        "version": "d8d5d75f83da9f16d8aad5bab5f5b341a4770a30",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Audits an interface for usability with Steve Krug's principles and Nielsen's 10 heuristics, rating each issue's severity and scoring it out of 10.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "users seem confused, a form or navigation isn't working, or you want a usability audit of a design"
+            },
+            {
+              "label": "It does",
+              "text": "checks the interface against Steve Krug's usability laws and Jakob Nielsen's 10 heuristics, rating each issue from cosmetic to catastrophic"
+            },
+            {
+              "label": "You get",
+              "text": "a score out of 10, the worst issues and the fixes needed to reach 10"
+            },
+            {
+              "label": "Unlike refactoring-ui",
+              "text": "the same repo's skill for how a page looks, it asks whether the page is easy to use"
+            }
+          ],
+          "text": "Built on Steve Krug's Don't Make Me Think and Jakob Nielsen's 10 usability heuristics. Its premise is that users scan instead of reading, take the first reasonable option and muddle through instead of learning how things work, so anything that makes them stop and think is a problem. It covers Krug's laws (clear labels beat clever ones, the number of clicks matters less than how confident each one feels, cut half the words) and his Trunk Test: dropped on any page, can a user tell what site this is, where they are and where search is? Each of Nielsen's heuristics comes with concrete patterns, such as undo instead of \"Are you sure?\" dialogs, and error messages that say what happened and how to fix it. Issues are rated 0 to 4 by how often they occur, how bad they are and whether they persist, and ten diagnostic questions set the score. Where heuristics conflict, it gives tie-breakers, such as progressive disclosure for simplicity against flexibility. Reference files hold the full Krug and Nielsen material, an audit template, dark patterns, a WCAG 2.1 AA checklist and notes on designing for other cultures.",
+          "permalink": "https://github.com/wondelai/skills/tree/d8d5d75f83da9f16d8aad5bab5f5b341a4770a30/ux-heuristics"
+        },
+        "tags": [
+          "category:design",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "design",
+          "accessibility"
+        ]
+      }
+    },
+    {
+      "id": "wondelai/skills/refactoring-ui",
+      "name": "refactoring-ui",
+      "skills.sh": {
+        "url": "https://skills.sh/wondelai/skills/refactoring-ui",
+        "installs": 9900,
+        "weeklyInstalls": [284, 267, 298, 244, 315, 497, 476, 416],
+        "firstSeen": "2026-01-29"
+      },
+      "skillMd": {
+        "version": "d8d5d75f83da9f16d8aad5bab5f5b341a4770a30",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Improves visual hierarchy, spacing, color, type and shadows in web UIs with the grayscale-first method and fixed scales of Refactoring UI.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a UI looks off or amateur, or you need spacing, type, color and shadow scales for a design system"
+            },
+            {
+              "label": "It does",
+              "text": "builds hierarchy in grayscale first, then picks every value from a fixed scale and adds color last"
+            },
+            {
+              "label": "You get",
+              "text": "design advice or code with Tailwind classes, plus a score out of 10 from eight checks"
+            },
+            {
+              "label": "Unlike web-typography",
+              "text": "the same repo's skill for choosing and loading typefaces, it covers the whole visual system"
+            }
+          ],
+          "text": "Based on Refactoring UI by Adam Wathan, who created Tailwind CSS, and designer Steve Schoger. Its core rule is to design in grayscale first, so hierarchy comes from size, weight and spacing before color, and to take every value from a fixed scale: spacing of 4, 8, 16, 24, 32, 48 and 64px, type from 12 to 36px, five to nine shades per color with slightly tinted grays, and a shadow scale for elevation. Its seven principles cover hierarchy (labels quieter than values, filled primary buttons and quieter secondary ones), spacing (more between groups than within them), typography, color and contrast, depth, images and icons, and layout (left-align by default instead of centering everything). Its CSS examples are Tailwind classes. The agent scores a design by how many of eight checks pass, such as a blur test, a grayscale test and capped text width, and names the ones to fix. Reference files cover component states, dark mode, accessibility, motion and charts.",
+          "permalink": "https://github.com/wondelai/skills/tree/d8d5d75f83da9f16d8aad5bab5f5b341a4770a30/refactoring-ui"
+        },
+        "tags": [
+          "category:design",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:tailwind",
+          "design",
+          "design-system"
+        ]
+      }
+    },
+    {
+      "id": "wondelai/skills/web-typography",
+      "name": "web-typography",
+      "skills.sh": {
+        "url": "https://skills.sh/wondelai/skills/web-typography",
+        "installs": 9600,
+        "weeklyInstalls": [261, 211, 254, 177, 224, 358, 300, 243],
+        "firstSeen": "2026-01-30"
+      },
+      "skillMd": {
+        "version": "d8d5d75f83da9f16d8aad5bab5f5b341a4770a30",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Chooses, pairs, sizes and loads web fonts for readable text, following Jason Santa Maria's On Web Typography.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're picking or pairing typefaces, setting line height and line length, or web fonts load slowly"
+            },
+            {
+              "label": "It does",
+              "text": "applies how people read to typeface choice, pairing, hierarchy, fluid sizing and font loading"
+            },
+            {
+              "label": "You get",
+              "text": "typeface picks and CSS, plus a score out of 10 from ten checks"
+            },
+            {
+              "label": "Its defaults",
+              "text": "body text of 16px or more, lines under 75 characters, line height of 1.4 or more, under 200KB of fonts"
+            }
+          ],
+          "text": "Based on Jason Santa Maria's On Web Typography. It separates type for a moment, such as headlines and buttons, from type to live with, such as body text, and starts from how people read: eyes jump in bursts of seven to nine characters, so size, line length and line height matter more than the typeface. It covers judging a typeface (x-height, open letter shapes, distinct Il1 and O0, a web license), choosing by purpose rather than taste, pairing faces that clearly differ, such as a serif with a sans, and hierarchies that change only one or two of size, weight and color between levels. CSS examples show fluid sizes with clamp(), system font fallbacks, font-display: swap, preloading and subsetting. Ten checks set the score, including whether the page works at 200% zoom and whether links stand out. Unlike refactoring-ui, which covers the whole visual system, or top-design, which goes for dramatic display type, it is about readable text.",
+          "permalink": "https://github.com/wondelai/skills/tree/d8d5d75f83da9f16d8aad5bab5f5b341a4770a30/web-typography"
+        },
+        "tags": [
+          "category:design",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "design",
+          "performance"
+        ]
+      }
+    },
+    {
+      "id": "wondelai/skills/clean-architecture",
+      "name": "clean-architecture",
+      "skills.sh": {
+        "url": "https://skills.sh/wondelai/skills/clean-architecture",
+        "installs": 7600,
+        "weeklyInstalls": [207, 206, 232, 197, 206, 356, 307, 222],
+        "firstSeen": "2026-02-23"
+      },
+      "skillMd": {
+        "version": "d8d5d75f83da9f16d8aad5bab5f5b341a4770a30",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Structures code so business rules don't depend on frameworks or databases, following Robert C. Martin's Clean Architecture and SOLID principles.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "deciding which layer code belongs in, keeping business logic apart from the database or framework, or untangling module dependencies"
+            },
+            {
+              "label": "It does",
+              "text": "applies the Dependency Rule: code depends only inward, from frameworks to adapters to use cases to business entities"
+            },
+            {
+              "label": "You get",
+              "text": "architecture advice and a score out of 10 that names each failed check and the dependency to invert"
+            },
+            {
+              "label": "Unlike domain-driven-design",
+              "text": "the same repo's skill for modeling the business itself, it arranges layers and dependencies"
+            }
+          ],
+          "text": "Based on Robert C. Martin's Clean Architecture. It pictures a system as rings: business entities at the center, then use cases (one per application operation, such as PlaceOrder), then adapters such as controllers, presenters and repositories, with frameworks and databases on the outside. Source code may only depend inward, so business rules never import the web framework or the ORM, and data crosses each boundary as plain objects shaped for the inner ring. Interfaces are defined inside and implemented outside, and one entry point, Main, wires the concrete parts together. It also covers six principles for grouping classes into deployable components, such as no dependency cycles, the five SOLID principles with examples, and where to draw boundaries, including the Humble Object pattern that keeps hard-to-test code thin. Seven diagnostic questions, such as whether business rules can be tested without a database or web server, set the score. Reference files work through each topic with code.",
+          "permalink": "https://github.com/wondelai/skills/tree/d8d5d75f83da9f16d8aad5bab5f5b341a4770a30/clean-architecture"
+        },
+        "tags": [
+          "category:engineering",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "architecture",
+          "code-quality"
+        ]
+      }
+    },
+    {
+      "id": "wondelai/skills/top-design",
+      "name": "top-design",
+      "skills.sh": {
+        "url": "https://skills.sh/wondelai/skills/top-design",
+        "installs": 7500,
+        "weeklyInstalls": [220, 185, 215, 158, 178, 309, 264, 222],
+        "firstSeen": "2026-02-02"
+      },
+      "skillMd": {
+        "version": "d8d5d75f83da9f16d8aad5bab5f5b341a4770a30",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Pushes websites toward award-winning agency craft: dramatic type, choreographed motion, scroll storytelling, and a weighted design score out of 10.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a portfolio, brand or landing page to look like an Awwwards winner rather than a template"
+            },
+            {
+              "label": "It does",
+              "text": "scores the design on typography, composition, motion, color and details, then pushes each toward agency-level craft"
+            },
+            {
+              "label": "You get",
+              "text": "a weighted score out of 10 and the changes needed to reach 10"
+            },
+            {
+              "label": "Insists on",
+              "text": "display type at least ten times body size, custom easing, smooth scrolling, no Inter as the main font, no pure black, custom cursors only if asked"
+            },
+            {
+              "label": "Unlike refactoring-ui",
+              "text": "the same repo's skill for clean, systematic UI, it is for showpiece sites"
+            }
+          ],
+          "text": "It draws on agencies that win Awwwards and FWA awards, such as Locomotive, Studio Freight and AREA 17. Seven pillars: type as the design itself, with display type at least ten times body size and distinctive fonts instead of Inter or Roboto; asymmetric layouts that break a strong grid on purpose; motion with custom easing curves and a timed page-load sequence; colors invented for the project, never pure black or white; scroll as storytelling, with a smooth-scroll library and pinned sections; performance targets such as near-zero layout shift and the main content loading within 2.5 seconds; and crafted details like selection colors, focus states and error pages. Its process starts from a concept and the one moment people would screenshot, then the display typeface, with motion prototyped alongside the visuals. Twelve diagnostic questions map to the score. It sets limits too: respect reduced-motion settings, no scroll hijacking, no parallax on text, and custom cursors only with your approval. Reference files hold animation code, layout systems, its recommended libraries and agency case studies.",
+          "permalink": "https://github.com/wondelai/skills/tree/d8d5d75f83da9f16d8aad5bab5f5b341a4770a30/top-design"
+        },
+        "tags": [
+          "category:design",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "design",
+          "animation",
+          "performance"
+        ]
+      }
+    },
+    {
+      "id": "wondelai/skills/domain-driven-design",
+      "name": "domain-driven-design",
+      "skills.sh": {
+        "url": "https://skills.sh/wondelai/skills/domain-driven-design",
+        "installs": 7500,
+        "weeklyInstalls": [219, 189, 196, 160, 187, 320, 248, 182],
+        "firstSeen": "2026-02-23"
+      },
+      "skillMd": {
+        "version": "d8d5d75f83da9f16d8aad5bab5f5b341a4770a30",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Models software around the business with Eric Evans's Domain-Driven Design: a shared language, bounded contexts, small aggregates and domain events.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "code doesn't match how the business talks, or you're splitting a big system or setting service boundaries"
+            },
+            {
+              "label": "It does",
+              "text": "applies Eric Evans's patterns, from business vocabulary in class names to maps of how subsystems relate"
+            },
+            {
+              "label": "You get",
+              "text": "modeling advice and a score out of 10 from seven diagnostic questions and three depth checks"
+            },
+            {
+              "label": "Unlike clean-architecture",
+              "text": "the same repo's skill for arranging layers and dependencies, it shapes the model of the business itself"
+            }
+          ],
+          "text": "Based on Eric Evans's Domain-Driven Design. Its premise is that the code should be the model of the business, named in a ubiquitous language: the words domain experts use, so ClaimAdjudicator rather than DataProcessor, and a concept that's hard to name is a sign the model is wrong. A bounded context is a boundary inside which one model applies, so billing and shipping can each have their own Customer; a context map shows how contexts relate, and an anti-corruption layer translates any outside model before it reaches yours. It separates entities, which keep their identity as they change, from value objects, defined only by their values, and keeps aggregates small, with one root that guards their consistency. Domain events, named in the past tense like OrderPlaced, carry changes between aggregates. Repositories and factories hide storage and creation, and strategic design puts the deepest modeling into the core domain, buying or reusing generic parts such as payments. Seven diagnostic questions and three depth checks set the score.",
+          "permalink": "https://github.com/wondelai/skills/tree/d8d5d75f83da9f16d8aad5bab5f5b341a4770a30/domain-driven-design"
+        },
+        "tags": [
+          "category:engineering",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "domain-modeling",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "id": "wondelai/skills/jobs-to-be-done",
+      "name": "jobs-to-be-done",
+      "skills.sh": {
+        "url": "https://skills.sh/wondelai/skills/jobs-to-be-done",
+        "installs": 7200,
+        "weeklyInstalls": [193, 168, 188, 173, 181, 327, 278, 193],
+        "firstSeen": "2026-01-30"
+      },
+      "skillMd": {
+        "version": "d8d5d75f83da9f16d8aad5bab5f5b341a4770a30",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Finds the job customers hire your product to do, with Clayton Christensen's Jobs to Be Done theory, for discovery, positioning and churn.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need to know why customers buy, switch or churn, or want to rethink a product around what they need"
+            },
+            {
+              "label": "It does",
+              "text": "frames a need as progress someone wants in a situation, with its functional, emotional and social sides and the forces for and against switching"
+            },
+            {
+              "label": "You get",
+              "text": "a job statement, competitors beyond your category, interview questions, and a score out of 10"
+            },
+            {
+              "label": "Unlike mom-test",
+              "text": "the same repo's skill for non-leading interviews, it is the wider theory of why customers choose products"
+            }
+          ],
+          "text": "Based on Competing Against Luck by Clayton Christensen and coauthors. A job is the progress someone wants to make in a particular situation, written as \"When [situation], I want to [progress], so I can [outcome]\" without naming any product, and every job has functional, emotional and social sides. Customers switch only when frustration with what they have and the pull of the new option outweigh habit and anxiety, so it looks for ways to reduce anxiety and habit, not only to add appeal. It separates the big hire, buying once, from the little hire, choosing to use the product each time, where it says most retention problems lie. Competition is everything that could do the same job, including doing nothing. For customer interviews, it reconstructs a real purchase from the first thought to using it, asking only about past events. It also suggests job-based metrics and teams, and copy patterns for marketing. Seven diagnostic questions and three depth checks set the score.",
+          "permalink": "https://github.com/wondelai/skills/tree/d8d5d75f83da9f16d8aad5bab5f5b341a4770a30/jobs-to-be-done"
+        },
+        "tags": [
+          "category:marketing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "research",
+          "marketing",
+          "requirements"
+        ]
+      }
+    },
+    {
+      "id": "wondelai/skills/microinteractions",
+      "name": "microinteractions",
+      "skills.sh": {
+        "url": "https://skills.sh/wondelai/skills/microinteractions",
+        "installs": 7100,
+        "weeklyInstalls": [221, 197, 233, 178, 181, 317, 261, 203],
+        "firstSeen": "2026-02-23"
+      },
+      "skillMd": {
+        "version": "d8d5d75f83da9f16d8aad5bab5f5b341a4770a30",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Designs small product moments such as toggles, loading states and form feedback with Dan Saffer's trigger, rules, feedback and loops structure.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "an interface feels dead, or you're designing a button, toggle, loading state or form validation"
+            },
+            {
+              "label": "It does",
+              "text": "splits each small interaction into what starts it, what happens, what the user sees, and how it behaves over time"
+            },
+            {
+              "label": "You get",
+              "text": "design advice and a score out of 10 from eight checks"
+            },
+            {
+              "label": "Rules of thumb",
+              "text": "feedback within 100ms and scaled to the event, few modes, hints that fade as users learn"
+            },
+            {
+              "label": "Unlike refactoring-ui",
+              "text": "the same repo's skill for a page's overall look, it designs one interaction at a time"
+            }
+          ],
+          "text": "Based on Dan Saffer's Microinteractions. A microinteraction is one small, contained moment, such as flipping a setting, choosing a password or pulling to refresh. Each has four parts: a trigger that starts it and must show that it exists, what it does and what state it's in; rules that decide what happens, including edge cases like zero, the maximum and a double tap; feedback that shows what's happening, ideally by animating the element itself rather than adding a toast; and loops and modes, which decide how it changes with use and when the same control acts differently. It adds signature moments, one or two distinctive interactions that become part of a product's identity, like the Facebook Like, and reduction: smart defaults and single actions instead of settings. Each section draws an ethical line, such as no fake progress bars or pre-checked marketing opt-ins. Reference files hold case studies and more on each part.",
+          "permalink": "https://github.com/wondelai/skills/tree/d8d5d75f83da9f16d8aad5bab5f5b341a4770a30/microinteractions"
+        },
+        "tags": [
+          "category:design",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "design",
+          "animation"
+        ]
+      }
+    },
+    {
+      "id": "earthtojake/text-to-cad/skills/step-parts",
+      "name": "step-parts",
+      "skills.sh": {
+        "url": "https://skills.sh/earthtojake/text-to-cad/step-parts",
+        "installs": 11900,
+        "weeklyInstalls": [596, 514, 318, 337, 485, 595, 523, 615],
+        "firstSeen": "2026-05-14"
+      },
+      "skillMd": {
+        "version": "4099cac3ddc56a5e696138c53fd7bee685e8ad9d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Finds off-the-shelf CAD parts, such as screws, bearings, motors and servos, in the step.parts catalog and downloads their STEP files.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a CAD model needs a real purchasable part, such as an M3 screw, a 608ZZ bearing or a named servo, instead of a simplified placeholder"
+            },
+            {
+              "label": "It does",
+              "text": "searches the hosted step.parts API by name, standard, alias or dimension, retries vendor spellings for motors and servos, and lists the best few matches when unsure"
+            },
+            {
+              "label": "You get",
+              "text": "the chosen part's id and page and API links, and its STEP file when you ask or when it finds an exact actuator match, checked against the catalog's SHA-256 checksum"
+            },
+            {
+              "label": "Runs",
+              "text": "a bundled Python script for search and download; files land in the system temp folder unless the agent passes a folder"
+            },
+            {
+              "label": "Works with",
+              "text": "text-to-cad models, which read the part after converting the STEP once to an xbf file with cad export"
+            }
+          ],
+          "text": "step.parts is a hosted catalog of standard and purchasable CAD parts, from fasteners, bearings and standoffs to electronics boards, connectors, motors, servos and actuators, each with a STEP file. When an assembly needs such a part, the skill has the agent search the catalog before drawing a stand-in. It turns the request into search terms and optional filters by category, family, standard or tag, and for actuator model numbers retries aliases, dropped letters and vendor names (STS3215 may be listed as ST3215 or under Feetech). When the match is ambiguous it shows the best few candidates with their key attributes before choosing. If the API can't be reached it retries once rather than calling the part unavailable, and only after a real miss does it record the search and fall back to a simplified envelope. Downloads go through the bundled script, which prints JSON, verifies the SHA-256 checksum when the record has one, and refuses to overwrite an existing file unless told to. The reply gives the local path, the part id and its page and API links, so you can trace where the part came from. Catalog descriptions are treated as data, never as instructions.",
+          "permalink": "https://github.com/earthtojake/text-to-cad/tree/4099cac3ddc56a5e696138c53fd7bee685e8ad9d/skills/step-parts"
+        },
+        "tags": [
+          "category:science",
+          "type:tool",
+          "effect:local",
+          "needs:none",
+          "by:official",
+          "stack:step-parts",
+          "prototyping"
+        ]
+      }
+    },
+    {
+      "id": "earthtojake/text-to-cad/skills/sdf",
+      "name": "sdf",
+      "skills.sh": {
+        "url": "https://skills.sh/earthtojake/text-to-cad/sdf",
+        "installs": 11500,
+        "weeklyInstalls": [562, 500, 303, 324, 461, 582, 517, 845],
+        "firstSeen": "2026-05-13"
+      },
+      "skillMd": {
+        "version": "4099cac3ddc56a5e696138c53fd7bee685e8ad9d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes and validates SDFormat model and world files for Gazebo and other simulators, and shows them in text-to-cad's CAD Viewer.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need an SDFormat (.sdf) model or world for Gazebo or another simulator: links, joints, frames, inertials, sensors, lights, physics or plugins"
+            },
+            {
+              "label": "It does",
+              "text": "writes a design ledger of frames, units and assumptions, writes the XML by hand, then validates it with text-to-cad's cad sdf validate and Gazebo's gz sdf --check when installed"
+            },
+            {
+              "label": "You get",
+              "text": "a validated .sdf with the ledger as a comment at its top, a CAD Viewer link to review it, and a report of checks run, checks skipped, assumptions and risks"
+            },
+            {
+              "label": "Needs",
+              "text": "text-to-cad's cad command, which it installs with a curl-to-shell script if missing"
+            },
+            {
+              "label": "Not for",
+              "text": "signed-distance-field geometry, raw geometry generation, or MoveIt planning semantics (the srdf skill)"
+            }
+          ],
+          "text": "SDFormat is the XML format Gazebo and other simulators read to load robot models and worlds. The skill treats the .sdf file as the source of truth, written directly. Before writing poses, frames, joint axes, mesh scales, inertials, sensors or plugins, the agent records a design ledger, a comment block at the top of the file listing frames, units and assumptions, and it writes relative_to and expressed_in on every nontrivial pose and axis, since implicit frame defaults are the most common SDF failure. Numbers come from source data, drawings, documentation or measurements, and computed values such as inertia tensors from formulas or a throwaway script. SI units and SDFormat 1.12 are the defaults, and a robot that already has a URDF gets its SDF derived from it. Every file is checked with cad sdf validate, which also runs gz sdf --check when gz is on the path, followed by simulator smoke tests when available. The agent shows the result in the CAD Viewer and can render posed stills with cad snapshot; neither runs plugins or dynamics. It ends with a report of what was checked, what was skipped and the risks left.",
+          "permalink": "https://github.com/earthtojake/text-to-cad/tree/4099cac3ddc56a5e696138c53fd7bee685e8ad9d/skills/sdf"
+        },
+        "tags": [
+          "category:science",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:official",
+          "stack:text-to-cad",
+          "stack:gazebo",
+          "prototyping",
+          "verification"
+        ],
+        "note": "If the cad command is missing it installs text-to-cad with a curl-to-shell script."
+      }
+    },
+    {
+      "id": "earthtojake/text-to-cad/skills/urdf",
+      "name": "urdf",
+      "skills.sh": {
+        "url": "https://skills.sh/earthtojake/text-to-cad/urdf",
+        "installs": 11500,
+        "weeklyInstalls": [562, 502, 300, 318, 452, 580, 510, 839],
+        "firstSeen": "2026-04-22"
+      },
+      "skillMd": {
+        "version": "4099cac3ddc56a5e696138c53fd7bee685e8ad9d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes and validates URDF robot descriptions, with links, joints, limits, inertials and meshes, and reviews every joint in text-to-cad's CAD Viewer.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're creating, editing or debugging a .urdf robot description for RViz, robot_state_publisher, Gazebo, MoveIt, a robot driver or another simulator"
+            },
+            {
+              "label": "It does",
+              "text": "records frames, axes, units and assumptions in a ledger at the top of the file, writes the XML by hand, computes inertials, and validates with cad urdf validate"
+            },
+            {
+              "label": "You get",
+              "text": "a validated .urdf, a CAD Viewer link with every movable joint swept against the ledger, and a list of remaining assumptions and gaps"
+            },
+            {
+              "label": "Needs",
+              "text": "text-to-cad's cad command, which it installs with a curl-to-shell script if missing"
+            },
+            {
+              "label": "Not for",
+              "text": "MoveIt planning groups or path-planning semantics (the srdf skill), or the STEP, STL, 3MF and GLB files its meshes come from"
+            }
+          ],
+          "text": "URDF is the XML format ROS tools use to describe a robot's links and joints. The skill treats URDF work as kinematic modelling, where the risks are frame placement, joint-axis direction, units, mesh scale and inertia rather than XML syntax. The .urdf file is the source of truth: the agent writes it directly instead of building a generator, and before touching frames, origins, axes, limits or inertials it writes a design ledger, a comment block at the top of the file listing frames, joints, geometry, units and assumptions. Transforms, units and joint signs come from CAD, drawings, measurements or documented assumptions, never vague prose, and inertia tensors and centers of mass are computed with formulas or a throwaway script. Meshes are prepared first, one per link in that link's frame. cad urdf validate reports every finding in one pass, from tree topology and joint semantics to mesh references and inertial physics; the agent re-validates until it is clean, runs check_urdf when available, then shows the robot in the CAD Viewer and sweeps each movable joint. Validation alone can't prove a joint sits in the right place, which is why the ledger and the sweep exist.",
+          "permalink": "https://github.com/earthtojake/text-to-cad/tree/4099cac3ddc56a5e696138c53fd7bee685e8ad9d/skills/urdf"
+        },
+        "tags": [
+          "category:science",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:official",
+          "stack:text-to-cad",
+          "stack:ros",
+          "prototyping",
+          "verification"
+        ],
+        "note": "If the cad command is missing it installs text-to-cad with a curl-to-shell script."
+      }
+    },
+    {
+      "id": "earthtojake/text-to-cad/skills/srdf",
+      "name": "srdf",
+      "skills.sh": {
+        "url": "https://skills.sh/earthtojake/text-to-cad/srdf",
+        "installs": 11300,
+        "weeklyInstalls": [560, 496, 299, 317, 448, 576, 508, 838],
+        "firstSeen": "2026-05-13"
+      },
+      "skillMd": {
+        "version": "4099cac3ddc56a5e696138c53fd7bee685e8ad9d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes and validates MoveIt SRDF files, with planning groups, end effectors, named poses and disabled collisions, checked against their paired URDF.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're setting up MoveIt for a robot that already has a valid URDF and need its .srdf: planning groups, end effectors, named states and collision rules"
+            },
+            {
+              "label": "It does",
+              "text": "lists the URDF's links and joints first and copies every name from that table, writes the XML by hand, and validates it against the URDF with cad srdf validate"
+            },
+            {
+              "label": "You get",
+              "text": "a validated .srdf beside its URDF under the same robot name, a CAD Viewer link, and a report of assumptions and skipped checks"
+            },
+            {
+              "label": "Needs",
+              "text": "a valid URDF to pair with, and text-to-cad's cad command, which it installs with a curl-to-shell script if missing"
+            },
+            {
+              "label": "Not for",
+              "text": "the robot's physical structure (the urdf skill) or simulator descriptions (sdf)"
+            }
+          ],
+          "text": "SRDF is the file MoveIt reads on top of a URDF to know how to plan: which joints form an arm, where the tool is, named poses such as home, and which link pairs never need collision checks. The skill's premise is that the real failure is a plausible SRDF with the wrong group, tool link or collision list, not invalid XML, so nothing is typed from memory. The agent starts from a validated URDF, extracts its table of links and joints, and keeps a planning ledger as a comment in the file. Groups come from the URDF's topology, preferring chains for serial arms; end effectors are defined once group membership is known; group states use radians and metres within the URDF's limits; and disabled collisions need evidence such as adjacency or MoveIt Setup Assistant sampling. The .srdf sits in the URDF's folder under the same robot name, the only link between the two. cad srdf validate cross-checks every name, chain, state and collision pair against that URDF; the agent re-runs it after each fix, runs MoveIt smoke tests when available, and shows the robot in the CAD Viewer, though a visual review can't prove planning is correct.",
+          "permalink": "https://github.com/earthtojake/text-to-cad/tree/4099cac3ddc56a5e696138c53fd7bee685e8ad9d/skills/srdf"
+        },
+        "tags": [
+          "category:science",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:official",
+          "stack:text-to-cad",
+          "stack:moveit",
+          "stack:ros",
+          "prototyping",
+          "verification"
+        ],
+        "note": "If the cad command is missing it installs text-to-cad with a curl-to-shell script."
+      }
+    },
+    {
+      "id": "earthtojake/text-to-cad/skills/sendcutsend",
+      "name": "sendcutsend",
+      "skills.sh": {
+        "url": "https://skills.sh/earthtojake/text-to-cad/sendcutsend",
+        "installs": 11100,
+        "weeklyInstalls": [553, 485, 291, 313, 441, 565, 488, 826],
+        "firstSeen": "2026-05-13"
+      },
+      "skillMd": {
+        "version": "4099cac3ddc56a5e696138c53fd7bee685e8ad9d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Checks DXF and STEP files against SendCutSend's current specs before you order, and reports pass, fail or need-more-info for each cited rule.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're about to upload a DXF or STEP to SendCutSend for laser cutting, CNC routing, bending, tapping or another service and want it checked first"
+            },
+            {
+              "label": "It does",
+              "text": "fetches SendCutSend's current ordering guide, catalog and specs, measures the exact upload file, and compares only where both a cited rule and a measured fact exist"
+            },
+            {
+              "label": "You get",
+              "text": "a report marking each check pass, fail or need more info, each row linked to its rule source, with the next edits to make"
+            },
+            {
+              "label": "Asks",
+              "text": "for your material or SKU, thickness and services when they're missing or unclear, offering candidates with links and photos from SendCutSend's data"
+            },
+            {
+              "label": "Needs",
+              "text": "build123d and ezdxf in your project's Python environment; it uses text-to-cad's cad command for inspection when that's installed"
+            },
+            {
+              "label": "Also",
+              "text": "diagnostic images with callouts for failures and ambiguous geometry, when the agent has an image tool"
+            },
+            {
+              "label": "Not for",
+              "text": "other fabrication services, or ordering: it never calls a file ready unless every required check passes"
+            }
+          ],
+          "text": "SendCutSend is an online service that laser-cuts, CNC-routes, bends, taps and finishes parts from uploaded files, and this skill is a conservative preflight for it. It records the order intent first: file type, process, material or SKU, thickness, quantity, services, finish and hardware, and when that's unclear it lists candidates with links and photos from SendCutSend's data and asks you to choose. It fetches the ordering guide, catalog JSON and specs JSON fresh for each review, treats them as evidence rather than a stable API, and never turns missing or conflicting data into a pass or a fail. It inspects the exact file you'll upload, with text-to-cad's cad inspection where available and build123d or ezdxf for the rest: for DXF, units, closed profiles, duplicates, stray text, layers, and bend lines with the flange depth on both sides; for STEP, readability, solid bodies, units, thickness and bend radii. Missing or unexpected DXF units count as a scale error until you confirm them. Each finding is compared against the exact SKU's specs and cited by field path or guide section, or marked as direct file inspection.",
+          "permalink": "https://github.com/earthtojake/text-to-cad/tree/4099cac3ddc56a5e696138c53fd7bee685e8ad9d/skills/sendcutsend"
+        },
+        "tags": [
+          "category:science",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:sendcutsend",
+          "stack:build123d",
+          "verification",
+          "prototyping"
+        ]
+      }
+    },
+    {
+      "id": "earthtojake/text-to-cad/skills/gcode",
+      "name": "gcode",
+      "skills.sh": {
+        "url": "https://skills.sh/earthtojake/text-to-cad/gcode",
+        "installs": 10500,
+        "weeklyInstalls": [581, 512, 314, 319, 474, 589, 513, 853],
+        "firstSeen": "2026-05-27"
+      },
+      "skillMd": {
+        "version": "4099cac3ddc56a5e696138c53fd7bee685e8ad9d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Slices STL, 3MF or OBJ models into printer-ready G-code with OrcaSlicer, using your own or built-in presets for your printer.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you have an STL, 3MF or OBJ model and want G-code for an FDM printer such as a Prusa, Bambu Lab, Creality or Voron"
+            },
+            {
+              "label": "It does",
+              "text": "finds your printer, process and filament presets, writes them out complete with a bundled script, and slices headless with OrcaSlicer's command line, or opens the model in OrcaSlicer"
+            },
+            {
+              "label": "You get",
+              "text": "plain G-code and a sliced .gcode.3mf, with the printer, nozzle, filament and temperatures read back from the file and checked against your printer"
+            },
+            {
+              "label": "Needs",
+              "text": "OrcaSlicer installed; STEP files are exported to STL or 3MF first"
+            },
+            {
+              "label": "Never",
+              "text": "contacts a printer: a Bambu Lab print goes on through Bambu Connect, any other from your printer's app, web interface or SD card"
+            }
+          ],
+          "text": "OrcaSlicer is an open-source slicer with built-in profiles for most FDM printers. Its command line needs complete presets: it doesn't fill in a preset's parent settings, and it slices only with a process whose compatible printers name the printer. A bundled Python script with no dependencies handles that: it searches your own OrcaSlicer presets first, then the built-in profiles, lists matches for the printer, process and filament, and writes complete preset files. The agent never invents a preset, since a wrong bed size or temperature can damage a printer. It then slices, arranging the plate and exporting both the plain G-code and a sliced 3MF to an output folder; single settings such as layer height can be overridden on the command line. Before anyone prints, it checks the model fits the bed and reads the printer model, nozzle, filament type, temperatures and print time from the end of the G-code to confirm they match. If you'd rather pick presets and slice yourself, or no preset can be found, it opens the model in the OrcaSlicer app instead. A text-to-cad model is exported to 3MF first.",
+          "permalink": "https://github.com/earthtojake/text-to-cad/tree/4099cac3ddc56a5e696138c53fd7bee685e8ad9d/skills/gcode"
+        },
+        "tags": [
+          "category:science",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "stack:orcaslicer",
+          "prototyping"
+        ]
+      }
+    },
+    {
+      "id": "earthtojake/text-to-cad/skills/dxf",
+      "name": "dxf",
+      "skills.sh": {
+        "url": "https://skills.sh/earthtojake/text-to-cad/dxf",
+        "installs": 10200,
+        "weeklyInstalls": [607, 534, 330, 355, 492, 629, 563, 892],
+        "firstSeen": "2026-06-10"
+      },
+      "skillMd": {
+        "version": "4099cac3ddc56a5e696138c53fd7bee685e8ad9d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Generates and validates 2D DXF drawings for laser, plasma, waterjet or CNC cutting, drafted from scratch or flattened from 3D parts, with text-to-cad.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need a 2D profile, gasket, panel, template, flat pattern or cut layout as a DXF for laser, plasma, waterjet or CNC routing"
+            },
+            {
+              "label": "It does",
+              "text": "writes each drawing as a Python build123d function returning flat geometry, builds it with text-to-cad's cad run, and writes the DXF with cad export"
+            },
+            {
+              "label": "You get",
+              "text": "the drawing's Python script and a DXF with cut, bend or engrave layers and true arcs and circles, plus a viewer link when you ask to see it"
+            },
+            {
+              "label": "Checks",
+              "text": "units set, nothing drawn twice, no zero-length entities and every cut profile closed; a failed check refuses the file"
+            },
+            {
+              "label": "Needs",
+              "text": "text-to-cad's cad command, which it installs with a curl-to-shell script if missing"
+            },
+            {
+              "label": "Not for",
+              "text": "the 3D part itself (the cad skill) or a cutting service's order preflight (sendcutsend)"
+            }
+          ],
+          "text": "In text-to-cad a drawing is a model: a Python file whose parameterless @model function returns 2D build123d geometry on the z=0 plane, with its dimensions as named constants. One shape becomes the CUT layer, and a compound of labelled children gives one layer per label, for engraving or bend lines. There are three workflows: drafting from scratch, flattening a part the project already models by importing and calling it, and flattening a vendor STEP kept in a vendor folder. For CAD-backed parts the contours come from the real geometry through text-to-cad's flatten helpers, which also apply kerf compensation, rather than being redrawn. cad run builds the drawing in text-to-cad's server and writes nothing; cad export writes the DXF only after the drawing checks pass, and an unchanged drawing exports a byte-identical file. Text goes in as engraved outlines, never as DXF text entities, and the agent verifies the dimensions you asked for with ezdxf reads. The CAD Viewer opens the DXF as a 2D drawing with its layers, and cad snapshot renders it to a PNG. The reply lists the files, any viewer links, the checks that actually ran and its assumptions.",
+          "permalink": "https://github.com/earthtojake/text-to-cad/tree/4099cac3ddc56a5e696138c53fd7bee685e8ad9d/skills/dxf"
+        },
+        "tags": [
+          "category:science",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "by:official",
+          "stack:text-to-cad",
+          "stack:build123d",
+          "stack:python",
+          "prototyping"
+        ],
+        "note": "If the cad command is missing it installs text-to-cad with a curl-to-shell script."
+      }
+    },
+    {
+      "id": "earthtojake/text-to-cad/skills/bambu-labs",
+      "name": "bambu-labs",
+      "skills.sh": {
+        "url": "https://skills.sh/earthtojake/text-to-cad/bambu-labs",
+        "installs": 10200,
+        "weeklyInstalls": [559, 498, 301, 312, 449, 576, 514, 846],
+        "firstSeen": "2026-05-27"
+      },
+      "skillMd": {
+        "version": "4099cac3ddc56a5e696138c53fd7bee685e8ad9d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Opens sliced prints or models in Bambu Connect or Bambu Studio so you can start them on your Bambu Lab printer.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to print a sliced .gcode.3mf, a Bambu .gcode or an unsliced model on a Bambu Lab printer, over Bambu Cloud or LAN"
+            },
+            {
+              "label": "It does",
+              "text": "opens the file in Bambu Connect through its import link, or an unsliced model in Bambu Studio, which slices it and sends it itself"
+            },
+            {
+              "label": "You get",
+              "text": "the job loaded in the app, and a checklist before you press Print: printer, plate type, nozzle, filament and AMS mapping, a clear plate, someone nearby"
+            },
+            {
+              "label": "Never",
+              "text": "starts, pauses or cancels prints, reads printer status or asks for access codes; you pick the printer and start the print"
+            },
+            {
+              "label": "Needs",
+              "text": "Bambu Connect signed in to your Bambu Lab account on Windows or macOS, or Bambu Studio on Linux"
+            }
+          ],
+          "text": "Bambu Lab printers accept jobs from other software only through Bambu Connect, Bambu Lab's desktop app for third-party tools. The skill picks the handoff from what you have. A sliced .gcode.3mf, from OrcaSlicer's command line or an exported plate, opens in Bambu Connect; so does a plain .gcode sliced with the printer's Bambu profile, with Bambu Studio as the fallback if Bambu Connect refuses it. An unsliced .3mf, .stl or .step opens in Bambu Studio, which slices it and sends it to the printer. To load a file in Bambu Connect the agent builds a bambu-connect://import-file link with the file's percent-encoded path and a display name, and opens it with the system's open command. It then tells you what to check before pressing Print, and never reports a print as started, since it can't see the printer. Controlling prints directly is out of scope: Bambu Lab's firmware takes that from other software only through Bambu Connect, or in a LAN-only Developer Mode. A sliced .gcode.3mf can come from the repo's gcode skill, which slices with OrcaSlicer's command line.",
+          "permalink": "https://github.com/earthtojake/text-to-cad/tree/4099cac3ddc56a5e696138c53fd7bee685e8ad9d/skills/bambu-labs"
+        },
+        "tags": [
+          "category:science",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "needs:account",
+          "by:community",
+          "stack:bambu-lab",
+          "prototyping"
+        ],
+        "note": "Needs Bambu Connect signed in to your Bambu Lab account (Windows or macOS), or Bambu Studio on Linux; you start each print yourself."
       }
     }
   ]
