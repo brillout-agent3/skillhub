@@ -2732,6 +2732,23 @@
         "description": "Distributable agent skills for Composio developers: guides for building AI agents with Composio's Tool Router and Triggers.",
         "note": "Its README installs it as composiohq/skills; skills.sh serves that name as the same listing."
       }
+    },
+    {
+      "id": "affaan-m/ecc",
+      "stars": 298421,
+      "agentReview": {
+        "kind": "skills",
+        "description": "ECC, the agent harness operating system: agents, skills, hooks, rules and memory that make a coding agent plan, test, review, verify and learn."
+      }
+    },
+    {
+      "id": "mvanhorn/cli-printing-press",
+      "stars": 4923,
+      "agentReview": {
+        "kind": "project",
+        "description": "The Printing Press prints a token-efficient Go CLI, a Claude Code skill and an MCP server for any API or website.",
+        "note": "Its skills drive the cli-printing-press generator binary, which needs Go 1.26.10 or newer; install both."
+      }
     }
   ],
   "bundles": [
@@ -5917,6 +5934,112 @@
           {
             "label": "Windows PowerShell, without the plugin system: does the same as install.sh; read install.ps1 first",
             "command": "git clone --depth 1 https://github.com/AgriciDaniel/claude-seo.git; powershell -ExecutionPolicy Bypass -File claude-seo\\install.ps1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "mvanhorn/cli-printing-press",
+      "skew": 0,
+      "agentReview": {
+        "name": "CLI Printing Press",
+        "description": "Prints agent-friendly Go CLIs with MCP servers for any API or website, then polishes, scores and publishes them, amends or reprints published ones, and files retros on the press itself.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want an agent-friendly command-line tool and MCP server for an API or website, built, tested and optionally shared in a public library"
+            },
+            {
+              "label": "It does",
+              "text": "printing-press researches and generates the CLI, output-review and polish check and fix it, score grades it, and publish opens a PR to the public library"
+            },
+            {
+              "label": "You get",
+              "text": "a Go CLI with its README, SKILL.md and MCP server in your local press library, plus research and test-proof manuscripts"
+            },
+            {
+              "label": "After publishing",
+              "text": "amend patches a published CLI from your session's friction, import copies one back locally, reprint rebuilds it under a newer press, and retro reports press defects"
+            },
+            {
+              "label": "Needs",
+              "text": "the cli-printing-press binary, Go 1.26.10 or newer and subagents; the GitHub CLI to publish, amend, import or file retros"
+            },
+            {
+              "label": "Asks first",
+              "text": "before capturing a site in a browser, on the feature list, before amend's PR and before retro files anything; publishing needs a direct request from you"
+            },
+            {
+              "label": "Goes public",
+              "text": "publish and amend open PRs on mvanhorn/printing-press-library; retro files public issues on mvanhorn/cli-printing-press and uploads scrubbed zips to catbox.moe, a public file host"
+            }
+          ],
+          "text": "CLI Printing Press turns an API, a website or a captured HAR file into a Go command-line tool built for agents, with an MCP server, and its nine skills drive the cli-printing-press binary. printing-press runs the main loop: research, a feature list you approve, generation, shipcheck and live tests against the real API. Inside that run it calls printing-press-output-review, where a subagent judges sampled command output, and printing-press-polish, which fixes what the checks flag without asking and returns the ship, ship-with-gaps or hold verdict that decides whether the CLI reaches your library. printing-press-score regrades a CLI or compares two. printing-press-publish, only on your direct request, revalidates and live-tests the CLI, scans it for secrets and personal data, and opens a pull request to the public library. Later, printing-press-amend turns friction from your session, or your own asks, into a library PR; printing-press-import copies a published CLI back into your library; and printing-press-reprint regenerates one under the current press, importing it first if needed. printing-press-retro mines a run for defects in the press itself and, on Submit, files public issues on mvanhorn/cli-printing-press and uploads scrubbed zips to catbox.moe, a public file host.",
+          "permalink": "https://github.com/mvanhorn/cli-printing-press/tree/94ce80e35cbc516cbab1b80f54d96ca419958ca0"
+        },
+        "skills": [
+          {
+            "id": "mvanhorn/cli-printing-press/skills/printing-press",
+            "standalone": false,
+            "note": "Invokes printing-press-output-review and printing-press-polish on every run, so both must be installed alongside it."
+          },
+          {
+            "id": "mvanhorn/cli-printing-press/skills/printing-press-output-review",
+            "standalone": false,
+            "note": "Runs only when printing-press or printing-press-polish calls it on a CLI they're checking; it can't be invoked directly."
+          },
+          {
+            "id": "mvanhorn/cli-printing-press/skills/printing-press-polish",
+            "standalone": false,
+            "note": "Invokes printing-press-output-review during its checks, and works only on CLIs printing-press generated."
+          },
+          {
+            "id": "mvanhorn/cli-printing-press/skills/printing-press-score",
+            "standalone": true
+          },
+          {
+            "id": "mvanhorn/cli-printing-press/skills/printing-press-publish",
+            "standalone": false,
+            "note": "Publishes only CLIs printing-press generated, and applies the PII-scanning step of the secret-protection reference that ships with printing-press."
+          },
+          {
+            "id": "mvanhorn/cli-printing-press/skills/printing-press-amend",
+            "standalone": false,
+            "note": "Changes only CLIs already in the public Printing Press library, and scrubs credentials with the patterns in printing-press-retro's secret-scrubbing reference."
+          },
+          {
+            "id": "mvanhorn/cli-printing-press/skills/printing-press-import",
+            "standalone": false,
+            "note": "Fetches only CLIs the press printed and published, into the local press library that printing-press-polish, printing-press-publish and printing-press-reprint work on."
+          },
+          {
+            "id": "mvanhorn/cli-printing-press/skills/printing-press-reprint",
+            "standalone": false,
+            "note": "Hands every run to printing-press, and invokes printing-press-import first when the CLI isn't local."
+          },
+          {
+            "id": "mvanhorn/cli-printing-press/skills/printing-press-retro",
+            "standalone": false,
+            "note": "Only reviews printing-press runs, reading their manuscripts. On Submit it files public issues on mvanhorn/cli-printing-press and uploads scrubbed zips to catbox.moe, a public file host."
+          }
+        ],
+        "install": [
+          {
+            "label": "Claude Code: the installer runs go install for the binary, then adds all nine skills with the skills CLI; needs Go 1.26.10 or newer and Node",
+            "command": "curl -fsSL https://raw.githubusercontent.com/mvanhorn/cli-printing-press/main/scripts/install.sh | bash"
+          },
+          {
+            "label": "Codex: the same installer, adding the skills for Codex instead of Claude Code",
+            "command": "curl -fsSL https://raw.githubusercontent.com/mvanhorn/cli-printing-press/main/scripts/install.sh | bash -s -- --agent codex"
+          },
+          {
+            "label": "Claude Code, by hand: the binary with go install, then all nine skills with the skills CLI",
+            "command": "go install github.com/mvanhorn/cli-printing-press/v4/cmd/cli-printing-press@latest && npx -y skills@latest add mvanhorn/cli-printing-press/skills --skill '*' -g -a claude-code -y"
+          },
+          {
+            "label": "Codex, by hand: the binary with go install, then all nine skills with the skills CLI",
+            "command": "go install github.com/mvanhorn/cli-printing-press/v4/cmd/cli-printing-press@latest && npx -y skills@latest add mvanhorn/cli-printing-press/skills --skill '*' -g -a codex -y"
           }
         ]
       }
@@ -52283,6 +52406,944 @@
           "agent-workflows"
         ],
         "note": "The agent acts with your connected accounts, such as sending email or creating issues in your name."
+      }
+    },
+    {
+      "id": "affaan-m/ecc/skills/video-editing",
+      "name": "video-editing",
+      "skills.sh": {
+        "url": "https://skills.sh/affaan-m/ecc/video-editing",
+        "installs": 8100,
+        "weeklyInstalls": [347, 332, 299, 292, 502, 790, 810, 869],
+        "firstSeen": "2026-05-19"
+      },
+      "skillMd": {
+        "version": "d2ef2680594f9a17526a6e1a2e18b3d242c5d17b",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Edits real footage through a layered pipeline: transcript-based planning, FFmpeg cuts, Remotion overlays, selective AI voice and music, then manual polish.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you have raw recordings to cut into a vlog, tutorial, demo or short clips, rather than a video to generate from a prompt"
+            },
+            {
+              "label": "It does",
+              "text": "has the agent plan cuts from the transcript, then script FFmpeg trims, Remotion overlays and only the AI assets the footage lacks"
+            },
+            {
+              "label": "You get",
+              "text": "an edit decision list, FFmpeg commands, Remotion compositions and assembled or reframed cuts, ready for a final human pass in Descript or CapCut"
+            },
+            {
+              "label": "Unlike",
+              "text": "prompt-to-video generators: it edits footage you already have and leaves pacing, captions, color and the final mix to you"
+            },
+            {
+              "label": "Needs",
+              "text": "FFmpeg, and Node for Remotion; ElevenLabs or fal.ai keys only for generated voice, music or visuals"
+            }
+          ],
+          "text": "ECC's video skill treats AI as a way to compress real footage, not to generate it. It lays out six layers, each with one job. You capture with Screen Studio or a camera. The agent organizes: it transcribes, finds the strongest segments, dead air and repeated takes, writes an edit decision list of timestamps, and scaffolds the code. FFmpeg does the deterministic work: cuts by timestamp or from a cuts file, concatenation, proxies, audio extraction, loudness normalization, and scene and silence detection for auto-cuts. Remotion handles overlays, titles, lower thirds, animated stats and reusable scenes. Generated assets come last and only where footage is missing: ElevenLabs voiceover, music, sound effects or b-roll through the fal-ai-media skill, or VideoDB when it's configured. A person then sets pacing, cleans captions, grades color and mixes audio in Descript or CapCut. It also gives FFmpeg crops from 16:9 to 9:16 and 1:1, and asks the agent to save and verify a project checkpoint before and after changing a live editor or DAW project.",
+          "permalink": "https://github.com/affaan-m/ecc/tree/d2ef2680594f9a17526a6e1a2e18b3d242c5d17b/skills/video-editing"
+        },
+        "tags": [
+          "category:media",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "stack:ffmpeg",
+          "stack:remotion",
+          "stack:elevenlabs",
+          "video",
+          "audio"
+        ],
+        "note": "Cutting and reframing need FFmpeg, and Remotion needs Node. Generated voiceover, music or b-roll need ElevenLabs or fal.ai keys, fal.ai through the separate fal-ai-media skill."
+      }
+    },
+    {
+      "id": "affaan-m/ecc/skills/security-review",
+      "name": "security-review",
+      "skills.sh": {
+        "url": "https://skills.sh/affaan-m/ecc/security-review",
+        "installs": 7300,
+        "weeklyInstalls": [380, 381, 271, 264, 332, 526, 540, 740],
+        "firstSeen": "2026-05-19"
+      },
+      "skillMd": {
+        "version": "d2ef2680594f9a17526a6e1a2e18b3d242c5d17b",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Applies a web-app security checklist with code patterns for secrets, input validation, SQL injection, auth, XSS, CSRF, rate limiting and data exposure.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're adding authentication, user input, secrets, API endpoints or payment features to a web app"
+            },
+            {
+              "label": "It does",
+              "text": "walks ten areas, from secrets and input validation to CSRF, rate limiting and dependencies, each with wrong and right code and checkboxes"
+            },
+            {
+              "label": "You get",
+              "text": "code written to the checklist, plus a 17-item pre-deployment checklist to clear before shipping"
+            },
+            {
+              "label": "Unlike",
+              "text": "getsentry's security-review, which hunts for exploitable bugs in existing code; this is a checklist applied while you build"
+            },
+            {
+              "label": "Examples in",
+              "text": "TypeScript with Next.js, Supabase, Zod, DOMPurify and express-rate-limit, plus a Solana wallet section"
+            }
+          ],
+          "text": "A checklist skill from ECC that comes into play when the agent touches security-sensitive code. Each of its ten sections pairs a FAIL and a PASS example with verification checkboxes: secrets in environment variables and out of git history; schema validation of every input and file upload; parameterized queries instead of string-built SQL; tokens in httpOnly cookies, authorization checks before sensitive operations and Supabase row level security; user HTML sanitized with DOMPurify and a strict Content Security Policy without unsafe-inline; CSRF tokens and SameSite cookies; rate limits, stricter on expensive endpoints; no passwords or card data in logs and no stack traces in error responses; Solana wallet-signature and transaction checks; and npm audit, committed lock files and Dependabot. It adds example tests for authentication, authorization, input validation and rate limiting, and a pre-deployment checklist that also covers HTTPS, security headers and CORS. It runs no scanner or tool of its own.",
+          "permalink": "https://github.com/affaan-m/ecc/tree/d2ef2680594f9a17526a6e1a2e18b3d242c5d17b/skills/security-review"
+        },
+        "tags": [
+          "category:security",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:typescript",
+          "stack:nextjs",
+          "stack:supabase",
+          "security",
+          "auth"
+        ]
+      }
+    },
+    {
+      "id": "yuan1z0825/nature-skills/skills/nature-literature-pipeline",
+      "name": "nature-literature-pipeline",
+      "skills.sh": {
+        "url": "https://skills.sh/yuan1z0825/nature-skills/nature-literature-pipeline",
+        "installs": 12500,
+        "weeklyInstalls": [964, 936, 713, 487, 643, 625, 556, 419],
+        "firstSeen": "2026-06-30"
+      },
+      "skillMd": {
+        "version": "d774add241c65e89ed17a4da573b472b0972fd42",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Runs a daily literature search that scores papers on six dimensions, reads the best, posts a digest to chat and archives notes.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want new papers in your field found, ranked and summarized for you every day"
+            },
+            {
+              "label": "It does",
+              "text": "on a schedule, pulls candidates from arXiv, OpenAlex, Crossref and Semantic Scholar, scores them on six weighted dimensions and reads the top few"
+            },
+            {
+              "label": "You get",
+              "text": "a digest in Feishu, Telegram or another chat, with rank, score, methods, key results and commentary, plus de-duplicated notes in a local archive"
+            },
+            {
+              "label": "Unlike",
+              "text": "nature-academic-search, which searches once when you ask; this keeps watching a topic"
+            },
+            {
+              "label": "Needs",
+              "text": "an agent scheduler, such as Hermes cron, on a machine that stays on, and a messaging target"
+            }
+          ],
+          "text": "An automated literature-monitoring pipeline from the Nature skills repo. You tell the agent your research area, keywords, delivery target and archive path, then ask it to set up a daily job, such as 08:30 Beijing time with 30 candidates and the top 5 delivered. Each run searches arXiv, OpenAlex, Crossref and Semantic Scholar, falling back to the others when Semantic Scholar is down. A six-dimension score filters the candidates: topic match weighs 35, methodology 20, journal quality 15, and network relevance, applied value and archival value 10 each, with each dimension capped and totals recalculated. The top papers are read at full-text, abstract or metadata level, and each is tagged with which. The digest, whose template targets a Feishu group with Chinese field labels, gives rank, title, journal, score, a one-line takeaway, methods, key results and commentary. Archiving de-duplicates by DOI, arXiv and OpenAlex IDs, sorts papers into tiers you define and writes notes to a raw/ folder only, never to your wiki without approval. Keywords, weights, tiers, target and path all come from its config template.",
+          "permalink": "https://github.com/yuan1z0825/nature-skills/tree/d774add241c65e89ed17a4da573b472b0972fd42/skills/nature-literature-pipeline"
+        },
+        "tags": [
+          "category:science",
+          "type:workflow",
+          "effect:remote",
+          "needs:account",
+          "by:community",
+          "stack:arxiv",
+          "stack:openalex",
+          "stack:crossref",
+          "stack:semantic-scholar",
+          "stack:lark",
+          "stack:telegram",
+          "stack:hermes",
+          "research",
+          "messaging"
+        ],
+        "note": "Daily runs depend on your agent's scheduler, such as Hermes cron, which runs locally, so the machine must stay on. Delivery needs a Feishu, Telegram or other messaging channel set up."
+      }
+    },
+    {
+      "id": "yuan1z0825/nature-skills/skills/nature-paper-card",
+      "name": "nature-paper-card",
+      "skills.sh": {
+        "url": "https://skills.sh/yuan1z0825/nature-skills/nature-paper-card",
+        "installs": 11200,
+        "weeklyInstalls": [973, 986, 759, 511, 654, 651, 614, 464],
+        "firstSeen": "2026-07-25"
+      },
+      "skillMd": {
+        "version": "d774add241c65e89ed17a4da573b472b0972fd42",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds an evidence-grounded 16-section deep-reading card for one scientific paper: methods, claim-evidence chains, limitations and testable research ideas.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to understand one paper's method, evidence and limits in depth, not translate it or review it formally"
+            },
+            {
+              "label": "It does",
+              "text": "prepares the source with a bundled script, picks the paper type, inventories figures, experiments and limitations, then drafts and audits the card"
+            },
+            {
+              "label": "You get",
+              "text": "paper-card.md with 16 fixed sections, from research question and method breakdown to evidence chain, critical analysis and research ideas, each point tied to its source"
+            },
+            {
+              "label": "Unlike",
+              "text": "nature-reader, which builds a full bilingual reader of the paper; this card can start from a nature-reader source map"
+            },
+            {
+              "label": "Needs",
+              "text": "Python for its scripts, and the repo's nature-shared package"
+            }
+          ],
+          "text": "A deep-reading skill from the Nature skills repo. It first works out what it has: a full paper, text without reliable layout, only an abstract, or an existing nature-reader artifact, and makes a visibly partial card when material is missing. For a PDF or source map it must run its bundled preparation script, which sets one of three grounding modes: page-grounded, with real PDF page numbers; structure-grounded, citing sections, figures and tables; or source-limited, for an abstract or excerpt. It never invents page numbers. It picks one paper type, methods, discovery, resource, clinical, materials or review, with a second lens only for a genuine hybrid, and applies that type's checks. Before drafting it inventories the metadata, contribution, method components, every main figure and table, experiments, baselines and author-stated limitations, and links each central claim to its evidence. Web search is used only for background, knowledge connections, bibliographic checks or a novelty check. Unsupported sections say Not applicable or Not assessable, and research ideas are framed as hypotheses. A bundled auditor checks the card before delivery, and its errors block it. The card follows your language.",
+          "permalink": "https://github.com/yuan1z0825/nature-skills/tree/d774add241c65e89ed17a4da573b472b0972fd42/skills/nature-paper-card"
+        },
+        "tags": [
+          "category:science",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "stack:python",
+          "research",
+          "pdf"
+        ],
+        "note": "Loads a shared terminology ledger from the repo's nature-shared support package; install it alongside. Its bundled preparation and audit scripts need Python."
+      }
+    },
+    {
+      "id": "yuan1z0825/nature-skills/skills/nature-image2ppt",
+      "name": "nature-image2ppt",
+      "skills.sh": {
+        "url": "https://skills.sh/yuan1z0825/nature-skills/nature-image2ppt",
+        "installs": 8000,
+        "weeklyInstalls": [961, 958, 728, 483, 642, 637, 586, 428],
+        "firstSeen": "2026-08-18"
+      },
+      "skillMd": {
+        "version": "d774add241c65e89ed17a4da573b472b0972fd42",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Rebuilds slide images, screenshots, scanned PDFs or image-only PPTX files as PowerPoint decks with editable shapes, text and arrows, checked by rendered QA.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you have slides only as images, screenshots, a scanned PDF or an image-only PPTX and need a deck you can edit"
+            },
+            {
+              "label": "It does",
+              "text": "plans each structured page as 3-5 regions, rebuilds measurable boxes, text, connectors and arrows as native PowerPoint objects, and keeps only complex parts as images"
+            },
+            {
+              "label": "You get",
+              "text": "a final PPTX with the source's speaker notes preserved, a QA report, and a list of visuals still left as replaceable bitmaps"
+            },
+            {
+              "label": "Unlike",
+              "text": "nature-paper2ppt, which authors a new deck from a paper; this reconstructs one you already have"
+            },
+            {
+              "label": "Runs",
+              "text": "through its own bundled Python CLI, with pages dispatched to parallel workers when there are several"
+            },
+            {
+              "label": "Needs",
+              "text": "Python 3.10 or newer, and LibreOffice on Linux or macOS or PowerPoint on Windows for its rendered checks; a PaddleOCR token and an image model are optional"
+            }
+          ],
+          "text": "A self-contained reconstruction tool from the Nature skills repo, run entirely through its bundled Python CLI and its own reference contracts. A doctor check comes first and must pass. OCR uses Baidu AI Studio's PaddleOCR when a token is configured; otherwise a local fallback measures where text sits without recognizing the characters, and it tells you so. prepare sets up one run with a job record per page; the agent then reconstructs a single page itself or dispatches page workers for a multi-page deck. Structured pages are planned as semantic regions. Measured circles, cards, lines and connectors become native objects, an arrow is always one connector or one Arrow shape, and only bounded complex subparts become transparent images, made with the agent's own image tool or, failing that, Codex OAuth or an OpenAI-compatible image API. A formula that fails to render fails the page unless you approve that exact omission. Every page is built, rendered and compared with its source in a visual-review record before it's accepted. Finalize rebuilds the deck from the page records, restores the speaker notes and reruns QA, and it won't call the deck complete while any check is pending or failed.",
+          "permalink": "https://github.com/yuan1z0825/nature-skills/tree/d774add241c65e89ed17a4da573b472b0972fd42/skills/nature-image2ppt"
+        },
+        "tags": [
+          "category:documents",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "needs:subagents",
+          "by:community",
+          "stack:python",
+          "stack:microsoft-office",
+          "slides",
+          "diagrams"
+        ],
+        "note": "Needs Python 3.10+ with its bundled requirements, and LibreOffice on Linux or macOS, or PowerPoint on Windows, for rendered checks; formula pages need a TeX engine. OCR uses an optional Baidu AI Studio PaddleOCR token, and image parts it redraws use the agent's image tool, Codex OAuth or an OpenAI-compatible image API."
+      }
+    },
+    {
+      "id": "getsentry/skills/skills/agents-md",
+      "name": "agents-md",
+      "skills.sh": {
+        "url": "https://skills.sh/getsentry/skills/agents-md",
+        "installs": 7500,
+        "weeklyInstalls": [247, 303, 254, 511, 209, 257, 206, 217],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "e94f22214528d69899d09c627b3315ddc3544816",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes or updates a repo's AGENTS.md as a short, reference-backed file of verified commands and conventions, with CLAUDE.md symlinked to it.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're creating or updating a repo's AGENTS.md or CLAUDE.md and want it short and accurate"
+            },
+            {
+              "label": "It does",
+              "text": "inspects lock files, scripts, CI, docs and code conventions first, picks root or nested scope, writes the smallest useful file and checks every path and command exists"
+            },
+            {
+              "label": "You get",
+              "text": "an AGENTS.md under 60 lines, never over 100, of command tables, key conventions and pointers to existing docs, with CLAUDE.md as a symlink rather than a copy"
+            },
+            {
+              "label": "Leaves out",
+              "text": "intros, rationale, quality slogans, restated linter config, lists of installed skills, and content copied from the README or CONTRIBUTING"
+            },
+            {
+              "label": "Unlike",
+              "text": "Anthropic's claude-md-improver, which grades existing CLAUDE.md files against a rubric; this writes a minimal file from what the repo shows"
+            }
+          ],
+          "text": "Sentry's skill for the instruction files coding agents read. Before writing, the agent inspects the package manager's lock files and manifests, the commands in package.json, Makefiles, task runners and CI workflows, the README, CONTRIBUTING, docs, specs and security policy, and the code's own conventions, generated files and legacy areas. Repo-wide defaults go in a root AGENTS.md; a nested file is added only where a subtree has different commands or rules, and stays shorter than the root. When a Claude-compatible entry point is needed, CLAUDE.md becomes a symlink, never a second copy that can drift. The file keeps only sections that add non-obvious value: the package manager, a table of file-scoped test and lint commands, a table naming the exact files for setup, architecture and policies, key conventions, and a commit-attribution line for AI commits. Its writing rules favor bullets and tables, one rule per bullet, repo-relative paths, and file-scoped commands over full builds.",
+          "permalink": "https://github.com/getsentry/skills/tree/e94f22214528d69899d09c627b3315ddc3544816/skills/agents-md"
+        },
+        "tags": [
+          "category:agents",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:official",
+          "memory",
+          "docs-writing"
+        ]
+      }
+    },
+    {
+      "id": "getsentry/skills/skills/find-bugs",
+      "name": "find-bugs",
+      "skills.sh": {
+        "url": "https://skills.sh/getsentry/skills/find-bugs",
+        "installs": 7300,
+        "weeklyInstalls": [137, 124, 334, 538, 132, 201, 156, 182],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "e94f22214528d69899d09c627b3315ddc3544816",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Reviews every changed line on your branch for security vulnerabilities, bugs and quality issues, then reports evidenced findings by severity without changing code.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want the changes on your current branch checked for bugs and security holes before you merge"
+            },
+            {
+              "label": "It does",
+              "text": "reads the full diff against the default branch, maps each file's inputs, queries, auth checks and external calls, then runs an 11-item security checklist on every file"
+            },
+            {
+              "label": "You get",
+              "text": "findings ranked security first, each with file and line, severity, problem, evidence and a concrete fix, or a plain statement that nothing significant turned up"
+            },
+            {
+              "label": "Doesn't",
+              "text": "edit code or report style and formatting issues; you decide what to fix"
+            },
+            {
+              "label": "Unlike",
+              "text": "Sentry's security-review, which researches the whole codebase for exploitable vulnerabilities only; this covers just the branch diff, bugs and quality included"
+            },
+            {
+              "label": "Needs",
+              "text": "git and the GitHub CLI, which it uses to find the default branch"
+            }
+          ],
+          "text": "A five-phase branch review from Sentry. It gets the whole diff from the default branch to HEAD, reading changed files one by one if the output is truncated, and lists every modified file. It then maps each file's attack surface: user inputs, database queries, authentication and authorization checks, session and state operations, external calls and cryptography. Every file goes through the same checklist: injection, XSS, authentication, authorization and IDOR, CSRF, race conditions, sessions, cryptography, information disclosure, denial of service and business logic. Each candidate issue is then verified: is it handled elsewhere in the change, does a test cover it, does the surrounding code confirm it. Before reporting, the agent must list every file it read in full, the result of each checklist item and anything it couldn't verify. Findings put security vulnerabilities before bugs before code quality, skip style, cite OWASP or RFCs where relevant, and it is told not to invent issues when there are none.",
+          "permalink": "https://github.com/getsentry/skills/tree/e94f22214528d69899d09c627b3315ddc3544816/skills/find-bugs"
+        },
+        "tags": [
+          "category:debugging",
+          "category:security",
+          "type:workflow",
+          "effect:none",
+          "needs:cli",
+          "by:official",
+          "stack:git",
+          "stack:github",
+          "code-review",
+          "security"
+        ]
+      }
+    },
+    {
+      "id": "mvanhorn/cli-printing-press/skills/printing-press",
+      "name": "printing-press",
+      "skills.sh": {
+        "url": "https://skills.sh/mvanhorn/cli-printing-press/printing-press",
+        "installs": 7800,
+        "weeklyInstalls": [194, 157, 135, 180, 154, 169, 183, 164],
+        "firstSeen": "2026-05-07"
+      },
+      "skillMd": {
+        "version": "94ce80e35cbc516cbab1b80f54d96ca419958ca0",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Researches an API, then generates, live-tests and polishes a Go CLI and MCP server for it from a spec, HAR file or browser capture.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want an agent-friendly command-line tool for an API or website, whether or not it publishes a spec"
+            },
+            {
+              "label": "It does",
+              "text": "researches the API and competing CLIs and MCP servers, has you approve a feature list, generates and builds the Go code, then runs shipcheck and live tests"
+            },
+            {
+              "label": "You get",
+              "text": "a Go CLI with its README, SKILL.md and MCP server in your local press library, plus manuscripts: research brief, feature manifest, build log and test proofs"
+            },
+            {
+              "label": "Runs",
+              "text": "21 phases, each read from its own file and logged in a receipt ledger; a run takes 30 to 60 minutes"
+            },
+            {
+              "label": "Needs",
+              "text": "the cli-printing-press binary and Go, and subagents; a browser only if you approve capturing a site"
+            },
+            {
+              "label": "Asks first",
+              "text": "before browser capture and before building the feature list; publishing is left to printing-press-publish"
+            }
+          ],
+          "text": "The main skill of CLI Printing Press, which drives its cli-printing-press generator. A preflight checks that the binary is installed and current, then it resolves the target from a name, URL, spec or HAR file and reuses earlier research when it's good enough. It writes a research brief and, when the docs fall short, offers to capture the site's hidden API in a browser, only with your consent, through browser-use, agent-browser, your Chrome via its extension, or a HAR you export. An absorb manifest then lists every feature of competing CLIs, MCP servers and skills, plus new ones a subagent proposes, for you to approve. It generates the Go code, builds every approved feature, runs shipcheck (dogfood, verify, skill and narrative checks and a scorecard), reviews the generated SKILL.md and README, has printing-press-output-review judge sampled command output, and runs a live test matrix against the real API, mandatory when you have a key. Every run calls printing-press-polish, then promotes the CLI to your library and archives the manuscripts. Secret values must never reach code, proofs or anything committed. The final menu offers publishing through printing-press-publish, another polish, or stopping.",
+          "permalink": "https://github.com/mvanhorn/cli-printing-press/tree/94ce80e35cbc516cbab1b80f54d96ca419958ca0/skills/printing-press"
+        },
+        "tags": [
+          "category:agents",
+          "category:engineering",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "needs:subagents",
+          "by:official",
+          "stack:go",
+          "stack:mcp",
+          "stack:openapi",
+          "agent-development",
+          "implementation",
+          "testing"
+        ],
+        "note": "Needs the cli-printing-press binary and Go; a run takes 30 to 60 minutes. Capturing a site's traffic asks first and may install browser-use or agent-browser or drive your logged-in Chrome. Live tests use your API key when you give one. Every run invokes printing-press-polish, so install it alongside."
+      }
+    },
+    {
+      "id": "mvanhorn/cli-printing-press/skills/printing-press-publish",
+      "name": "printing-press-publish",
+      "skills.sh": {
+        "url": "https://skills.sh/mvanhorn/cli-printing-press/printing-press-publish",
+        "installs": 7000,
+        "weeklyInstalls": [151, 116, 137, 126, 147, 130, 121, 118],
+        "firstSeen": "2026-05-07"
+      },
+      "skillMd": {
+        "version": "94ce80e35cbc516cbab1b80f54d96ca419958ca0",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Validates, live-tests and packages a Printing Press CLI, then opens a pull request to the public printing-press-library and drives it to green review.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a CLI you printed with printing-press added to the public Printing Press library"
+            },
+            {
+              "label": "It does",
+              "text": "validates the CLI (build, vet, govulncheck, manifest), reruns its live test against the real API, scans for secrets and personal data, then packages it and opens the PR"
+            },
+            {
+              "label": "You get",
+              "text": "an open pull request on mvanhorn/printing-press-library, driven through Greptile review and CI until stably green; it never merges"
+            },
+            {
+              "label": "Runs",
+              "text": "only on a direct request from you, never chained from polish's menu"
+            },
+            {
+              "label": "Also does",
+              "text": "a journal-only PR recording an API the press couldn't print in the library's blocked-apis.json, which printing-press's hold menu can also start"
+            },
+            {
+              "label": "Needs",
+              "text": "the GitHub CLI signed in, plus the cli-printing-press binary and Go"
+            }
+          ],
+          "text": "The last step of CLI Printing Press. It finds which CLI in your local library you mean, confirms its category, and runs the binary's publish validation: manifest provenance, live-test proof, go mod tidy, govulncheck, go vet, build, --help and --version, stopping on any failure. It won't rely on an old live test: it reruns the end-to-end gate against the real API on the exact tree it will publish, and asks before running destructive commands again. It then prepares a managed clone of the public library, forking it when needed, stages the CLI while keeping the library's existing release history, and scans for vendor tokens, your exact API key and personal data, redacting obvious tokens and asking about the rest. It never edits the registry, catalog or skill files the library regenerates after merge. Once the PR is open, it reads Greptile's summary and inline comments, fixes or answers every finding, waits for CI, and hands back without merging, since maintainers merge by hand. With --blocked-api-journal it instead adds a held API to blocked-apis.json.",
+          "permalink": "https://github.com/mvanhorn/cli-printing-press/tree/94ce80e35cbc516cbab1b80f54d96ca419958ca0/skills/printing-press-publish"
+        },
+        "tags": [
+          "category:engineering",
+          "type:workflow",
+          "effect:remote",
+          "needs:cli",
+          "by:official",
+          "stack:github",
+          "stack:go",
+          "git",
+          "ci",
+          "code-review"
+        ],
+        "note": "Opens or updates a public pull request on mvanhorn/printing-press-library, forking it when you lack push access; needs the GitHub CLI signed in, the cli-printing-press binary and Go. Works only on CLIs printed by printing-press."
+      }
+    },
+    {
+      "id": "mvanhorn/cli-printing-press/skills/printing-press-polish",
+      "name": "printing-press-polish",
+      "skills.sh": {
+        "url": "https://skills.sh/mvanhorn/cli-printing-press/printing-press-polish",
+        "installs": 7000,
+        "weeklyInstalls": [158, 145, 96, 111, 128, 129, 152, 149],
+        "firstSeen": "2026-05-07"
+      },
+      "skillMd": {
+        "version": "94ce80e35cbc516cbab1b80f54d96ca419958ca0",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Runs diagnostics on a Printing Press CLI, fixes what they flag, and reports the before-and-after scores with a ship verdict.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a CLI printed by printing-press needs to pass verification and be publish-ready, after a run or on any CLI in your press library"
+            },
+            {
+              "label": "It does",
+              "text": "runs dogfood, verify, workflow and skill checks, a scorecard, go vet and gosec, then fixes issues in priority order, security findings first"
+            },
+            {
+              "label": "You get",
+              "text": "a before-and-after table and a ship, ship-with-gaps or hold verdict, with a Known Gaps section in the README when gaps remain"
+            },
+            {
+              "label": "Runs",
+              "text": "on its own without asking before each fix, only inside the CLI's folder, at most three passes"
+            },
+            {
+              "label": "Unlike",
+              "text": "printing-press-retro, which files findings against the Printing Press itself; polish fixes the printed CLI"
+            },
+            {
+              "label": "Publishing",
+              "text": "when you run it directly, it offers a publish command for your next message, never publishing in the same turn"
+            }
+          ],
+          "text": "The quality pass of CLI Printing Press, which the printing-press skill runs on every generation and you can run yourself on a CLI in your library. It runs in a forked context, so its diagnostic noise stays out of the conversation that called it. First it compares your copy with any local clone of the public library and asks whether to sync when they differ. It builds the CLI, runs the press's dogfood, verify, workflow-verify, verify-skill and scorecard checks plus go vet and gosec, and asks the repo's printing-press-output-review skill for a plausibility review of the output. It then fixes issues in priority order: security static-analysis findings, verify failures, dead code, the CLI description and README, mismatches between the CLI and its SKILL.md, remaining dogfood issues, MCP tool quality and a customer-data check. It adds no features and doesn't touch the generator. A ship verdict needs at least 80% on verify and 75 on the scorecard with every hard gate clear; ship-with-gaps needs 65 and 65 and a Known Gaps section in the README. It is told never to add fake commands, tests or boilerplate just to raise a score.",
+          "permalink": "https://github.com/mvanhorn/cli-printing-press/tree/94ce80e35cbc516cbab1b80f54d96ca419958ca0/skills/printing-press-polish"
+        },
+        "tags": [
+          "category:engineering",
+          "category:debugging",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:official",
+          "stack:go",
+          "code-quality",
+          "verification",
+          "testing"
+        ],
+        "note": "Works only on CLIs printed by printing-press, with its cli-printing-press binary and Go. It fixes without asking, only inside the CLI's folder."
+      }
+    },
+    {
+      "id": "mvanhorn/cli-printing-press/skills/printing-press-import",
+      "name": "printing-press-import",
+      "skills.sh": {
+        "url": "https://skills.sh/mvanhorn/cli-printing-press/printing-press-import",
+        "installs": 6600,
+        "weeklyInstalls": [118, 101, 79, 108, 112, 130, 124, 107],
+        "firstSeen": "2026-05-07"
+      },
+      "skillMd": {
+        "version": "94ce80e35cbc516cbab1b80f54d96ca419958ca0",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Copies a published Printing Press CLI from the public library into your local press library, ready to polish or publish again.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "the public Printing Press library has a CLI you don't have locally, or your local copy is broken, lost or out of sync"
+            },
+            {
+              "label": "It does",
+              "text": "finds the CLI in the library's registry, fetches it with its manuscripts, reverts the module path publishing rewrote, and places it in your press library"
+            },
+            {
+              "label": "You get",
+              "text": "a local copy in the form the generator would produce, checked to build, plus a backup zip of anything it replaced"
+            },
+            {
+              "label": "Asks first",
+              "text": "before replacing a local copy; it stops when yours has newer work that isn't published"
+            },
+            {
+              "label": "Needs",
+              "text": "Go 1.26.10 or newer, jq and the GitHub CLI"
+            }
+          ],
+          "text": "CLI Printing Press keeps your working copies in a local press library and published CLIs in the public mvanhorn/printing-press-library. This skill brings one back from the public side. It matches your argument, an API slug, a brand name like cal.com, an old -pp-cli name or something close, against the public registry, and asks you to pick when several match. If you already have a copy, it compares the run IDs and generation dates of both: for the same run or a newer public copy it asks before replacing yours; when yours is newer it stops, since you likely want to publish it first. It then fetches the CLI from GitHub, or from a local clone with --from-clone, zips a backup of whatever it would replace, reverses the publish step's module path rewrites and moves the result into place. Last, it checks that go.mod uses the local module path, that no source still points at the public one and that go build passes, and reports the run ID, manuscripts, backup and build status. When you came to polish a published CLI, it points you to printing-press-polish next.",
+          "permalink": "https://github.com/mvanhorn/cli-printing-press/tree/94ce80e35cbc516cbab1b80f54d96ca419958ca0/skills/printing-press-import"
+        },
+        "tags": [
+          "category:engineering",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:official",
+          "stack:go",
+          "stack:github",
+          "verification"
+        ],
+        "note": "Needs Go 1.26.10 or newer, jq and the GitHub CLI signed in. Works only on CLIs in the public Printing Press library."
+      }
+    },
+    {
+      "id": "mvanhorn/cli-printing-press/skills/printing-press-retro",
+      "name": "printing-press-retro",
+      "skills.sh": {
+        "url": "https://skills.sh/mvanhorn/cli-printing-press/printing-press-retro",
+        "installs": 6600,
+        "weeklyInstalls": [155, 110, 87, 106, 94, 112, 102, 85],
+        "firstSeen": "2026-05-07"
+      },
+      "skillMd": {
+        "version": "94ce80e35cbc516cbab1b80f54d96ca419958ca0",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Reviews a Printing Press run for defects in the press itself, writes a scrubbed retro, and files the serious ones as GitHub issues.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a Printing Press run hit friction and you want the press itself fixed, not only the CLI it printed"
+            },
+            {
+              "label": "It does",
+              "text": "reads the run's manuscripts and the session, drops one-off, per-CLI and vendor-quirk noise, and keeps defects that would recur across CLIs"
+            },
+            {
+              "label": "You get",
+              "text": "a scrubbed retro document in the run's manuscripts and /tmp, and public GitHub issues on mvanhorn/cli-printing-press, only for P1 or P2 defects"
+            },
+            {
+              "label": "Asks first",
+              "text": "before filing issues or uploading to catbox.moe, a public file host; you can keep the retro local instead"
+            },
+            {
+              "label": "Unlike",
+              "text": "printing-press-polish, which fixes the printed CLI; retro never edits the CLI or the press's source"
+            },
+            {
+              "label": "Needs",
+              "text": "the GitHub CLI; not the cli-printing-press binary"
+            }
+          ],
+          "text": "The feedback loop of CLI Printing Press, for the people who change the press: its generator, scorer, skills and binary. It picks the run from your manuscripts, gathers the research brief, absorb manifest, shipcheck proof, logs and generated CLI, and mines the session, live or from its saved transcript, for errors, manual edits, hand-built features, recurring friction and score penalties, checking penalties against the scorer's code first. Most candidates are meant to die in triage: iteration noise, fixes for one CLI, vendor API quirks, one-off observations and repeats of findings two earlier retros raised. A survivor must be evidenced in three named APIs and is ranked P1 (the printed CLI is broken or unsafe) or P2 (a generalizing defect in a working CLI), with no P3. The retro lists findings, skips, drops and what the press got right, and is scrubbed of secrets and personal data, stopping for hand redaction if a vendor token remains. On Submit it files each finding to act on as a public labelled issue on mvanhorn/cli-printing-press, or comments on a matching open one, and uploads scrubbed zips of the manuscripts and CLI source, and the retro itself, to catbox.moe, a public file host.",
+          "permalink": "https://github.com/mvanhorn/cli-printing-press/tree/94ce80e35cbc516cbab1b80f54d96ca419958ca0/skills/printing-press-retro"
+        },
+        "tags": [
+          "category:debugging",
+          "type:workflow",
+          "effect:remote",
+          "needs:cli",
+          "needs:issue-tracker",
+          "by:official",
+          "stack:github",
+          "debugging",
+          "issue-tracking"
+        ],
+        "note": "On Submit, it files public issues on mvanhorn/cli-printing-press and uploads the scrubbed retro and scrubbed zips of the manuscripts and CLI source to catbox.moe, a public file host. Needs the GitHub CLI signed in."
+      }
+    },
+    {
+      "id": "mvanhorn/cli-printing-press/skills/printing-press-reprint",
+      "name": "printing-press-reprint",
+      "skills.sh": {
+        "url": "https://skills.sh/mvanhorn/cli-printing-press/printing-press-reprint",
+        "installs": 6600,
+        "weeklyInstalls": [153, 110, 87, 109, 95, 112, 100, 85],
+        "firstSeen": "2026-05-07"
+      },
+      "skillMd": {
+        "version": "94ce80e35cbc516cbab1b80f54d96ca419958ca0",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Regenerates an existing Printing Press CLI under the current press, carrying its prior research, features and post-publish fixes into the new print.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a Printing Press upgrade, such as a new MCP surface or auth mode, would lift a printed CLI more than polishing it"
+            },
+            {
+              "label": "It does",
+              "text": "makes sure the CLI is local, recommends reusing or redoing its research by age, and offers spec enrichments where its last scorecard was weak"
+            },
+            {
+              "label": "You get",
+              "text": "a printing-press run on the same API, briefed with your reason, your research choice, accepted spec changes and the CLI's past hand-fixes"
+            },
+            {
+              "label": "Asks first",
+              "text": "before importing a newer public copy, on reusing research and on each spec change; it stops if your copy has unpublished work"
+            },
+            {
+              "label": "Unlike",
+              "text": "printing-press-polish, which fixes code without redoing research or rebuilding the manuscripts"
+            }
+          ],
+          "text": "A reprint rebuilds a printed CLI from scratch under the current Printing Press instead of patching the old code. You name the CLI and, if you like, why. It resolves the name against the public library's registry and compares your copy with the public one: with no local copy it invokes printing-press-import, with a newer public copy it offers to import it, and with unpublished local work it stops. It refreshes the CLI's patch records, the post-publish hand-fixes that printing-press-amend records, and when the CLI predates research.json it asks whether to go on with what is then essentially a fresh print. It shows the research's age (under 30 days, reuse looks safe; over 120, redo is recommended) and the press version that made it, and lets you reuse it, redo it or look first. From the prior scorecard it offers spec enrichments for weak MCP, auth or sync scores, one question each, never applied unasked. It then invokes printing-press with your reason verbatim, the research choice, accepted enrichments and a summary of the patches, framed as a watch-list rather than a checklist to reapply.",
+          "permalink": "https://github.com/mvanhorn/cli-printing-press/tree/94ce80e35cbc516cbab1b80f54d96ca419958ca0/skills/printing-press-reprint"
+        },
+        "tags": [
+          "category:engineering",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:official",
+          "stack:go",
+          "stack:mcp",
+          "migration",
+          "implementation"
+        ],
+        "note": "Hands the run to printing-press, invoking printing-press-import first when the CLI isn't local. Needs the cli-printing-press binary, Go and the GitHub CLI."
+      }
+    },
+    {
+      "id": "mvanhorn/cli-printing-press/skills/printing-press-score",
+      "name": "printing-press-score",
+      "skills.sh": {
+        "url": "https://skills.sh/mvanhorn/cli-printing-press/printing-press-score",
+        "installs": 6600,
+        "weeklyInstalls": [117, 98, 79, 104, 108, 129, 124, 119],
+        "firstSeen": "2026-05-07"
+      },
+      "skillMd": {
+        "version": "94ce80e35cbc516cbab1b80f54d96ca419958ca0",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Scores a CLI printed by the Printing Press against its Steinberger quality bar, or compares two CLIs side by side.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a printed CLI's score again after changes, or to compare two versions of a CLI"
+            },
+            {
+              "label": "It does",
+              "text": "runs the press's scorecard on a CLI found by name, by path or from your current run, with its OpenAPI spec when it finds one"
+            },
+            {
+              "label": "You get",
+              "text": "tables of 18 dimension scores in two tiers, a total out of 100 with a letter grade and the gaps; compare mode adds a delta column"
+            },
+            {
+              "label": "Scores",
+              "text": "infrastructure such as output modes, auth, README and doctor, and domain correctness such as path validity, sync and dead code"
+            },
+            {
+              "label": "Without a spec",
+              "text": "dimensions that need one show as N/A and leave the denominator instead of counting as zero"
+            },
+            {
+              "label": "Changes",
+              "text": "nothing; printing-press-polish is the skill that fixes what the scorecard flags"
+            }
+          ],
+          "text": "A read-only wrapper over the cli-printing-press scorecard command, which grades CLIs against what the press calls the Steinberger bar. With no argument it rescores the CLI of your current run, asking which when there are several; with a name it looks in your press library, also trying the -pp-cli suffix, then in past runs; with a path it scores that folder; with two names, as in \"notion-pp-cli-4 vs notion-pp-cli-2\", it scores both in parallel. It looks for the CLI's spec.json or the spec its run used, and scores without one when there is none. It renders Tier 1, twelve infrastructure dimensions out of 10 each, and Tier 2, six domain-correctness dimensions with type fidelity and dead code out of 5, then the total and grade, the gap report and a note on any unscored dimensions. A failed scorecard is reported with its full error output.",
+          "permalink": "https://github.com/mvanhorn/cli-printing-press/tree/94ce80e35cbc516cbab1b80f54d96ca419958ca0/skills/printing-press-score"
+        },
+        "tags": [
+          "category:debugging",
+          "type:tool",
+          "effect:none",
+          "needs:cli",
+          "by:official",
+          "stack:go",
+          "code-quality",
+          "verification"
+        ],
+        "note": "Needs the cli-printing-press binary 4.0.0 or newer and Go 1.26.10 or newer. Read-only."
+      }
+    },
+    {
+      "id": "mvanhorn/cli-printing-press/skills/printing-press-output-review",
+      "name": "printing-press-output-review",
+      "skills.sh": {
+        "url": "https://skills.sh/mvanhorn/cli-printing-press/printing-press-output-review",
+        "installs": 6600,
+        "weeklyInstalls": [152, 112, 87, 108, 97, 112, 121, 107],
+        "firstSeen": "2026-05-07"
+      },
+      "skillMd": {
+        "version": "94ce80e35cbc516cbab1b80f54d96ca419958ca0",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Reviews a printed CLI's sampled command output for implausible results that rule-based checks miss, such as irrelevant matches or silently dropped sources.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "It does",
+              "text": "samples the printed CLI's commands through the scorecard's live check, then has a subagent judge the passing outputs as a person would"
+            },
+            {
+              "label": "Catches",
+              "text": "results that match the query only as a substring, implausible top rankings, silently dropped sources, mojibake, and links to index pages instead of permalinks"
+            },
+            {
+              "label": "You get",
+              "text": "a PASS, WARN or SKIP block for the calling skill; findings are only warnings and never block shipping"
+            },
+            {
+              "label": "Runs",
+              "text": "only when printing-press or printing-press-polish calls it, in a forked context; it isn't offered as a slash command"
+            },
+            {
+              "label": "Misses",
+              "text": "wrong numbers such as prices or ratings, stale data, matters of taste and commands that weren't sampled"
+            }
+          ],
+          "text": "A plausibility check inside CLI Printing Press, for bugs a person would spot in five minutes with a printed CLI but that dogfood, verify and the scorecard's rules miss. It runs the scorecard's live check, which samples commands and records their redacted output, and returns SKIP without reviewing when that fails or no sample passed, since a skipped review is not a pass. A general-purpose subagent then reads the passing samples and the CLI's planned and built novel features from research.json, and may run more commands to confirm a finding. It checks four things: results match what the query meant, the output has no format bugs, commands that fan out to several sources show all of them or explain the missing ones, and rankings put a plausible best result first. Empty learning stores on a fresh print aren't flagged. Each finding comes back as a warning with a one-line description and a one-sentence fix; the calling skill logs them and you decide whether to fix before shipping. The forked context keeps the review's chatter out of the caller's conversation.",
+          "permalink": "https://github.com/mvanhorn/cli-printing-press/tree/94ce80e35cbc516cbab1b80f54d96ca419958ca0/skills/printing-press-output-review"
+        },
+        "tags": [
+          "category:debugging",
+          "type:workflow",
+          "effect:none",
+          "needs:cli",
+          "needs:subagents",
+          "by:official",
+          "testing",
+          "verification"
+        ],
+        "note": "Not run directly: printing-press calls it during shipcheck and printing-press-polish during its checks. Needs the cli-printing-press binary."
+      }
+    },
+    {
+      "id": "mvanhorn/cli-printing-press/skills/printing-press-amend",
+      "name": "printing-press-amend",
+      "skills.sh": {
+        "url": "https://skills.sh/mvanhorn/cli-printing-press/printing-press-amend",
+        "installs": 5600,
+        "weeklyInstalls": [119, 108, 79, 102, 111, 121, 122, 102],
+        "firstSeen": "2026-05-16"
+      },
+      "skillMd": {
+        "version": "94ce80e35cbc516cbab1b80f54d96ca419958ca0",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Turns friction you hit with a published Printing Press CLI, or your own asks, into a fix and a pull request to its library.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a published Printing Press CLI fell short while you used it, or you want its commands renamed, added or fixed"
+            },
+            {
+              "label": "It does",
+              "text": "mines the Claude Code session transcript for friction or parses your typed asks, then plans, edits, validates and documents the fix"
+            },
+            {
+              "label": "You get",
+              "text": "an open pull request on mvanhorn/printing-press-library with a patch record, plus a plan and a list of deferred findings in your manuscripts"
+            },
+            {
+              "label": "Asks first",
+              "text": "to confirm the transcript, the scope (bugs, bugs and features, all, or your pick) and the PR draft before anything is pushed"
+            },
+            {
+              "label": "Unlike",
+              "text": "printing-press-polish, which improves a CLI before it's published; amend changes one already in the public library"
+            },
+            {
+              "label": "Needs",
+              "text": "the cli-printing-press binary 4.0.0 or newer, Go and the GitHub CLI"
+            }
+          ],
+          "text": "Amend changes a CLI that's already in the public Printing Press library. In dogfood mode it confirms which session transcript to read, pulls out friction such as failed commands, hand-rolled API calls and missing flags, and classes each as a bug or a missing feature; in direct mode it turns asks like \"rename X\" or \"add these feeds\" into the same list, and on request sniffs the CLI's source site for new endpoints. It offers to skip findings that open or recently merged library PRs cover, and stops if the CLI binary you used is older than the published one. You pick the scope; deferred items are saved for a later run. It then edits the CLI in a managed clone of the library, records a patch file and runs publish validate up to three times, holding the work if it fails. User-facing changes must ship with README and SKILL.md updates. It asks whether a fix that belongs in the generator should wait for a retro, and a temporary patch gets a reused or new issue on mvanhorn/cli-printing-press. It scrubs credentials and stop-listed names, asks about other proper nouns, shows you the draft, then pushes and opens the PR.",
+          "permalink": "https://github.com/mvanhorn/cli-printing-press/tree/94ce80e35cbc516cbab1b80f54d96ca419958ca0/skills/printing-press-amend"
+        },
+        "tags": [
+          "category:engineering",
+          "category:debugging",
+          "type:workflow",
+          "effect:remote",
+          "needs:cli",
+          "needs:issue-tracker",
+          "needs:claude-code",
+          "by:official",
+          "stack:github",
+          "stack:go",
+          "debugging",
+          "implementation",
+          "git"
+        ],
+        "note": "Opens a public pull request on mvanhorn/printing-press-library and may open an issue on mvanhorn/cli-printing-press. Needs the cli-printing-press binary 4.0.0 or newer, Go and the GitHub CLI signed in; dogfood mode reads Claude Code's session transcript."
       }
     }
   ]

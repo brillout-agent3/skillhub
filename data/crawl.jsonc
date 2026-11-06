@@ -3,19 +3,6 @@
   "asOf": "2026-11-06",
   "qualified": [
     {
-      "name": "nature-literature-pipeline",
-      "repo": "yuan1z0825/nature-skills",
-      "official": false,
-      "stars": 52544,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/yuan1z0825/nature-skills/nature-literature-pipeline",
-        "installs": 12500,
-        "weeklyInstalls": [964, 936, 713, 487, 643, 625, 556, 419],
-        "firstSeen": "2026-06-30"
-      }
-    },
-    {
       "name": "mobile-app-ui-design",
       "repo": "ceorkm/mobile-app-ui-design",
       "official": false,
@@ -52,19 +39,6 @@
         "installs": 11800,
         "weeklyInstalls": [190, 190, 203, 305, 356, 441, 344, 312],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "nature-paper-card",
-      "repo": "yuan1z0825/nature-skills",
-      "official": false,
-      "stars": 52544,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/yuan1z0825/nature-skills/nature-paper-card",
-        "installs": 11200,
-        "weeklyInstalls": [973, 986, 759, 511, 654, 651, 614, 464],
-        "firstSeen": "2026-07-25"
       }
     },
     {
@@ -198,19 +172,6 @@
       }
     },
     {
-      "name": "video-editing",
-      "repo": "affaan-m/ecc",
-      "official": false,
-      "stars": 298421,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/affaan-m/ecc/video-editing",
-        "installs": 8100,
-        "weeklyInstalls": [347, 332, 299, 292, 502, 790, 810, 869],
-        "firstSeen": "2026-05-19"
-      }
-    },
-    {
       "name": "baoyu-electron-extract",
       "repo": "jimliu/baoyu-skills",
       "official": false,
@@ -221,19 +182,6 @@
         "installs": 8100,
         "weeklyInstalls": [269, 267, 99, 85, 145, 129, 139, 151],
         "firstSeen": "2026-05-24"
-      }
-    },
-    {
-      "name": "nature-image2ppt",
-      "repo": "yuan1z0825/nature-skills",
-      "official": false,
-      "stars": 52544,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/yuan1z0825/nature-skills/nature-image2ppt",
-        "installs": 8000,
-        "weeklyInstalls": [961, 958, 728, 483, 642, 637, 586, 428],
-        "firstSeen": "2026-08-18"
       }
     },
     {
@@ -263,19 +211,6 @@
       }
     },
     {
-      "name": "printing-press",
-      "repo": "mvanhorn/cli-printing-press",
-      "official": false,
-      "stars": 4923,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/mvanhorn/cli-printing-press/printing-press",
-        "installs": 7800,
-        "weeklyInstalls": [194, 157, 135, 180, 154, 169, 183, 164],
-        "firstSeen": "2026-05-07"
-      }
-    },
-    {
       "name": "search",
       "repo": "brightdata/skills",
       "official": true,
@@ -286,45 +221,6 @@
         "installs": 7500,
         "weeklyInstalls": [10, 11, 8, 20, 12, 17, 27, 28],
         "firstSeen": "2026-02-10"
-      }
-    },
-    {
-      "name": "agents-md",
-      "repo": "getsentry/skills",
-      "official": true,
-      "stars": 1129,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/getsentry/skills/agents-md",
-        "installs": 7500,
-        "weeklyInstalls": [247, 303, 254, 511, 209, 257, 206, 217],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "security-review",
-      "repo": "affaan-m/ecc",
-      "official": false,
-      "stars": 298421,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/affaan-m/ecc/security-review",
-        "installs": 7300,
-        "weeklyInstalls": [380, 381, 271, 264, 332, 526, 540, 740],
-        "firstSeen": "2026-05-19"
-      }
-    },
-    {
-      "name": "find-bugs",
-      "repo": "getsentry/skills",
-      "official": true,
-      "stars": 1129,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/getsentry/skills/find-bugs",
-        "installs": 7300,
-        "weeklyInstalls": [137, 124, 334, 538, 132, 201, 156, 182],
-        "firstSeen": "2026-01-20"
       }
     },
     {
@@ -351,32 +247,6 @@
         "installs": 7100,
         "weeklyInstalls": [128, 110, 122, 118, 119, 177, 160, 176],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "printing-press-publish",
-      "repo": "mvanhorn/cli-printing-press",
-      "official": false,
-      "stars": 4923,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/mvanhorn/cli-printing-press/printing-press-publish",
-        "installs": 7000,
-        "weeklyInstalls": [151, 116, 137, 126, 147, 130, 121, 118],
-        "firstSeen": "2026-05-07"
-      }
-    },
-    {
-      "name": "printing-press-polish",
-      "repo": "mvanhorn/cli-printing-press",
-      "official": false,
-      "stars": 4923,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/mvanhorn/cli-printing-press/printing-press-polish",
-        "installs": 7000,
-        "weeklyInstalls": [158, 145, 96, 111, 128, 129, 152, 149],
-        "firstSeen": "2026-05-07"
       }
     },
     {
@@ -1953,19 +1823,6 @@
       }
     },
     {
-      "name": "printing-press-import",
-      "repo": "mvanhorn/cli-printing-press",
-      "official": false,
-      "stars": 4923,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/mvanhorn/cli-printing-press/printing-press-import",
-        "installs": 6600,
-        "weeklyInstalls": [118, 101, 79, 108, 112, 130, 124, 107],
-        "firstSeen": "2026-05-07"
-      }
-    },
-    {
       "name": "dx-code-analyzer-run",
       "repo": "forcedotcom/sf-skills",
       "official": true,
@@ -1989,19 +1846,6 @@
         "installs": 6600,
         "weeklyInstalls": [95, 111, 79, 59, 72, 108, 136, 102],
         "firstSeen": "2026-02-24"
-      }
-    },
-    {
-      "name": "printing-press-retro",
-      "repo": "mvanhorn/cli-printing-press",
-      "official": false,
-      "stars": 4923,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/mvanhorn/cli-printing-press/printing-press-retro",
-        "installs": 6600,
-        "weeklyInstalls": [155, 110, 87, 106, 94, 112, 102, 85],
-        "firstSeen": "2026-05-07"
       }
     },
     {
@@ -2135,19 +1979,6 @@
       }
     },
     {
-      "name": "printing-press-reprint",
-      "repo": "mvanhorn/cli-printing-press",
-      "official": false,
-      "stars": 4923,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/mvanhorn/cli-printing-press/printing-press-reprint",
-        "installs": 6600,
-        "weeklyInstalls": [153, 110, 87, 109, 95, 112, 100, 85],
-        "firstSeen": "2026-05-07"
-      }
-    },
-    {
       "name": "angular-http",
       "repo": "analogjs/angular-skills",
       "official": false,
@@ -2213,19 +2044,6 @@
       }
     },
     {
-      "name": "printing-press-score",
-      "repo": "mvanhorn/cli-printing-press",
-      "official": false,
-      "stars": 4923,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/mvanhorn/cli-printing-press/printing-press-score",
-        "installs": 6600,
-        "weeklyInstalls": [117, 98, 79, 104, 108, 129, 124, 119],
-        "firstSeen": "2026-05-07"
-      }
-    },
-    {
       "name": "setting-up-ec2-instance-profiles",
       "repo": "aws/agent-toolkit-for-aws",
       "official": false,
@@ -2249,19 +2067,6 @@
         "installs": 6600,
         "weeklyInstalls": [191, 307, 417, 396, 496, 490, 617, 1531],
         "firstSeen": "2026-08-01"
-      }
-    },
-    {
-      "name": "printing-press-output-review",
-      "repo": "mvanhorn/cli-printing-press",
-      "official": false,
-      "stars": 4923,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/mvanhorn/cli-printing-press/printing-press-output-review",
-        "installs": 6600,
-        "weeklyInstalls": [152, 112, 87, 108, 97, 112, 121, 107],
-        "firstSeen": "2026-05-07"
       }
     },
     {
@@ -7657,19 +7462,6 @@
         "installs": 5600,
         "weeklyInstalls": [224, 297, 236, 269, 315, 343, 457, 475],
         "firstSeen": "2026-05-04"
-      }
-    },
-    {
-      "name": "printing-press-amend",
-      "repo": "mvanhorn/cli-printing-press",
-      "official": false,
-      "stars": 4923,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/mvanhorn/cli-printing-press/printing-press-amend",
-        "installs": 5600,
-        "weeklyInstalls": [119, 108, 79, 102, 111, 121, 122, 102],
-        "firstSeen": "2026-05-16"
       }
     },
     {
