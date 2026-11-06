@@ -497,19 +497,6 @@
       }
     },
     {
-      "name": "frontend-patterns",
-      "repo": "affaan-m/ecc",
-      "official": false,
-      "stars": 298421,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/affaan-m/ecc/frontend-patterns",
-        "installs": 6800,
-        "weeklyInstalls": [361, 340, 250, 227, 309, 492, 497, 541],
-        "firstSeen": "2026-05-19"
-      }
-    },
-    {
       "name": "cmux-customization",
       "repo": "manaflow-ai/cmux",
       "official": false,
@@ -1667,19 +1654,6 @@
       }
     },
     {
-      "name": "python-patterns",
-      "repo": "affaan-m/ecc",
-      "official": false,
-      "stars": 298421,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/affaan-m/ecc/python-patterns",
-        "installs": 6400,
-        "weeklyInstalls": [369, 319, 209, 188, 279, 477, 470, 555],
-        "firstSeen": "2026-05-19"
-      }
-    },
-    {
       "name": "api-design",
       "repo": "affaan-m/ecc",
       "official": false,
@@ -1689,19 +1663,6 @@
         "url": "https://skills.sh/affaan-m/ecc/api-design",
         "installs": 6400,
         "weeklyInstalls": [340, 320, 208, 217, 298, 474, 478, 539],
-        "firstSeen": "2026-05-19"
-      }
-    },
-    {
-      "name": "laravel-security",
-      "repo": "affaan-m/ecc",
-      "official": false,
-      "stars": 298421,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/affaan-m/ecc/laravel-security",
-        "installs": 6400,
-        "weeklyInstalls": [354, 328, 240, 240, 326, 519, 524, 578],
         "firstSeen": "2026-05-19"
       }
     },
@@ -2239,32 +2200,6 @@
       }
     },
     {
-      "name": "liquid-glass-design",
-      "repo": "affaan-m/ecc",
-      "official": false,
-      "stars": 298421,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/affaan-m/ecc/liquid-glass-design",
-        "installs": 6200,
-        "weeklyInstalls": [337, 303, 240, 203, 305, 479, 467, 573],
-        "firstSeen": "2026-05-19"
-      }
-    },
-    {
-      "name": "e2e-testing",
-      "repo": "affaan-m/ecc",
-      "official": false,
-      "stars": 298421,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/affaan-m/ecc/e2e-testing",
-        "installs": 6200,
-        "weeklyInstalls": [332, 299, 192, 188, 284, 460, 463, 701],
-        "firstSeen": "2026-05-19"
-      }
-    },
-    {
       "name": "codebase-onboarding",
       "repo": "affaan-m/ecc",
       "official": false,
@@ -2603,19 +2538,6 @@
       }
     },
     {
-      "name": "postgres-patterns",
-      "repo": "affaan-m/ecc",
-      "official": false,
-      "stars": 298421,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/affaan-m/ecc/postgres-patterns",
-        "installs": 6100,
-        "weeklyInstalls": [337, 294, 193, 194, 286, 490, 476, 544],
-        "firstSeen": "2026-05-19"
-      }
-    },
-    {
       "name": "tdd-workflow",
       "repo": "affaan-m/ecc",
       "official": false,
@@ -2651,19 +2573,6 @@
         "url": "https://skills.sh/affaan-m/ecc/article-writing",
         "installs": 6100,
         "weeklyInstalls": [323, 294, 203, 169, 263, 463, 454, 522],
-        "firstSeen": "2026-05-19"
-      }
-    },
-    {
-      "name": "android-clean-architecture",
-      "repo": "affaan-m/ecc",
-      "official": false,
-      "stars": 298421,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/affaan-m/ecc/android-clean-architecture",
-        "installs": 6100,
-        "weeklyInstalls": [344, 306, 229, 190, 289, 477, 469, 550],
         "firstSeen": "2026-05-19"
       }
     },
@@ -2951,45 +2860,6 @@
         "installs": 6100,
         "weeklyInstalls": [137, 135, 122, 124, 21, 13, 10, 12],
         "firstSeen": "2026-01-24"
-      }
-    },
-    {
-      "name": "golang-patterns",
-      "repo": "affaan-m/ecc",
-      "official": false,
-      "stars": 298421,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/affaan-m/ecc/golang-patterns",
-        "installs": 6000,
-        "weeklyInstalls": [336, 329, 211, 232, 268, 438, 493, 520],
-        "firstSeen": "2026-05-19"
-      }
-    },
-    {
-      "name": "django-patterns",
-      "repo": "affaan-m/ecc",
-      "official": false,
-      "stars": 298421,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/affaan-m/ecc/django-patterns",
-        "installs": 6000,
-        "weeklyInstalls": [352, 318, 230, 181, 276, 465, 475, 523],
-        "firstSeen": "2026-05-19"
-      }
-    },
-    {
-      "name": "cpp-coding-standards",
-      "repo": "affaan-m/ecc",
-      "official": false,
-      "stars": 298421,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/affaan-m/ecc/cpp-coding-standards",
-        "installs": 6000,
-        "weeklyInstalls": [333, 300, 220, 205, 283, 488, 481, 531],
-        "firstSeen": "2026-05-19"
       }
     },
     {
@@ -3406,32 +3276,6 @@
         "installs": 6000,
         "weeklyInstalls": [138, 128, 126, 126, 22, 18, 6, 17],
         "firstSeen": "2026-01-24"
-      }
-    },
-    {
-      "name": "golang-testing",
-      "repo": "affaan-m/ecc",
-      "official": false,
-      "stars": 298421,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/affaan-m/ecc/golang-testing",
-        "installs": 5900,
-        "weeklyInstalls": [328, 325, 205, 235, 265, 440, 483, 496],
-        "firstSeen": "2026-05-19"
-      }
-    },
-    {
-      "name": "springboot-patterns",
-      "repo": "affaan-m/ecc",
-      "official": false,
-      "stars": 298421,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/affaan-m/ecc/springboot-patterns",
-        "installs": 5900,
-        "weeklyInstalls": [305, 292, 211, 207, 299, 479, 457, 542],
-        "firstSeen": "2026-05-19"
       }
     },
     {
@@ -29596,6 +29440,54 @@
     {
       "url": "https://skills.sh/affaan-m/ecc/uncloud",
       "note": "Tool docs: an agent's manual for uncloud."
+    },
+    {
+      "url": "https://skills.sh/affaan-m/ecc/frontend-patterns",
+      "note": "Tool docs: an agent's manual for react and nextjs."
+    },
+    {
+      "url": "https://skills.sh/affaan-m/ecc/python-patterns",
+      "note": "Tool docs: an agent's manual for python."
+    },
+    {
+      "url": "https://skills.sh/affaan-m/ecc/laravel-security",
+      "note": "Tool docs: an agent's manual for laravel."
+    },
+    {
+      "url": "https://skills.sh/affaan-m/ecc/liquid-glass-design",
+      "note": "Tool docs: an agent's manual for swiftui, uikit and widgetkit."
+    },
+    {
+      "url": "https://skills.sh/affaan-m/ecc/e2e-testing",
+      "note": "Tool docs: an agent's manual for playwright."
+    },
+    {
+      "url": "https://skills.sh/affaan-m/ecc/postgres-patterns",
+      "note": "Tool docs: an agent's manual for postgres."
+    },
+    {
+      "url": "https://skills.sh/affaan-m/ecc/android-clean-architecture",
+      "note": "Tool docs: an agent's manual for android and kotlin."
+    },
+    {
+      "url": "https://skills.sh/affaan-m/ecc/golang-patterns",
+      "note": "Tool docs: an agent's manual for go."
+    },
+    {
+      "url": "https://skills.sh/affaan-m/ecc/django-patterns",
+      "note": "Tool docs: an agent's manual for django and python."
+    },
+    {
+      "url": "https://skills.sh/affaan-m/ecc/cpp-coding-standards",
+      "note": "Tool docs: an agent's manual for cpp."
+    },
+    {
+      "url": "https://skills.sh/affaan-m/ecc/golang-testing",
+      "note": "Tool docs: an agent's manual for go."
+    },
+    {
+      "url": "https://skills.sh/affaan-m/ecc/springboot-patterns",
+      "note": "Tool docs: an agent's manual for spring-boot and java."
     }
   ]
 }
