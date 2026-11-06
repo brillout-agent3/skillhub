@@ -42,32 +42,6 @@
       }
     },
     {
-      "name": "gemini-api-dev",
-      "repo": "google-gemini/gemini-skills",
-      "official": false,
-      "stars": 4414,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google-gemini/gemini-skills/gemini-api-dev",
-        "installs": 26400,
-        "weeklyInstalls": [590, 787, 801, 789, 952, 702, 622, 739],
-        "firstSeen": "2026-02-10"
-      }
-    },
-    {
-      "name": "backlink-analyzer",
-      "repo": "aaron-he-zhu/seo-geo-claude-skills",
-      "official": false,
-      "stars": 240,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aaron-he-zhu/seo-geo-claude-skills/backlink-analyzer",
-        "installs": 26100,
-        "weeklyInstalls": [0, 0, 0, 0, 3, 1, 0, 0],
-        "firstSeen": "2026-01-23"
-      }
-    },
-    {
       "name": "baseline-ui",
       "repo": "ibelick/ui-skills",
       "official": false,
@@ -117,19 +91,6 @@
         "installs": 25200,
         "weeklyInstalls": [643, 601, 591, 520, 562, 698, 775, 499],
         "firstSeen": "2026-06-16"
-      }
-    },
-    {
-      "name": "archify-review",
-      "repo": "tt-a1i/archify",
-      "official": false,
-      "stars": 94154,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/tt-a1i/archify/archify-review",
-        "installs": 25000,
-        "weeklyInstalls": [0, 6505, 9213, 8422, 321, 242, 166, 120],
-        "firstSeen": "2026-09-16"
       }
     },
     {
@@ -325,19 +286,6 @@
         "installs": 22700,
         "weeklyInstalls": [584, 452, 451, 1892, 920, 785, 847, 853],
         "firstSeen": "2026-01-29"
-      }
-    },
-    {
-      "name": "shadcn-ui",
-      "repo": "giuseppe-trisciuoglio/developer-kit",
-      "official": false,
-      "stars": 367,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/giuseppe-trisciuoglio/developer-kit/shadcn-ui",
-        "installs": 22600,
-        "weeklyInstalls": [278, 280, 283, 281, 172, 152, 141, 127],
-        "firstSeen": "2026-01-20"
       }
     },
     {
@@ -731,19 +679,6 @@
       }
     },
     {
-      "name": "frontend-design",
-      "repo": "anthropics/claude-plugins-official",
-      "official": true,
-      "stars": 46288,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/anthropics/claude-plugins-official/frontend-design",
-        "installs": 18200,
-        "weeklyInstalls": [454, 442, 279, 241, 311, 587, 523, 678],
-        "firstSeen": "2026-01-19"
-      }
-    },
-    {
       "name": "variant",
       "repo": "jakubkrehel/skills",
       "official": false,
@@ -757,19 +692,6 @@
       }
     },
     {
-      "name": "react",
-      "repo": "vercel-labs/json-render",
-      "official": true,
-      "stars": 18938,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/vercel-labs/json-render/react",
-        "installs": 18000,
-        "weeklyInstalls": [1498, 1512, 1078, 1524, 955, 1136, 700, 1122],
-        "firstSeen": "2026-03-07"
-      }
-    },
-    {
       "name": "ci-security-scanning-with-strix",
       "repo": "usestrix/strix",
       "official": false,
@@ -780,19 +702,6 @@
         "installs": 18000,
         "weeklyInstalls": [1133, 1048, 1035, 1084, 1161, 1569, 1591, 1673],
         "firstSeen": "2026-08-07"
-      }
-    },
-    {
-      "name": "tailwind-css-patterns",
-      "repo": "giuseppe-trisciuoglio/developer-kit",
-      "official": false,
-      "stars": 367,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/giuseppe-trisciuoglio/developer-kit/tailwind-css-patterns",
-        "installs": 17900,
-        "weeklyInstalls": [300, 356, 322, 302, 159, 140, 142, 130],
-        "firstSeen": "2026-01-20"
       }
     },
     {
@@ -900,19 +809,6 @@
       }
     },
     {
-      "name": "core",
-      "repo": "vercel-labs/json-render",
-      "official": true,
-      "stars": 18938,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/vercel-labs/json-render/core",
-        "installs": 16700,
-        "weeklyInstalls": [1484, 1488, 1074, 1510, 945, 1106, 674, 1113],
-        "firstSeen": "2026-03-07"
-      }
-    },
-    {
       "name": "nature-writing",
       "repo": "yuan1z0825/nature-skills",
       "official": false,
@@ -991,19 +887,6 @@
       }
     },
     {
-      "name": "excel-automation",
-      "repo": "claude-office-skills/skills",
-      "official": false,
-      "stars": 567,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/claude-office-skills/skills/excel-automation",
-        "installs": 16100,
-        "weeklyInstalls": [175, 181, 160, 110, 155, 299, 248, 104],
-        "firstSeen": "2026-03-09"
-      }
-    },
-    {
       "name": "nature-data",
       "repo": "yuan1z0825/nature-skills",
       "official": false,
@@ -1053,19 +936,6 @@
         "installs": 15800,
         "weeklyInstalls": [9, 4, 8, 4, 1808, 5004, 3909, 3265],
         "firstSeen": "2026-07-18"
-      }
-    },
-    {
-      "name": "html-slides",
-      "repo": "claude-office-skills/skills",
-      "official": false,
-      "stars": 567,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/claude-office-skills/skills/html-slides",
-        "installs": 15800,
-        "weeklyInstalls": [268, 355, 416, 258, 305, 339, 330, 1147],
-        "firstSeen": "2026-03-09"
       }
     },
     {
@@ -1927,19 +1797,6 @@
       }
     },
     {
-      "name": "golang-pkg-go-dev",
-      "repo": "samber/cc-skills-golang",
-      "official": false,
-      "stars": 3806,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/samber/cc-skills-golang/golang-pkg-go-dev",
-        "installs": 13100,
-        "weeklyInstalls": [633, 701, 628, 969, 1466, 1261, 983, 871],
-        "firstSeen": "2026-06-23"
-      }
-    },
-    {
       "name": "refero-design",
       "repo": "referodesign/refero_skill",
       "official": false,
@@ -2002,19 +1859,6 @@
         "installs": 12700,
         "weeklyInstalls": [783, 1348, 725, 875, 744, 702, 994, 1227],
         "firstSeen": "2026-07-13"
-      }
-    },
-    {
-      "name": "golang-refactoring",
-      "repo": "samber/cc-skills-golang",
-      "official": false,
-      "stars": 3806,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/samber/cc-skills-golang/golang-refactoring",
-        "installs": 12700,
-        "weeklyInstalls": [663, 740, 677, 1008, 1498, 1300, 1028, 883],
-        "firstSeen": "2026-07-06"
       }
     },
     {
@@ -44040,6 +43884,54 @@
     {
       "url": "https://skills.sh/fastapi/fastapi/fastapi",
       "note": "Tool docs: an agent's manual for fastapi and python."
+    },
+    {
+      "url": "https://skills.sh/giuseppe-trisciuoglio/developer-kit/shadcn-ui",
+      "note": "Tool docs: an agent's manual for shadcn and react and tailwind."
+    },
+    {
+      "url": "https://skills.sh/giuseppe-trisciuoglio/developer-kit/tailwind-css-patterns",
+      "note": "Tool docs: an agent's manual for tailwind."
+    },
+    {
+      "url": "https://skills.sh/anthropics/claude-plugins-official/frontend-design",
+      "note": "A copy of anthropics/skills/skills/frontend-design."
+    },
+    {
+      "url": "https://skills.sh/vercel-labs/json-render/react",
+      "note": "Tool docs: an agent's manual for json-render and react."
+    },
+    {
+      "url": "https://skills.sh/vercel-labs/json-render/core",
+      "note": "Tool docs: an agent's manual for json-render."
+    },
+    {
+      "url": "https://skills.sh/claude-office-skills/skills/excel-automation",
+      "note": "Tool docs: an agent's manual for xlwings."
+    },
+    {
+      "url": "https://skills.sh/claude-office-skills/skills/html-slides",
+      "note": "Tool docs: an agent's manual for reveal.js."
+    },
+    {
+      "url": "https://skills.sh/samber/cc-skills-golang/golang-pkg-go-dev",
+      "note": "Tool docs: an agent's manual for godig and go."
+    },
+    {
+      "url": "https://skills.sh/samber/cc-skills-golang/golang-refactoring",
+      "note": "Tool docs: an agent's manual for go and gopls."
+    },
+    {
+      "url": "https://skills.sh/google-gemini/gemini-skills/gemini-api-dev",
+      "note": "Tool docs: an agent's manual for gemini."
+    },
+    {
+      "url": "https://skills.sh/aaron-he-zhu/seo-geo-claude-skills/backlink-analyzer",
+      "note": "Retired. Its SKILL.md now points to offsite-signal-analyzer, in aaron-he-zhu/aaron-marketing-skills."
+    },
+    {
+      "url": "https://skills.sh/tt-a1i/archify/archify-review",
+      "note": "Internal: reviews Archify's own issues and PRs, and its frontmatter marks it internal."
     }
   ]
 }
