@@ -8,8 +8,8 @@ description: Approve or disqualify the qualified skills in SkillHub's crawl.json
 Every skill SkillHub knows of has one state, under its skills.sh page:
 
 - **Approved:** shown on the site, with tags, a TLDR and a copy of its SKILL.md. In `data/skills.jsonc`.
-- **Qualified:** in the skills.sh all-time top 600, at the minimums or above (`MINIMUMS` in `scripts/data.ts`: all-time installs, and its repo's GitHub stars), waiting for an agent to approve or disqualify it. In `data/crawl.jsonc`.
-- **Unqualified:** in the top 600, but under the minimums. In `data/crawl.jsonc`.
+- **Qualified:** in the skills.sh all-time top 600, or further down skills.sh's sitemap, at the minimums or above (`MINIMUMS` in `scripts/data.ts`: all-time installs, and its repo's GitHub stars), waiting for an agent to approve or disqualify it. In `data/crawl.jsonc`.
+- **Unqualified:** found by the crawl, but under the minimums. In `data/crawl.jsonc`.
 - **Disqualified:** not shown, with a note saying why, and no agent data: no tags, no TLDR, no copy. In `data/crawl.jsonc`.
 
 The daily crawl (`pnpm run crawl`) records new skills and moves them between qualified and unqualified. The daily sync disqualifies an approved skill whose SKILL.md is gone from its repo. The two files are cumulative: a skill never leaves them, only its state changes, and `pnpm run check` fails when a skill has two states. `Crawl` in `data/types.ts` describes crawl.jsonc.

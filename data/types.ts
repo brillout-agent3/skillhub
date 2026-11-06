@@ -43,8 +43,9 @@ export interface Data {
 }
 
 /**
- * The shape of data/crawl.jsonc: every skill the crawl has seen in the skills.sh all-time top 600
- * that isn't approved (the approved ones are in skills.jsonc), keyed by its skills.sh page. The two
+ * The shape of data/crawl.jsonc: every skill the crawl has seen that isn't approved (the approved
+ * ones are in skills.jsonc), keyed by its skills.sh page: those of the skills.sh all-time top 600,
+ * and those further down skills.sh's sitemap that reach `MINIMUMS.installs`. The two
  * files are cumulative: a skill that lands in either never leaves them, only its state changes.
  * Unlike skills.jsonc, crawl.jsonc takes any skill, such as one a website publishes.
  */
@@ -62,9 +63,9 @@ export interface Crawl {
    * At the minimums (`MINIMUMS` in ../scripts/data.ts) or above, most installed first: waiting for
    * an agent to approve or disqualify them, with the add-skill skill.
    *
-   * Source: scripts/crawl.ts sorts every skill of the top 600 it saw that day into `qualified` or
-   * `unqualified`, with `passes()` of scripts/data.ts; a skill that left the top 600 keeps its
-   * state.
+   * Source: scripts/crawl.ts sorts every skill it saw that day, in the top 600 or down the
+   * sitemap, into `qualified` or `unqualified`, with `passes()` of scripts/data.ts; a skill it
+   * didn't see keeps its state.
    */
   qualified: Crawled[];
   /**
@@ -84,13 +85,14 @@ export interface Crawl {
   disqualified: Disqualified[];
 }
 
-/** A skill of the skills.sh top 600 that's qualified or unqualified. */
+/** A skill the crawl found, in the top 600 or down the sitemap, that's qualified or unqualified. */
 export interface Crawled {
   /**
    * Its name on skills.sh: the end of its skills.sh page.
    *
    * Source: scraped by scripts/crawl.ts when it records the skill: `topSkills()` takes `name`
-   * from the leaderboard JSON in the HTML of https://www.skills.sh/.
+   * from the leaderboard JSON in the HTML of https://www.skills.sh/; for a skill found down the
+   * sitemap, it's the end of the skill's page there.
    */
   name: string;
   /**
@@ -98,28 +100,30 @@ export interface Crawled {
    * from.
    *
    * Source: scraped by scripts/crawl.ts when it records the skill: the `source` of its
-   * leaderboard entry.
+   * leaderboard entry, or for a skill found down the sitemap, the owner and repo in its page's URL.
    */
   repo: string;
   /**
    * Whether skills.sh shows its publisher as verified.
    *
-   * Source: scraped by scripts/crawl.ts, daily while the skill is in the top 600: the
-   * `isOfficial` of its leaderboard entry.
+   * Source: scraped by scripts/crawl.ts, daily while it sees the skill: the `isOfficial` of its
+   * leaderboard entry, or for a skill down the sitemap, whether the HTML of its skills.sh page
+   * has `title="Verified organization on GitHub"`.
    */
   official: boolean;
   /**
    * Its repo's GitHub stars, or null when unknown.
    *
-   * Source: the GitHub API, by scripts/crawl.ts, daily while the skill is in the top 600: the
+   * Source: the GitHub API, by scripts/crawl.ts, daily while it sees the skill: the
    * `stargazers_count` of https://api.github.com/repos/<repo>, when GITHUB_TOKEN is set. A
    * request that fails keeps the last number.
    */
   stars: number | null;
   /**
-   * The last day the crawl saw it in the top 600, which its numbers are from (YYYY-MM-DD).
+   * The last day the crawl saw it, in the top 600 or down the sitemap, which its numbers are from
+   * (YYYY-MM-DD).
    *
-   * Source: scripts/crawl.ts sets it to the day it runs, for every skill of the top 600.
+   * Source: scripts/crawl.ts sets it to the day it runs, for every skill it sees.
    */
   seen: string;
   /** Its `skills.sh` field once it's approved. */
@@ -372,21 +376,22 @@ export interface SkillsSh {
    * The skill's page on skills.sh.
    *
    * Source: scripts/crawl.ts, when it records the skill: `pageOf()` builds it from the `source`
-   * and `skillId` of its leaderboard entry.
+   * and `skillId` of its leaderboard entry, or `sitemapSkills()` takes it from skills.sh's sitemap.
    */
   url: string;
   /**
    * All-time installs, or null when unknown: exact for a skill in the skills.sh all-time top 600,
-   * rounded to three digits (such as 26.5K) for an approved skill outside it. A skill of
-   * crawl.jsonc that left the top 600 keeps its last number.
+   * rounded to three digits (such as 26.5K) for a skill outside it. A skill of crawl.jsonc the
+   * crawl no longer sees keeps its last number.
    *
    * Source: scraped from skills.sh's HTML, with no skills.sh API, by scripts/crawl.ts, which
    * .github/workflows/crawl.yml runs daily. For a skill in the top 600, `topSkills()` fetches the
    * HTML of https://www.skills.sh/ and parses the leaderboard JSON that the page's Next.js payload
    * embeds (its `self.__next_f.push(…)` scripts, the `initialSkills` object of the all-time
-   * view). For an approved skill outside it, `skillPage()` fetches the HTML of the skill's
-   * skills.sh page and matches the "Installs" stat in its markup with a regex, such as "26.5K";
-   * null when skills.sh no longer has the page.
+   * view). For a skill outside it, an approved one or one of the first `SITEMAP_DEPTH` skills of
+   * https://www.skills.sh/sitemap.xml, `skillPage()` fetches the HTML of the skill's skills.sh page
+   * and matches the "Installs" stat in its markup with a regex, such as "26.5K"; null when
+   * skills.sh no longer has the page.
    */
   installs: number | null;
   /**
@@ -395,7 +400,7 @@ export interface SkillsSh {
    *
    * Source: scraped from skills.sh's HTML by scripts/crawl.ts, daily, together with `installs`. For
    * a skill in the top 600, `topSkills()` takes `weeklyInstalls` from the same leaderboard JSON in
-   * the HTML of https://www.skills.sh/. For an approved skill outside it, `skillPage()` matches the
+   * the HTML of https://www.skills.sh/. For a skill outside it, `skillPage()` matches the
    * `aria-label="Weekly installs: …"` of the chart in the HTML of the skill's skills.sh page.
    */
   weeklyInstalls: number[] | null;

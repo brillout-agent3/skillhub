@@ -1,23 +1,29 @@
 /**
- * crawl.ts — crawl skills.sh and GitHub: refresh the numbers, and record every skill of the
- * skills.sh all-time top 600 in data/crawl.jsonc.
+ * crawl.ts — crawl skills.sh and GitHub: refresh the numbers, and record in data/crawl.jsonc every
+ * skill of the skills.sh all-time top 600, and every skill further down that reaches
+ * MINIMUMS.installs.
  *
  * It reads the top 600, which skills.sh embeds in its home page (its robots.txt keeps scripts off
- * its API), then:
+ * its API), and the first SITEMAP_DEPTH skills of skills.sh's sitemap, then:
  * - gives every approved skill (skills.jsonc) its installs and weekly installs: from the top 600,
  *   or for a skill outside it, from its own skills.sh page, which also gives a missing first-seen
  *   date;
  * - gives the repos of approved skills and bundles their GitHub stars (when GITHUB_TOKEN is set);
  * - records the other skills of the top 600 in crawl.jsonc, never removing one: a skill on GitHub
  *   is qualified while it reaches the minimums and unqualified while it doesn't, and a website's is
- *   disqualified (not on GitHub). A skill that leaves the top 600 keeps its state and its last
- *   numbers. An agent approves or disqualifies the qualified skills with the add-skill skill.
+ *   disqualified (not on GitHub);
+ * - reads the page of every other skill of the sitemap's first SITEMAP_DEPTH, and records those
+ *   that reach MINIMUMS.installs the same way, or refreshes them once recorded.
+ *
+ * A skill outside both keeps its state and its last numbers. An agent approves or disqualifies the
+ * qualified skills with the add-skill skill.
  *
  * Run: pnpm run crawl
  */
 
 import {
   approvedPages,
+  MINIMUMS,
   pageKey,
   passes,
   readCrawl,
@@ -95,6 +101,8 @@ interface Page {
   installs: number | null;
   weeklyInstalls: number[] | null;
   firstSeen: string | null;
+  /** Whether skills.sh shows its publisher as verified, as the top 600's `isOfficial` does. */
+  official: boolean;
 }
 
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -114,7 +122,7 @@ function count(text: string | undefined): number | null {
 }
 
 /** A skill's skills.sh page, or null when skills.sh doesn't have it. */
-async function skillPage(url: string): Promise<Page | null> {
+async function readSkillPage(url: string): Promise<Page | null> {
   const html = await get(url.replace("https://skills.sh/", "https://www.skills.sh/"));
   if (html === null) return null;
   // A stat is a label and its value: <span>Installs</span></div><div …>26.5K</div>.
@@ -128,7 +136,41 @@ async function skillPage(url: string): Promise<Page | null> {
     installs: count(stat("Installs")),
     weeklyInstalls: weekly ? weekly.split(", ").map((n) => Number(n.replace(/,/g, ""))) : null,
     firstSeen: day(stat("First Seen")),
+    official: html.includes('title="Verified organization on GitHub"'),
   };
+}
+
+/** Each page read once per run: the approved skills and the sitemap share some. */
+const pages = new Map<string, Promise<Page | null>>();
+function skillPage(url: string): Promise<Page | null> {
+  if (!pages.has(pageKey(url))) pages.set(pageKey(url), readSkillPage(url));
+  return pages.get(pageKey(url)) as Promise<Page | null>;
+}
+
+/**
+ * How many skills of skills.sh's sitemap the crawl reads the page of. The sitemap lists 20,000
+ * skills roughly most installed first, and passed MINIMUMS.installs around its 2,500th skill in
+ * November 2026: the rest is a margin for its loose order.
+ */
+const SITEMAP_DEPTH = 4000;
+
+/** The first SITEMAP_DEPTH skill pages of skills.sh's sitemap, as https://skills.sh/owner/repo/skill. */
+async function sitemapSkills(): Promise<string[]> {
+  const index = (await get("https://www.skills.sh/sitemap.xml")) ?? "";
+  const maps = [...index.matchAll(/<loc>([^<]*\/sitemap-skills-\d+\.xml)<\/loc>/g)].map(
+    (m) => m[1],
+  );
+  if (!maps.length)
+    throw new Error("skills.sh: no skills sitemap in its sitemap.xml; did it change?");
+  const urls: string[] = [];
+  for (const map of maps) {
+    if (urls.length >= SITEMAP_DEPTH) break;
+    for (const m of ((await get(map)) ?? "").matchAll(
+      /<loc>https:\/\/www\.skills\.sh\/([^/<.]+\/[^/<]+\/[^/<]+)<\/loc>/g,
+    ))
+      urls.push(`https://skills.sh/${m[1]}`);
+  }
+  return urls.slice(0, SITEMAP_DEPTH);
 }
 
 // ------------------------------------------------------------------- approved skills
@@ -218,10 +260,50 @@ await pool(board, 4, async (e) => {
   c["skills.sh"].weeklyInstalls = e.weeklyInstalls;
 });
 
+// ------------------------------------------------------------------- beyond the top 600
+
+// The sitemap's skills that reach MINIMUMS.installs land in crawl.jsonc too, with the rounded
+// numbers of their own page. A page that doesn't read is retried on the next run: only many of
+// them fail the run, such as when skills.sh changed its pages.
+const sitemap = await sitemapSkills();
+const unread: string[] = [];
+let fromSitemap = 0;
+await pool(sitemap, 4, async (url) => {
+  const key = pageKey(url);
+  if (onBoard.has(key) || approved.has(key) || disqualified.has(key)) return;
+  const page = await skillPage(url).catch((error: unknown) => {
+    unread.push(`${url}: ${message(error)}`);
+    return undefined;
+  });
+  if (!page) return;
+  let c = recorded.get(key);
+  if (!c) {
+    if ((page.installs ?? 0) < MINIMUMS.installs) return;
+    const [owner, repo, name] = url.replace("https://skills.sh/", "").split("/");
+    c = {
+      name,
+      repo: `${owner}/${repo}`,
+      official: page.official,
+      stars: null,
+      seen: today,
+      "skills.sh": { url, installs: null, weeklyInstalls: null, firstSeen: page.firstSeen },
+    };
+    recorded.set(key, c);
+    added.push(`recorded ${url}`);
+  }
+  fromSitemap++;
+  c.official = page.official;
+  c.seen = today;
+  c["skills.sh"].installs = page.installs;
+  c["skills.sh"].weeklyInstalls = page.weeklyInstalls;
+});
+if (unread.length > sitemap.length / 100)
+  errors.push(`${unread.length} of the sitemap's skill pages didn't read, such as ${unread[0]}`);
+
 // ------------------------------------------------------------------- stars
 
 // For the repos of approved skills and bundles, and of the qualified and unqualified skills the
-// crawl just saw.
+// crawl just saw, in the top 600 or down the sitemap.
 const token = process.env.GITHUB_TOKEN;
 const seenToday = [...recorded.values()].filter((c) => c.seen === today);
 const repos = new Set([
@@ -250,7 +332,7 @@ for (const c of seenToday) c.stars = stars.get(c.repo) ?? c.stars;
 // ------------------------------------------------------------------- states
 
 // The minimums decide between qualified and unqualified, from the numbers of today's crawl only: a
-// skill that left the top 600 keeps its state.
+// skill it didn't see, in the top 600 or down the sitemap, keeps its state.
 const byInstalls = (a: Crawled, b: Crawled) =>
   (b["skills.sh"].installs ?? -1) - (a["skills.sh"].installs ?? -1);
 const qualifiedBefore = new Set(crawl.qualified.map((c) => pageKey(c["skills.sh"].url)));
@@ -267,7 +349,7 @@ writeData(data);
 writeCrawl(crawl);
 
 console.log(
-  `Crawled the skills.sh top ${board.length}: refreshed ${data.skills.length} approved skills (${fromPages} from their own page)${stars.size ? ` and the stars of ${stars.size} repos` : ""}. crawl.jsonc: ${crawl.qualified.length} qualified (${newlyQualified.length} new), ${crawl.unqualified.length} unqualified, ${crawl.disqualified.length} disqualified.`,
+  `Crawled the skills.sh top ${board.length}, and ${fromSitemap} skills further down its sitemap${unread.length ? ` (${unread.length} pages didn't read)` : ""}: refreshed ${data.skills.length} approved skills (${fromPages} from their own page)${stars.size ? ` and the stars of ${stars.size} repos` : ""}. crawl.jsonc: ${crawl.qualified.length} qualified (${newlyQualified.length} new), ${crawl.unqualified.length} unqualified, ${crawl.disqualified.length} disqualified.`,
 );
 for (const line of added) console.log(`  ${line}`);
 for (const c of newlyQualified) console.log(`  qualified ${c["skills.sh"].url}`);
