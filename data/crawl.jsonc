@@ -6906,19 +6906,6 @@
       }
     },
     {
-      "name": "gke-inference",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/gke-inference",
-        "installs": 7600,
-        "weeklyInstalls": [395, 443, 354, 503, 473, 451, 378, 385],
-        "firstSeen": "2026-06-23"
-      }
-    },
-    {
       "name": "ai-behavior-trees-utility-ai",
       "repo": "gamedev-skills/awesome-gamedev-agent-skills",
       "official": false,
@@ -6955,19 +6942,6 @@
         "installs": 7600,
         "weeklyInstalls": [0, 2, 0, 1, 5, 2, 2, 0],
         "firstSeen": "2026-02-12"
-      }
-    },
-    {
-      "name": "agent-platform-alert-configuration",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/agent-platform-alert-configuration",
-        "installs": 7600,
-        "weeklyInstalls": [402, 459, 343, 384, 414, 383, 318, 389],
-        "firstSeen": "2026-06-22"
       }
     },
     {
@@ -7270,19 +7244,6 @@
       }
     },
     {
-      "name": "bigtable-basics",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/bigtable-basics",
-        "installs": 7400,
-        "weeklyInstalls": [408, 455, 337, 370, 403, 373, 314, 359],
-        "firstSeen": "2026-06-19"
-      }
-    },
-    {
       "name": "mongodb-query-optimizer",
       "repo": "mongodb/agent-skills",
       "official": false,
@@ -7319,19 +7280,6 @@
         "installs": 7400,
         "weeklyInstalls": [657, 782, 867, 612, 761, 731, 847, 935],
         "firstSeen": "2026-08-15"
-      }
-    },
-    {
-      "name": "gke-upgrades",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/gke-upgrades",
-        "installs": 7400,
-        "weeklyInstalls": [406, 453, 325, 390, 407, 371, 288, 356],
-        "firstSeen": "2026-06-18"
       }
     },
     {
@@ -7595,19 +7543,6 @@
       }
     },
     {
-      "name": "gke-observability",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/gke-observability",
-        "installs": 7300,
-        "weeklyInstalls": [405, 453, 327, 385, 406, 376, 304, 408],
-        "firstSeen": "2026-06-23"
-      }
-    },
-    {
       "name": "antislop-code",
       "repo": "miqdadbadjuber/anti-slop",
       "official": false,
@@ -7790,32 +7725,6 @@
       }
     },
     {
-      "name": "gke-golden-path",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/gke-golden-path",
-        "installs": 7200,
-        "weeklyInstalls": [396, 446, 325, 384, 411, 377, 295, 354],
-        "firstSeen": "2026-06-23"
-      }
-    },
-    {
-      "name": "gke-networking",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/gke-networking",
-        "installs": 7200,
-        "weeklyInstalls": [406, 448, 327, 376, 402, 373, 291, 362],
-        "firstSeen": "2026-06-23"
-      }
-    },
-    {
       "name": "angular-forms",
       "repo": "analogjs/angular-skills",
       "official": false,
@@ -7933,45 +7842,6 @@
       }
     },
     {
-      "name": "gke-compute-classes",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/gke-compute-classes",
-        "installs": 7200,
-        "weeklyInstalls": [411, 455, 322, 371, 402, 372, 295, 351],
-        "firstSeen": "2026-06-23"
-      }
-    },
-    {
-      "name": "data-manager-api-event-ingestion",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/data-manager-api-event-ingestion",
-        "installs": 7200,
-        "weeklyInstalls": [456, 492, 372, 415, 480, 513, 483, 543],
-        "firstSeen": "2026-06-23"
-      }
-    },
-    {
-      "name": "gke-reliability",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/gke-reliability",
-        "installs": 7200,
-        "weeklyInstalls": [401, 448, 320, 388, 403, 375, 288, 360],
-        "firstSeen": "2026-06-23"
-      }
-    },
-    {
       "name": "chatgpt-app-builder",
       "repo": "alpic-ai/skybridge",
       "official": false,
@@ -7998,19 +7868,6 @@
       }
     },
     {
-      "name": "gke-storage",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/gke-storage",
-        "installs": 7200,
-        "weeklyInstalls": [398, 456, 321, 384, 421, 382, 284, 354],
-        "firstSeen": "2026-06-23"
-      }
-    },
-    {
       "name": "jobs-to-be-done",
       "repo": "wondelai/skills",
       "official": false,
@@ -8021,45 +7878,6 @@
         "installs": 7200,
         "weeklyInstalls": [193, 168, 188, 173, 181, 327, 278, 193],
         "firstSeen": "2026-01-30"
-      }
-    },
-    {
-      "name": "data-manager-api-setup",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/data-manager-api-setup",
-        "installs": 7200,
-        "weeklyInstalls": [457, 486, 372, 409, 483, 513, 508, 547],
-        "firstSeen": "2026-06-30"
-      }
-    },
-    {
-      "name": "gke-app-onboarding",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/gke-app-onboarding",
-        "installs": 7200,
-        "weeklyInstalls": [405, 447, 320, 372, 404, 368, 299, 355],
-        "firstSeen": "2026-06-23"
-      }
-    },
-    {
-      "name": "gke-cluster-creation",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/gke-cluster-creation",
-        "installs": 7200,
-        "weeklyInstalls": [400, 450, 326, 376, 402, 371, 296, 354],
-        "firstSeen": "2026-06-23"
       }
     },
     {
@@ -8115,19 +7933,6 @@
       }
     },
     {
-      "name": "gke-backup-dr",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/gke-backup-dr",
-        "installs": 7100,
-        "weeklyInstalls": [403, 448, 318, 369, 401, 371, 297, 356],
-        "firstSeen": "2026-06-23"
-      }
-    },
-    {
       "name": "seo-programmatic",
       "repo": "agricidaniel/claude-seo",
       "official": false,
@@ -8180,19 +7985,6 @@
       }
     },
     {
-      "name": "bigquery-bigframes",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/bigquery-bigframes",
-        "installs": 7100,
-        "weeklyInstalls": [403, 451, 345, 380, 407, 378, 328, 360],
-        "firstSeen": "2026-06-29"
-      }
-    },
-    {
       "name": "loki-label-analyzer",
       "repo": "grafana/skills",
       "official": false,
@@ -8203,32 +7995,6 @@
         "installs": 7100,
         "weeklyInstalls": [167, 359, 431, 617, 611, 795, 592, 573],
         "firstSeen": "2026-05-06"
-      }
-    },
-    {
-      "name": "gke-multitenancy",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/gke-multitenancy",
-        "installs": 7100,
-        "weeklyInstalls": [397, 446, 323, 370, 401, 369, 290, 354],
-        "firstSeen": "2026-06-23"
-      }
-    },
-    {
-      "name": "google-agents-cli-onboarding",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/google-agents-cli-onboarding",
-        "installs": 7100,
-        "weeklyInstalls": [403, 457, 330, 372, 411, 390, 291, 360],
-        "firstSeen": "2026-06-27"
       }
     },
     {
@@ -8323,19 +8089,6 @@
       }
     },
     {
-      "name": "detection-engineering-coverage-evaluation",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/detection-engineering-coverage-evaluation",
-        "installs": 7100,
-        "weeklyInstalls": [398, 449, 322, 380, 408, 370, 291, 358],
-        "firstSeen": "2026-06-26"
-      }
-    },
-    {
       "name": "stock-analysis",
       "repo": "claude-office-skills/skills",
       "official": false,
@@ -8427,19 +8180,6 @@
       }
     },
     {
-      "name": "data-manager-api-audience-ingestion",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/data-manager-api-audience-ingestion",
-        "installs": 7100,
-        "weeklyInstalls": [450, 485, 354, 404, 467, 501, 467, 535],
-        "firstSeen": "2026-06-23"
-      }
-    },
-    {
       "name": "platform-apex-logs-debug",
       "repo": "forcedotcom/sf-skills",
       "official": true,
@@ -8476,19 +8216,6 @@
         "installs": 7100,
         "weeklyInstalls": [153, 119, 97, 92, 88, 99, 61, 60],
         "firstSeen": "2026-02-15"
-      }
-    },
-    {
-      "name": "gke-batch-hpc",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/gke-batch-hpc",
-        "installs": 7100,
-        "weeklyInstalls": [395, 442, 320, 368, 401, 369, 293, 351],
-        "firstSeen": "2026-06-23"
       }
     },
     {
@@ -8619,19 +8346,6 @@
         "installs": 7000,
         "weeklyInstalls": [192, 193, 79, 51, 134, 309, 257, 298],
         "firstSeen": "2026-03-20"
-      }
-    },
-    {
-      "name": "google-cloud-recipe-foundation-builder",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/google-cloud-recipe-foundation-builder",
-        "installs": 7000,
-        "weeklyInstalls": [402, 454, 321, 373, 413, 377, 289, 354],
-        "firstSeen": "2026-06-30"
       }
     },
     {
@@ -39090,6 +38804,94 @@
     {
       "url": "https://skills.sh/gamedev-skills/awesome-gamedev-agent-skills/love2d-core",
       "note": "Tool docs: an agent's manual for love2d."
+    },
+    {
+      "url": "https://skills.sh/google/skills/gke-inference",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/agent-platform-alert-configuration",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/bigtable-basics",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/gke-upgrades",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/gke-observability",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/gke-golden-path",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/gke-networking",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/gke-compute-classes",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/data-manager-api-event-ingestion",
+      "note": "Tool docs: an agent's manual for google-ads."
+    },
+    {
+      "url": "https://skills.sh/google/skills/gke-reliability",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/gke-storage",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/data-manager-api-setup",
+      "note": "Tool docs: an agent's manual for google-ads."
+    },
+    {
+      "url": "https://skills.sh/google/skills/gke-app-onboarding",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/gke-cluster-creation",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/gke-backup-dr",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/bigquery-bigframes",
+      "note": "Tool docs: an agent's manual for google-cloud and python."
+    },
+    {
+      "url": "https://skills.sh/google/skills/gke-multitenancy",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/google-agents-cli-onboarding",
+      "note": "Tool docs: it installs agents-cli and routes to its skills, each an agent's manual for google-adk and google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/detection-engineering-coverage-evaluation",
+      "note": "Tool docs: an agent's manual for google-secops."
+    },
+    {
+      "url": "https://skills.sh/google/skills/data-manager-api-audience-ingestion",
+      "note": "Tool docs: an agent's manual for google-ads."
+    },
+    {
+      "url": "https://skills.sh/google/skills/gke-batch-hpc",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/google-cloud-recipe-foundation-builder",
+      "note": "Tool docs: an agent's manual for google-cloud."
     }
   ]
 }
