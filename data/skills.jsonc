@@ -2222,21 +2222,33 @@
             },
             {
               "label": "You get",
-              "text": "a repro_outputs/ folder: a verdict (verified, partial or blocked), the exact commands, logs, patches, and any change to data, evaluation or metrics"
+              "text": "a repro_outputs/ folder: a verdict (verified, partial or blocked), the exact commands, logs, patches, any change to data, evaluation or metrics, and the README annotated section by section"
             },
             {
               "label": "Main skill",
-              "text": "ai-research-reproduction runs the steps. It isn't one of the five listed, but the bundle's install command adds it, and two of the five need it"
+              "text": "ai-research-reproduction runs a reproduction end to end and works alone; six of the others are steps it uses as needed, and each can be called by name"
+            },
+            {
+              "label": "Exploration lane",
+              "text": "ai-research-explore, explore-code and explore-run try new ideas on a saved baseline, only when you ask, and never report them as reproduced"
             },
             {
               "label": "Also has",
-              "text": "ai-research-explore, a separate lane for trying new research ideas, whose results are never reported as reproduced"
+              "text": "safe-debug, which diagnoses a failed run and patches only with your approval"
+            },
+            {
+              "label": "Needs",
+              "text": "Python 3.11+ and Git for the main skill's scripts; five of the other skills load a runtime, writer or reference from it, so install it with them"
             }
           ],
-          "text": "The repo's main skill, ai-research-reproduction, runs a reproduction end to end. It isn't listed among these five, but the bundle's install command adds it with them. The five are its steps, and each can also be called on its own. repo-intake-and-plan reads the README and project files, sorts the documented commands into inference, evaluation and training, and picks the smallest one worth trusting. paper-context-resolver steps in only when the README leaves out a detail that matters, such as which dataset split to evaluate on, and looks it up in the paper, noting any conflict. env-and-assets-bootstrap drafts conda commands and where checkpoints and datasets should go, before anything runs. minimal-run-and-audit runs the chosen command and writes the evidence to repro_outputs/, including any patch and any change to data, evaluation or metrics; its scripts need the main skill. ai-research-explore, which needs it too, is a separate lane: only when you ask, and starting from a model or run you already have, it ranks and tries new research ideas, writes them to explore_outputs/, and never reports them as reproduced results.",
+          "text": "ai-research-reproduction is the entry point, and the README offers it as a self-contained install. It picks the smallest documented target (inference, then evaluation, then a training startup check; full training only after you confirm) and runs it through its script in three calls: plan, run, verify. Six skills are steps it uses as needed, and each can also be called by name. repo-intake-and-plan sorts the README's commands and recommends the first run. env-and-assets-bootstrap plans a conda environment and where checkpoints and datasets go. paper-context-resolver answers one gap the README leaves, such as a dataset split, from the paper, and notes any conflict. analyze-project maps a repo's entry points and configs, read-only, when its structure is unclear. minimal-run-and-audit records an inference or evaluation run in repro_outputs/, and run-train starts, checks or resumes training, recording it in train_outputs/. When a run fails, safe-debug diagnoses it and patches only with your approval. Exploration is a separate lane, only when you ask and from a saved baseline: ai-research-explore ranks ideas and hands code changes to explore-code, which works on an isolated branch, and short trials to explore-run. Their results go to explore_outputs/ as candidates, never as reproduced results.",
           "permalink": "https://github.com/lllllllama/rigorpilot-skills/tree/fb3ccdf5aa64b1fa5b1d0463e666a8bc8bc26e01"
         },
         "skills": [
+          {
+            "id": "lllllllama/rigorpilot-skills/skills/ai-research-reproduction",
+            "standalone": true
+          },
           {
             "id": "lllllllama/rigorpilot-skills/skills/repo-intake-and-plan",
             "standalone": true
@@ -2250,14 +2262,37 @@
             "standalone": true
           },
           {
+            "id": "lllllllama/rigorpilot-skills/skills/analyze-project",
+            "standalone": true
+          },
+          {
             "id": "lllllllama/rigorpilot-skills/skills/minimal-run-and-audit",
             "standalone": false,
             "note": "Its run and report scripts load a shared runtime that ships inside ai-research-reproduction, the repo's main skill, and stop with an error without it."
           },
           {
+            "id": "lllllllama/rigorpilot-skills/skills/run-train",
+            "standalone": false,
+            "note": "Its run and report scripts load a shared runtime that ships inside ai-research-reproduction, the repo's main skill, and stop with an error without it."
+          },
+          {
+            "id": "lllllllama/rigorpilot-skills/skills/safe-debug",
+            "standalone": true
+          },
+          {
             "id": "lllllllama/rigorpilot-skills/skills/ai-research-explore",
             "standalone": false,
             "note": "Loads its required research loop and shared runtime from ai-research-reproduction, the repo's main skill, and hands code changes and trial runs to the repo's explore-code and explore-run skills."
+          },
+          {
+            "id": "lllllllama/rigorpilot-skills/skills/explore-code",
+            "standalone": false,
+            "note": "Its report script loads a shared writer that ships inside ai-research-reproduction, the repo's main skill, and stops with an error without it."
+          },
+          {
+            "id": "lllllllama/rigorpilot-skills/skills/explore-run",
+            "standalone": false,
+            "note": "Its report script loads a shared writer that ships inside ai-research-reproduction, the repo's main skill, and stops with an error without it."
           }
         ],
         "install": [
@@ -9001,6 +9036,335 @@
           "mobile",
           "implementation",
           "performance"
+        ]
+      }
+    },
+    {
+      "id": "lllllllama/rigorpilot-skills/skills/analyze-project",
+      "name": "analyze-project",
+      "skills.sh": {
+        "url": "https://skills.sh/lllllllama/rigorpilot-skills/analyze-project",
+        "installs": 350015,
+        "weeklyInstalls": [48, 25, 61, 83, 3530, 10941, 11055, 8789],
+        "firstSeen": "2026-04-01"
+      },
+      "skillMd": {
+        "version": "fb3ccdf5aa64b1fa5b1d0463e666a8bc8bc26e01",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Maps a deep-learning research repo's entry points, configs and suspicious code patterns, read-only.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to understand a deep-learning research repo before changing it, without running anything heavy"
+            },
+            {
+              "label": "It does",
+              "text": "maps the model structure, the training, inference and evaluation entry points and how configs connect, and points out where changes could plug in"
+            },
+            {
+              "label": "You get",
+              "text": "an analysis_outputs/ folder with a summary, a risks file and a machine-readable status"
+            },
+            {
+              "label": "Doesn't",
+              "text": "patch code, launch heavy jobs, or call a suspicious pattern a confirmed bug"
+            },
+            {
+              "label": "Unlike",
+              "text": "repo-intake-and-plan, which picks a README command to reproduce, it explains the code itself"
+            }
+          ],
+          "text": "A read-only skill from RigorPilot, a set of skills that reproduces deep-learning research code from its README. It looks for the likely training, inference and evaluation entry points, summarizes how configs and scripts are laid out, and suggests insertion points, the places where a new module or change would plug in, conservatively. Patterns that look wrong, checked against a research-pitfall checklist that ships with the repo's main skill, ai-research-reproduction, are reported as heuristics to review, not as bugs. It may run lightweight static inspection helpers and writes only its own report files: it never patches the repository's code or starts heavy training or evaluation. The main skill calls it only when a repo's structure needs clarifying, and ai-research-explore usually uses it to understand a repo before trying ideas; on its own, it fits the moment before you plan changes to someone else's research code.",
+          "permalink": "https://github.com/lllllllama/rigorpilot-skills/tree/fb3ccdf5aa64b1fa5b1d0463e666a8bc8bc26e01/skills/analyze-project"
+        },
+        "tags": [
+          "category:science",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "stack:python",
+          "ml-research",
+          "architecture",
+          "code-review"
+        ]
+      }
+    },
+    {
+      "id": "lllllllama/rigorpilot-skills/skills/ai-research-reproduction",
+      "name": "ai-research-reproduction",
+      "skills.sh": {
+        "url": "https://skills.sh/lllllllama/rigorpilot-skills/ai-research-reproduction",
+        "installs": 349791,
+        "weeklyInstalls": [51, 41, 40, 51, 3509, 10924, 11042, 8762],
+        "firstSeen": "2026-04-04"
+      },
+      "skillMd": {
+        "version": "fb3ccdf5aa64b1fa5b1d0463e666a8bc8bc26e01",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Reproduces a deep-learning repo from its README through the smallest documented run, and records the evidence.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want an agent to run a deep-learning research repo from its README and record honestly what worked"
+            },
+            {
+              "label": "It does",
+              "text": "lists the README's commands, picks the smallest trustworthy one, usually inference or evaluation, runs it through bundled scripts and verifies the evidence"
+            },
+            {
+              "label": "You get",
+              "text": "a repro_outputs/ folder: summary, exact commands, log, status, notes on anything that changes the science, and the README annotated section by section"
+            },
+            {
+              "label": "Stops for you",
+              "text": "before full training, and before changing a dataset, split, checkpoint, preprocessing step, metric, loss or the model's meaning"
+            },
+            {
+              "label": "Needs",
+              "text": "Python 3.11+ and Git"
+            },
+            {
+              "label": "Unlike",
+              "text": "ai-research-explore, which tries new ideas on a working baseline, it only runs what the README documents, calling the repo's step skills as needed"
+            }
+          ],
+          "text": "The main skill of RigorPilot. For a target it prefers documented inference, then evaluation, then a training startup check, and full training only after you confirm. Its fast path is three calls to its orchestrator script: a plan that lists the README's commands as numbered candidates with a fingerprint of that list, a run of the chosen candidate that fails if the list has changed since, and a check of the evidence. The README is the authority: repo files only clarify it, and if the paper disagrees, the conflict is recorded and paper-context-resolver answers just that question. It uses minimal-run-and-audit for inference and evaluation, run-train for training, and analyze-project only when the repo's structure is unclear. Fixes try arguments, environment variables, paths and dependency versions before code; code edits go on a repro/ branch and into PATCHES.md, and avoid touching architecture, training logic or losses. A run that finishes isn't called a match: that verdict needs expected metrics and a tolerance. The annotated README keeps the original byte for byte outside its inserted blocks, and can also be written beside the original as RIGORPILOT_README.md. Once it delivers the result it stops, without starting optional stages on its own.",
+          "permalink": "https://github.com/lllllllama/rigorpilot-skills/tree/fb3ccdf5aa64b1fa5b1d0463e666a8bc8bc26e01/skills/ai-research-reproduction"
+        },
+        "tags": [
+          "category:science",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "stack:python",
+          "ml-research",
+          "verification"
+        ]
+      }
+    },
+    {
+      "id": "lllllllama/rigorpilot-skills/skills/safe-debug",
+      "name": "safe-debug",
+      "skills.sh": {
+        "url": "https://skills.sh/lllllllama/rigorpilot-skills/safe-debug",
+        "installs": 349460,
+        "weeklyInstalls": [45, 34, 41, 42, 3506, 10920, 11044, 8761],
+        "firstSeen": "2026-04-01"
+      },
+      "skillMd": {
+        "version": "fb3ccdf5aa64b1fa5b1d0463e666a8bc8bc26e01",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Diagnoses deep-learning training and inference failures and proposes the smallest fix, patching only with your approval.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a deep-learning run fails with a traceback, CUDA out-of-memory error, checkpoint load failure, shape mismatch or NaN loss"
+            },
+            {
+              "label": "It does",
+              "text": "reads the error, narrows down the likely cause with evidence, and proposes the smallest safe fix without editing code"
+            },
+            {
+              "label": "You get",
+              "text": "a debug_outputs/ folder with a diagnosis, a patch plan and a machine-readable status"
+            },
+            {
+              "label": "Asks first",
+              "text": "before any patch, and recommends a savepoint or branch before medium- or high-risk changes"
+            },
+            {
+              "label": "Unlike general debugging",
+              "text": "it says when a fix would change what the experiment means or how its results compare"
+            }
+          ],
+          "text": "The debugging step of RigorPilot, a set of skills that reproduces deep-learning research code from its README. It diagnoses first and, by default, leaves the repository's code untouched, writing only its report files. It names a likely cause category, and a script that ships with the skill can sort an error into one, such as out of GPU memory, checkpoint mismatch, distributed-training failure, tensors on different devices, shape mismatch, NaN loss or a missing file, with cautious actions for each, such as lowering batch size or resolution through configuration before touching the model. The diagnosis states the likely cause, the evidence and the smallest fix, and a patch happens only after you approve it. A debug fix isn't treated as a research contribution: if it changes what the experiment measures or how comparable its results are, the skill says so. It stays out of broad refactors and doesn't slip into trying new ideas.",
+          "permalink": "https://github.com/lllllllama/rigorpilot-skills/tree/fb3ccdf5aa64b1fa5b1d0463e666a8bc8bc26e01/skills/safe-debug"
+        },
+        "tags": [
+          "category:science",
+          "category:debugging",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "stack:python",
+          "ml-research",
+          "debugging"
+        ]
+      }
+    },
+    {
+      "id": "lllllllama/rigorpilot-skills/skills/explore-code",
+      "name": "explore-code",
+      "skills.sh": {
+        "url": "https://skills.sh/lllllllama/rigorpilot-skills/explore-code",
+        "installs": 349440,
+        "weeklyInstalls": [28, 22, 34, 44, 3502, 10914, 11033, 8750],
+        "firstSeen": "2026-04-01"
+      },
+      "skillMd": {
+        "version": "fb3ccdf5aa64b1fa5b1d0463e666a8bc8bc26e01",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Makes candidate research code changes, such as LoRA layers or a new head, on an isolated branch with rollback notes.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you've authorized trying a code change on a research model: transplanting a module, adapting a backbone, replacing a head, or adding LoRA or adapter layers"
+            },
+            {
+              "label": "It does",
+              "text": "makes the change on an isolated branch or worktree, copying from the source repo rather than rewriting, and records why it matters and how to undo it"
+            },
+            {
+              "label": "You get",
+              "text": "an explore_outputs/ folder: changeset, scientific changelog, comparability report, top runs and status, all marked as candidates"
+            },
+            {
+              "label": "Needs",
+              "text": "your explicit go-ahead for exploratory changes; the trusted baseline stays untouched"
+            },
+            {
+              "label": "Unlike ai-research-explore",
+              "text": "which coordinates a whole search for ideas, it only makes the code change, and hands runs to minimal-run-and-audit or run-train"
+            }
+          ],
+          "text": "The implementation step of RigorPilot's exploration lane, which tries new ideas on top of a reproduced baseline, kept apart from the reproduction itself. It's for changes such as bringing a module over from another repository, adapting a backbone, replacing a model's head, adding LoRA or adapter layers (small trainable add-ons to a pretrained model), or combining low-risk modules. A bundled planner maps the change, and the work happens on an isolated branch or worktree, never on the trusted baseline, the unmodified reproduced version. It prefers copying code from the source repository with minimal adaptation over freeform rewrites, records the baseline and branch it worked from, where any transplanted code came from and how to roll back, and explains why the result is still only a candidate. Broad refactors and implementing an idea from scratch are out of scope, and running the changed model is handed to minimal-run-and-audit or run-train.",
+          "permalink": "https://github.com/lllllllama/rigorpilot-skills/tree/fb3ccdf5aa64b1fa5b1d0463e666a8bc8bc26e01/skills/explore-code"
+        },
+        "tags": [
+          "category:science",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "stack:python",
+          "ml-research",
+          "implementation"
+        ]
+      }
+    },
+    {
+      "id": "lllllllama/rigorpilot-skills/skills/run-train",
+      "name": "run-train",
+      "skills.sh": {
+        "url": "https://skills.sh/lllllllama/rigorpilot-skills/run-train",
+        "installs": 349197,
+        "weeklyInstalls": [23, 17, 22, 25, 3487, 10902, 11030, 8738],
+        "firstSeen": "2026-04-01"
+      },
+      "skillMd": {
+        "version": "fb3ccdf5aa64b1fa5b1d0463e666a8bc8bc26e01",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Runs a chosen training command conservatively and records its logs, checkpoints and metrics.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a training command is already chosen and you want it started, checked over a short run, kicked off in full, or resumed"
+            },
+            {
+              "label": "It does",
+              "text": "runs the command through RigorPilot's shared runtime and records the command, config, seed, logs, checkpoints and metrics"
+            },
+            {
+              "label": "You get",
+              "text": "a train_outputs/ folder: summary, commands, log, status, scientific changelog and comparability report, with partial, blocked and resumed states kept apart"
+            },
+            {
+              "label": "Won't",
+              "text": "run sweeps, change the architecture, or present a startup check as a reproduced result"
+            },
+            {
+              "label": "Usually called by",
+              "text": "RigorPilot's main skill, ai-research-reproduction, for its training steps"
+            }
+          ],
+          "text": "The training step of RigorPilot, a set of skills that reproduces deep-learning research code from its README; minimal-run-and-audit covers inference and evaluation instead. You give it the goal, the command, what the environment and data are assumed to be, and the mode: startup verification, a short verification run, a full kickoff, or a resume. It records the exact command and the data and checkpoint assumptions and, when the logs show them, the steps completed, best metric, best checkpoint and why the run stopped, without inventing values when logs are silent. Long runs are watched for a limited window rather than indefinitely. Conclusions stay cautious for short or partial runs, and the scientific changelog and comparability report say what could change the result's meaning. Planning experiments, choosing data subsets and comparing variants are left to the main skill or the exploration skills.",
+          "permalink": "https://github.com/lllllllama/rigorpilot-skills/tree/fb3ccdf5aa64b1fa5b1d0463e666a8bc8bc26e01/skills/run-train"
+        },
+        "tags": [
+          "category:science",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "stack:python",
+          "ml-research",
+          "verification"
+        ]
+      }
+    },
+    {
+      "id": "lllllllama/rigorpilot-skills/skills/explore-run",
+      "name": "explore-run",
+      "skills.sh": {
+        "url": "https://skills.sh/lllllllama/rigorpilot-skills/explore-run",
+        "installs": 349170,
+        "weeklyInstalls": [22, 15, 23, 23, 3486, 10899, 11027, 8739],
+        "firstSeen": "2026-04-01"
+      },
+      "skillMd": {
+        "version": "fb3ccdf5aa64b1fa5b1d0463e666a8bc8bc26e01",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Plans and ranks small exploratory runs, such as subset checks and short sweeps, on top of a research baseline.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you've authorized quick experiments on a research baseline: small-subset checks, short training probes, batch sweeps, idle-GPU searches or transfer-learning trials"
+            },
+            {
+              "label": "It does",
+              "text": "plans candidate runs from the variants, subset sizes and step counts you set, ranks them by cost, chance of success and expected gain, and trims them to budget"
+            },
+            {
+              "label": "You get",
+              "text": "an explore_outputs/ folder ranking the runs, with what changed and where a comparison isn't fair"
+            },
+            {
+              "label": "Hands off",
+              "text": "the actual runs to minimal-run-and-audit or run-train"
+            },
+            {
+              "label": "Unlike run-train",
+              "text": "its results are labeled candidate evidence, never trusted or state-of-the-art results"
+            }
+          ],
+          "text": "The run step of RigorPilot's exploration lane, which tries new ideas on top of a reproduced baseline, kept apart from the reproduction itself. It works only when you explicitly ask for exploration. You describe the grid of variants to try, the subset sizes and short-run step counts, and optionally how to weigh cost, chance of success and expected gain; the default weights stay conservative. A bundled planner scores the candidates and cuts them to your limits on variants and short runs. Small, short checks come before heavier ones, and once runs have executed, ranking switches from these estimates to measured results, ordered by the metric you named. Experiment state stays separate from the trusted baseline, results are summarized for you to review, and nothing moves into the trusted lane automatically. It doesn't rewrite training logic.",
+          "permalink": "https://github.com/lllllllama/rigorpilot-skills/tree/fb3ccdf5aa64b1fa5b1d0463e666a8bc8bc26e01/skills/explore-run"
+        },
+        "tags": [
+          "category:science",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "stack:python",
+          "ml-research"
         ]
       }
     }
