@@ -55,32 +55,6 @@
       }
     },
     {
-      "name": "docker-expert",
-      "repo": "sickn33/agentic-awesome-skills",
-      "official": false,
-      "stars": 49273,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/sickn33/agentic-awesome-skills/docker-expert",
-        "installs": 27400,
-        "weeklyInstalls": [70, 85, 94, 87, 56, 124, 115, 96],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "gws-script",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/gws-script",
-        "installs": 27100,
-        "weeklyInstalls": [574, 505, 559, 565, 384, 567, 386, 421],
-        "firstSeen": "2026-03-26"
-      }
-    },
-    {
       "name": "check-impl-against-spec",
       "repo": "warpdotdev/common-skills",
       "official": false,
@@ -117,19 +91,6 @@
         "installs": 26900,
         "weeklyInstalls": [843, 640, 582, 924, 493, 361, 357, 108],
         "firstSeen": "2026-05-20"
-      }
-    },
-    {
-      "name": "gws-script-push",
-      "repo": "googleworkspace/cli",
-      "official": false,
-      "stars": 32141,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/googleworkspace/cli/gws-script-push",
-        "installs": 26600,
-        "weeklyInstalls": [564, 500, 553, 557, 376, 562, 348, 346],
-        "firstSeen": "2026-03-26"
       }
     },
     {
@@ -299,32 +260,6 @@
         "installs": 24600,
         "weeklyInstalls": [328, 277, 236, 252, 229, 244, 261, 329],
         "firstSeen": "2026-03-12"
-      }
-    },
-    {
-      "name": "nuxt",
-      "repo": "antfu/skills",
-      "official": false,
-      "stars": 6043,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/antfu/skills/nuxt",
-        "installs": 24500,
-        "weeklyInstalls": [327, 287, 264, 357, 335, 238, 236, 257],
-        "firstSeen": "2026-01-28"
-      }
-    },
-    {
-      "name": "resend",
-      "repo": "resend/resend-skills",
-      "official": false,
-      "stars": 211,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/resend/resend-skills/resend",
-        "installs": 24300,
-        "weeklyInstalls": [797, 776, 834, 894, 988, 937, 864, 622],
-        "firstSeen": "2026-01-28"
       }
     },
     {
@@ -549,19 +484,6 @@
       }
     },
     {
-      "name": "pnpm",
-      "repo": "antfu/skills",
-      "official": false,
-      "stars": 6043,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/antfu/skills/pnpm",
-        "installs": 22800,
-        "weeklyInstalls": [308, 279, 298, 395, 366, 310, 300, 274],
-        "firstSeen": "2026-01-28"
-      }
-    },
-    {
       "name": "security-review",
       "repo": "getsentry/skills",
       "official": true,
@@ -728,19 +650,6 @@
         "installs": 21800,
         "weeklyInstalls": [0, 0, 0, 0, 928, 5927, 5885, 5397],
         "firstSeen": "2026-10-10"
-      }
-    },
-    {
-      "name": "opencli-usage",
-      "repo": "jackwener/opencli",
-      "official": false,
-      "stars": 30939,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/jackwener/opencli/opencli-usage",
-        "installs": 21400,
-        "weeklyInstalls": [241, 226, 237, 200, 218, 297, 256, 195],
-        "firstSeen": "2026-04-02"
       }
     },
     {
@@ -975,19 +884,6 @@
         "installs": 20200,
         "weeklyInstalls": [366, 306, 333, 283, 375, 301, 272, 288],
         "firstSeen": "2026-02-09"
-      }
-    },
-    {
-      "name": "pinia",
-      "repo": "antfu/skills",
-      "official": false,
-      "stars": 6043,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/antfu/skills/pinia",
-        "installs": 20200,
-        "weeklyInstalls": [309, 231, 258, 325, 345, 304, 272, 308],
-        "firstSeen": "2026-01-28"
       }
     },
     {
@@ -1238,19 +1134,6 @@
       }
     },
     {
-      "name": "opencli-autofix",
-      "repo": "jackwener/opencli",
-      "official": false,
-      "stars": 30939,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/jackwener/opencli/opencli-autofix",
-        "installs": 17900,
-        "weeklyInstalls": [212, 193, 180, 143, 143, 213, 225, 218],
-        "firstSeen": "2026-04-07"
-      }
-    },
-    {
       "name": "tailwind-css-patterns",
       "repo": "giuseppe-trisciuoglio/developer-kit",
       "official": false,
@@ -1420,19 +1303,6 @@
       }
     },
     {
-      "name": "smart-search",
-      "repo": "jackwener/opencli",
-      "official": false,
-      "stars": 30939,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/jackwener/opencli/smart-search",
-        "installs": 16900,
-        "weeklyInstalls": [211, 196, 171, 143, 134, 174, 154, 149],
-        "firstSeen": "2026-04-02"
-      }
-    },
-    {
       "name": "nature-paper2ppt",
       "repo": "yuan1z0825/nature-skills",
       "official": false,
@@ -1524,19 +1394,6 @@
       }
     },
     {
-      "name": "opencli-adapter-author",
-      "repo": "jackwener/opencli",
-      "official": false,
-      "stars": 30939,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/jackwener/opencli/opencli-adapter-author",
-        "installs": 16400,
-        "weeklyInstalls": [228, 216, 212, 175, 170, 231, 224, 174],
-        "firstSeen": "2026-04-20"
-      }
-    },
-    {
       "name": "health",
       "repo": "tw93/waza",
       "official": false,
@@ -1560,19 +1417,6 @@
         "installs": 16300,
         "weeklyInstalls": [260, 341, 265, 175, 414, 365, 221, 377],
         "firstSeen": "2026-04-04"
-      }
-    },
-    {
-      "name": "unocss",
-      "repo": "antfu/skills",
-      "official": false,
-      "stars": 6043,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/antfu/skills/unocss",
-        "installs": 16200,
-        "weeklyInstalls": [156, 136, 125, 176, 148, 127, 133, 123],
-        "firstSeen": "2026-01-28"
       }
     },
     {
@@ -2265,19 +2109,6 @@
       }
     },
     {
-      "name": "email-best-practices",
-      "repo": "resend/resend-skills",
-      "official": false,
-      "stars": 211,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/resend/resend-skills/email-best-practices",
-        "installs": 14200,
-        "weeklyInstalls": [586, 596, 674, 713, 807, 696, 688, 498],
-        "firstSeen": "2026-03-30"
-      }
-    },
-    {
       "name": "changelog-automation",
       "repo": "wshobson/agents",
       "official": false,
@@ -2434,19 +2265,6 @@
       }
     },
     {
-      "name": "nodejs-best-practices",
-      "repo": "sickn33/agentic-awesome-skills",
-      "official": false,
-      "stars": 49273,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/sickn33/agentic-awesome-skills/nodejs-best-practices",
-        "installs": 13900,
-        "weeklyInstalls": [75, 88, 84, 77, 51, 38, 65, 54],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
       "name": "handoff",
       "repo": "rohitg00/agentmemory",
       "official": false,
@@ -2470,19 +2288,6 @@
         "installs": 13900,
         "weeklyInstalls": [540, 550, 548, 613, 709, 638, 589, 426],
         "firstSeen": "2026-03-15"
-      }
-    },
-    {
-      "name": "resend-cli",
-      "repo": "resend/resend-skills",
-      "official": false,
-      "stars": 211,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/resend/resend-skills/resend-cli",
-        "installs": 13900,
-        "weeklyInstalls": [581, 566, 587, 660, 753, 650, 639, 442],
-        "firstSeen": "2026-03-30"
       }
     },
     {
@@ -2863,19 +2668,6 @@
       }
     },
     {
-      "name": "react-email",
-      "repo": "resend/resend-skills",
-      "official": false,
-      "stars": 211,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/resend/resend-skills/react-email",
-        "installs": 13200,
-        "weeklyInstalls": [569, 560, 601, 659, 706, 585, 593, 433],
-        "firstSeen": "2026-03-30"
-      }
-    },
-    {
       "name": "apple-design",
       "repo": "dickwu/apple-design-skill",
       "official": false,
@@ -3042,32 +2834,6 @@
         "installs": 12900,
         "weeklyInstalls": [15, 6, 9, 16, 6, 4, 5, 16],
         "firstSeen": "2026-04-11"
-      }
-    },
-    {
-      "name": "typescript-expert",
-      "repo": "sickn33/agentic-awesome-skills",
-      "official": false,
-      "stars": 49273,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/sickn33/agentic-awesome-skills/typescript-expert",
-        "installs": 12800,
-        "weeklyInstalls": [115, 124, 138, 131, 117, 106, 100, 101],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "clean-code",
-      "repo": "sickn33/agentic-awesome-skills",
-      "official": false,
-      "stars": 49273,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/sickn33/agentic-awesome-skills/clean-code",
-        "installs": 12800,
-        "weeklyInstalls": [221, 213, 288, 320, 172, 178, 185, 208],
-        "firstSeen": "2026-01-20"
       }
     },
     {
@@ -44964,6 +44730,78 @@
     {
       "url": "https://skills.sh/yuan1z0825/nature-skills/researchwrite",
       "note": "In Chinese."
+    },
+    {
+      "url": "https://skills.sh/antfu/skills/nuxt",
+      "note": "Tool docs: an agent's manual for nuxt."
+    },
+    {
+      "url": "https://skills.sh/antfu/skills/pnpm",
+      "note": "Tool docs: an agent's manual for pnpm."
+    },
+    {
+      "url": "https://skills.sh/antfu/skills/pinia",
+      "note": "Tool docs: an agent's manual for pinia."
+    },
+    {
+      "url": "https://skills.sh/antfu/skills/unocss",
+      "note": "Tool docs: an agent's manual for unocss."
+    },
+    {
+      "url": "https://skills.sh/resend/resend-skills/resend",
+      "note": "Tool docs: an agent's manual for resend."
+    },
+    {
+      "url": "https://skills.sh/resend/resend-skills/email-best-practices",
+      "note": "A copy of resend/email-best-practices."
+    },
+    {
+      "url": "https://skills.sh/resend/resend-skills/resend-cli",
+      "note": "Tool docs: an agent's manual for resend."
+    },
+    {
+      "url": "https://skills.sh/resend/resend-skills/react-email",
+      "note": "Tool docs: an agent's manual for react-email."
+    },
+    {
+      "url": "https://skills.sh/jackwener/opencli/opencli-usage",
+      "note": "Tool docs: an agent's manual for opencli."
+    },
+    {
+      "url": "https://skills.sh/jackwener/opencli/opencli-autofix",
+      "note": "Tool docs: an agent's manual for opencli."
+    },
+    {
+      "url": "https://skills.sh/jackwener/opencli/smart-search",
+      "note": "In Chinese."
+    },
+    {
+      "url": "https://skills.sh/jackwener/opencli/opencli-adapter-author",
+      "note": "Tool docs: an agent's manual for opencli."
+    },
+    {
+      "url": "https://skills.sh/sickn33/agentic-awesome-skills/docker-expert",
+      "note": "Tool docs: an agent's manual for docker."
+    },
+    {
+      "url": "https://skills.sh/sickn33/agentic-awesome-skills/nodejs-best-practices",
+      "note": "Tool docs: an agent's manual for node."
+    },
+    {
+      "url": "https://skills.sh/sickn33/agentic-awesome-skills/typescript-expert",
+      "note": "Tool docs: an agent's manual for typescript."
+    },
+    {
+      "url": "https://skills.sh/sickn33/agentic-awesome-skills/clean-code",
+      "note": "A copy of jackjin1997/ClawForge/skills/clean-code."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/gws-script",
+      "note": "Tool docs: an agent's manual for google-workspace."
+    },
+    {
+      "url": "https://skills.sh/googleworkspace/cli/gws-script-push",
+      "note": "Tool docs: an agent's manual for google-workspace."
     }
   ]
 }
