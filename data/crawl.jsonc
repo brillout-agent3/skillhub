@@ -16,32 +16,6 @@
       }
     },
     {
-      "name": "pixijs-performance",
-      "repo": "pixijs/pixijs-skills",
-      "official": false,
-      "stars": 363,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/pixijs/pixijs-skills/pixijs-performance",
-        "installs": 7000,
-        "weeklyInstalls": [233, 179, 208, 205, 221, 356, 456, 414],
-        "firstSeen": "2026-04-15"
-      }
-    },
-    {
-      "name": "pixijs-application",
-      "repo": "pixijs/pixijs-skills",
-      "official": false,
-      "stars": 363,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/pixijs/pixijs-skills/pixijs-application",
-        "installs": 7000,
-        "weeklyInstalls": [232, 185, 204, 205, 211, 343, 455, 402],
-        "firstSeen": "2026-04-15"
-      }
-    },
-    {
       "name": "bmad-eval",
       "repo": "bmad-code-org/bmad-method",
       "official": false,
@@ -198,19 +172,6 @@
       }
     },
     {
-      "name": "pixijs-scene-graphics",
-      "repo": "pixijs/pixijs-skills",
-      "official": false,
-      "stars": 363,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/pixijs/pixijs-skills/pixijs-scene-graphics",
-        "installs": 6900,
-        "weeklyInstalls": [227, 182, 204, 198, 208, 341, 452, 402],
-        "firstSeen": "2026-04-15"
-      }
-    },
-    {
       "name": "zustand",
       "repo": "lobehub/lobehub",
       "official": true,
@@ -237,19 +198,6 @@
       }
     },
     {
-      "name": "pixijs-core-concepts",
-      "repo": "pixijs/pixijs-skills",
-      "official": false,
-      "stars": 363,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/pixijs/pixijs-skills/pixijs-core-concepts",
-        "installs": 6900,
-        "weeklyInstalls": [226, 179, 203, 201, 208, 338, 446, 402],
-        "firstSeen": "2026-04-15"
-      }
-    },
-    {
       "name": "asc-workflow",
       "repo": "rorkai/app-store-connect-cli-skills",
       "official": false,
@@ -273,19 +221,6 @@
         "installs": 6900,
         "weeklyInstalls": [32, 55, 34, 37, 44, 51, 46, 49],
         "firstSeen": "2026-01-24"
-      }
-    },
-    {
-      "name": "pixijs-assets",
-      "repo": "pixijs/pixijs-skills",
-      "official": false,
-      "stars": 363,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/pixijs/pixijs-skills/pixijs-assets",
-        "installs": 6900,
-        "weeklyInstalls": [230, 185, 208, 204, 210, 338, 456, 400],
-        "firstSeen": "2026-04-15"
       }
     },
     {
@@ -338,32 +273,6 @@
         "installs": 6900,
         "weeklyInstalls": [0, 0, 0, 0, 994, 1171, 1377, 1967],
         "firstSeen": "2026-10-06"
-      }
-    },
-    {
-      "name": "pixijs-scene-sprite",
-      "repo": "pixijs/pixijs-skills",
-      "official": false,
-      "stars": 363,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/pixijs/pixijs-skills/pixijs-scene-sprite",
-        "installs": 6900,
-        "weeklyInstalls": [230, 181, 208, 195, 208, 340, 455, 405],
-        "firstSeen": "2026-04-15"
-      }
-    },
-    {
-      "name": "pixijs-events",
-      "repo": "pixijs/pixijs-skills",
-      "official": false,
-      "stars": 363,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/pixijs/pixijs-skills/pixijs-events",
-        "installs": 6900,
-        "weeklyInstalls": [229, 186, 203, 201, 209, 338, 452, 400],
-        "firstSeen": "2026-04-15"
       }
     },
     {
@@ -458,19 +367,6 @@
       }
     },
     {
-      "name": "pixijs-scene-container",
-      "repo": "pixijs/pixijs-skills",
-      "official": false,
-      "stars": 363,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/pixijs/pixijs-skills/pixijs-scene-container",
-        "installs": 6800,
-        "weeklyInstalls": [228, 181, 196, 192, 204, 326, 445, 393],
-        "firstSeen": "2026-04-15"
-      }
-    },
-    {
       "name": "asc-notarization",
       "repo": "rorkai/app-store-connect-cli-skills",
       "official": false,
@@ -507,19 +403,6 @@
         "installs": 6800,
         "weeklyInstalls": [99, 105, 86, 54, 76, 91, 121, 122],
         "firstSeen": "2026-04-09"
-      }
-    },
-    {
-      "name": "pixijs-math",
-      "repo": "pixijs/pixijs-skills",
-      "official": false,
-      "stars": 363,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/pixijs/pixijs-skills/pixijs-math",
-        "installs": 6800,
-        "weeklyInstalls": [231, 183, 202, 195, 202, 330, 446, 396],
-        "firstSeen": "2026-04-15"
       }
     },
     {
@@ -562,19 +445,6 @@
       }
     },
     {
-      "name": "pixijs-scene-core-concepts",
-      "repo": "pixijs/pixijs-skills",
-      "official": false,
-      "stars": 363,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/pixijs/pixijs-skills/pixijs-scene-core-concepts",
-        "installs": 6800,
-        "weeklyInstalls": [226, 181, 203, 195, 204, 333, 447, 394],
-        "firstSeen": "2026-04-15"
-      }
-    },
-    {
       "name": "planning-with-files-ar",
       "repo": "othmanadi/planning-with-files",
       "official": false,
@@ -598,58 +468,6 @@
         "installs": 6800,
         "weeklyInstalls": [0, 0, 0, 0, 3, 2, 1, 0],
         "firstSeen": "2026-01-23"
-      }
-    },
-    {
-      "name": "pixijs-scene-text",
-      "repo": "pixijs/pixijs-skills",
-      "official": false,
-      "stars": 363,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/pixijs/pixijs-skills/pixijs-scene-text",
-        "installs": 6800,
-        "weeklyInstalls": [225, 178, 201, 193, 205, 331, 450, 398],
-        "firstSeen": "2026-04-15"
-      }
-    },
-    {
-      "name": "pixijs-ticker",
-      "repo": "pixijs/pixijs-skills",
-      "official": false,
-      "stars": 363,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/pixijs/pixijs-skills/pixijs-ticker",
-        "installs": 6800,
-        "weeklyInstalls": [230, 178, 195, 191, 199, 331, 446, 395],
-        "firstSeen": "2026-04-15"
-      }
-    },
-    {
-      "name": "pixijs-filters",
-      "repo": "pixijs/pixijs-skills",
-      "official": false,
-      "stars": 363,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/pixijs/pixijs-skills/pixijs-filters",
-        "installs": 6800,
-        "weeklyInstalls": [225, 174, 197, 196, 203, 328, 443, 404],
-        "firstSeen": "2026-04-15"
-      }
-    },
-    {
-      "name": "pixijs-scene-particle-container",
-      "repo": "pixijs/pixijs-skills",
-      "official": false,
-      "stars": 363,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/pixijs/pixijs-skills/pixijs-scene-particle-container",
-        "installs": 6800,
-        "weeklyInstalls": [225, 177, 201, 194, 204, 331, 446, 401],
-        "firstSeen": "2026-04-15"
       }
     },
     {
@@ -731,19 +549,6 @@
       }
     },
     {
-      "name": "pixijs-custom-rendering",
-      "repo": "pixijs/pixijs-skills",
-      "official": false,
-      "stars": 363,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/pixijs/pixijs-skills/pixijs-custom-rendering",
-        "installs": 6700,
-        "weeklyInstalls": [226, 174, 199, 200, 207, 331, 441, 399],
-        "firstSeen": "2026-04-15"
-      }
-    },
-    {
       "name": "knap",
       "repo": "kepano/obsidian-skills",
       "official": false,
@@ -767,45 +572,6 @@
         "installs": 6700,
         "weeklyInstalls": [182, 156, 139, 202, 231, 372, 296, 264],
         "firstSeen": "2026-03-11"
-      }
-    },
-    {
-      "name": "pixijs-create",
-      "repo": "pixijs/pixijs-skills",
-      "official": false,
-      "stars": 363,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/pixijs/pixijs-skills/pixijs-create",
-        "installs": 6700,
-        "weeklyInstalls": [223, 171, 199, 191, 199, 328, 444, 394],
-        "firstSeen": "2026-04-15"
-      }
-    },
-    {
-      "name": "pixijs-color",
-      "repo": "pixijs/pixijs-skills",
-      "official": false,
-      "stars": 363,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/pixijs/pixijs-skills/pixijs-color",
-        "installs": 6700,
-        "weeklyInstalls": [226, 174, 194, 190, 197, 322, 436, 392],
-        "firstSeen": "2026-04-15"
-      }
-    },
-    {
-      "name": "pixijs-blend-modes",
-      "repo": "pixijs/pixijs-skills",
-      "official": false,
-      "stars": 363,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/pixijs/pixijs-skills/pixijs-blend-modes",
-        "installs": 6700,
-        "weeklyInstalls": [225, 172, 194, 193, 200, 325, 438, 398],
-        "firstSeen": "2026-04-15"
       }
     },
     {
@@ -952,32 +718,6 @@
       }
     },
     {
-      "name": "pixijs-scene-dom-container",
-      "repo": "pixijs/pixijs-skills",
-      "official": false,
-      "stars": 363,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/pixijs/pixijs-skills/pixijs-scene-dom-container",
-        "installs": 6600,
-        "weeklyInstalls": [222, 175, 190, 188, 196, 323, 434, 390],
-        "firstSeen": "2026-04-15"
-      }
-    },
-    {
-      "name": "pixijs-scene-mesh",
-      "repo": "pixijs/pixijs-skills",
-      "official": false,
-      "stars": 363,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/pixijs/pixijs-skills/pixijs-scene-mesh",
-        "installs": 6600,
-        "weeklyInstalls": [223, 171, 192, 188, 198, 327, 440, 390],
-        "firstSeen": "2026-04-15"
-      }
-    },
-    {
       "name": "nextjs-supabase-auth",
       "repo": "sickn33/agentic-awesome-skills",
       "official": false,
@@ -1095,19 +835,6 @@
       }
     },
     {
-      "name": "pixijs-environments",
-      "repo": "pixijs/pixijs-skills",
-      "official": false,
-      "stars": 363,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/pixijs/pixijs-skills/pixijs-environments",
-        "installs": 6500,
-        "weeklyInstalls": [222, 172, 189, 186, 195, 322, 436, 389],
-        "firstSeen": "2026-04-15"
-      }
-    },
-    {
       "name": "angular-testing",
       "repo": "analogjs/angular-skills",
       "official": false,
@@ -1183,19 +910,6 @@
         "installs": 6500,
         "weeklyInstalls": [190, 191, 186, 164, 171, 301, 234, 183],
         "firstSeen": "2026-02-23"
-      }
-    },
-    {
-      "name": "pixijs-scene-gif",
-      "repo": "pixijs/pixijs-skills",
-      "official": false,
-      "stars": 363,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/pixijs/pixijs-skills/pixijs-scene-gif",
-        "installs": 6500,
-        "weeklyInstalls": [224, 169, 191, 187, 193, 320, 433, 389],
-        "firstSeen": "2026-04-15"
       }
     },
     {
@@ -1326,19 +1040,6 @@
         "installs": 6400,
         "weeklyInstalls": [8, 8, 14, 14, 2, 2, 3, 3],
         "firstSeen": "2026-03-02"
-      }
-    },
-    {
-      "name": "pixijs-accessibility",
-      "repo": "pixijs/pixijs-skills",
-      "official": false,
-      "stars": 363,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/pixijs/pixijs-skills/pixijs-accessibility",
-        "installs": 6400,
-        "weeklyInstalls": [215, 171, 188, 186, 194, 324, 434, 392],
-        "firstSeen": "2026-04-15"
       }
     },
     {
@@ -1781,19 +1482,6 @@
         "installs": 6300,
         "weeklyInstalls": [48, 74, 58, 58, 101, 222, 176, 61],
         "firstSeen": "2026-03-09"
-      }
-    },
-    {
-      "name": "pixijs-migration-v8",
-      "repo": "pixijs/pixijs-skills",
-      "official": false,
-      "stars": 363,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/pixijs/pixijs-skills/pixijs-migration-v8",
-        "installs": 6300,
-        "weeklyInstalls": [217, 169, 185, 182, 195, 319, 433, 388],
-        "firstSeen": "2026-04-15"
       }
     },
     {
@@ -5837,19 +5525,6 @@
         "installs": 5400,
         "weeklyInstalls": [132, 195, 170, 154, 139, 96, 84, 89],
         "firstSeen": "2026-01-28"
-      }
-    },
-    {
-      "name": "pixijs-html-source",
-      "repo": "pixijs/pixijs-skills",
-      "official": false,
-      "stars": 363,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/pixijs/pixijs-skills/pixijs-html-source",
-        "installs": 5400,
-        "weeklyInstalls": [221, 174, 194, 188, 200, 326, 437, 392],
-        "firstSeen": "2026-06-04"
       }
     },
     {
@@ -28021,6 +27696,106 @@
     {
       "url": "https://skills.sh/affaan-m/ecc/laravel-plugin-discovery",
       "note": "Tool docs: an agent's manual for laravel and the LaraPlugins MCP server."
+    },
+    {
+      "url": "https://skills.sh/pixijs/pixijs-skills/pixijs-performance",
+      "note": "Tool docs: an agent's manual for pixijs."
+    },
+    {
+      "url": "https://skills.sh/pixijs/pixijs-skills/pixijs-application",
+      "note": "Tool docs: an agent's manual for pixijs."
+    },
+    {
+      "url": "https://skills.sh/pixijs/pixijs-skills/pixijs-scene-graphics",
+      "note": "Tool docs: an agent's manual for pixijs."
+    },
+    {
+      "url": "https://skills.sh/pixijs/pixijs-skills/pixijs-core-concepts",
+      "note": "Tool docs: an agent's manual for pixijs."
+    },
+    {
+      "url": "https://skills.sh/pixijs/pixijs-skills/pixijs-assets",
+      "note": "Tool docs: an agent's manual for pixijs."
+    },
+    {
+      "url": "https://skills.sh/pixijs/pixijs-skills/pixijs-scene-sprite",
+      "note": "Tool docs: an agent's manual for pixijs."
+    },
+    {
+      "url": "https://skills.sh/pixijs/pixijs-skills/pixijs-events",
+      "note": "Tool docs: an agent's manual for pixijs."
+    },
+    {
+      "url": "https://skills.sh/pixijs/pixijs-skills/pixijs-scene-container",
+      "note": "Tool docs: an agent's manual for pixijs."
+    },
+    {
+      "url": "https://skills.sh/pixijs/pixijs-skills/pixijs-math",
+      "note": "Tool docs: an agent's manual for pixijs."
+    },
+    {
+      "url": "https://skills.sh/pixijs/pixijs-skills/pixijs-scene-core-concepts",
+      "note": "Tool docs: an agent's manual for pixijs."
+    },
+    {
+      "url": "https://skills.sh/pixijs/pixijs-skills/pixijs-scene-text",
+      "note": "Tool docs: an agent's manual for pixijs."
+    },
+    {
+      "url": "https://skills.sh/pixijs/pixijs-skills/pixijs-ticker",
+      "note": "Tool docs: an agent's manual for pixijs."
+    },
+    {
+      "url": "https://skills.sh/pixijs/pixijs-skills/pixijs-filters",
+      "note": "Tool docs: an agent's manual for pixijs."
+    },
+    {
+      "url": "https://skills.sh/pixijs/pixijs-skills/pixijs-scene-particle-container",
+      "note": "Tool docs: an agent's manual for pixijs."
+    },
+    {
+      "url": "https://skills.sh/pixijs/pixijs-skills/pixijs-custom-rendering",
+      "note": "Tool docs: an agent's manual for pixijs."
+    },
+    {
+      "url": "https://skills.sh/pixijs/pixijs-skills/pixijs-create",
+      "note": "Tool docs: an agent's manual for pixijs."
+    },
+    {
+      "url": "https://skills.sh/pixijs/pixijs-skills/pixijs-color",
+      "note": "Tool docs: an agent's manual for pixijs."
+    },
+    {
+      "url": "https://skills.sh/pixijs/pixijs-skills/pixijs-blend-modes",
+      "note": "Tool docs: an agent's manual for pixijs."
+    },
+    {
+      "url": "https://skills.sh/pixijs/pixijs-skills/pixijs-scene-dom-container",
+      "note": "Tool docs: an agent's manual for pixijs."
+    },
+    {
+      "url": "https://skills.sh/pixijs/pixijs-skills/pixijs-scene-mesh",
+      "note": "Tool docs: an agent's manual for pixijs."
+    },
+    {
+      "url": "https://skills.sh/pixijs/pixijs-skills/pixijs-environments",
+      "note": "Tool docs: an agent's manual for pixijs."
+    },
+    {
+      "url": "https://skills.sh/pixijs/pixijs-skills/pixijs-scene-gif",
+      "note": "Tool docs: an agent's manual for pixijs."
+    },
+    {
+      "url": "https://skills.sh/pixijs/pixijs-skills/pixijs-accessibility",
+      "note": "Tool docs: an agent's manual for pixijs."
+    },
+    {
+      "url": "https://skills.sh/pixijs/pixijs-skills/pixijs-migration-v8",
+      "note": "Tool docs: an agent's manual for pixijs."
+    },
+    {
+      "url": "https://skills.sh/pixijs/pixijs-skills/pixijs-html-source",
+      "note": "Tool docs: an agent's manual for pixijs."
     }
   ]
 }
