@@ -219,13 +219,16 @@ export interface SkillsSh {
   url: string;
   /** The command skills.sh gives to install it. */
   install: string;
+  // TODO/ai where does the weeklyInstalls data come from exactly?
   /**
    * All-time installs, or null when unknown: exact for the skills.sh all-time top 600, else from
    * the skill's skills.sh page, which rounds them to three digits (such as 26.5K).
    */
   installs: number | null;
+  // TODO/ai where does the weeklyInstalls data come from exactly?
   /** Installs per week for the 8 weeks up to the installs snapshot, oldest first. */
   weeklyInstalls: number[] | null;
+  // TODO/ai where does that data come from exactly?
   /** When skills.sh first saw the skill (YYYY-MM-DD). */
   firstSeen: string | null;
 }
