@@ -12,11 +12,22 @@ export interface Data {
   $schema: string;
   /** When the data was last edited (YYYY-MM-DD). */
   updated: string;
-  /** When each kind of number was collected, which crawl.ts does daily, and when the tags were assigned (YYYY-MM-DD). */
-  asOf: Record<"installs" | "stars" | "tags", string>;
+  /** When each kind of data is from (YYYY-MM-DD). */
+  asOf: {
+    /** When the installs were collected, which crawl.ts does daily. */
+    installs: string;
+    /** When the GitHub stars were collected, which crawl.ts does daily. */
+    stars: string;
+    /** When the tags were last assigned. */
+    tags: string;
+  };
+  /** The tag dimensions, with the values their tags can take. */
   facets: Facet[];
+  /** The GitHub repos of the skills and bundles, one entry each. */
   repos: Repo[];
+  /** Skills meant to be installed together. */
   bundles: Bundle[];
+  /** The approved skills: the ones the site lists. */
   skills: Skill[];
 }
 
@@ -42,7 +53,9 @@ export interface Crawl {
   disqualified: Disqualified[];
 }
 
+/** A skill of the skills.sh top 600 that's qualified or unqualified. */
 export interface Crawled {
+  /** Its name on skills.sh: the end of its skills.sh page. */
   name: string;
   /** Its GitHub repo, `owner/name`, as skills.sh names it: possibly an old name the repo redirects from. */
   repo: string;
@@ -59,20 +72,27 @@ export interface Crawled {
 export interface Disqualified {
   /** Its skills.sh page. */
   url: string;
+  /** Why it's disqualified. */
   note: string;
 }
 
 /** A tag dimension. Tags are written `facet:value`, except topics, which have no prefix. */
 export interface Facet {
+  /** Its id: the prefix of its tags, `id:value`. */
   id: string;
+  /** Its name, as the site shows it. */
   name: string;
+  /** The question its values answer. */
   question: string;
   /** How many values of this facet a skill carries. */
   count: "one" | "one or more" | "at most one" | "one to five" | "any";
+  /** The values its tags can take. */
   values: {
+    /** Its id: the tag is `facet:id`, or just `id` for a topic. */
     id: string;
     /** A name for chips, when the id alone isn't one. */
     label?: string;
+    /** What it means: for people browsing, and for agents tagging skills. */
     description?: string;
     /**
      * Makes the value a parent of these values of the same facet: skills don't carry it, they
@@ -83,20 +103,28 @@ export interface Facet {
   /** `false` for topics, which are written without a `topic:` prefix. */
   prefix?: false;
   /** Display groups (topics only). */
-  groups?: { name: string; values: string[] }[];
+  groups?: {
+    /** The group's heading. */
+    name: string;
+    /** The ids of its values. */
+    values: string[];
+  }[];
 }
 
 export interface Repo {
   /** GitHub `owner/name`. */
   id: string;
+  /** Its GitHub page. */
   url: string;
   /** `skills`: exists to ship skills. `project`: a product that also ships a skill. `index`: a curated list or catalog. */
   kind: "skills" | "project" | "index";
   /** GitHub stars, or null when unknown. crawl.ts refreshes them for the repos of approved skills and bundles. */
   stars: number | null;
+  /** The repo in one line, such as its GitHub description, or null when it has none. */
   description: string | null;
   /** How many of the repo's skills were in the skills.sh all-time top 600. */
   leaderboardSkills: number | null;
+  /** Something to know about the repo, such as where its star count comes from. */
   note?: string;
 }
 
@@ -108,11 +136,15 @@ export interface Skill {
    * entry in `repos`.
    */
   id: string;
+  /** Its name on skills.sh: the end of its skills.sh page. */
   name: string;
+  /** One sentence on what it does, shown until it has a TLDR. */
   description: string;
   /** What the skill is and does, written from the SKILL.md its permalink points to. */
   tldr?: Tldr;
+  /** Its tags, `facet:value` or just the value for a topic, from the values `facets` defines. */
   tags: string[];
+  /** Its listing on skills.sh. */
   "skills.sh": SkillsSh;
   /** The copy of the skill's SKILL.md at `data/skill-snapshots/<id>.md`, which `sync.ts` keeps current. */
   skillMd?: SkillMd;
@@ -127,6 +159,7 @@ export interface Skill {
 export interface Bundle {
   /** The GitHub repo, `owner/name`, or `owner/name@part` for one of several bundles in a repo. */
   id: string;
+  /** Its name, as the site shows it. */
   name: string;
   /** One sentence, shown until it has a TLDR. */
   description: string;
@@ -134,12 +167,19 @@ export interface Bundle {
   tldr?: Tldr;
   /** Its skills, in the order they're used. */
   skills: BundleSkill[];
-  install: { label: string; command: string }[];
+  /** How to install all of its skills, one command per way, as its README gives them. */
+  install: {
+    /** Where the command works, such as "Claude Code plugin". */
+    label: string;
+    /** The command to run. */
+    command: string;
+  }[];
   /** Words added plus words removed across its skills' SKILL.md since the commit the TLDR summarizes, or all their words when there's no TLDR. */
   skew: number;
 }
 
 export interface BundleSkill {
+  /** Where its SKILL.md lives, as for a skill's `id`. */
   id: string;
   /**
    * Whether it's worth installing alone, with no other skill of the bundle: then it also gets an
@@ -153,7 +193,12 @@ export interface BundleSkill {
 
 export interface Tldr {
   /** Short labelled facts to place the skill quickly, most telling first, such as "Use it when". */
-  glance: { label: string; text: string }[];
+  glance: {
+    /** A few words, such as "Use it when". */
+    label: string;
+    /** What the label introduces. */
+    text: string;
+  }[];
   /** Prose that explains what the skill does. */
   text: string;
   /** GitHub permalink to what the TLDR summarizes: the skill's directory at a commit. For a bundle, its repo at a commit. */
@@ -172,6 +217,7 @@ export interface SkillMd {
 export interface SkillsSh {
   /** The skill's page on skills.sh. */
   url: string;
+  /** The command skills.sh gives to install it. */
   install: string;
   /**
    * All-time installs, or null when unknown: exact for the skills.sh all-time top 600, else from

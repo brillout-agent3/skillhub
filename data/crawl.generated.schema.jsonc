@@ -44,7 +44,8 @@
       "type": "object",
       "properties": {
         "name": {
-          "type": "string"
+          "type": "string",
+          "description": "Its name on skills.sh: the end of its skills.sh page."
         },
         "repo": {
           "type": "string",
@@ -68,7 +69,8 @@
         }
       },
       "required": ["name", "repo", "official", "stars", "seen", "skills.sh"],
-      "additionalProperties": false
+      "additionalProperties": false,
+      "description": "A skill of the skills.sh top 600 that's qualified or unqualified."
     },
     "SkillsSh": {
       "type": "object",
@@ -78,7 +80,8 @@
           "description": "The skill's page on skills.sh."
         },
         "install": {
-          "type": "string"
+          "type": "string",
+          "description": "The command skills.sh gives to install it."
         },
         "installs": {
           "type": ["number", "null"],
@@ -114,7 +117,8 @@
           "description": "Its skills.sh page."
         },
         "note": {
-          "type": "string"
+          "type": "string",
+          "description": "Why it's disqualified."
         }
       },
       "required": ["url", "note"],

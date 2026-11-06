@@ -8,7 +8,7 @@
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { approvedPages, pageKey, readCrawl, readData, readJsonc, tldrProblems } from "./data.ts";
-import { generate, SCHEMAS } from "./schema.ts";
+import { generate, SCHEMAS, TYPES, undocumented } from "./schema.ts";
 import { copyPath } from "../website/skill-md.ts";
 import type { Facet } from "../data/types.ts";
 import { bundleRepo, github } from "../website/github.ts";
@@ -190,16 +190,20 @@ for (const file of readdirSync(new URL("data/skill-snapshots", root), {
   if (file.endsWith(".md") && !copies.has(`data/skill-snapshots/${file}`))
     fail(`data/skill-snapshots/${file}`, "copy of a skill that isn't in skills.jsonc");
 
-// The JSON Schemas, for editors: each data file points to its own, which matches its type.
+// The JSON Schemas, for editors: each data file points to its own, which matches its type, and
+// describes every field.
 for (const s of SCHEMAS) {
   const ref = `./${s.schema.split("/").pop()}`;
   if (readJsonc<{ $schema?: string }>(fileURLToPath(new URL(s.data, root))).$schema !== ref)
     fail(s.data, `$schema must be "${ref}"; run pnpm run schema`);
+  const { schema, text } = generate(s);
   if (
     !existsSync(new URL(s.schema, root)) ||
-    readFileSync(new URL(s.schema, root), "utf8") !== generate(s)
+    readFileSync(new URL(s.schema, root), "utf8") !== text
   )
     fail(s.schema, `out of date with the ${s.type} type; run pnpm run schema`);
+  for (const field of undocumented(schema))
+    fail(TYPES, `${field} needs a doc comment, its description in ${s.schema}`);
 }
 
 if (errors.length > 0) {

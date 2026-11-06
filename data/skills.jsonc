@@ -8504,7 +8504,6 @@
     },
     {
       "id": "anthropics/skills/skills/mcp-builder",
-      // TODO/ai "name" prop missing $schema description, make sure each prop has a description
       "name": "mcp-builder",
       "description": "Builds high-quality MCP servers.",
       "tldr": {

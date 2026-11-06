@@ -18,42 +18,49 @@
           "type": "object",
           "properties": {
             "installs": {
-              "type": "string"
+              "type": "string",
+              "description": "When the installs were collected, which crawl.ts does daily."
             },
             "stars": {
-              "type": "string"
+              "type": "string",
+              "description": "When the GitHub stars were collected, which crawl.ts does daily."
             },
             "tags": {
-              "type": "string"
+              "type": "string",
+              "description": "When the tags were last assigned."
             }
           },
           "required": ["installs", "stars", "tags"],
           "additionalProperties": false,
-          "description": "When each kind of number was collected, which crawl.ts does daily, and when the tags were assigned (YYYY-MM-DD)."
+          "description": "When each kind of data is from (YYYY-MM-DD)."
         },
         "facets": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/Facet"
-          }
+          },
+          "description": "The tag dimensions, with the values their tags can take."
         },
         "repos": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/Repo"
-          }
+          },
+          "description": "The GitHub repos of the skills and bundles, one entry each."
         },
         "bundles": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/Bundle"
-          }
+          },
+          "description": "Skills meant to be installed together."
         },
         "skills": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/Skill"
-          }
+          },
+          "description": "The approved skills: the ones the site lists."
         }
       },
       "required": ["$schema", "updated", "asOf", "facets", "repos", "bundles", "skills"],
@@ -64,13 +71,16 @@
       "type": "object",
       "properties": {
         "id": {
-          "type": "string"
+          "type": "string",
+          "description": "Its id: the prefix of its tags, `id:value`."
         },
         "name": {
-          "type": "string"
+          "type": "string",
+          "description": "Its name, as the site shows it."
         },
         "question": {
-          "type": "string"
+          "type": "string",
+          "description": "The question its values answer."
         },
         "count": {
           "type": "string",
@@ -83,14 +93,16 @@
             "type": "object",
             "properties": {
               "id": {
-                "type": "string"
+                "type": "string",
+                "description": "Its id: the tag is `facet:id`, or just `id` for a topic."
               },
               "label": {
                 "type": "string",
                 "description": "A name for chips, when the id alone isn't one."
               },
               "description": {
-                "type": "string"
+                "type": "string",
+                "description": "What it means: for people browsing, and for agents tagging skills."
               },
               "includes": {
                 "type": "array",
@@ -102,7 +114,8 @@
             },
             "required": ["id"],
             "additionalProperties": false
-          }
+          },
+          "description": "The values its tags can take."
         },
         "prefix": {
           "type": "boolean",
@@ -115,13 +128,15 @@
             "type": "object",
             "properties": {
               "name": {
-                "type": "string"
+                "type": "string",
+                "description": "The group's heading."
               },
               "values": {
                 "type": "array",
                 "items": {
                   "type": "string"
-                }
+                },
+                "description": "The ids of its values."
               }
             },
             "required": ["name", "values"],
@@ -142,7 +157,8 @@
           "description": "GitHub `owner/name`."
         },
         "url": {
-          "type": "string"
+          "type": "string",
+          "description": "Its GitHub page."
         },
         "kind": {
           "type": "string",
@@ -154,14 +170,16 @@
           "description": "GitHub stars, or null when unknown. crawl.ts refreshes them for the repos of approved skills and bundles."
         },
         "description": {
-          "type": ["string", "null"]
+          "type": ["string", "null"],
+          "description": "The repo in one line, such as its GitHub description, or null when it has none."
         },
         "leaderboardSkills": {
           "type": ["number", "null"],
           "description": "How many of the repo's skills were in the skills.sh all-time top 600."
         },
         "note": {
-          "type": "string"
+          "type": "string",
+          "description": "Something to know about the repo, such as where its star count comes from."
         }
       },
       "required": ["id", "url", "kind", "stars", "description", "leaderboardSkills"],
@@ -175,7 +193,8 @@
           "description": "The GitHub repo, `owner/name`, or `owner/name@part` for one of several bundles in a repo."
         },
         "name": {
-          "type": "string"
+          "type": "string",
+          "description": "Its name, as the site shows it."
         },
         "description": {
           "type": "string",
@@ -198,15 +217,18 @@
             "type": "object",
             "properties": {
               "label": {
-                "type": "string"
+                "type": "string",
+                "description": "Where the command works, such as \"Claude Code plugin\"."
               },
               "command": {
-                "type": "string"
+                "type": "string",
+                "description": "The command to run."
               }
             },
             "required": ["label", "command"],
             "additionalProperties": false
-          }
+          },
+          "description": "How to install all of its skills, one command per way, as its README gives them."
         },
         "skew": {
           "type": "number",
@@ -226,10 +248,12 @@
             "type": "object",
             "properties": {
               "label": {
-                "type": "string"
+                "type": "string",
+                "description": "A few words, such as \"Use it when\"."
               },
               "text": {
-                "type": "string"
+                "type": "string",
+                "description": "What the label introduces."
               }
             },
             "required": ["label", "text"],
@@ -253,7 +277,8 @@
       "type": "object",
       "properties": {
         "id": {
-          "type": "string"
+          "type": "string",
+          "description": "Where its SKILL.md lives, as for a skill's `id`."
         },
         "standalone": {
           "type": "boolean",
@@ -275,10 +300,12 @@
           "description": "Unique: where the skill's SKILL.md lives, as the GitHub repo and the directory inside it, `owner/name/path/to/dir` (just `owner/name` for a SKILL.md at the root). The repo has an entry in `repos`."
         },
         "name": {
-          "type": "string"
+          "type": "string",
+          "description": "Its name on skills.sh: the end of its skills.sh page."
         },
         "description": {
-          "type": "string"
+          "type": "string",
+          "description": "One sentence on what it does, shown until it has a TLDR."
         },
         "tldr": {
           "$ref": "#/definitions/Tldr",
@@ -288,10 +315,12 @@
           "type": "array",
           "items": {
             "type": "string"
-          }
+          },
+          "description": "Its tags, `facet:value` or just the value for a topic, from the values `facets` defines."
         },
         "skills.sh": {
-          "$ref": "#/definitions/SkillsSh"
+          "$ref": "#/definitions/SkillsSh",
+          "description": "Its listing on skills.sh."
         },
         "skillMd": {
           "$ref": "#/definitions/SkillMd",
@@ -314,7 +343,8 @@
           "description": "The skill's page on skills.sh."
         },
         "install": {
-          "type": "string"
+          "type": "string",
+          "description": "The command skills.sh gives to install it."
         },
         "installs": {
           "type": ["number", "null"],
