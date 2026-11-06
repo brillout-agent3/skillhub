@@ -6176,6 +6176,114 @@
           }
         ]
       }
+    },
+    {
+      "id": "cursor/plugins@pstack",
+      "skew": 0,
+      "agentReview": {
+        "name": "pstack",
+        "description": "Lauren Tan's agent workflows for rigorous engineering: explain code, trace why it's built that way, design and stress-test with several models, and write plainly.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want the agent to go deep before it ships: understand the code, settle the design, then prove the change works"
+            },
+            {
+              "label": "It does",
+              "text": "runs multi-model workflows that explain, design, attack and check changes, plus writing rules and short engineering principles the workflows cite"
+            },
+            {
+              "label": "Entry point",
+              "text": "poteto-mode, not listed here, matches a task to one of its 23 playbooks and calls these skills as the steps need them"
+            },
+            {
+              "label": "Works with",
+              "text": "Cursor, where it's built; Claude Code gets a generated copy that skips Cursor-only steps and runs the Grok roles on the session model"
+            },
+            {
+              "label": "Models",
+              "text": "one per role, set with /setup-pstack; by default Claude Opus for judgment and prose, Grok for code and for the explorers of how and why"
+            },
+            {
+              "label": "Runs",
+              "text": "each skill only when called, by you or by another pstack skill"
+            }
+          ],
+          "text": "pstack is the plugin Lauren Tan (poteto) uses to ship code at Cursor, aimed at writing less code of higher quality. how explains what code does through read-only explorer subagents, and why digs through git, PRs and each connected evidence source for the reasons behind it. architect grounds a design with both, has arena sketch it, then writes the code against the chosen sketch. arena has several models attempt the same task, picks a base and grafts in the best of the rest. interrogate reuses arena's fan-out so adversaries try to break a change, keeping only findings a run proves, and blast-radius proves the one fact a risky-looking change is safe because of. technical-writing and unslop hold the prose rules for docs, PR descriptions and replies, and technical-writing runs every doc through unslop. The principle skills are one rule each, such as fix root causes or prove it works, which poteto-mode indexes and the other skills cite by name. The plugin's 44 other skills, among them poteto-mode, setup-pstack, swarm and in-your-own-words, and its two subagents aren't listed here: install the plugin for the full set.",
+          "permalink": "https://github.com/cursor/plugins/tree/8ecfb19f844b67a4bc7af7f66c366d57bc7b6d2b"
+        },
+        "skills": [
+          {
+            "id": "cursor/plugins/pstack/skills/how",
+            "standalone": true
+          },
+          {
+            "id": "cursor/plugins/pstack/skills/why",
+            "standalone": true
+          },
+          {
+            "id": "cursor/plugins/pstack/skills/architect",
+            "standalone": false,
+            "note": "Runs the how and why skills to ground the design, and the arena skill to sketch it."
+          },
+          {
+            "id": "cursor/plugins/pstack/skills/arena",
+            "standalone": true
+          },
+          {
+            "id": "cursor/plugins/pstack/skills/interrogate",
+            "standalone": false,
+            "note": "Runs the arena skill's runner setup, fan-out and verify steps; it also states the intent with in-your-own-words, which comes with the plugin but isn't listed here."
+          },
+          {
+            "id": "cursor/plugins/pstack/skills/blast-radius",
+            "standalone": true
+          },
+          {
+            "id": "cursor/plugins/pstack/skills/technical-writing",
+            "standalone": true
+          },
+          {
+            "id": "cursor/plugins/pstack/skills/unslop",
+            "standalone": true
+          },
+          {
+            "id": "cursor/plugins/pstack/skills/principle-boundary-discipline",
+            "standalone": true
+          },
+          {
+            "id": "cursor/plugins/pstack/skills/principle-type-system-discipline",
+            "standalone": true
+          },
+          {
+            "id": "cursor/plugins/pstack/skills/principle-fix-root-causes",
+            "standalone": true
+          },
+          {
+            "id": "cursor/plugins/pstack/skills/principle-prove-it-works",
+            "standalone": true
+          },
+          {
+            "id": "cursor/plugins/pstack/skills/principle-guard-the-context-window",
+            "standalone": true
+          },
+          {
+            "id": "cursor/plugins/pstack/skills/principle-encode-lessons-in-structure",
+            "standalone": true
+          }
+        ],
+        "install": [
+          {
+            "label": "Cursor plugin; also adds the plugin's 44 other skills, poteto-mode among them, and its two subagents",
+            "command": "/add-plugin pstack"
+          },
+          {
+            "label": "Claude Code plugin, after /plugin marketplace add cursor/plugins; a generated copy of the same set, run as /pstack:<name>, with Cursor-only steps skipped and auto-update off until you turn it on",
+            "command": "/plugin install pstack@cursor-plugins"
+          }
+        ]
+      }
     }
   ],
   "skills": [
@@ -69049,6 +69157,685 @@
           "observability"
         ],
         "note": "Needs a ClickHouse Cloud API key and secret, plus the organization and service IDs of the Postgres instance."
+      }
+    },
+    {
+      "id": "cursor/plugins/pstack/skills/blast-radius",
+      "name": "blast-radius",
+      "skills.sh": {
+        "url": "https://skills.sh/cursor/plugins/blast-radius",
+        "installs": 6800,
+        "weeklyInstalls": [406, 373, 436, 528, 614, 548, 565, 601],
+        "firstSeen": "2026-06-17"
+      },
+      "skillMd": {
+        "version": "8ecfb19f844b67a4bc7af7f66c366d57bc7b6d2b",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Finds what a change could break beyond its diff, and proves the one fact it's safe because of by running real code.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a small-looking change makes you uneasy, or you ask what it could break somewhere else"
+            },
+            {
+              "label": "It does",
+              "text": "finds the one fact the change's safety rests on, looks where a symbol search can't, and proves that fact with a script or test it runs"
+            },
+            {
+              "label": "You get",
+              "text": "what changed, the safety fact proven or marked unproven, confirmed risks with file:line, odds and cost, what was cleared, and the cheapest test to run before merging"
+            },
+            {
+              "label": "Runs",
+              "text": "only when you call it"
+            }
+          ],
+          "text": "Listing the callers isn't the job, since grep does that in a second; the job is the breakage grep won't show. It reads the source of the library the code calls, with its pinned version and any local patch, works out when things run (microtasks, unmount and teardown, Solid versus React), and follows what a symbol search misses: the JSON an API returns, a database column, a wire format, another language reading the same bytes, a feature flag, code three hops downstream. Each fact gets a level of proof, from \"you said so\", worth nothing alone, through pointing at the line and walking the failure step by step, to a script that calls the real code and fails loudly, to a repro in the running app. A big or wide change goes to pstack's arena skill, so several models answer and their answers are merged. It pulls the PR and commits with step 2 of pstack's why skill, writes the report through unslop, and strips anything private before it goes public. It completes a set with how, which says what code does, and why, which says why it's shaped that way.",
+          "permalink": "https://github.com/cursor/plugins/tree/8ecfb19f844b67a4bc7af7f66c366d57bc7b6d2b/pstack/skills/blast-radius"
+        },
+        "tags": [
+          "category:debugging",
+          "type:workflow",
+          "effect:local",
+          "needs:subagents",
+          "by:community",
+          "code-review",
+          "verification",
+          "testing"
+        ],
+        "note": "Borrows a step from pstack's why skill, sends wide changes to its arena skill and writes its report through unslop: install them alongside."
+      }
+    },
+    {
+      "id": "cursor/plugins/pstack/skills/how",
+      "name": "how",
+      "skills.sh": {
+        "url": "https://skills.sh/cursor/plugins/how",
+        "installs": 6600,
+        "weeklyInstalls": [403, 411, 492, 585, 563, 611, 508, 392],
+        "firstSeen": "2026-05-24"
+      },
+      "skillMd": {
+        "version": "8ecfb19f844b67a4bc7af7f66c366d57bc7b6d2b",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Explains how a part of your codebase works, at the depth a senior engineer needs to onboard, using read-only subagents.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you ask how something works, want a walkthrough before changing code, or ask where code should live and which package owns it"
+            },
+            {
+              "label": "It does",
+              "text": "sends one read-only subagent for a narrow question; for a subsystem, two to four explorers on separate angles, then one explainer"
+            },
+            {
+              "label": "You get",
+              "text": "an explanation in sections: overview, key concepts, how it works, where things live, gotchas"
+            },
+            {
+              "label": "Unlike",
+              "text": "why, its companion in pstack, which digs up the motivation behind the code rather than what it does"
+            },
+            {
+              "label": "Runs",
+              "text": "only when you call it"
+            }
+          ],
+          "text": "Part of pstack, Lauren Tan's agent workflows in Cursor's plugin repo. It aims for a working mental model of a subsystem, not something that reads like annotated source. A simple question, such as one module, a small utility or one function, goes to a single explainer subagent that explores and explains in one pass. A complex one, such as a subsystem across files or services, a cross-cutting feature or a full architectural overview, is split into two to four distinct angles, each explored by its own subagent at the same time, and one explainer writes the answer from their findings. When in doubt, it takes the simple path, and when the scope is ambiguous it states its reading and goes ahead so you can redirect. The agent presents the explainer's output with only light edits. Every subagent is read-only. Models come from pstack's model rule when it's set, otherwise Grok for the explorers and Claude Opus for the explainer.",
+          "permalink": "https://github.com/cursor/plugins/tree/8ecfb19f844b67a4bc7af7f66c366d57bc7b6d2b/pstack/skills/how"
+        },
+        "tags": [
+          "category:engineering",
+          "type:workflow",
+          "effect:none",
+          "needs:subagents",
+          "by:community",
+          "architecture",
+          "learning"
+        ],
+        "note": "Written for Cursor's subagents and model names; the pstack plugin for Claude Code installs an adapted copy."
+      }
+    },
+    {
+      "id": "cursor/plugins/pstack/skills/why",
+      "name": "why",
+      "skills.sh": {
+        "url": "https://skills.sh/cursor/plugins/why",
+        "installs": 6300,
+        "weeklyInstalls": [364, 400, 459, 548, 533, 604, 492, 383],
+        "firstSeen": "2026-05-24"
+      },
+      "skillMd": {
+        "version": "8ecfb19f844b67a4bc7af7f66c366d57bc7b6d2b",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Digs up why code is built the way it is, from git history, PRs and connected tools, and returns a cited answer.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you ask why code works this way, why a choice was made or what caused a regression, or want its history before changing it"
+            },
+            {
+              "label": "It does",
+              "text": "collects the code's git blame, history and PR threads into one brief, then sends one subagent per evidence source it finds, all at once"
+            },
+            {
+              "label": "Sources",
+              "text": "git and gh always; issue trackers, docs, team chat, observability, error tracking and analytics warehouses when an MCP server for them is connected"
+            },
+            {
+              "label": "You get",
+              "text": "a cited report that keeps what was found apart from what's inferred, with competing hypotheses, unknowns and every source consulted or skipped"
+            },
+            {
+              "label": "Before a change",
+              "text": "it turns the findings into what to preserve, change, avoid and watch as a risk"
+            },
+            {
+              "label": "Needs",
+              "text": "gh and subagents; runs only when you call it"
+            }
+          ],
+          "text": "The companion of pstack's how skill: how explains what code does, why explains the forces that shaped it. It first pins down the target and the question, guessing from the conversation when you're vague and saying how it read you. That brief, which it calls the code anchor (file paths and line ranges, key symbols, recent commits, PR numbers with their bodies and discussion, linked tickets), goes to every investigator. It maps each connected MCP server to one of seven evidence categories and spawns one investigator per category; when the target looks defensive, such as retries, timeouts, null checks or feature flags, investigators also get an incident-postmortem playbook. A category is skipped only with a written reason, and a missing source is reported as a gap, not a choice. A synthesizer subagent then writes the answer under a confidence framework, and the agent presents it without changing its confidence language. Investigators run in agent mode, because read-only mode strips MCP access, but are told not to write anything. Models come from pstack's model rule, otherwise Grok for the investigators and Claude Opus for the synthesizer.",
+          "permalink": "https://github.com/cursor/plugins/tree/8ecfb19f844b67a4bc7af7f66c366d57bc7b6d2b/pstack/skills/why"
+        },
+        "tags": [
+          "category:engineering",
+          "category:debugging",
+          "type:workflow",
+          "effect:none",
+          "needs:subagents",
+          "needs:cli",
+          "by:community",
+          "stack:git",
+          "stack:github",
+          "architecture",
+          "research",
+          "git"
+        ],
+        "note": "Written for Cursor: it finds MCP servers the way Cursor exposes them and names Cursor's models; the pstack plugin for Claude Code installs an adapted copy."
+      }
+    },
+    {
+      "id": "cursor/plugins/pstack/skills/technical-writing",
+      "name": "technical-writing",
+      "skills.sh": {
+        "url": "https://skills.sh/cursor/plugins/technical-writing",
+        "installs": 5900,
+        "weeklyInstalls": [415, 401, 466, 633, 546, 568, 555, 440],
+        "firstSeen": "2026-08-02"
+      },
+      "skillMd": {
+        "version": "8ecfb19f844b67a4bc7af7f66c366d57bc7b6d2b",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes and reviews docs, RFCs, READMEs, PR descriptions and commit messages to a layered standard: Diátaxis, Google developer style, STE and Global English.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're writing or reviewing docs, RFCs, READMEs, PR descriptions or commit messages"
+            },
+            {
+              "label": "It does",
+              "text": "picks one mode per document (tutorial, how-to, reference or explanation), then applies sentence rules from Google's developer style guide, Simplified Technical English and Global English"
+            },
+            {
+              "label": "Above all",
+              "text": "cut words that do no work, use the short everyday word, and fix a sentence another way when a rule makes it worse"
+            },
+            {
+              "label": "Also",
+              "text": "mixes sentence lengths and asks for a view and specifics, so text that obeys every rule still doesn't read machine-written"
+            },
+            {
+              "label": "Runs",
+              "text": "only when you call it, with /technical-writing"
+            }
+          ],
+          "text": "Its first layer, Diátaxis, sorts a document by two questions: does the reader want to act or to understand, and are they learning or working. Tutorials open with what the learner will build and show the expected output at every step; how-tos solve a reader's problem with no background; reference only describes, dry and complete; explanation alone may hold opinion. Google's developer style covers the reader as \"you\", active voice, conditions before instructions, headings that carry the point, and never \"simply\" or \"click here\". STE (Simplified Technical English) keeps one instruction per sentence, about 20 words at most, and one meaning per word. Global English removes double readings: \"only\" next to what it limits, no slashes or semicolons, no idioms or Latin abbreviations, one name per thing. The codebase is its word list: real symbol, file, flag and command names, and no invented jargon; a new offender gets proposed as an addition to unslop rather than edited in. PR bodies should read in under a minute and link logs instead of pasting them. Every doc it touches also goes through pstack's unslop skill.",
+          "permalink": "https://github.com/cursor/plugins/tree/8ecfb19f844b67a4bc7af7f66c366d57bc7b6d2b/pstack/skills/technical-writing"
+        },
+        "tags": [
+          "category:writing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "docs-writing",
+          "writing",
+          "anti-slop"
+        ],
+        "note": "Applies pstack's unslop skill to every doc it touches: install it alongside."
+      }
+    },
+    {
+      "id": "cursor/plugins/pstack/skills/principle-fix-root-causes",
+      "name": "principle-fix-root-causes",
+      "skills.sh": {
+        "url": "https://skills.sh/cursor/plugins/principle-fix-root-causes",
+        "installs": 5600,
+        "weeklyInstalls": [318, 373, 413, 511, 410, 513, 500, 378],
+        "firstSeen": "2026-05-24"
+      },
+      "skillMd": {
+        "version": "8ecfb19f844b67a4bc7af7f66c366d57bc7b6d2b",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Makes the agent fix a bug at the first place the system went wrong, not where the symptom surfaced.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "debugging, and you want the fault fixed at its source rather than guarded where the error showed"
+            },
+            {
+              "label": "It does",
+              "text": "reproduces first, asks why at each step until it reaches a wrong decision in the code, and instruments instead of guessing"
+            },
+            {
+              "label": "Key test",
+              "text": "is the state that triggered the symptom legitimate? If it should never exist, a check where it broke only hides the bug"
+            },
+            {
+              "label": "Runs",
+              "text": "only when you call it"
+            }
+          ],
+          "text": "One of pstack's principle skills, in Cursor's plugin repo. A symptom fix hides the evidence and leaves the fault free to surface somewhere else, and each one leaves a workaround for a bug nobody named. Guards, retries, swallowed errors, clamped values and discarded state are named as the usual ways to hide a bug. When something fails only after a restart, it suspects persisted state first: config files, caches, lock files, serialized state. It finds every place with the same fault, not only the one at hand, and fixes them all. A workaround that needs a paragraph of comment to justify it means the code is wrong. When the deciding fact took a deep dig, it proposes the cheap, always-on signal that would have shown it at first look.",
+          "permalink": "https://github.com/cursor/plugins/tree/8ecfb19f844b67a4bc7af7f66c366d57bc7b6d2b/pstack/skills/principle-fix-root-causes"
+        },
+        "tags": [
+          "category:debugging",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "debugging"
+        ]
+      }
+    },
+    {
+      "id": "cursor/plugins/pstack/skills/arena",
+      "name": "arena",
+      "skills.sh": {
+        "url": "https://skills.sh/cursor/plugins/arena",
+        "installs": 5600,
+        "weeklyInstalls": [309, 285, 348, 474, 493, 511, 491, 446],
+        "firstSeen": "2026-05-24"
+      },
+      "skillMd": {
+        "version": "8ecfb19f844b67a4bc7af7f66c366d57bc7b6d2b",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Has several subagents attempt the same task, then picks a base and grafts in the best parts of the rest.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "one attempt at a non-trivial artifact, such as a design or a piece of code, could lock in the wrong shape"
+            },
+            {
+              "label": "It does",
+              "text": "writes a rubric, runs candidates in parallel, has a judge from another model family score them, picks a base and grafts the best parts of the others into it"
+            },
+            {
+              "label": "You get",
+              "text": "one artifact, with a note on the base and why, the judge's verdict, each graft and its source, what was rejected, and the verification result"
+            },
+            {
+              "label": "Runs",
+              "text": "only when you call it, with /arena or \"throw it in the arena\""
+            }
+          ],
+          "text": "Part of pstack, in Cursor's plugin repo. Every candidate gets the same prompt, which acts as the contract, while the rubric of three to six gradeable criteria stays with the picker and the judge. Runners come from pstack's model rule, by default one Claude Opus and one Grok, with fallbacks when a model is refused; more runners cover more design directions. Each writes to its own git worktree, or a temp folder, with a short rationale naming the alternatives it considered and rejected. The judge is never from the parent agent's model family and works while the agent reads every candidate end to end and scores each criterion itself; agreement confirms the base, disagreement means rereading both rationales. The base is the one a future maintainer can extend most easily, with ties going to the cleaner boundary or smaller API. Grafts are usually one or two things per losing candidate, folded in so the result keeps one mental model. Candidates that converge need no graft; candidates that diverge wildly mean the task was underspecified, so it reframes and reruns instead of averaging. The result is verified against the real artifact.",
+          "permalink": "https://github.com/cursor/plugins/tree/8ecfb19f844b67a4bc7af7f66c366d57bc7b6d2b/pstack/skills/arena"
+        },
+        "tags": [
+          "category:agents",
+          "type:workflow",
+          "effect:local",
+          "needs:subagents",
+          "by:community",
+          "multi-agent",
+          "agent-workflows"
+        ],
+        "note": "Written for Cursor's subagents and model names; the pstack plugin for Claude Code installs an adapted copy."
+      }
+    },
+    {
+      "id": "cursor/plugins/pstack/skills/principle-encode-lessons-in-structure",
+      "name": "principle-encode-lessons-in-structure",
+      "skills.sh": {
+        "url": "https://skills.sh/cursor/plugins/principle-encode-lessons-in-structure",
+        "installs": 5500,
+        "weeklyInstalls": [314, 378, 412, 517, 444, 506, 477, 363],
+        "firstSeen": "2026-05-24"
+      },
+      "skillMd": {
+        "version": "8ecfb19f844b67a4bc7af7f66c366d57bc7b6d2b",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Makes the agent turn a rule it keeps repeating into a lint, metadata flag, runtime check or script instead of more instructions.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you catch yourself, or the agent, writing the same instruction a second time, or making the same correction again"
+            },
+            {
+              "label": "It does",
+              "text": "encodes the rule as a lint, metadata flag, runtime check or script; when the lesson needs judgment, it makes the instruction more prominent and adds an example of the failure"
+            },
+            {
+              "label": "Length",
+              "text": "its description plus two sentences"
+            },
+            {
+              "label": "Runs",
+              "text": "only when you call it"
+            }
+          ],
+          "text": "One of pstack's principle skills, in Cursor's plugin repo, and one of its shortest. Its corollary: when the fix is structural, use only the structural fix, because the repeated instruction is the symptom.",
+          "permalink": "https://github.com/cursor/plugins/tree/8ecfb19f844b67a4bc7af7f66c366d57bc7b6d2b/pstack/skills/principle-encode-lessons-in-structure"
+        },
+        "tags": [
+          "category:engineering",
+          "category:agents",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "code-quality",
+          "guardrails"
+        ]
+      }
+    },
+    {
+      "id": "cursor/plugins/pstack/skills/principle-prove-it-works",
+      "name": "principle-prove-it-works",
+      "skills.sh": {
+        "url": "https://skills.sh/cursor/plugins/principle-prove-it-works",
+        "installs": 5500,
+        "weeklyInstalls": [314, 384, 441, 530, 426, 437, 476, 373],
+        "firstSeen": "2026-05-24"
+      },
+      "skillMd": {
+        "version": "8ecfb19f844b67a4bc7af7f66c366d57bc7b6d2b",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Makes the agent check the real thing before calling a task done, not a proxy, a self-report or \"it compiles\".",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a task is finished and the agent is about to say it's done"
+            },
+            {
+              "label": "It does",
+              "text": "verifies against the real artifact: runs the feature, reads the actual value, inspects the diff, checks process liveness directly"
+            },
+            {
+              "label": "Prefers",
+              "text": "a script that reruns the same comparison, kept as output a reviewer can rerun"
+            },
+            {
+              "label": "Runs",
+              "text": "only when you call it"
+            }
+          ],
+          "text": "One of pstack's principle skills, in Cursor's plugin repo. Indirect checks, such as file times, output freshness, an agent's own report or a cached screenshot, feel cheaper than looking, and it rules them out because acting on a wrong inference costs far more than checking the source. When a check fails, it suspects the way it observed before it suspects the system. The strongest proof is a deterministic script, run and kept as an artifact so a reviewer can rerun it instead of trusting the agent's word. The artifact stays visible to you, and is committed only for large or complex work that needs an auditable trail, like a big port or migration, with pstack's show-me-your-work skill.",
+          "permalink": "https://github.com/cursor/plugins/tree/8ecfb19f844b67a4bc7af7f66c366d57bc7b6d2b/pstack/skills/principle-prove-it-works"
+        },
+        "tags": [
+          "category:engineering",
+          "category:debugging",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "verification",
+          "testing"
+        ]
+      }
+    },
+    {
+      "id": "cursor/plugins/pstack/skills/architect",
+      "name": "architect",
+      "skills.sh": {
+        "url": "https://skills.sh/cursor/plugins/architect",
+        "installs": 5500,
+        "weeklyInstalls": [288, 300, 373, 429, 433, 411, 482, 381],
+        "firstSeen": "2026-05-23"
+      },
+      "skillMd": {
+        "version": "8ecfb19f844b67a4bc7af7f66c366d57bc7b6d2b",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Sketches a change's usage, types, signatures and module boundaries with several models before code, then implements against the chosen sketch.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're about to start non-trivial work and jumping straight to code would lock in the wrong shape"
+            },
+            {
+              "label": "It does",
+              "text": "grounds itself with how, and with why when ownership or layering changes, has arena runners sketch two or more structurally different designs with stub bodies, then writes the code"
+            },
+            {
+              "label": "You get",
+              "text": "the caller's usage, a file of types and signatures or a module map, a rationale with the synthesis decision, then the implementation"
+            },
+            {
+              "label": "Checkpoint",
+              "text": "only if you ask for one; otherwise it goes straight from the chosen sketch to code"
+            },
+            {
+              "label": "Runs",
+              "text": "only when you call it, with /architect or \"architect this\""
+            }
+          ],
+          "text": "It first builds a real mental model of every system the new code touches, running pstack's how skill, and why when the design changes ownership or layering; it skips this only for greenfield work. Arena runners then sketch types, signatures and module boundaries with not-implemented bodies and pseudocode. Each sketch is screened against a list of design red flags, assuming the next contributor is an agent that sees only the files it opened and copies the nearest example, and among viable designs it prefers the one that hides more behind a smaller public surface. The sketch is the contract: a parameter it didn't anticipate is a question to raise, not friction to absorb. When implementation keeps fighting the sketch, such as the same workaround across unrelated code, special-case branches for unrelated edge cases, types that need any or casts, or callers who must know internal rules, it scraps it: reruns how over what's built, redesigns as if the new constraints were there from day one, subtracts before adding, and sketches again. For adversarial pressure on the design before implementing, it points to pstack's interrogate skill.",
+          "permalink": "https://github.com/cursor/plugins/tree/8ecfb19f844b67a4bc7af7f66c366d57bc7b6d2b/pstack/skills/architect"
+        },
+        "tags": [
+          "category:planning",
+          "category:engineering",
+          "type:workflow",
+          "effect:local",
+          "needs:subagents",
+          "by:community",
+          "architecture",
+          "implementation",
+          "multi-agent"
+        ],
+        "note": "Written for Cursor's subagents and model names; the pstack plugin for Claude Code installs an adapted copy."
+      }
+    },
+    {
+      "id": "cursor/plugins/pstack/skills/principle-guard-the-context-window",
+      "name": "principle-guard-the-context-window",
+      "skills.sh": {
+        "url": "https://skills.sh/cursor/plugins/principle-guard-the-context-window",
+        "installs": 5400,
+        "weeklyInstalls": [314, 369, 434, 510, 408, 481, 484, 358],
+        "firstSeen": "2026-05-23"
+      },
+      "skillMd": {
+        "version": "8ecfb19f844b67a4bc7af7f66c366d57bc7b6d2b",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Keeps the agent's context from filling up by sending bulk work to subagents and keeping only summaries in the main thread.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "context is filling with large outputs, long files, repeated reads or fan-out planning"
+            },
+            {
+              "label": "It does",
+              "text": "routes bulk work to subagents and keeps summaries, not raw payloads, in the main thread"
+            },
+            {
+              "label": "Also",
+              "text": "sizes phases and caps scope: files per phase, turn budgets, and what each mechanism costs"
+            },
+            {
+              "label": "Runs",
+              "text": "only when you call it"
+            }
+          ],
+          "text": "One of pstack's principle skills, in Cursor's plugin repo, and a very short one: beyond its description, it gives one reason, that context overflow degrades reasoning, leaves compression artifacts and halts progress, and one rule, to size phases and cap scope.",
+          "permalink": "https://github.com/cursor/plugins/tree/8ecfb19f844b67a4bc7af7f66c366d57bc7b6d2b/pstack/skills/principle-guard-the-context-window"
+        },
+        "tags": [
+          "category:agents",
+          "type:guidelines",
+          "effect:none",
+          "needs:subagents",
+          "by:community",
+          "token-saving",
+          "multi-agent"
+        ]
+      }
+    },
+    {
+      "id": "cursor/plugins/pstack/skills/interrogate",
+      "name": "interrogate",
+      "skills.sh": {
+        "url": "https://skills.sh/cursor/plugins/interrogate",
+        "installs": 5200,
+        "weeklyInstalls": [283, 287, 346, 392, 365, 424, 465, 426],
+        "firstSeen": "2026-05-23"
+      },
+      "skillMd": {
+        "version": "8ecfb19f844b67a4bc7af7f66c366d57bc7b6d2b",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Has adversary subagents on different models try to break a change or design, keeping only findings that a run proves.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a change or design stress-tested by more than one model before it ships"
+            },
+            {
+              "label": "It does",
+              "text": "restates the intent, gives each adversary its own worktree with your uncommitted changes, and keeps a finding only if rerunning its command shows a failure that breaks the intent"
+            },
+            {
+              "label": "You get",
+              "text": "the intent, each verified finding with its command, output, impact and who found it, and counts of dropped findings with reasons"
+            },
+            {
+              "label": "Doesn't",
+              "text": "apply fixes, or report style, naming, structure or risks that need a future change to matter"
+            },
+            {
+              "label": "Runs",
+              "text": "only when you call it"
+            }
+          ],
+          "text": "The scope is what you name, or else the branch's diff from its merge base through the working tree. It states the intent from your message, the commits and the PR description with pstack's in-your-own-words skill, and asks you when the intent is unclear. It then reuses the setup and fan-out of pstack's arena skill, with adversaries taken from the interrogate reviewers line of pstack's model rule. Each is told to prove every finding with a run against the real code, such as a failing test, a repro script or command output, to run a prototype or probe the tree for a design or plan, and that no findings is a valid result. Unlike arena, nothing is judged or picked: different adversaries find different failures, so the report keeps every verified finding, merging those that share a root cause.",
+          "permalink": "https://github.com/cursor/plugins/tree/8ecfb19f844b67a4bc7af7f66c366d57bc7b6d2b/pstack/skills/interrogate"
+        },
+        "tags": [
+          "category:debugging",
+          "type:workflow",
+          "effect:local",
+          "needs:subagents",
+          "by:community",
+          "code-review",
+          "multi-agent",
+          "verification"
+        ],
+        "note": "Written for Cursor's subagents and model names; the pstack plugin for Claude Code installs an adapted copy."
+      }
+    },
+    {
+      "id": "cursor/plugins/pstack/skills/principle-type-system-discipline",
+      "name": "principle-type-system-discipline",
+      "skills.sh": {
+        "url": "https://skills.sh/cursor/plugins/principle-type-system-discipline",
+        "installs": 5200,
+        "weeklyInstalls": [280, 307, 344, 411, 334, 461, 498, 385],
+        "firstSeen": "2026-05-24"
+      },
+      "skillMd": {
+        "version": "8ecfb19f844b67a4bc7af7f66c366d57bc7b6d2b",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Has the agent design types so the compiler rejects impossible states: branded primitives, parsing at boundaries and types derived from schemas.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "designing types, reviewing a signature, or writing code in any statically typed language"
+            },
+            {
+              "label": "It does",
+              "text": "brands primitives like UserId and OrderId so they can't be swapped, parses external data into typed models at boundaries, and derives types from the schema that owns the shape"
+            },
+            {
+              "label": "Aims for",
+              "text": "a compiler that rejects impossible states, swapped primitives and unhandled variants, and errors and special cases defined out of existence rather than handled"
+            },
+            {
+              "label": "Runs",
+              "text": "only when you call it"
+            }
+          ],
+          "text": "One of pstack's principle skills, in Cursor's plugin repo, for any typed language: a branded intersection in TypeScript, a newtype elsewhere. A branded value is validated once, when it's created, and trusted downstream. RPC payloads, JSON, IPC messages, CLI arguments, config files, environment variables and database rows count as untyped until a parse function turns them into the typed model. When a protocol buffer, OpenAPI spec, GraphQL schema, database migration or design-token file owns a shape, the type comes from it instead of a hand-written copy. For where validation goes it points to pstack's boundary-discipline principle, and for TypeScript syntax to its typescript-best-practices skill.",
+          "permalink": "https://github.com/cursor/plugins/tree/8ecfb19f844b67a4bc7af7f66c366d57bc7b6d2b/pstack/skills/principle-type-system-discipline"
+        },
+        "tags": [
+          "category:engineering",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "code-quality",
+          "domain-modeling"
+        ]
+      }
+    },
+    {
+      "id": "cursor/plugins/pstack/skills/principle-boundary-discipline",
+      "name": "principle-boundary-discipline",
+      "skills.sh": {
+        "url": "https://skills.sh/cursor/plugins/principle-boundary-discipline",
+        "installs": 5000,
+        "weeklyInstalls": [284, 324, 360, 423, 334, 360, 470, 360],
+        "firstSeen": "2026-05-24"
+      },
+      "skillMd": {
+        "version": "8ecfb19f844b67a4bc7af7f66c366d57bc7b6d2b",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Puts validation and error handling at system boundaries, trusts internal types, and keeps business logic in pure functions free of the framework.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "wiring validation, error handling or framework adapters"
+            },
+            {
+              "label": "It does",
+              "text": "validates and handles errors defensively at CLI arguments, config files, external APIs and network protocols, then trusts typed data inside with no re-checks"
+            },
+            {
+              "label": "Two tests",
+              "text": "is this data crossing a boundary right now? If not, validation is redundant. Can this be a pure function the shell calls? Then extract it"
+            },
+            {
+              "label": "Runs",
+              "text": "only when you call it"
+            }
+          ],
+          "text": "One of pstack's principle skills, in Cursor's plugin repo. Scattered validation is noisy and redundant and gives a false sense of safety, and logic kept out of framework wiring can be tested without the framework. Config is validated when it's parsed, raw data becomes domain types at the boundary, and nil checks deep in call chains go when the boundary already checked. Across a boundary it exposes domain concepts, not the boundary's private representation: no transport, storage, framework or wire types re-exported through the public surface, general mechanism inside and special-purpose policy at the edge. Parsing, prompt construction and scoring are each pure transforms: raw bytes to typed state, structured state to a string, state to results.",
+          "permalink": "https://github.com/cursor/plugins/tree/8ecfb19f844b67a4bc7af7f66c366d57bc7b6d2b/pstack/skills/principle-boundary-discipline"
+        },
+        "tags": [
+          "category:engineering",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "code-quality",
+          "architecture"
+        ]
       }
     }
   ]
