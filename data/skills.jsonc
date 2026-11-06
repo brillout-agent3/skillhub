@@ -1843,6 +1843,15 @@
         "kind": "skills",
         "description": "A Claude Code skill for creating Mermaid diagrams and design documents, with code-to-diagram generation and Python utilities."
       }
+    },
+    {
+      "id": "jimliu/baoyu-skills",
+      "stars": 27357,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Skills shared by Baoyu for improving daily work efficiency with AI Agents (Claude Code, Codex, etc.).",
+        "note": "Its README advises installing only the skills you need, since bulk-installing all 20+ adds context to every run."
+      }
     }
   ],
   "bundles": [
@@ -18549,6 +18558,747 @@
           "diagrams",
           "architecture",
           "docs-writing"
+        ]
+      }
+    },
+    {
+      "id": "jimliu/baoyu-skills/skills/baoyu-post-to-wechat",
+      "name": "baoyu-post-to-wechat",
+      "skills.sh": {
+        "url": "https://skills.sh/jimliu/baoyu-skills/baoyu-post-to-wechat",
+        "installs": 34800,
+        "weeklyInstalls": [294, 295, 118, 127, 175, 164, 168, 191],
+        "firstSeen": "2026-01-19"
+      },
+      "skillMd": {
+        "version": "ca703c2d7c2c4399a1dc0cf82224f8551e05a96d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Publishes Markdown, HTML or plain-text articles and image posts to a WeChat Official Account, through its API or Chrome.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "an article or image post is ready and you want it in your WeChat Official Account (公众号) without pasting it in by hand"
+            },
+            {
+              "label": "It does",
+              "text": "renders Markdown or plain text as themed WeChat HTML, uploads its images and cover, and sends it through WeChat's API or a logged-in Chrome"
+            },
+            {
+              "label": "You get",
+              "text": "through the API, a draft in your account's drafts box, ready to review and publish from WeChat's dashboard"
+            },
+            {
+              "label": "Also posts",
+              "text": "image posts (贴图) of up to 9 pictures, through Chrome"
+            },
+            {
+              "label": "Needs",
+              "text": "Bun or npx, and a WeChat Official Account with API credentials, or Chrome logged in to it"
+            },
+            {
+              "label": "Keeps",
+              "text": "your theme, color, author, comment settings and accounts in a preferences file it sets up on first run"
+            }
+          ],
+          "text": "A publishing tool for WeChat Official Accounts that runs its own scripts. It takes an HTML file, a Markdown file or plain text; plain text is first saved as a dated Markdown file. Markdown gets one of four themes (default, grace, simple, modern) and a color, and ordinary external links become citations at the bottom unless you ask for inline links. It asks for a missing title or summary, or generates one from the content. API posts need a cover, which it takes from the command, the frontmatter, imgs/cover.png or the first image, stopping to ask when there is none. There are three ways in: the API, fast but only from an IP on the account's allowlist; a logged-in Chrome, which is slower and needs a QR-code login the first time; or the API through an SSH tunnel to a server whose IP is allowed, with the app secret staying on your machine. Several accounts can be set up and picked per post. On first use, before anything else, it asks setup questions and saves your preferences. Unlike baoyu-markdown-to-html, from the same repo, which only converts, this one also sends the result to your account.",
+          "permalink": "https://github.com/jimliu/baoyu-skills/tree/ca703c2d7c2c4399a1dc0cf82224f8551e05a96d/skills/baoyu-post-to-wechat"
+        },
+        "tags": [
+          "category:writing",
+          "category:marketing",
+          "type:tool",
+          "effect:remote",
+          "needs:cli",
+          "needs:account",
+          "needs:browser",
+          "by:community",
+          "stack:wechat",
+          "social-media"
+        ],
+        "note": "Needs a WeChat Official Account, with API credentials and your IP on its allowlist, or Chrome logged in to the account."
+      }
+    },
+    {
+      "id": "jimliu/baoyu-skills/skills/baoyu-image-gen",
+      "name": "baoyu-image-gen",
+      "skills.sh": {
+        "url": "https://skills.sh/jimliu/baoyu-skills/baoyu-image-gen",
+        "installs": 34100,
+        "weeklyInstalls": [367, 350, 175, 179, 234, 236, 237, 263],
+        "firstSeen": "2026-01-21"
+      },
+      "skillMd": {
+        "version": "ca703c2d7c2c4399a1dc0cf82224f8551e05a96d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Generates images from prompts and reference images through a dozen AI providers, one at a time or in parallel batches.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want images made from a prompt, prompt files or reference images, one or many"
+            },
+            {
+              "label": "It does",
+              "text": "calls an image API, such as OpenAI, Google, Azure, OpenRouter, Replicate, DashScope, MiniMax or Seedream, through its bundled script"
+            },
+            {
+              "label": "You get",
+              "text": "image files at the paths you name, in the aspect ratio you ask for, at 2K quality by default"
+            },
+            {
+              "label": "Batches",
+              "text": "runs a JSON file of prompts in parallel, up to 10 at once by default, giving each image up to 3 attempts"
+            },
+            {
+              "label": "Needs",
+              "text": "Bun or npx, plus an API key for one provider or a logged-in codex CLI"
+            },
+            {
+              "label": "Works with",
+              "text": "the repo's cover, illustration, infographic, card, slide and comic skills, which can use it to generate their images"
+            }
+          ],
+          "text": "The image backend of Baoyu's skills, also usable on its own. On first use it won't generate anything until you've picked a provider, model, quality and save location, which it saves as preferences. When you don't name a provider, it uses the one whose API key it finds, preferring Google, then OpenAI, when there are several; with reference images it only picks providers that accept them. Before each image it says which provider and model it's using and how to switch. To keep a real person or object recognizable across images, it uses short instructions to keep the same identity and two to four reference images, since long descriptions make models invent a lookalike. A Codex or ChatGPT login isn't an OpenAI API key: the codex-cli provider uses that subscription through the codex command instead, and is never picked automatically. When prompts are already saved as files, a batch file runs them with shared throttling and retries, and can be built from what baoyu-article-illustrator writes.",
+          "permalink": "https://github.com/jimliu/baoyu-skills/tree/ca703c2d7c2c4399a1dc0cf82224f8551e05a96d/skills/baoyu-image-gen"
+        },
+        "tags": [
+          "category:media",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "needs:account",
+          "by:community",
+          "image",
+          "ai-generation"
+        ],
+        "note": "Needs an API key for at least one image provider, or the codex CLI logged in to a Codex subscription."
+      }
+    },
+    {
+      "id": "jimliu/baoyu-skills/skills/baoyu-infographic",
+      "name": "baoyu-infographic",
+      "skills.sh": {
+        "url": "https://skills.sh/jimliu/baoyu-skills/baoyu-infographic",
+        "installs": 33300,
+        "weeklyInstalls": [343, 345, 160, 194, 213, 233, 230, 261],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "ca703c2d7c2c4399a1dc0cf82224f8551e05a96d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Turns an article, notes or data into one AI-generated infographic, picking from 21 layouts and 22 visual styles.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want an article, notes or a set of numbers turned into one visual summary image"
+            },
+            {
+              "label": "It does",
+              "text": "analyzes the content, suggests 3 to 5 layout and style pairs, and generates the image once you confirm one"
+            },
+            {
+              "label": "You get",
+              "text": "infographic.png in its own folder, with the content analysis, the restructured content and the exact prompt"
+            },
+            {
+              "label": "Keeps",
+              "text": "the source's data and quotes word for word, adding no new information, and strips any API keys or secrets"
+            },
+            {
+              "label": "Needs",
+              "text": "an image generator: your agent's own (as in Codex or Cursor), baoyu-image-gen with an API key, or a logged-in codex CLI"
+            }
+          ],
+          "text": "Its 21 layouts set the structure, such as a timeline, funnel, iceberg, Venn diagram or the default bento grid of topics; its 22 styles set the look, such as the default hand-made paper craft, claymation, chalkboard, blueprint, pixel art or LEGO bricks. Any layout works with any style, and asking for 信息图 or 高密度信息大图 (a dense information poster) puts a matching layout first among its suggestions. The agent saves your source, writes an analysis of its topic, data, tone and audience, then restructures it into sections with labels and visual elements. It always asks you to confirm the combination, the aspect ratio and, when the source is in another language, the language, unless you tell it to skip that. The full prompt is saved to a file before generating, so the image can be reproduced or made with another backend; with no backend available, it tells you and asks rather than drawing the image in SVG or HTML. If text in the image comes out wrong, it regenerates from a corrected prompt instead of patching the picture with code, keeping the flawed version for comparison. Defaults such as a preferred layout, style or backend are set on first run.",
+          "permalink": "https://github.com/jimliu/baoyu-skills/tree/ca703c2d7c2c4399a1dc0cf82224f8551e05a96d/skills/baoyu-infographic"
+        },
+        "tags": [
+          "category:media",
+          "type:workflow",
+          "effect:local",
+          "needs:account",
+          "by:community",
+          "image",
+          "ai-generation"
+        ],
+        "note": "Needs an image generator: your agent's own image tool, as in Codex or Cursor, or the baoyu-image-gen skill, which needs an image API key."
+      }
+    },
+    {
+      "id": "jimliu/baoyu-skills/skills/baoyu-markdown-to-html",
+      "name": "baoyu-markdown-to-html",
+      "skills.sh": {
+        "url": "https://skills.sh/jimliu/baoyu-skills/baoyu-markdown-to-html",
+        "installs": 32600,
+        "weeklyInstalls": [303, 294, 123, 117, 172, 171, 179, 191],
+        "firstSeen": "2026-01-29"
+      },
+      "skillMd": {
+        "version": "ca703c2d7c2c4399a1dc0cf82224f8551e05a96d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Converts Markdown into styled HTML with inline CSS, ready for a WeChat Official Account article.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you have a Markdown article and need it as styled HTML for a WeChat Official Account post"
+            },
+            {
+              "label": "It does",
+              "text": "runs a bundled converter with one of four themes, handling code highlighting, math, footnotes, alerts, PlantUML, and Mermaid diagrams rendered as images"
+            },
+            {
+              "label": "You get",
+              "text": "an .html file next to the Markdown, backing up any older one, and a JSON summary of its title, author, summary and images"
+            },
+            {
+              "label": "Unlike",
+              "text": "baoyu-post-to-wechat, from the same repo, it only converts and doesn't publish anything"
+            },
+            {
+              "label": "Needs",
+              "text": "Bun or npx; Chrome only for Mermaid diagrams, which otherwise stay as code"
+            }
+          ],
+          "text": "The four themes are default (centered title, white-on-color section headings), grace (text shadows, rounded cards), simple (minimal, asymmetric rounded corners) and modern (large radius, pill-shaped titles), with 13 color presets or any hex color, and a choice of font and size. The theme comes from your request, then this skill's preferences, then baoyu-post-to-wechat's default theme; if none is set, it asks. If the article contains Chinese, Japanese or Korean text and baoyu-format-markdown is installed, it first offers to run that skill to fix bold markers and spacing. Only when you ask, ordinary external links become numbered citations gathered in a final 引用链接 (reference links) section, while WeChat article links stay inline. The first heading is dropped unless you ask to keep it. Mermaid images are cached in imgs/.mermaid-cache/.",
+          "permalink": "https://github.com/jimliu/baoyu-skills/tree/ca703c2d7c2c4399a1dc0cf82224f8551e05a96d/skills/baoyu-markdown-to-html"
+        },
+        "tags": [
+          "category:writing",
+          "category:marketing",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "stack:wechat",
+          "writing",
+          "social-media"
+        ]
+      }
+    },
+    {
+      "id": "jimliu/baoyu-skills/skills/baoyu-cover-image",
+      "name": "baoyu-cover-image",
+      "skills.sh": {
+        "url": "https://skills.sh/jimliu/baoyu-skills/baoyu-cover-image",
+        "installs": 32500,
+        "weeklyInstalls": [317, 314, 140, 129, 182, 197, 189, 204],
+        "firstSeen": "2026-01-19"
+      },
+      "skillMd": {
+        "version": "ca703c2d7c2c4399a1dc0cf82224f8551e05a96d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Generates a cover image for an article, combining a type, palette, rendering style, font, title text and mood.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "an article or post needs a cover image"
+            },
+            {
+              "label": "It does",
+              "text": "reads the article, recommends a type, palette, rendering, font, amount of text and mood, and generates the cover once you confirm"
+            },
+            {
+              "label": "You get",
+              "text": "cover.png, at 16:9 by default or 2.35:1, 4:3, 3:2, 1:1 or 3:4, with its prompt saved beside it"
+            },
+            {
+              "label": "Choices",
+              "text": "6 types, such as hero, metaphor or typography; 11 palettes; 7 renderings, such as flat vector, hand-drawn, pixel or chalk"
+            },
+            {
+              "label": "Needs",
+              "text": "an image generator: your agent's own (as in Codex or Cursor), baoyu-image-gen with an API key, or a logged-in codex CLI"
+            }
+          ],
+          "text": "On first run it asks setup questions and saves preferences such as a watermark, default aspect and output folder; --quick skips that setup and the confirmation, though it still asks for the aspect ratio unless you give one. Otherwise it asks about the dimensions in one round of questions, with its recommendation listed first. Reference images you give it can guide the style, palette or composition. The title is taken exactly from you or the source, never invented, figures are simplified silhouettes rather than realistic people, and 40 to 60 percent of the image is left as breathing room. If the title comes out misspelled in the image, it regenerates from a corrected prompt instead of patching the picture. Covers go in their own cover-image folder by default, or next to the article.",
+          "permalink": "https://github.com/jimliu/baoyu-skills/tree/ca703c2d7c2c4399a1dc0cf82224f8551e05a96d/skills/baoyu-cover-image"
+        },
+        "tags": [
+          "category:media",
+          "type:workflow",
+          "effect:local",
+          "needs:account",
+          "by:community",
+          "image",
+          "ai-generation"
+        ],
+        "note": "Needs an image generator: your agent's own image tool, as in Codex or Cursor, or the baoyu-image-gen skill, which needs an image API key."
+      }
+    },
+    {
+      "id": "jimliu/baoyu-skills/skills/baoyu-article-illustrator",
+      "name": "baoyu-article-illustrator",
+      "skills.sh": {
+        "url": "https://skills.sh/jimliu/baoyu-skills/baoyu-article-illustrator",
+        "installs": 32300,
+        "weeklyInstalls": [313, 313, 148, 133, 183, 198, 200, 208],
+        "firstSeen": "2026-01-19"
+      },
+      "skillMd": {
+        "version": "ca703c2d7c2c4399a1dc0cf82224f8551e05a96d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Finds where an article needs pictures, generates the illustrations and inserts them into the Markdown.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "an article needs illustrations and you'd rather not decide where each one goes or draw them"
+            },
+            {
+              "label": "It does",
+              "text": "finds the passages a picture would help, asks how many and in what style, writes a prompt for each and generates them"
+            },
+            {
+              "label": "You get",
+              "text": "the images in an imgs folder next to the article, linked in after their paragraphs, plus an outline.md listing each one"
+            },
+            {
+              "label": "Image types",
+              "text": "infographic, scene, flowchart, comparison, framework and timeline, in styles such as minimal-flat, sci-fi, hand-drawn or editorial"
+            },
+            {
+              "label": "Needs",
+              "text": "an image generator: your agent's own (as in Codex or Cursor), baoyu-image-gen with an API key, or a logged-in codex CLI"
+            }
+          ],
+          "text": "It first works out the article's kind (technical, tutorial, methodology or narrative), its two to five core arguments and where a visual adds value; metaphors are drawn as the idea behind them, not literally. Then comes one round of questions: a preset or image type, how many images (one or two, three to five, one per section, or six or more), a style and an optional palette (macaron, warm or neon). Every prompt is saved to a file before any image is made, with labels drawn from the article's actual numbers, terms and quotes. Images then render in batches, four at a time by default when the agent can make parallel calls, and failed ones are retried once. Preferences, such as the output folder, a watermark and a default style, are set up on first run. If text in an image comes out wrong, it writes a new prompt and regenerates instead of patching the picture.",
+          "permalink": "https://github.com/jimliu/baoyu-skills/tree/ca703c2d7c2c4399a1dc0cf82224f8551e05a96d/skills/baoyu-article-illustrator"
+        },
+        "tags": [
+          "category:media",
+          "category:writing",
+          "type:workflow",
+          "effect:local",
+          "needs:account",
+          "by:community",
+          "image",
+          "ai-generation"
+        ],
+        "note": "Needs an image generator: your agent's own image tool, as in Codex or Cursor, or the baoyu-image-gen skill, which needs an image API key."
+      }
+    },
+    {
+      "id": "jimliu/baoyu-skills/skills/baoyu-xhs-images",
+      "name": "baoyu-xhs-images",
+      "skills.sh": {
+        "url": "https://skills.sh/jimliu/baoyu-skills/baoyu-xhs-images",
+        "installs": 31700,
+        "weeklyInstalls": [300, 296, 128, 121, 175, 188, 202, 203],
+        "firstSeen": "2026-01-19"
+      },
+      "skillMd": {
+        "version": "ca703c2d7c2c4399a1dc0cf82224f8551e05a96d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Turns content into a series of up to 10 cartoon-style image cards for Xiaohongshu and other social feeds.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a post for Xiaohongshu (Little Red Book), WeChat image posts or another feed as a swipeable series of image cards"
+            },
+            {
+              "label": "It does",
+              "text": "analyzes the content, recommends a structure, style and layout, then generates a cover, content cards and a closing card"
+            },
+            {
+              "label": "You get",
+              "text": "up to 10 PNG cards in one folder, with the analysis, the outline and every prompt"
+            },
+            {
+              "label": "Looks",
+              "text": "12 styles, such as cute (the default), notion, chalkboard or study notes, and 8 layouts, from sparse to dense, lists, flows and mind maps"
+            },
+            {
+              "label": "Stays consistent",
+              "text": "by generating the cover first and passing it as a reference to every other card"
+            },
+            {
+              "label": "Needs",
+              "text": "an image generator: your agent's own (as in Codex or Cursor), baoyu-image-gen with an API key, or a logged-in codex CLI"
+            }
+          ],
+          "text": "Three outline strategies give structurally different posts: story-driven (hook, problem, discovery, experience, conclusion), information-dense (conclusion first, then facts, pros and cons, a recommendation) and visual-first (hero image, details, a lifestyle scene, a call to action). After the analysis, the agent shows its recommended plan and offers three paths: accept it, adjust the strategy, style, layout, palette and count, or a detailed mode that drafts all three outlines for you to choose from or combine. --yes skips every question and runs unattended. Twenty-six presets pair a style and layout for common scenarios, and three palettes (macaron, warm, neon) recolor any style. Cards render in batches of four by default, a watermark such as your handle can be added, and sensitive public figures are drawn as stylized cartoons. Wrong text on a card means a new prompt and a regeneration, never a patch.",
+          "permalink": "https://github.com/jimliu/baoyu-skills/tree/ca703c2d7c2c4399a1dc0cf82224f8551e05a96d/skills/baoyu-xhs-images"
+        },
+        "tags": [
+          "category:media",
+          "category:marketing",
+          "type:workflow",
+          "effect:local",
+          "needs:account",
+          "by:community",
+          "stack:xiaohongshu",
+          "image",
+          "ai-generation",
+          "social-media"
+        ],
+        "note": "Needs an image generator: your agent's own image tool, as in Codex or Cursor, or the baoyu-image-gen skill, which needs an image API key."
+      }
+    },
+    {
+      "id": "jimliu/baoyu-skills/skills/baoyu-slide-deck",
+      "name": "baoyu-slide-deck",
+      "skills.sh": {
+        "url": "https://skills.sh/jimliu/baoyu-skills/baoyu-slide-deck",
+        "installs": 31600,
+        "weeklyInstalls": [315, 313, 159, 150, 203, 233, 241, 235],
+        "firstSeen": "2026-01-19"
+      },
+      "skillMd": {
+        "version": "ca703c2d7c2c4399a1dc0cf82224f8551e05a96d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Turns an article or notes into a deck of AI-generated slide images, merged into PPTX and PDF.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a deck from an article or notes, mostly to read and share rather than to present live"
+            },
+            {
+              "label": "It does",
+              "text": "suggests a style, audience and slide count, writes an outline and one prompt per slide, generates every slide as an image, then merges them"
+            },
+            {
+              "label": "You get",
+              "text": "slide PNGs, plus a PPTX and a PDF made of those images, with the outline and prompts, in one folder"
+            },
+            {
+              "label": "Styles",
+              "text": "17 presets, such as blueprint (the default), chalkboard, corporate, notion, scientific or pixel art, or your own mix of texture, mood, typography and density"
+            },
+            {
+              "label": "Needs",
+              "text": "Bun or npx to merge, and an image generator: your agent's own (as in Codex or Cursor), baoyu-image-gen with an API key, or a logged-in codex CLI"
+            }
+          ],
+          "text": "Decks are designed to be read without a speaker: slides explain themselves and flow when scrolled, which shapes their density and layout. The agent analyzes the source, suggests a preset from its keywords and a slide count from its length, from 5 to 10 slides under 1,000 words to 20 to 30 beyond 5,000, then asks five questions at once: style, audience, count, and whether you want to review the outline and the prompts before any image is made. You can stop after the outline or the prompts, start from existing prompts, or regenerate single slides, editing a slide's prompt first. Slides render in batches of four by default, and reference images can set the style, palette or layout of every slide. If a slide's text comes out wrong, it regenerates instead of patching the image. If the deck's folder already exists, it asks whether to regenerate, back up first or stop.",
+          "permalink": "https://github.com/jimliu/baoyu-skills/tree/ca703c2d7c2c4399a1dc0cf82224f8551e05a96d/skills/baoyu-slide-deck"
+        },
+        "tags": [
+          "category:media",
+          "category:documents",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "needs:account",
+          "by:community",
+          "slides",
+          "image",
+          "ai-generation"
+        ],
+        "note": "Needs an image generator: your agent's own image tool, as in Codex or Cursor, or the baoyu-image-gen skill, which needs an image API key."
+      }
+    },
+    {
+      "id": "jimliu/baoyu-skills/skills/baoyu-url-to-markdown",
+      "name": "baoyu-url-to-markdown",
+      "skills.sh": {
+        "url": "https://skills.sh/jimliu/baoyu-skills/baoyu-url-to-markdown",
+        "installs": 30700,
+        "weeklyInstalls": [320, 299, 120, 112, 171, 171, 173, 194],
+        "firstSeen": "2026-01-22"
+      },
+      "skillMd": {
+        "version": "ca703c2d7c2c4399a1dc0cf82224f8551e05a96d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Saves web pages as Markdown through Chrome, with site adapters for X, YouTube transcripts and Hacker News threads.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a web page saved as a Markdown file, including pages that need a login or a CAPTCHA"
+            },
+            {
+              "label": "It does",
+              "text": "loads the page in Chrome with its bundled baoyu-fetch tool, using adapters for X, YouTube transcripts and Hacker News threads, and Defuddle for other pages"
+            },
+            {
+              "label": "You get",
+              "text": "a Markdown file under url-to-markdown/<domain>/<slug>/, optionally with its images and videos downloaded and relinked"
+            },
+            {
+              "label": "Logins",
+              "text": "a wait mode lets you log in or solve a CAPTCHA in the browser, then carries on"
+            },
+            {
+              "label": "Needs",
+              "text": "Bun, and Chrome or Chromium"
+            },
+            {
+              "label": "Unlike defuddle",
+              "text": "Kepano's defuddle skill runs a command-line tool on a URL; this one drives a real browser and has site adapters"
+            }
+          ],
+          "text": "Before its first conversion it asks a few setup questions, such as whether to download media and where to save, and stores the answers; it never assumes them silently. If the fetcher's packages aren't installed yet, it installs them with Bun first. The fetcher runs Chrome headless by default and prints Markdown, or writes Markdown or JSON to a file. For pages that need you, one wait mode notices a login or CAPTCHA and continues once it's cleared, another waits for you to press Enter. It can reuse a Chrome that's already running with its debugging port open, or a profile you name. Because headless captures sometimes return thin content without any error, the agent checks the saved Markdown after each headless run against a quality checklist. A debug option saves the captured HTML and network log.",
+          "permalink": "https://github.com/jimliu/baoyu-skills/tree/ca703c2d7c2c4399a1dc0cf82224f8551e05a96d/skills/baoyu-url-to-markdown"
+        },
+        "tags": [
+          "category:browser",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "needs:browser",
+          "by:community",
+          "scraping",
+          "browser-automation"
+        ]
+      }
+    },
+    {
+      "id": "jimliu/baoyu-skills/skills/baoyu-comic",
+      "name": "baoyu-comic",
+      "skills.sh": {
+        "url": "https://skills.sh/jimliu/baoyu-skills/baoyu-comic",
+        "installs": 30300,
+        "weeklyInstalls": [289, 304, 123, 125, 192, 191, 190, 232],
+        "firstSeen": "2026-01-19"
+      },
+      "skillMd": {
+        "version": "ca703c2d7c2c4399a1dc0cf82224f8551e05a96d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Turns a topic or source text into an educational comic, from storyboard and characters to finished pages and a PDF.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a topic, a biography or a tutorial told as an educational comic, such as a Logicomix-style story"
+            },
+            {
+              "label": "It does",
+              "text": "analyzes the material, asks for art style, tone and layout, writes a storyboard and character sheet, then generates each page"
+            },
+            {
+              "label": "You get",
+              "text": "comic pages as PNGs and a merged PDF, with the storyboard, character definitions and prompts, in one folder"
+            },
+            {
+              "label": "Looks",
+              "text": "6 art styles, such as ligne claire, manga or ink brush; 7 tones; and layouts from standard panels to cinematic, webtoon and four-panel"
+            },
+            {
+              "label": "Stays consistent",
+              "text": "recurring characters, by generating a character reference sheet first and passing it along with every page"
+            },
+            {
+              "label": "Needs",
+              "text": "Bun or npx to merge the PDF, and an image generator: your agent's own (as in Codex or Cursor), baoyu-image-gen with an API key, or a logged-in codex CLI"
+            }
+          ],
+          "text": "Five presets add their own rules: ohmsha (manga that explains through visual metaphors and gadgets rather than talking heads), wuxia (ink brush and martial-arts action), shoujo (romantic manga), concept-story (a system of visual symbols and a growth arc) and four-panel (minimalist strips with a setup, development, twist and conclusion). Confirming the style is required; reviewing the storyboard and the prompts before images are made is optional. You can stop after the storyboard or the prompts, generate from existing prompts, or redo single pages, editing a page's prompt first. Once the character sheet exists, pages render in batches of four by default. Questions, storyboard, prompts and summaries all use your language or the one you set. Sensitive public figures are drawn stylized, and wrong text on a page means regenerating it, not patching the image. Preferences such as a watermark and a default art style are set up on first run.",
+          "permalink": "https://github.com/jimliu/baoyu-skills/tree/ca703c2d7c2c4399a1dc0cf82224f8551e05a96d/skills/baoyu-comic"
+        },
+        "tags": [
+          "category:media",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "needs:account",
+          "by:community",
+          "image",
+          "ai-generation"
+        ],
+        "note": "Needs an image generator: your agent's own image tool, as in Codex or Cursor, or the baoyu-image-gen skill, which needs an image API key."
+      }
+    },
+    {
+      "id": "jimliu/baoyu-skills/skills/baoyu-post-to-x",
+      "name": "baoyu-post-to-x",
+      "skills.sh": {
+        "url": "https://skills.sh/jimliu/baoyu-skills/baoyu-post-to-x",
+        "installs": 29200,
+        "weeklyInstalls": [281, 272, 101, 92, 150, 142, 141, 162],
+        "firstSeen": "2026-01-19"
+      },
+      "skillMd": {
+        "version": "ca703c2d7c2c4399a1dc0cf82224f8551e05a96d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Posts tweets with images or video, quote tweets and long-form X Articles to X through your own logged-in Chrome.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want the agent to post to X for you: a post with images or video, a quote tweet or a long Markdown article"
+            },
+            {
+              "label": "It does",
+              "text": "fills in X's composer in your logged-in Chrome, through computer use, Codex's Chrome plugin or, as a fallback, its own scripts"
+            },
+            {
+              "label": "Asks first",
+              "text": "it never clicks Post or Publish without your explicit go-ahead; its scripts leave the browser open for you to publish"
+            },
+            {
+              "label": "Articles",
+              "text": "converts Markdown to rich text, pastes it into X Articles, uploads each image in place and checks the preview; needs X Premium"
+            },
+            {
+              "label": "Needs",
+              "text": "Chrome, Bun or npx, and an X account you log in to once"
+            }
+          ],
+          "text": "Before touching X it picks one way to control Chrome: Codex's Chrome plugin when you ask for it, otherwise Chrome computer use if the agent has it, and its own scripts over Chrome's debugging protocol only as a fallback, never switching silently. Plain text becomes a regular post (280 characters, or up to 10,000 with Premium); a Markdown file becomes an X Article. For an article it converts the Markdown to HTML, uploads the cover, pastes the body, then replaces each image placeholder with the uploaded image and checks that none remain before showing you the preview. Images in regular posts go in through the clipboard, which on macOS needs accessibility permission for your terminal and on Linux needs xdotool or ydotool. If its scripts can't reach Chrome's debugging port, it kills Chrome instances running with remote debugging and retries, without asking.",
+          "permalink": "https://github.com/jimliu/baoyu-skills/tree/ca703c2d7c2c4399a1dc0cf82224f8551e05a96d/skills/baoyu-post-to-x"
+        },
+        "tags": [
+          "category:marketing",
+          "category:browser",
+          "type:tool",
+          "effect:remote",
+          "needs:cli",
+          "needs:account",
+          "needs:browser",
+          "by:community",
+          "stack:x-twitter",
+          "social-media",
+          "browser-automation",
+          "computer-use"
+        ],
+        "note": "Needs Chrome logged in to your X account; X Articles need X Premium."
+      }
+    },
+    {
+      "id": "jimliu/baoyu-skills/skills/baoyu-compress-image",
+      "name": "baoyu-compress-image",
+      "skills.sh": {
+        "url": "https://skills.sh/jimliu/baoyu-skills/baoyu-compress-image",
+        "installs": 28500,
+        "weeklyInstalls": [284, 284, 110, 105, 155, 141, 155, 171],
+        "firstSeen": "2026-01-19"
+      },
+      "skillMd": {
+        "version": "ca703c2d7c2c4399a1dc0cf82224f8551e05a96d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Compresses images, one at a time or by the folder, to WebP, PNG or JPEG.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "images are too large and you want them smaller, or converted to WebP"
+            },
+            {
+              "label": "It does",
+              "text": "runs a bundled script that uses the first of sips, cwebp, ImageMagick or Sharp it finds"
+            },
+            {
+              "label": "You get",
+              "text": "WebP files at quality 80 by default, or PNG or JPEG, with each file's size before and after"
+            },
+            {
+              "label": "Watch out",
+              "text": "it replaces the original unless you pass --keep"
+            },
+            {
+              "label": "Needs",
+              "text": "Bun or npx"
+            }
+          ],
+          "text": "A small utility. It takes one file or a whole folder, recursively if asked, and writes each result at the same path with the new extension, or wherever you point it. Quality runs from 0 to 100. Defaults for the format, the quality and keeping originals can be set in a preferences file, and it can report in JSON.",
+          "permalink": "https://github.com/jimliu/baoyu-skills/tree/ca703c2d7c2c4399a1dc0cf82224f8551e05a96d/skills/baoyu-compress-image"
+        },
+        "tags": [
+          "category:media",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "image"
+        ],
+        "note": "It replaces the original file unless you ask it to keep it."
+      }
+    },
+    {
+      "id": "jimliu/baoyu-skills/skills/baoyu-format-markdown",
+      "name": "baoyu-format-markdown",
+      "skills.sh": {
+        "url": "https://skills.sh/jimliu/baoyu-skills/baoyu-format-markdown",
+        "installs": 28500,
+        "weeklyInstalls": [287, 288, 123, 97, 158, 155, 167, 181],
+        "firstSeen": "2026-01-29"
+      },
+      "skillMd": {
+        "version": "ca703c2d7c2c4399a1dc0cf82224f8551e05a96d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Formats a draft into scannable Markdown with frontmatter, headings, bold and lists, changing no words beyond obvious typos.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a draft or plain text needs structure before publishing: headings, emphasis, lists and a title"
+            },
+            {
+              "label": "It does",
+              "text": "works out what a reader should notice, adds frontmatter, headings, bold, lists, tables and code blocks, then runs a typography script"
+            },
+            {
+              "label": "You get",
+              "text": "<name>-formatted.md and <name>-analysis.md beside the original, with your wording kept apart from obvious typos"
+            },
+            {
+              "label": "Titles",
+              "text": "4 or 5 candidates to pick from, two or three built on hook formulas and one or two plain ones"
+            },
+            {
+              "label": "Typography",
+              "text": "spacing between Chinese and English text, fixes for bold markers broken by CJK punctuation, and optional full-width quotes"
+            },
+            {
+              "label": "Needs",
+              "text": "Bun or npx"
+            }
+          ],
+          "text": "Its rule is to change formatting only: no sentences added, cut or reworded, no editorializing headings and no over-formatting. For Markdown that's already formatted, it asks whether to improve the formatting, keep it and fix only typography, or fix typography directly in the original file. The analysis lists highlights, suggested sections, what a reader needs, formatting issues and typos. The frontmatter gets a title, a slug, a one-sentence summary and a longer description, both about the value to the reader rather than the topic, plus a cover path if imgs/cover.png exists. Title choice can be made automatic in its preferences. baoyu-markdown-to-html, from the same repo, offers to run it on Chinese, Japanese or Korean articles before converting.",
+          "permalink": "https://github.com/jimliu/baoyu-skills/tree/ca703c2d7c2c4399a1dc0cf82224f8551e05a96d/skills/baoyu-format-markdown"
+        },
+        "tags": [
+          "category:writing",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "writing"
         ]
       }
     }
