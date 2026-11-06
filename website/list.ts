@@ -13,6 +13,7 @@ import {
   facetById,
   facetOf,
   firstSeenOf,
+  idPath,
   includedBy,
   glanceHtml,
   installsOf,
@@ -349,6 +350,66 @@ function counts(st: State, facet: string, valuesOf: (s: Skill) => string[]): Map
   return n;
 }
 
+// ------------------------------------------------------------------- asking an agent
+
+/** The active filters in words, the search left out. */
+function filtersText(st: State): string[] {
+  const parts = st.tags.map((t) => `tag ${t}`);
+  if (st.repo) parts.push(`from ${st.repo}`);
+  for (const p of PROP_IDS)
+    if (isNarrowed(p, st.ranges[p]))
+      parts.push(`${PROPS[p].label}: ${rangeLabel(p, st.ranges[p])}`);
+  return parts;
+}
+
+/**
+ * A prompt to paste into any chat agent, for a need in your own words, which the search can't
+ * match: the catalog is every entry the filters leave, the search is ignored and taken as the need
+ * instead. `base` is the site's absolute URL, which the entries' paths are relative to.
+ */
+export function askPrompt(st: State, base: string): string {
+  const { list } = results({ ...st, q: "", one: false });
+  const entry = (e: Entry) => {
+    const review = e.agentReview;
+    const numbers = [
+      installsOf(e) !== null ? `${compact(installsOf(e) as number)} installs` : "",
+      starsOf(e) !== null ? `${compact(starsOf(e) as number)} stars` : "",
+    ].filter(Boolean);
+    const head = isBundle(e)
+      ? `### ${nameOf(e)} (bundle/${idPath(e.id)}/): a bundle of ${skillsOf(e)
+          .map((s) => s.name)
+          .join(", ")}`
+      : `### ${e.name} (skill/${idPath(e.id)}/)`;
+    const tags = isBundle(e) ? [] : e.agentReview.tags.filter((t) => !quiet(t));
+    const facts = review.tldr?.glance.map((g) => `- ${g.label}: ${g.text}`) ?? [
+      `- ${review.description}`,
+    ];
+    return [
+      head,
+      [repoKey(e), ...numbers, tags.length ? `tags: ${tags.join(", ")}` : ""]
+        .filter(Boolean)
+        .join(" · "),
+      ...facts,
+    ].join("\n");
+  };
+  const filters = filtersText(st);
+  return `I'm looking for an agent skill: a SKILL.md that teaches a coding agent (Claude Code, Codex, Cursor…) how to do something. Below is the catalog of SkillHub, a directory of reviewed skills${
+    filters.length ? `, narrowed to: ${filters.join("; ")}` : ""
+  }.
+
+Using only this catalog, pick the skills that best fit my need, best first, at most 5. For each, give its name, its link, why it fits, and anything that could make it a poor fit (what it needs, what it won't do). If skills fit only together, say so. If none fits well, say so plainly. If my need is too vague to choose, ask me first.
+
+Each entry's link is its path in parentheses, after ${base}
+
+# Catalog (${list.length} entries)
+
+${list.map(entry).join("\n\n")}
+
+# My need
+
+${st.q}`;
+}
+
 // ------------------------------------------------------------------- pieces
 
 function filterChip(
@@ -561,7 +622,11 @@ export function resultsHtml(st: State): string {
               return isBundle(e) ? bundleRow(e, more, st) : skillRow(e, more, st);
             })
             .join("")}</ol>`
-        : `<p class="empty">No skill matches these filters.</p>`
+        : `<p class="empty">No skill matches these filters.${
+            st.q
+              ? `<br />Describing a need in your own words? <button type="button" class="link-button" data-action="ask">Ask an agent</button>`
+              : ""
+          }</p>`
     }`;
 }
 
@@ -584,6 +649,7 @@ export function listView(st: State): string {
           <label for="q" class="sr-only">Search skills</label>
           <input id="q" type="search" value="${esc(st.q)}" placeholder="Search names, descriptions, tags" autocomplete="off" spellcheck="false" />
         </div>
+        <p class="ask"><button type="button" class="link-button" data-action="ask">Ask an agent</button> Copies a prompt for Claude, ChatGPT or any chat agent: your search as the need, and the skills the other filters leave as the catalog.</p>
         <div id="ranges">${rangesHtml(st)}</div>
         <div id="facets">${facetsHtml(st, false)}</div>
       </aside>

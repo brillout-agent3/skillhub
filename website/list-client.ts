@@ -6,6 +6,7 @@ import {
   fullRange,
   rangeLabel,
   parse,
+  askPrompt,
   query,
   resultsHtml,
   toggleTag,
@@ -15,6 +16,7 @@ import {
   type State,
   type View,
 } from "./list.ts";
+import { compact, href } from "./format.ts";
 
 const app = document.getElementById("app") as HTMLElement;
 const q = document.getElementById("q") as HTMLInputElement;
@@ -67,6 +69,16 @@ function render() {
   if (focus) (document.querySelector(focus) as HTMLElement | null)?.focus({ preventScroll: true });
 }
 
+/** Copy the prompt for an agent, and say how big it is: a large catalog can be too much for some agents. */
+function ask(button: HTMLElement) {
+  const prompt = askPrompt(state, new URL(href(), location.origin).href);
+  navigator.clipboard?.writeText(prompt).then(() => {
+    const label = button.textContent;
+    button.textContent = `Copied, ~${compact(Math.round(prompt.length / 4))} tokens: paste it into your agent`;
+    setTimeout(() => (button.textContent = label), 4000);
+  });
+}
+
 q.addEventListener("input", () => go({ q: q.value }));
 
 app.addEventListener("input", (event) => {
@@ -101,6 +113,7 @@ app.addEventListener("click", (event) => {
       repo: null,
       ranges: parse("", view).ranges,
     });
+  else if (d.action === "ask") ask(el);
   else if (d.action === "order") go({ asc: !state.asc });
   else if (d.action === "stack") {
     stackExpanded = !stackExpanded;

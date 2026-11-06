@@ -204,6 +204,18 @@ code {
   background: var(--surface);
 }
 
+.ask {
+  margin: 8px 0 0;
+  color: var(--text-3);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.ask .link-button {
+  padding: 0;
+  font-weight: 600;
+}
+
 .facet {
   margin-top: 18px;
 }
