@@ -67546,6 +67546,556 @@
         ],
         "note": "Fires on its own when a prompt is vague or casual (\"whatever\", \"idk\", \"YOLO\", Yu-Gi-Oh quotes) and when the agent is about to pick arbitrarily between approaches."
       }
+    },
+    {
+      "id": "github/awesome-copilot/skills/mentoring-juniors",
+      "name": "mentoring-juniors",
+      "skills.sh": {
+        "url": "https://skills.sh/github/awesome-copilot/mentoring-juniors",
+        "installs": 7000,
+        "weeklyInstalls": [17, 15, 20, 16, 16, 19, 14, 22],
+        "firstSeen": "2026-03-02"
+      },
+      "skillMd": {
+        "version": "797337f33f73e35d08d82f840e21c4b8c4932d88",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Mentors junior developers as Sensei, a Socratic lead developer who asks guiding questions and gives escalating hints rather than answers.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a junior developer or AI newcomer should learn to solve a problem, not just have it solved"
+            },
+            {
+              "label": "It does",
+              "text": "asks what you tried and what the error means, then questions and hints, escalating from docs to read to pseudocode and code with blanks"
+            },
+            {
+              "label": "You get",
+              "text": "guidance instead of answers, a review of the code you write, and a learning recap at the end of a session"
+            },
+            {
+              "label": "Unlike noob-mode",
+              "text": "from the same repo, which explains the agent's actions to non-developers, it teaches developers to reason for themselves"
+            },
+            {
+              "label": "Turns on",
+              "text": "from many everyday phrases, such as \"I'm stuck\", \"how do I\" or \"debug this\", and from /socratic, /hint, /concept and /pseudocode"
+            }
+          ],
+          "text": "The agent becomes Sensei, a patient senior lead developer who teaches by the Socratic method. Before helping, it asks what you tried, what you think the error means, what you expected and what you've already read. Then it asks questions that lead toward the cause, explains the concept behind it with an analogy, and gives clues by how stuck you are: a question and docs to read, then pseudocode or a diagram, then a snippet with blanks to fill, then detailed pseudocode. In strict mode it never hands over complete working code, and suggests a human mentor when you're truly blocked. Once you've written your code, it reviews it for function, security, performance and readability. It adapts to urgency: questions only for a kata, the PEAR loop for a normal ticket (plan in pseudocode, explore with Copilot, analyze every line, rewrite in your own words), and generated code for a production bug, followed by a debriefing template. It also teaches rubber-duck debugging, the 5 whys and minimal reproductions, a formula for writing better AI prompts, and ends significant sessions with a recap. Its tool tips refer to GitHub Copilot Chat commands such as /explain and /fix.",
+          "permalink": "https://github.com/github/awesome-copilot/tree/797337f33f73e35d08d82f840e21c4b8c4932d88/skills/mentoring-juniors"
+        },
+        "tags": [
+          "category:output-style",
+          "category:debugging",
+          "type:mode",
+          "effect:none",
+          "needs:none",
+          "by:official",
+          "learning",
+          "debugging",
+          "output-style"
+        ],
+        "note": "Its triggers include everyday phrases such as \"how do I\", \"what is\", \"show me\" and \"debug this\", so it can switch on for ordinary requests and hold back full solutions."
+      }
+    },
+    {
+      "id": "github/awesome-copilot/skills/noob-mode",
+      "name": "noob-mode",
+      "skills.sh": {
+        "url": "https://skills.sh/github/awesome-copilot/noob-mode",
+        "installs": 6400,
+        "weeklyInstalls": [8, 8, 14, 14, 2, 2, 3, 3],
+        "firstSeen": "2026-03-02"
+      },
+      "skillMd": {
+        "version": "797337f33f73e35d08d82f840e21c4b8c4932d88",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Makes the agent explain every approval request, error and command result in plain English with color-coded risk levels, for non-developers.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you aren't a developer, say a lawyer, PM or writer, and want to know what the agent is asking to do and why"
+            },
+            {
+              "label": "It does",
+              "text": "before each approval, says what the action is, why, how risky it is and what yes or no means, and translates errors and output"
+            },
+            {
+              "label": "You get",
+              "text": "plain-English replies with jargon defined on first use, a roadmap for multi-step tasks, and a summary of changed files with how to undo them"
+            },
+            {
+              "label": "Risk levels",
+              "text": "low for reading and searching, moderate for creating, editing or installing, high for commands, deletes and websites, critical for pushes, secrets and system settings"
+            },
+            {
+              "label": "Runs",
+              "text": "for the rest of the conversation, until you say \"turn off noob mode\""
+            },
+            {
+              "label": "Written for",
+              "text": "GitHub Copilot CLI users, though its rules fit any agent that asks before acting"
+            }
+          ],
+          "text": "Noob Mode is a translation layer for people who use a coding agent without a software background. Once on, it puts a fixed block before every action that needs your approval: what it wants to do in one plain sentence, why, a risk level, and what happens if you approve or decline. Risk follows a table, from low for reading files to critical for pushing to a shared server or touching credentials, and it says when a high-risk action is safe in context, such as a read-only search. It defines each technical term the first time it uses it, backed by a bundled glossary of over 100 terms, explains ideas like branches and APIs with everyday analogies, and translates errors and command output, git status codes included, into what went wrong and what you can do. Multi-step tasks start with a numbered plan, choices come with trade-offs and a recommendation, and each task ends with the files created, changed and deleted and how to undo it. It also prefers the least destructive option and asks before destructive actions even when the agent wouldn't have to.",
+          "permalink": "https://github.com/github/awesome-copilot/tree/797337f33f73e35d08d82f840e21c4b8c4932d88/skills/noob-mode"
+        },
+        "tags": [
+          "category:output-style",
+          "type:mode",
+          "effect:none",
+          "needs:none",
+          "by:official",
+          "output-style",
+          "learning",
+          "guardrails"
+        ]
+      }
+    },
+    {
+      "id": "github/awesome-copilot/skills/security-review",
+      "name": "security-review",
+      "skills.sh": {
+        "url": "https://skills.sh/github/awesome-copilot/security-review",
+        "installs": 5700,
+        "weeklyInstalls": [70, 99, 83, 102, 96, 74, 95, 112],
+        "firstSeen": "2026-03-30"
+      },
+      "skillMd": {
+        "version": "797337f33f73e35d08d82f840e21c4b8c4932d88",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Scans your codebase for security vulnerabilities, tracing user input across files, and reports them by severity with proposed patches, applying none.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you ask \"is my code secure?\", or want a project or one folder audited for vulnerabilities, leaked secrets and risky dependencies"
+            },
+            {
+              "label": "It does",
+              "text": "audits dependencies, scans every file for secrets, reasons through the code for injection, access control, data handling, crypto and logic flaws, then traces input across files"
+            },
+            {
+              "label": "You get",
+              "text": "a report led by counts per severity, findings grouped by category with file, line, confidence and plain-English risk, and patches for critical and high ones"
+            },
+            {
+              "label": "Won't",
+              "text": "apply any patch: it says nothing has been changed yet"
+            },
+            {
+              "label": "Covers",
+              "text": "JavaScript, TypeScript, Python, Java, PHP, Go, Ruby and Rust, with bundled pattern guides and a watchlist of vulnerable packages"
+            },
+            {
+              "label": "Unlike Sentry's security-review",
+              "text": "which reports only high-confidence exploitable findings, it reports every severity down to info, each with a confidence rating"
+            }
+          ],
+          "text": "Run as /security-review, optionally with a path, it scans that scope or the whole project in eight steps. It identifies the languages and frameworks from manifests such as package.json or go.mod and loads matching vulnerability patterns. It audits dependencies first against a curated CVE watchlist, then scans all files, including config, CI, Dockerfiles and infrastructure code, for hardcoded keys, committed .env files and credentials in connection strings, using regex and entropy patterns. The deep scan reasons about the code rather than matching patterns: SQL, command and other injection, XSS, missing authentication, IDOR, JWT and CSRF weaknesses, sensitive data in logs, path traversal, SSRF, weak cryptography and randomness, race conditions and missing rate limits. A cross-file pass follows user input from HTTP parameters and uploads to queries, exec calls and HTML output. It then re-reads each finding to drop false positives and sets a final severity, from critical to info. The report follows a bundled template, and every critical and high finding gets a before-and-after patch in your code's style, with a comment explaining the fix. If the code is clean, it says so and what it scanned.",
+          "permalink": "https://github.com/github/awesome-copilot/tree/797337f33f73e35d08d82f840e21c4b8c4932d88/skills/security-review"
+        },
+        "tags": [
+          "category:security",
+          "category:debugging",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:official",
+          "security",
+          "code-review"
+        ]
+      }
+    },
+    {
+      "id": "github/awesome-copilot/skills/premium-frontend-ui",
+      "name": "premium-frontend-ui",
+      "skills.sh": {
+        "url": "https://skills.sh/github/awesome-copilot/premium-frontend-ui",
+        "installs": 5000,
+        "weeklyInstalls": [94, 77, 86, 80, 67, 68, 62, 71],
+        "firstSeen": "2026-03-18"
+      },
+      "skillMd": {
+        "version": "797337f33f73e35d08d82f840e21c4b8c4932d88",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Guides building award-style landing pages and components: a committed visual direction, preloaders, scroll-driven motion, cursor interactions, fluid typography and performance rules.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you ask for a premium landing page, an interactive portfolio or an \"Awwwards-style\" component"
+            },
+            {
+              "label": "It does",
+              "text": "has the agent commit to one visual direction, such as editorial brutalism or cyber, and build in a preloader, full-screen hero, scroll animations and cursor effects"
+            },
+            {
+              "label": "You get",
+              "text": "code with pinned and horizontal scroll sections, parallax, magnetic buttons, a custom cursor, huge fluid headlines, grain and frosted glass"
+            },
+            {
+              "label": "Keeps",
+              "text": "performance and accessibility: animates only transform and opacity, limits cursor effects to fine pointers and keeps heavy motion behind reduced-motion settings"
+            },
+            {
+              "label": "Libraries",
+              "text": "Framer Motion and Lenis for React or Next.js, plus React Three Fiber for 3D; GSAP, Lenis and SplitType for plain HTML or Astro"
+            }
+          ],
+          "text": "A set of standards for when a page has to feel high-end rather than merely work. The agent first commits to a strong identity, such as one of the four directions it describes: editorial brutalism, organic fluidity, cyber/technical or cinematic pacing. Pages then get layers a plain build would skip: a preloader that waits for fonts and images and leaves with a reveal, a full-viewport hero whose headline is split into words or letters for staggered entrances, and a sticky header that hides on scroll down and returns on scroll up. Motion is tied to scrolling, with pinned sections, horizontal galleries and parallax, plus magnetic buttons, a custom cursor that trails the pointer and 3D hover transforms. Typography uses extreme scale contrast, with clamp() headlines up to 12vw, premium or variable fonts, a faint noise overlay and frosted-glass panels. Performance rules come with it: animate only transform and opacity, use will-change sparingly, keep cursor and hover effects behind a fine-pointer media query and heavy animation behind prefers-reduced-motion. Whenever you ask for a premium or immersive page, it wraps the result in smooth scrolling and staggered entrances by default.",
+          "permalink": "https://github.com/github/awesome-copilot/tree/797337f33f73e35d08d82f840e21c4b8c4932d88/skills/premium-frontend-ui"
+        },
+        "tags": [
+          "category:design",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:official",
+          "stack:gsap",
+          "stack:framer-motion",
+          "stack:lenis",
+          "design",
+          "animation",
+          "performance",
+          "accessibility"
+        ]
+      }
+    },
+    {
+      "id": "ComposioHQ/awesome-claude-skills/video-downloader",
+      "name": "youtube-downloader",
+      "skills.sh": {
+        "url": "https://skills.sh/composiohq/awesome-claude-skills/youtube-downloader",
+        "installs": 6200,
+        "weeklyInstalls": [90, 104, 103, 151, 123, 116, 111, 127],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "be2a406907dbc61b73e6827ded415c96139d13a2",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Downloads a YouTube video at the quality and format you choose, or just its audio as MP3, with a bundled yt-dlp script.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a YouTube video saved to disk, or only its audio"
+            },
+            {
+              "label": "It does",
+              "text": "runs a Python script that has yt-dlp pick the best streams for your settings and merge video and audio"
+            },
+            {
+              "label": "You get",
+              "text": "one file named after the video's title, in /mnt/user-data/outputs/ unless you pass -o: MP4, WebM or MKV from 360p up to the best available, or an MP3"
+            },
+            {
+              "label": "Needs",
+              "text": "Python; if yt-dlp is missing, the script installs it with pip install --break-system-packages, without asking"
+            },
+            {
+              "label": "Skips",
+              "text": "playlists: it downloads single videos only"
+            }
+          ],
+          "text": "A thin wrapper around yt-dlp. The agent runs scripts/download_video.py with the video's URL and your options: -q for quality (best by default, 1080p, 720p, 480p, 360p or worst), -f for the container (MP4 by default, WebM or MKV), -a for audio only as MP3, and -o for the output folder. If yt-dlp isn't installed, the script installs it without asking, running pip with --break-system-packages, a flag that overrides the guard against pip installing into a Python your operating system manages. It then prints the video's title, length and uploader, downloads the matching streams and merges video and audio when needed. Files are named from the video's title and land in /mnt/user-data/outputs/ unless you name another folder. Playlists are skipped. Its frontmatter names it youtube-downloader.",
+          "permalink": "https://github.com/ComposioHQ/awesome-claude-skills/tree/be2a406907dbc61b73e6827ded415c96139d13a2/video-downloader"
+        },
+        "tags": [
+          "category:media",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "by:official",
+          "stack:youtube",
+          "stack:yt-dlp",
+          "stack:python",
+          "video",
+          "audio"
+        ],
+        "note": "Its script installs yt-dlp with pip --break-system-packages when it's missing, without asking, and saves to /mnt/user-data/outputs/ unless you pass -o."
+      }
+    },
+    {
+      "id": "ComposioHQ/awesome-claude-skills/competitive-ads-extractor",
+      "name": "competitive-ads-extractor",
+      "skills.sh": {
+        "url": "https://skills.sh/composiohq/awesome-claude-skills/competitive-ads-extractor",
+        "installs": 5700,
+        "weeklyInstalls": [83, 101, 98, 155, 131, 127, 129, 135],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "be2a406907dbc61b73e6827ded415c96139d13a2",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Pulls competitors' ads from ad libraries such as Facebook's and LinkedIn's, saves screenshots and analyzes the problems, messaging and creative patterns behind them.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're planning ad campaigns or positioning and want to see what competitors are running"
+            },
+            {
+              "label": "It does",
+              "text": "collects a competitor's active ads from an ad library, screenshots them, groups them by theme and explains why the patterns likely work"
+            },
+            {
+              "label": "You get",
+              "text": "screenshots and an analysis.md in a competitor-ads/<company>/ folder: themes, pain points, creative and copy patterns, audience hints and ideas for your own ads"
+            },
+            {
+              "label": "Also",
+              "text": "compares several competitors, or one competitor's ads over time"
+            },
+            {
+              "label": "Needs",
+              "text": "a way to browse and take screenshots, since it names no tool"
+            }
+          ],
+          "text": "You name a competitor, or a few, and a platform such as Facebook Ad Library or LinkedIn. The agent finds their active ads, saves a screenshot of each, and analyzes them: the problems and use cases they highlight, their value propositions, formats such as static images or video, and calls to action. Its example report gives the share of ads per theme, the key pain points with sample copy and why each works, recurring creative patterns such as before-and-after splits or social proof, the best headlines and body-copy habits, what the variations suggest about audience targeting, and five recommendations for your own ads. Results go in a competitor-ads/<company>/ folder with an analysis.md and a folder of top performers, and it lists CSV, slide deck and pattern-library outputs too. Other prompts compare several competitors, track one across quarters or compare video and static ads. Its guidelines say to use the ads for research and inspiration only, never copying them. The SKILL.md doesn't say how to reach the ad libraries, so that's up to the agent's own tools. What counts as working is the agent's judgment: it says ads \"likely perform well\" and weighs engagement only if data is available.",
+          "permalink": "https://github.com/ComposioHQ/awesome-claude-skills/tree/be2a406907dbc61b73e6827ded415c96139d13a2/competitive-ads-extractor"
+        },
+        "tags": [
+          "category:marketing",
+          "category:browser",
+          "type:workflow",
+          "effect:local",
+          "needs:browser",
+          "by:official",
+          "marketing",
+          "copywriting",
+          "research",
+          "scraping"
+        ],
+        "note": "It names no tool for reaching ad libraries or taking screenshots, so the agent needs its own way to browse, such as a browser tool."
+      }
+    },
+    {
+      "id": "ComposioHQ/awesome-claude-skills/lead-research-assistant",
+      "name": "lead-research-assistant",
+      "skills.sh": {
+        "url": "https://skills.sh/composiohq/awesome-claude-skills/lead-research-assistant",
+        "installs": 5700,
+        "weeklyInstalls": [78, 99, 96, 150, 115, 117, 116, 118],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "be2a406907dbc61b73e6827ded415c96139d13a2",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Finds and scores companies that fit your product, with the role to target and a personalized outreach angle for each.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need target companies for sales, partnerships or business development"
+            },
+            {
+              "label": "It does",
+              "text": "works out your ideal customer from your description or your repo's code, then looks for companies showing signs of need, such as job posts, funding or tech stack"
+            },
+            {
+              "label": "You get",
+              "text": "a Markdown list of leads scored 1 to 10, each with why it fits, the decision-maker's role, a LinkedIn URL if found, a value proposition and conversation starters"
+            },
+            {
+              "label": "Next",
+              "text": "it offers to save the list as a CSV for your CRM or to draft outreach messages"
+            }
+          ],
+          "text": "Describe your product, or run it inside your product's repository, and say what kind of leads you want. The agent works out the value proposition, asking questions where needed, and turns it into an ideal customer profile: industries, company size, location, pain points and technologies. It then searches for matching companies and looks for signals of need, such as job postings, tech stack, recent news, funding, expansion, hiring and budget hints. Each lead gets a fit score from 1 to 10 weighing fit with the profile, urgency, budget, competition and timing. The output opens with how many leads fall in each priority band, then gives each company's website, industry and size, why it fits, the decision-maker's role to target and a LinkedIn URL when available, the value proposition for them, an outreach strategy and conversation starters. It ends by offering a CRM-ready CSV, personalized outreach drafts and deeper research on the top leads. It names no data provider or search tool.",
+          "permalink": "https://github.com/ComposioHQ/awesome-claude-skills/tree/be2a406907dbc61b73e6827ded415c96139d13a2/lead-research-assistant"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:official",
+          "research",
+          "marketing"
+        ]
+      }
+    },
+    {
+      "id": "ComposioHQ/awesome-claude-skills/domain-name-brainstormer",
+      "name": "domain-name-brainstormer",
+      "skills.sh": {
+        "url": "https://skills.sh/composiohq/awesome-claude-skills/domain-name-brainstormer",
+        "installs": 5400,
+        "weeklyInstalls": [88, 106, 97, 164, 126, 126, 130, 127],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "be2a406907dbc61b73e6827ded415c96139d13a2",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Brainstorms domain names for your project across TLDs such as .com, .io, .dev and .ai, checks which are available, and recommends a top pick.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're naming a new project, product, company or personal site and need a domain"
+            },
+            {
+              "label": "It does",
+              "text": "reads what you're building and who it's for, generates names, and checks them on .com and alternatives such as .io, .dev, .ai and .app"
+            },
+            {
+              "label": "You get",
+              "text": "available names grouped by TLD with why each works, taken or premium ones with price estimates, and a top pick and runner-up"
+            },
+            {
+              "label": "Checks",
+              "text": "availability without a named tool, so confirm with a registrar"
+            }
+          ],
+          "text": "You describe your project, and optionally keywords, preferred extensions or languages. The agent sums up the audience and key features, then proposes names and explains each one: available .com names first, then names on other TLDs, then taken or premium .com names with an estimated price, ending with a top pick, a runner-up and next steps. Its naming rules favour short, memorable, pronounceable and brandable names under 15 characters, without hyphens or numbers. It carries a guide to what each TLD signals, from .dev for developer tools to .ai for AI products, and typical prices: about $10 to $15 a year for standard domains and $30 to $50 for premium TLDs such as .io and .ai. Other prompts check variations of one word, suggest industry TLDs such as .eco, brainstorm in two languages or follow competitors' naming patterns. It also advises checking social handles and trademarks before you register. The SKILL.md doesn't say how availability is checked.",
+          "permalink": "https://github.com/ComposioHQ/awesome-claude-skills/tree/be2a406907dbc61b73e6827ded415c96139d13a2/domain-name-brainstormer"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:official",
+          "marketing",
+          "research"
+        ],
+        "note": "It names no way of checking availability, so confirm a name with a registrar before you count on it."
+      }
+    },
+    {
+      "id": "ComposioHQ/awesome-claude-skills/invoice-organizer",
+      "name": "invoice-organizer",
+      "skills.sh": {
+        "url": "https://skills.sh/composiohq/awesome-claude-skills/invoice-organizer",
+        "installs": 5300,
+        "weeklyInstalls": [84, 100, 94, 153, 121, 116, 118, 110],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "be2a406907dbc61b73e6827ded415c96139d13a2",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Reads a folder of invoices and receipts, renames each by date and vendor, sorts copies into folders and writes a CSV summary.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "tax season or an expense report meets a folder of invoice.pdf, IMG_2847.jpg and the like"
+            },
+            {
+              "label": "It does",
+              "text": "reads each PDF or image for vendor, date, invoice number, amount and item, then renames it \"YYYY-MM-DD Vendor - Invoice - Item\""
+            },
+            {
+              "label": "You get",
+              "text": "copies sorted by vendor, category, date or tax category, an invoice-summary.csv, and a list of files to check by hand"
+            },
+            {
+              "label": "Asks",
+              "text": "how to organize them, and shows the plan before touching files; it copies by default and moves only if you prefer"
+            }
+          ],
+          "text": "Run it in a folder of invoices. The agent finds the PDFs and images, reports how many there are and of what types, then reads each one for the vendor, invoice number, date, amount, description and payment method, falling back to the filename or file dates and flagging what it can't read. It asks how you want them filed: by vendor, by expense category, by date, by tax category such as deductible or personal, or your own structure, with Year/Category/Vendor as its default. Each file gets a name like \"2024-03-15 Adobe - Invoice - Creative Cloud.pdf\". It shows the proposed folder tree and sample renames and waits for your yes before creating folders and copying files, or moving them if you'd rather. It finishes with a CSV of every invoice's date, vendor, number, description, amount, category and path, ready for accounting software or an accountant, and a summary of totals, vendors and files needing review. It also covers duplicates, compared by file hash, invoices split across files and missing details.",
+          "permalink": "https://github.com/ComposioHQ/awesome-claude-skills/tree/be2a406907dbc61b73e6827ded415c96139d13a2/invoice-organizer"
+        },
+        "tags": [
+          "category:personal",
+          "category:documents",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:official",
+          "finance",
+          "documents",
+          "pdf",
+          "spreadsheets"
+        ]
+      }
+    },
+    {
+      "id": "ComposioHQ/awesome-claude-skills/twitter-algorithm-optimizer",
+      "name": "twitter-algorithm-optimizer",
+      "skills.sh": {
+        "url": "https://skills.sh/composiohq/awesome-claude-skills/twitter-algorithm-optimizer",
+        "installs": 5100,
+        "weeklyInstalls": [79, 95, 91, 143, 109, 104, 108, 105],
+        "firstSeen": "2026-01-21"
+      },
+      "skillMd": {
+        "version": "be2a406907dbc61b73e6827ded415c96139d13a2",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Rewrites your tweets for reach, explaining each change through how X's open-sourced ranking algorithm weighs replies, retweets, communities and reputation.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you've drafted a tweet and want more reach, or want to know why one underperformed"
+            },
+            {
+              "label": "It does",
+              "text": "checks the draft's message, audience, engagement triggers and risks against the models in Twitter's open-sourced recommendation code, then rewrites it"
+            },
+            {
+              "label": "You get",
+              "text": "what holds the tweet back, an optimized version, and why it should rank better"
+            },
+            {
+              "label": "Terms",
+              "text": "Real-graph predicts whether followers interact, SimClusters finds interest communities, TwHIN maps users to topics, Tweepcred scores an author's reputation"
+            },
+            {
+              "label": "Not for",
+              "text": "grammar fixes, tone changes unrelated to reach, or posts for other platforms"
+            }
+          ],
+          "text": "It explains Twitter's recommendation pipeline, from finding candidate tweets through ranking and filtering to delivery, and the signals ranking weighs: likes, replies, retweets and quotes; implicit ones such as profile visits, link clicks, time spent and bookmarks; and negative ones such as blocks, reports, mutes and quick scrolls. Each model gets a strategy: for Real-graph, content your followers will answer, such as a direct question or a nuanced hot take; for SimClusters, one clear topic in a community's own language; for TwHIN, staying in your area of expertise; for Tweepcred, consistent, thoughtful engagement and no engagement bait. To optimize a tweet, the agent finds its core message and audience, maps it to those models, checks which signals it triggers and what could draw blocks or blur your niche, then rewrites it. Its examples turn \"I fixed a bug today\" into a relatable story ending in a question, with a breakdown of why the new version works. Its best practices favour community over virality, authenticity, threads and replying quickly.",
+          "permalink": "https://github.com/ComposioHQ/awesome-claude-skills/tree/be2a406907dbc61b73e6827ded415c96139d13a2/twitter-algorithm-optimizer"
+        },
+        "tags": [
+          "category:marketing",
+          "category:writing",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:official",
+          "stack:x-twitter",
+          "social-media",
+          "copywriting"
+        ]
+      }
     }
   ]
 }
