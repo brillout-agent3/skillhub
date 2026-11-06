@@ -2124,6 +2124,40 @@
         "kind": "skills",
         "description": "Agent skills that teach AI coding agents how to apply the Feature-Sliced Design (FSD) v2.1 methodology."
       }
+    },
+    {
+      "id": "elevenlabs/skills",
+      "stars": 536,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Agent skills for ElevenLabs developer products."
+      }
+    },
+    {
+      "id": "stripe/link-cli",
+      "stars": 894,
+      "agentReview": {
+        "kind": "project",
+        "description": "Link CLI lets agents get secure payment credentials from a Link wallet for one-time purchases and recurring payments, without storing your real card details.",
+        "note": "Only available to US and Canadian Link accounts for now."
+      }
+    },
+    {
+      "id": "jakubantalik/transitions.dev",
+      "stars": 6115,
+      "agentReview": {
+        "kind": "project",
+        "description": "Transitions.dev is an interactive collection of reusable CSS transitions.",
+        "note": "Its transitions are free for personal and commercial use, but the license forbids redistributing the library itself."
+      }
+    },
+    {
+      "id": "latent-spaces/brag",
+      "stars": 20535,
+      "agentReview": {
+        "kind": "skills",
+        "description": "/brag is an agent skill that turns the project you created into a short, shareable launch video, with music, motion and share copy."
+      }
     }
   ],
   "bundles": [
@@ -3293,7 +3327,7 @@
       "skew": 0,
       "agentReview": {
         "name": "Better Interface",
-        "description": "Six skills that set and review accessibility, layout, copy, typography, color and UI polish, plus one that runs all six and merges their findings into one ranked report.",
+        "description": "Six skills that set and review accessibility, layout, copy, typography, color and UI polish, one that runs all six and merges their findings into one ranked report, and one that points that review at a branch, pull request or uncommitted change.",
         "tldr": {
           "glance": [
             {
@@ -3314,21 +3348,26 @@
             },
             {
               "label": "Change reviews",
-              "text": "go to the repo's interface-review skill, which isn't in this bundle: for a branch, pull request or uncommitted change, better-interface asks you to run it"
+              "text": "interface-review, which you run yourself, scopes a branch, pull request or uncommitted change and marks each finding Introduced, Regression or Pre-existing; better-interface's verdict then counts only the first two"
             },
             {
               "label": "Edits code",
-              "text": "not during a better-interface review unless you also ask for the fixes; a failing contrast pair is reported, and its colors changed only when you ask"
+              "text": "not during a review unless you ask for the fixes; interface-review never checks out or switches branches; a failing contrast pair is reported, recolored only on request"
             },
             {
               "label": "Checks",
               "text": "the code without a browser; with one, the rendered states too, such as 320px width, 200% zoom and right-to-left mirroring. Anything unchecked is marked Not verified"
             }
           ],
-          "text": "Jakub Krehel's better-* skills split interface quality into six domains, each naming the sibling that owns what it leaves out. better-accessibility checks keyboard and focus behavior, accessible names, forms and screen-reader announcements against WCAG 2.2. better-layout sets grouping, alignment and reading order, then tests it resized, translated and mirrored for right-to-left languages. better-writing writes labels, errors, empty states and confirmations in the product's existing voice and terms. better-typography sets the type scale, wrapping, truncation and punctuation. better-colors builds palettes, names tokens by role and measures contrast against the background text renders on. better-ui gives exact values for corner radii, shadows, icon swaps and animation. Each works alone, in the project's existing styling and voice, and ends with a checklist of code patterns to catch. better-interface runs all six in that order, so polish never hides a basic failure. It first reads the project's interface guidelines, then merges the findings into one table of at most 15, ranked by severity, then by how far one fix reaches. Thirteen symptoms, such as a control with no accessible name or meaning carried only by color, are high severity on sight. A domain whose skill isn't installed is marked Not reviewed, never guessed.",
+          "text": "Jakub Krehel's better-* skills split interface quality into six domains, each naming the sibling that owns what it leaves out. better-accessibility checks keyboard and focus behavior, accessible names, forms and announcements against WCAG 2.2. better-layout sets grouping, alignment and reading order, then tests it resized, translated and mirrored. better-writing writes labels, errors and empty states in the product's voice. better-typography sets the type scale, wrapping and punctuation. better-colors builds palettes, names tokens by role and measures contrast. better-ui gives exact values for radii, shadows, icon swaps and animation. Each works alone, in the project's own styling. better-interface runs all six in that order, so polish never hides a basic failure, and merges their findings into one table of at most 15, ranked by severity, then by how far one fix reaches; thirteen symptoms, such as a control with no accessible name, are high severity on sight, and a domain whose skill is missing is marked Not reviewed. For a branch, pull request or uncommitted change, interface-review comes first: it resolves the change, expands it to at most five surfaces that render it, reads deleted lines for lost signals such as an aria-label, labels each finding and hands them to better-interface.",
           "permalink": "https://github.com/jakubkrehel/skills/tree/60bf140e43c98b248e6594487384ec967e89d98a"
         },
         "skills": [
+          {
+            "id": "jakubkrehel/skills/skills/interface-review",
+            "standalone": false,
+            "note": "Hands the change's scope, the surfaces it renders in and a status on every finding to better-interface, which loads the six better-* skills and sets severity, coverage, the cap and the verdict; without better-interface it reports only the resolved scope and file inventory, names the missing skill and stops."
+          },
           {
             "id": "jakubkrehel/skills/skills/better-interface",
             "standalone": false,
@@ -3362,10 +3401,10 @@
         "install": [
           {
             "label": "Any agent, with the skills CLI",
-            "command": "npx skills add https://github.com/jakubkrehel/skills --skill better-interface --skill better-accessibility --skill better-layout --skill better-writing --skill better-typography --skill better-colors --skill better-ui"
+            "command": "npx skills add https://github.com/jakubkrehel/skills --skill interface-review --skill better-interface --skill better-accessibility --skill better-layout --skill better-writing --skill better-typography --skill better-colors --skill better-ui"
           },
           {
-            "label": "Claude Code plugin, with 7 more of the repo's skills",
+            "label": "Claude Code plugin, with 6 more of the repo's skills",
             "command": "claude plugin marketplace add jakubkrehel/skills && claude plugin install interfaces@interfaces"
           }
         ]
@@ -3904,6 +3943,60 @@
           {
             "label": "Any agent, with the skills CLI",
             "command": "npx skills add usestrix/strix"
+          }
+        ]
+      }
+    },
+    {
+      "id": "jakubantalik/transitions.dev@transitions",
+      "skew": 0,
+      "agentReview": {
+        "name": "Transitions.dev",
+        "description": "Two skills that install tuned CSS transitions from transitions.dev and retune existing motion to the same token scale.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want polished motion in web UI: new transitions, or existing ones brought onto one consistent scale"
+            },
+            {
+              "label": "It does",
+              "text": "transitions-dev picks and installs whole transitions; transitions-polish retunes the durations, easings, distances, scales and blurs you already have"
+            },
+            {
+              "label": "You get",
+              "text": "the transitions' CSS and small scripts wired into your components, and hardcoded motion values moved onto the token scale once you confirm"
+            },
+            {
+              "label": "Shared",
+              "text": "the same motion-token scale, which each skill ships in its own _root.css"
+            },
+            {
+              "label": "Watch for",
+              "text": "both define a transitions review command, for different audits"
+            }
+          ],
+          "text": "transitions.dev is a collection of portable CSS transitions, and these two skills split the work on it. transitions-dev holds the catalog: more than thirty transitions, such as dropdowns, modals, toasts, tabs, skeleton loaders and AI thinking states, decision rules that match a UI pattern to one of them, and a five-step install that pastes the snippet verbatim with its reduced-motion guard. transitions-polish is its add-on for motion that already exists: it scans styles, CSS-in-JS and Tailwind values for hardcoded durations, easings, distances, scales and blurs, maps each to the token whose documented usage matches, and checks the rules between values, such as closes faster than opens and short total staggers, before applying the changes you confirm. transitions-dev's snippets ship literal values, which transitions-polish can map back onto the tokens; each skill also works alone, and transitions-polish restates the values it needs. transitions-dev's own transitions refine command also maps values to tokens, without the polish rules. Both skills define a transitions review command: in transitions-dev it finds where a whole transition would fit, in transitions-polish it audits existing values.",
+          "permalink": "https://github.com/jakubantalik/transitions.dev/tree/e706ea0c6401f92af2ff7098c941bd7f59039058"
+        },
+        "skills": [
+          {
+            "id": "jakubantalik/transitions.dev/skills/transitions-dev",
+            "standalone": true
+          },
+          {
+            "id": "jakubantalik/transitions.dev/skills/transitions-polish",
+            "standalone": true
+          }
+        ],
+        "install": [
+          {
+            "label": "Any agent, with the skills CLI",
+            "command": "npx skills add Jakubantalik/transitions.dev --skill transitions-dev --skill transitions-polish"
+          },
+          {
+            "label": "Any agent, with the skills CLI, with the repo's other skills",
+            "command": "npx skills add Jakubantalik/transitions.dev"
           }
         ]
       }
@@ -27737,6 +27830,737 @@
           "stack:feature-sliced-design",
           "architecture",
           "migration"
+        ]
+      }
+    },
+    {
+      "id": "jakubkrehel/skills/skills/interface-review",
+      "name": "interface-review",
+      "skills.sh": {
+        "url": "https://skills.sh/jakubkrehel/skills/interface-review",
+        "installs": 22200,
+        "weeklyInstalls": [1547, 1852, 1459, 1940, 1556, 1385, 1644, 2363],
+        "firstSeen": "2026-08-06"
+      },
+      "skillMd": {
+        "version": "60bf140e43c98b248e6594487384ec967e89d98a",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Reviews a branch, pull request or uncommitted change for the interface problems it introduced or regressed, marking each finding Introduced, Regression or Pre-existing.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to know whether a branch, pull request or uncommitted change made your interface worse"
+            },
+            {
+              "label": "It does",
+              "text": "finds the change's scope, reviews the screens its files render in, reads removed lines for regressions and marks each finding Introduced, Regression or Pre-existing"
+            },
+            {
+              "label": "You get",
+              "text": "a read-only report: the scope, findings with their status, at most three pre-existing ones, and better-interface's coverage, verification and verdict"
+            },
+            {
+              "label": "Unlike better-interface",
+              "text": "which reviews what exists; this one reports what a change caused and stays mostly quiet about what it merely touched"
+            },
+            {
+              "label": "Needs",
+              "text": "better-interface and the six better-* skills it loads; without better-interface it reports only the scope and file list"
+            },
+            {
+              "label": "Runs",
+              "text": "only when you call it, as in /interface-review pr 482"
+            }
+          ],
+          "text": "The change-review entry point to Jakub Krehel's better-* interface skills. With no target, it reviews the branch's commits past the merge base plus any uncommitted work, or the uncommitted work alone; with nothing to review, it asks instead of falling back to the last commit, offering the open pull request, the last commit, a target you name or a whole-repository audit. It drops lockfiles, snapshots, generated and vendored code, then expands changed files to the surfaces that render them: direct importers, a second hop for tokens, themes and shared primitives, at most five in all, saying how many it skipped. It reads the removed side of every hunk for lost signals such as a deleted aria-label or reduced-motion guard, and blames lines against the base to settle each finding's status. It also holds the change to its pull request and commit messages, looking for missing hover, loading or error states and untranslated strings. It never checks out or switches branches, reading pull request refs in place, and renders the change only when you ask or a cheap preview exists.",
+          "permalink": "https://github.com/jakubkrehel/skills/tree/60bf140e43c98b248e6594487384ec967e89d98a/skills/interface-review"
+        },
+        "tags": [
+          "category:design",
+          "category:debugging",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "code-review",
+          "design",
+          "accessibility"
+        ],
+        "note": "Hands its findings to better-interface, which loads the six better-* skills, for severity, the cap and the verdict; without better-interface it reports only the scope and file list."
+      }
+    },
+    {
+      "id": "jakubkrehel/skills/skills/variant",
+      "name": "variant",
+      "skills.sh": {
+        "url": "https://skills.sh/jakubkrehel/skills/variant",
+        "installs": 18000,
+        "weeklyInstalls": [1429, 1657, 1278, 1734, 1434, 1347, 1535, 2100],
+        "firstSeen": "2026-08-19"
+      },
+      "skillMd": {
+        "version": "60bf140e43c98b248e6594487384ec967e89d98a",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds three deliberately different versions of a UI piece behind a picker on the real page, then keeps the one you choose.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're designing one piece of UI, such as a metric card, and want to compare real alternatives before committing"
+            },
+            {
+              "label": "It does",
+              "text": "picks one axis, such as structure, density, emphasis, type or voice, and builds three variants at different positions on it"
+            },
+            {
+              "label": "You get",
+              "text": "the variants on the real page behind a picker set by a ?__variant= URL parameter, and a table of when each is right and what it costs"
+            },
+            {
+              "label": "Then",
+              "text": "on your pick, it builds that variant properly and deletes the others, the picker and the page's imports of them"
+            },
+            {
+              "label": "Runs",
+              "text": "only when you call it"
+            }
+          ],
+          "text": "Part of Jakub Krehel's interface skills, it produces candidates rather than verdicts. It scopes the run to one piece of UI, then reads the project's styling system, component library, tokens, density and voice so each variant could ship tomorrow; with no project, it uses neutral grays, one accent and the system font stack, and says so. It names the set before writing code, with names such as Quiet, Editorial or Dense, never Option A: three variants, or up to five when asked. Every variant first clears the same floor, from accessible names and visible focus to 320px reflow and errors that name a way to recover; a direction that only works by breaking it is dropped. Variants render one at a time, full size, with real copy and the item count the page will carry. It flips through them once in a browser if one is at hand, otherwise hands you the URL. It never marks a favourite; asked directly, it answers from how often the piece is seen and the product's personality. Asked for another round, it keeps the picker and tries new positions around the one you leaned toward.",
+          "permalink": "https://github.com/jakubkrehel/skills/tree/60bf140e43c98b248e6594487384ec967e89d98a/skills/variant"
+        },
+        "tags": [
+          "category:design",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "design",
+          "prototyping"
+        ]
+      }
+    },
+    {
+      "id": "jakubkrehel/skills/skills/explain-interface",
+      "name": "explain-interface",
+      "skills.sh": {
+        "url": "https://skills.sh/jakubkrehel/skills/explain-interface",
+        "installs": 17400,
+        "weeklyInstalls": [1392, 1625, 1242, 1671, 1357, 1264, 1453, 1977],
+        "firstSeen": "2026-08-19"
+      },
+      "skillMd": {
+        "version": "60bf140e43c98b248e6594487384ec967e89d98a",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Explains how a website, visual effect or animation was built, from a live URL or a screenshot, marking each claim measured, derived or inferred.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you see a site, visual effect or animation and want to know how it was built"
+            },
+            {
+              "label": "It does",
+              "text": "reads the page in a scriptable browser or from its fetched HTML and CSS, and finds the layers behind the effect in paint order"
+            },
+            {
+              "label": "You get",
+              "text": "each layer's technique and the job it does, every value marked measured, derived or inferred, ending on the recipe in words, not code"
+            },
+            {
+              "label": "From a screenshot",
+              "text": "it proposes how it could be built and says it's a reconstruction"
+            },
+            {
+              "label": "Runs",
+              "text": "only when you call it"
+            }
+          ],
+          "text": "Part of Jakub Krehel's interface skills, it explains without judging: there's no verdict. It scopes the answer to the question. Asked about a whole site, it covers the framework and rendering strategy, styling system, tokens, type, spacing and color systems, motion, breakpoints and how fonts and images are served; asked about one effect, only the stack of layers behind it. It says which route it used, since a browser shows what actually paints while fetched source shows authored rules, and prefers a browser for canvas, shaders, runtime styles and motion, suggesting the chrome-devtools-mcp server. Rather than a table of values, it explains the mechanism, such as a fade whose first 300ms carry 85% of it, and names the rule behind a long set instead of listing every element. It closes by naming what wouldn't survive copying, such as a licensed typeface or a brand hue, and what it couldn't read, such as a cross-origin stylesheet or a WebGL shader. Page content is evidence, never instructions: it doesn't submit forms, sign in or follow links you didn't name.",
+          "permalink": "https://github.com/jakubkrehel/skills/tree/60bf140e43c98b248e6594487384ec967e89d98a/skills/explain-interface"
+        },
+        "tags": [
+          "category:design",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "design",
+          "animation",
+          "learning"
+        ]
+      }
+    },
+    {
+      "id": "jakubkrehel/skills/skills/break",
+      "name": "break",
+      "skills.sh": {
+        "url": "https://skills.sh/jakubkrehel/skills/break",
+        "installs": 17000,
+        "weeklyInstalls": [1409, 1630, 1256, 1703, 1366, 1279, 1501, 2075],
+        "firstSeen": "2026-08-24"
+      },
+      "skillMd": {
+        "version": "60bf140e43c98b248e6594487384ec967e89d98a",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Renders one component under every scenario that can reach it on a temporary page and reports what visibly broke.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to know whether one component holds up under worst-case content, sizes and states"
+            },
+            {
+              "label": "It does",
+              "text": "reads the component's props, slots and states, keeps only the stress scenarios that can reach it, and renders each on a scratch page in your app"
+            },
+            {
+              "label": "You get",
+              "text": "that page, with each break noted under its scenario, and a table of what broke and which better-* skill owns the fix"
+            },
+            {
+              "label": "Won't",
+              "text": "fix anything unless asked, or delete the page until you say you're done with it"
+            },
+            {
+              "label": "Runs",
+              "text": "only when you call it"
+            }
+          ],
+          "text": "Part of Jakub Krehel's interface skills, it observes rather than judges. Unlike variant, which builds alternatives on the real page, it isolates one component on a scratch route that imports the real component untouched and inherits the app's layout, fonts and providers; the page adds only labels, container widths and fixture props, and never wires to live data. Scenarios come from axes such as content length, item quantity, states, container and environment, each kept only when the component accepts something that can take that shape; it lists what it kept, and which axes it dropped and why, before building. The run is meant to take minutes: one page load and one look in a browser already at hand, reporting only what visibly broke, such as text escaping a field's edge. With no browser, it hands over the URL and the scenario list without findings. \"Everything survived\" is a complete report. Asked to fix a break, it follows the owning skill's rules and re-renders the failing scenarios.",
+          "permalink": "https://github.com/jakubkrehel/skills/tree/60bf140e43c98b248e6594487384ec967e89d98a/skills/break"
+        },
+        "tags": [
+          "category:design",
+          "category:debugging",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "testing",
+          "design"
+        ],
+        "note": "Adds a scratch route to your app and leaves it there until you say you're done with it."
+      }
+    },
+    {
+      "id": "elevenlabs/skills/text-to-speech",
+      "name": "text-to-speech",
+      "skills.sh": {
+        "url": "https://skills.sh/elevenlabs/skills/text-to-speech",
+        "installs": 19200,
+        "weeklyInstalls": [452, 458, 575, 955, 1104, 1124, 1241, 1425],
+        "firstSeen": "2026-01-27"
+      },
+      "skillMd": {
+        "version": "9763c39a9d7add478b2f2d8229f0caadf5414f5f",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Generates speech from text with ElevenLabs voices, through its Python or JavaScript SDK or its CLI, in 90+ languages.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need a voiceover, narration or other spoken audio from text, or are adding speech to an app"
+            },
+            {
+              "label": "It does",
+              "text": "calls ElevenLabs text-to-speech with a chosen voice and model, from Python, JavaScript or the elevenlabs CLI"
+            },
+            {
+              "label": "You get",
+              "text": "an audio file, MP3 by default, or a stream of audio chunks"
+            },
+            {
+              "label": "Default model",
+              "text": "eleven_v4, the highest quality; v4 turbo and the Flash models answer in about 100ms and 75ms for real-time use"
+            },
+            {
+              "label": "Needs",
+              "text": "an ElevenLabs API key"
+            }
+          ],
+          "text": "ElevenLabs' own reference for its text-to-speech API, written for agents. Before any code, if no ELEVENLABS_API_KEY is set, it runs the ElevenLabs CLI's onboarding, which signs you in and stores a key for the project. It shows the same request in Python, JavaScript and the CLI, where elevenlabs say plays text right away. It compares the models by languages and latency, names a few premade voices by ID, and explains voice settings: stability and similarity boost, plus style and speed on older models only. It also covers forcing a language, how numbers and dates get spoken, audio effects such as reverb, distance, background noise and panning, stitching long audio across requests by passing the text before and after, output formats from MP3 to telephony μ-law, streaming, common errors, and reading character usage from the response headers.",
+          "permalink": "https://github.com/elevenlabs/skills/tree/9763c39a9d7add478b2f2d8229f0caadf5414f5f/text-to-speech"
+        },
+        "tags": [
+          "category:media",
+          "type:tool",
+          "effect:local",
+          "needs:account",
+          "by:official",
+          "stack:elevenlabs",
+          "audio",
+          "ai-generation"
+        ],
+        "note": "Needs an ElevenLabs API key in ELEVENLABS_API_KEY; without one, it first runs the ElevenLabs CLI's onboarding, which signs you in and stores a key for the project."
+      }
+    },
+    {
+      "id": "elevenlabs/skills/speech-to-text",
+      "name": "speech-to-text",
+      "skills.sh": {
+        "url": "https://skills.sh/elevenlabs/skills/speech-to-text",
+        "installs": 13600,
+        "weeklyInstalls": [291, 343, 466, 653, 716, 770, 950, 1022],
+        "firstSeen": "2026-01-27"
+      },
+      "skillMd": {
+        "version": "9763c39a9d7add478b2f2d8229f0caadf5414f5f",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Transcribes audio and video to text with ElevenLabs Scribe, with word timestamps, speaker labels and live streaming transcription.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need a transcript or subtitles of a recording, meeting or video, or live transcription in an app"
+            },
+            {
+              "label": "It does",
+              "text": "sends the file to ElevenLabs Scribe v2 from Python, JavaScript or the CLI, with optional word timestamps, speaker diarization and key terms"
+            },
+            {
+              "label": "You get",
+              "text": "the transcript with its detected language, and per-word timing and speaker IDs when asked"
+            },
+            {
+              "label": "Handles",
+              "text": "files up to 5GB or 10 hours, in 90+ languages"
+            },
+            {
+              "label": "Needs",
+              "text": "an ElevenLabs API key"
+            }
+          ],
+          "text": "ElevenLabs' own reference for its speech-to-text API. With no key set, it runs the same CLI onboarding as the other ElevenLabs skills, then shows a transcription in Python, JavaScript and the CLI. Speaker diarization labels who said each word, and for call recordings can tag the speakers as agent and customer; multichannel audio returns one transcript per channel or one merged by timestamp. Key-term prompting, up to 100 terms, helps with product names and jargon, and a language code can guide detection. Besides scribe_v2 it lists a medical model and realtime models at around 150ms. For live transcription it explains partial transcripts for instant feedback and committed ones as the final text, committed by hand or on silence by voice activity detection, with a server-side Python example and a React hook that gets a token from your backend so the key never reaches the browser.",
+          "permalink": "https://github.com/elevenlabs/skills/tree/9763c39a9d7add478b2f2d8229f0caadf5414f5f/speech-to-text"
+        },
+        "tags": [
+          "category:media",
+          "type:tool",
+          "effect:local",
+          "needs:account",
+          "by:official",
+          "stack:elevenlabs",
+          "audio"
+        ],
+        "note": "Needs an ElevenLabs API key in ELEVENLABS_API_KEY; without one, it first runs the ElevenLabs CLI's onboarding, which signs you in and stores a key for the project."
+      }
+    },
+    {
+      "id": "elevenlabs/skills/sound-effects",
+      "name": "sound-effects",
+      "skills.sh": {
+        "url": "https://skills.sh/elevenlabs/skills/sound-effects",
+        "installs": 13600,
+        "weeklyInstalls": [340, 356, 474, 765, 879, 921, 1139, 1238],
+        "firstSeen": "2026-01-29"
+      },
+      "skillMd": {
+        "version": "9763c39a9d7add478b2f2d8229f0caadf5414f5f",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Generates sound effects, ambiences and UI sounds from text descriptions with ElevenLabs, with duration, looping and prompt-adherence controls.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need a sound effect, ambience, cinematic hit or UI sound that isn't speech"
+            },
+            {
+              "label": "It does",
+              "text": "sends a text description to ElevenLabs' sound-effects model from Python, JavaScript or the CLI"
+            },
+            {
+              "label": "You get",
+              "text": "an audio file, MP3 by default, from 0.5 to 30 seconds long, optionally looping seamlessly"
+            },
+            {
+              "label": "Needs",
+              "text": "an ElevenLabs API key"
+            }
+          ],
+          "text": "ElevenLabs' own reference for its text-to-sound-effects API. It sets the eleven_text_to_sound_v3 model explicitly, since the API defaults to v2 and v3 follows multi-part prompts more closely and sounds more natural. Parameters set the duration (0.5 to 30 seconds, or automatic), how closely to follow the prompt (0 to 1, default 0.3) and whether the sound loops seamlessly. It lists the output formats, from MP3 and Opus to raw PCM, WAV and telephony μ-law, and gives prompt tips: be specific (heavy rain on a tin roof rather than rain), combine elements, name a style such as 8-bit or a cinematic braam, and set the mood. As with the other ElevenLabs skills, a missing key sends the agent to the CLI's onboarding first.",
+          "permalink": "https://github.com/elevenlabs/skills/tree/9763c39a9d7add478b2f2d8229f0caadf5414f5f/sound-effects"
+        },
+        "tags": [
+          "category:media",
+          "type:tool",
+          "effect:local",
+          "needs:account",
+          "by:official",
+          "stack:elevenlabs",
+          "audio",
+          "ai-generation"
+        ],
+        "note": "Needs an ElevenLabs API key in ELEVENLABS_API_KEY; without one, it first runs the ElevenLabs CLI's onboarding, which signs you in and stores a key for the project."
+      }
+    },
+    {
+      "id": "elevenlabs/skills/music",
+      "name": "music",
+      "skills.sh": {
+        "url": "https://skills.sh/elevenlabs/skills/music",
+        "installs": 12800,
+        "weeklyInstalls": [301, 337, 449, 725, 802, 828, 1002, 1069],
+        "firstSeen": "2026-01-29"
+      },
+      "skillMd": {
+        "version": "9763c39a9d7add478b2f2d8229f0caadf5414f5f",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Generates instrumental tracks and songs with lyrics from text prompts with ElevenLabs Music, with section-by-section composition plans and edits to stored songs.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need background music, a jingle, an instrumental or a song with lyrics"
+            },
+            {
+              "label": "It does",
+              "text": "composes a track from a prompt, or from a composition plan that sets each section's lyrics, length and styles"
+            },
+            {
+              "label": "You get",
+              "text": "an MP3 track of up to 10 minutes with a plan, or a stream of it on paid plans"
+            },
+            {
+              "label": "Also",
+              "text": "scores uploaded video, regenerates one part of a stored song, and trains finetunes from your audio"
+            },
+            {
+              "label": "Restrictions",
+              "text": "no specific artists, bands or copyrighted lyrics; a rejected prompt comes back with suggested wording"
+            },
+            {
+              "label": "Needs",
+              "text": "an ElevenLabs API key"
+            }
+          ],
+          "text": "ElevenLabs' own reference for its Music API, with every example on music_v2_5, its most advanced model. Beyond a plain prompt, a composition plan lists up to 30 chunks, each with its own text (a section label, lyrics or cues), duration, positive and negative styles, and how closely it follows the context; the agent can generate a plan, edit it and compose from it, or write one by hand, putting genre, instruments and vocal style in the first chunk's styles. Video to music combines up to 10 clips with a description and style tags, and can take the mood and tempo from the video's own audio, add matching sound effects or return the music and effects as separate files. Inpainting keeps slices of a stored song and regenerates the rest; uploading your own track for it is for enterprise clients. Finetunes are trained from uploaded audio and then used by ID when composing.",
+          "permalink": "https://github.com/elevenlabs/skills/tree/9763c39a9d7add478b2f2d8229f0caadf5414f5f/music"
+        },
+        "tags": [
+          "category:media",
+          "type:tool",
+          "effect:local",
+          "needs:account",
+          "by:official",
+          "stack:elevenlabs",
+          "audio",
+          "ai-generation"
+        ],
+        "note": "Needs an ElevenLabs API key in ELEVENLABS_API_KEY; without one, it first runs the ElevenLabs CLI's onboarding, which signs you in and stores a key for the project."
+      }
+    },
+    {
+      "id": "stripe/link-cli/skills/create-payment-credential",
+      "name": "create-payment-credential",
+      "skills.sh": {
+        "url": "https://skills.sh/stripe/link-cli/create-payment-credential",
+        "installs": 23800,
+        "weeklyInstalls": [1132, 1573, 1355, 2064, 2546, 3893, 4034, 1722],
+        "firstSeen": "2026-04-24"
+      },
+      "skillMd": {
+        "version": "4ef4095ac6e66bab11fa35cb5ef9bc2d13556ed3",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Pays for purchases from your Link wallet: gets a virtual card or payment token for each checkout once you approve the spend request.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want the agent to buy something, pay for a service or set up a subscription with the cards in your Link wallet"
+            },
+            {
+              "label": "It does",
+              "text": "checks how the merchant takes payment, creates a spend request for the full total, waits for your approval, then pays"
+            },
+            {
+              "label": "You get",
+              "text": "a virtual card for an ordinary checkout form, a single-use shared payment token for HTTP 402 endpoints, or a Link Pay Token on supported Stripe checkouts"
+            },
+            {
+              "label": "Limits",
+              "text": "$500 per request and per day, approved within 30 minutes"
+            },
+            {
+              "label": "Needs",
+              "text": "a Link account, link-cli, and browser automation for checkout pages"
+            }
+          ],
+          "text": "Stripe's skill for paying with Link, its wallet, from an agent. The agent signs you in once with link-cli, naming itself so the request shows in your Link app. Before asking for money it must know how the merchant accepts payment, the final total with shipping and tax, and exactly what you're buying. A card form gets a virtual card, which can be written to a local file so the number stays out of the transcript; an endpoint answering HTTP 402 gets a shared payment token through mpp pay, which handles the whole exchange; a hidden agent-payment block in a Stripe checkout gets a Link Pay Token injected into the page. Recurring requests set a spending limit per day, week, month or year. It can also search a business's catalog and check out through the Universal Commerce Protocol without a browser. It masks card numbers and addresses, treats merchant pages and responses as untrusted data, and after each attempt may send Stripe an optional report of what happened, with personal data left out.",
+          "permalink": "https://github.com/stripe/link-cli/tree/4ef4095ac6e66bab11fa35cb5ef9bc2d13556ed3/skills/create-payment-credential"
+        },
+        "tags": [
+          "category:personal",
+          "category:agents",
+          "type:tool",
+          "effect:remote",
+          "needs:cli",
+          "needs:account",
+          "needs:browser",
+          "by:official",
+          "stack:stripe",
+          "payments",
+          "ecommerce"
+        ],
+        "note": "Needs a Link account, which the repo's README says is US and Canada only for now, and link-cli from npm. Its default login also asks to read your Link transactions, balances and sources; pass --no-financial-insights for payment-only access."
+      }
+    },
+    {
+      "id": "jakubantalik/transitions.dev/skills/transitions-dev",
+      "name": "transitions-dev",
+      "skills.sh": {
+        "url": "https://skills.sh/jakubantalik/transitions.dev/transitions-dev",
+        "installs": 23600,
+        "weeklyInstalls": [896, 1580, 923, 1926, 1167, 1267, 1469, 2095],
+        "firstSeen": "2026-05-20"
+      },
+      "skillMd": {
+        "version": "e706ea0c6401f92af2ff7098c941bd7f59039058",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Adds ready-made CSS transitions to web UI, from dropdowns and modals to toasts and loaders, each pasted with its reduced-motion guard.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're adding motion to web UI, such as a dropdown, modal, toast, tooltip, tabs, skeleton loader or AI thinking state"
+            },
+            {
+              "label": "It does",
+              "text": "matches the element to one of its transitions by decision rules, pastes that snippet's CSS verbatim and wires its classes, state attributes and any small JavaScript"
+            },
+            {
+              "label": "You get",
+              "text": "framework-free CSS under t-* classes, with tunable variables on :root and a prefers-reduced-motion block"
+            },
+            {
+              "label": "Commands",
+              "text": "transitions reveal lists the catalog, review finds where transitions would fit, apply installs the best fit, refine maps ad-hoc values to motion tokens"
+            },
+            {
+              "label": "Edits",
+              "text": "only the files a transition needs; apply proposes one and asks first, and review and refine change nothing until you pick a line"
+            },
+            {
+              "label": "Unlike transitions-polish",
+              "text": "which retunes existing motion by rules such as faster closes, this installs whole transitions; its own refine only maps values to tokens"
+            }
+          ],
+          "text": "A catalog of more than thirty portable CSS transitions from transitions.dev, with the rules for choosing one. Each matches a visible UI pattern: a dot on a trigger is a notification badge, a surface growing from its trigger is a dropdown, two labels that share letters (Copy code, Copied) are a text morph, a header with a collapsible body is an accordion. When two could fit it picks the lighter one, and with no clear match it lists the catalog and lets you choose. Installing one means adding the shared variables from _root.css once, pasting the snippet without rewriting selectors or collapsing it into shorthand, wiring the documented hooks, keeping the reduced-motion block and adapting the small script some need. A motion-token scale of durations, easings, distances, scales and blurs sits behind every snippet; transitions refine maps an existing value to a token by what the motion does, not by the nearest number, so a 300ms modal close becomes the 150ms quick duration. It also lists common mistakes, such as replacing exact properties with transition: all. transitions-polish defines its own transitions review, which audits existing motion values instead.",
+          "permalink": "https://github.com/jakubantalik/transitions.dev/tree/e706ea0c6401f92af2ff7098c941bd7f59039058/skills/transitions-dev"
+        },
+        "tags": [
+          "category:design",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "stack:css",
+          "animation",
+          "design-system"
+        ]
+      }
+    },
+    {
+      "id": "jakubantalik/transitions.dev/skills/transitions-polish",
+      "name": "transitions-polish",
+      "skills.sh": {
+        "url": "https://skills.sh/jakubantalik/transitions.dev/transitions-polish",
+        "installs": 12700,
+        "weeklyInstalls": [783, 1348, 725, 875, 744, 702, 994, 1227],
+        "firstSeen": "2026-07-13"
+      },
+      "skillMd": {
+        "version": "e706ea0c6401f92af2ff7098c941bd7f59039058",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Tunes existing motion against the transitions.dev token scale for duration, distance, scale, blur and easing, applying rules for open, close, hover and stagger.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "your animations work but feel slow, janky or inconsistent, and you want their values on one scale"
+            },
+            {
+              "label": "It does",
+              "text": "scans stylesheets, inline styles, CSS-in-JS and Tailwind for motion values, infers what each motion does and suggests the token whose usage matches"
+            },
+            {
+              "label": "You get",
+              "text": "a list by file and line, such as a 300ms modal close moved to the 150ms quick token, then the edits once you confirm"
+            },
+            {
+              "label": "Rules",
+              "text": "closes faster than opens, hover-out springier than hover-in, total stagger under about 300ms, no delay on a close"
+            },
+            {
+              "label": "Works with",
+              "text": "transitions-dev, as its add-on, or alone, since it restates the token values"
+            },
+            {
+              "label": "Unlike transitions-dev",
+              "text": "it never swaps in a whole transition, only retunes values that exist"
+            }
+          ],
+          "text": "An add-on to transitions-dev for tuning motion rather than adding it. Its rule is to match on usage, never the nearest number: a value is wrong when it doesn't fit what the motion does, and one whose usage matches no token is left alone. It covers five dimensions: durations from a 40ms stagger to 500ms emphasis moments, easings with a smooth ease-out as the default for surfaces, travel distances from 4px to 30px, starting scales from 0.96 to 0.99, and blurs from 2px to 8px. Beyond single values it checks pairs and sequences: a dropdown opens in 250ms and closes in 150ms, while tabs, accordions and page slides stay symmetric; overshoot is for entrances only; a tooltip waits 80ms so a passing cursor doesn't trigger it. transitions review only reports; transitions polish asks before editing, writes var(--…) references where _root.css is imported or the literal value otherwise, keeps each file's units and touches nothing else. transitions-dev also defines a transitions review command, which finds where a whole transition would fit instead. Installed in a project, it also feeds its rules to the Small refinement tab of transitions.dev's Refine panel, a separate live tuning tool.",
+          "permalink": "https://github.com/jakubantalik/transitions.dev/tree/e706ea0c6401f92af2ff7098c941bd7f59039058/skills/transitions-polish"
+        },
+        "tags": [
+          "category:design",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "animation",
+          "design-system"
+        ]
+      }
+    },
+    {
+      "id": "latent-spaces/brag/skills/brag",
+      "name": "brag",
+      "skills.sh": {
+        "url": "https://skills.sh/latent-spaces/brag/brag",
+        "installs": 22900,
+        "weeklyInstalls": [57, 4732, 3717, 3925, 2210, 2222, 2454, 1797],
+        "firstSeen": "2026-06-20"
+      },
+      "skillMd": {
+        "version": "669ab9286aa28b6c3ee30e75f181ee74319d012a",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Turns your project's website or app into a 15–25 second launch video with music, sound effects and share copy, rendered with Hyperframes.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you've built something and want a short video to post about it"
+            },
+            {
+              "label": "It does",
+              "text": "reads the project's code, plans an angle and a storyboard, then hands a composition brief to Hyperframes to build, check and render"
+            },
+            {
+              "label": "You get",
+              "text": "a brag-output/ folder with the plan, the brief, brag.mp4 with its best frame as the thumbnail, brag.jpg and share-copy.txt"
+            },
+            {
+              "label": "Options",
+              "text": "seven tones from polished to yc-parody, or your own direction; landscape, vertical or square; no music or effects; opt-in voiceover"
+            },
+            {
+              "label": "On Opus 5.5",
+              "text": "it hands the run to its bundled brag-slim unless you ask for the full workflow or voiceover"
+            },
+            {
+              "label": "Needs",
+              "text": "the Hyperframes CLI and skills, and FFmpeg"
+            }
+          ],
+          "text": "A launch-video director that leaves the animation to Hyperframes. It reads the project itself, not a live URL or screenshots, and must answer a nine-question planning rubric first. The plan commits to one creative angle and a beat-by-beat storyboard of scenes, text, timing, transitions and sound cues, timed to 15–25 seconds, and can line cuts up with the bundled music's cue points. Its creative laws: hook in the first two seconds, show real UI or copy from the product, no generic SaaS language, hold every line long enough to read, and humor only from the project's own absurdity; the usual shape is hook, reveal, two or three highlights and a punchline. Hyperframes owns the composition structure, exact timing and rendering, and npx hyperframes check must pass with zero errors; then it opens a preview and renders once you approve. Output goes to brag-output/, or to a timestamped folder when one already exists. Narration, with Kokoro through Hyperframes, is off unless you pass --voice.",
+          "permalink": "https://github.com/latent-spaces/brag/tree/669ab9286aa28b6c3ee30e75f181ee74319d012a/skills/brag"
+        },
+        "tags": [
+          "category:media",
+          "category:marketing",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "stack:hyperframes",
+          "video",
+          "social-media",
+          "marketing"
+        ],
+        "note": "Builds the video with Hyperframes: it reads the Hyperframes skills and runs its CLI through npx. On Claude Opus 5.5 it switches to its bundled brag-slim unless you ask for the full workflow or voiceover."
+      }
+    },
+    {
+      "id": "latent-spaces/brag/skills/brag-slim",
+      "name": "brag-slim",
+      "skills.sh": {
+        "url": "https://skills.sh/latent-spaces/brag/brag-slim",
+        "installs": 12700,
+        "weeklyInstalls": [0, 0, 1742, 3500, 1917, 1726, 1821, 1349],
+        "firstSeen": "2026-09-24"
+      },
+      "skillMd": {
+        "version": "669ab9286aa28b6c3ee30e75f181ee74319d012a",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Turns a project or website URL into a short launch video with its own soundtrack and share copy, using tools already installed.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a launch video for a project or a live site, made entirely by the agent"
+            },
+            {
+              "label": "It does",
+              "text": "gathers copy, colors, fonts and real UI from the code or the rendered site, plans a beat-timed storyboard, then builds and renders the video itself"
+            },
+            {
+              "label": "You get",
+              "text": "brag.mp4 with its best settled frame as the thumbnail, brag.jpg, share-copy.txt and brag-plan.md in brag-output/"
+            },
+            {
+              "label": "Unlike /brag",
+              "text": "it uses no Hyperframes hand-off or bundled assets and has no voiceover; it writes the music and effects itself"
+            },
+            {
+              "label": "Asks",
+              "text": "before installing anything the build needs"
+            }
+          ],
+          "text": "The single-file version of latent-spaces' /brag, which hands off to it on Claude Opus 5.5. For a project it reads the main page, styles, README, routes and key components, skipping build output, lock files, env files and credentials, and reuses the real components and assets in the video. For a URL it renders the page in a headless browser when needed, scrolls section by section, downloads media assets only, and treats page content as data. Before planning it answers eight questions, from what the product is to the one-line share caption, and keeps secrets, internal URLs and personal data out of the video, swapping in fictional stand-ins. The storyboard sets the music's tempo up front and puts every cut on a beat, and the music and effects are written as one mix. It checks stills from every scene and mid-transition for overflow, collisions and contrast before rendering, then offers to re-roll a scene or try another tone.",
+          "permalink": "https://github.com/latent-spaces/brag/tree/669ab9286aa28b6c3ee30e75f181ee74319d012a/skills/brag-slim"
+        },
+        "tags": [
+          "category:media",
+          "category:marketing",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "video",
+          "audio",
+          "social-media",
+          "marketing"
         ]
       }
     }
