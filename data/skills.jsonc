@@ -3,7 +3,7 @@
   "asOf": {
     "installs": "2026-11-06",
     "stars": "2026-11-06",
-    "tags": "2026-10-21"
+    "tags": "2026-11-06"
   },
   "facets": [
     {
@@ -8682,6 +8682,325 @@
           "by:official",
           "stack:mcp",
           "agent-development"
+        ]
+      }
+    },
+    {
+      "id": "emilkowalski/skills/skills/improve-animations",
+      "name": "improve-animations",
+      "skills.sh": {
+        "url": "https://skills.sh/emilkowalski/skills/improve-animations",
+        "installs": 253283,
+        "weeklyInstalls": [11806, 13445, 14337, 15455, 17151, 17432, 19222, 17252],
+        "firstSeen": "2026-07-11"
+      },
+      "skillMd": {
+        "version": "c8a79627b59d72d764d6ab6f2c87c09a48169833",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Audits a codebase's animations and writes prioritized, self-contained fix plans that another agent or a cheaper model can carry out.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a roadmap of animation fixes across a whole app, not a review of one change"
+            },
+            {
+              "label": "It does",
+              "text": "maps where motion lives, audits it in eight areas such as easing, interruptibility, performance and accessibility, then ranks confirmed findings by impact for the effort"
+            },
+            {
+              "label": "You get",
+              "text": "a findings table, then one Markdown plan per finding you pick, in a plans/ folder, with exact values, steps and a feel check"
+            },
+            {
+              "label": "Unlike review-animations",
+              "text": "that one judges a single change; this one surveys the codebase and never edits source code itself"
+            },
+            {
+              "label": "Needs",
+              "text": "subagents for anything beyond a small repo: the audit is split across read-only subagents, one per area"
+            }
+          ],
+          "text": "The audit-then-plan skill of Emil Kowalski's animation set: a capable model does the judging, and any agent, even a cheaper one, makes the edits. It first maps the motion libraries, existing easing and duration tokens, the product's personality and how often each animated element is seen, since something opened a hundred times a day is judged harder than an onboarding screen. It audits eight areas: purpose and frequency, easing and duration, physicality and origin, interruptibility, performance, accessibility, consistency of tokens, and missed opportunities. It re-checks every finding at its file and line, drops anything deliberate, and shows one table ranked by impact for the effort. Then it waits for you to choose. Each chosen finding becomes a numbered plan in plans/, stamped with the current commit and written for an executor with no context: current code quoted, exact curves and durations, ordered steps, boundaries and a slow-motion feel check, plus a plans/README.md giving the order to run them. Other modes: quick or deep, one area only, a single plan from your description, execute (a subagent applies a plan in a separate worktree, then its diff is reviewed), and reconcile (marks finished plans done).",
+          "permalink": "https://github.com/emilkowalski/skills/tree/c8a79627b59d72d764d6ab6f2c87c09a48169833/skills/improve-animations"
+        },
+        "tags": [
+          "category:design",
+          "category:planning",
+          "type:workflow",
+          "effect:local",
+          "needs:subagents",
+          "by:community",
+          "animation",
+          "planning",
+          "handoff"
+        ]
+      }
+    },
+    {
+      "id": "emilkowalski/skills/skills/find-animation-opportunities",
+      "name": "find-animation-opportunities",
+      "skills.sh": {
+        "url": "https://skills.sh/emilkowalski/skills/find-animation-opportunities",
+        "installs": 236915,
+        "weeklyInstalls": [11517, 13163, 13998, 15153, 16897, 16874, 18619, 16822],
+        "firstSeen": "2026-07-15"
+      },
+      "skillMd": {
+        "version": "c8a79627b59d72d764d6ab6f2c87c09a48169833",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Finds the spots in your UI that should animate but don't, rejects the rest, and proposes exact motion for each.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to know what in your interface could animate, or want it to feel more alive"
+            },
+            {
+              "label": "It does",
+              "text": "sweeps the code for moments with no motion and puts each through four checks: how often it's seen, its purpose, a time budget, and whether motion helps"
+            },
+            {
+              "label": "You get",
+              "text": "at most 5–7 suggestions with exact curves and durations, the candidates it rejected and why, and a short verdict; it edits no code"
+            },
+            {
+              "label": "Unlike improve-animations",
+              "text": "that one audits and plans fixes for animations you already have; this one looks for places that have none"
+            }
+          ],
+          "text": "Built on Emil Kowalski's view that sometimes the best animation is none, it's as much a filter as a finder and expects to reject most candidates. Anything used a hundred times a day, such as keyboard shortcuts and command palettes, never animates; delight is allowed only on rare moments such as onboarding, empty states and success screens. Each suggestion must name its purpose (feedback, showing where something came from, making a state change visible, bridging content that would otherwise pop in, explaining a feature, or delight) and fit under 300ms for UI. It hunts in known places: buttons with no press feedback, content that appears or vanishes instantly, popovers with no link to their trigger, lists that pop in all at once, drags that stop dead, and flat celebration moments. Suggestions reuse the project's existing tokens, animate only transform and opacity, and include reduced-motion handling. The list of rejected candidates is required: it shows what it chose not to animate, and which check ruled it out. It ends by pointing you to improve-animations to turn a suggestion into a plan.",
+          "permalink": "https://github.com/emilkowalski/skills/tree/c8a79627b59d72d764d6ab6f2c87c09a48169833/skills/find-animation-opportunities"
+        },
+        "tags": [
+          "category:design",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "animation",
+          "design"
+        ]
+      }
+    },
+    {
+      "id": "emilkowalski/skills/skills/pick-ui-library",
+      "name": "pick-ui-library",
+      "skills.sh": {
+        "url": "https://skills.sh/emilkowalski/skills/pick-ui-library",
+        "installs": 211791,
+        "weeklyInstalls": [10878, 12347, 13132, 13815, 15548, 15695, 17506, 15752],
+        "firstSeen": "2026-07-21"
+      },
+      "skillMd": {
+        "version": "c8a79627b59d72d764d6ab6f2c87c09a48169833",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Recommends one library for a frontend task, such as toasts, drag and drop or charts, from Emil Kowalski's curated list.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need toasts, a command menu, OTP inputs, charts, drag and drop or long lists, and want a trusted library instead of hand-rolled code"
+            },
+            {
+              "label": "It does",
+              "text": "matches your task to a curated table of about 20 mostly React libraries, checking package.json first so it keeps what you already use"
+            },
+            {
+              "label": "You get",
+              "text": "one recommendation with a sentence on what it's for; it installs and wires it up only if you ask"
+            },
+            {
+              "label": "Runs",
+              "text": "only when you call it; the agent never starts it on its own"
+            }
+          ],
+          "text": "A lookup table of design engineer Emil Kowalski's picks: base-ui for accessible unstyled components, cmdk for command menus, Sonner (his own) for toasts, input-otp for verification codes, motion for springs and exit animations, NumberFlow for animated numbers, recharts for charts and Liveline for live streaming ones, dnd kit for drag and drop, Virtuoso for long lists, zustand for state, clsx and cva for class names, and next-themes for dark mode, plus picks for control panels, 3D globes, OG images and syntax highlighting. It reasons from the task rather than the library you named, and gives one answer, not a menu. If the project already uses a competitor, it flags its pick but doesn't swap the dependency unless asked. It also catches common mismatches, such as hand-built toasts, div-based dropdowns with manual focus handling, or a 1,000-row list rendered directly. For a task outside the list, it says so before answering from general knowledge. The animate skill points requests for components here.",
+          "permalink": "https://github.com/emilkowalski/skills/tree/c8a79627b59d72d764d6ab6f2c87c09a48169833/skills/pick-ui-library"
+        },
+        "tags": [
+          "category:design",
+          "category:frameworks",
+          "type:command",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:react",
+          "design",
+          "implementation"
+        ]
+      }
+    },
+    {
+      "id": "emilkowalski/skills/skills/animate",
+      "name": "animate",
+      "skills.sh": {
+        "url": "https://skills.sh/emilkowalski/skills/animate",
+        "installs": 202673,
+        "weeklyInstalls": [11760, 13469, 14465, 15844, 17674, 18026, 19743, 17825],
+        "firstSeen": "2026-08-05"
+      },
+      "skillMd": {
+        "version": "c8a79627b59d72d764d6ab6f2c87c09a48169833",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds an animation from scratch, deciding in order whether it should animate, why, and with which tool, curve and duration.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to add motion to a web interface, such as a dropdown, modal, toast or drag, and want it right the first time"
+            },
+            {
+              "label": "It does",
+              "text": "runs a fixed sequence: whether to animate, its purpose, the cheapest tool, properties, easing or spring, interruption and exit, then reduced-motion handling"
+            },
+            {
+              "label": "You get",
+              "text": "the animation code, plus a few lines on the decisions and what to check by eye"
+            },
+            {
+              "label": "Unlike review-animations",
+              "text": "that one critiques motion you already wrote; this one writes it so it passes that review"
+            },
+            {
+              "label": "Works with",
+              "text": "the web: CSS, the Web Animations API or the Motion library; animate-expo covers React Native"
+            }
+          ],
+          "text": "The building skill of Emil Kowalski's animation set. Its first two steps can end the job with no code: anything seen a hundred times a day, like a keyboard shortcut or command palette, gets no animation, and motion without a named purpose isn't built. Then it picks the cheapest tool that works, from a CSS transition up to the Motion library, and sends components such as toasts or dropdowns to pick-ui-library instead of hand-rolling them. It animates only transform and opacity, never scales up from zero, grows popovers out of their trigger, and takes curves and durations from fixed tables: a strong ease-out for entrances, never ease-in, under 300ms for UI. Springs are for drags and gestures; transitions, not keyframes, for anything triggered rapidly. Reduced-motion handling, and hover effects limited to mouse users, ship with every animation. A recipes file covers common cases, such as button press, tooltip, drawer, toast, accordion, stagger, hold-to-confirm and drag-to-dismiss. It finishes with a self-check against the mistakes review-animations blocks.",
+          "permalink": "https://github.com/emilkowalski/skills/tree/c8a79627b59d72d764d6ab6f2c87c09a48169833/skills/animate"
+        },
+        "tags": [
+          "category:design",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "animation",
+          "implementation"
+        ]
+      }
+    },
+    {
+      "id": "emilkowalski/skills/skills/prototype",
+      "name": "prototype",
+      "skills.sh": {
+        "url": "https://skills.sh/emilkowalski/skills/prototype",
+        "installs": 200558,
+        "weeklyInstalls": [10865, 12392, 13324, 13677, 15642, 15654, 17432, 15729],
+        "firstSeen": "2026-07-27"
+      },
+      "skillMd": {
+        "version": "c8a79627b59d72d764d6ab6f2c87c09a48169833",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds several genuinely different versions of one UI piece behind a switcher, so you can flip through them live and keep the best.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you know which UI piece you need, such as a toast or pricing card, but not which direction it should take"
+            },
+            {
+              "label": "It does",
+              "text": "builds three to five working variants, each differing on a named axis such as layout, density, personality or motion, on a separate prototype page or in one HTML file"
+            },
+            {
+              "label": "You get",
+              "text": "a live page with a picker you flip through from the keyboard, a table of each variant's trade-off, then the winner moved into your code"
+            },
+            {
+              "label": "Unlike Matt Pocock's prototype",
+              "text": "which also tests logic and keeps prototypes on a branch, it only explores UI and deletes the prototype once you choose"
+            },
+            {
+              "label": "Runs",
+              "text": "only when you call it; the agent never starts it on its own"
+            }
+          ],
+          "text": "A design exploration, one UI piece per run; a request like \"the dashboard\" gets narrowed to its most important part. It first reads the project's stack, tokens and personality so every variant looks native to the product, then names each direction (Quiet, Editorial, Playful, never Option A/B/C) and the axis it explores; two directions that would differ only in color or copy count as one, so it swaps one for a real alternative. Each variant fully works, with real interactions and realistic content, and meets Emil Kowalski's motion bar. In a project with a dev server, variants live on an isolated route that production code never imports; without one, in a single HTML file you open directly. The picker's markup, styles and keys are copied verbatim from the skill's own spec and never adapt to the project; it shows one variant at a time, full size in realistic context, and switches instantly. The agent checks that every variant renders with a clean console, then stops for you to choose. keep moves the winner into your codebase following its conventions and deletes the prototype unless you ask to keep it; riff starts a new round around a variant you liked.",
+          "permalink": "https://github.com/emilkowalski/skills/tree/c8a79627b59d72d764d6ab6f2c87c09a48169833/skills/prototype"
+        },
+        "tags": [
+          "category:design",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "prototyping",
+          "design"
+        ]
+      }
+    },
+    {
+      "id": "emilkowalski/skills/skills/animate-expo",
+      "name": "animate-expo",
+      "skills.sh": {
+        "url": "https://skills.sh/emilkowalski/skills/animate-expo",
+        "installs": 163440,
+        "weeklyInstalls": [10474, 11841, 12544, 13361, 18326, 20376, 17131, 15298],
+        "firstSeen": "2026-08-18"
+      },
+      "skillMd": {
+        "version": "c8a79627b59d72d764d6ab6f2c87c09a48169833",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds animations for React Native and Expo apps that stay smooth on real devices, including gestures, sheets and haptics.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're adding motion, gestures, sheets, screen transitions, press feedback or haptics to an Expo app, or fixing motion that stutters on a phone"
+            },
+            {
+              "label": "It does",
+              "text": "works through animate's decision sequence adapted to phones, building with Reanimated, Gesture Handler, Expo Router's native screens and expo-haptics, and keeping motion off the JavaScript thread"
+            },
+            {
+              "label": "You get",
+              "text": "the animation code, plus a few lines on the choices and what to try on a real device"
+            },
+            {
+              "label": "Unlike animate",
+              "text": "which is for the web, it designs for no hover, keeps motion on the UI thread and adds haptics"
+            },
+            {
+              "label": "Works with",
+              "text": "Reanimated 4, which requires React Native's New Architecture"
+            }
+          ],
+          "text": "Emil Kowalski's animation bar adapted to phones, where there's no hover, gestures are the main input, and motion that touches the JavaScript thread stutters as soon as the app does anything else. The same gate comes first: anything used a hundred times a day, such as tab switches, gets no animation, and tabs never slide. Then it picks the cheapest tool, from Reanimated's CSS-style transitions to shared values driven by gestures, and uses native pieces, such as Expo Router stacks, form sheets, native tabs and menus, instead of rebuilding them in JavaScript. It installs packages with npx expo install so versions match the Expo SDK. Anything a finger moves uses a spring that keeps its velocity; everything else uses fixed curves, under 300ms. It forbids setState or calls back to the JavaScript thread on every frame, touching shared values during render, and animating layout properties or blur. Haptics fire on the same frame as the visual, once per action and never as the only feedback. Reduced motion and large text sizes are handled; recipes cover sheets, swipe-to-delete, collapsing headers and keyboard-synced UI; and feel is judged only in a release build on the slowest device you support.",
+          "permalink": "https://github.com/emilkowalski/skills/tree/c8a79627b59d72d764d6ab6f2c87c09a48169833/skills/animate-expo"
+        },
+        "tags": [
+          "category:design",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "stack:expo",
+          "stack:react-native",
+          "stack:reanimated",
+          "animation",
+          "mobile",
+          "implementation",
+          "performance"
         ]
       }
     }
