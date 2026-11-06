@@ -54450,7 +54450,7 @@
           "category:engineering",
           "type:workflow",
           "effect:local",
-          "needs:none",
+          "needs:cli",
           "by:community",
           "stack:socket-io",
           "stack:redis",
