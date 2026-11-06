@@ -224,19 +224,6 @@
       }
     },
     {
-      "name": "trading-signal",
-      "repo": "binance/binance-skills-hub",
-      "official": false,
-      "stars": 1147,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/binance/binance-skills-hub/trading-signal",
-        "installs": 12000,
-        "weeklyInstalls": [119, 103, 90, 102, 95, 83, 620, 1709],
-        "firstSeen": "2026-03-02"
-      }
-    },
-    {
       "name": "security-best-practices",
       "repo": "openai/skills",
       "official": true,
@@ -393,19 +380,6 @@
       }
     },
     {
-      "name": "query-token-audit",
-      "repo": "binance/binance-skills-hub",
-      "official": false,
-      "stars": 1147,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/binance/binance-skills-hub/query-token-audit",
-        "installs": 11600,
-        "weeklyInstalls": [90, 90, 76, 84, 85, 65, 973, 3168],
-        "firstSeen": "2026-03-02"
-      }
-    },
-    {
       "name": "angular-component",
       "repo": "analogjs/angular-skills",
       "official": false,
@@ -455,19 +429,6 @@
         "installs": 11500,
         "weeklyInstalls": [264, 320, 430, 601, 666, 708, 862, 903],
         "firstSeen": "2026-01-27"
-      }
-    },
-    {
-      "name": "agentmemory-agents",
-      "repo": "rohitg00/agentmemory",
-      "official": false,
-      "stars": 30175,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/rohitg00/agentmemory/agentmemory-agents",
-        "installs": 11500,
-        "weeklyInstalls": [359, 378, 335, 297, 295, 312, 308, 297],
-        "firstSeen": "2026-06-07"
       }
     },
     {
@@ -546,32 +507,6 @@
         "installs": 11400,
         "weeklyInstalls": [172, 188, 226, 284, 246, 230, 222, 195],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "agentmemory-mcp-tools",
-      "repo": "rohitg00/agentmemory",
-      "official": false,
-      "stars": 30175,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/rohitg00/agentmemory/agentmemory-mcp-tools",
-        "installs": 11400,
-        "weeklyInstalls": [355, 379, 331, 300, 288, 315, 312, 295],
-        "firstSeen": "2026-06-07"
-      }
-    },
-    {
-      "name": "agentmemory-config",
-      "repo": "rohitg00/agentmemory",
-      "official": false,
-      "stars": 30175,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/rohitg00/agentmemory/agentmemory-config",
-        "installs": 11400,
-        "weeklyInstalls": [354, 376, 340, 306, 297, 314, 301, 292],
-        "firstSeen": "2026-06-07"
       }
     },
     {
@@ -666,19 +601,6 @@
       }
     },
     {
-      "name": "agentmemory-rest-api",
-      "repo": "rohitg00/agentmemory",
-      "official": false,
-      "stars": 30175,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/rohitg00/agentmemory/agentmemory-rest-api",
-        "installs": 11300,
-        "weeklyInstalls": [351, 373, 337, 304, 284, 307, 307, 289],
-        "firstSeen": "2026-06-07"
-      }
-    },
-    {
       "name": "incident-runbook-templates",
       "repo": "wshobson/agents",
       "official": false,
@@ -692,19 +614,6 @@
       }
     },
     {
-      "name": "meme-rush",
-      "repo": "binance/binance-skills-hub",
-      "official": false,
-      "stars": 1147,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/binance/binance-skills-hub/meme-rush",
-        "installs": 11300,
-        "weeklyInstalls": [82, 76, 69, 74, 74, 59, 715, 3083],
-        "firstSeen": "2026-03-02"
-      }
-    },
-    {
       "name": "context7",
       "repo": "intellectronica/agent-skills",
       "official": false,
@@ -715,32 +624,6 @@
         "installs": 11300,
         "weeklyInstalls": [122, 107, 74, 85, 60, 57, 47, 60],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "query-token-info",
-      "repo": "binance/binance-skills-hub",
-      "official": false,
-      "stars": 1147,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/binance/binance-skills-hub/query-token-info",
-        "installs": 11300,
-        "weeklyInstalls": [88, 83, 76, 84, 85, 65, 680, 2793],
-        "firstSeen": "2026-03-02"
-      }
-    },
-    {
-      "name": "crypto-market-rank",
-      "repo": "binance/binance-skills-hub",
-      "official": false,
-      "stars": 1147,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/binance/binance-skills-hub/crypto-market-rank",
-        "installs": 11200,
-        "weeklyInstalls": [106, 101, 91, 88, 87, 68, 617, 1730],
-        "firstSeen": "2026-03-02"
       }
     },
     {
@@ -767,45 +650,6 @@
         "installs": 11200,
         "weeklyInstalls": [175, 192, 224, 299, 243, 223, 237, 212],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "agentmemory-architecture",
-      "repo": "rohitg00/agentmemory",
-      "official": false,
-      "stars": 30175,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/rohitg00/agentmemory/agentmemory-architecture",
-        "installs": 11200,
-        "weeklyInstalls": [350, 373, 335, 279, 273, 306, 303, 295],
-        "firstSeen": "2026-06-07"
-      }
-    },
-    {
-      "name": "agentmemory-hooks",
-      "repo": "rohitg00/agentmemory",
-      "official": false,
-      "stars": 30175,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/rohitg00/agentmemory/agentmemory-hooks",
-        "installs": 11200,
-        "weeklyInstalls": [348, 371, 331, 278, 273, 305, 304, 291],
-        "firstSeen": "2026-06-07"
-      }
-    },
-    {
-      "name": "write-agentmemory-skill",
-      "repo": "rohitg00/agentmemory",
-      "official": false,
-      "stars": 30175,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/rohitg00/agentmemory/write-agentmemory-skill",
-        "installs": 11200,
-        "weeklyInstalls": [348, 367, 331, 279, 271, 304, 295, 289],
-        "firstSeen": "2026-06-07"
       }
     },
     {
@@ -1771,19 +1615,6 @@
       }
     },
     {
-      "name": "wordpress-pro",
-      "repo": "jeffallan/claude-skills",
-      "official": false,
-      "stars": 12244,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/jeffallan/claude-skills/wordpress-pro",
-        "installs": 10100,
-        "weeklyInstalls": [182, 185, 184, 177, 197, 213, 200, 218],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
       "name": "outcome-roadmap",
       "repo": "phuryn/pm-skills",
       "official": false,
@@ -2018,19 +1849,6 @@
       }
     },
     {
-      "name": "managed-deep-agents",
-      "repo": "langchain-ai/langchain-skills",
-      "official": false,
-      "stars": 1324,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/langchain-ai/langchain-skills/managed-deep-agents",
-        "installs": 9900,
-        "weeklyInstalls": [518, 543, 533, 471, 453, 429, 386, 426],
-        "firstSeen": "2026-05-21"
-      }
-    },
-    {
       "name": "seo",
       "repo": "agricidaniel/claude-seo",
       "official": false,
@@ -2200,19 +2018,6 @@
       }
     },
     {
-      "name": "langgraph-cli",
-      "repo": "langchain-ai/langchain-skills",
-      "official": false,
-      "stars": 1324,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/langchain-ai/langchain-skills/langgraph-cli",
-        "installs": 9600,
-        "weeklyInstalls": [495, 527, 513, 436, 389, 387, 351, 372],
-        "firstSeen": "2026-05-21"
-      }
-    },
-    {
       "name": "swiftdata-pro",
       "repo": "twostraws/swiftdata-agent-skill",
       "official": false,
@@ -2252,19 +2057,6 @@
       }
     },
     {
-      "name": "unity-cli",
-      "repo": "unity-technologies/skills",
-      "official": false,
-      "stars": 1219,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/unity-technologies/skills/unity-cli",
-        "installs": 9600,
-        "weeklyInstalls": [925, 790, 654, 605, 545, 587, 634, 655],
-        "firstSeen": "2026-06-08"
-      }
-    },
-    {
       "name": "dialogue-systems",
       "repo": "gamedev-skills/awesome-gamedev-agent-skills",
       "official": false,
@@ -2288,19 +2080,6 @@
         "installs": 9500,
         "weeklyInstalls": [257, 273, 383, 529, 305, 342, 307, 246],
         "firstSeen": "2026-02-10"
-      }
-    },
-    {
-      "name": "pdf-extraction",
-      "repo": "claude-office-skills/skills",
-      "official": false,
-      "stars": 567,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/claude-office-skills/skills/pdf-extraction",
-        "installs": 9500,
-        "weeklyInstalls": [83, 116, 81, 78, 116, 253, 207, 75],
-        "firstSeen": "2026-03-09"
       }
     },
     {
@@ -2343,19 +2122,6 @@
       }
     },
     {
-      "name": "dashboarding",
-      "repo": "grafana/skills",
-      "official": false,
-      "stars": 304,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/grafana/skills/dashboarding",
-        "installs": 9400,
-        "weeklyInstalls": [230, 437, 502, 696, 690, 866, 676, 675],
-        "firstSeen": "2026-04-14"
-      }
-    },
-    {
       "name": "okx-cex-earn",
       "repo": "okx/agent-skills",
       "official": false,
@@ -2392,19 +2158,6 @@
         "installs": 9400,
         "weeklyInstalls": [235, 304, 242, 146, 195, 297, 277, 349],
         "firstSeen": "2026-02-01"
-      }
-    },
-    {
-      "name": "swarm",
-      "repo": "langchain-ai/langchain-skills",
-      "official": false,
-      "stars": 1324,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/langchain-ai/langchain-skills/swarm",
-        "installs": 9400,
-        "weeklyInstalls": [472, 505, 485, 426, 383, 386, 343, 363],
-        "firstSeen": "2026-05-19"
       }
     },
     {
@@ -2473,32 +2226,6 @@
       }
     },
     {
-      "name": "bailian-protocol",
-      "repo": "modelstudioai/cli",
-      "official": false,
-      "stars": 369,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/modelstudioai/cli/bailian-protocol",
-        "installs": 9300,
-        "weeklyInstalls": [315, 221, 160, 113, 122, 112, 89, 91],
-        "firstSeen": "2026-08-05"
-      }
-    },
-    {
-      "name": "bailian-finetune",
-      "repo": "modelstudioai/cli",
-      "official": false,
-      "stars": 369,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/modelstudioai/cli/bailian-finetune",
-        "installs": 9300,
-        "weeklyInstalls": [316, 220, 163, 112, 123, 112, 89, 92],
-        "firstSeen": "2026-07-30"
-      }
-    },
-    {
       "name": "m15-anti-pattern",
       "repo": "actionbook/rust-skills",
       "official": false,
@@ -2509,32 +2236,6 @@
         "installs": 9300,
         "weeklyInstalls": [77, 84, 93, 115, 90, 423, 134, 588],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "bailian-managed-agent",
-      "repo": "modelstudioai/cli",
-      "official": false,
-      "stars": 369,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/modelstudioai/cli/bailian-managed-agent",
-        "installs": 9300,
-        "weeklyInstalls": [315, 221, 162, 112, 123, 112, 89, 91],
-        "firstSeen": "2026-07-30"
-      }
-    },
-    {
-      "name": "query-address-info",
-      "repo": "binance/binance-skills-hub",
-      "official": false,
-      "stars": 1147,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/binance/binance-skills-hub/query-address-info",
-        "installs": 9300,
-        "weeklyInstalls": [79, 76, 68, 73, 69, 58, 570, 1699],
-        "firstSeen": "2026-03-02"
       }
     },
     {
@@ -2733,19 +2434,6 @@
       }
     },
     {
-      "name": "python-pro",
-      "repo": "jeffallan/claude-skills",
-      "official": false,
-      "stars": 12244,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/jeffallan/claude-skills/python-pro",
-        "installs": 9100,
-        "weeklyInstalls": [157, 315, 255, 113, 334, 462, 241, 168],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
       "name": "rpg",
       "repo": "gamedev-skills/awesome-gamedev-agent-skills",
       "official": false,
@@ -2795,19 +2483,6 @@
         "installs": 9000,
         "weeklyInstalls": [248, 250, 269, 281, 351, 346, 241, 215],
         "firstSeen": "2026-01-27"
-      }
-    },
-    {
-      "name": "promql",
-      "repo": "grafana/skills",
-      "official": false,
-      "stars": 304,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/grafana/skills/promql",
-        "installs": 9000,
-        "weeklyInstalls": [217, 424, 480, 674, 680, 854, 673, 703],
-        "firstSeen": "2026-04-14"
       }
     },
     {
@@ -2873,19 +2548,6 @@
         "installs": 8900,
         "weeklyInstalls": [207, 204, 428, 1085, 1512, 854, 426, 510],
         "firstSeen": "2026-06-11"
-      }
-    },
-    {
-      "name": "codegen",
-      "repo": "vercel-labs/json-render",
-      "official": true,
-      "stars": 18938,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/vercel-labs/json-render/codegen",
-        "installs": 8900,
-        "weeklyInstalls": [1227, 1352, 803, 529, 38, 20, 18, 29],
-        "firstSeen": "2026-03-07"
       }
     },
     {
@@ -2980,19 +2642,6 @@
       }
     },
     {
-      "name": "nuxt",
-      "repo": "onmax/nuxt-skills",
-      "official": false,
-      "stars": 723,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/onmax/nuxt-skills/nuxt",
-        "installs": 8800,
-        "weeklyInstalls": [90, 82, 175, 158, 176, 163, 157, 123],
-        "firstSeen": "2026-01-19"
-      }
-    },
-    {
       "name": "academic-cv-builder",
       "repo": "paramchoudhary/resumeskills",
       "official": false,
@@ -3032,19 +2681,6 @@
       }
     },
     {
-      "name": "smart-ocr",
-      "repo": "claude-office-skills/skills",
-      "official": false,
-      "stars": 567,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/claude-office-skills/skills/smart-ocr",
-        "installs": 8700,
-        "weeklyInstalls": [101, 128, 95, 76, 127, 268, 207, 89],
-        "firstSeen": "2026-03-09"
-      }
-    },
-    {
       "name": "codeql",
       "repo": "trailofbits/skills",
       "official": true,
@@ -3081,19 +2717,6 @@
         "installs": 8700,
         "weeklyInstalls": [339, 318, 369, 383, 439, 635, 1430, 1777],
         "firstSeen": "2026-06-27"
-      }
-    },
-    {
-      "name": "spring-boot-engineer",
-      "repo": "jeffallan/claude-skills",
-      "official": false,
-      "stars": 12244,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/jeffallan/claude-skills/spring-boot-engineer",
-        "installs": 8700,
-        "weeklyInstalls": [98, 98, 98, 98, 104, 144, 128, 141],
-        "firstSeen": "2026-01-20"
       }
     },
     {
@@ -3146,19 +2769,6 @@
         "installs": 8700,
         "weeklyInstalls": [0, 0, 0, 0, 0, 0, 2711, 3524],
         "firstSeen": "2026-10-19"
-      }
-    },
-    {
-      "name": "ecosystem-primer",
-      "repo": "langchain-ai/langchain-skills",
-      "official": false,
-      "stars": 1324,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/langchain-ai/langchain-skills/ecosystem-primer",
-        "installs": 8700,
-        "weeklyInstalls": [496, 536, 498, 443, 398, 396, 362, 379],
-        "firstSeen": "2026-06-08"
       }
     },
     {
@@ -3224,19 +2834,6 @@
         "installs": 8600,
         "weeklyInstalls": [409, 356, 287, 307, 388, 401, 390, 360],
         "firstSeen": "2026-05-20"
-      }
-    },
-    {
-      "name": "next",
-      "repo": "vercel-labs/json-render",
-      "official": true,
-      "stars": 18938,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/vercel-labs/json-render/next",
-        "installs": 8600,
-        "weeklyInstalls": [1232, 1353, 804, 532, 36, 23, 26, 23],
-        "firstSeen": "2026-03-28"
       }
     },
     {
@@ -3487,19 +3084,6 @@
       }
     },
     {
-      "name": "loki",
-      "repo": "grafana/skills",
-      "official": false,
-      "stars": 304,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/grafana/skills/loki",
-        "installs": 8400,
-        "weeklyInstalls": [207, 405, 457, 651, 658, 827, 634, 659],
-        "firstSeen": "2026-04-14"
-      }
-    },
-    {
       "name": "seo-content",
       "repo": "agricidaniel/claude-seo",
       "official": false,
@@ -3523,19 +3107,6 @@
         "installs": 8400,
         "weeklyInstalls": [235, 297, 240, 142, 193, 281, 258, 338],
         "firstSeen": "2026-03-27"
-      }
-    },
-    {
-      "name": "devtools",
-      "repo": "vercel-labs/json-render",
-      "official": true,
-      "stars": 18938,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/vercel-labs/json-render/devtools",
-        "installs": 8400,
-        "weeklyInstalls": [1225, 1351, 806, 527, 37, 25, 28, 32],
-        "firstSeen": "2026-04-17"
       }
     },
     {
@@ -3617,19 +3188,6 @@
       }
     },
     {
-      "name": "unity-package-management",
-      "repo": "unity-technologies/skills",
-      "official": false,
-      "stars": 1219,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/unity-technologies/skills/unity-package-management",
-        "installs": 8200,
-        "weeklyInstalls": [830, 701, 581, 523, 483, 515, 587, 583],
-        "firstSeen": "2026-07-09"
-      }
-    },
-    {
       "name": "seo-competitor-pages",
       "repo": "agricidaniel/claude-seo",
       "official": false,
@@ -3679,19 +3237,6 @@
         "installs": 8200,
         "weeklyInstalls": [319, 295, 362, 350, 411, 590, 1366, 1706],
         "firstSeen": "2026-06-27"
-      }
-    },
-    {
-      "name": "postgres-pro",
-      "repo": "jeffallan/claude-skills",
-      "official": false,
-      "stars": 12244,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/jeffallan/claude-skills/postgres-pro",
-        "installs": 8200,
-        "weeklyInstalls": [124, 130, 116, 131, 141, 191, 153, 165],
-        "firstSeen": "2026-01-20"
       }
     },
     {
@@ -3773,19 +3318,6 @@
       }
     },
     {
-      "name": "directives",
-      "repo": "vercel-labs/json-render",
-      "official": true,
-      "stars": 18938,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/vercel-labs/json-render/directives",
-        "installs": 8100,
-        "weeklyInstalls": [1217, 1342, 789, 517, 26, 16, 17, 26],
-        "firstSeen": "2026-05-07"
-      }
-    },
-    {
       "name": "antislop-ui",
       "repo": "miqdadbadjuber/anti-slop",
       "official": false,
@@ -3796,19 +3328,6 @@
         "installs": 8100,
         "weeklyInstalls": [727, 863, 909, 634, 840, 809, 882, 1037],
         "firstSeen": "2026-08-15"
-      }
-    },
-    {
-      "name": "vue",
-      "repo": "onmax/nuxt-skills",
-      "official": false,
-      "stars": 723,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/onmax/nuxt-skills/vue",
-        "installs": 8100,
-        "weeklyInstalls": [72, 72, 132, 109, 98, 99, 90, 72],
-        "firstSeen": "2026-01-19"
       }
     },
     {
@@ -4449,19 +3968,6 @@
       }
     },
     {
-      "name": "reka-ui",
-      "repo": "onmax/nuxt-skills",
-      "official": false,
-      "stars": 723,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/onmax/nuxt-skills/reka-ui",
-        "installs": 7500,
-        "weeklyInstalls": [57, 55, 63, 68, 70, 66, 65, 66],
-        "firstSeen": "2026-01-19"
-      }
-    },
-    {
       "name": "domain-driven-design",
       "repo": "wondelai/skills",
       "official": false,
@@ -4615,19 +4121,6 @@
         "installs": 7400,
         "weeklyInstalls": [138, 137, 123, 130, 116, 152, 166, 155],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "ui-ugui",
-      "repo": "unity-technologies/skills",
-      "official": false,
-      "stars": 1219,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/unity-technologies/skills/ui-ugui",
-        "installs": 7400,
-        "weeklyInstalls": [805, 677, 581, 529, 492, 531, 580, 567],
-        "firstSeen": "2026-08-07"
       }
     },
     {
@@ -4891,19 +4384,6 @@
       }
     },
     {
-      "name": "new-unity-project",
-      "repo": "unity-technologies/skills",
-      "official": false,
-      "stars": 1219,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/unity-technologies/skills/new-unity-project",
-        "installs": 7200,
-        "weeklyInstalls": [731, 626, 532, 476, 444, 471, 529, 537],
-        "firstSeen": "2026-07-09"
-      }
-    },
-    {
       "name": "architect",
       "repo": "jsmastery-pro/skills",
       "official": false,
@@ -5047,19 +4527,6 @@
       }
     },
     {
-      "name": "nuxt-ui",
-      "repo": "onmax/nuxt-skills",
-      "official": false,
-      "stars": 723,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/onmax/nuxt-skills/nuxt-ui",
-        "installs": 7200,
-        "weeklyInstalls": [65, 48, 91, 86, 119, 118, 109, 90],
-        "firstSeen": "2026-01-19"
-      }
-    },
-    {
       "name": "jobs-to-be-done",
       "repo": "wondelai/skills",
       "official": false,
@@ -5151,19 +4618,6 @@
       }
     },
     {
-      "name": "loki-label-analyzer",
-      "repo": "grafana/skills",
-      "official": false,
-      "stars": 304,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/grafana/skills/loki-label-analyzer",
-        "installs": 7100,
-        "weeklyInstalls": [167, 359, 431, 617, 611, 795, 592, 573],
-        "firstSeen": "2026-05-06"
-      }
-    },
-    {
       "name": "seo-project-setup",
       "repo": "every-app/open-seo",
       "official": false,
@@ -5187,19 +4641,6 @@
         "installs": 7100,
         "weeklyInstalls": [348, 352, 352, 392, 297, 258, 247, 245],
         "firstSeen": "2026-04-14"
-      }
-    },
-    {
-      "name": "binance-tokenized-securities-info",
-      "repo": "binance/binance-skills-hub",
-      "official": false,
-      "stars": 1147,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/binance/binance-skills-hub/binance-tokenized-securities-info",
-        "installs": 7100,
-        "weeklyInstalls": [77, 74, 68, 73, 68, 58, 549, 1643],
-        "firstSeen": "2026-03-26"
       }
     },
     {
@@ -5473,19 +4914,6 @@
         "installs": 7000,
         "weeklyInstalls": [158, 145, 96, 111, 128, 129, 152, 149],
         "firstSeen": "2026-05-07"
-      }
-    },
-    {
-      "name": "office-mcp",
-      "repo": "claude-office-skills/skills",
-      "official": false,
-      "stars": 567,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/claude-office-skills/skills/office-mcp",
-        "installs": 7000,
-        "weeklyInstalls": [65, 90, 71, 63, 113, 231, 193, 70],
-        "firstSeen": "2026-03-09"
       }
     },
     {
@@ -36610,6 +36038,182 @@
     {
       "url": "https://skills.sh/heygen-com/hyperframes/wireframe-portal-title",
       "note": "Tool docs: an agent's manual for hyperframes."
+    },
+    {
+      "url": "https://skills.sh/jeffallan/claude-skills/wordpress-pro",
+      "note": "Tool docs: an agent's manual for wordpress."
+    },
+    {
+      "url": "https://skills.sh/jeffallan/claude-skills/python-pro",
+      "note": "Tool docs: an agent's manual for python."
+    },
+    {
+      "url": "https://skills.sh/jeffallan/claude-skills/spring-boot-engineer",
+      "note": "Tool docs: an agent's manual for spring-boot and java."
+    },
+    {
+      "url": "https://skills.sh/jeffallan/claude-skills/postgres-pro",
+      "note": "Tool docs: an agent's manual for postgres."
+    },
+    {
+      "url": "https://skills.sh/claude-office-skills/skills/pdf-extraction",
+      "note": "Tool docs: an agent's manual for pdfplumber."
+    },
+    {
+      "url": "https://skills.sh/claude-office-skills/skills/smart-ocr",
+      "note": "Tool docs: an agent's manual for paddleocr."
+    },
+    {
+      "url": "https://skills.sh/claude-office-skills/skills/office-mcp",
+      "note": "Tool docs: an agent's manual for office-mcp."
+    },
+    {
+      "url": "https://skills.sh/binance/binance-skills-hub/trading-signal",
+      "note": "Tool docs: an agent's manual for binance."
+    },
+    {
+      "url": "https://skills.sh/binance/binance-skills-hub/query-token-audit",
+      "note": "Tool docs: an agent's manual for binance."
+    },
+    {
+      "url": "https://skills.sh/binance/binance-skills-hub/meme-rush",
+      "note": "Tool docs: an agent's manual for binance."
+    },
+    {
+      "url": "https://skills.sh/binance/binance-skills-hub/query-token-info",
+      "note": "Tool docs: an agent's manual for binance."
+    },
+    {
+      "url": "https://skills.sh/binance/binance-skills-hub/crypto-market-rank",
+      "note": "Tool docs: an agent's manual for binance."
+    },
+    {
+      "url": "https://skills.sh/binance/binance-skills-hub/query-address-info",
+      "note": "Tool docs: an agent's manual for binance."
+    },
+    {
+      "url": "https://skills.sh/binance/binance-skills-hub/binance-tokenized-securities-info",
+      "note": "Tool docs: an agent's manual for binance."
+    },
+    {
+      "url": "https://skills.sh/rohitg00/agentmemory/agentmemory-agents",
+      "note": "Tool docs: an agent's manual for agentmemory."
+    },
+    {
+      "url": "https://skills.sh/rohitg00/agentmemory/agentmemory-mcp-tools",
+      "note": "Tool docs: an agent's manual for agentmemory."
+    },
+    {
+      "url": "https://skills.sh/rohitg00/agentmemory/agentmemory-config",
+      "note": "Tool docs: an agent's manual for agentmemory."
+    },
+    {
+      "url": "https://skills.sh/rohitg00/agentmemory/agentmemory-rest-api",
+      "note": "Tool docs: an agent's manual for agentmemory."
+    },
+    {
+      "url": "https://skills.sh/rohitg00/agentmemory/agentmemory-architecture",
+      "note": "Tool docs: an agent's manual for agentmemory."
+    },
+    {
+      "url": "https://skills.sh/rohitg00/agentmemory/agentmemory-hooks",
+      "note": "Tool docs: an agent's manual for agentmemory."
+    },
+    {
+      "url": "https://skills.sh/rohitg00/agentmemory/write-agentmemory-skill",
+      "note": "Internal: an agent's manual for agentmemory's own codebase."
+    },
+    {
+      "url": "https://skills.sh/langchain-ai/langchain-skills/managed-deep-agents",
+      "note": "Tool docs: an agent's manual for deep-agents and langsmith."
+    },
+    {
+      "url": "https://skills.sh/langchain-ai/langchain-skills/langgraph-cli",
+      "note": "Tool docs: an agent's manual for langgraph."
+    },
+    {
+      "url": "https://skills.sh/langchain-ai/langchain-skills/swarm",
+      "note": "Tool docs: an agent's manual for deep-agents."
+    },
+    {
+      "url": "https://skills.sh/langchain-ai/langchain-skills/ecosystem-primer",
+      "note": "Tool docs: an agent's manual for langchain and langgraph and deep-agents."
+    },
+    {
+      "url": "https://skills.sh/unity-technologies/skills/unity-cli",
+      "note": "Tool docs: an agent's manual for unity."
+    },
+    {
+      "url": "https://skills.sh/unity-technologies/skills/unity-package-management",
+      "note": "Tool docs: an agent's manual for unity."
+    },
+    {
+      "url": "https://skills.sh/unity-technologies/skills/ui-ugui",
+      "note": "Tool docs: an agent's manual for unity."
+    },
+    {
+      "url": "https://skills.sh/unity-technologies/skills/new-unity-project",
+      "note": "Tool docs: an agent's manual for unity."
+    },
+    {
+      "url": "https://skills.sh/grafana/skills/dashboarding",
+      "note": "Tool docs: an agent's manual for grafana."
+    },
+    {
+      "url": "https://skills.sh/grafana/skills/promql",
+      "note": "Tool docs: an agent's manual for prometheus."
+    },
+    {
+      "url": "https://skills.sh/grafana/skills/loki",
+      "note": "Tool docs: an agent's manual for loki."
+    },
+    {
+      "url": "https://skills.sh/grafana/skills/loki-label-analyzer",
+      "note": "Tool docs: an agent's manual for loki."
+    },
+    {
+      "url": "https://skills.sh/modelstudioai/cli/bailian-protocol",
+      "note": "Support package: the shared protocol the repo's other bailian skills load, not a skill to use on its own."
+    },
+    {
+      "url": "https://skills.sh/modelstudioai/cli/bailian-finetune",
+      "note": "Tool docs: an agent's manual for bailian."
+    },
+    {
+      "url": "https://skills.sh/modelstudioai/cli/bailian-managed-agent",
+      "note": "Tool docs: an agent's manual for bailian."
+    },
+    {
+      "url": "https://skills.sh/vercel-labs/json-render/codegen",
+      "note": "Tool docs: an agent's manual for json-render."
+    },
+    {
+      "url": "https://skills.sh/vercel-labs/json-render/next",
+      "note": "Tool docs: an agent's manual for json-render and nextjs."
+    },
+    {
+      "url": "https://skills.sh/vercel-labs/json-render/devtools",
+      "note": "Tool docs: an agent's manual for json-render."
+    },
+    {
+      "url": "https://skills.sh/vercel-labs/json-render/directives",
+      "note": "Tool docs: an agent's manual for json-render."
+    },
+    {
+      "url": "https://skills.sh/onmax/nuxt-skills/nuxt",
+      "note": "Tool docs: an agent's manual for nuxt."
+    },
+    {
+      "url": "https://skills.sh/onmax/nuxt-skills/vue",
+      "note": "Tool docs: an agent's manual for vue."
+    },
+    {
+      "url": "https://skills.sh/onmax/nuxt-skills/reka-ui",
+      "note": "Tool docs: an agent's manual for reka-ui."
+    },
+    {
+      "url": "https://skills.sh/onmax/nuxt-skills/nuxt-ui",
+      "note": "Tool docs: an agent's manual for nuxt-ui."
     }
   ]
 }
