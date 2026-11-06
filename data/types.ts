@@ -10,8 +10,6 @@
 export interface Data {
   /** The JSON Schema of this file, generated from this interface: for editors. */
   $schema: string;
-  /** When the data was last edited (YYYY-MM-DD). */
-  updated: string;
   /** When each kind of data is from (YYYY-MM-DD). */
   asOf: {
     /**

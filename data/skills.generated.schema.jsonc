@@ -10,10 +10,6 @@
           "type": "string",
           "description": "The JSON Schema of this file, generated from this interface: for editors."
         },
-        "updated": {
-          "type": "string",
-          "description": "When the data was last edited (YYYY-MM-DD)."
-        },
         "asOf": {
           "type": "object",
           "properties": {
@@ -63,7 +59,7 @@
           "description": "The approved skills: the ones the site lists."
         }
       },
-      "required": ["$schema", "updated", "asOf", "facets", "repos", "bundles", "skills"],
+      "required": ["$schema", "asOf", "facets", "repos", "bundles", "skills"],
       "additionalProperties": false,
       "description": "The shape of skills.jsonc, the single data file behind the site: the approved skills, the ones it shows. The skills the crawl found but that aren't approved are in crawl.jsonc."
     },

@@ -16,7 +16,7 @@ const crawlPath = `${root}data/crawl.jsonc`;
 
 export const readData = (): Data => readJsonc(path);
 
-const TOP = ["$schema", "updated", "asOf", "facets", "repos", "bundles", "skills"];
+const TOP = ["$schema", "asOf", "facets", "repos", "bundles", "skills"];
 const ORDER = [
   "id",
   "name",
