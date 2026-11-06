@@ -1835,6 +1835,14 @@
         "kind": "skills",
         "description": "A collection of agent skills that cover UI, typography, colors, accessibility, layout, product writing and help you build a great interface."
       }
+    },
+    {
+      "id": "spillwavesolutions/design-doc-mermaid",
+      "stars": 182,
+      "agentReview": {
+        "kind": "skills",
+        "description": "A Claude Code skill for creating Mermaid diagrams and design documents, with code-to-diagram generation and Python utilities."
+      }
     }
   ],
   "bundles": [
@@ -3187,6 +3195,90 @@
           {
             "label": "Cursor, with the uipro CLI; for another agent, such as codex or gemini, put its name after --ai",
             "command": "npx ui-ux-pro-max-cli init --ai cursor"
+          }
+        ]
+      }
+    },
+    {
+      "id": "addyosmani/web-quality-skills",
+      "skew": 0,
+      "agentReview": {
+        "name": "Web Quality Skills",
+        "description": "Measurement-led audits and fixes for a website's speed, Core Web Vitals, accessibility, SEO and security, built on Lighthouse and Chrome DevTools.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a website checked and fixed for speed, accessibility, search and security, with measured evidence behind each finding"
+            },
+            {
+              "label": "It does",
+              "text": "starts with web-quality-audit, one review across every area, then goes deep with one skill per area; each measures, fixes or recommends fixes, and measures again"
+            },
+            {
+              "label": "You get",
+              "text": "code fixes, and from the audit a report: an evidence table, issues ranked critical to low with file and fix, a fix order and what's still unverified"
+            },
+            {
+              "label": "Keeps apart",
+              "text": "real-user data, lab runs and guesses from reading code; a high Lighthouse score is never taken as proof of quality"
+            },
+            {
+              "label": "Works with",
+              "text": "Chrome DevTools MCP when connected; otherwise the Lighthouse CLI, PageSpeed Insights, axe and manual checks"
+            },
+            {
+              "label": "Install",
+              "text": "all six: core-web-vitals and web-quality-audit read files that ship only with the performance skill"
+            }
+          ],
+          "text": "Six skills by Addy Osmani, built on Google Lighthouse, Chrome DevTools and Core Web Vitals; the README calls the collection unofficial. web-quality-audit is the entry point: it settles which pages, states and devices to check, takes a small live baseline, then covers performance, accessibility, SEO, best practices and agentic browsing (how well an AI assistant can understand and operate the page), ending with a ranked report and a fix order. The other five each go deep on one area. performance owns the measurement workflow, which web-quality-audit and core-web-vitals also read: real-user Chrome data (CrUX) decides whether users have a problem, a browser trace or Lighthouse run finds why, and code inspection only forms hypotheses. core-web-vitals targets just LCP, INP and CLS (loading, responsiveness and layout stability) and their thresholds. accessibility tests against WCAG 2.2 with Lighthouse, the accessibility tree and the keyboard. seo covers crawling, indexing, page tags and structured data without promising rankings. best-practices covers security headers, CSP, deprecated APIs and code quality, adding the dependency and header checks Lighthouse lacks. Each re-runs the same checks after its fixes; for speed, real-user confirmation waits for new visits.",
+          "permalink": "https://github.com/addyosmani/web-quality-skills/tree/afa8da942115f2961fdbfa80807ea0b232ff6c00"
+        },
+        "skills": [
+          {
+            "id": "addyosmani/web-quality-skills/skills/web-quality-audit",
+            "standalone": false,
+            "note": "Reads the measurement workflow that ships with the performance skill before it measures a live page."
+          },
+          {
+            "id": "addyosmani/web-quality-skills/skills/performance",
+            "standalone": true
+          },
+          {
+            "id": "addyosmani/web-quality-skills/skills/core-web-vitals",
+            "standalone": false,
+            "note": "Reads the measurement workflow and the real-user monitoring reference that ship with the performance skill."
+          },
+          {
+            "id": "addyosmani/web-quality-skills/skills/accessibility",
+            "standalone": true
+          },
+          {
+            "id": "addyosmani/web-quality-skills/skills/seo",
+            "standalone": true
+          },
+          {
+            "id": "addyosmani/web-quality-skills/skills/best-practices",
+            "standalone": true
+          }
+        ],
+        "install": [
+          {
+            "label": "Any agent, with the skills CLI",
+            "command": "npx skills add addyosmani/web-quality-skills"
+          },
+          {
+            "label": "Claude Code plugin",
+            "command": "claude plugin marketplace add addyosmani/web-quality-skills && claude plugin install web-quality-skills@addy-web-quality-skills"
+          },
+          {
+            "label": "Codex plugin marketplace, Codex CLI 0.122+",
+            "command": "codex plugin marketplace add addyosmani/web-quality-skills"
+          },
+          {
+            "label": "Gemini CLI extension",
+            "command": "gemini extensions install https://github.com/addyosmani/web-quality-skills"
           }
         ]
       }
@@ -17868,6 +17960,596 @@
           "scope-control"
         ],
         "note": "A reference card for the ponytail skills, so it only helps once they're installed."
+      }
+    },
+    {
+      "id": "addyosmani/web-quality-skills/skills/seo",
+      "name": "seo",
+      "skills.sh": {
+        "url": "https://skills.sh/addyosmani/web-quality-skills/seo",
+        "installs": 54200,
+        "weeklyInstalls": [1343, 1192, 1095, 1118, 1187, 1183, 1210, 1181],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "afa8da942115f2961fdbfa80807ea0b232ff6c00",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Audits a site's technical and on-page SEO with Lighthouse, fixes the source, then re-runs the same checks.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a site's crawlability, page tags, structured data and mobile setup checked and fixed for search engines"
+            },
+            {
+              "label": "It does",
+              "text": "runs Lighthouse's SEO and Agentic Browsing audits, checks what Lighthouse can't (headers, redirects, robots.txt, sitemap, canonicals), fixes the source and re-runs them"
+            },
+            {
+              "label": "You get",
+              "text": "fixes in your code, with crawl and index problems kept apart from content quality, and ranking outcomes marked as still pending"
+            },
+            {
+              "label": "Works with",
+              "text": "Chrome DevTools MCP if available, otherwise the Lighthouse CLI plus direct source and HTTP checks"
+            },
+            {
+              "label": "Won't",
+              "text": "promise ranking changes or invent ranking-factor weights; a Lighthouse SEO score isn't treated as a ranking forecast"
+            },
+            {
+              "label": "Unlike seo-audit",
+              "text": "Corey Haines's skill that audits by checklist and ends with an action plan, it measures the rendered page and edits your code"
+            }
+          ],
+          "text": "Part of Addy Osmani's web quality skills, built on Google Lighthouse and Google Search guidance. With a rendered page, the agent runs Lighthouse's SEO and Agentic Browsing audits, then inspects what those can't settle: response headers, redirects, robots.txt, sitemap coverage, canonical tags across page templates, structured-data eligibility, and Search Console data if you give it access. It fixes the source and runs the same checks again. The reference covers robots rules, XML sitemaps, URL structure, title tags and meta descriptions (lengths treated as rough guides, since Google rewrites and truncates them), heading hierarchy, image and link text, JSON-LD structured data, mobile viewport and tap targets, and hreflang for multilingual sites. It keeps three things apart: Lighthouse's Agentic Browsing score (how well an AI assistant can read and use the page), search ranking, and whether an AI product will cite you. It audits each AI crawler, such as OAI-SearchBot, Claude-SearchBot or Google-Extended, separately rather than blocking \"AI bots\" wholesale, and treats llms.txt as optional and experimental. It ends with a prioritized checklist, from critical items (HTTPS, no stray noindex) to ongoing work in Search Console.",
+          "permalink": "https://github.com/addyosmani/web-quality-skills/tree/afa8da942115f2961fdbfa80807ea0b232ff6c00/skills/seo"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "seo"
+        ]
+      }
+    },
+    {
+      "id": "addyosmani/web-quality-skills/skills/performance",
+      "name": "performance",
+      "skills.sh": {
+        "url": "https://skills.sh/addyosmani/web-quality-skills/performance",
+        "installs": 43100,
+        "weeklyInstalls": [1354, 1165, 1131, 1011, 1048, 1057, 1110, 1091],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "afa8da942115f2961fdbfa80807ea0b232ff6c00",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Speeds up web pages by measuring real-user and lab data first, fixing only the measured bottlenecks, then re-measuring.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a site loads slowly or feels sluggish and you want it faster, with numbers to show it"
+            },
+            {
+              "label": "It does",
+              "text": "sets a baseline from real-user Chrome data (CrUX) and a browser performance trace, changes only the code behind measured bottlenecks, then re-runs the same measurement"
+            },
+            {
+              "label": "You get",
+              "text": "code changes and a report of before and after values, test conditions and uncertainty; real-user confirmation is left pending"
+            },
+            {
+              "label": "Without a live page",
+              "text": "it inspects the source but labels findings as hypotheses, and gives the command or browser steps that would verify the high-impact ones"
+            },
+            {
+              "label": "Works with",
+              "text": "Chrome DevTools MCP traces if available, otherwise the Lighthouse CLI, PageSpeed Insights or CrUX tools"
+            },
+            {
+              "label": "Unlike core-web-vitals",
+              "text": "its sibling skill focused on three Core Web Vitals, it covers loading and runtime speed as a whole: budgets, images, fonts, caching, scripts"
+            }
+          ],
+          "text": "The measurement workflow it reads first, shared with the repo's core-web-vitals and web-quality-audit skills, keeps evidence types apart: CrUX field data from real Chrome users decides whether users have a problem, a DevTools trace or Lighthouse run in the lab finds why, and code inspection only forms hypotheses. It tests mobile conditions by default, records the browser, throttling and cache state, takes the median of three runs for decisions, and never treats missing CrUX data as passing. The rest is a reference of fixes with code: a starting performance budget (1.5 MB page, 300 KB of JavaScript), server response and compression, preconnect, preloads only where a trace shows late discovery, Speculation Rules prerendering, deferred scripts and CSS, code splitting, AVIF and WebP images with srcset, font loading, Cache-Control and service workers, avoiding layout thrashing, virtualized lists, View Transitions, and delaying third-party widgets until needed. For production monitoring, it points to Google's web-vitals library over hand-written observers.",
+          "permalink": "https://github.com/addyosmani/web-quality-skills/tree/afa8da942115f2961fdbfa80807ea0b232ff6c00/skills/performance"
+        },
+        "tags": [
+          "category:debugging",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "performance"
+        ]
+      }
+    },
+    {
+      "id": "addyosmani/web-quality-skills/skills/web-quality-audit",
+      "name": "web-quality-audit",
+      "skills.sh": {
+        "url": "https://skills.sh/addyosmani/web-quality-skills/web-quality-audit",
+        "installs": 35300,
+        "weeklyInstalls": [1147, 963, 941, 981, 1063, 1112, 1403, 1467],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "afa8da942115f2961fdbfa80807ea0b232ff6c00",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Audits a site's performance, accessibility, SEO, best practices and agent readiness from live measurements, then makes or recommends fixes by severity.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want one review of a site's quality across speed, accessibility, search, security and how well AI agents can use it"
+            },
+            {
+              "label": "It does",
+              "text": "records a performance trace and runs Lighthouse audits, uses the failures to find the code responsible, then fixes or recommends fixes and re-runs the checks"
+            },
+            {
+              "label": "You get",
+              "text": "a report with an evidence table, issues from critical to low with file, impact and fix, a fix order, and what's still unverified"
+            },
+            {
+              "label": "Works with",
+              "text": "Chrome DevTools MCP if available, otherwise the Lighthouse CLI, PageSpeed Insights and manual checks; a bundled script gives a quick static scan"
+            },
+            {
+              "label": "Unlike its siblings",
+              "text": "it's the umbrella of Addy Osmani's web quality skills; performance, core-web-vitals, accessibility, seo and best-practices each go deep on one area"
+            },
+            {
+              "label": "Install with",
+              "text": "the repo's performance skill: it reads that skill's measurement workflow file"
+            }
+          ],
+          "text": "It starts by settling the scope: which URLs, states and user journeys, logged in or not, mobile or desktop. With a runnable page, it collects a small live baseline before searching the codebase, and lets runtime failures point to the source, keeping measured findings apart from hypotheses found only in code. Performance goes through a browser trace, since the Lighthouse tool in Chrome DevTools MCP leaves performance out; accessibility, SEO, best practices and agentic browsing go through Lighthouse, plus an accessibility-tree snapshot and trying the UI. The checklist covers Core Web Vitals thresholds, images, scripts, fonts and caching; WCAG basics such as alt text, contrast, keyboard access and labels; crawlability and page tags; HTTPS, CSP and deprecated APIs; and agentic browsing, meaning whether an AI assistant can find and operate the page's controls, with WebMCP and llms.txt treated as optional. It warns that an aggregate score isn't proof of quality. Findings are ranked critical (fix now), high (before launch), medium (this sprint) or low. It ends with checklists for every deploy and for weekly and monthly reviews.",
+          "permalink": "https://github.com/addyosmani/web-quality-skills/tree/afa8da942115f2961fdbfa80807ea0b232ff6c00/skills/web-quality-audit"
+        },
+        "tags": [
+          "category:debugging",
+          "category:design",
+          "category:marketing",
+          "category:security",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "performance",
+          "accessibility",
+          "seo",
+          "security"
+        ],
+        "note": "Reads the measurement workflow in the performance skill's folder, so install the repo's performance skill with it."
+      }
+    },
+    {
+      "id": "addyosmani/web-quality-skills/skills/core-web-vitals",
+      "name": "core-web-vitals",
+      "skills.sh": {
+        "url": "https://skills.sh/addyosmani/web-quality-skills/core-web-vitals",
+        "installs": 33900,
+        "weeklyInstalls": [1220, 1074, 1024, 1030, 1061, 1058, 1118, 1057],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "afa8da942115f2961fdbfa80807ea0b232ff6c00",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Diagnoses and fixes slow loading, sluggish responses and layout shifts (LCP, INP, CLS) from real-user data and browser traces.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a page's Core Web Vitals fail: the main content appears late (LCP), clicks respond slowly (INP), or the layout jumps (CLS)"
+            },
+            {
+              "label": "It does",
+              "text": "checks real-user Chrome data at the 75th percentile, records a browser trace, reads only the insights for the failing metric, fixes the code behind it and re-measures"
+            },
+            {
+              "label": "You get",
+              "text": "fixes with lab before-and-after numbers; it won't claim a real-user improvement until new visits show one"
+            },
+            {
+              "label": "Unlike performance",
+              "text": "its sibling skill for loading and runtime speed in general, it targets these three metrics and their good, needs-work and poor thresholds"
+            },
+            {
+              "label": "Install with",
+              "text": "the repo's performance skill: it reads that skill's measurement workflow and real-user monitoring files"
+            }
+          ],
+          "text": "LCP (Largest Contentful Paint) is when the biggest visible element renders, good at 2.5 seconds or less; INP (Interaction to Next Paint) is how fast the page responds to clicks, taps and key presses, good at 200 ms; CLS (Cumulative Layout Shift) measures unexpected jumps, good at 0.1. Each must be met by 75% of visits. With only source code, it names likely causes but won't call a metric failing without runtime evidence. For LCP it covers slow server response, render-blocking CSS, hero images discovered late, client-side rendering, and Speculation Rules prerendering of the likely next page, with its costs: each prerender is roughly a full page load and fires analytics early. LCP, INP and CLS each have a detailed reference file, read only when a trace or field data points to that metric. It adds quick fixes for Next.js, React and Vue/Nuxt, and recommends Google's web-vitals library over hand-written observers for production data.",
+          "permalink": "https://github.com/addyosmani/web-quality-skills/tree/afa8da942115f2961fdbfa80807ea0b232ff6c00/skills/core-web-vitals"
+        },
+        "tags": [
+          "category:debugging",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "performance"
+        ],
+        "note": "Reads the measurement and real-user monitoring files in the performance skill's folder, so install the repo's performance skill with it."
+      }
+    },
+    {
+      "id": "addyosmani/web-quality-skills/skills/best-practices",
+      "name": "best-practices",
+      "skills.sh": {
+        "url": "https://skills.sh/addyosmani/web-quality-skills/best-practices",
+        "installs": 30400,
+        "weeklyInstalls": [1046, 912, 802, 799, 858, 862, 914, 902],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "afa8da942115f2961fdbfa80807ea0b232ff6c00",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Audits a site for security headers, browser compatibility, deprecated APIs and console errors with Lighthouse, then fixes the code.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a site checked and fixed for the security, compatibility and code-quality problems Lighthouse's Best Practices audit looks for"
+            },
+            {
+              "label": "It does",
+              "text": "runs Lighthouse's Best Practices audit, inspects the console and network failures, checks dependencies, headers and config, fixes the code and re-runs the audit"
+            },
+            {
+              "label": "You get",
+              "text": "fixed code, with security findings kept apart from style preferences; it never presents a high score as proof the app is secure"
+            },
+            {
+              "label": "Works with",
+              "text": "Chrome DevTools MCP if available, otherwise the Lighthouse CLI with dependency and header checks"
+            },
+            {
+              "label": "Covers",
+              "text": "HTTPS and HSTS, CSP, sanitizing HTML, pinned third-party scripts, doctype and charset, deprecated APIs, passive listeners, error handling, source maps, permission prompts"
+            }
+          ],
+          "text": "Part of Addy Osmani's web quality skills. Lighthouse isn't a full security assessment, so it adds dependency, header, configuration and source checks, and verifies headers on the running site, since config files don't prove what's actually sent. A separate security reference, read when security is in scope, covers HSTS, CSP and Trusted Types, Subresource Integrity, cookies and sanitization. The rest is before-and-after code: an HTML5 doctype, charset first in the head, a viewport tag, feature detection over browser sniffing, polyfills bundled at build time rather than loaded from a third-party CDN (it cites the 2024 polyfill.io compromise), replacing document.write and synchronous requests, passive scroll and touch listeners, error boundaries and global error handlers, hidden source maps in production, event delegation and listener cleanup, valid semantic HTML, and asking for permissions such as location only after a user action. It ends with an audit checklist across security, compatibility, code quality and UX, and tools such as npm audit, SecurityHeaders.com, the W3C validator and Mozilla Observatory.",
+          "permalink": "https://github.com/addyosmani/web-quality-skills/tree/afa8da942115f2961fdbfa80807ea0b232ff6c00/skills/best-practices"
+        },
+        "tags": [
+          "category:debugging",
+          "category:security",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "security",
+          "code-quality"
+        ]
+      }
+    },
+    {
+      "id": "google-labs-code/stitch-skills/plugins/stitch-utilities/skills/stitch-loop",
+      "name": "stitch-loop",
+      "skills.sh": {
+        "url": "https://skills.sh/google-labs-code/stitch-skills/stitch-loop",
+        "installs": 57000,
+        "weeklyInstalls": [484, 459, 445, 470, 495, 591, 502, 426],
+        "firstSeen": "2026-01-23"
+      },
+      "skillMd": {
+        "version": "0337446dadde6f8c94210444e2aa9d546126480f",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds a website page by page in a loop: each run generates one page in Google Stitch and writes the next page's prompt.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want an agent to build a whole website with Google Stitch, Google's AI tool that generates UI screens from text, one page per run"
+            },
+            {
+              "label": "It does",
+              "text": "reads the next page's prompt from a \"baton\" file, generates the screen in Stitch, adds its HTML to your site and wires up the navigation"
+            },
+            {
+              "label": "You get",
+              "text": "a growing static site in site/public, an updated sitemap in .stitch/SITE.md, and the next page's prompt written for the following run"
+            },
+            {
+              "label": "Runs",
+              "text": "once per call; you, a CI job or another agent re-run it to build each next page"
+            },
+            {
+              "label": "Needs",
+              "text": "the Stitch MCP server, plus .stitch/DESIGN.md (the design system, which the repo's design-md skill can write) and .stitch/SITE.md (vision, sitemap, roadmap)"
+            },
+            {
+              "label": "Optional",
+              "text": "Chrome DevTools MCP, to screenshot each built page and compare it with Stitch's render"
+            }
+          ],
+          "text": "The \"baton\" is .stitch/next-prompt.md: a page name and a prompt that must carry the design system block from DESIGN.md, so every page shares one look. Each run reads it, checks SITE.md so it doesn't rebuild an existing page, and generates the screen in Stitch, creating the Stitch project on the first run and recording project and screen IDs in .stitch/metadata.json. It downloads the screen's HTML and screenshot, asking before it replaces local copies, moves the HTML into site/public, fixes asset paths and turns placeholder links into real navigation. With Chrome DevTools MCP, it serves the site locally and compares a screenshot with Stitch's. It then ticks the page off in SITE.md's sitemap, picks the next page from the roadmap, from SITE.md's list of ideas, or invents one that fits the site, and writes that prompt to the baton. Skipping that last step breaks the loop, so the skill insists on it. How runs are triggered is up to you: a GitHub Action when the baton changes, a developer reviewing each iteration, or one agent dispatching the next.",
+          "permalink": "https://github.com/google-labs-code/stitch-skills/tree/0337446dadde6f8c94210444e2aa9d546126480f/plugins/stitch-utilities/skills/stitch-loop"
+        },
+        "tags": [
+          "category:design",
+          "type:workflow",
+          "effect:remote",
+          "needs:mcp",
+          "needs:account",
+          "by:official",
+          "stack:stitch",
+          "design",
+          "prototyping",
+          "ai-generation",
+          "agent-workflows"
+        ],
+        "note": "Needs the Stitch MCP server and two files to start: .stitch/DESIGN.md and .stitch/SITE.md, which the repo's design-md and site-md skills write."
+      }
+    },
+    {
+      "id": "google-labs-code/stitch-skills/plugins/stitch-build/skills/remotion",
+      "name": "remotion",
+      "skills.sh": {
+        "url": "https://skills.sh/google-labs-code/stitch-skills/remotion",
+        "installs": 42000,
+        "weeklyInstalls": [440, 423, 411, 394, 436, 384, 428, 406],
+        "firstSeen": "2026-02-03"
+      },
+      "skillMd": {
+        "version": "0337446dadde6f8c94210444e2aa9d546126480f",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Turns a Google Stitch project's screens into an MP4 walkthrough video built with Remotion, with transitions, zooms and text overlays.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you have app screens designed in Google Stitch, Google's AI UI design tool, and want a video that walks through them"
+            },
+            {
+              "label": "It does",
+              "text": "downloads each screen's screenshot from Stitch, sets up a Remotion project (video made from React code), builds slides with zooms, transitions and text overlays, and renders it"
+            },
+            {
+              "label": "You get",
+              "text": "an MP4 file, a Remotion project in video/, and a screens.json listing each screen's title, description and seconds on screen, for later edits"
+            },
+            {
+              "label": "Needs",
+              "text": "the Stitch MCP server and a Stitch project, Node.js and npm, and the Remotion MCP server or CLI"
+            },
+            {
+              "label": "Can also add",
+              "text": "pulsing hotspots on features, narration timed to the screens, and callouts pulled from each screen's HTML text"
+            }
+          ],
+          "text": "It finds your Stitch project and lists its screens, downloads each screenshot into assets/screens in walkthrough order, and records each screen's title, description, size and duration (3 to 5 seconds by default) in screens.json. It then reuses an existing Remotion project or creates one in video/, writes a slide component that zooms and fades each screen in, and a composition that sequences the slides with fade or slide transitions, titles, descriptions and a progress indicator. It opens Remotion Studio to preview and adjust timing, then renders the final file with the Remotion CLI or MCP server. It suggests three patterns: a simple slideshow, a feature highlight that zooms into parts of a screen, and a user flow with numbered steps. For deeper Remotion technique it points to Remotion's own skills.",
+          "permalink": "https://github.com/google-labs-code/stitch-skills/tree/0337446dadde6f8c94210444e2aa9d546126480f/plugins/stitch-build/skills/remotion"
+        },
+        "tags": [
+          "category:media",
+          "type:workflow",
+          "effect:local",
+          "needs:mcp",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:stitch",
+          "stack:remotion",
+          "stack:react",
+          "video",
+          "animation"
+        ]
+      }
+    },
+    {
+      "id": "higgsfield-ai/skills/higgsfield-youtube-thumbnail",
+      "name": "higgsfield-youtube-thumbnail",
+      "skills.sh": {
+        "url": "https://skills.sh/higgsfield-ai/skills/higgsfield-youtube-thumbnail",
+        "installs": 116293,
+        "weeklyInstalls": [10552, 9086, 7712, 6886, 8729, 9256, 9144, 8443],
+        "firstSeen": "2026-08-03"
+      },
+      "skillMd": {
+        "version": "27000402070db19d958789d05b3b52b6f4718d7c",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Generates YouTube thumbnails and Shorts or Instagram video covers through Higgsfield, from a truthful concept to targeted edits.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need a thumbnail for a YouTube video, or a cover for a Short or an Instagram video"
+            },
+            {
+              "label": "It does",
+              "text": "picks the strongest truthful \"information gap\" (a hook that makes viewers want to know more) from five or more concepts, then renders it in 4K through Higgsfield's CLI"
+            },
+            {
+              "label": "You get",
+              "text": "image links with short labels such as \"shock / close-up\"; text-free by default, with a styled headline overlay or baked-in text on request"
+            },
+            {
+              "label": "Keeps",
+              "text": "up to three real people recognizable from your photos, plus your logo, kept flat or turned 3D"
+            },
+            {
+              "label": "Needs",
+              "text": "the higgsfield CLI, which it installs if missing, and a Higgsfield account; generations use credits"
+            },
+            {
+              "label": "Unlike higgsfield-generate",
+              "text": "that skill makes any image or video; this one follows thumbnail rules: one focal subject, readable at 120 pixels wide, no invented claims"
+            }
+          ],
+          "text": "Higgsfield is a platform hosting many AI image, video and audio models. The agent asks only for what the brief leaves out: the video's topic and the promise the thumbnail may make, who appears (zero to three people; it never picks a stand-in face without asking), an optional style reference, logo or 2 to 4 word headline, and the ratio: 16:9 for YouTube, 9:16 for Shorts or 4:5 for Instagram. A reference thumbnail is analyzed for framing, palette and emotion but never sent to Higgsfield or copied. Prompts follow a fixed order, from frame and scene to an identity lock for each face, a lighting rig and the color grade. It offers about four variants when alternatives would help, capped at 16 generations, and checks each result, when the agent can see images, for matching faces, stray text and legibility at small size, retrying a failure at most twice. You pick one; it can then change only the expression, the background or the rim light with Seedream edits, leaving everything else untouched.",
+          "permalink": "https://github.com/higgsfield-ai/skills/tree/27000402070db19d958789d05b3b52b6f4718d7c/higgsfield-youtube-thumbnail"
+        },
+        "tags": [
+          "category:media",
+          "category:marketing",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:higgsfield",
+          "image",
+          "social-media",
+          "ai-generation"
+        ]
+      }
+    },
+    {
+      "id": "higgsfield-ai/skills/higgsfield-brandkit",
+      "name": "higgsfield-brandkit",
+      "skills.sh": {
+        "url": "https://skills.sh/higgsfield-ai/skills/higgsfield-brandkit",
+        "installs": 116085,
+        "weeklyInstalls": [10564, 9103, 7701, 6879, 8712, 9199, 9084, 8402],
+        "firstSeen": "2026-08-03"
+      },
+      "skillMd": {
+        "version": "27000402070db19d958789d05b3b52b6f4718d7c",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds or extends a brand identity through Higgsfield, from palette, SVG logo and fonts to mockups, packaging, social graphics and brandbooks.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need a visual identity made or extended: logo, colors, fonts, and branded assets such as packaging, signage, merch, posters or a deck"
+            },
+            {
+              "label": "It does",
+              "text": "builds only what your request needs, stopping for you to choose a palette, then one of three SVG logo marks, then a font pairing, before making assets"
+            },
+            {
+              "label": "You get",
+              "text": "logo exports, review boards, editable SVG, HTML or PPTX layouts and a brandbook (PPTX plus PDF) as local files; generated mockups as Higgsfield image links"
+            },
+            {
+              "label": "Keeps",
+              "text": "your approvals in a local state file; changing one choice redoes only the assets that depend on it"
+            },
+            {
+              "label": "Respects",
+              "text": "logos, colors and fonts you supply as fixed, and never invents claims, prices or certifications"
+            },
+            {
+              "label": "Needs",
+              "text": "the higgsfield CLI (installed only with your permission), a Higgsfield account and Python; logo export and the brandbook also need ImageMagick, rsvg-convert, LibreOffice and Poppler"
+            },
+            {
+              "label": "Won't deliver",
+              "text": "native Figma, Canva, Photoshop or Illustrator files"
+            }
+          ],
+          "text": "Higgsfield is a platform hosting many AI image, video and audio models; this skill pairs its CLI with bundled Python scripts that render previews, check and export the logo, and build the brandbook. It first sorts the request: apply your existing brand, fill in missing pieces, or create a new identity, which it does only when asked. It then records a \"Brand Lock\": the exact spelling, colors, fonts, shapes and forbidden treatments, copied into every later prompt. New logos are vector marks from the Recraft model in your approved palette; photoreal mockups come from Seedream, with GPT Image 2 only where readable text is needed. Exact copy and editable layouts are built locally as SVG, HTML or PPTX rather than faked by an image model. Palette and font options appear as HTML previews you can edit. It never takes silence as approval, and uses the chosen logo unaltered everywhere. Work is kept in a brandkit/ folder in your project. It can also import a website's brand details through Higgsfield's Marketing Studio.",
+          "permalink": "https://github.com/higgsfield-ai/skills/tree/27000402070db19d958789d05b3b52b6f4718d7c/higgsfield-brandkit"
+        },
+        "tags": [
+          "category:design",
+          "category:marketing",
+          "category:media",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:higgsfield",
+          "design",
+          "image",
+          "ai-generation",
+          "marketing"
+        ]
+      }
+    },
+    {
+      "id": "spillwavesolutions/design-doc-mermaid",
+      "name": "design-doc-mermaid",
+      "skills.sh": {
+        "url": "https://skills.sh/spillwavesolutions/design-doc-mermaid/design-doc-mermaid",
+        "installs": 92489,
+        "weeklyInstalls": [4007, 4062, 5401, 5276, 5890, 5247, 6517, 6318],
+        "firstSeen": "2026-02-06"
+      },
+      "skillMd": {
+        "version": "c36d83503d2ba9c1e51638dc2d8a34758a377dea",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Creates Mermaid diagrams and design documents from descriptions or source code, validating each diagram before adding it to your docs.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need a flowchart, sequence, class, ER, state, C4 or architecture diagram, or a design document, from a description or your code"
+            },
+            {
+              "label": "It does",
+              "text": "loads only the guide for that diagram type, writes the Mermaid code, saves it as a .mmd file and renders it to validate it before adding it to Markdown"
+            },
+            {
+              "label": "You get",
+              "text": ".mmd and PNG or SVG files in ./diagrams with image links in your Markdown; full design documents go in docs/design/"
+            },
+            {
+              "label": "Needs",
+              "text": "mermaid-cli (mmdc) and Python to validate and export images; writing diagram code alone needs neither"
+            },
+            {
+              "label": "Style",
+              "text": "Unicode symbols on nodes, such as 🔐 for auth and 💾 for databases, and high-contrast colors in every style"
+            },
+            {
+              "label": "Unlike archify",
+              "text": "which redraws diagrams as interactive HTML in its own style, it produces plain Mermaid that GitHub renders, plus images for Confluence"
+            }
+          ],
+          "text": "A decision tree routes each request to one of its guides: activity diagrams for workflows, deployment diagrams for cloud and Kubernetes, architecture, sequence, or a GitHub wiki guide for class, ER and state diagrams. For existing code it has worked examples for Spring Boot, FastAPI, React, Python ETL, Express and Java web apps, such as deriving a deployment diagram from application.yml. Five templates cover architecture, API, feature, database and system design documents. Its rule is never to add a diagram to Markdown until it passes validation: a bundled script saves the .mmd, renders it with mermaid-cli and reports errors; on failure the agent checks a troubleshooting guide of 28 known errors, then searches the web. For GitHub, a fenced mermaid block is enough; for Confluence, Notion, Word or PDF it also exports PNG or SVG. Other scripts extract every diagram from a Markdown file, validate them, swap them for image links, or batch-convert a folder. PlantUML is left for the types Mermaid lacks, such as wireframes, use-case and timing diagrams.",
+          "permalink": "https://github.com/spillwavesolutions/design-doc-mermaid/tree/c36d83503d2ba9c1e51638dc2d8a34758a377dea"
+        },
+        "tags": [
+          "category:science",
+          "category:writing",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "stack:mermaid",
+          "diagrams",
+          "architecture",
+          "docs-writing"
+        ]
       }
     }
   ]

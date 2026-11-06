@@ -3,71 +3,6 @@
   "asOf": "2026-11-06",
   "qualified": [
     {
-      "name": "higgsfield-youtube-thumbnail",
-      "repo": "higgsfield-ai/skills",
-      "official": false,
-      "stars": 1902,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/higgsfield-ai/skills/higgsfield-youtube-thumbnail",
-        "installs": 116293,
-        "weeklyInstalls": [10552, 9086, 7712, 6886, 8729, 9256, 9144, 8443],
-        "firstSeen": "2026-08-03"
-      }
-    },
-    {
-      "name": "higgsfield-brandkit",
-      "repo": "higgsfield-ai/skills",
-      "official": false,
-      "stars": 1902,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/higgsfield-ai/skills/higgsfield-brandkit",
-        "installs": 116085,
-        "weeklyInstalls": [10564, 9103, 7701, 6879, 8712, 9199, 9084, 8402],
-        "firstSeen": "2026-08-03"
-      }
-    },
-    {
-      "name": "design-doc-mermaid",
-      "repo": "spillwavesolutions/design-doc-mermaid",
-      "official": false,
-      "stars": 182,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/spillwavesolutions/design-doc-mermaid/design-doc-mermaid",
-        "installs": 92489,
-        "weeklyInstalls": [4007, 4062, 5401, 5276, 5890, 5247, 6517, 6318],
-        "firstSeen": "2026-02-06"
-      }
-    },
-    {
-      "name": "stitch-loop",
-      "repo": "google-labs-code/stitch-skills",
-      "official": false,
-      "stars": 8689,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google-labs-code/stitch-skills/stitch-loop",
-        "installs": 57000,
-        "weeklyInstalls": [484, 459, 445, 470, 495, 591, 502, 426],
-        "firstSeen": "2026-01-23"
-      }
-    },
-    {
-      "name": "seo",
-      "repo": "addyosmani/web-quality-skills",
-      "official": false,
-      "stars": 3051,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/addyosmani/web-quality-skills/seo",
-        "installs": 54200,
-        "weeklyInstalls": [1343, 1192, 1095, 1118, 1187, 1183, 1210, 1181],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
       "name": "planning-with-files",
       "repo": "othmanadi/planning-with-files",
       "official": false,
@@ -91,32 +26,6 @@
         "installs": 45000,
         "weeklyInstalls": [977, 1035, 1045, 1075, 945, 1259, 1676, 1307],
         "firstSeen": "2026-01-28"
-      }
-    },
-    {
-      "name": "performance",
-      "repo": "addyosmani/web-quality-skills",
-      "official": false,
-      "stars": 3051,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/addyosmani/web-quality-skills/performance",
-        "installs": 43100,
-        "weeklyInstalls": [1354, 1165, 1131, 1011, 1048, 1057, 1110, 1091],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "remotion",
-      "repo": "google-labs-code/stitch-skills",
-      "official": false,
-      "stars": 8689,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google-labs-code/stitch-skills/remotion",
-        "installs": 42000,
-        "weeklyInstalls": [440, 423, 411, 394, 436, 384, 428, 406],
-        "firstSeen": "2026-02-03"
       }
     },
     {
@@ -185,19 +94,6 @@
       }
     },
     {
-      "name": "web-quality-audit",
-      "repo": "addyosmani/web-quality-skills",
-      "official": false,
-      "stars": 3051,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/addyosmani/web-quality-skills/web-quality-audit",
-        "installs": 35300,
-        "weeklyInstalls": [1147, 963, 941, 981, 1063, 1112, 1403, 1467],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
       "name": "baoyu-post-to-wechat",
       "repo": "jimliu/baoyu-skills",
       "official": false,
@@ -221,19 +117,6 @@
         "installs": 34100,
         "weeklyInstalls": [367, 350, 175, 179, 234, 236, 237, 263],
         "firstSeen": "2026-01-21"
-      }
-    },
-    {
-      "name": "core-web-vitals",
-      "repo": "addyosmani/web-quality-skills",
-      "official": false,
-      "stars": 3051,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/addyosmani/web-quality-skills/core-web-vitals",
-        "installs": 33900,
-        "weeklyInstalls": [1220, 1074, 1024, 1030, 1061, 1058, 1118, 1057],
-        "firstSeen": "2026-01-20"
       }
     },
     {
@@ -377,19 +260,6 @@
         "installs": 30700,
         "weeklyInstalls": [320, 299, 120, 112, 171, 171, 173, 194],
         "firstSeen": "2026-01-22"
-      }
-    },
-    {
-      "name": "best-practices",
-      "repo": "addyosmani/web-quality-skills",
-      "official": false,
-      "stars": 3051,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/addyosmani/web-quality-skills/best-practices",
-        "installs": 30400,
-        "weeklyInstalls": [1046, 912, 802, 799, 858, 862, 914, 902],
-        "firstSeen": "2026-01-20"
       }
     },
     {
