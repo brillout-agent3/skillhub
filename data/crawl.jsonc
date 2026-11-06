@@ -9207,71 +9207,6 @@
       }
     },
     {
-      "name": "quarkus-tdd",
-      "repo": "affaan-m/ecc",
-      "official": false,
-      "stars": 298421,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/affaan-m/ecc/quarkus-tdd",
-        "installs": 5200,
-        "weeklyInstalls": [286, 258, 160, 141, 228, 405, 400, 466],
-        "firstSeen": "2026-05-19"
-      }
-    },
-    {
-      "name": "quarkus-verification",
-      "repo": "affaan-m/ecc",
-      "official": false,
-      "stars": 298421,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/affaan-m/ecc/quarkus-verification",
-        "installs": 5200,
-        "weeklyInstalls": [284, 255, 158, 140, 231, 407, 400, 468],
-        "firstSeen": "2026-05-19"
-      }
-    },
-    {
-      "name": "homelab-pihole-dns",
-      "repo": "affaan-m/ecc",
-      "official": false,
-      "stars": 298421,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/affaan-m/ecc/homelab-pihole-dns",
-        "installs": 5200,
-        "weeklyInstalls": [284, 260, 157, 142, 231, 410, 406, 469],
-        "firstSeen": "2026-05-19"
-      }
-    },
-    {
-      "name": "fsharp-testing",
-      "repo": "affaan-m/ecc",
-      "official": false,
-      "stars": 298421,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/affaan-m/ecc/fsharp-testing",
-        "installs": 5200,
-        "weeklyInstalls": [285, 254, 156, 136, 226, 405, 399, 468],
-        "firstSeen": "2026-05-19"
-      }
-    },
-    {
-      "name": "recsys-pipeline-architect",
-      "repo": "affaan-m/ecc",
-      "official": false,
-      "stars": 298421,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/affaan-m/ecc/recsys-pipeline-architect",
-        "installs": 5200,
-        "weeklyInstalls": [282, 258, 157, 140, 227, 405, 400, 464],
-        "firstSeen": "2026-05-19"
-      }
-    },
-    {
       "name": "benchmark-optimization-loop",
       "repo": "affaan-m/ecc",
       "official": false,
@@ -9867,32 +9802,6 @@
         "installs": 5200,
         "weeklyInstalls": [126, 122, 114, 117, 18, 11, 3, 6],
         "firstSeen": "2026-01-24"
-      }
-    },
-    {
-      "name": "tinystruct-patterns",
-      "repo": "affaan-m/ecc",
-      "official": false,
-      "stars": 298421,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/affaan-m/ecc/tinystruct-patterns",
-        "installs": 5100,
-        "weeklyInstalls": [282, 254, 156, 137, 228, 406, 398, 471],
-        "firstSeen": "2026-05-19"
-      }
-    },
-    {
-      "name": "uncloud",
-      "repo": "affaan-m/ecc",
-      "official": false,
-      "stars": 298421,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/affaan-m/ecc/uncloud",
-        "installs": 5100,
-        "weeklyInstalls": [283, 262, 158, 140, 226, 403, 397, 466],
-        "firstSeen": "2026-05-19"
       }
     },
     {
@@ -29659,6 +29568,34 @@
     {
       "url": "https://skills.sh/affaan-m/ecc/swiftui-patterns",
       "note": "Tool docs: an agent's manual for swiftui."
+    },
+    {
+      "url": "https://skills.sh/affaan-m/ecc/quarkus-tdd",
+      "note": "Tool docs: an agent's manual for quarkus and java."
+    },
+    {
+      "url": "https://skills.sh/affaan-m/ecc/quarkus-verification",
+      "note": "Tool docs: an agent's manual for quarkus and java."
+    },
+    {
+      "url": "https://skills.sh/affaan-m/ecc/homelab-pihole-dns",
+      "note": "Tool docs: an agent's manual for pi-hole."
+    },
+    {
+      "url": "https://skills.sh/affaan-m/ecc/fsharp-testing",
+      "note": "Tool docs: an agent's manual for fsharp and dotnet."
+    },
+    {
+      "url": "https://skills.sh/affaan-m/ecc/recsys-pipeline-architect",
+      "note": "A condensed copy of mturac/recsys-pipeline-architect."
+    },
+    {
+      "url": "https://skills.sh/affaan-m/ecc/tinystruct-patterns",
+      "note": "Tool docs: an agent's manual for tinystruct and java."
+    },
+    {
+      "url": "https://skills.sh/affaan-m/ecc/uncloud",
+      "note": "Tool docs: an agent's manual for uncloud."
     }
   ]
 }
