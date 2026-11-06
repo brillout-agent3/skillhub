@@ -42,19 +42,6 @@
       }
     },
     {
-      "name": "variant-analysis",
-      "repo": "trailofbits/skills",
-      "official": true,
-      "stars": 8045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/trailofbits/skills/variant-analysis",
-        "installs": 6900,
-        "weeklyInstalls": [141, 152, 160, 166, 183, 227, 265, 282],
-        "firstSeen": "2026-01-19"
-      }
-    },
-    {
       "name": "figma-implement-design",
       "repo": "openai/skills",
       "official": true,
@@ -471,19 +458,6 @@
       }
     },
     {
-      "name": "sarif-parsing",
-      "repo": "trailofbits/skills",
-      "official": true,
-      "stars": 8045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/trailofbits/skills/sarif-parsing",
-        "installs": 6300,
-        "weeklyInstalls": [136, 130, 135, 136, 151, 167, 213, 217],
-        "firstSeen": "2026-01-19"
-      }
-    },
-    {
       "name": "screenshot",
       "repo": "openai/skills",
       "official": true,
@@ -653,19 +627,6 @@
       }
     },
     {
-      "name": "spec-to-code-compliance",
-      "repo": "trailofbits/skills",
-      "official": true,
-      "stars": 8045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/trailofbits/skills/spec-to-code-compliance",
-        "installs": 6200,
-        "weeklyInstalls": [151, 144, 117, 122, 149, 151, 180, 198],
-        "firstSeen": "2026-01-19"
-      }
-    },
-    {
       "name": "web-scraping",
       "repo": "jamditis/claude-skills-journalism",
       "official": false,
@@ -731,19 +692,6 @@
       }
     },
     {
-      "name": "semgrep-rule-creator",
-      "repo": "trailofbits/skills",
-      "official": true,
-      "stars": 8045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/trailofbits/skills/semgrep-rule-creator",
-        "installs": 6100,
-        "weeklyInstalls": [125, 119, 130, 118, 171, 150, 185, 191],
-        "firstSeen": "2026-01-19"
-      }
-    },
-    {
       "name": "building-pydantic-ai-agents",
       "repo": "pydantic/skills",
       "official": false,
@@ -793,19 +741,6 @@
         "installs": 6100,
         "weeklyInstalls": [203, 211, 212, 282, 187, 205, 222, 226],
         "firstSeen": "2026-01-28"
-      }
-    },
-    {
-      "name": "entry-point-analyzer",
-      "repo": "trailofbits/skills",
-      "official": true,
-      "stars": 8045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/trailofbits/skills/entry-point-analyzer",
-        "installs": 6100,
-        "weeklyInstalls": [148, 136, 117, 116, 146, 177, 189, 212],
-        "firstSeen": "2026-01-19"
       }
     },
     {
@@ -952,19 +887,6 @@
       }
     },
     {
-      "name": "audit-prep-assistant",
-      "repo": "trailofbits/skills",
-      "official": true,
-      "stars": 8045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/trailofbits/skills/audit-prep-assistant",
-        "installs": 6000,
-        "weeklyInstalls": [145, 136, 119, 106, 132, 142, 173, 180],
-        "firstSeen": "2026-01-19"
-      }
-    },
-    {
       "name": "qianwen-vision",
       "repo": "qianwen-ai/qianwen-ai",
       "official": false,
@@ -1027,19 +949,6 @@
         "installs": 6000,
         "weeklyInstalls": [102, 106, 87, 66, 82, 88, 82, 65],
         "firstSeen": "2026-03-13"
-      }
-    },
-    {
-      "name": "solana-vulnerability-scanner",
-      "repo": "trailofbits/skills",
-      "official": true,
-      "stars": 8045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/trailofbits/skills/solana-vulnerability-scanner",
-        "installs": 6000,
-        "weeklyInstalls": [122, 110, 107, 100, 120, 123, 159, 167],
-        "firstSeen": "2026-01-19"
       }
     },
     {
@@ -1342,19 +1251,6 @@
       }
     },
     {
-      "name": "guidelines-advisor",
-      "repo": "trailofbits/skills",
-      "official": true,
-      "stars": 8045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/trailofbits/skills/guidelines-advisor",
-        "installs": 5800,
-        "weeklyInstalls": [139, 122, 107, 96, 124, 127, 153, 169],
-        "firstSeen": "2026-01-19"
-      }
-    },
-    {
       "name": "deslop",
       "repo": "brianlovin/agent-config",
       "official": false,
@@ -1364,45 +1260,6 @@
         "url": "https://skills.sh/brianlovin/agent-config/deslop",
         "installs": 5800,
         "weeklyInstalls": [291, 462, 328, 181, 189, 198, 78, 152],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "coverage-analysis",
-      "repo": "trailofbits/skills",
-      "official": true,
-      "stars": 8045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/trailofbits/skills/coverage-analysis",
-        "installs": 5800,
-        "weeklyInstalls": [121, 114, 119, 99, 122, 135, 158, 166],
-        "firstSeen": "2026-01-19"
-      }
-    },
-    {
-      "name": "token-integration-analyzer",
-      "repo": "trailofbits/skills",
-      "official": true,
-      "stars": 8045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/trailofbits/skills/token-integration-analyzer",
-        "installs": 5800,
-        "weeklyInstalls": [135, 124, 105, 96, 121, 126, 160, 171],
-        "firstSeen": "2026-01-19"
-      }
-    },
-    {
-      "name": "firebase-apk-scanner",
-      "repo": "trailofbits/skills",
-      "official": true,
-      "stars": 8045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/trailofbits/skills/firebase-apk-scanner",
-        "installs": 5800,
-        "weeklyInstalls": [113, 113, 110, 98, 126, 145, 168, 185],
         "firstSeen": "2026-01-20"
       }
     },
@@ -1495,32 +1352,6 @@
         "installs": 5700,
         "weeklyInstalls": [83, 101, 98, 155, 131, 127, 129, 135],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "constant-time-analysis",
-      "repo": "trailofbits/skills",
-      "official": true,
-      "stars": 8045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/trailofbits/skills/constant-time-analysis",
-        "installs": 5700,
-        "weeklyInstalls": [115, 109, 107, 104, 126, 140, 159, 172],
-        "firstSeen": "2026-01-19"
-      }
-    },
-    {
-      "name": "harness-writing",
-      "repo": "trailofbits/skills",
-      "official": true,
-      "stars": 8045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/trailofbits/skills/harness-writing",
-        "installs": 5700,
-        "weeklyInstalls": [117, 115, 118, 105, 120, 136, 161, 171],
-        "firstSeen": "2026-01-19"
       }
     },
     {
@@ -1641,19 +1472,6 @@
       }
     },
     {
-      "name": "fuzzing-obstacles",
-      "repo": "trailofbits/skills",
-      "official": true,
-      "stars": 8045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/trailofbits/skills/fuzzing-obstacles",
-        "installs": 5600,
-        "weeklyInstalls": [114, 108, 108, 97, 120, 124, 155, 166],
-        "firstSeen": "2026-01-19"
-      }
-    },
-    {
       "name": "uncodixfy",
       "repo": "cyxzdev/uncodixfy",
       "official": false,
@@ -1732,32 +1550,6 @@
       }
     },
     {
-      "name": "cosmos-vulnerability-scanner",
-      "repo": "trailofbits/skills",
-      "official": true,
-      "stars": 8045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/trailofbits/skills/cosmos-vulnerability-scanner",
-        "installs": 5600,
-        "weeklyInstalls": [111, 102, 105, 95, 119, 121, 157, 159],
-        "firstSeen": "2026-01-19"
-      }
-    },
-    {
-      "name": "semgrep-rule-variant-creator",
-      "repo": "trailofbits/skills",
-      "official": true,
-      "stars": 8045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/trailofbits/skills/semgrep-rule-variant-creator",
-        "installs": 5600,
-        "weeklyInstalls": [114, 104, 102, 94, 116, 125, 146, 177],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
       "name": "learn-codebase",
       "repo": "thedotmack/claude-mem",
       "official": false,
@@ -1781,32 +1573,6 @@
         "installs": 5600,
         "weeklyInstalls": [318, 373, 413, 511, 410, 513, 500, 378],
         "firstSeen": "2026-05-24"
-      }
-    },
-    {
-      "name": "fuzzing-dictionary",
-      "repo": "trailofbits/skills",
-      "official": true,
-      "stars": 8045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/trailofbits/skills/fuzzing-dictionary",
-        "installs": 5600,
-        "weeklyInstalls": [113, 110, 110, 96, 121, 126, 154, 167],
-        "firstSeen": "2026-01-19"
-      }
-    },
-    {
-      "name": "second-opinion",
-      "repo": "trailofbits/skills",
-      "official": true,
-      "stars": 8045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/trailofbits/skills/second-opinion",
-        "installs": 5600,
-        "weeklyInstalls": [134, 122, 115, 110, 132, 141, 162, 185],
-        "firstSeen": "2026-02-10"
       }
     },
     {
@@ -1953,32 +1719,6 @@
       }
     },
     {
-      "name": "constant-time-testing",
-      "repo": "trailofbits/skills",
-      "official": true,
-      "stars": 8045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/trailofbits/skills/constant-time-testing",
-        "installs": 5500,
-        "weeklyInstalls": [111, 106, 104, 96, 118, 124, 154, 160],
-        "firstSeen": "2026-01-19"
-      }
-    },
-    {
-      "name": "devcontainer-setup",
-      "repo": "trailofbits/skills",
-      "official": true,
-      "stars": 8045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/trailofbits/skills/devcontainer-setup",
-        "installs": 5500,
-        "weeklyInstalls": [113, 109, 113, 112, 141, 130, 154, 170],
-        "firstSeen": "2026-02-10"
-      }
-    },
-    {
       "name": "worktrunk",
       "repo": "max-sixty/worktrunk",
       "official": false,
@@ -1989,32 +1729,6 @@
         "installs": 5500,
         "weeklyInstalls": [157, 163, 134, 138, 104, 108, 124, 95],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "dwarf-expert",
-      "repo": "trailofbits/skills",
-      "official": true,
-      "stars": 8045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/trailofbits/skills/dwarf-expert",
-        "installs": 5500,
-        "weeklyInstalls": [108, 107, 106, 101, 118, 122, 152, 161],
-        "firstSeen": "2026-01-19"
-      }
-    },
-    {
-      "name": "algorand-vulnerability-scanner",
-      "repo": "trailofbits/skills",
-      "official": true,
-      "stars": 8045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/trailofbits/skills/algorand-vulnerability-scanner",
-        "installs": 5500,
-        "weeklyInstalls": [114, 106, 105, 93, 118, 120, 153, 158],
-        "firstSeen": "2026-01-19"
       }
     },
     {
@@ -2054,19 +1768,6 @@
         "installs": 5500,
         "weeklyInstalls": [314, 384, 441, 530, 426, 437, 476, 373],
         "firstSeen": "2026-05-24"
-      }
-    },
-    {
-      "name": "ton-vulnerability-scanner",
-      "repo": "trailofbits/skills",
-      "official": true,
-      "stars": 8045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/trailofbits/skills/ton-vulnerability-scanner",
-        "installs": 5500,
-        "weeklyInstalls": [111, 102, 104, 93, 117, 120, 151, 159],
-        "firstSeen": "2026-01-19"
       }
     },
     {
@@ -2122,19 +1823,6 @@
       }
     },
     {
-      "name": "cairo-vulnerability-scanner",
-      "repo": "trailofbits/skills",
-      "official": true,
-      "stars": 8045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/trailofbits/skills/cairo-vulnerability-scanner",
-        "installs": 5500,
-        "weeklyInstalls": [112, 103, 102, 94, 118, 120, 153, 159],
-        "firstSeen": "2026-01-19"
-      }
-    },
-    {
       "name": "ghost-scan-code",
       "repo": "ghostsecurity/skills",
       "official": false,
@@ -2171,32 +1859,6 @@
         "installs": 5500,
         "weeklyInstalls": [369, 455, 542, 584, 563, 460, 440, 446],
         "firstSeen": "2026-08-10"
-      }
-    },
-    {
-      "name": "substrate-vulnerability-scanner",
-      "repo": "trailofbits/skills",
-      "official": true,
-      "stars": 8045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/trailofbits/skills/substrate-vulnerability-scanner",
-        "installs": 5500,
-        "weeklyInstalls": [112, 104, 101, 93, 117, 120, 151, 159],
-        "firstSeen": "2026-01-19"
-      }
-    },
-    {
-      "name": "interpreting-culture-index",
-      "repo": "trailofbits/skills",
-      "official": true,
-      "stars": 8045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/trailofbits/skills/interpreting-culture-index",
-        "installs": 5500,
-        "weeklyInstalls": [110, 100, 103, 97, 118, 121, 148, 161],
-        "firstSeen": "2026-01-19"
       }
     },
     {
@@ -2275,19 +1937,6 @@
         "installs": 5400,
         "weeklyInstalls": [314, 369, 434, 510, 408, 481, 484, 358],
         "firstSeen": "2026-05-23"
-      }
-    },
-    {
-      "name": "yara-rule-authoring",
-      "repo": "trailofbits/skills",
-      "official": true,
-      "stars": 8045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/trailofbits/skills/yara-rule-authoring",
-        "installs": 5400,
-        "weeklyInstalls": [114, 105, 107, 98, 120, 127, 156, 172],
-        "firstSeen": "2026-01-30"
       }
     },
     {
@@ -2379,19 +2028,6 @@
         "installs": 5300,
         "weeklyInstalls": [85, 106, 72, 93, 92, 121, 104, 106],
         "firstSeen": "2026-01-31"
-      }
-    },
-    {
-      "name": "skill-improver",
-      "repo": "trailofbits/skills",
-      "official": true,
-      "stars": 8045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/trailofbits/skills/skill-improver",
-        "installs": 5300,
-        "weeklyInstalls": [119, 106, 107, 103, 121, 125, 153, 173],
-        "firstSeen": "2026-02-26"
       }
     },
     {
@@ -2980,19 +2616,6 @@
       }
     },
     {
-      "name": "zeroize-audit",
-      "repo": "trailofbits/skills",
-      "official": true,
-      "stars": 8045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/trailofbits/skills/zeroize-audit",
-        "installs": 5000,
-        "weeklyInstalls": [109, 106, 101, 98, 117, 127, 157, 167],
-        "firstSeen": "2026-02-26"
-      }
-    },
-    {
       "name": "gh-address-comments",
       "repo": "openai/skills",
       "official": true,
@@ -3016,19 +2639,6 @@
         "installs": 5000,
         "weeklyInstalls": [94, 77, 86, 80, 67, 68, 62, 71],
         "firstSeen": "2026-03-18"
-      }
-    },
-    {
-      "name": "let-fate-decide",
-      "repo": "trailofbits/skills",
-      "official": true,
-      "stars": 8045,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/trailofbits/skills/let-fate-decide",
-        "installs": 5000,
-        "weeklyInstalls": [108, 101, 100, 95, 115, 122, 148, 161],
-        "firstSeen": "2026-02-26"
       }
     },
     {

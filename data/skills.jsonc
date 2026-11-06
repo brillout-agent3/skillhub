@@ -65875,6 +65875,1677 @@
           "memory"
         ]
       }
+    },
+    {
+      "id": "trailofbits/skills/plugins/variant-analysis/skills/variant-analysis",
+      "name": "variant-analysis",
+      "skills.sh": {
+        "url": "https://skills.sh/trailofbits/skills/variant-analysis",
+        "installs": 6900,
+        "weeklyInstalls": [141, 152, 160, 166, 183, 227, 265, 282],
+        "firstSeen": "2026-01-19"
+      },
+      "skillMd": {
+        "version": "e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Hunts for other instances of a bug you've already found, widening a search pattern one step at a time and triaging each match.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you've found one bug and want to know where else its root cause shows up, including \"are there others like this?\""
+            },
+            {
+              "label": "It does",
+              "text": "states the root cause, writes a pattern matching only the known bug, then generalizes one element at a time until over half the matches are noise"
+            },
+            {
+              "label": "You get",
+              "text": "a report of confirmed variants by severity, every pattern tried with its match and false-positive counts, and a CI rule against regressions"
+            },
+            {
+              "label": "Works with",
+              "text": "ripgrep for recon, Semgrep for iteration and CodeQL for precision, with starter queries for Python, JavaScript, Java, Go and C++"
+            },
+            {
+              "label": "Not for",
+              "text": "finding a first bug with nothing in hand; it points to audit-context-building for that"
+            }
+          ],
+          "text": "From Trail of Bits. One root cause usually shows up in several places, and rarely in the module where the first instance was found. The skill works in five steps. It first pins down why the code is wrong, not what it does, and lists where variants could hide: related identifiers, other forms of the same mistake, data-type edge cases. It then writes an exact pattern that must hit the known bug, since a pattern that misses it means the bug was misunderstood. Generalizing changes one element at a time, from variable names to surrounding structure to the security property itself, rereading every match after each change. Triage argues against each candidate, looking for guards, sanitizers and type constraints, and checks whether it is reachable, attacker-controlled and unprotected; code nothing calls yet is still reported, at lower severity. Null-equality bypasses and code that contradicts its own docs get checked on purpose. The report fills a bundled template and keeps the patterns that failed. Its plugin also ships /variant-analysis:variants, which runs the steps across parallel subagents, one per direction of search, until a sweep finds nothing new.",
+          "permalink": "https://github.com/trailofbits/skills/tree/e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff/plugins/variant-analysis/skills/variant-analysis"
+        },
+        "tags": [
+          "category:security",
+          "category:debugging",
+          "type:workflow",
+          "effect:none",
+          "needs:cli",
+          "by:official",
+          "stack:semgrep",
+          "stack:codeql",
+          "security",
+          "code-review"
+        ],
+        "note": "The parallel /variant-analysis:variants workflow comes with its Claude Code plugin; installed alone, the skill's five steps are worked by hand."
+      }
+    },
+    {
+      "id": "trailofbits/skills/plugins/static-analysis/skills/sarif-parsing",
+      "name": "sarif-parsing",
+      "skills.sh": {
+        "url": "https://skills.sh/trailofbits/skills/sarif-parsing",
+        "installs": 6300,
+        "weeklyInstalls": [136, 130, 135, 136, 151, 167, 213, 217],
+        "firstSeen": "2026-01-19"
+      },
+      "skillMd": {
+        "version": "e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Reads, filters, deduplicates and merges SARIF results from scanners such as CodeQL and Semgrep, resolving each finding's severity correctly.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you have SARIF output from CodeQL, Semgrep or another scanner and need to query, merge, deduplicate, diff or gate CI on it"
+            },
+            {
+              "label": "It does",
+              "text": "picks jq for quick queries, or Python with pysarif, sarif-tools or its bundled helpers for scripts, aggregation and CI checks"
+            },
+            {
+              "label": "Catches",
+              "text": "severity gates that only read result.level, which CodeQL never sets, so a repo full of errors passes"
+            },
+            {
+              "label": "Not for",
+              "text": "running scans or writing rules; it points to the Semgrep and CodeQL skills for those"
+            }
+          ],
+          "text": "From Trail of Bits' static-analysis plugin, alongside its semgrep and codeql skills. SARIF is the standard JSON format static analysis tools use to report findings. The skill's central warning is that a result's severity often lives on its rule: CodeQL records it as the rule's default level, so a CI gate that reads result.level counts zero errors. It resolves severity in the spec's order, from the result's kind and level to the matched rule's default and finally \"warning\", and every query it gives starts from that. For deduplication it prefers the tool's own fingerprints and falls back to hashing rule, full normalized path, line and message, keeping the directory so two files with the same name stay two findings. It also covers normalizing paths across tools, validating against the schema, streaming files over 100MB with ijson, diffing a baseline against a new run, converting to CSV or HTML with sarif-tools, and GitHub Actions steps that upload SARIF and fail on errors. Bundled resources hold 40+ jq queries, a standard-library Python helper module, and two fixtures with exactly one error each to test a gate against.",
+          "permalink": "https://github.com/trailofbits/skills/tree/e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff/plugins/static-analysis/skills/sarif-parsing"
+        },
+        "tags": [
+          "category:security",
+          "category:debugging",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:official",
+          "stack:sarif",
+          "security",
+          "ci",
+          "code-review"
+        ]
+      }
+    },
+    {
+      "id": "trailofbits/skills/plugins/spec-to-code-compliance/skills/spec-to-code-compliance",
+      "name": "spec-to-code-compliance",
+      "skills.sh": {
+        "url": "https://skills.sh/trailofbits/skills/spec-to-code-compliance",
+        "installs": 6200,
+        "weeklyInstalls": [151, 144, 117, 122, 149, 151, 180, 198],
+        "firstSeen": "2026-01-19"
+      },
+      "skillMd": {
+        "version": "e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Checks code against the spec, whitepaper or design doc it implements, reporting which requirements hold, are contradicted or missing, and undocumented behavior.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you have an authoritative document, such as a whitepaper, protocol spec or design note, and the code that should implement it"
+            },
+            {
+              "label": "It does",
+              "text": "runs its plugin's workflow, which splits the documents into checkable requirements, checks each in its own subagent and has other agents try to refute every divergence"
+            },
+            {
+              "label": "You get",
+              "text": "spec-compliance/REPORT.md plus one file per requirement, each with one of six verdicts and the searches behind it"
+            },
+            {
+              "label": "Also finds",
+              "text": "behavior the code has that no document mentions"
+            },
+            {
+              "label": "Needs",
+              "text": "its Claude Code plugin; the skill itself only routes to the plugin's command and agent"
+            }
+          ],
+          "text": "From Trail of Bits. Every gap between a document and its code is either a bug or a documentation fix, and deciding which is the finding. The skill doesn't check requirements in the main conversation, because judging one means reading its enforcement, callers and callees, and thirty of those can't be checked honestly in one context. Instead it runs /spec-to-code-compliance:spec-compliance on a path, optionally naming the spec and how many requirements to check, or sends the spec-compliance-checker agent at a single requirement. The verdicts are implemented, partial, contradicted, stronger-than-spec, absent and undecidable. Partial, which holds on the tested paths and fails on one nobody tried, is usually the most serious; absent is only as good as its record of searches; undecidable is a finding against the document; stronger-than-spec is a constraint nothing documents. A divergence whose refutation agents both failed is marked unverified, and requirements below the cut are listed as not checked. Severity follows consequence, from a bundled rubric, and a domain guide covers contracts, C and C++, services, decompiled firmware, and RFCs or standards used as the spec.",
+          "permalink": "https://github.com/trailofbits/skills/tree/e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff/plugins/spec-to-code-compliance/skills/spec-to-code-compliance"
+        },
+        "tags": [
+          "category:security",
+          "category:debugging",
+          "type:workflow",
+          "effect:local",
+          "needs:claude-code",
+          "needs:subagents",
+          "by:official",
+          "security",
+          "verification",
+          "requirements",
+          "code-review"
+        ],
+        "note": "Runs through its Claude Code plugin's /spec-to-code-compliance:spec-compliance command and spec-compliance-checker agent, so install the plugin from the trailofbits/skills marketplace, not the skill alone."
+      }
+    },
+    {
+      "id": "trailofbits/skills/plugins/semgrep-rule-creator/skills/semgrep-rule-creator",
+      "name": "semgrep-rule-creator",
+      "skills.sh": {
+        "url": "https://skills.sh/trailofbits/skills/semgrep-rule-creator",
+        "installs": 6100,
+        "weeklyInstalls": [125, 119, 130, 118, 171, 150, 185, 191],
+        "firstSeen": "2026-01-19"
+      },
+      "skillMd": {
+        "version": "e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes a custom Semgrep rule for a bug pattern test-first, preferring taint mode, and iterates until every vulnerable and safe test case passes.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a Semgrep rule that catches a specific vulnerability or bug pattern in your code, or enforces a coding standard"
+            },
+            {
+              "label": "It does",
+              "text": "reads seven Semgrep and Testing Handbook docs pages, writes the test file first, dumps the AST, writes the rule and reruns semgrep --test until all pass"
+            },
+            {
+              "label": "You get",
+              "text": "a folder named after the rule id holding exactly one rule YAML and one annotated test file"
+            },
+            {
+              "label": "Rules",
+              "text": "taint mode first for data flow, no generic-language rules, no todo test annotations, and optimizing only after every test passes"
+            },
+            {
+              "label": "Not for",
+              "text": "running existing rulesets or scans without custom rules"
+            }
+          ],
+          "text": "From Trail of Bits. Its seven-step checklist goes: analyze the problem, write tests first, read the AST, write the rule, iterate until semgrep --test passes, optimize, then a final run. Tests must include safe cases marked ok, such as sanitized input or hardcoded values, alongside vulnerable ones marked ruleid, because a rule that only matches bugs can still break trust with false positives. It prefers taint mode, which follows untrusted input from a source to a dangerous sink, over plain pattern matching, which can't tell eval(user_input) from eval of a literal, but switches approach when taint doesn't work out. It holds itself to 100% passing tests, one rule per YAML file and specific rather than broad patterns. It rejects shortcuts such as \"the pattern looks complete\" without running the tests, \"one test is enough\", and skipping the AST dump because it looks complex.",
+          "permalink": "https://github.com/trailofbits/skills/tree/e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff/plugins/semgrep-rule-creator/skills/semgrep-rule-creator"
+        },
+        "tags": [
+          "category:security",
+          "category:debugging",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:official",
+          "stack:semgrep",
+          "security",
+          "code-review",
+          "code-quality"
+        ],
+        "note": "Needs the Semgrep CLI."
+      }
+    },
+    {
+      "id": "trailofbits/skills/plugins/entry-point-analyzer/skills/entry-point-analyzer",
+      "name": "entry-point-analyzer",
+      "skills.sh": {
+        "url": "https://skills.sh/trailofbits/skills/entry-point-analyzer",
+        "installs": 6100,
+        "weeklyInstalls": [148, 136, 117, 116, 146, 177, 189, 212],
+        "firstSeen": "2026-01-19"
+      },
+      "skillMd": {
+        "version": "e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Lists every externally callable, state-changing function in a smart contract codebase, grouped by who may call it, to map an audit's attack surface.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're starting a smart contract audit and need to know which functions can change state and who can call them"
+            },
+            {
+              "label": "It does",
+              "text": "detects the language, runs Slither's entry-points printer on Solidity if installed, then classifies every externally callable, state-changing function"
+            },
+            {
+              "label": "You get",
+              "text": "a markdown report counting and listing entry points as public, role-restricted, restricted (review required) or contract-only, each with file and line"
+            },
+            {
+              "label": "Covers",
+              "text": "Solidity, Vyper, Solana (Rust), Move on Sui and Aptos, TON (FunC and Tact) and CosmWasm"
+            },
+            {
+              "label": "Leaves out",
+              "text": "view, pure and other read-only functions; it maps the surface and doesn't hunt for vulnerabilities"
+            }
+          ],
+          "text": "From Trail of Bits. The report is a map of the attack surface, not a list of bugs: public functions that change state come first, as the place to start looking. Access is judged from the actual checks, not from names. It verifies what a modifier does, counts a callback with no caller check as public, flags a check against a configured address whose identity isn't established for review, and records msg.sender != tx.origin as a call-path condition rather than trust. When a role is ambiguous it flags the function for review instead of guessing. It notes access control inherited from parent contracts and every access-related modifier, and watches for initializers, upgrades, pause and fee-setting functions. Move public functions without entry are included because transactions can still reach them. It loads a reference file for each detected language, and without Slither, or when Slither fails, it does the analysis by hand. Files it can't parse are listed as warnings, and you can limit it to one directory. Vulnerability hunting is left to skills such as audit-context-building.",
+          "permalink": "https://github.com/trailofbits/skills/tree/e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff/plugins/entry-point-analyzer/skills/entry-point-analyzer"
+        },
+        "tags": [
+          "category:security",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:official",
+          "stack:solidity",
+          "stack:vyper",
+          "stack:solana",
+          "stack:move",
+          "stack:ton",
+          "stack:cosmwasm",
+          "stack:slither",
+          "security",
+          "web3",
+          "code-review"
+        ]
+      }
+    },
+    {
+      "id": "trailofbits/skills/plugins/building-secure-contracts/skills/audit-prep-assistant",
+      "name": "audit-prep-assistant",
+      "skills.sh": {
+        "url": "https://skills.sh/trailofbits/skills/audit-prep-assistant",
+        "installs": 6000,
+        "weeklyInstalls": [145, 136, 119, 106, 132, 142, 173, 180],
+        "firstSeen": "2026-01-19"
+      },
+      "skillMd": {
+        "version": "e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Gets your codebase ready for an outside security audit with Trail of Bits' checklist: review goals, static analysis cleanup, test coverage, scope and documentation.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "an external security review starts in a week or two and you want your codebase ready for the auditors"
+            },
+            {
+              "label": "It does",
+              "text": "asks your goals and concerns, runs static analysis, measures coverage, finds dead code, checks scope and build steps, then drafts documentation"
+            },
+            {
+              "label": "You get",
+              "text": "an audit prep package: goals document, triaged static analysis, coverage report, scope list, tested build steps, a frozen commit, docs and a checklist"
+            },
+            {
+              "label": "Unlike",
+              "text": "audit-context-building, which is for auditors learning code they're about to review"
+            },
+            {
+              "label": "Needs",
+              "text": "your platform's analyzers, such as Slither, dylint or golangci-lint"
+            }
+          ],
+          "text": "Trail of Bits' pre-audit checklist, from its building-secure-contracts plugin, in four steps. First it helps write review goals: the security level you want, the areas that worry you and the worst case, documented for the assessment team. Second it clears easy issues: it runs static analysis, triages the findings and helps fix the simple ones while documenting accepted risks, measures test coverage and suggests tests for the gaps, and finds unused code and libraries. Third it makes the code accessible: a file list marking what's in and out of scope, build instructions tested on a fresh environment, a frozen commit on its own branch with locked dependencies, and copied or forked code marked so the review focuses on yours. Fourth it drafts documentation: flowcharts and sequence diagrams, user stories, on-chain and off-chain assumptions, actors and privileges, function invariants and parameter ranges, NatSpec for Solidity, and a glossary. It rejects shortcuts such as trusting an old static analysis run, \"coverage looks decent\" without measuring, or freezing the version at the last minute. A suggested timeline spreads the work over the two weeks before the audit.",
+          "permalink": "https://github.com/trailofbits/skills/tree/e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff/plugins/building-secure-contracts/skills/audit-prep-assistant"
+        },
+        "tags": [
+          "category:security",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:official",
+          "security",
+          "docs-writing",
+          "testing",
+          "code-quality"
+        ],
+        "note": "Its cleanup step runs your platform's static analyzers, such as Slither for Solidity, dylint for Rust or golangci-lint for Go, so have them installed."
+      }
+    },
+    {
+      "id": "trailofbits/skills/plugins/building-secure-contracts/skills/solana-vulnerability-scanner",
+      "name": "solana-vulnerability-scanner",
+      "skills.sh": {
+        "url": "https://skills.sh/trailofbits/skills/solana-vulnerability-scanner",
+        "installs": 6000,
+        "weeklyInstalls": [122, 110, 107, 100, 120, 123, 159, 167],
+        "firstSeen": "2026-01-19"
+      },
+      "skillMd": {
+        "version": "e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Audits Solana programs, native or Anchor, for six critical vulnerability patterns such as arbitrary cross-program calls and missing signer checks, with fixes.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're auditing a Solana program, native Rust or Anchor, before launch or during a review"
+            },
+            {
+              "label": "It does",
+              "text": "searches the code for cross-program calls, derived addresses, account deserialization and instruction introspection, and checks each against a checklist"
+            },
+            {
+              "label": "You get",
+              "text": "a six-row coverage table with a found, clear or n/a verdict and evidence per pattern, then findings with file, severity and fix"
+            },
+            {
+              "label": "Checks",
+              "text": "arbitrary CPI, PDA validation, ownership checks, signer checks, sysvar spoofing and instruction introspection"
+            }
+          ],
+          "text": "From Trail of Bits' building-secure-contracts plugin. The six patterns come from Solana's account model: a cross-program invocation (CPI) to a program ID the caller chose, program-derived addresses (PDAs) created without the canonical bump, accounts deserialized without checking their owner, authority actions without a signer check, spoofed sysvar accounts on versions before 1.8.1, and instruction introspection with absolute indexes. Three are rated critical, two high and one medium. Each step searches for the relevant calls with ripgrep and checks for Anchor's safer account types, such as Program, Account and Signer. The coverage table is mandatory: every pattern gets a verdict, n/a needs a reason, and the sysvar row cites the solana-program version rather than being dropped, because a report that covers two patterns and stays silent on four reads like a clean program. It also suggests unit and Anchor integration tests that should fail on a wrong program ID, a non-canonical bump or a missing signature, and points to Trail of Bits' Solana lints. Detailed patterns, code examples and mitigations live in a separate reference file.",
+          "permalink": "https://github.com/trailofbits/skills/tree/e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff/plugins/building-secure-contracts/skills/solana-vulnerability-scanner"
+        },
+        "tags": [
+          "category:security",
+          "category:debugging",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:official",
+          "stack:solana",
+          "stack:anchor",
+          "stack:rust",
+          "security",
+          "web3",
+          "code-review"
+        ]
+      }
+    },
+    {
+      "id": "trailofbits/skills/plugins/building-secure-contracts/skills/guidelines-advisor",
+      "name": "guidelines-advisor",
+      "skills.sh": {
+        "url": "https://skills.sh/trailofbits/skills/guidelines-advisor",
+        "installs": 5800,
+        "weeklyInstalls": [139, 122, 107, 96, 124, 127, 153, 169],
+        "firstSeen": "2026-01-19"
+      },
+      "skillMd": {
+        "version": "e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Reviews a smart contract project against Trail of Bits' development guidelines, from documentation and upgradeability to dependencies and tests, with prioritized recommendations.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to know whether a smart contract project follows development best practices, or need advice on its design, upgrades or tests"
+            },
+            {
+              "label": "It does",
+              "text": "explores the code, drafts a plain-English system description and diagrams, reviews architecture and implementation across 11 areas, and asks about design choices"
+            },
+            {
+              "label": "You get",
+              "text": "system documentation, an architecture and implementation review with file and line references, and recommendations ranked Critical to Low"
+            },
+            {
+              "label": "Works on",
+              "text": "mainly Solidity, using Slither for diagrams and upgradeability checks when available; it adapts to Rust, Cairo and other platforms"
+            }
+          ],
+          "text": "Trail of Bits' Building Secure Contracts development guidelines, applied to your codebase. The 11 areas are documentation and specifications, including NatSpec; what runs on-chain versus off-chain; upgradeability, weighing migration against upgrades; delegatecall proxies, such as storage layout, initialization and function shadowing; function composition; inheritance; events; common pitfalls such as reentrancy, overflow and access control; dependencies, including copied code; testing and verification, from coverage to fuzzing and formal verification; and platform guidance such as compiler version and inline assembly. A section that seems not to apply, such as upgradeability in a project without proxies, is skipped only after searching the code, since upgradeability can hide in ownable patterns or delegatecall. It rejects generic best-practice advice in favour of project-specific findings with file and line references, and ends with a prioritized roadmap. Detailed criteria, deliverable templates and an example report live in separate resource files.",
+          "permalink": "https://github.com/trailofbits/skills/tree/e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff/plugins/building-secure-contracts/skills/guidelines-advisor"
+        },
+        "tags": [
+          "category:security",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:official",
+          "stack:solidity",
+          "stack:slither",
+          "security",
+          "web3",
+          "architecture",
+          "code-review",
+          "code-quality"
+        ]
+      }
+    },
+    {
+      "id": "trailofbits/skills/plugins/testing-handbook-skills/skills/coverage-analysis",
+      "name": "coverage-analysis",
+      "skills.sh": {
+        "url": "https://skills.sh/trailofbits/skills/coverage-analysis",
+        "installs": 5800,
+        "weeklyInstalls": [121, 114, 119, 99, 122, 135, 158, 166],
+        "firstSeen": "2026-01-19"
+      },
+      "skillMd": {
+        "version": "e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Measures which code a fuzzing campaign actually reaches with llvm-cov or gcov, and turns uncovered regions into harness, seed or dictionary work.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a fuzzer has plateaued, you've changed a harness, or you want to know why some code is never reached"
+            },
+            {
+              "label": "It does",
+              "text": "builds a coverage-instrumented binary, replays the fuzzing corpus through it, and generates text or HTML reports with llvm-cov or gcovr"
+            },
+            {
+              "label": "You get",
+              "text": "a coverage report and what blocks the fuzzer, such as magic-value checks that need dictionary entries or seed inputs"
+            },
+            {
+              "label": "Works with",
+              "text": "libFuzzer, AFL++, cargo-fuzz and honggfuzz, for C, C++ and Rust"
+            },
+            {
+              "label": "Needs",
+              "text": "clang and LLVM's coverage tools, or GCC with gcovr; Rust needs nightly with llvm-tools"
+            }
+          ],
+          "text": "From Trail of Bits' Testing Handbook skills. Coverage shows whether a harness reaches the code you care about and whether a change helped. Its key rule is to measure coverage from the corpus left after each campaign, not from the fuzzer's live statistics, so the numbers compare across fuzzers. For C and C++ it adds a small runtime that feeds every corpus file to the harness; when the corpus holds crashing inputs, a forking version keeps them from stopping the run. Reading the report, it looks for uncovered blocks, magic-value checks, unreachable code and changes from the baseline: rising coverage means keep fuzzing, falling means fix the harness, flat means add dictionary entries or seed inputs. It warns against comparing fuzzer-reported coverage, building with -O3, counting harness code, mixing LLVM and GCC instrumentation, and checking only once. It also covers incremental gcov runs, filtering large codebases by directory, comparing coverage between two campaigns, CMake targets and notes per fuzzer.",
+          "permalink": "https://github.com/trailofbits/skills/tree/e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff/plugins/testing-handbook-skills/skills/coverage-analysis"
+        },
+        "tags": [
+          "category:security",
+          "category:debugging",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:official",
+          "stack:c",
+          "stack:cpp",
+          "stack:rust",
+          "testing",
+          "security"
+        ]
+      }
+    },
+    {
+      "id": "trailofbits/skills/plugins/building-secure-contracts/skills/token-integration-analyzer",
+      "name": "token-integration-analyzer",
+      "skills.sh": {
+        "url": "https://skills.sh/trailofbits/skills/token-integration-analyzer",
+        "installs": 5800,
+        "weeklyInstalls": [135, 124, 105, 96, 121, 126, 160, 171],
+        "firstSeen": "2026-01-19"
+      },
+      "skillMd": {
+        "version": "e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Checks token contracts for ERC20 and ERC721 conformity, and protocols for safe handling of weird tokens such as fee-on-transfer or rebasing ones.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're building a token, or your protocol accepts arbitrary ERC20 or ERC721 tokens and you need to know which non-standard ones could break it"
+            },
+            {
+              "label": "It does",
+              "text": "runs Slither's ERC conformity, summary and property tools on Solidity, reviews composition and owner privileges, and checks 24 weird ERC20 patterns"
+            },
+            {
+              "label": "You get",
+              "text": "a compliance checklist, a present-or-absent verdict with evidence per weird-token pattern, an integration safety assessment and fixes ranked Critical to Low"
+            },
+            {
+              "label": "On-chain",
+              "text": "given a deployed address and an RPC endpoint, it also looks at supply, holder concentration and exchange listings"
+            }
+          ],
+          "text": "Trail of Bits' token integration checklist, from its building-secure-contracts plugin, combined with its database of weird ERC20 behavior. Weird tokens are real tokens that break assumptions: USDT returns no value from transfer, STA and PAXG take a fee on transfer, Ampleforth changes balances outside transfers, USDC and USDT can block addresses or be upgraded, DAI can be flash-minted, and decimals range from 2 to 24. Its ten categories cover general considerations such as audits and security contacts, contract composition, owner privileges like minting, pausing and upgrades, ERC20 conformity, risks from extensions such as hooks and rebasing, token scarcity, the weird patterns, integration safety such as safe transfer wrappers and measuring balances before and after a transfer, and ERC721 conformity and risks. It rejects shortcuts such as trusting a passing ERC20 check, a reputable team or OpenZeppelin to cover integration risks, and if Slither can't run it checks those criteria by hand or documents why it couldn't. Detailed criteria and report templates live in separate resource files.",
+          "permalink": "https://github.com/trailofbits/skills/tree/e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff/plugins/building-secure-contracts/skills/token-integration-analyzer"
+        },
+        "tags": [
+          "category:security",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:official",
+          "stack:solidity",
+          "stack:slither",
+          "security",
+          "web3",
+          "code-review"
+        ]
+      }
+    },
+    {
+      "id": "trailofbits/skills/plugins/firebase-apk-scanner/skills/firebase-apk-scanner",
+      "name": "firebase-apk-scanner",
+      "skills.sh": {
+        "url": "https://skills.sh/trailofbits/skills/firebase-apk-scanner",
+        "installs": 5800,
+        "weeklyInstalls": [113, 113, 110, 98, 126, 145, 168, 185],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Decompiles Android APKs, extracts their Firebase config and tests the backend live for open databases, storage, sign-up and cloud functions.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're assessing an Android app you're authorized to test and want to know whether its Firebase backend is left open"
+            },
+            {
+              "label": "It does",
+              "text": "runs a bundled scanner that decompiles the APK with apktool, pulls out its Firebase config, then probes auth, databases, Storage, Cloud Functions and Remote Config"
+            },
+            {
+              "label": "You get",
+              "text": "scan_report.json and scan_report.txt, presented as a summary, the extracted config, vulnerabilities by severity and specific fixes"
+            },
+            {
+              "label": "Runs",
+              "text": "only when you call it, on an APK file or a folder of them"
+            },
+            {
+              "label": "Limits",
+              "text": "probes Cloud Functions only in us-central1, and tests auth, functions and Remote Config only for the first project and API key found"
+            }
+          ],
+          "text": "From Trail of Bits. The scanner pulls the Firebase config from google-services.json, XML resources, assets, smali code and DEX strings, then checks for open sign-up, anonymous auth and email enumeration, unauthenticated reads and writes on the Realtime Database, document access and collection listing on Firestore, bucket listing and write access on Storage, unauthenticated Cloud Functions, and exposed Remote Config. It writes test entries to the live backend and removes them afterwards. Unauthenticated database reads or writes, storage writes and open sign-up on a private app rate critical; anonymous auth, bucket listing and collection listing high; email enumeration, reachable functions and exposed Remote Config medium. APKs that failed to decompile or had no Firebase config are reported separately instead of counted as clean, since an app may not use Firebase or may hide its config beyond what the scanner extracts. If the scanner writes no report, the agent falls back to manual tests from a reference file. It rejects excuses such as \"the API key is public anyway\", since a public key doesn't justify open rules, and \"it's an internal app\", since APKs can be extracted from any device.",
+          "permalink": "https://github.com/trailofbits/skills/tree/e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff/plugins/firebase-apk-scanner/skills/firebase-apk-scanner"
+        },
+        "tags": [
+          "category:security",
+          "type:tool",
+          "effect:remote",
+          "needs:cli",
+          "by:official",
+          "stack:firebase",
+          "stack:android",
+          "security",
+          "mobile"
+        ],
+        "note": "Scan only apps you own or are authorized to test: its bundled scanner probes the app's live Firebase backend, including write attempts on databases and storage, and removes the test entries it creates. Needs apktool."
+      }
+    },
+    {
+      "id": "trailofbits/skills/plugins/constant-time-analysis/skills/constant-time-analysis",
+      "name": "constant-time-analysis",
+      "skills.sh": {
+        "url": "https://skills.sh/trailofbits/skills/constant-time-analysis",
+        "installs": 5700,
+        "weeklyInstalls": [115, 109, 107, 104, 126, 140, 159, 172],
+        "firstSeen": "2026-01-19"
+      },
+      "skillMd": {
+        "version": "e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Finds timing side channels in cryptographic code by compiling it, scanning the assembly or bytecode for variable-time instructions, and tracing which ones touch secrets.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're writing or reviewing signing, encryption, key exchange or key derivation code and worry about timing attacks"
+            },
+            {
+              "label": "It does",
+              "text": "runs a bundled analyzer per file that flags divisions, secret-dependent branches, early-exit comparisons, secret-indexed lookups, weak randomness and variable-time encoding, then traces whether a secret reaches each"
+            },
+            {
+              "label": "You get",
+              "text": "a verdict per flagged instruction with the data flow behind it, naming the compiler, architecture and optimization level used"
+            },
+            {
+              "label": "Covers",
+              "text": "C, C++, Go, Rust, Swift, Java, Kotlin, C#, PHP, JavaScript, TypeScript, Python and Ruby"
+            },
+            {
+              "label": "Unlike",
+              "text": "the constant-time-testing skill, which measures timing on a running binary, it only inspects compiler output and never runs your code"
+            }
+          ],
+          "text": "From Trail of Bits. The analyzer has no data-flow analysis, so a failed run is a worklist, not a list of vulnerabilities: for each flagged instruction the agent asks whether an operand comes from a key, plaintext, nonce or token, and says why when it doesn't. It always passes --warnings, since without it the analyzer reports only division, modulo and weak randomness, and stays silent on early-exit comparison of an authentication tag, the most common real timing bug. Native code is checked at more than one architecture and optimization level, because a cmov at -O2 can become a branch at -O0, and a fix is re-checked across compilers, targets and levels including Os and Oz, since relying on the compiler to strength-reduce a constant divisor works only where it chooses to. Confirmed comparison bugs get the language's constant-time primitive, such as hmac.compare_digest or crypto.timingSafeEqual. Per-language guides list dangerous instructions and their replacements, and a table states what each language's report can't see. It is static only: cache and other microarchitectural channels, and native code the JVM or .NET JIT produces, are invisible to it.",
+          "permalink": "https://github.com/trailofbits/skills/tree/e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff/plugins/constant-time-analysis/skills/constant-time-analysis"
+        },
+        "tags": [
+          "category:security",
+          "category:debugging",
+          "type:tool",
+          "effect:none",
+          "needs:cli",
+          "by:official",
+          "security",
+          "code-review"
+        ],
+        "note": "Needs uv to run its analyzer, plus the compiler or runtime of each language you check, such as gcc or clang, go, rustc, a JDK, the .NET SDK with ilspycmd, or PHP with VLD or OPcache."
+      }
+    },
+    {
+      "id": "trailofbits/skills/plugins/testing-handbook-skills/skills/harness-writing",
+      "name": "harness-writing",
+      "skills.sh": {
+        "url": "https://skills.sh/trailofbits/skills/harness-writing",
+        "installs": 5700,
+        "weeklyInstalls": [117, 115, 118, 105, 120, 136, 161, 171],
+        "firstSeen": "2026-01-19"
+      },
+      "skillMd": {
+        "version": "e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Designs and improves fuzzing harnesses for C, C++ and Rust: mapping raw bytes onto an API, structured inputs, determinism and what to fuzz together.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're writing a first fuzz target, a campaign finds nothing, crashes won't reproduce, or the API needs structured input"
+            },
+            {
+              "label": "It does",
+              "text": "picks entry points such as parsers, writes a minimal harness, adds size checks, splits the bytes into typed values, then iterates on coverage, speed and reproducibility"
+            },
+            {
+              "label": "You get",
+              "text": "harness code for LLVMFuzzerTestOneInput or Rust's fuzz_target!, with notes for libFuzzer, AFL++, cargo-fuzz and go-fuzz"
+            },
+            {
+              "label": "Rules",
+              "text": "handle every input size, never call exit(), join threads, stay fast and deterministic, reset global state and fuzz one format per harness"
+            }
+          ],
+          "text": "From Trail of Bits' Testing Handbook skills. A harness is the function that receives the fuzzer's random bytes and routes them into the code under test, so it decides which code gets exercised at all. The steps start from the best targets, such as parsers, deserializers, validators and security-critical code, then build up from a one-line call to input-size checks and typed values, by casting bytes to integers or with LLVM's FuzzedDataProvider. Patterns cover interleaved harnesses that pick an operation from the input, Rust structure-aware fuzzing with the arbitrary crate, and Protocol Buffers with libprotobuf-mutator. For crashes that won't reproduce, it replaces randomness with a generator seeded from the input, mocks time and PIDs, and resets globals each iteration. Anti-patterns include blocking I/O, heavy logging, leaks and mixing unrelated formats in one harness. When the code under test itself breaks these rules, it points to the fuzzing-obstacles skill for patching it.",
+          "permalink": "https://github.com/trailofbits/skills/tree/e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff/plugins/testing-handbook-skills/skills/harness-writing"
+        },
+        "tags": [
+          "category:security",
+          "category:debugging",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:official",
+          "stack:c",
+          "stack:cpp",
+          "stack:rust",
+          "testing",
+          "security"
+        ]
+      }
+    },
+    {
+      "id": "trailofbits/skills/plugins/testing-handbook-skills/skills/fuzzing-obstacles",
+      "name": "fuzzing-obstacles",
+      "skills.sh": {
+        "url": "https://skills.sh/trailofbits/skills/fuzzing-obstacles",
+        "installs": 5600,
+        "weeklyInstalls": [114, 108, 108, 97, 120, 124, 155, 166],
+        "firstSeen": "2026-01-19"
+      },
+      "skillMd": {
+        "version": "e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Patches checksums, validation and non-deterministic state out of fuzzing builds behind a compile flag, leaving production behavior unchanged.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a fuzzer is stuck at checksum, hash or format validation, or the same input behaves differently between runs"
+            },
+            {
+              "label": "It does",
+              "text": "finds the blocking check through coverage and code reading, wraps it in a fuzzing-only build flag, measures coverage again, then weighs the false-positive risk"
+            },
+            {
+              "label": "You get",
+              "text": "small, commented patches to the code under test that apply only in fuzzing builds"
+            },
+            {
+              "label": "Uses",
+              "text": "FUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION in C and C++, cfg!(fuzzing) in Rust"
+            }
+          ],
+          "text": "From Trail of Bits' Testing Handbook skills. Many programs weren't written to be fuzzed: a fuzzer will never guess a valid checksum, a time-seeded random generator makes the same input behave differently, and strict validation spends the fuzzer's effort on rejections. The fix is conditional compilation, so the fuzzing build skips or neuters the obstacle while production keeps it. Patterns cover bypassing checksum checks, seeding a random generator deterministically, skipping validation carefully and getting past complex format checks. Skipping a check can create states that can't happen in production, so before keeping a patch it asks whether later code relies on what was validated, and prefers a narrower patch when crashes would be false positives. It warns against skipping all validation, patching without measuring, and letting the fuzzing build drift far from production. It isn't needed when a seed corpus or dictionary would get past the check, and it has notes for libFuzzer, AFL++, honggfuzz, cargo-fuzz and LibAFL.",
+          "permalink": "https://github.com/trailofbits/skills/tree/e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff/plugins/testing-handbook-skills/skills/fuzzing-obstacles"
+        },
+        "tags": [
+          "category:security",
+          "category:debugging",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:official",
+          "stack:c",
+          "stack:cpp",
+          "stack:rust",
+          "testing",
+          "security"
+        ]
+      }
+    },
+    {
+      "id": "trailofbits/skills/plugins/building-secure-contracts/skills/cosmos-vulnerability-scanner",
+      "name": "cosmos-vulnerability-scanner",
+      "skills.sh": {
+        "url": "https://skills.sh/trailofbits/skills/cosmos-vulnerability-scanner",
+        "installs": 5600,
+        "weeklyInstalls": [111, 102, 105, 95, 119, 121, 157, 159],
+        "firstSeen": "2026-01-19"
+      },
+      "skillMd": {
+        "version": "e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Scans Cosmos SDK modules and CosmWasm contracts for chain-halting, fund-losing bugs with parallel subagents, writing each finding to its own markdown file.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're auditing custom x/ modules, IBC integrations or CosmWasm contracts on a Cosmos chain, especially before launch"
+            },
+            {
+              "label": "It does",
+              "text": "a discovery subagent inventories the chain and its threat model, then three to six scanner subagents check their patterns in parallel, on consensus-critical code only"
+            },
+            {
+              "label": "You get",
+              "text": "a CLAUDE.md at the repo root with the inventory and threat model, and one markdown file per finding in .bughunt_cosmos/"
+            },
+            {
+              "label": "Covers",
+              "text": "25 core SDK patterns, 16 IBC, 10 EVM and 3 CosmWasm, updated for SDK v0.53"
+            },
+            {
+              "label": "Needs",
+              "text": "an agent that can spawn subagents"
+            }
+          ],
+          "text": "From Trail of Bits' building-secure-contracts plugin. Its principle is that a bug matters for a chain halt or fund loss only on the consensus path: BeginBlock, EndBlock, FinalizeBlock, message handlers and the AnteHandler. A map iteration in a CLI command or a panic in a query handler isn't reported. Non-determinism that makes validators compute different state is the top class, because it halts every validator at once. The discovery step reads go.mod for the SDK and IBC versions, since patterns changed across v0.47, v0.50 and v0.53, and decides whether the EVM, IBC and CosmWasm scanners run. Core, state and advanced scanners always run, covering non-determinism, ABCI, signers, AnteHandler security, bookkeeping, bank misuse, pagination, governance, arithmetic, storage keys and crypto. Severity runs from critical for fund loss and high for chain halts to medium for denial of service and low for logic issues. Every scanner must report on each of its patterns, and one that skips any is asked again. It rejects excuses such as \"ValidateBasic catches this\" or \"the IBC counterparty is trusted\".",
+          "permalink": "https://github.com/trailofbits/skills/tree/e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff/plugins/building-secure-contracts/skills/cosmos-vulnerability-scanner"
+        },
+        "tags": [
+          "category:security",
+          "category:debugging",
+          "type:workflow",
+          "effect:local",
+          "needs:subagents",
+          "by:official",
+          "stack:cosmos-sdk",
+          "stack:cosmwasm",
+          "stack:go",
+          "security",
+          "web3",
+          "code-review"
+        ],
+        "note": "Writes a CLAUDE.md with the codebase inventory and threat model to the audited repo's root, and findings to .bughunt_cosmos/ unless you name another folder."
+      }
+    },
+    {
+      "id": "trailofbits/skills/plugins/semgrep-rule-variant-creator/skills/semgrep-rule-variant-creator",
+      "name": "semgrep-rule-variant-creator",
+      "skills.sh": {
+        "url": "https://skills.sh/trailofbits/skills/semgrep-rule-variant-creator",
+        "installs": 5600,
+        "weeklyInstalls": [114, 104, 102, 94, 116, 125, 146, 177],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Ports an existing Semgrep rule to other languages, running applicability analysis, tests first, AST-based translation and semgrep --test for each language.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you have a working Semgrep rule and want the same detection in Go, Java or other languages"
+            },
+            {
+              "label": "It does",
+              "text": "runs its plugin's workflow, which for each language judges applicability, writes tests first, translates the rule against the target's AST and fixes it until semgrep --test passes"
+            },
+            {
+              "label": "You get",
+              "text": "one folder per applicable language with the ported rule, renamed <id>-<language>, and its test file, plus which languages passed, failed, didn't apply or can't be parsed"
+            },
+            {
+              "label": "Unlike",
+              "text": "semgrep-rule-creator, which writes a new rule from a bug description; this starts from a finished rule"
+            }
+          ],
+          "text": "From Trail of Bits. Each language goes through four phases on its own. Applicability asks whether the bug class, and an equivalent of each source, sink and sanitizer, exist there; a not-applicable verdict goes to an independent refuter before the language is dropped, and whether Semgrep can parse the language at all is checked separately, since Perl has no frontend and Elixir's parser is Pro-only. Tests come next: at least two vulnerable and two safe cases, including the language's own idiomatic safe form. Translation follows the target's AST rather than how the source looks, keeps the original's intent and mode, and records where it was ported from. Validation must end with all tests passing on the Semgrep version recorded at the start, and the workflow retries failed validation up to three times. It warns that \"all tests passed\" can mean zero tests were graded, and that a green port is a candidate for review, not proof the bug exists there. It ports only what you asked for, without fixing the original or adding languages. For a single language you can run the phases by hand.",
+          "permalink": "https://github.com/trailofbits/skills/tree/e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff/plugins/semgrep-rule-variant-creator/skills/semgrep-rule-variant-creator"
+        },
+        "tags": [
+          "category:security",
+          "category:debugging",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "needs:subagents",
+          "by:official",
+          "stack:semgrep",
+          "security",
+          "code-review",
+          "code-quality"
+        ],
+        "note": "Needs the Semgrep CLI. Ports run through its plugin's /semgrep-rule-variant-creator:port-rule-to-languages workflow, so install the plugin from the trailofbits/skills marketplace; a single language can also be ported by hand."
+      }
+    },
+    {
+      "id": "trailofbits/skills/plugins/testing-handbook-skills/skills/fuzzing-dictionary",
+      "name": "fuzzing-dictionary",
+      "skills.sh": {
+        "url": "https://skills.sh/trailofbits/skills/fuzzing-dictionary",
+        "installs": 5600,
+        "weeklyInstalls": [113, 110, 110, 96, 121, 126, 154, 167],
+        "firstSeen": "2026-01-19"
+      },
+      "skillMd": {
+        "version": "e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds fuzzing dictionaries of keywords, magic bytes and tokens from source, headers, binaries or specs, and wires them into libFuzzer, AFL++ or cargo-fuzz.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're fuzzing a parser, protocol or file format, or coverage stalls at checks against fixed strings"
+            },
+            {
+              "label": "It does",
+              "text": "writes a dictionary file of quoted tokens, filled by asking an LLM or extracting strings from headers, man pages or binaries, and passes it to the fuzzer"
+            },
+            {
+              "label": "You get",
+              "text": "a .dict file, such as HTTP methods and headers or PNG and JPEG magic bytes, plus the flag that loads it"
+            },
+            {
+              "label": "Works with",
+              "text": "libFuzzer (-dict), AFL++ (-x) and cargo-fuzz; go-fuzz has no dictionary support, so it turns the entries into seed corpus files instead"
+            }
+          ],
+          "text": "From Trail of Bits' Testing Handbook skills. A dictionary gives the fuzzer domain tokens to splice into its mutations, so it can get past early validation that random changes rarely satisfy. The format is one quoted string or key=\"value\" pair per line, with hex escapes for binary bytes and # for comments, and the same file works across libFuzzer, AFL++ and cargo-fuzz. It shows how to generate entries with a prompt to ChatGPT or Claude, a grep over header files, a man page for a CLI's options, or strings over a binary, and gives patterns for protocol keywords, file-format headers and configuration keywords. It keeps dictionaries to 50 to 200 focused, deduplicated tokens rather than thousands or full sentences, and suggests comparing coverage with and without one. It also covers AFL++'s auto-generated dictionaries and combining several files. It isn't worth it for pure algorithms with no input format, or when the corpus already reaches high coverage.",
+          "permalink": "https://github.com/trailofbits/skills/tree/e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff/plugins/testing-handbook-skills/skills/fuzzing-dictionary"
+        },
+        "tags": [
+          "category:security",
+          "category:debugging",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:official",
+          "testing",
+          "security"
+        ]
+      }
+    },
+    {
+      "id": "trailofbits/skills/plugins/second-opinion/skills/second-opinion",
+      "name": "second-opinion",
+      "skills.sh": {
+        "url": "https://skills.sh/trailofbits/skills/second-opinion",
+        "installs": 5600,
+        "weeklyInstalls": [134, 122, 115, 110, 132, 141, 162, 185],
+        "firstSeen": "2026-02-10"
+      },
+      "skillMd": {
+        "version": "e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Gets an independent review of your uncommitted changes, branch diff or a commit from Codex or Antigravity, and compares them when you use both.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want an independent review from another model, through Codex or Antigravity, of your uncommitted changes, a branch diff or one commit"
+            },
+            {
+              "label": "It does",
+              "text": "captures the diff once, builds a review prompt with your project instructions and focus, and runs codex exec, agy or gemini on it"
+            },
+            {
+              "label": "You get",
+              "text": "findings with provider, model, severity, file and line, impact and a suggested fix; with both providers, where they agree and disagree"
+            },
+            {
+              "label": "Doesn't",
+              "text": "apply fixes or post the review anywhere"
+            },
+            {
+              "label": "Needs",
+              "text": "the Codex, Antigravity or Gemini CLI installed and signed in"
+            }
+          ],
+          "text": "From Trail of Bits. It takes the provider, scope and focus you give and asks only for what's missing: Codex, Antigravity or both; uncommitted changes including untracked files, a branch against a base it resolves from the remote's default branch, or one commit; and a focus such as security or performance, otherwise general correctness and maintainability. Both providers get the same captured diff, so the comparison covers the same changes, and agreement between them isn't treated as proof. For an unnamed Google CLI it prefers Antigravity, and uses Gemini CLI only when you ask, explaining the move to Antigravity if the account no longer supports Gemini CLI. Codex returns structured JSON findings through a review schema; Antigravity returns prose. It won't silently truncate a diff that's too big, stops if there are no changes, never turns on automatic write approval, and treats a nonzero exit, missing output or invalid JSON as an incomplete review rather than a clean one. Its prompt and output files go in temporary files outside the checkout.",
+          "permalink": "https://github.com/trailofbits/skills/tree/e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff/plugins/second-opinion/skills/second-opinion"
+        },
+        "tags": [
+          "category:debugging",
+          "category:agents",
+          "type:tool",
+          "effect:none",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:codex",
+          "stack:antigravity",
+          "stack:gemini",
+          "stack:git",
+          "code-review",
+          "multi-agent"
+        ],
+        "note": "Sends your diff, and by default your project instructions, to OpenAI through the Codex CLI or to Google through Antigravity or Gemini CLI; install and sign in to the CLI you pick."
+      }
+    },
+    {
+      "id": "trailofbits/skills/plugins/testing-handbook-skills/skills/constant-time-testing",
+      "name": "constant-time-testing",
+      "skills.sh": {
+        "url": "https://skills.sh/trailofbits/skills/constant-time-testing",
+        "installs": 5500,
+        "weeklyInstalls": [111, 106, 104, 96, 118, 124, 154, 160],
+        "firstSeen": "2026-01-19"
+      },
+      "skillMd": {
+        "version": "e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Tests whether cryptographic code runs in constant time, checking statistically with dudect and pinpointing leaking lines with Timecop under Valgrind.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need to know whether crypto code that handles keys, nonces or passwords leaks them through how long it takes to run"
+            },
+            {
+              "label": "It does",
+              "text": "writes a dudect harness that times fixed against random inputs, and if the t-test flags a leak, marks the secrets for Timecop to trace under Valgrind"
+            },
+            {
+              "label": "You get",
+              "text": "a statistical verdict on timing leakage, the source line behind a leak, and constant-time fixes re-checked with longer runs"
+            },
+            {
+              "label": "Unlike",
+              "text": "Trail of Bits' constant-time-analysis plugin, which inspects compiler output statically, it measures the code as it actually runs"
+            },
+            {
+              "label": "Needs",
+              "text": "Valgrind for Timecop; dudect is a single C header"
+            }
+          ],
+          "text": "From Trail of Bits' Testing Handbook skills. A timing side channel exists when execution time depends on secret data, and the skill names the four patterns behind most of them: branches on secrets, table lookups indexed by secrets, and division or shifts by secret values on some CPUs. It lays out four families of tools, formal proofs such as ct-verif, symbolic execution such as Binsec, dynamic tracing and statistical measurement, and starts with the last: dudect times two classes of input, fixed and random, and Welch's t-test shows whether their timings differ. A high t-value signals a leak but not where it is, so Timecop marks the secret memory as undefined and Valgrind reports every branch or memory access that depends on it. Fixes swap branches for bitwise selection and use constant-time comparisons, then dudect runs again for 30 minutes or more across compilers, optimization levels and CPU architectures. It also suggests a 5-10 minute dudect run in CI that fails the build on leakage, pinning the test to an isolated core to cut noise, and checking the assembly with objdump for branches the compiler added. Full setup lives in its sibling dudect and timecop skills.",
+          "permalink": "https://github.com/trailofbits/skills/tree/e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff/plugins/testing-handbook-skills/skills/constant-time-testing"
+        },
+        "tags": [
+          "category:security",
+          "category:debugging",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:official",
+          "stack:dudect",
+          "stack:valgrind",
+          "security",
+          "testing"
+        ]
+      }
+    },
+    {
+      "id": "trailofbits/skills/plugins/devcontainer-setup/skills/devcontainer-setup",
+      "name": "devcontainer-setup",
+      "skills.sh": {
+        "url": "https://skills.sh/trailofbits/skills/devcontainer-setup",
+        "installs": 5500,
+        "weeklyInstalls": [113, 109, 113, 112, 141, 130, 154, 170],
+        "firstSeen": "2026-02-10"
+      },
+      "skillMd": {
+        "version": "e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Generates a .devcontainer for your project with Claude Code, sandboxing tools and the toolchains for the Python, Node, Rust or Go it detects.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want Claude Code to work in an isolated container instead of directly on your machine"
+            },
+            {
+              "label": "It does",
+              "text": "reads the project name and languages from package.json, pyproject.toml, Cargo.toml or go.mod, then fills its templates with matching extensions, settings and setup commands"
+            },
+            {
+              "label": "You get",
+              "text": "a Dockerfile, devcontainer.json, post_install.py, .zshrc and an install.sh that adds a devc command, all in .devcontainer/"
+            },
+            {
+              "label": "Inside",
+              "text": "Claude Code without permission prompts, Python 3.13 via uv, Node 22, ripgrep, fd, fzf, tmux, ast-grep, bubblewrap, and iptables for network rules"
+            },
+            {
+              "label": "Starts with",
+              "text": "VS Code's Reopen in Container, or devcontainer up from the command line"
+            }
+          ],
+          "text": "From Trail of Bits. The project name comes from the first of package.json, pyproject.toml, Cargo.toml or go.mod that has one, falling back to the directory name, and its slug names persistent volumes that keep shell history, Claude's config and GitHub CLI auth across rebuilds. Python projects get the Python, Pylance and Ruff extensions and uv sync; Node projects get ESLint and Prettier and an install command matched to the lockfile; Rust and Go add their devcontainer features. Several languages are merged into one configuration. Inside the container, .devcontainer/ and your ~/.gitconfig are mounted read-only, the NET_ADMIN capability lets you restrict outbound traffic with iptables, npm install scripts are off and packages must be a day old before npm installs them. Claude Code is set to bypassPermissions, so it acts without asking inside the container, and your CLAUDE_CODE_OAUTH_TOKEN or ANTHROPIC_API_KEY is forwarded in from your machine. Its image also adds the anthropics/skills, trailofbits/skills and trailofbits/skills-curated plugin marketplaces. It is for development environments, not production containers, and not for changing a devcontainer you already have.",
+          "permalink": "https://github.com/trailofbits/skills/tree/e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff/plugins/devcontainer-setup/skills/devcontainer-setup"
+        },
+        "tags": [
+          "category:engineering",
+          "category:security",
+          "type:setup",
+          "effect:local",
+          "needs:cli",
+          "by:official",
+          "stack:docker",
+          "stack:claude",
+          "stack:vscode",
+          "infrastructure",
+          "guardrails"
+        ],
+        "note": "The container runs Claude Code in bypassPermissions mode, forwards your CLAUDE_CODE_OAUTH_TOKEN or ANTHROPIC_API_KEY, and adds the anthropics/skills, trailofbits/skills and trailofbits/skills-curated marketplaces."
+      }
+    },
+    {
+      "id": "trailofbits/skills/plugins/dwarf-expert/skills/dwarf-expert",
+      "name": "dwarf-expert",
+      "skills.sh": {
+        "url": "https://skills.sh/trailofbits/skills/dwarf-expert",
+        "installs": 5500,
+        "weeklyInstalls": [108, 107, 106, 101, 118, 122, 152, 161],
+        "firstSeen": "2026-01-19"
+      },
+      "skillMd": {
+        "version": "e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Analyzes DWARF debug info in compiled binaries: searches DIE trees with dwarfdump, verifies integrity, explains the standard and writes parsing code.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're inspecting a binary's or dSYM's debug sections, verifying debug info a compiler produced, answering a DWARF standard question, or writing code that reads DWARF"
+            },
+            {
+              "label": "It does",
+              "text": "finds DIEs, the entries describing each function, variable and type, by name, address or attribute, escalating from dwarfdump flags to grep to a pyelftools script"
+            },
+            {
+              "label": "You get",
+              "text": "DIE listings, verification results, answers checked against the spec, or DWARF-parsing code, by default a Python script using pyelftools"
+            },
+            {
+              "label": "Verifies",
+              "text": "debug info with llvm-dwarfdump --verify, and compares --statistics across compiler versions or optimization levels"
+            },
+            {
+              "label": "Looks up",
+              "text": "the standard on dwarfstd.org and in LLVM's or libdwarf's source rather than answering from memory"
+            },
+            {
+              "label": "Needs",
+              "text": "llvm-dwarfdump or libdwarf's dwarfdump, or readelf; pyelftools for scripts"
+            }
+          ],
+          "text": "From Trail of Bits. It first checks which dwarfdump is installed, since libdwarf's and LLVM's take different options. It knows the traps: on macOS the debug info stays in the .o files or a .dSYM bundle rather than the linked executable, pyelftools reads only ELF, and a --find lookup uses accelerator tables that can miss names, so it falls back to an exhaustive --name search. For parsing code it prefers an existing library, libdwarf for C/C++, pyelftools for Python, gimli for Rust, debug/dwarf for Go or LibObjectFile for .NET, defaulting to Python, and lists the pitfalls to handle and to look for in review: optional attributes, attributes inherited through abstract_origin or specification links, and types wrapped in chains of const and pointer entries. When a modern compiler emitted an old DWARF version, it looks for the -gdwarf-N flag in the build, which GCC records in the producer string. Runtime debugging with gdb or lldb, and reverse engineering beyond the DWARF sections, are out of scope.",
+          "permalink": "https://github.com/trailofbits/skills/tree/e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff/plugins/dwarf-expert/skills/dwarf-expert"
+        },
+        "tags": [
+          "category:debugging",
+          "type:guidelines",
+          "effect:none",
+          "needs:cli",
+          "by:official",
+          "stack:dwarf",
+          "debugging"
+        ]
+      }
+    },
+    {
+      "id": "trailofbits/skills/plugins/building-secure-contracts/skills/algorand-vulnerability-scanner",
+      "name": "algorand-vulnerability-scanner",
+      "skills.sh": {
+        "url": "https://skills.sh/trailofbits/skills/algorand-vulnerability-scanner",
+        "installs": 5500,
+        "weeklyInstalls": [114, 106, 105, 93, 118, 120, 153, 158],
+        "firstSeen": "2026-01-19"
+      },
+      "skillMd": {
+        "version": "e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Audits Algorand TEAL and PyTeal contracts for 11 platform-specific vulnerabilities, such as rekeying and unchecked close-to fields, with a verdict for every pattern.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're auditing an Algorand stateful app or smart signature, or checking that fixes for reported Algorand bugs hold"
+            },
+            {
+              "label": "It does",
+              "text": "finds TEAL and PyTeal files, runs Trail of Bits' Tealer analyzer if installed, then sweeps all 11 patterns by hand and checks each transaction type's fields"
+            },
+            {
+              "label": "You get",
+              "text": "a coverage table giving every pattern found, clear or n/a with evidence, then each finding with location, attack scenario and recommended fix"
+            },
+            {
+              "label": "Covers",
+              "text": "rekeying, unchecked fees, CloseRemainderTo and AssetCloseTo, group size, replay, access control, asset IDs, opt-in DoS, inner transaction fees and clear state"
+            }
+          ],
+          "text": "One of the per-chain scanners in Trail of Bits' building-secure-contracts plugin, drawing on its Not So Smart Contracts database. Each pattern has a severity: critical for rekeying, account or asset closing and access-control bypasses; high for fees, asset IDs, group size and clear-state handling; medium for replay, opt-in denial of service and inner-transaction fees. The coverage table is the point: a report that covers four patterns and says nothing of the other seven reads like a clean contract, so every row needs a verdict, clear names the field or check searched for, and n/a needs a reason. It rejects shortcuts such as trusting a clean Tealer run, which covers only some of the patterns, saying PyTeal or Beaker handles a check without naming the version and mechanism, or believing a RekeyTo check sits in the other program without citing it. It also recommends unit tests with a proof-of-concept exploit for each pattern, and running Tealer in CI to fail builds on critical or high findings.",
+          "permalink": "https://github.com/trailofbits/skills/tree/e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff/plugins/building-secure-contracts/skills/algorand-vulnerability-scanner"
+        },
+        "tags": [
+          "category:security",
+          "category:debugging",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:official",
+          "stack:algorand",
+          "stack:pyteal",
+          "stack:tealer",
+          "security",
+          "web3",
+          "code-review"
+        ]
+      }
+    },
+    {
+      "id": "trailofbits/skills/plugins/building-secure-contracts/skills/ton-vulnerability-scanner",
+      "name": "ton-vulnerability-scanner",
+      "skills.sh": {
+        "url": "https://skills.sh/trailofbits/skills/ton-vulnerability-scanner",
+        "installs": 5500,
+        "weeklyInstalls": [111, 102, 104, 93, 117, 120, 151, 159],
+        "firstSeen": "2026-01-19"
+      },
+      "skillMd": {
+        "version": "e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Audits TON FunC contracts for three platform-specific bugs: positive integers used as booleans, fake Jetton notifications and TON forwarded without gas checks.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're auditing FunC contracts on TON, especially Jetton token handlers and code that forwards TON in outgoing messages"
+            },
+            {
+              "label": "It does",
+              "text": "greps for boolean-like values, transfer_notification handlers and forward amounts, checks each against a checklist, then reviews message parsing and gas economics by hand"
+            },
+            {
+              "label": "You get",
+              "text": "a coverage table giving all three patterns found, clear or n/a with evidence, then findings with attack scenario, proof of concept and fix"
+            },
+            {
+              "label": "The patterns",
+              "text": "FunC's true is -1, so 1 used as true breaks logic; Jetton notifications must come from the stored wallet; forwarded TON must leave gas"
+            }
+          ],
+          "text": "From Trail of Bits' building-secure-contracts plugin, one of its per-chain scanners. FunC has little automated tooling, so this scan is mostly manual review, and the coverage table is what makes it auditable: even with three patterns, every row needs a verdict, clear names what was searched for, and n/a needs a reason. The fake-Jetton pattern is rated critical: any contract can send a transfer_notification, so a handler that credits deposits without comparing the sender to the Jetton wallet address the contract stored lets an attacker credit tokens it never sent. Using positive integers as booleans, and forwarding user-chosen TON amounts without checking them against the incoming message value, are rated high. It rejects shortcuts such as \"the sender is obviously the Jetton wallet\" or \"the message is non-bounceable, so gas doesn't matter\", and suggests sandbox tests that check true is -1, that fake Jetton transfers are rejected and that underfunded forwards fail.",
+          "permalink": "https://github.com/trailofbits/skills/tree/e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff/plugins/building-secure-contracts/skills/ton-vulnerability-scanner"
+        },
+        "tags": [
+          "category:security",
+          "category:debugging",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:official",
+          "stack:ton",
+          "stack:func",
+          "security",
+          "web3",
+          "code-review"
+        ]
+      }
+    },
+    {
+      "id": "trailofbits/skills/plugins/building-secure-contracts/skills/cairo-vulnerability-scanner",
+      "name": "cairo-vulnerability-scanner",
+      "skills.sh": {
+        "url": "https://skills.sh/trailofbits/skills/cairo-vulnerability-scanner",
+        "installs": 5500,
+        "weeklyInstalls": [112, 103, 102, 94, 118, 120, 153, 159],
+        "firstSeen": "2026-01-19"
+      },
+      "skillMd": {
+        "version": "e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Audits Cairo contracts on StarkNet for six vulnerabilities, from felt252 overflow to unchecked L1 handler senders and signature replay, with a verdict for each.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're auditing a StarkNet contract, an L1-L2 bridge or signature verification code written in Cairo"
+            },
+            {
+              "label": "It does",
+              "text": "greps for felt252 arithmetic, checks every L1 handler, signature nonce and bridge path against checklists, then runs Trail of Bits' Caracal analyzer"
+            },
+            {
+              "label": "You get",
+              "text": "a coverage table giving all six patterns found, clear or n/a with evidence, then findings with attack scenario and recommended fix"
+            },
+            {
+              "label": "Covers",
+              "text": "felt252 overflow, L1 address conversion, failed L1-to-L2 messages, overconstrained L1-L2 coupling, signature replay and unchecked from_address"
+            }
+          ],
+          "text": "From Trail of Bits' building-secure-contracts plugin, one of its per-chain scanners. An unchecked from_address in an L1 handler is rated critical, because any L1 contract can then drive it, for example to mint tokens without a deposit. felt252 values wrap silently, so balances should use u128 or u256; L1 addresses must be checked against the StarkNet field prime before they cross; messages need a cancellation path for when they can't be consumed; and signatures need a nonce and a domain separator naming the chain and contract. Every row of the coverage table needs a verdict, clear names what was searched for and n/a needs a reason, because a report silent on four patterns reads like a clean contract. It rejects trusting a clean Caracal run, which reaches only some of the patterns, assuming Cairo 1's overflow checks cover felt252, and accepting \"the L1 side validates that\" without reading the L1 contract. It suggests unit tests, full L1-L2 roundtrip tests and Caracal in CI.",
+          "permalink": "https://github.com/trailofbits/skills/tree/e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff/plugins/building-secure-contracts/skills/cairo-vulnerability-scanner"
+        },
+        "tags": [
+          "category:security",
+          "category:debugging",
+          "type:workflow",
+          "effect:none",
+          "needs:cli",
+          "by:official",
+          "stack:cairo",
+          "stack:starknet",
+          "stack:caracal",
+          "security",
+          "web3",
+          "code-review"
+        ],
+        "note": "Its last step runs Caracal, Trail of Bits' Cairo analyzer, which installs with cargo from its GitHub repo."
+      }
+    },
+    {
+      "id": "trailofbits/skills/plugins/building-secure-contracts/skills/substrate-vulnerability-scanner",
+      "name": "substrate-vulnerability-scanner",
+      "skills.sh": {
+        "url": "https://skills.sh/trailofbits/skills/substrate-vulnerability-scanner",
+        "installs": 5500,
+        "weeklyInstalls": [112, 104, 101, 93, 117, 120, 151, 159],
+        "firstSeen": "2026-01-19"
+      },
+      "skillMd": {
+        "version": "e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Audits Substrate FRAME pallets for seven vulnerabilities, including unchecked arithmetic, panics that stop block production, wrong weights and weak origin checks.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're auditing custom pallets or runtime code for a Polkadot parachain or a standalone Substrate chain"
+            },
+            {
+              "label": "It does",
+              "text": "checks each dispatchable for arithmetic, panics, weights, origin and write order, greps pallets for unwrap and raw operators, and runs the benchmarks"
+            },
+            {
+              "label": "You get",
+              "text": "a coverage table giving all seven patterns found, clear or n/a with evidence, followed by the findings"
+            },
+            {
+              "label": "Covers",
+              "text": "arithmetic overflow, panics, weights and fees, verify first and write last, unsigned transactions, bad randomness and bad origin"
+            }
+          ],
+          "text": "From Trail of Bits' building-secure-contracts plugin, one of its per-chain scanners. Overflow, panics and bad origins are rated critical: plain +, - and * wrap in release builds, so balances need checked or saturating math; an unwrap, expect or unchecked index can stop a node from processing blocks; and ensure_signed only proves that someone signed, where a privileged call needs ensure_root or a custom origin. Weights must grow with an operation's real cost, or spam becomes cheap. Before Substrate v0.9.25, storage written before validation persists on error, so that row names the runtime version rather than being dropped. Unsigned transactions need replay protection, and randomness should come from BABE rather than the collective-flip pallet. Each row of the table needs a verdict, clear names what was searched for and n/a gives a reason. It also checks the tests: unit tests for every dispatchable, test-fuzz runs for panics, benchmarks for weights and try-runtime for migrations.",
+          "permalink": "https://github.com/trailofbits/skills/tree/e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff/plugins/building-secure-contracts/skills/substrate-vulnerability-scanner"
+        },
+        "tags": [
+          "category:security",
+          "category:debugging",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:official",
+          "stack:substrate",
+          "stack:rust",
+          "stack:polkadot",
+          "security",
+          "web3",
+          "code-review"
+        ]
+      }
+    },
+    {
+      "id": "trailofbits/skills/plugins/culture-index/skills/interpreting-culture-index",
+      "name": "interpreting-culture-index",
+      "skills.sh": {
+        "url": "https://skills.sh/trailofbits/skills/interpreting-culture-index",
+        "installs": 5500,
+        "weeklyInstalls": [110, 100, 103, 97, 118, 121, 148, 161],
+        "firstSeen": "2026-01-19"
+      },
+      "skillMd": {
+        "version": "e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Interprets Culture Index behavioral profiles for one person or a team: traits, burnout risk, hiring profiles, manager coaching, onboarding and conflict.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you have Culture Index survey results, as a PDF or extracted JSON, and want to know what they mean for a person or a team"
+            },
+            {
+              "label": "It does",
+              "text": "extracts trait scores from the PDF with its script, then takes on one of 11 tasks, from reading one profile to mediating a conflict"
+            },
+            {
+              "label": "You get",
+              "text": "an interpretation with key findings and recommended actions, such as a team's gas, brake and glue balance or a burnout flag"
+            },
+            {
+              "label": "Reads traits",
+              "text": "by their distance from the red arrow, the population mean, rather than their 0-10 values, except Logic and Ingenuity"
+            },
+            {
+              "label": "Also",
+              "text": "predicts traits from an interview transcript, before a candidate has taken the survey"
+            }
+          ],
+          "text": "From Trail of Bits. Culture Index is a behavioral survey with two graphs: Survey traits, which the skill treats as hardwired, and Job behaviors, how someone adapts at work. A large gap between them means behavior modification that drains energy; energy utilization, Job EU divided by Survey EU, flags stress and burnout risk above 130% and frustration and flight risk below 70%. Gas, brake and glue are its team roles: high Autonomy drives results, high Conformity controls quality and high Social holds relationships together. Its other workflows compare profiles, suggest motivators, define the trait profile a role needs, coach a manager on a direct report, debrief a candidate and plan a new hire's first 90 days. It never estimates scores by eye from a PDF, which it says is off by 20-30%, and stops if uv isn't installed. It calls no trait good or bad, treats CI as one data point, never the sole basis for hiring or firing, and isn't for DISC, Myers-Briggs or other assessments.",
+          "permalink": "https://github.com/trailofbits/skills/tree/e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff/plugins/culture-index/skills/interpreting-culture-index"
+        },
+        "tags": [
+          "category:personal",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:official",
+          "stack:culture-index",
+          "personal",
+          "pdf"
+        ],
+        "note": "Needs uv to extract scores from Culture Index PDFs; without it, it stops rather than read the charts by eye."
+      }
+    },
+    {
+      "id": "trailofbits/skills/plugins/yara-authoring/skills/yara-rule-authoring",
+      "name": "yara-rule-authoring",
+      "skills.sh": {
+        "url": "https://skills.sh/trailofbits/skills/yara-rule-authoring",
+        "installs": 5400,
+        "weeklyInstalls": [114, 105, 107, 98, 120, 127, 156, 172],
+        "firstSeen": "2026-01-30"
+      },
+      "skillMd": {
+        "version": "e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes and reviews YARA-X rules that detect one malware family without flooding you with false positives, checked by bundled lint and atom scripts.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're writing a YARA rule from malware samples, reviewing someone else's, chasing false positives or porting legacy YARA rules to YARA-X"
+            },
+            {
+              "label": "It does",
+              "text": "extracts candidate strings with yarGen or FLOSS, discards weak ones, writes the rule with cheap checks first, then lints it and tests it against clean files"
+            },
+            {
+              "label": "You get",
+              "text": "a named rule with full metadata, or for a review, the error and warning codes its linter and atom analyzer report"
+            },
+            {
+              "label": "Atoms",
+              "text": "the 4-byte pieces YARA matches first; short or repetitive strings make poor atoms and force slow checks on too many files"
+            },
+            {
+              "label": "Needs",
+              "text": "the YARA-X CLI (yr) and uv for its scripts"
+            }
+          ],
+          "text": "From Trail of Bits. It targets YARA-X, the Rust successor to YARA that runs VirusTotal's production systems. Its rules come from detection practice: target one family, not a category; reject strings under 4 bytes, API names, common paths and anything found in Windows system files; expect to discard 80% of what yarGen suggests; use nocase or wide only with evidence; anchor and bound every regex; and order conditions from filesize to magic bytes to strings to modules. It warns that uint32() reads little-endian, so a magic-byte check written in file order compiles and never matches. Packed samples call for the unpacked payload or a packer rule, and when strings fail it pivots to entropy, import hashes or PE structure. It says when to give up on a rule, such as one matching six or more clean files, and covers the crx and dex modules for Chrome extensions and Android apps, rule names like MAL_Win_Emotet_Loader_Jan25, and migrating legacy rules. A review script runs yr check, yr fmt, the linter and the atom analyzer in one call and prints one JSON result.",
+          "permalink": "https://github.com/trailofbits/skills/tree/e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff/plugins/yara-authoring/skills/yara-rule-authoring"
+        },
+        "tags": [
+          "category:security",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:official",
+          "stack:yara",
+          "security",
+          "code-review"
+        ],
+        "note": "Needs the YARA-X CLI (yr) and uv for its scripts."
+      }
+    },
+    {
+      "id": "trailofbits/skills/plugins/code-improver/skills/skill-improver",
+      "name": "skill-improver",
+      "skills.sh": {
+        "url": "https://skills.sh/trailofbits/skills/skill-improver",
+        "installs": 5300,
+        "weeklyInstalls": [119, 106, 107, 103, 121, 125, 153, 173],
+        "firstSeen": "2026-02-26"
+      },
+      "skillMd": {
+        "version": "e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Improves a Claude Code skill in an autonomous loop of reviews and fixes until a review finds no critical or major issues, without committing.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a skill you're writing has quality problems and you want them fixed until it passes review, or to resume after the loop escalated"
+            },
+            {
+              "label": "It does",
+              "text": "starts the code-improver plugin's background workflow, which alternates the plugin-dev skill-reviewer agent with a fixer agent round after round"
+            },
+            {
+              "label": "You get",
+              "text": "fixes in your working tree, a findings ledger on disk, and a result: converged, capped but not converged, escalated or halted"
+            },
+            {
+              "label": "Stops",
+              "text": "on a clean review, at 5 rounds by default, when fixes stop converging, or when a change falls outside the skill's plugin folder"
+            },
+            {
+              "label": "Unlike",
+              "text": "a one-time review by the skill-reviewer agent, it keeps fixing and re-reviewing until a review comes back clean"
+            },
+            {
+              "label": "Needs",
+              "text": "Claude Code's Workflow tool, the code-improver plugin it ships in, and the plugin-dev plugin from claude-plugins-official"
+            }
+          ],
+          "text": "From Trail of Bits' code-improver plugin. The skill finds the target skill, by path or by name among the repo's SKILL.md files, hands it to the plugin's workflow and relays the outcome; if the Workflow tool or the reviewer is missing it stops instead of improvising, because an inline loop has none of the guarantees. The ledger gives each finding a stable id and one verdict, fixed, rejected with a reason, or deferred, and is saved every round, so an escalated or interrupted run resumes without starting over. The loop escalates when blocking counts stop falling over three rounds, the same finding stays open three rounds in a row, or a finding is fixed twice; continuing means a fresh run with your decision passed in verbatim. A git-diff check after every fix round halts on any change outside the scope. Before finishing, a last pass strips loop narration, collapses version bumps to one and checks the docs against the code, and its own edits are checked too. Nothing is committed.",
+          "permalink": "https://github.com/trailofbits/skills/tree/e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff/plugins/code-improver/skills/skill-improver"
+        },
+        "tags": [
+          "category:skill-tools",
+          "type:workflow",
+          "effect:local",
+          "needs:claude-code",
+          "needs:subagents",
+          "by:official",
+          "stack:claude",
+          "skill-authoring",
+          "code-review"
+        ],
+        "note": "Runs the code-improver plugin's improve.js workflow, which sits outside the skill folder, with the plugin-dev plugin's skill-reviewer agent: install code-improver from the trailofbits/skills marketplace and plugin-dev from claude-plugins-official. It needs Claude Code's Workflow tool."
+      }
+    },
+    {
+      "id": "trailofbits/skills/plugins/zeroize-audit/skills/zeroize-audit",
+      "name": "zeroize-audit",
+      "skills.sh": {
+        "url": "https://skills.sh/trailofbits/skills/zeroize-audit",
+        "installs": 5000,
+        "weeklyInstalls": [109, 106, 101, 98, 117, 127, 157, 167],
+        "firstSeen": "2026-02-26"
+      },
+      "skillMd": {
+        "version": "e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Finds secrets that C, C++ or Rust code never wipes, or whose wipes the compiler optimizes away, and tests findings with proof-of-concept programs.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're auditing C, C++ or Rust code that holds keys, passwords, tokens or other secrets and need to know they're wiped after use"
+            },
+            {
+              "label": "It does",
+              "text": "runs phases of worker agents: source analysis, compiler IR and assembly comparison across optimization levels, PoC generation and validation, then a report"
+            },
+            {
+              "label": "You get",
+              "text": "final-report.md and findings.json, each finding with severity, confidence, evidence and a suggested fix, plus the generated PoCs"
+            },
+            {
+              "label": "Never",
+              "text": "modifies the audited code; it writes its analysis to a temporary working directory"
+            },
+            {
+              "label": "Needs",
+              "text": "clang and a compile_commands.json for C/C++, or a buildable crate with nightly cargo and uv for Rust; the Serena MCP server is optional"
+            }
+          ],
+          "text": "From Trail of Bits. A key wiped with memset can be deleted by the compiler as a dead store, so reading the source can't prove secrets are cleared. Its 11 finding types range from source-level gaps, such as no wipe, a partial wipe, a wipe missing on some paths, an untracked copy of a secret or an insecure allocator, to compiler-level ones: a wipe present at -O0 but gone at -O1 or -O2, secrets left on the stack or spilled from registers, and, when enabled, incomplete unrolled wipe loops and error paths without cleanup. A finding needs two independent signals to be confirmed, and a compiler-removal finding is never reported without an IR diff. Supported findings get a proof-of-concept program that is compiled, run and checked against its claim, and you decide on any that fail that check. Recognized wipes include explicit_bzero, memset_s, SecureZeroMemory, OPENSSL_cleanse, sodium_memzero and Rust's zeroize crate. Arguments like \"the compiler won't optimize this away\" don't downgrade a finding, and an interrupted run resumes from its saved state.",
+          "permalink": "https://github.com/trailofbits/skills/tree/e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff/plugins/zeroize-audit/skills/zeroize-audit"
+        },
+        "tags": [
+          "category:security",
+          "category:debugging",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "needs:subagents",
+          "by:official",
+          "stack:c",
+          "stack:cpp",
+          "stack:rust",
+          "security",
+          "code-review"
+        ],
+        "note": "Its 11 worker prompts sit in the zeroize-audit plugin's agents folder, outside the skill, so install the plugin from the trailofbits/skills marketplace. C/C++ needs clang and a compile_commands.json, Rust needs nightly cargo and uv, and it compiles and runs the PoCs it writes."
+      }
+    },
+    {
+      "id": "trailofbits/skills/plugins/let-fate-decide/skills/let-fate-decide",
+      "name": "let-fate-decide",
+      "skills.sh": {
+        "url": "https://skills.sh/trailofbits/skills/let-fate-decide",
+        "installs": 5000,
+        "weeklyInstalls": [108, 101, 100, 95, 115, 122, 148, 161],
+        "firstSeen": "2026-02-26"
+      },
+      "skillMd": {
+        "version": "e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Draws a 36-card Tarot spread with cryptographic randomness and reads it to pick an approach when your request is vague or you say \"whatever\".",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you'd rather leave a choice between reasonable approaches to chance than answer clarifying questions"
+            },
+            {
+              "label": "Runs",
+              "text": "on its own after casual replies like \"whatever\", \"idk\", \"YOLO\" or \"you pick\", and when the agent is about to choose arbitrarily"
+            },
+            {
+              "label": "It does",
+              "text": "runs a script that shuffles Tarot decks with Python's secrets module and deals 12 houses of three cards, then reads the whole spread"
+            },
+            {
+              "label": "You get",
+              "text": "a reading mapped to concrete decisions, given alongside the agent's next action rather than as a separate reply"
+            },
+            {
+              "label": "Not for",
+              "text": "deciding safety-critical work, or standing in for evidence in security and correctness reviews"
+            },
+            {
+              "label": "Needs",
+              "text": "uv to run its drawing script"
+            }
+          ],
+          "text": "From Trail of Bits. The default spread is the 12 Houses of the Zodiac: each house asks a question about the task, such as how the work should begin, what risk is present or what blind spot matters, and gets one Major Arcana card for its theme and two Minor Arcana cards for detail, any of which may be reversed. The script reports the draw's entropy, over 100 bits, and a meaning file for every house and card ships with the skill, along with a guide that translates readings into audit, verification and other technical lenses. In security work a reading may choose which angle to inspect next, but never dismisses a risk, suppresses a finding or approves a release. If the script fails it says so rather than inventing cards, it draws once per decision, and your stated requirements always outrank the cards.",
+          "permalink": "https://github.com/trailofbits/skills/tree/e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff/plugins/let-fate-decide/skills/let-fate-decide"
+        },
+        "tags": [
+          "category:planning",
+          "type:tool",
+          "effect:none",
+          "needs:cli",
+          "by:official",
+          "planning"
+        ],
+        "note": "Fires on its own when a prompt is vague or casual (\"whatever\", \"idk\", \"YOLO\", Yu-Gi-Oh quotes) and when the agent is about to pick arbitrarily between approaches."
+      }
     }
   ]
 }
