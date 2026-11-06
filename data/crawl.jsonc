@@ -68,19 +68,6 @@
       }
     },
     {
-      "name": "platform-metadata-deploy",
-      "repo": "forcedotcom/sf-skills",
-      "official": true,
-      "stars": 1151,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/forcedotcom/sf-skills/platform-metadata-deploy",
-        "installs": 7000,
-        "weeklyInstalls": [88, 99, 102, 244, 133, 156, 176, 152],
-        "firstSeen": "2026-06-26"
-      }
-    },
-    {
       "name": "storing-and-querying-vectors",
       "repo": "aws/agent-toolkit-for-aws",
       "official": false,
@@ -614,19 +601,6 @@
       }
     },
     {
-      "name": "platform-metadata-retrieve",
-      "repo": "forcedotcom/sf-skills",
-      "official": true,
-      "stars": 1151,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/forcedotcom/sf-skills/platform-metadata-retrieve",
-        "installs": 6800,
-        "weeklyInstalls": [86, 101, 104, 250, 118, 140, 151, 129],
-        "firstSeen": "2026-06-26"
-      }
-    },
-    {
       "name": "n8n-expression-syntax",
       "repo": "czlonkowski/n8n-skills",
       "official": false,
@@ -848,19 +822,6 @@
       }
     },
     {
-      "name": "platform-custom-field-generate",
-      "repo": "forcedotcom/sf-skills",
-      "official": true,
-      "stars": 1151,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/forcedotcom/sf-skills/platform-custom-field-generate",
-        "installs": 6800,
-        "weeklyInstalls": [83, 91, 115, 118, 97, 174, 158, 128],
-        "firstSeen": "2026-06-26"
-      }
-    },
-    {
       "name": "pixijs-scene-text",
       "repo": "pixijs/pixijs-skills",
       "official": false,
@@ -871,19 +832,6 @@
         "installs": 6800,
         "weeklyInstalls": [225, 178, 201, 193, 205, 331, 450, 398],
         "firstSeen": "2026-04-15"
-      }
-    },
-    {
-      "name": "platform-docs-get",
-      "repo": "forcedotcom/sf-skills",
-      "official": true,
-      "stars": 1151,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/forcedotcom/sf-skills/platform-docs-get",
-        "installs": 6800,
-        "weeklyInstalls": [92, 114, 110, 262, 124, 136, 124, 123],
-        "firstSeen": "2026-06-26"
       }
     },
     {
@@ -962,19 +910,6 @@
         "installs": 6700,
         "weeklyInstalls": [89, 105, 111, 95, 146, 299, 236, 118],
         "firstSeen": "2026-03-09"
-      }
-    },
-    {
-      "name": "platform-permission-set-generate",
-      "repo": "forcedotcom/sf-skills",
-      "official": true,
-      "stars": 1151,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/forcedotcom/sf-skills/platform-permission-set-generate",
-        "installs": 6700,
-        "weeklyInstalls": [74, 92, 99, 248, 117, 158, 156, 128],
-        "firstSeen": "2026-06-26"
       }
     },
     {
@@ -1251,19 +1186,6 @@
       }
     },
     {
-      "name": "dx-code-analyzer-run",
-      "repo": "forcedotcom/sf-skills",
-      "official": true,
-      "stars": 1151,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/forcedotcom/sf-skills/dx-code-analyzer-run",
-        "installs": 6600,
-        "weeklyInstalls": [77, 86, 98, 269, 114, 130, 136, 124],
-        "firstSeen": "2026-06-26"
-      }
-    },
-    {
       "name": "testing-strategy",
       "repo": "anthropics/knowledge-work-plugins",
       "official": true,
@@ -1391,19 +1313,6 @@
         "installs": 6600,
         "weeklyInstalls": [42, 61, 51, 38, 23, 19, 14, 23],
         "firstSeen": "2026-01-19"
-      }
-    },
-    {
-      "name": "platform-custom-object-generate",
-      "repo": "forcedotcom/sf-skills",
-      "official": true,
-      "stars": 1151,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/forcedotcom/sf-skills/platform-custom-object-generate",
-        "installs": 6600,
-        "weeklyInstalls": [83, 91, 109, 121, 101, 163, 158, 131],
-        "firstSeen": "2026-06-26"
       }
     },
     {
@@ -1612,19 +1521,6 @@
         "installs": 6500,
         "weeklyInstalls": [363, 363, 319, 363, 394, 365, 256, 267],
         "firstSeen": "2026-03-09"
-      }
-    },
-    {
-      "name": "automation-flow-generate",
-      "repo": "forcedotcom/sf-skills",
-      "official": true,
-      "stars": 1151,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/forcedotcom/sf-skills/automation-flow-generate",
-        "installs": 6500,
-        "weeklyInstalls": [97, 91, 111, 113, 90, 142, 143, 89],
-        "firstSeen": "2026-06-26"
       }
     },
     {
@@ -2096,19 +1992,6 @@
       }
     },
     {
-      "name": "experience-lwc-generate",
-      "repo": "forcedotcom/sf-skills",
-      "official": true,
-      "stars": 1151,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/forcedotcom/sf-skills/experience-lwc-generate",
-        "installs": 6400,
-        "weeklyInstalls": [86, 97, 87, 115, 87, 137, 129, 114],
-        "firstSeen": "2026-06-26"
-      }
-    },
-    {
       "name": "aws-networking",
       "repo": "aws/agent-toolkit-for-aws",
       "official": false,
@@ -2330,19 +2213,6 @@
       }
     },
     {
-      "name": "platform-validation-rule-generate",
-      "repo": "forcedotcom/sf-skills",
-      "official": true,
-      "stars": 1151,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/forcedotcom/sf-skills/platform-validation-rule-generate",
-        "installs": 6300,
-        "weeklyInstalls": [64, 75, 83, 104, 77, 123, 120, 105],
-        "firstSeen": "2026-06-26"
-      }
-    },
-    {
       "name": "better-icons",
       "repo": "better-auth/better-icons",
       "official": false,
@@ -2405,19 +2275,6 @@
         "installs": 6300,
         "weeklyInstalls": [48, 74, 58, 58, 101, 222, 176, 61],
         "firstSeen": "2026-03-09"
-      }
-    },
-    {
-      "name": "platform-data-manage",
-      "repo": "forcedotcom/sf-skills",
-      "official": true,
-      "stars": 1151,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/forcedotcom/sf-skills/platform-data-manage",
-        "installs": 6300,
-        "weeklyInstalls": [76, 80, 74, 216, 95, 85, 102, 99],
-        "firstSeen": "2026-06-26"
       }
     },
     {
@@ -2694,19 +2551,6 @@
       }
     },
     {
-      "name": "dx-org-manage",
-      "repo": "forcedotcom/sf-skills",
-      "official": true,
-      "stars": 1151,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/forcedotcom/sf-skills/dx-org-manage",
-        "installs": 6200,
-        "weeklyInstalls": [48, 71, 75, 266, 111, 115, 124, 88],
-        "firstSeen": "2026-06-26"
-      }
-    },
-    {
       "name": "wp-block-themes",
       "repo": "wordpress/agent-skills",
       "official": false,
@@ -2720,19 +2564,6 @@
       }
     },
     {
-      "name": "platform-flexipage-generate",
-      "repo": "forcedotcom/sf-skills",
-      "official": true,
-      "stars": 1151,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/forcedotcom/sf-skills/platform-flexipage-generate",
-        "installs": 6200,
-        "weeklyInstalls": [71, 77, 83, 95, 80, 128, 128, 116],
-        "firstSeen": "2026-06-26"
-      }
-    },
-    {
       "name": "pptx-generator",
       "repo": "minimax-ai/skills",
       "official": false,
@@ -2743,19 +2574,6 @@
         "installs": 6200,
         "weeklyInstalls": [53, 62, 61, 39, 56, 84, 103, 75],
         "firstSeen": "2026-03-22"
-      }
-    },
-    {
-      "name": "platform-metadata-api-context-get",
-      "repo": "forcedotcom/sf-skills",
-      "official": true,
-      "stars": 1151,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/forcedotcom/sf-skills/platform-metadata-api-context-get",
-        "installs": 6200,
-        "weeklyInstalls": [66, 74, 73, 72, 69, 76, 98, 97],
-        "firstSeen": "2026-06-26"
       }
     },
     {
@@ -2967,19 +2785,6 @@
       }
     },
     {
-      "name": "platform-sharing-rules-generate",
-      "repo": "forcedotcom/sf-skills",
-      "official": true,
-      "stars": 1151,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/forcedotcom/sf-skills/platform-sharing-rules-generate",
-        "installs": 6100,
-        "weeklyInstalls": [49, 74, 73, 218, 87, 111, 110, 104],
-        "firstSeen": "2026-06-26"
-      }
-    },
-    {
       "name": "aws-database",
       "repo": "aws/agent-toolkit-for-aws",
       "official": false,
@@ -3081,19 +2886,6 @@
         "installs": 6100,
         "weeklyInstalls": [72, 99, 71, 64, 113, 242, 195, 75],
         "firstSeen": "2026-03-04"
-      }
-    },
-    {
-      "name": "design-systems-slds-apply",
-      "repo": "forcedotcom/sf-skills",
-      "official": true,
-      "stars": 1151,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/forcedotcom/sf-skills/design-systems-slds-apply",
-        "installs": 6100,
-        "weeklyInstalls": [84, 76, 82, 233, 91, 61, 66, 65],
-        "firstSeen": "2026-06-26"
       }
     },
     {
@@ -3695,32 +3487,6 @@
       }
     },
     {
-      "name": "design-systems-slds-validate",
-      "repo": "forcedotcom/sf-skills",
-      "official": true,
-      "stars": 1151,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/forcedotcom/sf-skills/design-systems-slds-validate",
-        "installs": 6000,
-        "weeklyInstalls": [85, 74, 79, 69, 87, 74, 92, 74],
-        "firstSeen": "2026-06-26"
-      }
-    },
-    {
-      "name": "agentforce-generate",
-      "repo": "forcedotcom/sf-skills",
-      "official": true,
-      "stars": 1151,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/forcedotcom/sf-skills/agentforce-generate",
-        "installs": 6000,
-        "weeklyInstalls": [97, 71, 101, 83, 82, 79, 76, 50],
-        "firstSeen": "2026-06-26"
-      }
-    },
-    {
       "name": "onchain-pay-open-api",
       "repo": "binance/binance-skills-hub",
       "official": false,
@@ -3981,19 +3747,6 @@
       }
     },
     {
-      "name": "platform-custom-tab-generate",
-      "repo": "forcedotcom/sf-skills",
-      "official": true,
-      "stars": 1151,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/forcedotcom/sf-skills/platform-custom-tab-generate",
-        "installs": 5900,
-        "weeklyInstalls": [61, 65, 64, 64, 60, 65, 83, 93],
-        "firstSeen": "2026-06-26"
-      }
-    },
-    {
       "name": "browser",
       "repo": "browserbase/skills",
       "official": false,
@@ -4082,19 +3835,6 @@
         "installs": 5900,
         "weeklyInstalls": [243, 183, 165, 152, 450, 588, 719, 459],
         "firstSeen": "2026-07-26"
-      }
-    },
-    {
-      "name": "dx-code-analyzer-configure",
-      "repo": "forcedotcom/sf-skills",
-      "official": true,
-      "stars": 1151,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/forcedotcom/sf-skills/dx-code-analyzer-configure",
-        "installs": 5900,
-        "weeklyInstalls": [62, 64, 65, 51, 67, 60, 74, 84],
-        "firstSeen": "2026-06-26"
       }
     },
     {
@@ -30496,6 +30236,86 @@
     {
       "url": "https://skills.sh/nomadamas/k-skill/multi-asset-morning-briefing",
       "note": "Before each use, its CLI installs all of k-skill's skills globally, without asking."
+    },
+    {
+      "url": "https://skills.sh/forcedotcom/sf-skills/platform-metadata-deploy",
+      "note": "Tool docs: an agent's manual for salesforce."
+    },
+    {
+      "url": "https://skills.sh/forcedotcom/sf-skills/platform-metadata-retrieve",
+      "note": "Tool docs: an agent's manual for salesforce."
+    },
+    {
+      "url": "https://skills.sh/forcedotcom/sf-skills/platform-custom-field-generate",
+      "note": "Tool docs: an agent's manual for salesforce."
+    },
+    {
+      "url": "https://skills.sh/forcedotcom/sf-skills/platform-docs-get",
+      "note": "Tool docs: it looks up Salesforce's own documentation."
+    },
+    {
+      "url": "https://skills.sh/forcedotcom/sf-skills/platform-permission-set-generate",
+      "note": "Tool docs: an agent's manual for salesforce."
+    },
+    {
+      "url": "https://skills.sh/forcedotcom/sf-skills/dx-code-analyzer-run",
+      "note": "Tool docs: an agent's manual for salesforce."
+    },
+    {
+      "url": "https://skills.sh/forcedotcom/sf-skills/platform-custom-object-generate",
+      "note": "Tool docs: an agent's manual for salesforce."
+    },
+    {
+      "url": "https://skills.sh/forcedotcom/sf-skills/automation-flow-generate",
+      "note": "Tool docs: an agent's manual for salesforce."
+    },
+    {
+      "url": "https://skills.sh/forcedotcom/sf-skills/experience-lwc-generate",
+      "note": "Tool docs: an agent's manual for salesforce."
+    },
+    {
+      "url": "https://skills.sh/forcedotcom/sf-skills/platform-validation-rule-generate",
+      "note": "Tool docs: an agent's manual for salesforce."
+    },
+    {
+      "url": "https://skills.sh/forcedotcom/sf-skills/platform-data-manage",
+      "note": "Tool docs: an agent's manual for salesforce."
+    },
+    {
+      "url": "https://skills.sh/forcedotcom/sf-skills/dx-org-manage",
+      "note": "Tool docs: an agent's manual for salesforce."
+    },
+    {
+      "url": "https://skills.sh/forcedotcom/sf-skills/platform-flexipage-generate",
+      "note": "Tool docs: an agent's manual for salesforce."
+    },
+    {
+      "url": "https://skills.sh/forcedotcom/sf-skills/platform-metadata-api-context-get",
+      "note": "Tool docs: an agent's manual for salesforce."
+    },
+    {
+      "url": "https://skills.sh/forcedotcom/sf-skills/platform-sharing-rules-generate",
+      "note": "Tool docs: an agent's manual for salesforce."
+    },
+    {
+      "url": "https://skills.sh/forcedotcom/sf-skills/design-systems-slds-apply",
+      "note": "Tool docs: an agent's manual for salesforce."
+    },
+    {
+      "url": "https://skills.sh/forcedotcom/sf-skills/design-systems-slds-validate",
+      "note": "Tool docs: an agent's manual for salesforce."
+    },
+    {
+      "url": "https://skills.sh/forcedotcom/sf-skills/agentforce-generate",
+      "note": "Tool docs: an agent's manual for salesforce."
+    },
+    {
+      "url": "https://skills.sh/forcedotcom/sf-skills/platform-custom-tab-generate",
+      "note": "Tool docs: an agent's manual for salesforce."
+    },
+    {
+      "url": "https://skills.sh/forcedotcom/sf-skills/dx-code-analyzer-configure",
+      "note": "Tool docs: an agent's manual for salesforce."
     }
   ]
 }
