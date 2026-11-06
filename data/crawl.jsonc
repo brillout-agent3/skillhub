@@ -1030,32 +1030,6 @@
       }
     },
     {
-      "name": "effect-ts",
-      "repo": "effect-ts/skills",
-      "official": false,
-      "stars": 114,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/effect-ts/skills/effect-ts",
-        "installs": 8500,
-        "weeklyInstalls": [269, 237, 272, 509, 2594, 1102, 403, 502],
-        "firstSeen": "2026-05-13"
-      }
-    },
-    {
-      "name": "wp-plugin-development",
-      "repo": "wordpress/agent-skills",
-      "official": false,
-      "stars": 2338,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wordpress/agent-skills/wp-plugin-development",
-        "installs": 8500,
-        "weeklyInstalls": [230, 258, 305, 250, 312, 308, 331, 322],
-        "firstSeen": "2026-02-01"
-      }
-    },
-    {
       "name": "karpathy-llm-wiki",
       "repo": "astro-han/karpathy-llm-wiki",
       "official": false,
@@ -1134,19 +1108,6 @@
       }
     },
     {
-      "name": "dd-pup",
-      "repo": "datadog-labs/agent-skills",
-      "official": false,
-      "stars": 183,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/datadog-labs/agent-skills/dd-pup",
-        "installs": 8200,
-        "weeklyInstalls": [373, 418, 419, 389, 383, 359, 369, 380],
-        "firstSeen": "2026-02-26"
-      }
-    },
-    {
       "name": "seo-competitor-pages",
       "repo": "agricidaniel/claude-seo",
       "official": false,
@@ -1196,19 +1157,6 @@
         "installs": 8200,
         "weeklyInstalls": [158, 172, 156, 165, 196, 231, 223, 239],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "tailwind-v4-shadcn",
-      "repo": "secondsky/claude-skills",
-      "official": false,
-      "stars": 246,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/secondsky/claude-skills/tailwind-v4-shadcn",
-        "installs": 8200,
-        "weeklyInstalls": [123, 103, 104, 90, 73, 68, 77, 53],
-        "firstSeen": "2026-01-22"
       }
     },
     {
@@ -1368,19 +1316,6 @@
       }
     },
     {
-      "name": "terraform-skill",
-      "repo": "antonbabenko/terraform-skill",
-      "official": false,
-      "stars": 2450,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/antonbabenko/terraform-skill/terraform-skill",
-        "installs": 7900,
-        "weeklyInstalls": [208, 251, 210, 234, 255, 215, 295, 288],
-        "firstSeen": "2026-01-19"
-      }
-    },
-    {
       "name": "seo-local",
       "repo": "agricidaniel/claude-seo",
       "official": false,
@@ -1391,19 +1326,6 @@
         "installs": 7900,
         "weeklyInstalls": [256, 277, 283, 291, 315, 349, 373, 440],
         "firstSeen": "2026-03-23"
-      }
-    },
-    {
-      "name": "pixijs",
-      "repo": "pixijs/pixijs-skills",
-      "official": false,
-      "stars": 363,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/pixijs/pixijs-skills/pixijs",
-        "installs": 7900,
-        "weeklyInstalls": [247, 199, 233, 223, 242, 372, 479, 429],
-        "firstSeen": "2026-04-15"
       }
     },
     {
@@ -1485,19 +1407,6 @@
       }
     },
     {
-      "name": "migrate-oxlint",
-      "repo": "oxc-project/oxc",
-      "official": false,
-      "stars": 23357,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/oxc-project/oxc/migrate-oxlint",
-        "installs": 7800,
-        "weeklyInstalls": [150, 146, 164, 150, 102, 101, 72, 62],
-        "firstSeen": "2026-03-05"
-      }
-    },
-    {
       "name": "seo-backlinks",
       "repo": "agricidaniel/claude-seo",
       "official": false,
@@ -1508,19 +1417,6 @@
         "installs": 7700,
         "weeklyInstalls": [309, 290, 331, 281, 264, 280, 273, 390],
         "firstSeen": "2026-03-30"
-      }
-    },
-    {
-      "name": "eve",
-      "repo": "vercel/eve",
-      "official": true,
-      "stars": 5815,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/vercel/eve/eve",
-        "installs": 7700,
-        "weeklyInstalls": [305, 339, 277, 726, 244, 162, 145, 148],
-        "firstSeen": "2026-06-17"
       }
     },
     {
@@ -1612,19 +1508,6 @@
         "installs": 7600,
         "weeklyInstalls": [295, 334, 282, 197, 271, 205, 174, 93],
         "firstSeen": "2026-05-26"
-      }
-    },
-    {
-      "name": "seo-content-writer",
-      "repo": "aaron-he-zhu/seo-geo-claude-skills",
-      "official": false,
-      "stars": 240,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aaron-he-zhu/seo-geo-claude-skills/seo-content-writer",
-        "installs": 7600,
-        "weeklyInstalls": [0, 2, 0, 1, 5, 2, 2, 0],
-        "firstSeen": "2026-02-12"
       }
     },
     {
@@ -1940,19 +1823,6 @@
       }
     },
     {
-      "name": "zod",
-      "repo": "pproenca/dot-skills",
-      "official": false,
-      "stars": 221,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/pproenca/dot-skills/zod",
-        "installs": 7200,
-        "weeklyInstalls": [143, 195, 184, 150, 160, 125, 138, 95],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
       "name": "antislop-layoutmobile",
       "repo": "miqdadbadjuber/anti-slop",
       "official": false,
@@ -1963,19 +1833,6 @@
         "installs": 7200,
         "weeklyInstalls": [658, 771, 832, 581, 762, 716, 778, 879],
         "firstSeen": "2026-08-15"
-      }
-    },
-    {
-      "name": "chatgpt-app-builder",
-      "repo": "alpic-ai/skybridge",
-      "official": false,
-      "stars": 2186,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/alpic-ai/skybridge/chatgpt-app-builder",
-        "installs": 7200,
-        "weeklyInstalls": [600, 841, 688, 307, 160, 177, 40, 39],
-        "firstSeen": "2026-01-22"
       }
     },
     {
@@ -33871,6 +33728,50 @@
     {
       "url": "https://skills.sh/langgenius/dify/frontend-code-review",
       "note": "Internal: an agent's manual for Dify's own frontend codebase."
+    },
+    {
+      "url": "https://skills.sh/effect-ts/skills/effect-ts",
+      "note": "Tool docs: an agent's manual for effect."
+    },
+    {
+      "url": "https://skills.sh/wordpress/agent-skills/wp-plugin-development",
+      "note": "Tool docs: an agent's manual for wordpress."
+    },
+    {
+      "url": "https://skills.sh/datadog-labs/agent-skills/dd-pup",
+      "note": "Tool docs: an agent's manual for the pup Datadog CLI."
+    },
+    {
+      "url": "https://skills.sh/secondsky/claude-skills/tailwind-v4-shadcn",
+      "note": "Tool docs: an agent's manual for tailwind and shadcn."
+    },
+    {
+      "url": "https://skills.sh/antonbabenko/terraform-skill/terraform-skill",
+      "note": "Tool docs: an agent's manual for terraform."
+    },
+    {
+      "url": "https://skills.sh/pixijs/pixijs-skills/pixijs",
+      "note": "Tool docs: an agent's manual for pixijs."
+    },
+    {
+      "url": "https://skills.sh/oxc-project/oxc/migrate-oxlint",
+      "note": "Tool docs: an agent's manual for oxlint."
+    },
+    {
+      "url": "https://skills.sh/vercel/eve/eve",
+      "note": "Tool docs: an agent's manual for eve."
+    },
+    {
+      "url": "https://skills.sh/aaron-he-zhu/seo-geo-claude-skills/seo-content-writer",
+      "note": "Retired. Its SKILL.md now points to content-writer, in aaron-he-zhu/aaron-marketing-skills."
+    },
+    {
+      "url": "https://skills.sh/pproenca/dot-skills/zod",
+      "note": "Tool docs: an agent's manual for zod."
+    },
+    {
+      "url": "https://skills.sh/alpic-ai/skybridge/chatgpt-app-builder",
+      "note": "Tool docs: an agent's manual for skybridge."
     }
   ]
 }
