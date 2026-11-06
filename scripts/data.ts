@@ -11,7 +11,7 @@ const crawlPath = `${root}data/crawl.json`;
 
 export const readData = (): Data => JSON.parse(readFileSync(path, "utf8"));
 
-const TOP = ["updated", "asOf", "skip", "facets", "repos", "bundles", "skills"];
+const TOP = ["$schema", "updated", "asOf", "skip", "facets", "repos", "bundles", "skills"];
 const ORDER = [
   "id",
   "name",
@@ -53,6 +53,8 @@ export function writeData(data: Data) {
  * Unlike skills.json, crawl.json takes any skill, such as one a website publishes.
  */
 export interface Crawl {
+  /** The JSON Schema of this file, generated from this interface by schema.ts: for editors. */
+  $schema: string;
   /** When crawl.ts last ran (YYYY-MM-DD). */
   asOf: string;
   /** What a crawled skill needs to be queued: all-time installs, and its GitHub repo's stars. */

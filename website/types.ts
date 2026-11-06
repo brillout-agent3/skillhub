@@ -5,6 +5,8 @@
  */
 
 export interface Data {
+  /** The JSON Schema of this file, generated from this interface by ../scripts/schema.ts: for editors. */
+  $schema: string;
   /** When the data was last edited (YYYY-MM-DD). */
   updated: string;
   /** When each kind of number was collected, which crawl.ts does daily, and when the tags were assigned (YYYY-MM-DD). */

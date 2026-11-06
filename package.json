@@ -13,6 +13,8 @@
     "========= SKILL.md copies": "",
     "sync": "pnpm run node-ts scripts/sync.ts",
     "tldr": "pnpm run node-ts scripts/tldr.ts",
+    "========= JSON Schemas of the data files": "",
+    "schema": "pnpm run node-ts scripts/schema.ts",
     "========= Crawl skills.sh and GitHub": "",
     "crawl": "pnpm run node-ts scripts/crawl.ts",
     "========= Formatting": "",
@@ -28,6 +30,7 @@
     "diff": "^9.0.0",
     "markdown-it": "^15.0.3",
     "oxfmt": "^0.74.0",
+    "ts-json-schema-generator": "^2.9.0",
     "typescript": "^7.0.2",
     "vike": "^0.4.268",
     "vite": "^8.3.4"

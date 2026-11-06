@@ -1,0 +1,137 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/Crawl",
+  "definitions": {
+    "Crawl": {
+      "type": "object",
+      "properties": {
+        "$schema": {
+          "type": "string",
+          "description": "The JSON Schema of this file, generated from this interface by schema.ts: for editors."
+        },
+        "asOf": {
+          "type": "string",
+          "description": "When crawl.ts last ran (YYYY-MM-DD)."
+        },
+        "minimums": {
+          "type": "object",
+          "properties": {
+            "installs": {
+              "type": "number"
+            },
+            "stars": {
+              "type": "number"
+            }
+          },
+          "required": ["installs", "stars"],
+          "additionalProperties": false,
+          "description": "What a crawled skill needs to be queued: all-time installs, and its GitHub repo's stars."
+        },
+        "crawled": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Crawled"
+          },
+          "description": "Below the minimums, most installed first."
+        },
+        "queued": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Crawled"
+          },
+          "description": "At the minimums or above, most installed first: waiting for an agent to approve or skip them, with the add-skill skill."
+        },
+        "skipped": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Skipped"
+          },
+          "description": "Not to be shown, each with why, and with no agent data: no tags, no TLDR, no copy of its SKILL.md."
+        }
+      },
+      "required": ["$schema", "asOf", "minimums", "crawled", "queued", "skipped"],
+      "additionalProperties": false,
+      "description": "The shape of data/crawl.json: every skill the crawl has seen in the skills.sh all-time top 600 that isn't approved (the approved ones are in skills.json), keyed by its skills.sh page. The two files are cumulative: a skill that lands in either never leaves them, only its state changes. Unlike skills.json, crawl.json takes any skill, such as one a website publishes."
+    },
+    "Crawled": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "repo": {
+          "type": "string",
+          "description": "Its GitHub repo, `owner/name`, as skills.sh names it: possibly an old name the repo redirects from."
+        },
+        "official": {
+          "type": "boolean",
+          "description": "Whether skills.sh shows its publisher as verified."
+        },
+        "stars": {
+          "type": ["number", "null"],
+          "description": "Its repo's GitHub stars, or null when unknown."
+        },
+        "seen": {
+          "type": "string",
+          "description": "The last day the crawl saw it in the top 600, which its numbers are from (YYYY-MM-DD)."
+        },
+        "skills.sh": {
+          "$ref": "#/definitions/SkillsSh",
+          "description": "Its `skills.sh` field once it's approved."
+        }
+      },
+      "required": ["name", "repo", "official", "stars", "seen", "skills.sh"],
+      "additionalProperties": false
+    },
+    "SkillsSh": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string",
+          "description": "The skill's page on skills.sh."
+        },
+        "install": {
+          "type": "string"
+        },
+        "installs": {
+          "type": ["number", "null"],
+          "description": "All-time installs, or null when unknown: exact for the skills.sh all-time top 600, else from the skill's skills.sh page, which rounds them to three digits (such as 26.5K)."
+        },
+        "weeklyInstalls": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "number"
+              }
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Installs per week for the 8 weeks up to the installs snapshot, oldest first."
+        },
+        "firstSeen": {
+          "type": ["string", "null"],
+          "description": "When skills.sh first saw the skill (YYYY-MM-DD)."
+        }
+      },
+      "required": ["url", "install", "installs", "weeklyInstalls", "firstSeen"],
+      "additionalProperties": false
+    },
+    "Skipped": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string",
+          "description": "Its skills.sh page."
+        },
+        "note": {
+          "type": "string"
+        }
+      },
+      "required": ["url", "note"],
+      "additionalProperties": false
+    }
+  }
+}

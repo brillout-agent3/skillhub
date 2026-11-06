@@ -1,4 +1,5 @@
 {
+  "$schema": "./crawl.schema.json",
   "asOf": "2026-11-06",
   "minimums": {
     "installs": 10000,

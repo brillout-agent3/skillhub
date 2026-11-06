@@ -7,6 +7,7 @@
 
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { approvedPages, pageKey, readCrawl } from "./data.ts";
+import { generate, SCHEMAS } from "./schema.ts";
 import { copyPath } from "../website/skill-md.ts";
 import { bundleRepo, github, tldrProblems, type Data, type Facet } from "../website/types.ts";
 
@@ -186,6 +187,18 @@ for (const file of readdirSync(new URL("data/skill-snapshots", root), {
 }))
   if (file.endsWith(".md") && !copies.has(`data/skill-snapshots/${file}`))
     fail(`data/skill-snapshots/${file}`, "copy of a skill that isn't in skills.json");
+
+// The JSON Schemas, for editors: each data file points to its own, which matches its type.
+for (const s of SCHEMAS) {
+  const ref = `./${s.schema.split("/").pop()}`;
+  if (JSON.parse(readFileSync(new URL(s.data, root), "utf8")).$schema !== ref)
+    fail(s.data, `$schema must be "${ref}"; run pnpm run schema`);
+  if (
+    !existsSync(new URL(s.schema, root)) ||
+    readFileSync(new URL(s.schema, root), "utf8") !== generate(s)
+  )
+    fail(s.schema, `out of date with the ${s.type} type; run pnpm run schema`);
+}
 
 if (errors.length > 0) {
   console.error(
