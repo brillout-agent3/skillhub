@@ -79,10 +79,6 @@
           "type": "string",
           "description": "The skill's page on skills.sh."
         },
-        "install": {
-          "type": "string",
-          "description": "The command skills.sh gives to install it."
-        },
         "installs": {
           "type": ["number", "null"],
           "description": "All-time installs, or null when unknown. crawl.ts takes them daily from the skills.sh all-time top 600, which skills.sh embeds in its home page, exact. For an approved skill outside it, it takes them from the \"Installs\" stat of the skill's skills.sh page, which rounds them to three digits (such as 26.5K), or null once skills.sh no longer has the skill. A skill of crawl.jsonc that left the top 600 keeps its last number."
@@ -106,7 +102,7 @@
           "description": "When skills.sh first saw the skill (YYYY-MM-DD), or null when unknown: the \"First Seen\" stat of the skill's skills.sh page, which the top 600 doesn't give. It never changes, so crawl.ts reads it once: when it records the skill in crawl.jsonc, or for an approved skill without one."
         }
       },
-      "required": ["url", "install", "installs", "weeklyInstalls", "firstSeen"],
+      "required": ["url", "installs", "weeklyInstalls", "firstSeen"],
       "additionalProperties": false
     },
     "Disqualified": {

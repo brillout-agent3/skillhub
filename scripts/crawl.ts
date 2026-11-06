@@ -92,7 +92,6 @@ async function topSkills(): Promise<Entry[]> {
 
 /** What a skill's own skills.sh page tells. */
 interface Page {
-  install: string;
   /** Rounded to three digits, such as 26.5K. */
   installs: number | null;
   weeklyInstalls: number[] | null;
@@ -122,11 +121,11 @@ async function skillPage(url: string): Promise<Page | null> {
   // A stat is a label and its value: <span>Installs</span></div><div …>26.5K</div>.
   const stat = (label: string) =>
     new RegExp(`>${label}</span></div><div[^>]*>([^<]+)</div>`).exec(html)?.[1].trim();
-  const install = /"command":"(npx skills add [^"]+)"/.exec(payloadOf(html))?.[1];
-  if (!install) throw new Error(`${url}: no install command in the page; did the page change?`);
+  // Every skill's page has its install command: one without it is a page that changed.
+  if (!/"command":"npx skills add /.test(payloadOf(html)))
+    throw new Error(`${url}: no install command in the page; did the page change?`);
   const weekly = /aria-label="Weekly installs: ([^"]+)"/.exec(html)?.[1];
   return {
-    install,
     installs: count(stat("Installs")),
     weeklyInstalls: weekly ? weekly.split(", ").map((n) => Number(n.replace(/,/g, ""))) : null,
     firstSeen: day(stat("First Seen")),
@@ -174,7 +173,7 @@ data.asOf.installs = today;
 // ------------------------------------------------------------------- the crawl
 
 // Every skill of the top 600 lands in crawl.jsonc, unless it's approved. A skill already there
-// keeps its install command and first-seen date, and a disqualified one stays as it is.
+// keeps its first-seen date, and a disqualified one stays as it is.
 const approved = approvedPages(data);
 const disqualified = new Set(crawl.disqualified.map((s) => pageKey(s.url)));
 const recorded = new Map(
@@ -199,7 +198,6 @@ await pool(board, 4, async (e) => {
     if (!page) return; // Recorded on the next run, once its page reads.
     const sh = {
       url,
-      install: page.install,
       installs: null,
       weeklyInstalls: null,
       firstSeen: page.firstSeen,

@@ -165,8 +165,7 @@ for (const [name, list] of [
     if (!SKILL_PAGE.test(url))
       fail(at, "the url must be a skill's page on skills.sh, https://skills.sh/owner/repo/skill");
     state(at, url, name);
-    if (!c.name || !c.repo || !c.seen || !c["skills.sh"].install)
-      fail(at, "needs a name, a repo, the day it was seen and an install command");
+    if (!c.name || !c.repo || !c.seen) fail(at, "needs a name, a repo and the day it was seen");
     const weekly = c["skills.sh"].weeklyInstalls;
     if (weekly && weekly.length !== 8) fail(at, "weeklyInstalls must have 8 weeks");
   }

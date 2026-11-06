@@ -217,8 +217,6 @@ export interface SkillMd {
 export interface SkillsSh {
   /** The skill's page on skills.sh. */
   url: string;
-  /** The command skills.sh gives to install it. */
-  install: string;
   /**
    * All-time installs, or null when unknown. crawl.ts takes them daily from the skills.sh all-time
    * top 600, which skills.sh embeds in its home page, exact. For an approved skill outside it, it

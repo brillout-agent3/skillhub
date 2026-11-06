@@ -24,6 +24,10 @@ import type { Skill, SkillMd } from "../../../data/types.ts";
 import { github } from "../../github.ts";
 import type { Data } from "./+data.ts";
 
+/** The command that installs the skill, as skills.sh gives it: the skills CLI's --skill ignores case. */
+const installCommand = (s: Skill) =>
+  `npx skills add https://github.com/${github(s).repo} --skill ${s.name}`;
+
 /** Where the copy of the SKILL.md came from. */
 function source(s: Skill, { version }: SkillMd): string {
   const gh = github(s);
@@ -112,7 +116,7 @@ export default function Page(pageContext: PageContextServer): string {
       ${s.tldr ? tldrHtml(s.tldr, "the skill", s.skillMd?.skew ?? 0) : ""}
       <div class="details-grid">
         <div>
-          <div class="install"><code>${esc(sh.install)}</code><button type="button" class="copy" data-copy="${esc(sh.install)}">Copy</button></div>
+          <div class="install"><code>${esc(installCommand(s))}</code><button type="button" class="copy" data-copy="${esc(installCommand(s))}">Copy</button></div>
           <p class="links">${links.join(" · ")}</p>
           ${facts(s)}
         </div>
