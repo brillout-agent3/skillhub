@@ -9367,6 +9367,218 @@
           "ml-research"
         ]
       }
+    },
+    {
+      "id": "coreyhaines31/marketingskills/skills/ai-seo",
+      "name": "ai-seo",
+      "skills.sh": {
+        "url": "https://skills.sh/coreyhaines31/marketingskills/ai-seo",
+        "installs": 159627,
+        "weeklyInstalls": [3960, 3593, 3694, 4488, 5090, 4650, 4994, 5441],
+        "firstSeen": "2026-02-19"
+      },
+      "skillMd": {
+        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Optimizes your content to be cited in AI answers from ChatGPT, Perplexity, Google AI Overviews and other assistants.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want your brand cited in AI answers from ChatGPT, Perplexity, Claude, Gemini, Copilot or Google AI Overviews"
+            },
+            {
+              "label": "It does",
+              "text": "audits where you're cited today, then improves pages along three lines: structure AI can quote, authority worth citing, and presence where AI looks"
+            },
+            {
+              "label": "You get",
+              "text": "a citation audit by query and platform, page fixes, AI crawler rules for robots.txt, files such as llms.txt and pricing.md, and a monitoring routine"
+            },
+            {
+              "label": "Unlike seo-audit",
+              "text": "from the same repo, which diagnoses classic search ranking, it targets being quoted by AI assistants"
+            },
+            {
+              "label": "Keeps in view",
+              "text": "Google's stance that AI Overviews need no special files or markup, and no content written separately for AI"
+            }
+          ],
+          "text": "AI SEO, also called AEO or GEO (answer or generative engine optimization), means getting quoted as a source in AI-generated answers. After reading your product marketing context if you have it (a shared file on your product, audience and positioning that the repo's product-marketing skill writes), it asks about your current AI visibility, content, goals and competitors. The audit runs 10 to 20 queries that matter for revenue across AI platforms, compares who gets cited, checks each priority page for self-contained answers, sourced statistics, schema, named authors and freshness, and reviews which AI crawlers you let in, keeping search, user-triggered and training bots apart. Fixes lead each section with a direct 40 to 60 word answer, add cited numbers and expert quotes, and build presence on Wikipedia, Reddit, review sites, YouTube and LinkedIn. Because AI answers vary, it has you run each query several times and track a citation rate. References go deeper on agent-readable sites, attribution, wrong answers about your product and each platform, and it warns that its statistics drift.",
+          "permalink": "https://github.com/coreyhaines31/marketingskills/tree/96798cf38736ecdba015a1d2b0521b0c8f8f41dd/skills/ai-seo"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "seo",
+          "marketing"
+        ]
+      }
+    },
+    {
+      "id": "coreyhaines31/marketingskills/skills/copy-editing",
+      "name": "copy-editing",
+      "skills.sh": {
+        "url": "https://skills.sh/coreyhaines31/marketingskills/copy-editing",
+        "installs": 157275,
+        "weeklyInstalls": [3556, 3216, 3466, 4320, 4743, 4276, 4438, 5072],
+        "firstSeen": "2026-01-19"
+      },
+      "skillMd": {
+        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Edits existing marketing copy in focused passes and strips AI tells, without changing its message.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you have marketing copy, or an aging page, and want it tightened, polished or refreshed rather than rewritten"
+            },
+            {
+              "label": "It does",
+              "text": "picks a mode first: rebuild generic or AI-sounding copy from the facts, restore a draft's own voice, or change only the line you asked about"
+            },
+            {
+              "label": "You get",
+              "text": "specific edits, each with a reason; a point edit returns only the changed lines"
+            },
+            {
+              "label": "Removes",
+              "text": "AI tells such as \"it's not X, it's Y\", \"no X, no Y\" lists and stock openers, marking missing facts [NEED: ...] instead of inventing them"
+            },
+            {
+              "label": "Unlike copywriting",
+              "text": "from the same repo, it improves copy you already have instead of writing new pages"
+            }
+          ],
+          "text": "Copy editing in seven sweeps, each checking one thing: clarity, voice and tone, \"so what\" (does every claim say why the reader should care), proof, specificity, emotion, and risk (what still stops someone from acting). After each sweep it rechecks the earlier ones, so one fix doesn't undo another. A point edit skips the sweeps and touches only what you asked about. It first reads your product marketing context if you have it (a shared file on your product, audience and positioning that the repo's product-marketing skill writes), to keep your brand's voice and your customers' words. After the sweeps, high-stakes copy goes to a panel of 3 to 5 expert personas, always for launch copy, pricing pages and high-traffic landing pages: each scores it from 1 to 10, and it revises until every score is at least 7 and the average reaches 8. Quick checks cover weak words, sentence length and paragraphs, and an AI-tell check runs on every edit. A reference on content refresh covers updating pages that have gone stale. When editing with you, it proposes changes and leaves final decisions to the author.",
+          "permalink": "https://github.com/coreyhaines31/marketingskills/tree/96798cf38736ecdba015a1d2b0521b0c8f8f41dd/skills/copy-editing"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "copywriting",
+          "writing",
+          "anti-slop"
+        ]
+      }
+    },
+    {
+      "id": "coreyhaines31/marketingskills/skills/marketing-ideas",
+      "name": "marketing-ideas",
+      "skills.sh": {
+        "url": "https://skills.sh/coreyhaines31/marketingskills/marketing-ideas",
+        "installs": 153690,
+        "weeklyInstalls": [3017, 2835, 3005, 3530, 3534, 3242, 3518, 4124],
+        "firstSeen": "2026-01-19"
+      },
+      "skillMd": {
+        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Suggests marketing ideas for a SaaS product from a library of 139, matched to your stage and budget.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're stuck on how to market a SaaS or software product and want ideas that fit where you are"
+            },
+            {
+              "label": "It does",
+              "text": "asks about your product, audience, stage and resources, then picks 3 to 5 ideas from a library of 139"
+            },
+            {
+              "label": "You get",
+              "text": "each idea with why it fits, the first 2 or 3 steps, what success looks like, and the time, budget and skills it takes"
+            },
+            {
+              "label": "Covers",
+              "text": "content and SEO, free tools, paid ads, community, email, partnerships, events, launches, product-led growth, PR and more"
+            },
+            {
+              "label": "Unlike marketing-plan",
+              "text": "from the same repo, it suggests standalone ideas rather than a full plan"
+            }
+          ],
+          "text": "A library of 139 marketing ideas for software products, in 17 categories from content and SEO to developer relations and international expansion, with the full list and descriptions in a reference file. It reads your product marketing context if you have it (a shared file on your product, audience and positioning that the repo's product-marketing skill writes) first, then asks only what's missing: your stage and main goal, budget and team size, what you've tried, and competitor tactics you admire. Shortlists match ideas to stage (waitlist referrals before launch, partnerships and events during growth), budget (content and community for free, conferences for big budgets), timeline, and goals such as fast leads, authority, low-budget growth, product-led growth or enterprise sales. Guerrilla marketing gets its own deep dive with a case library. For carrying out a channel, it points to the repo's other skills, such as programmatic-seo, emails or referrals.",
+          "permalink": "https://github.com/coreyhaines31/marketingskills/tree/96798cf38736ecdba015a1d2b0521b0c8f8f41dd/skills/marketing-ideas"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "marketing"
+        ]
+      }
+    },
+    {
+      "id": "coreyhaines31/marketingskills/skills/ad-creative",
+      "name": "ad-creative",
+      "skills.sh": {
+        "url": "https://skills.sh/coreyhaines31/marketingskills/ad-creative",
+        "installs": 142120,
+        "weeklyInstalls": [3428, 3111, 3198, 3984, 4515, 4161, 4235, 4886],
+        "firstSeen": "2026-02-19"
+      },
+      "skillMd": {
+        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes and iterates ad copy for Google, Meta, LinkedIn, TikTok and X within each platform's limits.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need ad copy for Google, Meta, LinkedIn, TikTok or X, from scratch, from performance data, or in large batches"
+            },
+            {
+              "label": "It does",
+              "text": "writes headlines, descriptions and primary text by angle, fits each to the platform's character limits, and learns from your best and worst ads"
+            },
+            {
+              "label": "You get",
+              "text": "variations grouped by angle with character counts, a CSV for bulk upload, or dated folders of concepts plus an HTML review page for clients"
+            },
+            {
+              "label": "Grounds",
+              "text": "batch concepts in your winning ads, customer reviews and ad comments, and stops to ask for them rather than inventing claims"
+            },
+            {
+              "label": "Avoids",
+              "text": "AI tells, hook slop such as \"Stop scrolling\", and test hypotheses that can't be proven wrong"
+            }
+          ],
+          "text": "Performance ad creative in four modes. From scratch, it sets 3 to 5 angles, different reasons to click such as pain, outcome, proof or curiosity, and writes variations of each. From performance data you paste or export, it finds the themes and structures of winners and losers, doubles down on the winners, tests one or two new angles and logs the round. For scaled static batches, such as 50 concepts at a time, it works from an inputs folder of your best ads, reviews and comments and a library of static ad layouts ranked by tier, citing the source of every concept. A strategy mode ranks which ads are worth making, keeps a roadmap and runs a monthly retro. References cover Meta ad formats, iPhone-style chat reveal videos, generated faceless motion videos, creator-style short videos, and image, video and voice generation tools. To pull ad data yourself it points to the repo's ad-platform CLIs, and to Magister, its maintainer's own marketing agent, as a shortcut, with a disclosure.",
+          "permalink": "https://github.com/coreyhaines31/marketingskills/tree/96798cf38736ecdba015a1d2b0521b0c8f8f41dd/skills/ad-creative"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "copywriting",
+          "marketing"
+        ]
+      }
     }
   ]
 }
