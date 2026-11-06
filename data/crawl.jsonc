@@ -328,19 +328,6 @@
       }
     },
     {
-      "name": "gcloud",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/gcloud",
-        "installs": 12100,
-        "weeklyInstalls": [529, 600, 482, 499, 540, 517, 615, 620],
-        "firstSeen": "2026-06-01"
-      }
-    },
-    {
       "name": "gitops-workflow",
       "repo": "wshobson/agents",
       "official": false,
@@ -1355,19 +1342,6 @@
       }
     },
     {
-      "name": "gemini-interactions-api",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/gemini-interactions-api",
-        "installs": 11200,
-        "weeklyInstalls": [432, 498, 386, 435, 473, 408, 336, 397],
-        "firstSeen": "2026-05-18"
-      }
-    },
-    {
       "name": "postmortem-writing",
       "repo": "wshobson/agents",
       "official": false,
@@ -1771,19 +1745,6 @@
       }
     },
     {
-      "name": "agent-platform-skill-registry",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/agent-platform-skill-registry",
-        "installs": 10800,
-        "weeklyInstalls": [417, 487, 377, 413, 449, 409, 339, 397],
-        "firstSeen": "2026-05-19"
-      }
-    },
-    {
       "name": "slo-implementation",
       "repo": "wshobson/agents",
       "official": false,
@@ -2161,19 +2122,6 @@
       }
     },
     {
-      "name": "google-cloud-waf-operational-excellence",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/google-cloud-waf-operational-excellence",
-        "installs": 10400,
-        "weeklyInstalls": [433, 489, 406, 434, 439, 456, 364, 406],
-        "firstSeen": "2026-05-21"
-      }
-    },
-    {
       "name": "ai-prompt-engineering-safety-review",
       "repo": "github/awesome-copilot",
       "official": true,
@@ -2317,19 +2265,6 @@
       }
     },
     {
-      "name": "google-cloud-waf-performance-optimization",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/google-cloud-waf-performance-optimization",
-        "installs": 10300,
-        "weeklyInstalls": [428, 489, 405, 436, 444, 420, 352, 411],
-        "firstSeen": "2026-05-21"
-      }
-    },
-    {
       "name": "save-systems",
       "repo": "gamedev-skills/awesome-gamedev-agent-skills",
       "official": false,
@@ -2418,19 +2353,6 @@
         "installs": 10200,
         "weeklyInstalls": [607, 534, 330, 355, 492, 629, 563, 892],
         "firstSeen": "2026-06-10"
-      }
-    },
-    {
-      "name": "gemini-agents-api",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/gemini-agents-api",
-        "installs": 10200,
-        "weeklyInstalls": [421, 498, 371, 416, 449, 402, 323, 390],
-        "firstSeen": "2026-05-19"
       }
     },
     {
@@ -2639,19 +2561,6 @@
         "installs": 10100,
         "weeklyInstalls": [176, 187, 211, 269, 212, 181, 187, 168],
         "firstSeen": "2026-02-05"
-      }
-    },
-    {
-      "name": "google-cloud-waf-sustainability",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/google-cloud-waf-sustainability",
-        "installs": 10100,
-        "weeklyInstalls": [421, 486, 415, 427, 439, 416, 345, 400],
-        "firstSeen": "2026-05-21"
       }
     },
     {
@@ -3383,19 +3292,6 @@
       }
     },
     {
-      "name": "agent-platform-deploy",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/agent-platform-deploy",
-        "installs": 9600,
-        "weeklyInstalls": [424, 471, 358, 409, 448, 423, 310, 377],
-        "firstSeen": "2026-05-26"
-      }
-    },
-    {
       "name": "unity-cli",
       "repo": "unity-technologies/skills",
       "official": false,
@@ -3721,19 +3617,6 @@
       }
     },
     {
-      "name": "agent-platform-rag-engine-management",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/agent-platform-rag-engine-management",
-        "installs": 9300,
-        "weeklyInstalls": [412, 462, 348, 391, 440, 417, 309, 376],
-        "firstSeen": "2026-05-26"
-      }
-    },
-    {
       "name": "aws-cloudformation",
       "repo": "aws/agent-toolkit-for-aws",
       "official": false,
@@ -3799,19 +3682,6 @@
       }
     },
     {
-      "name": "agent-platform-tuning",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/agent-platform-tuning",
-        "installs": 9300,
-        "weeklyInstalls": [409, 461, 350, 380, 435, 418, 302, 367],
-        "firstSeen": "2026-05-26"
-      }
-    },
-    {
       "name": "bailian-finetune",
       "repo": "modelstudioai/cli",
       "official": false,
@@ -3874,19 +3744,6 @@
         "installs": 9300,
         "weeklyInstalls": [79, 76, 68, 73, 69, 58, 570, 1699],
         "firstSeen": "2026-03-02"
-      }
-    },
-    {
-      "name": "agent-platform-prompt-management",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/agent-platform-prompt-management",
-        "installs": 9300,
-        "weeklyInstalls": [418, 466, 352, 384, 420, 400, 293, 362],
-        "firstSeen": "2026-05-27"
       }
     },
     {
@@ -4069,19 +3926,6 @@
         "installs": 9200,
         "weeklyInstalls": [11, 11, 24, 19, 8, 12, 8, 8],
         "firstSeen": "2026-02-25"
-      }
-    },
-    {
-      "name": "agent-platform-tuning-management",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/agent-platform-tuning-management",
-        "installs": 9200,
-        "weeklyInstalls": [399, 456, 343, 380, 435, 414, 300, 364],
-        "firstSeen": "2026-05-26"
       }
     },
     {
@@ -4316,32 +4160,6 @@
         "installs": 9000,
         "weeklyInstalls": [189, 219, 285, 273, 247, 361, 262, 278],
         "firstSeen": "2026-01-31"
-      }
-    },
-    {
-      "name": "agent-platform-eval-flywheel",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/agent-platform-eval-flywheel",
-        "installs": 9000,
-        "weeklyInstalls": [411, 466, 370, 391, 439, 421, 306, 381],
-        "firstSeen": "2026-06-02"
-      }
-    },
-    {
-      "name": "agent-platform-model-registry",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/agent-platform-model-registry",
-        "installs": 9000,
-        "weeklyInstalls": [403, 456, 344, 385, 443, 410, 302, 369],
-        "firstSeen": "2026-05-29"
       }
     },
     {
@@ -4839,19 +4657,6 @@
       }
     },
     {
-      "name": "agent-platform-inference",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/agent-platform-inference",
-        "installs": 8800,
-        "weeklyInstalls": [413, 469, 355, 394, 421, 399, 299, 371],
-        "firstSeen": "2026-06-04"
-      }
-    },
-    {
       "name": "skill-doctor",
       "repo": "warpdotdev/common-skills",
       "official": false,
@@ -4992,19 +4797,6 @@
         "installs": 8800,
         "weeklyInstalls": [353, 313, 386, 390, 452, 662, 1443, 1801],
         "firstSeen": "2026-06-27"
-      }
-    },
-    {
-      "name": "agent-platform-endpoint-management",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/agent-platform-endpoint-management",
-        "installs": 8800,
-        "weeklyInstalls": [402, 460, 345, 388, 442, 411, 301, 368],
-        "firstSeen": "2026-06-04"
       }
     },
     {
@@ -5265,19 +5057,6 @@
         "installs": 8700,
         "weeklyInstalls": [821, 860, 803, 797, 789, 580, 450, 347],
         "firstSeen": "2026-08-11"
-      }
-    },
-    {
-      "name": "agent-platform-migrate-from-ai-studio",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/agent-platform-migrate-from-ai-studio",
-        "installs": 8700,
-        "weeklyInstalls": [401, 455, 348, 385, 413, 387, 317, 386],
-        "firstSeen": "2026-06-04"
       }
     },
     {
@@ -6152,19 +5931,6 @@
       }
     },
     {
-      "name": "google-analytics-data-api-basics",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/google-analytics-data-api-basics",
-        "installs": 8100,
-        "weeklyInstalls": [495, 541, 402, 471, 512, 469, 345, 409],
-        "firstSeen": "2026-06-26"
-      }
-    },
-    {
       "name": "baoyu-electron-extract",
       "repo": "jimliu/baoyu-skills",
       "official": false,
@@ -6201,19 +5967,6 @@
         "installs": 8100,
         "weeklyInstalls": [727, 863, 909, 634, 840, 809, 882, 1037],
         "firstSeen": "2026-08-15"
-      }
-    },
-    {
-      "name": "google-ads-api-mcp-setup",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/google-ads-api-mcp-setup",
-        "installs": 8100,
-        "weeklyInstalls": [529, 566, 425, 492, 566, 571, 548, 596],
-        "firstSeen": "2026-06-24"
       }
     },
     {
@@ -6292,19 +6045,6 @@
         "installs": 8000,
         "weeklyInstalls": [146, 237, 223, 252, 234, 255, 272, 368],
         "firstSeen": "2026-01-21"
-      }
-    },
-    {
-      "name": "google-ads-api-quickstart",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/google-ads-api-quickstart",
-        "installs": 8000,
-        "weeklyInstalls": [532, 574, 428, 489, 552, 569, 537, 595],
-        "firstSeen": "2026-06-24"
       }
     },
     {
@@ -6581,19 +6321,6 @@
       }
     },
     {
-      "name": "google-analytics-admin-api-basics",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/google-analytics-admin-api-basics",
-        "installs": 7800,
-        "weeklyInstalls": [472, 522, 383, 441, 489, 452, 322, 388],
-        "firstSeen": "2026-06-26"
-      }
-    },
-    {
       "name": "speech-engine",
       "repo": "elevenlabs/skills",
       "official": true,
@@ -6669,19 +6396,6 @@
         "installs": 7800,
         "weeklyInstalls": [150, 146, 164, 150, 102, 101, 72, 62],
         "firstSeen": "2026-03-05"
-      }
-    },
-    {
-      "name": "bigquery-ai-ml",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/bigquery-ai-ml",
-        "installs": 7700,
-        "weeklyInstalls": [412, 477, 364, 393, 421, 388, 348, 374],
-        "firstSeen": "2026-06-20"
       }
     },
     {
@@ -6773,19 +6487,6 @@
         "installs": 7700,
         "weeklyInstalls": [118, 123, 116, 97, 119, 104, 133, 110],
         "firstSeen": "2026-02-24"
-      }
-    },
-    {
-      "name": "workload-manager-basics",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 22748,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/workload-manager-basics",
-        "installs": 7700,
-        "weeklyInstalls": [409, 450, 324, 366, 403, 366, 283, 359],
-        "firstSeen": "2026-06-13"
       }
     },
     {
@@ -38891,6 +38592,98 @@
     },
     {
       "url": "https://skills.sh/google/skills/google-cloud-recipe-foundation-builder",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/gcloud",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/gemini-interactions-api",
+      "note": "Tool docs: an agent's manual for gemini and google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/agent-platform-skill-registry",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/google-cloud-waf-operational-excellence",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/google-cloud-waf-performance-optimization",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/gemini-agents-api",
+      "note": "Tool docs: an agent's manual for gemini and google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/google-cloud-waf-sustainability",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/agent-platform-deploy",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/agent-platform-rag-engine-management",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/agent-platform-tuning",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/agent-platform-prompt-management",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/agent-platform-tuning-management",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/agent-platform-eval-flywheel",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/agent-platform-model-registry",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/agent-platform-inference",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/agent-platform-endpoint-management",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/agent-platform-migrate-from-ai-studio",
+      "note": "Tool docs: an agent's manual for gemini and google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/google-analytics-data-api-basics",
+      "note": "Tool docs: an agent's manual for google-analytics."
+    },
+    {
+      "url": "https://skills.sh/google/skills/google-ads-api-mcp-setup",
+      "note": "Tool docs: an agent's manual for google-ads."
+    },
+    {
+      "url": "https://skills.sh/google/skills/google-ads-api-quickstart",
+      "note": "Tool docs: an agent's manual for google-ads."
+    },
+    {
+      "url": "https://skills.sh/google/skills/google-analytics-admin-api-basics",
+      "note": "Tool docs: an agent's manual for google-analytics."
+    },
+    {
+      "url": "https://skills.sh/google/skills/bigquery-ai-ml",
+      "note": "Tool docs: an agent's manual for google-cloud."
+    },
+    {
+      "url": "https://skills.sh/google/skills/workload-manager-basics",
       "note": "Tool docs: an agent's manual for google-cloud."
     }
   ]
