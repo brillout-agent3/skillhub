@@ -4870,6 +4870,70 @@
           }
         ]
       }
+    },
+    {
+      "id": "anthropics/knowledge-work-plugins@productivity",
+      "skew": 0,
+      "agentReview": {
+        "name": "Productivity",
+        "description": "A workplace productivity system that keeps a TASKS.md task list, a memory of your people, projects and shorthand, and a local dashboard in sync.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want the agent to track your tasks and learn your workplace's people, projects and shorthand across sessions"
+            },
+            {
+              "label": "It does",
+              "text": "start sets up tasks, memory and a dashboard; task-management and memory-management keep them as you work; update syncs and triages"
+            },
+            {
+              "label": "You get",
+              "text": "TASKS.md, a CLAUDE.md working memory with a memory/ folder, and dashboard.html, a local board of your tasks and memory, all in your working folder"
+            },
+            {
+              "label": "Runs",
+              "text": "start and update as /productivity:start and /productivity:update; task-management and memory-management on their own when relevant"
+            },
+            {
+              "label": "Works with",
+              "text": "chat, email, calendar, documents and project trackers through connected MCP servers, and GitHub Issues through gh, for syncing and deep scans"
+            },
+            {
+              "label": "Built for",
+              "text": "Claude Cowork, installed from claude.com/plugins; also works in Claude Code"
+            }
+          ],
+          "text": "The productivity plugin of Anthropic's knowledge-work plugins, kept in files in your working folder. start checks the folder for TASKS.md, CLAUDE.md, memory/ and dashboard.html and creates what's missing. On a first run it asks where you keep your todos, goes through them asking what each nickname, acronym and codename means, can scan your chat, email, documents and calendar for more, then writes CLAUDE.md and the memory/ files. From then on, task-management keeps TASKS.md as you add, finish and ask about tasks, and memory-management decodes each request from CLAUDE.md, then the glossary and memory files, then by asking you, saving what you tell it to remember. dashboard.html, copied from the plugin, is a board on the same TASKS.md that you open yourself. update pulls tasks assigned to you from a project tracker or GitHub Issues and offers to add them, flags overdue tasks, tasks Active for 30 days or more and tasks with no person or project for triage, and asks about people and projects memory lacks. With --comprehensive it also scans chat, email, documents and calendar for todos you haven't captured and new people or projects. update never adds tasks or memories without your confirmation.",
+          "permalink": "https://github.com/anthropics/knowledge-work-plugins/tree/ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d"
+        },
+        "skills": [
+          {
+            "id": "anthropics/knowledge-work-plugins/productivity/skills/start",
+            "standalone": false,
+            "note": "Creates TASKS.md from task-management's template, writes the memory files memory-management reads, and copies the plugin's dashboard.html."
+          },
+          {
+            "id": "anthropics/knowledge-work-plugins/productivity/skills/task-management",
+            "standalone": true
+          },
+          {
+            "id": "anthropics/knowledge-work-plugins/productivity/skills/memory-management",
+            "standalone": true
+          },
+          {
+            "id": "anthropics/knowledge-work-plugins/productivity/skills/update",
+            "standalone": false,
+            "note": "Works on the TASKS.md and memory/ the other skills keep; without them it suggests running start first."
+          }
+        ],
+        "install": [
+          {
+            "label": "Claude Code plugin; also adds the dashboard and MCP connections to Slack, Notion and project trackers such as Asana, Linear and Jira",
+            "command": "claude plugin marketplace add anthropics/knowledge-work-plugins && claude plugin install productivity@knowledge-work-plugins"
+          }
+        ]
+      }
     }
   ],
   "skills": [
@@ -43091,6 +43155,517 @@
           "personal"
         ],
         "note": "It moves, renames and archives files on your computer once you approve its plan, and asks before deleting anything."
+      }
+    },
+    {
+      "id": "heygen-com/hyperframes/skills/style-sampling",
+      "name": "style-sampling",
+      "skills.sh": {
+        "url": "https://skills.sh/heygen-com/hyperframes/style-sampling",
+        "installs": 11700,
+        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
+        "firstSeen": null
+      },
+      "skillMd": {
+        "version": "ab50e9c14892e45d5e94ca6f9633236dc27f4988",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Makes a new video episode on your topic in one of five proven styles, from sourced script and storyboard to a rendered HyperFrames video.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a new episode on your topic in a set style: Collage Explainer, Finance Explainer, Animated Science Explainer, 3D Brand Explainer or 3D True Crime"
+            },
+            {
+              "label": "You get",
+              "text": "a rendered episode in the series' look, voiced by you or a credited stock voice, with a footage licence table, LOG.md and GAPS.md"
+            },
+            {
+              "label": "It does",
+              "text": "pulls the style's template, researches sourced facts, writes the script, voices it, finds licensed footage, builds, checks and renders"
+            },
+            {
+              "label": "Stops",
+              "text": "twice for your go: at the storyboard and at the draft"
+            },
+            {
+              "label": "Needs",
+              "text": "a HyperFrames Pro plan, signed in through the hyperframes CLI, and Python for the template's tools; HeyGen voices and avatars spend credits"
+            },
+            {
+              "label": "Unlike",
+              "text": "reverse-any-video, which rebuilds one existing video, it makes a new episode in a series' style"
+            }
+          ],
+          "text": "Each style was learned from a known channel, such as Vox or Kurzgesagt, but an episode never uses the creator's face, voice, footage, logo or show name. After a sign-in check, it pulls the style's template with the HyperFrames CLI, a Pro feature, and follows the series' REMIX.md steps. It asks once for what's still open: topic, length (about a minute by default, or a short cut or full episode), your voice, your face for the presented Finance Explainer, and an optional free Pexels key. Your voice is your HeyGen voice or clone, your own recording, or a credited HeyGen stock voice; a presenter is your HeyGen avatar or one made from your photo. It gathers facts with sources, writes the script and poses it as storyboard stills on silent stand-in timing, before paying for any voice. Footage comes from licensed sources such as Wikimedia Commons, Pexels and Mixkit, each with a licence line; sites that block agents are skipped. It checks the draft against the series' cuts per minute, pauses and loudness, shows you a preview, then renders. It never volunteers prices or credits, saves any credit limit you set, and sends a usage event through the CLI's telemetry.",
+          "permalink": "https://github.com/heygen-com/hyperframes/tree/ab50e9c14892e45d5e94ca6f9633236dc27f4988/skills/style-sampling"
+        },
+        "tags": [
+          "category:media",
+          "type:workflow",
+          "effect:remote",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:hyperframes",
+          "stack:heygen",
+          "video",
+          "ai-generation",
+          "research"
+        ],
+        "note": "Needs a HyperFrames Pro plan; HeyGen voice, avatar and media generation use credits, and it sends a usage event through the HyperFrames CLI's telemetry. It follows rules from the repo's hyperframes and media-use skills, so install them alongside."
+      }
+    },
+    {
+      "id": "anthropics/knowledge-work-plugins/engineering/skills/documentation",
+      "name": "documentation",
+      "skills.sh": {
+        "url": "https://skills.sh/anthropics/knowledge-work-plugins/documentation",
+        "installs": 10500,
+        "weeklyInstalls": [220, 210, 191, 136, 134, 152, 145, 135],
+        "firstSeen": "2026-02-24"
+      },
+      "skillMd": {
+        "version": "ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Lists what a README, API doc, runbook, architecture doc or onboarding guide should cover, with five principles for clear technical docs.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you ask for a README, API reference, runbook, architecture doc or onboarding guide"
+            },
+            {
+              "label": "It gives",
+              "text": "a short checklist of the sections each of those five document types should have"
+            },
+            {
+              "label": "Principles",
+              "text": "write for the reader, put the most useful information first, show code examples, commands and screenshots, keep docs current, link instead of copying"
+            },
+            {
+              "label": "Unlike",
+              "text": "doc-coauthoring, which drafts a doc with you section by section and tests it on a fresh reader, it's a one-page checklist with no templates or steps"
+            },
+            {
+              "label": "Part of",
+              "text": "the engineering plugin of Anthropic's knowledge-work plugins"
+            }
+          ],
+          "text": "A short reference the agent picks up when you ask it to document something. For each document type it lists what to cover. A README says what the project is and why it exists, gets you to a first success in under five minutes, then covers configuration, usage and contributing. API docs give endpoints with request and response examples, authentication, error codes, rate limits, pagination and SDK examples. A runbook says when to use it, what access you need, the steps, how to roll back and who to escalate to. An architecture doc covers context and goals, a high-level design with diagrams, key decisions and trade-offs, and data flow. An onboarding guide covers environment setup, how the key systems connect, common tasks and who to ask. Five principles apply to all of them.",
+          "permalink": "https://github.com/anthropics/knowledge-work-plugins/tree/ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d/engineering/skills/documentation"
+        },
+        "tags": [
+          "category:writing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:official",
+          "docs-writing",
+          "writing"
+        ]
+      }
+    },
+    {
+      "id": "anthropics/knowledge-work-plugins/engineering/skills/code-review",
+      "name": "code-review",
+      "skills.sh": {
+        "url": "https://skills.sh/anthropics/knowledge-work-plugins/code-review",
+        "installs": 10100,
+        "weeklyInstalls": [172, 216, 145, 103, 109, 93, 110, 88],
+        "firstSeen": "2026-02-24"
+      },
+      "skillMd": {
+        "version": "ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Reviews a diff, PR or files for security, performance, correctness and maintainability problems, and reports them in tables with a verdict.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a change checked before you merge it, from a pasted diff, a PR URL or file paths"
+            },
+            {
+              "label": "It checks",
+              "text": "security such as injection, XSS, CSRF, auth flaws and secrets in code; performance such as N+1 queries and leaks; correctness; and maintainability"
+            },
+            {
+              "label": "You get",
+              "text": "a Markdown review: summary, critical issues and suggestions by file and line, what looks good, and approve, request changes or needs discussion"
+            },
+            {
+              "label": "With connectors",
+              "text": "it pulls the PR diff and CI status, links findings to tickets, and checks your team's coding standards"
+            },
+            {
+              "label": "Runs",
+              "text": "as /code-review with a PR URL, diff or file path, or when you ask for a review"
+            },
+            {
+              "label": "Part of",
+              "text": "the engineering plugin of Anthropic's knowledge-work plugins"
+            }
+          ],
+          "text": "A review command. Point it at a PR URL, a diff or files; with nothing given, it asks what to review. It looks through four lenses. Security covers the OWASP top 10, such as SQL injection, XSS, CSRF, authentication and authorization flaws, secrets in code, insecure deserialization, path traversal and SSRF. Performance covers N+1 queries, needless allocations, quadratic work in hot paths, missing indexes, unbounded queries and resource leaks. Correctness covers empty or null input, overflow, race conditions, error handling, off-by-one errors and type safety. Maintainability covers naming, single responsibility, duplication, test coverage and comments on non-obvious logic. The report has a one- or two-sentence summary, a table of critical issues with file, line and severity, a table of suggestions by category, what looks good, and a verdict. It works on its own; with source control, project tracker or knowledge base connectors it also pulls the diff, checks CI and test results, links findings to tickets, checks that the PR meets its stated requirements, and compares the change with your team's standards. Saying the code is a hot path or handles PII focuses the review.",
+          "permalink": "https://github.com/anthropics/knowledge-work-plugins/tree/ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d/engineering/skills/code-review"
+        },
+        "tags": [
+          "category:debugging",
+          "category:security",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:official",
+          "code-review",
+          "security",
+          "performance"
+        ]
+      }
+    },
+    {
+      "id": "anthropics/knowledge-work-plugins/data/skills/build-dashboard",
+      "name": "build-dashboard",
+      "skills.sh": {
+        "url": "https://skills.sh/anthropics/knowledge-work-plugins/build-dashboard",
+        "installs": 9300,
+        "weeklyInstalls": [166, 169, 122, 124, 142, 180, 161, 125],
+        "firstSeen": "2026-03-13"
+      },
+      "skillMd": {
+        "version": "ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds an interactive dashboard as one self-contained HTML file, with KPI cards, Chart.js charts, filters and a sortable table.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want an executive overview, a monitoring snapshot or a shareable report with several charts and filters in one file"
+            },
+            {
+              "label": "You get",
+              "text": "one HTML file with KPI cards, Chart.js charts, filters and a sortable table, its data embedded as JSON, opened in your browser"
+            },
+            {
+              "label": "Data from",
+              "text": "a connected data warehouse, pasted data or a CSV; without data it invents a realistic sample set and labels it as sample data"
+            },
+            {
+              "label": "Unlike",
+              "text": "a BI tool, it makes a point-in-time snapshot, not a live dashboard"
+            },
+            {
+              "label": "Runs",
+              "text": "as /build-dashboard with a description and an optional data source"
+            },
+            {
+              "label": "Part of",
+              "text": "the data plugin of Anthropic's knowledge-work plugins"
+            }
+          ],
+          "text": "The agent first settles the dashboard's purpose, audience, key metrics, the dimensions to filter by and the data source. Data comes from a query when a data warehouse is connected, from pasted or uploaded data it cleans, or from a sample dataset it invents to match your description, with instructions for swapping in real data. The layout is a title with filters, two to four KPI cards, one to three charts, then an optional detail table. It writes one HTML file from its base template: card-based CSS, line, bar, doughnut, stacked and mixed charts with Chart.js loaded from a CDN, dropdown and date-range filters that update every chart and the table together, sortable columns, number formatting and print styles. For bigger data it pre-aggregates before embedding, and past 100,000 rows it points you to a BI tool instead. It saves the file under a descriptive name, opens it in your browser, checks that it renders, and explains how to update the data or the styling.",
+          "permalink": "https://github.com/anthropics/knowledge-work-plugins/tree/ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d/data/skills/build-dashboard"
+        },
+        "tags": [
+          "category:science",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:official",
+          "stack:chartjs",
+          "charts"
+        ]
+      }
+    },
+    {
+      "id": "anthropics/knowledge-work-plugins/engineering/skills/system-design",
+      "name": "system-design",
+      "skills.sh": {
+        "url": "https://skills.sh/anthropics/knowledge-work-plugins/system-design",
+        "installs": 7700,
+        "weeklyInstalls": [118, 123, 116, 97, 119, 104, 133, 110],
+        "firstSeen": "2026-02-24"
+      },
+      "skillMd": {
+        "version": "ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Walks a system design from requirements through high-level design, deep dive and scaling to a design document with explicit trade-offs.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you ask how to architect a system or service, or need help with API design, data modeling or service boundaries"
+            },
+            {
+              "label": "It does",
+              "text": "works through five stages: requirements, high-level design, deep dive, scale and reliability, then trade-offs"
+            },
+            {
+              "label": "You get",
+              "text": "a structured design document with ASCII or described diagrams, stated assumptions, trade-offs, and what to revisit as the system grows"
+            },
+            {
+              "label": "Unlike",
+              "text": "a full design method, it's a one-page checklist of what to cover, with no examples or templates"
+            },
+            {
+              "label": "Part of",
+              "text": "the engineering plugin of Anthropic's knowledge-work plugins"
+            }
+          ],
+          "text": "A short framework the agent follows for design questions. It starts from requirements: what the system does, its scale, latency, availability and cost targets, and constraints such as team size, timeline and existing stack. The high-level design covers a component diagram, data flow, API contracts and storage choices. The deep dive covers the data model, endpoints in REST, GraphQL or gRPC, caching, queues and events, and error handling with retries. Scale and reliability cover load estimates, horizontal or vertical scaling, failover and redundancy, and monitoring. Every decision's trade-offs are made explicit, weighing complexity, cost, team familiarity, time to market and maintainability. The result is a design document with its assumptions spelled out and a note of what to revisit as the system grows.",
+          "permalink": "https://github.com/anthropics/knowledge-work-plugins/tree/ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d/engineering/skills/system-design"
+        },
+        "tags": [
+          "category:planning",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:official",
+          "architecture",
+          "requirements",
+          "backend"
+        ]
+      }
+    },
+    {
+      "id": "anthropics/knowledge-work-plugins/productivity/skills/memory-management",
+      "name": "memory-management",
+      "skills.sh": {
+        "url": "https://skills.sh/anthropics/knowledge-work-plugins/memory-management",
+        "installs": 7600,
+        "weeklyInstalls": [96, 95, 59, 53, 62, 71, 72, 73],
+        "firstSeen": "2026-01-31"
+      },
+      "skillMd": {
+        "version": "ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Keeps your workplace's people, projects and shorthand in CLAUDE.md and a memory folder, so the agent decodes requests like a colleague.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want the agent to understand your workplace's nicknames, acronyms and project codenames without asking every time"
+            },
+            {
+              "label": "It keeps",
+              "text": "a short CLAUDE.md of your top people, terms, active projects and preferences, and a memory/ folder with a full glossary and per-person and per-project files"
+            },
+            {
+              "label": "It does",
+              "text": "decodes each request from CLAUDE.md, then the glossary and memory files, then by asking you, and saves what you tell it to remember"
+            },
+            {
+              "label": "For example",
+              "text": "\"ask todd to do the PSR for oracle\" becomes a request to Todd Martinez, Finance lead, for the Pipeline Status Report on the Oracle Systems deal"
+            },
+            {
+              "label": "Runs",
+              "text": "on its own when the agent sees a fit; user-invocable: false hides it from the slash menu"
+            }
+          ],
+          "text": "Workplace memory from the productivity plugin of Anthropic's knowledge-work plugins, in plain Markdown files in the current folder. Working memory is CLAUDE.md, kept to about 50 to 100 lines of tables: you, about 30 people you deal with most, about 30 common terms, 5 to 15 active projects, and your preferences. Deep memory is a memory/ folder: glossary.md, the full list of acronyms, internal terms, nicknames and codenames, plus people/, projects/ and context/ files with profiles, project details, teams, tools and processes. Before acting on a request, the agent decodes it from CLAUDE.md first, then the glossary and memory files, and asks you about anything still unknown. When you say \"remember this\" or \"X means Y\", it files the item in the glossary or a person or project file, and in CLAUDE.md if it's used often. Frequent items are promoted to CLAUDE.md and stale ones demoted to memory/ only. To bootstrap memory by scanning your chat, calendar, email and documents, it points you to /productivity:start.",
+          "permalink": "https://github.com/anthropics/knowledge-work-plugins/tree/ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d/productivity/skills/memory-management"
+        },
+        "tags": [
+          "category:agents",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:official",
+          "memory",
+          "notes"
+        ],
+        "note": "Its set-up, /productivity:start, is a separate skill of the productivity plugin; alone, it builds memory from what you tell it."
+      }
+    },
+    {
+      "id": "anthropics/knowledge-work-plugins/productivity/skills/task-management",
+      "name": "task-management",
+      "skills.sh": {
+        "url": "https://skills.sh/anthropics/knowledge-work-plugins/task-management",
+        "installs": 7300,
+        "weeklyInstalls": [76, 89, 54, 53, 59, 63, 67, 62],
+        "firstSeen": "2026-01-31"
+      },
+      "skillMd": {
+        "version": "ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Tracks your tasks in a shared TASKS.md file: adds, completes and summarizes them, and offers to capture action items from meetings and conversations.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want the agent to keep your to-do list: what's on my plate, add a task, done with X, what am I waiting on"
+            },
+            {
+              "label": "It keeps",
+              "text": "one TASKS.md in the working folder, with Active, Waiting On, Someday and Done sections, created from its template if missing"
+            },
+            {
+              "label": "It also",
+              "text": "offers to add the commitments and action items it finds when summarizing meetings or conversations, and asks before adding any"
+            },
+            {
+              "label": "Board",
+              "text": "on first use it copies the plugin's dashboard.html, a drag-and-drop task board that syncs with TASKS.md"
+            },
+            {
+              "label": "Runs",
+              "text": "on its own when you talk about tasks; user-invocable: false hides it from the slash menu"
+            }
+          ],
+          "text": "Task tracking from the productivity plugin of Anthropic's knowledge-work plugins, in a plain Markdown file that you and the agent both edit. It always uses TASKS.md in the current folder. Asking what's on your plate gets a summary of Active and Waiting On, with anything overdue or urgent highlighted. A new task goes under Active as a bold title with who it's for and when it's due. A finished one is checked, struck through, dated and moved to Done, which is cleared after about a week. Asking what you're waiting on says how long each item has waited. On first use it copies dashboard.html into the folder, a board that reads and writes the same file, auto-saves, picks up edits made outside it and supports drag-and-drop reordering, and points you to /productivity:start for the full set-up.",
+          "permalink": "https://github.com/anthropics/knowledge-work-plugins/tree/ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d/productivity/skills/task-management"
+        },
+        "tags": [
+          "category:documents",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:official",
+          "notes"
+        ],
+        "note": "Its task board, dashboard.html, ships with the productivity plugin outside the skill's folder, so a skill-only install gets TASKS.md tracking without the board."
+      }
+    },
+    {
+      "id": "anthropics/knowledge-work-plugins/productivity/skills/start",
+      "name": "start",
+      "skills.sh": {
+        "url": "https://skills.sh/anthropics/knowledge-work-plugins/start",
+        "installs": 5000,
+        "weeklyInstalls": [55, 65, 40, 35, 44, 49, 44, 42],
+        "firstSeen": "2026-03-13"
+      },
+      "skillMd": {
+        "version": "ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Sets up the productivity plugin's task list, dashboard and workplace memory, learning your shorthand by asking about the terms in your todos.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're setting up the productivity plugin, or want the agent to learn your workplace's nicknames, acronyms and codenames from your todos"
+            },
+            {
+              "label": "You get",
+              "text": "TASKS.md, dashboard.html, a short CLAUDE.md of you, your people, terms, projects and preferences, and a memory/ folder with a glossary and per-person and per-project files"
+            },
+            {
+              "label": "It does",
+              "text": "asks where you keep your todos, then goes through each task asking what its names, acronyms and codenames mean, skipping ones already decoded"
+            },
+            {
+              "label": "Can also",
+              "text": "scan your chat, email, documents and calendar through connected MCP servers for more people, projects and terms, if you choose to"
+            },
+            {
+              "label": "Unlike",
+              "text": "update, which keeps tasks and memory current afterwards, it builds them once; in a folder already set up it only points you to the dashboard"
+            },
+            {
+              "label": "Runs",
+              "text": "as /productivity:start, or when you set up the plugin for the first time"
+            }
+          ],
+          "text": "The set-up step of the productivity plugin. It checks the working folder for TASKS.md, CLAUDE.md, a memory/ folder and dashboard.html, and creates what's missing: TASKS.md from task-management's template, and dashboard.html copied from the plugin. It doesn't open a browser: it tells you to open the dashboard from your file browser. On a first run, with no CLAUDE.md or memory/ yet, it builds memory from your real task list, which it calls the best source of workplace language. It asks where you keep your todos, in a file or an app such as Asana, Linear, Jira, Notion or Todoist, then asks about each term it doesn't know: who Todd is, what PSR stands for, whether Phoenix is a project codename. It then offers a longer scan of your chat, email, documents and calendar through connected MCP servers, and sorts what it finds into ready to add, needs clarification, and unclear for later. Last, it writes CLAUDE.md, about 50 to 80 lines of tables on you, your people, terms, projects and preferences, and memory/ with a full glossary, a file per person and per project, and your company's teams, tools and processes. Sources that aren't connected are skipped and noted.",
+          "permalink": "https://github.com/anthropics/knowledge-work-plugins/tree/ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d/productivity/skills/start"
+        },
+        "tags": [
+          "category:agents",
+          "category:documents",
+          "type:setup",
+          "effect:local",
+          "needs:none",
+          "by:official",
+          "memory",
+          "notes",
+          "interview"
+        ],
+        "note": "Copies dashboard.html from the productivity plugin's folder, outside the skill's own, so a skill-only install sets up tasks and memory without the board."
+      }
+    },
+    {
+      "id": "anthropics/knowledge-work-plugins/productivity/skills/update",
+      "name": "update",
+      "skills.sh": {
+        "url": "https://skills.sh/anthropics/knowledge-work-plugins/update",
+        "installs": 5000,
+        "weeklyInstalls": [56, 67, 41, 35, 42, 48, 42, 42],
+        "firstSeen": "2026-03-13"
+      },
+      "skillMd": {
+        "version": "ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Syncs TASKS.md with your project tracker, triages stale tasks, fills gaps in workplace memory and can scan chat, email and calendar for missed todos.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want TASKS.md and your workplace memory caught up with your project tracker and recent work"
+            },
+            {
+              "label": "It does",
+              "text": "offers to add tasks assigned to you in a project tracker or GitHub Issues, flags stale tasks, and asks about people and projects memory lacks"
+            },
+            {
+              "label": "Triage",
+              "text": "tasks past due, Active for 30+ days or with no person or project; you mark each done, reschedule it or move it to Someday"
+            },
+            {
+              "label": "With --comprehensive",
+              "text": "it also scans chat, email, documents and calendar for todos you haven't captured and new people or projects to remember"
+            },
+            {
+              "label": "Asks first",
+              "text": "never adds tasks or memories without your confirmation"
+            },
+            {
+              "label": "Runs",
+              "text": "as /productivity:update, on the TASKS.md and memory/ that start sets up"
+            }
+          ],
+          "text": "The upkeep step of the productivity plugin, run once start has created TASKS.md and the memory/ folder; without them it suggests start first. It fetches open tasks assigned to you from a connected project tracker such as Asana, Linear or Jira, or from GitHub Issues with gh when you're in a repo, and matches them to TASKS.md by fuzzy title. New ones it offers to add, ones finished elsewhere it offers to mark done, and ones only in TASKS.md it flags as possibly stale. With no source connected, it skips the sync. It then flags overdue tasks, tasks Active for 30 days or more and tasks with no person or project, for you to mark done, reschedule or move to Someday. It checks every person, project and term in your tasks against memory, asks about the ones it can't place, and files your answers in the glossary, people or project files, along with links, status changes, relationships and deadlines found in tasks. --comprehensive adds a scan of recent chat, email, documents and calendar: likely todos you haven't tracked, new people and projects with how often they're mentioned, and projects quiet for 30 days to mark completed.",
+          "permalink": "https://github.com/anthropics/knowledge-work-plugins/tree/ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d/productivity/skills/update"
+        },
+        "tags": [
+          "category:agents",
+          "category:documents",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:official",
+          "memory",
+          "notes",
+          "issue-tracking"
+        ]
       }
     }
   ]
