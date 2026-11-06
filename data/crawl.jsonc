@@ -1719,19 +1719,6 @@
       }
     },
     {
-      "name": "enabling-lambda-vpc-internet-access",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3418,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/enabling-lambda-vpc-internet-access",
-        "installs": 6400,
-        "weeklyInstalls": [263, 246, 271, 221, 207, 255, 238, 207],
-        "firstSeen": "2026-05-07"
-      }
-    },
-    {
       "name": "run-tests",
       "repo": "dotnet/skills",
       "official": true,
@@ -1781,19 +1768,6 @@
         "installs": 6400,
         "weeklyInstalls": [118, 133, 134, 126, 136, 204, 192, 251],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "exporting-rds-to-s3",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3418,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/exporting-rds-to-s3",
-        "installs": 6400,
-        "weeklyInstalls": [262, 245, 272, 221, 205, 256, 241, 205],
-        "firstSeen": "2026-05-07"
       }
     },
     {
@@ -1872,19 +1846,6 @@
         "installs": 6400,
         "weeklyInstalls": [102, 116, 91, 88, 132, 267, 225, 107],
         "firstSeen": "2026-03-09"
-      }
-    },
-    {
-      "name": "setting-up-cloudtrail-multi-region",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3418,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/setting-up-cloudtrail-multi-region",
-        "installs": 6400,
-        "weeklyInstalls": [262, 241, 270, 222, 207, 255, 243, 208],
-        "firstSeen": "2026-05-07"
       }
     },
     {
@@ -1992,19 +1953,6 @@
       }
     },
     {
-      "name": "aws-networking",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3418,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/aws-networking",
-        "installs": 6400,
-        "weeklyInstalls": [314, 305, 319, 279, 273, 302, 304, 270],
-        "firstSeen": "2026-07-07"
-      }
-    },
-    {
       "name": "copywriting-hooks",
       "repo": "samber/cc-skills",
       "official": false,
@@ -2015,19 +1963,6 @@
         "installs": 6400,
         "weeklyInstalls": [62, 98, 218, 393, 586, 736, 806, 636],
         "firstSeen": "2026-05-19"
-      }
-    },
-    {
-      "name": "creating-amazon-aurora-db-cluster-with-instances",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3418,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/creating-amazon-aurora-db-cluster-with-instances",
-        "installs": 6400,
-        "weeklyInstalls": [256, 249, 268, 223, 200, 253, 237, 205],
-        "firstSeen": "2026-05-07"
       }
     },
     {
@@ -2174,19 +2109,6 @@
       }
     },
     {
-      "name": "aws-deployment",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3418,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/aws-deployment",
-        "installs": 6300,
-        "weeklyInstalls": [304, 321, 348, 324, 323, 340, 336, 282],
-        "firstSeen": "2026-07-10"
-      }
-    },
-    {
       "name": "screenshot",
       "repo": "openai/skills",
       "official": true,
@@ -2275,19 +2197,6 @@
         "installs": 6300,
         "weeklyInstalls": [48, 74, 58, 58, 101, 222, 176, 61],
         "firstSeen": "2026-03-09"
-      }
-    },
-    {
-      "name": "troubleshooting-efs",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3418,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/troubleshooting-efs",
-        "installs": 6300,
-        "weeklyInstalls": [259, 238, 259, 222, 202, 257, 240, 202],
-        "firstSeen": "2026-05-07"
       }
     },
     {
@@ -2785,19 +2694,6 @@
       }
     },
     {
-      "name": "aws-database",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3418,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/aws-database",
-        "installs": 6100,
-        "weeklyInstalls": [307, 297, 306, 291, 263, 316, 293, 263],
-        "firstSeen": "2026-07-10"
-      }
-    },
-    {
       "name": "mongodb-search-and-ai",
       "repo": "mongodb/agent-skills",
       "official": false,
@@ -2821,19 +2717,6 @@
         "installs": 6100,
         "weeklyInstalls": [73, 127, 82, 141, 108, 71, 89, 96],
         "firstSeen": "2026-02-15"
-      }
-    },
-    {
-      "name": "aws-lambda-durable-functions",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3418,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/aws-lambda-durable-functions",
-        "installs": 6100,
-        "weeklyInstalls": [281, 289, 300, 241, 216, 276, 259, 225],
-        "firstSeen": "2026-06-08"
       }
     },
     {
@@ -2912,32 +2795,6 @@
         "installs": 6100,
         "weeklyInstalls": [705, 598, 502, 458, 431, 441, 492, 474],
         "firstSeen": "2026-08-14"
-      }
-    },
-    {
-      "name": "aws-lambda-managed-instances",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3418,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/aws-lambda-managed-instances",
-        "installs": 6100,
-        "weeklyInstalls": [291, 285, 298, 247, 214, 292, 260, 238],
-        "firstSeen": "2026-06-08"
-      }
-    },
-    {
-      "name": "aws-cleanrooms",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3418,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/aws-cleanrooms",
-        "installs": 6100,
-        "weeklyInstalls": [257, 254, 270, 223, 201, 247, 234, 203],
-        "firstSeen": "2026-05-07"
       }
     },
     {
@@ -3175,19 +3032,6 @@
       }
     },
     {
-      "name": "aws-compute",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3418,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/aws-compute",
-        "installs": 6000,
-        "weeklyInstalls": [303, 309, 360, 321, 320, 346, 344, 297],
-        "firstSeen": "2026-07-17"
-      }
-    },
-    {
       "name": "pandas-pro",
       "repo": "jeffallan/claude-skills",
       "official": false,
@@ -3263,19 +3107,6 @@
         "installs": 6000,
         "weeklyInstalls": [67, 62, 48, 21, 20, 25, 16, 18],
         "firstSeen": "2026-01-25"
-      }
-    },
-    {
-      "name": "aws-lambda-microvms",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3418,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/aws-lambda-microvms",
-        "installs": 6000,
-        "weeklyInstalls": [278, 291, 296, 240, 218, 310, 269, 233],
-        "firstSeen": "2026-06-22"
       }
     },
     {
@@ -3510,19 +3341,6 @@
         "installs": 6000,
         "weeklyInstalls": [85, 99, 65, 52, 75, 72, 62, 62],
         "firstSeen": "2026-02-24"
-      }
-    },
-    {
-      "name": "amazon-aurora-postgresql",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3418,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/amazon-aurora-postgresql",
-        "installs": 6000,
-        "weeklyInstalls": [283, 285, 303, 241, 217, 271, 257, 227],
-        "firstSeen": "2026-06-15"
       }
     },
     {
@@ -3929,19 +3747,6 @@
       }
     },
     {
-      "name": "querying-aws-s3",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3418,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/querying-aws-s3",
-        "installs": 5900,
-        "weeklyInstalls": [279, 268, 290, 228, 219, 265, 252, 221],
-        "firstSeen": "2026-06-17"
-      }
-    },
-    {
       "name": "mom-test",
       "repo": "wondelai/skills",
       "official": false,
@@ -4020,19 +3825,6 @@
       }
     },
     {
-      "name": "amazon-opensearch-service",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3418,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/amazon-opensearch-service",
-        "installs": 5900,
-        "weeklyInstalls": [280, 259, 283, 239, 210, 264, 255, 225],
-        "firstSeen": "2026-06-19"
-      }
-    },
-    {
       "name": "mcp",
       "repo": "vercel-labs/json-render",
       "official": true,
@@ -4098,19 +3890,6 @@
       }
     },
     {
-      "name": "querying-aws-cloudwatch",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3418,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/querying-aws-cloudwatch",
-        "installs": 5900,
-        "weeklyInstalls": [278, 260, 285, 234, 212, 269, 252, 226],
-        "firstSeen": "2026-06-17"
-      }
-    },
-    {
       "name": "made-to-stick",
       "repo": "wondelai/skills",
       "official": false,
@@ -4121,19 +3900,6 @@
         "installs": 5900,
         "weeklyInstalls": [166, 148, 163, 143, 165, 303, 261, 182],
         "firstSeen": "2026-02-10"
-      }
-    },
-    {
-      "name": "aws-blocks",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3418,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/aws-blocks",
-        "installs": 5900,
-        "weeklyInstalls": [280, 259, 282, 231, 220, 266, 264, 226],
-        "firstSeen": "2026-06-17"
       }
     },
     {
@@ -4563,19 +4329,6 @@
         "installs": 5800,
         "weeklyInstalls": [398, 455, 316, 360, 418, 394, 297, 346],
         "firstSeen": "2026-07-14"
-      }
-    },
-    {
-      "name": "amazon-elasticache",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3418,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/amazon-elasticache",
-        "installs": 5800,
-        "weeklyInstalls": [271, 278, 293, 239, 207, 260, 245, 215],
-        "firstSeen": "2026-06-09"
       }
     },
     {
@@ -5889,19 +5642,6 @@
         "installs": 5600,
         "weeklyInstalls": [53, 60, 55, 59, 46, 42, 228, 1164],
         "firstSeen": "2026-03-24"
-      }
-    },
-    {
-      "name": "amazon-aurora-mysql",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3418,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/amazon-aurora-mysql",
-        "installs": 5600,
-        "weeklyInstalls": [268, 271, 282, 235, 213, 257, 250, 210],
-        "firstSeen": "2026-06-15"
       }
     },
     {
@@ -29974,6 +29714,86 @@
     {
       "url": "https://skills.sh/forcedotcom/sf-skills/experience-ui-bundle-salesforce-data-access",
       "note": "Tool docs: an agent's manual for salesforce."
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/enabling-lambda-vpc-internet-access",
+      "note": "Tool docs: an agent's manual for aws."
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/exporting-rds-to-s3",
+      "note": "Tool docs: an agent's manual for aws."
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/setting-up-cloudtrail-multi-region",
+      "note": "Tool docs: an agent's manual for aws."
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/aws-networking",
+      "note": "Tool docs: an agent's manual for aws."
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/creating-amazon-aurora-db-cluster-with-instances",
+      "note": "Tool docs: an agent's manual for aws."
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/aws-deployment",
+      "note": "Tool docs: an agent's manual for aws."
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/troubleshooting-efs",
+      "note": "Tool docs: an agent's manual for aws."
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/aws-database",
+      "note": "Tool docs: an agent's manual for aws."
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/aws-lambda-durable-functions",
+      "note": "Tool docs: an agent's manual for aws."
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/aws-lambda-managed-instances",
+      "note": "Tool docs: an agent's manual for aws."
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/aws-cleanrooms",
+      "note": "Tool docs: an agent's manual for aws."
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/aws-compute",
+      "note": "Tool docs: an agent's manual for aws."
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/aws-lambda-microvms",
+      "note": "Tool docs: an agent's manual for aws."
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/amazon-aurora-postgresql",
+      "note": "Tool docs: an agent's manual for aws."
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/querying-aws-s3",
+      "note": "Tool docs: an agent's manual for aws."
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/amazon-opensearch-service",
+      "note": "Tool docs: an agent's manual for aws."
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/querying-aws-cloudwatch",
+      "note": "Tool docs: an agent's manual for aws."
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/aws-blocks",
+      "note": "Tool docs: an agent's manual for aws."
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/amazon-elasticache",
+      "note": "Tool docs: an agent's manual for aws."
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/amazon-aurora-mysql",
+      "note": "Tool docs: an agent's manual for aws."
     }
   ]
 }
