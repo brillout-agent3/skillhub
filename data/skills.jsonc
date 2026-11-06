@@ -2256,6 +2256,103 @@
         "kind": "skills",
         "description": "A Claude Code plugin marketplace with the ast-grep skill, for structural code search with AST patterns."
       }
+    },
+    {
+      "id": "bradautomates/claude-video",
+      "stars": 20021,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Give an agent video evidence: a URL or local file becomes timestamped frames and a transcript."
+      }
+    },
+    {
+      "id": "rebelytics/one-skill-to-rule-them-all",
+      "stars": 3758,
+      "agentReview": {
+        "kind": "skills",
+        "description": "The meta-skill that builds and improves all your skills, including itself."
+      }
+    },
+    {
+      "id": "apify/agent-skills",
+      "stars": 2493,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Production-grade web scraping and automation skills for AI coding agents."
+      }
+    },
+    {
+      "id": "morluto/rea",
+      "stars": 437266,
+      "agentReview": {
+        "kind": "project",
+        "description": "One MCP for reverse engineering across binaries, applications, and runtime behavior."
+      }
+    },
+    {
+      "id": "coderabbitai/skills",
+      "stars": 210,
+      "agentReview": {
+        "kind": "skills",
+        "description": "The canonical home for CodeRabbit's agent-native skills and plugin packaging."
+      }
+    },
+    {
+      "id": "parthjadhav/app-store-screenshots",
+      "stars": 7830,
+      "agentReview": {
+        "kind": "skills",
+        "description": "A skill for AI coding agents that scaffolds a production-ready Next.js editor for App Store and Google Play marketing screenshots."
+      }
+    },
+    {
+      "id": "citrolabs/ego-lite",
+      "stars": 21893,
+      "agentReview": {
+        "kind": "project",
+        "description": "The fastest browser for AI agents to run web automation."
+      }
+    },
+    {
+      "id": "dmmulroy/anti-slop",
+      "stars": 5975,
+      "agentReview": {
+        "kind": "project",
+        "description": "Opinionated Oxlint rules that reject low-evidence and low-signal TypeScript and JavaScript patterns."
+      }
+    },
+    {
+      "id": "earthtojake/text-to-cad",
+      "stars": 25696,
+      "agentReview": {
+        "kind": "project",
+        "description": "Design physical products with AI."
+      }
+    },
+    {
+      "id": "vercel/components.build",
+      "stars": 801,
+      "agentReview": {
+        "kind": "project",
+        "description": "An open-source standard for building modern, composable, and accessible UI components."
+      }
+    },
+    {
+      "id": "aminblg/simpleenglish",
+      "stars": 4269,
+      "agentReview": {
+        "kind": "skills",
+        "description": "An agent skill that makes LLMs write plain English with the discipline of ASD-STE100 Simplified Technical English."
+      }
+    },
+    {
+      "id": "anthropics/knowledge-work-plugins",
+      "stars": 34972,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Plugins that turn Claude into a specialist for your role, team, and company.",
+        "note": "Built for Claude Cowork, also compatible with Claude Code."
+      }
     }
   ],
   "bundles": [
@@ -31671,6 +31768,832 @@
           "by:official",
           "stack:ast-grep",
           "code-quality"
+        ]
+      }
+    },
+    {
+      "id": "yizhiyanhua-ai/fireworks-tech-graph/skills/fireworks-tech-graph",
+      "name": "fireworks-tech-graph",
+      "skills.sh": {
+        "url": "https://skills.sh/yizhiyanhua-ai/fireworks-tech-graph/fireworks-tech-graph",
+        "installs": 18300,
+        "weeklyInstalls": [284, 251, 212, 110, 130, 158, 175, 165],
+        "firstSeen": "2026-04-12"
+      },
+      "skillMd": {
+        "version": "1ca1ff9cfcb67893a43d32b9ef3a1b782c44a46f",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Draws technical diagrams such as architecture, UML, cloud and workflow charts as checked SVG, with PNG, offline HTML and GIF exports.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want an architecture, UML, agent, cloud or workflow diagram from a description; not photos, raster art or statistical charts"
+            },
+            {
+              "label": "It does",
+              "text": "renders the diagram as SVG with a bundled Python script, checks it for collisions, broken arrows and cut-off labels, then repairs what fails"
+            },
+            {
+              "label": "You get",
+              "text": "an SVG, plus a PNG, a pan-and-zoom offline HTML file or an animated GIF when you ask"
+            },
+            {
+              "label": "Styles",
+              "text": "twelve, Flat Icon by default; styles 9 to 12 follow C4, cloud, event and observability conventions"
+            },
+            {
+              "label": "Needs",
+              "text": "Python 3"
+            }
+          ],
+          "text": "SVG is the main output; PNG, a single offline HTML page with pan, zoom and downloads, and GIF animation are made from it. For eleven of its twelve styles the agent writes a JSON description that a bundled script validates and renders; Style 8, Dark Luxury, is written as SVG directly. A check command looks at marker references, overlaps, geometry and composition, and a strict text mode makes sure every label shows in full. The agent then views the PNG at reading size, if it can view images, for missing text, contrast, spacing, clipping, arrow direction and crossings, and repairs failures by element ID, changing approach after two unchanged failures. It widens or splits a crowded diagram rather than shrinking the text. GIF motion works on the supported diagram layouts, at 960px and 20fps by default. Styles 9 to 12 check facts before layout and don't invent responsibilities, protocols or metrics. It ends by reporting file paths, dimensions, the visual review and remaining limits, and never publishes or sends a diagram without separate permission.",
+          "permalink": "https://github.com/yizhiyanhua-ai/fireworks-tech-graph/tree/1ca1ff9cfcb67893a43d32b9ef3a1b782c44a46f/skills/fireworks-tech-graph"
+        },
+        "tags": [
+          "category:science",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "stack:python",
+          "stack:svg",
+          "diagrams",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "id": "bradautomates/claude-video/skills/watch",
+      "name": "watch",
+      "skills.sh": {
+        "url": "https://skills.sh/bradautomates/claude-video/watch",
+        "installs": 18200,
+        "weeklyInstalls": [714, 643, 664, 549, 492, 489, 552, 617],
+        "firstSeen": "2026-04-29"
+      },
+      "skillMd": {
+        "version": "03ceb42f7fa2c4439aca01752118044baabffb8f",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Watches a video from a URL or file and answers your questions about it, from extracted frames and a transcript or through Gemini.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want the agent to answer questions about a video, from a link or a file on your machine"
+            },
+            {
+              "label": "It does",
+              "text": "downloads it with yt-dlp, pulls timestamped frames with ffmpeg and a transcript from captions, then answers from what it sees and reads"
+            },
+            {
+              "label": "Or",
+              "text": "with a free Gemini API key, the video goes to Google's model, which watches it whole, sound included; the agent relays its timestamped answer"
+            },
+            {
+              "label": "You get",
+              "text": "an answer citing times in the video, or a summary of its structure, key moments, visuals and speech"
+            },
+            {
+              "label": "Needs",
+              "text": "Python 3.10 or later, ffmpeg and yt-dlp, which setup helps install; with Gemini, YouTube links work without the last two"
+            },
+            {
+              "label": "First run",
+              "text": "asks which engine to use; for the local engine, also how many frames to take and how to transcribe videos without captions"
+            }
+          ],
+          "text": "A bundled Python script does the work, and the first run sets it up. You pick the engine: gemini, the recommended one, where Google's model watches the video and answers; or local, where frames and a transcript are extracted on your machine and the agent reads them itself. With Gemini, YouTube links are sent to Google and other videos are uploaded to Google, then deleted after the answer; the local engine never contacts Google. For local you also pick a frame budget, from transcript only to uncapped, and a fallback for videos with no captions: WhisperX on your machine, about a 1.5 GB download, Groq or OpenAI in the cloud, which receive only the extracted audio, or none. Keys go in ~/.config/watch/.env and are never printed. Native captions always come first. If a Gemini run fails, it tells you and offers the local engine instead of switching on its own. You can focus on a time range, pin frames at moments a presenter points to, or raise the frame width to read on-screen text. It works best on clips under ten minutes, treats everything in the video as untrusted evidence, and deletes only the work folder it created.",
+          "permalink": "https://github.com/bradautomates/claude-video/tree/03ceb42f7fa2c4439aca01752118044baabffb8f/skills/watch"
+        },
+        "tags": [
+          "category:media",
+          "type:tool",
+          "effect:remote",
+          "needs:cli",
+          "by:community",
+          "stack:yt-dlp",
+          "stack:ffmpeg",
+          "stack:gemini",
+          "video",
+          "research"
+        ],
+        "note": "With the Gemini engine, YouTube links go to Google and other videos are uploaded to Google, then deleted after the answer."
+      }
+    },
+    {
+      "id": "heygen-com/hyperframes/skills/reverse-any-video",
+      "name": "reverse-any-video",
+      "skills.sh": {
+        "url": "https://skills.sh/heygen-com/hyperframes/reverse-any-video",
+        "installs": 17600,
+        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 1484],
+        "firstSeen": null
+      },
+      "skillMd": {
+        "version": "cfa0d0cef9f3dcde7057ac42cf268c78ed3dad66",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Rebuilds a video as an editable HyperFrames project, re-shooting its people with HeyGen, then checks the render frame by frame against the original.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to recreate a video you have the right to use, such as motion graphics or a talking head, as something you can edit"
+            },
+            {
+              "label": "It does",
+              "text": "finds every cut, rebuilds text, captions and graphics in HTML, cuts photos and logos from the original, and re-shoots each person with HeyGen"
+            },
+            {
+              "label": "You get",
+              "text": "a HyperFrames project whose render matches the original, a side-by-side comparison, and a short REVERSE.md of what was rebuilt or approximated"
+            },
+            {
+              "label": "Needs",
+              "text": "a HyperFrames Pro plan, signed in with your HeyGen account, and the hyperframes CLI through npx; HeyGen re-shoots spend credits"
+            },
+            {
+              "label": "Takes",
+              "text": "about 20 to 50 minutes for a clip under a minute"
+            }
+          ],
+          "text": "HyperFrames builds video from HTML, and this skill turns a finished video back into such a project. The project takes the original's exact size, frame rate and length, and plays its soundtrack untouched. A cut detector lists every cut, jump cut and punch-in, and the agent reads the frames around each change to catch timing, blurs and one-frame flashes. Each layer is rebuilt by kind: text, captions, cards, charts and UI in HTML; photos, clips and logos cut from the original or replaced by the real mark; every person on screen re-shot with HeyGen, one generated shot per original shot, driven by the original's motion so the original's face and the text burned over it never ship. At the end it runs HyperFrames' check, renders in the cloud or locally, and diffs the render against the original for missed cuts, timing, duration and sound offset. It fixes what it can see, renders and diffs once more, then opens the side-by-side and a live preview where you can keep editing. It works alone, sends usage events through the CLI's telemetry, and never runs billing commands: when a plan or credits are needed, it gives you the link to pay yourself.",
+          "permalink": "https://github.com/heygen-com/hyperframes/tree/cfa0d0cef9f3dcde7057ac42cf268c78ed3dad66/skills/reverse-any-video"
+        },
+        "tags": [
+          "category:media",
+          "type:workflow",
+          "effect:remote",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:hyperframes",
+          "stack:heygen",
+          "stack:ffmpeg",
+          "video",
+          "animation",
+          "ai-generation"
+        ],
+        "note": "Needs a HyperFrames Pro plan; HeyGen re-shoots use credits, and it sends usage events through the HyperFrames CLI's telemetry."
+      }
+    },
+    {
+      "id": "rebelytics/one-skill-to-rule-them-all",
+      "name": "task-observer",
+      "skills.sh": {
+        "url": "https://skills.sh/rebelytics/one-skill-to-rule-them-all/task-observer",
+        "installs": 17100,
+        "weeklyInstalls": [696, 636, 917, 1190, 1425, 1877, 1657, 1605],
+        "firstSeen": "2026-02-18"
+      },
+      "skillMd": {
+        "version": "046b8f2aa6bdae369a93ae563889b7cc449d17ad",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Logs corrections and repeated work as observation files in every session, then turns them into skill updates or new skills in a weekly review.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want your skills to improve from how you actually use them, and to spot work that repeats enough to become a skill"
+            },
+            {
+              "label": "It does",
+              "text": "watches the whole session for your corrections, broken skill rules, better methods and repeating tasks, and writes each as its own Markdown file"
+            },
+            {
+              "label": "You get",
+              "text": "an observation log of Issue, Improvement and Principle entries, and in a weekly review, staged skill updates for you to install"
+            },
+            {
+              "label": "Runs",
+              "text": "from before the first tool call of every session to its end; a CLAUDE.md line or session-start hook makes sure it loads"
+            },
+            {
+              "label": "Keeps",
+              "text": "one file per observation in skill-observations/ under a stable workspace folder, with resolved ones moved to an archive"
+            },
+            {
+              "label": "Also called",
+              "text": "One Skill to Rule Them All"
+            }
+          ],
+          "text": "Task Observer treats friction in real work as the raw material for better skills. Each session opens with a seven-item checklist, including finding the persistent workspace folder, scanning the log's headers, checking whether a review is due and, on a first run, offering to backfill observations from the project's history. During the work it logs whenever you correct the agent, the agent breaks a documented rule, a better method appears, or a task repeats enough to deserve a skill; one-off fixes are skipped. Each observation is one file whose YAML header names its status and target skill. It writes them at once, checks in after every third finished to-do, and flushes whenever work is handed over. A rule broken twice gets a proposed structural barrier, such as a hook or lint rule, never a rewording. At the end of a session it summarises what it logged. Changes wait for the review, offered weekly or started by a scheduled run, unless you name a skill to update; every edit goes to a staged copy you install yourself. It runs bundled bash scripts, so it needs its whole folder, not only SKILL.md. A subagent of an observed session writes nothing.",
+          "permalink": "https://github.com/rebelytics/one-skill-to-rule-them-all/tree/046b8f2aa6bdae369a93ae563889b7cc449d17ad"
+        },
+        "tags": [
+          "category:skill-tools",
+          "category:agents",
+          "type:mode",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "self-improvement",
+          "skill-authoring",
+          "memory"
+        ],
+        "note": "Asks to run before the first tool call of every session and stays on throughout, writing observation files to a workspace folder; it relies on an activation line in CLAUDE.md or a session-start hook."
+      }
+    },
+    {
+      "id": "apify/agent-skills/skills/apify-ultimate-scraper",
+      "name": "apify-ultimate-scraper",
+      "skills.sh": {
+        "url": "https://skills.sh/apify/agent-skills/apify-ultimate-scraper",
+        "installs": 16700,
+        "weeklyInstalls": [132, 131, 139, 131, 134, 268, 226, 202],
+        "firstSeen": "2026-01-28"
+      },
+      "skillMd": {
+        "version": "f22557f15941aa6a5bc7539f0408d509d4a32ab6",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Scrapes social media, search, maps, review and travel sites by picking and running the right Apify Actor, then saves results as CSV or JSON.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need data from Instagram, TikTok, YouTube, LinkedIn, X, Google Maps, Reddit, Airbnb, Yelp or similar, for leads, monitoring, competitors or trends"
+            },
+            {
+              "label": "It does",
+              "text": "picks an Actor, one of Apify's ready-made cloud scrapers, from a bundled index or a store search, reads its input schema, runs it and fetches the results"
+            },
+            {
+              "label": "You get",
+              "text": "a quick top-five answer in chat, or a dated CSV or JSON file, with links to the run and dataset in Apify's console"
+            },
+            {
+              "label": "Needs",
+              "text": "the Apify CLI, version 1.5.0 or later, and an Apify account; some Actors charge per result"
+            },
+            {
+              "label": "Guides",
+              "text": "bundled guides for multi-step jobs such as lead generation, contact enrichment, brand monitoring, review analysis and price monitoring"
+            }
+          ],
+          "text": "Apify runs scrapers, which it calls Actors, in its cloud, and this skill has the agent drive them through the Apify CLI. It starts from the platform and goal you name, looks the Actor up in a bundled index of about a hundred, or searches the Apify Store when none matches, and reads the matching workflow guide when the job has several steps, such as finding businesses or LinkedIn profiles and then enriching them with emails and phone numbers. Before running it fetches the Actor's input schema and reads a list of known pitfalls. For Actors charged per result, that list has it estimate the cost first, warn above $5 and ask you before going over $20. Simple lookups, such as one account's follower count, run straight away and come back as the top five results in chat; for larger jobs it first asks which format and how many results you want. Long scrapes run in the background and are polled until done. Every command passes a user agent that tags it as coming from this skill. It ends with the result count, file and links, and suggests the next step of a multi-step job.",
+          "permalink": "https://github.com/apify/agent-skills/tree/f22557f15941aa6a5bc7539f0408d509d4a32ab6/skills/apify-ultimate-scraper"
+        },
+        "tags": [
+          "category:browser",
+          "category:marketing",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:apify",
+          "scraping",
+          "social-media",
+          "research",
+          "flag:dual-use"
+        ],
+        "note": "Needs an Apify account and token; Actors run on Apify's platform, and some are billed per event."
+      }
+    },
+    {
+      "id": "morluto/rea/.agents/skills/reverse-engineer-anything",
+      "name": "reverse-engineer-anything",
+      "skills.sh": {
+        "url": "https://skills.sh/morluto/rea/reverse-engineer-anything",
+        "installs": 15800,
+        "weeklyInstalls": [9, 4, 8, 4, 1808, 5004, 3909, 3265],
+        "firstSeen": "2026-07-18"
+      },
+      "skillMd": {
+        "version": "fdc4e3908b70d7cf6b03f357fb9c42a133bb5577",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Reverse engineers binaries, apps, packages, firmware and recorded traffic through the REA MCP server, separating what it observed from what it infers.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a question depends on a shipped app or binary rather than its source: how a feature works, what changed between versions, or decompiled code"
+            },
+            {
+              "label": "It does",
+              "text": "routes each target to the right REA tool, from Electron bundles, APKs and .NET assemblies to firmware, packet captures and native code in Ghidra or IDA"
+            },
+            {
+              "label": "You get",
+              "text": "plain-language findings tied to evidence IDs, each kept apart as observed, inferred or unknown"
+            },
+            {
+              "label": "Needs",
+              "text": "the REA MCP server, or its rea-agents CLI for JavaScript apps; native code also needs Ghidra, IDA or Kuna, which it never installs"
+            },
+            {
+              "label": "Also builds",
+              "text": "AgentEnv bundles: a folder whose MCP tools stand in for a web app, answering from one recording of a live instance or a HAR file"
+            },
+            {
+              "label": "Skips",
+              "text": "ordinary source repositories, where normal code tools do the job"
+            }
+          ],
+          "text": "REA, short for Reverse Engineer Anything, is one MCP server for reverse engineering. Installing the skill adds only instructions, except through REA's Claude Code or Codex plugin, which registers the server too. The skill tells the agent which tool fits the target: an ASAR or JavaScript tree, an archive or installer, an Android APK, a .NET assembly, firmware, WebAssembly, Go or Rust binaries, crash reports, model files, SQLite snapshots, saved HAR or packet captures, or a browser or Electron app already open. Native code goes through Ghidra, IDA or Kuna. It starts from summaries and pages into retained evidence instead of repeating an analysis. For broad questions it turns the request into a checklist, keeps a ledger of findings, and can split independent questions across parallel workers. Static analysis is never presented as observed execution; runtime tools, such as debuggers, Frida scripts or scripted browser clicks, run only the target and actions you asked for. When tools are missing or the connection drops, it diagnoses the actual blocker instead of re-running setup. It asks which app you mean rather than picking one, and ends by explaining the findings in plain language and closing its sessions.",
+          "permalink": "https://github.com/morluto/rea/tree/fdc4e3908b70d7cf6b03f357fb9c42a133bb5577/.agents/skills/reverse-engineer-anything"
+        },
+        "tags": [
+          "category:security",
+          "category:debugging",
+          "type:tool",
+          "effect:local",
+          "needs:mcp",
+          "needs:cli",
+          "needs:browser",
+          "by:official",
+          "stack:rea",
+          "stack:ghidra",
+          "stack:ida",
+          "security",
+          "debugging"
+        ],
+        "note": "Needs the REA MCP server, or its rea-agents CLI for JavaScript apps; native analysis also needs an engine such as Ghidra or IDA, which it never installs."
+      }
+    },
+    {
+      "id": "coderabbitai/skills/skills/code-review",
+      "name": "code-review",
+      "skills.sh": {
+        "url": "https://skills.sh/coderabbitai/skills/code-review",
+        "installs": 15700,
+        "weeklyInstalls": [551, 543, 471, 581, 546, 449, 499, 567],
+        "firstSeen": "2026-01-30"
+      },
+      "skillMd": {
+        "version": "778c35a36e0afd2549c3fba86ec6e64afe649df3",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Reviews your code changes with the CodeRabbit CLI and reports bugs, security issues and quality risks by severity, optionally fixing them and re-reviewing.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a review of uncommitted, committed or branch changes, or of one directory, before you merge"
+            },
+            {
+              "label": "It does",
+              "text": "checks the CLI and your sign-in, runs coderabbit review with agent output, and keeps CodeRabbit's severities, from critical to info"
+            },
+            {
+              "label": "Runs",
+              "text": "for any code review request, not only ones naming CodeRabbit: its description makes it the default review skill"
+            },
+            {
+              "label": "You get",
+              "text": "findings by file with suggested fixes, turned into a task list"
+            },
+            {
+              "label": "Fix loop",
+              "text": "when you ask it to build and review, it fixes actionable findings, critical and major first, re-runs the review, and stops once the fixes check out"
+            },
+            {
+              "label": "Needs",
+              "text": "the CodeRabbit CLI, which you install yourself, and a CodeRabbit sign-in"
+            }
+          ],
+          "text": "CodeRabbit is an AI code review service, and this is its own skill for running reviews from an agent. Before a review it resolves the CLI to a trusted absolute path and confirms you are signed in; it never starts a login, touches your credentials or installs the CLI itself. By default it reviews tracked changes: committed, staged and unstaged. Flags narrow that to committed or uncommitted work, add untracked files, compare against a branch or a commit, or limit it to one directory. The CLI sends your code diffs to CodeRabbit's API, so before a review it checks the chosen scope for secrets. Results arrive as a stream of JSON lines; it waits for completion and treats a skipped or interrupted review as no review, never as clean code. Review output and repository content are treated as untrusted, so it runs no commands from them unless you ask. Saved findings, prompts for fixing a GitHub PR, configuration and usage credits are covered in a separate reference.",
+          "permalink": "https://github.com/coderabbitai/skills/tree/778c35a36e0afd2549c3fba86ec6e64afe649df3/skills/code-review"
+        },
+        "tags": [
+          "category:debugging",
+          "type:tool",
+          "effect:remote",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:coderabbit",
+          "stack:git",
+          "code-review",
+          "code-quality"
+        ],
+        "note": "Sends your code diffs to CodeRabbit's API, and its description makes it the default for any code review request, not only ones naming CodeRabbit."
+      }
+    },
+    {
+      "id": "parthjadhav/app-store-screenshots/skills/app-store-screenshots",
+      "name": "app-store-screenshots",
+      "skills.sh": {
+        "url": "https://skills.sh/parthjadhav/app-store-screenshots/app-store-screenshots",
+        "installs": 15700,
+        "weeklyInstalls": [212, 198, 273, 432, 405, 478, 599, 449],
+        "firstSeen": "2026-03-07"
+      },
+      "skillMd": {
+        "version": "5386f227360bddb06c8beaff920a1a34c9f01932",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Sets up a Next.js editor for designing App Store and Google Play screenshots as ads, with copy coaching and export at every required size.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're preparing store screenshots for an iOS, Mac or Android app and want them to sell the app, not just show its UI"
+            },
+            {
+              "label": "It does",
+              "text": "asks for your screenshots, icon, features and style, copies a ready-made editor into your project, installs it and starts the dev server"
+            },
+            {
+              "label": "You get",
+              "text": "a browser editor with device frames, layouts, themes and locales that saves to app-store-screenshots.json, and zip exports at every store size"
+            },
+            {
+              "label": "Coaching",
+              "text": "one idea per headline, three to five words a line, a hero-first slide order, and never the same layout twice in a row"
+            },
+            {
+              "label": "Covers",
+              "text": "iPhone, iPhone Duo, iPad, Mac, Apple TV, Apple Watch, CarPlay, Android phones and tablets, App Store header and search art, and Google Play's feature graphic"
+            },
+            {
+              "label": "Needs",
+              "text": "Node.js with bun, pnpm, yarn or npm"
+            }
+          ],
+          "text": "Its rule is that screenshots are advertisements: each slide sells one moment, outcome or solved pain instead of documenting the UI. The agent doesn't write the page by hand; it copies a bundled Next.js and shadcn template, drops your captures into the folders it expects, optionally seeds your app name, headlines and theme, and gives you the local URL. In the editor you reorder slides, edit text in place, switch layouts and themes, and place phones or captions across neighbouring slides on one connected canvas, which export as matching crops. You pick one of 18 named styles or describe your own. For copy, the agent draws on a headline library: three options per slide, the chosen one rewritten in that style's voice. It rewrites rather than translates for each market. A final check covers message, visuals and exports, including reading each slide at search-result size. It offers to migrate an older project made by this skill in place, backing files up first. For an iOS Swift app with no screenshots yet, it suggests a companion capture skill. It never uploads or submits anything to the stores, and its hand-off ends with a link to the author's showcase.",
+          "permalink": "https://github.com/parthjadhav/app-store-screenshots/tree/5386f227360bddb06c8beaff920a1a34c9f01932/skills/app-store-screenshots"
+        },
+        "tags": [
+          "category:marketing",
+          "category:design",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "stack:nextjs",
+          "stack:shadcn",
+          "stack:app-store",
+          "stack:google-play",
+          "mobile",
+          "marketing",
+          "copywriting",
+          "image"
+        ]
+      }
+    },
+    {
+      "id": "citrolabs/ego-lite/skills/ego-browser",
+      "name": "ego-browser",
+      "skills.sh": {
+        "url": "https://skills.sh/citrolabs/ego-lite/ego-browser",
+        "installs": 15600,
+        "weeklyInstalls": [737, 536, 454, 314, 345, 594, 2350, 2255],
+        "firstSeen": "2026-05-30"
+      },
+      "skillMd": {
+        "version": "bacaece43900e8ca68eea3b6f1663835ea38df9e",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Drives websites in the ego lite browser, using your logged-in sessions, to fill forms, click, take screenshots, extract data and test web apps.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "the agent needs a browser to open sites, sign in, fill forms, click, take screenshots or extract data, or to test and QA a web app"
+            },
+            {
+              "label": "It does",
+              "text": "runs ego-browser skill first and follows the usage guide it prints, which matches your installed version of ego lite"
+            },
+            {
+              "label": "Runs",
+              "text": "for every browser task: its description tells the agent to prefer it over built-in browsers and other web tools"
+            },
+            {
+              "label": "You get",
+              "text": "the task done in ego lite, a Chromium browser built to be shared by you and AI agents, with your logged-in sites"
+            },
+            {
+              "label": "Needs",
+              "text": "the ego lite browser app; its install steps cover macOS and Windows"
+            }
+          ],
+          "text": "ego lite is a Chromium browser designed for people and AI agents to use together, so the agent can work in the sites you're already signed into. Its description tells the agent to reach for it whenever a browser is needed, ahead of built-in browsers and other web tools. This skill is only a bootstrap: before any browser task the agent runs ego-browser skill and follows the guide that command prints, which matches the installed version, and runs it again after an upgrade or when told to. If the guide's end marker is missing, the output was cut off, so it saves it to a file and reads it in parts. Two references cover installing or upgrading ego lite, and clearing cookies, cache or storage, which it reads first because some clears reach the whole browser profile.",
+          "permalink": "https://github.com/citrolabs/ego-lite/tree/bacaece43900e8ca68eea3b6f1663835ea38df9e/skills/ego-browser"
+        },
+        "tags": [
+          "category:browser",
+          "category:debugging",
+          "type:tool",
+          "effect:remote",
+          "needs:cli",
+          "needs:browser",
+          "by:official",
+          "stack:ego-lite",
+          "browser-automation",
+          "testing"
+        ],
+        "note": "Its description tells the agent to use it for every browser task, ahead of built-in browsers and other web tools, and it works in the sites you're signed into."
+      }
+    },
+    {
+      "id": "dmmulroy/anti-slop/skills/install-anti-slop",
+      "name": "install-anti-slop",
+      "skills.sh": {
+        "url": "https://skills.sh/dmmulroy/anti-slop/install-anti-slop",
+        "installs": 15600,
+        "weeklyInstalls": [997, 1217, 1181, 1233, 1292, 917, 433, 1456],
+        "firstSeen": "2026-08-12"
+      },
+      "skillMd": {
+        "version": "13909c9e07590f5a85d93c62712259fe14a883f7",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Copies anti-slop's Oxlint rules into your repository, installs matching Oxlint packages and enables every rule, or updates an existing copy without losing local changes.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want lint rules in a TypeScript or JavaScript repo that catch patterns such as chained type assertions, unknown parameters and filter-then-map chains"
+            },
+            {
+              "label": "It does",
+              "text": "copies the bundled plugin to tools/oxlint/anti-slop/, installs @oxlint/plugins at exactly your Oxlint version, merges the config and enables every rule at error"
+            },
+            {
+              "label": "You get",
+              "text": "the rules as code your repository owns, plus an UPSTREAM.md recording where they came from and what you changed"
+            },
+            {
+              "label": "Also",
+              "text": "rules for the Effect library when the repo depends on Effect directly, and an update path that keeps your local customizations"
+            },
+            {
+              "label": "Then",
+              "text": "runs your lint and typecheck and reports findings; it fixes them only if you asked for a cleanup"
+            },
+            {
+              "label": "Needs",
+              "text": "Node.js, to run its install script, and your repo's own package manager"
+            }
+          ],
+          "text": "Anti-slop is meant to be vendored: the plugin's source is copied into your repository, which from then on owns its rules, tests and configuration. For a fresh install the agent reads the repo's instructions and git status, finds the package manager and the Oxlint or Vite+ setup, and runs the bundled install script, which refuses to overwrite an existing copy. It installs @oxlint/plugins at exactly your Oxlint version, or the same current version of both, without touching unrelated dependencies. It merges the plugin into oxlint.config.ts, .oxlintrc.json or the Vite+ config, adds ignores for agent folders such as .claude and .cursor so installed skills aren't linted, and turns on all its rules, plus Oxlint's own no-accumulating-spread, at error. Then it runs lint and typecheck, and never silences a rule, lowers its severity or adds unsafe casts to make lint pass. Existing installations follow a separate update procedure instead. It ends by recording provenance and reporting the installed path, source, dependency and configuration changes, and check results.",
+          "permalink": "https://github.com/dmmulroy/anti-slop/tree/13909c9e07590f5a85d93c62712259fe14a883f7/skills/install-anti-slop"
+        },
+        "tags": [
+          "category:engineering",
+          "type:setup",
+          "effect:local",
+          "needs:none",
+          "by:official",
+          "stack:oxlint",
+          "stack:typescript",
+          "code-quality",
+          "anti-slop"
+        ]
+      }
+    },
+    {
+      "id": "earthtojake/text-to-cad/skills/cad",
+      "name": "cad",
+      "skills.sh": {
+        "url": "https://skills.sh/earthtojake/text-to-cad/cad",
+        "installs": 15200,
+        "weeklyInstalls": [708, 619, 399, 435, 583, 710, 654, 976],
+        "firstSeen": "2026-04-22"
+      },
+      "skillMd": {
+        "version": "4099cac3ddc56a5e696138c53fd7bee685e8ad9d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Models 3D parts and assemblies as Python build123d scripts that text-to-cad's viewer shows live, and exports them as STEP, STL, 3MF or GLB.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a 3D part or assembly designed or changed from a description, a drawing, or a prompt that points at a face in the viewer"
+            },
+            {
+              "label": "It does",
+              "text": "writes each model as a Python function using build123d, a Python CAD library, builds it through text-to-cad's local server, and checks it with snapshots and measurements"
+            },
+            {
+              "label": "You get",
+              "text": "model scripts, a live viewer page that updates on every run, and STEP, STL, 3MF, GLB or xbf files when you ask"
+            },
+            {
+              "label": "Also",
+              "text": "joints for mechanisms, explode and showcase animations, vendor STEP parts in models, Quick Edit prompts drawn on the model, and viewing existing CAD files"
+            },
+            {
+              "label": "Needs",
+              "text": "text-to-cad's cad command, which it installs with a curl-to-shell script if missing; its local server runs until cad stop"
+            },
+            {
+              "label": "Not for",
+              "text": "2D DXF drawings, or URDF, SRDF and SDF robot descriptions"
+            }
+          ],
+          "text": "text-to-cad runs one local server that builds models and serves a viewer. A model is a decorated Python function with no parameters that returns a build123d shape; its dimensions sit in a plain helper, so each variant is a model of its own with a stable id and page. Running the script is the rebuild: the server replays only what an edit touched, prints what was built and its size, and the open page follows. Files are a separate step, made only when you ask, with a print tolerance for STL or 3MF parts that have fits. After every run the agent reads the build line. It checks numbers you gave with asserts or cad inspect on the measured geometry, never by restating a constant, and checks visible changes with a snapshot from the angle that shows them. A reference you copied from the viewer, such as a face number, is resolved with cad inspect to the code line that made it. It never drops or shrinks a feature you specified just to get a build through, and its reply lists the models changed, files written, checks run and every assumption.",
+          "permalink": "https://github.com/earthtojake/text-to-cad/tree/4099cac3ddc56a5e696138c53fd7bee685e8ad9d/skills/cad"
+        },
+        "tags": [
+          "category:science",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "by:official",
+          "stack:text-to-cad",
+          "stack:build123d",
+          "stack:python",
+          "prototyping",
+          "animation"
+        ],
+        "note": "If the cad command is missing it installs text-to-cad with a curl-to-shell script, and its local server keeps running until you run cad stop."
+      }
+    },
+    {
+      "id": "vercel/components.build/skills/building-components",
+      "name": "building-components",
+      "skills.sh": {
+        "url": "https://skills.sh/vercel/components.build/building-components",
+        "installs": 15000,
+        "weeklyInstalls": [541, 381, 303, 305, 306, 282, 222, 217],
+        "firstSeen": "2026-02-04"
+      },
+      "skillMd": {
+        "version": "ba727450437385af662810329fa19896215f76d5",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Guides building accessible, composable UI components, from APIs and state to design tokens, documentation and publishing to npm or a registry.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're building UI primitives, components, blocks or templates, especially ones other developers will install and customize"
+            },
+            {
+              "label": "It does",
+              "text": "points the agent to the chapter of the components.build specification that fits the task"
+            },
+            {
+              "label": "Covers",
+              "text": "accessibility, composition, as-child and polymorphism, TypeScript types, controlled and uncontrolled state, data attributes, design tokens, styling and docs"
+            },
+            {
+              "label": "Also",
+              "text": "distributing components through npm, shadcn-style registries and marketplaces"
+            }
+          ],
+          "text": "The skill is an index to components.build, an open specification for building UI components for the web, split into fifteen reference files. Its definitions separate primitives, unstyled building blocks that handle behaviour and accessibility such as Radix or React Aria, from styled components, blocks and templates. Its principles favour composition over inheritance, accessibility as a baseline with semantic HTML, ARIA and keyboard support, styles that can be overridden through tokens or class names, few dependencies, and code users can read and change, the idea behind copy-and-paste distribution. Other files cover patterns such as as-child, polymorphism, slots and controlled state, plus publishing and documenting components. Its terms are framework-agnostic, with React for examples. It holds guidance only and changes nothing by itself.",
+          "permalink": "https://github.com/vercel/components.build/tree/ba727450437385af662810329fa19896215f76d5/skills/building-components"
+        },
+        "tags": [
+          "category:design",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:official",
+          "stack:react",
+          "stack:typescript",
+          "stack:shadcn",
+          "design-system",
+          "accessibility",
+          "docs-writing"
+        ]
+      }
+    },
+    {
+      "id": "aminblg/simpleenglish/skills/simple-english",
+      "name": "simple-english",
+      "skills.sh": {
+        "url": "https://skills.sh/aminblg/simpleenglish/simple-english",
+        "installs": 14500,
+        "weeklyInstalls": [1197, 1144, 824, 791, 890, 719, 576, 590],
+        "firstSeen": "2026-07-21"
+      },
+      "skillMd": {
+        "version": "a6fcb4fde098b33617cc1578d151ebf58774b883",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes and rewrites docs and replies in plain English based on Simplified Technical English: short sentences, active voice, defined terms, no filler.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want docs, READMEs, runbooks, error messages or release notes that a reader outside the field, or a non-native reader, gets on one read"
+            },
+            {
+              "label": "It does",
+              "text": "applies twelve rules drawn from ASD-STE100, the controlled English aerospace uses for maintenance manuals, without touching code, names or facts"
+            },
+            {
+              "label": "You get",
+              "text": "rewritten prose, and chat replies in plain paragraphs that give the answer first, with no headers, bullets, bold or em-dashes"
+            },
+            {
+              "label": "Modes",
+              "text": "Plain by default; Strict, with full STE vocabulary, when you name STE or compliance; and checking, which lists each broken rule with a rewrite"
+            },
+            {
+              "label": "Not for",
+              "text": "marketing or brand copy, since the rules strip out persuasion"
+            }
+          ],
+          "text": "ASD-STE100, Simplified Technical English, is the controlled language aerospace uses so maintenance instructions can't be misread. The skill turns it into two short rule sets. For documents: procedures in the imperative, at most 20 words a sentence and one instruction each; descriptions at most 25; the condition before the command; active voice and simple tenses; can, will and must instead of should or may; no contractions, semicolons or em-dashes; one word per meaning throughout, such as make sure that for check, verify and confirm; every term defined at first use; and no words like seamlessly or robust that carry no fact. For chat replies: prose, the answer first, no openers or closers. Before handing over, it searches its own text for the banned marks and words and splits long sentences. Strict mode reads a vocabulary file and says once that no tool guarantees compliance. Checking cites rule numbers from a bundled catalogue of the standard's 53 rules, never from memory. The reply rules hold in every mode.",
+          "permalink": "https://github.com/aminblg/simpleenglish/tree/a6fcb4fde098b33617cc1578d151ebf58774b883/skills/simple-english"
+        },
+        "tags": [
+          "category:writing",
+          "category:output-style",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "docs-writing",
+          "writing",
+          "anti-slop",
+          "output-style"
+        ]
+      }
+    },
+    {
+      "id": "anthropics/knowledge-work-plugins/data/skills/data-visualization",
+      "name": "data-visualization",
+      "skills.sh": {
+        "url": "https://skills.sh/anthropics/knowledge-work-plugins/data-visualization",
+        "installs": 14300,
+        "weeklyInstalls": [197, 211, 244, 333, 319, 350, 392, 285],
+        "firstSeen": "2026-01-31"
+      },
+      "skillMd": {
+        "version": "ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Picks the right chart for your data and draws it in Python with matplotlib, seaborn or plotly, following design and accessibility rules.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're making charts from a dataset in Python and want the right chart type and a figure fit to publish"
+            },
+            {
+              "label": "It does",
+              "text": "matches what you're showing, such as a trend, ranking, distribution or correlation, to a chart, with matplotlib, seaborn and plotly code patterns to draw it"
+            },
+            {
+              "label": "You get",
+              "text": "chart code that saves PNG files, or interactive HTML with plotly, following its rules on color, titles, layout and accuracy"
+            },
+            {
+              "label": "Rules include",
+              "text": "no 3D charts, pie charts only below six categories, bars that start at zero, and titles that state the insight"
+            },
+            {
+              "label": "Runs",
+              "text": "when the agent picks it up for chart work; user-invocable: false hides it from the slash menu"
+            }
+          ],
+          "text": "A reference the agent applies while it builds charts, from the data plugin of Anthropic's knowledge-work plugins. A table matches thirteen kinds of question to a best chart and its alternatives: trends get lines, rankings horizontal bars, part-to-whole stacked bars or treemaps, flows Sankey diagrams. It warns against pie, donut, 3D and dual-axis charts. Code patterns set a clean house style and cover line, bar, histogram with mean and median, heatmap and small-multiple charts, number formatting such as $1.2M, and interactive plotly charts saved as HTML. Its design rules: color encodes data rather than decorating, one bright accent marks the key point against grey, blue and orange replace red and green, categories are sorted by value, panels share scales, and uncertainty is shown. An accessibility checklist runs before sharing: the chart works without color, text is readable, axes carry units, and the source and date range are noted, with alt text and a data table for screen readers.",
+          "permalink": "https://github.com/anthropics/knowledge-work-plugins/tree/ab4cb1cd383b4eb87383be8cf4e70cb5b2a2348d/data/skills/data-visualization"
+        },
+        "tags": [
+          "category:science",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:official",
+          "stack:python",
+          "stack:matplotlib",
+          "stack:seaborn",
+          "stack:plotly",
+          "charts",
+          "accessibility"
         ]
       }
     }
