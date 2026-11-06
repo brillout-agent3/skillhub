@@ -4579,19 +4579,6 @@
       }
     },
     {
-      "name": "java-refactoring-remove-parameter",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/java-refactoring-remove-parameter",
-        "installs": 8900,
-        "weeklyInstalls": [11, 11, 12, 18, 12, 3, 20, 15],
-        "firstSeen": "2026-02-25"
-      }
-    },
-    {
       "name": "angular-signals",
       "repo": "analogjs/angular-skills",
       "official": false,
@@ -39279,6 +39266,10 @@
     {
       "url": "https://skills.sh/github/awesome-copilot/mcp-deploy-manage-agents",
       "note": "Tool docs: an agent's manual for microsoft-365."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/java-refactoring-remove-parameter",
+      "note": "Tool docs: an agent's manual for java."
     }
   ]
 }
