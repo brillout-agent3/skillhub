@@ -133,19 +133,6 @@
       }
     },
     {
-      "name": "discover-azure-skills",
-      "repo": "microsoft/azure-skills",
-      "official": true,
-      "stars": 1622,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/microsoft/azure-skills/discover-azure-skills",
-        "installs": 118147,
-        "weeklyInstalls": [0, 0, 4649, 12202, 11512, 8817, 6956, 7690],
-        "firstSeen": "2026-09-24"
-      }
-    },
-    {
       "name": "verify-and-stop",
       "repo": "juliusbrussee/caveman",
       "official": false,
@@ -182,19 +169,6 @@
         "installs": 116293,
         "weeklyInstalls": [10552, 9086, 7712, 6886, 8729, 9256, 9144, 8443],
         "firstSeen": "2026-08-03"
-      }
-    },
-    {
-      "name": "agents-sdk",
-      "repo": "cloudflare/skills",
-      "official": true,
-      "stars": 3291,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/cloudflare/skills/agents-sdk",
-        "installs": 116275,
-        "weeklyInstalls": [6813, 6163, 5934, 6384, 6557, 6337, 6226, 5988],
-        "firstSeen": "2026-01-19"
       }
     },
     {
@@ -237,45 +211,6 @@
       }
     },
     {
-      "name": "cloudflare-email-service",
-      "repo": "cloudflare/skills",
-      "official": true,
-      "stars": 3291,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/cloudflare/skills/cloudflare-email-service",
-        "installs": 111850,
-        "weeklyInstalls": [6684, 6253, 5983, 6326, 6449, 6549, 6301, 5919],
-        "firstSeen": "2026-04-15"
-      }
-    },
-    {
-      "name": "cloudflare-one",
-      "repo": "cloudflare/skills",
-      "official": true,
-      "stars": 3291,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/cloudflare/skills/cloudflare-one",
-        "installs": 103226,
-        "weeklyInstalls": [6423, 6046, 6068, 6697, 6916, 7129, 6670, 6275],
-        "firstSeen": "2026-06-14"
-      }
-    },
-    {
-      "name": "turnstile-spin",
-      "repo": "cloudflare/skills",
-      "official": true,
-      "stars": 3291,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/cloudflare/skills/turnstile-spin",
-        "installs": 102587,
-        "weeklyInstalls": [6446, 6008, 5824, 6240, 6376, 6492, 6243, 5843],
-        "firstSeen": "2026-06-05"
-      }
-    },
-    {
       "name": "competitor-profiling",
       "repo": "coreyhaines31/marketingskills",
       "official": false,
@@ -286,19 +221,6 @@
         "installs": 101456,
         "weeklyInstalls": [3201, 2861, 3016, 3726, 3954, 3441, 3784, 4199],
         "firstSeen": "2026-04-21"
-      }
-    },
-    {
-      "name": "cloudflare-one-migrations",
-      "repo": "cloudflare/skills",
-      "official": true,
-      "stars": 3291,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/cloudflare/skills/cloudflare-one-migrations",
-        "installs": 98879,
-        "weeklyInstalls": [6373, 5944, 5762, 6164, 6390, 6290, 6113, 5753],
-        "firstSeen": "2026-06-14"
       }
     },
     {
@@ -741,45 +663,6 @@
         "installs": 77708,
         "weeklyInstalls": [2600, 2396, 2434, 2683, 2805, 2955, 3156, 3580],
         "firstSeen": "2026-05-14"
-      }
-    },
-    {
-      "name": "sandbox-stable",
-      "repo": "cloudflare/skills",
-      "official": true,
-      "stars": 3291,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/cloudflare/skills/sandbox-stable",
-        "installs": 77689,
-        "weeklyInstalls": [6427, 5881, 5736, 6088, 6231, 6140, 6040, 5635],
-        "firstSeen": "2026-08-07"
-      }
-    },
-    {
-      "name": "sandbox-next",
-      "repo": "cloudflare/skills",
-      "official": true,
-      "stars": 3291,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/cloudflare/skills/sandbox-next",
-        "installs": 76966,
-        "weeklyInstalls": [6298, 5847, 5723, 5976, 6175, 6095, 6004, 5594],
-        "firstSeen": "2026-08-07"
-      }
-    },
-    {
-      "name": "sandbox-migrate-to-next",
-      "repo": "cloudflare/skills",
-      "official": true,
-      "stars": 3291,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/cloudflare/skills/sandbox-migrate-to-next",
-        "installs": 76864,
-        "weeklyInstalls": [6284, 5841, 5713, 5965, 6167, 6095, 5999, 5592],
-        "firstSeen": "2026-08-07"
       }
     },
     {
@@ -1430,19 +1313,6 @@
         "installs": 52600,
         "weeklyInstalls": [609, 685, 599, 461, 551, 788, 1291, 1567],
         "firstSeen": "2026-04-21"
-      }
-    },
-    {
-      "name": "nextjs-on-cloudflare",
-      "repo": "cloudflare/skills",
-      "official": false,
-      "stars": 3291,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/cloudflare/skills/nextjs-on-cloudflare",
-        "installs": 51900,
-        "weeklyInstalls": [6248, 5775, 5702, 5928, 6170, 5973, 5904, 5515],
-        "firstSeen": "2026-09-05"
       }
     },
     {
@@ -2811,19 +2681,6 @@
       }
     },
     {
-      "name": "k2",
-      "repo": "cloudflare/skills",
-      "official": false,
-      "stars": 3291,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/cloudflare/skills/k2",
-        "installs": 29700,
-        "weeklyInstalls": [0, 0, 0, 3100, 5934, 5842, 5786, 5357],
-        "firstSeen": "2026-10-01"
-      }
-    },
-    {
       "name": "orca-linear",
       "repo": "stablyai/orca",
       "official": true,
@@ -2834,19 +2691,6 @@
         "installs": 29600,
         "weeklyInstalls": [4040, 2386, 2268, 2033, 1558, 3027, 2957, 364],
         "firstSeen": "2026-06-22"
-      }
-    },
-    {
-      "name": "basin",
-      "repo": "cloudflare/skills",
-      "official": false,
-      "stars": 3291,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/cloudflare/skills/basin",
-        "installs": 29600,
-        "weeklyInstalls": [0, 0, 0, 3092, 5920, 5836, 5776, 5343],
-        "firstSeen": "2026-10-01"
       }
     },
     {
@@ -50245,6 +50089,54 @@
     {
       "url": "https://skills.sh/greensock/gsap-skills/gsap-frameworks",
       "note": "Tool docs: an agent's manual for gsap and vue and svelte."
+    },
+    {
+      "url": "https://skills.sh/cloudflare/skills/agents-sdk",
+      "note": "Tool docs: an agent's manual for cloudflare."
+    },
+    {
+      "url": "https://skills.sh/cloudflare/skills/cloudflare-email-service",
+      "note": "Tool docs: an agent's manual for cloudflare."
+    },
+    {
+      "url": "https://skills.sh/cloudflare/skills/cloudflare-one",
+      "note": "Tool docs: an agent's manual for cloudflare."
+    },
+    {
+      "url": "https://skills.sh/cloudflare/skills/turnstile-spin",
+      "note": "Tool docs: an agent's manual for cloudflare."
+    },
+    {
+      "url": "https://skills.sh/cloudflare/skills/cloudflare-one-migrations",
+      "note": "Tool docs: an agent's manual for cloudflare."
+    },
+    {
+      "url": "https://skills.sh/cloudflare/skills/sandbox-stable",
+      "note": "Tool docs: an agent's manual for cloudflare."
+    },
+    {
+      "url": "https://skills.sh/cloudflare/skills/sandbox-next",
+      "note": "Tool docs: an agent's manual for cloudflare."
+    },
+    {
+      "url": "https://skills.sh/cloudflare/skills/sandbox-migrate-to-next",
+      "note": "Tool docs: an agent's manual for cloudflare."
+    },
+    {
+      "url": "https://skills.sh/cloudflare/skills/nextjs-on-cloudflare",
+      "note": "Tool docs: an agent's manual for cloudflare and nextjs."
+    },
+    {
+      "url": "https://skills.sh/cloudflare/skills/k2",
+      "note": "Tool docs: an agent's manual for cloudflare."
+    },
+    {
+      "url": "https://skills.sh/cloudflare/skills/basin",
+      "note": "Tool docs: an agent's manual for cloudflare."
+    },
+    {
+      "url": "https://skills.sh/microsoft/azure-skills/discover-azure-skills",
+      "note": "Tool docs: it finds and installs Azure's own skills, each an agent's manual for azure."
     }
   ]
 }
