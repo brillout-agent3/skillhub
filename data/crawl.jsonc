@@ -3539,19 +3539,6 @@
       }
     },
     {
-      "name": "bash-defensive-patterns",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/bash-defensive-patterns",
-        "installs": 14000,
-        "weeklyInstalls": [328, 350, 359, 466, 363, 356, 343, 324],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
       "name": "bmad-advanced-elicitation",
       "repo": "bmad-code-org/bmad-method",
       "official": false,
@@ -3799,32 +3786,6 @@
       }
     },
     {
-      "name": "stripe-integration",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/stripe-integration",
-        "installs": 13700,
-        "weeklyInstalls": [168, 189, 214, 281, 238, 204, 210, 182],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "python-anti-patterns",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/python-anti-patterns",
-        "installs": 13700,
-        "weeklyInstalls": [262, 262, 296, 380, 301, 274, 253, 246],
-        "firstSeen": "2026-01-30"
-      }
-    },
-    {
       "name": "code-review-expert",
       "repo": "sanyuan0704/sanyuan-skills",
       "official": false,
@@ -4033,19 +3994,6 @@
       }
     },
     {
-      "name": "gitlab-ci-patterns",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/gitlab-ci-patterns",
-        "installs": 13500,
-        "weeklyInstalls": [212, 230, 268, 314, 302, 248, 234, 215],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
       "name": "slidev",
       "repo": "slidevjs/slidev",
       "official": false,
@@ -4056,32 +4004,6 @@
         "installs": 13500,
         "weeklyInstalls": [251, 331, 255, 301, 287, 329, 315, 299],
         "firstSeen": "2026-01-26"
-      }
-    },
-    {
-      "name": "langchain-architecture",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/langchain-architecture",
-        "installs": 13500,
-        "weeklyInstalls": [183, 192, 227, 275, 222, 190, 199, 175],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "grafana-dashboards",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/grafana-dashboards",
-        "installs": 13500,
-        "weeklyInstalls": [203, 217, 242, 337, 255, 219, 222, 214],
-        "firstSeen": "2026-01-20"
       }
     },
     {
@@ -4146,19 +4068,6 @@
         "url": "https://skills.sh/wshobson/agents/protocol-reverse-engineering",
         "installs": 13300,
         "weeklyInstalls": [232, 255, 268, 315, 295, 329, 336, 345],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "python-packaging",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/python-packaging",
-        "installs": 13300,
-        "weeklyInstalls": [218, 226, 254, 325, 267, 235, 234, 217],
         "firstSeen": "2026-01-20"
       }
     },
@@ -4319,19 +4228,6 @@
       }
     },
     {
-      "name": "python-type-safety",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/python-type-safety",
-        "installs": 13100,
-        "weeklyInstalls": [212, 231, 285, 351, 269, 258, 246, 232],
-        "firstSeen": "2026-01-30"
-      }
-    },
-    {
       "name": "terraform-style-guide",
       "repo": "hashicorp/agent-skills",
       "official": true,
@@ -4394,19 +4290,6 @@
         "installs": 13000,
         "weeklyInstalls": [283, 357, 271, 410, 554, 873, 1372, 947],
         "firstSeen": "2026-02-19"
-      }
-    },
-    {
-      "name": "react-modernization",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/react-modernization",
-        "installs": 13000,
-        "weeklyInstalls": [184, 206, 235, 280, 233, 192, 194, 197],
-        "firstSeen": "2026-01-20"
       }
     },
     {
@@ -46187,6 +46070,42 @@
     {
       "url": "https://skills.sh/cloudai-x/threejs-skills/threejs-textures",
       "note": "Tool docs: an agent's manual for threejs."
+    },
+    {
+      "url": "https://skills.sh/wshobson/agents/bash-defensive-patterns",
+      "note": "Tool docs: an agent's manual for bash."
+    },
+    {
+      "url": "https://skills.sh/wshobson/agents/stripe-integration",
+      "note": "Tool docs: an agent's manual for stripe."
+    },
+    {
+      "url": "https://skills.sh/wshobson/agents/python-anti-patterns",
+      "note": "Tool docs: an agent's manual for python."
+    },
+    {
+      "url": "https://skills.sh/wshobson/agents/gitlab-ci-patterns",
+      "note": "Tool docs: an agent's manual for gitlab-ci."
+    },
+    {
+      "url": "https://skills.sh/wshobson/agents/langchain-architecture",
+      "note": "Tool docs: an agent's manual for langchain and langgraph."
+    },
+    {
+      "url": "https://skills.sh/wshobson/agents/grafana-dashboards",
+      "note": "Tool docs: an agent's manual for grafana."
+    },
+    {
+      "url": "https://skills.sh/wshobson/agents/python-packaging",
+      "note": "Tool docs: an agent's manual for python."
+    },
+    {
+      "url": "https://skills.sh/wshobson/agents/python-type-safety",
+      "note": "Tool docs: an agent's manual for python."
+    },
+    {
+      "url": "https://skills.sh/wshobson/agents/react-modernization",
+      "note": "Tool docs: an agent's manual for react."
     }
   ]
 }
