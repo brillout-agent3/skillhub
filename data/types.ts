@@ -216,7 +216,8 @@ export interface Skill {
    */
   id: string;
   /**
-   * Its name on skills.sh: the end of its skills.sh page.
+   * Its name: the `name` in the frontmatter of its SKILL.md, which skills.sh also ends its page
+   * with.
    *
    * Source: the `name` of its crawl.jsonc entry, which the agent that approves the skill copies.
    */

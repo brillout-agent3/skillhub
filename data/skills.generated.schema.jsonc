@@ -311,7 +311,7 @@
         },
         "name": {
           "type": "string",
-          "description": "Its name on skills.sh: the end of its skills.sh page.\n\nSource: the `name` of its crawl.jsonc entry, which the agent that approves the skill copies."
+          "description": "Its name: the `name` in the frontmatter of its SKILL.md, which skills.sh also ends its page with.\n\nSource: the `name` of its crawl.jsonc entry, which the agent that approves the skill copies."
         },
         "skills.sh": {
           "$ref": "#/definitions/SkillsSh",
