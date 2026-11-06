@@ -2163,6 +2163,10 @@
             "standalone": true
           },
           {
+            "id": "mattpocock/skills/skills/engineering/pr",
+            "standalone": true
+          },
+          {
             "id": "mattpocock/skills/skills/engineering/diagnosing-bugs",
             "standalone": true
           },
@@ -9578,6 +9582,132 @@
           "copywriting",
           "marketing"
         ]
+      }
+    },
+    {
+      "id": "mattpocock/skills/skills/engineering/pr",
+      "name": "pr",
+      "skills.sh": {
+        "url": "https://skills.sh/mattpocock/skills/pr",
+        "installs": 223274,
+        "weeklyInstalls": [0, 11951, 23342, 28866, 42200, 35545, 31234, 28973],
+        "firstSeen": "2026-09-17"
+      },
+      "skillMd": {
+        "version": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes pull request bodies with a visual summary, before-and-after evidence and a merge-risk call.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "the agent writes a pull request description and you want it short and visual, with no preamble"
+            },
+            {
+              "label": "It does",
+              "text": "fills a three-part template: a summary drawn as the smallest visual that shows the change, before-and-after evidence, and the merge danger"
+            },
+            {
+              "label": "You get",
+              "text": "a PR body with a diagram, diff sketch or tree, proof such as screenshots or test runs, and how hard the change is to undo"
+            },
+            {
+              "label": "Runs",
+              "text": "by itself whenever the agent writes a PR body"
+            },
+            {
+              "label": "Adapted from",
+              "text": "Dex Horthy's show-me skill from Humanlayer, which its frontmatter credits"
+            }
+          ],
+          "text": "Matt Pocock's shape for pull request bodies. The summary picks the smallest view that makes the change clear: pseudocode for logic, a call tree for control flow, a component tree for UI, a shallow file tree for a refactor, a Mermaid diagram for how parts interact, a diff of one of these when the surrounding shape already exists, or the whole block when most of it is new. Each visual sits next to the short text it supports, keeping only what the point needs. Evidence shows a before and an after: screenshots rank best when the change is visual and the environment can take them, then test results or console output, such as the exact test failing before and passing after, in pseudocode. Merge danger says whether the change is a two-way door, cheap to roll back, or a one-way door, such as a destructive or hard-to-reverse change, and names its blast radius, what it could affect, from layout shift to breakage for consumers. Prose stays brief, with no preamble, and uses the project's terms from GLOSSARY.md, the glossary the repo's domain-modeling skill keeps. It covers the body only.",
+          "permalink": "https://github.com/mattpocock/skills/tree/4ae2317ddb22b046e26455e4f9c9b3aaaf62212d/skills/engineering/pr"
+        },
+        "tags": [
+          "category:engineering",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "git",
+          "code-review",
+          "diagrams",
+          "verification"
+        ]
+      }
+    },
+    {
+      "id": "higgsfield-ai/skills/higgsfield-websites",
+      "name": "higgsfield-websites",
+      "skills.sh": {
+        "url": "https://skills.sh/higgsfield-ai/skills/higgsfield-websites",
+        "installs": 149548,
+        "weeklyInstalls": [10606, 9109, 7690, 6896, 8709, 9214, 9082, 8398],
+        "firstSeen": "2026-07-01"
+      },
+      "skillMd": {
+        "version": "27000402070db19d958789d05b3b52b6f4718d7c",
+        "updated": "2026-11-06",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds and deploys websites, web apps and browser games on Higgsfield, from design brief to live URL.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a website, web app or browser game built and put online from a description, with no hosting to set up"
+            },
+            {
+              "label": "It does",
+              "text": "asks whether you want a plain website, a Higgsfield-connected app or a game, then designs, builds and deploys it through the Higgsfield CLI"
+            },
+            {
+              "label": "You get",
+              "text": "a live site at a subdomain it picks from the product's name, with a generated cover image and share-card text, optionally listed on Higgsfield's community feed"
+            },
+            {
+              "label": "Goes live",
+              "text": "on every deploy, with no preview stage; listing on the community feed is a separate step"
+            },
+            {
+              "label": "Websites",
+              "text": "get their own brand and no AI features; you're always asked animated or not, and animated, the recommended pick, scrolls through one generated film of about 15 seconds"
+            },
+            {
+              "label": "Needs",
+              "text": "the higgsfield CLI, which it installs if missing, a Higgsfield account, and git and bun"
+            },
+            {
+              "label": "Overrides",
+              "text": "your other web-design skills: it tells the agent not to look for or follow them"
+            }
+          ],
+          "text": "Higgsfield, an AI image, video and audio generation platform, also hosts sites, and this skill drives its builder to create, edit and deploy them. Each product is a React app rendered on the server in one Cloudflare Worker, with optional storage. The first question settles the type: a website, independent of Higgsfield; an app, whose users sign in with Higgsfield and generate media on their own credits, built with Higgsfield's Quanta design system; or a game, single or multiplayer rooms where the game logic is six functions and the platform runs the networking. The same question asks whether to publish to Higgsfield's community feed when done. Websites then follow fixed phases: concept, reference boards, generated assets, a build matched to the boards, a motion pass, cover and share text, checks, then deploy. Every build gets a generated cover image without asking; a cover video costs credits, so it is only offered. Game art, textures, 3D animation and audio are covered too. The agent edits code locally, talks to you in product terms rather than developer ones, replies in your language and returns the live URL with a one-line summary.",
+          "permalink": "https://github.com/higgsfield-ai/skills/tree/27000402070db19d958789d05b3b52b6f4718d7c/higgsfield-websites"
+        },
+        "tags": [
+          "category:design",
+          "category:cloud",
+          "category:media",
+          "type:tool",
+          "effect:remote",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:higgsfield",
+          "stack:react",
+          "stack:cloudflare",
+          "stack:tanstack-start",
+          "design",
+          "deployment",
+          "animation",
+          "ai-generation"
+        ],
+        "note": "Needs a Higgsfield account and its CLI. Every deploy puts the site live publicly at once; there is no preview stage."
       }
     }
   ]

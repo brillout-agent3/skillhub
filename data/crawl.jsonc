@@ -3,32 +3,6 @@
   "asOf": "2026-11-06",
   "qualified": [
     {
-      "name": "pr",
-      "repo": "mattpocock/skills",
-      "official": false,
-      "stars": 316463,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/mattpocock/skills/pr",
-        "installs": 223274,
-        "weeklyInstalls": [0, 11951, 23342, 28866, 42200, 35545, 31234, 28973],
-        "firstSeen": "2026-09-17"
-      }
-    },
-    {
-      "name": "higgsfield-websites",
-      "repo": "higgsfield-ai/skills",
-      "official": false,
-      "stars": 1902,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/higgsfield-ai/skills/higgsfield-websites",
-        "installs": 149548,
-        "weeklyInstalls": [10606, 9109, 7690, 6896, 8709, 9214, 9082, 8398],
-        "firstSeen": "2026-07-01"
-      }
-    },
-    {
       "name": "shadcn",
       "repo": "shadcn-ui/ui",
       "official": false,
