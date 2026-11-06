@@ -2,4 +2,4 @@ import type { PageContextServer } from "vike/types";
 import type { Data } from "./+data.ts";
 
 export default (pageContext: PageContextServer) =>
-  `${(pageContext.data as Data).bundle.name} · SkillHub`;
+  `${(pageContext.data as Data).bundle.agentReview.name} · SkillHub`;

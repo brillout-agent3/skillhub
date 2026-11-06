@@ -22,6 +22,7 @@ const ORDER = [
   "name",
   "skills.sh",
   "skillMd",
+  "skew",
   "agentReview",
   "description",
   "tldr",
@@ -30,7 +31,6 @@ const ORDER = [
   "note",
   "skills",
   "install",
-  "skew",
 ];
 const sorted = <T extends object>(o: T, order: string[]) => {
   const rank = (key: string) => (order.includes(key) ? order.indexOf(key) : order.length);
@@ -119,9 +119,10 @@ export function writeData(data: Data) {
   data.skills = data.skills.map((s) =>
     sorted({ ...s, agentReview: sorted(s.agentReview, ORDER) }, ORDER),
   );
-  data.bundles = data.bundles.map((b) =>
-    sorted({ ...b, skills: b.skills.map((m) => sorted(m, ORDER)) }, ORDER),
-  );
+  data.bundles = data.bundles.map((b) => {
+    const skills = b.agentReview.skills.map((m) => sorted(m, ORDER));
+    return sorted({ ...b, agentReview: sorted({ ...b.agentReview, skills }, ORDER) }, ORDER);
+  });
   writeJsonc(path, sorted(data, TOP));
 }
 

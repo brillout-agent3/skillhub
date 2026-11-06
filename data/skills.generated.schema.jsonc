@@ -203,6 +203,22 @@
           "type": "string",
           "description": "The GitHub repo, `owner/name`, or `owner/name@part` for one of several bundles in a repo."
         },
+        "skew": {
+          "type": "number",
+          "description": "Words added plus words removed across its skills' SKILL.md since the commit the TLDR summarizes, or all their words when there's no TLDR."
+        },
+        "agentReview": {
+          "$ref": "#/definitions/BundleReview",
+          "description": "What an agent wrote about the bundle: all of it but its id and skew."
+        }
+      },
+      "required": ["id", "skew", "agentReview"],
+      "additionalProperties": false,
+      "description": "Skills of one repo meant to be installed together, such as the steps of a workflow. Its skills are listed inside its entry; those worth installing alone also get an entry of their own."
+    },
+    "BundleReview": {
+      "type": "object",
+      "properties": {
         "name": {
           "type": "string",
           "description": "Its name, as the site shows it."
@@ -240,15 +256,10 @@
             "additionalProperties": false
           },
           "description": "How to install all of its skills, one command per way, as its README gives them."
-        },
-        "skew": {
-          "type": "number",
-          "description": "Words added plus words removed across its skills' SKILL.md since the commit the TLDR summarizes, or all their words when there's no TLDR."
         }
       },
-      "required": ["id", "name", "description", "skills", "install", "skew"],
-      "additionalProperties": false,
-      "description": "Skills of one repo meant to be installed together, such as the steps of a workflow. Its skills are listed inside its entry; those worth installing alone also get an entry of their own."
+      "required": ["name", "description", "skills", "install"],
+      "additionalProperties": false
     },
     "Tldr": {
       "type": "object",

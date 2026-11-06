@@ -33,7 +33,7 @@ async function bundlePermalink(bundle: Bundle): Promise<string> {
   const repo = bundleRepo(bundle);
   const commit = git("ls-remote", `https://github.com/${repo}`, "HEAD").split(/\s/)[0];
   const behind: string[] = [];
-  for (const { id } of bundle.skills) {
+  for (const { id } of bundle.agentReview.skills) {
     const skill = skillOf(id);
     const { dir } = github(skill);
     const res = await fetch(
@@ -68,8 +68,8 @@ if (!first || /^\d+$/.test(first)) {
     ...data.bundles.map((b) => ({
       skew: b.skew,
       id: b.id,
-      read: b.skills.map(({ id }) => copyPath(skillOf(id))),
-      tldr: b.tldr,
+      read: b.agentReview.skills.map(({ id }) => copyPath(skillOf(id))),
+      tldr: b.agentReview.tldr,
     })),
   ].sort((a, b) => (b.skew ?? 0) - (a.skew ?? 0));
   for (const e of list.slice(0, first ? Number(first) : undefined))
@@ -90,7 +90,7 @@ if (!first || /^\d+$/.test(first)) {
     skill.agentReview.tldr = tldr;
     if (skill.skillMd) skill.skillMd.skew = 0;
   } else if (bundle) {
-    bundle.tldr = tldr;
+    bundle.agentReview.tldr = tldr;
     bundle.skew = 0;
   }
   writeData(data);

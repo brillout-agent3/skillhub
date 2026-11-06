@@ -169,6 +169,13 @@ export interface SkillReview {
 export interface Bundle {
   /** The GitHub repo, `owner/name`, or `owner/name@part` for one of several bundles in a repo. */
   id: string;
+  /** Words added plus words removed across its skills' SKILL.md since the commit the TLDR summarizes, or all their words when there's no TLDR. */
+  skew: number;
+  /** What an agent wrote about the bundle: all of it but its id and skew. */
+  agentReview: BundleReview;
+}
+
+export interface BundleReview {
   /** Its name, as the site shows it. */
   name: string;
   /** One sentence, shown until it has a TLDR. */
@@ -184,8 +191,6 @@ export interface Bundle {
     /** The command to run. */
     command: string;
   }[];
-  /** Words added plus words removed across its skills' SKILL.md since the commit the TLDR summarizes, or all their words when there's no TLDR. */
-  skew: number;
 }
 
 export interface BundleSkill {

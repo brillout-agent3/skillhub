@@ -2008,531 +2008,543 @@
   "bundles": [
     {
       "id": "obra/superpowers",
-      "name": "Superpowers",
-      "description": "A software development workflow: brainstorm, plan, build test-first, review, then merge.",
-      "tldr": {
-        "glance": [
+      "skew": 5767,
+      "agentReview": {
+        "name": "Superpowers",
+        "description": "A software development workflow: brainstorm, plan, build test-first, review, then merge.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want the agent to follow a full development process instead of jumping straight to code"
+            },
+            {
+              "label": "It does",
+              "text": "chains its skills into one workflow: brainstorm, plan, build test-first on its own branch, review, then merge"
+            },
+            {
+              "label": "You get",
+              "text": "an approved design, a written plan, tested commits and a review before anything merges"
+            },
+            {
+              "label": "Runs",
+              "text": "by itself: before every reply, the agent checks which of its skills applies"
+            },
+            {
+              "label": "Works with",
+              "text": "Claude Code, Codex, Cursor, Gemini CLI, OpenCode and more, each installed separately"
+            }
+          ],
+          "text": "Superpowers makes its skills fire on their own: using-superpowers, loaded at the start of each session, has the agent check for a matching skill before every reply. Building something then follows one path. brainstorming asks what you actually want and ends with a design you approve, in chat for small changes or as a document for projects. using-git-worktrees sets up an isolated branch with a clean test baseline, and writing-plans breaks the design into small tasks, each with exact files, code and checks. The plan runs either through subagent-driven-development, a fresh subagent per task with a review after each, or through executing-plans, inline with one review at the end. Throughout, test-driven-development makes every change start from a failing test, and finishing-a-development-branch verifies the tests, then merges, opens a PR, keeps or discards the branch. Other skills step in when needed: systematic-debugging for bugs, verification-before-completion before claiming anything works, requesting-code-review and receiving-code-review around reviews, dispatching-parallel-agents for independent tasks, and writing-skills for writing new skills test-first.",
+          "permalink": "https://github.com/obra/superpowers/tree/b739a8af570e10a95898f2bdf6cec97467fa6c12"
+        },
+        "skills": [
           {
-            "label": "Use it when",
-            "text": "you want the agent to follow a full development process instead of jumping straight to code"
+            "id": "obra/superpowers/skills/using-superpowers",
+            "standalone": false,
+            "note": "Makes the agent load the other Superpowers skills before it replies; alone, it has nothing to load."
           },
           {
-            "label": "It does",
-            "text": "chains its skills into one workflow: brainstorm, plan, build test-first on its own branch, review, then merge"
+            "id": "obra/superpowers/skills/brainstorming",
+            "standalone": true
           },
           {
-            "label": "You get",
-            "text": "an approved design, a written plan, tested commits and a review before anything merges"
+            "id": "obra/superpowers/skills/using-git-worktrees",
+            "standalone": true
           },
           {
-            "label": "Runs",
-            "text": "by itself: before every reply, the agent checks which of its skills applies"
+            "id": "obra/superpowers/skills/writing-plans",
+            "standalone": true
           },
           {
-            "label": "Works with",
-            "text": "Claude Code, Codex, Cursor, Gemini CLI, OpenCode and more, each installed separately"
+            "id": "obra/superpowers/skills/subagent-driven-development",
+            "standalone": false,
+            "note": "Executes a plan such as writing-plans writes, and has its final reviewer use the prompt that ships with requesting-code-review."
+          },
+          {
+            "id": "obra/superpowers/skills/executing-plans",
+            "standalone": false,
+            "note": "Runs scripts that ship with subagent-driven-development, and loads test-driven-development and verification-before-completion."
+          },
+          {
+            "id": "obra/superpowers/skills/test-driven-development",
+            "standalone": true
+          },
+          {
+            "id": "obra/superpowers/skills/requesting-code-review",
+            "standalone": true
+          },
+          {
+            "id": "obra/superpowers/skills/receiving-code-review",
+            "standalone": true
+          },
+          {
+            "id": "obra/superpowers/skills/finishing-a-development-branch",
+            "standalone": true
+          },
+          {
+            "id": "obra/superpowers/skills/systematic-debugging",
+            "standalone": true
+          },
+          {
+            "id": "obra/superpowers/skills/verification-before-completion",
+            "standalone": true
+          },
+          {
+            "id": "obra/superpowers/skills/dispatching-parallel-agents",
+            "standalone": true
+          },
+          {
+            "id": "obra/superpowers/skills/writing-skills",
+            "standalone": true
           }
         ],
-        "text": "Superpowers makes its skills fire on their own: using-superpowers, loaded at the start of each session, has the agent check for a matching skill before every reply. Building something then follows one path. brainstorming asks what you actually want and ends with a design you approve, in chat for small changes or as a document for projects. using-git-worktrees sets up an isolated branch with a clean test baseline, and writing-plans breaks the design into small tasks, each with exact files, code and checks. The plan runs either through subagent-driven-development, a fresh subagent per task with a review after each, or through executing-plans, inline with one review at the end. Throughout, test-driven-development makes every change start from a failing test, and finishing-a-development-branch verifies the tests, then merges, opens a PR, keeps or discards the branch. Other skills step in when needed: systematic-debugging for bugs, verification-before-completion before claiming anything works, requesting-code-review and receiving-code-review around reviews, dispatching-parallel-agents for independent tasks, and writing-skills for writing new skills test-first.",
-        "permalink": "https://github.com/obra/superpowers/tree/b739a8af570e10a95898f2bdf6cec97467fa6c12"
-      },
-      "skills": [
-        {
-          "id": "obra/superpowers/skills/using-superpowers",
-          "standalone": false,
-          "note": "Makes the agent load the other Superpowers skills before it replies; alone, it has nothing to load."
-        },
-        {
-          "id": "obra/superpowers/skills/brainstorming",
-          "standalone": true
-        },
-        {
-          "id": "obra/superpowers/skills/using-git-worktrees",
-          "standalone": true
-        },
-        {
-          "id": "obra/superpowers/skills/writing-plans",
-          "standalone": true
-        },
-        {
-          "id": "obra/superpowers/skills/subagent-driven-development",
-          "standalone": false,
-          "note": "Executes a plan such as writing-plans writes, and has its final reviewer use the prompt that ships with requesting-code-review."
-        },
-        {
-          "id": "obra/superpowers/skills/executing-plans",
-          "standalone": false,
-          "note": "Runs scripts that ship with subagent-driven-development, and loads test-driven-development and verification-before-completion."
-        },
-        {
-          "id": "obra/superpowers/skills/test-driven-development",
-          "standalone": true
-        },
-        {
-          "id": "obra/superpowers/skills/requesting-code-review",
-          "standalone": true
-        },
-        {
-          "id": "obra/superpowers/skills/receiving-code-review",
-          "standalone": true
-        },
-        {
-          "id": "obra/superpowers/skills/finishing-a-development-branch",
-          "standalone": true
-        },
-        {
-          "id": "obra/superpowers/skills/systematic-debugging",
-          "standalone": true
-        },
-        {
-          "id": "obra/superpowers/skills/verification-before-completion",
-          "standalone": true
-        },
-        {
-          "id": "obra/superpowers/skills/dispatching-parallel-agents",
-          "standalone": true
-        },
-        {
-          "id": "obra/superpowers/skills/writing-skills",
-          "standalone": true
-        }
-      ],
-      "install": [
-        {
-          "label": "Any agent, with the skills CLI",
-          "command": "npx skills add https://github.com/obra/superpowers --skill '*'"
-        },
-        {
-          "label": "Claude Code plugin",
-          "command": "/plugin install superpowers@claude-plugins-official"
-        }
-      ],
-      "skew": 5767
+        "install": [
+          {
+            "label": "Any agent, with the skills CLI",
+            "command": "npx skills add https://github.com/obra/superpowers --skill '*'"
+          },
+          {
+            "label": "Claude Code plugin",
+            "command": "/plugin install superpowers@claude-plugins-official"
+          }
+        ]
+      }
     },
     {
       "id": "juliusbrussee/caveman",
-      "name": "Caveman",
-      "description": "Terse agent replies, plus compressed commits, reviews and memory files, and lean work patterns.",
-      "tldr": {
-        "glance": [
+      "skew": 0,
+      "agentReview": {
+        "name": "Caveman",
+        "description": "Terse agent replies, plus compressed commits, reviews and memory files, and lean work patterns.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want shorter agent replies and fewer tokens spent, beyond chat too"
+            },
+            {
+              "label": "It does",
+              "text": "makes the agent answer tersely, and adds terse commits, one-line reviews and compressed memory files"
+            },
+            {
+              "label": "Keeps",
+              "text": "code, commands, errors and numbers exact, and full sentences for warnings and irreversible actions"
+            },
+            {
+              "label": "Also has",
+              "text": "five short work patterns, such as investigate-first and lean-build, that keep code changes small"
+            },
+            {
+              "label": "Needs",
+              "text": "the Caveman plugin for caveman-stats and for cavecrew's subagents"
+            }
+          ],
+          "text": "Its core is caveman, a mode that makes the agent lead with the answer in short plain sentences, with no greetings, hedging or recaps, until you say \"stop caveman\"; ultracave and megacave, two more skills in the repo, cut further. The other skills carry the idea beyond chat. caveman-commit writes Conventional Commits messages with a subject of 50 characters when possible, caveman-review writes one line per review finding, and caveman-compress rewrites a memory file such as CLAUDE.md in caveman style to save input tokens, backing up the original. cavecrew delegates searches, small edits and reviews to three subagents whose reports come back compressed, so the main context lasts longer. caveman-stats shows the session's recorded token usage, and caveman-help lists every mode and command. Five short skills are work patterns the agent picks up when a task fits: investigate-first diagnoses before editing, lean-build builds only what's asked, surgical-patch fixes at the narrowest layer, safe-refactor keeps behavior unchanged and migration keeps changes reversible. The repo also ships a CLI and a proxy that shrink what the agent reads; this bundle covers its skills.",
+          "permalink": "https://github.com/juliusbrussee/caveman/tree/bad48a0e1df55e05e3f52249afa35ecc1909ee76"
+        },
+        "skills": [
           {
-            "label": "Use it when",
-            "text": "you want shorter agent replies and fewer tokens spent, beyond chat too"
+            "id": "juliusbrussee/caveman/skills/caveman",
+            "standalone": true
           },
           {
-            "label": "It does",
-            "text": "makes the agent answer tersely, and adds terse commits, one-line reviews and compressed memory files"
+            "id": "juliusbrussee/caveman/skills/caveman-commit",
+            "standalone": true
           },
           {
-            "label": "Keeps",
-            "text": "code, commands, errors and numbers exact, and full sentences for warnings and irreversible actions"
+            "id": "juliusbrussee/caveman/skills/caveman-review",
+            "standalone": true
           },
           {
-            "label": "Also has",
-            "text": "five short work patterns, such as investigate-first and lean-build, that keep code changes small"
+            "id": "juliusbrussee/caveman/skills/caveman-compress",
+            "standalone": true
           },
           {
-            "label": "Needs",
-            "text": "the Caveman plugin for caveman-stats and for cavecrew's subagents"
+            "id": "juliusbrussee/caveman/skills/caveman-stats",
+            "standalone": false,
+            "note": "Prints the token report of hooks that only the Caveman plugin installs, in Claude Code."
+          },
+          {
+            "id": "juliusbrussee/caveman/skills/caveman-help",
+            "standalone": false,
+            "note": "A reference card for the bundle's modes and skills, so it only helps once they're installed."
+          },
+          {
+            "id": "juliusbrussee/caveman/skills/cavecrew",
+            "standalone": false,
+            "note": "Delegates to three subagents that come with the Caveman plugin, not with the skill."
+          },
+          {
+            "id": "juliusbrussee/caveman/skills/investigate-first",
+            "standalone": true
+          },
+          {
+            "id": "juliusbrussee/caveman/skills/lean-build",
+            "standalone": true
+          },
+          {
+            "id": "juliusbrussee/caveman/skills/surgical-patch",
+            "standalone": true
+          },
+          {
+            "id": "juliusbrussee/caveman/skills/safe-refactor",
+            "standalone": true
+          },
+          {
+            "id": "juliusbrussee/caveman/skills/migration",
+            "standalone": true
           }
         ],
-        "text": "Its core is caveman, a mode that makes the agent lead with the answer in short plain sentences, with no greetings, hedging or recaps, until you say \"stop caveman\"; ultracave and megacave, two more skills in the repo, cut further. The other skills carry the idea beyond chat. caveman-commit writes Conventional Commits messages with a subject of 50 characters when possible, caveman-review writes one line per review finding, and caveman-compress rewrites a memory file such as CLAUDE.md in caveman style to save input tokens, backing up the original. cavecrew delegates searches, small edits and reviews to three subagents whose reports come back compressed, so the main context lasts longer. caveman-stats shows the session's recorded token usage, and caveman-help lists every mode and command. Five short skills are work patterns the agent picks up when a task fits: investigate-first diagnoses before editing, lean-build builds only what's asked, surgical-patch fixes at the narrowest layer, safe-refactor keeps behavior unchanged and migration keeps changes reversible. The repo also ships a CLI and a proxy that shrink what the agent reads; this bundle covers its skills.",
-        "permalink": "https://github.com/juliusbrussee/caveman/tree/bad48a0e1df55e05e3f52249afa35ecc1909ee76"
-      },
-      "skills": [
-        {
-          "id": "juliusbrussee/caveman/skills/caveman",
-          "standalone": true
-        },
-        {
-          "id": "juliusbrussee/caveman/skills/caveman-commit",
-          "standalone": true
-        },
-        {
-          "id": "juliusbrussee/caveman/skills/caveman-review",
-          "standalone": true
-        },
-        {
-          "id": "juliusbrussee/caveman/skills/caveman-compress",
-          "standalone": true
-        },
-        {
-          "id": "juliusbrussee/caveman/skills/caveman-stats",
-          "standalone": false,
-          "note": "Prints the token report of hooks that only the Caveman plugin installs, in Claude Code."
-        },
-        {
-          "id": "juliusbrussee/caveman/skills/caveman-help",
-          "standalone": false,
-          "note": "A reference card for the bundle's modes and skills, so it only helps once they're installed."
-        },
-        {
-          "id": "juliusbrussee/caveman/skills/cavecrew",
-          "standalone": false,
-          "note": "Delegates to three subagents that come with the Caveman plugin, not with the skill."
-        },
-        {
-          "id": "juliusbrussee/caveman/skills/investigate-first",
-          "standalone": true
-        },
-        {
-          "id": "juliusbrussee/caveman/skills/lean-build",
-          "standalone": true
-        },
-        {
-          "id": "juliusbrussee/caveman/skills/surgical-patch",
-          "standalone": true
-        },
-        {
-          "id": "juliusbrussee/caveman/skills/safe-refactor",
-          "standalone": true
-        },
-        {
-          "id": "juliusbrussee/caveman/skills/migration",
-          "standalone": true
-        }
-      ],
-      "install": [
-        {
-          "label": "Any agent, with the skills CLI",
-          "command": "npx skills add https://github.com/juliusbrussee/caveman --skill '*'"
-        },
-        {
-          "label": "Claude Code plugin",
-          "command": "claude plugin marketplace add JuliusBrussee/caveman && claude plugin install caveman@caveman"
-        }
-      ],
-      "skew": 0
+        "install": [
+          {
+            "label": "Any agent, with the skills CLI",
+            "command": "npx skills add https://github.com/juliusbrussee/caveman --skill '*'"
+          },
+          {
+            "label": "Claude Code plugin",
+            "command": "claude plugin marketplace add JuliusBrussee/caveman && claude plugin install caveman@caveman"
+          }
+        ]
+      }
     },
     {
       "id": "mattpocock/skills@writing",
-      "name": "Writing workflow",
-      "description": "Turns an interview into a file of raw notes, then the notes into an article.",
-      "tldr": {
-        "glance": [
+      "skew": 0,
+      "agentReview": {
+        "name": "Writing workflow",
+        "description": "Turns an interview into a file of raw notes, then the notes into an article.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to write an essay or article from your own ideas, with the agent as interviewer and editor"
+            },
+            {
+              "label": "It does",
+              "text": "first interviews you into a file of raw notes, then turns the notes into an article with you"
+            },
+            {
+              "label": "You get",
+              "text": "a notes file and, in a separate file, an article built one section at a time"
+            },
+            {
+              "label": "Then pick",
+              "text": "writing-beats to choose each next section, or writing-shape to commit to an angle first"
+            },
+            {
+              "label": "Runs",
+              "text": "only when you call each skill"
+            }
+          ],
+          "text": "Matt Pocock's writing skills split writing into exploring and committing. writing-fragments is the exploring step: the agent interviews you and saves every usable line, anecdote and idea to one Markdown file, with no outline. The committing step takes that file, or any pile of notes, and turns it into an article in a separate file, in one of two ways. writing-beats drafts two or three possible openings, then after each section offers the next possible ones, so you steer the piece one choice at a time. writing-shape has you pick an angle up front, then builds the article block by block, debating with you whether each should be prose, a list, a table or a quote. Both refuse to let a section lean on an idea the reader hasn't met yet. The skills sit in the repo's in-progress folder, so expect them to change.",
+          "permalink": "https://github.com/mattpocock/skills/tree/5beb35b040e3de97e54fa9e386d7e42d15c295c2"
+        },
+        "skills": [
           {
-            "label": "Use it when",
-            "text": "you want to write an essay or article from your own ideas, with the agent as interviewer and editor"
+            "id": "mattpocock/skills/skills/in-progress/writing-fragments",
+            "standalone": true
           },
           {
-            "label": "It does",
-            "text": "first interviews you into a file of raw notes, then turns the notes into an article with you"
+            "id": "mattpocock/skills/skills/in-progress/writing-beats",
+            "standalone": true
           },
           {
-            "label": "You get",
-            "text": "a notes file and, in a separate file, an article built one section at a time"
-          },
-          {
-            "label": "Then pick",
-            "text": "writing-beats to choose each next section, or writing-shape to commit to an angle first"
-          },
-          {
-            "label": "Runs",
-            "text": "only when you call each skill"
+            "id": "mattpocock/skills/skills/in-progress/writing-shape",
+            "standalone": true
           }
         ],
-        "text": "Matt Pocock's writing skills split writing into exploring and committing. writing-fragments is the exploring step: the agent interviews you and saves every usable line, anecdote and idea to one Markdown file, with no outline. The committing step takes that file, or any pile of notes, and turns it into an article in a separate file, in one of two ways. writing-beats drafts two or three possible openings, then after each section offers the next possible ones, so you steer the piece one choice at a time. writing-shape has you pick an angle up front, then builds the article block by block, debating with you whether each should be prose, a list, a table or a quote. Both refuse to let a section lean on an idea the reader hasn't met yet. The skills sit in the repo's in-progress folder, so expect them to change.",
-        "permalink": "https://github.com/mattpocock/skills/tree/5beb35b040e3de97e54fa9e386d7e42d15c295c2"
-      },
-      "skills": [
-        {
-          "id": "mattpocock/skills/skills/in-progress/writing-fragments",
-          "standalone": true
-        },
-        {
-          "id": "mattpocock/skills/skills/in-progress/writing-beats",
-          "standalone": true
-        },
-        {
-          "id": "mattpocock/skills/skills/in-progress/writing-shape",
-          "standalone": true
-        }
-      ],
-      "install": [
-        {
-          "label": "Any agent, with the skills CLI",
-          "command": "npx skills add https://github.com/mattpocock/skills --skill writing-fragments --skill writing-beats --skill writing-shape"
-        }
-      ],
-      "skew": 0
+        "install": [
+          {
+            "label": "Any agent, with the skills CLI",
+            "command": "npx skills add https://github.com/mattpocock/skills --skill writing-fragments --skill writing-beats --skill writing-shape"
+          }
+        ]
+      }
     },
     {
       "id": "mattpocock/skills@engineering",
-      "name": "Engineering workflow",
-      "description": "Grills an idea into a spec and tickets on your issue tracker, builds them test-first, reviews the result and tunes the agent's setup.",
-      "tldr": {
-        "glance": [
+      "skew": 144,
+      "agentReview": {
+        "name": "Engineering workflow",
+        "description": "Grills an idea into a spec and tickets on your issue tracker, builds them test-first, reviews the result and tunes the agent's setup.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want the agent to agree with you on what to build before it codes, then build it in small tested steps"
+            },
+            {
+              "label": "It does",
+              "text": "interviews you about a change, writes a spec and tickets on your issue tracker, builds each ticket test-first, then reviews the diff"
+            },
+            {
+              "label": "You get",
+              "text": "a project glossary and decision records, a spec and ordered tickets, tested commits, a review against your standards and the spec, and ideas for next time"
+            },
+            {
+              "label": "Needs",
+              "text": "a code repo, and one run of the setup skill there to record your issue tracker: GitHub, GitLab, local Markdown files or another"
+            },
+            {
+              "label": "Runs",
+              "text": "each main step only when you type it; supporting skills, such as the test-first and review ones, the agent can also start by itself"
+            },
+            {
+              "label": "Unlike",
+              "text": "frameworks that own the whole process, each step is a small skill you call yourself and can edit"
+            },
+            {
+              "label": "Also covers",
+              "text": "triaging incoming issues, debugging hard bugs, planning work too big for one session, and finding refactors that simplify a codebase"
+            },
+            {
+              "label": "Start with",
+              "text": "ask-matt, a skill that maps the others and points you to the one that fits"
+            }
+          ],
+          "text": "Matt Pocock, a TypeScript teacher, built these skills to keep coding agents aligned with what you want and their code small and tested. A one-time setup skill records which issue tracker the repo uses and what its triage labels are called. The flow then starts with an interview: the agent asks about the change in numbered rounds, each question with its recommended answer, until no decision is left open, and writes the project's terms to a glossary and hard-to-reverse choices to architecture decision records as you go. Questions that talk can't answer go to a throwaway prototype or a background research agent. Next, the conversation becomes a spec on the tracker, then tickets: thin slices that each work end to end and list the tickets that must land first. The build step takes one ticket at a time, test-first, and ends with a review that checks the diff against your coding standards and, separately, against the spec; another skill builds a whole spec at once with parallel subagents. Finally, a retrospective proposes new checks, coding standards or agent instructions so the next run goes better.",
+          "permalink": "https://github.com/mattpocock/skills/tree/5beb35b040e3de97e54fa9e386d7e42d15c295c2"
+        },
+        "skills": [
           {
-            "label": "Use it when",
-            "text": "you want the agent to agree with you on what to build before it codes, then build it in small tested steps"
+            "id": "mattpocock/skills/skills/engineering/setup-matt-pocock-skills",
+            "standalone": false,
+            "note": "Writes the tracker, label and domain-doc settings under docs/agents/ that the other skills read; on its own, nothing uses them."
           },
           {
-            "label": "It does",
-            "text": "interviews you about a change, writes a spec and tickets on your issue tracker, builds each ticket test-first, then reviews the diff"
+            "id": "mattpocock/skills/skills/engineering/ask-matt",
+            "standalone": false,
+            "note": "A map of the other skills that reads each one's SKILL.md before recommending it, so it only helps once they're installed."
           },
           {
-            "label": "You get",
-            "text": "a project glossary and decision records, a spec and ordered tickets, tested commits, a review against your standards and the spec, and ideas for next time"
+            "id": "mattpocock/skills/skills/engineering/grill-with-docs",
+            "standalone": false,
+            "note": "Its whole SKILL.md loads grilling and domain-modeling."
           },
           {
-            "label": "Needs",
-            "text": "a code repo, and one run of the setup skill there to record your issue tracker: GitHub, GitLab, local Markdown files or another"
+            "id": "mattpocock/skills/skills/productivity/grill-me",
+            "standalone": false,
+            "note": "Its whole SKILL.md loads grilling."
           },
           {
-            "label": "Runs",
-            "text": "each main step only when you type it; supporting skills, such as the test-first and review ones, the agent can also start by itself"
+            "id": "mattpocock/skills/skills/productivity/grilling",
+            "standalone": true
           },
           {
-            "label": "Unlike",
-            "text": "frameworks that own the whole process, each step is a small skill you call yourself and can edit"
+            "id": "mattpocock/skills/skills/engineering/domain-modeling",
+            "standalone": true
           },
           {
-            "label": "Also covers",
-            "text": "triaging incoming issues, debugging hard bugs, planning work too big for one session, and finding refactors that simplify a codebase"
+            "id": "mattpocock/skills/skills/engineering/research",
+            "standalone": true
           },
           {
-            "label": "Start with",
-            "text": "ask-matt, a skill that maps the others and points you to the one that fits"
+            "id": "mattpocock/skills/skills/productivity/handoff",
+            "standalone": true
+          },
+          {
+            "id": "mattpocock/skills/skills/engineering/prototype",
+            "standalone": true
+          },
+          {
+            "id": "mattpocock/skills/skills/engineering/wayfinder",
+            "standalone": false,
+            "note": "Resolves its decision tickets by loading grilling, domain-modeling, research and prototype, on the tracker that setup-matt-pocock-skills configures (local Markdown files without it)."
+          },
+          {
+            "id": "mattpocock/skills/skills/engineering/to-spec",
+            "standalone": false,
+            "note": "Publishes to the issue tracker, with the ready-for-agent label, that setup-matt-pocock-skills configures."
+          },
+          {
+            "id": "mattpocock/skills/skills/engineering/to-tickets",
+            "standalone": false,
+            "note": "Publishes to the issue tracker, with the ready-for-agent label, that setup-matt-pocock-skills configures."
+          },
+          {
+            "id": "mattpocock/skills/skills/engineering/triage",
+            "standalone": false,
+            "note": "Needs the tracker and label mapping from setup-matt-pocock-skills, and loads grilling and domain-modeling to flesh out a request."
+          },
+          {
+            "id": "mattpocock/skills/skills/engineering/implement",
+            "standalone": false,
+            "note": "Builds through tdd and closes with code-review, loading both as steps."
+          },
+          {
+            "id": "mattpocock/skills/skills/engineering/implement-spec",
+            "standalone": false,
+            "note": "Works a spec and its tickets from to-spec and to-tickets on the configured tracker, has each subagent load tdd, and ends with code-review."
+          },
+          {
+            "id": "mattpocock/skills/skills/engineering/tdd",
+            "standalone": true
+          },
+          {
+            "id": "mattpocock/skills/skills/engineering/codebase-design",
+            "standalone": true
+          },
+          {
+            "id": "mattpocock/skills/skills/engineering/code-review",
+            "standalone": true
+          },
+          {
+            "id": "mattpocock/skills/skills/engineering/diagnosing-bugs",
+            "standalone": true
+          },
+          {
+            "id": "mattpocock/skills/skills/engineering/retro",
+            "standalone": true
+          },
+          {
+            "id": "mattpocock/skills/skills/productivity/writing-for-agents",
+            "standalone": true
+          },
+          {
+            "id": "mattpocock/skills/skills/engineering/improve-codebase-architecture",
+            "standalone": false,
+            "note": "Loads codebase-design for its vocabulary, then grilling and domain-modeling to work through the refactor you pick."
           }
         ],
-        "text": "Matt Pocock, a TypeScript teacher, built these skills to keep coding agents aligned with what you want and their code small and tested. A one-time setup skill records which issue tracker the repo uses and what its triage labels are called. The flow then starts with an interview: the agent asks about the change in numbered rounds, each question with its recommended answer, until no decision is left open, and writes the project's terms to a glossary and hard-to-reverse choices to architecture decision records as you go. Questions that talk can't answer go to a throwaway prototype or a background research agent. Next, the conversation becomes a spec on the tracker, then tickets: thin slices that each work end to end and list the tickets that must land first. The build step takes one ticket at a time, test-first, and ends with a review that checks the diff against your coding standards and, separately, against the spec; another skill builds a whole spec at once with parallel subagents. Finally, a retrospective proposes new checks, coding standards or agent instructions so the next run goes better.",
-        "permalink": "https://github.com/mattpocock/skills/tree/5beb35b040e3de97e54fa9e386d7e42d15c295c2"
-      },
-      "skills": [
-        {
-          "id": "mattpocock/skills/skills/engineering/setup-matt-pocock-skills",
-          "standalone": false,
-          "note": "Writes the tracker, label and domain-doc settings under docs/agents/ that the other skills read; on its own, nothing uses them."
-        },
-        {
-          "id": "mattpocock/skills/skills/engineering/ask-matt",
-          "standalone": false,
-          "note": "A map of the other skills that reads each one's SKILL.md before recommending it, so it only helps once they're installed."
-        },
-        {
-          "id": "mattpocock/skills/skills/engineering/grill-with-docs",
-          "standalone": false,
-          "note": "Its whole SKILL.md loads grilling and domain-modeling."
-        },
-        {
-          "id": "mattpocock/skills/skills/productivity/grill-me",
-          "standalone": false,
-          "note": "Its whole SKILL.md loads grilling."
-        },
-        {
-          "id": "mattpocock/skills/skills/productivity/grilling",
-          "standalone": true
-        },
-        {
-          "id": "mattpocock/skills/skills/engineering/domain-modeling",
-          "standalone": true
-        },
-        {
-          "id": "mattpocock/skills/skills/engineering/research",
-          "standalone": true
-        },
-        {
-          "id": "mattpocock/skills/skills/productivity/handoff",
-          "standalone": true
-        },
-        {
-          "id": "mattpocock/skills/skills/engineering/prototype",
-          "standalone": true
-        },
-        {
-          "id": "mattpocock/skills/skills/engineering/wayfinder",
-          "standalone": false,
-          "note": "Resolves its decision tickets by loading grilling, domain-modeling, research and prototype, on the tracker that setup-matt-pocock-skills configures (local Markdown files without it)."
-        },
-        {
-          "id": "mattpocock/skills/skills/engineering/to-spec",
-          "standalone": false,
-          "note": "Publishes to the issue tracker, with the ready-for-agent label, that setup-matt-pocock-skills configures."
-        },
-        {
-          "id": "mattpocock/skills/skills/engineering/to-tickets",
-          "standalone": false,
-          "note": "Publishes to the issue tracker, with the ready-for-agent label, that setup-matt-pocock-skills configures."
-        },
-        {
-          "id": "mattpocock/skills/skills/engineering/triage",
-          "standalone": false,
-          "note": "Needs the tracker and label mapping from setup-matt-pocock-skills, and loads grilling and domain-modeling to flesh out a request."
-        },
-        {
-          "id": "mattpocock/skills/skills/engineering/implement",
-          "standalone": false,
-          "note": "Builds through tdd and closes with code-review, loading both as steps."
-        },
-        {
-          "id": "mattpocock/skills/skills/engineering/implement-spec",
-          "standalone": false,
-          "note": "Works a spec and its tickets from to-spec and to-tickets on the configured tracker, has each subagent load tdd, and ends with code-review."
-        },
-        {
-          "id": "mattpocock/skills/skills/engineering/tdd",
-          "standalone": true
-        },
-        {
-          "id": "mattpocock/skills/skills/engineering/codebase-design",
-          "standalone": true
-        },
-        {
-          "id": "mattpocock/skills/skills/engineering/code-review",
-          "standalone": true
-        },
-        {
-          "id": "mattpocock/skills/skills/engineering/diagnosing-bugs",
-          "standalone": true
-        },
-        {
-          "id": "mattpocock/skills/skills/engineering/retro",
-          "standalone": true
-        },
-        {
-          "id": "mattpocock/skills/skills/productivity/writing-for-agents",
-          "standalone": true
-        },
-        {
-          "id": "mattpocock/skills/skills/engineering/improve-codebase-architecture",
-          "standalone": false,
-          "note": "Loads codebase-design for its vocabulary, then grilling and domain-modeling to work through the refactor you pick."
-        }
-      ],
-      "install": [
-        {
-          "label": "Any agent, with the skills CLI",
-          "command": "npx skills add https://github.com/mattpocock/skills --skill setup-matt-pocock-skills --skill ask-matt --skill grill-with-docs --skill grill-me --skill grilling --skill domain-modeling --skill research --skill handoff --skill prototype --skill wayfinder --skill to-spec --skill to-tickets --skill triage --skill implement --skill implement-spec --skill tdd --skill codebase-design --skill code-review --skill diagnosing-bugs --skill retro --skill writing-for-agents --skill improve-codebase-architecture"
-        },
-        {
-          "label": "Claude Code plugin, with 5 more of the repo's skills",
-          "command": "claude plugin install mattpocock-skills@claude-plugins-official"
-        },
-        {
-          "label": "Codex plugin, with 5 more of the repo's skills",
-          "command": "codex plugin marketplace add mattpocock/skills && codex plugin add mattpocock-skills@mattpocock"
-        },
-        {
-          "label": "GitHub Copilot CLI plugin, with 5 more of the repo's skills",
-          "command": "copilot plugin marketplace add mattpocock/skills && copilot plugin install mattpocock-skills@mattpocock"
-        },
-        {
-          "label": "Gemini CLI, with 5 more of the repo's skills",
-          "command": "gemini skills install https://github.com/mattpocock/skills.git --path skills/engineering && gemini skills install https://github.com/mattpocock/skills.git --path skills/productivity"
-        }
-      ],
-      "skew": 144
+        "install": [
+          {
+            "label": "Any agent, with the skills CLI",
+            "command": "npx skills add https://github.com/mattpocock/skills --skill setup-matt-pocock-skills --skill ask-matt --skill grill-with-docs --skill grill-me --skill grilling --skill domain-modeling --skill research --skill handoff --skill prototype --skill wayfinder --skill to-spec --skill to-tickets --skill triage --skill implement --skill implement-spec --skill tdd --skill codebase-design --skill code-review --skill diagnosing-bugs --skill retro --skill writing-for-agents --skill improve-codebase-architecture"
+          },
+          {
+            "label": "Claude Code plugin, with 5 more of the repo's skills",
+            "command": "claude plugin install mattpocock-skills@claude-plugins-official"
+          },
+          {
+            "label": "Codex plugin, with 5 more of the repo's skills",
+            "command": "codex plugin marketplace add mattpocock/skills && codex plugin add mattpocock-skills@mattpocock"
+          },
+          {
+            "label": "GitHub Copilot CLI plugin, with 5 more of the repo's skills",
+            "command": "copilot plugin marketplace add mattpocock/skills && copilot plugin install mattpocock-skills@mattpocock"
+          },
+          {
+            "label": "Gemini CLI, with 5 more of the repo's skills",
+            "command": "gemini skills install https://github.com/mattpocock/skills.git --path skills/engineering && gemini skills install https://github.com/mattpocock/skills.git --path skills/productivity"
+          }
+        ]
+      }
     },
     {
       "id": "lllllllama/rigorpilot-skills",
-      "name": "RigorPilot",
-      "description": "Reproduces a deep learning research repo from its README in small audited steps, with a separate lane for trying new ideas.",
-      "tldr": {
-        "glance": [
+      "skew": 0,
+      "agentReview": {
+        "name": "RigorPilot",
+        "description": "Reproduces a deep learning research repo from its README in small audited steps, with a separate lane for trying new ideas.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want an agent to run a deep learning research repo from its README and record honestly what worked"
+            },
+            {
+              "label": "It does",
+              "text": "finds the smallest documented run, such as one evaluation command, sets it up, runs it and audits the result, instead of a full training run"
+            },
+            {
+              "label": "You get",
+              "text": "a repro_outputs/ folder: a verdict (verified, partial or blocked), the exact commands, logs, patches, and any change to data, evaluation or metrics"
+            },
+            {
+              "label": "Main skill",
+              "text": "ai-research-reproduction runs the steps. It isn't one of the five listed, but the bundle's install command adds it, and two of the five need it"
+            },
+            {
+              "label": "Also has",
+              "text": "ai-research-explore, a separate lane for trying new research ideas, whose results are never reported as reproduced"
+            }
+          ],
+          "text": "The repo's main skill, ai-research-reproduction, runs a reproduction end to end. It isn't listed among these five, but the bundle's install command adds it with them. The five are its steps, and each can also be called on its own. repo-intake-and-plan reads the README and project files, sorts the documented commands into inference, evaluation and training, and picks the smallest one worth trusting. paper-context-resolver steps in only when the README leaves out a detail that matters, such as which dataset split to evaluate on, and looks it up in the paper, noting any conflict. env-and-assets-bootstrap drafts conda commands and where checkpoints and datasets should go, before anything runs. minimal-run-and-audit runs the chosen command and writes the evidence to repro_outputs/, including any patch and any change to data, evaluation or metrics; its scripts need the main skill. ai-research-explore, which needs it too, is a separate lane: only when you ask, and starting from a model or run you already have, it ranks and tries new research ideas, writes them to explore_outputs/, and never reports them as reproduced results.",
+          "permalink": "https://github.com/lllllllama/rigorpilot-skills/tree/fb3ccdf5aa64b1fa5b1d0463e666a8bc8bc26e01"
+        },
+        "skills": [
           {
-            "label": "Use it when",
-            "text": "you want an agent to run a deep learning research repo from its README and record honestly what worked"
+            "id": "lllllllama/rigorpilot-skills/skills/repo-intake-and-plan",
+            "standalone": true
           },
           {
-            "label": "It does",
-            "text": "finds the smallest documented run, such as one evaluation command, sets it up, runs it and audits the result, instead of a full training run"
+            "id": "lllllllama/rigorpilot-skills/skills/paper-context-resolver",
+            "standalone": true
           },
           {
-            "label": "You get",
-            "text": "a repro_outputs/ folder: a verdict (verified, partial or blocked), the exact commands, logs, patches, and any change to data, evaluation or metrics"
+            "id": "lllllllama/rigorpilot-skills/skills/env-and-assets-bootstrap",
+            "standalone": true
           },
           {
-            "label": "Main skill",
-            "text": "ai-research-reproduction runs the steps. It isn't one of the five listed, but the bundle's install command adds it, and two of the five need it"
+            "id": "lllllllama/rigorpilot-skills/skills/minimal-run-and-audit",
+            "standalone": false,
+            "note": "Its run and report scripts load a shared runtime that ships inside ai-research-reproduction, the repo's main skill, and stop with an error without it."
           },
           {
-            "label": "Also has",
-            "text": "ai-research-explore, a separate lane for trying new research ideas, whose results are never reported as reproduced"
+            "id": "lllllllama/rigorpilot-skills/skills/ai-research-explore",
+            "standalone": false,
+            "note": "Loads its required research loop and shared runtime from ai-research-reproduction, the repo's main skill, and hands code changes and trial runs to the repo's explore-code and explore-run skills."
           }
         ],
-        "text": "The repo's main skill, ai-research-reproduction, runs a reproduction end to end. It isn't listed among these five, but the bundle's install command adds it with them. The five are its steps, and each can also be called on its own. repo-intake-and-plan reads the README and project files, sorts the documented commands into inference, evaluation and training, and picks the smallest one worth trusting. paper-context-resolver steps in only when the README leaves out a detail that matters, such as which dataset split to evaluate on, and looks it up in the paper, noting any conflict. env-and-assets-bootstrap drafts conda commands and where checkpoints and datasets should go, before anything runs. minimal-run-and-audit runs the chosen command and writes the evidence to repro_outputs/, including any patch and any change to data, evaluation or metrics; its scripts need the main skill. ai-research-explore, which needs it too, is a separate lane: only when you ask, and starting from a model or run you already have, it ranks and tries new research ideas, writes them to explore_outputs/, and never reports them as reproduced results.",
-        "permalink": "https://github.com/lllllllama/rigorpilot-skills/tree/fb3ccdf5aa64b1fa5b1d0463e666a8bc8bc26e01"
-      },
-      "skills": [
-        {
-          "id": "lllllllama/rigorpilot-skills/skills/repo-intake-and-plan",
-          "standalone": true
-        },
-        {
-          "id": "lllllllama/rigorpilot-skills/skills/paper-context-resolver",
-          "standalone": true
-        },
-        {
-          "id": "lllllllama/rigorpilot-skills/skills/env-and-assets-bootstrap",
-          "standalone": true
-        },
-        {
-          "id": "lllllllama/rigorpilot-skills/skills/minimal-run-and-audit",
-          "standalone": false,
-          "note": "Its run and report scripts load a shared runtime that ships inside ai-research-reproduction, the repo's main skill, and stop with an error without it."
-        },
-        {
-          "id": "lllllllama/rigorpilot-skills/skills/ai-research-explore",
-          "standalone": false,
-          "note": "Loads its required research loop and shared runtime from ai-research-reproduction, the repo's main skill, and hands code changes and trial runs to the repo's explore-code and explore-run skills."
-        }
-      ],
-      "install": [
-        {
-          "label": "Any agent, with the skills CLI",
-          "command": "npx skills add https://github.com/lllllllama/rigorpilot-skills --skill '*'"
-        }
-      ],
-      "skew": 0
+        "install": [
+          {
+            "label": "Any agent, with the skills CLI",
+            "command": "npx skills add https://github.com/lllllllama/rigorpilot-skills --skill '*'"
+          }
+        ]
+      }
     },
     {
       "id": "browser-act/skills",
-      "name": "BrowserAct",
-      "description": "Real-browser automation for agents, plus Skill Forge, which turns a site you scrape often into a reusable skill.",
-      "tldr": {
-        "glance": [
+      "skew": 0,
+      "agentReview": {
+        "name": "BrowserAct",
+        "description": "Real-browser automation for agents, plus Skill Forge, which turns a site you scrape often into a reusable skill.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want the agent to use real browsers on logged-in or bot-protected sites, or to turn a repeated scrape into a reusable skill"
+            },
+            {
+              "label": "It does",
+              "text": "browser-act drives your Chrome or BrowserAct's stealth browsers from its CLI; browser-act-skill-forge explores a site once and writes a skill that repeats the extraction"
+            },
+            {
+              "label": "You get",
+              "text": "pages read, clicked through and screenshotted on demand, and tested skill packages (SKILL.md plus Python scripts) for sites you scrape often"
+            },
+            {
+              "label": "Needs",
+              "text": "the browser-act CLI (Python 3.12+, uv). Your own Chrome needs no account; stealth browsers, CAPTCHA solving and browser-act-skill-forge need a free BrowserAct account"
+            },
+            {
+              "label": "Asks first",
+              "text": "before creating or deleting browsers, logging in, submitting forms or uploading files"
+            }
+          ],
+          "text": "BrowserAct is a browser-automation service for AI agents, and these skills use its local CLI rather than its cloud product. browser-act lets the agent open pages in your own Chrome, reusing your logins, or in BrowserAct's stealth browsers, which each present their own device fingerprint so sites see separate, ordinary visitors rather than a bot. The agent reads a numbered list of page elements and clicks or types by number, takes screenshots, captures network responses, and can send you a live link to take over when it gets stuck. browser-act-skill-forge builds on browser-act, which it loads first. You describe the data you want from a site and confirm a plan; it works out how the site loads that data, preferring the site's own data APIs over scraping its HTML, then generates a skill of SKILL.md plus Python scripts, has a subagent test it, fixes what fails and installs it. Later runs call that skill without exploring again, which suits bulk jobs such as hundreds of listings. Beyond the free account, only managed proxies and more than five stealth browsers cost money.",
+          "permalink": "https://github.com/browser-act/skills/tree/11c057b03f92101642cadc9f840564574120d184"
+        },
+        "skills": [
           {
-            "label": "Use it when",
-            "text": "you want the agent to use real browsers on logged-in or bot-protected sites, or to turn a repeated scrape into a reusable skill"
+            "id": "browser-act/skills/browser-act",
+            "standalone": true
           },
           {
-            "label": "It does",
-            "text": "browser-act drives your Chrome or BrowserAct's stealth browsers from its CLI; browser-act-skill-forge explores a site once and writes a skill that repeats the extraction"
-          },
-          {
-            "label": "You get",
-            "text": "pages read, clicked through and screenshotted on demand, and tested skill packages (SKILL.md plus Python scripts) for sites you scrape often"
-          },
-          {
-            "label": "Needs",
-            "text": "the browser-act CLI (Python 3.12+, uv). Your own Chrome needs no account; stealth browsers, CAPTCHA solving and browser-act-skill-forge need a free BrowserAct account"
-          },
-          {
-            "label": "Asks first",
-            "text": "before creating or deleting browsers, logging in, submitting forms or uploading files"
+            "id": "browser-act/skills/browser-act-skill-forge",
+            "standalone": false,
+            "note": "Loads the browser-act skill in its first step and explores every site through it, so it needs that skill and its CLI installed."
           }
         ],
-        "text": "BrowserAct is a browser-automation service for AI agents, and these skills use its local CLI rather than its cloud product. browser-act lets the agent open pages in your own Chrome, reusing your logins, or in BrowserAct's stealth browsers, which each present their own device fingerprint so sites see separate, ordinary visitors rather than a bot. The agent reads a numbered list of page elements and clicks or types by number, takes screenshots, captures network responses, and can send you a live link to take over when it gets stuck. browser-act-skill-forge builds on browser-act, which it loads first. You describe the data you want from a site and confirm a plan; it works out how the site loads that data, preferring the site's own data APIs over scraping its HTML, then generates a skill of SKILL.md plus Python scripts, has a subagent test it, fixes what fails and installs it. Later runs call that skill without exploring again, which suits bulk jobs such as hundreds of listings. Beyond the free account, only managed proxies and more than five stealth browsers cost money.",
-        "permalink": "https://github.com/browser-act/skills/tree/11c057b03f92101642cadc9f840564574120d184"
-      },
-      "skills": [
-        {
-          "id": "browser-act/skills/browser-act",
-          "standalone": true
-        },
-        {
-          "id": "browser-act/skills/browser-act-skill-forge",
-          "standalone": false,
-          "note": "Loads the browser-act skill in its first step and explores every site through it, so it needs that skill and its CLI installed."
-        }
-      ],
-      "install": [
-        {
-          "label": "Any agent, with the skills CLI",
-          "command": "npx skills add https://github.com/browser-act/skills --skill browser-act --skill browser-act-skill-forge"
-        }
-      ],
-      "skew": 0
+        "install": [
+          {
+            "label": "Any agent, with the skills CLI",
+            "command": "npx skills add https://github.com/browser-act/skills --skill browser-act --skill browser-act-skill-forge"
+          }
+        ]
+      }
     }
   ],
   "skills": [

@@ -77,14 +77,14 @@ function inBundle(s: Skill): string {
   if (!place) return "";
   const { bundle, index, standalone, note } = place;
   const near = (i: number, label: string) => {
-    const id = bundle.skills[i]?.id;
+    const id = bundle.agentReview.skills[i]?.id;
     return id
       ? ` · ${label}: <a href="${skillHref(id)}">${esc(skillById.get(id)?.name ?? id)}</a>`
       : "";
   };
   return `
-    <p class="in-bundle">Skill ${index + 1} of ${bundle.skills.length} in the <a href="${bundleHref(bundle.id)}">${esc(bundle.name)}</a> bundle${near(index - 1, "Before it")}${near(index + 1, "After it")}</p>
-    ${standalone ? "" : `<p class="note">Only works inside its bundle: ${esc(note ?? "")} Install <a href="${bundleHref(bundle.id)}">${esc(bundle.name)}</a> instead.</p>`}`;
+    <p class="in-bundle">Skill ${index + 1} of ${bundle.agentReview.skills.length} in the <a href="${bundleHref(bundle.id)}">${esc(bundle.agentReview.name)}</a> bundle${near(index - 1, "Before it")}${near(index + 1, "After it")}</p>
+    ${standalone ? "" : `<p class="note">Only works inside its bundle: ${esc(note ?? "")} Install <a href="${bundleHref(bundle.id)}">${esc(bundle.agentReview.name)}</a> instead.</p>`}`;
 }
 
 export default function Page(pageContext: PageContextServer): string {
@@ -102,7 +102,7 @@ export default function Page(pageContext: PageContextServer): string {
     <div class="page skill-page">
       <p class="crumbs"><a href="${href()}">Skills</a> <span aria-hidden="true">/</span> <a href="${skillsLink({ repo: repoKey(s) })}">${esc(repoKey(s))}</a>${
         bundle
-          ? ` <span aria-hidden="true">/</span> <a href="${bundleHref(bundle.id)}">${esc(bundle.name)}</a>`
+          ? ` <span aria-hidden="true">/</span> <a href="${bundleHref(bundle.id)}">${esc(bundle.agentReview.name)}</a>`
           : ""
       }</p>
       <h1>${esc(s.name)}</h1>

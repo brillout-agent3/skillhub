@@ -106,9 +106,11 @@ async function sync(skill: Skill) {
 
 /** How far a bundle's skills are from the SKILL.md files at the commit its TLDR summarizes. */
 async function bundleSkew(bundle: Bundle, skills: Map<string, Skill>): Promise<number> {
-  const commit = bundle.tldr && /\/tree\/([0-9a-f]{40})$/.exec(bundle.tldr.permalink)?.[1];
+  const commit =
+    bundle.agentReview.tldr &&
+    /\/tree\/([0-9a-f]{40})$/.exec(bundle.agentReview.tldr.permalink)?.[1];
   let words = 0;
-  for (const { id } of bundle.skills) {
+  for (const { id } of bundle.agentReview.skills) {
     const skill = skills.get(id);
     if (!skill) continue;
     const gh = github(skill);
@@ -142,13 +144,14 @@ if (gone.length) {
     changed.add(skill.id);
   }
   data.skills = data.skills.filter((s) => !ids.has(s.id));
-  for (const bundle of data.bundles) bundle.skills = bundle.skills.filter(({ id }) => !ids.has(id));
+  for (const bundle of data.bundles)
+    bundle.agentReview.skills = bundle.agentReview.skills.filter(({ id }) => !ids.has(id));
   writeCrawl(crawl);
 }
 
 const byId = new Map(data.skills.map((s) => [s.id, s]));
 for (const bundle of data.bundles)
-  if (bundle.skills.some(({ id }) => changed.has(id))) {
+  if (bundle.agentReview.skills.some(({ id }) => changed.has(id))) {
     const before = bundle.skew;
     bundle.skew = await bundleSkew(bundle, byId).catch((error: Error) => {
       errors.push(`bundle ${bundle.id}: ${error.message}`);

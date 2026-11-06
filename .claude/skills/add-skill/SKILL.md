@@ -53,6 +53,7 @@ Both files are JSONC and may hold comments, which the scripts keep. Edit them in
 A bundle is skills of one repo meant to be installed and used together, such as the steps of a workflow. A collection of unrelated skills, such as `anthropics/skills`, isn't one. Record a bundle in `bundles` in `data/skills.jsonc`, as `Bundle` in `data/types.ts` describes:
 
 - Its `id` is the repo, or `<repo>@<name>` when the repo holds more than one bundle, or skills outside the bundle.
+- All of it but its `id` goes in its `agentReview`; the sync keeps its `skew`.
 - Its `skills` come in the order they're used. A skill is in one bundle at most, and only an approved skill can be in one.
 - Mark a skill `standalone` when someone would install it alone and get something out of it, with no other skill of the bundle. One that loads another skill of the bundle, uses its files, or only works on another's output isn't, and gets a `note` saying what it needs. A soft mention, such as suggesting another skill for the next step, doesn't count.
 - Give it a one-sentence `description`, its `install` commands from the repo's README, each with a `label` saying where it works, and a TLDR, with the write-tldr skill.

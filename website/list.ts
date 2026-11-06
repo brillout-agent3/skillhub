@@ -17,6 +17,7 @@ import {
   glanceHtml,
   installsOf,
   isBundle,
+  nameOf,
   ownEntry,
   parentsOf,
   repoById,
@@ -249,7 +250,12 @@ const searchText = new Map(
 const bundleText = new Map(
   data.bundles.map((b) => [
     b.id,
-    [b.name, b.description, ...(b.tldr?.glance.map((g) => g.text) ?? []), b.tldr?.text]
+    [
+      b.agentReview.name,
+      b.agentReview.description,
+      ...(b.agentReview.tldr?.glance.map((g) => g.text) ?? []),
+      b.agentReview.tldr?.text,
+    ]
       .filter(Boolean)
       .join(" ")
       .toLowerCase(),
@@ -301,7 +307,7 @@ const order = (sort: Sort) => (a: Entry, b: Entry) =>
   descending(PROPS[sort].of(a), PROPS[sort].of(b)) ||
   descending(installsOf(a), installsOf(b)) ||
   bundleFirst(a, b) ||
-  a.name.localeCompare(b.name);
+  nameOf(a).localeCompare(nameOf(b));
 
 /** The filtered, sorted list, plus how many entries each repo hides in one-per-repo mode. Skills that only work inside their bundle are listed in it. */
 function results(st: State): {
@@ -378,7 +384,9 @@ function skillRow(s: Skill, more: number, st: State): string {
       <div class="skill-head">
         <h3><a class="skill-name" href="${skillHref(s.id)}">${esc(s.name)}</a></h3>
         <span class="skill-source">${esc(repoKey(s))}${
-          bundle ? ` · part of <a href="${bundleHref(bundle.id)}">${esc(bundle.name)}</a>` : ""
+          bundle
+            ? ` · part of <a href="${bundleHref(bundle.id)}">${esc(bundle.agentReview.name)}</a>`
+            : ""
         }</span>
       </div>
       ${s.agentReview.tldr?.glance.length ? glanceHtml(s.agentReview.tldr.glance, 2) : `<p class="skill-desc">${esc(s.agentReview.description)}</p>`}
@@ -392,7 +400,7 @@ function skillRow(s: Skill, more: number, st: State): string {
 function bundleRow(b: Bundle, more: number, st: State): string {
   // When filtering, the skills that don't match are dimmed.
   const hits = isFiltered(st) ? skillsOf(b).filter((s) => passes(s, st)) : [];
-  const members = b.skills.map(({ id }) => {
+  const members = b.agentReview.skills.map(({ id }) => {
     const dim = hits.length && !hits.some((s) => s.id === id);
     return `<a href="${skillHref(id)}"${dim ? ` class="dim"` : ""}>${esc(skillById.get(id)?.name ?? id)}</a>`;
   });
@@ -400,11 +408,11 @@ function bundleRow(b: Bundle, more: number, st: State): string {
     <li class="skill bundle">
       <div class="skill-body">
       <div class="skill-head">
-        <h3><a class="skill-name" href="${bundleHref(b.id)}">${esc(b.name)}</a></h3>
-        <span class="kind">Bundle · ${plural(b.skills.length, "skill")}</span>
+        <h3><a class="skill-name" href="${bundleHref(b.id)}">${esc(b.agentReview.name)}</a></h3>
+        <span class="kind">Bundle · ${plural(b.agentReview.skills.length, "skill")}</span>
         <span class="skill-source">${esc(repoKey(b))}</span>
       </div>
-      ${b.tldr?.glance.length ? glanceHtml(b.tldr.glance, 2) : `<p class="skill-desc">${esc(b.description)}</p>`}
+      ${b.agentReview.tldr?.glance.length ? glanceHtml(b.agentReview.tldr.glance, 2) : `<p class="skill-desc">${esc(b.agentReview.description)}</p>`}
       <p class="members">${members.join('<span aria-hidden="true"> · </span>')}</p>
       ${moreLink(b, more, st)}
       </div>

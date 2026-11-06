@@ -122,9 +122,10 @@ for (const bundle of data.bundles) {
   bundleIds.add(bundle.id);
   const repo = bundleRepo(bundle);
   if (!repos.has(repo)) fail(at, `repo "${repo}" has no entry in repos`);
-  if (!bundle.name || !bundle.description) fail(at, "needs a name and a description");
-  if (bundle.skills.length < 2) fail(at, "a bundle needs two skills or more");
-  for (const { id, standalone, note } of bundle.skills) {
+  if (!bundle.agentReview.name || !bundle.agentReview.description)
+    fail(at, "needs a name and a description");
+  if (bundle.agentReview.skills.length < 2) fail(at, "a bundle needs two skills or more");
+  for (const { id, standalone, note } of bundle.agentReview.skills) {
     if (!ids.has(id)) fail(at, `no skill ${id}`);
     if (!id.startsWith(`${repo}/`)) fail(at, `${id} isn't in ${repo}`);
     if (bundled.has(id)) fail(at, `${id} is in ${bundled.get(id)} too`);
@@ -132,15 +133,18 @@ for (const bundle of data.bundles) {
     if (!standalone && !note) fail(at, `${id} isn't standalone, so it needs a note saying why`);
     if (standalone && note) fail(at, `${id} is standalone, so it takes no note`);
   }
-  if (!bundle.install.length || bundle.install.some((i) => !i.label || !i.command))
+  if (
+    !bundle.agentReview.install.length ||
+    bundle.agentReview.install.some((i) => !i.label || !i.command)
+  )
     fail(at, "needs install commands, each with a label");
   if (!(Number.isInteger(bundle.skew) && bundle.skew >= 0))
     fail(at, "skew must be a whole number of words");
-  if (bundle.tldr) {
-    for (const problem of tldrProblems(bundle.tldr)) fail(at, problem);
+  if (bundle.agentReview.tldr) {
+    for (const problem of tldrProblems(bundle.agentReview.tldr)) fail(at, problem);
     if (
       !new RegExp(`^https://github.com/${escape(repo)}/tree/[0-9a-f]{40}$`).test(
-        bundle.tldr.permalink,
+        bundle.agentReview.tldr.permalink,
       )
     )
       fail(at, "the TLDR permalink must point to the repo at a commit; set it with pnpm run tldr");

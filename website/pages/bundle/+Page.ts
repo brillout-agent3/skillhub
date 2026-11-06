@@ -37,7 +37,7 @@ function facts(b: Bundle): string {
 }
 
 function skills(b: Bundle): string {
-  const items = b.skills.map(({ id, standalone, note }, i) => {
+  const items = b.agentReview.skills.map(({ id, standalone, note }, i) => {
     const s = skillsOf(b)[i];
     const installs = installsOf(s);
     return `
@@ -57,20 +57,20 @@ function skills(b: Bundle): string {
 export default function Page(pageContext: PageContextServer): string {
   const { bundle: b } = pageContext.data as Data;
   const repo = repoKey(b);
-  const alone = b.skills.filter((m) => m.standalone).length;
+  const alone = b.agentReview.skills.filter((m) => m.standalone).length;
   return `
     <div class="page skill-page bundle-page">
       <p class="crumbs"><a href="${href()}">Skills</a> <span aria-hidden="true">/</span> <a href="${skillsLink({ repo })}">${esc(repo)}</a></p>
-      <h1>${esc(b.name)} <span class="kind">Bundle · ${plural(b.skills.length, "skill")}</span></h1>
+      <h1>${esc(b.agentReview.name)} <span class="kind">Bundle · ${plural(b.agentReview.skills.length, "skill")}</span></h1>
       ${
-        b.tldr?.glance.length
-          ? `<section class="at-a-glance" aria-label="At a glance">${glanceHtml(b.tldr.glance)}</section>`
-          : `<p class="lede">${esc(b.description)}</p>`
+        b.agentReview.tldr?.glance.length
+          ? `<section class="at-a-glance" aria-label="At a glance">${glanceHtml(b.agentReview.tldr.glance)}</section>`
+          : `<p class="lede">${esc(b.agentReview.description)}</p>`
       }
-      ${b.tldr ? tldrHtml(b.tldr, "the repo", b.skew) : ""}
+      ${b.agentReview.tldr ? tldrHtml(b.agentReview.tldr, "the repo", b.skew) : ""}
       <div class="details-grid">
         <div>
-          ${b.install
+          ${b.agentReview.install
             .map(
               ({ label, command }) =>
                 `<p class="install-label">${esc(label)}</p><div class="install"><code>${esc(command)}</code><button type="button" class="copy" data-copy="${esc(command)}">Copy</button></div>`,
@@ -83,7 +83,7 @@ export default function Page(pageContext: PageContextServer): string {
       <section aria-labelledby="skills">
         <h2 id="skills">Its skills, in the order they're used</h2>
         <p class="muted">${
-          alone === b.skills.length
+          alone === b.agentReview.skills.length
             ? "Each also works alone, so each also has its own entry in the skills list."
             : "The ones marked “Only in the bundle” need the rest of it, so they're only listed here. The others also have their own entry in the skills list."
         }</p>

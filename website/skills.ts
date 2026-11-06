@@ -15,11 +15,14 @@ export const bundleById = new Map(data.bundles.map((b) => [b.id, b]));
 /** The bundle a skill is in, and its place there. */
 export const bundleOf = new Map<string, BundleSkill & { bundle: Bundle; index: number }>();
 for (const bundle of data.bundles)
-  bundle.skills.forEach((m, index) => bundleOf.set(m.id, { ...m, bundle, index }));
+  bundle.agentReview.skills.forEach((m, index) => bundleOf.set(m.id, { ...m, bundle, index }));
 /** Whether a skill gets an entry of its own in the skills list, rather than only inside its bundle. */
 export const ownEntry = (s: Skill) => bundleOf.get(s.id)?.standalone ?? true;
-export const isBundle = (e: Skill | Bundle): e is Bundle => "install" in e;
-export const skillsOf = (b: Bundle) => b.skills.map(({ id }) => skillById.get(id) as Skill);
+// Every skill is on skills.sh; a bundle isn't.
+export const isBundle = (e: Skill | Bundle): e is Bundle => !("skills.sh" in e);
+export const nameOf = (e: Skill | Bundle) => (isBundle(e) ? e.agentReview.name : e.name);
+export const skillsOf = (b: Bundle) =>
+  b.agentReview.skills.map(({ id }) => skillById.get(id) as Skill);
 
 /** Tags are `facet:value`, except topics, which are written without a prefix. */
 export const tagOf = (facet: Facet, value: string) =>
