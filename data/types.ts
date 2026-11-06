@@ -218,23 +218,33 @@ export interface SkillsSh {
   /** The skill's page on skills.sh. */
   url: string;
   /**
-   * All-time installs, or null when unknown. crawl.ts takes them daily from the skills.sh all-time
-   * top 600, which skills.sh embeds in its home page, exact. For an approved skill outside it, it
-   * takes them from the "Installs" stat of the skill's skills.sh page, which rounds them to three
-   * digits (such as 26.5K), or null once skills.sh no longer has the skill. A skill of crawl.jsonc
-   * that left the top 600 keeps its last number.
+   * All-time installs, or null when unknown: exact for a skill in the skills.sh all-time top 600,
+   * rounded to three digits (such as 26.5K) for an approved skill outside it. A skill of
+   * crawl.jsonc that left the top 600 keeps its last number.
+   *
+   * Source: scripts/crawl.ts, which .github/workflows/crawl.yml runs daily. For a skill in the top
+   * 600, `topSkills()` takes `installs` from the leaderboard that https://www.skills.sh/ embeds in
+   * its page (the `initialSkills` of its Next.js payload, the all-time view). For an approved skill
+   * outside it, `skillPage()` reads the "Installs" stat of the skill's skills.sh page, and sets null
+   * when skills.sh no longer has the page.
    */
   installs: number | null;
   /**
    * Installs per week for the 8 weeks up to the installs snapshot, oldest first, or null when
-   * unknown. They come with `installs`: from the top 600, or for an approved skill outside it,
-   * from the "Weekly installs" chart of the skill's skills.sh page.
+   * unknown.
+   *
+   * Source: scripts/crawl.ts, daily, together with `installs`. For a skill in the top 600,
+   * `topSkills()` takes `weeklyInstalls` from the same leaderboard. For an approved skill outside
+   * it, `skillPage()` reads the "Weekly installs" chart of the skill's skills.sh page, from its
+   * `aria-label="Weekly installs: …"`.
    */
   weeklyInstalls: number[] | null;
   /**
-   * When skills.sh first saw the skill (YYYY-MM-DD), or null when unknown: the "First Seen" stat
-   * of the skill's skills.sh page, which the top 600 doesn't give. It never changes, so crawl.ts
-   * reads it once: when it records the skill in crawl.jsonc, or for an approved skill without one.
+   * When skills.sh first saw the skill (YYYY-MM-DD), or null when unknown. It never changes.
+   *
+   * Source: scripts/crawl.ts. `skillPage()` reads the "First Seen" stat of the skill's skills.sh
+   * page, such as "Jan 22, 2026", which the leaderboard doesn't give. It reads it once: when the
+   * crawl records the skill in crawl.jsonc, or for an approved skill that has none.
    */
   firstSeen: string | null;
 }
