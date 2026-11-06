@@ -3,19 +3,6 @@
   "asOf": "2026-11-06",
   "qualified": [
     {
-      "name": "shadcn",
-      "repo": "shadcn-ui/ui",
-      "official": false,
-      "stars": 127510,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/shadcn-ui/ui/shadcn",
-        "installs": 138620,
-        "weeklyInstalls": [9875, 10512, 9908, 11228, 12963, 12253, 9348, 9712],
-        "firstSeen": "2026-03-06"
-      }
-    },
-    {
       "name": "cold-email",
       "repo": "coreyhaines31/marketingskills",
       "official": false,
@@ -130,19 +117,6 @@
         "installs": 117119,
         "weeklyInstalls": [12480, 13099, 10879, 10087, 8241, 7107, 7560, 7182],
         "firstSeen": "2026-08-11"
-      }
-    },
-    {
-      "name": "brand-guidelines",
-      "repo": "anthropics/skills",
-      "official": true,
-      "stars": 188100,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/anthropics/skills/brand-guidelines",
-        "installs": 116625,
-        "weeklyInstalls": [3016, 2945, 3085, 2930, 3190, 3411, 4041, 4359],
-        "firstSeen": "2026-01-19"
       }
     },
     {
@@ -601,19 +575,6 @@
       }
     },
     {
-      "name": "herdr",
-      "repo": "herdrdev/herdr",
-      "official": false,
-      "stars": 48529,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/herdrdev/herdr/herdr",
-        "installs": 79126,
-        "weeklyInstalls": [5692, 5187, 4270, 4853, 4516, 4367, 3732, 3371],
-        "firstSeen": "2026-04-07"
-      }
-    },
-    {
       "name": "referrals",
       "repo": "coreyhaines31/marketingskills",
       "official": false,
@@ -689,19 +650,6 @@
         "installs": 74444,
         "weeklyInstalls": [2817, 2636, 2666, 3090, 3393, 3270, 3499, 3952],
         "firstSeen": "2026-05-29"
-      }
-    },
-    {
-      "name": "template-skill",
-      "repo": "anthropics/skills",
-      "official": true,
-      "stars": 188100,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/anthropics/skills/template-skill",
-        "installs": 74107,
-        "weeklyInstalls": [1023, 1126, 1040, 1082, 1153, 1303, 1519, 1494],
-        "firstSeen": "2026-01-19"
       }
     },
     {
@@ -858,19 +806,6 @@
         "installs": 69344,
         "weeklyInstalls": [3122, 4051, 3778, 3916, 4977, 5644, 5280, 4556],
         "firstSeen": "2026-02-16"
-      }
-    },
-    {
-      "name": "ai-sdk",
-      "repo": "vercel-labs/ai",
-      "official": true,
-      "stars": 27781,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/vercel-labs/ai/ai-sdk",
-        "installs": 68800,
-        "weeklyInstalls": [2077, 2289, 1805, 2197, 1790, 1824, 1348, 1709],
-        "firstSeen": "2026-01-23"
       }
     },
     {
@@ -1056,19 +991,6 @@
       }
     },
     {
-      "name": "lark-meeting",
-      "repo": "larksuite/cli",
-      "official": false,
-      "stars": 18001,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/larksuite/cli/lark-meeting",
-        "installs": 63600,
-        "weeklyInstalls": [6659, 6584, 6389, 3316, 4041, 5302, 5250, 6001],
-        "firstSeen": "2026-08-21"
-      }
-    },
-    {
       "name": "observability-and-instrumentation",
       "repo": "addyosmani/agent-skills",
       "official": false,
@@ -1121,19 +1043,6 @@
       }
     },
     {
-      "name": "humanizer-zh",
-      "repo": "op7418/humanizer-zh",
-      "official": false,
-      "stars": 22150,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/op7418/humanizer-zh/humanizer-zh",
-        "installs": 57000,
-        "weeklyInstalls": [1029, 1040, 1228, 897, 1038, 1181, 1351, 1413],
-        "firstSeen": "2026-01-19"
-      }
-    },
-    {
       "name": "seo-geo",
       "repo": "resciencelab/opc-skills",
       "official": false,
@@ -1144,19 +1053,6 @@
         "installs": 55800,
         "weeklyInstalls": [1268, 1268, 1191, 1182, 1224, 1121, 1100, 1101],
         "firstSeen": "2026-01-21"
-      }
-    },
-    {
-      "name": "weread-skills",
-      "repo": "tencent/wechatreading",
-      "official": true,
-      "stars": 280,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/tencent/wechatreading/weread-skills",
-        "installs": 54600,
-        "weeklyInstalls": [1613, 1779, 1474, 1474, 1822, 1590, 1658, 1380],
-        "firstSeen": "2026-05-22"
       }
     },
     {
@@ -1196,19 +1092,6 @@
         "installs": 53800,
         "weeklyInstalls": [2667, 2517, 2494, 2930, 3173, 3030, 3240, 3743],
         "firstSeen": "2026-07-02"
-      }
-    },
-    {
-      "name": "huashu-design",
-      "repo": "alchaincyf/huashu-design",
-      "official": false,
-      "stars": 28886,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/alchaincyf/huashu-design/huashu-design",
-        "installs": 52600,
-        "weeklyInstalls": [609, 685, 599, 461, 551, 788, 1291, 1567],
-        "firstSeen": "2026-04-21"
       }
     },
     {
@@ -1261,32 +1144,6 @@
         "installs": 50900,
         "weeklyInstalls": [2332, 2222, 2172, 2839, 4493, 5290, 5460, 5230],
         "firstSeen": "2026-06-12"
-      }
-    },
-    {
-      "name": "binance-agentic-wallet",
-      "repo": "binance/binance-skills-hub",
-      "official": false,
-      "stars": 1147,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/binance/binance-skills-hub/binance-agentic-wallet",
-        "installs": 49600,
-        "weeklyInstalls": [113, 90, 103, 112, 95, 84, 12000, 25746],
-        "firstSeen": "2026-04-20"
-      }
-    },
-    {
-      "name": "wind-find-finance-skill",
-      "repo": "wind-alice/alicemarket",
-      "official": false,
-      "stars": 153,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wind-alice/alicemarket/wind-find-finance-skill",
-        "installs": 49300,
-        "weeklyInstalls": [2360, 2281, 1653, 1351, 1400, 1915, 1795, 1854],
-        "firstSeen": "2026-04-29"
       }
     },
     {
@@ -1352,19 +1209,6 @@
         "installs": 47400,
         "weeklyInstalls": [2054, 2070, 1915, 1902, 2171, 2671, 3385, 3873],
         "firstSeen": "2026-06-25"
-      }
-    },
-    {
-      "name": "vitest",
-      "repo": "antfu/skills",
-      "official": false,
-      "stars": 6043,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/antfu/skills/vitest",
-        "installs": 46700,
-        "weeklyInstalls": [915, 972, 1047, 1398, 1141, 1316, 2340, 1705],
-        "firstSeen": "2026-01-28"
       }
     },
     {
@@ -1495,19 +1339,6 @@
         "installs": 42000,
         "weeklyInstalls": [440, 423, 411, 394, 436, 384, 428, 406],
         "firstSeen": "2026-02-03"
-      }
-    },
-    {
-      "name": "vite",
-      "repo": "antfu/skills",
-      "official": false,
-      "stars": 6043,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/antfu/skills/vite",
-        "installs": 41500,
-        "weeklyInstalls": [625, 614, 488, 847, 619, 781, 1410, 945],
-        "firstSeen": "2026-01-28"
       }
     },
     {
@@ -1667,32 +1498,6 @@
       }
     },
     {
-      "name": "square-post",
-      "repo": "binance/binance-skills-hub",
-      "official": false,
-      "stars": 1147,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/binance/binance-skills-hub/square-post",
-        "installs": 37100,
-        "weeklyInstalls": [2520, 2639, 2628, 2626, 2575, 2607, 2841, 3787],
-        "firstSeen": "2026-03-06"
-      }
-    },
-    {
-      "name": "vue",
-      "repo": "antfu/skills",
-      "official": false,
-      "stars": 6043,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/antfu/skills/vue",
-        "installs": 36400,
-        "weeklyInstalls": [465, 368, 331, 486, 445, 379, 362, 380],
-        "firstSeen": "2026-01-28"
-      }
-    },
-    {
       "name": "swiftui-expert-skill",
       "repo": "avdlee/swiftui-agent-skill",
       "official": false,
@@ -1768,19 +1573,6 @@
         "installs": 34800,
         "weeklyInstalls": [294, 295, 118, 127, 175, 164, 168, 191],
         "firstSeen": "2026-01-19"
-      }
-    },
-    {
-      "name": "migrate-radix-to-base",
-      "repo": "shadcn-ui/ui",
-      "official": false,
-      "stars": 127510,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/shadcn-ui/ui/migrate-radix-to-base",
-        "installs": 34500,
-        "weeklyInstalls": [2631, 2608, 2594, 2758, 2963, 2710, 2376, 2534],
-        "firstSeen": "2026-07-03"
       }
     },
     {
@@ -2236,19 +2028,6 @@
         "installs": 31500,
         "weeklyInstalls": [118, 86, 102, 87, 67, 83, 63, 94],
         "firstSeen": "2026-05-15"
-      }
-    },
-    {
-      "name": "multi-stage-dockerfile",
-      "repo": "github/awesome-copilot",
-      "official": true,
-      "stars": 40873,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/multi-stage-dockerfile",
-        "installs": 31400,
-        "weeklyInstalls": [1434, 1585, 1040, 1123, 900, 547, 194, 1190],
-        "firstSeen": "2026-02-25"
       }
     },
     {
@@ -49921,6 +49700,74 @@
     {
       "url": "https://skills.sh/higgsfield-ai/skills/higgsfield-video-explainer",
       "note": "Retired. Its SKILL.md now points to higgsfield-faceless-video."
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/multi-stage-dockerfile",
+      "note": "Tool docs: an agent's manual for docker."
+    },
+    {
+      "url": "https://skills.sh/antfu/skills/vitest",
+      "note": "Tool docs: an agent's manual for vitest."
+    },
+    {
+      "url": "https://skills.sh/antfu/skills/vite",
+      "note": "Tool docs: an agent's manual for vite."
+    },
+    {
+      "url": "https://skills.sh/antfu/skills/vue",
+      "note": "Tool docs: an agent's manual for vue."
+    },
+    {
+      "url": "https://skills.sh/shadcn-ui/ui/shadcn",
+      "note": "Listed under its repo's old name, shadcn-ui/ui. Tool docs: an agent's manual for shadcn and react and tailwind."
+    },
+    {
+      "url": "https://skills.sh/shadcn-ui/ui/migrate-radix-to-base",
+      "note": "Listed under its repo's old name, shadcn-ui/ui: a copy of shadcn/ui's migrate-radix-to-base. Tool docs: an agent's manual for radix and base-ui and shadcn."
+    },
+    {
+      "url": "https://skills.sh/anthropics/skills/brand-guidelines",
+      "note": "Applies only Anthropic's own brand: no use outside Anthropic."
+    },
+    {
+      "url": "https://skills.sh/anthropics/skills/template-skill",
+      "note": "A blank template: its SKILL.md is a placeholder with no instructions."
+    },
+    {
+      "url": "https://skills.sh/binance/binance-skills-hub/binance-agentic-wallet",
+      "note": "Tool docs: an agent's manual for binance."
+    },
+    {
+      "url": "https://skills.sh/binance/binance-skills-hub/square-post",
+      "note": "Tool docs: an agent's manual for binance."
+    },
+    {
+      "url": "https://skills.sh/herdrdev/herdr/herdr",
+      "note": "Tool docs: an agent's manual for herdr."
+    },
+    {
+      "url": "https://skills.sh/vercel-labs/ai/ai-sdk",
+      "note": "Listed under its repo's old name, vercel-labs/ai. Tool docs: an agent's manual for ai-sdk and typescript."
+    },
+    {
+      "url": "https://skills.sh/larksuite/cli/lark-meeting",
+      "note": "In Chinese. Tool docs: an agent's manual for lark."
+    },
+    {
+      "url": "https://skills.sh/op7418/humanizer-zh/humanizer-zh",
+      "note": "In Chinese."
+    },
+    {
+      "url": "https://skills.sh/tencent/wechatreading/weread-skills",
+      "note": "In Chinese. Tool docs: an agent's manual for weread."
+    },
+    {
+      "url": "https://skills.sh/alchaincyf/huashu-design/huashu-design",
+      "note": "In Chinese."
+    },
+    {
+      "url": "https://skills.sh/wind-alice/alicemarket/wind-find-finance-skill",
+      "note": "In Chinese."
     }
   ]
 }
