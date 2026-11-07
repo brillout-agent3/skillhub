@@ -58,12 +58,12 @@ Someone who has never heard of the skill should understand it from the TLDR alon
 ## 5. Save
 
 ```bash
-pnpm run tldr <id> <<'EOF'
+pnpm run tldr <id> --model "<your model, such as Claude Opus 5.5>" --effort <your effort: low, medium, high, xhigh, max, or unknown> <<'EOF'
 {"glance": [{"label": "Use it when", "text": "…"}], "text": "…"}
 EOF
 ```
 
-This checks the limits, records the permalink and resets the skew to 0. The permalink points to:
+This checks the limits, records the permalink, resets the skew to 0, and records your model and effort as the review's `model` and `effort`. The permalink points to:
 
 - **A skill:** its directory on GitHub at the commit its copy was taken from.
 - **A bundle:** its repo at the current commit. Setting it fails when a skill's copy doesn't match that commit; then run `pnpm run sync <repo>`, reread what changed, and try again.

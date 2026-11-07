@@ -167,6 +167,15 @@
     "RepoReview": {
       "type": "object",
       "properties": {
+        "model": {
+          "type": "string",
+          "description": "The model of the agent that last wrote or changed the review, such as \"Claude Opus 5.5\". When that agent switched models partway, the one that served most of its turns.\n\nSource: the agent that writes or changes any part of the review sets it to its own model. For a review last written before 2026-11-07, it's the model the repo's commits name in their Co-Authored-By trailer."
+        },
+        "effort": {
+          "type": ["string", "null"],
+          "enum": ["low", "medium", "high", "xhigh", "max", null],
+          "description": "That agent's reasoning effort, or null when it wasn't recorded, as for a review last written before 2026-11-07.\n\nSource: as for `model`."
+        },
         "kind": {
           "type": "string",
           "enum": ["skills", "project", "index"],
@@ -181,7 +190,7 @@
           "description": "Something to know about the repo, such as where its star count comes from."
         }
       },
-      "required": ["kind", "description"],
+      "required": ["description", "effort", "kind", "model"],
       "additionalProperties": false
     },
     "Bundle": {
@@ -207,6 +216,15 @@
     "BundleReview": {
       "type": "object",
       "properties": {
+        "model": {
+          "type": "string",
+          "description": "The model of the agent that last wrote or changed the review, such as \"Claude Opus 5.5\". When that agent switched models partway, the one that served most of its turns.\n\nSource: the agent that writes or changes any part of the review sets it to its own model. For a review last written before 2026-11-07, it's the model the repo's commits name in their Co-Authored-By trailer."
+        },
+        "effort": {
+          "type": ["string", "null"],
+          "enum": ["low", "medium", "high", "xhigh", "max", null],
+          "description": "That agent's reasoning effort, or null when it wasn't recorded, as for a review last written before 2026-11-07.\n\nSource: as for `model`."
+        },
         "name": {
           "type": "string",
           "description": "Its name, as the site shows it."
@@ -246,7 +264,7 @@
           "description": "How to install all of its skills, one command per way, as its README gives them."
         }
       },
-      "required": ["name", "description", "skills", "install"],
+      "required": ["description", "effort", "install", "model", "name", "skills"],
       "additionalProperties": false
     },
     "Tldr": {
@@ -385,6 +403,15 @@
     "SkillReview": {
       "type": "object",
       "properties": {
+        "model": {
+          "type": "string",
+          "description": "The model of the agent that last wrote or changed the review, such as \"Claude Opus 5.5\". When that agent switched models partway, the one that served most of its turns.\n\nSource: the agent that writes or changes any part of the review sets it to its own model. For a review last written before 2026-11-07, it's the model the repo's commits name in their Co-Authored-By trailer."
+        },
+        "effort": {
+          "type": ["string", "null"],
+          "enum": ["low", "medium", "high", "xhigh", "max", null],
+          "description": "That agent's reasoning effort, or null when it wasn't recorded, as for a review last written before 2026-11-07.\n\nSource: as for `model`."
+        },
         "description": {
           "type": "string",
           "description": "One sentence on what it does, shown until it has a TLDR."
@@ -405,7 +432,7 @@
           "description": "Something to know before installing."
         }
       },
-      "required": ["description", "tags"],
+      "required": ["description", "effort", "model", "tags"],
       "additionalProperties": false
     }
   }

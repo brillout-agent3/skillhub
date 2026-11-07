@@ -3,7 +3,10 @@
  *
  * Run: pnpm run tldr [count]        the skills and bundles with the largest skew first: skew, id,
  *                                   the copies to read
- *      pnpm run tldr <id> <json>    set a skill's or a bundle's TLDR:
+ *      pnpm run tldr <id> --model <model> --effort <effort> <json>
+ *                                   set a skill's or a bundle's TLDR, as written by that model at
+ *                                   that effort, such as --model "Claude Opus 5.5" --effort xhigh
+ *                                   (--effort unknown when you don't know it):
  *                                   {"glance": [{"label", "text"}], "text"} (or pipe the JSON in)
  *
  * Setting a TLDR resets the skew to 0 and records a permalink to what the TLDR summarizes: the skill's directory at the
@@ -55,7 +58,18 @@ const skillOf = (id: string) => {
   if (!skill) throw new Error(`no skill ${id}`);
   return skill;
 };
-const [first, ...rest] = process.argv.slice(2);
+const EFFORTS = ["low", "medium", "high", "xhigh", "max"] as const;
+/** The arguments, without --model and --effort, which say who writes the TLDR. */
+const args = process.argv.slice(2);
+const flag = (name: string) => {
+  const i = args.indexOf(`--${name}`);
+  if (i === -1) return undefined;
+  const [, value] = args.splice(i, 2);
+  return value;
+};
+const model = flag("model");
+const effort = flag("effort");
+const [first, ...rest] = args;
 
 if (!first || /^\d+$/.test(first)) {
   const list = [
@@ -77,6 +91,16 @@ if (!first || /^\d+$/.test(first)) {
 } else {
   const bundle = data.bundles.find((b) => b.id === first);
   const skill = bundle ? null : skillOf(first);
+  if (!model || !effort)
+    throw new Error(
+      'say who writes the TLDR: --model "Claude Opus 5.5" --effort xhigh (or unknown)',
+    );
+  if (effort !== "unknown" && !(EFFORTS as readonly string[]).includes(effort))
+    throw new Error(`--effort must be ${EFFORTS.join(", ")} or unknown`);
+  const author = {
+    model,
+    effort: effort === "unknown" ? null : (effort as (typeof EFFORTS)[number]),
+  };
   const input = (rest.length ? rest.join(" ") : readFileSync(0, "utf8")).trim();
   const { glance, text } = JSON.parse(input) as Pick<Tldr, "glance" | "text">;
   const problems = tldrProblems({ glance, text });
@@ -87,10 +111,10 @@ if (!first || /^\d+$/.test(first)) {
     permalink: skill ? permalink(skill) : await bundlePermalink(bundle as Bundle),
   };
   if (skill) {
-    skill.agentReview.tldr = tldr;
+    Object.assign(skill.agentReview, { tldr }, author);
     if (skill.skillMd) skill.skillMd.skew = 0;
   } else if (bundle) {
-    bundle.agentReview.tldr = tldr;
+    Object.assign(bundle.agentReview, { tldr }, author);
     bundle.skew = 0;
   }
   writeData(data);

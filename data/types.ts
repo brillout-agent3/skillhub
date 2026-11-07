@@ -224,7 +224,27 @@ export interface Repo {
   agentReview: RepoReview;
 }
 
-export interface RepoReview {
+/** Which agent wrote a review: every `agentReview` object has these two fields. */
+export interface ReviewAuthor {
+  /**
+   * The model of the agent that last wrote or changed the review, such as "Claude Opus 5.5". When
+   * that agent switched models partway, the one that served most of its turns.
+   *
+   * Source: the agent that writes or changes any part of the review sets it to its own model. For
+   * a review last written before 2026-11-07, it's the model the repo's commits name in their
+   * Co-Authored-By trailer.
+   */
+  model: string;
+  /**
+   * That agent's reasoning effort, or null when it wasn't recorded, as for a review last written
+   * before 2026-11-07.
+   *
+   * Source: as for `model`.
+   */
+  effort: "low" | "medium" | "high" | "xhigh" | "max" | null;
+}
+
+export interface RepoReview extends ReviewAuthor {
   /** `skills`: exists to ship skills. `project`: a product that also ships a skill. `index`: a curated list or catalog. */
   kind: "skills" | "project" | "index";
   /** The repo in one line, such as its GitHub description, or null when it has none. */
@@ -278,7 +298,7 @@ export interface Skill {
   agentReview: SkillReview;
 }
 
-export interface SkillReview {
+export interface SkillReview extends ReviewAuthor {
   /** One sentence on what it does, shown until it has a TLDR. */
   description: string;
   /** What the skill is and does, written from the SKILL.md its permalink points to. */
@@ -319,7 +339,7 @@ export interface Bundle {
   agentReview: BundleReview;
 }
 
-export interface BundleReview {
+export interface BundleReview extends ReviewAuthor {
   /** Its name, as the site shows it. */
   name: string;
   /** One sentence, shown until it has a TLDR. */

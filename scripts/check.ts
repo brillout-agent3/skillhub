@@ -27,6 +27,18 @@ for (const repo of data.repos) {
   repos.add(repo.id);
 }
 
+// Every review says which model wrote it, and with which effort when that was recorded.
+const EFFORTS = ["low", "medium", "high", "xhigh", "max", null];
+for (const [at, review] of [
+  ...data.repos.map((r) => [`repo ${r.id}`, r.agentReview] as const),
+  ...data.skills.map((s) => [s.id, s.agentReview] as const),
+  ...data.bundles.map((b) => [`bundle ${b.id}`, b.agentReview] as const),
+]) {
+  if (typeof review.model !== "string" || !review.model) fail(at, "agentReview needs a model");
+  if (!EFFORTS.includes(review.effort))
+    fail(at, "agentReview's effort must be low, medium, high, xhigh, max or null");
+}
+
 // A parent includes plain values of its own facet: parents don't nest, and skills don't carry them.
 const parents = new Set<string>();
 for (const f of data.facets)

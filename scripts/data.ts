@@ -31,6 +31,8 @@ const ORDER = [
   "note",
   "skills",
   "install",
+  "model",
+  "effort",
 ];
 const sorted = <T extends object>(o: T, order: string[]) => {
   const rank = (key: string) => (order.includes(key) ? order.indexOf(key) : order.length);
