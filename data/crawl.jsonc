@@ -29,19 +29,6 @@
       }
     },
     {
-      "name": "hads",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/hads",
-        "installs": 6900,
-        "weeklyInstalls": [164, 179, 211, 264, 205, 177, 174, 160],
-        "firstSeen": "2026-04-08"
-      }
-    },
-    {
       "name": "build-design",
       "repo": "jakubkrehel/skills",
       "official": false,
@@ -52,19 +39,6 @@
         "installs": 6900,
         "weeklyInstalls": [0, 0, 0, 0, 994, 1171, 1377, 1967],
         "firstSeen": "2026-10-06"
-      }
-    },
-    {
-      "name": "block-no-verify-hook",
-      "repo": "wshobson/agents",
-      "official": false,
-      "stars": 42260,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/wshobson/agents/block-no-verify-hook",
-        "installs": 6800,
-        "weeklyInstalls": [166, 178, 213, 268, 214, 175, 177, 163],
-        "firstSeen": "2026-04-08"
       }
     },
     {
@@ -143,19 +117,6 @@
         "installs": 6400,
         "weeklyInstalls": [0, 0, 0, 479, 2292, 1100, 1263, 736],
         "firstSeen": "2026-10-02"
-      }
-    },
-    {
-      "name": "copywriting-hooks",
-      "repo": "samber/cc-skills",
-      "official": false,
-      "stars": 242,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/samber/cc-skills/copywriting-hooks",
-        "installs": 6400,
-        "weeklyInstalls": [62, 98, 218, 393, 586, 736, 806, 636],
-        "firstSeen": "2026-05-19"
       }
     },
     {
@@ -458,32 +419,6 @@
       }
     },
     {
-      "name": "frontend-design-deslop",
-      "repo": "samber/cc-skills",
-      "official": false,
-      "stars": 242,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/samber/cc-skills/frontend-design-deslop",
-        "installs": 5700,
-        "weeklyInstalls": [42, 62, 185, 400, 579, 750, 822, 689],
-        "firstSeen": "2026-06-09"
-      }
-    },
-    {
-      "name": "linkedin-ghostwriting",
-      "repo": "samber/cc-skills",
-      "official": false,
-      "stars": 242,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/samber/cc-skills/linkedin-ghostwriting",
-        "installs": 5700,
-        "weeklyInstalls": [34, 80, 180, 396, 580, 716, 793, 643],
-        "firstSeen": "2026-03-22"
-      }
-    },
-    {
       "name": "gravitas",
       "repo": "udaysharmadev/gravitas",
       "official": false,
@@ -494,19 +429,6 @@
         "installs": 5700,
         "weeklyInstalls": [5, 1, 2, 0, 2, 2907, 1139, 1165],
         "firstSeen": "2026-09-11"
-      }
-    },
-    {
-      "name": "copywriting-tone-of-voice-creator",
-      "repo": "samber/cc-skills",
-      "official": false,
-      "stars": 242,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/samber/cc-skills/copywriting-tone-of-voice-creator",
-        "installs": 5700,
-        "weeklyInstalls": [48, 69, 189, 390, 564, 698, 756, 623],
-        "firstSeen": "2026-05-23"
       }
     },
     {
@@ -601,32 +523,6 @@
       }
     },
     {
-      "name": "humaniseur-fr",
-      "repo": "samber/cc-skills",
-      "official": false,
-      "stars": 242,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/samber/cc-skills/humaniseur-fr",
-        "installs": 5600,
-        "weeklyInstalls": [33, 97, 187, 403, 579, 752, 816, 641],
-        "firstSeen": "2026-04-10"
-      }
-    },
-    {
-      "name": "deep-research",
-      "repo": "samber/cc-skills",
-      "official": false,
-      "stars": 242,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/samber/cc-skills/deep-research",
-        "installs": 5600,
-        "weeklyInstalls": [24, 55, 195, 400, 588, 750, 817, 647],
-        "firstSeen": "2026-04-13"
-      }
-    },
-    {
       "name": "dubbing",
       "repo": "elevenlabs/skills",
       "official": true,
@@ -676,32 +572,6 @@
         "installs": 5500,
         "weeklyInstalls": [137, 139, 171, 199, 227, 260, 328, 291],
         "firstSeen": "2026-04-16"
-      }
-    },
-    {
-      "name": "technical-article-writer",
-      "repo": "samber/cc-skills",
-      "official": false,
-      "stars": 242,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/samber/cc-skills/technical-article-writer",
-        "installs": 5500,
-        "weeklyInstalls": [22, 47, 179, 399, 572, 727, 775, 637],
-        "firstSeen": "2026-03-24"
-      }
-    },
-    {
-      "name": "copywriting-cta",
-      "repo": "samber/cc-skills",
-      "official": false,
-      "stars": 242,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/samber/cc-skills/copywriting-cta",
-        "installs": 5500,
-        "weeklyInstalls": [26, 56, 180, 389, 547, 692, 766, 616],
-        "firstSeen": "2026-05-20"
       }
     },
     {
@@ -757,45 +627,6 @@
       }
     },
     {
-      "name": "conventional-git",
-      "repo": "samber/cc-skills",
-      "official": false,
-      "stars": 242,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/samber/cc-skills/conventional-git",
-        "installs": 5400,
-        "weeklyInstalls": [15, 47, 176, 391, 563, 742, 787, 620],
-        "firstSeen": "2026-03-22"
-      }
-    },
-    {
-      "name": "site-launch-checklist",
-      "repo": "samber/cc-skills",
-      "official": false,
-      "stars": 242,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/samber/cc-skills/site-launch-checklist",
-        "installs": 5400,
-        "weeklyInstalls": [15, 45, 188, 389, 574, 763, 808, 654],
-        "firstSeen": "2026-05-15"
-      }
-    },
-    {
-      "name": "copywriting-prose-creator",
-      "repo": "samber/cc-skills",
-      "official": false,
-      "stars": 242,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/samber/cc-skills/copywriting-prose-creator",
-        "installs": 5300,
-        "weeklyInstalls": [28, 59, 170, 382, 532, 703, 753, 600],
-        "firstSeen": "2026-05-23"
-      }
-    },
-    {
       "name": "scrutinize",
       "repo": "thananon/9arm-skills",
       "official": false,
@@ -806,19 +637,6 @@
         "installs": 5300,
         "weeklyInstalls": [140, 125, 89, 97, 93, 70, 78, 66],
         "firstSeen": "2026-05-20"
-      }
-    },
-    {
-      "name": "influence-and-negotiation",
-      "repo": "samber/cc-skills",
-      "official": false,
-      "stars": 242,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/samber/cc-skills/influence-and-negotiation",
-        "installs": 5300,
-        "weeklyInstalls": [14, 51, 174, 389, 565, 723, 774, 612],
-        "firstSeen": "2026-04-30"
       }
     },
     {
@@ -848,19 +666,6 @@
       }
     },
     {
-      "name": "press-release-writer",
-      "repo": "samber/cc-skills",
-      "official": false,
-      "stars": 242,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/samber/cc-skills/press-release-writer",
-        "installs": 5200,
-        "weeklyInstalls": [15, 56, 166, 370, 545, 703, 755, 590],
-        "firstSeen": "2026-03-27"
-      }
-    },
-    {
       "name": "postiz",
       "repo": "gitroomhq/postiz-agent",
       "official": false,
@@ -871,19 +676,6 @@
         "installs": 5200,
         "weeklyInstalls": [163, 168, 188, 169, 180, 231, 237, 259],
         "firstSeen": "2026-02-14"
-      }
-    },
-    {
-      "name": "substack-ghostwriting",
-      "repo": "samber/cc-skills",
-      "official": false,
-      "stars": 242,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/samber/cc-skills/substack-ghostwriting",
-        "installs": 5200,
-        "weeklyInstalls": [13, 45, 167, 377, 547, 693, 735, 594],
-        "firstSeen": "2026-03-24"
       }
     },
     {
@@ -1043,19 +835,6 @@
       }
     },
     {
-      "name": "skill-progressive-disclosure-design",
-      "repo": "samber/cc-skills",
-      "official": false,
-      "stars": 242,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/samber/cc-skills/skill-progressive-disclosure-design",
-        "installs": 5000,
-        "weeklyInstalls": [27, 56, 156, 353, 528, 678, 726, 583],
-        "firstSeen": "2026-05-02"
-      }
-    },
-    {
       "name": "content-modeling-best-practices",
       "repo": "sanity-io/agent-toolkit",
       "official": true,
@@ -1066,19 +845,6 @@
         "installs": 5000,
         "weeklyInstalls": [173, 128, 99, 106, 118, 84, 102, 109],
         "firstSeen": "2026-01-24"
-      }
-    },
-    {
-      "name": "training-report",
-      "repo": "samber/cc-skills",
-      "official": false,
-      "stars": 242,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/samber/cc-skills/training-report",
-        "installs": 5000,
-        "weeklyInstalls": [12, 42, 165, 374, 531, 668, 726, 584],
-        "firstSeen": "2026-04-13"
       }
     },
     {

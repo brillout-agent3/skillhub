@@ -2839,6 +2839,15 @@
         "kind": "skills",
         "description": "A collection of agent skills for designers who prototype and build with AI coding tools."
       }
+    },
+    {
+      "id": "samber/cc-skills",
+      "stars": 242,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Marketing and engineering skills authored by @samber.",
+        "note": "Its Go skills live in a separate repo, samber/cc-skills-golang. Its README says the skills cross-reference each other and recommends installing them all together."
+      }
     }
   ],
   "bundles": [
@@ -6434,6 +6443,77 @@
           {
             "label": "Claude Code plugin, with all 8 of the repo's skills, grill-me included; they're namespaced, as /designer-skills:design-brief",
             "command": "claude plugin marketplace add julianoczkowski/designer-skills && claude plugin install designer-skills@designer-skills"
+          }
+        ]
+      }
+    },
+    {
+      "id": "samber/cc-skills@technical-article",
+      "skew": 0,
+      "agentReview": {
+        "name": "Technical article writing",
+        "description": "Writes a developer blog post end to end: interview, titles, a hook you pick, the draft, and an end-of-article CTA designed for your goal.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to publish a tutorial, explainer, benchmark, bug hunt or postmortem for developers, from idea to finished post"
+            },
+            {
+              "label": "It does",
+              "text": "technical-article-writer runs the interview, titles and draft, and calls copywriting-hooks for the opening and copywriting-cta for the ending"
+            },
+            {
+              "label": "You get",
+              "text": "a Markdown article with your chosen title and hook, the body, a CTA with copy, layout, A/B plan and accessibility checks, and image ideas"
+            },
+            {
+              "label": "Pauses",
+              "text": "for your pick of title, hook and CTA inputs; nothing is drafted before the interview is answered"
+            },
+            {
+              "label": "Also needs",
+              "text": "a humanizer skill for the final pass, which isn't part of the bundle"
+            }
+          ],
+          "text": "Three skills from samber/cc-skills that work as one pipeline. technical-article-writer starts by asking the topic, a single objective, the audience, content type, length and a one-sentence thesis, then tests the idea for novelty and offers ten titles. For the opening it hands over to copywriting-hooks, which proposes 3 or 4 hooks built on different levers, such as a curiosity gap, a contrarian claim or a scene, two candidates each, and waits for your choice; the writer then adds the stakes and a promise around it. After the body and conclusion, copywriting-cta takes the objective from the interview, asks what it still needs, such as the publication context, your relationship with readers and the funnel stage, and prescribes the end-of-article CTA: exact copy, placement, any persuasion mechanism such as urgency or social proof, an A/B test and accessibility checks. A humanizer pass follows that leaves the title and hook alone, then image suggestions and a final pick among the top three titles. Both copywriting skills also work alone, for any long-form article.",
+          "permalink": "https://github.com/samber/cc-skills/tree/50a33836b20f690c668af557bd9ef9d07a8c7ef2"
+        },
+        "skills": [
+          {
+            "id": "samber/cc-skills/skills/technical-article-writer",
+            "standalone": false,
+            "note": "Hands the opening hook to copywriting-hooks and the end-of-article CTA to copywriting-cta, and tells the agent not to write either itself."
+          },
+          {
+            "id": "samber/cc-skills/skills/copywriting-hooks",
+            "standalone": true
+          },
+          {
+            "id": "samber/cc-skills/skills/copywriting-cta",
+            "standalone": true
+          }
+        ],
+        "install": [
+          {
+            "label": "Any agent, with the skills CLI",
+            "command": "npx skills add https://github.com/samber/cc-skills --skill technical-article-writer --skill copywriting-hooks --skill copywriting-cta"
+          },
+          {
+            "label": "Claude Code plugin, after /plugin marketplace add samber/cc; with the repo's 18 other skills",
+            "command": "/plugin install cc-skills@samber"
+          },
+          {
+            "label": "Gemini CLI extension, with the repo's 18 other skills",
+            "command": "gemini extensions install https://github.com/samber/cc-skills"
+          },
+          {
+            "label": "Codex plugin, with the repo's 18 other skills",
+            "command": "codex plugin add github:samber/cc-skills"
+          },
+          {
+            "label": "GitHub Copilot CLI plugin, with the repo's 18 other skills",
+            "command": "/plugin install https://github.com/samber/cc-skills"
           }
         ]
       }
@@ -71671,6 +71751,1008 @@
           "planning",
           "design"
         ]
+      }
+    },
+    {
+      "id": "samber/cc-skills/skills/copywriting-hooks",
+      "name": "copywriting-hooks",
+      "skills.sh": {
+        "url": "https://skills.sh/samber/cc-skills/copywriting-hooks",
+        "installs": 6400,
+        "weeklyInstalls": [62, 98, 218, 393, 586, 736, 806, 636],
+        "firstSeen": "2026-05-19"
+      },
+      "skillMd": {
+        "version": "50a33836b20f690c668af557bd9ef9d07a8c7ef2",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes opening hooks and titles for long-form articles in English or French: 3 or 4 hook types, two candidates each, for you to pick.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need an opening line, lede or title for a blog post, newsletter, essay or long LinkedIn article, or your intro falls flat"
+            },
+            {
+              "label": "It does",
+              "text": "picks 3 or 4 different hook types from an 18-hook catalog and writes two candidates for each, specific to your article"
+            },
+            {
+              "label": "You get",
+              "text": "labelled options you pick by letter, such as \"1B\", then a note on what your pick commits the rest of the article to"
+            },
+            {
+              "label": "Languages",
+              "text": "English and French, with advice on what doesn't translate between them"
+            },
+            {
+              "label": "Not for",
+              "text": "social feed posts, taglines, email subjects, ad copy, landing-page headlines or end-of-article CTAs"
+            }
+          ],
+          "text": "A hook's one job, it says, is making the reader want the second sentence, through five levers: open a gap, break a prediction, drop into a scene, promise a payoff or borrow weight. The agent confirms the topic, audience, language, length and venue, then proposes 3 or 4 hooks on different levers, with at least one intellectual, one sensory and one reader-direct option, and waits for your pick; \"more\" brings different hooks, not rewordings. A table matches hook types to article types, so a tutorial gets a direct problem or a promise rather than a scene. Each candidate is checked against clichéd openers and current AI tells, such as \"In today's fast-paced world\" or \"It's not just X, it's Y\". Titles work the same way: 3 to 5 across distinct formulas, within each platform's length limit. An opening you already wrote stays in as option 0. When technical-article-writer calls it, it returns the chosen hook to that skill.",
+          "permalink": "https://github.com/samber/cc-skills/tree/50a33836b20f690c668af557bd9ef9d07a8c7ef2/skills/copywriting-hooks"
+        },
+        "tags": [
+          "category:writing",
+          "category:marketing",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "copywriting",
+          "writing"
+        ]
+      }
+    },
+    {
+      "id": "samber/cc-skills/skills/frontend-design-deslop",
+      "name": "frontend-design-deslop",
+      "skills.sh": {
+        "url": "https://skills.sh/samber/cc-skills/frontend-design-deslop",
+        "installs": 5700,
+        "weeklyInstalls": [42, 62, 185, 400, 579, 750, 822, 689],
+        "firstSeen": "2026-06-09"
+      },
+      "skillMd": {
+        "version": "50a33836b20f690c668af557bd9ef9d07a8c7ef2",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Designs a web UI brand-first, from adjectives to type, OKLCH color and tokens, records it in DESIGN.md, then audits it for generic AI tells.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're building or restyling a landing page, app, dashboard, deck or docs site and don't want the default AI look"
+            },
+            {
+              "label": "It does",
+              "text": "asks what the artifact is, who it serves and which 3 to 5 adjectives it must feel like, derives type and color, then applies layout, states, motion and accessibility"
+            },
+            {
+              "label": "You get",
+              "text": "the UI plus a DESIGN.md at the project root with tokens, decisions and the audit result, which later sessions read first"
+            },
+            {
+              "label": "Unlike frontend-design",
+              "text": "Anthropic's skill, it writes a token table before any component, specifies every component state and keeps all decisions in a DESIGN.md that later sessions reuse"
+            },
+            {
+              "label": "Asks",
+              "text": "through the question tool, a few high-signal questions with 2 to 4 options each"
+            }
+          ],
+          "text": "It names two causes of generic AI interfaces: no constraints, so the model samples the median of recent web code (Inter, indigo, rounded cards), and picking an aesthetic before knowing what's being designed. So it works brand-first. It reads an existing DESIGN.md or asks what the artifact is, who it's for and which adjectives it must feel like, grounding the direction in 1 to 3 references, searched on the web if you give none. It then commits to one direction: a display and body type pair with a stated scale ratio, an OKLCH palette in roughly 60-30-10 proportions away from the indigo band, a token table written before any component, and one signature move that makes it memorable, in plain CSS, Tailwind v4 or shadcn tokens. The craft layer follows: spacing rhythm and grids, every component state from hover to error, motion under 300ms that respects reduced motion, one icon system, art-directed imagery, designed dark mode and WCAG 2.2 AA. It suggests component catalogs to borrow from, minding licenses, then scores the build against a slop checklist, regenerates failing sections and records the audit in DESIGN.md. A NEVER list bans tells such as gradient text, glassmorphism and bounce easing.",
+          "permalink": "https://github.com/samber/cc-skills/tree/50a33836b20f690c668af557bd9ef9d07a8c7ef2/skills/frontend-design-deslop"
+        },
+        "tags": [
+          "category:design",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "design",
+          "design-system",
+          "anti-slop",
+          "accessibility"
+        ]
+      }
+    },
+    {
+      "id": "samber/cc-skills/skills/linkedin-ghostwriting",
+      "name": "linkedin-ghostwriting",
+      "skills.sh": {
+        "url": "https://skills.sh/samber/cc-skills/linkedin-ghostwriting",
+        "installs": 5700,
+        "weeklyInstalls": [34, 80, 180, 396, 580, 716, 793, 643],
+        "firstSeen": "2026-03-22"
+      },
+      "skillMd": {
+        "version": "50a33836b20f690c668af557bd9ef9d07a8c7ef2",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Interviews you for numbers, a method and a counter-intuitive insight, then writes a results-first B2B LinkedIn post around the hook you pick.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a LinkedIn post for yourself, a founder or an executive from a story, a result or an insight"
+            },
+            {
+              "label": "It does",
+              "text": "asks 8 to 14 questions at once, proposes 3 to 5 hooks with nothing else, waits for your pick, then writes the body"
+            },
+            {
+              "label": "You get",
+              "text": "a phone-friendly post with short paragraphs, bullets, a directive call to action and unicode bold that pastes into LinkedIn"
+            },
+            {
+              "label": "Won't write",
+              "text": "until it has at least one metric, one counter-intuitive insight, a 2 to 3 step method and a call to action"
+            },
+            {
+              "label": "Unlike substack-ghostwriting",
+              "text": "from the same repo, which writes newsletter issues, this one writes feed posts"
+            }
+          ],
+          "text": "Written as a B2B ghostwriter that puts results and authority before vanity metrics. The interview covers the audience and starting situation, the post's goal and offer, before-and-after numbers with a timeframe and what can be claimed publicly, the method in three steps, the market belief you contradict, and credibility: what it cost you, a specific moment, social proof. Hooks come from frameworks in a reference file, reveal the result but hold back the how, and avoid rhetorical questions and vague promises. The body opens with a re-hook, follows an and-but-therefore arc, adds new information at regular intervals, pulls one psychological lever and ends on a clear call to action rather than an open question. It cuts filler words, prefers active voice, keeps paragraphs to two lines on a phone, and avoids clichés, emoji overuse and lists of three. Mental models such as the costly signal (\"I spent 40 hours…\") and posts meant to start conversations, not just collect impressions, shape the writing. Afterwards it runs a humanizer skill over the post, telling it to leave the hook intact.",
+          "permalink": "https://github.com/samber/cc-skills/tree/50a33836b20f690c668af557bd9ef9d07a8c7ef2/skills/linkedin-ghostwriting"
+        },
+        "tags": [
+          "category:marketing",
+          "category:writing",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:linkedin",
+          "social-media",
+          "copywriting",
+          "writing"
+        ]
+      }
+    },
+    {
+      "id": "samber/cc-skills/skills/copywriting-tone-of-voice-creator",
+      "name": "copywriting-tone-of-voice-creator",
+      "skills.sh": {
+        "url": "https://skills.sh/samber/cc-skills/copywriting-tone-of-voice-creator",
+        "installs": 5700,
+        "weeklyInstalls": [48, 69, 189, 390, 564, 698, 756, 623],
+        "firstSeen": "2026-05-23"
+      },
+      "skillMd": {
+        "version": "50a33836b20f690c668af557bd9ef9d07a8c7ef2",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Interviews you about a brand and writes TONE.md, a voice guide with attributes, tone matrix, word lists and channel rules.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're defining or refreshing a brand voice, porting it to a new channel, or setting up many writers or bots to sound alike"
+            },
+            {
+              "label": "It does",
+              "text": "asks batched discovery questions, researches unfamiliar categories with a subagent, defines the voice, writes TONE.md and checks it"
+            },
+            {
+              "label": "You get",
+              "text": "TONE.md with 3 to 5 \"X but never Y\" voice attributes, a situation-by-channel tone matrix, preferred and banned words, mechanics and channel rules"
+            },
+            {
+              "label": "Two modes",
+              "text": "Create builds the guide from scratch; Adapt adds one channel to an existing TONE.md or forks a TONE-<channel>.md"
+            },
+            {
+              "label": "Feeds",
+              "text": "copywriting-prose-creator, from the same repo, which reads TONE.md when building a prose style guide"
+            }
+          ],
+          "text": "It treats voice as a brand's fixed personality and tone as how that voice shifts by channel, audience and situation, and calls mixing them up the most common failure. Create mode reads a SOUL.md brand identity file if there is one, then asks four batches through the question tool: basics (category, markets, goal), audience and channels, personality and references (archetype, brands to sound like and not like, the founder's part) and constraints (regulation, taboos, localisation). Categories it doesn't cover, such as politics, healthcare or crypto, get a research subagent first. It places the voice on Nielsen Norman Group's four tone dimensions, clearly off-centre on at least three, and writes each attribute with a definition, three do's, three don'ts, an example and an anti-example from the brand's own content. The tone matrix gives a dominant tone and prohibited ones for situations such as a launch, crisis, complaint or layoffs on each channel. Before finalising, it checks the attribute count, the anti-examples, a non-empty banned-word list, one section per channel and that the do's are concrete. Adapt mode keeps the attributes and changes only tone for the new channel.",
+          "permalink": "https://github.com/samber/cc-skills/tree/50a33836b20f690c668af557bd9ef9d07a8c7ef2/skills/copywriting-tone-of-voice-creator"
+        },
+        "tags": [
+          "category:marketing",
+          "category:writing",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "copywriting",
+          "writing",
+          "marketing"
+        ]
+      }
+    },
+    {
+      "id": "samber/cc-skills/skills/humaniseur-fr",
+      "name": "humaniseur-fr",
+      "skills.sh": {
+        "url": "https://skills.sh/samber/cc-skills/humaniseur-fr",
+        "installs": 5600,
+        "weeklyInstalls": [33, 97, 187, 403, 579, 752, 816, 641],
+        "firstSeen": "2026-04-10"
+      },
+      "skillMd": {
+        "version": "50a33836b20f690c668af557bd9ef9d07a8c7ef2",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Rewrites French text that reads as AI-generated, removing 38 patterns from stock vocabulary to anglicisms, at the register you need.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a French draft sounds like ChatGPT or Claude: \"crucial\", \"notamment\", \"dans un monde où\", em dashes, sentences all the same length"
+            },
+            {
+              "label": "It does",
+              "text": "asks the target register if unclear, scans for 38 patterns, rewrites, then asks itself what still sounds generated and revises"
+            },
+            {
+              "label": "You get",
+              "text": "a draft rewrite, a short list of remaining tells, the final version and a summary of the patterns removed"
+            },
+            {
+              "label": "Keeps",
+              "text": "the meaning and the register: formal French stays formal, since formulaic, not formal, is the problem"
+            },
+            {
+              "label": "Unlike blader's humanizer",
+              "text": "which it suggests for English prose, it targets French tells such as anglicisms, guillemets and spacing before punctuation"
+            }
+          ],
+          "text": "Its instructions are in English; its patterns, examples and replacements are French. Content patterns include inflated significance, name-dropped media coverage, tacked-on -ant participles, promotional language, vague attributions and the challenges-then-optimism section. Language patterns include a table of overused words (crucial, également, défi, holistique…) with what to use instead, \"constitue\" or \"dispose de\" where plain être or avoir would do, and anglicisms from English-first models, such as \"faire du sens\". Formulaic openers and closers go, along with chatbot leftovers, servile tone, filler and hedging. Structural patterns go deeper: intros that announce and conclusions that recap, sections that could swap places, every claim balanced, no dated or named detail, nothing left open. Removing patterns isn't enough, it says, so it also adds voice: opinions, \"je\", irony, admitted ignorance, a rare word, and, where the register allows, slang and regionalisms from France, Belgium, Québec or Switzerland, dropped \"ne\" and everyday abbreviations. It applies its rules about 80% of the time on purpose, since text that dodges every tell is uniform in its own way, and treats three tells together in one passage as the signal. Run it once: repeated passes flatten the voice again.",
+          "permalink": "https://github.com/samber/cc-skills/tree/50a33836b20f690c668af557bd9ef9d07a8c7ef2/skills/humaniseur-fr"
+        },
+        "tags": [
+          "category:writing",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "anti-slop",
+          "writing"
+        ]
+      }
+    },
+    {
+      "id": "samber/cc-skills/skills/deep-research",
+      "name": "deep-research",
+      "skills.sh": {
+        "url": "https://skills.sh/samber/cc-skills/deep-research",
+        "installs": 5600,
+        "weeklyInstalls": [24, 55, 195, 400, 588, 750, 817, 647],
+        "firstSeen": "2026-04-13"
+      },
+      "skillMd": {
+        "version": "50a33836b20f690c668af557bd9ef9d07a8c7ef2",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Researches a topic with 3 to 20 parallel subagents and writes a cited Markdown report with confidence levels, source tiers and ranked recommendations.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need a sourced report, not a quick answer: a market, competitor, technology, literature, legal, funding or trend landscape"
+            },
+            {
+              "label": "It does",
+              "text": "scopes the question, fans out 3 to 20 search subagents per step, appends findings as they land, synthesises, then has a subagent write the report"
+            },
+            {
+              "label": "You get",
+              "text": "./research/{date}-{type}-{topic}.md with a folder of per-axis notes, and a PDF through pandoc or md-to-pdf if you ask"
+            },
+            {
+              "label": "Rules",
+              "text": "every claim cites a URL, critical claims need two independent sources or get low confidence, conflicts are reported and gaps stated"
+            },
+            {
+              "label": "Depths",
+              "text": "quick, standard (the default) and deep, which adds an outline revision and a red-team critique"
+            },
+            {
+              "label": "Needs",
+              "text": "web search and subagents; with no web access it stops and tells you"
+            }
+          ],
+          "text": "It covers eleven research types, each with its own reference file of axes: market, domain, technical, competitive, product, academic, person or organisation, financial, legal, trend and community. A well-scoped prompt gets its assumptions stated in the report header and no interview; a vague one (\"research blockchain\") gets asked the type, the questions to answer and any constraints. It first checks ./research/ for earlier reports and asks whether to extend, update or start fresh. Subagents get a fixed prompt: research one axis, fetch the sources, write prose rather than bullets, tag each source as primary, established or low tier, and give each claim a high, medium or low confidence. Findings go into the report after each step, not at the end. Synthesis gives five key findings, three to five recommendations ranked by impact, risks and uncertainties, and next steps, with inference labelled as such. MCP connectors you have, such as arXiv, Reddit, Notion or Gmail, can feed the subagents too.",
+          "permalink": "https://github.com/samber/cc-skills/tree/50a33836b20f690c668af557bd9ef9d07a8c7ef2/skills/deep-research"
+        },
+        "tags": [
+          "category:writing",
+          "category:browser",
+          "type:workflow",
+          "effect:local",
+          "needs:subagents",
+          "by:community",
+          "research",
+          "web-search",
+          "multi-agent",
+          "writing"
+        ]
+      }
+    },
+    {
+      "id": "samber/cc-skills/skills/technical-article-writer",
+      "name": "technical-article-writer",
+      "skills.sh": {
+        "url": "https://skills.sh/samber/cc-skills/technical-article-writer",
+        "installs": 5500,
+        "weeklyInstalls": [22, 47, 179, 399, 572, 727, 775, 637],
+        "firstSeen": "2026-03-24"
+      },
+      "skillMd": {
+        "version": "50a33836b20f690c668af557bd9ef9d07a8c7ef2",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Turns a technical topic into a developer blog post: interview, ten titles, a hook and CTA from sibling skills, then the draft.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to write a tutorial, explainer, benchmark, bug hunt, postmortem or \"we rewrote it in X\" post for developers"
+            },
+            {
+              "label": "It does",
+              "text": "interviews you, proposes 10 titles, gets the hook from copywriting-hooks, drafts the body, gets the CTA from copywriting-cta, then humanizes the draft"
+            },
+            {
+              "label": "You get",
+              "text": "a Markdown article with title, subtitle, body, end CTA, 1 to 3 image ideas with optional Midjourney prompts, and runner-up titles"
+            },
+            {
+              "label": "Won't draft",
+              "text": "before you've confirmed the topic, one objective, the audience, content type, length and a one-sentence thesis"
+            },
+            {
+              "label": "Unlike substack-ghostwriting",
+              "text": "from the same repo, which writes Substack newsletter issues and posts, this one writes standalone blog, dev.to or Medium posts"
+            }
+          ],
+          "text": "The interview asks the objective from ten options, from newsletter growth and authority to signups, leads, demos or none, and pushes back on picking several, since the objective is passed to the CTA step. Ideas are tested against Julia Evans's advice to write what you struggled with and Julian Shapiro's novelty filters: counter-intuitive, counter-narrative, shock and awe, elegant articulation, makes you feel seen. Titles are 7 to 12 words, specific rather than clever, without superlatives, ranked with a note on each. Around the chosen hook it writes the stakes and a promise, answering why trust you, why care and will it deliver. Body rules: one idea per section, show then tell, start simple, snippets under 20 lines with a before and after, steelman the other side, quantify claims. The conclusion gives an implication, an open question or a next step rather than a recap. A humanizer pass leaves the title and hook untouched, and titles are revisited once the draft exists. Templates for each content type live in a reference file.",
+          "permalink": "https://github.com/samber/cc-skills/tree/50a33836b20f690c668af557bd9ef9d07a8c7ef2/skills/technical-article-writer"
+        },
+        "tags": [
+          "category:writing",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "writing",
+          "copywriting"
+        ]
+      }
+    },
+    {
+      "id": "samber/cc-skills/skills/copywriting-cta",
+      "name": "copywriting-cta",
+      "skills.sh": {
+        "url": "https://skills.sh/samber/cc-skills/copywriting-cta",
+        "installs": 5500,
+        "weeklyInstalls": [26, 56, 180, 389, 547, 692, 766, 616],
+        "firstSeen": "2026-05-20"
+      },
+      "skillMd": {
+        "version": "50a33836b20f690c668af557bd9ef9d07a8c7ef2",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Interviews you on context, goal, audience and funnel stage, then prescribes an end-of-article CTA: copy, layout, mechanism, an A/B test plan and accessibility checks.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're deciding what goes at the bottom of a blog post, newsletter or essay to win subscribers, leads, customers or supporters"
+            },
+            {
+              "label": "It does",
+              "text": "asks up to five tappable questions one at a time, maps the answers to one of 11 CTA archetypes, then writes the recommendation in a fixed format"
+            },
+            {
+              "label": "You get",
+              "text": "exact headline, body and button copy, placement and visual weight, any persuasion lever such as urgency or social proof, A/B tests, accessibility checks and 2 to 3 traps"
+            },
+            {
+              "label": "Pushes back",
+              "text": "on several competing goals, and on asks that will fail, such as \"Book a Demo\" under a beginner tutorial"
+            },
+            {
+              "label": "Not for",
+              "text": "hooks or titles, which go to copywriting-hooks, nor landing pages, ads or email copy"
+            }
+          ],
+          "text": "Its premise is that a CTA follows from three inputs: the objective, the audience and their relationship with the author, and the context (an independent blog, a newsletter publication or a brand's content blog). The interview asks those plus the funnel stage, and a mechanism preference (urgency, scarcity, reciprocity, social proof) only when one could help; skeptical or repeat readers get a plain value statement by default. A decision tree maps the answers to archetypes such as an author-signature subscribe line, a specific reply prompt, a value-gap tease for paid newsletters, or a lead magnet for early-stage brand readers. The recommendation covers the copy, the form (placement, visual weight, layout, proof to put beside it), the mechanism, an A/B plan with a rough sample size or advice to skip testing at low traffic, and accessibility: contrast, touch target, markup, keyboard focus and color independence. Copy comes in the article's language. It then offers to show the hard-sell version it advises against, adapt the CTA per platform, or audit the rest of the article. One primary CTA per post is its main rule.",
+          "permalink": "https://github.com/samber/cc-skills/tree/50a33836b20f690c668af557bd9ef9d07a8c7ef2/skills/copywriting-cta"
+        },
+        "tags": [
+          "category:marketing",
+          "category:writing",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "conversion",
+          "copywriting"
+        ]
+      }
+    },
+    {
+      "id": "samber/cc-skills/skills/conventional-git",
+      "name": "conventional-git",
+      "skills.sh": {
+        "url": "https://skills.sh/samber/cc-skills/conventional-git",
+        "installs": 5400,
+        "weeklyInstalls": [15, 47, 176, 391, 563, 742, 787, 620],
+        "firstSeen": "2026-03-22"
+      },
+      "skillMd": {
+        "version": "50a33836b20f690c668af557bd9ef9d07a8c7ef2",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Names branches, worktrees and commits by Conventional Commits, with type prefixes, issue numbers, 72-character subjects and issue-closing footers for GitHub and GitLab.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want the agent's branches and commits to follow Conventional Commits, so changelogs and version bumps can be generated from history"
+            },
+            {
+              "label": "Branches",
+              "text": "type/[issue-]description, lowercase with hyphens, under 50 characters, never containing \"worktree\""
+            },
+            {
+              "label": "Worktrees",
+              "text": "under .claude/worktrees/, named after the branch with / turned into -, reused when one exists and removed once merged"
+            },
+            {
+              "label": "Commits",
+              "text": "type(scope): description in the imperative, at most 72 characters, with ! or a BREAKING CHANGE footer for breaking changes"
+            },
+            {
+              "label": "No AI credit",
+              "text": "it tells the agent never to add a Claude signature or a Co-authored-by trailer for an AI agent"
+            }
+          ],
+          "text": "Branch types match commit types: feat, fix, docs, style, refactor, perf, test, build, ci, chore and revert, where feat bumps the minor version and fix the patch. The issue number goes in the branch name when there is one, so GitHub and GitLab link it. Before creating a worktree the agent runs git worktree list, and each worktree stays on one branch. Commit subjects take no capital letter or trailing period, a blank line separates the body, revert commits keep \"This reverts commit <hash>.\", and breaking changes are marked in the header or footer, since changelog tools miss body-only notes. Issue-closing keywords such as closes, fixes and resolves go in the footer and take effect once the commit reaches the default branch, with cross-repository forms for both hosts. A table of common mistakes and a few practices close it: align branch and commit types, keep one concern per branch, use one scope throughout a branch, and give the pull request a Conventional Commits title before a squash merge, since that title becomes the commit message.",
+          "permalink": "https://github.com/samber/cc-skills/tree/50a33836b20f690c668af557bd9ef9d07a8c7ef2/skills/conventional-git"
+        },
+        "tags": [
+          "category:engineering",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:git",
+          "git"
+        ]
+      }
+    },
+    {
+      "id": "samber/cc-skills/skills/site-launch-checklist",
+      "name": "site-launch-checklist",
+      "skills.sh": {
+        "url": "https://skills.sh/samber/cc-skills/site-launch-checklist",
+        "installs": 5400,
+        "weeklyInstalls": [15, 45, 188, 389, 574, 763, 808, 654],
+        "firstSeen": "2026-05-15"
+      },
+      "skillMd": {
+        "version": "50a33836b20f690c668af557bd9ef9d07a8c7ef2",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Walks a website through a pre-launch audit with dig and curl checks, from DNS, backups and security headers to SEO, Lighthouse and directory submissions.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're about to put a site or web app live, or migrate one, and want a full checklist run against it"
+            },
+            {
+              "label": "It does",
+              "text": "asks six setup questions, runs a launch-readiness gate, then walks each phase, running a check per item and asking whether to fix failures now or later"
+            },
+            {
+              "label": "You get",
+              "text": "a pass/fail report by phase, then lists of blockers, recommended fixes and optional improvements"
+            },
+            {
+              "label": "Opinionated for",
+              "text": "Cloudflare DNS, Vercel hosting, PostHog analytics, Google Workspace mail and French CNIL rules"
+            },
+            {
+              "label": "Pulls in",
+              "text": "a subset of six outside skill packs, such as claude-seo and web-quality-skills, installed only after you confirm"
+            },
+            {
+              "label": "Needs",
+              "text": "dig, curl, jq and npx; for browser checks, the Claude Chrome extension or Playwright, or you skip them"
+            }
+          ],
+          "text": "It first asks whether the product is simple, lovable and complete, and whether it's ready for directories: public, priced, with legal pages, assets and comparison pages. The phases then cover domain and hosting (proxy, TLS, SPF, DKIM and DMARC, CAA, DNSSEC, redirects, error pages) and backups with a restore drill; analytics, from GA4 behind consent to Search Console, Bing, Ahrefs, Google Alerts and F5bot, plus competitor analysis; French legal pages and a cookie banner that really blocks trackers; security headers at a CSP strictness you choose; SEO and GEO (getting cited in AI answers), with robots.txt and an AI-crawler policy, sitemaps, llms.txt, schema, hreflang, keyword research and alternative pages; Open Graph, favicons and the manifest; Lighthouse at 90 or more on mobile, Core Web Vitals and WCAG 2.2 AA; links from your other sites; an optional weekly SEO agent; directory submissions across 13 tiers; Product Hunt; G2 and Capterra reviews; and post-launch announcements. Marketing copy gets a TONE.md and a humanizer pass in the site's language. It asks at every decision point.",
+          "permalink": "https://github.com/samber/cc-skills/tree/50a33836b20f690c668af557bd9ef9d07a8c7ef2/skills/site-launch-checklist"
+        },
+        "tags": [
+          "category:cloud",
+          "category:marketing",
+          "type:workflow",
+          "effect:remote",
+          "needs:cli",
+          "needs:browser",
+          "needs:account",
+          "by:community",
+          "stack:cloudflare",
+          "stack:vercel",
+          "stack:posthog",
+          "deployment",
+          "seo",
+          "security",
+          "performance",
+          "accessibility"
+        ],
+        "note": "Opinionated for Cloudflare, Vercel, PostHog and French law. One PostHog option is the author's own proxy, hogpost.samber.dev, and a few steps assume the author's own spreadsheets and sites. It asks before installing any of the skill packs it suggests."
+      }
+    },
+    {
+      "id": "samber/cc-skills/skills/copywriting-prose-creator",
+      "name": "copywriting-prose-creator",
+      "skills.sh": {
+        "url": "https://skills.sh/samber/cc-skills/copywriting-prose-creator",
+        "installs": 5300,
+        "weeklyInstalls": [28, 59, 170, 382, 532, 703, 753, 600],
+        "firstSeen": "2026-05-23"
+      },
+      "skillMd": {
+        "version": "50a33836b20f690c668af557bd9ef9d07a8c7ef2",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Codifies how a brand or person writes, from lexicon and sentence length to rhythm and signature moves, into a PROSE.md guide.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a content team, ghostwriter or bot needs a house style so everyone writes like the brand"
+            },
+            {
+              "label": "It does",
+              "text": "interviews you, matches the brand to one of 11 category playbooks, then codifies lexicon, syntax, rhythm, structure and voice markers"
+            },
+            {
+              "label": "You get",
+              "text": "PROSE.md, a 20 to 60 page guide with punctuation and formatting policies, channel overrides, anti-LLM rules and before/after samples"
+            },
+            {
+              "label": "Three modes",
+              "text": "BUILD a new guide, ADAPT one to another channel group, or AUDIT a corpus into an AUDIT-MEMO.md of measured patterns"
+            },
+            {
+              "label": "Unlike copywriting-tone-of-voice-creator",
+              "text": "from the same repo, which sets emotional tone in TONE.md, this covers the measurable craft, and reads TONE.md when present"
+            }
+          ],
+          "text": "\"Tone is the music, prose is the score\", it says. BUILD looks for SOUL.md, TONE.md, an earlier PROSE.md and a content corpus; when tone is missing it offers to run the tone skill first or capture it inline, and when a corpus exists it offers an audit first. The interview covers mission, category posture, audience, author archetype, goals, channels and constraints. For categories outside its playbooks, such as healthcare or crypto, it calls the repo's deep-research skill. Every rule comes with a reason: a target mean sentence length and spread, a short sentence every 3 to 5, banned words checked against the corpus with grep, hook and closing types, rationed signature moves. Channels are four groups: long-form, social, email and marketing copy. Multilingual brands get one guide per language, with French-English false friends and length budgets. Anti-LLM rules list words such as delve and leverage, structures such as lists of three and \"In conclusion\", and formula phrases, with counts used as triage, not proof. An audit runs up to five subagents on corpora over 50 pieces and sorts patterns into signature, default, noise and liability.",
+          "permalink": "https://github.com/samber/cc-skills/tree/50a33836b20f690c668af557bd9ef9d07a8c7ef2/skills/copywriting-prose-creator"
+        },
+        "tags": [
+          "category:writing",
+          "category:marketing",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "writing",
+          "copywriting",
+          "anti-slop"
+        ]
+      }
+    },
+    {
+      "id": "samber/cc-skills/skills/influence-and-negotiation",
+      "name": "influence-and-negotiation",
+      "skills.sh": {
+        "url": "https://skills.sh/samber/cc-skills/influence-and-negotiation",
+        "installs": 5300,
+        "weeklyInstalls": [14, 51, 174, 389, 565, 723, 774, 612],
+        "firstSeen": "2026-04-30"
+      },
+      "skillMd": {
+        "version": "50a33836b20f690c668af557bd9ef9d07a8c7ef2",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Coaches you through a negotiation, from your mandate and the people involved to live replies and a debrief, for deals, raises and hires.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're preparing a sales deal, raise, collective bargaining round, hard 1:1, hiring close or cross-cultural deal, or they just said something and you need a reply"
+            },
+            {
+              "label": "It does",
+              "text": "maps the people, sets your walk-away and targets per issue, pre-writes anchors, concessions and questions, coaches live replies and runs a debrief"
+            },
+            {
+              "label": "You get",
+              "text": "a preparation plan, drafted replies and scripts built on calibrated questions, and a debrief naming what went wrong"
+            },
+            {
+              "label": "Keeps",
+              "text": "a negotiation-<slug>/ folder of Markdown notes on context, people, numbers, a log and strategy, so a later session resumes where you stopped"
+            },
+            {
+              "label": "Researches",
+              "text": "each named counterpart across LinkedIn, your CRM, Slack and open sources, and your alternatives, with parallel subagents"
+            },
+            {
+              "label": "Not for",
+              "text": "cold outreach, contract wording, crisis negotiation such as hostage cases, or personal and family conflicts"
+            }
+          ],
+          "text": "Its premise: most of the outcome is set before the meeting, you negotiate the underlying stake rather than the stated position, and the more emotionally invested side loses. Preparation asks one question at a time: stage, stakes, who's at the table, their last words verbatim, your authority and your walk-away, treating a vague answer as a gap to fix first. The mandate, which it calls a Mandascan, sets five points per issue (opening, ideal, target, escalation point, walk-away), with the walk-away sized from your best alternative (BATNA). Moves are written in advance: a non-round anchor, 3 or 4 concessions each traded for something, 5 or 6 \"what\" and \"how\" questions, labels that defuse objections, and a pre-mortem of the likeliest objection and the surprise move. Live, it classifies each \"no\" before answering, treats a stalled deal as indecision rather than a loss, and names manipulation patterns. Before any agreement the other side restates the terms. A debrief starts with how you feel, then five questions, while a background subagent checks for five closing mistakes. Drafted messages go through a humanizer that keeps the questions verbatim, and figures stay out of anything the other side sees.",
+          "permalink": "https://github.com/samber/cc-skills/tree/50a33836b20f690c668af557bd9ef9d07a8c7ef2/skills/influence-and-negotiation"
+        },
+        "tags": [
+          "category:marketing",
+          "category:writing",
+          "type:workflow",
+          "effect:local",
+          "needs:subagents",
+          "by:community",
+          "research",
+          "writing",
+          "flag:dual-use"
+        ],
+        "note": "Its preparation sends subagents to profile each named counterpart across LinkedIn, the web and any CRM, Slack or email you've connected, ruling out pretexting and paid non-public data. It saves the deal's notes, including your walk-away numbers, to a negotiation-<slug>/ folder without asking."
+      }
+    },
+    {
+      "id": "samber/cc-skills/skills/press-release-writer",
+      "name": "press-release-writer",
+      "skills.sh": {
+        "url": "https://skills.sh/samber/cc-skills/press-release-writer",
+        "installs": 5200,
+        "weeklyInstalls": [15, 56, 166, 370, 545, 703, 755, 590],
+        "firstSeen": "2026-03-27"
+      },
+      "skillMd": {
+        "version": "50a33836b20f690c668af557bd9ef9d07a8c7ef2",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes a news-first press release in inverted-pyramid form, after finding the angle and offering 5 to 10 headlines, with regional conventions and quality checks.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need to announce a launch, funding round, partnership, crisis, hire, event, acquisition or open-source milestone to the press"
+            },
+            {
+              "label": "It does",
+              "text": "gathers ten facts, states the news angle in one sentence, proposes 5 to 10 labelled headlines, then drafts and checks the release"
+            },
+            {
+              "label": "You get",
+              "text": "the release in your target language with a note on the angle, then offers of a send plan, a journalist pitch email and social teasers"
+            },
+            {
+              "label": "Checks",
+              "text": "a 25 to 35 word lead answering who, what, when, where, why and how, 300 to 500 words, third person, \"said\", no \"thrilled\" or \"cutting-edge\""
+            }
+          ],
+          "text": "It treats a press release as a news document, not an ad: when the angle is weak, it says so and suggests how to strengthen it. The facts it needs are the news, the release type, target outlets, region, media format, company details, spokespeople, supporting data, any embargo and the language. The angle is tested against news values: impact, timeliness, prominence, novelty and proximity. Reference files supply a template per release type, regional conventions such as style guide, dateline, regulations and send times, adaptations for print, wire, broadcast, social or trade press, and a journalist-pitch guide. The structure is fixed: release designation or embargo, a sentence-case headline, an optional subheadline, the dateline and lead, body paragraphs with an executive quote that adds insight rather than enthusiasm, an optional third-party quote, a factual boilerplate under 100 words, a media contact and an end mark. A humanizer skill then cleans the prose but leaves the headline and lead alone. Its next steps include advice on building a journalist list and the best day and time to send.",
+          "permalink": "https://github.com/samber/cc-skills/tree/50a33836b20f690c668af557bd9ef9d07a8c7ef2/skills/press-release-writer"
+        },
+        "tags": [
+          "category:marketing",
+          "category:writing",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "writing",
+          "marketing",
+          "copywriting"
+        ]
+      }
+    },
+    {
+      "id": "samber/cc-skills/skills/substack-ghostwriting",
+      "name": "substack-ghostwriting",
+      "skills.sh": {
+        "url": "https://skills.sh/samber/cc-skills/substack-ghostwriting",
+        "installs": 5200,
+        "weeklyInstalls": [13, 45, 167, 377, 547, 693, 735, 594],
+        "firstSeen": "2026-03-24"
+      },
+      "skillMd": {
+        "version": "50a33836b20f690c668af557bd9ef9d07a8c7ef2",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes Substack newsletter issues and web posts in your voice or a client's, with titles and hooks to pick and growth prompts.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're writing a newsletter issue or essay, ghostwriting one in someone's voice, or turning a blog post, talk or thread into one"
+            },
+            {
+              "label": "It does",
+              "text": "matches the voice, interviews you, offers 5 titles and 3 hooks to pick from, writes the piece, adds growth elements, then humanizes it"
+            },
+            {
+              "label": "You get",
+              "text": "the piece in Markdown with a subject line and preview text, or SEO title, description and slug, plus image ideas and a Notes teaser"
+            },
+            {
+              "label": "Two choices",
+              "text": "your voice or ghostwriting, and an email-first issue or a web-first post, each with its own formatting rules"
+            },
+            {
+              "label": "Unlike technical-article-writer",
+              "text": "from the same repo, which writes blog posts without a newsletter, it plans for Substack's feed, Notes and subscriptions"
+            }
+          ],
+          "text": "It treats Substack as a newsletter crossed with a social network whose algorithm rewards subscriptions, not engagement. In your own voice, it reads recent posts from your Substack if you share the URL and sums up your voice in 5 to 7 points for you to confirm; ghostwriting first builds a voice guide of 10 to 15 markers from the person's transcripts and writing. The interview asks topic, format, audience, objective, series context and length, and waits for answers. Issues get paragraphs of 2 or 3 sentences, code under 10 lines and a TL;DR past 1,500 words; web posts allow longer paragraphs and code, more images and a table of contents past 2,000 words. Growth elements are a genuine reply question, a specific share prompt, recommendation cross-references and a standalone version for Substack Notes. With a paid tier, it advises keeping the best work free, and everything free under 1,000 subscribers. A humanizer pass leaves the title and hook intact. LinkedIn and X promotion posts and Midjourney prompts come only if you accept them.",
+          "permalink": "https://github.com/samber/cc-skills/tree/50a33836b20f690c668af557bd9ef9d07a8c7ef2/skills/substack-ghostwriting"
+        },
+        "tags": [
+          "category:marketing",
+          "category:writing",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:substack",
+          "writing",
+          "email",
+          "copywriting",
+          "social-media"
+        ]
+      }
+    },
+    {
+      "id": "samber/cc-skills/skills/skill-progressive-disclosure-design",
+      "name": "skill-progressive-disclosure-design",
+      "skills.sh": {
+        "url": "https://skills.sh/samber/cc-skills/skill-progressive-disclosure-design",
+        "installs": 5000,
+        "weeklyInstalls": [27, 56, 156, 353, 528, 678, 726, 583],
+        "firstSeen": "2026-05-02"
+      },
+      "skillMd": {
+        "version": "50a33836b20f690c668af557bd9ef9d07a8c7ef2",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Decides whether and how to split a skill between SKILL.md and reference files, weighing each option and measuring the split with evals.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're writing or refactoring a skill and unsure what belongs in SKILL.md, references/ or scripts/, or a SKILL.md passes 300 to 400 lines"
+            },
+            {
+              "label": "It does",
+              "text": "separates triggering (the description) from disclosure (what loads later), defaults to not splitting, and weighs the pros and cons of each split"
+            },
+            {
+              "label": "You get",
+              "text": "advice on your skill: a diagnosis, the content quoted, the smallest split and the exact pointer sentence for each new reference file"
+            },
+            {
+              "label": "Measures",
+              "text": "with architecture evals that record which reference files load, how often, and whether the output uses them"
+            }
+          ],
+          "text": "Triggering depends only on the frontmatter description, it says, so splitting files never fixes a skill that doesn't fire; that needs a better description, with skill-creator's run_loop.py. One SKILL.md wins until it passes about 400 lines with natural branches, transcripts show wasted context, or large content is needed only in narrow cases. Three splits work: one reference per variant, such as a cloud or framework; the procedure in SKILL.md with lookup data in references; and the common path in SKILL.md with edge cases behind a sharp trigger. Four don't: topic splits that real tasks cross, splits made to hit a line count, critical content moved where it may be skipped, and cosmetic Examples or Tips files. A pointer names the signal that loads its file, in one sentence, with the condition in the filename. Deterministic work belongs in scripts. A five-question checklist ends on load rate: under 20% inline it, 20 to 80% keep it split, over 80% move it into SKILL.md. For evals, subagents run queries covering every path and record loads, tokens and time, and a decision table turns the rates into actions.",
+          "permalink": "https://github.com/samber/cc-skills/tree/50a33836b20f690c668af557bd9ef9d07a8c7ef2/skills/skill-progressive-disclosure-design"
+        },
+        "tags": [
+          "category:skill-tools",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "skill-authoring",
+          "token-saving"
+        ]
+      }
+    },
+    {
+      "id": "samber/cc-skills/skills/training-report",
+      "name": "training-report",
+      "skills.sh": {
+        "url": "https://skills.sh/samber/cc-skills/training-report",
+        "installs": 5000,
+        "weeklyInstalls": [12, 42, 165, 374, 531, 668, 726, 584],
+        "firstSeen": "2026-04-13"
+      },
+      "skillMd": {
+        "version": "50a33836b20f690c668af557bd9ef9d07a8c7ef2",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Interviews a trainer about a session and writes a training or workshop report in Markdown, then a Word file once approved.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you ran a training, workshop or onboarding session and need to report on it to management, HR or a client"
+            },
+            {
+              "label": "It does",
+              "text": "asks the language and reader, takes your .docx template if any, interviews you in batches, drafts in Markdown, iterates, then builds the .docx once"
+            },
+            {
+              "label": "You get",
+              "text": "a .md and a .docx covering context, starting levels, a step-by-step walkthrough, recommendations and next steps, plus optional sections"
+            },
+            {
+              "label": "Needs",
+              "text": "Anthropic's docx skill for the Word file; a humanizer skill for the report's language is recommended, with built-in rules as a fallback"
+            },
+            {
+              "label": "Voice-ready",
+              "text": "it expects transcription errors and asks when a name or answer is unclear"
+            }
+          ],
+          "text": "It works for any discipline, from coding workshops to safety training. Before asking anything it checks that the docx skill is installed and, if not, warns you and offers to start on the Markdown draft. The interview covers the session's details, goal and materials, the group's starting levels, each step (objective, what people did, how it landed), anything participants produced, general observations, feedback on individuals, recommendations, annexes and a closing note with your contact details. With survey data it first summarises the score, distribution and top themes for you to confirm. Optional sections appear only when you give content for them, and feedback on people describes behaviour, not character. Recommendations are kept to a few sharp ones and always include pacing. It confirms the outline before drafting, never shows an unhumanized draft, keeps one Markdown file as the source, and rebuilds the .docx from scratch after any later change. Images are embedded and other files referenced. Without a template or brand color, the document uses blue.",
+          "permalink": "https://github.com/samber/cc-skills/tree/50a33836b20f690c668af557bd9ef9d07a8c7ef2/skills/training-report"
+        },
+        "tags": [
+          "category:writing",
+          "category:documents",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "stack:microsoft-office",
+          "documents",
+          "writing",
+          "interview"
+        ],
+        "note": "Needs Anthropic's docx skill to produce the Word file; without it you only get the Markdown draft."
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/documentation-standards/skills/hads",
+      "name": "hads",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/hads",
+        "installs": 6900,
+        "weeklyInstalls": [164, 179, 211, 264, 205, 177, 174, 160],
+        "firstSeen": "2026-04-08"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes, converts and checks docs in HADS, a Markdown convention tagging each block as fact, context, bug or unverified for AI readers.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're writing technical docs that both people and AI models will read, or converting a README to that form"
+            },
+            {
+              "label": "It does",
+              "text": "writes or converts docs in HADS (Human-AI Document Standard), checks a document against its rules, or reads one by its tags"
+            },
+            {
+              "label": "You get",
+              "text": "plain Markdown with a version line, an \"AI reading instruction\" section, numbered sections and tagged blocks"
+            },
+            {
+              "label": "Tags",
+              "text": "[SPEC] terse facts, [NOTE] human context an AI may skip, [BUG] symptom, cause and fix, [?] unverified claims"
+            },
+            {
+              "label": "No validator",
+              "text": "the agent checks documents itself; a validator is planned but not included"
+            }
+          ],
+          "text": "HADS 1.0.0 is a convention for Markdown documentation that needs no tooling. Every document starts with an H1 title, a bold version number in its first 20 lines, and a short manifest telling an AI model to read SPEC and BUG blocks, read NOTE only if needed and treat [?] with lower confidence. Tags are bold, on their own line, with the content right after and no nesting. SPEC blocks prefer bullets, tables and code, with at most two sentences of prose; anything longer moves to a NOTE. BUG blocks carry a symptom, cause and fix, optionally affected versions or a workaround. Reading a HADS document, the agent reads the manifest, then every SPEC and BUG block, and NOTE only when SPEC isn't enough; for large documents it scans the headings first. Converting existing docs moves facts to SPEC, history to NOTE and known issues to BUG without duplicating anything. Generated documents end with a changelog. Its design note says the manifest is the key idea: it lets even small models know what to skip.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/documentation-standards/skills/hads"
+        },
+        "tags": [
+          "category:writing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "docs-writing",
+          "token-saving"
+        ]
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/block-no-verify/skills/block-no-verify-hook",
+      "name": "block-no-verify-hook",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/block-no-verify-hook",
+        "installs": 6800,
+        "weeklyInstalls": [166, 178, 213, 268, 214, 175, 177, 163],
+        "firstSeen": "2026-04-08"
+      },
+      "skillMd": {
+        "version": "4bde3168b43c0655c4d00ea2726e631719908a6d",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Adds a Claude Code hook that blocks git commands using --no-verify, --no-gpg-sign or -n, so agents can't skip pre-commit hooks or commit signing.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "your project relies on pre-commit hooks or signed commits and you don't want an agent bypassing them"
+            },
+            {
+              "label": "It does",
+              "text": "adds a PreToolUse hook on Bash that searches the command and rejects it with exit code 2 when it finds a bypass flag"
+            },
+            {
+              "label": "You get",
+              "text": "a hook entry in .claude/settings.json for the project, or ~/.claude/settings.json for all projects"
+            },
+            {
+              "label": "Watch out",
+              "text": "its setup commands overwrite settings.json, so anything already in it is lost; if you have one, add the hook to it by hand instead"
+            },
+            {
+              "label": "Catches",
+              "text": "--no-verify, --no-gpg-sign and the shorter prefixes git accepts, plus -n after commit, even behind sudo or if"
+            },
+            {
+              "label": "Unlike git-guardrails-claude-code",
+              "text": "Matt Pocock's skill, which stops push, reset --hard and other destructive commands, this blocks only flags that skip hooks or signing"
+            }
+          ],
+          "text": "Agents sometimes reach for --no-verify when a pre-commit hook fails, letting unformatted, unlinted or untested code through. The hook is one shell command in settings: it reads the tool call's JSON from stdin, searches only its command field, and needs neither jq nor node. A false match, such as a commit message that mentions a flag, blocks the call, which it calls the safe way to fail. It says plainly what it can't stop: an agent set on evading it, by building the flag from pieces or pointing core.hooksPath at /dev/null. It shows how to extend the pattern, for example to block git --force, and how to run it alongside other PreToolUse hooks, such as one blocking rm -rf /. Its best practices: commit the settings file so the whole team gets the hook, mention it in onboarding, pair it with pre-commit hooks worth running, and test it with a deliberate --no-verify commit.",
+          "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/block-no-verify/skills/block-no-verify-hook"
+        },
+        "tags": [
+          "category:engineering",
+          "category:security",
+          "type:setup",
+          "effect:local",
+          "needs:claude-code",
+          "by:community",
+          "stack:git",
+          "guardrails",
+          "git"
+        ],
+        "note": "Its install commands write .claude/settings.json, or ~/.claude/settings.json for every project, with cat >, replacing any settings already in the file; merge the hook into an existing file by hand instead."
       }
     }
   ]
