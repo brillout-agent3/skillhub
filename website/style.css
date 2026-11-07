@@ -340,12 +340,16 @@ code {
   border: 1px solid var(--border-strong);
   border-radius: 12px;
   background: var(--surface);
+  /* A faint inner shadow, as text boxes have: type here. */
+  box-shadow: inset 0 1px 2px rgb(0 0 0 / 0.07);
   cursor: text;
 }
 
 .search-field:focus-within {
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px var(--accent-soft);
+  box-shadow:
+    inset 0 1px 2px rgb(0 0 0 / 0.07),
+    0 0 0 3px var(--accent-soft);
 }
 
 .search-icon {
@@ -378,6 +382,7 @@ code {
   background: none;
   color: var(--text);
   font-size: 16px;
+  text-overflow: ellipsis;
 }
 
 /* The field shows the focus instead. */
@@ -396,12 +401,15 @@ code {
   border: 1px solid var(--border-strong);
   border-radius: 12px;
   background: var(--surface);
+  box-shadow: inset 0 1px 2px rgb(0 0 0 / 0.07);
   cursor: text;
 }
 
 .agent-field:focus-within {
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px var(--accent-soft);
+  box-shadow:
+    inset 0 1px 2px rgb(0 0 0 / 0.07),
+    0 0 0 3px var(--accent-soft);
 }
 
 .ask-icon {
@@ -419,6 +427,7 @@ code {
   background: none;
   color: var(--text);
   font-size: 16px;
+  text-overflow: ellipsis;
 }
 
 /* The box shows the focus instead. */
