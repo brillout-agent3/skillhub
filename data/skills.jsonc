@@ -4790,6 +4790,10 @@
               "text": "Markdown files under one output folder, such as briefs, PRDs, UX specs, an architecture spine, plans and research reports, plus local commits"
             },
             {
+              "label": "For your own skills",
+              "text": "Smithy (bmad-toolsmith) builds, reviews and slims skills, agents and modules in BMad's format; bmad-eval tests them against the bare model, a rubric or trigger queries"
+            },
+            {
               "label": "Needs",
               "text": "uv for BMad's scripts, Node.js for npx, and subagents for builds and reviews"
             },
@@ -4798,7 +4802,7 @@
               "text": "the default branch is v7, a preview alpha that changes often; the stable v6.12 installs separately, with npx bmad-method install"
             }
           ],
-          "text": "BMad Method keeps every decision explicit and carries it forward as files. After installing, ask the bmad skill to run setup: it creates the _bmad/ folder whose scripts the other skills run, and later answers what to run next. Work is grouped into initiatives, each a ticket tree: the initiative, its epics and their stories. A small change goes straight to bmad-build, which plans, implements, has a subagent review the diff and commits locally; bmad-build-auto does the same unattended. Bigger work gets planning first. bmad-brainstorming, bmad-forge-idea, bmad-deep-recon and bmad-prfaq explore and test ideas; John (bmad-agent-pm) coaches PRDs and other product documents; bmad-ux writes DESIGN.md and EXPERIENCE.md; bmad-architecture records the decisions separately built parts must share. Sofia (bmad-agent-po), who turns those documents into an initiative's requirements, epics and stories, comes with the full install but isn't listed here. Mary, Sally, Winston and Amelia are personas that stay on and run these skills from a menu. After a build, bmad-code-review, bmad-walkthrough and bmad-qa-generate-e2e-tests check it; bmad-retrospective then judges each finished epic by its own criteria. bmad-party-mode, bmad-advanced-elicitation and bmad-review bring other views to a draft or a change, bmad-project-context keeps AGENTS.md's agent rules verified, and bmad-customize changes a skill through override files.",
+          "text": "BMad Method carries every decision forward as files. The bmad skill's setup creates the _bmad/ folder whose scripts the other skills run, and bmad later answers what to run next. Work is grouped into initiatives, each a ticket tree: the initiative, its epics and their stories. A small change goes straight to bmad-build, which plans, implements, has a subagent review the diff and commits locally; bmad-build-auto does the same unattended. Bigger work gets planning first. bmad-brainstorming, bmad-forge-idea, bmad-deep-recon and bmad-prfaq explore and test ideas; John (bmad-agent-pm) coaches PRDs and other product documents; bmad-ux writes DESIGN.md and EXPERIENCE.md; bmad-architecture records the decisions separately built parts must share. Sofia (bmad-agent-po), in the full install but not listed here, turns those documents into an initiative's requirements, epics and stories. Mary, Sally, Winston and Amelia are personas that stay on and run these skills from a menu. After a build, bmad-code-review, bmad-walkthrough and bmad-qa-generate-e2e-tests check it; bmad-retrospective then judges each finished epic by its own criteria. bmad-party-mode, bmad-advanced-elicitation and bmad-review bring other views to a draft or a change, bmad-project-context keeps AGENTS.md's agent rules verified, and bmad-customize changes a skill through override files. Smithy (bmad-toolsmith) builds your own skills, and bmad-eval measures them.",
           "permalink": "https://github.com/bmad-code-org/bmad-method/tree/e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6"
         },
         "skills": [
@@ -4915,11 +4919,20 @@
             "id": "bmad-code-org/bmad-method/skills/bmad-customize",
             "standalone": false,
             "note": "Only writes overrides for installed BMad skills, into the _bmad/ folder that the bmad skill's setup creates."
+          },
+          {
+            "id": "bmad-code-org/bmad-method/skills/bmad-toolsmith",
+            "standalone": false,
+            "note": "Needs the _bmad/ folder that the bmad skill's setup creates, whose scripts load its settings and check modules, and offers that setup when it's missing; its evals run through bmad-eval."
+          },
+          {
+            "id": "bmad-code-org/bmad-method/skills/bmad-eval",
+            "standalone": true
           }
         ],
         "install": [
           {
-            "label": "Any agent, with the skills CLI, plus the repo's 13 other skills, among them Sofia (bmad-agent-po), bmad-facilitate and the module records setup needs",
+            "label": "Any agent, with the skills CLI, plus the repo's 10 other skills, among them Sofia (bmad-agent-po), bmad-facilitate and the module records setup needs",
             "command": "npx skills add bmad-code-org/BMAD-METHOD --skill '*'"
           }
         ]
@@ -6588,6 +6601,77 @@
           {
             "label": "GitHub Copilot CLI plugin, with the repo's 18 other skills",
             "command": "/plugin install https://github.com/samber/cc-skills"
+          }
+        ]
+      }
+    },
+    {
+      "id": "amelnagdy/delegate-skills",
+      "skew": 0,
+      "agentReview": {
+        "name": "Delegate skills",
+        "description": "Hands coding tasks to implementer CLIs such as Codex, OpenCode, Claude Code or Antigravity, directly or by lane, while your agent reviews the diff and commits.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want other coding CLIs to write the code while your main agent stays the reviewer and keeps the commit"
+            },
+            {
+              "label": "It does",
+              "text": "each delegate skill briefs one implementer CLI, runs it through a bundled relay script, re-runs your checks, reads the diff and commits what holds"
+            },
+            {
+              "label": "Lanes",
+              "text": "delegate-setup maps kinds of work, such as features, tests or UI, to the implementers you have; a delegate skill run with --lane uses one"
+            },
+            {
+              "label": "Listed here",
+              "text": "Codex, OpenCode, Claude Code and Antigravity; installing the whole repo adds 15 more implementer skills, from Aider to Cursor and Copilot"
+            },
+            {
+              "label": "Tested with",
+              "text": "Claude Code as the orchestrator; the README calls other orchestrators, such as Cursor, designed for but unproven"
+            },
+            {
+              "label": "Needs",
+              "text": "Node 18+, git, and each implementer's CLI signed in"
+            }
+          ],
+          "text": "Every delegate skill runs the same loop. Your main agent, the orchestrator, writes a self-contained brief, since the implementer sees no chat history, and tells it not to commit. The skill's relay.mjs runs the implementer, never commits, and writes a result.json with the implementer's report, the files git shows as changed and a session id where the CLI has one. The orchestrator then re-runs the project's tests and other checks, reads the diff against the brief and commits what holds, or resumes the session with a short delta brief. Each skill states its implementer's autonomy in that CLI's own terms: Codex's write sandbox, OpenCode's auto-approval, Claude Code's acceptEdits with a shell sandbox, Antigravity's own permission rules. You can skip setup and name an implementer directly, or run delegate-setup once to discover what's installed and write a lane map, globally or for one repo. A delegate skill dispatched with --lane then takes that lane's model and other settings, explicit flags still win, and the wrong skill for a lane fails loudly. The README says the scripts use Node built-ins only, make no network calls of their own and send no telemetry.",
+          "permalink": "https://github.com/amelnagdy/delegate-skills/tree/7f8ae3435e5bc68a54efdca9f67797e905845562"
+        },
+        "skills": [
+          {
+            "id": "amelnagdy/delegate-skills/skills/delegate-setup",
+            "standalone": false,
+            "note": "Only writes the lane map that the repo's delegate skills read when you dispatch with --lane; it never dispatches work itself."
+          },
+          {
+            "id": "amelnagdy/delegate-skills/skills/codex-delegate",
+            "standalone": true
+          },
+          {
+            "id": "amelnagdy/delegate-skills/skills/opencode-delegate",
+            "standalone": true
+          },
+          {
+            "id": "amelnagdy/delegate-skills/skills/claude-delegate",
+            "standalone": true
+          },
+          {
+            "id": "amelnagdy/delegate-skills/skills/agy-delegate",
+            "standalone": true
+          }
+        ],
+        "install": [
+          {
+            "label": "Any agent, with the skills CLI",
+            "command": "npx skills add amElnagdy/delegate-skills --skill delegate-setup --skill codex-delegate --skill opencode-delegate --skill claude-delegate --skill agy-delegate"
+          },
+          {
+            "label": "Any agent, with the skills CLI, plus the repo's 15 other implementer skills",
+            "command": "npx skills add amElnagdy/delegate-skills"
           }
         ]
       }
@@ -73547,6 +73631,311 @@
           "design-system"
         ],
         "note": "Needs the Figma MCP server and a Figma file whose design system is published. Before every Figma script it loads the repo's figma-use skill, which SkillHub doesn't list: install it alongside."
+      }
+    },
+    {
+      "id": "bmad-code-org/bmad-method/skills/bmad-eval",
+      "name": "bmad-eval",
+      "skills.sh": {
+        "url": "https://skills.sh/bmad-code-org/bmad-method/bmad-eval",
+        "installs": 7000,
+        "weeklyInstalls": [0, 0, 0, 0, 1732, 1307, 1526, 1319],
+        "firstSeen": "2026-10-06"
+      },
+      "skillMd": {
+        "version": "e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Benchmarks a skill against the bare model, another version or a rubric, and tests whether its description fires on the right requests.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want evidence that a skill beats the bare model, that a section earns its place, or that its description fires when it should"
+            },
+            {
+              "label": "It does",
+              "text": "runs each case in a clean temporary workspace with only the skill under test staged, through the agent CLI you work in"
+            },
+            {
+              "label": "Modes",
+              "text": "baseline against no skill, variant against a stripped or prior version, quality graded on a rubric by a subagent, and trigger accuracy"
+            },
+            {
+              "label": "You get",
+              "text": "a timestamped run folder with each case's prompt, transcript, workspace, timing and grades; fewer than three runs per case counts as a quick look"
+            },
+            {
+              "label": "Works on",
+              "text": "any folder with a SKILL.md, BMad's or not; it reads cases you wrote and never invents them"
+            },
+            {
+              "label": "Needs",
+              "text": "uv and your agent CLI; to record how to run that CLI, BMad set up with bmad-customize, or else a harness JSON file you pass in"
+            }
+          ],
+          "text": "BMad's eval runner. Cases live in the skill's evals/cases.json, each an input, a rubric and optional fixture files, plus an optional bracketed prefix that starts the skill mid-workflow; trigger queries are a query and whether it should fire. A skill-creator evals.json converts to this format. On the first run it works out how to call your CLI headless (the command, its skills folder, environment variables and login files to copy into a fresh home), proves that on one case and records it through bmad-customize; without BMad you pass the same keys as a JSON file. Before running it shows a summary and warns that permission prompts are off. Quality grading checks each expectation against the transcript and files and flags assertions a wrong output would also pass. Trigger mode detects a load with a canary token. An optional loop writes about twenty queries, half of them near misses that shouldn't fire, rewrites the description from 60% of them for up to five rounds and keeps the version that scores best on the rest; an opt-in loop has bmad-toolsmith review a weak skill, then fixes and re-evaluates it within a round limit. Run folders are never deleted or overwritten.",
+          "permalink": "https://github.com/bmad-code-org/bmad-method/tree/e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6/skills/bmad-eval"
+        },
+        "tags": [
+          "category:skill-tools",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "needs:subagents",
+          "by:community",
+          "skill-authoring",
+          "testing",
+          "verification"
+        ],
+        "note": "Needs uv and the agent CLI you work in. Each case runs that CLI with its permission prompts off, uncontained unless the recorded command adds a sandbox."
+      }
+    },
+    {
+      "id": "bmad-code-org/bmad-method/skills/bmad-toolsmith",
+      "name": "bmad-toolsmith",
+      "skills.sh": {
+        "url": "https://skills.sh/bmad-code-org/bmad-method/bmad-toolsmith",
+        "installs": 7000,
+        "weeklyInstalls": [0, 0, 0, 0, 1729, 1303, 1526, 1306],
+        "firstSeen": "2026-10-06"
+      },
+      "skillMd": {
+        "version": "e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Turns the agent into Smithy, BMad's toolsmith, who builds skills and agents from a plan you approve, and reviews, trims or packages existing ones.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to build a skill, agent or module, turn a prompt or your session logs into one, or fix, review or slim down one you have"
+            },
+            {
+              "label": "It does",
+              "text": "asks only for what you haven't said, questions whether a skill is needed at all, then shows an execution plan; nothing is written until you approve it"
+            },
+            {
+              "label": "You get",
+              "text": "a skill folder with its SKILL.md and any references or scripts, put where your agent reads skills or in your skills repo"
+            },
+            {
+              "label": "Before handoff",
+              "text": "review passes in subagents, applied fixes, format and path checks, a token count, and a trigger eval offered through bmad-eval"
+            },
+            {
+              "label": "Runs",
+              "text": "as Smithy, a persona with a menu, until you dismiss it"
+            },
+            {
+              "label": "Needs",
+              "text": "uv and BMad set up in the project: run the bmad skill's setup first"
+            }
+          ],
+          "text": "Smithy follows a canon: state the outcome rather than script the path, and cut any line a capable model would get right unasked. A build starts with discovery: what the skill does and for whom, who uses its output, which phrases should and shouldn't trigger it, and whether its output can be checked. When a skill claims to teach the model something, Smithy may first try the request on a subagent with no skill, and propose no skill if that already works. The execution plan gives the name, the description as it will ship, the shape (such as a plain skill, a persona agent or a script-backed utility), whether it joins BMad's module registry, the approach and where it will live. Shipping copies the skill aside, runs architecture, determinism, leanness, customization and trigger reviews, applies what they find, restores anything lost that no finding meant to cut, runs the checks and reports the token cost. The menu also converts prompts or skills from other tools, cuts prose with measurement, validates skills and modules, packages skills into a module and migrates old-format modules. It offers installs of other skills but never runs them unasked.",
+          "permalink": "https://github.com/bmad-code-org/bmad-method/tree/e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6/skills/bmad-toolsmith"
+        },
+        "tags": [
+          "category:skill-tools",
+          "category:agents",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "skill-authoring",
+          "agent-development"
+        ],
+        "note": "Needs uv and BMad set up in the project: it runs scripts from the _bmad/ folder that the bmad skill's setup creates. It stays Smithy until dismissed."
+      }
+    },
+    {
+      "id": "amelnagdy/delegate-skills/skills/claude-delegate",
+      "name": "claude-delegate",
+      "skills.sh": {
+        "url": "https://skills.sh/amelnagdy/delegate-skills/claude-delegate",
+        "installs": 6500,
+        "weeklyInstalls": [844, 498, 433, 339, 308, 385, 272, 235],
+        "firstSeen": "2026-07-26"
+      },
+      "skillMd": {
+        "version": "7f8ae3435e5bc68a54efdca9f67797e905845562",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Hands a coding task to a separate Claude Code CLI session, then reviews its diff, re-runs your checks and commits the work itself.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you explicitly want another Claude Code session to write the code for a task, or a queue of tasks, while your main agent reviews"
+            },
+            {
+              "label": "It does",
+              "text": "writes a self-contained brief, runs claude -p through a bundled relay script, then re-runs your project's checks and reads the full diff against the brief"
+            },
+            {
+              "label": "You get",
+              "text": "verified changes committed by your main agent, plus a result.json with the session's final message, the files git shows as changed and its session id"
+            },
+            {
+              "label": "The child session",
+              "text": "gets only read, search, file-editing and shell tools, with MCP, skills and subagents turned off; its shell runs in Claude's sandbox, except on native Windows"
+            },
+            {
+              "label": "Read-only runs",
+              "text": "use plan mode with read and search tools only, and report whether the working tree changed anyway"
+            },
+            {
+              "label": "Unlike Claude's subagents",
+              "text": "it works from any orchestrator, Claude or not, with one brief, dispatch, review and commit contract"
+            },
+            {
+              "label": "Needs",
+              "text": "the claude CLI signed in, Node 18+ and git"
+            }
+          ],
+          "text": "Your main agent is the orchestrator and a separate Claude Code process is the implementer. It triggers only when you ask to delegate to Claude, not just because the orchestrator is Claude. The child loads the project's CLAUDE.md on its own but not AGENTS.md, so the orchestrator copies AGENTS.md's constraints and the project's real check commands into the brief and says not to commit. The relay runs claude -p in acceptEdits mode with streamed JSON output, keeps its artifacts in a temp folder and blocks until the child exits; flags set the model and effort, turn and budget caps, a timeout and the auto-compact window, and a delegate-setup lane can set the model, effort and timeout instead. Direct forms of git commit, git push and nested claude are denied, which the skill calls only a speed bump. The orchestrator treats the child's report as a claim: it reviews edits to existing tests first, re-runs the checks, inspects untracked and staged files, and commits only when the diff holds. Rework resumes the same session with a short delta brief. Skipping Claude's permission checks is a separate flag, for when you've explicitly accepted it.",
+          "permalink": "https://github.com/amelnagdy/delegate-skills/tree/7f8ae3435e5bc68a54efdca9f67797e905845562/skills/claude-delegate"
+        },
+        "tags": [
+          "category:agents",
+          "category:engineering",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "needs:account",
+          "by:community",
+          "stack:claude",
+          "stack:git",
+          "multi-agent",
+          "agent-workflows",
+          "implementation",
+          "code-review"
+        ],
+        "note": "Needs the Claude Code CLI signed in, Node 18+ and git. The child session edits files and runs sandboxed shell commands without asking (on native Windows its shell isn't sandboxed), and once you've asked it to delegate, your agent commits work that passes review."
+      }
+    },
+    {
+      "id": "amelnagdy/delegate-skills/skills/agy-delegate",
+      "name": "agy-delegate",
+      "skills.sh": {
+        "url": "https://skills.sh/amelnagdy/delegate-skills/agy-delegate",
+        "installs": 6300,
+        "weeklyInstalls": [742, 439, 427, 282, 278, 358, 257, 227],
+        "firstSeen": "2026-07-16"
+      },
+      "skillMd": {
+        "version": "7f8ae3435e5bc68a54efdca9f67797e905845562",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Hands a coding task to Google's Antigravity CLI, then reviews its diff, re-runs your checks and commits the work itself.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want Google's Antigravity CLI (agy) to write the code for a task, or a queue of tasks, while your main agent stays the reviewer"
+            },
+            {
+              "label": "It does",
+              "text": "writes a self-contained brief, runs agy --print through a bundled relay script, then re-runs your project's checks and reads the diff against the brief"
+            },
+            {
+              "label": "You get",
+              "text": "verified changes committed by your main agent, plus a result.json with Antigravity's report and the files git shows as changed"
+            },
+            {
+              "label": "Permissions",
+              "text": "Antigravity's own rules, with no bypass by default; a headless write it denies is reported as a failed run, not as done"
+            },
+            {
+              "label": "Read-only runs",
+              "text": "use Antigravity's sandbox, which discards writes, and report whether the working tree changed anyway"
+            },
+            {
+              "label": "Needs",
+              "text": "the agy CLI signed in, Node.js and git"
+            }
+          ],
+          "text": "Your main agent is the orchestrator and Antigravity is the implementer, in its own conversation. It sees only the brief and the workspace, so the brief carries the goal, the current state, what to change and leave alone, the project's real test, lint and build commands and a report format, and says not to commit. The relay starts a fresh Antigravity project pinned to your repo, takes a model label and a reasoning effort from flags or a delegate-setup lane, or leaves agy's defaults, and blocks until done; in Claude Code it runs in the background. The orchestrator then re-runs those checks, reads the diff for scope creep or gaps, round-trips migrations, greps for dangling references after removals, and commits only what holds. Rework resumes the latest conversation with a delta brief. It reports Antigravity's design choices instead of quietly keeping them, and stops to ask before going beyond the brief. It's run on Claude Code; other orchestrators are designed for but unproven. The SKILL.md records how allow-rules behaved on different agy versions and platforms, including an open Windows defect that breaks rules for programs under paths with spaces, and says to test denials on your own install.",
+          "permalink": "https://github.com/amelnagdy/delegate-skills/tree/7f8ae3435e5bc68a54efdca9f67797e905845562/skills/agy-delegate"
+        },
+        "tags": [
+          "category:agents",
+          "category:engineering",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "needs:account",
+          "by:community",
+          "stack:antigravity",
+          "stack:git",
+          "multi-agent",
+          "agent-workflows",
+          "implementation",
+          "code-review"
+        ],
+        "note": "Needs Google's Antigravity CLI (agy) signed in, Node.js and git. Antigravity's own permission rules decide what it may do, and once you've asked it to delegate, your agent commits work that passes review."
+      }
+    },
+    {
+      "id": "amelnagdy/delegate-skills/skills/delegate-setup",
+      "name": "delegate-setup",
+      "skills.sh": {
+        "url": "https://skills.sh/amelnagdy/delegate-skills/delegate-setup",
+        "installs": 6200,
+        "weeklyInstalls": [879, 491, 468, 324, 304, 370, 284, 253],
+        "firstSeen": "2026-08-04"
+      },
+      "skillMd": {
+        "version": "7f8ae3435e5bc68a54efdca9f67797e905845562",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Maps kinds of coding work to the implementer CLIs you have installed, as named lanes, and writes that config after you approve it.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you delegate coding to several agent CLIs, such as Codex or Claude Code, and want each kind of work, like features, tests or UI, to go to a set one"
+            },
+            {
+              "label": "It does",
+              "text": "finds which of them are installed and signed in, asks how to pick lanes, proposes a few, ideally three to five, and writes only after an explicit yes"
+            },
+            {
+              "label": "You get",
+              "text": "a lane map in ~/.config/delegate-skills/config.json, or .delegate/config.json for one repo, used when a delegate skill runs with --lane"
+            },
+            {
+              "label": "Picks lanes by",
+              "text": "quick defaults labelled as its opinion, a four-question interview, or a scan of session counts and dates in your CLIs' local folders"
+            },
+            {
+              "label": "Never",
+              "text": "dispatches work, invents model names, or edits AGENTS.md or CLAUDE.md"
+            }
+          ],
+          "text": "A lane binds a kind of work to one implementer CLI, with optional settings such as model, effort or OpenCode's variant, only where that implementer supports them. Setup discovers the installed CLIs, loads any existing global and project lanes and marks project lanes untrusted until approved, then asks one question: quick defaults, an interview, or a usage scan that reads session counts and dates, never conversations. In the interview and scan modes it sets a setting only from your answer or when the schema requires one, and a question you leave unanswered shrinks the map instead of being filled from its own priors. Every lane carries its basis: your answer, usage data, the repo, a schema requirement or its opinion. It sends bounded work with objective checks to CLIs with quota to spare, keeps lanes off CLIs you're protecting, and gives security, migrations, architecture and research to stronger implementers. It shows a table and the full JSON before every write, asks whether the map is global or for this repo, and validates it first. A project map is tied to the content you approved, so a cloned or edited one stops working until approved again.",
+          "permalink": "https://github.com/amelnagdy/delegate-skills/tree/7f8ae3435e5bc68a54efdca9f67797e905845562/skills/delegate-setup"
+        },
+        "tags": [
+          "category:agents",
+          "type:setup",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "multi-agent",
+          "agent-workflows"
+        ],
+        "note": "Only useful with the repo's delegate skills, which read its lanes. Needs Node 18+."
       }
     }
   ]
