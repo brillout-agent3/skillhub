@@ -3047,6 +3047,70 @@
         "description": "Salesforce agent skills, plugins and sample apps for building applications on the Salesforce Platform.",
         "note": "Expect frequent changes: its README says skills may be renamed, restructured or removed between releases."
       }
+    },
+    {
+      "id": "udaysharmadev/gravitas",
+      "stars": 442,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Engineering discipline for AI coding agents: read before writing, plan by risk, verify against executed evidence."
+      }
+    },
+    {
+      "id": "hkuds/cli-anything",
+      "stars": 58356,
+      "agentReview": {
+        "kind": "project",
+        "description": "Makes software agent-native by generating CLIs for it, with CLI-Hub to browse and install them."
+      }
+    },
+    {
+      "id": "cyxzdev/uncodixfy",
+      "stars": 2680,
+      "agentReview": {
+        "kind": "skills",
+        "description": "A rule set that stops GPT and Codex from falling back on their usual AI-looking UI patterns."
+      }
+    },
+    {
+      "id": "theclaymethod/unslop",
+      "stars": 953,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Finds formulaic or unclear writing and makes targeted edits that keep meaning and voice, with standalone Python scanners."
+      }
+    },
+    {
+      "id": "browser-use/video-use",
+      "stars": 30642,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Edit videos with Claude Code: drop raw footage in a folder, chat with the agent, get final.mp4 back."
+      }
+    },
+    {
+      "id": "ghostsecurity/skills",
+      "stars": 438,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Ghost Security's plugin marketplace for Claude Code: AppSec skills that find, validate and fix vulnerabilities, plus Exo."
+      }
+    },
+    {
+      "id": "op7418/guizang-social-card-skill",
+      "stars": 7997,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Agent skill for Xiaohongshu (Rednote) image sets, Live Photo motion cards and WeChat Official Account cover pairs."
+      }
+    },
+    {
+      "id": "pageai-pro/ralph-loop",
+      "stars": 337,
+      "agentReview": {
+        "kind": "project",
+        "description": "A Ralph Wiggum loop implementation: a long-running agent loop that works through a task list until it's done."
+      }
     }
   ],
   "bundles": [
@@ -75974,6 +76038,638 @@
           "architecture"
         ],
         "note": "Only for Salesforce systems: for anything else it tells the agent to use a general diagramming skill."
+      }
+    },
+    {
+      "id": "udaysharmadev/gravitas/skills/gravitas",
+      "name": "gravitas",
+      "skills.sh": {
+        "url": "https://skills.sh/udaysharmadev/gravitas/gravitas",
+        "installs": 5700,
+        "weeklyInstalls": [5, 1, 2, 0, 2, 2907, 1139, 1165],
+        "firstSeen": "2026-09-11"
+      },
+      "skillMd": {
+        "version": "e0d22cd4f7639b1af3899bc3e70d314b2ae6339a",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Holds coding agents to six rules: read before editing, stay in declared scope, and claim nothing done without fresh, executed evidence.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a coding agent to stop editing files it hasn't read and announcing work done that it never checked"
+            },
+            {
+              "label": "It does",
+              "text": "makes the agent read the target, its tests and its callers first, plan in proportion to risk, and verify after the last edit"
+            },
+            {
+              "label": "You get",
+              "text": "replies in three parts, What Changed, Evidence and Why, with real command output; every check ends in VERDICT: PASS or FAIL"
+            },
+            {
+              "label": "Enforced by",
+              "text": "Gravitas's own runtime hooks where they're installed; with the skill alone, the rules are instructions only"
+            }
+          ],
+          "text": "Gravitas calls itself a reliability runtime for coding agents. Its one rule is to report what actually happened: a claim that something is fixed must rest on output seen in this session. Six invariants follow: ground before mutating, stay inside the write scope a task contract declares, count a criterion done only when a Gravitas validator passed after the last relevant edit, never retry a failed approach unchanged, satisfy the contract's acceptance criteria rather than a generic test pass, and say what couldn't be verified. Before risky work the agent records a planning policy, direct, compact, deep or replan, set by blast radius rather than ceremony, and a decision record with the evidence for each non-trivial action. Evidence is ranked, from deterministic validators and project tests down to the agent's own review, which never counts as proof. Read-only modes such as plan and review forbid writes, and migrations need your checkpoint. It delegates to subagents only when the policy calls for it, and eco, balanced and deep profiles set how much it plans and verifies.",
+          "permalink": "https://github.com/udaysharmadev/gravitas/tree/e0d22cd4f7639b1af3899bc3e70d314b2ae6339a/skills/gravitas"
+        },
+        "tags": [
+          "category:engineering",
+          "category:debugging",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "verification",
+          "scope-control",
+          "planning",
+          "agent-workflows"
+        ],
+        "note": "Installed alone it is instructions only; the hooks that deny out-of-scope writes, block repeated failed retries and gate completion come with Gravitas's Antigravity plugin or OpenCode shim."
+      }
+    },
+    {
+      "id": "Egonex-AI/Understand-Anything/understand-anything-plugin/skills/understand",
+      "name": "understand",
+      "skills.sh": {
+        "url": "https://skills.sh/egonex-ai/understand-anything/understand",
+        "installs": 5700,
+        "weeklyInstalls": [235, 219, 195, 238, 221, 209, 270, 295],
+        "firstSeen": "2026-03-16"
+      },
+      "skillMd": {
+        "version": "98d6dca712407b8cbf0bca21b539c197e5a7825c",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Maps a codebase into a knowledge graph of files, functions, classes and dependencies, with architectural layers and a guided tour.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you face an unfamiliar codebase and want to see how its pieces fit before reading the code"
+            },
+            {
+              "label": "It does",
+              "text": "scans the project, analyzes its files in batches with up to five subagents at once, then names architectural layers and writes a guided tour"
+            },
+            {
+              "label": "You get",
+              "text": "a knowledge-graph.json in the project's .ua/ folder, opened in the plugin's dashboard when the graph passes validation"
+            },
+            {
+              "label": "Reruns",
+              "text": "are incremental: only files with structural changes since the last analyzed commit are analyzed again"
+            },
+            {
+              "label": "Needs",
+              "text": "the full plugin installed, Node.js 22+, pnpm and Python, and an agent that can spawn subagents"
+            }
+          ],
+          "text": "The entry point of Understand Anything. In seven reported phases, a scanner subagent lists every file, code and non-code alike, such as configs, docs and infrastructure, with languages, frameworks and imports; a script groups the files into batches; file-analyzer subagents, up to five at once, extract nodes and edges; a reviewer checks the assembled graph; an architecture subagent assigns files to layers such as API, service and data; and a tour builder orders a walkthrough starting from the README or entry point. The graph has 13 node types, from files and functions to endpoints, tables and pipelines, and 26 edge types. Before a full scan it writes a starter .understandignore from your .gitignore and waits for you to review it, and past 100 files it suggests scoping to a subdirectory. Options force a full rebuild, run a deeper LLM review, exclude paths, analyze another directory, write summaries in another language, or update the graph on every commit. Run in a git worktree, it writes to the main checkout so the graph survives.",
+          "permalink": "https://github.com/Egonex-AI/Understand-Anything/tree/98d6dca712407b8cbf0bca21b539c197e5a7825c/understand-anything-plugin/skills/understand"
+        },
+        "tags": [
+          "category:engineering",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "needs:subagents",
+          "by:official",
+          "stack:understand-anything",
+          "architecture",
+          "learning",
+          "diagrams",
+          "multi-agent"
+        ],
+        "note": "Needs the whole Understand-Anything plugin, not only this skill: it builds the plugin's packages with pnpm (Node.js 22 or later) and dispatches its agent definitions. A first run on a large codebase can use a lot of tokens."
+      }
+    },
+    {
+      "id": "hkuds/cli-anything/skills/cli-hub-meta-skill",
+      "name": "cli-hub-meta-skill",
+      "skills.sh": {
+        "url": "https://skills.sh/hkuds/cli-anything/cli-hub-meta-skill",
+        "installs": 5700,
+        "weeklyInstalls": [176, 153, 178, 155, 113, 343, 394, 284],
+        "firstSeen": "2026-03-23"
+      },
+      "skillMd": {
+        "version": "34f519533bc175d2fe287ab8316b0dd99bb9cc43",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Finds, checks and installs agent-ready command-line tools for professional software, such as GIMP, Blender or Kdenlive, from the CLI-Hub registry.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a task needs desktop or professional software, such as image editing, 3D, video or an office suite, driven from the terminal"
+            },
+            {
+              "label": "It does",
+              "text": "searches the CLI-Hub registry with the cli-hub command and installs the matching CLI-Anything wrapper"
+            },
+            {
+              "label": "You get",
+              "text": "a CLI for that software with JSON output, a REPL and one-shot commands, backed by the real application"
+            },
+            {
+              "label": "Matrices",
+              "text": "whole workflows, such as video creation, mapped from capabilities to tools; it checks what already works and installs only what the task needs"
+            },
+            {
+              "label": "Needs",
+              "text": "Python and pip: cli-hub wraps pip, and each CLI it installs is a separate cli-anything-<name> package"
+            }
+          ],
+          "text": "CLI-Hub is CLI-Anything's registry of command-line interfaces that make software usable by agents. The skill installs the hub with pip install cli-anything-hub, then lists, searches and installs from it: cli-hub install gimp adds the cli-anything-gimp package, run as a REPL or with one-shot commands, each taking --json for machine-readable output. For a task that spans several tools, a matrix packages a whole workflow, such as video-creation, as capabilities like transcription or visual generation mapped to providers: harness CLIs, public CLIs, Python libraries, native binaries and cloud APIs. The agent finds a capability with cli-hub can, runs a preflight to see what's usable on your machine, can preview the plan with --dry-run, and installs only the capability it needs rather than a whole 14-CLI matrix. After install, the matrix's own SKILL.md, with rules for choosing providers, renders locally. Some CLIs also publish previews, which cli-hub previews can inspect, render to HTML, watch or open.",
+          "permalink": "https://github.com/hkuds/cli-anything/tree/34f519533bc175d2fe287ab8316b0dd99bb9cc43/skills/cli-hub-meta-skill"
+        },
+        "tags": [
+          "category:skill-tools",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "by:official",
+          "stack:cli-anything",
+          "skill-discovery",
+          "agent-workflows"
+        ],
+        "note": "Needs Python and pip: it installs cli-anything-hub, then each CLI you pick as its own package from the CLI-Hub registry, and points to an auto-updated catalog hosted outside GitHub."
+      }
+    },
+    {
+      "id": "cyxzdev/uncodixfy",
+      "name": "uncodixfy",
+      "skills.sh": {
+        "url": "https://skills.sh/cyxzdev/uncodixfy/uncodixfy",
+        "installs": 5600,
+        "weeklyInstalls": [38, 37, 46, 22, 32, 34, 21, 27],
+        "firstSeen": "2026-03-08"
+      },
+      "skillMd": {
+        "version": "e0e028058b5259debdd94b78147c6d6c77bf7da2",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Keeps generated interfaces from looking AI-made: bans glass panels, eyebrow labels and hero blocks in dashboards, and sets plain defaults for every component.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "the agent writes HTML, CSS, React, Vue or Svelte UI and you don't want the default AI look"
+            },
+            {
+              "label": "It does",
+              "text": "lists what Codex-style UI does by default and bans it, from oversized radii and pill buttons to gradient text and decorative copy"
+            },
+            {
+              "label": "You get",
+              "text": "interfaces modelled on Linear, Raycast, Stripe and GitHub: solid fixed sidebars, 8–12px radii, small shadows, 100–200ms transitions"
+            },
+            {
+              "label": "Colors",
+              "text": "your project's own palette first, otherwise one of the 20 dark and light palettes it ships"
+            },
+            {
+              "label": "Unlike antislop",
+              "text": "it sets exact values, such as a 240–260px sidebar and 14–16px body text, where antislop prescribes no colors, fonts or layouts"
+            }
+          ],
+          "text": "Uncodixify names \"Codex UI\", the default AI aesthetic of soft gradients, floating panels, eyebrow labels, hero sections inside dashboards, big rounded corners and dramatic shadows, and tells the agent to avoid all of it. A keep-it-normal list sets plain defaults for 30 kinds of element: a 240–260px sidebar with a solid background, buttons with at most a 10px radius and no pills, cards at 8–12px with subtle borders, labels above form fields, shadows no stronger than 0 2px 8px, 100–200ms opacity or color transitions, 14–16px body text and a 4–32px spacing scale. A hard-no list bans glassmorphism, metric-card grids as a first instinct, fake charts, decorative copy, generic startup lines and default font stacks such as Inter, Roboto or Arial unless the product already uses them, with HTML examples of banned headline and card patterns. For color it reads the project's existing palette from its files and otherwise takes inspiration from one of ten dark and ten light palettes, picked at random.",
+          "permalink": "https://github.com/cyxzdev/uncodixfy/tree/e0e028058b5259debdd94b78147c6d6c77bf7da2"
+        },
+        "tags": [
+          "category:design",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "design",
+          "anti-slop"
+        ]
+      }
+    },
+    {
+      "id": "pexoai/pexo-skills/skills/videoagent-image-studio",
+      "name": "videoagent-image-studio",
+      "skills.sh": {
+        "url": "https://skills.sh/pexoai/pexo-skills/videoagent-image-studio",
+        "installs": 5600,
+        "weeklyInstalls": [5, 9, 7, 6, 7, 7, 12, 5],
+        "firstSeen": "2026-03-06"
+      },
+      "skillMd": {
+        "version": "f724267e45a065b6be445ea6f07312e62d3207cd",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Generates images with Midjourney, Flux, Ideogram, Recraft, SDXL or Nano Banana through a keyless hosted proxy, picking the model that fits the request.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want an image, photo, illustration, icon, logo or poster without setting up API keys"
+            },
+            {
+              "label": "It does",
+              "text": "picks one of eight models by what you ask for, expands your prompt for it, and runs a bundled Node script"
+            },
+            {
+              "label": "You get",
+              "text": "links to the generated images, 1 to 4 per request, or a four-image Midjourney grid you can upscale, vary or reroll"
+            },
+            {
+              "label": "Models",
+              "text": "Midjourney for artistic, Flux Pro for photoreal, Flux Schnell for quick drafts, Ideogram for text, Recraft for vectors, SDXL for anime"
+            },
+            {
+              "label": "Needs",
+              "text": "Node.js; no API key, because requests go through a hosted proxy whose auto-obtained token gives 100 free uses"
+            }
+          ],
+          "text": "The image counterpart of videoagent-video-studio, from the same repo. The agent matches the request to a model: midjourney for cinematic or painterly art, flux-pro for photorealistic portraits and products, flux-dev as the balanced default, flux-schnell for drafts in about 2 seconds, ideogram for images with text such as logos and posters, recraft for vector icons and flat design, sdxl for anime, and nano-banana for Gemini-powered images with a consistent style, which also takes reference images. It adds style, lighting and quality words suited to the model, then runs tools/generate.js with the model, prompt and aspect ratio, from 1:1 to 21:9, plus an optional image count, negative prompt and seed. Requests go through a hosted proxy, image-gen-proxy.vercel.app, which handles the model keys; IMAGE_STUDIO_PROXY_URL and IMAGE_STUDIO_TOKEN point it at your own. The script waits for the result, Midjourney included, and returns JSON with the image URLs, which the agent passes on. After a Midjourney grid it offers to upscale or vary one of the four images, or to reroll the prompt.",
+          "permalink": "https://github.com/pexoai/pexo-skills/tree/f724267e45a065b6be445ea6f07312e62d3207cd/skills/videoagent-image-studio"
+        },
+        "tags": [
+          "category:media",
+          "type:tool",
+          "effect:remote",
+          "needs:cli",
+          "by:official",
+          "stack:pexo",
+          "image",
+          "ai-generation"
+        ],
+        "note": "Sends your prompts to a hosted proxy at image-gen-proxy.vercel.app, which needs no key and gives each auto-obtained token 100 free uses; IMAGE_STUDIO_PROXY_URL and IMAGE_STUDIO_TOKEN point it at another."
+      }
+    },
+    {
+      "id": "theclaymethod/unslop",
+      "name": "unslop",
+      "skills.sh": {
+        "url": "https://skills.sh/theclaymethod/unslop/unslop",
+        "installs": 5500,
+        "weeklyInstalls": [383, 290, 249, 202, 225, 231, 163, 317],
+        "firstSeen": "2026-02-23"
+      },
+      "skillMd": {
+        "version": "17ed39c9d0b522f44190ff0c6233867eadee192a",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Finds AI writing tells in prose with bundled scanners and repairs only the confirmed ones, or flags them without changing anything.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a draft reads as if ChatGPT wrote it and you want it cleaned up without losing its facts or voice"
+            },
+            {
+              "label": "It does",
+              "text": "reads the text, runs phrase, structure and silhouette scanners, then edits only the sentences with a confirmed problem"
+            },
+            {
+              "label": "You get",
+              "text": "the cleaned text, returned unchanged if nothing was confirmed, or a report of issues with their severity when you ask for an audit"
+            },
+            {
+              "label": "Also",
+              "text": "learns your voice from your own writing, then drafts or rewrites in it"
+            },
+            {
+              "label": "Runs",
+              "text": "as /unslop with rewrite, cleanup, teach or mimic; text with no command means rewrite"
+            },
+            {
+              "label": "Unlike pstack's unslop",
+              "text": "it can audit without changing a word, and checks with scripts that the rewrite kept every fact"
+            },
+            {
+              "label": "Needs",
+              "text": "Python 3 for its bundled scanners and checks"
+            }
+          ],
+          "text": "Unslop works in two passes. It first reads the source, extracts its facts and constraints, and runs bundled Python scanners: a phrase scan, a structure scan, a silhouette scan of how the ideas are laid out, and readability metrics. Scanner hits stay candidates until the agent confirms them in context. The second pass makes the smallest fix in each sentence with a confirmed finding, copies every other sentence byte for byte, and undoes any edit that changes a fact, meaning, register or attribution. Voice presets, crisp, warm, expert or story, shape the wording but can't add findings, and --strict fails a rewrite that scores under 32 of 40. Cleanup is the co-writer mode: reviewable suggestions, or a report-only audit that changes nothing. Teach builds a voice profile and a layered voice card from writing samples you approve, under .unslop/voice/, and ends with a scored demo paragraph; mimic then writes in that voice. Contribute turns a new AI-ism you found into a test case and a pull request upstream.",
+          "permalink": "https://github.com/theclaymethod/unslop/tree/17ed39c9d0b522f44190ff0c6233867eadee192a"
+        },
+        "tags": [
+          "category:writing",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "anti-slop",
+          "writing"
+        ],
+        "note": "Its contribute flow opens a public pull request on theclaymethod/unslop with a snippet of your text, after asking you twice; teach collects writing samples from your agent transcripts and folders, keeping only those you approve."
+      }
+    },
+    {
+      "id": "browser-use/video-use",
+      "name": "video-use",
+      "skills.sh": {
+        "url": "https://skills.sh/browser-use/video-use/video-use",
+        "installs": 5500,
+        "weeklyInstalls": [137, 139, 171, 199, 227, 260, 328, 291],
+        "firstSeen": "2026-04-16"
+      },
+      "skillMd": {
+        "version": "43cfc566833548093455c9d4a46bd69913b7e552",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Edits footage into a finished video by conversation: transcribes, cuts on word boundaries, grades color, adds subtitles and animations, and checks the render.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you have raw takes, such as a talking head, tutorial, interview or travel footage, and want an edited video without a timeline editor"
+            },
+            {
+              "label": "It does",
+              "text": "transcribes every take word by word, proposes a plan in plain English, and edits only after you approve it"
+            },
+            {
+              "label": "You get",
+              "text": "final.mp4, with subtitles if you want them, plus an edit decision list and a project.md memory, all in an edit/ folder beside your footage"
+            },
+            {
+              "label": "Checks",
+              "text": "its render at every cut for flashes, audio pops and hidden subtitles, and measures loudness, up to three passes before you see it"
+            },
+            {
+              "label": "Needs",
+              "text": "ffmpeg, the cloned repo's Python helpers, an ElevenLabs key, and subagents for animations"
+            }
+          ],
+          "text": "Video Use treats the transcript as the main view of your footage. It transcribes each source with ElevenLabs Scribe at word level, caches the result, and packs it into a phrase-level file the agent reads to choose cuts, looking at frames only at decision points. It describes the material, asks questions shaped by it, and proposes a strategy of four to eight sentences covering shape, takes, cuts, animations, grade and subtitles. Once you confirm, it writes an edit decision list, with an editor subagent picking the best take of each beat when there are many; cuts snap to word boundaries with padding and 30ms audio fades, color grades apply per segment, and animations are built in parallel subagents with HyperFrames, Remotion, Manim or PIL. Subtitles, when you want them, always go on last so overlays can't hide them. It previews at 720p, inspects every cut boundary of the render and measures loudness, and for anything you'll publish a critic subagent roasts the cut. Feedback leads to re-renders without re-transcribing, and each session is logged in project.md for next time.",
+          "permalink": "https://github.com/browser-use/video-use/tree/43cfc566833548093455c9d4a46bd69913b7e552"
+        },
+        "tags": [
+          "category:media",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "needs:account",
+          "needs:subagents",
+          "by:official",
+          "stack:elevenlabs",
+          "stack:ffmpeg",
+          "video",
+          "audio",
+          "animation"
+        ],
+        "note": "Needs an ElevenLabs API key: it uploads the audio of your footage to ElevenLabs Scribe for transcription. Set it up once with the repo's install.md, which clones video-use and installs ffmpeg and its Python helpers."
+      }
+    },
+    {
+      "id": "ghostsecurity/skills/plugins/ghost/skills/scan-code",
+      "name": "ghost-scan-code",
+      "skills.sh": {
+        "url": "https://skills.sh/ghostsecurity/skills/ghost-scan-code",
+        "installs": 5500,
+        "weeklyInstalls": [149, 153, 155, 134, 143, 153, 161, 155],
+        "firstSeen": "2026-02-20"
+      },
+      "skillMd": {
+        "version": "25fdf068760723b85b40e0224a3b8533e4aab31f",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Scans a repository's source code for vulnerabilities, such as SQL injection, XSS, SSRF and broken authorization, then verifies each finding before reporting.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a security audit of your own code, an app or a library, before shipping it"
+            },
+            {
+              "label": "It does",
+              "text": "plans which vulnerability classes fit each project, nominates candidate files, analyzes them, then verifies every finding"
+            },
+            {
+              "label": "You get",
+              "text": "one Markdown file per finding under ~/.ghost/, and a summary of how many were verified and how many rejected"
+            },
+            {
+              "label": "Depth",
+              "text": "quick by default, or balanced or full; full asks you first because it uses far more tokens"
+            },
+            {
+              "label": "Needs",
+              "text": "Claude Code's CLI, which runs up to five workers in parallel, and the ghost-repo-context skill"
+            }
+          ],
+          "text": "Ghost Security's AI code scanner for SAST, static analysis of source code. It first reads the repository context that ghost-repo-context writes, then a planner picks scans for each project from criteria per project type: for backends, frontends and mobile apps, issues such as SQL injection, XSS, broken object- or function-level authorization and SSRF; for libraries, prototype pollution, unsafe deserialization, ReDoS, path traversal and zip slip. The plan becomes a checklist of project, agent and vector; nominators pick candidate files for each, analyzers examine each candidate and write findings, and verifiers recheck every unverified finding. Each stage runs through a loop script that starts fresh claude -p workers with file tools, up to five at a time, and picks up where it left off after a timeout. Arguments can narrow the scan to chosen vectors, files or areas. It ends by listing the finding files and counting verified against rejected findings.",
+          "permalink": "https://github.com/ghostsecurity/skills/tree/25fdf068760723b85b40e0224a3b8533e4aab31f/plugins/ghost/skills/scan-code"
+        },
+        "tags": [
+          "category:security",
+          "type:workflow",
+          "effect:local",
+          "needs:claude-code",
+          "by:community",
+          "security",
+          "code-review",
+          "multi-agent"
+        ],
+        "note": "Runs each stage as separate claude -p workers, so it needs the Claude Code CLI, and it needs ghost-repo-context from the same plugin, which it runs first; install the ghost plugin from ghostsecurity/skills. Results stay in ~/.ghost/."
+      }
+    },
+    {
+      "id": "op7418/guizang-social-card-skill",
+      "name": "guizang-social-card-skill",
+      "skills.sh": {
+        "url": "https://skills.sh/op7418/guizang-social-card-skill/guizang-social-card-skill",
+        "installs": 5400,
+        "weeklyInstalls": [78, 85, 65, 78, 73, 81, 113, 126],
+        "firstSeen": "2026-05-27"
+      },
+      "skillMd": {
+        "version": "64d02d435fb092d3b403455a875e842fc8f29b8b",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Turns articles, notes, screenshots or videos into Xiaohongshu image sets, Live Photo cards and WeChat cover pairs, in an editorial or Swiss style.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need a carousel for Xiaohongshu (Rednote), a WeChat Official Account cover pair, or a short Live Photo card"
+            },
+            {
+              "label": "It does",
+              "text": "plans one idea per page, fills a seed HTML template in one of two visual systems, and renders it to PNG"
+            },
+            {
+              "label": "You get",
+              "text": "3:4 card sets of usually 5–9 pages, a 21:9 plus 1:1 WeChat pair, or .pvt Live Photo packages, in local-tests/<slug>/"
+            },
+            {
+              "label": "Language",
+              "text": "made for Chinese platforms: some questions it asks you are written in Chinese, such as where images should come from and whether to credit them"
+            },
+            {
+              "label": "Styles",
+              "text": "Editorial magazine with six paper-and-ink palettes, or Swiss International with one of four accent colors"
+            },
+            {
+              "label": "Images",
+              "text": "you choose once: your own, found on Unsplash, Pexels, Flickr CC or Wallhaven with copyright unverified, or AI-generated"
+            },
+            {
+              "label": "Needs",
+              "text": "Node.js and Playwright, installed with npm in the skill's folder; Live Photo cards also need makelive and an iPhone to publish"
+            }
+          ],
+          "text": "A self-contained skill for static social posts that borrows the visual principles of the Guizang PPT skill. It asks only what changes the output: platforms, source text, which images go where and, if you sent only text, whether you'll supply photos, want them found on the web or want them AI-generated, asked once and in Chinese. It turns the source into a page plan, a cover hook and then one idea per page, and picks one style mode per set: Editorial Magazine × E-ink, with serif titles over a paper, ink or WebGL background, or Swiss International, with a strict grid and one bright accent. It copies a seed template, fills it from layout recipes and renders PNGs with a bundled script that embeds fonts and checks sizes. Text over a photo needs a mapped quiet zone and a 360px thumbnail test. Web images are logged in assets/SOURCES.md, and you decide on credits. Live Photo cards cut your videos to 5 seconds for Xiaohongshu or 3 for WeChat. It shows you the renders first and runs its overflow and density validator only if you ask.",
+          "permalink": "https://github.com/op7418/guizang-social-card-skill/tree/64d02d435fb092d3b403455a875e842fc8f29b8b"
+        },
+        "tags": [
+          "category:design",
+          "category:marketing",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "needs:browser",
+          "by:community",
+          "stack:xiaohongshu",
+          "stack:wechat",
+          "social-media",
+          "image",
+          "design"
+        ],
+        "note": "Made for Xiaohongshu (Rednote) and WeChat, and asks some of its questions in Chinese. It renders with Node.js and Playwright, installed with npm in the skill's folder; Live Photo cards need makelive and an iPhone to publish."
+      }
+    },
+    {
+      "id": "bytedance/deer-flow/skills/public/ppt-generation",
+      "name": "ppt-generation",
+      "skills.sh": {
+        "url": "https://skills.sh/bytedance/deer-flow/ppt-generation",
+        "installs": 5300,
+        "weeklyInstalls": [105, 172, 134, 98, 47, 54, 45, 48],
+        "firstSeen": "2026-02-17"
+      },
+      "skillMd": {
+        "version": "2a16b26960cb953cd3283702d018bd7dce6b80b7",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds a PowerPoint deck from AI-generated slide images, each made with the previous slide as a style reference so the deck stays consistent.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you work in DeerFlow and want a striking slide deck from a topic and outline, and slides that are pictures are fine"
+            },
+            {
+              "label": "Only in DeerFlow",
+              "text": "as written: it calls DeerFlow's image-generation skill, scripts under /mnt/skills/public/ and the present_files tool, so it won't run elsewhere unchanged"
+            },
+            {
+              "label": "It does",
+              "text": "writes a slide plan in one visual style, generates each slide as an image one at a time, then assembles them into a PPTX"
+            },
+            {
+              "label": "You get",
+              "text": "a .pptx with one full-slide image per page and the plan's titles and key points as speaker notes, in 16:9 or 4:3"
+            },
+            {
+              "label": "Styles",
+              "text": "eight, from glassmorphism and dark-premium to neo-brutalist, editorial, minimal Swiss and an Apple-style keynote"
+            },
+            {
+              "label": "Needs",
+              "text": "an image API key for DeerFlow's image-generation skill, which makes every slide"
+            }
+          ],
+          "text": "One of DeerFlow's built-in skills, and it works as written only inside DeerFlow. The agent works out the topic, the number of slides (5 to 10 by default), a style and the aspect ratio, then writes a JSON plan: a title, a style with guidelines for palette, typography, imagery and layout, and for each slide its type, title, key points and a detailed visual description. It then generates the slides strictly in order through the image-generation skill's script. The first slide sets the visual language; every later slide passes the previous image as a reference and says it must match it, because generating in parallel would break consistency. Image prompts are always in English, whatever language you write in, and spell out hex colors, font weights and effects. A bundled script then places each image full-slide in a PowerPoint file, keeping photo orientation and transparency, and writes each slide's title and key points into its speaker notes. Examples, such as a glassmorphism product-launch deck, show full plans and prompts.",
+          "permalink": "https://github.com/bytedance/deer-flow/tree/2a16b26960cb953cd3283702d018bd7dce6b80b7/skills/public/ppt-generation"
+        },
+        "tags": [
+          "category:documents",
+          "category:media",
+          "type:workflow",
+          "effect:local",
+          "needs:account",
+          "by:official",
+          "stack:deer-flow",
+          "slides",
+          "ai-generation",
+          "image"
+        ],
+        "note": "Works as written only inside DeerFlow: it calls scripts under /mnt/skills/public/ and DeerFlow's present_files tool, and runs DeerFlow's image-generation skill, which needs a Gemini, MiniMax or OpenAI-compatible image API key."
+      }
+    },
+    {
+      "id": "pageai-pro/ralph-loop/.agent/skills/prd-creator",
+      "name": "prd-creator",
+      "skills.sh": {
+        "url": "https://skills.sh/pageai-pro/ralph-loop/prd-creator",
+        "installs": 5300,
+        "weeklyInstalls": [144, 166, 162, 169, 170, 147, 130, 126],
+        "firstSeen": "2026-02-23"
+      },
+      "skillMd": {
+        "version": "eba65ebbb0a78c4a7fd25aab28e94966eddbca5b",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Interviews you about a software idea, then writes a PRD and a JSON list of small implementation tasks, each with steps that verify it.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you have a rough app or feature idea and want it specified and broken into tasks before an agent builds it"
+            },
+            {
+              "label": "It does",
+              "text": "asks clarifying questions, checks prerequisites such as access, MCP servers, env variables and test users, and researches competitors"
+            },
+            {
+              "label": "You get",
+              "text": ".agent/prd/PRD.md, a short .agent/prd/SUMMARY.md, and a .agent/tasks.json index with a spec file per task in .agent/tasks/, 50 to 200+ tasks for a typical project"
+            },
+            {
+              "label": "Part of",
+              "text": "pageai's Ralph loop, whose agent loop works through that tasks.json until the list is done"
+            },
+            {
+              "label": "Writes",
+              "text": "no code and no real secrets: .env.local only gets placeholder values"
+            }
+          ],
+          "text": "A two-part planning skill aimed at beginner developers. Part one turns a thin description into a PRD: the agent asks clarifying questions with AskUserQuestion, checks prerequisites such as access, MCP servers, docs, environment variables and test users, adds placeholder entries for missing values to .env.local, and shows an executive summary for your approval. It then researches the competition on the web and writes the PRD: overview and objectives, audience, success metrics, competitive analysis, core features and user flows, a recommended stack, prerequisites, security, assumptions and dependencies. Part two, once you approve, breaks the PRD into tasks: an index in tasks.json and a spec file per task. TASK-1 always verifies the prerequisites, each later task should take ten minutes at most, carries a category such as functional, ui-ux, api-endpoint or security, and has pass steps that verify it, and every task starts as not passed. A short SUMMARY.md describes the project, its main features, key flows and requirements. You can update the PRD or the tasks later, and at the end it checks that all three files exist.",
+          "permalink": "https://github.com/pageai-pro/ralph-loop/tree/eba65ebbb0a78c4a7fd25aab28e94966eddbca5b/.agent/skills/prd-creator"
+        },
+        "tags": [
+          "category:planning",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "requirements",
+          "planning",
+          "interview"
+        ]
       }
     }
   ]
