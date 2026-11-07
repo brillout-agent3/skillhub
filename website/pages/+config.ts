@@ -1,12 +1,24 @@
 import { parse } from "comment-json";
 import type { Config, PageContextServer } from "vike/types";
+import type { Data } from "../../data/types.ts";
+import { forClient, searchWords } from "../client-data.ts";
 
-/** Imports the data files, which are JSONC, as JSON, without their comments. */
+/**
+ * Imports the data files, which are JSONC, as JSON, without their comments. The browser gets a
+ * trimmed skills.jsonc, and `skills.jsonc?search-words` is the prose it leaves out: see
+ * ../client-data.ts.
+ */
 const jsonc = {
   name: "jsonc",
-  transform(code: string, id: string) {
-    if (!id.endsWith(".jsonc")) return;
-    return { code: `export default ${JSON.stringify(parse(code, undefined, true))};`, map: null };
+  transform(this: { environment?: { config: { consumer: string } } }, code: string, id: string) {
+    const [file, query = ""] = id.split("?");
+    if (!file.endsWith(".jsonc")) return;
+    let value: unknown = parse(code, undefined, true);
+    if (file.endsWith("/skills.jsonc")) {
+      if (new URLSearchParams(query).has("search-words")) value = searchWords(value as Data);
+      else if (this.environment?.config.consumer === "client") forClient(value as Data);
+    }
+    return { code: `export default ${JSON.stringify(value)};`, map: null };
   },
 };
 

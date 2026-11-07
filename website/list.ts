@@ -38,6 +38,7 @@ import {
   weekOf,
 } from "./skills.ts";
 import type { Bundle, Skill } from "../data/types.ts";
+import { searchWords, type SearchWords } from "./client-data.ts";
 
 /** A row of the skills list: a skill, or a bundle with its skills inside. */
 type Entry = Skill | Bundle;
@@ -317,38 +318,26 @@ export const skillsLink = (patch: Partial<State>) =>
 
 // ------------------------------------------------------------------- filtering
 
-const searchText = new Map(
-  data.skills.map((s) => [
-    s.id,
-    [
-      s.name,
-      s.agentReview.description,
-      ...(s.agentReview.tldr?.glance.map((g) => g.text) ?? []),
-      s.agentReview.tldr?.text,
-      repoKey(s),
-      s.agentReview.note,
-      ...tagsOf(s),
-      ...tagsOf(s).map(tagLabel),
-    ]
-      .filter(Boolean)
-      .join(" ")
-      .toLowerCase(),
-  ]),
-);
-const bundleText = new Map(
-  data.bundles.map((b) => [
-    b.id,
-    [
-      b.agentReview.name,
-      b.agentReview.description,
-      ...(b.agentReview.tldr?.glance.map((g) => g.text) ?? []),
-      b.agentReview.tldr?.text,
-    ]
-      .filter(Boolean)
-      .join(" ")
-      .toLowerCase(),
-  ]),
-);
+/**
+ * The words of the TLDRs' prose, which only the search reads. The server has the prose in the
+ * data. The client's copy leaves it out: list-client.ts loads the words after the page and hands
+ * them to addSearchWords, and until then the search goes without them. See client-data.ts.
+ */
+let prose = searchWords(data);
+
+/** What the search looks in, and with what weight it ranks: see `index`. */
+let searchText = new Map<string, string>();
+let bundleText = new Map<string, string>();
+let skillFields = new Map<string, Fields>();
+let bundleFields = new Map<string, Fields>();
+
+/** Adds the TLDRs' words to what the search looks in. */
+export function addSearchWords(words: SearchWords) {
+  prose = words;
+  index();
+  last = undefined;
+}
+
 /** The search's words, plurals cut back so they match the singular too: "resumes" finds "resume", "strategies" finds "strategy". */
 const words = (q: string) =>
   q
@@ -368,32 +357,68 @@ const matches = (text: string, q: string) => words(q).every((word) => text.inclu
 type Fields = [text: string, weight: number][];
 const fields = (parts: [string | null | undefined, number][]): Fields =>
   parts.filter((p): p is [string, number] => Boolean(p[0])).map(([t, w]) => [t.toLowerCase(), w]);
-const skillFields = new Map(
-  data.skills.map((s) => [
-    s.id,
-    fields([
-      [s.name, 8],
-      [s.agentReview.description, 4],
-      [s.agentReview.tldr?.glance.map((g) => g.text).join(" "), 3],
-      [[...tagsOf(s), ...tagsOf(s).map(tagLabel)].filter(Boolean).join(" "), 3],
-      [repoKey(s), 2],
-      [s.agentReview.tldr?.text, 1],
-      [s.agentReview.note, 1],
+function index() {
+  searchText = new Map(
+    data.skills.map((s) => [
+      s.id,
+      [
+        s.name,
+        s.agentReview.description,
+        ...(s.agentReview.tldr?.glance.map((g) => g.text) ?? []),
+        prose.skills[s.id],
+        repoKey(s),
+        s.agentReview.note,
+        ...tagsOf(s),
+        ...tagsOf(s).map(tagLabel),
+      ]
+        .filter(Boolean)
+        .join(" ")
+        .toLowerCase(),
     ]),
-  ]),
-);
-const bundleFields = new Map(
-  data.bundles.map((b) => [
-    b.id,
-    fields([
-      [b.agentReview.name, 8],
-      [b.agentReview.description, 4],
-      [b.agentReview.tldr?.glance.map((g) => g.text).join(" "), 3],
-      [repoKey(b), 2],
-      [b.agentReview.tldr?.text, 1],
+  );
+  bundleText = new Map(
+    data.bundles.map((b) => [
+      b.id,
+      [
+        b.agentReview.name,
+        b.agentReview.description,
+        ...(b.agentReview.tldr?.glance.map((g) => g.text) ?? []),
+        prose.bundles[b.id],
+      ]
+        .filter(Boolean)
+        .join(" ")
+        .toLowerCase(),
     ]),
-  ]),
-);
+  );
+  skillFields = new Map(
+    data.skills.map((s) => [
+      s.id,
+      fields([
+        [s.name, 8],
+        [s.agentReview.description, 4],
+        [s.agentReview.tldr?.glance.map((g) => g.text).join(" "), 3],
+        [[...tagsOf(s), ...tagsOf(s).map(tagLabel)].filter(Boolean).join(" "), 3],
+        [repoKey(s), 2],
+        [prose.skills[s.id], 1],
+        [s.agentReview.note, 1],
+      ]),
+    ]),
+  );
+  bundleFields = new Map(
+    data.bundles.map((b) => [
+      b.id,
+      fields([
+        [b.agentReview.name, 8],
+        [b.agentReview.description, 4],
+        [b.agentReview.tldr?.glance.map((g) => g.text).join(" "), 3],
+        [repoKey(b), 2],
+        [prose.bundles[b.id], 1],
+      ]),
+    ]),
+  );
+}
+index();
+
 /** A word counts in full where it starts a word, and a quarter inside one, such as "cad" in "academic". */
 function score(f: Fields, q: string): number {
   const ws = words(q).map((w) => ({

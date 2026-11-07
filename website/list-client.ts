@@ -2,6 +2,7 @@
 
 import {
   PRESETS,
+  addSearchWords,
   PROPS,
   facetsHtml,
   fullRange,
@@ -284,3 +285,12 @@ app.addEventListener("change", (event) => {
 // The page was pre-rendered unfiltered, and without a tag search.
 if (location.search) render();
 else if (tagQuery) renderFacets();
+
+// The TLDRs' prose, which only the search reads, is half the data, so it loads after the page.
+// Until it's in, a search finds fewer skills; once it is, a search under way shows them too.
+void import("../data/skills.jsonc?search-words").then(({ default: words }) => {
+  addSearchWords(words);
+  if (!state.q) return;
+  lastFacets = "";
+  renderSoon();
+});
