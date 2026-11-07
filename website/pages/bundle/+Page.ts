@@ -1,5 +1,5 @@
 import type { PageContextServer } from "vike/types";
-import { compact, date, esc, href, plural } from "../../format.ts";
+import { commandHtml, compact, date, esc, href, plural } from "../../format.ts";
 import { skillsLink } from "../../list.ts";
 import {
   data,
@@ -73,7 +73,7 @@ export default function Page(pageContext: PageContextServer): string {
           ${b.agentReview.install
             .map(
               ({ label, command }) =>
-                `<p class="install-label">${esc(label)}</p><div class="install"><code>${esc(command)}</code><button type="button" class="copy" data-copy="${esc(command)}">Copy</button></div>`,
+                `<p class="install-label">${esc(label)}</p><div class="install"><code>${commandHtml(command)}</code><button type="button" class="copy" data-copy="${esc(command)}">Copy</button></div>`,
             )
             .join("")}
           <p class="links"><a href="https://github.com/${esc(repo)}">Source on GitHub</a> · <a href="${skillsLink({ repo })}">All skills from ${esc(repo)}</a></p>

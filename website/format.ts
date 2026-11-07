@@ -2,6 +2,21 @@
 
 export const esc = (s: string) => s.replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
 
+/**
+ * A shell command, escaped, that wraps only between its words, or after a slash in a URL: a browser
+ * would otherwise break a line after a hyphen, such as inside --skill.
+ */
+export const commandHtml = (command: string) =>
+  command
+    .split(" ")
+    .map((word) =>
+      word
+        .split(/(?<=\/)/)
+        .map((part) => `<span class="word">${esc(part)}</span>`)
+        .join("<wbr>"),
+    )
+    .join(" ");
+
 /** 3.5M, 907K, 54.5K, 812 */
 export function compact(n: number): string {
   if (n >= 1e6) return `${(n / 1e6).toFixed(1).replace(/\.0$/, "")}M`;

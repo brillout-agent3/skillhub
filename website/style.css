@@ -842,7 +842,7 @@ code {
 
 .install {
   display: flex;
-  align-items: stretch;
+  align-items: flex-start;
   gap: 8px;
 }
 
@@ -853,12 +853,17 @@ code {
   border-radius: 8px;
   background: var(--surface-2);
   border: 1px solid var(--border);
-  /* Wrapped, so the whole command shows. */
-  overflow-wrap: anywhere;
+  /* Wrapped between its words, so the whole command shows; a word too long for a line scrolls. */
+  overflow-x: auto;
+}
+
+.install code .word {
+  white-space: nowrap;
 }
 
 .copy {
-  padding: 0 14px;
+  flex-shrink: 0;
+  padding: 7px 14px;
   border: 1px solid var(--border-strong);
   border-radius: 8px;
   background: var(--surface);
