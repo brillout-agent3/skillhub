@@ -599,9 +599,9 @@ function section(title: string, question: string | null, chips: string): string 
   return `<section class="facet"><h2${question ? ` title="${esc(question)}"` : ""}>${esc(title)}</h2><div class="chips">${chips || `<span class="muted">None</span>`}</div></section>`;
 }
 
-/** Whether a tag is one the tag search asks for: its id or label holds each of its words. */
+/** Whether a tag is one the tag search asks for: its id, label and description hold each of its words. */
 const tagFits = (tag: string, label: string, tagQ: string) => {
-  const text = `${tag} ${label}`.toLowerCase();
+  const text = `${tag} ${label} ${tagInfo.get(tag) ?? ""}`.toLowerCase();
   return tagQ
     .toLowerCase()
     .split(/\s+/)
