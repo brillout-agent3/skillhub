@@ -48,14 +48,15 @@ const quiet = (tag: string) => tag === "by:community" || facetOf(tag) === "categ
 // ------------------------------------------------------------------- state
 
 /**
- * Buttons that only set the list's settings, highest first: Top by downloads, Hot by how fast the
+ * Buttons that only set the list's settings, highest first: Top by downloads, Rising by how fast the
  * weekly downloads grow, one per repo (a repo's skills tend to grow together), New by publishing
- * date.
+ * date. Each is named after what it sorts by, which the sidebar shows; other views, such as new
+ * and popular (Published: last 30 days, sorted by weekly downloads), are a setting or two away.
  */
-export type Preset = "top" | "hot" | "new";
+export type Preset = "top" | "rising" | "new";
 export const PRESETS: Record<Preset, { label: string; sort: Sort; one: boolean; title: string }> = {
   top: { label: "Top", sort: "downloads", one: false, title: "Most downloaded of all time" },
-  hot: { label: "Hot", sort: "growth", one: true, title: "Downloads growing the fastest" },
+  rising: { label: "Rising", sort: "growth", one: true, title: "Downloads growing the fastest" },
   new: { label: "New", sort: "published", one: false, title: "Most recently published" },
 };
 
@@ -70,6 +71,9 @@ interface PropInfo {
   title: (e: Entry) => string;
   /** The slider's stops, lowest first. The last one is above every value, so the full range includes them all. */
   stops: Value[];
+  /** How the URL names each stop, when not by its value. */
+  keys?: string[];
+  /** Its values are dates, and its stops ages: see AGES. */
   date?: boolean;
 }
 
@@ -80,21 +84,22 @@ function countStops(of: (s: Skill) => number | null): number[] {
   for (let p = 10; stops[stops.length - 1] <= max; p *= 10) stops.push(p, 2 * p, 5 * p);
   return stops.slice(0, stops.findIndex((n) => n > max) + 1);
 }
-/** The first of each month, from the earliest date's month to the month after the latest's. */
-function monthStops(of: (s: Skill) => string | null): string[] {
-  const dates = data.skills
-    .map(of)
-    .filter((d) => d !== null)
-    .sort();
-  if (!dates.length) return ["", "~"];
-  const stops: string[] = [];
-  let [y, m] = dates[0].split("-").map(Number);
-  for (;;) {
-    stops.push(`${y}-${String(m).padStart(2, "0")}-01`);
-    if (stops[stops.length - 1] > dates[dates.length - 1]) return stops;
-    [y, m] = m === 12 ? [y + 1, 1] : [y, m + 1];
-  }
-}
+/**
+ * The Published slider's inner stops, oldest first, in days before the data's date: its range is
+ * relative, such as the last 30 days, so a link keeps its meaning as the data moves on. The URL
+ * names them such as 30d.
+ */
+const AGES = [365, 90, 30, 7] as const;
+type Age = (typeof AGES)[number];
+const AGO: Record<Age, string> = { 365: "a year", 90: "90 days", 30: "30 days", 7: "a week" };
+const LAST: Record<Age, string> = {
+  365: "Last year",
+  90: "Last 90 days",
+  30: "Last 30 days",
+  7: "Last week",
+};
+const daysBefore = (day: string, n: number) =>
+  new Date(Date.parse(`${day}T00:00:00Z`) - n * 86_400_000).toISOString().slice(0, 10);
 
 // A bundle's numbers are its most popular skill's.
 const most = (e: Entry) => (isBundle(e) ? "The most of any of its skills: " : "");
@@ -104,7 +109,9 @@ export const PROPS: Record<Prop, PropInfo> = {
     of: firstSeenOf,
     title: (e) =>
       isBundle(e) ? "When skills.sh first saw one of its skills" : "When skills.sh first saw it",
-    stops: monthStops(firstSeenOf),
+    // Below and above every date, so that the full range takes them all in.
+    stops: ["", ...AGES.map((n) => daysBefore(data.asOf.installs, n)), "~"],
+    keys: ["", ...AGES.map((n) => `${n}d`), "~"],
     date: true,
   },
   stars: {
@@ -136,28 +143,21 @@ const fullRanges = () =>
   Object.fromEntries(PROP_IDS.map((p) => [p, fullRange(p)])) as Record<Prop, Range>;
 export const isNarrowed = (p: Prop, [lo, hi]: Range) => lo > 0 || hi < lastStop(p);
 
-const monthYear = new Intl.DateTimeFormat("en", {
-  month: "short",
-  year: "numeric",
-  timeZone: "UTC",
-});
-/** A slider's range in words, such as "≥ 1K" or "Mar 2026 – May 2026". */
+/** How the URL names a slider's stop. */
+const stopKey = (p: Prop, i: number) => PROPS[p].keys?.[i] ?? String(PROPS[p].stops[i]);
+
+/** A slider's range in words, such as "≥ 1K", "Last 30 days" or "30 days to a year ago". */
 export function rangeLabel(p: Prop, [lo, hi]: Range): string {
   const { stops, date } = PROPS[p];
   if (date) {
-    const month = (i: number) => monthYear.format(new Date(`${stops[i]}T00:00:00Z`));
-    // `hi` is excluded, so the range ends with the month before it.
-    const from = lo > 0 ? month(lo) : null;
-    const to = hi < lastStop(p) ? month(hi - 1) : null;
-    return from && to
-      ? from === to
-        ? from
-        : `${from} – ${to}`
-      : from
-        ? `Since ${from}`
-        : to
-          ? `Until ${to}`
-          : "Any";
+    // A date at or after `lo`'s is within that age; one before `hi`'s is older than it.
+    const within = lo > 0 ? AGES[lo - 1] : null;
+    const older = hi < lastStop(p) ? AGES[hi - 1] : null;
+    if (within && older) {
+      const young = AGO[older];
+      return `${young[0].toUpperCase()}${young.slice(1)} to ${AGO[within]} ago`;
+    }
+    return within ? LAST[within] : older ? `Over ${AGO[older]} ago` : "Any";
   }
   const from = lo > 0 ? compact(stops[lo] as number) : null;
   const to = hi < lastStop(p) ? compact(stops[hi] as number) : null;
@@ -198,12 +198,12 @@ export function parse(search: string): State {
   const q = p.get("q") ?? "";
   const ranges = fullRanges();
   for (const prop of PROP_IDS) {
-    // Such as stars=1000..50000, or published=2026-03-01.. with no upper bound.
+    // Such as stars=1000..50000, or published=30d.. with no upper bound.
     const [lo, hi] = (p.get(prop) ?? "").split("..");
-    const stops = PROPS[prop].stops.map(String);
-    if (lo && stops.includes(lo)) ranges[prop][0] = stops.indexOf(lo);
-    if (hi && stops.includes(hi) && stops.indexOf(hi) > ranges[prop][0])
-      ranges[prop][1] = stops.indexOf(hi);
+    const keys = PROPS[prop].stops.map((_, i) => stopKey(prop, i));
+    if (lo && keys.includes(lo)) ranges[prop][0] = keys.indexOf(lo);
+    if (hi && keys.includes(hi) && keys.indexOf(hi) > ranges[prop][0])
+      ranges[prop][1] = keys.indexOf(hi);
   }
   return {
     q,
@@ -231,7 +231,7 @@ export function query(s: State): string {
     if (isNarrowed(prop, [lo, hi]))
       p.set(
         prop,
-        `${lo > 0 ? PROPS[prop].stops[lo] : ""}..${hi < lastStop(prop) ? PROPS[prop].stops[hi] : ""}`,
+        `${lo > 0 ? stopKey(prop, lo) : ""}..${hi < lastStop(prop) ? stopKey(prop, hi) : ""}`,
       );
   }
   if (s.one) p.set("one", "1");

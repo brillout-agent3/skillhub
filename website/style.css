@@ -218,7 +218,7 @@ code {
   margin-top: 18px;
 }
 
-/* Top, Hot and New: they only set the sort. */
+/* Top, Rising and New: they only set the sort. */
 .presets {
   display: flex;
   gap: 6px;
@@ -1461,7 +1461,7 @@ code {
     border-bottom: 1px solid var(--border);
   }
 
-  /* Top, Hot and New stay in view; the Filters button opens the rest. */
+  /* Top, Rising and New stay in view; the Filters button opens the rest. */
   #filters .side-body {
     margin-top: 12px;
   }
