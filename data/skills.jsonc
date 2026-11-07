@@ -57,11 +57,6 @@
           "description": "Change how the agent replies: shorter, clearer, fewer tokens."
         },
         {
-          "id": "writing",
-          "label": "Writing",
-          "description": "Articles, docs, internal comms, research write-ups and prose that doesn't read as generated."
-        },
-        {
           "id": "design",
           "label": "Design",
           "description": "Taste for interfaces that don't look generated: direction, motion and accessibility."
@@ -77,11 +72,6 @@
           "description": "Deploy, provision, observe and debug cloud apps."
         },
         {
-          "id": "networking",
-          "label": "Networking",
-          "description": "Computer networks: home labs, VLANs, VPNs, DNS, routing and network diagnostics."
-        },
-        {
           "id": "browser",
           "label": "Browser",
           "description": "Drive browsers, scrape pages and search the web."
@@ -92,24 +82,29 @@
           "description": "Drive desktop apps, phones and simulators: tap, type, read the screen and test native apps."
         },
         {
-          "id": "media",
-          "label": "Media",
-          "description": "Generate and edit video, images and audio."
+          "id": "agents",
+          "label": "Agents",
+          "description": "Build agents, orchestrate workers and give agents memory."
         },
         {
-          "id": "games",
-          "label": "Games",
-          "description": "Make games: design, genres, game feel and game-jam workflows, whatever the engine."
+          "id": "security",
+          "label": "Security",
+          "description": "Compliance, guardrails, skill vetting and browser fingerprinting."
         },
         {
-          "id": "hardware",
-          "label": "Hardware",
-          "description": "Build physical things: CAD models, 3D printing, fabrication files, robots and embedded systems."
+          "id": "writing",
+          "label": "Writing",
+          "description": "Articles, docs, internal comms, research write-ups and prose that doesn't read as generated."
         },
         {
           "id": "documents",
           "label": "Documents",
           "description": "Office files, notes and suites like Lark and Google Workspace."
+        },
+        {
+          "id": "media",
+          "label": "Media",
+          "description": "Generate and edit video, images and audio."
         },
         {
           "id": "marketing",
@@ -132,14 +127,19 @@
           "description": "Research reproduction, financial data, charts and diagrams."
         },
         {
-          "id": "agents",
-          "label": "Agents",
-          "description": "Build agents, orchestrate workers and give agents memory."
+          "id": "games",
+          "label": "Games",
+          "description": "Make games: design, genres, game feel and game-jam workflows, whatever the engine."
         },
         {
-          "id": "security",
-          "label": "Security",
-          "description": "Compliance, guardrails, skill vetting and browser fingerprinting."
+          "id": "hardware",
+          "label": "Hardware",
+          "description": "Build physical things: CAD models, 3D printing, fabrication files, robots and embedded systems."
+        },
+        {
+          "id": "networking",
+          "label": "Networking",
+          "description": "Computer networks: home labs, VLANs, VPNs, DNS, routing and network diagnostics."
         },
         {
           "id": "osint",
@@ -19999,6 +19999,7 @@
         },
         "tags": [
           "category:debugging",
+          "category:computer-use",
           "type:tool",
           "effect:local",
           "needs:mcp",
@@ -20109,6 +20110,7 @@
         },
         "tags": [
           "category:debugging",
+          "category:computer-use",
           "type:workflow",
           "effect:local",
           "needs:mcp",
@@ -24854,6 +24856,7 @@
         },
         "tags": [
           "category:debugging",
+          "category:computer-use",
           "type:tool",
           "effect:remote",
           "needs:cli",
@@ -27269,6 +27272,7 @@
         "tags": [
           "category:debugging",
           "category:agents",
+          "category:computer-use",
           "type:workflow",
           "effect:remote",
           "needs:account",
@@ -28869,6 +28873,7 @@
         },
         "tags": [
           "category:debugging",
+          "category:computer-use",
           "type:workflow",
           "effect:local",
           "needs:mcp",
@@ -28983,6 +28988,7 @@
         },
         "tags": [
           "category:debugging",
+          "category:computer-use",
           "type:tool",
           "effect:local",
           "needs:mcp",
@@ -29039,6 +29045,7 @@
         },
         "tags": [
           "category:debugging",
+          "category:computer-use",
           "type:tool",
           "effect:local",
           "needs:mcp",
@@ -29098,6 +29105,7 @@
         "tags": [
           "category:debugging",
           "category:media",
+          "category:computer-use",
           "type:workflow",
           "effect:local",
           "needs:mcp",
@@ -29148,6 +29156,7 @@
         },
         "tags": [
           "category:debugging",
+          "category:computer-use",
           "type:guidelines",
           "effect:none",
           "needs:mcp",
@@ -29678,6 +29687,7 @@
         "tags": [
           "category:media",
           "category:documents",
+          "category:computer-use",
           "type:tool",
           "effect:local",
           "needs:cli",
@@ -34257,6 +34267,7 @@
         },
         "tags": [
           "category:debugging",
+          "category:computer-use",
           "type:tool",
           "effect:local",
           "needs:cli",
@@ -35073,7 +35084,7 @@
           "permalink": "https://github.com/earthtojake/text-to-cad/tree/4099cac3ddc56a5e696138c53fd7bee685e8ad9d/skills/cad"
         },
         "tags": [
-          "category:science",
+          "category:hardware",
           "type:tool",
           "effect:local",
           "needs:cli",
@@ -38080,6 +38091,7 @@
         "tags": [
           "category:science",
           "category:personal",
+          "category:hardware",
           "type:workflow",
           "effect:local",
           "needs:none",
@@ -47699,7 +47711,7 @@
           "permalink": "https://github.com/earthtojake/text-to-cad/tree/4099cac3ddc56a5e696138c53fd7bee685e8ad9d/skills/step-parts"
         },
         "tags": [
-          "category:science",
+          "category:hardware",
           "type:tool",
           "effect:local",
           "needs:none",
@@ -47752,7 +47764,7 @@
           "permalink": "https://github.com/earthtojake/text-to-cad/tree/4099cac3ddc56a5e696138c53fd7bee685e8ad9d/skills/sdf"
         },
         "tags": [
-          "category:science",
+          "category:hardware",
           "type:workflow",
           "effect:local",
           "needs:cli",
@@ -47808,7 +47820,7 @@
           "permalink": "https://github.com/earthtojake/text-to-cad/tree/4099cac3ddc56a5e696138c53fd7bee685e8ad9d/skills/urdf"
         },
         "tags": [
-          "category:science",
+          "category:hardware",
           "type:workflow",
           "effect:local",
           "needs:cli",
@@ -47864,7 +47876,7 @@
           "permalink": "https://github.com/earthtojake/text-to-cad/tree/4099cac3ddc56a5e696138c53fd7bee685e8ad9d/skills/srdf"
         },
         "tags": [
-          "category:science",
+          "category:hardware",
           "type:workflow",
           "effect:local",
           "needs:cli",
@@ -47929,7 +47941,7 @@
           "permalink": "https://github.com/earthtojake/text-to-cad/tree/4099cac3ddc56a5e696138c53fd7bee685e8ad9d/skills/sendcutsend"
         },
         "tags": [
-          "category:science",
+          "category:hardware",
           "type:workflow",
           "effect:none",
           "needs:none",
@@ -47984,7 +47996,7 @@
           "permalink": "https://github.com/earthtojake/text-to-cad/tree/4099cac3ddc56a5e696138c53fd7bee685e8ad9d/skills/gcode"
         },
         "tags": [
-          "category:science",
+          "category:hardware",
           "type:tool",
           "effect:local",
           "needs:cli",
@@ -48041,7 +48053,7 @@
           "permalink": "https://github.com/earthtojake/text-to-cad/tree/4099cac3ddc56a5e696138c53fd7bee685e8ad9d/skills/dxf"
         },
         "tags": [
-          "category:science",
+          "category:hardware",
           "type:tool",
           "effect:local",
           "needs:cli",
@@ -48097,7 +48109,7 @@
           "permalink": "https://github.com/earthtojake/text-to-cad/tree/4099cac3ddc56a5e696138c53fd7bee685e8ad9d/skills/bambu-labs"
         },
         "tags": [
-          "category:science",
+          "category:hardware",
           "type:tool",
           "effect:local",
           "needs:cli",
@@ -55198,6 +55210,7 @@
         },
         "tags": [
           "category:debugging",
+          "category:computer-use",
           "type:workflow",
           "effect:local",
           "needs:cli",
@@ -55362,6 +55375,7 @@
         },
         "tags": [
           "category:engineering",
+          "category:hardware",
           "type:workflow",
           "effect:local",
           "needs:none",
@@ -62752,7 +62766,7 @@
           "permalink": "https://github.com/openclaw/openclaw/tree/f99d785d2ac6269b37a1c88eb8d5ef2283b76b99/skills/peekaboo"
         },
         "tags": [
-          "category:agents",
+          "category:computer-use",
           "type:tool",
           "effect:local",
           "needs:cli",
@@ -69185,6 +69199,7 @@
         },
         "tags": [
           "category:debugging",
+          "category:computer-use",
           "type:tool",
           "effect:local",
           "needs:cli",
@@ -73468,6 +73483,7 @@
         },
         "tags": [
           "category:debugging",
+          "category:computer-use",
           "type:tool",
           "effect:local",
           "needs:cli",
@@ -74772,6 +74788,7 @@
         },
         "tags": [
           "category:debugging",
+          "category:computer-use",
           "type:tool",
           "effect:local",
           "needs:cli",
@@ -74828,6 +74845,7 @@
         },
         "tags": [
           "category:debugging",
+          "category:computer-use",
           "type:tool",
           "effect:local",
           "needs:cli",
@@ -74884,6 +74902,7 @@
         },
         "tags": [
           "category:debugging",
+          "category:computer-use",
           "type:tool",
           "effect:local",
           "needs:cli",
@@ -74940,6 +74959,7 @@
         },
         "tags": [
           "category:debugging",
+          "category:computer-use",
           "type:tool",
           "effect:local",
           "needs:cli",
@@ -75823,7 +75843,7 @@
           "permalink": "https://github.com/vercel-labs/agent-desktop/tree/b43ac4f6e892ef608f8851428613c4009f0e84c7/skills/agent-desktop"
         },
         "tags": [
-          "category:agents",
+          "category:computer-use",
           "type:tool",
           "effect:local",
           "needs:cli",
@@ -77053,7 +77073,7 @@
           "permalink": "https://github.com/earthtojake/text-to-cad/tree/4099cac3ddc56a5e696138c53fd7bee685e8ad9d/skills/dfam-check"
         },
         "tags": [
-          "category:science",
+          "category:hardware",
           "type:workflow",
           "effect:none",
           "needs:cli",
