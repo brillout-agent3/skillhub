@@ -40,7 +40,7 @@ function facts(s: Skill): string {
   const list: string[] = [];
   if (sh.installs !== null)
     list.push(
-      `<div><dt>Installs</dt><dd>${sh.installs.toLocaleString("en")} <span class="muted">on skills.sh, ${date(data.asOf.installs)}</span></dd></div>`,
+      `<div><dt>Total Downloads</dt><dd>${sh.installs.toLocaleString("en")} <span class="muted">on skills.sh, ${date(data.asOf.installs)}</span></dd></div>`,
     );
   if (repo?.stars != null)
     list.push(

@@ -45,11 +45,11 @@ export function statTile(
     .join("");
   return `
     <figure class="stat">
-      <figcaption class="stat-label">Weekly installs</figcaption>
+      <figcaption class="stat-label">Weekly Downloads</figcaption>
       <div class="stat-value">${compact(last)}</div>
       <div class="stat-delta">${change === null ? "" : `${change > 0 ? "+" : ""}${change}% over 8 weeks · `}week to ${weeks[weeks.length - 1]}</div>
       <div class="spark" tabindex="0" role="group"
-        aria-label="Weekly installs, ${spoken}. Use the left and right arrow keys to read each week."
+        aria-label="Weekly downloads, ${spoken}. Use the left and right arrow keys to read each week."
         data-values="${values.join(",")}" data-weeks="${weeks.join("|")}">
         <svg viewBox="0 0 ${W} ${H}" aria-hidden="true">
           <line class="spark-base" x1="${PAD_X}" x2="${W - PAD_X}" y1="${H - PAD_Y}" y2="${H - PAD_Y}" />

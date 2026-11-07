@@ -23,7 +23,7 @@ function facts(b: Bundle): string {
   const list: string[] = [];
   if (installs !== null)
     list.push(
-      `<div><dt>Installs</dt><dd>${installs.toLocaleString("en")} <span class="muted">of <a href="${skillHref(top.id)}">${esc(top.name)}</a>, its most installed skill, on skills.sh, ${date(data.asOf.installs)}</span></dd></div>`,
+      `<div><dt>Total Downloads</dt><dd>${installs.toLocaleString("en")} <span class="muted">of <a href="${skillHref(top.id)}">${esc(top.name)}</a>, its most installed skill, on skills.sh, ${date(data.asOf.installs)}</span></dd></div>`,
     );
   if (repo?.stars != null)
     list.push(
@@ -45,7 +45,7 @@ function skills(b: Bundle): string {
         <div class="skill-head">
           <h3><a class="skill-name" href="${skillHref(id)}">${esc(s.name)}</a></h3>
           ${standalone ? "" : `<span class="kind">Only in the bundle</span>`}
-          ${installs === null ? "" : `<span class="metric"><strong>${compact(installs)}</strong> installs</span>`}
+          ${installs === null ? "" : `<span class="metric"><strong>${compact(installs)}</strong> total downloads</span>`}
         </div>
         <p class="skill-desc">${esc(s.agentReview.description)}</p>
         ${note ? `<p class="member-note">${esc(note)}</p>` : ""}

@@ -107,13 +107,13 @@ export const PROPS: Record<Prop, PropInfo> = {
     stops: countStops(starsOf),
   },
   downloads: {
-    label: "Downloads",
+    label: "Total Downloads",
     of: installsOf,
     title: (e) => `${most(e)}All-time installs on skills.sh, ${date(data.asOf.installs)}`,
     stops: countStops(installsOf),
   },
   week: {
-    label: "Downloads / week",
+    label: "Weekly Downloads",
     of: weekOf,
     title: (e) => `${most(e)}Installs on skills.sh in the week to ${date(data.asOf.installs)}`,
     stops: countStops(weekOf),
