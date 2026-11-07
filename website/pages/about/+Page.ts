@@ -148,10 +148,7 @@ export default function Page(): string {
         <li><strong>Tags and the search</strong> match a bundle through any of its skills, and grey out its other skills.</li>
       </ul>
 
-      <h2>Keeping it current</h2>
+      <h2>Up-to-date</h2>
       <p>SkillHub follows each listed skill's SKILL.md in its repo. A skill's page says when its SKILL.md has changed since its TLDR was written.</p>
-
-      <h2>What to keep in mind</h2>
-      <p>Agent reviews can be wrong, and no one runs the skills to test them: an agent review reads the SKILL.md and judges it. Install counts come from skills.sh and stars from GitHub. Something wrong or missing? <a href="${GITHUB}/issues">Open an issue</a>.</p>
     </div>`;
 }
