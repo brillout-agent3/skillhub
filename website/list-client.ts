@@ -13,6 +13,8 @@ import {
   sinceRange,
   query,
   resultsHtml,
+  askLabel,
+  scopeChipsHtml,
   scopeHtml,
   searchPlaceholder,
   rowCount,
@@ -71,7 +73,7 @@ function focusSelector(): string | null {
   for (const attr of ["data-tag", "data-action", "data-remove", "data-preset", "data-show"]) {
     const v = el.getAttribute(attr);
     if (v !== null)
-      return `#${["facets", "settings", "scope"].find((id) => el.closest(`#${id}`)) ?? "results"} [${attr}="${CSS.escape(v)}"]`;
+      return `#${["facets", "settings", "scope-chips", "scope"].find((id) => el.closest(`#${id}`)) ?? "results"} [${attr}="${CSS.escape(v)}"]`;
   }
   return el.id ? `#${CSS.escape(el.id)}` : null;
 }
@@ -108,7 +110,9 @@ function renderScope() {
   const key = JSON.stringify([state.tags, state.repo, state.ranges, state.show]);
   if (key === lastScope) return;
   lastScope = key;
+  (document.getElementById("scope-chips") as HTMLElement).innerHTML = scopeChipsHtml(state);
   (document.getElementById("scope") as HTMLElement).innerHTML = scopeHtml(state);
+  (document.getElementById("ask-label") as HTMLElement).textContent = askLabel(state);
   q.placeholder = searchPlaceholder(state);
 }
 
@@ -200,6 +204,13 @@ function ask(button: HTMLElement) {
 
 q.addEventListener("input", () => go({ q: q.value }));
 
+// As in a field of tokens, Backspace in the empty search box removes the last filter chip.
+q.addEventListener("keydown", (event) => {
+  if (event.key !== "Backspace" || q.value) return;
+  const chips = app.querySelectorAll<HTMLElement>("#scope-chips [data-remove]");
+  chips[chips.length - 1]?.click();
+});
+
 tagQ.addEventListener("input", () => {
   tagQuery = tagQ.value.trim();
   renderFacets();
@@ -244,6 +255,7 @@ app.addEventListener("click", (event) => {
     else if (d.remove === "range") go({ ranges: { ...state.ranges, [v]: fullRange(v as Prop) } });
   } else if (d.action === "clear") go({ tags: [], repo: null, ranges: fullRanges() });
   else if (d.action === "ask") ask(el);
+  else if (d.action === "focus-search") q.focus();
   else if (d.action === "order") go({ asc: !state.asc });
   else if (d.action === "stack") {
     stackExpanded = !stackExpanded;

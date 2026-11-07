@@ -64,4 +64,4 @@ const n = (x: number) => x.toLocaleString("en");
 
 /** The skills list's opening line. */
 export const introHtml = () =>
-  `<p class="intro"><b>${n(review.listed)} curated skills</b> <a href="${href("about/")}"><small>From ${n(review.reviewed)} reviewed skills.</small></a></p>`;
+  `<header class="intro"><h1>${n(review.listed)} curated skills</h1><a href="${href("about/")}">From ${n(review.reviewed)} reviewed skills <span aria-hidden="true">→</span></a></header>`;

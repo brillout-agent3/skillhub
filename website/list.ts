@@ -784,25 +784,45 @@ const scopeOf = (st: State) => {
 /** The search box's placeholder: how many skills (or bundles) it looks through. */
 export const searchPlaceholder = (st: State) => `Search ${plural(scopeOf(st), unitOf(st))}`;
 
-/**
- * Under the search box: what it and "Find skill with your agent" look through, which is what the
- * filters leave, with the filters as chips to remove.
- */
-export function scopeHtml(st: State): string {
-  const n = scopeOf(st);
-  const all = allOf(st);
-  const kinds = `${unitOf(st)}${all === 1 ? "" : "s"}`;
-  if (!filtersOn(st))
-    return `<p class="scope">Searching all <strong>${all.toLocaleString("en")}</strong> ${kinds}.</p>`;
+/** The filters that narrow the search, as chips inside the search box, each with its × to remove it. */
+export function scopeChipsHtml(st: State): string {
   const chips: string[] = [];
   const remove = (kind: string, value: string, label: string) =>
-    `<button type="button" class="active-chip" data-remove="${kind}" data-value="${esc(value)}" aria-label="Remove filter ${esc(label)}">${esc(label)} <span aria-hidden="true">×</span></button>`;
+    `<button type="button" class="scope-chip" data-remove="${kind}" data-value="${esc(value)}" aria-label="Remove filter ${esc(label)}">${esc(label)} <span aria-hidden="true">×</span></button>`;
   for (const t of st.tags) chips.push(remove("tag", t, t));
   if (st.repo) chips.push(remove("repo", st.repo, `from ${st.repo}`));
   for (const p of PROP_IDS)
     if (isNarrowed(p, st.ranges[p]))
       chips.push(remove("range", p, `${PROPS[p].label}: ${rangeLabel(p, st.ranges[p])}`));
-  return `<div class="scope filtered"><span>Searching <strong>${n.toLocaleString("en")} of ${all.toLocaleString("en")}</strong> ${kinds}, filtered by</span> ${chips.join(" ")} <button type="button" class="link-button" data-action="clear">Clear filters</button></div>`;
+  return chips.join("");
+}
+
+/**
+ * Under the search box: how many skills it and "Find skill with your agent" look through, which
+ * is what the filters leave, and Clear filters. It describes the search box, so it names the
+ * filters for a screen reader, which the chips show.
+ */
+export function scopeHtml(st: State): string {
+  const n = scopeOf(st);
+  const all = allOf(st);
+  const kinds = `${unitOf(st)}${all === 1 ? "" : "s"}`;
+  if (!filtersOn(st)) return `Searching all <strong>${all.toLocaleString("en")}</strong> ${kinds}`;
+  const names = [
+    ...st.tags,
+    ...(st.repo ? [`from ${st.repo}`] : []),
+    ...PROP_IDS.filter((p) => isNarrowed(p, st.ranges[p])).map(
+      (p) => `${PROPS[p].label}: ${rangeLabel(p, st.ranges[p])}`,
+    ),
+  ];
+  return `Searching <strong>${n.toLocaleString("en")} of ${all.toLocaleString("en")}</strong> ${kinds}<span class="sr-only">, filtered by ${esc(names.join(", "))}</span> <span aria-hidden="true">·</span> <button type="button" class="link-button" data-action="clear">Clear filters</button>`;
+}
+
+/** Under "Find skill with your agent": what it copies. */
+export function askLabel(st: State): string {
+  const n = scopeOf(st);
+  const kinds = `${unitOf(st)}${n === 1 ? "" : "s"}`;
+  const which = filtersOn(st) ? `these ${n.toLocaleString("en")}` : `all ${n.toLocaleString("en")}`;
+  return `Copies your need and ${which} ${kinds} as a prompt for Claude, ChatGPT or any chat agent.`;
 }
 
 const rowHtml = (e: Entry, st: State) => (isBundle(e) ? bundleRow(e, st) : skillRow(e, st));
@@ -930,15 +950,17 @@ export function listView(st: State, intro = "", head = ""): string {
       </aside>
       <div class="list-main">
         ${intro}
-        <div class="search-ctas">
-          <div class="search">
+        <div class="finder">
+          <div class="search-field" data-action="focus-search">
+            <svg class="search-icon" viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="2" /><path d="m13 13 4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" /></svg>
+            <span id="scope-chips" class="scope-chips">${scopeChipsHtml(st)}</span>
             <label for="q" class="sr-only">Search skills</label>
             <input id="q" type="search" value="${esc(st.q)}" placeholder="${esc(searchPlaceholder(st))}" autocomplete="off" spellcheck="false" aria-describedby="scope" />
           </div>
           <button type="button" class="ask-button" data-action="ask" aria-describedby="ask-label">Find skill with your agent</button>
+          <p id="scope" class="scope">${scopeHtml(st)}</p>
+          <p id="ask-label" class="ask-label">${askLabel(st)}</p>
         </div>
-        <div id="scope">${scopeHtml(st)}</div>
-        <p id="ask-label" class="ask-label">Describe what you need in the search box, then copy a prompt for Claude, ChatGPT or any chat agent: your words as the need, and the skills you're searching as the catalog.</p>
         <section id="results" aria-label="Skills">${resultsHtml(st)}</section>
       </div>
     </div>`;

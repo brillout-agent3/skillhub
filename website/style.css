@@ -173,32 +173,32 @@ code {
 
 /* ------------------------------------------------------------- skills view */
 
-/* The skills list's opening line: the count in large type, and a link to how skills get here. */
+/* The skills list's heading: the count, and a link to how skills get here. */
 .intro {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 14px;
   margin: 0 0 16px;
-  font-size: 30px;
-  line-height: 1.25;
 }
 
-.intro b {
+.intro h1 {
+  margin: 0;
+  font-size: 30px;
   font-weight: 750;
   letter-spacing: -0.01em;
+  line-height: 1.2;
 }
 
 .intro a {
-  margin-left: 6px;
   color: var(--text-2);
+  font-size: 15px;
   text-decoration: none;
-  white-space: nowrap;
 }
 
 .intro a:hover {
   color: var(--accent-text);
   text-decoration: underline;
-}
-
-.intro small {
-  font-size: 16px;
 }
 
 .skills-view {
@@ -310,30 +310,87 @@ code {
   padding: 24px 24px 80px;
 }
 
-.search-ctas {
+/*
+ * The search box, with the filters that narrow it as chips inside it, and "Find skill with your
+ * agent" beside it; under each, a line about what it looks through.
+ */
+.finder {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "field ask"
+    "scope label";
+  gap: 8px 10px;
+  margin-bottom: 20px;
+}
+
+.search-field {
+  grid-area: field;
   display: flex;
-  gap: 10px;
-}
-
-.search {
-  flex: 1;
-  min-width: 0;
-}
-
-.search input {
-  width: 100%;
-  padding: 11px 14px;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  min-height: 48px;
+  padding: 5px 12px;
   border: 1px solid var(--border-strong);
-  border-radius: 10px;
+  border-radius: 12px;
   background: var(--surface);
+  cursor: text;
+}
+
+.search-field:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.search-icon {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  color: var(--text-3);
+}
+
+/* Its chips sit in the field's row, before the input, and wrap with it. */
+.scope-chips {
+  display: contents;
+}
+
+.scope-chip {
+  padding: 3px 10px;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent-text);
+  font-size: 13px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.scope-chip:hover {
+  background: var(--surface);
+}
+
+.search-field input {
+  flex: 1;
+  min-width: 140px;
+  padding: 6px 2px;
+  border: 0;
+  background: none;
+  color: var(--text);
   font-size: 16px;
 }
 
+/* The field shows the focus instead. */
+.search-field input:focus-visible {
+  outline: none;
+}
+
 .ask-button {
-  flex: none;
-  padding: 0 16px;
+  grid-area: ask;
+  min-height: 48px;
+  padding: 0 18px;
   border: 0;
-  border-radius: 10px;
+  border-radius: 12px;
   background: var(--accent);
   color: var(--on-accent);
   font-size: 15px;
@@ -346,13 +403,9 @@ code {
   filter: brightness(1.1);
 }
 
-/* What the search and the agent prompt look through, with the filters that narrow it. */
 .scope {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 6px;
-  margin: 10px 0 0;
+  grid-area: scope;
+  margin: 0 0 0 2px;
   color: var(--text-2);
   font-size: 14px;
 }
@@ -361,10 +414,13 @@ code {
   color: var(--text);
 }
 
+/* As wide as the button above it, which it shouldn't widen. */
 .ask-label {
-  margin: 8px 0 18px;
+  grid-area: label;
+  contain: inline-size;
+  margin: 0;
   color: var(--text-3);
-  font-size: 13px;
+  font-size: 12.5px;
   line-height: 1.4;
 }
 
@@ -578,24 +634,6 @@ code {
 
 .filters-toggle {
   display: none;
-}
-
-.active {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 6px;
-  margin-bottom: 12px;
-}
-
-.active-chip {
-  padding: 3px 10px;
-  border: 1px solid var(--accent);
-  border-radius: 999px;
-  background: var(--accent-soft);
-  color: var(--accent-text);
-  font-size: 13px;
-  cursor: pointer;
 }
 
 .repo-banner {
@@ -1485,12 +1523,10 @@ code {
 
   .intro {
     margin-bottom: 12px;
-    font-size: 23px;
   }
 
-  .intro a {
-    display: block;
-    margin: 4px 0 0;
+  .intro h1 {
+    font-size: 23px;
   }
 
   .skills-view {
@@ -1530,12 +1566,13 @@ code {
     padding: 16px 12px 64px;
   }
 
-  .search-ctas {
-    flex-direction: column;
+  .finder {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "field" "scope" "ask" "label";
   }
 
-  .ask-button {
-    padding: 11px 16px;
+  .ask-label {
+    contain: none;
   }
 
   .filters-toggle {
