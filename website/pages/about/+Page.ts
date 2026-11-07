@@ -1,6 +1,5 @@
 import { date, href } from "../../format.ts";
 import { review } from "../../review.ts";
-import { GITHUB } from "../../skills.ts";
 
 const n = (x: number) => x.toLocaleString("en");
 
