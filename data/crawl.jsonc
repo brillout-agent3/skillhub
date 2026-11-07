@@ -14,19 +14,6 @@
         "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
         "firstSeen": null
       }
-    },
-    {
-      "name": "dotnet-core-expert",
-      "repo": "jeffallan/claude-skills",
-      "official": false,
-      "stars": 12252,
-      "seen": "2026-11-07",
-      "skills.sh": {
-        "url": "https://skills.sh/jeffallan/claude-skills/dotnet-core-expert",
-        "installs": 5000,
-        "weeklyInstalls": [83, 83, 96, 86, 101, 125, 112, 131],
-        "firstSeen": "2026-01-21"
-      }
     }
   ],
   "unqualified": [
@@ -20393,6 +20380,10 @@
     {
       "url": "https://skills.sh/backnotprop/pstack/sharpen",
       "note": "A copy of cursor/plugins/pstack/skills/sharpen."
+    },
+    {
+      "url": "https://skills.sh/jeffallan/claude-skills/dotnet-core-expert",
+      "note": "Tool docs: an agent's manual for dotnet."
     }
   ]
 }
