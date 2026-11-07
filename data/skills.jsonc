@@ -2947,6 +2947,97 @@
         "description": "Agent skills that make AI agents genuinely good at building mobile apps, studied against the top-grossing apps and finished to a simulator-verified bar.",
         "note": "Its research skill runs on the Appllama MCP, part of Appllama's paid Pro plan; the design skill works without it."
       }
+    },
+    {
+      "id": "d4vinci/scrapling",
+      "stars": 98744,
+      "agentReview": {
+        "kind": "project",
+        "description": "A Python web scraping framework that brings fast HTTP requests, stealth browsers, powerful parsing and concurrent crawling into one library."
+      }
+    },
+    {
+      "id": "minimax-ai/skills",
+      "stars": 13795,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Development skills for AI coding agents, from MiniMax.",
+        "note": "In beta: its README says skills, APIs and configuration formats may change without notice."
+      }
+    },
+    {
+      "id": "cocoindex-io/cocoindex-code",
+      "stars": 2966,
+      "agentReview": {
+        "kind": "project",
+        "description": "AST-based semantic code search for your codebase, from the CLI or through a skill or MCP server."
+      }
+    },
+    {
+      "id": "jamditis/claude-skills-journalism",
+      "stars": 448,
+      "agentReview": {
+        "kind": "skills",
+        "description": "A collection of Agent Skills for journalists, researchers, academics, media professionals and communications practitioners."
+      }
+    },
+    {
+      "id": "bahayonghang/academic-writing-skills",
+      "stars": 540,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Post-writing polish and validation for academic papers: format checks, bibliography search and verification, grammar analysis, de-AI editing and experiment narrative review."
+      }
+    },
+    {
+      "id": "cclank/news-aggregator-skill",
+      "stars": 1317,
+      "agentReview": {
+        "kind": "skills",
+        "description": "A tech, finance and AI news aggregator for agents, with deep analysis of what it fetches.",
+        "note": "Its README is in Chinese."
+      }
+    },
+    {
+      "id": "vercel-labs/agent-desktop",
+      "stars": 17964,
+      "agentReview": {
+        "kind": "project",
+        "description": "Computer use for AI agents: see and operate desktop apps on macOS, Windows and Linux through the OS accessibility tree."
+      }
+    },
+    {
+      "id": "browserbase/skills",
+      "stars": 3755,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Skills for Claude Code to work with Browserbase through browser automation and the official browse CLI."
+      }
+    },
+    {
+      "id": "nick-vels/skills",
+      "stars": 596,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Autopilot, a development framework packaged as a skill: describe what you want built and get a finished project."
+      }
+    },
+    {
+      "id": "remorses/playwriter",
+      "stars": 4063,
+      "agentReview": {
+        "kind": "project",
+        "description": "Lets your agents control your own Chrome, via CLI or MCP, with your logins, extensions and cookies already there."
+      }
+    },
+    {
+      "id": "tradermonty/claude-trading-skills",
+      "stars": 3666,
+      "agentReview": {
+        "kind": "skills",
+        "description": "A Claude Skills-based trading workflow toolkit for time-constrained individual investors.",
+        "note": "For education and research only: its README says it isn't financial advice or a signal service."
+      }
     }
   ],
   "bundles": [
@@ -74985,6 +75076,834 @@
           "security",
           "ci",
           "code-review"
+        ]
+      }
+    },
+    {
+      "id": "d4vinci/scrapling/agent-skill/Scrapling-Skill",
+      "name": "scrapling-official",
+      "skills.sh": {
+        "url": "https://skills.sh/d4vinci/scrapling/scrapling-official",
+        "installs": 6200,
+        "weeklyInstalls": [260, 237, 200, 236, 192, 309, 286, 361],
+        "firstSeen": "2026-03-08"
+      },
+      "skillMd": {
+        "version": "bc602488b44e978da3266841e913af17577ec0fd",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Scrapes and crawls websites with Scrapling's CLI or Python library, from plain HTTP requests to stealth browsers that get past Cloudflare checks.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a page needs JavaScript or blocks plain requests, or you want a Python scraper or crawler written against Scrapling's current API"
+            },
+            {
+              "label": "It does",
+              "text": "saves a page as Markdown, text or HTML with scrapling extract: get for simple pages, fetch with a stealth browser for JavaScript-heavy or protected ones"
+            },
+            {
+              "label": "You get",
+              "text": "the page content in a temporary file the agent reads and then deletes, or Python code built on Scrapling's fetchers, parser and spiders"
+            },
+            {
+              "label": "Unlike",
+              "text": "a plain web fetch, it can impersonate a browser's TLS fingerprint, solve Cloudflare Turnstile challenges and route through proxies"
+            },
+            {
+              "label": "Needs",
+              "text": "Python 3.10+ with scrapling[all] installed, and scrapling install for its browser; a Docker image covers the commands but not Python code"
+            }
+          ],
+          "text": "The official skill for Scrapling, a Python scraping library, from its author. For one-off jobs the agent runs scrapling extract: get, post, put or delete for HTTP requests, or fetch for a browser, picking the output format by file extension and narrowing the page with a CSS selector to save tokens. It always adds --ai-targeted, which keeps the page body, filters out common hidden elements and, in the browser, blocks ads, as a guard against prompt injection. It starts with get and moves to fetch when a page needs JavaScript or blocks requests, adding --solve-cloudflare for a Cloudflare challenge. For more, it writes Python: fetchers and sessions, the stealth browser, a connection to a running Chrome over CDP, recorded API responses, and parsing by CSS, XPath, text or similar elements, with a parser that relocates elements when a site changes. Spiders crawl concurrently, pause and resume from a checkpoint folder, follow link rules or sitemaps, read RSS and CSV feeds, and pull Shopify products. Its guardrails: scrape only what you're authorized to access, respect robots.txt and terms of service, add delays to large crawls, bypass no paywall or login without permission, and never scrape personal data.",
+          "permalink": "https://github.com/d4vinci/scrapling/tree/bc602488b44e978da3266841e913af17577ec0fd/agent-skill/Scrapling-Skill"
+        },
+        "tags": [
+          "category:browser",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "needs:browser",
+          "by:official",
+          "stack:scrapling",
+          "stack:python",
+          "scraping",
+          "browser-automation",
+          "flag:dual-use"
+        ],
+        "note": "Its stealth browser can solve Cloudflare challenges, add canvas noise and route through proxies to get past bot detection; the skill tells the agent to scrape only what you're authorized to access."
+      }
+    },
+    {
+      "id": "warpdotdev/common-skills/.agents/skills/write-pr-description",
+      "name": "write-pr-description",
+      "skills.sh": {
+        "url": "https://skills.sh/warpdotdev/common-skills/write-pr-description",
+        "installs": 6200,
+        "weeklyInstalls": [856, 643, 588, 927, 498, 366, 365, 113],
+        "firstSeen": "2026-08-24"
+      },
+      "skillMd": {
+        "version": "8792394ff1b655e0af451b8fabb68ef0cfcbd208",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes a pull request's body: why it changed, decisions and their rejected alternatives, honest validation and a review guide, following the repo's template.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "the agent opens a PR, fills a repo's PR template, or refreshes a description that no longer matches the branch"
+            },
+            {
+              "label": "It does",
+              "text": "reads commit bodies before the diff, checks their claims against the code, follows the repo's template, then cuts every paragraph that helps no review decision"
+            },
+            {
+              "label": "You get",
+              "text": "a PR body that opens with what and why, records decisions with the alternatives they beat, and says plainly what was and wasn't run"
+            },
+            {
+              "label": "Unlike",
+              "text": "Matt Pocock's pr skill, which draws a visual summary, it writes plain prose, with a reading order and focus areas only when a change warrants them"
+            },
+            {
+              "label": "Covers",
+              "text": "the body only, not the mechanics of opening the PR"
+            }
+          ],
+          "text": "Warp's guide to PR descriptions, built on one idea: give the reviewer what the diff can't. The agent first gathers the motivation, the linked issue or spec, real decisions, the blast radius and the validation, from git log and diff or from gh for a PR number, and verifies claims by looking, such as reading what the change deletes or grepping a flag before saying it's on. A repo's PR template is followed, its own instructions first: headings stay as written, every section gets an answer, even a one-clause no, boxes are ticked only when true, and machine-read markers are kept. Without a template it writes an opening paragraph, then a review guide when needed, What changed and Validation, dropping sections on small changes. Validation is reported honestly: nothing ran, CI will show it, tests added but unrun, or it couldn't be run, never intent written as a result. Prose follows ASD-STE100 Simplified Technical English. The cut pass removes what the diff already shows, test inventories, explanations of standard tools and anything said twice, but keeps decisions and open questions. A self-check and a list of anti-patterns, such as narrating the branch's history or grading your own work, close it.",
+          "permalink": "https://github.com/warpdotdev/common-skills/tree/8792394ff1b655e0af451b8fabb68ef0cfcbd208/.agents/skills/write-pr-description"
+        },
+        "tags": [
+          "category:engineering",
+          "category:writing",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "git",
+          "code-review",
+          "writing",
+          "verification"
+        ]
+      }
+    },
+    {
+      "id": "minimax-ai/skills/skills/pptx-generator",
+      "name": "pptx-generator",
+      "skills.sh": {
+        "url": "https://skills.sh/minimax-ai/skills/pptx-generator",
+        "installs": 6200,
+        "weeklyInstalls": [53, 62, 61, 39, 56, 84, 103, 75],
+        "firstSeen": "2026-03-22"
+      },
+      "skillMd": {
+        "version": "60aaae52bb2af8162732751a4332f62a5fef518b",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Creates PowerPoint decks from scratch with PptxGenJS, one JavaScript module per slide, and edits or reads existing decks through their XML and markitdown.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need a new PowerPoint deck built from a topic, or want to edit or read an existing .pptx"
+            },
+            {
+              "label": "It does",
+              "text": "picks a palette, fonts and one of four styles, classifies every slide as one of five page types, writes one JavaScript file per slide, then compiles them"
+            },
+            {
+              "label": "You get",
+              "text": "slides/output/presentation.pptx, with one JavaScript file per slide and the images they use in slides/"
+            },
+            {
+              "label": "Checks",
+              "text": "extracts the deck's text with markitdown to find missing content and leftover placeholders, then fixes and re-checks until a pass finds nothing new"
+            },
+            {
+              "label": "Needs",
+              "text": "Node with pptxgenjs and Python with markitdown; react-icons and sharp are optional, for icons"
+            },
+            {
+              "label": "Unlike",
+              "text": "Anthropic's pptx skill, which uses the same two libraries, it splits a deck into slide modules with a fixed theme contract and can hand slides to subagents"
+            }
+          ],
+          "text": "MiniMax's PowerPoint skill covers three jobs. Reading runs markitdown on a deck. Editing, or building from a template, follows an XML workflow in its references. Creating from scratch has seven steps: research the topic, audience and tone; pick a color palette and font pairing from its design system and a style, Sharp, Soft, Rounded or Pill; plan an outline where every slide is a cover, table of contents, section divider, content or summary page, with layouts varied across slides; write each slide as its own runnable JavaScript file exporting createSlide, which can also render a preview, up to five at a time with subagents when available; compile them into a 16:9 deck; and run QA. Every slide reads the same five theme colors by fixed key names, and every slide but the cover carries a small page-number badge in the bottom-right corner. Fonts default to Arial for English and Microsoft YaHei for Chinese. QA is required: assume there are problems, extract the text, search it for placeholder text, and complete at least one fix-and-verify cycle. Its pitfalls list bans accent lines under titles, # in hex colors and async slide functions.",
+          "permalink": "https://github.com/minimax-ai/skills/tree/60aaae52bb2af8162732751a4332f62a5fef518b/skills/pptx-generator"
+        },
+        "tags": [
+          "category:documents",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "stack:microsoft-office",
+          "slides",
+          "design"
+        ]
+      }
+    },
+    {
+      "id": "cocoindex-io/cocoindex-code/skills/ccc",
+      "name": "ccc",
+      "skills.sh": {
+        "url": "https://skills.sh/cocoindex-io/cocoindex-code/ccc",
+        "installs": 6200,
+        "weeklyInstalls": [220, 201, 161, 85, 117, 118, 72, 104],
+        "firstSeen": "2026-03-16"
+      },
+      "skillMd": {
+        "version": "5676897a169fe1d46cf1e4d2eaf323c9d91c8587",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Searches your codebase by meaning with CocoIndex Code's ccc CLI, setting up and refreshing the semantic index itself.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want the agent to find code by what it does, such as a user authentication flow, rather than by exact text"
+            },
+            {
+              "label": "It does",
+              "text": "runs ccc search with a plain-language query, filtered by language or path and paged, then reads the matching line ranges"
+            },
+            {
+              "label": "Keeps",
+              "text": "the index current itself: it initializes a project that isn't set up and re-indexes at the start of a session and after significant changes"
+            },
+            {
+              "label": "Runs",
+              "text": "whenever the agent needs to search code, not only when you ask"
+            },
+            {
+              "label": "Needs",
+              "text": "the ccc CLI from CocoIndex Code; if it's missing, the agent tells you how to install it"
+            }
+          ],
+          "text": "CocoIndex Code indexes a codebase for semantic search, and this skill makes the agent own that index. When ccc search or ccc index fails because the project isn't initialized, the agent runs ccc init from the project root, builds the index and retries, without asking you. It won't initialize the directory that holds ccc's user settings, usually your home directory, and when a repo turns out to use a parent directory's project, it tells you and leaves resetting it to you. It re-indexes at the start of a session and after new files, refactors or renamed modules, or searches with --refresh. Queries describe a concept, such as error handling retry logic, not code syntax. Results can be narrowed by language or by a path glob, which defaults to the current directory, and paged with offset and limit, fetching the next page when every result looks relevant. Each result gives a file and a line range that the agent then reads for context. Settings for the embedding model, include and exclude patterns, and troubleshooting are in its reference files.",
+          "permalink": "https://github.com/cocoindex-io/cocoindex-code/tree/5676897a169fe1d46cf1e4d2eaf323c9d91c8587/skills/ccc"
+        },
+        "tags": [
+          "category:engineering",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "by:official",
+          "stack:cocoindex",
+          "agent-workflows",
+          "token-saving"
+        ],
+        "note": "The agent runs ccc init and re-indexes the project on its own, without asking you."
+      }
+    },
+    {
+      "id": "jamditis/claude-skills-journalism/dev-toolkit/skills/web-scraping",
+      "name": "web-scraping",
+      "skills.sh": {
+        "url": "https://skills.sh/jamditis/claude-skills-journalism/web-scraping",
+        "installs": 6200,
+        "weeklyInstalls": [36, 40, 43, 18, 10, 14, 21, 14],
+        "firstSeen": "2026-01-21"
+      },
+      "skillMd": {
+        "version": "e1f38cb11521b060c1f559488e8a0408c90f3d9b",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Guides writing authorized Python scrapers that fall back from trafilatura to requests to Playwright, and stop at logins, paywalls, CAPTCHAs and blocks.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're writing a scraper for research or reporting and want it to fall back cleanly and stop when a site says no"
+            },
+            {
+              "label": "It does",
+              "text": "supplies Python patterns: a cascade from trafilatura to requests to Playwright, URL checks on every redirect, detection of paywalls and bot pages, and polite delays"
+            },
+            {
+              "label": "Stops at",
+              "text": "logins, paywalls, CAPTCHAs, Cloudflare pages and 401, 403 or 429 responses, turning to official APIs, feeds or permission instead"
+            },
+            {
+              "label": "Covers",
+              "text": "YouTube and TikTok with yt-dlp, Instagram with instaloader, and a site's own public API calls found in the browser's network tab, stripped of cookies and tokens"
+            },
+            {
+              "label": "Unlike",
+              "text": "stealth scrapers, it rules out stealth plugins, fingerprint spoofing, proxy rotation and CAPTCHA solvers"
+            }
+          ],
+          "text": "A reference of scraping patterns for journalists and researchers, in Python. It opens with an untrusted-content contract: treat fetched text as data, never instructions, wrap it in EXTERNAL_DATA tags with its source, validate every URL and redirect so loopback and private-network addresses are refused, cap sizes, and never pass on cookies or tokens. Its cascade tries trafilatura for articles, then requests with BeautifulSoup, then headless Playwright with every request checked, and an access denial ends the whole cascade rather than escalating. A poison-pill detector flags paywalls, CAPTCHAs, rate limits, Cloudflare pages and login walls from status codes, known paywalled domains and text patterns. Other patterns cover finding and stripping down a site's public API calls, yt-dlp for YouTube metadata and downloads, with an unfinished subtitle lookup, and for TikTok profiles, and instaloader for Instagram, with logged-in sessions only on explicit approval and documented authorization, plus retries with backoff and per-domain delays. It closes with the US and EU legal picture as of 2026, from the CFAA and terms of service to robots.txt and GDPR, and a practical baseline. A reference file covers browser automation.",
+          "permalink": "https://github.com/jamditis/claude-skills-journalism/tree/e1f38cb11521b060c1f559488e8a0408c90f3d9b/dev-toolkit/skills/web-scraping"
+        },
+        "tags": [
+          "category:browser",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:python",
+          "stack:playwright",
+          "stack:yt-dlp",
+          "scraping",
+          "research",
+          "social-media"
+        ]
+      }
+    },
+    {
+      "id": "bahayonghang/academic-writing-skills/academic-writing-skills/latex-paper-en",
+      "name": "latex-paper-en",
+      "skills.sh": {
+        "url": "https://skills.sh/bahayonghang/academic-writing-skills/latex-paper-en",
+        "installs": 6100,
+        "weeklyInstalls": [152, 117, 101, 69, 89, 100, 90, 114],
+        "firstSeen": "2026-01-27"
+      },
+      "skillMd": {
+        "version": "8c7d0748309e49c592e7f6cba184c66845517064",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Checks and polishes an existing English LaTeX paper: compile errors, venue format, citations, grammar, logic, related work, tables, pseudocode and AI-sounding prose.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you have an English .tex paper for a journal or conference and want it compiled, checked or polished, not written from scratch"
+            },
+            {
+              "label": "It does",
+              "text": "picks the smallest matching module for your request, runs its bundled script, and returns findings as LaTeX comments with line, severity and priority"
+            },
+            {
+              "label": "Modules",
+              "text": "compile, format, bibliography, grammar, sentences, logic, literature, section writing, expression, translation, title, figures, pseudocode, de-AI, claim-forward, experiments, tables, captions, abstract and venue adaptation"
+            },
+            {
+              "label": "Protects",
+              "text": "citations, labels, references, macros, math and numbers, which it leaves untouched by default, and it never invents citations, metrics or results"
+            },
+            {
+              "label": "Claim-forward",
+              "text": "puts your claims before caveats and removes self-weakening wording and stacked hedges, without deleting a limitation or raising a claim past its evidence"
+            },
+            {
+              "label": "Unlike",
+              "text": "the repo's paper-audit, which reviews and scores a paper, and latex-thesis-zh, for Chinese theses"
+            }
+          ],
+          "text": "A router for targeted work on an English LaTeX paper project. From your request it infers the smallest matching module, reads only that module's reference file and runs its script with uv, such as compile.py, verify_bib.py, check_format.py or deai_check.py; a few modules, such as section writing, captions and venue adaptation, are driven by the model alone. Compatible checks run in a fixed order: compile and bibliography, format and figures, grammar and de-AI, logic and experiments, section writing, then polish, which goes coarse to fine. Findings come back as LaTeX comments, and every rewrite block lists what changed, the tokens it protected, whether the meaning still needs checking, and risks such as overstatement. Edits stay minimal by default, set by two separate dials: a goal (grammar, clarity, concision or coherence) and a strength (minimal, moderate or restructure). It treats your .tex and .bib files as untrusted data, loads includes only inside the project root, compiles with shell escape off unless you confirm, checks bibliographies online only if you opt in to sending citation metadata, and points to venues' AI-disclosure rules rather than helping evade detectors. Venue templates cover IEEE, ACM, NeurIPS, ICML and Springer LNCS.",
+          "permalink": "https://github.com/bahayonghang/academic-writing-skills/tree/8c7d0748309e49c592e7f6cba184c66845517064/academic-writing-skills/latex-paper-en"
+        },
+        "tags": [
+          "category:writing",
+          "category:science",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "stack:latex",
+          "stack:python",
+          "writing",
+          "research",
+          "anti-slop"
+        ],
+        "note": "Needs uv to run its bundled Python scripts, and a LaTeX installation to compile."
+      }
+    },
+    {
+      "id": "cclank/news-aggregator-skill",
+      "name": "news-aggregator-skill",
+      "skills.sh": {
+        "url": "https://skills.sh/cclank/news-aggregator-skill/news-aggregator-skill",
+        "installs": 6000,
+        "weeklyInstalls": [15, 16, 14, 13, 16, 34, 22, 20],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "b639b622a79ec242669d6111708efbf863592de4",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Fetches hot items from 44+ tech, AI, finance and world news sources and writes a Simplified Chinese report summarizing and analyzing each one.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a scan or daily briefing of tech, AI, finance or international news, and you read Chinese"
+            },
+            {
+              "label": "It does",
+              "text": "runs its Python script to fetch items from the sources you pick, optionally filtered by keyword and with full article text, then writes up each item"
+            },
+            {
+              "label": "You get",
+              "text": "a Markdown report in Simplified Chinese saved under reports/<date>/, each item with its source, time, heat, a summary and an insight paragraph"
+            },
+            {
+              "label": "Sources",
+              "text": "Hacker News, GitHub Trending, Product Hunt, arXiv, Hugging Face papers, AI newsletters, BBC, the Guardian, Al Jazeera, Weibo, 36Kr, podcasts, essays and your own OPML feeds"
+            },
+            {
+              "label": "Presets",
+              "text": "morning briefings for general, finance, tech, social, AI and reading-list sources, most with their own instruction file"
+            },
+            {
+              "label": "Needs",
+              "text": "Python 3.8+ with its requirements, and Playwright's Chromium for Hugging Face papers and Ben's Bites"
+            }
+          ],
+          "text": "It writes everything in Simplified Chinese, whatever language you ask in, keeping well-known English names. Every request follows three steps: fetch with scripts/fetch_news.py, format every item with one report template, then save the report to reports/YYYY-MM-DD/ and show it in full. You can name one source, several or all of them, set a limit per source, filter by keywords, which it expands (AI becomes LLM, GPT, Claude, Agent, RAG and DeepSeek), and add --deep to download article text for a richer analysis. Each item gets a title translated into Chinese and linked to the original, its source, time and heat, such as stars or upvotes, a one-line summary and an insight paragraph, with tweaks per source: Hacker News keeps its discussion link, GitHub adds language and tags, and Hugging Face papers get a real reading rather than a translated abstract. Its rules forbid inventing items or causal links and require a time on every item. When a time window has fewer than five items it fills in older ones, marked with a warning sign, except for international news, which stays within 24 hours. A Chinese phrase, 如意如意, opens an interactive menu, and a separate script runs the preset briefings.",
+          "permalink": "https://github.com/cclank/news-aggregator-skill/tree/b639b622a79ec242669d6111708efbf863592de4"
+        },
+        "tags": [
+          "category:browser",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "research",
+          "scraping",
+          "ml-research",
+          "finance",
+          "needs:browser"
+        ],
+        "note": "Writes every report in Simplified Chinese, whatever language you ask in."
+      }
+    },
+    {
+      "id": "google-labs-code/stitch-skills/plugins/stitch-build/skills/react-vite-dashboard",
+      "name": "react-vite-dashboard",
+      "skills.sh": {
+        "url": "https://skills.sh/google-labs-code/stitch-skills/react-vite-dashboard",
+        "installs": 6000,
+        "weeklyInstalls": [376, 380, 351, 350, 385, 337, 379, 336],
+        "firstSeen": "2026-07-13"
+      },
+      "skillMd": {
+        "version": "0337446dadde6f8c94210444e2aa9d546126480f",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Turns Google Stitch screens into a React, Vite and TypeScript dashboard, with DESIGN.md tokens, TanStack Query data hooks and optional read-only Web3 calls.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you've designed a data-dense dashboard in Google Stitch, Google's AI UI design tool, and want it as React code"
+            },
+            {
+              "label": "It does",
+              "text": "fetches a screen through the Stitch MCP server, saves its HTML and screenshot, maps DESIGN.md tokens to CSS variables, then splits the screen into components, pages and hooks"
+            },
+            {
+              "label": "You get",
+              "text": "a React 18, Vite and TypeScript src/ tree with TanStack Query for data and, if you need it, read-only contract calls with viem or ethers"
+            },
+            {
+              "label": "Checks",
+              "text": "WCAG 2.2 AA contrast with the design.md linter, focus order, 375px and 1280px widths, no secrets in the repo and no any on contract ABIs"
+            },
+            {
+              "label": "Needs",
+              "text": "the Stitch MCP server, a project DESIGN.md, which the repo's design-md skill writes, and a Vite, React and TypeScript project you've already scaffolded"
+            }
+          ],
+          "text": "One of Google's Stitch skills, written as a frontend engineer's checklist for data-dense dashboards. The agent finds the Stitch MCP tool prefix, fetches a screen by project and screen ID, and keeps its HTML and screenshot under .stitch/designs/. It bridges DESIGN.md colors, typography and spacing into CSS variables in src/index.css, then rebuilds the screen from a mapping table: semantic tables rather than div grids, buttons with visible focus rings, labelled form fields with errors linked by aria-describedby, and skeletons marked aria-busy while data loads. Data fetching goes through TanStack Query, with presentational components kept pure. For Web3 dashboards it makes read-only contract calls with viem, wagmi or ethers, formats token amounts, shows the network and chain ID, explains transaction errors in plain words with a block explorer link, and never puts private keys in code; RPC URLs come from environment variables. A final checklist covers contrast, keyboard order, responsive widths, secrets and strict TypeScript.",
+          "permalink": "https://github.com/google-labs-code/stitch-skills/tree/0337446dadde6f8c94210444e2aa9d546126480f/plugins/stitch-build/skills/react-vite-dashboard"
+        },
+        "tags": [
+          "category:design",
+          "type:workflow",
+          "effect:local",
+          "needs:mcp",
+          "needs:account",
+          "by:official",
+          "stack:stitch",
+          "stack:react",
+          "stack:vite",
+          "stack:typescript",
+          "design",
+          "implementation",
+          "accessibility",
+          "web3",
+          "stack:tanstack-query"
+        ],
+        "note": "Needs the Stitch MCP server, a Vite React TypeScript scaffold and a project DESIGN.md, which the repo's design-md skill writes."
+      }
+    },
+    {
+      "id": "vercel-labs/agent-desktop/skills/agent-desktop",
+      "name": "agent-desktop",
+      "skills.sh": {
+        "url": "https://skills.sh/vercel-labs/agent-desktop/agent-desktop",
+        "installs": 6000,
+        "weeklyInstalls": [9, 2, 17, 10, 7, 7, 6, 1400],
+        "firstSeen": "2026-02-23"
+      },
+      "skillMd": {
+        "version": "b43ac4f6e892ef608f8851428613c4009f0e84c7",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Operates desktop apps on macOS, Windows and Linux through their accessibility trees with the agent-desktop CLI: clicks, typing, menus, windows and screenshots.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "the agent has to see or act on a desktop app's interface rather than a web page or a file"
+            },
+            {
+              "label": "It does",
+              "text": "takes a snapshot of an app's accessibility tree, acts on an element by its ref, then reads the same region again to check the result"
+            },
+            {
+              "label": "Unlike",
+              "text": "screenshot-based computer use, it reads the OS accessibility tree, and its default actions don't take focus, move your cursor or press keys"
+            },
+            {
+              "label": "Physical input",
+              "text": "hover, drag, double-click and focus need the --headed flag, used only when you've explicitly allowed physical input, never to recover from a failed action"
+            },
+            {
+              "label": "Needs",
+              "text": "the agent-desktop CLI; on first run it loads the macOS, Windows or Linux skill that the CLI itself ships"
+            }
+          ],
+          "text": "agent-desktop is Vercel Labs' command-line tool for reading and operating desktop apps through the operating system's accessibility tree. It has no model of its own, so the agent runs the observe, act and verify loop. On first run the agent checks the platform and permissions with agent-desktop status and loads the platform skill the CLI serves. It maps a large app with a shallow skeleton snapshot, drills into one region, acts on a ref such as @s8f3k2p9:e12, and re-reads that region to verify. Refs last for one snapshot: STALE_REF or an expired snapshot means taking a new one, while AMBIGUOUS_TARGET means identical twins that a new snapshot won't separate, and on Windows and Linux identical buttons can't be targeted by ref at all. Every action reports whether it was delivered, and the agent retries only when it certainly wasn't, to avoid clicking or submitting twice. Actions are headless by default, through accessibility calls only; physical input needs --headed, used only when you allow it and never to recover from a failure. Reference files cover observation, interaction and system commands, and worked patterns.",
+          "permalink": "https://github.com/vercel-labs/agent-desktop/tree/b43ac4f6e892ef608f8851428613c4009f0e84c7/skills/agent-desktop"
+        },
+        "tags": [
+          "category:agents",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "by:official",
+          "stack:agent-desktop",
+          "computer-use",
+          "agent-workflows"
+        ],
+        "note": "Its snapshots, screenshots and clipboard reads can contain private content from your desktop, as its README warns."
+      }
+    },
+    {
+      "id": "browserbase/skills/skills/browser",
+      "name": "browser",
+      "skills.sh": {
+        "url": "https://skills.sh/browserbase/skills/browser",
+        "installs": 5900,
+        "weeklyInstalls": [48, 53, 58, 40, 41, 49, 61, 61],
+        "firstSeen": "2026-01-22"
+      },
+      "skillMd": {
+        "version": "6811ca31163332d9d60309cff48e77f09de37a17",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Drives a browser through the browse CLI, locally or in Browserbase's cloud, where CAPTCHA solving, residential proxies and verified browsers get past bot checks.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "the agent needs to browse, read, fill forms or click through a site, including JavaScript-heavy or bot-protected ones"
+            },
+            {
+              "label": "It does",
+              "text": "opens a page, reads its accessibility tree with element refs, acts on a ref, then snapshots again to confirm, until the task is done"
+            },
+            {
+              "label": "Runs",
+              "text": "in a clean local Chrome, in your own running Chrome with its logins through --auto-connect, or in a Browserbase cloud session"
+            },
+            {
+              "label": "Switches",
+              "text": "to Browserbase on a CAPTCHA, a bot check, a 403 or 429, or an empty page, but not for docs, wikis or localhost"
+            },
+            {
+              "label": "Needs",
+              "text": "the browse CLI, which it installs with npm if it's missing; Chrome for local mode, a Browserbase API key for remote"
+            }
+          ],
+          "text": "Browserbase's browser skill, built on its browse CLI. The agent sets where the browser runs on the first command: --local for a clean, isolated Chrome, --auto-connect to attach to a debuggable Chrome you already run, with its cookies, --cdp for a specific DevTools target, or --remote for a Browserbase session, also the default when an API key is set. Remote sessions add Browserbase Identity and verified browsers, automatic reCAPTCHA and hCaptcha solving, residential proxies in 201 countries and sessions that persist. Commands cover navigation, page state as an accessibility snapshot, text, HTML or Markdown, clicks, typing, form fills, uploads, drags and scrolls, waits, and tabs. It prefers snapshots to screenshots, which are slower and cost vision tokens. A separate cdp command streams DevTools events, such as network and console traffic, as NDJSON. When done, browse stop closes the session. Troubleshooting covers stuck daemons, a missing Chrome and failed Browserbase sessions.",
+          "permalink": "https://github.com/browserbase/skills/tree/6811ca31163332d9d60309cff48e77f09de37a17/skills/browser"
+        },
+        "tags": [
+          "category:browser",
+          "type:tool",
+          "effect:remote",
+          "needs:cli",
+          "needs:browser",
+          "needs:account",
+          "by:official",
+          "stack:browserbase",
+          "browser-automation",
+          "scraping",
+          "flag:dual-use"
+        ],
+        "note": "Remote sessions run in Browserbase's cloud and need a Browserbase API key; they become the default whenever BROWSERBASE_API_KEY is set."
+      }
+    },
+    {
+      "id": "nick-vels/skills/skills/autopilot",
+      "name": "autopilot",
+      "skills.sh": {
+        "url": "https://skills.sh/nick-vels/skills/autopilot",
+        "installs": 5900,
+        "weeklyInstalls": [243, 183, 165, 152, 450, 588, 719, 459],
+        "firstSeen": "2026-07-26"
+      },
+      "skillMd": {
+        "version": "5ed4b7989bd9c4ba803b0f3e6d69064ffc0826bb",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds a whole app, site, bot or feature from your dictated idea: requirements, spec, tickets, subagent builds, code review and a blind acceptance check.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you read Russian and want a project built end to end from a description, without reading specs or reviewing code"
+            },
+            {
+              "label": "In Russian",
+              "text": "its messages, stage names, dashboard and final report template are in Russian, though the skill's own rules are written in English"
+            },
+            {
+              "label": "It does",
+              "text": "turns your words into a numbered requirements list, asks only where the idea forks, writes a spec and tickets, has subagents build and review each, then checks the result blind"
+            },
+            {
+              "label": "You get",
+              "text": "the project in git with one commit per ticket, a committed .autopilot/ folder of what was promised and delivered, and a final report"
+            },
+            {
+              "label": "Runs",
+              "text": "only when you type /autopilot, with a mode from full to manual and a depth from strict to deep; a bare /autopilot resumes an interrupted run"
+            },
+            {
+              "label": "Shows",
+              "text": "a live local HTML dashboard of stages, tasks and your requirements, which it opens itself"
+            },
+            {
+              "label": "Asks first",
+              "text": "before deploying, publishing, paying, messaging a third party, deleting data or rewriting history, in every mode"
+            },
+            {
+              "label": "Needs",
+              "text": "subagents, git and Python 3 for its ap.py helper"
+            }
+          ],
+          "text": "Autopilot takes one dialogue from idea to working project; the stage names, dashboard and report you see are in Russian. Your brief is first saved word for word, with secrets redacted, and turned into a numbered manifest of requirements that only you can remove. Four gates check against it: after briefing every requirement has a status; after the spec an independent reader given only the brief and spec finds nothing missing; after planning every requirement maps to a ticket; and at the end a blind acceptance from a clean clone compares the build with your brief, spec withheld. The mode sets how much you're asked: full asks nothing, semi, the default, asks about genuine forks, interview asks everything, and manual adds your approval of the spec and tickets. The depth sets how much it works out beyond your words. The orchestrator never writes project code itself: subagents build one ticket each, with reviews and capped repairs. It never asks for keys, leaving their names empty in .env.example, and never invents facts about you, using visible placeholders instead. It also writes project memory, AGENTS.md or a proposal for your own file, and a PROGRESS.md that the next run reads.",
+          "permalink": "https://github.com/nick-vels/skills/tree/5ed4b7989bd9c4ba803b0f3e6d69064ffc0826bb/skills/autopilot"
+        },
+        "tags": [
+          "category:engineering",
+          "category:planning",
+          "category:agents",
+          "type:workflow",
+          "effect:local",
+          "needs:subagents",
+          "needs:cli",
+          "by:community",
+          "requirements",
+          "implementation",
+          "verification",
+          "multi-agent",
+          "agent-workflows"
+        ],
+        "note": "Built for Russian speakers: its stage names, dashboard labels and report template are in Russian, though its rules are in English."
+      }
+    },
+    {
+      "id": "remorses/playwriter/skills/playwriter",
+      "name": "playwriter",
+      "skills.sh": {
+        "url": "https://skills.sh/remorses/playwriter/playwriter",
+        "installs": 5900,
+        "weeklyInstalls": [77, 54, 46, 56, 93, 55, 120, 65],
+        "firstSeen": "2026-01-23"
+      },
+      "skillMd": {
+        "version": "2cae912a9c1e68ae2b74fcaef9efd79b6d7d432f",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Drives your own Chrome, with its logins and extensions, through the Playwriter extension and Playwright code run from its CLI.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a site is JavaScript-heavy or behind a login, cookie wall or infinite scroll, or you want the agent in the browser you're signed in to"
+            },
+            {
+              "label": "It does",
+              "text": "runs Playwright snippets in a stateful sandbox connected to your Chrome, checking the URL, an accessibility snapshot and console logs after every action"
+            },
+            {
+              "label": "First",
+              "text": "the agent reads the whole guide that playwriter skill prints, once per session; the SKILL.md itself only points to it"
+            },
+            {
+              "label": "Also",
+              "text": "headless Chrome, direct CDP connections, control of a browser someone shares with you, cloud browsers, and recording what you do to turn it into a skill"
+            },
+            {
+              "label": "Unlike",
+              "text": "Playwright MCP servers that launch a fresh browser, it attaches to the Chrome you're already using"
+            },
+            {
+              "label": "Needs",
+              "text": "the playwriter CLI and its Chrome extension, enabled on the tabs it may use"
+            }
+          ],
+          "text": "The SKILL.md only tells the agent to run playwriter skill and read every line it prints, a long guide kept in the repo; this summary follows that guide. Each task gets its own session, a sandbox whose state object persists between calls, and its own Chrome tab group. The agent opens or picks a tab and follows observe, act, observe: print the URL, an accessibility snapshot and new console logs, take one action, check again. Its rules include never closing the browser, clicking a field before typing, preferring snapshots to screenshots and proper waits to fixed timeouts. Helpers cover snapshots, layout inspection, page logs, labelled screenshots, network interception and low-level mouse and keyboard control. Beyond your own Chrome it can launch headless Chrome, connect to any CDP endpoint, drive a browser someone shares through a secret remote-control id, or start cloud browsers that solve Turnstile, reCAPTCHA and hCaptcha, hide automation signals and route through residential proxies. A recorder captures your clicks, typing and network requests so the agent can turn the workflow into a reusable skill. The sandbox's own fs writes only to the working directory and temp folders, but modules it imports run with full Node.js permissions.",
+          "permalink": "https://github.com/remorses/playwriter/tree/2cae912a9c1e68ae2b74fcaef9efd79b6d7d432f/skills/playwriter"
+        },
+        "tags": [
+          "category:browser",
+          "type:tool",
+          "effect:remote",
+          "needs:cli",
+          "needs:browser",
+          "by:official",
+          "stack:playwriter",
+          "stack:playwright",
+          "browser-automation",
+          "scraping",
+          "flag:dual-use"
+        ],
+        "note": "It acts in your own logged-in Chrome on the tabs where you enable its extension. Its optional cloud browsers, with stealth patches, CAPTCHA solving and residential proxies, need a Playwriter account."
+      }
+    },
+    {
+      "id": "bencium/bencium-marketplace/bencium-impact-designer/skills/bencium-impact-designer",
+      "name": "bencium-impact-designer",
+      "skills.sh": {
+        "url": "https://skills.sh/bencium/bencium-marketplace/bencium-impact-designer",
+        "installs": 5800,
+        "weeklyInstalls": [96, 178, 176, 194, 185, 189, 188, 299],
+        "firstSeen": "2026-03-01"
+      },
+      "skillMd": {
+        "version": "5de46a39b4640fa419560cd0b67e4c4b50dac802",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds distinctive frontend interfaces by asking about purpose and tone, committing to one bold aesthetic, and avoiding fonts, colors and layouts that look AI-made.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're building a web page, component or app and want it to look designed, not generated"
+            },
+            {
+              "label": "It does",
+              "text": "asks about purpose, tone, constraints and what should make it memorable, offers two or three directions with trade-offs, then commits to one and builds it"
+            },
+            {
+              "label": "Avoids",
+              "text": "Inter, Roboto, Arial and Space Grotesk, generic SaaS blue, purple gradients on white, glassmorphism and cookie-cutter layouts"
+            },
+            {
+              "label": "Breaks habits with",
+              "text": "dozens of named tones from brutalist to Y2K, designer and era prompts, and dice rolls for palette, layout, type, motion and density"
+            },
+            {
+              "label": "Builds with",
+              "text": "shadcn components it expects in @/components/ui, Tailwind, Phosphor icons and sonner toasts, testing with the Playwright MCP server when it's available"
+            },
+            {
+              "label": "Unlike",
+              "text": "Anthropic's frontend-design, which it's based on, it adds the questions up front, randomized choices and detailed rules for color, type, motion and accessibility"
+            }
+          ],
+          "text": "Bencium's expansion of Anthropic's frontend design skill, at close to a thousand lines; unlike the repo's innovative-ux-designer, which starts from ten type-only drafts, it builds the requested interface directly. Before coding, the agent asks what the interface is for, who uses it, which aesthetic extreme fits and what one thing people should remember, then presents two or three directions and commits fully to one. A long tone list runs from brutally minimal and editorial to glitch, vaporwave and wabi-sabi. When the agent falls into safe patterns, it asks what a designer such as Sagmeister or Dieter Rams would do, reframes the page as a magazine spread or a protest poster, or rolls dice for warm or cool color, layout direction, type personality, motion and density. Standards cover color and contrast, typography, layout, checklists for motion and visual effects, and UX patterns. Implementation prefers shadcn components, Tailwind classes, Phosphor icons and sonner toasts, with loading skeletons and mobile-first layouts. It requires WCAG 2.1 AA, 44-pixel touch targets and visible focus, and tests visuals and accessibility with the Playwright MCP server when available. It ends with patterns to avoid and when to break its own rules.",
+          "permalink": "https://github.com/bencium/bencium-marketplace/tree/5de46a39b4640fa419560cd0b67e4c4b50dac802/bencium-impact-designer/skills/bencium-impact-designer"
+        },
+        "tags": [
+          "category:design",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "stack:shadcn",
+          "stack:tailwind",
+          "stack:react",
+          "design",
+          "anti-slop",
+          "accessibility",
+          "animation"
+        ]
+      }
+    },
+    {
+      "id": "tradermonty/claude-trading-skills/skills/us-stock-analysis",
+      "name": "us-stock-analysis",
+      "skills.sh": {
+        "url": "https://skills.sh/tradermonty/claude-trading-skills/us-stock-analysis",
+        "installs": 5800,
+        "weeklyInstalls": [286, 281, 324, 275, 117, 133, 93, 128],
+        "firstSeen": "2026-01-26"
+      },
+      "skillMd": {
+        "version": "e739008aeb6d29a1d911d1085f26b20bd0d27a27",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Analyzes US stocks from web-searched data: quick overviews, fundamental and technical analysis, side-by-side comparisons and full reports with a Buy, Hold or Sell call.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you ask about a US ticker, such as analyze AAPL, is Amazon overvalued, or compare TSLA vs NVDA"
+            },
+            {
+              "label": "It does",
+              "text": "gathers prices, financials, ratios, analyst ratings and news by web search, then applies the framework for the analysis you asked for"
+            },
+            {
+              "label": "You get",
+              "text": "a quick overview, a fundamental or technical analysis, a comparison table, or a full report with bull and bear cases, a target price and a Buy, Hold or Sell rating"
+            },
+            {
+              "label": "Needs",
+              "text": "the agent's web search; it has no market data feed of its own"
+            }
+          ],
+          "text": "It picks one of four analyses, or a comparison, from your question. A basic overview gives a short description, price, key metrics, recent performance and news. Fundamental analysis looks at 3 to 5 years of revenue, earnings and cash flow, the balance sheet and profitability, judges business quality, computes valuation ratios such as P/E, PEG and EV/EBITDA against history and peers to estimate a fair value range, and lists risks and red flags. Technical analysis reads the trend, support and resistance, moving averages, RSI, MACD, Bollinger Bands, volume and chart patterns into a short and medium-term outlook with risk levels. The full report combines both into bull and bear cases, catalysts, a rating, a target price, conviction and an entry strategy. Comparisons put two or more stocks side by side and suggest an allocation. Data comes from web searches of sources such as Yahoo Finance, SEC filings and TradingView, preferring last quarter's figures, with sources and dates cited. Reference files hold the frameworks, metric formulas and report templates, and the tone stays balanced, with risks and uncertainty stated plainly.",
+          "permalink": "https://github.com/tradermonty/claude-trading-skills/tree/e739008aeb6d29a1d911d1085f26b20bd0d27a27/skills/us-stock-analysis"
+        },
+        "tags": [
+          "category:science",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "finance",
+          "research",
+          "web-search"
         ]
       }
     }
