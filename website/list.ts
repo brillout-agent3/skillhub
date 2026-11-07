@@ -23,6 +23,7 @@ import {
   parentsOf,
   repoById,
   repoKey,
+  riseOf,
   skillById,
   skillHref,
   skillsOf,
@@ -44,11 +45,11 @@ const quiet = (tag: string) => tag === "by:community" || facetOf(tag) === "categ
 
 // ------------------------------------------------------------------- state
 
-/** Buttons that only set the list's sort, highest first: Top by downloads, Hot by downloads in the latest week, New by publishing date. */
+/** Buttons that only set the list's sort, highest first: Top by downloads, Hot by the rise in downloads in the latest week, New by publishing date. */
 export type Preset = "top" | "hot" | "new";
-export const PRESETS: Record<Preset, { label: string; sort: Prop; title: string }> = {
+export const PRESETS: Record<Preset, { label: string; sort: Sort; title: string }> = {
   top: { label: "Top", sort: "downloads", title: "Most downloaded of all time" },
-  hot: { label: "Hot", sort: "week", title: "Most downloaded in the latest week" },
+  hot: { label: "Hot", sort: "rise", title: "Gaining the most downloads this week" },
   new: { label: "New", sort: "published", title: "Most recently published" },
 };
 
@@ -157,8 +158,19 @@ export function rangeLabel(p: Prop, [lo, hi]: Range): string {
   return from && to ? `${from} – ${to}` : from ? `≥ ${from}` : to ? `< ${to}` : "Any";
 }
 
-/** A number to sort by, or "match": how well the entry matches the search, for when there is one. */
-export type Sort = Prop | "match";
+/**
+ * A number to sort by; "rise", the gain in downloads in the latest week over an average one before
+ * (a sort only: it can be negative, so it gets no slider); or "match", how well the entry matches
+ * the search, for when there is one.
+ */
+export type Sort = Prop | "rise" | "match";
+const RISE = {
+  label: "Weekly Rise",
+  title: (e: Entry) =>
+    `${isBundle(e) ? "The most of any of its skills: " : ""}Installs on skills.sh in the week to ${date(data.asOf.installs)}, minus its average week in the 4 weeks before`,
+};
+/** A rise with its sign, such as +8.4K or −1.2K. */
+const signed = (n: number) => `${n > 0 ? "+" : n < 0 ? "−" : ""}${compact(Math.abs(n))}`;
 /** A search sorts by best match unless another sort is picked; otherwise the list sorts by downloads. */
 export const defaultSort = (q: string): Sort => (q ? "match" : "downloads");
 export interface State {
@@ -190,7 +202,8 @@ export function parse(search: string): State {
     q,
     tags: p.getAll("tag"),
     repo: p.get("repo"),
-    sort: sort && (sort in PROPS || (sort === "match" && q)) ? sort : defaultSort(q),
+    sort:
+      sort && (sort in PROPS || sort === "rise" || (sort === "match" && q)) ? sort : defaultSort(q),
     asc: p.get("order") === "asc",
     ranges,
     one: p.get("one") === "1",
@@ -376,7 +389,9 @@ const ascending = (a: Value | null, b: Value | null) =>
 const order = (sort: Sort, asc: boolean, q: string) => (a: Entry, b: Entry) =>
   (sort === "match"
     ? matchScore(b, q) - matchScore(a, q)
-    : (asc ? ascending : descending)(PROPS[sort].of(a), PROPS[sort].of(b))) ||
+    : sort === "rise"
+      ? (asc ? ascending : descending)(riseOf(a), riseOf(b))
+      : (asc ? ascending : descending)(PROPS[sort].of(a), PROPS[sort].of(b))) ||
   descending(installsOf(a), installsOf(b)) ||
   bundleFirst(a, b) ||
   nameOf(a).localeCompare(nameOf(b));
@@ -496,6 +511,13 @@ function propsHtml(e: Entry, st: State): string {
     const shown = v === null ? "—" : PROPS[p].date ? date(v as string) : compact(v as number);
     return `<div${p === st.sort ? ` class="on"` : ""}${v === null ? "" : ` title="${esc(PROPS[p].title(e))}"`}><dt>${PROPS[p].label}</dt><dd>${shown}</dd></div>`;
   });
+  // The rise shows only while the list is sorted by it, to explain the order.
+  if (st.sort === "rise") {
+    const r = riseOf(e);
+    rows.push(
+      `<div class="on"${r === null ? "" : ` title="${esc(RISE.title(e))}"`}><dt>${RISE.label}</dt><dd>${r === null ? "—" : signed(r)}</dd></div>`,
+    );
+  }
   return `<dl class="props">${rows.join("")}</dl>`;
 }
 
@@ -703,12 +725,12 @@ export function settingsHtml(st: State): string {
     st.q ? `<option value="match"${st.sort === "match" ? " selected" : ""}>Best match</option>` : ""
   }${PROP_IDS.map(
     (p) => `<option value="${p}"${p === st.sort ? " selected" : ""}>${PROPS[p].label}</option>`,
-  ).join("")}`;
+  ).join("")}<option value="rise"${st.sort === "rise" ? " selected" : ""}>${RISE.label}</option>`;
   const order =
     st.sort === "match"
       ? ""
       : `<button type="button" class="order" data-action="order" title="Reverse the order">${
-          PROPS[st.sort].date
+          st.sort !== "rise" && PROPS[st.sort].date
             ? st.asc
               ? "Oldest first"
               : "Newest first"

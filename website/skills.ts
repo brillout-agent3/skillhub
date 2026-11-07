@@ -86,6 +86,18 @@ export const weekOf = (e: Skill | Bundle): number | null => {
   return weekly?.length ? weekly[weekly.length - 1] : null;
 };
 
+/**
+ * How many more installs it got on skills.sh in the latest of its 8 weeks than in an average one
+ * of the 4 weeks before; negative when fewer. For a bundle, the most of any of its skills.
+ */
+export const riseOf = (e: Skill | Bundle): number | null => {
+  if (isBundle(e)) return most(skillsOf(e).map(riseOf));
+  const weekly = e["skills.sh"].weeklyInstalls;
+  if (!weekly || weekly.length < 2) return null;
+  const before = weekly.slice(-5, -1);
+  return Math.round(weekly[weekly.length - 1] - before.reduce((a, b) => a + b, 0) / before.length);
+};
+
 /** Compare for a descending sort, unknown values last. */
 export const desc = (a: number | null, b: number | null) => (b ?? -1) - (a ?? -1);
 
