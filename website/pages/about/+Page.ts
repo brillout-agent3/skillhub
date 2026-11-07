@@ -9,10 +9,11 @@ interface Row {
   count: number;
   /** The explanation the row's [i] shows. */
   tip: string;
-  /** Whether the row splits the last row that isn't. */
-  sub?: true;
-  /** Marks a row that isn't a sub row. */
+  /** 1 or 2 when the row splits the last row of a lower depth. */
+  depth?: 0 | 1 | 2;
   emoji?: string;
+  /** What a screen reader calls the row, when the label alone isn't clear. Defaults to the label. */
+  name?: string;
 }
 
 /**
@@ -22,7 +23,9 @@ interface Row {
  */
 export default function Page(): string {
   const { turnedDown: t, minimums } = review;
-  // Each skill SkillHub knows of is in exactly one row that isn't a sub row.
+  const byAgent = t.toolDocs + t.language + t.copy + t.retired + t.other;
+  const byScript = review.gone + review.notOnGitHub;
+  // Each skill SkillHub knows of is in exactly one row of depth 0.
   const rows: Row[] = [
     {
       label: "Listed",
@@ -31,57 +34,67 @@ export default function Page(): string {
       tip: "An agent review judged it useful to people looking for skills.",
     },
     {
-      label: "Disqualified, by agent",
+      label: "Disqualified",
+      emoji: "❌",
+      count: byAgent + byScript,
+      tip: "Not listed: an agent review turned it down, or a script found its SKILL.md can't be read on GitHub.",
+    },
+    {
+      label: "By agent",
+      name: "Disqualified by agent",
       emoji: "🤖",
-      count: t.toolDocs + t.language + t.copy + t.retired + t.other,
+      depth: 1,
+      count: byAgent,
       tip: "An agent review read the skill's whole SKILL.md, not only its description, and judged it not useful to people looking for skills.",
     },
     {
       label: "Tool docs",
       count: t.toolDocs,
-      sub: true,
+      depth: 2,
       tip: "A manual for one product, framework, cloud or language, such as a cloud's CLI or a framework's best practices. It only matters once you've chosen the product. A skill that gets a job done through a tool, such as testing, scraping or generating media, isn't tool docs.",
     },
     {
       label: "Not in English",
       count: t.language,
-      sub: true,
+      depth: 2,
       tip: "Its SKILL.md isn't in English.",
     },
     {
       label: "Copies",
       count: t.copy,
-      sub: true,
+      depth: 2,
       tip: "A skill republished under another name, or listed twice, such as under its repo's old name.",
     },
     {
       label: "Retired",
       count: t.retired,
-      sub: true,
+      depth: 2,
       tip: "Its SKILL.md points to a replacement.",
     },
     {
       label: "Other reasons",
       count: t.other,
-      sub: true,
+      depth: 2,
       tip: "It only works inside one company's codebase or brand, does nothing for whoever installs it, or does something you wouldn't want, such as installing dozens of other skills without asking or removing the watermarks that mark images as AI-generated.",
     },
     {
-      label: "Disqualified, by script",
+      label: "By script",
+      name: "Disqualified by script",
       emoji: "⚙️",
-      count: review.gone + review.notOnGitHub,
+      depth: 1,
+      count: byScript,
       tip: "A script found the skill's SKILL.md can't be read on GitHub, so there's nothing for an agent review to judge.",
     },
     {
       label: "SKILL.md gone from its repo",
       count: review.gone,
-      sub: true,
+      depth: 2,
       tip: "Its repo no longer has its SKILL.md, such as after deleting or moving it. A listed skill whose SKILL.md goes comes off the list.",
     },
     {
       label: "Not on GitHub",
       count: review.notOnGitHub,
-      sub: true,
+      depth: 2,
       tip: "It's hosted somewhere other than GitHub, where SkillHub reads each SKILL.md and follows its changes.",
     },
     {
@@ -103,8 +116,8 @@ export default function Page(): string {
     count: review.reviewed,
     tip: "Every skill SkillHub found on skills.sh. Each was reviewed at least on its installs, from skills.sh, and its repo's stars, from GitHub.",
   };
-  const row = ({ label, count, tip, sub, emoji }: Row, i: number) =>
-    `<tr${sub ? ` class="sub"` : ""}><td>${emoji ? `<span class="emoji" aria-hidden="true">${emoji}</span>` : ""}${label}<span class="tip"><button type="button" class="tip-i" aria-label="About ${label}" aria-describedby="tip-${i}">i</button><span class="tip-text" role="tooltip" id="tip-${i}">${tip}</span></span></td><td class="num">${n(count)}</td></tr>`;
+  const row = ({ label, count, tip, depth = 0, emoji, name = label }: Row, i: number) =>
+    `<tr class="d${depth}"><td>${emoji ? `<span class="emoji" aria-hidden="true">${emoji}</span>` : ""}${label}<span class="tip"><button type="button" class="tip-i" aria-label="About ${name}" aria-describedby="tip-${i}">i</button><span class="tip-text" role="tooltip" id="tip-${i}">${tip}</span></span></td><td class="num">${n(count)}</td></tr>`;
   return `
     <div class="page about">
       <h1>How skills get here</h1>

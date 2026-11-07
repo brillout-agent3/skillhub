@@ -1088,17 +1088,29 @@ code {
   padding-left: 24px;
 }
 
-.breakdown .sub td {
+/* A row of depth 1 splits the top row above it, one of depth 2 the depth-1 row above it. Each
+   lines up with the label after its parent's emoji. */
+.breakdown :is(.d1, .d2) td {
   padding-top: 2px;
   padding-bottom: 2px;
   border-bottom: none;
+}
+
+.breakdown .d1 td:first-child {
+  padding-left: 24px;
+}
+
+.breakdown .d2 + .d1 td {
+  padding-top: 8px;
+}
+
+.breakdown .d2 td {
   color: var(--text-2);
   font-size: 13px;
 }
 
-/* Sub rows line up with the label after their parent's emoji. */
-.breakdown .sub td:first-child {
-  padding-left: 24px;
+.breakdown .d2 td:first-child {
+  padding-left: 48px;
 }
 
 .breakdown .emoji {
@@ -1107,12 +1119,12 @@ code {
   font-weight: 400;
 }
 
-.breakdown tr:has(+ .sub) td {
+.breakdown tr:has(+ :is(.d1, .d2)) td {
   border-bottom: none;
 }
 
-/* The last sub row closes its group. */
-.breakdown .sub:has(+ tr:not(.sub)) td {
+/* The last nested row closes its top row's group. */
+.breakdown :is(.d1, .d2):has(+ .d0) td {
   padding-bottom: 6px;
   border-bottom: 1px solid var(--border);
 }
