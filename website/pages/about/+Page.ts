@@ -130,7 +130,8 @@ export default function Page(): string {
       </div>
       <p class="breakdown-note">As of ${date(review.asOf)}.</p>
 
-      <h2>What a listed skill gets</h2>
+      <h2>Agent review</h2>
+      <p>When SkillHub's agent reviews a skill, it adds:</p>
       <ul>
         <li><strong>A TLDR:</strong> what the skill does, what you end up with, when to use it and how it differs from a close neighbour.</li>
         <li><strong>Tags:</strong> what area it's for, how it works, what it needs and what it can change on its own. The <a href="${href("tags/")}">Tags</a> page explains each one.</li>
