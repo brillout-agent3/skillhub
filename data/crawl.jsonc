@@ -27,19 +27,6 @@
         "weeklyInstalls": [83, 83, 96, 86, 101, 125, 112, 131],
         "firstSeen": "2026-01-21"
       }
-    },
-    {
-      "name": "sharpen",
-      "repo": "backnotprop/pstack",
-      "official": false,
-      "stars": 3752,
-      "seen": "2026-11-07",
-      "skills.sh": {
-        "url": "https://skills.sh/backnotprop/pstack/sharpen",
-        "installs": 5000,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 776, 1376, 1574],
-        "firstSeen": "2026-10-15"
-      }
     }
   ],
   "unqualified": [
@@ -20402,6 +20389,10 @@
     {
       "url": "https://skills.sh/astral-sh/claude-code-plugins/uv",
       "note": "Tool docs: an agent's manual for uv."
+    },
+    {
+      "url": "https://skills.sh/backnotprop/pstack/sharpen",
+      "note": "A copy of cursor/plugins/pstack/skills/sharpen."
     }
   ]
 }
