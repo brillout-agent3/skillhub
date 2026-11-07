@@ -51,14 +51,12 @@ const quiet = (tag: string) => tag === "by:community" || facetOf(tag) === "categ
  * Buttons that only set the list's settings, highest first, each named after what it shows, which
  * the sidebar spells out: Rising & new, the default view, by weekly downloads among the skills
  * published in the last DEFAULT_SINCE days (a skill that young has no growth yet, see growthOf);
- * Top by weekly downloads; Rising by how fast the weekly downloads grow, one per repo (a repo's
- * skills tend to grow together); New by publishing date.
+ * Top by weekly downloads; Rising by how fast the weekly downloads grow; New by publishing date.
  */
 export type Preset = "rising-new" | "top" | "rising" | "new";
 interface PresetInfo {
   label: string;
   sort: Sort;
-  one: boolean;
   /** The Published range it sets: the last so many days, or any date. */
   since: Age | null;
   title: string;
@@ -69,22 +67,19 @@ export const PRESETS: Record<Preset, PresetInfo> = {
   "rising-new": {
     label: "Rising & new",
     sort: "week",
-    one: false,
     since: DEFAULT_SINCE,
     title: `The most downloaded this week of those published in the last ${DEFAULT_SINCE} days`,
   },
-  top: { label: "Top", sort: "week", one: false, since: null, title: "Most downloaded this week" },
+  top: { label: "Top", sort: "week", since: null, title: "Most downloaded this week" },
   rising: {
     label: "Rising",
     sort: "growth",
-    one: true,
     since: null,
     title: "Downloads growing the fastest",
   },
   new: {
     label: "New",
     sort: "published",
-    one: false,
     since: null,
     title: "Most recently published",
   },
@@ -229,8 +224,6 @@ export interface State {
   /** Lowest (or oldest) first, instead of highest first. */
   asc: boolean;
   ranges: Record<Prop, Range>;
-  /** One entry per repo: the most popular one stands for the rest. */
-  one: boolean;
   show: Show;
 }
 
@@ -272,7 +265,6 @@ export function parse(search: string): State {
         : defaultSort(q),
     asc: p.get("order") === "asc",
     ranges,
-    one: p.get("one") === "1",
     show: (["skills", "bundles"] as const).find((v) => v === p.get("show")) ?? "all",
   };
 }
@@ -292,7 +284,6 @@ export function query(s: State): string {
         `${lo > 0 ? stopKey(prop, lo) : ""}..${hi < lastStop(prop) ? stopKey(prop, hi) : ""}`,
       );
   }
-  if (s.one) p.set("one", "1");
   if (s.show !== "all") p.set("show", s.show);
   const q = p.toString();
   return q ? `?${q}` : "";
@@ -501,7 +492,6 @@ const order = (sort: Sort, asc: boolean, q: string) => (a: Entry, b: Entry) =>
 
 interface Results {
   list: Entry[];
-  hidden: Map<string, number>;
   total: number;
   bundles: number;
 }
@@ -516,10 +506,7 @@ function results(st: State): Results {
 /** How many entries there are without any filter, for "of N", for each of `Show`. */
 const allCounts = new Map<Show, number>();
 
-/**
- * The filtered, sorted list, plus how many entries each repo hides in one-per-repo mode. With
- * bundles, a skill that only works inside its bundle is only listed in it.
- */
+/** The filtered, sorted list. With bundles, a skill that only works inside its bundle is only listed in it. */
 function compute(st: State): Results {
   const matching = [
     ...(st.show === "skills" ? [] : data.bundles.filter((b) => bundlePasses(b, st))),
@@ -527,19 +514,7 @@ function compute(st: State): Results {
       ? []
       : data.skills.filter((s) => (st.show === "skills" || ownEntry(s)) && passes(s, st))),
   ].sort(order(st.sort, st.asc, st.q));
-  const hidden = new Map<string, number>();
-  const counted = { total: matching.length, bundles: matching.filter(isBundle).length };
-  if (!st.one) return { list: matching, hidden, ...counted };
-  const list = matching.filter((s) => {
-    const key = repoKey(s);
-    if (hidden.has(key)) {
-      hidden.set(key, (hidden.get(key) ?? 0) + 1);
-      return false;
-    }
-    hidden.set(key, 0);
-    return true;
-  });
-  return { list, hidden, ...counted };
+  return { list: matching, total: matching.length, bundles: matching.filter(isBundle).length };
 }
 
 /** How many skills, or bundles when the list shows only those, have each value of a facet, with the other filters. */
@@ -573,7 +548,7 @@ function filtersText(st: State): string[] {
  * instead. `base` is the site's absolute URL, which the entries' paths are relative to.
  */
 export function askPrompt(st: State, base: string): string {
-  const { list } = compute({ ...st, q: "", one: false });
+  const { list } = compute({ ...st, q: "" });
   const entry = (e: Entry) => {
     const review = e.agentReview;
     const numbers = [
@@ -647,12 +622,7 @@ function propsHtml(e: Entry, st: State): string {
   return `<dl class="props">${rows.join("")}</dl>`;
 }
 
-const moreLink = (e: Entry, more: number, st: State) =>
-  more
-    ? `<a class="more" href="${skillsLink({ repo: repoKey(e), sort: st.sort === "match" ? defaultSort("") : st.sort, asc: st.asc })}">+${more} more from ${esc(repoKey(e))}</a>`
-    : "";
-
-function skillRow(s: Skill, more: number, st: State): string {
+function skillRow(s: Skill, st: State): string {
   const tags = s.agentReview.tags
     .filter((t) => !quiet(t))
     .sort((a, b) => FACET_ORDER.indexOf(facetOf(a)) - FACET_ORDER.indexOf(facetOf(b)));
@@ -671,13 +641,12 @@ function skillRow(s: Skill, more: number, st: State): string {
       </div>
       ${s.agentReview.tldr?.glance.length ? glanceHtml(s.agentReview.tldr.glance, 2) : `<p class="skill-desc">${esc(s.agentReview.description)}</p>`}
       <div class="tags">${tags.map((t) => tagChip(t, null, st.tags.includes(t))).join("")}</div>
-      ${moreLink(s, more, st)}
       </div>
       ${propsHtml(s, st)}
     </li>`;
 }
 
-function bundleRow(b: Bundle, more: number, st: State): string {
+function bundleRow(b: Bundle, st: State): string {
   // When filtering, the skills that don't match are dimmed.
   // The ranges are about the bundle, so only the tags and search dim its skills.
   const hits = isFiltered(st) ? skillsOf(b).filter((s) => passes(s, withoutRanges(st))) : [];
@@ -695,7 +664,6 @@ function bundleRow(b: Bundle, more: number, st: State): string {
       </div>
       ${b.agentReview.tldr?.glance.length ? glanceHtml(b.agentReview.tldr.glance, 2) : `<p class="skill-desc">${esc(b.agentReview.description)}</p>`}
       <p class="members">${members.join('<span aria-hidden="true"> · </span>')}</p>
-      ${moreLink(b, more, st)}
       </div>
       ${propsHtml(b, st)}
     </li>`;
@@ -806,17 +774,13 @@ function activeFilters(st: State): string {
     : "";
 }
 
-const rowHtml = (e: Entry, st: State, hidden: Map<string, number>) => {
-  const more = hidden.get(repoKey(e)) ?? 0;
-  return isBundle(e) ? bundleRow(e, more, st) : skillRow(e, more, st);
-};
+const rowHtml = (e: Entry, st: State) => (isBundle(e) ? bundleRow(e, st) : skillRow(e, st));
 
 /** The rows from `from` to `to`, to append to the `limit` rows `resultsHtml` rendered. */
 export function rowsHtml(st: State, from: number, to: number): string {
-  const { list, hidden } = results(st);
-  return list
-    .slice(from, to)
-    .map((e) => rowHtml(e, st, hidden))
+  return results(st)
+    .list.slice(from, to)
+    .map((e) => rowHtml(e, st))
     .join("");
 }
 
@@ -825,7 +789,7 @@ export const rowCount = (st: State) => results(st).list.length;
 
 /** The count, the active filters and the list, of only its first `limit` rows if given. */
 export function resultsHtml(st: State, limit = Infinity): string {
-  const { list, hidden, total, bundles } = results(st);
+  const { list, total, bundles } = results(st);
   if (!allCounts.has(st.show))
     allCounts.set(st.show, compute({ ...fresh(), ranges: fullRanges(), show: st.show }).total);
   const all = allCounts.get(st.show);
@@ -837,9 +801,9 @@ export function resultsHtml(st: State, limit = Infinity): string {
         bundles ? plural(bundles, "bundle") : "",
       ]
         .filter(Boolean)
-        .join(", ")}</strong>${
-        st.one && list.length !== total ? `, ${plural(list.length, "repo")}` : ""
-      }${isFiltered(st) ? ` <span class="muted">of ${all?.toLocaleString("en")}</span>` : ""}</p>
+        .join(
+          ", ",
+        )}</strong>${isFiltered(st) ? ` <span class="muted">of ${all?.toLocaleString("en")}</span>` : ""}</p>
       <button type="button" class="filters-toggle" data-action="filters" aria-controls="filters">Filters</button>
     </div>
     ${activeFilters(st)}
@@ -848,7 +812,7 @@ export function resultsHtml(st: State, limit = Infinity): string {
       list.length
         ? `<ol class="skill-list">${list
             .slice(0, limit)
-            .map((e) => rowHtml(e, st, hidden))
+            .map((e) => rowHtml(e, st))
             .join("")}</ol>`
         : `<p class="empty">No skill matches these filters.${
             st.q
@@ -869,16 +833,13 @@ export function rangesHtml(st: State): string {
   }).join("");
 }
 
-/** The presets, then the sort and its order, and one entry per repo. Re-rendered with the list, since a search adds Best match. */
+/** The presets, then the sort and its order, and what to show. Re-rendered with the list, since a search adds Best match. */
 export function settingsHtml(st: State): string {
   const presets = (Object.keys(PRESETS) as Preset[])
     .map((id) => {
       const p = PRESETS[id];
       const on =
-        st.sort === p.sort &&
-        !st.asc &&
-        st.one === p.one &&
-        sameRange(st.ranges.published, sinceRange(p.since));
+        st.sort === p.sort && !st.asc && sameRange(st.ranges.published, sinceRange(p.since));
       return `<button type="button" class="preset" data-preset="${id}" aria-pressed="${on}" title="${esc(p.title)}">${esc(p.label)}</button>`;
     })
     .join("");
@@ -906,7 +867,7 @@ export function settingsHtml(st: State): string {
     <section class="facet settings">
       <h2><label for="sort">Sort by</label></h2>
       <select id="sort">${options}</select>
-      <div class="sort-row">${order}<label class="check"><input type="checkbox" id="one"${st.one ? " checked" : ""} /> One per repo</label></div>
+      ${order ? `<div class="sort-row">${order}</div>` : ""}
     </section>
     <section class="facet settings">
       <h2 id="show-label">Show</h2>

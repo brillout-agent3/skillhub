@@ -174,8 +174,8 @@ app.addEventListener("click", (event) => {
   if (d.preset) {
     for (const b of app.querySelectorAll("[data-preset]"))
       b.setAttribute("aria-pressed", String(b === el));
-    const { sort, one, since } = PRESETS[d.preset as Preset];
-    go({ sort, one, asc: false, ranges: { ...state.ranges, published: sinceRange(since) } });
+    const { sort, since } = PRESETS[d.preset as Preset];
+    go({ sort, asc: false, ranges: { ...state.ranges, published: sinceRange(since) } });
   } else if (d.show) {
     for (const b of app.querySelectorAll("[data-show]"))
       b.setAttribute("aria-pressed", String(b === el));
@@ -208,7 +208,6 @@ app.addEventListener("click", (event) => {
 app.addEventListener("change", (event) => {
   const el = event.target as HTMLInputElement | HTMLSelectElement;
   if (el.id === "sort") go({ sort: el.value as Sort });
-  else if (el.id === "one") go({ one: (el as HTMLInputElement).checked });
 });
 
 // The page was pre-rendered unfiltered, and without a tag search.

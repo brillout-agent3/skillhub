@@ -218,7 +218,7 @@ code {
   margin-top: 18px;
 }
 
-/* Rising & new, Top, Rising and New: they only set the sort, one per repo and Published. */
+/* Rising & new, Top, Rising and New: they only set the sort and Published. */
 .presets {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -270,18 +270,6 @@ code {
   font-size: 13px;
   white-space: nowrap;
   cursor: pointer;
-}
-
-.settings .check {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  color: var(--text-2);
-  font-size: 14px;
-}
-
-.settings input[type="checkbox"] {
-  accent-color: var(--accent);
 }
 
 /* Skills & bundles, Skills or Bundles: one segmented control. */
@@ -805,12 +793,6 @@ code {
 .tag[data-tag="flag:republished"] {
   background: var(--t-bad);
   color: var(--t-bad-ink);
-}
-
-.more {
-  display: inline-block;
-  margin-top: 8px;
-  font-size: 13px;
 }
 
 .empty {
