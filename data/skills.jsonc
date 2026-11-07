@@ -86,6 +86,11 @@
           "description": "Generate and edit video, images and audio."
         },
         {
+          "id": "games",
+          "label": "Games",
+          "description": "Make games: design, genres, game feel and game-jam workflows, whatever the engine."
+        },
+        {
           "id": "documents",
           "label": "Documents",
           "description": "Office files, notes and suites like Lark and Google Workspace."
@@ -94,6 +99,11 @@
           "id": "marketing",
           "label": "Marketing",
           "description": "SEO, copy, conversion, social media and e-commerce."
+        },
+        {
+          "id": "business",
+          "label": "Business",
+          "description": "Run a company outside its code and marketing: strategy, sales, finance, operations, legal, management and hiring."
         },
         {
           "id": "science",
