@@ -3,7 +3,7 @@
   "asOf": {
     "installs": "2026-11-06",
     "stars": "2026-11-06",
-    "tags": "2026-11-06"
+    "tags": "2026-11-07"
   },
   "facets": [
     {
@@ -2822,6 +2822,22 @@
       "agentReview": {
         "kind": "skills",
         "description": "The official Agent Skills for ClickHouse and chdb, for open-source ClickHouse and ClickHouse Cloud."
+      }
+    },
+    {
+      "id": "qianwen-ai/qianwen-ai",
+      "stars": 120,
+      "agentReview": {
+        "kind": "skills",
+        "description": "QianWen's agent skills for its text, image, video, speech and vision models, plus model choice, API keys, usage and payment."
+      }
+    },
+    {
+      "id": "julianoczkowski/designer-skills",
+      "stars": 600,
+      "agentReview": {
+        "kind": "skills",
+        "description": "A collection of agent skills for designers who prototype and build with AI coding tools."
       }
     }
   ],
@@ -6343,6 +6359,81 @@
           {
             "label": "Claude Code plugin; also adds the digest command and MCP connections to Slack, Notion, Guru, Atlassian and Asana",
             "command": "claude plugin marketplace add anthropics/knowledge-work-plugins && claude plugin install enterprise-search@knowledge-work-plugins"
+          }
+        ]
+      }
+    },
+    {
+      "id": "julianoczkowski/designer-skills",
+      "skew": 0,
+      "agentReview": {
+        "name": "Designer Skills",
+        "description": "A guided design process for building UI with an agent: a brief, information architecture, design tokens and a task list, then the build and a review.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you prototype or build interfaces with an agent and want it to follow a design process instead of jumping straight to code"
+            },
+            {
+              "label": "It does",
+              "text": "settles decisions, writes a brief, plans structure, sets tokens, splits the work into tasks, builds in a named aesthetic and reviews the result"
+            },
+            {
+              "label": "You get",
+              "text": "a brief, information architecture, a task list and a screenshot-backed review in .design/<feature>/, tokens in your project's styles, and the built pages"
+            },
+            {
+              "label": "Start with",
+              "text": "design-flow, which runs the steps in order, lets you skip any and asks before each next one"
+            },
+            {
+              "label": "Review needs",
+              "text": "Playwright MCP or Cursor's built-in browser for screenshots, or screenshots you supply"
+            }
+          ],
+          "text": "Julian Oczkowski's skills for designers who prototype and build with AI coding tools. Each step also runs alone, and design-flow strings them together with a confirmation between phases. grill-me, which comes with the install but isn't listed here, questions you about the plan; design-brief turns that into a brief after scanning the codebase's existing tokens and components; information-architecture adds a site map, navigation, content priority and user flows; design-tokens derives light and dark tokens from the brief's aesthetic philosophy and writes them into your Tailwind config, CSS or theme file; brief-to-tasks orders the work into vertical slices; frontend-design builds them, mobile-first with dark mode, in one of eight named philosophies such as Dieter Rams, Swiss or Neo-Memphis; design-review, run only when you ask, screenshots the running app at three widths and lists must-fix, should-fix and could-improve issues against the brief, each with a suggested fix. The brief, information architecture, task list and review share one .design/<feature>/ folder, so later steps pick up earlier decisions and features don't overwrite each other. The skills that plan or build first scan your project for existing tokens, themes and components, and extend them rather than replace them.",
+          "permalink": "https://github.com/julianoczkowski/designer-skills/tree/c259656c76d9758d7ead46b0d2f125cbe84f8665"
+        },
+        "skills": [
+          {
+            "id": "julianoczkowski/designer-skills/design-flow",
+            "standalone": false,
+            "note": "Reads and follows the other skills' SKILL.md files one phase at a time, so alone it has no phases to run. Its first phase, grill-me, isn't listed here: the Claude Code plugin includes it, and the skills CLI offers it among the repo's skills."
+          },
+          {
+            "id": "julianoczkowski/designer-skills/design-brief",
+            "standalone": true
+          },
+          {
+            "id": "julianoczkowski/designer-skills/information-architecture",
+            "standalone": true
+          },
+          {
+            "id": "julianoczkowski/designer-skills/design-tokens",
+            "standalone": true
+          },
+          {
+            "id": "julianoczkowski/designer-skills/brief-to-tasks",
+            "standalone": true
+          },
+          {
+            "id": "julianoczkowski/designer-skills/frontend-design",
+            "standalone": true
+          },
+          {
+            "id": "julianoczkowski/designer-skills/design-review",
+            "standalone": true
+          }
+        ],
+        "install": [
+          {
+            "label": "Any agent, with the skills CLI, which asks which of the repo's 8 skills to add and for which agents; pick grill-me too for design-flow's first phase",
+            "command": "npx skills add julianoczkowski/designer-skills"
+          },
+          {
+            "label": "Claude Code plugin, with all 8 of the repo's skills, grill-me included; they're namespaced, as /designer-skills:design-brief",
+            "command": "claude plugin marketplace add julianoczkowski/designer-skills && claude plugin install designer-skills@designer-skills"
           }
         ]
       }
@@ -70992,6 +71083,593 @@
           "seo",
           "social-media",
           "email"
+        ]
+      }
+    },
+    {
+      "id": "qianwen-ai/qianwen-ai/skills/image/qianwen-image-generation",
+      "name": "qianwen-image-generation",
+      "skills.sh": {
+        "url": "https://skills.sh/qianwen-ai/qianwen-ai/qianwen-image-generation",
+        "installs": 6000,
+        "weeklyInstalls": [277, 231, 186, 157, 182, 180, 259, 193],
+        "firstSeen": "2026-05-12"
+      },
+      "skillMd": {
+        "version": "11b1805167d91bc931dbaad85e17036a72e98ae0",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Generates and edits images with QianWen's Wan and Qwen Image models: text-to-image, style transfer, reference-based edits and mixed text-and-image output.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want images made from a prompt, or edited from reference photos, with QianWen's image models"
+            },
+            {
+              "label": "It does",
+              "text": "runs its bundled Python script against the QianWen API, picking the model from a catalog it fetches first; curl is the fallback"
+            },
+            {
+              "label": "You get",
+              "text": "image files under ./output/qianwen-image-generation/, plus image URLs valid for 24 hours to pass to the repo's video or vision skills"
+            },
+            {
+              "label": "Needs",
+              "text": "a QianWen API key, pay-as-you-go or Token Plan, and Python 3.9+ or curl"
+            }
+          ],
+          "text": "QianWen's own skill for its image models. It checks your API key's type without printing it: a Token Plan key limits it to that plan's models and to reference images given as URLs. Unless you name a model, it fetches QianWen's current image model catalog from a CDN, using a bundled copy if that fails, and it can hand the choice to the qianwen-model-selector skill. Its script covers text-to-image, edits from reference images (style transfer, keeping a subject consistent, combining several images, rendering text), sequences of up to 12 consistent images, and output that interleaves text and images. Local files are uploaded to DashScope's temporary storage for 48 hours, or to your own OSS bucket if you set one up. Each image is billed, and an \"AI Generated\" watermark is off unless you turn it on. Failures are matched against a table of fixes, from a missing key to SSL and rate-limit errors. If no key is set, it writes a .env file with a placeholder for you to fill in instead of asking for the key, and after runs it offers to install the repo's update checker.",
+          "permalink": "https://github.com/qianwen-ai/qianwen-ai/tree/11b1805167d91bc931dbaad85e17036a72e98ae0/skills/image/qianwen-image-generation"
+        },
+        "tags": [
+          "category:media",
+          "type:tool",
+          "effect:local",
+          "needs:account",
+          "by:official",
+          "stack:qianwen",
+          "image",
+          "ai-generation"
+        ],
+        "note": "Needs a QianWen API key, and every image is billed to that account. Local reference images are uploaded to DashScope's temporary storage for 48 hours. After runs it offers to install the repo's qianwen-update-check skill until you install it or choose never to be reminded."
+      }
+    },
+    {
+      "id": "qianwen-ai/qianwen-ai/skills/vision/qianwen-vision",
+      "name": "qianwen-vision",
+      "skills.sh": {
+        "url": "https://skills.sh/qianwen-ai/qianwen-ai/qianwen-vision",
+        "installs": 6000,
+        "weeklyInstalls": [270, 226, 187, 158, 184, 190, 254, 198],
+        "firstSeen": "2026-05-12"
+      },
+      "skillMd": {
+        "version": "11b1805167d91bc931dbaad85e17036a72e98ae0",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Answers questions about images and videos, extracts text by OCR and reasons through visual problems with QianWen's Qwen VL and QVQ models.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want an image, screenshot, chart or video described or questioned, text pulled from a photo of a document, or images compared, with Qwen's vision models"
+            },
+            {
+              "label": "It does",
+              "text": "runs one of three bundled scripts: analyze for questions, several images and video, reason for step-by-step visual reasoning, ocr for text extraction"
+            },
+            {
+              "label": "You get",
+              "text": "the model's answer as JSON, saved under ./output/qianwen-vision/ when asked; a JSON Schema can shape what it extracts"
+            },
+            {
+              "label": "Sends",
+              "text": "small local files inline; files of 7 MB or more go to DashScope's temporary storage for 48 hours"
+            },
+            {
+              "label": "Needs",
+              "text": "a QianWen API key and Python 3.9+, or curl"
+            }
+          ],
+          "text": "QianWen's own skill for its vision models. It checks your key's type without printing it; a Token Plan key limits it to that plan's vision-capable models and, for large files, to URLs instead of uploads. Unless you name a model, it fetches QianWen's current vision model catalog from a CDN, with a bundled copy as fallback, and the qianwen-model-selector skill can make the choice. Inputs are one image, several images, a video file or a list of frames, as URLs or local paths: BMP, JPEG, PNG, TIFF, WEBP or HEIC images, and MP4, AVI, MKV, MOV, FLV or WMV videos. Thinking mode and the QVQ reasoning models stream their output. Images and videos from the repo's generation skills pass in by URL, without downloading them first. Failures are matched against a table of fixes, from a missing key to SSL and rate-limit errors, and curl is the fallback when Python is missing. If no key is set, it writes a .env placeholder for you to fill in instead of asking for the key, and after runs it offers to install the repo's update checker.",
+          "permalink": "https://github.com/qianwen-ai/qianwen-ai/tree/11b1805167d91bc931dbaad85e17036a72e98ae0/skills/vision/qianwen-vision"
+        },
+        "tags": [
+          "category:media",
+          "type:tool",
+          "effect:local",
+          "needs:account",
+          "by:official",
+          "stack:qianwen",
+          "image",
+          "video"
+        ],
+        "note": "Needs a QianWen API key, and calls are billed to that account. After runs it offers to install the repo's qianwen-update-check skill until you install it or choose never to be reminded."
+      }
+    },
+    {
+      "id": "qianwen-ai/qianwen-ai/skills/audio/qianwen-audio-tts",
+      "name": "qianwen-audio-tts",
+      "skills.sh": {
+        "url": "https://skills.sh/qianwen-ai/qianwen-ai/qianwen-audio-tts",
+        "installs": 5900,
+        "weeklyInstalls": [269, 227, 180, 160, 183, 190, 255, 190],
+        "firstSeen": "2026-05-12"
+      },
+      "skillMd": {
+        "version": "11b1805167d91bc931dbaad85e17036a72e98ae0",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Turns text into speech with QianWen's Qwen TTS and CosyVoice models, with voice, language and tone instructions.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need a voiceover, narration or other spoken audio from text with QianWen's voices"
+            },
+            {
+              "label": "It does",
+              "text": "runs its Qwen TTS script over HTTP, or a CosyVoice script for texts up to 20,000 characters, picking models and voices from a catalog it fetches first"
+            },
+            {
+              "label": "You get",
+              "text": "an audio file under ./output/qianwen-audio-tts/, plus a URL to it valid for 24 hours"
+            },
+            {
+              "label": "Limits",
+              "text": "600 characters per request with Qwen3-TTS; cosyvoice-v3.5 needs a custom voice you clone from a 10 to 20 second sample"
+            },
+            {
+              "label": "Needs",
+              "text": "a QianWen API key and Python 3.9+, plus the dashscope SDK for CosyVoice"
+            }
+          ],
+          "text": "QianWen's own skill for its speech synthesis models. It checks your key's type without printing it; a Token Plan key limits it to that plan's models and the HTTP script. Before choosing a model or voice it fetches QianWen's current text-to-speech catalog from a CDN, using a bundled copy if that fails. Qwen TTS requests take a voice, a language such as Chinese, English or Japanese, or Auto for mixed text, and optional tone and style instructions the service can enhance. CosyVoice takes a free-form instruction, language hints, MP3, WAV, PCM or Opus output and sample rates from 8 to 48 kHz. Real-time WebSocket streaming isn't covered: it points to the official docs instead. Generated audio can go straight to the repo's video skill by URL for an audio overlay. If no key is set, it writes a .env placeholder for you to fill in instead of asking for the key, and after runs it offers to install the repo's update checker.",
+          "permalink": "https://github.com/qianwen-ai/qianwen-ai/tree/11b1805167d91bc931dbaad85e17036a72e98ae0/skills/audio/qianwen-audio-tts"
+        },
+        "tags": [
+          "category:media",
+          "type:tool",
+          "effect:local",
+          "needs:account",
+          "by:official",
+          "stack:qianwen",
+          "audio",
+          "ai-generation"
+        ],
+        "note": "Needs a QianWen API key, and calls are billed to that account. After runs it offers to install the repo's qianwen-update-check skill until you install it or choose never to be reminded."
+      }
+    },
+    {
+      "id": "qianwen-ai/qianwen-ai/skills/video/qianwen-video-generation",
+      "name": "qianwen-video-generation",
+      "skills.sh": {
+        "url": "https://skills.sh/qianwen-ai/qianwen-ai/qianwen-video-generation",
+        "installs": 5800,
+        "weeklyInstalls": [264, 230, 178, 151, 176, 176, 248, 189],
+        "firstSeen": "2026-05-12"
+      },
+      "skillMd": {
+        "version": "11b1805167d91bc931dbaad85e17036a72e98ae0",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Generates and edits videos with QianWen's Wan and HappyHorse models, from text, images, first and last frames or reference characters.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a clip made from a prompt or images, characters from references acting a new script, or an existing video edited"
+            },
+            {
+              "label": "It does",
+              "text": "detects the mode from your request, submits an async job to the QianWen API and polls every 15 seconds until it's done"
+            },
+            {
+              "label": "You get",
+              "text": "the video downloaded under ./output/qianwen-video-generation/, plus a URL valid for 24 hours"
+            },
+            {
+              "label": "Watch for",
+              "text": "first-and-last-frame clips are a fixed five seconds and VACE edits at most five, both silent"
+            },
+            {
+              "label": "Needs",
+              "text": "a QianWen API key and Python 3.9+, or curl"
+            }
+          ],
+          "text": "QianWen's own skill for its Wan and HappyHorse video models. Its modes are text-to-video, image-to-video, first-to-last-frame transitions, role-play from reference characters, and editing (VACE: repainting, local edits, extending or outpainting). It checks your key's type without printing it; a Token Plan key limits it to that plan's models and to inputs given as URLs. Unless you name a model, it picks one from QianWen's current catalog, fetched from a CDN with a bundled copy as fallback. Role-play takes up to five references, at most three of them videos, named character1, character2 and so on in the prompt. It waits up to 10 minutes by default, or can submit a job and exit, then pick up its task ID later. Local images, video and audio are uploaded to DashScope's temporary storage for 48 hours; output from the repo's image or speech skills passes in by URL. For joining, trimming or adding audio it points to ffmpeg or moviepy recipes. Video is billed per second; it never quotes prices, only the official pricing page. If no key is set, it writes a .env placeholder for you to fill in, and after runs it offers to install the repo's update checker.",
+          "permalink": "https://github.com/qianwen-ai/qianwen-ai/tree/11b1805167d91bc931dbaad85e17036a72e98ae0/skills/video/qianwen-video-generation"
+        },
+        "tags": [
+          "category:media",
+          "type:tool",
+          "effect:local",
+          "needs:account",
+          "by:official",
+          "stack:qianwen",
+          "video",
+          "ai-generation"
+        ],
+        "note": "Needs a QianWen API key, and video is billed per second to that account. Local images, video and audio you pass are uploaded to DashScope's temporary storage for 48 hours. After runs it offers to install the repo's qianwen-update-check skill until you install it or choose never to be reminded."
+      }
+    },
+    {
+      "id": "julianoczkowski/designer-skills/design-tokens",
+      "name": "design-tokens",
+      "skills.sh": {
+        "url": "https://skills.sh/julianoczkowski/designer-skills/design-tokens",
+        "installs": 6000,
+        "weeklyInstalls": [162, 142, 148, 101, 82, 108, 86, 79],
+        "firstSeen": "2026-03-28"
+      },
+      "skillMd": {
+        "version": "c259656c76d9758d7ead46b0d2f125cbe84f8665",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Generates design tokens with light and dark palettes and spacing, type, layout and motion scales, in your stack's format, from an aesthetic philosophy.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're setting up a project's visual system, or your tokens lack dark mode, a full spacing scale or motion values"
+            },
+            {
+              "label": "It does",
+              "text": "extends any tokens you already have, reads the brief's aesthetic philosophy and derives values from frontend-design's parameters for it"
+            },
+            {
+              "label": "You get",
+              "text": "semantic color, spacing, type, layout, shadow, motion and breakpoint tokens, in your Tailwind config and globals.css, a tokens.css or a theme file"
+            },
+            {
+              "label": "Dark mode",
+              "text": "always generated and tuned to the philosophy rather than inverted, with both a system-preference query and a data-theme toggle"
+            }
+          ],
+          "text": "The design-tokens step of Julian Oczkowski's designer workflow: every component built afterwards is meant to use these tokens instead of hard-coded values. It first scans for :root variables, Tailwind config, Material UI, Chakra or shadcn themes, Style Dictionary or Figma token files and UI dependencies, and fills gaps rather than replacing what exists. It reads the design brief if there is one; without one it asks what direction you want. Colors are named by role (backgrounds, text, borders, accents with hover and active states, status, overlay). The spacing scale's base unit follows the philosophy: 4px for tight styles like Brutalist or Swiss, 8px with bigger steps for spacious ones like Japanese minimalism or Editorial. Typography covers display, body and mono families, sizes, weights, line heights and letter spacing, and motion durations, easings and five breakpoints from 375px come with set values. Tailwind projects get their config extended, plain CSS gets tokens.css, CSS-in-JS gets theme.ts, and anything unclear gets CSS custom properties. It ends by saying which philosophy the values come from and where it deviated.",
+          "permalink": "https://github.com/julianoczkowski/designer-skills/tree/c259656c76d9758d7ead46b0d2f125cbe84f8665/design-tokens"
+        },
+        "tags": [
+          "category:design",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "design-system",
+          "design"
+        ]
+      }
+    },
+    {
+      "id": "julianoczkowski/designer-skills/information-architecture",
+      "name": "information-architecture",
+      "skills.sh": {
+        "url": "https://skills.sh/julianoczkowski/designer-skills/information-architecture",
+        "installs": 6000,
+        "weeklyInstalls": [146, 171, 137, 82, 58, 110, 88, 94],
+        "firstSeen": "2026-03-28"
+      },
+      "skillMd": {
+        "version": "c259656c76d9758d7ead46b0d2f125cbe84f8665",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Plans a product's or site's structure before visual design: site map, navigation, content priority, user flows, naming and URL rules.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you've written a design brief, or know what you're building, and need navigation and page structure settled before visual design"
+            },
+            {
+              "label": "It does",
+              "text": "reads the brief if there is one, scans your routes, layouts and navigation components, then asks structural questions, each with its recommended answer"
+            },
+            {
+              "label": "You get",
+              "text": "INFORMATION_ARCHITECTURE.md next to the brief: a site map with URLs, navigation, content priority per page, user flows, a naming glossary and URL rules"
+            },
+            {
+              "label": "Extends",
+              "text": "the structure your codebase already has, rather than proposing one that ignores it"
+            }
+          ],
+          "text": "The information-architecture step of Julian Oczkowski's designer workflow, between the design brief and the build. It looks for .design/*/DESIGN_BRIEF.md, taking the most recent or asking which feature, and without a brief asks what you're building and for whom. It then reads what already exists: Next.js, React Router, Vue Router or SvelteKit routes, header, sidebar and footer components, layouts, URL patterns and any CMS or content directories. Its questions cover at least what users need to find or do, ranked by frequency, how deep navigation may go, which content grows over time, whether different user types need different entry points, and the one view where users spend 80% of their time. The document maps every page with its URL pattern, sets out primary, secondary, utility and mobile navigation, ranks the content on each major page with reasons, and walks the critical user flows with their decision points. It also fixes one UI label per concept, lists the layout components pages share, and plans how growing sections handle pagination, filtering or search.",
+          "permalink": "https://github.com/julianoczkowski/designer-skills/tree/c259656c76d9758d7ead46b0d2f125cbe84f8665/information-architecture"
+        },
+        "tags": [
+          "category:design",
+          "category:planning",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "design",
+          "planning",
+          "interview"
+        ]
+      }
+    },
+    {
+      "id": "julianoczkowski/designer-skills/design-review",
+      "name": "design-review",
+      "skills.sh": {
+        "url": "https://skills.sh/julianoczkowski/designer-skills/design-review",
+        "installs": 5900,
+        "weeklyInstalls": [135, 134, 116, 75, 62, 80, 59, 79],
+        "firstSeen": "2026-03-28"
+      },
+      "skillMd": {
+        "version": "c259656c76d9758d7ead46b0d2f125cbe84f8665",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Critiques a built interface against its design brief, from screenshots at three widths and the code, and saves a prioritized fix list.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you've built a page or component and want it checked against the brief before shipping"
+            },
+            {
+              "label": "It does",
+              "text": "reads the brief, inspects the new code for hardcoded values and duplicate components, and screenshots the running app at 375, 768 and 1280px"
+            },
+            {
+              "label": "You get",
+              "text": "DESIGN_REVIEW.md with must fix, should fix and could improve items, each tied to files and screenshots, plus what works well"
+            },
+            {
+              "label": "Needs",
+              "text": "Playwright MCP or Cursor's built-in browser for screenshots; without either it asks you for them and waits"
+            },
+            {
+              "label": "Checks",
+              "text": "hierarchy, consistency, fidelity to the named aesthetic, component reuse, states, responsiveness, accessibility, typography, dark mode and mobile-first rules"
+            }
+          ],
+          "text": "The review step of Julian Oczkowski's designer workflow, which runs only once something is built. It looks for the feature's brief in .design/, falls back to a DESIGN_BRIEF.md at the project root, and asks for the intended direction if there's none. It examines every new or changed component for token use, duplicates and file conventions. Screenshots are mandatory: it asks for the app's URL if it can't tell, captures full pages at mobile, tablet and desktop widths, hover, focus, open, error, loading and empty states, dark mode and single components, and saves them under .design/<feature>/screenshots/ with descriptive names. It compares each screenshot with the brief and notes what reading code misses, such as fonts failing to load, overflow or z-index problems. Accessibility checks include WCAG AA contrast (4.5:1 for body text), keyboard reach, visible focus, semantic HTML, alt text and a reduced-motion query. Findings name exact components, files, line numbers and screenshot files, and the review is saved next to the brief.",
+          "permalink": "https://github.com/julianoczkowski/designer-skills/tree/c259656c76d9758d7ead46b0d2f125cbe84f8665/design-review"
+        },
+        "tags": [
+          "category:design",
+          "category:debugging",
+          "type:workflow",
+          "effect:local",
+          "needs:mcp",
+          "needs:browser",
+          "by:community",
+          "design",
+          "accessibility",
+          "verification"
+        ]
+      }
+    },
+    {
+      "id": "julianoczkowski/designer-skills/frontend-design",
+      "name": "frontend-design",
+      "skills.sh": {
+        "url": "https://skills.sh/julianoczkowski/designer-skills/frontend-design",
+        "installs": 5600,
+        "weeklyInstalls": [113, 116, 87, 60, 49, 51, 53, 59],
+        "firstSeen": "2026-03-28"
+      },
+      "skillMd": {
+        "version": "c259656c76d9758d7ead46b0d2f125cbe84f8665",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds frontend interfaces in one of eight named aesthetic philosophies, mobile-first with dark mode, reusing the components and tokens your codebase already has.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're building components, pages or an app and want a distinct look instead of generic AI output"
+            },
+            {
+              "label": "It does",
+              "text": "scans your codebase for components, tokens, themes and fonts to reuse, commits to a named aesthetic and says why, then writes the code"
+            },
+            {
+              "label": "You get",
+              "text": "working components or pages in the chosen style, mobile-first, with dark mode and a reduced-motion query"
+            },
+            {
+              "label": "Philosophies",
+              "text": "Dieter Rams, Swiss, Japanese minimalism, Brutalist, Scandinavian, Art Deco, Neo-Memphis and Editorial, each with type, color, layout, spacing, motion and detail rules"
+            },
+            {
+              "label": "Mobile-first",
+              "text": "starts at 375px with min-width breakpoints, 44px touch targets, 16px body text and a mobile navigation pattern"
+            },
+            {
+              "label": "Unlike Anthropic's frontend-design",
+              "text": "it works from a menu of eight named styles with set parameters, and always adds dark mode"
+            }
+          ],
+          "text": "The build step of Julian Oczkowski's designer workflow, also usable alone. Before writing code it lists the components already in your project with their props, finds CSS variables, Tailwind config, UI framework themes, Storybook, fonts and layout patterns, and extends what matches instead of duplicating it. It works out what problem the interface solves and for whom, its tone and its hard constraints, then commits to an aesthetic: one you name, the closest match to a vibe you describe, or one it picks and explains. Each philosophy sets fonts, palette approach, grid, spacing, motion and details, such as hairline borders and slow fades for Japanese minimalism or hard-edged bright shadows for Neo-Memphis. General rules: distinctive fonts instead of Inter, Roboto or Arial, CSS variables for color, motion focused on page loads and state changes, and no purple gradients on white or predictable card grids. Dark mode uses design-tokens' palette when that file exists, follows both the system setting and a manual toggle, and avoids plain inversion; a reduced-motion query is always included.",
+          "permalink": "https://github.com/julianoczkowski/designer-skills/tree/c259656c76d9758d7ead46b0d2f125cbe84f8665/frontend-design"
+        },
+        "tags": [
+          "category:design",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "design",
+          "anti-slop",
+          "mobile"
+        ]
+      }
+    },
+    {
+      "id": "julianoczkowski/designer-skills/design-brief",
+      "name": "design-brief",
+      "skills.sh": {
+        "url": "https://skills.sh/julianoczkowski/designer-skills/design-brief",
+        "installs": 5400,
+        "weeklyInstalls": [105, 118, 101, 69, 53, 62, 55, 55],
+        "firstSeen": "2026-03-28"
+      },
+      "skillMd": {
+        "version": "c259656c76d9758d7ead46b0d2f125cbe84f8665",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Interviews you about a feature or page, scans your codebase's existing styles and components, and writes a design brief.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're about to design a feature or page and want its direction settled before any UI is built"
+            },
+            {
+              "label": "It does",
+              "text": "asks what you're building, scans the codebase for tokens, themes, components and fonts, then interviews you, recommending an answer to each question"
+            },
+            {
+              "label": "You get",
+              "text": ".design/<feature>/DESIGN_BRIEF.md: problem, solution, up to three experience principles, aesthetic direction, component inventory, interactions, responsive, accessibility and out-of-scope sections"
+            },
+            {
+              "label": "Feeds",
+              "text": "information-architecture, design-tokens, brief-to-tasks and design-review, which look for the brief in the same .design/<feature>/ folder"
+            }
+          ],
+          "text": "The brief step of Julian Oczkowski's designer workflow. It starts by asking for a detailed description of what you want to build, who it's for and your constraints. It then scans your project for CSS variables, Tailwind config, Material UI, Chakra or shadcn themes, component folders, Storybook stories, token files, UI dependencies, font loading and existing layouts, and treats the components it finds as the vocabulary the brief must extend. The interview walks each branch of the design, settling decisions one at a time, and covers at least the primary user and the job they're trying to get done, what success looks like, emotional tone, references and anti-references, hard constraints, and which content is real or placeholder. The brief's aesthetic direction names a philosophy or a vibe, with frontend-design's list as the reference, and each experience principle should resolve a tension, such as confidence over speed. The brief goes into a folder named after the feature, so briefs for different features don't overwrite each other.",
+          "permalink": "https://github.com/julianoczkowski/designer-skills/tree/c259656c76d9758d7ead46b0d2f125cbe84f8665/design-brief"
+        },
+        "tags": [
+          "category:design",
+          "category:planning",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "design",
+          "interview",
+          "requirements"
+        ]
+      }
+    },
+    {
+      "id": "julianoczkowski/designer-skills/design-flow",
+      "name": "design-flow",
+      "skills.sh": {
+        "url": "https://skills.sh/julianoczkowski/designer-skills/design-flow",
+        "installs": 5300,
+        "weeklyInstalls": [99, 113, 92, 63, 44, 54, 53, 52],
+        "firstSeen": "2026-03-28"
+      },
+      "skillMd": {
+        "version": "c259656c76d9758d7ead46b0d2f125cbe84f8665",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Walks you through the whole designer workflow in order, from grilling and brief to tokens, tasks and build, confirming each phase before the next.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're starting a page or product from scratch and want the whole design process, not one step of it"
+            },
+            {
+              "label": "It does",
+              "text": "lists the six phases, lets you skip any, then loads each phase's skill in turn and asks before moving on"
+            },
+            {
+              "label": "You get",
+              "text": "a brief, information architecture and a task list in .design/<feature>/, tokens in your project's styles, then the built pages, one task at a time"
+            },
+            {
+              "label": "Review",
+              "text": "design-review runs only when you ask, once something is built"
+            },
+            {
+              "label": "Resumes",
+              "text": "from the next unfinished phase, by reading what's already in .design/"
+            }
+          ],
+          "text": "The entry point to Julian Oczkowski's designer skills. It reads and follows each skill's own SKILL.md in full rather than summarizing it: grill-me, which questions you until the key decisions are settled and writes no file, then design-brief, information-architecture, design-tokens and brief-to-tasks, then frontend-design, working through TASKS.md one task at a time with your confirmation after each. At the start it suggests common skips: grilling when your idea is already clear, information architecture for a single component, tokens when the project has them. Before each phase it says what the phase will produce; after each it sums up the file, the key decisions and open questions; between phases it carries decisions forward, such as the philosophy the brief names. You can stop at any point and it tells you where you are and what comes next. Each feature gets its own folder under .design/, so several can be designed side by side.",
+          "permalink": "https://github.com/julianoczkowski/designer-skills/tree/c259656c76d9758d7ead46b0d2f125cbe84f8665/design-flow"
+        },
+        "tags": [
+          "category:design",
+          "category:planning",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "design",
+          "planning",
+          "agent-workflows"
+        ],
+        "note": "Reads and follows the repo's other skills' SKILL.md files one phase at a time, so install them alongside; its first phase, grill-me, comes with the repo but isn't listed here."
+      }
+    },
+    {
+      "id": "julianoczkowski/designer-skills/brief-to-tasks",
+      "name": "brief-to-tasks",
+      "skills.sh": {
+        "url": "https://skills.sh/julianoczkowski/designer-skills/brief-to-tasks",
+        "installs": 5300,
+        "weeklyInstalls": [100, 111, 90, 63, 44, 52, 49, 54],
+        "firstSeen": "2026-03-28"
+      },
+      "skillMd": {
+        "version": "c259656c76d9758d7ead46b0d2f125cbe84f8665",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Breaks a design brief into an ordered checklist of vertical slices, each built, styled and made interactive in one task.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you have a design brief and want to know what to build first"
+            },
+            {
+              "label": "It does",
+              "text": "reads the brief, information architecture and tokens, sorts your existing components into reuse, modify or new, and turns the work into self-contained slices"
+            },
+            {
+              "label": "You get",
+              "text": "TASKS.md next to the brief: a checklist in foundation, core UI, states, responsive and polish groups, ending with a design review"
+            },
+            {
+              "label": "Orders by",
+              "text": "dependencies first, then the most visible element, then the riskiest piece, so the look and the problems surface early"
+            }
+          ],
+          "text": "The planning step of Julian Oczkowski's designer workflow, between design tokens and the build. It reads .design/*/DESIGN_BRIEF.md, plus INFORMATION_ARCHITECTURE.md and a tokens file if they're in the same folder, and asks you to describe the work if there's no brief. It then lists the components, pages, token files, naming conventions, tests and UI libraries already in the codebase; only components that need changing or creating get their own tasks. A vertical slice holds a piece of UI's structure, styling and interaction together, instead of separate HTML, CSS and JavaScript tasks. Each must be buildable on its own, checkable against the brief and small enough for one session, and never a bare \"set up the project\". Every task says what it reuses, modifies or creates, the first build task carries the brief's aesthetic philosophy, and the list stays at most one level deep. If tests sit next to components, new tasks include test expectations.",
+          "permalink": "https://github.com/julianoczkowski/designer-skills/tree/c259656c76d9758d7ead46b0d2f125cbe84f8665/brief-to-tasks"
+        },
+        "tags": [
+          "category:planning",
+          "category:design",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "planning",
+          "design"
         ]
       }
     }

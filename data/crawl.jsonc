@@ -302,32 +302,6 @@
       }
     },
     {
-      "name": "design-tokens",
-      "repo": "julianoczkowski/designer-skills",
-      "official": false,
-      "stars": 600,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/julianoczkowski/designer-skills/design-tokens",
-        "installs": 6000,
-        "weeklyInstalls": [162, 142, 148, 101, 82, 108, 86, 79],
-        "firstSeen": "2026-03-28"
-      }
-    },
-    {
-      "name": "information-architecture",
-      "repo": "julianoczkowski/designer-skills",
-      "official": false,
-      "stars": 600,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/julianoczkowski/designer-skills/information-architecture",
-        "installs": 6000,
-        "weeklyInstalls": [146, 171, 137, 82, 58, 110, 88, 94],
-        "firstSeen": "2026-03-28"
-      }
-    },
-    {
       "name": "news-aggregator-skill",
       "repo": "cclank/news-aggregator-skill",
       "official": false,
@@ -354,19 +328,6 @@
       }
     },
     {
-      "name": "qianwen-image-generation",
-      "repo": "qianwen-ai/qianwen-ai",
-      "official": false,
-      "stars": 120,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/qianwen-ai/qianwen-ai/qianwen-image-generation",
-        "installs": 6000,
-        "weeklyInstalls": [277, 231, 186, 157, 182, 180, 259, 193],
-        "firstSeen": "2026-05-12"
-      }
-    },
-    {
       "name": "ios-simulator",
       "repo": "callstack/agent-device",
       "official": true,
@@ -377,19 +338,6 @@
         "installs": 6000,
         "weeklyInstalls": [447, 545, 611, 601, 608, 468, 462, 458],
         "firstSeen": "2026-08-10"
-      }
-    },
-    {
-      "name": "qianwen-vision",
-      "repo": "qianwen-ai/qianwen-ai",
-      "official": false,
-      "stars": 120,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/qianwen-ai/qianwen-ai/qianwen-vision",
-        "installs": 6000,
-        "weeklyInstalls": [270, 226, 187, 158, 184, 190, 254, 198],
-        "firstSeen": "2026-05-12"
       }
     },
     {
@@ -416,19 +364,6 @@
         "installs": 5900,
         "weeklyInstalls": [48, 53, 58, 40, 41, 49, 61, 61],
         "firstSeen": "2026-01-22"
-      }
-    },
-    {
-      "name": "qianwen-audio-tts",
-      "repo": "qianwen-ai/qianwen-ai",
-      "official": false,
-      "stars": 120,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/qianwen-ai/qianwen-ai/qianwen-audio-tts",
-        "installs": 5900,
-        "weeklyInstalls": [269, 227, 180, 160, 183, 190, 255, 190],
-        "firstSeen": "2026-05-12"
       }
     },
     {
@@ -471,19 +406,6 @@
       }
     },
     {
-      "name": "design-review",
-      "repo": "julianoczkowski/designer-skills",
-      "official": false,
-      "stars": 600,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/julianoczkowski/designer-skills/design-review",
-        "installs": 5900,
-        "weeklyInstalls": [135, 134, 116, 75, 62, 80, 59, 79],
-        "firstSeen": "2026-03-28"
-      }
-    },
-    {
       "name": "orca-emulator-android",
       "repo": "stablyai/orca",
       "official": true,
@@ -494,19 +416,6 @@
         "installs": 5900,
         "weeklyInstalls": [706, 471, 468, 513, 293, 547, 707, 187],
         "firstSeen": "2026-06-29"
-      }
-    },
-    {
-      "name": "qianwen-video-generation",
-      "repo": "qianwen-ai/qianwen-ai",
-      "official": false,
-      "stars": 120,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/qianwen-ai/qianwen-ai/qianwen-video-generation",
-        "installs": 5800,
-        "weeklyInstalls": [264, 230, 178, 151, 176, 176, 248, 189],
-        "firstSeen": "2026-05-12"
       }
     },
     {
@@ -783,19 +692,6 @@
       }
     },
     {
-      "name": "frontend-design",
-      "repo": "julianoczkowski/designer-skills",
-      "official": false,
-      "stars": 600,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/julianoczkowski/designer-skills/frontend-design",
-        "installs": 5600,
-        "weeklyInstalls": [113, 116, 87, 60, 49, 51, 53, 59],
-        "firstSeen": "2026-03-28"
-      }
-    },
-    {
       "name": "deep-research",
       "repo": "samber/cc-skills",
       "official": false,
@@ -1004,19 +900,6 @@
       }
     },
     {
-      "name": "design-brief",
-      "repo": "julianoczkowski/designer-skills",
-      "official": false,
-      "stars": 600,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/julianoczkowski/designer-skills/design-brief",
-        "installs": 5400,
-        "weeklyInstalls": [105, 118, 101, 69, 53, 62, 55, 55],
-        "firstSeen": "2026-03-28"
-      }
-    },
-    {
       "name": "workflow",
       "repo": "vercel/workflow",
       "official": true,
@@ -1053,19 +936,6 @@
         "installs": 5400,
         "weeklyInstalls": [15, 45, 188, 389, 574, 763, 808, 654],
         "firstSeen": "2026-05-15"
-      }
-    },
-    {
-      "name": "design-flow",
-      "repo": "julianoczkowski/designer-skills",
-      "official": false,
-      "stars": 600,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/julianoczkowski/designer-skills/design-flow",
-        "installs": 5300,
-        "weeklyInstalls": [99, 113, 92, 63, 44, 54, 53, 52],
-        "firstSeen": "2026-03-28"
       }
     },
     {
@@ -1157,19 +1027,6 @@
         "installs": 5300,
         "weeklyInstalls": [144, 166, 162, 169, 170, 147, 130, 126],
         "firstSeen": "2026-02-23"
-      }
-    },
-    {
-      "name": "brief-to-tasks",
-      "repo": "julianoczkowski/designer-skills",
-      "official": false,
-      "stars": 600,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/julianoczkowski/designer-skills/brief-to-tasks",
-        "installs": 5300,
-        "weeklyInstalls": [100, 111, 90, 63, 44, 52, 49, 54],
-        "firstSeen": "2026-03-28"
       }
     },
     {
