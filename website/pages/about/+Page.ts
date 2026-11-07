@@ -11,6 +11,8 @@ interface Row {
   tip: string;
   /** Whether the row splits the last row that isn't. */
   sub?: true;
+  /** Marks a row that isn't a sub row. */
+  emoji?: string;
 }
 
 /**
@@ -23,11 +25,13 @@ export default function Page(): string {
   const rows: Row[] = [
     {
       label: "Listed",
+      emoji: "✅",
       count: review.listed,
       tip: "Judged useful to people looking for skills.",
     },
     {
       label: "Disqualified, by agent",
+      emoji: "🤖",
       count: t.toolDocs + t.language + t.copy + t.retired + t.other,
       tip: "An agent read the skill's whole SKILL.md, not only its description, and judged it not useful to people looking for skills.",
     },
@@ -63,6 +67,7 @@ export default function Page(): string {
     },
     {
       label: "Disqualified, by script",
+      emoji: "⚙️",
       count: review.gone + review.notOnGitHub,
       tip: "A script found the skill's SKILL.md can't be read on GitHub, without judging the skill.",
     },
@@ -80,22 +85,25 @@ export default function Page(): string {
     },
     {
       label: "Under the minimum installs or stars",
+      emoji: "📉",
       count: review.under,
       tip: `It has fewer than ${n(minimums.installs)} installs, or its repo fewer than ${n(minimums.stars)} stars. It's reviewed once it has both.`,
     },
     {
       label: "Waiting for review",
+      emoji: "⏳",
       count: review.waiting,
       tip: "It has the minimum installs and stars, and is next in line for review.",
     },
   ];
   const total: Row = {
     label: "Reviewed",
+    emoji: "🔎",
     count: review.reviewed,
     tip: "Every skill SkillHub found on skills.sh, which counts installs. Stars come from GitHub.",
   };
-  const row = ({ label, count, tip, sub }: Row, i: number) =>
-    `<tr${sub ? ` class="sub"` : ""}><td>${label}<span class="tip"><button type="button" class="tip-i" aria-label="About ${label}" aria-describedby="tip-${i}">i</button><span class="tip-text" role="tooltip" id="tip-${i}">${tip}</span></span></td><td class="num">${n(count)}</td></tr>`;
+  const row = ({ label, count, tip, sub, emoji }: Row, i: number) =>
+    `<tr${sub ? ` class="sub"` : ""}><td>${emoji ? `<span class="emoji" aria-hidden="true">${emoji}</span>` : ""}${label}<span class="tip"><button type="button" class="tip-i" aria-label="About ${label}" aria-describedby="tip-${i}">i</button><span class="tip-text" role="tooltip" id="tip-${i}">${tip}</span></span></td><td class="num">${n(count)}</td></tr>`;
   return `
     <div class="page about">
       <h1>How skills get here</h1>
