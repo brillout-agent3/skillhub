@@ -2848,6 +2848,80 @@
         "description": "Marketing and engineering skills authored by @samber.",
         "note": "Its Go skills live in a separate repo, samber/cc-skills-golang. Its README says the skills cross-reference each other and recommends installing them all together."
       }
+    },
+    {
+      "id": "dpearson2699/swift-ios-skills",
+      "stars": 1278,
+      "agentReview": {
+        "kind": "skills",
+        "description": "86 agent skills for iOS 26+ development with Swift 6.3 and modern Apple frameworks."
+      }
+    },
+    {
+      "id": "web-infra-dev/midscene-skills",
+      "stars": 318,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Vision-driven cross-platform automation with Midscene.js: skills for browsers, desktops, Android, iOS and HarmonyOS.",
+        "note": "Its README warns that AI-driven UI automation can control everything on the screen, with unpredictable results."
+      }
+    },
+    {
+      "id": "thananon/9arm-skills",
+      "stars": 3254,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Agent skills loaded by Claude Code."
+      }
+    },
+    {
+      "id": "onewave-ai/claude-skills",
+      "stars": 416,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Production-ready skills for Claude Code, built and maintained by OneWave AI: 230 skills for business, everyday life and coding."
+      }
+    },
+    {
+      "id": "kunchenguid/no-mistakes",
+      "stars": 9150,
+      "agentReview": {
+        "kind": "project",
+        "description": "A local git proxy that runs an AI validation pipeline on your branch and opens a clean PR once every check passes."
+      }
+    },
+    {
+      "id": "nousresearch/hermes-agent",
+      "stars": 261138,
+      "agentReview": {
+        "kind": "project",
+        "description": "The self-improving AI agent built by Nous Research."
+      }
+    },
+    {
+      "id": "lucasmarkes/hairline",
+      "stars": 3477,
+      "agentReview": {
+        "kind": "project",
+        "description": "Thirty-three isometric line figures that answer the pointer, for React and for anything with a DOM."
+      }
+    },
+    {
+      "id": "better-auth/better-icons",
+      "stars": 1461,
+      "agentReview": {
+        "kind": "project",
+        "description": "Search and retrieve 200,000+ icons from 150+ icon collections, as an MCP server for AI agents or a CLI."
+      }
+    },
+    {
+      "id": "figma/mcp-server-guide",
+      "stars": 2157,
+      "agentReview": {
+        "kind": "project",
+        "description": "The Figma MCP server brings Figma into your workflow, giving AI agents design information and context from Figma files.",
+        "note": "Writing to Figma files works only with the remote server, is free during the beta and will become a usage-based paid feature. Read tools are limited to 6 calls a month on the Starter plan or with View or Collab seats."
+      }
     }
   ],
   "bundles": [
@@ -72753,6 +72827,726 @@
           "git"
         ],
         "note": "Its install commands write .claude/settings.json, or ~/.claude/settings.json for every project, with cat >, replacing any settings already in the file; merge the hook into an existing file by hand instead."
+      }
+    },
+    {
+      "id": "dpearson2699/swift-ios-skills/skills/ios-accessibility",
+      "name": "ios-accessibility",
+      "skills.sh": {
+        "url": "https://skills.sh/dpearson2699/swift-ios-skills/ios-accessibility",
+        "installs": 5200,
+        "weeklyInstalls": [136, 178, 111, 111, 86, 117, 111, 125],
+        "firstSeen": "2026-03-03"
+      },
+      "skillMd": {
+        "version": "8d90fd121a263355a4fb44fd082af1416a5c1c2a",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds and audits accessibility in SwiftUI, UIKit and AppKit apps for VoiceOver, Voice Control, Switch Control, keyboard access and Dynamic Type.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're building or auditing an iOS, iPadOS or macOS app for VoiceOver, Voice Control, Switch Control, Full Keyboard Access or larger text"
+            },
+            {
+              "label": "It does",
+              "text": "applies rules such as returning focus to the trigger when a sheet closes, speakable and unique labels, gesture alternatives as custom actions and 44×44-point targets"
+            },
+            {
+              "label": "You get",
+              "text": "accessible SwiftUI, UIKit or AppKit code, or an audit against a checklist that asks for evidence on every common task"
+            },
+            {
+              "label": "App Store labels",
+              "text": "before recommending an Accessibility Nutrition Label claim, it requires evidence that every common task works with that feature on each declared device type"
+            },
+            {
+              "label": "Unlike better-accessibility",
+              "text": "Jakub Krehel's skill for web UI and WCAG 2.2, this covers Apple's assistive technologies and its three UI frameworks"
+            }
+          ],
+          "text": "A reference for accessibility on Apple platforms, from dpearson2699's swift-ios-skills collection. It starts from five principles: prefer system controls, never make a gesture, color or motion the only path to an action, keep focus and traversal deliberate, adapt to the user's settings, and treat App Store accessibility answers as claims that need evidence. It explains VoiceOver's fixed reading order (label, value, trait, hint), moves accessibility focus with @AccessibilityFocusState and back to the trigger after a dismissal, makes custom overlays modal with an escape action, and posts announcements in UIKit. It covers Dynamic Type with scaled metrics, custom rotors, Reduce Motion, Reduce Transparency, Increase Contrast and Bold Text, decorative versus meaningful images, Voice Control labels checked with both Show Names and Show Numbers, Switch Control grouping, Full Keyboard Access, Assistive Access and AppKit's NSAccessibility roles for custom views. Testing pairs manual runs with each assistive technology and the Accessibility Inspector with XCTest checks that complement them, never replace them. Longer examples, the nutrition-label criteria and media captions sit in reference files it loads when needed, and keyboard focus mechanics are left to the collection's focus-engine skill.",
+          "permalink": "https://github.com/dpearson2699/swift-ios-skills/tree/8d90fd121a263355a4fb44fd082af1416a5c1c2a/skills/ios-accessibility"
+        },
+        "tags": [
+          "category:design",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:swiftui",
+          "stack:uikit",
+          "stack:appkit",
+          "accessibility",
+          "mobile",
+          "testing"
+        ]
+      }
+    },
+    {
+      "id": "web-infra-dev/midscene-skills/skills/android-automation",
+      "name": "android-device-automation",
+      "skills.sh": {
+        "url": "https://skills.sh/web-infra-dev/midscene-skills/android-device-automation",
+        "installs": 5500,
+        "weeklyInstalls": [134, 66, 44, 54, 51, 64, 47, 41],
+        "firstSeen": "2026-03-06"
+      },
+      "skillMd": {
+        "version": "e6836973627a20edc34b844a2e20d4180602ae5d",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Controls an Android phone or emulator over ADB from plain-language commands, reading the screen from screenshots to tap, type, swipe and verify.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want the agent to operate or test an app on an Android phone or emulator, without its code or accessibility labels"
+            },
+            {
+              "label": "It does",
+              "text": "runs one Midscene command at a time: connect, launch an app, act on a plain-language goal, take a screenshot, assert what the screen shows"
+            },
+            {
+              "label": "You get",
+              "text": "a summary of what it did and found, screenshots, and an HTML report with a replay video of each step"
+            },
+            {
+              "label": "Works with",
+              "text": "any app on screen, whatever it's built with, because a vision model reads screenshots instead of the view hierarchy"
+            },
+            {
+              "label": "Needs",
+              "text": "adb, Node.js and an API key for a vision model that can locate elements on a screenshot, such as Gemini, Qwen or Doubao"
+            }
+          ],
+          "text": "Midscene's skill for Android. The agent plans and Midscene's CLI, run through npx, does the work: `act` takes a whole goal in plain words, such as opening Settings and reporting the Wi-Fi network, and handles the taps, long presses, typing, swipes, pinches and Back or Home presses itself. `assert` checks the current screen against a sentence, optionally against reference images, and can fail with your own message for CI logs; for a toast or animation that vanishes, a recorder captures frames in its own terminal while the action runs, and `assert` checks the recording. `tap --locate` finds an element from a reference image, `runadbshell` passes raw adb shell commands, and `--deep-locate` or `--deep-think` trade speed for precision. Commands run one at a time, in the foreground, about a minute each, and the agent reads every screenshot before the next step. It recommends launching the app with adb first, batching related actions into one `act` and adding `--use-scrcpy` when screenshots are slow. At the end it must report the results, data found and file paths; the HTML report converts to Markdown or JSON for another tool. A troubleshooting table covers unauthorized or offline devices and API key errors.",
+          "permalink": "https://github.com/web-infra-dev/midscene-skills/tree/e6836973627a20edc34b844a2e20d4180602ae5d/skills/android-automation"
+        },
+        "tags": [
+          "category:debugging",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:midscene",
+          "stack:android",
+          "mobile",
+          "testing",
+          "computer-use"
+        ],
+        "note": "Needs adb, Node.js and an API key for a vision model you configure, such as Gemini, Qwen or Doubao, which reads the device's screenshots."
+      }
+    },
+    {
+      "id": "web-infra-dev/midscene-skills/skills/browser",
+      "name": "browser-automation",
+      "skills.sh": {
+        "url": "https://skills.sh/web-infra-dev/midscene-skills/browser-automation",
+        "installs": 5400,
+        "weeklyInstalls": [102, 66, 45, 32, 28, 59, 47, 30],
+        "firstSeen": "2026-03-06"
+      },
+      "skillMd": {
+        "version": "e6836973627a20edc34b844a2e20d4180602ae5d",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Drives a headless browser, or your own Chrome, from plain-language commands read off screenshots, to browse, fill forms, scrape and test pages.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want the agent to browse, fill forms, upload files, scrape data or test a web page by what it looks like, not its DOM"
+            },
+            {
+              "label": "It does",
+              "text": "runs one Midscene command at a time: connect to a page, act on a plain-language goal, take a screenshot, assert what the page shows"
+            },
+            {
+              "label": "Modes",
+              "text": "by default a headless Chrome through Puppeteer that stays open between commands; CDP or the Midscene extension drive your own Chrome and its logins"
+            },
+            {
+              "label": "You get",
+              "text": "a summary of what it did and found, screenshots, and an HTML report with replay videos that converts to Markdown or JSON"
+            },
+            {
+              "label": "Needs",
+              "text": "Node.js and an API key for a vision model that can locate elements on a screenshot, such as Gemini, Qwen or Doubao"
+            }
+          ],
+          "text": "Midscene's skill for the web. Its default mode launches a headless Chrome through Puppeteer, isolated from your browser, that stays open across commands until you close it. When you ask it to use your Chrome, or the task needs your login, such as checking your orders, it connects over the DevTools Protocol after a quick check that remote debugging is on, or through the Midscene Chrome extension in Bridge mode. `act` takes a whole goal in plain words and handles clicks, hovers, typing, scrolling and drags itself; uploads only reach files inside a folder passed with the command, the smallest that holds them. `assert` checks the visible page against a sentence or reference images, and a recorder running in its own terminal catches toasts and transitions that vanish too fast. Tabs can be listed and switched without reloading, custom HTTP headers can go with every CDP command, and `--deep-locate` or `--deep-think` trade speed for precision. Commands run one at a time in the foreground, about a minute each; the agent reads each screenshot before deciding the next step and reports results at the end. Because it works from screenshots, it needs no selectors, DOM or accessibility labels.",
+          "permalink": "https://github.com/web-infra-dev/midscene-skills/tree/e6836973627a20edc34b844a2e20d4180602ae5d/skills/browser"
+        },
+        "tags": [
+          "category:browser",
+          "category:debugging",
+          "type:tool",
+          "effect:remote",
+          "needs:cli",
+          "needs:browser",
+          "needs:account",
+          "by:official",
+          "stack:midscene",
+          "stack:puppeteer",
+          "browser-automation",
+          "scraping",
+          "testing"
+        ],
+        "note": "Needs Node.js and an API key for a vision model you configure, such as Gemini, Qwen or Doubao, which reads the page screenshots. In CDP or Bridge mode it drives your own Chrome, signed in to your accounts."
+      }
+    },
+    {
+      "id": "thananon/9arm-skills/skills/engineering/scrutinize",
+      "name": "scrutinize",
+      "skills.sh": {
+        "url": "https://skills.sh/thananon/9arm-skills/scrutinize",
+        "installs": 5300,
+        "weeklyInstalls": [140, 125, 89, 97, 93, 70, 78, 66],
+        "firstSeen": "2026-05-20"
+      },
+      "skillMd": {
+        "version": "a1fc303b274ed06c32d405ba5a6db00ded6e5663",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Reviews a plan, pull request or code change as an outsider: questions whether it should exist, traces the real code path, verifies its claims.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a second opinion on a plan, PR, diff or design doc; it also starts on its own when you ask for a review or sanity check"
+            },
+            {
+              "label": "It does",
+              "text": "restates the goal, looks for a simpler way, traces each claimed behavior end to end beyond the diff, then hunts for inputs that break it"
+            },
+            {
+              "label": "You get",
+              "text": "findings ordered blocker, major, nit, each with file and line, why it matters, evidence and a minimal suggested change, then a verdict: ship, fix-then-ship, rework or reject"
+            },
+            {
+              "label": "Won't",
+              "text": "rubber-stamp: no LGTM, flattery or hedging; if it finds nothing, it lists what it traced and checked"
+            }
+          ],
+          "text": "Thananon's review skill runs four steps in order. Intent comes first: it states the goal in one sentence of its own, stops if it can't, and, unless told not to question scope, spends one pass asking whether doing nothing, existing code, a smaller change or a different layer would do, because a better alternative is the most valuable thing it can report. Then it traces every behavior the change claims through the real call path, from entry point to side effect, including the unchanged code on both sides of the diff, and treats every surprise as a signal; a plan is traced against the existing system. Verification follows: for each claim it walks the path explicitly, lists inputs and states that would break it, notes what the change silently alters, such as performance, error semantics or on-disk formats, and checks whether the tests exercise the traced path or pass on mocks. Every claim about the code cites a path, file or line, and what the PR says stays separate from what was confirmed. Structural problems lead the report, and style nits are dropped when there's something bigger. Each finding carries a suggested change; the skill itself only reports.",
+          "permalink": "https://github.com/thananon/9arm-skills/tree/a1fc303b274ed06c32d405ba5a6db00ded6e5663/skills/engineering/scrutinize"
+        },
+        "tags": [
+          "category:debugging",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "code-review",
+          "verification",
+          "scope-control"
+        ]
+      }
+    },
+    {
+      "id": "thananon/9arm-skills/skills/engineering/debug-mantra",
+      "name": "debug-mantra",
+      "skills.sh": {
+        "url": "https://skills.sh/thananon/9arm-skills/debug-mantra",
+        "installs": 5000,
+        "weeklyInstalls": [138, 119, 84, 84, 92, 68, 74, 63],
+        "firstSeen": "2026-05-20"
+      },
+      "skillMd": {
+        "version": "a1fc303b274ed06c32d405ba5a6db00ded6e5663",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Holds debugging to four steps: reproduce reliably, find the failing path, try to disprove each hypothesis, and check it against every earlier run.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you start debugging anything; it also starts on its own when you report a bug or paste a stack trace or error log"
+            },
+            {
+              "label": "It does",
+              "text": "recites a four-line mantra verbatim in its first reply, then proposes no fix until there's a reliable repro and a hypothesis that survived a disproof"
+            },
+            {
+              "label": "You get",
+              "text": "a runnable repro, a ledger of every experiment and what it ruled out, and a root cause checked against all of them"
+            },
+            {
+              "label": "Escalates",
+              "text": "from a debugger, to a source trace listing every config flag, env var and branch to flip one at a time, to tagged log probes"
+            }
+          ],
+          "text": "From thananon's 9arm skills. Step one builds a fast, deterministic repro as a runnable artifact, such as a failing test, curl script or replay harness; a flaky bug gets its failure rate raised first, by looping, parallelising or adding stress, and with no repro at all the agent stops and asks for access, logs or permission to instrument. Step two finds where the code breaks, escalating from a debugger, to a source trace with every knob that could change the outcome flipped one at a time, to log statements tagged with a unique prefix such as [DBG-a4f2] so cleanup is one grep. Step three ranks three to five hypotheses and runs the cleanest disproof of each before any proof. Step four keeps a running ledger of what each run changed and what it ruled in or out, and rejects any hypothesis that contradicts an earlier run. Saying \"skip the mantra\" skips the recital but not the steps.",
+          "permalink": "https://github.com/thananon/9arm-skills/tree/a1fc303b274ed06c32d405ba5a6db00ded6e5663/skills/engineering/debug-mantra"
+        },
+        "tags": [
+          "category:debugging",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "debugging",
+          "testing"
+        ]
+      }
+    },
+    {
+      "id": "jakubkrehel/skills/skills/build-design",
+      "name": "build-design",
+      "skills.sh": {
+        "url": "https://skills.sh/jakubkrehel/skills/build-design",
+        "installs": 6900,
+        "weeklyInstalls": [0, 0, 0, 0, 994, 1171, 1377, 1967],
+        "firstSeen": "2026-10-06"
+      },
+      "skillMd": {
+        "version": "60bf140e43c98b248e6594487384ec967e89d98a",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds UI from a Figma file or design image with your project's existing tokens and components, then compares the result against the design.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you have a Figma frame or a screenshot of a design and want it built in your app as drawn"
+            },
+            {
+              "label": "It does",
+              "text": "reads exact values through the Figma MCP server, maps each to an existing token or component, builds only what the design shows, then compares element by element"
+            },
+            {
+              "label": "You get",
+              "text": "the built UI and a table of each element's design value, built value and status, plus lists of unwired data, missing states and rule conflicts"
+            },
+            {
+              "label": "From an image",
+              "text": "it states the scale it assumed, treats every measurement as an estimate and asks for the Figma link if one exists"
+            },
+            {
+              "label": "Won't",
+              "text": "add tokens, variants or arbitrary values to hit a number, design states the file doesn't draw, or touch code around the piece"
+            }
+          ],
+          "text": "One of Jakub Krehel's interface skills, but it owns no design rules: the design decides, and where it breaks a rule, such as contrast or focus, the agent builds it as drawn and reports the conflict, naming the better-* skill that owns that rule. From a Figma link it first searches its tools for the Figma MCP server, asks you to sign in or connect one rather than build from guesswork, and reads each frame's design context, variables and screenshot, trusting named variables over raw hex, Code Connect mappings (Figma's links from component to code) over name matches, and auto layout over absolute positions. It reads your tokens and components before writing anything; a raw value with no token rounds to the nearest one and is reported, and it stops to ask when rounding would visibly change the design, such as more than 2px or a different color step. Data with no backend yet is fed by props and listed as unwired. With a browser it screenshots each frame width beside the design and fixes its own mismatches until only roundings and questions remain; without one it hands over the local URL and says the comparison is unverified.",
+          "permalink": "https://github.com/jakubkrehel/skills/tree/60bf140e43c98b248e6594487384ec967e89d98a/skills/build-design"
+        },
+        "tags": [
+          "category:design",
+          "type:workflow",
+          "effect:local",
+          "needs:mcp",
+          "needs:account",
+          "by:community",
+          "stack:figma",
+          "design",
+          "implementation",
+          "design-system"
+        ],
+        "note": "A Figma link needs the Figma MCP server connected; from an image it works without one, treating every measurement as an estimate."
+      }
+    },
+    {
+      "id": "upstash/context7/skills/context7-mcp",
+      "name": "context7-mcp",
+      "skills.sh": {
+        "url": "https://skills.sh/upstash/context7/context7-mcp",
+        "installs": 6700,
+        "weeklyInstalls": [182, 156, 139, 202, 231, 372, 296, 264],
+        "firstSeen": "2026-03-11"
+      },
+      "skillMd": {
+        "version": "078c0c731d19eb88d2391b236ab82a127dbabac3",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Looks up current documentation and code examples for any library or framework through the Context7 MCP server, instead of relying on training data.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you ask about a library or framework, its setup or API, or want code that uses one; it switches on by itself when one comes up"
+            },
+            {
+              "label": "It does",
+              "text": "resolves the library to a Context7 ID, preferring the closest name, official packages and the version you named, then queries its docs one concept at a time"
+            },
+            {
+              "label": "You get",
+              "text": "an answer built on the fetched docs, with their code examples and the library version cited"
+            },
+            {
+              "label": "Unlike find-docs",
+              "text": "the same repo's skill for the ctx7 CLI, this one calls the Context7 MCP server's resolve-library-id and query-docs tools"
+            }
+          ],
+          "text": "Upstash's Context7 skill for agents with the Context7 MCP server connected. When a question involves a library, such as configuring a Next.js proxy or writing a Prisma query, the agent first calls resolve-library-id with the library's name and what it wants to know, then picks the closest match, favoring higher benchmark scores, version-specific IDs when you mention a version, and official packages over community forks. It then calls query-docs with that ID, one concept per call: a question spanning routing, auth and caching becomes three calls on the same library unless it's about how they interact, because combined queries return shallow results for each. The answer uses the fetched documentation and its code examples rather than training data, and cites the library version when it matters.",
+          "permalink": "https://github.com/upstash/context7/tree/078c0c731d19eb88d2391b236ab82a127dbabac3/skills/context7-mcp"
+        },
+        "tags": [
+          "category:frameworks",
+          "type:tool",
+          "effect:none",
+          "needs:mcp",
+          "by:official",
+          "stack:context7",
+          "implementation"
+        ],
+        "note": "Needs the Context7 MCP server connected."
+      }
+    },
+    {
+      "id": "onewave-ai/claude-skills/landing-page-copywriter",
+      "name": "landing-page-copywriter",
+      "skills.sh": {
+        "url": "https://skills.sh/onewave-ai/claude-skills/landing-page-copywriter",
+        "installs": 6600,
+        "weeklyInstalls": [103, 119, 73, 57, 52, 52, 51, 47],
+        "firstSeen": "2026-01-24"
+      },
+      "skillMd": {
+        "version": "b2267d9171af4f56848d82992381b20b89b44056",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes landing page copy, from hero headline to final call to action, with PAS, AIDA or StoryBrand, plus headline and CTA variants to test.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need the words for a landing, sales, pricing or waitlist page, or want weak copy rewritten or headline variants for an A/B test"
+            },
+            {
+              "label": "It does",
+              "text": "builds a brief, writes a four-line message hierarchy of promise, mechanism, proof and action, picks a framework by the reader's awareness, then drafts each section"
+            },
+            {
+              "label": "You get",
+              "text": "the page copy in a fixed template, with three headlines, two CTAs, which variant to test first, every placeholder and the open questions"
+            },
+            {
+              "label": "Won't",
+              "text": "invent testimonials, customer names, logos or numbers, or fake urgency; missing proof becomes a labelled placeholder"
+            },
+            {
+              "label": "Unlike landing-page-optimizer",
+              "text": "the same library's skill for auditing an existing page's performance, this writes the copy and leaves layout and code out unless asked"
+            }
+          ],
+          "text": "From OneWave AI's skills library. It pulls the brief from the conversation, your documents or the product's site before asking anything: the one action the page drives, where readers arrive from, the problem in their words, the real differentiator and the proof that exists. A line of the message hierarchy it can't fill is flagged as a gap instead of papered over. PAS suits readers who feel the pain, AIDA cold or comparing traffic, and StoryBrand brand-led or service businesses, with section guidance for each in a reference file. The draft runs hero, problem, solution, how it works, proof, pricing, FAQ and final CTA, cutting what the product doesn't need. Before delivering, it checks that a competitor couldn't paste the headline unchanged, that every feature answers \"so what?\", that every CTA points to the same action and starts with a verb, that sentences are short and in the second person, and that filler such as \"seamless\" or \"revolutionary\" is gone. A worked example builds a page for a physical therapy scheduling tool.",
+          "permalink": "https://github.com/onewave-ai/claude-skills/tree/b2267d9171af4f56848d82992381b20b89b44056/landing-page-copywriter"
+        },
+        "tags": [
+          "category:marketing",
+          "category:writing",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "copywriting",
+          "conversion",
+          "marketing"
+        ]
+      }
+    },
+    {
+      "id": "kunchenguid/no-mistakes/skills/no-mistakes",
+      "name": "no-mistakes",
+      "skills.sh": {
+        "url": "https://skills.sh/kunchenguid/no-mistakes/no-mistakes",
+        "installs": 6400,
+        "weeklyInstalls": [102, 138, 390, 982, 1370, 792, 336, 459],
+        "firstSeen": "2026-06-09"
+      },
+      "skillMd": {
+        "version": "d950c619e3b90833f423b62848797116ac4ee604",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Runs committed changes through no-mistakes' review, test, lint, push, PR and CI pipeline, settling each gate's findings or bringing them to you.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a change validated before it reaches your remote, or type /no-mistakes with a task for the agent to do and then validate"
+            },
+            {
+              "label": "It does",
+              "text": "drives the no-mistakes pipeline (intent, rebase, review, test, document, lint, push, PR, CI) and answers each gate, a stop that waits for a decision, with fix, approve or skip"
+            },
+            {
+              "label": "You get",
+              "text": "a PR with green checks, left for you to review and merge, and a summary of what was validated and every fix the pipeline made"
+            },
+            {
+              "label": "Asks you",
+              "text": "about every finding marked ask-user, quoted verbatim, unless you passed --yes to let it drive the whole run"
+            },
+            {
+              "label": "Needs",
+              "text": "the no-mistakes CLI initialized in the repo, a coding agent for the pipeline, and your work committed on a feature branch"
+            }
+          ],
+          "text": "no-mistakes puts a local gate in front of your remote, and this skill is how a coding agent drives it, through the `no-mistakes axi` commands. With a task, it does the work, commits only the related changes on a feature branch, then validates; bare /no-mistakes validates what's already committed. Every run needs your intent in full, not a diff summary, because the review step uses it to tell deliberate choices from mistakes. Each run and respond call blocks for minutes until a gate or an outcome; the agent reads every findings table, hands auto-fix findings to the pipeline, and never edits code itself while a run is active. Review auto-fix is off by default. Once checks pass the agent stops and the PR waits for you, while no-mistakes keeps watching it and, on a merge conflict, rebases, revalidates and re-pushes by itself. A failed run is fixed on the same branch and run again, with guarded sync and recovery commands instead of manual resets. It also bans tests that only grep source text: tests must check observable behavior against an independent oracle, an expected result from outside the code, such as a specification or worked example.",
+          "permalink": "https://github.com/kunchenguid/no-mistakes/tree/d950c619e3b90833f423b62848797116ac4ee604/skills/no-mistakes"
+        },
+        "tags": [
+          "category:debugging",
+          "category:engineering",
+          "type:tool",
+          "effect:remote",
+          "needs:cli",
+          "by:official",
+          "stack:no-mistakes",
+          "stack:git",
+          "code-review",
+          "testing",
+          "ci",
+          "verification",
+          "git"
+        ],
+        "note": "Needs the no-mistakes CLI, set up in the repo with no-mistakes init, and a supported coding agent CLI to run its pipeline. It pushes your branch and opens a PR, and after checks pass it keeps watching the PR, rebasing and re-pushing on a merge conflict."
+      }
+    },
+    {
+      "id": "nousresearch/hermes-agent/skills/software-development/dogfood",
+      "name": "dogfood",
+      "skills.sh": {
+        "url": "https://skills.sh/nousresearch/hermes-agent/dogfood",
+        "installs": 6400,
+        "weeklyInstalls": [114, 129, 153, 65, 34, 66, 55, 22],
+        "firstSeen": "2026-03-09"
+      },
+      "skillMd": {
+        "version": "9f23c4311a4c4837078081db4f3cd8deab23c0fe",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Explores a web app like a QA tester, catching console errors and screenshotting issues, then writes a bug report ranked by severity.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a web app explored for bugs, from one feature to the full site, starting from a URL"
+            },
+            {
+              "label": "It does",
+              "text": "plans pages and flows, then clicks, fills forms, tabs and scrolls through each, logging console errors and screenshotting every issue"
+            },
+            {
+              "label": "You get",
+              "text": "a Markdown report in ./dogfood-output: summary by severity, each issue's steps to reproduce, expected and actual behavior and screenshot, and a table"
+            },
+            {
+              "label": "Needs",
+              "text": "Hermes Agent's browser_exec tool, which runs Python with browser helpers and raw DevTools Protocol calls"
+            },
+            {
+              "label": "Unlike agent-device's dogfood",
+              "text": "Callstack's skill of the same name for apps on phones, simulators and emulators, this one tests web apps in a browser"
+            }
+          ],
+          "text": "Hermes Agent's QA skill runs in five phases. It creates an output folder and plans a rough sitemap: home page, navigation, key flows such as sign-up or checkout, forms, and edge cases like empty states and 404s. While exploring, it installs a console hook before each navigation so errors thrown during page load are caught, lists the visible interactive elements with their screen positions, looks at a screenshot, and tries buttons, links, forms with valid, invalid and empty input, keyboard focus and going back, checking for errors and visual changes after each interaction. Every issue gets a screenshot, URL, steps to reproduce, expected and actual behavior, a severity from Critical to Low and a category: functional, visual, accessibility, console, UX or content. It then merges duplicates, sorts by severity and fills its report template, ending with notes on what was and wasn't tested. Silent JavaScript errors count among the most valuable findings.",
+          "permalink": "https://github.com/nousresearch/hermes-agent/tree/9f23c4311a4c4837078081db4f3cd8deab23c0fe/skills/software-development/dogfood"
+        },
+        "tags": [
+          "category:debugging",
+          "category:browser",
+          "type:workflow",
+          "effect:remote",
+          "needs:browser",
+          "by:official",
+          "stack:hermes",
+          "testing",
+          "browser-automation",
+          "debugging"
+        ],
+        "note": "Written for Hermes Agent: every browser step goes through Hermes's browser_exec tool, so other agents need an equivalent."
+      }
+    },
+    {
+      "id": "lucasmarkes/hairline/skills/hairline-create",
+      "name": "hairline-create",
+      "skills.sh": {
+        "url": "https://skills.sh/lucasmarkes/hairline/hairline-create",
+        "installs": 6400,
+        "weeklyInstalls": [0, 0, 0, 479, 2292, 1100, 1263, 736],
+        "firstSeen": "2026-10-02"
+      },
+      "skillMd": {
+        "version": "37d2e78dcb333ab30c3338e28ed4a690364ea014",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Designs and builds one animated isometric line figure in the Hairline style, which reacts to the pointer, as a single self-contained HTML file.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a new Hairline figure, an isometric line drawing that reacts to the pointer, such as an empty-state illustration, from an idea or an SVG mark"
+            },
+            {
+              "label": "It does",
+              "text": "offers two or three concepts, writes the figure on Hairline's fixed engine, then checks it with a validator and a sheet of eight screenshots until both pass"
+            },
+            {
+              "label": "You get",
+              "text": "one self-contained hairline-<name>.html, with a slider for the figure's one number and a play button that sends an unseen pointer round its tour"
+            },
+            {
+              "label": "Won't",
+              "text": "edit the engine or page, or add labels, colors, glows or timers: names go in the read-out line, motion uses springs"
+            },
+            {
+              "label": "Needs",
+              "text": "Node.js, and a browser for the screenshot check; without either it falls back to lighter checks and says what it couldn't verify"
+            }
+          ],
+          "text": "From the repo of @lucasmarkes/hairline, a package of isometric line figures that answer the pointer. Each figure is one idea: an object built from rounded solids in a single stroke, which the pointer does something to, with a read-out line under it. The agent pitches two or three concepts in one line each (object, gesture, read-out, tour stops) and waits for you to pick; given an SVG, it first measures the mark and keeps its parts in every concept. It then writes only the figure's own file, following ten rules and two example figures: geometry instead of labels, one stroke moved to a highlight instead of color, springs instead of timers, and a composed rest pose, because rest is the thumbnail. The tour is three to six points an unseen pointer visits when the page plays. A look script builds the page, validates it and takes eight pictures on one sheet; the agent fixes every failure, then reads the sheet against a list of questions. It publishes the page as an artifact when it can, or says where the file is, and asks you to press play and judge the lap. Later changes edit only the figure file.",
+          "permalink": "https://github.com/lucasmarkes/hairline/tree/37d2e78dcb333ab30c3338e28ed4a690364ea014/skills/hairline-create"
+        },
+        "tags": [
+          "category:design",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:official",
+          "stack:hairline",
+          "stack:svg",
+          "design",
+          "animation"
+        ],
+        "note": "Needs Node.js to assemble and validate the page; its visual check also needs a browser and installs playwright-core once, outside the skill folder."
+      }
+    },
+    {
+      "id": "better-auth/better-icons/skills",
+      "name": "better-icons",
+      "skills.sh": {
+        "url": "https://skills.sh/better-auth/better-icons/better-icons",
+        "installs": 6300,
+        "weeklyInstalls": [92, 82, 90, 139, 173, 193, 184, 231],
+        "firstSeen": "2026-01-22"
+      },
+      "skillMd": {
+        "version": "033316ecb8f4982235af4111a2257e80231f5ab1",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Searches over 200 icon libraries through Iconify with the better-icons CLI and fetches icons as SVG at the color and size you set.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "your project needs an icon and you'd rather use a real one from Lucide, Material Design Icons, Heroicons, Tabler or another Iconify set"
+            },
+            {
+              "label": "It does",
+              "text": "searches by keyword, optionally within one collection, and prints an icon's SVG by its prefix:name ID, such as lucide:home"
+            },
+            {
+              "label": "You get",
+              "text": "SVG on stdout or in a file, or every search result downloaded into an icons folder, at the color and pixel size you set"
+            },
+            {
+              "label": "Also",
+              "text": "documents the better-icons MCP server, whose tools also recommend icons for a use case and add them to a project's icons file"
+            },
+            {
+              "label": "Needs",
+              "text": "the better-icons CLI, installed globally with npm or Bun, or run through npx or bunx"
+            }
+          ],
+          "text": "Better Icons searches more than 200 icon libraries through the public Iconify API. `better-icons search` takes a query with an optional collection prefix, a result limit and JSON output, and with -d downloads every match as SVG files, optionally recolored and resized. `better-icons get` prints one icon's SVG, optionally colored and sized, ready to redirect into a file. The skill also lists the MCP server's tools, set up with `better-icons setup` for agents such as Cursor and Claude Code: search across all libraries, get one icon or up to 20, list collections, recommend icons for a use case and style, find similar icons across collections, sync an icon into a project's icons file as a React, Vue, Svelte, Solid or SVG component, and scan a project for the icons it uses.",
+          "permalink": "https://github.com/better-auth/better-icons/tree/033316ecb8f4982235af4111a2257e80231f5ab1/skills"
+        },
+        "tags": [
+          "category:design",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "by:official",
+          "stack:better-icons",
+          "stack:iconify",
+          "design",
+          "image"
+        ]
+      }
+    },
+    {
+      "id": "figma/mcp-server-guide/skills/figma-generate-design",
+      "name": "figma-generate-design",
+      "skills.sh": {
+        "url": "https://skills.sh/figma/mcp-server-guide/figma-generate-design",
+        "installs": 6300,
+        "weeklyInstalls": [146, 131, 146, 168, 162, 177, 231, 189],
+        "firstSeen": "2026-03-24"
+      },
+      "skillMd": {
+        "version": "19be8d51c6a2f8ca949d33e5cd8e9662c5d243e8",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds or updates screens, modals and panels in Figma from your code or a description, using the file's published design system components and variables.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want an app page, modal, form or dashboard built in Figma from code or a description, or a Figma screen updated to match the code"
+            },
+            {
+              "label": "It does",
+              "text": "finds design-system components via Code Connect files (code-to-Figma links), existing screens and library search, then builds section by section with its variables and styles, not hardcoded values"
+            },
+            {
+              "label": "You get",
+              "text": "an editable Figma view of design system instances, local components for repeated pieces, imported SVG icons and the product's own font"
+            },
+            {
+              "label": "Never",
+              "text": "imports a screenshot of the whole UI as the result; if the view isn't mostly editable layers, it rebuilds it or reports failure"
+            },
+            {
+              "label": "Unlike build-design",
+              "text": "Jakub Krehel's skill for turning a Figma design into code, this goes the other way, from code into Figma"
+            }
+          ],
+          "text": "Figma's own skill for the code-to-design direction. It reads the source to list the view's sections and components, finds the product's typeface instead of defaulting to Inter, and checks for images. For a web app with photos, avatars or logos it also captures the running page into the same file with generate_figma_design: the capture sets exact spacing and supplies the image fills, then gets deleted. Component keys come first from Code Connect files next to the source, then from a search scoped to the file's libraries and an inventory of existing screens; variables and text and effect styles come from the same places, and an empty list of local variables never counts as proof there are none. Each section is built inside one wrapper frame, instance text set through component properties, variants taken from the component's source defaults. Validation reads back node counts, then compares one screenshot with the source for clipped text, overlaps, leftover placeholder text, wrong variants, wrong fonts and blank images, and makes targeted fixes. Raw HTML, or a new design with nothing rendered yet, goes through html_to_figma instead. Placeholder images from Figma's generate_image use Figma AI credits, and it tells you so.",
+          "permalink": "https://github.com/figma/mcp-server-guide/tree/19be8d51c6a2f8ca949d33e5cd8e9662c5d243e8/skills/figma-generate-design"
+        },
+        "tags": [
+          "category:design",
+          "type:workflow",
+          "effect:remote",
+          "needs:mcp",
+          "needs:account",
+          "by:official",
+          "stack:figma",
+          "design",
+          "design-system"
+        ],
+        "note": "Needs the Figma MCP server and a Figma file whose design system is published. Before every Figma script it loads the repo's figma-use skill, which SkillHub doesn't list: install it alongside."
       }
     }
   ]

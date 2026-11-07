@@ -29,45 +29,6 @@
       }
     },
     {
-      "name": "build-design",
-      "repo": "jakubkrehel/skills",
-      "official": false,
-      "stars": 11240,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/jakubkrehel/skills/build-design",
-        "installs": 6900,
-        "weeklyInstalls": [0, 0, 0, 0, 994, 1171, 1377, 1967],
-        "firstSeen": "2026-10-06"
-      }
-    },
-    {
-      "name": "context7-mcp",
-      "repo": "upstash/context7",
-      "official": false,
-      "stars": 64282,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/upstash/context7/context7-mcp",
-        "installs": 6700,
-        "weeklyInstalls": [182, 156, 139, 202, 231, 372, 296, 264],
-        "firstSeen": "2026-03-11"
-      }
-    },
-    {
-      "name": "landing-page-copywriter",
-      "repo": "onewave-ai/claude-skills",
-      "official": false,
-      "stars": 416,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/onewave-ai/claude-skills/landing-page-copywriter",
-        "installs": 6600,
-        "weeklyInstalls": [103, 119, 73, 57, 52, 52, 51, 47],
-        "firstSeen": "2026-01-24"
-      }
-    },
-    {
       "name": "claude-delegate",
       "repo": "amelnagdy/delegate-skills",
       "official": false,
@@ -78,71 +39,6 @@
         "installs": 6500,
         "weeklyInstalls": [844, 498, 433, 339, 308, 385, 272, 235],
         "firstSeen": "2026-07-26"
-      }
-    },
-    {
-      "name": "no-mistakes",
-      "repo": "kunchenguid/no-mistakes",
-      "official": false,
-      "stars": 9150,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/kunchenguid/no-mistakes/no-mistakes",
-        "installs": 6400,
-        "weeklyInstalls": [102, 138, 390, 982, 1370, 792, 336, 459],
-        "firstSeen": "2026-06-09"
-      }
-    },
-    {
-      "name": "dogfood",
-      "repo": "nousresearch/hermes-agent",
-      "official": false,
-      "stars": 261138,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/nousresearch/hermes-agent/dogfood",
-        "installs": 6400,
-        "weeklyInstalls": [114, 129, 153, 65, 34, 66, 55, 22],
-        "firstSeen": "2026-03-09"
-      }
-    },
-    {
-      "name": "hairline-create",
-      "repo": "lucasmarkes/hairline",
-      "official": false,
-      "stars": 3477,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/lucasmarkes/hairline/hairline-create",
-        "installs": 6400,
-        "weeklyInstalls": [0, 0, 0, 479, 2292, 1100, 1263, 736],
-        "firstSeen": "2026-10-02"
-      }
-    },
-    {
-      "name": "better-icons",
-      "repo": "better-auth/better-icons",
-      "official": false,
-      "stars": 1461,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/better-auth/better-icons/better-icons",
-        "installs": 6300,
-        "weeklyInstalls": [92, 82, 90, 139, 173, 193, 184, 231],
-        "firstSeen": "2026-01-22"
-      }
-    },
-    {
-      "name": "figma-generate-design",
-      "repo": "figma/mcp-server-guide",
-      "official": true,
-      "stars": 2157,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/figma/mcp-server-guide/figma-generate-design",
-        "installs": 6300,
-        "weeklyInstalls": [146, 131, 146, 168, 162, 177, 231, 189],
-        "firstSeen": "2026-03-24"
       }
     },
     {
@@ -536,19 +432,6 @@
       }
     },
     {
-      "name": "android-device-automation",
-      "repo": "web-infra-dev/midscene-skills",
-      "official": false,
-      "stars": 318,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/web-infra-dev/midscene-skills/android-device-automation",
-        "installs": 5500,
-        "weeklyInstalls": [134, 66, 44, 54, 51, 64, 47, 41],
-        "firstSeen": "2026-03-06"
-      }
-    },
-    {
       "name": "unslop",
       "repo": "theclaymethod/unslop",
       "official": false,
@@ -601,19 +484,6 @@
       }
     },
     {
-      "name": "browser-automation",
-      "repo": "web-infra-dev/midscene-skills",
-      "official": false,
-      "stars": 318,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/web-infra-dev/midscene-skills/browser-automation",
-        "installs": 5400,
-        "weeklyInstalls": [102, 66, 45, 32, 28, 59, 47, 30],
-        "firstSeen": "2026-03-06"
-      }
-    },
-    {
       "name": "guizang-social-card-skill",
       "repo": "op7418/guizang-social-card-skill",
       "official": false,
@@ -624,19 +494,6 @@
         "installs": 5400,
         "weeklyInstalls": [78, 85, 65, 78, 73, 81, 113, 126],
         "firstSeen": "2026-05-27"
-      }
-    },
-    {
-      "name": "scrutinize",
-      "repo": "thananon/9arm-skills",
-      "official": false,
-      "stars": 3254,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/thananon/9arm-skills/scrutinize",
-        "installs": 5300,
-        "weeklyInstalls": [140, 125, 89, 97, 93, 70, 78, 66],
-        "firstSeen": "2026-05-20"
       }
     },
     {
@@ -715,19 +572,6 @@
         "installs": 5200,
         "weeklyInstalls": [272, 204, 302, 473, 409, 322, 346, 365],
         "firstSeen": "2026-08-02"
-      }
-    },
-    {
-      "name": "ios-accessibility",
-      "repo": "dpearson2699/swift-ios-skills",
-      "official": false,
-      "stars": 1278,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/dpearson2699/swift-ios-skills/ios-accessibility",
-        "installs": 5200,
-        "weeklyInstalls": [136, 178, 111, 111, 86, 117, 111, 125],
-        "firstSeen": "2026-03-03"
       }
     },
     {
@@ -845,19 +689,6 @@
         "installs": 5000,
         "weeklyInstalls": [173, 128, 99, 106, 118, 84, 102, 109],
         "firstSeen": "2026-01-24"
-      }
-    },
-    {
-      "name": "debug-mantra",
-      "repo": "thananon/9arm-skills",
-      "official": false,
-      "stars": 3254,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/thananon/9arm-skills/debug-mantra",
-        "installs": 5000,
-        "weeklyInstalls": [138, 119, 84, 84, 92, 68, 74, 63],
-        "firstSeen": "2026-05-20"
       }
     },
     {
