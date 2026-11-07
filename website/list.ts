@@ -812,7 +812,12 @@ const scopeOf = (st: State) => {
 };
 
 /** The search box's placeholder: how many skills (or bundles) it looks through. */
-export const searchPlaceholder = (st: State) => `Search ${plural(scopeOf(st), unitOf(st))}`;
+/** The search box's placeholder; how many skills it looks through is in the line under it. */
+export const searchPlaceholder = (st: State) => `Search ${unitOf(st)}s`;
+
+/** Under the search box: what it does, and how many skills (or bundles) it looks through. */
+export const searchNote = (st: State) =>
+  `Filters the list as you type. ${badgeHtml(plural(scopeOf(st), unitOf(st)))}`;
 
 /** The filters, as chips each with its × to remove it. */
 function scopeChipsHtml(st: State): string {
@@ -841,8 +846,10 @@ export function scopeHtml(st: State): string {
 }
 
 /** The prompt's size, highlighted in the line under the agent's box. */
-export const tokensHtml = (tokens: number) =>
-  `<span class="tokens">~${compact(tokens)} tokens</span>`;
+export const tokensHtml = (tokens: number) => badgeHtml(`~${compact(tokens)} tokens`);
+
+/** A number highlighted at the end of the line under a box. */
+const badgeHtml = (text: string) => `<span class="badge">${esc(text)}</span>`;
 
 /** Under the agent's box: what Find skill with your agent copies, and its size. */
 export function askLabel(st: State): string {
@@ -1001,7 +1008,7 @@ export function listView(st: State, intro = "", head = ""): string {
             <input id="need" type="text" placeholder="Describe what you need" autocomplete="off" aria-describedby="ask-label scope" />
             <button type="button" class="ask-button" data-action="ask">Find skill with your agent</button>
           </div>
-          <p id="search-note" class="search-note">Filters the list as you type.</p>
+          <p id="search-note" class="search-note">${searchNote(st)}</p>
           <p id="ask-label" class="ask-label" aria-live="polite">${askLabel(st)}</p>
         </div>
         <section id="results" aria-label="Skills">${resultsHtml(st)}</section>

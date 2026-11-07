@@ -17,6 +17,7 @@ import {
   resultsHtml,
   askLabel,
   scopeHtml,
+  searchNote,
   searchPlaceholder,
   rowCount,
   rowsHtml,
@@ -114,6 +115,7 @@ function renderScope() {
   (document.getElementById("scope") as HTMLElement).innerHTML = scopeHtml(state);
   if (!askTimer) askLine.innerHTML = askLabel(state);
   q.placeholder = searchPlaceholder(state);
+  (document.getElementById("search-note") as HTMLElement).innerHTML = searchNote(state);
 }
 
 /** The facets don't depend on the sort, so a preset leaves them as they are. */

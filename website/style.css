@@ -483,8 +483,9 @@ code {
   line-height: 1.4;
 }
 
-/* The prompt's size: a large one can be too much for some agents. */
-.tokens {
+/* A number ending the line under a box: how many skills the search looks through, or the prompt's
+   size, since a large one can be too much for some agents. */
+.badge {
   display: inline-block;
   padding: 0 6px;
   border-radius: 6px;
