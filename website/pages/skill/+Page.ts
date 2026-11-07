@@ -22,6 +22,7 @@ import {
 } from "../../skills.ts";
 import type { Skill, SkillMd } from "../../../data/types.ts";
 import { github } from "../../github.ts";
+import { fullBundleById } from "../../server-data.ts";
 import type { Data } from "./+data.ts";
 
 /** The command that installs the skill, as skills.sh gives it: the skills CLI's --skill ignores case. */
@@ -75,7 +76,8 @@ function tagTable(s: Skill): string {
 function inBundle(s: Skill): string {
   const place = bundleOf.get(s.id);
   if (!place) return "";
-  const { bundle, index, standalone, note } = place;
+  const { bundle, index, standalone } = place;
+  const note = fullBundleById.get(bundle.id)?.agentReview.skills[index]?.note;
   const near = (i: number, label: string) => {
     const id = bundle.agentReview.skills[i]?.id;
     return id

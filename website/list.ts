@@ -37,8 +37,13 @@ import {
   tagsOf,
   weekOf,
 } from "./skills.ts";
-import type { Bundle, Skill } from "../data/types.ts";
-import { searchWords, type SearchWords } from "./client-data.ts";
+// The browser's copy of the data, which leaves some fields out: see client-data.ts.
+import {
+  searchWords,
+  type ClientBundle as Bundle,
+  type ClientSkill as Skill,
+  type SearchWords,
+} from "./client-data.ts";
 
 /** A row of the skills list: a skill, or a bundle with its skills inside. */
 type Entry = Skill | Bundle;

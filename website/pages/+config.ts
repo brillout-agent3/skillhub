@@ -22,12 +22,31 @@ const jsonc = {
   },
 };
 
+/**
+ * Fails the client build when it imports a file meant for pages only, which render on the server:
+ * crawl.jsonc, which nobody browsing needs, and server-data.ts, whose types claim the fields the
+ * browser's copy of skills.jsonc leaves out (see ../client-data.ts).
+ */
+const SERVER_ONLY = ["/data/crawl.jsonc", "/website/server-data.ts"];
+const serverOnly = {
+  name: "server-only",
+  transform(
+    this: { environment?: { config: { consumer: string } }; error(message: string): never },
+    _code: string,
+    id: string,
+  ) {
+    const file = id.split("?")[0];
+    if (this.environment?.config.consumer === "client" && SERVER_ONLY.some((f) => file.endsWith(f)))
+      this.error(`${file} is for pages only, but the browser's code imports it.`);
+  },
+};
+
 export default {
   // Every page is HTML rendered at build time; the pages that need JavaScript add a +client.ts.
   prerender: true,
   trailingSlash: true,
   // GitHub Pages serves the site under the repo's name, such as /skillhub/.
-  vite: { base: process.env.BASE ?? "/", plugins: [jsonc] },
+  vite: { base: process.env.BASE ?? "/", plugins: [jsonc, serverOnly] },
   meta: {
     // Pages render to HTML at build time only, so Page never runs in the browser. Server-only, it
     // and what it imports, such as crawl.jsonc, stay out of the client build.

@@ -2,7 +2,15 @@
 
 import raw from "../data/skills.jsonc";
 import { esc, href, plural } from "./format.ts";
-import type { Bundle, BundleSkill, Data, Facet, Skill, Tldr } from "../data/types.ts";
+import type { Facet, Tldr } from "../data/types.ts";
+// The browser runs this file, in the skills list, so it types the data as the browser's copy, which
+// leaves some fields out: reading one here doesn't type-check. Pages get them from server-data.ts.
+import type {
+  ClientBundle as Bundle,
+  ClientBundleSkill as BundleSkill,
+  ClientData as Data,
+  ClientSkill as Skill,
+} from "./client-data.ts";
 import { bundleRepo, github } from "./github.ts";
 
 export const data = raw as Data;
