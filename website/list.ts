@@ -270,7 +270,15 @@ const bundleText = new Map(
       .toLowerCase(),
   ]),
 );
-const words = (q: string) => q.toLowerCase().split(/\s+/).filter(Boolean);
+/** The search's words, plurals cut back so they match the singular too: "resumes" finds "resume", "strategies" finds "strategy". */
+const words = (q: string) =>
+  q
+    .toLowerCase()
+    .split(/\s+/)
+    .filter(Boolean)
+    .map((w) =>
+      w.length < 4 ? w : w.endsWith("ies") ? w.slice(0, -3) : /[^s]s$/.test(w) ? w.slice(0, -1) : w,
+    );
 const matches = (text: string, q: string) => words(q).every((word) => text.includes(word));
 
 /**
