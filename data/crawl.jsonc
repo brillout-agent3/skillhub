@@ -1251,19 +1251,6 @@
       }
     },
     {
-      "name": "godot-master",
-      "repo": "thedivergentai/game-dev-agentic-skills",
-      "official": false,
-      "stars": 935,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/thedivergentai/game-dev-agentic-skills/godot-master",
-        "installs": 5200,
-        "weeklyInstalls": [250, 199, 189, 267, 283, 244, 176, 191],
-        "firstSeen": "2026-02-10"
-      }
-    },
-    {
       "name": "ios-accessibility",
       "repo": "dpearson2699/swift-ios-skills",
       "official": false,
@@ -1342,19 +1329,6 @@
       }
     },
     {
-      "name": "elasticsearch-esql",
-      "repo": "elastic/agent-skills",
-      "official": false,
-      "stars": 603,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/elastic/agent-skills/elasticsearch-esql",
-        "installs": 5100,
-        "weeklyInstalls": [183, 183, 160, 121, 139, 175, 150, 147],
-        "firstSeen": "2026-03-13"
-      }
-    },
-    {
       "name": "find-your-level",
       "repo": "rohitg00/ai-engineering-from-scratch",
       "official": false,
@@ -1381,19 +1355,6 @@
       }
     },
     {
-      "name": "retro-marimo-pair",
-      "repo": "marimo-team/marimo-pair",
-      "official": false,
-      "stars": 432,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/marimo-team/marimo-pair/retro-marimo-pair",
-        "installs": 5100,
-        "weeklyInstalls": [222, 259, 321, 376, 315, 248, 274, 294],
-        "firstSeen": "2026-06-08"
-      }
-    },
-    {
       "name": "create-design-md",
       "repo": "ibelick/ui-skills",
       "official": false,
@@ -1417,19 +1378,6 @@
         "installs": 5000,
         "weeklyInstalls": [27, 56, 156, 353, 528, 678, 726, 583],
         "firstSeen": "2026-05-02"
-      }
-    },
-    {
-      "name": "integrate-whatsapp",
-      "repo": "gokapso/agent-skills",
-      "official": false,
-      "stars": 199,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/gokapso/agent-skills/integrate-whatsapp",
-        "installs": 5000,
-        "weeklyInstalls": [60, 141, 145, 122, 129, 195, 234, 235],
-        "firstSeen": "2026-01-29"
       }
     },
     {
@@ -1469,19 +1417,6 @@
         "installs": 5000,
         "weeklyInstalls": [138, 119, 84, 84, 92, 68, 74, 63],
         "firstSeen": "2026-05-20"
-      }
-    },
-    {
-      "name": "temporal-developer",
-      "repo": "temporalio/skill-temporal-developer",
-      "official": true,
-      "stars": 236,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/temporalio/skill-temporal-developer/temporal-developer",
-        "installs": 5000,
-        "weeklyInstalls": [166, 186, 145, 179, 211, 213, 193, 159],
-        "firstSeen": "2026-02-13"
       }
     },
     {
@@ -21821,6 +21756,26 @@
     {
       "url": "https://skills.sh/software-mansion-labs/skills/react-native-best-practices",
       "note": "Tool docs: an agent's manual for react-native and expo."
+    },
+    {
+      "url": "https://skills.sh/thedivergentai/game-dev-agentic-skills/godot-master",
+      "note": "Tool docs: an agent's manual for godot."
+    },
+    {
+      "url": "https://skills.sh/elastic/agent-skills/elasticsearch-esql",
+      "note": "Tool docs: an agent's manual for elasticsearch."
+    },
+    {
+      "url": "https://skills.sh/marimo-team/marimo-pair/retro-marimo-pair",
+      "note": "Internal: a retro for marimo team members to improve marimo's own marimo-pair skill and code-mode API."
+    },
+    {
+      "url": "https://skills.sh/gokapso/agent-skills/integrate-whatsapp",
+      "note": "Tool docs: an agent's manual for kapso and whatsapp."
+    },
+    {
+      "url": "https://skills.sh/temporalio/skill-temporal-developer/temporal-developer",
+      "note": "Tool docs: an agent's manual for temporal."
     }
   ]
 }
