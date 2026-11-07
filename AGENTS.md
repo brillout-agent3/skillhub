@@ -1,5 +1,6 @@
-- Project goal: enable humans to browser and discover new agent skills
-  - In general, we aim for two use cases: discover (no specific goal beyond discovering new skills), and search (user has a specific wish and wants to find a matching skill)
+- Project goal: enable humans to discover and search agent skills
+  - Discover: no specific goal beyond discovering new skills
+  - Search: user has a specific wish and wants to find a matching skill
 - Always push directly to `main`, don't create PRs
 - Zero documentation for humans for now (there is only one maintainer for now, no need to write docs for humans for now)
   - That said, documentation that is useful for agents is good (e.g. a comment that explains non-obvious code)
