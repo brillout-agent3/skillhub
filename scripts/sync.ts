@@ -138,7 +138,7 @@ if (gone.length) {
   for (const skill of gone) {
     crawl.disqualified.push({
       url: skill["skills.sh"].url,
-      note: `Gone from ${github(skill).repo} since ${today}.`,
+      reason: { goneFromRepo: today },
     });
     rmSync(join(root, copyPath(skill)), { force: true });
     changed.add(skill.id);

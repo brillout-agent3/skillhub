@@ -10,7 +10,7 @@ Every skill SkillHub knows of has one state, under its skills.sh page:
 - **Approved:** shown on the site, with tags, a TLDR and a copy of its SKILL.md. In `data/skills.jsonc`.
 - **Qualified:** in the skills.sh all-time top 600, or further down skills.sh's sitemap, at the minimums or above (`MINIMUMS` in `scripts/data.ts`: all-time installs, and its repo's GitHub stars), waiting for an agent to approve or disqualify it. In `data/crawl.jsonc`.
 - **Unqualified:** found by the crawl, but under the minimums. In `data/crawl.jsonc`.
-- **Disqualified:** not shown, with a note saying why, and no agent data: no tags, no TLDR, no copy. In `data/crawl.jsonc`.
+- **Disqualified:** not shown, with its `reason`, and no other agent data: no tags, no TLDR, no copy. In `data/crawl.jsonc`.
 
 The daily crawl (`pnpm run crawl`) records new skills and moves them between qualified and unqualified. The daily sync disqualifies an approved skill whose SKILL.md is gone from its repo. The two files are cumulative: a skill never leaves them, only its state changes, and `pnpm run check` fails when a skill has two states. `Crawl` in `data/types.ts` describes crawl.jsonc.
 
@@ -22,7 +22,7 @@ Both files are JSONC and may hold comments, which the scripts keep. Edit them in
 - Take a repo's qualified skills together: skills.sh counts an install of a repo once per skill in it, so its skills arrive together, and they may form a bundle.
 - Read each skill's SKILL.md on GitHub, then disqualify it or approve it.
 
-**Disqualify** a skill the site shouldn't show: move it from `qualified` to `disqualified`, as its skills.sh page (`url`) and a `note` saying why, and write nothing else about it. Disqualify:
+**Disqualify** a skill the site shouldn't show: move it from `qualified` to `disqualified`, as its skills.sh page (`url`) and its `reason`, `{"agentReview": "…"}`, one sentence saying why, such as "Tool docs: an agent's manual for aws.", and write nothing else about it. When its SKILL.md is gone from its repo, the reason is `{"goneFromRepo": "<today, YYYY-MM-DD>"}` instead. Disqualify:
 
 - Tool docs: documentation for agents of one product, how to build with it, configure it, deploy to it or operate it, such as a framework's best practices or a cloud's CLI. They only matter once someone has chosen the product, so browsing them discovers nothing. A skill that gets a job done through a tool, such as browsing, testing, scraping, searching or generating media, isn't tool docs: there, the tool is how, not what.
 - A retired skill, whose SKILL.md points to a replacement.

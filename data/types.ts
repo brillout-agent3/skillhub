@@ -133,13 +133,38 @@ export interface Crawled {
 export interface Disqualified {
   /** Its skills.sh page. */
   url: string;
-  /**
-   * Why it's disqualified.
-   *
-   * Source: whoever disqualified it, as for `disqualified`.
-   */
-  note: string;
+  /** Why it's disqualified: an agent's verdict, or a fact a script found. */
+  reason: DisqualifiedReason;
 }
+
+/** One of: an agent turned it down, its SKILL.md is gone from its repo, or it isn't on GitHub. */
+export type DisqualifiedReason =
+  | {
+      /**
+       * Why an agent turned it down, in one sentence, such as "Tool docs: an agent's manual for
+       * aws.".
+       *
+       * Source: the agent that reviews the qualified skill, with the add-skill skill.
+       */
+      agentReview: string;
+    }
+  | {
+      /**
+       * The day its SKILL.md was found gone from its repo's HEAD, YYYY-MM-DD.
+       *
+       * Source: scripts/sync.ts, for an approved skill; and the agent working through the
+       * qualified skills, with the add-skill skill, for a qualified one.
+       */
+      goneFromRepo: string;
+    }
+  | {
+      /**
+       * The site skills.sh lists it from instead of a GitHub repo, such as "open.feishu.cn".
+       *
+       * Source: scripts/crawl.ts, for a skill of the skills.sh top 600 that isn't on GitHub.
+       */
+      notOnGitHub: string;
+    };
 
 /** A tag dimension. Tags are written `facet:value`, except topics, which have no prefix. */
 export interface Facet {

@@ -217,7 +217,7 @@ await pool(board, 4, async (e) => {
   const url = pageOf(e);
   if (approved.has(pageKey(url)) || disqualified.has(pageKey(url))) return;
   if (!onGitHub(e)) {
-    crawl.disqualified.push({ url, note: `Not on GitHub: skills.sh lists it from ${e.source}.` });
+    crawl.disqualified.push({ url, reason: { notOnGitHub: e.source } });
     added.push(`disqualified ${url}`);
     return;
   }

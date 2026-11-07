@@ -112,13 +112,51 @@
           "type": "string",
           "description": "Its skills.sh page."
         },
-        "note": {
-          "type": "string",
-          "description": "Why it's disqualified.\n\nSource: whoever disqualified it, as for `disqualified`."
+        "reason": {
+          "$ref": "#/definitions/DisqualifiedReason",
+          "description": "Why it's disqualified: an agent's verdict, or a fact a script found."
         }
       },
-      "required": ["url", "note"],
+      "required": ["url", "reason"],
       "additionalProperties": false
+    },
+    "DisqualifiedReason": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "agentReview": {
+              "type": "string",
+              "description": "Why an agent turned it down, in one sentence, such as \"Tool docs: an agent's manual for aws.\".\n\nSource: the agent that reviews the qualified skill, with the add-skill skill."
+            }
+          },
+          "required": ["agentReview"],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "goneFromRepo": {
+              "type": "string",
+              "description": "The day its SKILL.md was found gone from its repo's HEAD, YYYY-MM-DD.\n\nSource: scripts/sync.ts, for an approved skill; and the agent working through the qualified skills, with the add-skill skill, for a qualified one."
+            }
+          },
+          "required": ["goneFromRepo"],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "notOnGitHub": {
+              "type": "string",
+              "description": "The site skills.sh lists it from instead of a GitHub repo, such as \"open.feishu.cn\".\n\nSource: scripts/crawl.ts, for a skill of the skills.sh top 600 that isn't on GitHub."
+            }
+          },
+          "required": ["notOnGitHub"],
+          "additionalProperties": false
+        }
+      ],
+      "description": "One of: an agent turned it down, its SKILL.md is gone from its repo, or it isn't on GitHub."
     }
   }
 }

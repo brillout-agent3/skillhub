@@ -181,7 +181,7 @@ for (const [name, list] of [
     const weekly = c["skills.sh"].weeklyInstalls;
     if (weekly && weekly.length !== 8) fail(at, "weeklyInstalls must have 8 weeks");
   }
-for (const { url, note } of crawl.disqualified) {
+for (const { url, reason } of crawl.disqualified) {
   const at = `disqualified ${url}`;
   if (
     !/^https:\/\/skills\.sh\/(site\/)?[^/]+\/[^/]+$|^https:\/\/skills\.sh\/[^/.]+\/[^/]+\/[^/]+$/.test(
@@ -190,7 +190,12 @@ for (const { url, note } of crawl.disqualified) {
   )
     fail(at, "the url must be a skill's page on skills.sh");
   state(at, url, "disqualified");
-  if (!note) fail(at, "needs a note saying why it's disqualified");
+  const kinds = Object.keys(reason ?? {});
+  if (kinds.length !== 1 || !["agentReview", "goneFromRepo", "notOnGitHub"].includes(kinds[0]))
+    fail(at, "needs one reason: agentReview, goneFromRepo or notOnGitHub");
+  else if (!Object.values(reason)[0]) fail(at, "its reason is empty");
+  else if ("goneFromRepo" in reason && !/^\d{4}-\d\d-\d\d$/.test(reason.goneFromRepo))
+    fail(at, "goneFromRepo must be a YYYY-MM-DD date");
 }
 
 const copies = new Set(data.skills.map(copyPath));
