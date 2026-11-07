@@ -77374,6 +77374,56 @@
         ],
         "note": "Needs Node.js, git and an EvoMap node ID. Through a local proxy it syncs with EvoMap's hub, which pushes tasks, messages from other agents and skill updates, and it can publish your assets there; --loop keeps it running in the background."
       }
+    },
+    {
+      "id": "emilkowalski/skills/skills/choreograph",
+      "name": "choreograph",
+      "skills.sh": {
+        "url": "https://skills.sh/emilkowalski/skills/choreograph",
+        "installs": 5800,
+        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
+        "firstSeen": null
+      },
+      "skillMd": {
+        "version": "c8a79627b59d72d764d6ab6f2c87c09a48169833",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Coordinates animations that run together, deciding what moves, in what order, how much they overlap and what stays still.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're building several things that move at once, such as a staggered list, hero entrance, view swap or multi-step flow, or fixing one that feels mechanical or slow"
+            },
+            {
+              "label": "It does",
+              "text": "gives each moving element a role (lead, support, decoration or static) and keeps only lead and support moving, then decides whether each pair moves together, overlaps or runs in sequence"
+            },
+            {
+              "label": "You get",
+              "text": "a timeline table of every moving element, the elements it kept still and why, a feel check naming the moment to scrub on a recording, and the code"
+            },
+            {
+              "label": "Unlike animate",
+              "text": "which tunes one animation's easing, duration and origin, this one handles the timing between several"
+            }
+          ],
+          "text": "Part of Emil Kowalski's animation set, it starts from the view that agents choreograph by adding: a delay on every child, a panel that slides in and then its items trickle in. Its fix is mostly cutting moving parts and running the rest in parallel, sequencing only when order means something, like reading order or cause and effect. Children it can't animate directly ride along with their moving parent. Its hard rules: one entrance per container, never a parent's entrance plus a stagger of its children; no stagger on menus, command palettes or anything opened many times a day; no identical delays; nothing blocks clicking; and every sequence survives being re-triggered mid-flight. Product UI staggers run 30–80ms apart and finish under about 300ms; marketing heroes get 100–150ms steps. Accents hook onto the lead's start, impact or settle. A leaving element drops out of the layout at once, so its siblings close the gap while it fades. Exits go all at once, in their entry's direction. Under reduced motion, the group just fades in together. It builds with the lightest tool: CSS, Motion variants or Motion's useAnimate. Whether something should animate at all it leaves to find-animation-opportunities and remove-animations.",
+          "permalink": "https://github.com/emilkowalski/skills/tree/c8a79627b59d72d764d6ab6f2c87c09a48169833/skills/choreograph"
+        },
+        "tags": [
+          "category:design",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "animation",
+          "design",
+          "implementation"
+        ]
+      }
     }
   ]
 }

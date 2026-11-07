@@ -1,21 +1,7 @@
 {
   "$schema": "./crawl.generated.schema.jsonc",
   "asOf": "2026-11-07",
-  "qualified": [
-    {
-      "name": "choreograph",
-      "repo": "emilkowalski/skills",
-      "official": false,
-      "stars": 54176,
-      "seen": "2026-11-07",
-      "skills.sh": {
-        "url": "https://skills.sh/emilkowalski/skills/choreograph",
-        "installs": 5800,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 0],
-        "firstSeen": null
-      }
-    }
-  ],
+  "qualified": [],
   "unqualified": [
     {
       "name": "design-mobile-apps",
