@@ -812,8 +812,7 @@ const scopeOf = (st: State) => {
 };
 
 /** The search box's placeholder: how many skills (or bundles) it looks through. */
-export const searchPlaceholder = (st: State) =>
-  `Search ${plural(scopeOf(st), unitOf(st))}, e.g. ${st.show === "bundles" ? "testing" : "pdf"}`;
+export const searchPlaceholder = (st: State) => `Search ${plural(scopeOf(st), unitOf(st))}`;
 
 /** The filters, as chips each with its × to remove it. */
 function scopeChipsHtml(st: State): string {
@@ -991,15 +990,15 @@ export function listView(st: State, intro = "", head = ""): string {
         ${intro}
         <div class="finder">
           <p id="scope" class="scope">${scopeHtml(st)}</p>
-          <label for="q" class="field-label search-label">Search by keyword</label>
-          <label for="need" class="field-label agent-label">Ask your agent, in your own words</label>
           <div class="search-field" data-action="focus-search">
             <svg class="search-icon" viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="2" /><path d="m13 13 4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" /></svg>
+            <label for="q" class="sr-only">Search skills</label>
             <input id="q" type="search" value="${esc(st.q)}" placeholder="${esc(searchPlaceholder(st))}" autocomplete="off" spellcheck="false" aria-describedby="search-note scope" />
           </div>
           <div class="agent-field" data-action="focus-need">
             <svg class="ask-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2.5l1.6 4.4 4.4 1.6-4.4 1.6L10 14.5l-1.6-4.4L4 8.5l4.4-1.6zM15.5 13l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z" fill="currentColor" /></svg>
-            <input id="need" type="text" placeholder="e.g. review my PR" autocomplete="off" aria-describedby="ask-label scope" />
+            <label for="need" class="sr-only">What you need, for your agent</label>
+            <input id="need" type="text" placeholder="Describe what you need" autocomplete="off" aria-describedby="ask-label scope" />
             <button type="button" class="ask-button" data-action="ask">Find skill with your agent</button>
           </div>
           <p id="search-note" class="search-note">Filters the list as you type.</p>
