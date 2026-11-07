@@ -323,10 +323,27 @@ code {
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   grid-template-areas:
     "scope scope"
+    "slabel alabel"
     "field agent"
     "note label";
   gap: 8px 12px;
   margin-bottom: 20px;
+}
+
+/* Each box has its label above it, alike, so the two read as one or the other. */
+.field-label {
+  margin: 4px 0 -2px 2px;
+  color: var(--text-2);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.search-label {
+  grid-area: slabel;
+}
+
+.agent-label {
+  grid-area: alabel;
 }
 
 .search-field {
@@ -340,12 +357,16 @@ code {
   border: 1px solid var(--border-strong);
   border-radius: 12px;
   background: var(--surface);
+  /* A faint inner shadow, as text boxes have: type here. */
+  box-shadow: inset 0 1px 2px rgb(0 0 0 / 0.07);
   cursor: text;
 }
 
 .search-field:focus-within {
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px var(--accent-soft);
+  box-shadow:
+    inset 0 1px 2px rgb(0 0 0 / 0.07),
+    0 0 0 3px var(--accent-soft);
 }
 
 .search-icon {
@@ -378,6 +399,7 @@ code {
   background: none;
   color: var(--text);
   font-size: 16px;
+  text-overflow: ellipsis;
 }
 
 /* The field shows the focus instead. */
@@ -396,12 +418,15 @@ code {
   border: 1px solid var(--border-strong);
   border-radius: 12px;
   background: var(--surface);
+  box-shadow: inset 0 1px 2px rgb(0 0 0 / 0.07);
   cursor: text;
 }
 
 .agent-field:focus-within {
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px var(--accent-soft);
+  box-shadow:
+    inset 0 1px 2px rgb(0 0 0 / 0.07),
+    0 0 0 3px var(--accent-soft);
 }
 
 .ask-icon {
@@ -419,6 +444,7 @@ code {
   background: none;
   color: var(--text);
   font-size: 16px;
+  text-overflow: ellipsis;
 }
 
 /* The box shows the focus instead. */
@@ -426,22 +452,23 @@ code {
   outline: none;
 }
 
+/* Light, so the box reads as a text box first, like the search's. */
 .ask-button {
   flex: none;
-  min-height: 38px;
-  padding: 0 14px;
-  border: 0;
-  border-radius: 9px;
-  background: var(--accent);
-  color: var(--on-accent);
-  font-size: 14px;
+  min-height: 34px;
+  padding: 0 12px;
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  border-radius: 8px;
+  background: var(--accent-soft);
+  color: var(--accent-text);
+  font-size: 13.5px;
   font-weight: 600;
   white-space: nowrap;
   cursor: pointer;
 }
 
 .ask-button:hover {
-  filter: brightness(1.1);
+  border-color: var(--accent);
 }
 
 .scope {
@@ -1581,11 +1608,11 @@ code {
 @media (max-width: 1250px) {
   .finder {
     grid-template-columns: minmax(0, 1fr);
-    grid-template-areas: "scope" "field" "note" "agent" "label";
+    grid-template-areas: "scope" "slabel" "field" "note" "alabel" "agent" "label";
   }
 
-  .agent-field {
-    margin-top: 8px;
+  .agent-label {
+    margin-top: 10px;
   }
 }
 
