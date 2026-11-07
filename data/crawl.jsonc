@@ -458,19 +458,6 @@
       }
     },
     {
-      "name": "deslop",
-      "repo": "brianlovin/agent-config",
-      "official": false,
-      "stars": 381,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/brianlovin/agent-config/deslop",
-        "installs": 5800,
-        "weeklyInstalls": [291, 462, 328, 181, 189, 198, 78, 152],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
       "name": "frontend-design-deslop",
       "repo": "samber/cc-skills",
       "official": false,
@@ -497,19 +484,6 @@
       }
     },
     {
-      "name": "migrate-ai-sdk-v6-to-v7",
-      "repo": "vercel/ai",
-      "official": true,
-      "stars": 27781,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/vercel/ai/migrate-ai-sdk-v6-to-v7",
-        "installs": 5700,
-        "weeklyInstalls": [260, 268, 236, 201, 221, 182, 199, 152],
-        "firstSeen": "2026-06-21"
-      }
-    },
-    {
       "name": "gravitas",
       "repo": "udaysharmadev/gravitas",
       "official": false,
@@ -520,32 +494,6 @@
         "installs": 5700,
         "weeklyInstalls": [5, 1, 2, 0, 2, 2907, 1139, 1165],
         "firstSeen": "2026-09-11"
-      }
-    },
-    {
-      "name": "mastra-factory",
-      "repo": "mastra-ai/skills",
-      "official": false,
-      "stars": 102,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/mastra-ai/skills/mastra-factory",
-        "installs": 5700,
-        "weeklyInstalls": [471, 633, 646, 587, 524, 803, 831, 887],
-        "firstSeen": "2026-09-07"
-      }
-    },
-    {
-      "name": "apollo-client",
-      "repo": "apollographql/skills",
-      "official": false,
-      "stars": 125,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/apollographql/skills/apollo-client",
-        "installs": 5700,
-        "weeklyInstalls": [95, 101, 326, 225, 104, 82, 78, 79],
-        "firstSeen": "2026-01-23"
       }
     },
     {
@@ -585,19 +533,6 @@
         "installs": 5700,
         "weeklyInstalls": [176, 153, 178, 155, 113, 343, 394, 284],
         "firstSeen": "2026-03-23"
-      }
-    },
-    {
-      "name": "convex",
-      "repo": "waynesutton/builder-skills",
-      "official": false,
-      "stars": 403,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/waynesutton/builder-skills/convex",
-        "installs": 5700,
-        "weeklyInstalls": [4, 4, 5, 1, 0, 0, 0, 0],
-        "firstSeen": "2026-01-23"
       }
     },
     {
@@ -650,19 +585,6 @@
         "installs": 5600,
         "weeklyInstalls": [5, 9, 7, 6, 7, 7, 12, 5],
         "firstSeen": "2026-03-06"
-      }
-    },
-    {
-      "name": "cx-telemetry-querying",
-      "repo": "coralogix/cx-cli",
-      "official": false,
-      "stars": 241,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/coralogix/cx-cli/cx-telemetry-querying",
-        "installs": 5600,
-        "weeklyInstalls": [224, 297, 236, 269, 315, 343, 457, 475],
-        "firstSeen": "2026-05-04"
       }
     },
     {
@@ -757,19 +679,6 @@
       }
     },
     {
-      "name": "worktrunk",
-      "repo": "max-sixty/worktrunk",
-      "official": false,
-      "stars": 11764,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/max-sixty/worktrunk/worktrunk",
-        "installs": 5500,
-        "weeklyInstalls": [157, 163, 134, 138, 104, 108, 124, 95],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
       "name": "technical-article-writer",
       "repo": "samber/cc-skills",
       "official": false,
@@ -780,19 +689,6 @@
         "installs": 5500,
         "weeklyInstalls": [22, 47, 179, 399, 572, 727, 775, 637],
         "firstSeen": "2026-03-24"
-      }
-    },
-    {
-      "name": "ui-ux-pro-max",
-      "repo": "nexu-io/open-design",
-      "official": false,
-      "stars": 106289,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/nexu-io/open-design/ui-ux-pro-max",
-        "installs": 5500,
-        "weeklyInstalls": [93, 81, 60, 53, 58, 51, 70, 74],
-        "firstSeen": "2026-05-11"
       }
     },
     {
@@ -809,32 +705,6 @@
       }
     },
     {
-      "name": "react-native-testing",
-      "repo": "callstack/react-native-testing-library",
-      "official": true,
-      "stars": 3430,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/callstack/react-native-testing-library/react-native-testing",
-        "installs": 5500,
-        "weeklyInstalls": [261, 184, 195, 180, 153, 109, 112, 90],
-        "firstSeen": "2026-02-10"
-      }
-    },
-    {
-      "name": "chat-sdk",
-      "repo": "vercel/chat",
-      "official": true,
-      "stars": 2454,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/vercel/chat/chat-sdk",
-        "installs": 5500,
-        "weeklyInstalls": [55, 60, 47, 61, 66, 58, 48, 51],
-        "firstSeen": "2026-02-24"
-      }
-    },
-    {
       "name": "ghost-scan-code",
       "repo": "ghostsecurity/skills",
       "official": false,
@@ -845,19 +715,6 @@
         "installs": 5500,
         "weeklyInstalls": [149, 153, 155, 134, 143, 153, 161, 155],
         "firstSeen": "2026-02-20"
-      }
-    },
-    {
-      "name": "swift-testing-expert",
-      "repo": "avdlee/swift-testing-agent-skill",
-      "official": false,
-      "stars": 479,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/avdlee/swift-testing-agent-skill/swift-testing-expert",
-        "installs": 5500,
-        "weeklyInstalls": [114, 130, 128, 114, 124, 69, 85, 83],
-        "firstSeen": "2026-02-12"
       }
     },
     {
@@ -897,19 +754,6 @@
         "installs": 5400,
         "weeklyInstalls": [78, 85, 65, 78, 73, 81, 113, 126],
         "firstSeen": "2026-05-27"
-      }
-    },
-    {
-      "name": "workflow",
-      "repo": "vercel/workflow",
-      "official": true,
-      "stars": 2494,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/vercel/workflow/workflow",
-        "installs": 5400,
-        "weeklyInstalls": [132, 195, 170, 154, 139, 96, 84, 89],
-        "firstSeen": "2026-01-28"
       }
     },
     {
@@ -965,19 +809,6 @@
       }
     },
     {
-      "name": "nextjs-react-typescript",
-      "repo": "mindrally/skills",
-      "official": false,
-      "stars": 300,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/mindrally/skills/nextjs-react-typescript",
-        "installs": 5300,
-        "weeklyInstalls": [64, 73, 51, 33, 41, 46, 39, 41],
-        "firstSeen": "2026-01-25"
-      }
-    },
-    {
       "name": "influence-and-negotiation",
       "repo": "samber/cc-skills",
       "official": false,
@@ -1001,19 +832,6 @@
         "installs": 5300,
         "weeklyInstalls": [105, 172, 134, 98, 47, 54, 45, 48],
         "firstSeen": "2026-02-17"
-      }
-    },
-    {
-      "name": "uv",
-      "repo": "astral-sh/claude-code-plugins",
-      "official": false,
-      "stars": 318,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/astral-sh/claude-code-plugins/uv",
-        "installs": 5300,
-        "weeklyInstalls": [280, 315, 342, 326, 214, 244, 233, 250],
-        "firstSeen": "2026-03-01"
       }
     },
     {
@@ -21633,6 +21451,62 @@
     {
       "url": "https://skills.sh/temporalio/skill-temporal-developer/temporal-developer",
       "note": "Tool docs: an agent's manual for temporal."
+    },
+    {
+      "url": "https://skills.sh/brianlovin/agent-config/deslop",
+      "note": "A copy of cursor/plugins/cursor-team-kit/skills/deslop, the Cursor team's deslop command."
+    },
+    {
+      "url": "https://skills.sh/vercel/ai/migrate-ai-sdk-v6-to-v7",
+      "note": "Tool docs: an agent's manual for ai-sdk."
+    },
+    {
+      "url": "https://skills.sh/mastra-ai/skills/mastra-factory",
+      "note": "Tool docs: an agent's manual for Mastra Factory and the mastra CLI."
+    },
+    {
+      "url": "https://skills.sh/apollographql/skills/apollo-client",
+      "note": "Tool docs: an agent's manual for apollo-client and react."
+    },
+    {
+      "url": "https://skills.sh/waynesutton/builder-skills/convex",
+      "note": "Tool docs: an agent's manual for convex."
+    },
+    {
+      "url": "https://skills.sh/coralogix/cx-cli/cx-telemetry-querying",
+      "note": "Tool docs: an agent's manual for coralogix and its cx CLI."
+    },
+    {
+      "url": "https://skills.sh/max-sixty/worktrunk/worktrunk",
+      "note": "Tool docs: an agent's manual for worktrunk."
+    },
+    {
+      "url": "https://skills.sh/nexu-io/open-design/ui-ux-pro-max",
+      "note": "A copy of nextlevelbuilder/ui-ux-pro-max-skill/.claude/skills/ui-ux-pro-max, as a catalog entry without its data or search script."
+    },
+    {
+      "url": "https://skills.sh/callstack/react-native-testing-library/react-native-testing",
+      "note": "Tool docs: an agent's manual for react-native-testing-library."
+    },
+    {
+      "url": "https://skills.sh/vercel/chat/chat-sdk",
+      "note": "Tool docs: an agent's manual for Vercel's Chat SDK."
+    },
+    {
+      "url": "https://skills.sh/avdlee/swift-testing-agent-skill/swift-testing-expert",
+      "note": "Tool docs: an agent's manual for swift-testing."
+    },
+    {
+      "url": "https://skills.sh/vercel/workflow/workflow",
+      "note": "Tool docs: an agent's manual for Vercel's Workflow SDK."
+    },
+    {
+      "url": "https://skills.sh/mindrally/skills/nextjs-react-typescript",
+      "note": "Tool docs: an agent's manual for nextjs, react and typescript."
+    },
+    {
+      "url": "https://skills.sh/astral-sh/claude-code-plugins/uv",
+      "note": "Tool docs: an agent's manual for uv."
     }
   ]
 }
