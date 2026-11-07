@@ -1074,7 +1074,6 @@ code {
 
 .breakdown {
   min-width: min(100%, 360px);
-  margin-top: 16px;
   border-collapse: collapse;
   font-size: 14px;
 }
@@ -1141,8 +1140,14 @@ code {
   font-size: 13px;
 }
 
-/* A label's tooltip sits under its row, from the table's left edge. */
-.breakdown td:first-child {
+/* A row's tooltip sits right of the table, or under the row where there's no room for it. Its
+   markup is in the number cell, at the table's right edge. */
+.breakdown-box {
+  margin-top: 16px;
+  container: breakdown / inline-size;
+}
+
+.breakdown td.num {
   position: relative;
 }
 
@@ -1178,8 +1183,8 @@ code {
   position: absolute;
   z-index: 1;
   top: calc(100% - 2px);
-  left: 0;
-  width: min(420px, calc(100vw - 32px));
+  right: 0;
+  width: 100cqw;
   padding: 8px 11px;
   border: 1px solid var(--border);
   border-radius: 8px;
@@ -1188,18 +1193,60 @@ code {
   color: var(--text);
   font-size: 13px;
   font-weight: 400;
+  font-variant-numeric: normal;
   line-height: 1.45;
+  text-align: left;
 }
 
-.breakdown td:hover .tip-text,
-.tip:focus-within .tip-text,
-.tip.open .tip-text {
+@container breakdown (max-width: 739px) {
+  .breakdown {
+    width: 100%;
+  }
+}
+
+@container breakdown (min-width: 740px) {
+  .tip-text {
+    top: -4px;
+    right: auto;
+    left: calc(100% + 12px);
+    width: max-content;
+    max-width: 320px;
+  }
+
+  /* Fills the gap to the row, so the pointer can move onto the tooltip without it closing. */
+  .tip-text::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 100%;
+    width: 13px;
+    height: 100%;
+  }
+
+  /* Points at the row. */
+  .tip-text::after {
+    content: "";
+    position: absolute;
+    top: 11px;
+    left: -5px;
+    width: 8px;
+    height: 8px;
+    border: solid var(--border);
+    border-width: 0 0 1px 1px;
+    background: var(--surface);
+    transform: rotate(45deg);
+  }
+}
+
+.breakdown tr:hover .tip-text,
+.breakdown tr:focus-within .tip-text,
+.breakdown tr.open .tip-text {
   display: block;
 }
 
-.breakdown td:hover .tip-i,
+.breakdown tr:hover .tip-i,
 .tip-i:focus-visible,
-.tip.open .tip-i {
+.breakdown tr.open .tip-i {
   color: var(--accent-text);
 }
 

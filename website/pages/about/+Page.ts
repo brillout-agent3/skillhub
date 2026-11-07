@@ -117,15 +117,17 @@ export default function Page(): string {
     tip: "Every skill SkillHub found on skills.sh. Each was reviewed at least on its installs, from skills.sh, and its repo's stars, from GitHub.",
   };
   const row = ({ label, count, tip, depth = 0, emoji, name = label }: Row, i: number) =>
-    `<tr class="d${depth}"><td>${emoji ? `<span class="emoji" aria-hidden="true">${emoji}</span>` : ""}${label}<span class="tip"><button type="button" class="tip-i" aria-label="About ${name}" aria-describedby="tip-${i}">i</button><span class="tip-text" role="tooltip" id="tip-${i}">${tip}</span></span></td><td class="num">${n(count)}</td></tr>`;
+    `<tr class="d${depth}"><td>${emoji ? `<span class="emoji" aria-hidden="true">${emoji}</span>` : ""}${label}<button type="button" class="tip-i" aria-label="About ${name}" aria-describedby="tip-${i}">i</button></td><td class="num">${n(count)}<span class="tip-text" role="tooltip" id="tip-${i}">${tip}</span></td></tr>`;
   return `
     <div class="page about">
       <h1>How skills get here</h1>
       <p class="lede">SkillHub lists <strong>${n(review.listed)} agent skills</strong>, out of the ${n(review.reviewed)} it reviewed: first on their installs and stars, then with an agent review of whether people looking for skills would find them useful.</p>
-      <table class="breakdown">
-        <tbody>${rows.map(row).join("")}</tbody>
-        <tfoot>${row(total, rows.length)}</tfoot>
-      </table>
+      <div class="breakdown-box">
+        <table class="breakdown">
+          <tbody>${rows.map(row).join("")}</tbody>
+          <tfoot>${row(total, rows.length)}</tfoot>
+        </table>
+      </div>
       <p class="breakdown-note">As of ${date(review.asOf)}.</p>
 
       <h2>What a listed skill gets</h2>

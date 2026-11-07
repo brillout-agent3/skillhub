@@ -1,18 +1,18 @@
 /**
- * About: the breakdown's [i] tooltips. Hover and focus show them with CSS alone, but a button
- * doesn't take focus when clicked in Safari, so a click pins its tooltip open with `.open`. A click
- * elsewhere, or Escape, closes it.
+ * About: the breakdown's [i] tooltips. Hover and focus show a row's tooltip with CSS alone, but a
+ * button doesn't take focus when clicked in Safari, so a click pins it open with `.open` on the
+ * row. A click elsewhere, or Escape, closes it.
  */
 
 const closeTips = (except?: Element | null) => {
-  for (const tip of document.querySelectorAll(".tip.open"))
-    if (tip !== except) tip.classList.remove("open");
+  for (const row of document.querySelectorAll(".breakdown tr.open"))
+    if (row !== except) row.classList.remove("open");
 };
 
 document.addEventListener("click", (event) => {
-  const tip = (event.target as Element).closest(".tip-i")?.parentElement ?? null;
-  closeTips(tip);
-  tip?.classList.toggle("open");
+  const row = (event.target as Element).closest(".tip-i")?.closest("tr") ?? null;
+  closeTips(row);
+  row?.classList.toggle("open");
 });
 
 document.addEventListener("keydown", (event) => {
