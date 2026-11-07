@@ -459,7 +459,8 @@ export interface SkillsSh {
    *
    * Source: scraped from skills.sh's HTML by scripts/crawl.ts. `skillPage()` fetches the HTML of
    * the skill's skills.sh page and matches its "First Seen" stat with a regex, such as "Jan 22,
-   * 2026", which the leaderboard doesn't give. It does so once: when the crawl records the skill in
+   * 2026", or for a recent skill "10 days ago", counted back from the day of the crawl. The
+   * leaderboard doesn't give it. It does so once: when the crawl records the skill in
    * crawl.jsonc, or for an approved skill that has none.
    */
   firstSeen: string | null;

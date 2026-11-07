@@ -107,12 +107,30 @@ interface Page {
 }
 
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-/** "Jan 22, 2026" as 2026-01-22. */
+/** How many days back each unit of a relative date counts. */
+const UNIT_DAYS: Record<string, number> = { second: 0, minute: 0, hour: 0, day: 1, week: 7 };
+
+/**
+ * "Jan 22, 2026" as 2026-01-22. skills.sh writes a recent date relative to now instead, such as
+ * "10 days ago", "an hour ago", "yesterday" or "today": that's the day it counts back to from
+ * `today`, to the day ("5 hours ago" is today, even just after midnight).
+ */
 function day(text: string | undefined): string | null {
-  const m = /^([A-Z][a-z]{2}) (\d{1,2}), (\d{4})$/.exec(text ?? "");
-  if (!m || !MONTHS.includes(m[1])) return null;
-  const month = String(MONTHS.indexOf(m[1]) + 1).padStart(2, "0");
-  return `${m[3]}-${month}-${m[2].padStart(2, "0")}`;
+  const t = (text ?? "").trim();
+  const m = /^([A-Z][a-z]{2}) (\d{1,2}), (\d{4})$/.exec(t);
+  if (m) {
+    if (!MONTHS.includes(m[1])) return null;
+    const month = String(MONTHS.indexOf(m[1]) + 1).padStart(2, "0");
+    return `${m[3]}-${month}-${m[2].padStart(2, "0")}`;
+  }
+  const back = (days: number) =>
+    new Date(Date.parse(`${today}T00:00:00Z`) - days * 864e5).toISOString().slice(0, 10);
+  if (/^(today|just now)$/i.test(t)) return back(0);
+  if (/^yesterday$/i.test(t)) return back(1);
+  const r = /^(\d+|an?) (second|minute|hour|day|week)s? ago$/i.exec(t);
+  if (!r) return null;
+  const n = /^an?$/i.test(r[1]) ? 1 : Number(r[1]);
+  return back(n * UNIT_DAYS[r[2].toLowerCase()]);
 }
 /** "26.5K" as 26500. */
 function count(text: string | undefined): number | null {
