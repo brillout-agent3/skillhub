@@ -1,6 +1,7 @@
-/** The skills list's filters, for each of its pages (Top, Hot, New): re-render the list whenever they change, and keep them in the URL. */
+/** The skills list's settings and filters: re-render the list whenever they change, and keep them in the URL. */
 
 import {
+  PRESETS,
   PROPS,
   facetsHtml,
   fullRange,
@@ -10,27 +11,27 @@ import {
   defaultSort,
   query,
   resultsHtml,
+  settingsHtml,
   toggleTag,
+  type Preset,
   type Prop,
   type Range,
   type Sort,
   type State,
-  type View,
 } from "./list.ts";
 import { compact, href } from "./format.ts";
 
 const app = document.getElementById("app") as HTMLElement;
 const q = document.getElementById("q") as HTMLInputElement;
-const view = (document.querySelector<HTMLElement>(".skills-view")?.dataset.view ?? "top") as View;
-let state = parse(location.search, view);
+let state = parse(location.search);
 let stackExpanded = false;
 
 function go(patch: Partial<State>) {
   const next = { ...state, ...patch };
   // A search switches to best match, and clearing it switches back, unless another sort was picked.
-  if ("q" in patch && !("sort" in patch) && state.sort === defaultSort(state.q, view))
-    next.sort = defaultSort(next.q, view);
-  if (next.sort === "match" && !next.q) next.sort = defaultSort("", view);
+  if ("q" in patch && !("sort" in patch) && state.sort === defaultSort(state.q))
+    next.sort = defaultSort(next.q);
+  if (next.sort === "match" && !next.q) next.sort = defaultSort("");
   state = next;
   history.replaceState(null, "", query(state) || location.pathname);
   render();
@@ -40,10 +41,10 @@ function go(patch: Partial<State>) {
 function focusSelector(): string | null {
   const el = document.activeElement as HTMLElement | null;
   if (!el || el.id === "q" || !app.contains(el)) return null;
-  for (const attr of ["data-tag", "data-action", "data-remove"]) {
+  for (const attr of ["data-tag", "data-action", "data-remove", "data-preset"]) {
     const v = el.getAttribute(attr);
     if (v !== null)
-      return `#${el.closest("#facets") ? "facets" : "results"} [${attr}="${CSS.escape(v)}"]`;
+      return `#${el.closest("#facets") ? "facets" : el.closest("#settings") ? "settings" : "results"} [${attr}="${CSS.escape(v)}"]`;
   }
   return el.id ? `#${CSS.escape(el.id)}` : null;
 }
@@ -70,6 +71,7 @@ function render() {
   const focus = focusSelector();
   if (q.value !== state.q) q.value = state.q;
   syncRanges();
+  (document.getElementById("settings") as HTMLElement).innerHTML = settingsHtml(state);
   (document.getElementById("facets") as HTMLElement).innerHTML = facetsHtml(state, stackExpanded);
   (document.getElementById("results") as HTMLElement).innerHTML = resultsHtml(state);
   if (focus) (document.querySelector(focus) as HTMLElement | null)?.focus({ preventScroll: true });
@@ -101,11 +103,12 @@ app.addEventListener("input", (event) => {
 
 app.addEventListener("click", (event) => {
   const el = (event.target as Element).closest<HTMLElement>(
-    "[data-tag],[data-action],[data-remove]",
+    "[data-tag],[data-action],[data-remove],[data-preset]",
   );
   if (!el || el.tagName === "A") return;
   const d = el.dataset;
-  if (d.tag) go({ tags: toggleTag(state.tags, d.tag) });
+  if (d.preset) go({ sort: PRESETS[d.preset as Preset].sort, asc: false });
+  else if (d.tag) go({ tags: toggleTag(state.tags, d.tag) });
   else if (d.remove) {
     const v = d.value ?? "";
     if (d.remove === "q") go({ q: "" });
@@ -117,7 +120,7 @@ app.addEventListener("click", (event) => {
       q: "",
       tags: [],
       repo: null,
-      ranges: parse("", view).ranges,
+      ranges: parse("").ranges,
     });
   else if (d.action === "ask") ask(el);
   else if (d.action === "order") go({ asc: !state.asc });

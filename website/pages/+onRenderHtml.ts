@@ -1,28 +1,20 @@
 import { dangerouslySkipEscape, escapeInject } from "vike/server";
 import type { PageContextServer } from "vike/types";
+import { brandHtml } from "../brand.ts";
 import { href } from "../format.ts";
-import { VIEWS } from "../list.ts";
-import { GITHUB } from "../skills.ts";
 import "../style.css";
 
 /** A page's `Page` returns the HTML of its `<main>`. */
 export type Page = (pageContext: PageContextServer) => string;
 
-const NAV = [
-  ...Object.values(VIEWS).map((v) => [v.path, v.label]),
-  ["tags/", "Tags"],
-  ["about/", "About"],
-];
-
 export function onRenderHtml(pageContext: PageContextServer) {
   const { title, description } = pageContext.config;
   const value = (v: typeof title) => (typeof v === "function" ? v(pageContext) : (v ?? ""));
-  // Skill and bundle pages belong to Top. Pre-rendering passes paths without their trailing slash.
-  const path = pageContext.urlPathname.replace(/^\/((skill|bundle)\/.*)?/, "").replace(/\/$/, "");
-  const nav = NAV.map(
-    ([to, label]) =>
-      `<a href="${href(to)}"${to.replace(/\/$/, "") === path ? ` aria-current="page"` : ""}>${label}</a>`,
-  ).join("");
+  // The skills list has the site's name atop its sidebar; the other pages get it as a header.
+  const path = pageContext.urlPathname.replace(/^\//, "");
+  const head = path
+    ? `<header id="page-head">${brandHtml(path.endsWith("/") ? path : `${path}/`)}</header>`
+    : "";
   const main = (pageContext.Page as Page)(pageContext);
   return escapeInject`<!doctype html>
 <html lang="en">
@@ -34,14 +26,7 @@ export function onRenderHtml(pageContext: PageContextServer) {
     <link rel="icon" type="image/svg+xml" href="${href("gem.svg")}" />
   </head>
   <body>
-    <header id="topbar">
-      <a id="brand" href="${href()}">
-        <img src="${href("gem.svg")}" alt="" width="30" height="30" />
-        <span>SkillHub</span>
-      </a>
-      <nav id="views" aria-label="Views">${dangerouslySkipEscape(nav)}</nav>
-      <a id="source-link" href="${GITHUB}">GitHub</a>
-    </header>
+    ${dangerouslySkipEscape(head)}
     <main id="app">${dangerouslySkipEscape(main)}</main>
   </body>
 </html>`;

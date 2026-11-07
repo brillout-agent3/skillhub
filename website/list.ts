@@ -44,12 +44,12 @@ const quiet = (tag: string) => tag === "by:community" || facetOf(tag) === "categ
 
 // ------------------------------------------------------------------- state
 
-/** The list's three pages, which differ only in how they sort: Top by downloads, Hot by downloads in the latest week, New by publishing date. */
-export type View = "top" | "hot" | "new";
-export const VIEWS: Record<View, { path: string; label: string; sort: Prop }> = {
-  top: { path: "", label: "Top", sort: "downloads" },
-  hot: { path: "hot/", label: "Hot", sort: "week" },
-  new: { path: "new/", label: "New", sort: "published" },
+/** Buttons that only set the list's sort, highest first: Top by downloads, Hot by downloads in the latest week, New by publishing date. */
+export type Preset = "top" | "hot" | "new";
+export const PRESETS: Record<Preset, { label: string; sort: Prop; title: string }> = {
+  top: { label: "Top", sort: "downloads", title: "Most downloaded of all time" },
+  hot: { label: "Hot", sort: "week", title: "Most downloaded in the latest week" },
+  new: { label: "New", sort: "published", title: "Most recently published" },
 };
 
 /** The numbers every row shows, which the list sorts by and the sliders filter on. */
@@ -159,10 +159,9 @@ export function rangeLabel(p: Prop, [lo, hi]: Range): string {
 
 /** A number to sort by, or "match": how well the entry matches the search, for when there is one. */
 export type Sort = Prop | "match";
-/** A search sorts by best match unless another sort is picked; otherwise each view has its own. */
-export const defaultSort = (q: string, view: View): Sort => (q ? "match" : VIEWS[view].sort);
+/** A search sorts by best match unless another sort is picked; otherwise the list sorts by downloads. */
+export const defaultSort = (q: string): Sort => (q ? "match" : "downloads");
 export interface State {
-  view: View;
   q: string;
   tags: string[];
   repo: string | null;
@@ -174,7 +173,7 @@ export interface State {
   one: boolean;
 }
 
-export function parse(search: string, view: View = "top"): State {
+export function parse(search: string): State {
   const p = new URLSearchParams(search);
   const sort = p.get("sort") as Sort | null;
   const q = p.get("q") ?? "";
@@ -188,11 +187,10 @@ export function parse(search: string, view: View = "top"): State {
       ranges[prop][1] = stops.indexOf(hi);
   }
   return {
-    view,
     q,
     tags: p.getAll("tag"),
     repo: p.get("repo"),
-    sort: sort && (sort in PROPS || (sort === "match" && q)) ? sort : defaultSort(q, view),
+    sort: sort && (sort in PROPS || (sort === "match" && q)) ? sort : defaultSort(q),
     asc: p.get("order") === "asc",
     ranges,
     one: p.get("one") === "1",
@@ -204,7 +202,7 @@ export function query(s: State): string {
   if (s.q) p.set("q", s.q);
   for (const t of s.tags) p.append("tag", t);
   if (s.repo) p.set("repo", s.repo);
-  if (s.sort !== defaultSort(s.q, s.view)) p.set("sort", s.sort);
+  if (s.sort !== defaultSort(s.q)) p.set("sort", s.sort);
   if (s.asc) p.set("order", "asc");
   for (const prop of PROP_IDS) {
     const [lo, hi] = s.ranges[prop];
@@ -218,7 +216,7 @@ export function query(s: State): string {
   const q = p.toString();
   return q ? `?${q}` : "";
 }
-export const fresh = (view: View): State => parse("", view);
+export const fresh = (): State => parse("");
 /**
  * Select or unselect a tag. Selecting one unselects its parents and the tags it includes, since
  * either would only repeat or widen it: picking Design under Software engineering narrows the list
@@ -230,11 +228,8 @@ export function toggleTag(tags: string[], tag: string): string[] {
   return [...tags.filter((t) => !related.includes(t)), tag];
 }
 
-/** A link to the skills list filtered to the given state changes, on Top unless `patch` names another view. */
-export const skillsLink = (patch: Partial<State>) => {
-  const st = { ...fresh(patch.view ?? "top"), ...patch };
-  return href(VIEWS[st.view].path) + query(st);
-};
+/** A link to the skills list filtered to the given state changes. */
+export const skillsLink = (patch: Partial<State>) => href() + query({ ...fresh(), ...patch });
 
 // ------------------------------------------------------------------- filtering
 
@@ -506,7 +501,7 @@ function propsHtml(e: Entry, st: State): string {
 
 const moreLink = (e: Entry, more: number, st: State) =>
   more
-    ? `<a class="more" href="${skillsLink({ view: st.view, repo: repoKey(e), sort: st.sort === "match" ? VIEWS[st.view].sort : st.sort, asc: st.asc })}">+${more} more from ${esc(repoKey(e))}</a>`
+    ? `<a class="more" href="${skillsLink({ repo: repoKey(e), sort: st.sort === "match" ? defaultSort("") : st.sort, asc: st.asc })}">+${more} more from ${esc(repoKey(e))}</a>`
     : "";
 
 function skillRow(s: Skill, more: number, st: State): string {
@@ -653,7 +648,7 @@ function activeFilters(st: State): string {
 
 export function resultsHtml(st: State): string {
   const { list, hidden, total, bundles } = results(st);
-  const all = results(fresh(st.view)).total;
+  const all = results(fresh()).total;
   const repoNote = st.repo ? repoById.get(st.repo) : undefined;
   return `
     <div class="toolbar">
@@ -666,26 +661,6 @@ export function resultsHtml(st: State): string {
         st.one && list.length !== total ? `, ${plural(list.length, "repo")}` : ""
       }${isFiltered(st) ? ` <span class="muted">of ${all}</span>` : ""}</p>
       <button type="button" class="filters-toggle" data-action="filters" aria-controls="filters">Filters</button>
-      <label class="sort">Sort by <select id="sort">${
-        st.q
-          ? `<option value="match"${st.sort === "match" ? " selected" : ""}>Best match</option>`
-          : ""
-      }${PROP_IDS.map(
-        (p) => `<option value="${p}"${p === st.sort ? " selected" : ""}>${PROPS[p].label}</option>`,
-      ).join("")}</select>${
-        st.sort === "match"
-          ? ""
-          : `<button type="button" class="order" data-action="order" title="Reverse the order">${
-              PROPS[st.sort].date
-                ? st.asc
-                  ? "Oldest first"
-                  : "Newest first"
-                : st.asc
-                  ? "Lowest first"
-                  : "Highest first"
-            } <span aria-hidden="true">${st.asc ? "↑" : "↓"}</span></button>`
-      }</label>
-      <label class="check"><input type="checkbox" id="one"${st.one ? " checked" : ""} /> One per repo</label>
     </div>
     ${activeFilters(st)}
     ${repoNote ? `<p class="repo-banner"><a href="https://github.com/${esc(repoNote.id)}">${esc(repoNote.id)}</a>${repoNote.agentReview.description ? ` · ${esc(repoNote.agentReview.description)}` : ""}</p>` : ""}
@@ -699,7 +674,7 @@ export function resultsHtml(st: State): string {
             .join("")}</ol>`
         : `<p class="empty">No skill matches these filters.${
             st.q
-              ? `<br />Describing a need in your own words? <button type="button" class="link-button" data-action="ask">Ask an agent</button>`
+              ? `<br />Describing a need in your own words? <button type="button" class="link-button" data-action="ask">Find skill with your agent</button>`
               : ""
           }</p>`
     }`;
@@ -716,18 +691,67 @@ export function rangesHtml(st: State): string {
   }).join("");
 }
 
-export function listView(st: State): string {
+/** The presets, then the sort and its order, and one entry per repo. Re-rendered with the list, since a search adds Best match. */
+export function settingsHtml(st: State): string {
+  const presets = (Object.keys(PRESETS) as Preset[])
+    .map((id) => {
+      const p = PRESETS[id];
+      return `<button type="button" class="preset" data-preset="${id}" aria-pressed="${st.sort === p.sort && !st.asc}" title="${esc(p.title)}">${p.label}</button>`;
+    })
+    .join("");
+  const options = `${
+    st.q ? `<option value="match"${st.sort === "match" ? " selected" : ""}>Best match</option>` : ""
+  }${PROP_IDS.map(
+    (p) => `<option value="${p}"${p === st.sort ? " selected" : ""}>${PROPS[p].label}</option>`,
+  ).join("")}`;
+  const order =
+    st.sort === "match"
+      ? ""
+      : `<button type="button" class="order" data-action="order" title="Reverse the order">${
+          PROPS[st.sort].date
+            ? st.asc
+              ? "Oldest first"
+              : "Newest first"
+            : st.asc
+              ? "Lowest first"
+              : "Highest first"
+        } <span aria-hidden="true">${st.asc ? "↑" : "↓"}</span></button>`;
   return `
-    <div class="skills-view" data-view="${st.view}">
-      <aside id="filters" aria-label="Filters">
-        <div class="search">
-          <label for="q" class="sr-only">Search skills</label>
-          <input id="q" type="search" value="${esc(st.q)}" placeholder="Search names, descriptions, tags" autocomplete="off" spellcheck="false" />
+    <div class="presets" role="group" aria-label="Presets">${presets}</div>
+    <section class="facet settings">
+      <h2><label for="sort">Sort by</label></h2>
+      <select id="sort">${options}</select>
+      <div class="sort-row">${order}<label class="check"><input type="checkbox" id="one"${st.one ? " checked" : ""} /> One per repo</label></div>
+    </section>`;
+}
+
+/**
+ * The skills list's page. The left sidebar holds the site's name and links, and every setting:
+ * presets, sort, sliders and tags. The right side holds what the page is for: `intro`, the two
+ * ways to search, and the list.
+ */
+export function listView(st: State, intro = "", head = ""): string {
+  return `
+    <div class="skills-view">
+      <aside id="filters" aria-label="Settings and filters">
+        ${head}
+        <div class="side-body">
+          <div id="settings">${settingsHtml(st)}</div>
+          <div id="ranges">${rangesHtml(st)}</div>
+          <div id="facets">${facetsHtml(st, false)}</div>
         </div>
-        <p class="ask"><button type="button" class="link-button" data-action="ask">Ask an agent</button> Copies a prompt for Claude, ChatGPT or any chat agent: your search as the need, and the skills the other filters leave as the catalog.</p>
-        <div id="ranges">${rangesHtml(st)}</div>
-        <div id="facets">${facetsHtml(st, false)}</div>
       </aside>
-      <section id="results" aria-label="Skills">${resultsHtml(st)}</section>
+      <div class="list-main">
+        ${intro}
+        <div class="search-ctas">
+          <div class="search">
+            <label for="q" class="sr-only">Search skills</label>
+            <input id="q" type="search" value="${esc(st.q)}" placeholder="Search names, descriptions, tags" autocomplete="off" spellcheck="false" />
+          </div>
+          <button type="button" class="ask-button" data-action="ask" aria-describedby="ask-label">Find skill with your agent</button>
+        </div>
+        <p id="ask-label" class="ask-label">Describe what you need in the search box, then copy a prompt for Claude, ChatGPT or any chat agent: your words as the need, and the skills the filters leave as the catalog.</p>
+        <section id="results" aria-label="Skills">${resultsHtml(st)}</section>
+      </div>
     </div>`;
 }
