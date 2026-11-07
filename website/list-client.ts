@@ -112,7 +112,7 @@ function renderScope() {
   lastScope = key;
   (document.getElementById("scope-chips") as HTMLElement).innerHTML = scopeChipsHtml(state);
   (document.getElementById("scope") as HTMLElement).innerHTML = scopeHtml(state);
-  (document.getElementById("ask-label") as HTMLElement).textContent = askLabel(state);
+  if (!askTimer) askLine.textContent = askLabel(state);
   q.placeholder = searchPlaceholder(state);
 }
 
@@ -172,36 +172,44 @@ function render() {
   setTimeout(() => append(FIRST));
 }
 
-const ASK_LABEL = "Find skill with your agent";
+/** The agent's box: what you need, in your own words. */
+const need = document.getElementById("need") as HTMLInputElement;
+const askLine = document.getElementById("ask-label") as HTMLElement;
 let askTimer: ReturnType<typeof setTimeout> | undefined;
-/** Say something on the ask button for a few seconds, then put its label back. */
-function flash(button: HTMLElement, text: string) {
-  const label = button.querySelector(".ask-text") ?? button;
-  label.textContent = text;
+/** Say something under the agent's box for a few seconds, then put its line back. */
+function flash(text: string) {
+  askLine.textContent = text;
   clearTimeout(askTimer);
-  askTimer = setTimeout(() => (label.textContent = ASK_LABEL), 4000);
+  askTimer = setTimeout(() => {
+    askTimer = undefined;
+    askLine.textContent = askLabel(state);
+  }, 5000);
 }
 
 /**
  * Copy the prompt for an agent, and say how big it is: a large catalog can be too much for some
- * agents. The need comes from the search box, so an empty one asks for it first.
+ * agents. The need is what the agent's box holds, or else the search; with neither, it asks.
  */
-function ask(button: HTMLElement) {
-  if (!state.q.trim()) {
-    q.focus();
-    flash(button, "First describe what you need in the search box");
+function ask() {
+  const text = need.value.trim() || state.q.trim();
+  if (!text) {
+    need.focus();
+    flash("First describe what you need, in your own words.");
     return;
   }
-  const prompt = askPrompt(state, new URL(href(), location.origin).href);
+  const prompt = askPrompt({ ...state, q: text }, new URL(href(), location.origin).href);
   navigator.clipboard
     ?.writeText(prompt)
     .then(() =>
       flash(
-        button,
-        `Copied, ~${compact(Math.round(prompt.length / 4))} tokens: paste it into your agent`,
+        `Copied, ~${compact(Math.round(prompt.length / 4))} tokens: paste it into Claude, ChatGPT or any chat agent.`,
       ),
     );
 }
+
+need.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") ask();
+});
 
 q.addEventListener("input", () => go({ q: q.value }));
 
@@ -255,8 +263,9 @@ app.addEventListener("click", (event) => {
     else if (d.remove === "repo") go({ repo: null });
     else if (d.remove === "range") go({ ranges: { ...state.ranges, [v]: fullRange(v as Prop) } });
   } else if (d.action === "clear") go({ tags: [], repo: null, ranges: fullRanges() });
-  else if (d.action === "ask") ask(el);
+  else if (d.action === "ask") ask();
   else if (d.action === "focus-search") q.focus();
+  else if (d.action === "focus-need") need.focus();
   else if (d.action === "order") go({ asc: !state.asc });
   else if (d.action === "stack") {
     stackExpanded = !stackExpanded;

@@ -817,12 +817,12 @@ export function scopeHtml(st: State): string {
   return `Searching <strong>${n.toLocaleString("en")} of ${all.toLocaleString("en")}</strong> ${kinds}<span class="sr-only">, filtered by ${esc(names.join(", "))}</span> <span aria-hidden="true">·</span> <button type="button" class="link-button" data-action="clear">Clear filters</button>`;
 }
 
-/** Under "Find skill with your agent": what it copies. */
+/** Under the agent's box: what Find skill with your agent copies. */
 export function askLabel(st: State): string {
   const n = scopeOf(st);
   const kinds = `${unitOf(st)}${n === 1 ? "" : "s"}`;
   const which = filtersOn(st) ? `these ${n.toLocaleString("en")}` : `all ${n.toLocaleString("en")}`;
-  return `Type your need in the search box, then copy it with ${which} ${kinds} as a prompt for Claude, ChatGPT or any chat agent.`;
+  return `Copies a prompt for Claude, ChatGPT or any chat agent, which picks from ${which} ${kinds}.`;
 }
 
 const rowHtml = (e: Entry, st: State) => (isBundle(e) ? bundleRow(e, st) : skillRow(e, st));
@@ -957,10 +957,14 @@ export function listView(st: State, intro = "", head = ""): string {
             <label for="q" class="sr-only">Search skills</label>
             <input id="q" type="search" value="${esc(st.q)}" placeholder="${esc(searchPlaceholder(st))}" autocomplete="off" spellcheck="false" aria-describedby="scope" />
           </div>
-          <span class="finder-or" aria-hidden="true">or</span>
-          <button type="button" class="ask-button" data-action="ask" aria-describedby="ask-label"><svg class="ask-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2.5l1.6 4.4 4.4 1.6-4.4 1.6L10 14.5l-1.6-4.4L4 8.5l4.4-1.6zM15.5 13l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z" fill="currentColor" /></svg><span class="ask-text">Find skill with your agent</span></button>
+          <div class="agent-field" data-action="focus-need">
+            <svg class="ask-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2.5l1.6 4.4 4.4 1.6-4.4 1.6L10 14.5l-1.6-4.4L4 8.5l4.4-1.6zM15.5 13l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z" fill="currentColor" /></svg>
+            <label for="need" class="sr-only">What you need, for your agent</label>
+            <input id="need" type="text" placeholder="Describe what you need" autocomplete="off" aria-describedby="ask-label" />
+            <button type="button" class="ask-button" data-action="ask">Find skill with your agent</button>
+          </div>
           <p id="scope" class="scope">${scopeHtml(st)}</p>
-          <p id="ask-label" class="ask-label">${askLabel(st)}</p>
+          <p id="ask-label" class="ask-label" aria-live="polite">${askLabel(st)}</p>
         </div>
         <section id="results" aria-label="Skills">${resultsHtml(st)}</section>
       </div>

@@ -314,25 +314,18 @@ code {
  * The search box, with the filters that narrow it as chips inside it, and "Find skill with your
  * agent" beside it; under each, a line about what it looks through.
  */
-/* Two ways to find a skill, side by side with "or" between them, each with its line under it. */
+/*
+ * Two ways to find a skill, side by side and styled apart, each with its line under it: the search,
+ * which filters as you type, and the agent's box, with its own words and button.
+ */
 .finder {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto auto;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
   grid-template-areas:
-    "field or ask"
-    "scope . label";
+    "field agent"
+    "scope label";
   gap: 8px 12px;
   margin-bottom: 20px;
-}
-
-.finder-or {
-  grid-area: or;
-  align-self: center;
-  color: var(--text-3);
-  font-size: 13px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
 }
 
 .search-field {
@@ -396,33 +389,67 @@ code {
   outline: none;
 }
 
-/* An outlined alternative with its own icon, so it doesn't read as the search box's submit button. */
-.ask-button {
-  grid-area: ask;
-  display: inline-flex;
+/* Tinted, with its own icon and button, so it reads as another way than the search. */
+.agent-field {
+  grid-area: agent;
+  display: flex;
   align-items: center;
-  justify-content: center;
   gap: 8px;
   min-height: 48px;
-  padding: 0 18px;
+  padding: 5px 5px 5px 12px;
   border: 1.5px solid var(--accent);
   border-radius: 12px;
-  background: var(--surface);
-  color: var(--accent-text);
-  font-size: 15px;
-  font-weight: 600;
-  white-space: nowrap;
-  cursor: pointer;
+  background: var(--accent-soft);
+  cursor: text;
 }
 
-.ask-button:hover {
-  background: var(--accent-soft);
+.agent-field:focus-within {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 25%, transparent);
 }
 
 .ask-icon {
   flex: none;
   width: 18px;
   height: 18px;
+  color: var(--accent-text);
+}
+
+.agent-field input {
+  flex: 1;
+  min-width: 0;
+  padding: 6px 2px;
+  border: 0;
+  background: none;
+  color: var(--text);
+  font-size: 16px;
+}
+
+.agent-field input::placeholder {
+  color: var(--accent-text);
+  opacity: 0.7;
+}
+
+/* The box shows the focus instead. */
+.agent-field input:focus-visible {
+  outline: none;
+}
+
+.ask-button {
+  flex: none;
+  min-height: 38px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 9px;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.ask-button:hover {
+  filter: brightness(1.1);
 }
 
 .scope {
@@ -1538,6 +1565,22 @@ code {
 
 /* ------------------------------------------------------------- narrow screens */
 
+/* Too narrow for the two boxes side by side: one under the other. */
+@media (max-width: 1250px) {
+  .finder {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "field" "scope" "agent" "label";
+  }
+
+  .agent-field {
+    margin-top: 8px;
+  }
+
+  .ask-label {
+    contain: none;
+  }
+}
+
 @media (max-width: 900px) {
   .skill-list > .skill {
     contain-intrinsic-size: auto 400px;
@@ -1588,28 +1631,19 @@ code {
     padding: 16px 12px 64px;
   }
 
-  .finder {
-    grid-template-columns: minmax(0, 1fr);
-    grid-template-areas: "field" "scope" "or" "ask" "label";
+  /* On a phone, the agent's button goes under its words. */
+  .agent-field {
+    flex-wrap: wrap;
+    padding: 5px 5px 5px 12px;
   }
 
-  /* A divider: a line, "or", a line. */
-  .finder-or {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin: 4px 0 0;
+  .agent-field input {
+    flex-basis: calc(100% - 40px);
   }
 
-  .finder-or::before,
-  .finder-or::after {
-    content: "";
-    flex: 1;
-    border-top: 1px solid var(--border-strong);
-  }
-
-  .ask-label {
-    contain: none;
+  .ask-button {
+    flex: 1 1 100%;
+    min-height: 42px;
   }
 
   .filters-toggle {
