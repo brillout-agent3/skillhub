@@ -132,13 +132,15 @@ const daysBefore = (day: string, n: number) =>
   new Date(Date.parse(`${day}T00:00:00Z`) - n * 86_400_000).toISOString().slice(0, 10);
 
 // A bundle's numbers are its most popular skill's.
-const most = (e: Entry) => (isBundle(e) ? "The most of any of its skills: " : "");
+const most = (e: Entry) => (isBundle(e) ? "The most of any of its skills not dimmed: " : "");
 export const PROPS: Record<Prop, PropInfo> = {
   published: {
     label: "Published",
     of: firstSeenOf,
     title: (e) =>
-      isBundle(e) ? "When skills.sh first saw one of its skills" : "When skills.sh first saw it",
+      isBundle(e)
+        ? "When skills.sh first saw one of its skills not dimmed"
+        : "When skills.sh first saw it",
     // Below and above every date, so that the full range takes them all in.
     stops: ["", ...AGES.map((n) => daysBefore(data.asOf.installs, n)), "~"],
     keys: ["", ...AGES.map((n) => `${n}d`), "~"],
@@ -203,7 +205,7 @@ export type Sort = Prop | "growth" | "match";
 const GROWTH = {
   label: "Weekly Growth",
   title: (e: Entry) =>
-    `${isBundle(e) ? "The most of any of its skills: " : ""}Installs on skills.sh in an average week of the 2 to ${date(data.asOf.installs)}, against an average week of the 4 before. Only for skills with at least ${compact(GROWTH_MIN)} a week, and installs in each of the last ${GROWTH_WEEKS} weeks: a younger skill shows under New.`,
+    `${most(e)}Installs on skills.sh in an average week of the 2 to ${date(data.asOf.installs)}, against an average week of the 4 before. Only for skills with at least ${compact(GROWTH_MIN)} a week, and installs in each of the last ${GROWTH_WEEKS} weeks: a younger skill shows under New.`,
 };
 /** A growth as a percentage with its sign, such as +180% or −12%. */
 const percent = (g: number) =>
@@ -454,19 +456,47 @@ const descending = (a: Value | null, b: Value | null) =>
 /** Compare for an ascending sort, unknown values still last. */
 const ascending = (a: Value | null, b: Value | null) =>
   a === null || b === null ? descending(a, b) : -descending(a, b);
-const order = (sort: Sort, asc: boolean, q: string) => (a: Entry, b: Entry) =>
-  (sort === "match"
-    ? matchScore(b, q) - matchScore(a, q)
-    : sort === "growth"
-      ? (asc ? ascending : descending)(growthOf(a), growthOf(b))
-      : (asc ? ascending : descending)(PROPS[sort].of(a), PROPS[sort].of(b))) ||
-  descending(installsOf(a), installsOf(b)) ||
-  bundleFirst(a, b) ||
-  nameOf(a).localeCompare(nameOf(b));
+/** `numbers` gives the entry whose numbers stand for each one: see `asMatching`. */
+const order =
+  (sort: Sort, asc: boolean, q: string, numbers: (e: Entry) => Entry = (e) => e) =>
+  (a: Entry, b: Entry) =>
+    (sort === "match"
+      ? matchScore(b, q) - matchScore(a, q)
+      : sort === "growth"
+        ? (asc ? ascending : descending)(growthOf(numbers(a)), growthOf(numbers(b)))
+        : (asc ? ascending : descending)(PROPS[sort].of(numbers(a)), PROPS[sort].of(numbers(b)))) ||
+    descending(installsOf(numbers(a)), installsOf(numbers(b))) ||
+    bundleFirst(a, b) ||
+    nameOf(a).localeCompare(nameOf(b));
+
+/**
+ * A bundle's skills that match the filters, which its row leaves undimmed: all of them when
+ * nothing is filtered, or when the bundle matched the search by its own text.
+ */
+function matchingSkills(b: Bundle, st: State): Skill[] {
+  const skills = skillsOf(b);
+  if (!isFiltered(st)) return skills;
+  const hits = skills.filter((s) => passes(s, st));
+  return hits.length ? hits : skills.filter((s) => passes(s, { ...st, q: "" }));
+}
+
+/**
+ * The bundle as only its matching skills, for its numbers and its place in the list: a bundle
+ * with a few new skills, under "Published: last 90 days", shows and sorts by those, not by its
+ * older ones.
+ */
+function asMatching(b: Bundle, st: State): Bundle {
+  const ids = new Set(matchingSkills(b, st).map((s) => s.id));
+  if (!ids.size || ids.size === b.agentReview.skills.length) return b;
+  const skills = b.agentReview.skills.filter(({ id }) => ids.has(id));
+  return { ...b, agentReview: { ...b.agentReview, skills } };
+}
 
 interface Results {
   list: Entry[];
   hidden: Map<string, number>;
+  /** The entry whose numbers stand for a bundle, when only some of its skills match. */
+  numbers: Map<Entry, Entry>;
   total: number;
   bundles: number;
 }
@@ -486,9 +516,12 @@ function compute(st: State): Results {
   const matching = [
     ...data.bundles.filter((b) => bundlePasses(b, st)),
     ...data.skills.filter((s) => ownEntry(s) && passes(s, st)),
-  ].sort(order(st.sort, st.asc, st.q));
+  ];
+  const numbers = new Map<Entry, Entry>();
+  if (isFiltered(st)) for (const e of matching) if (isBundle(e)) numbers.set(e, asMatching(e, st));
+  matching.sort(order(st.sort, st.asc, st.q, (e) => numbers.get(e) ?? e));
   const hidden = new Map<string, number>();
-  const counted = { total: matching.length, bundles: matching.filter(isBundle).length };
+  const counted = { total: matching.length, bundles: matching.filter(isBundle).length, numbers };
   if (!st.one) return { list: matching, hidden, ...counted };
   const list = matching.filter((s) => {
     const key = repoKey(s);
@@ -631,9 +664,10 @@ function skillRow(s: Skill, more: number, st: State): string {
     </li>`;
 }
 
-function bundleRow(b: Bundle, more: number, st: State): string {
+/** `shown` is the bundle whose numbers it shows: see `asMatching`. */
+function bundleRow(b: Bundle, more: number, st: State, shown: Bundle): string {
   // When filtering, the skills that don't match are dimmed.
-  const hits = isFiltered(st) ? skillsOf(b).filter((s) => passes(s, st)) : [];
+  const hits = isFiltered(st) ? matchingSkills(b, st) : [];
   const members = b.agentReview.skills.map(({ id }) => {
     const dim = hits.length && !hits.some((s) => s.id === id);
     return `<a href="${skillHref(id)}"${dim ? ` class="dim"` : ""}>${esc(skillById.get(id)?.name ?? id)}</a>`;
@@ -650,7 +684,7 @@ function bundleRow(b: Bundle, more: number, st: State): string {
       <p class="members">${members.join('<span aria-hidden="true"> · </span>')}</p>
       ${moreLink(b, more, st)}
       </div>
-      ${propsHtml(b, st)}
+      ${propsHtml(shown, st)}
     </li>`;
 }
 
@@ -759,17 +793,19 @@ function activeFilters(st: State): string {
     : "";
 }
 
-const rowHtml = (e: Entry, st: State, hidden: Map<string, number>) => {
+const rowHtml = (e: Entry, st: State, { hidden, numbers }: Results) => {
   const more = hidden.get(repoKey(e)) ?? 0;
-  return isBundle(e) ? bundleRow(e, more, st) : skillRow(e, more, st);
+  return isBundle(e)
+    ? bundleRow(e, more, st, (numbers.get(e) ?? e) as Bundle)
+    : skillRow(e, more, st);
 };
 
 /** The rows from `from` to `to`, to append to the `limit` rows `resultsHtml` rendered. */
 export function rowsHtml(st: State, from: number, to: number): string {
-  const { list, hidden } = results(st);
-  return list
+  const r = results(st);
+  return r.list
     .slice(from, to)
-    .map((e) => rowHtml(e, st, hidden))
+    .map((e) => rowHtml(e, st, r))
     .join("");
 }
 
@@ -778,7 +814,8 @@ export const rowCount = (st: State) => results(st).list.length;
 
 /** The count, the active filters and the list, of only its first `limit` rows if given. */
 export function resultsHtml(st: State, limit = Infinity): string {
-  const { list, hidden, total, bundles } = results(st);
+  const r = results(st);
+  const { list, hidden, total, bundles } = r;
   const all = (allCount ??= compute({ ...fresh(), ranges: fullRanges() }).total);
   const repoNote = st.repo ? repoById.get(st.repo) : undefined;
   return `
@@ -799,7 +836,7 @@ export function resultsHtml(st: State, limit = Infinity): string {
       list.length
         ? `<ol class="skill-list">${list
             .slice(0, limit)
-            .map((e) => rowHtml(e, st, hidden))
+            .map((e) => rowHtml(e, st, r))
             .join("")}</ol>`
         : `<p class="empty">No skill matches these filters.${
             st.q
