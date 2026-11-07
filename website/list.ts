@@ -835,7 +835,6 @@ export function resultsHtml(st: State, limit = Infinity): string {
               .join(", ")}</strong> <span class="muted">match “${esc(st.q)}”</span>`
           : ""
       }</p>
-      <button type="button" class="filters-toggle" data-action="filters" aria-controls="filters">Filters</button>
     </div>
     ${repoNote ? `<p class="repo-banner"><a href="https://github.com/${esc(repoNote.id)}">${esc(repoNote.id)}</a>${repoNote.agentReview.description ? ` · ${esc(repoNote.agentReview.description)}` : ""}</p>` : ""}
     ${
@@ -894,6 +893,7 @@ export function settingsHtml(st: State): string {
         } <span aria-hidden="true">${st.asc ? "↑" : "↓"}</span></button>`;
   return `
     <div class="presets" role="group" aria-label="Presets">${presets}</div>
+    <button type="button" class="filters-toggle" data-action="filters" aria-controls="filters" aria-expanded="false">Filters</button>
     <section class="facet settings">
       <h2><label for="sort">Sort by</label></h2>
       <select id="sort">${options}</select>

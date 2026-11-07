@@ -31,7 +31,8 @@
   --t-bad-ink: #9f1239;
   --t-stack: #ccfbf1;
   --t-stack-ink: #115e59;
-  --t-plain: #f4f4f5;
+  /* Darker than --bg, so a plain tag shows on a page as well as on a white card. */
+  --t-plain: #e9e9ec;
   --t-plain-ink: #3f3f46;
 }
 
@@ -147,6 +148,8 @@ code {
 }
 
 .site-links a {
+  /* Taller, to be easy to tap. */
+  padding: 5px 0;
   color: var(--text-2);
   font-weight: 550;
   text-decoration: none;
@@ -568,6 +571,11 @@ code {
   font-size: 15px;
 }
 
+/* Without a search, the line under the search box gives the count. */
+.toolbar:has(#count:empty) {
+  display: none;
+}
+
 .filters-toggle {
   display: none;
 }
@@ -845,8 +853,8 @@ code {
   border-radius: 8px;
   background: var(--surface-2);
   border: 1px solid var(--border);
-  overflow-x: auto;
-  white-space: nowrap;
+  /* Wrapped, so the whole command shows. */
+  overflow-wrap: anywhere;
 }
 
 .copy {
@@ -879,7 +887,7 @@ code {
 }
 
 .facts dt {
-  width: 96px;
+  width: 124px;
   flex-shrink: 0;
   color: var(--text-3);
 }
@@ -1111,6 +1119,11 @@ code {
   font-weight: 550;
   text-align: left;
   white-space: nowrap;
+}
+
+/* A long tag breaks, so the table fits a phone. */
+.tag-table td:first-child {
+  overflow-wrap: anywhere;
 }
 
 .tag-table td,
@@ -1521,11 +1534,15 @@ code {
   }
 
   .filters-toggle {
-    display: inline-block;
-    padding: 5px 12px;
+    display: block;
+    width: 100%;
+    margin-top: 8px;
+    padding: 7px 12px;
     border: 1px solid var(--border-strong);
     border-radius: 8px;
     background: var(--surface);
+    color: var(--text);
+    font-weight: 600;
     cursor: pointer;
   }
 

@@ -36,9 +36,15 @@ let state = parse(location.search);
 let stackExpanded = false;
 let tagQuery = tagQ.value.trim();
 
+/** Whether the next render should bring the top of the list into view: see `go`. */
+let toTop = false;
+
 function go(patch: Partial<State>) {
   state = patched(state, patch);
   history.replaceState(null, "", query(state) || location.pathname);
+  // A new order or new filters start the list over, except while typing a search, which happens
+  // at the top anyway.
+  if (Object.keys(patch).some((k) => k !== "q")) toTop = true;
   renderSoon();
 }
 
@@ -126,15 +132,29 @@ function renderFacets() {
   );
 }
 
+/** On narrow screens, the presets stay in view and the Filters button opens the rest. */
+let filtersShown = false;
+function syncFiltersToggle() {
+  document.getElementById("filters")?.classList.toggle("shown", filtersShown);
+  const button = app.querySelector(".filters-toggle");
+  button?.setAttribute("aria-expanded", String(filtersShown));
+  if (button) button.textContent = filtersShown ? "Hide filters" : "Filters";
+}
+
 function render() {
   const focus = focusSelector();
   if (q.value !== state.q) q.value = state.q;
   syncRanges();
   (document.getElementById("settings") as HTMLElement).innerHTML = settingsHtml(state);
+  syncFiltersToggle();
   renderFacets();
   renderScope();
   const results = document.getElementById("results") as HTMLElement;
+  // From deep in the list, a preset, sort or filter would leave you amid the new list's middle.
+  const scrolledPast = toTop && results.getBoundingClientRect().top < 0;
+  toTop = false;
   results.innerHTML = resultsHtml(state, FIRST);
+  if (scrolledPast) results.scrollIntoView({ block: "start" });
   if (focus) (document.querySelector(focus) as HTMLElement | null)?.focus({ preventScroll: true });
   const st = state;
   const id = ++renders;
@@ -148,14 +168,34 @@ function render() {
   setTimeout(() => append(FIRST));
 }
 
-/** Copy the prompt for an agent, and say how big it is: a large catalog can be too much for some agents. */
+const ASK_LABEL = "Find skill with your agent";
+let askTimer: ReturnType<typeof setTimeout> | undefined;
+/** Say something on the ask button for a few seconds, then put its label back. */
+function flash(button: HTMLElement, text: string) {
+  button.textContent = text;
+  clearTimeout(askTimer);
+  askTimer = setTimeout(() => (button.textContent = ASK_LABEL), 4000);
+}
+
+/**
+ * Copy the prompt for an agent, and say how big it is: a large catalog can be too much for some
+ * agents. The need comes from the search box, so an empty one asks for it first.
+ */
 function ask(button: HTMLElement) {
+  if (!state.q.trim()) {
+    q.focus();
+    flash(button, "First describe what you need in the search box");
+    return;
+  }
   const prompt = askPrompt(state, new URL(href(), location.origin).href);
-  navigator.clipboard?.writeText(prompt).then(() => {
-    const label = button.textContent;
-    button.textContent = `Copied, ~${compact(Math.round(prompt.length / 4))} tokens: paste it into your agent`;
-    setTimeout(() => (button.textContent = label), 4000);
-  });
+  navigator.clipboard
+    ?.writeText(prompt)
+    .then(() =>
+      flash(
+        button,
+        `Copied, ~${compact(Math.round(prompt.length / 4))} tokens: paste it into your agent`,
+      ),
+    );
 }
 
 q.addEventListener("input", () => go({ q: q.value }));
@@ -208,7 +248,10 @@ app.addEventListener("click", (event) => {
   else if (d.action === "stack") {
     stackExpanded = !stackExpanded;
     renderSoon();
-  } else if (d.action === "filters") document.getElementById("filters")?.classList.toggle("shown");
+  } else if (d.action === "filters") {
+    filtersShown = !filtersShown;
+    syncFiltersToggle();
+  }
 });
 
 app.addEventListener("change", (event) => {
