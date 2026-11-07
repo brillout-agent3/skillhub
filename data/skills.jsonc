@@ -26,6 +26,7 @@
             "skill-tools",
             "design",
             "browser",
+            "computer-use",
             "security",
             "output-style"
           ]
@@ -86,6 +87,11 @@
           "description": "Drive browsers, scrape pages and search the web."
         },
         {
+          "id": "computer-use",
+          "label": "Computer use",
+          "description": "Drive desktop apps, phones and simulators: tap, type, read the screen and test native apps."
+        },
+        {
           "id": "media",
           "label": "Media",
           "description": "Generate and edit video, images and audio."
@@ -94,6 +100,11 @@
           "id": "games",
           "label": "Games",
           "description": "Make games: design, genres, game feel and game-jam workflows, whatever the engine."
+        },
+        {
+          "id": "hardware",
+          "label": "Hardware",
+          "description": "Build physical things: CAD models, 3D printing, fabrication files, robots and embedded systems."
         },
         {
           "id": "documents",
@@ -26892,6 +26903,7 @@
         },
         "tags": [
           "category:security",
+          "category:networking",
           "type:workflow",
           "effect:remote",
           "needs:cli",
@@ -40415,7 +40427,7 @@
           "permalink": "https://github.com/paramchoudhary/resumeskills/tree/74ae19e7c62b0516d1c298328e5544976c12da5d/skills/resume-ats-optimizer"
         },
         "tags": [
-          "category:personal",
+          "category:careers",
           "type:workflow",
           "effect:none",
           "needs:none",
@@ -40463,8 +40475,8 @@
           "permalink": "https://github.com/paramchoudhary/resumeskills/tree/74ae19e7c62b0516d1c298328e5544976c12da5d/skills/resume-bullet-writer"
         },
         "tags": [
-          "category:personal",
           "category:writing",
+          "category:careers",
           "type:workflow",
           "effect:none",
           "needs:none",
@@ -40513,8 +40525,8 @@
           "permalink": "https://github.com/paramchoudhary/resumeskills/tree/74ae19e7c62b0516d1c298328e5544976c12da5d/skills/linkedin-profile-optimizer"
         },
         "tags": [
-          "category:personal",
           "category:writing",
+          "category:careers",
           "type:guidelines",
           "effect:none",
           "needs:none",
@@ -40565,7 +40577,7 @@
           "permalink": "https://github.com/paramchoudhary/resumeskills/tree/74ae19e7c62b0516d1c298328e5544976c12da5d/skills/job-description-analyzer"
         },
         "tags": [
-          "category:personal",
+          "category:careers",
           "type:workflow",
           "effect:none",
           "needs:none",
@@ -40617,8 +40629,8 @@
           "permalink": "https://github.com/paramchoudhary/resumeskills/tree/74ae19e7c62b0516d1c298328e5544976c12da5d/skills/resume-tailor"
         },
         "tags": [
-          "category:personal",
           "category:writing",
+          "category:careers",
           "type:workflow",
           "effect:none",
           "needs:none",
@@ -40667,8 +40679,8 @@
           "permalink": "https://github.com/paramchoudhary/resumeskills/tree/74ae19e7c62b0516d1c298328e5544976c12da5d/skills/tech-resume-optimizer"
         },
         "tags": [
-          "category:personal",
           "category:writing",
+          "category:careers",
           "type:guidelines",
           "effect:none",
           "needs:none",
@@ -40717,7 +40729,7 @@
           "permalink": "https://github.com/paramchoudhary/resumeskills/tree/74ae19e7c62b0516d1c298328e5544976c12da5d/skills/resume-formatter"
         },
         "tags": [
-          "category:personal",
+          "category:careers",
           "type:guidelines",
           "effect:none",
           "needs:none",
@@ -40766,7 +40778,7 @@
           "permalink": "https://github.com/paramchoudhary/resumeskills/tree/74ae19e7c62b0516d1c298328e5544976c12da5d/skills/interview-prep-generator"
         },
         "tags": [
-          "category:personal",
+          "category:careers",
           "type:workflow",
           "effect:none",
           "needs:none",
@@ -40814,8 +40826,8 @@
           "permalink": "https://github.com/paramchoudhary/resumeskills/tree/74ae19e7c62b0516d1c298328e5544976c12da5d/skills/cover-letter-generator"
         },
         "tags": [
-          "category:personal",
           "category:writing",
+          "category:careers",
           "type:guidelines",
           "effect:none",
           "needs:none",
@@ -40864,8 +40876,8 @@
           "permalink": "https://github.com/paramchoudhary/resumeskills/tree/74ae19e7c62b0516d1c298328e5544976c12da5d/skills/resume-quantifier"
         },
         "tags": [
-          "category:personal",
           "category:writing",
+          "category:careers",
           "type:guidelines",
           "effect:none",
           "needs:none",
@@ -40914,8 +40926,8 @@
           "permalink": "https://github.com/paramchoudhary/resumeskills/tree/74ae19e7c62b0516d1c298328e5544976c12da5d/skills/portfolio-case-study-writer"
         },
         "tags": [
-          "category:personal",
           "category:writing",
+          "category:careers",
           "type:guidelines",
           "effect:none",
           "needs:none",
@@ -40964,8 +40976,8 @@
           "permalink": "https://github.com/paramchoudhary/resumeskills/tree/74ae19e7c62b0516d1c298328e5544976c12da5d/skills/resume-section-builder"
         },
         "tags": [
-          "category:personal",
           "category:writing",
+          "category:careers",
           "type:guidelines",
           "effect:none",
           "needs:none",
@@ -41014,8 +41026,8 @@
           "permalink": "https://github.com/paramchoudhary/resumeskills/tree/74ae19e7c62b0516d1c298328e5544976c12da5d/skills/academic-cv-builder"
         },
         "tags": [
-          "category:personal",
           "category:writing",
+          "category:careers",
           "type:guidelines",
           "effect:none",
           "needs:none",
@@ -41064,7 +41076,7 @@
           "permalink": "https://github.com/paramchoudhary/resumeskills/tree/74ae19e7c62b0516d1c298328e5544976c12da5d/skills/creative-portfolio-resume"
         },
         "tags": [
-          "category:personal",
+          "category:careers",
           "type:guidelines",
           "effect:none",
           "needs:none",
@@ -41114,7 +41126,7 @@
           "permalink": "https://github.com/paramchoudhary/resumeskills/tree/74ae19e7c62b0516d1c298328e5544976c12da5d/skills/salary-negotiation-prep"
         },
         "tags": [
-          "category:personal",
+          "category:careers",
           "type:workflow",
           "effect:none",
           "needs:none",
@@ -41164,7 +41176,7 @@
           "permalink": "https://github.com/paramchoudhary/resumeskills/tree/74ae19e7c62b0516d1c298328e5544976c12da5d/skills/resume-version-manager"
         },
         "tags": [
-          "category:personal",
+          "category:careers",
           "type:workflow",
           "effect:none",
           "needs:none",
@@ -41213,8 +41225,8 @@
           "permalink": "https://github.com/paramchoudhary/resumeskills/tree/74ae19e7c62b0516d1c298328e5544976c12da5d/skills/career-changer-translator"
         },
         "tags": [
-          "category:personal",
           "category:writing",
+          "category:careers",
           "type:guidelines",
           "effect:none",
           "needs:none",
@@ -41263,8 +41275,8 @@
           "permalink": "https://github.com/paramchoudhary/resumeskills/tree/74ae19e7c62b0516d1c298328e5544976c12da5d/skills/executive-resume-writer"
         },
         "tags": [
-          "category:personal",
           "category:writing",
+          "category:careers",
           "type:guidelines",
           "effect:none",
           "needs:none",
@@ -41313,7 +41325,7 @@
           "permalink": "https://github.com/paramchoudhary/resumeskills/tree/74ae19e7c62b0516d1c298328e5544976c12da5d/skills/offer-comparison-analyzer"
         },
         "tags": [
-          "category:personal",
+          "category:careers",
           "type:workflow",
           "effect:none",
           "needs:none",
@@ -41362,7 +41374,7 @@
           "permalink": "https://github.com/paramchoudhary/resumeskills/tree/74ae19e7c62b0516d1c298328e5544976c12da5d/skills/reference-list-builder"
         },
         "tags": [
-          "category:personal",
+          "category:careers",
           "type:workflow",
           "effect:none",
           "needs:none",
@@ -41415,8 +41427,8 @@
           "permalink": "https://github.com/paramchoudhary/resumeskills/tree/74ae19e7c62b0516d1c298328e5544976c12da5d/skills/application-form-filler"
         },
         "tags": [
-          "category:personal",
           "category:writing",
+          "category:careers",
           "type:guidelines",
           "effect:none",
           "needs:none",
@@ -41465,8 +41477,8 @@
           "permalink": "https://github.com/paramchoudhary/resumeskills/tree/74ae19e7c62b0516d1c298328e5544976c12da5d/skills/cold-email-writer"
         },
         "tags": [
-          "category:personal",
           "category:writing",
+          "category:careers",
           "type:guidelines",
           "effect:none",
           "needs:none",
@@ -42919,6 +42931,7 @@
         },
         "tags": [
           "category:cloud",
+          "category:networking",
           "type:guidelines",
           "effect:none",
           "needs:none",
@@ -45154,8 +45167,8 @@
           "permalink": "https://github.com/ComposioHQ/awesome-claude-skills/tree/be2a406907dbc61b73e6827ded415c96139d13a2/tailored-resume-generator"
         },
         "tags": [
-          "category:personal",
           "category:writing",
+          "category:careers",
           "type:workflow",
           "effect:none",
           "needs:none",
@@ -60224,7 +60237,7 @@
           "permalink": "https://github.com/affaan-m/ecc/tree/d2ef2680594f9a17526a6e1a2e18b3d242c5d17b/skills/homelab-network-setup"
         },
         "tags": [
-          "category:personal",
+          "category:networking",
           "type:guidelines",
           "effect:none",
           "needs:none",
@@ -61934,6 +61947,7 @@
         },
         "tags": [
           "category:debugging",
+          "category:networking",
           "type:workflow",
           "effect:none",
           "needs:none",
@@ -61986,8 +62000,7 @@
           "permalink": "https://github.com/affaan-m/ecc/tree/d2ef2680594f9a17526a6e1a2e18b3d242c5d17b/skills/homelab-network-readiness"
         },
         "tags": [
-          "category:security",
-          "category:personal",
+          "category:networking",
           "type:workflow",
           "effect:none",
           "needs:none",
@@ -62040,8 +62053,8 @@
           "permalink": "https://github.com/affaan-m/ecc/tree/d2ef2680594f9a17526a6e1a2e18b3d242c5d17b/skills/network-config-validation"
         },
         "tags": [
-          "category:security",
           "category:debugging",
+          "category:networking",
           "type:workflow",
           "effect:none",
           "needs:none",
@@ -62095,6 +62108,7 @@
         },
         "tags": [
           "category:debugging",
+          "category:networking",
           "type:workflow",
           "effect:none",
           "needs:none",
@@ -62144,7 +62158,7 @@
         },
         "tags": [
           "category:security",
-          "category:personal",
+          "category:networking",
           "type:guidelines",
           "effect:none",
           "needs:none",
@@ -64806,6 +64820,7 @@
         "tags": [
           "category:engineering",
           "category:debugging",
+          "category:networking",
           "type:guidelines",
           "effect:none",
           "needs:none",
@@ -65832,8 +65847,8 @@
           "permalink": "https://github.com/claude-office-skills/skills/tree/9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11/resume-tailor"
         },
         "tags": [
-          "category:personal",
           "category:writing",
+          "category:careers",
           "type:guidelines",
           "effect:none",
           "needs:none",
@@ -66271,8 +66286,8 @@
           "permalink": "https://github.com/claude-office-skills/skills/tree/9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11/cover-letter"
         },
         "tags": [
-          "category:personal",
           "category:writing",
+          "category:careers",
           "type:guidelines",
           "effect:none",
           "needs:none",
