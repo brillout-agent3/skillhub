@@ -13,6 +13,8 @@ import {
   sinceRange,
   query,
   resultsHtml,
+  scopeHtml,
+  searchPlaceholder,
   rowCount,
   rowsHtml,
   settingsHtml,
@@ -63,7 +65,7 @@ function focusSelector(): string | null {
   for (const attr of ["data-tag", "data-action", "data-remove", "data-preset", "data-show"]) {
     const v = el.getAttribute(attr);
     if (v !== null)
-      return `#${el.closest("#facets") ? "facets" : el.closest("#settings") ? "settings" : "results"} [${attr}="${CSS.escape(v)}"]`;
+      return `#${["facets", "settings", "scope"].find((id) => el.closest(`#${id}`)) ?? "results"} [${attr}="${CSS.escape(v)}"]`;
   }
   return el.id ? `#${CSS.escape(el.id)}` : null;
 }
@@ -93,6 +95,16 @@ const STEP = 150;
 let renders = 0;
 /** What the facets were last rendered for: the pre-rendered page's are for no filters. */
 let lastFacets = "";
+/** What the scope line and the search box's placeholder were last rendered for, since they don't depend on the search; "" for the pre-rendered page's. */
+let lastScope = "";
+
+function renderScope() {
+  const key = JSON.stringify([state.tags, state.repo, state.ranges, state.show]);
+  if (key === lastScope) return;
+  lastScope = key;
+  (document.getElementById("scope") as HTMLElement).innerHTML = scopeHtml(state);
+  q.placeholder = searchPlaceholder(state);
+}
 
 /** The facets don't depend on the sort, so a preset leaves them as they are. */
 function renderFacets() {
@@ -120,6 +132,7 @@ function render() {
   syncRanges();
   (document.getElementById("settings") as HTMLElement).innerHTML = settingsHtml(state);
   renderFacets();
+  renderScope();
   const results = document.getElementById("results") as HTMLElement;
   results.innerHTML = resultsHtml(state, FIRST);
   if (focus) (document.querySelector(focus) as HTMLElement | null)?.focus({ preventScroll: true });
@@ -186,17 +199,10 @@ app.addEventListener("click", (event) => {
     go({ tags: toggleTag(state.tags, d.tag) });
   } else if (d.remove) {
     const v = d.value ?? "";
-    if (d.remove === "q") go({ q: "" });
-    else if (d.remove === "tag") go({ tags: state.tags.filter((t) => t !== v) });
+    if (d.remove === "tag") go({ tags: state.tags.filter((t) => t !== v) });
     else if (d.remove === "repo") go({ repo: null });
     else if (d.remove === "range") go({ ranges: { ...state.ranges, [v]: fullRange(v as Prop) } });
-  } else if (d.action === "clear")
-    go({
-      q: "",
-      tags: [],
-      repo: null,
-      ranges: fullRanges(),
-    });
+  } else if (d.action === "clear") go({ tags: [], repo: null, ranges: fullRanges() });
   else if (d.action === "ask") ask(el);
   else if (d.action === "order") go({ asc: !state.asc });
   else if (d.action === "stack") {

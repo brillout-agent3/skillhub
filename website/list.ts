@@ -211,10 +211,10 @@ export const sinceRange = (since: Age | null): Range =>
     ? [PROPS.published.keys?.indexOf(`${since}d`) ?? 0, lastStop("published")]
     : fullRange("published");
 /**
- * The default view is Rising & new, but a search looks through every skill: typing one lifts the
- * Published filter, and clearing it puts it back, unless it was changed (see `patched`).
+ * The default view is Rising & new. Like any filter, its Published range narrows what the search
+ * and the agent prompt look through; `scopeHtml` says so under the search box.
  */
-const defaultPublished = (q: string): Range => sinceRange(q ? null : DEFAULT_SINCE);
+const defaultPublished = (): Range => sinceRange(DEFAULT_SINCE);
 const sameRange = (a: Range, b: Range) => a[0] === b[0] && a[1] === b[1];
 export interface State {
   q: string;
@@ -243,7 +243,7 @@ export function parse(search: string): State {
   const sort = p.get("sort") as Sort | null;
   const q = p.get("q") ?? "";
   const ranges = fullRanges();
-  ranges.published = defaultPublished(q);
+  ranges.published = defaultPublished();
   for (const prop of PROP_IDS) {
     // Such as stars=1000..50000, published=30d.. with no upper bound, or published=.. for any.
     const param = p.get(prop);
@@ -278,7 +278,7 @@ export function query(s: State): string {
   if (s.asc) p.set("order", "asc");
   for (const prop of PROP_IDS) {
     const [lo, hi] = s.ranges[prop];
-    if (!sameRange([lo, hi], prop === "published" ? defaultPublished(s.q) : fullRange(prop)))
+    if (!sameRange([lo, hi], prop === "published" ? defaultPublished() : fullRange(prop)))
       p.set(
         prop,
         `${lo > 0 ? stopKey(prop, lo) : ""}..${hi < lastStop(prop) ? stopKey(prop, hi) : ""}`,
@@ -291,15 +291,13 @@ export function query(s: State): string {
 /** The default view: Rising & new. */
 export const fresh = (): State => parse("");
 /**
- * `prev` with `patch` applied. The sort and the Published range, while at their default, follow
- * the default for the new search: best match and any date while there is one.
+ * `prev` with `patch` applied. The sort, while at its default, follows the default for the new
+ * search: best match while there is one.
  */
 export function patched(prev: State, patch: Partial<State>): State {
   const next = { ...prev, ...patch };
   if (!("sort" in patch) && prev.sort === defaultSort(prev.q)) next.sort = defaultSort(next.q);
   if (next.sort === "match" && !next.q) next.sort = defaultSort("");
-  if (!("ranges" in patch) && sameRange(prev.ranges.published, defaultPublished(prev.q)))
-    next.ranges = { ...next.ranges, published: defaultPublished(next.q) };
   return next;
 }
 /**
@@ -502,9 +500,6 @@ function results(st: State): Results {
   if (last?.st !== st) last = { st, r: compute(st) };
   return last.r;
 }
-
-/** How many entries there are without any filter, for "of N", for each of `Show`. */
-const allCounts = new Map<Show, number>();
 
 /** The filtered, sorted list. With bundles, a skill that only works inside its bundle is only listed in it. */
 function compute(st: State): Results {
@@ -759,19 +754,57 @@ export function facetsHtml(st: State, stackExpanded: boolean, tagQ = ""): string
   return tagQ && !html ? `<p class="muted tag-none">No tag matches “${esc(tagQ)}”.</p>` : html;
 }
 
-function activeFilters(st: State): string {
+/** Whether filters narrow the list: the search and the agent prompt then look through what they leave. */
+const filtersOn = (st: State) =>
+  Boolean(st.tags.length || st.repo) || PROP_IDS.some((p) => isNarrowed(p, st.ranges[p]));
+
+/** How many entries there are without any filter, for each of `Show`. */
+const allCounts = new Map<Show, number>();
+const allOf = (show: Show) => {
+  if (!allCounts.has(show))
+    allCounts.set(show, compute({ ...fresh(), ranges: fullRanges(), show }).total);
+  return allCounts.get(show) as number;
+};
+
+/** What the list holds, for the scope line and the search box. */
+const KINDS: Record<Show, [one: string, many: string]> = {
+  all: ["skill or bundle", "skills and bundles"],
+  skills: ["skill", "skills"],
+  bundles: ["bundle", "bundles"],
+};
+
+/** The search's scope, for one state at a time: what the filters leave, the search left out. */
+let lastScope: { st: State; n: number } | undefined;
+const scopeOf = (st: State) => {
+  if (lastScope?.st !== st) lastScope = { st, n: compute({ ...st, q: "" }).total };
+  return lastScope.n;
+};
+
+/** The search box's placeholder: how many entries it looks through. */
+export const searchPlaceholder = (st: State) => {
+  const n = scopeOf(st);
+  return `Search ${n.toLocaleString("en")} ${KINDS[st.show][n === 1 ? 0 : 1]}`;
+};
+
+/**
+ * Under the search box: what it and "Find skill with your agent" look through, which is what the
+ * filters leave, with the filters as chips to remove.
+ */
+export function scopeHtml(st: State): string {
+  const n = scopeOf(st);
+  const all = allOf(st.show);
+  const kinds = KINDS[st.show][all === 1 ? 0 : 1];
+  if (!filtersOn(st))
+    return `<p class="scope">Searching all <strong>${all.toLocaleString("en")}</strong> ${kinds}.</p>`;
   const chips: string[] = [];
   const remove = (kind: string, value: string, label: string) =>
     `<button type="button" class="active-chip" data-remove="${kind}" data-value="${esc(value)}" aria-label="Remove filter ${esc(label)}">${esc(label)} <span aria-hidden="true">×</span></button>`;
-  if (st.q) chips.push(remove("q", st.q, `“${st.q}”`));
   for (const t of st.tags) chips.push(remove("tag", t, t));
   if (st.repo) chips.push(remove("repo", st.repo, `from ${st.repo}`));
   for (const p of PROP_IDS)
     if (isNarrowed(p, st.ranges[p]))
       chips.push(remove("range", p, `${PROPS[p].label}: ${rangeLabel(p, st.ranges[p])}`));
-  return chips.length
-    ? `<div class="active">${chips.join("")}<button type="button" class="link-button" data-action="clear">Clear all</button></div>`
-    : "";
+  return `<div class="scope filtered"><span>Searching <strong>${n.toLocaleString("en")} of ${all.toLocaleString("en")}</strong> ${kinds}, filtered by</span> ${chips.join(" ")} <button type="button" class="link-button" data-action="clear">Clear filters</button></div>`;
 }
 
 const rowHtml = (e: Entry, st: State) => (isBundle(e) ? bundleRow(e, st) : skillRow(e, st));
@@ -790,9 +823,6 @@ export const rowCount = (st: State) => results(st).list.length;
 /** The count, the active filters and the list, of only its first `limit` rows if given. */
 export function resultsHtml(st: State, limit = Infinity): string {
   const { list, total, bundles } = results(st);
-  if (!allCounts.has(st.show))
-    allCounts.set(st.show, compute({ ...fresh(), ranges: fullRanges(), show: st.show }).total);
-  const all = allCounts.get(st.show);
   const repoNote = st.repo ? repoById.get(st.repo) : undefined;
   return `
     <div class="toolbar">
@@ -801,12 +831,9 @@ export function resultsHtml(st: State, limit = Infinity): string {
         bundles ? plural(bundles, "bundle") : "",
       ]
         .filter(Boolean)
-        .join(
-          ", ",
-        )}</strong>${isFiltered(st) ? ` <span class="muted">of ${all?.toLocaleString("en")}</span>` : ""}</p>
+        .join(", ")}</strong>${st.q ? ` <span class="muted">match “${esc(st.q)}”</span>` : ""}</p>
       <button type="button" class="filters-toggle" data-action="filters" aria-controls="filters">Filters</button>
     </div>
-    ${activeFilters(st)}
     ${repoNote ? `<p class="repo-banner"><a href="https://github.com/${esc(repoNote.id)}">${esc(repoNote.id)}</a>${repoNote.agentReview.description ? ` · ${esc(repoNote.agentReview.description)}` : ""}</p>` : ""}
     ${
       list.length
@@ -814,7 +841,7 @@ export function resultsHtml(st: State, limit = Infinity): string {
             .slice(0, limit)
             .map((e) => rowHtml(e, st))
             .join("")}</ol>`
-        : `<p class="empty">No skill matches these filters.${
+        : `<p class="empty">No ${KINDS[st.show][0]} matches${st.q ? ` “${esc(st.q)}”` : ""}${filtersOn(st) ? ` among the ${scopeOf(st).toLocaleString("en")} the filters leave. <button type="button" class="link-button" data-action="clear">Clear filters</button>` : "."}${
             st.q
               ? `<br />Describing a need in your own words? <button type="button" class="link-button" data-action="ask">Find skill with your agent</button>`
               : ""
@@ -903,11 +930,12 @@ export function listView(st: State, intro = "", head = ""): string {
         <div class="search-ctas">
           <div class="search">
             <label for="q" class="sr-only">Search skills</label>
-            <input id="q" type="search" value="${esc(st.q)}" placeholder="Search names, descriptions, tags" autocomplete="off" spellcheck="false" />
+            <input id="q" type="search" value="${esc(st.q)}" placeholder="${esc(searchPlaceholder(st))}" autocomplete="off" spellcheck="false" aria-describedby="scope" />
           </div>
           <button type="button" class="ask-button" data-action="ask" aria-describedby="ask-label">Find skill with your agent</button>
         </div>
-        <p id="ask-label" class="ask-label">Describe what you need in the search box, then copy a prompt for Claude, ChatGPT or any chat agent: your words as the need, and the skills the filters leave as the catalog.</p>
+        <div id="scope">${scopeHtml(st)}</div>
+        <p id="ask-label" class="ask-label">Describe what you need in the search box, then copy a prompt for Claude, ChatGPT or any chat agent: your words as the need, and the skills you're searching as the catalog.</p>
         <section id="results" aria-label="Skills">${resultsHtml(st)}</section>
       </div>
     </div>`;

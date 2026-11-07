@@ -343,6 +343,21 @@ code {
   filter: brightness(1.1);
 }
 
+/* What the search and the agent prompt look through, with the filters that narrow it. */
+.scope {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin: 10px 0 0;
+  color: var(--text-2);
+  font-size: 14px;
+}
+
+.scope strong {
+  color: var(--text);
+}
+
 .ask-label {
   margin: 8px 0 18px;
   color: var(--text-3);
