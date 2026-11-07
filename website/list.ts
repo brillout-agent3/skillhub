@@ -55,11 +55,11 @@ const quiet = (tag: string) => tag === "by:community" || facetOf(tag) === "categ
 
 /**
  * Buttons that only set the list's settings, highest first, each named after what it shows, which
- * the sidebar spells out: Rising & new, the default view, by weekly downloads among the skills
- * published in the last DEFAULT_SINCE days (a skill that young has no growth yet, see growthOf);
- * Top by weekly downloads; Rising by how fast the weekly downloads grow; New by publishing date.
+ * the sidebar spells out: Rising, the default view, by how fast the weekly downloads grow; Rising &
+ * new by weekly downloads among the skills published in the last NEW_SINCE days (a skill that young
+ * has no growth yet, see growthOf); Top by weekly downloads; New by publishing date.
  */
-export type Preset = "rising-new" | "top" | "rising" | "new";
+export type Preset = "rising" | "rising-new" | "top" | "new";
 interface PresetInfo {
   label: string;
   sort: Sort;
@@ -67,22 +67,22 @@ interface PresetInfo {
   since: Age | null;
   title: string;
 }
-/** How recent the default view's skills are, in days. */
-const DEFAULT_SINCE = 90;
+/** How recent Rising & new's skills are, in days. */
+const NEW_SINCE = 90;
 export const PRESETS: Record<Preset, PresetInfo> = {
-  "rising-new": {
-    label: "Rising & new",
-    sort: "week",
-    since: DEFAULT_SINCE,
-    title: `The most downloaded this week of those published in the last ${DEFAULT_SINCE} days`,
-  },
-  top: { label: "Top", sort: "week", since: null, title: "Most downloaded this week" },
   rising: {
     label: "Rising",
     sort: "growth",
     since: null,
     title: "Downloads growing the fastest",
   },
+  "rising-new": {
+    label: "Rising & new",
+    sort: "week",
+    since: NEW_SINCE,
+    title: `The most downloaded this week of those published in the last ${NEW_SINCE} days`,
+  },
+  top: { label: "Top", sort: "week", since: null, title: "Most downloaded this week" },
   new: {
     label: "New",
     sort: "published",
@@ -209,18 +209,13 @@ const GROWTH = {
 /** A growth as a percentage with its sign, such as +180% or −12%. */
 const percent = (g: number) =>
   `${g > 0 ? "+" : g < 0 ? "−" : ""}${Math.round(Math.abs(g) * 100).toLocaleString("en")}%`;
-/** A search sorts by best match unless another sort is picked; otherwise the list sorts by weekly downloads. */
-export const defaultSort = (q: string): Sort => (q ? "match" : "week");
+/** A search sorts by best match unless another sort is picked; otherwise the list is Rising, by growth. */
+export const defaultSort = (q: string): Sort => (q ? "match" : "growth");
 /** The Published range for the last `since` days, or any date. */
 export const sinceRange = (since: Age | null): Range =>
   since
     ? [PROPS.published.keys?.indexOf(`${since}d`) ?? 0, lastStop("published")]
     : fullRange("published");
-/**
- * The default view is Rising & new. Like any filter, its Published range narrows what the search
- * and the agent prompt look through; `scopeHtml` says so under the search box.
- */
-const defaultPublished = (): Range => sinceRange(DEFAULT_SINCE);
 const sameRange = (a: Range, b: Range) => a[0] === b[0] && a[1] === b[1];
 export interface State {
   q: string;
@@ -249,7 +244,6 @@ export function parse(search: string): State {
   const sort = p.get("sort") as Sort | null;
   const q = p.get("q") ?? "";
   const ranges = fullRanges();
-  ranges.published = defaultPublished();
   for (const prop of PROP_IDS) {
     // Such as stars=1000..50000, published=30d.. with no upper bound, or published=.. for any.
     const param = p.get(prop);
@@ -284,7 +278,7 @@ export function query(s: State): string {
   if (s.asc) p.set("order", "asc");
   for (const prop of PROP_IDS) {
     const [lo, hi] = s.ranges[prop];
-    if (!sameRange([lo, hi], prop === "published" ? defaultPublished() : fullRange(prop)))
+    if (isNarrowed(prop, [lo, hi]))
       p.set(
         prop,
         `${lo > 0 ? stopKey(prop, lo) : ""}..${hi < lastStop(prop) ? stopKey(prop, hi) : ""}`,
@@ -294,7 +288,7 @@ export function query(s: State): string {
   const q = p.toString();
   return q ? `?${q}` : "";
 }
-/** The default view: Rising & new. */
+/** The default view: Rising. */
 export const fresh = (): State => parse("");
 /**
  * `prev` with `patch` applied. The sort, while at its default, follows the default for the new
@@ -317,9 +311,8 @@ export function toggleTag(tags: string[], tag: string): string[] {
   return [...tags.filter((t) => !related.includes(t)), tag];
 }
 
-/** A link to the skills list filtered to the given state changes, of skills published any time. */
-export const skillsLink = (patch: Partial<State>) =>
-  href() + query({ ...fresh(), ranges: fullRanges(), ...patch });
+/** A link to the skills list filtered to the given state changes. */
+export const skillsLink = (patch: Partial<State>) => href() + query({ ...fresh(), ...patch });
 
 // ------------------------------------------------------------------- filtering
 
