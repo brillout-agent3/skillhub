@@ -3111,6 +3111,65 @@
         "kind": "project",
         "description": "A Ralph Wiggum loop implementation: a long-running agent loop that works through a task list until it's done."
       }
+    },
+    {
+      "id": "gitroomhq/postiz-agent",
+      "stars": 565,
+      "agentReview": {
+        "kind": "project",
+        "description": "Social media automation CLI for AI agents: schedule posts across 28+ platforms, with plugins for Claude Code, Cursor, Gemini CLI and other agents."
+      }
+    },
+    {
+      "id": "softaworks/agent-toolkit",
+      "stars": 2638,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Opinionated skills for daily work with Claude Code, across development, documentation, planning and professional workflows."
+      }
+    },
+    {
+      "id": "oso95/scroll-world",
+      "stars": 10838,
+      "agentReview": {
+        "kind": "skills",
+        "description": "An agent skill that builds an immersive, scroll-scrubbed \"fly through the world\" landing page for any industry or brand."
+      }
+    },
+    {
+      "id": "ningzimu/codex-ppt-skill",
+      "stars": 7684,
+      "agentReview": {
+        "kind": "skills",
+        "description": "A Codex skill, usable in other agents, that turns articles, reports, papers and notes into image-based PowerPoint decks.",
+        "note": "Its main README is in Chinese, with English and Korean versions; the SKILL.md is in English."
+      }
+    },
+    {
+      "id": "agricidaniel/claude-ads",
+      "stars": 10790,
+      "agentReview": {
+        "kind": "skills",
+        "description": "A free, open-source Claude Code skill that audits ad accounts across twelve platforms and says what is working, what is broken and what to fix first.",
+        "note": "A community mirror, AI-Marketing-Hub/claude-ads, gives AI Marketing Hub Pro members early access."
+      }
+    },
+    {
+      "id": "conorbronsdon/avoid-ai-writing",
+      "stars": 5459,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Audit and rewrite content to remove AI writing patterns, with detect-only and edit-in-place modes and voice profiles."
+      }
+    },
+    {
+      "id": "evomap/evolver",
+      "stars": 8721,
+      "agentReview": {
+        "kind": "project",
+        "description": "Evolver, a GEP-powered self-evolution engine for AI agents and the core of the EvoMap network.",
+        "note": "Its README says future releases move from open source to source-available; published MIT and GPL versions stay free to use."
+      }
     }
   ],
   "bundles": [
@@ -5775,7 +5834,7 @@
       "skew": 0,
       "agentReview": {
         "name": "text-to-cad",
-        "description": "Design physical parts with an agent: text-to-cad's skills for 3D models, purchasable parts, DXF drawings, robot descriptions, fabrication checks, slicing and printer handoff.",
+        "description": "Design physical parts with an agent: text-to-cad's skills for 3D models, purchasable parts, DXF drawings, robot descriptions, fabrication and 3D-printing checks, slicing and printer handoff.",
         "tldr": {
           "glance": [
             {
@@ -5784,22 +5843,22 @@
             },
             {
               "label": "It does",
-              "text": "cad models parts as Python build123d scripts; the other skills add catalog parts, DXF drawings, fabrication checks, slicing, printer handoff and robot description files"
+              "text": "cad models parts as Python build123d scripts; the other skills add catalog parts, DXF drawings, fabrication and 3D-printing checks, slicing, printer handoff and robot description files"
             },
             {
               "label": "You get",
-              "text": "Python model scripts; STEP, STL, 3MF, GLB, DXF, URDF, SRDF and SDF files; a CAD Viewer that follows every rebuild; preflight reports and printer-ready G-code"
+              "text": "Python model scripts; STEP, STL, 3MF, GLB, DXF, URDF, SRDF and SDF files; a CAD Viewer that follows every rebuild; preflight and printability reports and printer-ready G-code"
             },
             {
               "label": "Needs",
-              "text": "text-to-cad's cad command, which cad, dxf, urdf, srdf and sdf install with a curl-to-shell script if missing; OrcaSlicer, and Bambu Connect or Bambu Studio, for printing"
+              "text": "text-to-cad's cad command, which cad, dxf, urdf, srdf and sdf install by curl-to-shell script if missing; Python with trimesh for dfam-check; OrcaSlicer, and Bambu Connect or Studio, for printing"
             },
             {
               "label": "Telemetry",
               "text": "text-to-cad sends usage stats and crash reports by default, never files, paths or prompts, its README says"
             }
           ],
-          "text": "Most of these skills run through text-to-cad's cad command and its local server, and show their results in the same CAD Viewer. cad is the core: it writes each part or assembly as a Python build123d function and exports STEP, STL, 3MF or GLB on request. step-parts fills an assembly with real purchasable parts from the step.parts catalog, which a model reads once the STEP is converted with cad export. dxf turns a modelled part, a vendor STEP or a fresh sketch into a cut-ready DXF, and sendcutsend checks that DXF or a STEP against SendCutSend's current specs before you order. For 3D printing, gcode slices an exported STL or 3MF with OrcaSlicer, and bambu-labs opens the sliced file in Bambu Connect, where you start the print. For robots, urdf writes the robot's links and joints, each link's mesh exported from a cad model of that link; srdf adds MoveIt planning groups on top of a validated URDF, and sdf writes Gazebo models and worlds, derived from the URDF when there is one. The cad command validates all three, and the viewer poses their joints. Each skill also works alone; one install command adds them all.",
+          "text": "Most of these skills run through text-to-cad's cad command and local server and show results in one CAD Viewer. cad is the core: it writes each part or assembly as a Python build123d function and exports STEP, STL, 3MF or GLB on request. step-parts adds real purchasable parts from the step.parts catalog, which a model reads once converted with cad export. dxf turns a modelled part, a vendor STEP or a fresh sketch into a cut-ready DXF, and sendcutsend checks that DXF or a STEP against SendCutSend's current specs before you order. For 3D printing, dfam-check first measures an exported mesh against the chosen process's limits for walls, overhangs and supports, then gcode slices it with OrcaSlicer, and bambu-labs opens the sliced file in Bambu Connect, where you start the print. For robots, urdf writes the robot's links and joints, each link's mesh exported from its cad model; srdf adds MoveIt planning groups on top of a validated URDF, and sdf writes Gazebo models and worlds, derived from the URDF when there is one. The cad command validates all three, and the viewer poses their joints. Each skill also works alone; one install command adds them all.",
           "permalink": "https://github.com/earthtojake/text-to-cad/tree/4099cac3ddc56a5e696138c53fd7bee685e8ad9d"
         },
         "skills": [
@@ -5817,6 +5876,10 @@
           },
           {
             "id": "earthtojake/text-to-cad/skills/sendcutsend",
+            "standalone": true
+          },
+          {
+            "id": "earthtojake/text-to-cad/skills/dfam-check",
             "standalone": true
           },
           {
@@ -5842,7 +5905,7 @@
         ],
         "install": [
           {
-            "label": "macOS and Linux: installs uv if missing, the cad command and CAD's server, and in every agent app it finds the plugin, or the skills alone, with the repo's dfam-check, dfm and engineering-drawing skills too",
+            "label": "macOS and Linux: installs uv if missing, the cad command and CAD's server, and in every agent app it finds the plugin, or the skills alone, with the repo's dfm and engineering-drawing skills too",
             "command": "curl -fsSL https://texttocad.dev/install.sh | sh"
           },
           {
@@ -5850,19 +5913,19 @@
             "command": "irm https://www.texttocad.dev/install.ps1 | iex"
           },
           {
-            "label": "Claude Code plugin, which needs uv; it brings CAD's server and the repo's 3 other skills, and Cursor and Grok Build load it too",
+            "label": "Claude Code plugin, which needs uv; it brings CAD's server and the repo's 2 other skills, dfm and engineering-drawing, and Cursor and Grok Build load it too",
             "command": "claude plugin marketplace add earthtojake/text-to-cad#latest && claude plugin install text-to-cad@earthtojake"
           },
           {
-            "label": "Codex plugin, which needs uv; it brings the CAD viewer and the repo's 3 other skills",
+            "label": "Codex plugin, which needs uv; it brings the CAD viewer and the repo's 2 other skills, dfm and engineering-drawing",
             "command": "codex plugin marketplace add earthtojake/text-to-cad --ref latest && codex plugin add text-to-cad@earthtojake"
           },
           {
-            "label": "Gemini CLI extension, which needs uv; it brings CAD's server and the repo's 3 other skills",
+            "label": "Gemini CLI extension, which needs uv; it brings CAD's server and the repo's 2 other skills, dfm and engineering-drawing",
             "command": "gemini extensions install https://github.com/earthtojake/text-to-cad --ref latest --consent"
           },
           {
-            "label": "Any agent without a plugin, with the skills CLI, plus the repo's 3 other skills; cad, dxf, urdf, srdf and sdf need the cad command, which they install with the script above if missing",
+            "label": "Any agent without a plugin, with the skills CLI, plus the repo's 2 other skills, dfm and engineering-drawing; cad, dxf, urdf, srdf and sdf need the cad command, which they install with the script above if missing",
             "command": "npx skills add earthtojake/text-to-cad#latest"
           }
         ]
@@ -76670,6 +76733,575 @@
           "planning",
           "interview"
         ]
+      }
+    },
+    {
+      "id": "gitroomhq/postiz-agent/skills/postiz",
+      "name": "postiz",
+      "skills.sh": {
+        "url": "https://skills.sh/gitroomhq/postiz-agent/postiz",
+        "installs": 5200,
+        "weeklyInstalls": [163, 168, 188, 169, 180, 231, 237, 259],
+        "firstSeen": "2026-02-14"
+      },
+      "skillMd": {
+        "version": "01ab1fe17efa30d12de7758b961e8776d34dba4e",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Schedules and publishes posts to 28+ channels, from X and LinkedIn to TikTok, YouTube and Reddit, through the Postiz CLI, and reads their analytics.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want the agent to schedule, draft or publish posts, threads or videos across your social and chat accounts, or see how they performed"
+            },
+            {
+              "label": "It does",
+              "text": "lists your connected channels, reads each one's settings and rules, uploads your media to Postiz, then creates posts with per-platform settings through the postiz CLI"
+            },
+            {
+              "label": "You get",
+              "text": "real posts that go out on your connected accounts at their scheduled date, or drafts in Postiz; platform and post analytics; vertical clips cut from a YouTube video"
+            },
+            {
+              "label": "Unlike",
+              "text": "posting skills that drive your logged-in browser, it goes through Postiz's API, where your platform accounts are connected"
+            },
+            {
+              "label": "Needs",
+              "text": "a Postiz account, signed in with postiz auth:login or an API key, and the postiz npm CLI, which it installs globally if missing"
+            }
+          ],
+          "text": "Postiz's own skill for its CLI, which schedules social media and chat posts to 28+ channels. The agent checks it's signed in, lists your connected channels and reads each one's settings, whose rules matter: Postiz silently drops a setting that doesn't apply. Some need live data first, such as Reddit flairs or YouTube playlists, from each channel's tools. Every image or video is uploaded to Postiz first, since platforms reject local paths and outside URLs. Posts can carry comments or thread replies with their own media and go to several channels at once, as drafts or scheduled; each needs a date, and a scheduled post goes out on the real account. On TikTok it publishes directly unless you ask to finish the post in the app. It also lists and deletes posts, moves them between draft and scheduled, and patches unpublished ones' settings. It reads analytics, and links a post to its published content when a platform such as TikTok returns no ID. Clipping cuts a long YouTube video into up to ten captioned 9:16 clips in your media library, drafted on channels you name and paid in clipping minutes; it first asks whether to blur or crop.",
+          "permalink": "https://github.com/gitroomhq/postiz-agent/tree/01ab1fe17efa30d12de7758b961e8776d34dba4e/skills/postiz"
+        },
+        "tags": [
+          "category:marketing",
+          "type:tool",
+          "effect:remote",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:postiz",
+          "social-media",
+          "marketing",
+          "video"
+        ],
+        "note": "Needs a Postiz account, cloud or self-hosted, and the postiz CLI, which it installs globally with npm if missing. It uploads your media to Postiz and publishes real posts on your connected accounts."
+      }
+    },
+    {
+      "id": "softaworks/agent-toolkit/skills/mermaid-diagrams",
+      "name": "mermaid-diagrams",
+      "skills.sh": {
+        "url": "https://skills.sh/softaworks/agent-toolkit/mermaid-diagrams",
+        "installs": 5200,
+        "weeklyInstalls": [36, 44, 42, 43, 42, 44, 42, 41],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "3027f20f3181758385a1bb8c022d4041dfb4de84",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes software diagrams as Mermaid code, picking the type that fits: class, sequence, flowchart, ER, C4, state or cloud architecture.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a domain model, API flow, user journey, database schema or system architecture drawn as a diagram that lives as text beside your code"
+            },
+            {
+              "label": "It does",
+              "text": "picks the diagram type for what you're showing and writes it in Mermaid, with a detailed guide for each main type"
+            },
+            {
+              "label": "You get",
+              "text": "Mermaid code that GitHub, GitLab, Notion, Obsidian and Confluence render as is, or that you export to PNG or SVG with Mermaid Live or the Mermaid CLI"
+            },
+            {
+              "label": "Unlike",
+              "text": "design-doc-mermaid, which saves and renders each diagram to validate it before adding it to your docs, it has no scripts: rendering and checking are up to you"
+            },
+            {
+              "label": "Covers",
+              "text": "class, sequence, flowchart, ER, C4 and architecture diagrams in depth; state diagrams, git graphs, Gantt and pie or bar charts by name only"
+            }
+          ],
+          "text": "Mermaid is a text format that renders as diagrams, so a diagram can sit in version control and change with the code. The skill opens with a guide to choosing the type: class diagrams for domain models and object-oriented design, sequence diagrams for API calls and login flows, flowcharts for processes, algorithms and user journeys, ER diagrams for database schemas, C4 diagrams for architecture at system, container and component level, plus state diagrams, git graphs, Gantt charts and pie or bar charts. It gives a starter example of a class, sequence, flowchart and ER diagram, and points to a reference for each main type: relationships and multiplicity, alt, loop and par blocks, node shapes and subgraphs, cardinality and keys, C4 boundaries, and cloud, infrastructure and CI/CD diagrams. Another covers themes, the ELK layout, the hand-drawn look and styling. Its advice: start simple, keep one diagram per concept, comment with %%, and store .mmd files next to the code. It tells the agent to diagram whenever a project or feature starts, a schema is designed or an architecture decision is explained.",
+          "permalink": "https://github.com/softaworks/agent-toolkit/tree/3027f20f3181758385a1bb8c022d4041dfb4de84/skills/mermaid-diagrams"
+        },
+        "tags": [
+          "category:science",
+          "category:writing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:mermaid",
+          "diagrams",
+          "architecture",
+          "docs-writing"
+        ]
+      }
+    },
+    {
+      "id": "oso95/scroll-world/skills/scroll-world",
+      "name": "scroll-world",
+      "skills.sh": {
+        "url": "https://skills.sh/oso95/scroll-world/scroll-world",
+        "installs": 5100,
+        "weeklyInstalls": [248, 148, 151, 159, 346, 260, 275, 227],
+        "firstSeen": "2026-07-08"
+      },
+      "skillMd": {
+        "version": "71cc36d3bb150248ae36a2c552f9cbf88802a79c",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds a scroll-driven landing page where a camera flies through AI-generated scenes of your business with no cuts, rendered with Higgsfield and Seedance video.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a landing-page hero where scrolling flies a camera into each scene of a generated world, like Apple's scroll-through product pages"
+            },
+            {
+              "label": "It does",
+              "text": "interviews you, generates one still per section, renders camera clips that share the exact same frame at every seam, and wires them to a scroll engine"
+            },
+            {
+              "label": "You get",
+              "text": "encoded clips, poster stills and a framework-agnostic vanilla JS engine configured with your sections, copy and call to action"
+            },
+            {
+              "label": "Costs",
+              "text": "it states an estimate and waits for your go before rendering: about $27 for six 1080p scenes through Monid; a native mobile version roughly doubles it"
+            },
+            {
+              "label": "Needs",
+              "text": "the Higgsfield CLI for stills, the Monid CLI or Higgsfield credits for Seedance video, and ffmpeg"
+            }
+          ],
+          "text": "Scroll only drives time: the page scrubs pre-rendered video, so the camera really moves. The interview asks what the world is about in your own words, then the brand kit (imported from your site, given or proposed), the art direction (clay diorama by default), the camera style (fly-through, forward walkthrough or locked isometric glide), five to seven sections with their copy, whether to add a native 9:16 mobile version, and the render tier. One style preamble goes into every scene prompt so the stills read as one world. Seams are the hard part: where clips join, both sides must be the same rendered frame, never the still, or the page pops. A walkthrough chains forward legs, each starting from the last one's final frame; a fly-through renders a dive into each scene plus connectors that pull up and fly to the next. Frames sent to Monid go through its file storage, since it takes only public links. Clips are encoded at native resolution with short keyframe gaps and loaded as blobs, so seeking works on any host. It then drives the page in a headless browser, comparing screenshots either side of each seam, and checks phones and reduced motion.",
+          "permalink": "https://github.com/oso95/scroll-world/tree/71cc36d3bb150248ae36a2c552f9cbf88802a79c/skills/scroll-world"
+        },
+        "tags": [
+          "category:media",
+          "category:design",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "needs:account",
+          "needs:browser",
+          "by:community",
+          "stack:higgsfield",
+          "stack:monid",
+          "stack:ffmpeg",
+          "video",
+          "ai-generation",
+          "animation",
+          "design"
+        ],
+        "note": "Spends money on every build: video clips are billed through Monid (about $27 for six scenes at 1080p, it estimates) or in Higgsfield credits, and stills in Higgsfield credits. Needs the Monid and Higgsfield CLIs and ffmpeg, and uploads rendered frames to Monid's file storage to get public links."
+      }
+    },
+    {
+      "id": "earthtojake/text-to-cad/skills/dfam-check",
+      "name": "dfam-check",
+      "skills.sh": {
+        "url": "https://skills.sh/earthtojake/text-to-cad/dfam-check",
+        "installs": 5100,
+        "weeklyInstalls": [575, 503, 313, 319, 478, 596, 540, 871],
+        "firstSeen": "2026-08-21"
+      },
+      "skillMd": {
+        "version": "4099cac3ddc56a5e696138c53fd7bee685e8ad9d",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Measures meshes against 3D-printing design rules for FDM, SLS, SLA, metal and MJF, and reports pass, fail or need-more-info findings with redesign targets.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to know whether an STL, OBJ, PLY or 3MF will print before slicing: wall thickness, overhangs, supports, or which way up to print it"
+            },
+            {
+              "label": "It does",
+              "text": "measures the mesh with a bundled Python tool and compares each fact with your process's limits, from its table or your datasheet"
+            },
+            {
+              "label": "You get",
+              "text": "findings ordered by severity, each pass, fail or need more info with its cited limit, and a redesign instruction with target numbers for every fail"
+            },
+            {
+              "label": "Won't",
+              "text": "slice, print, upload or edit the model; a STEP file must be exported to STL first, with cad export for a text-to-cad model"
+            },
+            {
+              "label": "Unlike",
+              "text": "sendcutsend, which checks DXF and STEP files against SendCutSend's specs before you order cut or bent parts, it checks meshes for 3D printing"
+            },
+            {
+              "label": "Needs",
+              "text": "Python with trimesh, numpy, rtree, scipy, networkx and lxml from its requirements.txt, installed in your project's environment"
+            }
+          ],
+          "text": "DfAM stands for design for additive manufacturing: the rules that decide whether a 3D-printed part comes out. The agent first asks for the process, material, layer height and any machine or material datasheet; without a process it measures at a 45° overhang limit and reports per candidate process. The tool only reports facts: watertightness, wall thickness sampled by ray casting, overhang and support area against the process's self-supporting angle, a support-volume estimate and the six axis-aligned orientations. The agent makes the verdicts, citing the limit and the measured field for each. Watertightness comes first, since a leaky mesh blocks slicing for every process, then walls, overhangs and supports, then orientation and cost. It skips support findings for powder processes (SLS, MJF), whose trapped-powder check the tool can't measure yet, and reports hole size, small features and bridges as not checked. If the scale suggests meters or inches, it asks you to confirm units before comparing anything. When the model's source can be edited, it offers to apply the fixes and measure again until nothing fails.",
+          "permalink": "https://github.com/earthtojake/text-to-cad/tree/4099cac3ddc56a5e696138c53fd7bee685e8ad9d/skills/dfam-check"
+        },
+        "tags": [
+          "category:science",
+          "type:workflow",
+          "effect:none",
+          "needs:cli",
+          "by:community",
+          "verification",
+          "prototyping"
+        ],
+        "note": "Runs a bundled Python tool that needs the packages in its requirements.txt (trimesh, numpy, rtree, scipy, networkx, lxml) installed in your project's Python environment."
+      }
+    },
+    {
+      "id": "ningzimu/codex-ppt-skill/skills/codex-ppt",
+      "name": "codex-ppt",
+      "skills.sh": {
+        "url": "https://skills.sh/ningzimu/codex-ppt-skill/codex-ppt",
+        "installs": 5100,
+        "weeklyInstalls": [153, 152, 107, 86, 131, 160, 161, 132],
+        "firstSeen": "2026-05-09"
+      },
+      "skillMd": {
+        "version": "941dcafe2f23ea4ae61de99e9b22fb0ef3d9e06c",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Turns articles, reports, papers or notes into PowerPoint decks of full-slide AI-generated images, after you approve the outline, style and a sample slide.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a visually unified deck from source material and accept slides you can't edit element by element"
+            },
+            {
+              "label": "It does",
+              "text": "drafts an outline, offers two or three styles, confirms the image backend, makes one sample slide, then has one subagent generate each remaining slide"
+            },
+            {
+              "label": "You get",
+              "text": "a .pptx of 16:9 slide images with speaker notes, plus outline.md, speech.md and the slide images in a project folder"
+            },
+            {
+              "label": "Needs",
+              "text": "an image generator (Codex's built-in one by default, or an OpenAI-compatible API key), Python for its scripts, and subagents"
+            },
+            {
+              "label": "Keeps",
+              "text": "styles you ask it to save, in a personal library outside the skill folder that survives updates"
+            }
+          ],
+          "text": "Each slide is one complete 16:9 picture made by an image model, and a script assembles them into PowerPoint. The workflow stops for your approval at each gate: the outline, with 3–5 points and a layout role per slide; a style, chosen from two or three directions or taken from an image, PDF or deck you supply; the image backend; and one sample slide. Only then does it write the deck spec and per-slide prompt jobs and dispatch one subagent per remaining slide, each using the method that made the approved sample. Local drawing, HTML screenshots or python-pptx layouts never stand in for a failed image. Figures, screenshots or logos you require on a slide are strict inputs, and you confirm which slide each goes on. Bundled scripts record each slide's dispatch and result, so a slide counts as done only when the state files say so. The agent then checks every slide for truncated text, outline mismatches, style drift, overlaps and stray page numbers, regenerates or edits failures, writes speaker notes and assembles the file. If anything is blocked, it reports the slide and the evidence instead of calling the deck complete.",
+          "permalink": "https://github.com/ningzimu/codex-ppt-skill/tree/941dcafe2f23ea4ae61de99e9b22fb0ef3d9e06c/skills/codex-ppt"
+        },
+        "tags": [
+          "category:documents",
+          "category:media",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "needs:account",
+          "needs:subagents",
+          "by:community",
+          "stack:microsoft-office",
+          "stack:openai",
+          "slides",
+          "image",
+          "ai-generation"
+        ],
+        "note": "Each slide is one flat image, so its text and shapes can't be edited. Needs an image generator, the agent's built-in one as in Codex or an OpenAI-compatible image API key, and Python for its scripts; it stops if it can't give each slide its own subagent, unless you change the workflow."
+      }
+    },
+    {
+      "id": "agricidaniel/claude-ads/skills/ads-meta",
+      "name": "ads-meta",
+      "skills.sh": {
+        "url": "https://skills.sh/agricidaniel/claude-ads/ads-meta",
+        "installs": 5100,
+        "weeklyInstalls": [168, 160, 192, 128, 125, 159, 149, 202],
+        "firstSeen": "2026-02-16"
+      },
+      "skillMd": {
+        "version": "fc3908e786c318776df89a3a098333da377364be",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Audits a Meta (Facebook and Instagram) Ads account read-only: Pixel and Conversions API, attribution, creative, audiences, placements, automation, budgets, structure and policy.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a Meta Ads account checked from its exports, screenshots or API results before changing anything"
+            },
+            {
+              "label": "It does",
+              "text": "collects goal, conversion, spend and data window, then checks Pixel and CAPI, attribution, creative, audiences, placements, automation, budgets, structure and policy"
+            },
+            {
+              "label": "You get",
+              "text": "platform health, evidence coverage, prioritized recommendations, unscored opportunities, contradictions and missing inputs, as JSON findings for Claude Ads' report"
+            },
+            {
+              "label": "Read-only",
+              "text": "proposed changes stay drafts; the plugin's ads-optimize makes changes, and ads-server-side-tracking covers server-side events"
+            },
+            {
+              "label": "Part of",
+              "text": "Claude Ads, whose main ads skill runs the audit and scores it; it isn't meant to be installed alone"
+            }
+          ],
+          "text": "One of Claude Ads' twelve platform audits, run by its main ads skill, which acts as conductor. The agent reads that skill's operating contract and the plugin's Meta audit reference, keeps a link from every value back to the export, screenshot, API result or manual entry it came from, and separates observations, diagnoses, recommendations, opportunities and proposed changes, marking uncertainty and contradictions. Account, Pixel and conversion history are judged separately: a new account doesn't prove a new Pixel, and missing evidence stays unknown. When any of them is confirmed new, the plan shifts to validating measurement, explicit creative hypotheses and small reversible tests, without mature-account benchmarks or confident forecasts, and creative is never called bad just because the Pixel is new. A benchmark applies only after checking objective, geography, method, sample size, conversion lag and account maturity; beta, premium and unavailable features stay unscored, and it never issues blanket pause, bid, budget or attribution rules. CAPI is Meta's Conversions API, which sends conversion events from a server.",
+          "permalink": "https://github.com/agricidaniel/claude-ads/tree/fc3908e786c318776df89a3a098333da377364be/skills/ads-meta"
+        },
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:meta",
+          "marketing",
+          "conversion"
+        ],
+        "note": "Part of the Claude Ads plugin: it follows the main ads skill's operating contract and the plugin's Meta audit reference, and hands its findings back to that skill to score and render, so install the whole plugin."
+      }
+    },
+    {
+      "id": "ibelick/ui-skills/skills/create-design-md",
+      "name": "create-design-md",
+      "skills.sh": {
+        "url": "https://skills.sh/ibelick/ui-skills/create-design-md",
+        "installs": 5100,
+        "weeklyInstalls": [289, 383, 382, 330, 329, 365, 315, 354],
+        "firstSeen": "2026-07-21"
+      },
+      "skillMd": {
+        "version": "00db7d656719c399c091f3ea138c6f42a7fa4d98",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Writes or updates a DESIGN.md of a product's design tokens and rules from its repo or a public website, keeping only evidence-backed values.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want coding agents to have lasting UI context for a product, or to reconstruct a live site's visual system"
+            },
+            {
+              "label": "It does",
+              "text": "traces tokens, themes, shared components and guidance in your repo, or computed styles on up to three pages of a site, and keeps only what evidence supports"
+            },
+            {
+              "label": "You get",
+              "text": "one DESIGN.md with token frontmatter and short guidance sections, linted and export-checked; from a URL, a draft labelled as reconstructed"
+            },
+            {
+              "label": "Changes",
+              "text": "only DESIGN.md, never product source, dependencies or configuration"
+            },
+            {
+              "label": "Needs",
+              "text": "Node.js, to run Google's @google/design.md CLI; a browser for URL mode"
+            }
+          ],
+          "text": "DESIGN.md is a file format with a spec and CLI from Google: design tokens go in YAML frontmatter, design guidance in Markdown. In repository mode the agent reads, in order, any existing DESIGN.md and guidance, then tokens and global styles, shared primitives, representative routes and local styling, counting a source only if the product actually uses it. In URL mode it inspects rendered pages at desktop and mobile widths, and a value earns a place only when a computed style matches a loaded CSS declaration or recurs across the sampled pages. A prose rule needs explicit guidance, a named shared token or a shared component used on at least two surfaces, so repetition, utility classes and one-off styling never become product rules, and a Don't appears only when a source states the prohibition. It picks an export target (Tailwind v4, Tailwind v3 or the DTCG design-token format), writes only schema-shaped tokens, lints the file and runs one export, rewriting until every populated category exports. On an update it diffs against the old file and restores accepted decisions. Its report lists the sources used and the conflicts left out of the file.",
+          "permalink": "https://github.com/ibelick/ui-skills/tree/00db7d656719c399c091f3ea138c6f42a7fa4d98/skills/create-design-md"
+        },
+        "tags": [
+          "category:design",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "needs:browser",
+          "by:community",
+          "stack:design-md",
+          "design-system",
+          "docs-writing",
+          "design"
+        ],
+        "note": "Lints and export-checks the file with Google's DESIGN.md CLI through npx, so it needs Node.js; from a URL it needs browser access to the rendered pages."
+      }
+    },
+    {
+      "id": "sanity-io/agent-toolkit/skills/content-modeling-best-practices",
+      "name": "content-modeling-best-practices",
+      "skills.sh": {
+        "url": "https://skills.sh/sanity-io/agent-toolkit/content-modeling-best-practices",
+        "installs": 5000,
+        "weeklyInstalls": [173, 128, 99, 106, 118, 84, 102, 109],
+        "firstSeen": "2026-01-24"
+      },
+      "skillMd": {
+        "version": "3ed3a143f8d3413faa7790ac0b2274fd3a8a6320",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Guides content model design for Sanity and other headless CMSes: content over presentation, references versus embedded objects, reuse patterns and taxonomies.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're designing or refactoring a CMS's content types, or a schema looks shaped like pages instead of content"
+            },
+            {
+              "label": "It does",
+              "text": "loads the one reference that fits the decision: separating content from presentation, references versus embedding, reuse, or taxonomies"
+            },
+            {
+              "label": "You get",
+              "text": "principles with good and bad examples, a Sanity schema snippet for each, and common mistakes to avoid"
+            },
+            {
+              "label": "Rule of thumb",
+              "text": "if the site were redesigned, the field names should still make sense: headline, not bigHeroText"
+            }
+          ],
+          "text": "Sanity's guide to structured content, written for any headless CMS. Its four principles: content is data, not pages; keep one source of truth; design for channels that don't exist yet; and optimize for the editors. Separating content from presentation means names such as callout or tone instead of blueHighlightBox or backgroundColor, leaving the look to the frontend. References suit content that is reused, managed centrally, has its own lifecycle or must stay in sync, such as authors or products; embedded objects suit content unique to one document, such as a page's hero or SEO fields; a hybrid keeps a reference plus local overrides. Reuse runs from full duplication to full reference, through shared components, shared field sets, taxonomy references and content fragments, and it warns against over-abstraction, such as references used only once. Taxonomies can be flat, hierarchical or faceted, with advice on naming, depth, queries and governance.",
+          "permalink": "https://github.com/sanity-io/agent-toolkit/tree/3ed3a143f8d3413faa7790ac0b2274fd3a8a6320/skills/content-modeling-best-practices"
+        },
+        "tags": [
+          "category:engineering",
+          "category:frameworks",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:official",
+          "stack:sanity",
+          "domain-modeling",
+          "architecture"
+        ]
+      }
+    },
+    {
+      "id": "conorbronsdon/avoid-ai-writing/skills/avoid-ai-writing",
+      "name": "avoid-ai-writing",
+      "skills.sh": {
+        "url": "https://skills.sh/conorbronsdon/avoid-ai-writing/avoid-ai-writing",
+        "installs": 5000,
+        "weeklyInstalls": [214, 246, 295, 249, 245, 245, 234, 236],
+        "firstSeen": "2026-03-07"
+      },
+      "skillMd": {
+        "version": "30971f1c50c6412a0c414e8c7b15032a32b21939",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Finds AI writing patterns in text and rewrites them, flags them only, or edits a prose file in place, keeping your voice and facts.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "a draft, post or doc sounds machine-written, or you want to see which AI tells a text carries without changing it"
+            },
+            {
+              "label": "It does",
+              "text": "checks the text against a catalog of words and patterns ranked P0 to P2, tuned to the context, such as LinkedIn, a blog, docs or an investor email"
+            },
+            {
+              "label": "You get",
+              "text": "one final rewrite with a short change list and a verification report; in detect mode, quoted findings marked as clear problems or judgment calls"
+            },
+            {
+              "label": "Modes",
+              "text": "rewrite (default); detect, which changes nothing; edit, which makes minimal changes to a prose file and refuses code or config"
+            },
+            {
+              "label": "Won't",
+              "text": "add facts, experiences, opinions or stock \"human\" flourishes the source lacks, or rewrite quotes, code, tables and URLs"
+            }
+          ],
+          "text": "The rules live in a long pattern catalog the agent reads in full first. P0 tells, such as chatbot leftovers, cutoff disclaimers, vague attributions and inflated significance, come first; P1 covers stock words like delve and leverage, template phrases, stacked hedges and bold overuse; P2 covers polish such as em-dash rate, rule-of-three habits and uniform paragraphs. A match becomes a finding only after its context exceptions are read, and an edit only when your mode and scope allow it, so a clean text comes back unchanged. Rewrites keep meaning, numbers, attribution and certainty, and an optional voice (casual, professional, technical, warm or blunt) can bring out a stance the source has but never invent one. A run gets at most two editing passes; a bundled Node script matches quotes and apostrophes to the original's style, and in edit mode an optional validator catches mechanical preservation errors but doesn't vouch for meaning. An optional house-style config adds typography rules, checked by another script. The verification lists passes used, which checks ran or were model-only, findings left and why it stopped. It treats the patterns as signals, not proof that AI wrote a text, and its rules are calibrated for English.",
+          "permalink": "https://github.com/conorbronsdon/avoid-ai-writing/tree/30971f1c50c6412a0c414e8c7b15032a32b21939/skills/avoid-ai-writing"
+        },
+        "tags": [
+          "category:writing",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "anti-slop",
+          "writing"
+        ]
+      }
+    },
+    {
+      "id": "evomap/evolver",
+      "name": "capability-evolver",
+      "skills.sh": {
+        "url": "https://skills.sh/evomap/evolver/capability-evolver",
+        "installs": 5000,
+        "weeklyInstalls": [7, 3, 9, 1, 3, 12, 5, 5],
+        "firstSeen": "2026-02-01"
+      },
+      "skillMd": {
+        "version": "31b0691acd97ba18878019312e646f1f2d970d43",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Runs Evolver, a self-evolution engine that analyzes your agent's runtime history for failures and writes improvements, and connects it to EvoMap's agent network.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want an agent to learn from its own failures across runs, or to join EvoMap's network, where agents share fixes, tasks and messages"
+            },
+            {
+              "label": "It does",
+              "text": "analyzes the agent's run history, writes code changes on its own, and connects through a local proxy to EvoMap's hub, which sends it other agents' tasks and messages"
+            },
+            {
+              "label": "You get",
+              "text": "evolved code in your workspace, genes (reusable fixes), capsules (recorded successes) and an append-only event log, plus tasks to claim and messages from other agents"
+            },
+            {
+              "label": "Runs",
+              "text": "once, in review mode with a human in the loop, or in a continuous loop that keeps going until you stop it"
+            },
+            {
+              "label": "Needs",
+              "text": "Node.js, git and an EvoMap node ID; a GitHub token is optional, for filing issues and creating releases"
+            },
+            {
+              "label": "Safety",
+              "text": "failed evolutions roll back with git stash by default, and changing Evolver's own code stays off unless you enable it"
+            }
+          ],
+          "text": "Evolver is EvoMap's self-evolution engine for AI agents, and this SKILL.md is its integration guide. A run analyzes the agent's runtime history, identifies failures and inefficiencies, and writes improvements on its own under GEP, EvoMap's protocol for auditable evolution, recording genes, capsules and events in a local store; strategies run from balanced to innovate, harden or repair-only. Review mode puts a human check in the loop. Everything networked goes through a local proxy that handles registration, heartbeats and sync: the agent writes to and polls a JSONL mailbox to publish your assets to the hub, search and fetch other agents' assets, subscribe to, claim and complete tasks the hub pushes, and exchange direct messages with other agents. The hub also sends system announcements and skill update notices. The skill declares network access to EvoMap and GitHub, writes to its gep and memory folders, and writes evolved code only during its solidify step; if that fails, it stashes your changes, recoverable with git stash pop.",
+          "permalink": "https://github.com/evomap/evolver/tree/31b0691acd97ba18878019312e646f1f2d970d43"
+        },
+        "tags": [
+          "category:agents",
+          "type:tool",
+          "effect:remote",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:evomap",
+          "self-improvement",
+          "multi-agent"
+        ],
+        "note": "Needs Node.js, git and an EvoMap node ID. Through a local proxy it syncs with EvoMap's hub, which pushes tasks, messages from other agents and skill updates, and it can publish your assets there; --loop keeps it running in the background."
       }
     }
   ]
