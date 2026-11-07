@@ -15,6 +15,7 @@ const crawl = raw as Crawl;
 /** The kinds of verdict an agent gives when it turns a skill down, told apart by its wording. */
 const KINDS = [
   ["toolDocs", /^Tool docs/],
+  ["vendorService", /^Vendor paid service/],
   ["language", /^In [A-Z][a-z]+\./],
   ["copy", /copy of|old name/i],
   ["retired", /^(Retired|Deprecated)/i],
@@ -23,6 +24,7 @@ type Kind = (typeof KINDS)[number][0] | "other";
 
 const turnedDown: Record<Kind, number> = {
   toolDocs: 0,
+  vendorService: 0,
   language: 0,
   copy: 0,
   retired: 0,

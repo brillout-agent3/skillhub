@@ -22,7 +22,7 @@ interface Row {
  */
 export default function Page(): string {
   const { turnedDown: t, minimums } = review;
-  const byAgent = t.toolDocs + t.language + t.copy + t.retired + t.other;
+  const byAgent = t.toolDocs + t.vendorService + t.language + t.copy + t.retired + t.other;
   const byScript = review.gone + review.notOnGitHub;
   // Each skill SkillHub knows of is in exactly one row of depth 0.
   const rows: Row[] = [
@@ -51,6 +51,12 @@ export default function Page(): string {
       count: t.toolDocs,
       depth: 2,
       tip: "A manual for one product, framework, cloud or language, such as a cloud's CLI or a framework's best practices. It only matters once you've chosen the product. A skill that gets a job done through a tool, such as testing, scraping or generating media, isn't tool docs.",
+    },
+    {
+      label: "Vendor paid service",
+      count: t.vendorService,
+      depth: 2,
+      tip: "A vendor's skill whose job runs on the vendor's own paid service, such as its API or cloud, so it only works with an account there. It reads as an ad for the service. A free tool that runs on your machine isn't one, even when its maker also sells a cloud.",
     },
     {
       label: "Not in English",
