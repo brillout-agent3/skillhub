@@ -314,14 +314,25 @@ code {
  * The search box, with the filters that narrow it as chips inside it, and "Find skill with your
  * agent" beside it; under each, a line about what it looks through.
  */
+/* Two ways to find a skill, side by side with "or" between them, each with its line under it. */
 .finder {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr) auto auto;
   grid-template-areas:
-    "field ask"
-    "scope label";
-  gap: 8px 10px;
+    "field or ask"
+    "scope . label";
+  gap: 8px 12px;
   margin-bottom: 20px;
+}
+
+.finder-or {
+  grid-area: or;
+  align-self: center;
+  color: var(--text-3);
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 .search-field {
@@ -385,14 +396,19 @@ code {
   outline: none;
 }
 
+/* An outlined alternative with its own icon, so it doesn't read as the search box's submit button. */
 .ask-button {
   grid-area: ask;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   min-height: 48px;
   padding: 0 18px;
-  border: 0;
+  border: 1.5px solid var(--accent);
   border-radius: 12px;
-  background: var(--accent);
-  color: var(--on-accent);
+  background: var(--surface);
+  color: var(--accent-text);
   font-size: 15px;
   font-weight: 600;
   white-space: nowrap;
@@ -400,7 +416,13 @@ code {
 }
 
 .ask-button:hover {
-  filter: brightness(1.1);
+  background: var(--accent-soft);
+}
+
+.ask-icon {
+  flex: none;
+  width: 18px;
+  height: 18px;
 }
 
 .scope {
@@ -1568,7 +1590,22 @@ code {
 
   .finder {
     grid-template-columns: minmax(0, 1fr);
-    grid-template-areas: "field" "scope" "ask" "label";
+    grid-template-areas: "field" "scope" "or" "ask" "label";
+  }
+
+  /* A divider: a line, "or", a line. */
+  .finder-or {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 4px 0 0;
+  }
+
+  .finder-or::before,
+  .finder-or::after {
+    content: "";
+    flex: 1;
+    border-top: 1px solid var(--border-strong);
   }
 
   .ask-label {

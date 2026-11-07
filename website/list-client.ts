@@ -176,9 +176,10 @@ const ASK_LABEL = "Find skill with your agent";
 let askTimer: ReturnType<typeof setTimeout> | undefined;
 /** Say something on the ask button for a few seconds, then put its label back. */
 function flash(button: HTMLElement, text: string) {
-  button.textContent = text;
+  const label = button.querySelector(".ask-text") ?? button;
+  label.textContent = text;
   clearTimeout(askTimer);
-  askTimer = setTimeout(() => (button.textContent = ASK_LABEL), 4000);
+  askTimer = setTimeout(() => (label.textContent = ASK_LABEL), 4000);
 }
 
 /**
