@@ -23,7 +23,8 @@ import {
   parentsOf,
   repoById,
   repoKey,
-  riseOf,
+  growthOf,
+  GROWTH_MIN,
   skillById,
   skillHref,
   skillsOf,
@@ -45,12 +46,16 @@ const quiet = (tag: string) => tag === "by:community" || facetOf(tag) === "categ
 
 // ------------------------------------------------------------------- state
 
-/** Buttons that only set the list's sort, highest first: Top by downloads, Hot by the rise in downloads in the latest week, New by publishing date. */
+/**
+ * Buttons that only set the list's settings, highest first: Top by downloads, Hot by how fast the
+ * weekly downloads grow, one per repo (a repo's skills tend to grow together), New by publishing
+ * date.
+ */
 export type Preset = "top" | "hot" | "new";
-export const PRESETS: Record<Preset, { label: string; sort: Sort; title: string }> = {
-  top: { label: "Top", sort: "downloads", title: "Most downloaded of all time" },
-  hot: { label: "Hot", sort: "rise", title: "Gaining the most downloads this week" },
-  new: { label: "New", sort: "published", title: "Most recently published" },
+export const PRESETS: Record<Preset, { label: string; sort: Sort; one: boolean; title: string }> = {
+  top: { label: "Top", sort: "downloads", one: false, title: "Most downloaded of all time" },
+  hot: { label: "Hot", sort: "growth", one: true, title: "Downloads growing the fastest" },
+  new: { label: "New", sort: "published", one: false, title: "Most recently published" },
 };
 
 /** The numbers every row shows, which the list sorts by and the sliders filter on. */
@@ -159,18 +164,21 @@ export function rangeLabel(p: Prop, [lo, hi]: Range): string {
 }
 
 /**
- * A number to sort by; "rise", the gain in downloads in the latest week over an average one before
- * (a sort only: it can be negative, so it gets no slider); or "match", how well the entry matches
- * the search, for when there is one.
+ * A number to sort by; "growth", how fast the weekly downloads grow (a sort only: it can be
+ * negative or infinite, so it gets no slider); or "match", how well the entry matches the search,
+ * for when there is one.
  */
-export type Sort = Prop | "rise" | "match";
-const RISE = {
-  label: "Weekly Rise",
+export type Sort = Prop | "growth" | "match";
+const GROWTH = {
+  label: "Weekly Growth",
   title: (e: Entry) =>
-    `${isBundle(e) ? "The most of any of its skills: " : ""}Installs on skills.sh in the week to ${date(data.asOf.installs)}, minus its average week in the 4 weeks before`,
+    `${isBundle(e) ? "The most of any of its skills: " : ""}Installs on skills.sh in an average week of the 2 to ${date(data.asOf.installs)}, against an average week of the 4 before. Only for skills with at least ${compact(GROWTH_MIN)} a week.`,
 };
-/** A rise with its sign, such as +8.4K or −1.2K. */
-const signed = (n: number) => `${n > 0 ? "+" : n < 0 ? "−" : ""}${compact(Math.abs(n))}`;
+/** A growth as a percentage with its sign, such as +180% or −12%, or "new" when it had no downloads before. */
+const percent = (g: number) =>
+  g === Infinity
+    ? "new"
+    : `${g > 0 ? "+" : g < 0 ? "−" : ""}${Math.round(Math.abs(g) * 100).toLocaleString("en")}%`;
 /** A search sorts by best match unless another sort is picked; otherwise the list sorts by downloads. */
 export const defaultSort = (q: string): Sort => (q ? "match" : "downloads");
 export interface State {
@@ -203,7 +211,9 @@ export function parse(search: string): State {
     tags: p.getAll("tag"),
     repo: p.get("repo"),
     sort:
-      sort && (sort in PROPS || sort === "rise" || (sort === "match" && q)) ? sort : defaultSort(q),
+      sort && (sort in PROPS || sort === "growth" || (sort === "match" && q))
+        ? sort
+        : defaultSort(q),
     asc: p.get("order") === "asc",
     ranges,
     one: p.get("one") === "1",
@@ -389,8 +399,8 @@ const ascending = (a: Value | null, b: Value | null) =>
 const order = (sort: Sort, asc: boolean, q: string) => (a: Entry, b: Entry) =>
   (sort === "match"
     ? matchScore(b, q) - matchScore(a, q)
-    : sort === "rise"
-      ? (asc ? ascending : descending)(riseOf(a), riseOf(b))
+    : sort === "growth"
+      ? (asc ? ascending : descending)(growthOf(a), growthOf(b))
       : (asc ? ascending : descending)(PROPS[sort].of(a), PROPS[sort].of(b))) ||
   descending(installsOf(a), installsOf(b)) ||
   bundleFirst(a, b) ||
@@ -511,11 +521,11 @@ function propsHtml(e: Entry, st: State): string {
     const shown = v === null ? "—" : PROPS[p].date ? date(v as string) : compact(v as number);
     return `<div${p === st.sort ? ` class="on"` : ""}${v === null ? "" : ` title="${esc(PROPS[p].title(e))}"`}><dt>${PROPS[p].label}</dt><dd>${shown}</dd></div>`;
   });
-  // The rise shows only while the list is sorted by it, to explain the order.
-  if (st.sort === "rise") {
-    const r = riseOf(e);
+  // The growth shows only while the list is sorted by it, to explain the order.
+  if (st.sort === "growth") {
+    const g = growthOf(e);
     rows.push(
-      `<div class="on"${r === null ? "" : ` title="${esc(RISE.title(e))}"`}><dt>${RISE.label}</dt><dd>${r === null ? "—" : signed(r)}</dd></div>`,
+      `<div class="on" title="${esc(GROWTH.title(e))}"><dt>${GROWTH.label}</dt><dd>${g === null ? "—" : percent(g)}</dd></div>`,
     );
   }
   return `<dl class="props">${rows.join("")}</dl>`;
@@ -718,19 +728,21 @@ export function settingsHtml(st: State): string {
   const presets = (Object.keys(PRESETS) as Preset[])
     .map((id) => {
       const p = PRESETS[id];
-      return `<button type="button" class="preset" data-preset="${id}" aria-pressed="${st.sort === p.sort && !st.asc}" title="${esc(p.title)}">${p.label}</button>`;
+      return `<button type="button" class="preset" data-preset="${id}" aria-pressed="${st.sort === p.sort && !st.asc && st.one === p.one}" title="${esc(p.title)}">${p.label}</button>`;
     })
     .join("");
   const options = `${
     st.q ? `<option value="match"${st.sort === "match" ? " selected" : ""}>Best match</option>` : ""
   }${PROP_IDS.map(
     (p) => `<option value="${p}"${p === st.sort ? " selected" : ""}>${PROPS[p].label}</option>`,
-  ).join("")}<option value="rise"${st.sort === "rise" ? " selected" : ""}>${RISE.label}</option>`;
+  ).join(
+    "",
+  )}<option value="growth"${st.sort === "growth" ? " selected" : ""}>${GROWTH.label}</option>`;
   const order =
     st.sort === "match"
       ? ""
       : `<button type="button" class="order" data-action="order" title="Reverse the order">${
-          st.sort !== "rise" && PROPS[st.sort].date
+          st.sort !== "growth" && PROPS[st.sort].date
             ? st.asc
               ? "Oldest first"
               : "Newest first"

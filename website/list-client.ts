@@ -107,8 +107,10 @@ app.addEventListener("click", (event) => {
   );
   if (!el || el.tagName === "A") return;
   const d = el.dataset;
-  if (d.preset) go({ sort: PRESETS[d.preset as Preset].sort, asc: false });
-  else if (d.tag) go({ tags: toggleTag(state.tags, d.tag) });
+  if (d.preset) {
+    const { sort, one } = PRESETS[d.preset as Preset];
+    go({ sort, one, asc: false });
+  } else if (d.tag) go({ tags: toggleTag(state.tags, d.tag) });
   else if (d.remove) {
     const v = d.value ?? "";
     if (d.remove === "q") go({ q: "" });

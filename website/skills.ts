@@ -86,16 +86,23 @@ export const weekOf = (e: Skill | Bundle): number | null => {
   return weekly?.length ? weekly[weekly.length - 1] : null;
 };
 
+/** A skill needs this many installs a week, in its latest 2 weeks, for its growth to count. */
+export const GROWTH_MIN = 1000;
 /**
- * How many more installs it got on skills.sh in the latest of its 8 weeks than in an average one
- * of the 4 weeks before; negative when fewer. For a bundle, the most of any of its skills.
+ * How fast its installs on skills.sh grow: the average week of its latest 2 weeks against the
+ * average week of the 4 before, as a ratio minus 1 (0.5 for +50%). Infinity when it had none in
+ * those 4 weeks; null when it has fewer than GROWTH_MIN a week, or no weekly numbers. For a
+ * bundle, the most of any of its skills.
  */
-export const riseOf = (e: Skill | Bundle): number | null => {
-  if (isBundle(e)) return most(skillsOf(e).map(riseOf));
+export const growthOf = (e: Skill | Bundle): number | null => {
+  if (isBundle(e)) return most(skillsOf(e).map(growthOf));
   const weekly = e["skills.sh"].weeklyInstalls;
-  if (!weekly || weekly.length < 2) return null;
-  const before = weekly.slice(-5, -1);
-  return Math.round(weekly[weekly.length - 1] - before.reduce((a, b) => a + b, 0) / before.length);
+  if (!weekly || weekly.length < 6) return null;
+  const avg = (a: number[]) => a.reduce((x, y) => x + y, 0) / a.length;
+  const recent = avg(weekly.slice(-2));
+  const before = avg(weekly.slice(-6, -2));
+  if (recent < GROWTH_MIN) return null;
+  return before ? recent / before - 1 : Infinity;
 };
 
 /** Compare for a descending sort, unknown values last. */
