@@ -76,6 +76,11 @@
           "description": "Deploy, provision, observe and debug cloud apps."
         },
         {
+          "id": "networking",
+          "label": "Networking",
+          "description": "Computer networks: home labs, VLANs, VPNs, DNS, routing and network diagnostics."
+        },
+        {
           "id": "browser",
           "label": "Browser",
           "description": "Drive browsers, scrape pages and search the web."
@@ -104,6 +109,11 @@
           "id": "business",
           "label": "Business",
           "description": "Run a company outside its code and marketing: strategy, sales, finance, operations, legal, management and hiring."
+        },
+        {
+          "id": "careers",
+          "label": "Careers",
+          "description": "Find and land a job: resumes, cover letters, interviews, salary talks and offers."
         },
         {
           "id": "science",
