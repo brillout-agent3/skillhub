@@ -482,7 +482,7 @@ export function askPrompt(st: State, base: string): string {
     ].join("\n");
   };
   const filters = filtersText(st);
-  return `I'm looking for an agent skill: a SKILL.md that teaches a coding agent (Claude Code, Codex, Cursor…) how to do something. Below is the catalog of SkillHub, a directory of reviewed skills${
+  return `I'm looking for an agent skill: a SKILL.md that teaches a coding agent (Claude Code, Codex, Cursor…) how to do something. Below is the catalog of SkillHub, a directory of agent-reviewed skills${
     filters.length ? `, narrowed to: ${filters.join("; ")}` : ""
   }.
 

@@ -16,8 +16,9 @@ interface Row {
 }
 
 /**
- * About: how skills get on SkillHub, with the numbers of the latest crawl and reviews. It says what
- * a visitor can rely on, not how the work is done (how many passes, how often), which may change.
+ * About: how skills get on SkillHub, with the numbers of the latest crawl and agent reviews. It
+ * says what a visitor can rely on, not how the work is done (how many passes, how often), which may
+ * change.
  */
 export default function Page(): string {
   const { turnedDown: t, minimums } = review;
@@ -27,13 +28,13 @@ export default function Page(): string {
       label: "Listed",
       emoji: "✅",
       count: review.listed,
-      tip: "Judged useful to people looking for skills.",
+      tip: "An agent review judged it useful to people looking for skills.",
     },
     {
       label: "Disqualified, by agent",
       emoji: "🤖",
       count: t.toolDocs + t.language + t.copy + t.retired + t.other,
-      tip: "An agent read the skill's whole SKILL.md, not only its description, and judged it not useful to people looking for skills.",
+      tip: "An agent review read the skill's whole SKILL.md, not only its description, and judged it not useful to people looking for skills.",
     },
     {
       label: "Tool docs",
@@ -69,7 +70,7 @@ export default function Page(): string {
       label: "Disqualified, by script",
       emoji: "⚙️",
       count: review.gone + review.notOnGitHub,
-      tip: "A script found the skill's SKILL.md can't be read on GitHub, without judging the skill.",
+      tip: "A script found the skill's SKILL.md can't be read on GitHub, so there's nothing for an agent review to judge.",
     },
     {
       label: "SKILL.md gone from its repo",
@@ -85,29 +86,29 @@ export default function Page(): string {
     },
     {
       label: "Under the minimum installs or stars",
-      emoji: "📉",
+      emoji: "🌱",
       count: review.under,
-      tip: `It has fewer than ${n(minimums.installs)} installs, or its repo fewer than ${n(minimums.stars)} stars. It's reviewed once it has both.`,
+      tip: `It has fewer than ${n(minimums.installs)} installs, or its repo fewer than ${n(minimums.stars)} stars. It gets an agent review once it has both.`,
     },
     {
-      label: "Waiting for review",
+      label: "Waiting for agent review",
       emoji: "⏳",
       count: review.waiting,
-      tip: "It has the minimum installs and stars, and is next in line for review.",
+      tip: "It has the minimum installs and stars, and is next in line for an agent review.",
     },
   ];
   const total: Row = {
     label: "Reviewed",
-    emoji: "🔎",
+    emoji: "🗃️",
     count: review.reviewed,
-    tip: "Every skill SkillHub found on skills.sh, which counts installs. Stars come from GitHub.",
+    tip: "Every skill SkillHub found on skills.sh. Each was reviewed at least on its installs, from skills.sh, and its repo's stars, from GitHub.",
   };
   const row = ({ label, count, tip, sub, emoji }: Row, i: number) =>
     `<tr${sub ? ` class="sub"` : ""}><td>${emoji ? `<span class="emoji" aria-hidden="true">${emoji}</span>` : ""}${label}<span class="tip"><button type="button" class="tip-i" aria-label="About ${label}" aria-describedby="tip-${i}">i</button><span class="tip-text" role="tooltip" id="tip-${i}">${tip}</span></span></td><td class="num">${n(count)}</td></tr>`;
   return `
     <div class="page about">
       <h1>How skills get here</h1>
-      <p class="lede">SkillHub lists <strong>${n(review.listed)} agent skills</strong>, out of the ${n(review.reviewed)} it reviewed: first on their installs and stars, then on whether people looking for skills would find them useful.</p>
+      <p class="lede">SkillHub lists <strong>${n(review.listed)} agent skills</strong>, out of the ${n(review.reviewed)} it reviewed: first on their installs and stars, then with an agent review of whether people looking for skills would find them useful.</p>
       <table class="breakdown">
         <tbody>${rows.map(row).join("")}</tbody>
         <tfoot>${row(total, rows.length)}</tfoot>
@@ -126,6 +127,6 @@ export default function Page(): string {
       <p>SkillHub follows each listed skill's SKILL.md in its repo. A skill's page says when its SKILL.md has changed since its TLDR was written.</p>
 
       <h2>What to keep in mind</h2>
-      <p>Reviews can be wrong, and no one runs the skills to test them: a review reads the SKILL.md and judges it. Install counts come from skills.sh and stars from GitHub. Something wrong or missing? <a href="${GITHUB}/issues">Open an issue</a>.</p>
+      <p>Agent reviews can be wrong, and no one runs the skills to test them: an agent review reads the SKILL.md and judges it. Install counts come from skills.sh and stars from GitHub. Something wrong or missing? <a href="${GITHUB}/issues">Open an issue</a>.</p>
     </div>`;
 }
