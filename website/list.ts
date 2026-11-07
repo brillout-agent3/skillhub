@@ -157,7 +157,10 @@ export function rangeLabel(p: Prop, [lo, hi]: Range): string {
   return from && to ? `${from} – ${to}` : from ? `≥ ${from}` : to ? `< ${to}` : "Any";
 }
 
-export type Sort = Prop;
+/** A number to sort by, or "match": how well the entry matches the search, for when there is one. */
+export type Sort = Prop | "match";
+/** A search sorts by best match unless another sort is picked; otherwise each view has its own. */
+export const defaultSort = (q: string, view: View): Sort => (q ? "match" : VIEWS[view].sort);
 export interface State {
   view: View;
   q: string;
@@ -174,6 +177,7 @@ export interface State {
 export function parse(search: string, view: View = "top"): State {
   const p = new URLSearchParams(search);
   const sort = p.get("sort") as Sort | null;
+  const q = p.get("q") ?? "";
   const ranges = fullRanges();
   for (const prop of PROP_IDS) {
     // Such as stars=1000..50000, or published=2026-03-01.. with no upper bound.
@@ -185,10 +189,10 @@ export function parse(search: string, view: View = "top"): State {
   }
   return {
     view,
-    q: p.get("q") ?? "",
+    q,
     tags: p.getAll("tag"),
     repo: p.get("repo"),
-    sort: sort && sort in PROPS ? sort : VIEWS[view].sort,
+    sort: sort && (sort in PROPS || (sort === "match" && q)) ? sort : defaultSort(q, view),
     asc: p.get("order") === "asc",
     ranges,
     one: p.get("one") === "1",
@@ -200,7 +204,7 @@ export function query(s: State): string {
   if (s.q) p.set("q", s.q);
   for (const t of s.tags) p.append("tag", t);
   if (s.repo) p.set("repo", s.repo);
-  if (s.sort !== VIEWS[s.view].sort) p.set("sort", s.sort);
+  if (s.sort !== defaultSort(s.q, s.view)) p.set("sort", s.sort);
   if (s.asc) p.set("order", "asc");
   for (const prop of PROP_IDS) {
     const [lo, hi] = s.ranges[prop];
@@ -266,12 +270,67 @@ const bundleText = new Map(
       .toLowerCase(),
   ]),
 );
-const matches = (text: string, q: string) =>
-  q
-    .toLowerCase()
-    .split(/\s+/)
-    .filter(Boolean)
-    .every((word) => text.includes(word));
+const words = (q: string) => q.toLowerCase().split(/\s+/).filter(Boolean);
+const matches = (text: string, q: string) => words(q).every((word) => text.includes(word));
+
+/**
+ * For sorting a search by best match: each word of it scores where it appears, a name the most,
+ * then the description, the TLDR's glance and the tags, the repo, and last the TLDR's text and the
+ * note. A name holding the whole search scores extra.
+ */
+type Fields = [text: string, weight: number][];
+const fields = (parts: [string | null | undefined, number][]): Fields =>
+  parts.filter((p): p is [string, number] => Boolean(p[0])).map(([t, w]) => [t.toLowerCase(), w]);
+const skillFields = new Map(
+  data.skills.map((s) => [
+    s.id,
+    fields([
+      [s.name, 8],
+      [s.agentReview.description, 4],
+      [s.agentReview.tldr?.glance.map((g) => g.text).join(" "), 3],
+      [[...tagsOf(s), ...tagsOf(s).map(tagLabel)].filter(Boolean).join(" "), 3],
+      [repoKey(s), 2],
+      [s.agentReview.tldr?.text, 1],
+      [s.agentReview.note, 1],
+    ]),
+  ]),
+);
+const bundleFields = new Map(
+  data.bundles.map((b) => [
+    b.id,
+    fields([
+      [b.agentReview.name, 8],
+      [b.agentReview.description, 4],
+      [b.agentReview.tldr?.glance.map((g) => g.text).join(" "), 3],
+      [repoKey(b), 2],
+      [b.agentReview.tldr?.text, 1],
+    ]),
+  ]),
+);
+/** A word counts in full where it starts a word, and a quarter inside one, such as "cad" in "academic". */
+function score(f: Fields, q: string): number {
+  const ws = words(q).map((w) => ({
+    w,
+    start: new RegExp(`(^|[^\\p{L}\\p{N}])${w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}`, "u"),
+  }));
+  const name = f[0]?.[1] === 8 ? f[0][0] : "";
+  const phrase = q.trim().toLowerCase();
+  return (
+    ws.reduce(
+      (n, { w, start }) =>
+        n + Math.max(0, ...f.map(([t, wt]) => (start.test(t) ? wt : t.includes(w) ? wt / 4 : 0))),
+      0,
+    ) + (phrase && name.includes(phrase) ? 4 : 0)
+  );
+}
+/** A bundle matches as well as itself or its best matching skill. */
+const matchScore = (e: Entry, q: string): number =>
+  isBundle(e)
+    ? Math.max(
+        score(bundleFields.get(e.id) ?? [], q),
+        ...skillsOf(e).map((s) => score(skillFields.get(s.id) ?? [], q)),
+      )
+    : score(skillFields.get(e.id) ?? [], q);
 
 /** Within a facet a skill needs any selected value; across facets it needs all of them. `skip` leaves one facet out, for its counts. */
 function passes(s: Skill, st: State, skip: string | null = null): boolean {
@@ -311,8 +370,10 @@ const descending = (a: Value | null, b: Value | null) =>
 /** Compare for an ascending sort, unknown values still last. */
 const ascending = (a: Value | null, b: Value | null) =>
   a === null || b === null ? descending(a, b) : -descending(a, b);
-const order = (sort: Sort, asc: boolean) => (a: Entry, b: Entry) =>
-  (asc ? ascending : descending)(PROPS[sort].of(a), PROPS[sort].of(b)) ||
+const order = (sort: Sort, asc: boolean, q: string) => (a: Entry, b: Entry) =>
+  (sort === "match"
+    ? matchScore(b, q) - matchScore(a, q)
+    : (asc ? ascending : descending)(PROPS[sort].of(a), PROPS[sort].of(b))) ||
   descending(installsOf(a), installsOf(b)) ||
   bundleFirst(a, b) ||
   nameOf(a).localeCompare(nameOf(b));
@@ -327,7 +388,7 @@ function results(st: State): {
   const matching = [
     ...data.bundles.filter((b) => bundlePasses(b, st)),
     ...data.skills.filter((s) => ownEntry(s) && passes(s, st)),
-  ].sort(order(st.sort, st.asc));
+  ].sort(order(st.sort, st.asc, st.q));
   const hidden = new Map<string, number>();
   const counted = { total: matching.length, bundles: matching.filter(isBundle).length };
   if (!st.one) return { list: matching, hidden, ...counted };
@@ -437,7 +498,7 @@ function propsHtml(e: Entry, st: State): string {
 
 const moreLink = (e: Entry, more: number, st: State) =>
   more
-    ? `<a class="more" href="${skillsLink({ view: st.view, repo: repoKey(e), sort: st.sort, asc: st.asc })}">+${more} more from ${esc(repoKey(e))}</a>`
+    ? `<a class="more" href="${skillsLink({ view: st.view, repo: repoKey(e), sort: st.sort === "match" ? VIEWS[st.view].sort : st.sort, asc: st.asc })}">+${more} more from ${esc(repoKey(e))}</a>`
     : "";
 
 function skillRow(s: Skill, more: number, st: State): string {
@@ -597,19 +658,25 @@ export function resultsHtml(st: State): string {
         st.one && list.length !== total ? `, ${plural(list.length, "repo")}` : ""
       }${isFiltered(st) ? ` <span class="muted">of ${all}</span>` : ""}</p>
       <button type="button" class="filters-toggle" data-action="filters" aria-controls="filters">Filters</button>
-      <label class="sort">Sort by <select id="sort">${PROP_IDS.map(
+      <label class="sort">Sort by <select id="sort">${
+        st.q
+          ? `<option value="match"${st.sort === "match" ? " selected" : ""}>Best match</option>`
+          : ""
+      }${PROP_IDS.map(
         (p) => `<option value="${p}"${p === st.sort ? " selected" : ""}>${PROPS[p].label}</option>`,
-      ).join(
-        "",
-      )}</select><button type="button" class="order" data-action="order" title="Reverse the order">${
-        PROPS[st.sort].date
-          ? st.asc
-            ? "Oldest first"
-            : "Newest first"
-          : st.asc
-            ? "Lowest first"
-            : "Highest first"
-      } <span aria-hidden="true">${st.asc ? "↑" : "↓"}</span></button></label>
+      ).join("")}</select>${
+        st.sort === "match"
+          ? ""
+          : `<button type="button" class="order" data-action="order" title="Reverse the order">${
+              PROPS[st.sort].date
+                ? st.asc
+                  ? "Oldest first"
+                  : "Newest first"
+                : st.asc
+                  ? "Lowest first"
+                  : "Highest first"
+            } <span aria-hidden="true">${st.asc ? "↑" : "↓"}</span></button>`
+      }</label>
       <label class="check"><input type="checkbox" id="one"${st.one ? " checked" : ""} /> One per repo</label>
     </div>
     ${activeFilters(st)}

@@ -7,6 +7,7 @@ import {
   rangeLabel,
   parse,
   askPrompt,
+  defaultSort,
   query,
   resultsHtml,
   toggleTag,
@@ -25,7 +26,12 @@ let state = parse(location.search, view);
 let stackExpanded = false;
 
 function go(patch: Partial<State>) {
-  state = { ...state, ...patch };
+  const next = { ...state, ...patch };
+  // A search switches to best match, and clearing it switches back, unless another sort was picked.
+  if ("q" in patch && !("sort" in patch) && state.sort === defaultSort(state.q, view))
+    next.sort = defaultSort(next.q, view);
+  if (next.sort === "match" && !next.q) next.sort = defaultSort("", view);
+  state = next;
   history.replaceState(null, "", query(state) || location.pathname);
   render();
 }
