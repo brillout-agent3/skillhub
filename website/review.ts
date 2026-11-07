@@ -1,5 +1,5 @@
 /**
- * How many skills SkillHub reviewed and why it turned some down, for the intro of the skills list
+ * How many skills SkillHub knows of and why it turned some down, for the intro of the skills list
  * and the about page. Only pages import it, which render at build time, so crawl.jsonc stays out
  * of the client's JavaScript.
  */
@@ -41,8 +41,12 @@ export const review = {
   /** The skills the site lists. */
   listed: data.skills.length,
   bundles: data.bundles.length,
-  /** Every skill that got a verdict: listed, or disqualified for any reason. */
-  reviewed: data.skills.length + crawl.disqualified.length,
+  /** Every skill SkillHub knows of: listed, waiting, under the minimums or disqualified. */
+  reviewed:
+    data.skills.length +
+    crawl.qualified.length +
+    crawl.unqualified.length +
+    crawl.disqualified.length,
   turnedDown,
   gone,
   notOnGitHub,
