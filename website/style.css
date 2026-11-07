@@ -474,6 +474,17 @@ code {
   line-height: 1.4;
 }
 
+/* The prompt's size: a large one can be too much for some agents. */
+.tokens {
+  display: inline-block;
+  padding: 0 6px;
+  border-radius: 6px;
+  background: var(--accent-soft);
+  color: var(--accent-text);
+  font-weight: 650;
+  white-space: nowrap;
+}
+
 .facet {
   margin-top: 18px;
 }

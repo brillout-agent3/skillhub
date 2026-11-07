@@ -9,6 +9,7 @@ import {
   rangeLabel,
   parse,
   askPrompt,
+  tokensHtml,
   fullRanges,
   patched,
   sinceRange,
@@ -28,7 +29,7 @@ import {
   type Sort,
   type State,
 } from "./list.ts";
-import { compact, href } from "./format.ts";
+import { href } from "./format.ts";
 
 const app = document.getElementById("app") as HTMLElement;
 const q = document.getElementById("q") as HTMLInputElement;
@@ -111,7 +112,7 @@ function renderScope() {
   if (key === lastScope) return;
   lastScope = key;
   (document.getElementById("scope") as HTMLElement).innerHTML = scopeHtml(state);
-  if (!askTimer) askLine.textContent = askLabel(state);
+  if (!askTimer) askLine.innerHTML = askLabel(state);
   q.placeholder = searchPlaceholder(state);
 }
 
@@ -176,12 +177,12 @@ const need = document.getElementById("need") as HTMLInputElement;
 const askLine = document.getElementById("ask-label") as HTMLElement;
 let askTimer: ReturnType<typeof setTimeout> | undefined;
 /** Say something under the agent's box for a few seconds, then put its line back. */
-function flash(text: string) {
-  askLine.textContent = text;
+function flash(html: string) {
+  askLine.innerHTML = html;
   clearTimeout(askTimer);
   askTimer = setTimeout(() => {
     askTimer = undefined;
-    askLine.textContent = askLabel(state);
+    askLine.innerHTML = askLabel(state);
   }, 5000);
 }
 
@@ -197,7 +198,7 @@ function ask() {
     ?.writeText(prompt)
     .then(() =>
       flash(
-        `Copied, ~${compact(Math.round(prompt.length / 4))} tokens: paste it into Claude, ChatGPT or any chat agent${text ? "" : ", then tell it what you need"}.`,
+        `Copied: paste it into Claude, ChatGPT or any chat agent${text ? "" : ", then tell it what you need"}. ${tokensHtml(Math.round(prompt.length / 4))}`,
       ),
     );
 }

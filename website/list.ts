@@ -835,12 +835,16 @@ export function scopeHtml(st: State): string {
   return `<span>Looking through <strong>${n.toLocaleString("en")} of ${all.toLocaleString("en")}</strong> ${kinds}, filtered by</span> ${scopeChipsHtml(st)} <span aria-hidden="true">·</span> <button type="button" class="link-button" data-action="clear">Clear filters</button>`;
 }
 
-/** Under the agent's box: what Find skill with your agent copies. */
+/** The prompt's size, highlighted in the line under the agent's box. */
+export const tokensHtml = (tokens: number) =>
+  `<span class="tokens">~${compact(tokens)} tokens</span>`;
+
+/** Under the agent's box: what Find skill with your agent copies, and its size. */
 export function askLabel(st: State): string {
   const n = scopeOf(st);
   const kinds = `${unitOf(st)}${n === 1 ? "" : "s"}`;
   const which = filtersOn(st) ? `these ${n.toLocaleString("en")}` : `all ${n.toLocaleString("en")}`;
-  return `Copies a prompt (~${compact(promptTokens(st))} tokens) for Claude, ChatGPT or any chat agent, which picks from ${which} ${kinds}.`;
+  return `Copies a prompt for Claude, ChatGPT or any chat agent, which picks from ${which} ${kinds}. ${tokensHtml(promptTokens(st))}`;
 }
 
 /**
