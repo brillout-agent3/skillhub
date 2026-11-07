@@ -1,3 +1,4 @@
 import { fresh, listView } from "../../list.ts";
+import { introHtml } from "../../review.ts";
 
-export default () => listView(fresh("new"));
+export default () => introHtml() + listView(fresh("new"));

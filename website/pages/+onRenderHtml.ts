@@ -8,7 +8,11 @@ import "../style.css";
 /** A page's `Page` returns the HTML of its `<main>`. */
 export type Page = (pageContext: PageContextServer) => string;
 
-const NAV = [...Object.values(VIEWS).map((v) => [v.path, v.label]), ["tags/", "Tags"]];
+const NAV = [
+  ...Object.values(VIEWS).map((v) => [v.path, v.label]),
+  ["tags/", "Tags"],
+  ["about/", "About"],
+];
 
 export function onRenderHtml(pageContext: PageContextServer) {
   const { title, description } = pageContext.config;
