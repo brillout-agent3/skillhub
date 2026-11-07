@@ -17,6 +17,9 @@ export default {
   // GitHub Pages serves the site under the repo's name, such as /skillhub/.
   vite: { base: process.env.BASE ?? "/", plugins: [jsonc] },
   meta: {
+    // Pages render to HTML at build time only, so Page never runs in the browser. Server-only, it
+    // and what it imports, such as crawl.jsonc, stay out of the client build.
+    Page: { env: { server: true } },
     title: { env: { server: true } },
     description: { env: { server: true } },
   },

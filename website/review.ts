@@ -1,7 +1,7 @@
 /**
  * How many skills SkillHub knows of and why it turned some down, for the intro of the skills list
- * and the about page. Only pages import it, which render at build time, so crawl.jsonc stays out
- * of the client's JavaScript.
+ * and the about page. Only pages import it, and Page is server-only (pages/+config.ts), so
+ * crawl.jsonc stays out of the client build. Don't import it from a +client.ts or what it imports.
  */
 
 import raw from "../data/crawl.jsonc";
