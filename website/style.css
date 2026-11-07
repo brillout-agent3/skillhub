@@ -563,6 +563,13 @@ code {
   background: var(--surface);
 }
 
+/* The browser lays out and paints only the rows near the screen, which keeps re-rendering the list
+   fast. Until a row has been seen, it counts as a typical row's height. */
+.skill-list > .skill {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 180px;
+}
+
 .skill-body {
   flex: 1;
   min-width: 0;
@@ -1408,6 +1415,10 @@ code {
 /* ------------------------------------------------------------- narrow screens */
 
 @media (max-width: 900px) {
+  .skill-list > .skill {
+    contain-intrinsic-size: auto 400px;
+  }
+
   .intro {
     margin-bottom: 12px;
     font-size: 23px;

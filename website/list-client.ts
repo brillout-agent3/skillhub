@@ -11,6 +11,8 @@ import {
   defaultSort,
   query,
   resultsHtml,
+  rowCount,
+  rowsHtml,
   settingsHtml,
   toggleTag,
   type Preset,
@@ -34,7 +36,23 @@ function go(patch: Partial<State>) {
   if (next.sort === "match" && !next.q) next.sort = defaultSort("");
   state = next;
   history.replaceState(null, "", query(state) || location.pathname);
-  render();
+  renderSoon();
+}
+
+let soon = false;
+/**
+ * Render after the next paint, once for however many changes come before it, so that the control
+ * just used shows its new state without waiting for the list.
+ */
+function renderSoon() {
+  if (soon) return;
+  soon = true;
+  requestAnimationFrame(() =>
+    setTimeout(() => {
+      soon = false;
+      render();
+    }),
+  );
 }
 
 /** Re-rendering replaces the buttons; put focus back on the one that was used. */
@@ -67,14 +85,38 @@ function syncRanges() {
   }
 }
 
+/** Rows rendered right away; the rest follow STEP at a time, so a change shows without waiting for the whole list. */
+const FIRST = 40;
+const STEP = 150;
+/** Counts renders, so that rows still on their way for an older one are dropped. */
+let renders = 0;
+/** What the facets were last rendered for: the pre-rendered page's are for no filters. */
+let lastFacets = "";
+
 function render() {
   const focus = focusSelector();
   if (q.value !== state.q) q.value = state.q;
   syncRanges();
   (document.getElementById("settings") as HTMLElement).innerHTML = settingsHtml(state);
-  (document.getElementById("facets") as HTMLElement).innerHTML = facetsHtml(state, stackExpanded);
-  (document.getElementById("results") as HTMLElement).innerHTML = resultsHtml(state);
+  // The facets don't depend on the sort, so a preset leaves them as they are.
+  const facetsKey = JSON.stringify([state.q, state.tags, state.repo, state.ranges, stackExpanded]);
+  if (facetsKey !== lastFacets) {
+    lastFacets = facetsKey;
+    (document.getElementById("facets") as HTMLElement).innerHTML = facetsHtml(state, stackExpanded);
+  }
+  const results = document.getElementById("results") as HTMLElement;
+  results.innerHTML = resultsHtml(state, FIRST);
   if (focus) (document.querySelector(focus) as HTMLElement | null)?.focus({ preventScroll: true });
+  const st = state;
+  const id = ++renders;
+  const append = (from: number) => {
+    if (id !== renders || from >= rowCount(st)) return;
+    results
+      .querySelector(".skill-list")
+      ?.insertAdjacentHTML("beforeend", rowsHtml(st, from, from + STEP));
+    setTimeout(() => append(from + STEP));
+  };
+  setTimeout(() => append(FIRST));
 }
 
 /** Copy the prompt for an agent, and say how big it is: a large catalog can be too much for some agents. */
@@ -107,11 +149,17 @@ app.addEventListener("click", (event) => {
   );
   if (!el || el.tagName === "A") return;
   const d = el.dataset;
+  // A pressed button shows it right away; the list follows after the next paint.
   if (d.preset) {
+    for (const b of app.querySelectorAll("[data-preset]"))
+      b.setAttribute("aria-pressed", String(b === el));
     const { sort, one } = PRESETS[d.preset as Preset];
     go({ sort, one, asc: false });
-  } else if (d.tag) go({ tags: toggleTag(state.tags, d.tag) });
-  else if (d.remove) {
+  } else if (d.tag) {
+    if (el.hasAttribute("aria-pressed"))
+      el.setAttribute("aria-pressed", String(el.getAttribute("aria-pressed") !== "true"));
+    go({ tags: toggleTag(state.tags, d.tag) });
+  } else if (d.remove) {
     const v = d.value ?? "";
     if (d.remove === "q") go({ q: "" });
     else if (d.remove === "tag") go({ tags: state.tags.filter((t) => t !== v) });
@@ -128,7 +176,7 @@ app.addEventListener("click", (event) => {
   else if (d.action === "order") go({ asc: !state.asc });
   else if (d.action === "stack") {
     stackExpanded = !stackExpanded;
-    render();
+    renderSoon();
   } else if (d.action === "filters") document.getElementById("filters")?.classList.toggle("shown");
 });
 

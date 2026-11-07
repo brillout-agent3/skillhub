@@ -406,13 +406,25 @@ const order = (sort: Sort, asc: boolean, q: string) => (a: Entry, b: Entry) =>
   bundleFirst(a, b) ||
   nameOf(a).localeCompare(nameOf(b));
 
-/** The filtered, sorted list, plus how many entries each repo hides in one-per-repo mode. Skills that only work inside their bundle are listed in it. */
-function results(st: State): {
+interface Results {
   list: Entry[];
   hidden: Map<string, number>;
   total: number;
   bundles: number;
-} {
+}
+
+/** The client renders a state's rows in several steps, all from the same results. */
+let last: { st: State; r: Results } | undefined;
+function results(st: State): Results {
+  if (last?.st !== st) last = { st, r: compute(st) };
+  return last.r;
+}
+
+/** How many entries there are without any filter, for "of N". */
+let allCount: number | undefined;
+
+/** The filtered, sorted list, plus how many entries each repo hides in one-per-repo mode. Skills that only work inside their bundle are listed in it. */
+function compute(st: State): Results {
   const matching = [
     ...data.bundles.filter((b) => bundlePasses(b, st)),
     ...data.skills.filter((s) => ownEntry(s) && passes(s, st)),
@@ -457,7 +469,7 @@ function filtersText(st: State): string[] {
  * instead. `base` is the site's absolute URL, which the entries' paths are relative to.
  */
 export function askPrompt(st: State, base: string): string {
-  const { list } = results({ ...st, q: "", one: false });
+  const { list } = compute({ ...st, q: "", one: false });
   const entry = (e: Entry) => {
     const review = e.agentReview;
     const numbers = [
@@ -678,9 +690,27 @@ function activeFilters(st: State): string {
     : "";
 }
 
-export function resultsHtml(st: State): string {
+const rowHtml = (e: Entry, st: State, hidden: Map<string, number>) => {
+  const more = hidden.get(repoKey(e)) ?? 0;
+  return isBundle(e) ? bundleRow(e, more, st) : skillRow(e, more, st);
+};
+
+/** The rows from `from` to `to`, to append to the `limit` rows `resultsHtml` rendered. */
+export function rowsHtml(st: State, from: number, to: number): string {
+  const { list, hidden } = results(st);
+  return list
+    .slice(from, to)
+    .map((e) => rowHtml(e, st, hidden))
+    .join("");
+}
+
+/** How many rows `st` lists. */
+export const rowCount = (st: State) => results(st).list.length;
+
+/** The count, the active filters and the list, of only its first `limit` rows if given. */
+export function resultsHtml(st: State, limit = Infinity): string {
   const { list, hidden, total, bundles } = results(st);
-  const all = results(fresh()).total;
+  const all = (allCount ??= compute(fresh()).total);
   const repoNote = st.repo ? repoById.get(st.repo) : undefined;
   return `
     <div class="toolbar">
@@ -699,10 +729,8 @@ export function resultsHtml(st: State): string {
     ${
       list.length
         ? `<ol class="skill-list">${list
-            .map((e) => {
-              const more = hidden.get(repoKey(e)) ?? 0;
-              return isBundle(e) ? bundleRow(e, more, st) : skillRow(e, more, st);
-            })
+            .slice(0, limit)
+            .map((e) => rowHtml(e, st, hidden))
             .join("")}</ol>`
         : `<p class="empty">No skill matches these filters.${
             st.q
