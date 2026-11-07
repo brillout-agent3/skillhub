@@ -2922,6 +2922,31 @@
         "description": "The Figma MCP server brings Figma into your workflow, giving AI agents design information and context from Figma files.",
         "note": "Writing to Figma files works only with the remote server, is free during the beta and will become a usage-based paid feature. Read tools are limited to 6 calls a month on the Starter plan or with View or Collab seats."
       }
+    },
+    {
+      "id": "getpaseo/paseo",
+      "stars": 23300,
+      "agentReview": {
+        "kind": "project",
+        "description": "An open-source development environment for desktop, mobile, web and CLI that runs Claude Code, Codex and other coding agents in parallel, each in its own worktree."
+      }
+    },
+    {
+      "id": "rohitg00/ai-engineering-from-scratch",
+      "stars": 77110,
+      "agentReview": {
+        "kind": "project",
+        "description": "A free, open-source AI engineering course of 542 lessons in 20 phases, from math foundations to autonomous agents, in Python, TypeScript, Rust and Julia."
+      }
+    },
+    {
+      "id": "appllama/appllama-skills",
+      "stars": 4938,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Agent skills that make AI agents genuinely good at building mobile apps, studied against the top-grossing apps and finished to a simulator-verified bar.",
+        "note": "Its research skill runs on the Appllama MCP, part of Appllama's paid Pro plan; the design skill works without it."
+      }
     }
   ],
   "bundles": [
@@ -6672,6 +6697,112 @@
           {
             "label": "Any agent, with the skills CLI, plus the repo's 15 other implementer skills",
             "command": "npx skills add amElnagdy/delegate-skills"
+          }
+        ]
+      }
+    },
+    {
+      "id": "rohitg00/ai-engineering-from-scratch@learning",
+      "skew": 0,
+      "agentReview": {
+        "name": "AI Engineering from Scratch placement and quizzes",
+        "description": "Starts you on the AI Engineering from Scratch course and tests you along the way: a placement quiz, a saved study plan and end-of-phase quizzes.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to start the free AI Engineering from Scratch course with your coding agent, and check yourself after each phase"
+            },
+            {
+              "label": "It does",
+              "text": "places you with a ten-question quiz, saves a study plan to LEARNING.md, and quizzes you with eight questions at the end of each phase"
+            },
+            {
+              "label": "You get",
+              "text": "an entry phase, a 20-phase path marked Skip, Review or Do with hours, and per-phase grades with the lessons to re-read"
+            },
+            {
+              "label": "Not included",
+              "text": "learn, the repo's tutor that teaches lesson by lesson from LEARNING.md, and course-guide, which finds the lessons on a topic; the repo's installer offers both"
+            }
+          ],
+          "text": "The course is 542 lessons in 20 phases, from linear algebra to autonomous agents. These three skills start you on it and check you along the way; the teaching itself is the repo's learn skill, which isn't listed here. start-learning is the front door: three questions about why you're learning, your weekly hours and what you want to build, then find-your-level's placement quiz, then a LEARNING.md with your mission, entry phase, a Skip, Review or Do path with hours, a progress log and a review queue that learn keeps up to date. find-your-level also works alone and shows the same path in the conversation. Ask start-learning for only the MCP, Agent Skills or reverse engineering track and it hands you to that track's own tutor instead, also not listed. When you finish a phase, check-understanding writes eight multiple-choice questions from that phase's lesson docs, asks them one at a time, grades you from Mastered to Start Over and names the lessons to re-read. Both quizzes keep the answers hidden until you reply. Lesson docs and hour estimates come from a clone of the repo or are fetched from GitHub.",
+          "permalink": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/d7b5633f91591ee3bf55c8d80831b515498cc0e6"
+        },
+        "skills": [
+          {
+            "id": "rohitg00/ai-engineering-from-scratch/skills/start-learning",
+            "standalone": false,
+            "note": "Runs find-your-level's placement quiz, which it expects installed alongside it; the LEARNING.md it writes is driven by the repo's learn skill, which isn't listed."
+          },
+          {
+            "id": "rohitg00/ai-engineering-from-scratch/skills/find-your-level",
+            "standalone": true
+          },
+          {
+            "id": "rohitg00/ai-engineering-from-scratch/skills/check-understanding",
+            "standalone": true
+          }
+        ],
+        "install": [
+          {
+            "label": "Any agent, with the skills CLI (needs Node.js); it asks which of the repo's skills to add and for which agent and scope: add learn too, which teaches from the plan",
+            "command": "npx skills add rohitg00/ai-engineering-from-scratch"
+          },
+          {
+            "label": "Any agent, with the skills CLI: just these three, plus learn and course-guide, which start-learning's plan hands you to",
+            "command": "npx skills add rohitg00/ai-engineering-from-scratch --skill start-learning --skill find-your-level --skill check-understanding --skill learn --skill course-guide"
+          }
+        ]
+      }
+    },
+    {
+      "id": "appllama/appllama-skills",
+      "skew": 0,
+      "agentReview": {
+        "name": "Appllama mobile app design",
+        "description": "Builds mobile app screens from research on top-grossing apps: appllama-usage studies their real screens, appllama-app-design-skill builds to a native, simulator-verified bar.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want an agent to build a mobile app or screen that holds up next to the best apps in its category"
+            },
+            {
+              "label": "It does",
+              "text": "appllama-usage studies the real screens and flows of top-grossing apps; appllama-app-design-skill builds Expo screens to strict native, navigation, anti-slop and motion rules"
+            },
+            {
+              "label": "You get",
+              "text": "a local research folder with the category's patterns, and screens verified in a simulator with whole-flow recordings"
+            },
+            {
+              "label": "Needs",
+              "text": "the Appllama MCP, part of its paid Pro plan, for the research, and an iOS Simulator or Android emulator; the design skill also works alone"
+            }
+          ],
+          "text": "The two skills split one job: usage decides what to study, design decides how to build. With the Appllama MCP connected, appllama-usage finds a category's winning apps, walks their screens in journey order, saves notes and images under research/ and writes the category's design language to patterns.md. Its playbooks then build an app from a spec and navigation map, or rebuild one screen against a board of about 60 reference screens, handing every screen to appllama-app-design-skill. That skill sets the bar: semantic colors in both themes, native controls, navigation that can't back into a finished sign-in or purchase, one accent and one radius scale, purposeful motion and a definition of done. Both end in the same loop: run the flow in the iOS Simulator or Android emulator, record it, watch it at full speed and frame by frame, fix and repeat. The MCP is added as a custom connector at mcp.appllama.io, and each of its calls but get_credits spends one of Pro's 1,500 monthly credits.",
+          "permalink": "https://github.com/appllama/appllama-skills/tree/dd5caaec3d5d50ad7fc0324da238119c6b7c3707"
+        },
+        "skills": [
+          {
+            "id": "appllama/appllama-skills/skills/appllama-usage",
+            "standalone": false,
+            "note": "Builds every screen with appllama-app-design-skill and ends both build playbooks in that skill's simulator loop and checklist; it also needs the Appllama MCP and a Pro account."
+          },
+          {
+            "id": "appllama/appllama-skills/skills/appllama-app-design-skill",
+            "standalone": true
+          }
+        ],
+        "install": [
+          {
+            "label": "Any agent, with the skills CLI, run from your project root (needs Node.js); add -g to install for all your projects",
+            "command": "npx skills@latest add appllama/appllama-skills"
+          },
+          {
+            "label": "Claude Code, by hand, for all your projects; for another agent, copy the skills into its own skills folder",
+            "command": "git clone https://github.com/appllama/appllama-skills && cp -r appllama-skills/skills/* ~/.claude/skills/"
           }
         ]
       }
@@ -73936,6 +74067,925 @@
           "agent-workflows"
         ],
         "note": "Only useful with the repo's delegate skills, which read its lanes. Needs Node 18+."
+      }
+    },
+    {
+      "id": "getpaseo/paseo/skills/paseo-handoff",
+      "name": "paseo-handoff",
+      "skills.sh": {
+        "url": "https://skills.sh/getpaseo/paseo/paseo-handoff",
+        "installs": 5200,
+        "weeklyInstalls": [172, 182, 219, 241, 207, 181, 190, 213],
+        "firstSeen": "2026-03-15"
+      },
+      "skillMd": {
+        "version": "9f68af0274ca06c5decd6269d870d442b8e04500",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Hands the current task to a fresh agent through Paseo, with a self-contained briefing of context, attempts, decisions and acceptance criteria.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want another agent, from any provider Paseo runs, to take over the task you're working on"
+            },
+            {
+              "label": "It does",
+              "text": "picks an agent profile from Paseo's configured profiles, writes a briefing for an agent with zero context, and launches it in your workspace or a new worktree"
+            },
+            {
+              "label": "You get",
+              "text": "a new agent titled [Handoff] working from that briefing, which Paseo lists among your subagents until you detach it yourself"
+            },
+            {
+              "label": "Keeps",
+              "text": "the task's intent: an investigate-only task tells the new agent not to edit files, a refactor says refactor, not rewrite"
+            },
+            {
+              "label": "Needs",
+              "text": "Paseo running with its MCP tools, and the repo's paseo skill"
+            }
+          ],
+          "text": "Paseo is an open-source app that runs coding agents such as Claude Code and Codex side by side, each in its own worktree. This skill passes your current job to one of them. It first reads Paseo's agent profiles and their notes, then takes the profile you name or the one whose notes best fit the work, falling back to Paseo's list of providers when none fits. The briefing follows a fixed outline: task, context, relevant files, current state, what was tried and why it failed, decisions with their reasons, acceptance criteria and constraints. Say \"in a worktree\" and it creates an isolated workspace on a short branch named after the task. It then creates the agent with the briefing as its first prompt and tells you which agent and workspace it used. It doesn't wait for the new agent or poll it, and it leaves detaching it from your subagents to you.",
+          "permalink": "https://github.com/getpaseo/paseo/tree/9f68af0274ca06c5decd6269d870d442b8e04500/skills/paseo-handoff"
+        },
+        "tags": [
+          "category:agents",
+          "type:command",
+          "effect:local",
+          "needs:cli",
+          "needs:mcp",
+          "by:official",
+          "stack:paseo",
+          "handoff",
+          "multi-agent"
+        ],
+        "note": "Needs Paseo running, from its desktop app or the @getpaseo/cli daemon, with its MCP tools. It reads the repo's paseo skill first, which isn't listed, so install it alongside."
+      }
+    },
+    {
+      "id": "getpaseo/paseo/skills/paseo-committee",
+      "name": "paseo-committee",
+      "skills.sh": {
+        "url": "https://skills.sh/getpaseo/paseo/paseo-committee",
+        "installs": 5100,
+        "weeklyInstalls": [174, 185, 214, 240, 206, 181, 188, 210],
+        "firstSeen": "2026-03-15"
+      },
+      "skillMd": {
+        "version": "9f68af0274ca06c5decd6269d870d442b8e04500",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Asks two high-reasoning agents from different providers, through Paseo, for a root-cause analysis and plan, then relays their arguments until they agree.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you or the agent are stuck, going in circles or tunnel-visioned, or facing a hard planning problem"
+            },
+            {
+              "label": "It does",
+              "text": "starts two agents from contrasting Paseo profiles, ideally from different provider families, gives both the same problem, then passes each one's arguments to the other until they converge"
+            },
+            {
+              "label": "You get",
+              "text": "one agreed plan, with a summary of where the two disagreed and how that was resolved"
+            },
+            {
+              "label": "Won't",
+              "text": "let the committee change anything: every prompt to a member ends with a line forbidding edits, new files and code"
+            },
+            {
+              "label": "Takes",
+              "text": "as long as the models reason, often 15 to 30 minutes; the agent waits for Paseo's finish notice instead of polling"
+            },
+            {
+              "label": "Needs",
+              "text": "Paseo running with its MCP tools, and the repo's paseo skill"
+            }
+          ],
+          "text": "A committee is two agents with fresh context and different reasoning styles. The skill reads Paseo's agent profiles and their notes, then picks one whose notes fit planning, research or root-cause analysis and a contrasting high-reasoning one, preferably from another provider family, unless you name the members. When fewer than two profiles fit, it falls back to Paseo's provider list and tells you. Both members get the same problem-level prompt and a [Committee] title. The agent then waits for both answers without hurrying or interrupting them, settles disagreements by passing each member's arguments to the other, and keeps going until they converge. You get the consensus, plus where the two diverged and how they resolved it.",
+          "permalink": "https://github.com/getpaseo/paseo/tree/9f68af0274ca06c5decd6269d870d442b8e04500/skills/paseo-committee"
+        },
+        "tags": [
+          "category:agents",
+          "category:planning",
+          "category:debugging",
+          "type:workflow",
+          "effect:none",
+          "needs:cli",
+          "needs:mcp",
+          "by:official",
+          "stack:paseo",
+          "multi-agent",
+          "planning",
+          "debugging"
+        ],
+        "note": "Needs Paseo running, from its desktop app or the @getpaseo/cli daemon, with its MCP tools. It reads the repo's paseo skill first, which isn't listed, so install it alongside."
+      }
+    },
+    {
+      "id": "rohitg00/ai-engineering-from-scratch/skills/start-learning",
+      "name": "start-learning",
+      "skills.sh": {
+        "url": "https://skills.sh/rohitg00/ai-engineering-from-scratch/start-learning",
+        "installs": 5200,
+        "weeklyInstalls": [272, 204, 302, 473, 409, 322, 346, 365],
+        "firstSeen": "2026-08-02"
+      },
+      "skillMd": {
+        "version": "d7b5633f91591ee3bf55c8d80831b515498cc0e6",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Onboards you to the AI Engineering from Scratch course with three questions and a placement quiz, then saves a LEARNING.md study plan.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to start the free AI Engineering from Scratch course with your coding agent as tutor"
+            },
+            {
+              "label": "It does",
+              "text": "asks why you're learning, how many hours a week you have and what you want to build, then runs find-your-level's placement quiz"
+            },
+            {
+              "label": "You get",
+              "text": "LEARNING.md: your mission, placement score, entry phase, all 20 phases marked Skip, Review or Do with hours, a progress log and a review queue"
+            },
+            {
+              "label": "Skips the quiz",
+              "text": "when you name your starting phase yourself, marking every earlier phase Skip"
+            },
+            {
+              "label": "Never overwrites",
+              "text": "an existing LEARNING.md: it offers to resume, redo placement or start over, archiving the old file first"
+            },
+            {
+              "label": "Routes",
+              "text": "resume requests for its MCP, Agent Skills, reverse engineering, certification and interview tracks, and requests for just one of the first three, to that track's own tutor"
+            }
+          ],
+          "text": "The course is 542 lessons in 20 phases, from linear algebra to autonomous agents, and this skill is its front door. It asks only three questions, since the quiz measures knowledge and the interview only captures intent, then runs the placement quiz from find-your-level, keeping that skill's rule against reading answers early. Phase hours come from the course's ROADMAP.md, read from your clone or fetched from GitHub. Before onboarding, it looks for the state files of the course's other tracks and hands a resume request to the skill that owns that track, and a learner who wants only MCP, Agent Skills or reverse engineering goes straight to that track's tutor, with no quiz and no LEARNING.md; those skills aren't listed here. It ends with three lines: your entry point and total hours, how to call learn, which starts the first lesson and picks up from LEARNING.md every time, and how to call course-guide to jump to a topic. Commands are written in the form your agent uses, Codex, Claude Code or another.",
+          "permalink": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/d7b5633f91591ee3bf55c8d80831b515498cc0e6/skills/start-learning"
+        },
+        "tags": [
+          "category:personal",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:official",
+          "learning"
+        ],
+        "note": "Runs the find-your-level skill's placement quiz, so install both; the plan it writes is meant for the repo's learn skill, which isn't listed."
+      }
+    },
+    {
+      "id": "rohitg00/ai-engineering-from-scratch/skills/check-understanding",
+      "name": "check-understanding",
+      "skills.sh": {
+        "url": "https://skills.sh/rohitg00/ai-engineering-from-scratch/check-understanding",
+        "installs": 5100,
+        "weeklyInstalls": [256, 195, 276, 451, 387, 302, 325, 356],
+        "firstSeen": "2026-05-23"
+      },
+      "skillMd": {
+        "version": "d7b5633f91591ee3bf55c8d80831b515498cc0e6",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Quizzes you on a phase of the AI Engineering from Scratch course with eight questions from its lessons, naming lessons to re-read.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you've finished a phase of AI Engineering from Scratch and want to know whether you're ready for the next"
+            },
+            {
+              "label": "It does",
+              "text": "reads that phase's lesson docs, from your clone or GitHub, and writes eight multiple-choice questions: four on concepts, four on building"
+            },
+            {
+              "label": "You get",
+              "text": "one question at a time, a grade from Mastered to Start Over, and for each miss the right answer, why, and the lesson to re-read"
+            },
+            {
+              "label": "Then",
+              "text": "offers a fresh quiz on the same phase, another phase, or an explanation of a missed topic"
+            }
+          ],
+          "text": "It takes a phase number from 0 to 19 or a name such as transformers or rl, and lists all 20 phases when the input doesn't match. Questions come only from the lessons' own docs, not general knowledge; for a phase of 15 lessons or more it reads a spread from the start, middle and end. Each question names its lesson and has four plausible options, and the answer stays hidden until you reply. Seven or eight right is Mastered, which says you're ready for the next phase; five or six is Almost, three or four Developing and two or fewer Start Over, each listing what to go back over. Retakes avoid repeating questions until the pool runs out. If a phase has no lessons written yet, it says so. On the final phase, it checks LEARNING.md before congratulating you on finishing the whole course.",
+          "permalink": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/d7b5633f91591ee3bf55c8d80831b515498cc0e6/skills/check-understanding"
+        },
+        "tags": [
+          "category:personal",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:official",
+          "learning"
+        ]
+      }
+    },
+    {
+      "id": "rohitg00/ai-engineering-from-scratch/skills/find-your-level",
+      "name": "find-your-level",
+      "skills.sh": {
+        "url": "https://skills.sh/rohitg00/ai-engineering-from-scratch/find-your-level",
+        "installs": 5100,
+        "weeklyInstalls": [254, 195, 275, 451, 385, 310, 326, 354],
+        "firstSeen": "2026-05-23"
+      },
+      "skillMd": {
+        "version": "d7b5633f91591ee3bf55c8d80831b515498cc0e6",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Places you in the AI Engineering from Scratch course with a ten-question quiz, then lays out a 20-phase path with hour estimates.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're starting AI Engineering from Scratch and don't know which of its 20 phases to begin with"
+            },
+            {
+              "label": "It does",
+              "text": "asks two multiple-choice questions in each of five areas: math and statistics, classical ML, deep learning, NLP and transformers, and applied AI"
+            },
+            {
+              "label": "You get",
+              "text": "a score out of 10, an entry phase from Phase 1 to 14, and a table of all 20 phases marked Skip, Review or Do, with hours"
+            },
+            {
+              "label": "Keeps answers apart",
+              "text": "the key sits in a separate file the agent reads one round at a time, only after you answer"
+            },
+            {
+              "label": "Next",
+              "text": "start-learning saves the placement as a LEARNING.md study plan"
+            }
+          ],
+          "text": "The quiz runs in five rounds of two questions, with a score for the area after each round and no explanations until the end. The total sets the entry point: 0 to 3 starts at Math Foundations, 4 or 5 at Deep Learning Core, 6 or 7 at Transformers Deep Dive, 8 or 9 at LLM Engineering, and 10 at Agent Engineering. Phases below the entry are Skip and the rest Do, but a phase you'd skip becomes Review when you got only one of its area's two questions right; Phase 0, tooling setup, is always Skip. Hours come from the course's ROADMAP.md, read locally or fetched from GitHub, and add up to a total for the Review and Do phases. It closes with where to start, what to focus on given your weakest area, and pointers to start-learning and learn. Unlike start-learning, which saves the placement to LEARNING.md, it shows the path in the conversation.",
+          "permalink": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/d7b5633f91591ee3bf55c8d80831b515498cc0e6/skills/find-your-level"
+        },
+        "tags": [
+          "category:personal",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:official",
+          "learning"
+        ]
+      }
+    },
+    {
+      "id": "elevenlabs/skills/dubbing",
+      "name": "dubbing",
+      "skills.sh": {
+        "url": "https://skills.sh/elevenlabs/skills/dubbing",
+        "installs": 5600,
+        "weeklyInstalls": [225, 287, 337, 516, 572, 584, 760, 809],
+        "firstSeen": "2026-08-06"
+      },
+      "skillMd": {
+        "version": "9763c39a9d7add478b2f2d8229f0caadf5414f5f",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Dubs audio and video into other languages with ElevenLabs, keeping the original speakers' voices, with editable transcripts and per-segment translations.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a video, podcast or recording in another language, voiced like its original speakers"
+            },
+            {
+              "label": "It does",
+              "text": "creates an ElevenLabs dubbing project from a file or URL, waits for the transcript, adds one target language per dub and downloads each when it's done"
+            },
+            {
+              "label": "You get",
+              "text": "a lossless audio file per language, from a download link that expires after about an hour"
+            },
+            {
+              "label": "Also",
+              "text": "edits the source transcript or single translations, then regenerates the dub; enterprise workspaces only"
+            },
+            {
+              "label": "Works from",
+              "text": "Python, JavaScript or the elevenlabs CLI, on the current Dubbing Projects API, never the legacy v1 one"
+            },
+            {
+              "label": "Needs",
+              "text": "an ElevenLabs API key"
+            }
+          ],
+          "text": "ElevenLabs' own reference for its Dubbing Projects API, on the dubbing_v2 model. A project holds one source, a file up to 3 GiB or a public URL, and its transcript: editable segments of text, speaker and timing that every language is translated from. The order it recommends is to finalize that transcript before adding languages, because editing it later marks finished languages stale and regenerating them is charged. Each language moves from queued to processing to completed, and with several the agent tracks them together. Options include the source language or auto-detection, up to 1,000 key terms such as brand names to guide transcription and translation, and how strongly dubbed voices clone the originals. It explains the project and language states, the revision counters that show when a dub is out of date, and errors such as a 409 while a language is still generating. As with the other ElevenLabs skills, a missing key sends the agent to the CLI's onboarding first.",
+          "permalink": "https://github.com/elevenlabs/skills/tree/9763c39a9d7add478b2f2d8229f0caadf5414f5f/dubbing"
+        },
+        "tags": [
+          "category:media",
+          "type:tool",
+          "effect:remote",
+          "needs:account",
+          "by:official",
+          "stack:elevenlabs",
+          "video",
+          "audio",
+          "ai-generation"
+        ],
+        "note": "Needs an ElevenLabs API key in ELEVENLABS_API_KEY; without one, it first runs the ElevenLabs CLI's onboarding, which signs you in and stores a key for the project. It uploads your media to ElevenLabs, and editing transcripts or regenerating dubs needs an enterprise workspace."
+      }
+    },
+    {
+      "id": "stablyai/orca/skills/orca-emulator",
+      "name": "orca-emulator",
+      "skills.sh": {
+        "url": "https://skills.sh/stablyai/orca/orca-emulator",
+        "installs": 6100,
+        "weeklyInstalls": [717, 476, 479, 522, 295, 556, 704, 189],
+        "firstSeen": "2026-06-13"
+      },
+      "skillMd": {
+        "version": "555bd481bcf6ac3b541cce37a4da50bbdb253008",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Drives a booted iOS Simulator from inside Orca, with taps, gestures, typing, buttons and the accessibility tree, shown live in Orca's emulator pane.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you work in Orca and an iOS change needs checking on a simulator, or the agent must use an app there"
+            },
+            {
+              "label": "It does",
+              "text": "attaches a simulator to your worktree, then taps, types, swipes, presses buttons and rotates through Orca's emulator commands, finding targets in the accessibility tree"
+            },
+            {
+              "label": "You get",
+              "text": "a device the agent drives while you watch it live in Orca's emulator pane"
+            },
+            {
+              "label": "Needs",
+              "text": "Orca on a Mac with the Xcode Command Line Tools, and the app already built and installed with xcodebuild or simctl"
+            },
+            {
+              "label": "Unlike orca-emulator-android",
+              "text": "which drives Android devices over adb and can also install apps, grant permissions and read logcat"
+            }
+          ],
+          "text": "Orca is Stably's desktop app for running many coding agents in parallel. The SKILL.md is a short stub: it picks the right Orca executable, warning that on Linux a bare orca command outside Orca's terminals usually starts the GNOME screen reader, then loads the guide that matches the installed Orca version. That guide maps each goal to an orca emulator command: list devices and sessions, attach a simulator and make it active for the worktree, tap, gesture, type, press home or the side button, rotate, read the accessibility tree, pass any other command straight to serve-sim, the simulator tool Orca wraps, and stop the helper or shut the simulator down. Coordinates run from 0 to 1 from the top left, so the agent taps an element at its frame's center, and typing is ASCII only. It tells the agent to stop the helper when done, since it holds the device until Orca quits, and how to get input working again when Xcode's Device Hub blocks it.",
+          "permalink": "https://github.com/stablyai/orca/tree/555bd481bcf6ac3b541cce37a4da50bbdb253008/skills/orca-emulator"
+        },
+        "tags": [
+          "category:debugging",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "by:official",
+          "stack:orca",
+          "mobile",
+          "testing",
+          "computer-use"
+        ],
+        "note": "Needs Orca, Stably's desktop app for running coding agents in parallel, on a Mac with the Xcode Command Line Tools."
+      }
+    },
+    {
+      "id": "stablyai/orca/skills/orca-emulator-android",
+      "name": "orca-emulator-android",
+      "skills.sh": {
+        "url": "https://skills.sh/stablyai/orca/orca-emulator-android",
+        "installs": 5900,
+        "weeklyInstalls": [706, 471, 468, 513, 293, 547, 707, 187],
+        "firstSeen": "2026-06-29"
+      },
+      "skillMd": {
+        "version": "555bd481bcf6ac3b541cce37a4da50bbdb253008",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Drives Android emulators and phones over adb from inside Orca: taps, typing, app installs, permissions, the accessibility tree and logcat.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you work in Orca and need an Android emulator or USB-debugging phone driven, on Windows, Linux or macOS"
+            },
+            {
+              "label": "It does",
+              "text": "attaches a device or boots a virtual one, then taps, swipes, types, presses buttons, rotates, installs an APK, launches an app and grants or revokes permissions"
+            },
+            {
+              "label": "You get",
+              "text": "the device live in Orca's emulator pane, its accessibility tree from uiautomator, and recent logcat lines as parsed entries"
+            },
+            {
+              "label": "Needs",
+              "text": "Orca, adb from the Android SDK, and the SDK emulator for virtual devices; build the APK with Gradle first"
+            },
+            {
+              "label": "Unlike orca-emulator",
+              "text": "the repo's iOS skill, which needs a Mac, this also works on a headless Orca server or an SSH host"
+            }
+          ],
+          "text": "Like the repo's iOS skill, the SKILL.md is a stub that resolves the right Orca executable, avoiding the GNOME screen reader of the same name on Linux, and loads the guide that matches the installed Orca version. Orca's Android backend shells out to adb, plus the SDK emulator for virtual devices, with no extra streaming server. The guide maps each goal to an orca emulator command, and anything else can go through as a raw adb shell command. Coordinates run from 0 to 1 from the top left, swipes go straight from the first point to the last, and typing is ASCII without newlines, so text in other scripts goes through the app's own interface. One device is active per worktree, and it warns that the all-worktrees selector also unscopes commands that change things. Camera and sensor injection aren't covered. When done, the agent stops the helper, which otherwise holds the device until Orca quits.",
+          "permalink": "https://github.com/stablyai/orca/tree/555bd481bcf6ac3b541cce37a4da50bbdb253008/skills/orca-emulator-android"
+        },
+        "tags": [
+          "category:debugging",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "by:official",
+          "stack:orca",
+          "mobile",
+          "testing",
+          "computer-use"
+        ],
+        "note": "Needs Orca, Stably's desktop app for running coding agents in parallel, and adb from the Android SDK."
+      }
+    },
+    {
+      "id": "callstack/agent-device/skills/ios-simulator",
+      "name": "ios-simulator",
+      "skills.sh": {
+        "url": "https://skills.sh/callstack/agent-device/ios-simulator",
+        "installs": 6000,
+        "weeklyInstalls": [447, 545, 611, 601, 608, 468, 462, 458],
+        "firstSeen": "2026-08-10"
+      },
+      "skillMd": {
+        "version": "463fd7b4d8168aadffc1b1613df96a342a47953e",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Launches and drives an app on an iOS Simulator with agent-device to verify a change, inspect its live UI or collect failure evidence.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need a native, React Native, Expo or Flutter app checked on an iPhone or iPad Simulator"
+            },
+            {
+              "label": "It does",
+              "text": "opens the app on iOS with agent-device straight away, follows its interactive snapshot and error hints, and shuts down any simulator it booted when done"
+            },
+            {
+              "label": "Needs",
+              "text": "the agent-device CLI, which you install yourself; it won't install or upgrade it"
+            },
+            {
+              "label": "Unlike agent-device",
+              "text": "the repo's general skill for phones, TVs and Macs, it only targets the iOS Simulator and leaves details to agent-device's own help"
+            },
+            {
+              "label": "For more",
+              "text": "version-matched agent-device help on validation, debugging, React Native, React DevTools and scripting, read only when a task is specialized"
+            }
+          ],
+          "text": "A short entry point to Callstack's agent-device CLI for iOS. The agent skips probing first with --help, devices or a screenshot, opens the app or bundle id with --platform ios in the foreground, then works from the snapshot agent-device returns and its corrective hints. If agent-device isn't on your PATH, it stops and asks you to install it rather than running npx with a moving version. When a task is specialized or a command's shape is unclear, it reads one of agent-device's own help topics: validate for engineering checks and build freshness, debugging for screenshots, logs, traces and video, react-native, react-devtools for components, props, state and render profiling, or scripting for replays and CI. At the end it runs agent-device close --shutdown if it booted the simulator, unless you want it kept running.",
+          "permalink": "https://github.com/callstack/agent-device/tree/463fd7b4d8168aadffc1b1613df96a342a47953e/skills/ios-simulator"
+        },
+        "tags": [
+          "category:debugging",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "by:official",
+          "stack:agent-device",
+          "mobile",
+          "testing",
+          "verification",
+          "computer-use"
+        ]
+      }
+    },
+    {
+      "id": "callstack/agent-device/skills/android-emulator",
+      "name": "android-emulator",
+      "skills.sh": {
+        "url": "https://skills.sh/callstack/agent-device/android-emulator",
+        "installs": 5500,
+        "weeklyInstalls": [369, 455, 542, 584, 563, 460, 440, 446],
+        "firstSeen": "2026-08-10"
+      },
+      "skillMd": {
+        "version": "463fd7b4d8168aadffc1b1613df96a342a47953e",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Launches and drives an app on an Android Emulator with agent-device to verify a change, inspect its live UI or collect failure evidence.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need a native, React Native, Expo or Flutter app checked on an Android virtual device"
+            },
+            {
+              "label": "It does",
+              "text": "opens the app on Android with agent-device straight away, follows its interactive snapshot and error hints, and shuts down any emulator it booted when done"
+            },
+            {
+              "label": "Needs",
+              "text": "the agent-device CLI, which you install yourself; it won't install or upgrade it"
+            },
+            {
+              "label": "Unlike agent-device",
+              "text": "the repo's general skill for phones, TVs and Macs, it only targets the Android Emulator and leaves details to agent-device's own help"
+            },
+            {
+              "label": "For more",
+              "text": "version-matched agent-device help on validation, debugging, React Native, React DevTools and scripting, read only when a task is specialized"
+            }
+          ],
+          "text": "A short entry point to Callstack's agent-device CLI for Android. The agent skips probing first with --help, devices or a screenshot, opens the app or package id with --platform android in the foreground, then works from the snapshot agent-device returns and its corrective hints. If agent-device isn't on your PATH, it stops and asks you to install it rather than running npx with a moving version. When a task is specialized or a command's shape is unclear, it reads one of agent-device's own help topics: validate for engineering checks and build freshness, debugging for screenshots, logs, traces and video, react-native, react-devtools for components, props, state and render profiling, or scripting for replays and CI. At the end it runs agent-device close --shutdown if it booted the emulator, unless you want it kept running.",
+          "permalink": "https://github.com/callstack/agent-device/tree/463fd7b4d8168aadffc1b1613df96a342a47953e/skills/android-emulator"
+        },
+        "tags": [
+          "category:debugging",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "by:official",
+          "stack:agent-device",
+          "mobile",
+          "testing",
+          "verification",
+          "computer-use"
+        ]
+      }
+    },
+    {
+      "id": "appllama/appllama-skills/skills/appllama-app-design-skill",
+      "name": "appllama-app-design-skill",
+      "skills.sh": {
+        "url": "https://skills.sh/appllama/appllama-skills/appllama-app-design-skill",
+        "installs": 5900,
+        "weeklyInstalls": [945, 539, 485, 419, 406, 329, 257, 587],
+        "firstSeen": "2026-08-14"
+      },
+      "skillMd": {
+        "version": "dd5caaec3d5d50ad7fc0324da238119c6b7c3707",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Builds native-feeling Expo screens by studying real apps first, following strict navigation, anti-slop and motion rules, and verifying recorded flows in a simulator.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're building or polishing mobile screens in Expo or React Native, such as onboarding, paywalls, tab bars, sheets or settings, and want them to feel native"
+            },
+            {
+              "label": "It does",
+              "text": "has the agent study real apps' screens of the same type first, then build to fixed laws for native fidelity, navigation, anti-slop styling and motion"
+            },
+            {
+              "label": "You get",
+              "text": "screens checked against a definition of done: both themes, safe areas, Dynamic Type, every state, and a whole-flow screen recording watched frame by frame"
+            },
+            {
+              "label": "Navigation",
+              "text": "decides push or replace, modal, sheet or overlay, and makes sign-in, onboarding and purchases one-way doors that back can't reopen"
+            },
+            {
+              "label": "Anti-slop count",
+              "text": "one accent hue, radii from one stated scale, no emoji in UI chrome, no gradients without a brand reason, one label per intent, counted before the simulator pass"
+            },
+            {
+              "label": "Needs",
+              "text": "an iOS Simulator or Android emulator; the Appllama MCP, a paid library of real app screens, is optional"
+            }
+          ],
+          "text": "Appllama's build bar for mobile screens, which works with or without its MCP. Its first rule is to study before drawing: with the Appllama MCP connected, the agent looks at 20 to 30 real screens of the type through the appllama-usage skill and extracts the pattern, not the pixels. It builds on Expo Router, Reanimated, FlashList and expo-image, following twelve native fidelity laws, such as semantic colors in both themes, native controls, SF Symbols, continuous corners and the platform type ramp, plus six navigation laws and nine anti-slop laws. Motion passes a frequency gate first: what users meet a hundred times a day stays the platform default, anything a finger drives is a spring that keeps the release velocity, and the rest runs under 300 ms with a strong ease-out. It also covers state architecture, perceived performance and generated illustrations in one style. A screen isn't done until the agent has run it in the simulator, recorded the whole flow, back paths and keyboard included, and found no dropped frames, flashes or layout jumps, with 60 fps measured on a release build.",
+          "permalink": "https://github.com/appllama/appllama-skills/tree/dd5caaec3d5d50ad7fc0324da238119c6b7c3707/skills/appllama-app-design-skill"
+        },
+        "tags": [
+          "category:design",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "stack:expo",
+          "stack:react-native",
+          "design",
+          "mobile",
+          "animation",
+          "anti-slop"
+        ]
+      }
+    },
+    {
+      "id": "appllama/appllama-skills/skills/appllama-usage",
+      "name": "appllama-usage",
+      "skills.sh": {
+        "url": "https://skills.sh/appllama/appllama-skills/appllama-usage",
+        "installs": 5000,
+        "weeklyInstalls": [797, 455, 399, 349, 336, 275, 226, 480],
+        "firstSeen": "2026-08-13"
+      },
+      "skillMd": {
+        "version": "dd5caaec3d5d50ad7fc0324da238119c6b7c3707",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Researches top-grossing mobile apps' real screens and flows through the Appllama MCP, then builds or improves an app from what it learned.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're building a mobile app or screen and want it modelled on what the category's top-grossing apps actually ship"
+            },
+            {
+              "label": "It does",
+              "text": "shortlists the category's top apps, walks every screen in journey order, saves notes and images locally, and writes up the category's design language"
+            },
+            {
+              "label": "You get",
+              "text": "a research/ folder with app shortlists, per-screen notes, downloaded screens and a patterns.md, then an app or screen built from it"
+            },
+            {
+              "label": "Playbooks",
+              "text": "build an app from scratch, improve one screen against a board of about 60 references, or study a flow or a single UI element"
+            },
+            {
+              "label": "Needs",
+              "text": "the Appllama MCP and a Pro account; each call but get_credits costs one of 1,500 monthly credits"
+            },
+            {
+              "label": "Builds with",
+              "text": "appllama-app-design-skill, whose simulator loop ends every build"
+            }
+          ],
+          "text": "Appllama is a library of real screens, flows and UI elements from top-grossing mobile apps, with revenue and download figures. This skill is the agent's guide to its MCP and the method on top of it. It maps the tools, from search_apps and list_app_screens to semantic screen search and your own boards, and sets ground rules: check credits first, page in order, download media within about an hour before links expire, ignore Appllama's watermark, and don't sweep the catalog to harvest it. The build-from-scratch playbook shortlists five apps by revenue, rating, downloads and fit, studies every screen, re-walks the decisive flows of the top three, writes a spec with a navigation map, builds screen by screen, then walks the app three ways: happy path, skipping everything, and bad input. The improve-a-screen playbook names the screen's top three deficits, runs a keyword and a semantic search of about 30 screens each, picks the best five to eight and rebuilds until it reads at least as good. Both end in the design skill's simulator loop.",
+          "permalink": "https://github.com/appllama/appllama-skills/tree/dd5caaec3d5d50ad7fc0324da238119c6b7c3707/skills/appllama-usage"
+        },
+        "tags": [
+          "category:design",
+          "type:workflow",
+          "effect:local",
+          "needs:mcp",
+          "needs:account",
+          "needs:cli",
+          "by:official",
+          "stack:appllama",
+          "design",
+          "mobile",
+          "research"
+        ],
+        "note": "Needs the Appllama MCP and an Appllama Pro account: every call but get_credits spends one of 1,500 monthly credits. Builds every screen with appllama-app-design-skill, so install it alongside."
+      }
+    },
+    {
+      "id": "gmgnai/gmgn-skills/skills/gmgn-heat-rank",
+      "name": "gmgn-heat-rank",
+      "skills.sh": {
+        "url": "https://skills.sh/gmgnai/gmgn-skills/gmgn-heat-rank",
+        "installs": 5800,
+        "weeklyInstalls": [593, 843, 776, 646, 565, 508, 754, 713],
+        "firstSeen": "2026-09-10"
+      },
+      "skillMd": {
+        "version": "6a04e1f00b5463cfc965e41003ca0c7c2db5b69f",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Screens GMGN's trending tokens across seven chains through risk gates and scores the survivors, returning at most ten worth a look.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a short list of memecoins that are hot right now and pass basic risk checks, not GMGN's raw trending ranking"
+            },
+            {
+              "label": "It does",
+              "text": "pulls trending lists for seven chains over 1h, 6h and 24h, gates tokens on liquidity, real volume, concentration, rug and dev risk and age, and scores survivors 0-100"
+            },
+            {
+              "label": "You get",
+              "text": "up to ten tokens scoring 60 or more, with market cap, pool, volume, age and distance from their high, full contract addresses, near-misses and empty chains"
+            },
+            {
+              "label": "Never pads",
+              "text": "a weak market returns fewer names, or none"
+            },
+            {
+              "label": "Doesn't flag",
+              "text": "which listed tokens it couldn't rug-check, in practice every one off Solana; those must instead clear stricter substitute gates and a score floor of 68"
+            },
+            {
+              "label": "Needs",
+              "text": "gmgn-cli, a GMGN API key and Python 3"
+            }
+          ],
+          "text": "One of GMGN's analysis skills for memecoin traders. With no address needed, the agent sweeps sol, bsc, base, eth, robinhood, arc and stable in up to 21 paced calls, keeping tokens with at least $500,000 market cap and $100,000 liquidity that became tradable in the last seven days. It writes a fixed Python scorer to a temporary folder and runs it; when a token's real creation date matters, it looks that up and scores again, so a token that sat on a bonding curve for weeks isn't judged as a newborn. The score weighs volume, holder and KOL growth, quality, acceleration, smart money, distance from the high, heat and freshness on one cross-chain scale, with no quota per chain. You can narrow the chains, the age ceiling, the count or the score floor, and the report names any change. On a rerun it says which names stayed, which dropped and on which gate, and which are new. It never trades or deep-dives one token, pointing to gmgn-contract-dd or gmgn-token-buy for that.",
+          "permalink": "https://github.com/gmgnai/gmgn-skills/tree/6a04e1f00b5463cfc965e41003ca0c7c2db5b69f/skills/gmgn-heat-rank"
+        },
+        "tags": [
+          "category:science",
+          "type:tool",
+          "effect:none",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:gmgn",
+          "web3",
+          "finance"
+        ],
+        "note": "Needs gmgn-cli, a GMGN API key from gmgn.ai, and Python 3."
+      }
+    },
+    {
+      "id": "gmgnai/gmgn-skills/skills/gmgn-narrative",
+      "name": "gmgn-narrative",
+      "skills.sh": {
+        "url": "https://skills.sh/gmgnai/gmgn-skills/gmgn-narrative",
+        "installs": 5600,
+        "weeklyInstalls": [423, 842, 780, 641, 561, 505, 755, 714],
+        "firstSeen": "2026-09-11"
+      },
+      "skillMd": {
+        "version": "6a04e1f00b5463cfc965e41003ca0c7c2db5b69f",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Researches a token's story and how it spreads on X, from on-chain data and posts it opens, writing a verified card with a disclaimer.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want to know what story a token is telling and whether its buzz on X holds up, rather than its price or safety numbers"
+            },
+            {
+              "label": "It does",
+              "text": "reads the token and its creator's record through gmgn-cli, searches X by address, ticker and name in recent and top order, opens each claim's source and seeks the counter-case"
+            },
+            {
+              "label": "You get",
+              "text": "a two-part card, the token's story and verified findings on its spread, ending with an AI-generated, not-financial-advice disclaimer"
+            },
+            {
+              "label": "Scores",
+              "text": "only when asked, from a neutral baseline moved by confirmed findings, and always with a caveat that it isn't a price prediction"
+            },
+            {
+              "label": "Won't",
+              "text": "invent details, lean on other platforms' write-ups, use a browser or anyone's logged-in session, or run past about 30 tool calls on one card"
+            },
+            {
+              "label": "Needs",
+              "text": "gmgn-cli and a GMGN API key, plus an X API or Grok API key for the social half"
+            }
+          ],
+          "text": "GMGN's skill for the story side of token due diligence. On-chain data comes first: what the token calls itself, the creator's record (how many tokens it launched, whether it has exited, whether the community took over), past brand names, who receives creator fees, and the launchpad, which it never mistakes for the issuer. Social evidence comes from a configured provider, the official X API or xAI's Grok with live X search, queried in both orders because one alone has missed posts with 10 to 100 times the reach. Every checkable claim is opened and read; a claim with one source is reported as such, and one with none is left out. It also checks for unrelated tokens with similar names. Without a social provider it writes an on-chain-only card and says so. Token metadata, posts and fetched pages are treated as untrusted text, and a source that tries to steer the agent is reported as a risk. The card's two sections carry Chinese headings.",
+          "permalink": "https://github.com/gmgnai/gmgn-skills/tree/6a04e1f00b5463cfc965e41003ca0c7c2db5b69f/skills/gmgn-narrative"
+        },
+        "tags": [
+          "category:science",
+          "type:workflow",
+          "effect:none",
+          "needs:cli",
+          "needs:account",
+          "by:official",
+          "stack:gmgn",
+          "stack:x-twitter",
+          "web3",
+          "finance",
+          "research",
+          "social-media"
+        ],
+        "note": "Needs gmgn-cli and a GMGN API key; its social half needs an X API or xAI Grok API key that your setup provides as SOCIAL_SEARCH_API_KEY. Its authors say it's validated only on Claude Sonnet 5."
+      }
+    },
+    {
+      "id": "getsentry/skills/skills/code-review",
+      "name": "code-review",
+      "skills.sh": {
+        "url": "https://skills.sh/getsentry/skills/code-review",
+        "installs": 5700,
+        "weeklyInstalls": [69, 63, 39, 368, 68, 146, 78, 122],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "e94f22214528d69899d09c627b3315ddc3544816",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Reviews code changes by Sentry's engineering checklist, from runtime errors, performance and security to tests and design, with polite, actionable feedback.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you're reviewing a pull request or code change and want a short, general checklist"
+            },
+            {
+              "label": "It does",
+              "text": "checks for runtime errors, quadratic or N+1 performance problems, side effects, breaking API changes, security gaps, test coverage and fit with the architecture"
+            },
+            {
+              "label": "You get",
+              "text": "polite, actionable comments, phrased as questions when unsure, with approval once only minor issues remain"
+            },
+            {
+              "label": "Flags for a senior",
+              "text": "schema changes, API contract changes, new frameworks or libraries, performance-critical paths and security-sensitive code"
+            },
+            {
+              "label": "Unlike find-bugs",
+              "text": "Sentry's branch review with an 11-item security checklist and evidence for every finding, this is a lighter reviewer's guide"
+            }
+          ],
+          "text": "Sentry's code review guidelines, condensed for agents. They're written for Sentry projects, though nothing in them needs Sentry. The checklist covers problems to look for, from exceptions and out-of-bounds access to unbounded quadratic operations, N+1 queries, complex Django ORM queries, injection and exposed secrets; a design check of whether the change fits the architecture and current requirements; and test coverage at functional, integration and end-to-end level, without heavy branching in tests. The feedback rules say to be polite and specific, not to block a PR over style, and to remember the goal is reducing risk, not perfect code. Short examples show an N+1 query fixed with prefetch_related, a missing useEffect dependency, and SQL injection fixed with a parameterized query. It links to Sentry's published code review guide.",
+          "permalink": "https://github.com/getsentry/skills/tree/e94f22214528d69899d09c627b3315ddc3544816/skills/code-review"
+        },
+        "tags": [
+          "category:debugging",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:official",
+          "code-review",
+          "code-quality"
+        ]
+      }
+    },
+    {
+      "id": "getsentry/skills/skills/gha-security-review",
+      "name": "gha-security-review",
+      "skills.sh": {
+        "url": "https://skills.sh/getsentry/skills/gha-security-review",
+        "installs": 5000,
+        "weeklyInstalls": [53, 52, 38, 383, 72, 77, 79, 111],
+        "firstSeen": "2026-03-03"
+      },
+      "skillMd": {
+        "version": "e94f22214528d69899d09c627b3315ddc3544816",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Audits GitHub Actions workflows for attacks an outside contributor could pull off, reporting only findings with a traced exploit path and a fix.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you want a repo's .github/workflows, its composite actions and the scripts they load checked for exploitable flaws"
+            },
+            {
+              "label": "It does",
+              "text": "classifies each workflow's triggers, loads the matching attack references, runs eight checks from pwn requests and expression injection to supply chain and runners, and traces each attack"
+            },
+            {
+              "label": "You get",
+              "text": "findings rated Critical to Medium, each with entry point, payload, how it runs, impact, a proof-of-concept sketch and a fix, plus Needs verification and Reviewed and cleared lists"
+            },
+            {
+              "label": "Threat model",
+              "text": "only attackers without write access, who can open fork PRs, issues and comments; workflow_dispatch inputs and protected-branch pushes are out of scope"
+            },
+            {
+              "label": "Won't flag",
+              "text": "safe patterns such as expressions in if: or with:, SHA-pinned actions, or first-party actions on version tags"
+            },
+            {
+              "label": "Unlike security-review",
+              "text": "Sentry's general security review, which hands GitHub Actions workflows to this skill when it's installed"
+            }
+          ],
+          "text": "Sentry's review of CI workflows, built from attack patterns in real GitHub Actions exploits, including StepSecurity's analysis of the HackerBot Claw campaign. It looks for pull_request_target workflows that check out fork code, ${{ }} expressions expanded inside run: blocks, comment-triggered commands with no author check, long-lived tokens reachable by untrusted code, workflows that load CLAUDE.md, AGENTS.md or a Makefile from a PR, unpinned third-party actions in jobs with secrets or write access, over-broad permissions, and self-hosted runners, caches and artifacts. A finding needs a concrete exploitation scenario: with all five elements it is reported, with a broken link it goes under Needs verification, and theoretical issues are dropped. Before reporting, the agent reads each full workflow, traces the trigger and its if: conditions, confirms an outside attacker controls the value, and checks for mitigations. When nothing qualifies, it says no exploitable vulnerabilities were identified.",
+          "permalink": "https://github.com/getsentry/skills/tree/e94f22214528d69899d09c627b3315ddc3544816/skills/gha-security-review"
+        },
+        "tags": [
+          "category:security",
+          "category:debugging",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:official",
+          "stack:github",
+          "security",
+          "ci",
+          "code-review"
+        ]
       }
     }
   ]

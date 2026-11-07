@@ -68,19 +68,6 @@
       }
     },
     {
-      "name": "orca-emulator",
-      "repo": "stablyai/orca",
-      "official": true,
-      "stars": 117623,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/stablyai/orca/orca-emulator",
-        "installs": 6100,
-        "weeklyInstalls": [717, 476, 479, 522, 295, 556, 704, 189],
-        "firstSeen": "2026-06-13"
-      }
-    },
-    {
       "name": "latex-paper-en",
       "repo": "bahayonghang/academic-writing-skills",
       "official": false,
@@ -117,19 +104,6 @@
         "installs": 6000,
         "weeklyInstalls": [376, 380, 351, 350, 385, 337, 379, 336],
         "firstSeen": "2026-07-13"
-      }
-    },
-    {
-      "name": "ios-simulator",
-      "repo": "callstack/agent-device",
-      "official": true,
-      "stars": 5286,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/callstack/agent-device/ios-simulator",
-        "installs": 6000,
-        "weeklyInstalls": [447, 545, 611, 601, 608, 468, 462, 458],
-        "firstSeen": "2026-08-10"
       }
     },
     {
@@ -185,32 +159,6 @@
       }
     },
     {
-      "name": "appllama-app-design-skill",
-      "repo": "appllama/appllama-skills",
-      "official": false,
-      "stars": 4938,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/appllama/appllama-skills/appllama-app-design-skill",
-        "installs": 5900,
-        "weeklyInstalls": [945, 539, 485, 419, 406, 329, 257, 587],
-        "firstSeen": "2026-08-14"
-      }
-    },
-    {
-      "name": "orca-emulator-android",
-      "repo": "stablyai/orca",
-      "official": true,
-      "stars": 117623,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/stablyai/orca/orca-emulator-android",
-        "installs": 5900,
-        "weeklyInstalls": [706, 471, 468, 513, 293, 547, 707, 187],
-        "firstSeen": "2026-06-29"
-      }
-    },
-    {
       "name": "bencium-impact-designer",
       "repo": "bencium/bencium-marketplace",
       "official": false,
@@ -221,19 +169,6 @@
         "installs": 5800,
         "weeklyInstalls": [96, 178, 176, 194, 185, 189, 188, 299],
         "firstSeen": "2026-03-01"
-      }
-    },
-    {
-      "name": "gmgn-heat-rank",
-      "repo": "gmgnai/gmgn-skills",
-      "official": false,
-      "stars": 647,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/gmgnai/gmgn-skills/gmgn-heat-rank",
-        "installs": 5800,
-        "weeklyInstalls": [593, 843, 776, 646, 565, 508, 754, 713],
-        "firstSeen": "2026-09-10"
       }
     },
     {
@@ -289,19 +224,6 @@
       }
     },
     {
-      "name": "code-review",
-      "repo": "getsentry/skills",
-      "official": true,
-      "stars": 1129,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/getsentry/skills/code-review",
-        "installs": 5700,
-        "weeklyInstalls": [69, 63, 39, 368, 68, 146, 78, 122],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
       "name": "uncodixfy",
       "repo": "cyxzdev/uncodixfy",
       "official": false,
@@ -312,19 +234,6 @@
         "installs": 5600,
         "weeklyInstalls": [38, 37, 46, 22, 32, 34, 21, 27],
         "firstSeen": "2026-03-08"
-      }
-    },
-    {
-      "name": "gmgn-narrative",
-      "repo": "gmgnai/gmgn-skills",
-      "official": false,
-      "stars": 647,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/gmgnai/gmgn-skills/gmgn-narrative",
-        "installs": 5600,
-        "weeklyInstalls": [423, 842, 780, 641, 561, 505, 755, 714],
-        "firstSeen": "2026-09-11"
       }
     },
     {
@@ -351,19 +260,6 @@
         "installs": 5600,
         "weeklyInstalls": [63, 60, 56, 57, 76, 60, 64, 47],
         "firstSeen": "2026-06-26"
-      }
-    },
-    {
-      "name": "dubbing",
-      "repo": "elevenlabs/skills",
-      "official": true,
-      "stars": 536,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/elevenlabs/skills/dubbing",
-        "installs": 5600,
-        "weeklyInstalls": [225, 287, 337, 516, 572, 584, 760, 809],
-        "firstSeen": "2026-08-06"
       }
     },
     {
@@ -403,19 +299,6 @@
         "installs": 5500,
         "weeklyInstalls": [149, 153, 155, 134, 143, 153, 161, 155],
         "firstSeen": "2026-02-20"
-      }
-    },
-    {
-      "name": "android-emulator",
-      "repo": "callstack/agent-device",
-      "official": true,
-      "stars": 5286,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/callstack/agent-device/android-emulator",
-        "installs": 5500,
-        "weeklyInstalls": [369, 455, 542, 584, 563, 460, 440, 446],
-        "firstSeen": "2026-08-10"
       }
     },
     {
@@ -471,19 +354,6 @@
       }
     },
     {
-      "name": "paseo-handoff",
-      "repo": "getpaseo/paseo",
-      "official": false,
-      "stars": 23300,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/getpaseo/paseo/paseo-handoff",
-        "installs": 5200,
-        "weeklyInstalls": [172, 182, 219, 241, 207, 181, 190, 213],
-        "firstSeen": "2026-03-15"
-      }
-    },
-    {
       "name": "mermaid-diagrams",
       "repo": "softaworks/agent-toolkit",
       "official": false,
@@ -494,19 +364,6 @@
         "installs": 5200,
         "weeklyInstalls": [36, 44, 42, 43, 42, 44, 42, 41],
         "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "start-learning",
-      "repo": "rohitg00/ai-engineering-from-scratch",
-      "official": false,
-      "stars": 77110,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/rohitg00/ai-engineering-from-scratch/start-learning",
-        "installs": 5200,
-        "weeklyInstalls": [272, 204, 302, 473, 409, 322, 346, 365],
-        "firstSeen": "2026-08-02"
       }
     },
     {
@@ -546,45 +403,6 @@
         "installs": 5100,
         "weeklyInstalls": [153, 152, 107, 86, 131, 160, 161, 132],
         "firstSeen": "2026-05-09"
-      }
-    },
-    {
-      "name": "check-understanding",
-      "repo": "rohitg00/ai-engineering-from-scratch",
-      "official": false,
-      "stars": 77110,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/rohitg00/ai-engineering-from-scratch/check-understanding",
-        "installs": 5100,
-        "weeklyInstalls": [256, 195, 276, 451, 387, 302, 325, 356],
-        "firstSeen": "2026-05-23"
-      }
-    },
-    {
-      "name": "paseo-committee",
-      "repo": "getpaseo/paseo",
-      "official": false,
-      "stars": 23300,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/getpaseo/paseo/paseo-committee",
-        "installs": 5100,
-        "weeklyInstalls": [174, 185, 214, 240, 206, 181, 188, 210],
-        "firstSeen": "2026-03-15"
-      }
-    },
-    {
-      "name": "find-your-level",
-      "repo": "rohitg00/ai-engineering-from-scratch",
-      "official": false,
-      "stars": 77110,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/rohitg00/ai-engineering-from-scratch/find-your-level",
-        "installs": 5100,
-        "weeklyInstalls": [254, 195, 275, 451, 385, 310, 326, 354],
-        "firstSeen": "2026-05-23"
       }
     },
     {
@@ -650,32 +468,6 @@
         "installs": 5000,
         "weeklyInstalls": [7, 3, 9, 1, 3, 12, 5, 5],
         "firstSeen": "2026-02-01"
-      }
-    },
-    {
-      "name": "appllama-usage",
-      "repo": "appllama/appllama-skills",
-      "official": false,
-      "stars": 4938,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/appllama/appllama-skills/appllama-usage",
-        "installs": 5000,
-        "weeklyInstalls": [797, 455, 399, 349, 336, 275, 226, 480],
-        "firstSeen": "2026-08-13"
-      }
-    },
-    {
-      "name": "gha-security-review",
-      "repo": "getsentry/skills",
-      "official": true,
-      "stars": 1129,
-      "seen": "2026-11-06",
-      "skills.sh": {
-        "url": "https://skills.sh/getsentry/skills/gha-security-review",
-        "installs": 5000,
-        "weeklyInstalls": [53, 52, 38, 383, 72, 77, 79, 111],
-        "firstSeen": "2026-03-03"
       }
     }
   ],
