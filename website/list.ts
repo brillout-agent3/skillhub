@@ -25,6 +25,7 @@ import {
   repoKey,
   growthOf,
   GROWTH_MIN,
+  GROWTH_WEEKS,
   skillById,
   skillHref,
   skillsOf,
@@ -172,13 +173,11 @@ export type Sort = Prop | "growth" | "match";
 const GROWTH = {
   label: "Weekly Growth",
   title: (e: Entry) =>
-    `${isBundle(e) ? "The most of any of its skills: " : ""}Installs on skills.sh in an average week of the 2 to ${date(data.asOf.installs)}, against an average week of the 4 before. Only for skills with at least ${compact(GROWTH_MIN)} a week.`,
+    `${isBundle(e) ? "The most of any of its skills: " : ""}Installs on skills.sh in an average week of the 2 to ${date(data.asOf.installs)}, against an average week of the 4 before. Only for skills with at least ${compact(GROWTH_MIN)} a week, and installs in each of the last ${GROWTH_WEEKS} weeks: a younger skill shows under New.`,
 };
-/** A growth as a percentage with its sign, such as +180% or −12%, or "new" when it had no downloads before. */
+/** A growth as a percentage with its sign, such as +180% or −12%. */
 const percent = (g: number) =>
-  g === Infinity
-    ? "new"
-    : `${g > 0 ? "+" : g < 0 ? "−" : ""}${Math.round(Math.abs(g) * 100).toLocaleString("en")}%`;
+  `${g > 0 ? "+" : g < 0 ? "−" : ""}${Math.round(Math.abs(g) * 100).toLocaleString("en")}%`;
 /** A search sorts by best match unless another sort is picked; otherwise the list sorts by downloads. */
 export const defaultSort = (q: string): Sort => (q ? "match" : "downloads");
 export interface State {
