@@ -231,7 +231,19 @@ export interface State {
   ranges: Record<Prop, Range>;
   /** One entry per repo: the most popular one stands for the rest. */
   one: boolean;
+  show: Show;
 }
+
+/**
+ * What the list shows: bundles and the skills worth installing alone ("all"), every skill, those
+ * only listed inside their bundle included ("skills"), or only bundles. Not a preset's business.
+ */
+export type Show = "all" | "skills" | "bundles";
+export const SHOWS: [Show, string][] = [
+  ["all", "Skills & bundles"],
+  ["skills", "Skills"],
+  ["bundles", "Bundles"],
+];
 
 export function parse(search: string): State {
   const p = new URLSearchParams(search);
@@ -261,6 +273,7 @@ export function parse(search: string): State {
     asc: p.get("order") === "asc",
     ranges,
     one: p.get("one") === "1",
+    show: (["skills", "bundles"] as const).find((v) => v === p.get("show")) ?? "all",
   };
 }
 /** The query string for a state, empty for the default view. */
@@ -280,6 +293,7 @@ export function query(s: State): string {
       );
   }
   if (s.one) p.set("one", "1");
+  if (s.show !== "all") p.set("show", s.show);
   const q = p.toString();
   return q ? `?${q}` : "";
 }
@@ -419,8 +433,10 @@ const matchScore = (e: Entry, q: string): number =>
 /** Within a facet a skill needs any selected value; across facets it needs all of them. `skip` leaves one facet out, for its counts. */
 function passes(s: Skill, st: State, skip: string | null = null): boolean {
   if (st.repo && repoKey(s) !== st.repo) return false;
-  // A skill listed only inside its bundle is in the sliders' ranges when its bundle is.
-  if (!inRanges(ownEntry(s) ? s : (bundleOf.get(s.id)?.bundle ?? s), st)) return false;
+  // A skill listed only inside its bundle is in the sliders' ranges when its bundle is, unless
+  // the list shows every skill on its own.
+  const listedIn = st.show !== "skills" && !ownEntry(s) ? bundleOf.get(s.id)?.bundle : undefined;
+  if (!inRanges(listedIn ?? s, st)) return false;
   const selected = new Map<string, string[]>();
   for (const t of st.tags) selected.set(facetOf(t), [...(selected.get(facetOf(t)) ?? []), t]);
   for (const [facet, tags] of selected)
@@ -428,7 +444,6 @@ function passes(s: Skill, st: State, skip: string | null = null): boolean {
   return !st.q || matches(searchText.get(s.id) ?? "", st.q);
 }
 
-/** A bundle shows when one of its skills does, or when the search matches the bundle itself and one of its skills matches the other filters. */
 /**
  * Whether the entry's numbers are within the sliders' ranges. A bundle's are its own, the ones its
  * row shows (its oldest skill's date, its most downloaded skill's downloads), so that a bundle
@@ -447,18 +462,21 @@ function inRanges(e: Entry, st: State): boolean {
 /** The state without its sliders' ranges: tags and the search are about a bundle's skills, the ranges about the bundle. */
 const withoutRanges = (st: State): State => ({ ...st, ranges: fullRanges() });
 
-/** A bundle is in its sliders' ranges by its own numbers, and matches the tags and search through any of its skills. */
-function bundlePasses(b: Bundle, st: State): boolean {
-  if (!inRanges(b, st)) return false;
+/**
+ * The skills through which a bundle matches the tags and search: those that match them, or, when
+ * the search matches the bundle itself, those that match the tags. `skip` leaves a facet out.
+ */
+function matchedThrough(b: Bundle, st: State, skip: string | null = null): Skill[] {
   const rest = withoutRanges(st);
   const skills = skillsOf(b);
-  return (
-    skills.some((s) => passes(s, rest)) ||
-    (Boolean(st.q) &&
-      matches(bundleText.get(b.id) ?? "", st.q) &&
-      skills.some((s) => passes(s, { ...rest, q: "" })))
-  );
+  const hits = skills.filter((s) => passes(s, rest, skip));
+  if (hits.length || !st.q || !matches(bundleText.get(b.id) ?? "", st.q)) return hits;
+  return skills.filter((s) => passes(s, { ...rest, q: "" }, skip));
 }
+
+/** A bundle is in its sliders' ranges by its own numbers, and matches the tags and search through any of its skills. */
+const bundlePasses = (b: Bundle, st: State, skip: string | null = null) =>
+  inRanges(b, st) && matchedThrough(b, st, skip).length > 0;
 
 const isFiltered = (st: State) =>
   Boolean(st.q || st.tags.length || st.repo) || PROP_IDS.some((p) => isNarrowed(p, st.ranges[p]));
@@ -495,14 +513,19 @@ function results(st: State): Results {
   return last.r;
 }
 
-/** How many entries there are without any filter, for "of N". */
-let allCount: number | undefined;
+/** How many entries there are without any filter, for "of N", for each of `Show`. */
+const allCounts = new Map<Show, number>();
 
-/** The filtered, sorted list, plus how many entries each repo hides in one-per-repo mode. Skills that only work inside their bundle are listed in it. */
+/**
+ * The filtered, sorted list, plus how many entries each repo hides in one-per-repo mode. With
+ * bundles, a skill that only works inside its bundle is only listed in it.
+ */
 function compute(st: State): Results {
   const matching = [
-    ...data.bundles.filter((b) => bundlePasses(b, st)),
-    ...data.skills.filter((s) => ownEntry(s) && passes(s, st)),
+    ...(st.show === "skills" ? [] : data.bundles.filter((b) => bundlePasses(b, st))),
+    ...(st.show === "bundles"
+      ? []
+      : data.skills.filter((s) => (st.show === "skills" || ownEntry(s)) && passes(s, st))),
   ].sort(order(st.sort, st.asc, st.q));
   const hidden = new Map<string, number>();
   const counted = { total: matching.length, bundles: matching.filter(isBundle).length };
@@ -519,10 +542,16 @@ function compute(st: State): Results {
   return { list, hidden, ...counted };
 }
 
+/** How many skills, or bundles when the list shows only those, have each value of a facet, with the other filters. */
 function counts(st: State, facet: string, valuesOf: (s: Skill) => string[]): Map<string, number> {
   const n = new Map<string, number>();
-  for (const s of data.skills)
-    if (passes(s, st, facet)) for (const v of valuesOf(s)) n.set(v, (n.get(v) ?? 0) + 1);
+  const add = (values: string[]) => {
+    for (const v of new Set(values)) n.set(v, (n.get(v) ?? 0) + 1);
+  };
+  if (st.show === "bundles") {
+    for (const b of data.bundles)
+      if (inRanges(b, st)) add(matchedThrough(b, st, facet).flatMap(valuesOf));
+  } else for (const s of data.skills) if (passes(s, st, facet)) add(valuesOf(s));
   return n;
 }
 
@@ -636,7 +665,7 @@ function skillRow(s: Skill, more: number, st: State): string {
         <h3><a class="skill-name" href="${skillHref(s.id)}">${esc(s.name)}</a></h3>
         <span class="skill-source">${esc(repoKey(s))}${
           bundle
-            ? ` · part of <a href="${bundleHref(bundle.id)}">${esc(bundle.agentReview.name)}</a>`
+            ? ` · ${ownEntry(s) ? "part of" : "only works as part of"} <a href="${bundleHref(bundle.id)}">${esc(bundle.agentReview.name)}</a>`
             : ""
         }</span>
       </div>
@@ -797,7 +826,9 @@ export const rowCount = (st: State) => results(st).list.length;
 /** The count, the active filters and the list, of only its first `limit` rows if given. */
 export function resultsHtml(st: State, limit = Infinity): string {
   const { list, hidden, total, bundles } = results(st);
-  const all = (allCount ??= compute({ ...fresh(), ranges: fullRanges() }).total);
+  if (!allCounts.has(st.show))
+    allCounts.set(st.show, compute({ ...fresh(), ranges: fullRanges(), show: st.show }).total);
+  const all = allCounts.get(st.show);
   const repoNote = st.repo ? repoById.get(st.repo) : undefined;
   return `
     <div class="toolbar">
@@ -808,7 +839,7 @@ export function resultsHtml(st: State, limit = Infinity): string {
         .filter(Boolean)
         .join(", ")}</strong>${
         st.one && list.length !== total ? `, ${plural(list.length, "repo")}` : ""
-      }${isFiltered(st) ? ` <span class="muted">of ${all}</span>` : ""}</p>
+      }${isFiltered(st) ? ` <span class="muted">of ${all?.toLocaleString("en")}</span>` : ""}</p>
       <button type="button" class="filters-toggle" data-action="filters" aria-controls="filters">Filters</button>
     </div>
     ${activeFilters(st)}
@@ -876,6 +907,13 @@ export function settingsHtml(st: State): string {
       <h2><label for="sort">Sort by</label></h2>
       <select id="sort">${options}</select>
       <div class="sort-row">${order}<label class="check"><input type="checkbox" id="one"${st.one ? " checked" : ""} /> One per repo</label></div>
+    </section>
+    <section class="facet settings">
+      <h2 id="show-label">Show</h2>
+      <div class="show-switch" role="group" aria-labelledby="show-label">${SHOWS.map(
+        ([v, label]) =>
+          `<button type="button" data-show="${v}" aria-pressed="${st.show === v}">${label}</button>`,
+      ).join("")}</div>
     </section>`;
 }
 

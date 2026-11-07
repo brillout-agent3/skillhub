@@ -284,6 +284,35 @@ code {
   accent-color: var(--accent);
 }
 
+/* Skills & bundles, Skills or Bundles: one segmented control. */
+.show-switch {
+  display: flex;
+  overflow: hidden;
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.show-switch button {
+  flex: auto;
+  padding: 6px 8px;
+  border: 0;
+  background: none;
+  color: var(--text-2);
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.show-switch button + button {
+  border-left: 1px solid var(--border-strong);
+}
+
+.show-switch button[aria-pressed="true"] {
+  background: var(--accent-soft);
+  color: var(--accent-text);
+  font-weight: 600;
+}
+
 /* The right side: the count line, the two ways to search, and the list. */
 .list-main {
   min-width: 0;

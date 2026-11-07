@@ -20,6 +20,7 @@ import {
   type Preset,
   type Prop,
   type Range,
+  type Show,
   type Sort,
   type State,
 } from "./list.ts";
@@ -59,7 +60,7 @@ function renderSoon() {
 function focusSelector(): string | null {
   const el = document.activeElement as HTMLElement | null;
   if (!el || el.id === "q" || !app.contains(el)) return null;
-  for (const attr of ["data-tag", "data-action", "data-remove", "data-preset"]) {
+  for (const attr of ["data-tag", "data-action", "data-remove", "data-preset", "data-show"]) {
     const v = el.getAttribute(attr);
     if (v !== null)
       return `#${el.closest("#facets") ? "facets" : el.closest("#settings") ? "settings" : "results"} [${attr}="${CSS.escape(v)}"]`;
@@ -100,6 +101,7 @@ function renderFacets() {
     state.tags,
     state.repo,
     state.ranges,
+    state.show,
     stackExpanded,
     tagQuery,
   ]);
@@ -164,7 +166,7 @@ app.addEventListener("input", (event) => {
 
 app.addEventListener("click", (event) => {
   const el = (event.target as Element).closest<HTMLElement>(
-    "[data-tag],[data-action],[data-remove],[data-preset]",
+    "[data-tag],[data-action],[data-remove],[data-preset],[data-show]",
   );
   if (!el || el.tagName === "A") return;
   const d = el.dataset;
@@ -174,6 +176,10 @@ app.addEventListener("click", (event) => {
       b.setAttribute("aria-pressed", String(b === el));
     const { sort, one, since } = PRESETS[d.preset as Preset];
     go({ sort, one, asc: false, ranges: { ...state.ranges, published: sinceRange(since) } });
+  } else if (d.show) {
+    for (const b of app.querySelectorAll("[data-show]"))
+      b.setAttribute("aria-pressed", String(b === el));
+    go({ show: d.show as Show });
   } else if (d.tag) {
     if (el.hasAttribute("aria-pressed"))
       el.setAttribute("aria-pressed", String(el.getAttribute("aria-pressed") !== "true"));
