@@ -99,7 +99,7 @@ export default function Page(): string {
   ];
   const total: Row = {
     label: "Reviewed",
-    emoji: "🗃️",
+    emoji: "👀",
     count: review.reviewed,
     tip: "Every skill SkillHub found on skills.sh. Each was reviewed at least on its installs, from skills.sh, and its repo's stars, from GitHub.",
   };
