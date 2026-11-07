@@ -840,7 +840,18 @@ export function askLabel(st: State): string {
   const n = scopeOf(st);
   const kinds = `${unitOf(st)}${n === 1 ? "" : "s"}`;
   const which = filtersOn(st) ? `these ${n.toLocaleString("en")}` : `all ${n.toLocaleString("en")}`;
-  return `Copies a prompt for Claude, ChatGPT or any chat agent, which picks from ${which} ${kinds}.`;
+  return `Copies a prompt (~${compact(promptTokens(st))} tokens) for Claude, ChatGPT or any chat agent, which picks from ${which} ${kinds}.`;
+}
+
+/**
+ * About how many tokens the prompt for a state takes, at 4 characters a token, before the need is
+ * typed: a large catalog can be too much for some agents. For one state at a time.
+ */
+let lastPrompt: { st: State; tokens: number } | undefined;
+function promptTokens(st: State): number {
+  if (lastPrompt?.st !== st)
+    lastPrompt = { st, tokens: Math.round(askPrompt({ ...st, q: "" }, href()).length / 4) };
+  return lastPrompt.tokens;
 }
 
 const rowHtml = (e: Entry, st: State) => (isBundle(e) ? bundleRow(e, st) : skillRow(e, st));
