@@ -8,7 +8,9 @@ import {
   rangeLabel,
   parse,
   askPrompt,
-  defaultSort,
+  fullRanges,
+  patched,
+  sinceRange,
   query,
   resultsHtml,
   rowCount,
@@ -32,12 +34,7 @@ let stackExpanded = false;
 let tagQuery = tagQ.value.trim();
 
 function go(patch: Partial<State>) {
-  const next = { ...state, ...patch };
-  // A search switches to best match, and clearing it switches back, unless another sort was picked.
-  if ("q" in patch && !("sort" in patch) && state.sort === defaultSort(state.q))
-    next.sort = defaultSort(next.q);
-  if (next.sort === "match" && !next.q) next.sort = defaultSort("");
-  state = next;
+  state = patched(state, patch);
   history.replaceState(null, "", query(state) || location.pathname);
   renderSoon();
 }
@@ -175,8 +172,8 @@ app.addEventListener("click", (event) => {
   if (d.preset) {
     for (const b of app.querySelectorAll("[data-preset]"))
       b.setAttribute("aria-pressed", String(b === el));
-    const { sort, one } = PRESETS[d.preset as Preset];
-    go({ sort, one, asc: false });
+    const { sort, one, since } = PRESETS[d.preset as Preset];
+    go({ sort, one, asc: false, ranges: { ...state.ranges, published: sinceRange(since) } });
   } else if (d.tag) {
     if (el.hasAttribute("aria-pressed"))
       el.setAttribute("aria-pressed", String(el.getAttribute("aria-pressed") !== "true"));
@@ -192,7 +189,7 @@ app.addEventListener("click", (event) => {
       q: "",
       tags: [],
       repo: null,
-      ranges: parse("").ranges,
+      ranges: fullRanges(),
     });
   else if (d.action === "ask") ask(el);
   else if (d.action === "order") go({ asc: !state.asc });

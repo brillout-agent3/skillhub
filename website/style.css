@@ -218,14 +218,14 @@ code {
   margin-top: 18px;
 }
 
-/* Top, Rising and New: they only set the sort. */
+/* Rising & new, Top, Rising and New: they only set the sort, one per repo and Published. */
 .presets {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 6px;
 }
 
 .preset {
-  flex: 1;
   padding: 7px 0;
   border: 1px solid var(--border-strong);
   border-radius: 8px;
@@ -1461,7 +1461,7 @@ code {
     border-bottom: 1px solid var(--border);
   }
 
-  /* Top, Rising and New stay in view; the Filters button opens the rest. */
+  /* The presets stay in view; the Filters button opens the rest. */
   #filters .side-body {
     margin-top: 12px;
   }

@@ -48,16 +48,46 @@ const quiet = (tag: string) => tag === "by:community" || facetOf(tag) === "categ
 // ------------------------------------------------------------------- state
 
 /**
- * Buttons that only set the list's settings, highest first: Top by downloads, Rising by how fast the
- * weekly downloads grow, one per repo (a repo's skills tend to grow together), New by publishing
- * date. Each is named after what it sorts by, which the sidebar shows; other views, such as new
- * and popular (Published: last 30 days, sorted by weekly downloads), are a setting or two away.
+ * Buttons that only set the list's settings, highest first, each named after what it shows, which
+ * the sidebar spells out: Rising & new, the default view, by weekly downloads among the skills
+ * published in the last DEFAULT_SINCE days (a skill that young has no growth yet, see growthOf);
+ * Top by weekly downloads; Rising by how fast the weekly downloads grow, one per repo (a repo's
+ * skills tend to grow together); New by publishing date.
  */
-export type Preset = "top" | "rising" | "new";
-export const PRESETS: Record<Preset, { label: string; sort: Sort; one: boolean; title: string }> = {
-  top: { label: "Top", sort: "downloads", one: false, title: "Most downloaded of all time" },
-  rising: { label: "Rising", sort: "growth", one: true, title: "Downloads growing the fastest" },
-  new: { label: "New", sort: "published", one: false, title: "Most recently published" },
+export type Preset = "rising-new" | "top" | "rising" | "new";
+interface PresetInfo {
+  label: string;
+  sort: Sort;
+  one: boolean;
+  /** The Published range it sets: the last so many days, or any date. */
+  since: Age | null;
+  title: string;
+}
+/** How recent the default view's skills are, in days. */
+const DEFAULT_SINCE = 90;
+export const PRESETS: Record<Preset, PresetInfo> = {
+  "rising-new": {
+    label: "Rising & new",
+    sort: "week",
+    one: false,
+    since: DEFAULT_SINCE,
+    title: `The most downloaded this week of those published in the last ${DEFAULT_SINCE} days`,
+  },
+  top: { label: "Top", sort: "week", one: false, since: null, title: "Most downloaded this week" },
+  rising: {
+    label: "Rising",
+    sort: "growth",
+    one: true,
+    since: null,
+    title: "Downloads growing the fastest",
+  },
+  new: {
+    label: "New",
+    sort: "published",
+    one: false,
+    since: null,
+    title: "Most recently published",
+  },
 };
 
 /** The numbers every row shows, which the list sorts by and the sliders filter on. */
@@ -139,7 +169,7 @@ const lastStop = (p: Prop) => PROPS[p].stops.length - 1;
 /** A slider's range, as indexes into its stops: `lo` included, `hi` excluded. */
 export type Range = [lo: number, hi: number];
 export const fullRange = (p: Prop): Range => [0, lastStop(p)];
-const fullRanges = () =>
+export const fullRanges = () =>
   Object.fromEntries(PROP_IDS.map((p) => [p, fullRange(p)])) as Record<Prop, Range>;
 export const isNarrowed = (p: Prop, [lo, hi]: Range) => lo > 0 || hi < lastStop(p);
 
@@ -178,8 +208,19 @@ const GROWTH = {
 /** A growth as a percentage with its sign, such as +180% or −12%. */
 const percent = (g: number) =>
   `${g > 0 ? "+" : g < 0 ? "−" : ""}${Math.round(Math.abs(g) * 100).toLocaleString("en")}%`;
-/** A search sorts by best match unless another sort is picked; otherwise the list sorts by downloads. */
-export const defaultSort = (q: string): Sort => (q ? "match" : "downloads");
+/** A search sorts by best match unless another sort is picked; otherwise the list sorts by weekly downloads. */
+export const defaultSort = (q: string): Sort => (q ? "match" : "week");
+/** The Published range for the last `since` days, or any date. */
+export const sinceRange = (since: Age | null): Range =>
+  since
+    ? [PROPS.published.keys?.indexOf(`${since}d`) ?? 0, lastStop("published")]
+    : fullRange("published");
+/**
+ * The default view is Rising & new, but a search looks through every skill: typing one lifts the
+ * Published filter, and clearing it puts it back, unless it was changed (see `patched`).
+ */
+const defaultPublished = (q: string): Range => sinceRange(q ? null : DEFAULT_SINCE);
+const sameRange = (a: Range, b: Range) => a[0] === b[0] && a[1] === b[1];
 export interface State {
   q: string;
   tags: string[];
@@ -197,9 +238,13 @@ export function parse(search: string): State {
   const sort = p.get("sort") as Sort | null;
   const q = p.get("q") ?? "";
   const ranges = fullRanges();
+  ranges.published = defaultPublished(q);
   for (const prop of PROP_IDS) {
-    // Such as stars=1000..50000, or published=30d.. with no upper bound.
-    const [lo, hi] = (p.get(prop) ?? "").split("..");
+    // Such as stars=1000..50000, published=30d.. with no upper bound, or published=.. for any.
+    const param = p.get(prop);
+    if (param === null) continue;
+    ranges[prop] = fullRange(prop);
+    const [lo, hi] = param.split("..");
     const keys = PROPS[prop].stops.map((_, i) => stopKey(prop, i));
     if (lo && keys.includes(lo)) ranges[prop][0] = keys.indexOf(lo);
     if (hi && keys.includes(hi) && keys.indexOf(hi) > ranges[prop][0])
@@ -218,7 +263,7 @@ export function parse(search: string): State {
     one: p.get("one") === "1",
   };
 }
-/** The query string for a state, empty for the unfiltered list. */
+/** The query string for a state, empty for the default view. */
 export function query(s: State): string {
   const p = new URLSearchParams();
   if (s.q) p.set("q", s.q);
@@ -228,7 +273,7 @@ export function query(s: State): string {
   if (s.asc) p.set("order", "asc");
   for (const prop of PROP_IDS) {
     const [lo, hi] = s.ranges[prop];
-    if (isNarrowed(prop, [lo, hi]))
+    if (!sameRange([lo, hi], prop === "published" ? defaultPublished(s.q) : fullRange(prop)))
       p.set(
         prop,
         `${lo > 0 ? stopKey(prop, lo) : ""}..${hi < lastStop(prop) ? stopKey(prop, hi) : ""}`,
@@ -238,7 +283,20 @@ export function query(s: State): string {
   const q = p.toString();
   return q ? `?${q}` : "";
 }
+/** The default view: Rising & new. */
 export const fresh = (): State => parse("");
+/**
+ * `prev` with `patch` applied. The sort and the Published range, while at their default, follow
+ * the default for the new search: best match and any date while there is one.
+ */
+export function patched(prev: State, patch: Partial<State>): State {
+  const next = { ...prev, ...patch };
+  if (!("sort" in patch) && prev.sort === defaultSort(prev.q)) next.sort = defaultSort(next.q);
+  if (next.sort === "match" && !next.q) next.sort = defaultSort("");
+  if (!("ranges" in patch) && sameRange(prev.ranges.published, defaultPublished(prev.q)))
+    next.ranges = { ...next.ranges, published: defaultPublished(next.q) };
+  return next;
+}
 /**
  * Select or unselect a tag. Selecting one unselects its parents and the tags it includes, since
  * either would only repeat or widen it: picking Design under Software engineering narrows the list
@@ -250,8 +308,9 @@ export function toggleTag(tags: string[], tag: string): string[] {
   return [...tags.filter((t) => !related.includes(t)), tag];
 }
 
-/** A link to the skills list filtered to the given state changes. */
-export const skillsLink = (patch: Partial<State>) => href() + query({ ...fresh(), ...patch });
+/** A link to the skills list filtered to the given state changes, of skills published any time. */
+export const skillsLink = (patch: Partial<State>) =>
+  href() + query({ ...fresh(), ranges: fullRanges(), ...patch });
 
 // ------------------------------------------------------------------- filtering
 
@@ -720,7 +779,7 @@ export const rowCount = (st: State) => results(st).list.length;
 /** The count, the active filters and the list, of only its first `limit` rows if given. */
 export function resultsHtml(st: State, limit = Infinity): string {
   const { list, hidden, total, bundles } = results(st);
-  const all = (allCount ??= compute(fresh()).total);
+  const all = (allCount ??= compute({ ...fresh(), ranges: fullRanges() }).total);
   const repoNote = st.repo ? repoById.get(st.repo) : undefined;
   return `
     <div class="toolbar">
@@ -766,7 +825,12 @@ export function settingsHtml(st: State): string {
   const presets = (Object.keys(PRESETS) as Preset[])
     .map((id) => {
       const p = PRESETS[id];
-      return `<button type="button" class="preset" data-preset="${id}" aria-pressed="${st.sort === p.sort && !st.asc && st.one === p.one}" title="${esc(p.title)}">${p.label}</button>`;
+      const on =
+        st.sort === p.sort &&
+        !st.asc &&
+        st.one === p.one &&
+        sameRange(st.ranges.published, sinceRange(p.since));
+      return `<button type="button" class="preset" data-preset="${id}" aria-pressed="${on}" title="${esc(p.title)}">${esc(p.label)}</button>`;
     })
     .join("");
   const options = `${
