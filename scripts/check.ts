@@ -206,7 +206,13 @@ for (const { url, reason } of crawl.disqualified) {
   if (kinds.length !== 1 || !["agentReview", "goneFromRepo", "notOnGitHub"].includes(kinds[0]))
     fail(at, "needs one reason: agentReview, goneFromRepo or notOnGitHub");
   else if (!Object.values(reason)[0]) fail(at, "its reason is empty");
-  else if ("goneFromRepo" in reason && !/^\d{4}-\d\d-\d\d$/.test(reason.goneFromRepo))
+  else if ("agentReview" in reason) {
+    const r = reason.agentReview;
+    if (typeof r !== "object" || !r.note) fail(at, "its agentReview needs a note saying why");
+    else if (typeof r.model !== "string" || !r.model) fail(at, "its agentReview needs a model");
+    else if (!EFFORTS.includes(r.effort))
+      fail(at, "its agentReview's effort must be low, medium, high, xhigh, max or null");
+  } else if ("goneFromRepo" in reason && !/^\d{4}-\d\d-\d\d$/.test(reason.goneFromRepo))
     fail(at, "goneFromRepo must be a YYYY-MM-DD date");
 }
 

@@ -32,7 +32,7 @@ let gone = 0;
 let notOnGitHub = 0;
 for (const { reason } of crawl.disqualified) {
   if ("agentReview" in reason)
-    turnedDown[KINDS.find(([, re]) => re.test(reason.agentReview))?.[0] ?? "other"]++;
+    turnedDown[KINDS.find(([, re]) => re.test(reason.agentReview.note))?.[0] ?? "other"]++;
   else if ("goneFromRepo" in reason) gone++;
   else notOnGitHub++;
 }

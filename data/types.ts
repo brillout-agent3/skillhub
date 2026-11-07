@@ -141,12 +141,11 @@ export interface Disqualified {
 export type DisqualifiedReason =
   | {
       /**
-       * Why an agent turned it down, in one sentence, such as "Tool docs: an agent's manual for
-       * aws.".
+       * Why an agent turned it down, and which agent.
        *
        * Source: the agent that reviews the qualified skill, with the add-skill skill.
        */
-      agentReview: string;
+      agentReview: DisqualifyReview;
     }
   | {
       /**
@@ -222,6 +221,12 @@ export interface Repo {
    * Source: the agent that approves the repo's first skill, with the add-skill skill.
    */
   agentReview: RepoReview;
+}
+
+/** An agent's verdict on a skill it turned down. */
+export interface DisqualifyReview extends ReviewAuthor {
+  /** Why, in one sentence, such as "Tool docs: an agent's manual for aws.". */
+  note: string;
 }
 
 /** Which agent wrote a review: every `agentReview` object has these two fields. */

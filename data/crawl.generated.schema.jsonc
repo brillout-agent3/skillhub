@@ -126,8 +126,8 @@
           "type": "object",
           "properties": {
             "agentReview": {
-              "type": "string",
-              "description": "Why an agent turned it down, in one sentence, such as \"Tool docs: an agent's manual for aws.\".\n\nSource: the agent that reviews the qualified skill, with the add-skill skill."
+              "$ref": "#/definitions/DisqualifyReview",
+              "description": "Why an agent turned it down, and which agent.\n\nSource: the agent that reviews the qualified skill, with the add-skill skill."
             }
           },
           "required": ["agentReview"],
@@ -157,6 +157,27 @@
         }
       ],
       "description": "One of: an agent turned it down, its SKILL.md is gone from its repo, or it isn't on GitHub."
+    },
+    "DisqualifyReview": {
+      "type": "object",
+      "properties": {
+        "model": {
+          "type": "string",
+          "description": "The model of the agent that last wrote or changed the review, such as \"Claude Opus 5.5\". When that agent switched models partway, the one that served most of its turns.\n\nSource: the agent that writes or changes any part of the review sets it to its own model. For a review last written before 2026-11-07, it's the model the repo's commits name in their Co-Authored-By trailer."
+        },
+        "effort": {
+          "type": ["string", "null"],
+          "enum": ["low", "medium", "high", "xhigh", "max", null],
+          "description": "That agent's reasoning effort, or null when it wasn't recorded, as for a review last written before 2026-11-07.\n\nSource: as for `model`."
+        },
+        "note": {
+          "type": "string",
+          "description": "Why, in one sentence, such as \"Tool docs: an agent's manual for aws.\"."
+        }
+      },
+      "required": ["effort", "model", "note"],
+      "additionalProperties": false,
+      "description": "An agent's verdict on a skill it turned down."
     }
   }
 }

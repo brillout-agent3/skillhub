@@ -22,7 +22,7 @@ Both files are JSONC and may hold comments, which the scripts keep. Edit them in
 - Take a repo's qualified skills together: skills.sh counts an install of a repo once per skill in it, so its skills arrive together, and they may form a bundle.
 - Read each skill's SKILL.md on GitHub, then disqualify it or approve it.
 
-**Disqualify** a skill the site shouldn't show: move it from `qualified` to `disqualified`, as its skills.sh page (`url`) and its `reason`, `{"agentReview": "…"}`, one sentence saying why, such as "Tool docs: an agent's manual for aws.", and write nothing else about it. When its SKILL.md is gone from its repo, the reason is `{"goneFromRepo": "<today, YYYY-MM-DD>"}` instead. Disqualify:
+**Disqualify** a skill the site shouldn't show: move it from `qualified` to `disqualified`, as its skills.sh page (`url`) and its `reason`, `{"agentReview": {"note": "…", "model": "…", "effort": "…"}}`: one sentence saying why, such as "Tool docs: an agent's manual for aws.", with your model and effort as for an approved skill. Write nothing else about it. When its SKILL.md is gone from its repo, the reason is `{"goneFromRepo": "<today, YYYY-MM-DD>"}` instead. Disqualify:
 
 - Tool docs: documentation for agents of one product, how to build with it, configure it, deploy to it or operate it, such as a framework's best practices or a cloud's CLI. They only matter once someone has chosen the product, so browsing them discovers nothing. A skill that gets a job done through a tool, such as browsing, testing, scraping, searching or generating media, isn't tool docs: there, the tool is how, not what.
 - A retired skill, whose SKILL.md points to a replacement.
