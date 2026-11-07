@@ -759,32 +759,30 @@ const filtersOn = (st: State) =>
   Boolean(st.tags.length || st.repo) || PROP_IDS.some((p) => isNarrowed(p, st.ranges[p]));
 
 /** How many entries there are without any filter, for each of `Show`. */
-const allCounts = new Map<Show, number>();
-const allOf = (show: Show) => {
-  if (!allCounts.has(show))
-    allCounts.set(show, compute({ ...fresh(), ranges: fullRanges(), show }).total);
-  return allCounts.get(show) as number;
-};
+/**
+ * The search's scope is counted in skills, as the intro counts them, those listed only inside a
+ * bundle included, since the search looks through them too; or in bundles, when the list shows
+ * only those. Counting the list's rows instead would make it look smaller than SkillHub.
+ */
+const unitOf = (st: State) => (st.show === "bundles" ? "bundle" : "skill");
+const allOf = (st: State) => (st.show === "bundles" ? data.bundles : data.skills).length;
 
-/** What the list holds, for the scope line and the search box. */
-const KINDS: Record<Show, [one: string, many: string]> = {
-  all: ["skill or bundle", "skills and bundles"],
-  skills: ["skill", "skills"],
-  bundles: ["bundle", "bundles"],
-};
-
-/** The search's scope, for one state at a time: what the filters leave, the search left out. */
+/** The search's scope, for one state at a time: how many skills (or bundles) the filters leave. */
 let lastScope: { st: State; n: number } | undefined;
 const scopeOf = (st: State) => {
-  if (lastScope?.st !== st) lastScope = { st, n: compute({ ...st, q: "" }).total };
+  if (lastScope?.st !== st) {
+    const rest = { ...st, q: "" };
+    const n =
+      st.show === "bundles"
+        ? data.bundles.filter((b) => bundlePasses(b, rest)).length
+        : data.skills.filter((s) => passes(s, rest)).length;
+    lastScope = { st, n };
+  }
   return lastScope.n;
 };
 
-/** The search box's placeholder: how many entries it looks through. */
-export const searchPlaceholder = (st: State) => {
-  const n = scopeOf(st);
-  return `Search ${n.toLocaleString("en")} ${KINDS[st.show][n === 1 ? 0 : 1]}`;
-};
+/** The search box's placeholder: how many skills (or bundles) it looks through. */
+export const searchPlaceholder = (st: State) => `Search ${plural(scopeOf(st), unitOf(st))}`;
 
 /**
  * Under the search box: what it and "Find skill with your agent" look through, which is what the
@@ -792,8 +790,8 @@ export const searchPlaceholder = (st: State) => {
  */
 export function scopeHtml(st: State): string {
   const n = scopeOf(st);
-  const all = allOf(st.show);
-  const kinds = KINDS[st.show][all === 1 ? 0 : 1];
+  const all = allOf(st);
+  const kinds = `${unitOf(st)}${all === 1 ? "" : "s"}`;
   if (!filtersOn(st))
     return `<p class="scope">Searching all <strong>${all.toLocaleString("en")}</strong> ${kinds}.</p>`;
   const chips: string[] = [];
@@ -826,12 +824,17 @@ export function resultsHtml(st: State, limit = Infinity): string {
   const repoNote = st.repo ? repoById.get(st.repo) : undefined;
   return `
     <div class="toolbar">
-      <p id="count" role="status"><strong>${[
-        total - bundles || !bundles ? plural(total - bundles, "skill") : "",
-        bundles ? plural(bundles, "bundle") : "",
-      ]
-        .filter(Boolean)
-        .join(", ")}</strong>${st.q ? ` <span class="muted">match “${esc(st.q)}”</span>` : ""}</p>
+      <p id="count" role="status">${
+        // Without a search, the line under the search box gives the count.
+        st.q
+          ? `<strong>${[
+              total - bundles || !bundles ? plural(total - bundles, "skill") : "",
+              bundles ? plural(bundles, "bundle") : "",
+            ]
+              .filter(Boolean)
+              .join(", ")}</strong> <span class="muted">match “${esc(st.q)}”</span>`
+          : ""
+      }</p>
       <button type="button" class="filters-toggle" data-action="filters" aria-controls="filters">Filters</button>
     </div>
     ${repoNote ? `<p class="repo-banner"><a href="https://github.com/${esc(repoNote.id)}">${esc(repoNote.id)}</a>${repoNote.agentReview.description ? ` · ${esc(repoNote.agentReview.description)}` : ""}</p>` : ""}
@@ -841,7 +844,7 @@ export function resultsHtml(st: State, limit = Infinity): string {
             .slice(0, limit)
             .map((e) => rowHtml(e, st))
             .join("")}</ol>`
-        : `<p class="empty">No ${KINDS[st.show][0]} matches${st.q ? ` “${esc(st.q)}”` : ""}${filtersOn(st) ? ` among the ${scopeOf(st).toLocaleString("en")} the filters leave. <button type="button" class="link-button" data-action="clear">Clear filters</button>` : "."}${
+        : `<p class="empty">No ${st.show === "all" ? "skill or bundle" : unitOf(st)} matches${st.q ? ` “${esc(st.q)}”` : ""}${filtersOn(st) ? ` among the ${plural(scopeOf(st), unitOf(st))} the filters leave. <button type="button" class="link-button" data-action="clear">Clear filters</button>` : "."}${
             st.q
               ? `<br />Describing a need in your own words? <button type="button" class="link-button" data-action="ask">Find skill with your agent</button>`
               : ""
