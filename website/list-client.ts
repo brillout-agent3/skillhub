@@ -187,21 +187,17 @@ function flash(text: string) {
 
 /**
  * Copy the prompt for an agent, and say how big it is: a large catalog can be too much for some
- * agents. The need is what the agent's box holds, or else the search; with neither, it asks.
+ * agents. The need is what the agent's box holds, or else the search; with neither, the prompt
+ * says it comes in the next message.
  */
 function ask() {
   const text = need.value.trim() || state.q.trim();
-  if (!text) {
-    need.focus();
-    flash("First describe what you need, in your own words.");
-    return;
-  }
   const prompt = askPrompt({ ...state, q: text }, new URL(href(), location.origin).href);
   navigator.clipboard
     ?.writeText(prompt)
     .then(() =>
       flash(
-        `Copied, ~${compact(Math.round(prompt.length / 4))} tokens: paste it into Claude, ChatGPT or any chat agent.`,
+        `Copied, ~${compact(Math.round(prompt.length / 4))} tokens: paste it into Claude, ChatGPT or any chat agent${text ? "" : ", then tell it what you need"}.`,
       ),
     );
 }

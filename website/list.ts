@@ -607,7 +607,7 @@ ${list.map(entry).join("\n\n")}
 
 # My need
 
-${st.q}`;
+${st.q.trim() || "I'll tell you in my next message."}`;
 }
 
 // ------------------------------------------------------------------- pieces
