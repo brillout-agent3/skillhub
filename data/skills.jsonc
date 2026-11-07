@@ -12812,6 +12812,7 @@
         },
         "tags": [
           "category:marketing",
+          "category:business",
           "type:workflow",
           "effect:none",
           "needs:none",
@@ -12922,6 +12923,7 @@
         },
         "tags": [
           "category:marketing",
+          "category:business",
           "type:workflow",
           "effect:none",
           "needs:none",
@@ -14331,6 +14333,7 @@
           "category:design",
           "category:cloud",
           "category:media",
+          "category:games",
           "type:tool",
           "effect:remote",
           "needs:cli",
@@ -14392,6 +14395,7 @@
         },
         "tags": [
           "category:marketing",
+          "category:business",
           "type:guidelines",
           "effect:none",
           "needs:none",
@@ -14554,6 +14558,7 @@
         },
         "tags": [
           "category:marketing",
+          "category:business",
           "type:workflow",
           "effect:none",
           "needs:none",
@@ -14661,6 +14666,7 @@
         },
         "tags": [
           "category:marketing",
+          "category:business",
           "type:workflow",
           "effect:none",
           "needs:none",
@@ -15315,6 +15321,7 @@
         },
         "tags": [
           "category:marketing",
+          "category:business",
           "type:guidelines",
           "effect:none",
           "needs:none",
@@ -16094,6 +16101,7 @@
         },
         "tags": [
           "category:marketing",
+          "category:business",
           "type:workflow",
           "effect:local",
           "needs:none",
@@ -16197,6 +16205,7 @@
         },
         "tags": [
           "category:marketing",
+          "category:business",
           "type:workflow",
           "effect:none",
           "needs:none",
@@ -17474,6 +17483,7 @@
         },
         "tags": [
           "category:science",
+          "category:business",
           "type:workflow",
           "needs:cli",
           "needs:account",
@@ -17645,6 +17655,7 @@
         },
         "tags": [
           "category:marketing",
+          "category:business",
           "type:workflow",
           "needs:cli",
           "needs:account",
@@ -17706,6 +17717,7 @@
         },
         "tags": [
           "category:marketing",
+          "category:business",
           "type:workflow",
           "needs:cli",
           "needs:account",
@@ -25527,6 +25539,7 @@
         },
         "tags": [
           "category:frameworks",
+          "category:games",
           "type:workflow",
           "effect:local",
           "needs:none",
@@ -26968,7 +26981,7 @@
           "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/startup-business-analyst/skills/startup-financial-modeling"
         },
         "tags": [
-          "category:science",
+          "category:business",
           "type:workflow",
           "effect:none",
           "needs:none",
@@ -30462,6 +30475,7 @@
         },
         "tags": [
           "category:design",
+          "category:games",
           "type:workflow",
           "effect:local",
           "needs:none",
@@ -30515,6 +30529,7 @@
         },
         "tags": [
           "category:design",
+          "category:games",
           "type:workflow",
           "effect:local",
           "needs:none",
@@ -32182,6 +32197,7 @@
           "category:writing",
           "category:science",
           "category:documents",
+          "category:business",
           "type:workflow",
           "effect:local",
           "needs:cli",
@@ -39064,6 +39080,7 @@
         },
         "tags": [
           "category:design",
+          "category:games",
           "type:workflow",
           "effect:local",
           "needs:none",
@@ -39117,6 +39134,7 @@
         },
         "tags": [
           "category:debugging",
+          "category:games",
           "type:workflow",
           "effect:local",
           "needs:none",
@@ -39170,6 +39188,7 @@
         },
         "tags": [
           "category:media",
+          "category:games",
           "type:workflow",
           "effect:local",
           "needs:none",
@@ -39222,6 +39241,7 @@
         },
         "tags": [
           "category:engineering",
+          "category:games",
           "type:workflow",
           "effect:local",
           "needs:none",
@@ -39275,6 +39295,7 @@
         },
         "tags": [
           "category:design",
+          "category:games",
           "type:workflow",
           "effect:local",
           "needs:none",
@@ -39328,6 +39349,7 @@
         },
         "tags": [
           "category:engineering",
+          "category:games",
           "type:workflow",
           "effect:local",
           "needs:none",
@@ -39382,6 +39404,7 @@
         "tags": [
           "category:engineering",
           "category:design",
+          "category:games",
           "type:workflow",
           "effect:local",
           "needs:none",
@@ -39435,6 +39458,7 @@
         },
         "tags": [
           "category:engineering",
+          "category:games",
           "type:workflow",
           "effect:local",
           "needs:none",
@@ -39489,6 +39513,7 @@
         "tags": [
           "category:media",
           "category:design",
+          "category:games",
           "type:workflow",
           "effect:local",
           "needs:none",
@@ -39543,6 +39568,7 @@
         },
         "tags": [
           "category:debugging",
+          "category:games",
           "type:workflow",
           "effect:local",
           "needs:none",
@@ -39591,6 +39617,7 @@
         },
         "tags": [
           "category:engineering",
+          "category:games",
           "type:workflow",
           "effect:local",
           "needs:none",
@@ -39646,6 +39673,7 @@
         },
         "tags": [
           "category:engineering",
+          "category:games",
           "type:workflow",
           "effect:local",
           "needs:none",
@@ -39704,6 +39732,7 @@
         },
         "tags": [
           "category:skill-tools",
+          "category:games",
           "type:router",
           "effect:none",
           "needs:none",
@@ -39753,6 +39782,7 @@
         },
         "tags": [
           "category:design",
+          "category:games",
           "type:guidelines",
           "effect:none",
           "needs:none",
@@ -39807,6 +39837,7 @@
         "tags": [
           "category:planning",
           "category:engineering",
+          "category:games",
           "type:workflow",
           "effect:local",
           "needs:none",
@@ -39856,6 +39887,7 @@
         },
         "tags": [
           "category:design",
+          "category:games",
           "type:guidelines",
           "effect:none",
           "needs:none",
@@ -39905,6 +39937,7 @@
         },
         "tags": [
           "category:design",
+          "category:games",
           "type:guidelines",
           "effect:none",
           "needs:none",
@@ -39954,6 +39987,7 @@
         },
         "tags": [
           "category:design",
+          "category:games",
           "type:guidelines",
           "effect:none",
           "needs:none",
@@ -40003,6 +40037,7 @@
         },
         "tags": [
           "category:design",
+          "category:games",
           "type:guidelines",
           "effect:none",
           "needs:none",
@@ -40056,6 +40091,7 @@
         },
         "tags": [
           "category:design",
+          "category:games",
           "type:guidelines",
           "effect:none",
           "needs:none",
@@ -40105,6 +40141,7 @@
         },
         "tags": [
           "category:design",
+          "category:games",
           "type:guidelines",
           "effect:none",
           "needs:none",
@@ -40154,6 +40191,7 @@
         },
         "tags": [
           "category:design",
+          "category:games",
           "type:guidelines",
           "effect:none",
           "needs:none",
@@ -40203,6 +40241,7 @@
         },
         "tags": [
           "category:design",
+          "category:games",
           "type:guidelines",
           "effect:none",
           "needs:none",
@@ -40257,6 +40296,7 @@
         "tags": [
           "category:planning",
           "category:engineering",
+          "category:games",
           "type:workflow",
           "effect:local",
           "needs:none",
@@ -40315,6 +40355,7 @@
         },
         "tags": [
           "category:engineering",
+          "category:games",
           "type:workflow",
           "effect:local",
           "needs:none",
@@ -41469,7 +41510,7 @@
           "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/startup-business-analyst/skills/market-sizing-analysis"
         },
         "tags": [
-          "category:science",
+          "category:business",
           "type:workflow",
           "effect:none",
           "needs:none",
@@ -41752,7 +41793,7 @@
           "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/startup-business-analyst/skills/startup-metrics-framework"
         },
         "tags": [
-          "category:science",
+          "category:business",
           "type:guidelines",
           "effect:none",
           "needs:none",
@@ -42011,7 +42052,7 @@
           "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/startup-business-analyst/skills/competitive-landscape"
         },
         "tags": [
-          "category:marketing",
+          "category:business",
           "type:workflow",
           "effect:none",
           "needs:none",
@@ -43026,6 +43067,7 @@
         },
         "tags": [
           "category:writing",
+          "category:business",
           "type:guidelines",
           "effect:none",
           "needs:none",
@@ -43177,7 +43219,7 @@
           "permalink": "https://github.com/wshobson/agents/tree/4bde3168b43c0655c4d00ea2726e631719908a6d/plugins/startup-business-analyst/skills/team-composition-analysis"
         },
         "tags": [
-          "category:science",
+          "category:business",
           "type:workflow",
           "effect:none",
           "needs:none",
@@ -47527,6 +47569,7 @@
         },
         "tags": [
           "category:marketing",
+          "category:business",
           "type:guidelines",
           "effect:none",
           "needs:none",
@@ -56349,6 +56392,7 @@
           "category:science",
           "category:marketing",
           "category:writing",
+          "category:business",
           "type:workflow",
           "effect:none",
           "needs:none",
@@ -58087,6 +58131,7 @@
         },
         "tags": [
           "category:writing",
+          "category:business",
           "type:workflow",
           "effect:none",
           "needs:none",
@@ -59108,6 +59153,7 @@
         },
         "tags": [
           "category:writing",
+          "category:business",
           "type:guidelines",
           "effect:none",
           "needs:none",
@@ -60986,7 +61032,7 @@
           "permalink": "https://github.com/affaan-m/ecc/tree/d2ef2680594f9a17526a6e1a2e18b3d242c5d17b/skills/customer-billing-ops"
         },
         "tags": [
-          "category:marketing",
+          "category:business",
           "type:workflow",
           "effect:remote",
           "needs:account",
@@ -61042,7 +61088,7 @@
         },
         "tags": [
           "category:science",
-          "category:marketing",
+          "category:business",
           "type:workflow",
           "effect:none",
           "needs:account",
@@ -61101,6 +61147,7 @@
         },
         "tags": [
           "category:marketing",
+          "category:business",
           "type:workflow",
           "effect:remote",
           "needs:mcp",
@@ -63840,7 +63887,7 @@
         },
         "tags": [
           "category:personal",
-          "category:marketing",
+          "category:business",
           "type:guidelines",
           "effect:none",
           "needs:none",
@@ -63889,8 +63936,8 @@
           "permalink": "https://github.com/wondelai/skills/tree/d8d5d75f83da9f16d8aad5bab5f5b341a4770a30/lean-startup"
         },
         "tags": [
-          "category:marketing",
           "category:planning",
+          "category:business",
           "type:guidelines",
           "effect:none",
           "needs:none",
@@ -63995,6 +64042,7 @@
         },
         "tags": [
           "category:marketing",
+          "category:business",
           "type:workflow",
           "effect:none",
           "needs:none",
@@ -64095,6 +64143,7 @@
         },
         "tags": [
           "category:marketing",
+          "category:business",
           "type:workflow",
           "effect:none",
           "needs:none",
@@ -64494,7 +64543,7 @@
           "permalink": "https://github.com/wondelai/skills/tree/d8d5d75f83da9f16d8aad5bab5f5b341a4770a30/blue-ocean-strategy"
         },
         "tags": [
-          "category:marketing",
+          "category:business",
           "type:guidelines",
           "effect:none",
           "needs:none",
@@ -64594,6 +64643,7 @@
         },
         "tags": [
           "category:marketing",
+          "category:business",
           "type:guidelines",
           "effect:none",
           "needs:none",
@@ -65039,7 +65089,7 @@
           "permalink": "https://github.com/wondelai/skills/tree/d8d5d75f83da9f16d8aad5bab5f5b341a4770a30/traction-eos"
         },
         "tags": [
-          "category:planning",
+          "category:business",
           "type:guidelines",
           "effect:none",
           "needs:none",
@@ -65248,6 +65298,7 @@
         },
         "tags": [
           "category:writing",
+          "category:business",
           "type:guidelines",
           "effect:none",
           "needs:none",
@@ -65569,7 +65620,7 @@
           "permalink": "https://github.com/claude-office-skills/skills/tree/9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11/contract-review"
         },
         "tags": [
-          "category:documents",
+          "category:business",
           "type:guidelines",
           "effect:none",
           "needs:none",
@@ -65618,6 +65669,7 @@
         },
         "tags": [
           "category:marketing",
+          "category:business",
           "type:guidelines",
           "effect:none",
           "needs:none",
@@ -65721,6 +65773,7 @@
         "tags": [
           "category:writing",
           "category:science",
+          "category:business",
           "type:guidelines",
           "effect:none",
           "needs:none",
@@ -65878,6 +65931,7 @@
         },
         "tags": [
           "category:marketing",
+          "category:business",
           "type:guidelines",
           "effect:none",
           "needs:none",
@@ -65931,6 +65985,7 @@
         },
         "tags": [
           "category:science",
+          "category:business",
           "type:guidelines",
           "effect:none",
           "needs:none",
@@ -66093,6 +66148,7 @@
         },
         "tags": [
           "category:science",
+          "category:business",
           "type:guidelines",
           "effect:none",
           "needs:none",
@@ -66261,6 +66317,7 @@
         },
         "tags": [
           "category:documents",
+          "category:business",
           "type:guidelines",
           "effect:none",
           "needs:none",
@@ -66433,6 +66490,7 @@
         },
         "tags": [
           "category:marketing",
+          "category:business",
           "type:guidelines",
           "effect:none",
           "needs:none",
@@ -66545,6 +66603,7 @@
         },
         "tags": [
           "category:science",
+          "category:business",
           "type:guidelines",
           "effect:none",
           "needs:none",
@@ -66650,6 +66709,7 @@
         },
         "tags": [
           "category:documents",
+          "category:business",
           "type:guidelines",
           "effect:none",
           "needs:none",
@@ -68204,7 +68264,7 @@
           "permalink": "https://github.com/trailofbits/skills/tree/e4dd0bb5b15535f7c5a0834187dffba6ac37e4ff/plugins/culture-index/skills/interpreting-culture-index"
         },
         "tags": [
-          "category:personal",
+          "category:business",
           "type:workflow",
           "effect:local",
           "needs:cli",
@@ -68831,6 +68891,7 @@
         },
         "tags": [
           "category:marketing",
+          "category:business",
           "type:workflow",
           "effect:none",
           "needs:none",
@@ -71396,7 +71457,7 @@
         },
         "tags": [
           "category:writing",
-          "category:security",
+          "category:business",
           "type:guidelines",
           "effect:none",
           "needs:none",
@@ -72941,8 +73002,8 @@
           "permalink": "https://github.com/samber/cc-skills/tree/50a33836b20f690c668af557bd9ef9d07a8c7ef2/skills/influence-and-negotiation"
         },
         "tags": [
-          "category:marketing",
           "category:writing",
+          "category:business",
           "type:workflow",
           "effect:local",
           "needs:subagents",
