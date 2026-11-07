@@ -337,6 +337,26 @@ code {
   margin-top: 18px;
 }
 
+/* Above the tag facets: narrows them to the tags it names. */
+.tag-search {
+  margin-top: 22px;
+}
+
+.tag-search input {
+  width: 100%;
+  padding: 7px 10px;
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 14px;
+}
+
+.tag-none {
+  margin: 12px 0 0;
+  font-size: 14px;
+}
+
 .facet h2 {
   margin: 0 0 8px;
   color: var(--text-2);
@@ -1446,8 +1466,14 @@ code {
     margin-top: 12px;
   }
 
+  /* Under 16px, iOS zooms in on the field. */
+  .tag-search input {
+    font-size: 16px;
+  }
+
   #filters:not(.shown) .settings,
   #filters:not(.shown) #ranges,
+  #filters:not(.shown) .tag-search,
   #filters:not(.shown) #facets {
     display: none;
   }

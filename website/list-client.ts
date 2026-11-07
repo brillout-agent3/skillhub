@@ -25,8 +25,11 @@ import { compact, href } from "./format.ts";
 
 const app = document.getElementById("app") as HTMLElement;
 const q = document.getElementById("q") as HTMLInputElement;
+/** The tag search narrows the facets to the tags it names; it isn't a filter, so it stays out of the URL. */
+const tagQ = document.getElementById("tag-q") as HTMLInputElement;
 let state = parse(location.search);
 let stackExpanded = false;
+let tagQuery = tagQ.value.trim();
 
 function go(patch: Partial<State>) {
   const next = { ...state, ...patch };
@@ -93,17 +96,31 @@ let renders = 0;
 /** What the facets were last rendered for: the pre-rendered page's are for no filters. */
 let lastFacets = "";
 
+/** The facets don't depend on the sort, so a preset leaves them as they are. */
+function renderFacets() {
+  const key = JSON.stringify([
+    state.q,
+    state.tags,
+    state.repo,
+    state.ranges,
+    stackExpanded,
+    tagQuery,
+  ]);
+  if (key === lastFacets) return;
+  lastFacets = key;
+  (document.getElementById("facets") as HTMLElement).innerHTML = facetsHtml(
+    state,
+    stackExpanded,
+    tagQuery,
+  );
+}
+
 function render() {
   const focus = focusSelector();
   if (q.value !== state.q) q.value = state.q;
   syncRanges();
   (document.getElementById("settings") as HTMLElement).innerHTML = settingsHtml(state);
-  // The facets don't depend on the sort, so a preset leaves them as they are.
-  const facetsKey = JSON.stringify([state.q, state.tags, state.repo, state.ranges, stackExpanded]);
-  if (facetsKey !== lastFacets) {
-    lastFacets = facetsKey;
-    (document.getElementById("facets") as HTMLElement).innerHTML = facetsHtml(state, stackExpanded);
-  }
+  renderFacets();
   const results = document.getElementById("results") as HTMLElement;
   results.innerHTML = resultsHtml(state, FIRST);
   if (focus) (document.querySelector(focus) as HTMLElement | null)?.focus({ preventScroll: true });
@@ -130,6 +147,11 @@ function ask(button: HTMLElement) {
 }
 
 q.addEventListener("input", () => go({ q: q.value }));
+
+tagQ.addEventListener("input", () => {
+  tagQuery = tagQ.value.trim();
+  renderFacets();
+});
 
 app.addEventListener("input", (event) => {
   const el = event.target as HTMLInputElement;
@@ -186,5 +208,6 @@ app.addEventListener("change", (event) => {
   else if (el.id === "one") go({ one: (el as HTMLInputElement).checked });
 });
 
-// The page was pre-rendered unfiltered.
+// The page was pre-rendered unfiltered, and without a tag search.
 if (location.search) render();
+else if (tagQuery) renderFacets();
