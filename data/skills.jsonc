@@ -3038,6 +3038,15 @@
         "description": "A Claude Skills-based trading workflow toolkit for time-constrained individual investors.",
         "note": "For education and research only: its README says it isn't financial advice or a signal service."
       }
+    },
+    {
+      "id": "forcedotcom/sf-skills",
+      "stars": 1151,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Salesforce agent skills, plugins and sample apps for building applications on the Salesforce Platform.",
+        "note": "Expect frequent changes: its README says skills may be renamed, restructured or removed between releases."
+      }
     }
   ],
   "bundles": [
@@ -75905,6 +75914,66 @@
           "research",
           "web-search"
         ]
+      }
+    },
+    {
+      "id": "forcedotcom/sf-skills/skills/external-diagram-mermaid-generate",
+      "name": "external-diagram-mermaid-generate",
+      "skills.sh": {
+        "url": "https://skills.sh/forcedotcom/sf-skills/external-diagram-mermaid-generate",
+        "installs": 5600,
+        "weeklyInstalls": [63, 60, 56, 57, 76, 60, 64, 47],
+        "firstSeen": "2026-06-26"
+      },
+      "skillMd": {
+        "version": "0c7cb9304a071266264628a84bc498b23cde9c13",
+        "updated": "2026-11-07",
+        "skew": 0
+      },
+      "agentReview": {
+        "description": "Draws Salesforce architecture, OAuth flows, integration sequences and data-model ERDs as Mermaid diagrams, with an ASCII fallback.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "you need a diagram of a Salesforce system: an OAuth flow, an integration sequence, an object ERD, a role hierarchy or an Agentforce agent's topics and actions"
+            },
+            {
+              "label": "You get",
+              "text": "in its reply: a Mermaid code block to paste into GitHub or Confluence, an ASCII version when you want plain text, and notes on key relationships and assumptions"
+            },
+            {
+              "label": "Templates",
+              "text": "seven Salesforce OAuth grant flows, fourteen data-model ERDs such as Sales Cloud, Service Cloud and Field Service, plus landscape, API-callout, agent and role templates"
+            },
+            {
+              "label": "Unlike",
+              "text": "a general Mermaid skill, it names Salesforce objects by API name, knows its OAuth grant types and Agentforce's structure, and leaves other systems to other skills"
+            },
+            {
+              "label": "Reads your org",
+              "text": "optionally, for an ERD: each object's record count, sharing default and type, through a bundled script that needs the sf CLI signed in to the org"
+            },
+            {
+              "label": "Preview",
+              "text": "optionally saves the diagram to /tmp and starts a background Python server (macOS or Linux) that shows it in your browser, live-reloads and offers an SVG download"
+            }
+          ],
+          "text": "It draws Salesforce architecture as text-based diagrams, in its reply, ready to live in docs, READMEs or issues. The agent asks for or infers the diagram type, the systems or objects involved, whether you want Mermaid, ASCII or both, and how styled it should be. It then picks a structure: sequence diagrams for time-ordered exchanges such as OAuth or API callouts, flowcharts for ERDs, system landscapes, role hierarchies and Agentforce agent-to-topic-to-action maps. Before an OAuth diagram it loads the template for that grant type, such as authorization code with PKCE, JWT bearer or device flow, and before an ERD the matching data-model template. Its rules keep diagrams readable: numbered steps where order matters, few fields per object unless you ask, color only when it helps, a color-blind-friendly palette, and splitting a crowded ERD into sub-diagrams by domain. For a real org's ERD it can use the repo's object and field skills, or its own script, which flags objects over 2 million records and shows sharing defaults. For OAuth, Agentforce and Flow details it defers to the repo's matching skills. Each answer ends with a short explanation of the main relationships, flow direction and assumptions.",
+          "permalink": "https://github.com/forcedotcom/sf-skills/tree/0c7cb9304a071266264628a84bc498b23cde9c13/skills/external-diagram-mermaid-generate"
+        },
+        "tags": [
+          "category:science",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:official",
+          "stack:salesforce",
+          "stack:mermaid",
+          "diagrams",
+          "architecture"
+        ],
+        "note": "Only for Salesforce systems: for anything else it tells the agent to use a general diagramming skill."
       }
     }
   ]
