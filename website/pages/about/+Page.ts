@@ -12,16 +12,34 @@ const n = (x: number) => x.toLocaleString("en");
 export default function Page(): string {
   const { turnedDown: t } = review;
   const turnedDown = t.toolDocs + t.language + t.copy + t.retired + t.other;
+  // Each skill SkillHub knows of, in exactly one row; `sub` rows split the row above them.
+  const rows: [label: string, count: number, sub?: true][] = [
+    ["Listed", review.listed],
+    ["Turned down by a review", turnedDown],
+    ["Tool docs", t.toolDocs, true],
+    ["Not in English", t.language, true],
+    ["Copies", t.copy, true],
+    ["Retired", t.retired, true],
+    ["Other reasons", t.other, true],
+    ["SKILL.md gone from its repo", review.gone],
+    ["Not on GitHub", review.notOnGitHub],
+    ["Under the minimum installs or stars", review.under],
+    ["Waiting for review", review.waiting],
+  ];
   return `
     <div class="page about">
       <h1>How skills get here</h1>
       <p class="lede">SkillHub lists <strong>${n(review.listed)} agent skills</strong>, out of the ${n(review.reviewed)} it reviewed: first on their installs and stars, then on whether people looking for skills would find them useful.</p>
+      <table class="breakdown">
+        <tbody>${rows.map(([label, count, sub]) => `<tr${sub ? ` class="sub"` : ""}><td>${label}</td><td class="num">${n(count)}</td></tr>`).join("")}</tbody>
+        <tfoot><tr><td>Reviewed</td><td class="num">${n(review.reviewed)}</td></tr></tfoot>
+      </table>
 
       <h2>1. Finding skills</h2>
-      <p>Skills come from <a href="https://skills.sh/">skills.sh</a>, with their installs, and their repo's stars from GitHub. A skill is read once it has <strong>${n(review.minimums.installs)} installs</strong> and its repo <strong>${n(review.minimums.stars)} stars</strong>. ${n(review.under)} skills are under that line, and ${review.waiting ? `${n(review.waiting)} are waiting to be read` : "none is waiting to be read"}. Numbers are as of ${date(review.asOf)}.</p>
+      <p>Skills come from <a href="https://skills.sh/">skills.sh</a>, with their installs, and their repo's stars from GitHub. A skill's SKILL.md is reviewed once it has <strong>${n(review.minimums.installs)} installs</strong> and its repo <strong>${n(review.minimums.stars)} stars</strong>. ${n(review.under)} skills are under that line, and ${review.waiting ? `${n(review.waiting)} are waiting for review` : "none is waiting for review"}. Numbers are as of ${date(review.asOf)}.</p>
 
-      <h2>2. Reading them</h2>
-      <p>The skill's whole SKILL.md is read, not only its description. ${n(turnedDown)} skills were turned down:</p>
+      <h2>2. Reviewing them</h2>
+      <p>A review reads the skill's whole SKILL.md, not only its description. ${n(turnedDown)} skills were turned down:</p>
       <ul>
         <li><strong>${n(t.toolDocs)} tool docs:</strong> manuals for one product, framework, cloud or language, such as a cloud's CLI or a framework's best practices. They only matter once you've chosen the product. A skill that gets a job done through a tool, such as testing, scraping or generating media, isn't tool docs.</li>
         <li><strong>${n(t.language)} not in English.</strong></li>

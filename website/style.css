@@ -1072,6 +1072,50 @@ code {
   text-align: right;
 }
 
+.breakdown {
+  min-width: min(100%, 360px);
+  margin-top: 16px;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.breakdown td {
+  padding: 5px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.breakdown td.num {
+  padding-left: 24px;
+}
+
+.breakdown .sub td {
+  padding-top: 2px;
+  padding-bottom: 2px;
+  border-bottom: none;
+  color: var(--text-2);
+  font-size: 13px;
+}
+
+.breakdown .sub td:first-child {
+  padding-left: 20px;
+}
+
+.breakdown tr:has(+ .sub) td {
+  border-bottom: none;
+}
+
+/* The last sub row closes its group. */
+.breakdown .sub:has(+ tr:not(.sub)) td {
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border);
+}
+
+.breakdown tfoot td {
+  border-top: 1px solid var(--border-strong);
+  border-bottom: none;
+  font-weight: 650;
+}
+
 .tag-table th:nth-child(2),
 .repo-table th:nth-child(3),
 .repo-table th:nth-child(4),
