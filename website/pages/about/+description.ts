@@ -1,1 +1,1 @@
-export default "How skills get on SkillHub: a daily crawl of skills.sh, minimums for installs and stars, and a review by an AI agent, checked by a second one.";
+export default "How skills get on SkillHub: where they come from, the installs and stars they need, why some are turned down, and what listed skills get.";
