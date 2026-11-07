@@ -809,8 +809,8 @@ const scopeOf = (st: State) => {
 /** The search box's placeholder: how many skills (or bundles) it looks through. */
 export const searchPlaceholder = (st: State) => `Search ${plural(scopeOf(st), unitOf(st))}`;
 
-/** The filters that narrow the search, as chips inside the search box, each with its × to remove it. */
-export function scopeChipsHtml(st: State): string {
+/** The filters, as chips each with its × to remove it. */
+function scopeChipsHtml(st: State): string {
   const chips: string[] = [];
   const remove = (kind: string, value: string, label: string) =>
     `<button type="button" class="scope-chip" data-remove="${kind}" data-value="${esc(value)}" aria-label="Remove filter ${esc(label)}">${esc(label)} <span aria-hidden="true">×</span></button>`;
@@ -819,27 +819,20 @@ export function scopeChipsHtml(st: State): string {
   for (const p of PROP_IDS)
     if (isNarrowed(p, st.ranges[p]))
       chips.push(remove("range", p, `${PROPS[p].label}: ${rangeLabel(p, st.ranges[p])}`));
-  return chips.join("");
+  return chips.join(" ");
 }
 
 /**
- * Under the search box: how many skills it and "Find skill with your agent" look through, which
- * is what the filters leave, and Clear filters. It describes the search box, so it names the
- * filters for a screen reader, which the chips show.
+ * Above the search and the agent's box, since the filters narrow both: how many skills they look
+ * through, the filters as chips, and Clear filters.
  */
 export function scopeHtml(st: State): string {
   const n = scopeOf(st);
   const all = allOf(st);
   const kinds = `${unitOf(st)}${all === 1 ? "" : "s"}`;
-  if (!filtersOn(st)) return `Searching all <strong>${all.toLocaleString("en")}</strong> ${kinds}`;
-  const names = [
-    ...st.tags,
-    ...(st.repo ? [`from ${st.repo}`] : []),
-    ...PROP_IDS.filter((p) => isNarrowed(p, st.ranges[p])).map(
-      (p) => `${PROPS[p].label}: ${rangeLabel(p, st.ranges[p])}`,
-    ),
-  ];
-  return `Searching <strong>${n.toLocaleString("en")} of ${all.toLocaleString("en")}</strong> ${kinds}<span class="sr-only">, filtered by ${esc(names.join(", "))}</span> <span aria-hidden="true">·</span> <button type="button" class="link-button" data-action="clear">Clear filters</button>`;
+  if (!filtersOn(st))
+    return `<span>Looking through all <strong>${all.toLocaleString("en")}</strong> ${kinds}</span>`;
+  return `<span>Looking through <strong>${n.toLocaleString("en")} of ${all.toLocaleString("en")}</strong> ${kinds}, filtered by</span> ${scopeChipsHtml(st)} <span aria-hidden="true">·</span> <button type="button" class="link-button" data-action="clear">Clear filters</button>`;
 }
 
 /** Under the agent's box: what Find skill with your agent copies. */
@@ -976,19 +969,19 @@ export function listView(st: State, intro = "", head = ""): string {
       <div class="list-main">
         ${intro}
         <div class="finder">
+          <p id="scope" class="scope">${scopeHtml(st)}</p>
           <div class="search-field" data-action="focus-search">
             <svg class="search-icon" viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="2" /><path d="m13 13 4.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" /></svg>
-            <span id="scope-chips" class="scope-chips">${scopeChipsHtml(st)}</span>
             <label for="q" class="sr-only">Search skills</label>
-            <input id="q" type="search" value="${esc(st.q)}" placeholder="${esc(searchPlaceholder(st))}" autocomplete="off" spellcheck="false" aria-describedby="scope" />
+            <input id="q" type="search" value="${esc(st.q)}" placeholder="${esc(searchPlaceholder(st))}" autocomplete="off" spellcheck="false" aria-describedby="search-note scope" />
           </div>
           <div class="agent-field" data-action="focus-need">
             <svg class="ask-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2.5l1.6 4.4 4.4 1.6-4.4 1.6L10 14.5l-1.6-4.4L4 8.5l4.4-1.6zM15.5 13l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z" fill="currentColor" /></svg>
             <label for="need" class="sr-only">What you need, for your agent</label>
-            <input id="need" type="text" placeholder="Describe what you need" autocomplete="off" aria-describedby="ask-label" />
+            <input id="need" type="text" placeholder="Describe what you need" autocomplete="off" aria-describedby="ask-label scope" />
             <button type="button" class="ask-button" data-action="ask">Find skill with your agent</button>
           </div>
-          <p id="scope" class="scope">${scopeHtml(st)}</p>
+          <p id="search-note" class="search-note">Filters the list as you type.</p>
           <p id="ask-label" class="ask-label" aria-live="polite">${askLabel(st)}</p>
         </div>
         <section id="results" aria-label="Skills">${resultsHtml(st)}</section>

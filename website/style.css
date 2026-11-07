@@ -320,10 +320,11 @@ code {
  */
 .finder {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   grid-template-areas:
+    "scope scope"
     "field agent"
-    "scope label";
+    "note label";
   gap: 8px 12px;
   margin-bottom: 20px;
 }
@@ -352,11 +353,6 @@ code {
   width: 18px;
   height: 18px;
   color: var(--text-3);
-}
-
-/* Its chips sit in the field's row, before the input, and wrap with it. */
-.scope-chips {
-  display: contents;
 }
 
 .scope-chip {
@@ -389,7 +385,7 @@ code {
   outline: none;
 }
 
-/* Tinted, with its own icon and button, so it reads as another way than the search. */
+/* A text box like the search's, told apart by its icon and its button. */
 .agent-field {
   grid-area: agent;
   display: flex;
@@ -397,14 +393,15 @@ code {
   gap: 8px;
   min-height: 48px;
   padding: 5px 5px 5px 12px;
-  border: 1.5px solid var(--accent);
+  border: 1px solid var(--border-strong);
   border-radius: 12px;
-  background: var(--accent-soft);
+  background: var(--surface);
   cursor: text;
 }
 
 .agent-field:focus-within {
-  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 25%, transparent);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
 }
 
 .ask-icon {
@@ -422,11 +419,6 @@ code {
   background: none;
   color: var(--text);
   font-size: 16px;
-}
-
-.agent-field input::placeholder {
-  color: var(--accent-text);
-  opacity: 0.7;
 }
 
 /* The box shows the focus instead. */
@@ -454,19 +446,28 @@ code {
 
 .scope {
   grid-area: scope;
-  margin: 0 0 0 2px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 2px 2px;
   color: var(--text-2);
   font-size: 14px;
+}
+
+.search-note {
+  grid-area: note;
+  margin: 0;
+  color: var(--text-3);
+  font-size: 12.5px;
 }
 
 .scope strong {
   color: var(--text);
 }
 
-/* As wide as the button above it, which it shouldn't widen. */
 .ask-label {
   grid-area: label;
-  contain: inline-size;
   margin: 0;
   color: var(--text-3);
   font-size: 12.5px;
@@ -1569,15 +1570,11 @@ code {
 @media (max-width: 1250px) {
   .finder {
     grid-template-columns: minmax(0, 1fr);
-    grid-template-areas: "field" "scope" "agent" "label";
+    grid-template-areas: "scope" "field" "note" "agent" "label";
   }
 
   .agent-field {
     margin-top: 8px;
-  }
-
-  .ask-label {
-    contain: none;
   }
 }
 
