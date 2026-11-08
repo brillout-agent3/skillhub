@@ -64,9 +64,9 @@
   --ring: oklch(0 0 0 / 0.06);
   --shadow-border:
     0 0 0 1px var(--ring), 0 1px 2px -1px oklch(0 0 0 / 0.06), 0 2px 4px 0 oklch(0 0 0 / 0.04);
+  /* A hovered button's ring darkens to --ink-3, as its border did: a fainter one went unseen. */
   --shadow-border-hover:
-    0 0 0 1px oklch(0 0 0 / 0.08), 0 1px 2px -1px oklch(0 0 0 / 0.08),
-    0 2px 4px 0 oklch(0 0 0 / 0.06);
+    0 0 0 1px var(--ink-3), 0 1px 2px -1px oklch(0 0 0 / 0.08), 0 2px 4px 0 oklch(0 0 0 / 0.06);
   /* Pure black, never a tinted ink, so it doesn't read as dirt on the image's edge. */
   --image-outline: oklch(0 0 0 / 0.1);
   -webkit-font-smoothing: antialiased;
@@ -105,7 +105,7 @@
     /* Lift doesn't show on a dark page: the ring alone. */
     --ring: oklch(1 0 0 / 0.08);
     --shadow-border: 0 0 0 1px var(--ring);
-    --shadow-border-hover: 0 0 0 1px oklch(1 0 0 / 0.13);
+    --shadow-border-hover: 0 0 0 1px var(--ink-3);
     --image-outline: oklch(1 0 0 / 0.1);
   }
 }
