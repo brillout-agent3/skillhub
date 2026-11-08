@@ -1,28 +1,42 @@
 :root {
   color-scheme: light;
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  --bg: #f4f4f5;
+  /*
+   * From taste-skill's dealer for a developer tool (start.mjs deal --page software --trade devtool):
+   * the palette cool-grey-cobalt and the pairing Epilogue with JetBrains Mono, radius sharp. No violet:
+   * every hue stays outside 270 to 330 degrees (OKLCH).
+   */
+  --font-text: "Epilogue", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --display-tracking: -0.035em;
+  --r-sm: 4px;
+  --r-md: 6px;
+  --r-lg: 8px;
+  font-family: var(--font-text);
+  --bg: #eef0f3;
   --surface: #ffffff;
-  --surface-2: #fafafa;
-  --border: #e4e4e7;
-  --border-strong: #d4d4d8;
-  --text: #18181b;
-  --text-2: #52525b;
-  --text-3: #71717a;
-  --accent: #7209b7;
-  --accent-text: #6a0aab;
-  --accent-soft: #f3e8ff;
+  --surface-2: #f6f7f9;
+  /* Hairlines: the ink at about 12 and 20%. */
+  --border: #d3d5d8;
+  --border-strong: #c1c3c7;
+  --text: #0b0c0e;
+  /* 7:1 or more, for text people read. */
+  --text-2: #3b4049;
+  /* 4.5:1 or more on the ground and on a card: labels, dates and meta only. */
+  --text-3: #5d6470;
+  --accent: #1f2de6;
+  --accent-text: #1f2de6;
+  --accent-soft: #e2e9fb;
   --on-accent: #ffffff;
-  --focus: #7209b7;
-  /* Weekly-installs trend: gray line, current week in the accent (validated). */
-  --spark-line: #71717a;
-  --spark-now: #7209b7;
-  --spark-base: #e4e4e7;
+  --focus: #1f2de6;
+  /* Weekly-installs trend: grey line, current week in the accent. */
+  --spark-line: #5d6470;
+  --spark-now: #1f2de6;
+  --spark-base: #d3d5d8;
   /* Tag tints: background / text. */
-  --t-type: #f3e8ff;
-  --t-type-ink: #6b21a8;
-  --t-needs: #e0ecff;
-  --t-needs-ink: #1e4fb0;
+  --t-type: #e2e9fb;
+  --t-type-ink: #1a24b8;
+  --t-needs: #dcf0fa;
+  --t-needs-ink: #0b5677;
   --t-good: #dcfce7;
   --t-good-ink: #166534;
   --t-warn: #fef3c7;
@@ -32,33 +46,34 @@
   --t-stack: #ccfbf1;
   --t-stack-ink: #115e59;
   /* Darker than --bg, so a plain tag shows on a page as well as on a white card. */
-  --t-plain: #e9e9ec;
-  --t-plain-ink: #3f3f46;
+  --t-plain: #e2e5ea;
+  --t-plain-ink: #2b2f36;
 }
 
+/* The dealt palette's inverse: its action is the light ink, so a filled button is light on dark. */
 @media (prefers-color-scheme: dark) {
   :root {
     color-scheme: dark;
-    --bg: #09090b;
-    --surface: #18181b;
-    --surface-2: #1f1f23;
-    --border: #2e2e33;
-    --border-strong: #3f3f46;
-    --text: #f4f4f5;
-    --text-2: #c4c4cc;
-    --text-3: #a1a1aa;
-    --accent: #a855f7;
-    --accent-text: #d0a6ff;
-    --accent-soft: #2e1745;
-    --on-accent: #ffffff;
-    --focus: #c084fc;
-    --spark-line: #a1a1aa;
-    --spark-now: #a855f7;
-    --spark-base: #3f3f46;
-    --t-type: #33194d;
-    --t-type-ink: #e2c6ff;
-    --t-needs: #172a4d;
-    --t-needs-ink: #bcd4ff;
+    --bg: #0b0c0e;
+    --surface: #17181a;
+    --surface-2: #1d1f22;
+    --border: #2a2c30;
+    --border-strong: #3a3d42;
+    --text: #eef0f3;
+    --text-2: #c3c6cc;
+    --text-3: #9a9ca1;
+    --accent: #eef0f3;
+    --accent-text: #eef0f3;
+    --accent-soft: #23262c;
+    --on-accent: #0b0c0e;
+    --focus: #eef0f3;
+    --spark-line: #9a9ca1;
+    --spark-now: #eef0f3;
+    --spark-base: #3a3d42;
+    --t-type: #152346;
+    --t-type-ink: #c3d2f8;
+    --t-needs: #0d2b38;
+    --t-needs-ink: #a8dcf2;
     --t-good: #123320;
     --t-good-ink: #a7f3c0;
     --t-warn: #3d2a07;
@@ -67,8 +82,8 @@
     --t-bad-ink: #fecdd6;
     --t-stack: #0f3330;
     --t-stack-ink: #a7f3e6;
-    --t-plain: #27272a;
-    --t-plain-ink: #d4d4d8;
+    --t-plain: #25272b;
+    --t-plain-ink: #d4d6da;
   }
 }
 
@@ -81,7 +96,7 @@ body {
   min-height: 100vh;
   background: var(--bg);
   color: var(--text);
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.5;
 }
 
@@ -96,13 +111,33 @@ select {
   color: inherit;
 }
 
-:focus-visible {
+:focus-visible:not(.search-field input, .agent-field input),
+.search-field:has(input:focus-visible),
+.agent-field:has(input:focus-visible) {
   outline: 2px solid var(--focus);
   outline-offset: 2px;
 }
 
+/* The first Tab stop: hidden until it has the focus, then over the page's corner. */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 12px;
+  z-index: 20;
+  padding: 10px 16px;
+  border-radius: var(--r-sm);
+  background: var(--accent);
+  color: var(--on-accent);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 12px;
+}
+
 code {
-  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-family: var(--font-mono);
   font-size: 0.9em;
 }
 
@@ -136,7 +171,7 @@ code {
   gap: 9px;
   color: var(--text);
   font-size: 17px;
-  font-weight: 650;
+  font-weight: 500;
   text-decoration: none;
   white-space: nowrap;
 }
@@ -151,7 +186,7 @@ code {
   /* Taller, to be easy to tap. */
   padding: 5px 0;
   color: var(--text-2);
-  font-weight: 550;
+  font-weight: 500;
   text-decoration: none;
 }
 
@@ -185,15 +220,17 @@ code {
 .intro h1 {
   margin: 0;
   font-size: 30px;
-  font-weight: 750;
-  letter-spacing: -0.01em;
+  font-weight: 400;
+  letter-spacing: var(--display-tracking);
   line-height: 1.2;
 }
 
 .intro a {
   color: var(--text-2);
   font-size: 15px;
-  text-decoration: none;
+  text-decoration: underline;
+  text-decoration-color: var(--border-strong);
+  text-underline-offset: 3px;
 }
 
 .intro a:hover {
@@ -229,12 +266,13 @@ code {
 }
 
 .preset {
+  min-height: 44px;
   padding: 7px 0;
   border: 1px solid var(--border-strong);
-  border-radius: 8px;
+  border-radius: var(--r-sm);
   background: var(--surface);
   color: var(--text);
-  font-weight: 600;
+  font-weight: 500;
   cursor: pointer;
 }
 
@@ -260,14 +298,14 @@ code {
   width: 100%;
   padding: 6px 8px;
   border: 1px solid var(--border-strong);
-  border-radius: 8px;
+  border-radius: var(--r-sm);
   background: var(--surface);
 }
 
 .settings .order {
   padding: 6px 8px;
   border: 1px solid var(--border-strong);
-  border-radius: 8px;
+  border-radius: var(--r-sm);
   background: var(--surface);
   color: var(--text);
   font-size: 13px;
@@ -280,7 +318,7 @@ code {
   display: flex;
   overflow: hidden;
   border: 1px solid var(--border-strong);
-  border-radius: 8px;
+  border-radius: var(--r-sm);
   background: var(--surface);
 }
 
@@ -301,7 +339,7 @@ code {
 .show-switch button[aria-pressed="true"] {
   background: var(--accent-soft);
   color: var(--accent-text);
-  font-weight: 600;
+  font-weight: 500;
 }
 
 /* The right side: the count line, the two ways to search, and the list. */
@@ -335,10 +373,10 @@ code {
   flex-wrap: wrap;
   align-items: center;
   gap: 6px;
-  min-height: 48px;
+  min-height: 56px;
   padding: 5px 12px;
   border: 1px solid var(--border-strong);
-  border-radius: 12px;
+  border-radius: var(--r-lg);
   background: var(--surface);
   /* A faint inner shadow, as text boxes have: type here. */
   box-shadow: inset 0 1px 2px rgb(0 0 0 / 0.07);
@@ -361,17 +399,17 @@ code {
 
 .scope-chip {
   padding: 3px 10px;
-  border: 1px solid var(--accent);
-  border-radius: 999px;
-  background: var(--accent-soft);
-  color: var(--accent-text);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--r-sm);
+  background: var(--surface);
+  color: var(--text);
   font-size: 13px;
   white-space: nowrap;
   cursor: pointer;
 }
 
 .scope-chip:hover {
-  background: var(--surface);
+  border-color: var(--text-3);
 }
 
 .search-field input {
@@ -385,21 +423,16 @@ code {
   text-overflow: ellipsis;
 }
 
-/* The field shows the focus instead. */
-.search-field input:focus-visible {
-  outline: none;
-}
-
 /* A text box like the search's, told apart by its icon and its button. */
 .agent-field {
   grid-area: agent;
   display: flex;
   align-items: center;
   gap: 8px;
-  min-height: 48px;
+  min-height: 56px;
   padding: 5px 5px 5px 12px;
   border: 1px solid var(--border-strong);
-  border-radius: 12px;
+  border-radius: var(--r-lg);
   background: var(--surface);
   box-shadow: inset 0 1px 2px rgb(0 0 0 / 0.07);
   cursor: text;
@@ -430,21 +463,16 @@ code {
   text-overflow: ellipsis;
 }
 
-/* The box shows the focus instead. */
-.agent-field input:focus-visible {
-  outline: none;
-}
-
 .ask-button {
   flex: none;
-  min-height: 38px;
+  min-height: 44px;
   padding: 0 14px;
   border: 0;
-  border-radius: 9px;
+  border-radius: var(--r-sm);
   background: var(--accent);
   color: var(--on-accent);
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 500;
   white-space: nowrap;
   cursor: pointer;
 }
@@ -468,7 +496,7 @@ code {
   grid-area: note;
   margin: 0;
   color: var(--text-3);
-  font-size: 12.5px;
+  font-size: 13px;
 }
 
 .scope strong {
@@ -479,7 +507,7 @@ code {
   grid-area: label;
   margin: 0;
   color: var(--text-3);
-  font-size: 12.5px;
+  font-size: 13px;
   line-height: 1.4;
 }
 
@@ -488,10 +516,10 @@ code {
 .badge {
   display: inline-block;
   padding: 0 6px;
-  border-radius: 6px;
+  border-radius: var(--r-sm);
   background: var(--accent-soft);
   color: var(--accent-text);
-  font-weight: 650;
+  font-weight: 500;
   white-space: nowrap;
 }
 
@@ -508,7 +536,7 @@ code {
   width: 100%;
   padding: 7px 10px;
   border: 1px solid var(--border-strong);
-  border-radius: 8px;
+  border-radius: var(--r-sm);
   background: var(--surface);
   color: var(--text);
   font-size: 14px;
@@ -522,10 +550,8 @@ code {
 .facet h2 {
   margin: 0 0 8px;
   color: var(--text-2);
-  font-size: 12px;
-  font-weight: 650;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 500;
 }
 
 .range h2 {
@@ -535,9 +561,7 @@ code {
 
 .range output {
   color: var(--text);
-  font-weight: 550;
-  letter-spacing: 0;
-  text-transform: none;
+  font-weight: 500;
 }
 
 /* Two range inputs on one track; only their handles take the pointer. */
@@ -616,11 +640,11 @@ code {
   outline-offset: 2px;
 }
 
-.facet h3.group {
+.facet .group {
   margin: 10px 0 6px;
   color: var(--text-3);
-  font-size: 12px;
-  font-weight: 550;
+  font-size: 13px;
+  font-weight: 500;
 }
 
 .chips {
@@ -643,7 +667,7 @@ code {
   gap: 6px;
   padding: 3px 9px;
   border: 1px solid var(--border);
-  border-radius: 999px;
+  border-radius: var(--r-sm);
   background: var(--surface);
   font-size: 13px;
   cursor: pointer;
@@ -656,7 +680,7 @@ code {
 
 .chip .n {
   color: var(--text-3);
-  font-size: 12px;
+  font-size: 13px;
   font-variant-numeric: tabular-nums;
 }
 
@@ -710,7 +734,7 @@ code {
 .repo-banner {
   margin: 0 0 12px;
   padding: 10px 14px;
-  border-radius: 10px;
+  border-radius: var(--r-md);
   background: var(--surface);
   border: 1px solid var(--border);
   color: var(--text-2);
@@ -728,7 +752,7 @@ code {
   margin-bottom: 10px;
   padding: 14px 16px;
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: var(--r-lg);
   background: var(--surface);
 }
 
@@ -778,15 +802,15 @@ code {
 .props .on dd {
   background: var(--accent-soft);
   color: var(--accent-text);
-  font-weight: 650;
+  font-weight: 500;
 }
 
 .props .on dt {
-  border-radius: 6px 0 0 6px;
+  border-radius: var(--r-sm) 0 0 var(--r-sm);
 }
 
 .props .on dd {
-  border-radius: 0 6px 6px 0;
+  border-radius: 0 var(--r-sm) var(--r-sm) 0;
 }
 
 .skill-head {
@@ -803,7 +827,7 @@ code {
 
 .skill-name {
   color: var(--text);
-  font-weight: 650;
+  font-weight: 500;
   text-decoration: none;
 }
 
@@ -813,7 +837,7 @@ code {
 }
 
 .skill-source {
-  color: var(--text-3);
+  color: var(--text-2);
   font-size: 13px;
 }
 
@@ -874,11 +898,11 @@ code {
 .tag {
   padding: 1px 8px;
   border: 1px solid transparent;
-  border-radius: 6px;
+  border-radius: var(--r-sm);
   background: var(--t-plain);
   color: var(--t-plain-ink);
-  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-  font-size: 12px;
+  font-family: var(--font-mono);
+  font-size: 13px;
   line-height: 1.6;
   text-decoration: none;
   cursor: pointer;
@@ -938,7 +962,7 @@ code {
 .note {
   margin: 0 0 12px;
   padding: 10px 12px;
-  border-radius: 8px;
+  border-radius: var(--r-sm);
   background: var(--t-warn);
   color: var(--t-warn-ink);
 }
@@ -959,7 +983,7 @@ code {
   flex: 1;
   min-width: 0;
   padding: 7px 10px;
-  border-radius: 8px;
+  border-radius: var(--r-sm);
   background: var(--surface-2);
   border: 1px solid var(--border);
   /* Wrapped between its words, so the whole command shows; a word too long for a line scrolls. */
@@ -972,9 +996,10 @@ code {
 
 .copy {
   flex-shrink: 0;
+  min-height: 44px;
   padding: 7px 14px;
   border: 1px solid var(--border-strong);
-  border-radius: 8px;
+  border-radius: var(--r-sm);
   background: var(--surface);
   cursor: pointer;
 }
@@ -1047,7 +1072,7 @@ code {
   margin: 0;
   padding: 12px 14px;
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: var(--r-md);
   background: var(--surface);
 }
 
@@ -1056,21 +1081,22 @@ code {
   font-size: 13px;
 }
 
+/* A figure reads as data, never bigger than a section heading. */
 .stat-value {
-  font-size: 26px;
-  font-weight: 600;
+  font-size: 19px;
+  font-weight: 500;
   line-height: 1.2;
 }
 
 .stat-delta {
   margin-bottom: 6px;
   color: var(--text-3);
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .spark {
   position: relative;
-  border-radius: 6px;
+  border-radius: var(--r-sm);
   cursor: crosshair;
 }
 
@@ -1119,10 +1145,10 @@ code {
   transform: translateX(-50%);
   padding: 5px 9px;
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: var(--r-sm);
   background: var(--surface);
   box-shadow: 0 2px 8px rgb(0 0 0 / 0.12);
-  font-size: 12px;
+  font-size: 13px;
   white-space: nowrap;
   pointer-events: none;
 }
@@ -1138,7 +1164,7 @@ code {
 
 .spark-table {
   margin-top: 6px;
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .spark-table summary {
@@ -1177,6 +1203,8 @@ code {
 .page h1 {
   margin: 0 0 8px;
   font-size: 28px;
+  font-weight: 400;
+  letter-spacing: var(--display-tracking);
 }
 
 .page h2 {
@@ -1230,7 +1258,7 @@ code {
   padding: 6px 12px 6px 0;
   border-bottom: 1px solid var(--border-strong);
   color: var(--text-3);
-  font-weight: 550;
+  font-weight: 500;
   text-align: left;
   white-space: nowrap;
 }
@@ -1311,7 +1339,7 @@ code {
 .breakdown tfoot td {
   border-top: 1px solid var(--border-strong);
   border-bottom: none;
-  font-weight: 650;
+  font-weight: 500;
 }
 
 .breakdown-note {
@@ -1367,7 +1395,7 @@ code {
   width: 100cqw;
   padding: 8px 11px;
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: var(--r-sm);
   background: var(--surface);
   box-shadow: 0 2px 8px rgb(0 0 0 / 0.12);
   color: var(--text);
@@ -1444,7 +1472,7 @@ code {
 .cloud .n {
   margin: 0 8px 0 4px;
   color: var(--text-3);
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .table-scroll {
@@ -1476,13 +1504,14 @@ code {
   margin: 20px 0;
   padding: 14px 16px;
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: var(--r-lg);
   background: var(--surface);
 }
 
+/* One size per heading level: the page's h2 size, so the SKILL.md's h3s sit under it. */
 .page .tldr h2 {
   margin: 0 0 6px;
-  font-size: 15px;
+  font-size: 19px;
 }
 
 .tldr p {
@@ -1508,7 +1537,7 @@ code {
   margin-top: 12px;
   padding: 4px 20px;
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: var(--r-lg);
   background: var(--surface);
   overflow-wrap: break-word;
 }
@@ -1538,7 +1567,7 @@ code {
 .frontmatter pre {
   padding: 10px 12px;
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: var(--r-sm);
   background: var(--surface-2);
   overflow-x: auto;
   font-size: 13px;
@@ -1670,10 +1699,10 @@ code {
     margin-top: 8px;
     padding: 7px 12px;
     border: 1px solid var(--border-strong);
-    border-radius: 8px;
+    border-radius: var(--r-sm);
     background: var(--surface);
     color: var(--text);
-    font-weight: 600;
+    font-weight: 500;
     cursor: pointer;
   }
 
@@ -1719,11 +1748,11 @@ code {
 
 .kind {
   padding: 0 8px;
-  border-radius: 6px;
-  background: var(--accent-soft);
-  color: var(--accent-text);
-  font-size: 12px;
-  font-weight: 550;
+  border-radius: var(--r-sm);
+  background: var(--t-type);
+  color: var(--t-type-ink);
+  font-size: 13px;
+  font-weight: 500;
   line-height: 1.7;
   white-space: nowrap;
 }
@@ -1750,7 +1779,7 @@ h1 .kind {
 
 .members a.dim {
   color: var(--text-3);
-  opacity: 0.6;
+  text-decoration: none;
 }
 
 .in-bundle {
@@ -1809,4 +1838,105 @@ h1 .kind {
   margin: 4px 0 0;
   color: var(--text-3);
   font-size: 14px;
+}
+
+/*
+ * The hover and press layer, as taste-skill's motion.md sets it: a button steps up 1px on hover
+ * and sinks 1px with a .985 scale on press; a skill's card lifts 2px and its border darkens. A fine
+ * pointer only; transform and colour only; 150ms in, 120ms out, 90ms press.
+ */
+@media (hover: hover) and (pointer: fine) {
+  .preset,
+  .copy,
+  .ask-button,
+  .scope-chip,
+  .settings .order,
+  .skill {
+    transition:
+      transform 120ms cubic-bezier(0.2, 0.8, 0.2, 1),
+      border-color 120ms cubic-bezier(0.2, 0.8, 0.2, 1),
+      box-shadow 120ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .preset:hover,
+  .copy:hover,
+  .ask-button:hover,
+  .scope-chip:hover,
+  .settings .order:hover {
+    transform: translateY(-1px);
+    transition-duration: 150ms;
+  }
+
+  .preset:active,
+  .copy:active,
+  .ask-button:active,
+  .scope-chip:active,
+  .settings .order:active {
+    transform: translateY(1px) scale(0.985);
+    transition-duration: 90ms;
+  }
+
+  .skill:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-strong);
+    box-shadow: 0 8px 24px rgb(11 12 14 / 0.08);
+    transition-duration: 180ms;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .preset,
+  .copy,
+  .ask-button,
+  .scope-chip,
+  .settings .order,
+  .skill {
+    transform: none !important;
+  }
+}
+
+/* On a phone, every control outside running text is easy to tap: 44px, or 8px from the next one. */
+@media (max-width: 640px) {
+  .site-links a,
+  .brand,
+  .filters-toggle,
+  .preset,
+  .copy,
+  .link-button,
+  #scope .scope-chip {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  .preset,
+  .filters-toggle {
+    justify-content: center;
+  }
+
+  .tags {
+    gap: 8px;
+  }
+
+  .tag,
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    min-height: 36px;
+  }
+
+  .chips {
+    gap: 8px;
+  }
+
+  .search-field input,
+  .agent-field input {
+    min-height: 44px;
+  }
+
+  .breakdown .d1 td,
+  .breakdown .d2 td {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
 }

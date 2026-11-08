@@ -34,6 +34,8 @@ jobs:
         # (https://<owner>.github.io/<repo>/). With a custom domain, set BASE to /.
         env:
           BASE: /${{ github.event.repository.name }}/
+          # The origin, for the share picture's and the canonical link's whole addresses.
+          SITE: https://${{ github.repository_owner }}.github.io
         run: pnpm run build
       - name: Publish to the gh-pages branch
         # Every branch gets checked; only the default branch, whatever its name, gets published.

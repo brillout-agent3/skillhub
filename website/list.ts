@@ -739,7 +739,8 @@ export function facetsHtml(st: State, stackExpanded: boolean, tagQ = ""): string
         .filter((v) => !tagQ || tagFits(v, v, tagQ))
         .map((v) => filterChip("data-tag", v, v, topicCounts.get(v) ?? 0, st.tags.includes(v)))
         .join("");
-      return chips ? `<h3 class="group">${esc(g.name)}</h3><div class="chips">${chips}</div>` : "";
+      // A label, not a heading: the facet's h2 heads the group, and the list's skills are its h3s.
+      return chips ? `<p class="group">${esc(g.name)}</p><div class="chips">${chips}</div>` : "";
     })
     .join("");
   if (groups || !tagQ)
@@ -897,7 +898,7 @@ export function resultsHtml(st: State, limit = Infinity): string {
     ${repoNote ? `<p class="repo-banner"><a href="https://github.com/${esc(repoNote.id)}">${esc(repoNote.id)}</a>${repoNote.agentReview.description ? ` · ${esc(repoNote.agentReview.description)}` : ""}</p>` : ""}
     ${
       list.length
-        ? `<ol class="skill-list">${list
+        ? `<h2 class="sr-only">Skills</h2><ol class="skill-list">${list
             .slice(0, limit)
             .map((e) => rowHtml(e, st))
             .join("")}</ol>`
@@ -986,7 +987,7 @@ export function listView(st: State, intro = "", head = ""): string {
           <div id="facets">${facetsHtml(st, false)}</div>
         </div>
       </aside>
-      <div class="list-main">
+      <div class="list-main" id="content">
         ${intro}
         <div class="finder">
           <p id="scope" class="scope">${scopeHtml(st)}</p>
