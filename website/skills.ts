@@ -143,9 +143,11 @@ export function glanceHtml(glance: Tldr["glance"], max = glance.length): string 
 export function tagChip(tag: string, link: string | null, pressed = false): string {
   const info = tagInfo.get(tag);
   const attrs = `class="tag" data-tag="${esc(tag)}" data-facet="${esc(facetOf(tag))}"${info ? ` title="${esc(info)}"` : ""}`;
+  // Where a tag must break, it breaks after its prefix, or at a hyphen.
+  const text = esc(tag).replace(":", ":<wbr>");
   return link === null
-    ? `<button type="button" ${attrs} aria-pressed="${pressed}">${esc(tag)}</button>`
-    : `<a ${attrs} href="${link}">${esc(tag)}</a>`;
+    ? `<button type="button" ${attrs} aria-pressed="${pressed}">${text}</button>`
+    : `<a ${attrs} href="${link}">${text}</a>`;
 }
 
 /** A commit as its first 7 characters. */

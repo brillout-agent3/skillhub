@@ -1262,9 +1262,14 @@ code {
   white-space: nowrap;
 }
 
-/* A long tag breaks, so the table fits a phone. */
+/* A tag stays whole where there's room. On a phone, a long tag breaks, so the table fits: see the media query. */
 .tag-table td:first-child {
-  overflow-wrap: anywhere;
+  white-space: nowrap;
+}
+
+.tag-table .tag {
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
 .tag-table td,
@@ -1739,6 +1744,12 @@ code {
 
   .page {
     padding: 20px 16px 64px;
+  }
+
+  /* A long tag breaks after its prefix and at hyphens, so the table fits a phone. Not anywhere: that
+     would let the table squeeze the column to a few letters. */
+  .tag-table td:first-child {
+    white-space: normal;
   }
 
   .markdown {
