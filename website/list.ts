@@ -953,9 +953,8 @@ export function settingsHtml(st: State): string {
     <div class="presets" role="group" aria-label="Presets">${presets}</div>
     <button type="button" class="filters-toggle" data-action="filters" aria-controls="filters" aria-expanded="false">Filters</button>
     <section class="facet settings">
-      <h2><label for="sort">Sort by</label></h2>
+      <div class="sort-head"><h2><label for="sort">Sort by</label></h2>${order}</div>
       <select id="sort">${options}</select>
-      ${order ? `<div class="sort-row">${order}</div>` : ""}
     </section>
     <section class="facet settings">
       <h2 id="show-label">Show</h2>

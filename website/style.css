@@ -248,12 +248,12 @@ code {
   color: var(--accent-text);
 }
 
-.settings .sort-row {
+/* Sort by, with its order right of it, as a slider has its range. */
+.sort-head {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px 14px;
-  margin-top: 8px;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
 }
 
 .settings select {
@@ -265,14 +265,21 @@ code {
 }
 
 .settings .order {
-  padding: 6px 8px;
-  border: 1px solid var(--border-strong);
-  border-radius: 8px;
-  background: var(--surface);
-  color: var(--text);
+  /* Taller, to be easy to tap, without moving the heading. */
+  margin: -6px -6px -6px 0;
+  padding: 6px;
+  border: 0;
+  border-radius: 6px;
+  background: none;
+  color: var(--text-2);
   font-size: 13px;
+  font-weight: 550;
   white-space: nowrap;
   cursor: pointer;
+}
+
+.settings .order:hover {
+  color: var(--accent-text);
 }
 
 /* Skills & bundles, Skills or Bundles: one segmented control. */
