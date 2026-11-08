@@ -62,7 +62,7 @@ export default function Page(): string {
       label: "Not in English",
       count: t.language,
       depth: 2,
-      tip: "Its SKILL.md is in another language.",
+      tip: "Its SKILL.md isn't in English.",
     },
     {
       label: "Copies",
@@ -145,11 +145,11 @@ export default function Page(): string {
       </ul>
 
       <h2 id="bundles">Bundles</h2>
-      <p>A bundle is skills of one repo that are meant to be installed and used together, such as the steps of a workflow: one writes a spec, the next turns it into tickets, another implements them. A collection of unrelated skills stays a list of separate skills. SkillHub has ${n(review.bundles)}.</p>
+      <p>A bundle is skills of one repo that are meant to be installed and used together, such as the steps of a workflow: one writes a spec, the next turns it into tickets, another implements them. A repo that only collects unrelated skills isn't a bundle. SkillHub has ${n(review.bundles)}.</p>
       <ul>
         <li><strong>In the list,</strong> a bundle has a row of its own that names its skills in the order they're used. A skill worth installing alone also keeps a row of its own, which says what bundle it's part of. One that only works with the rest, such as one that works on another's output, is only listed inside its bundle, unless the list is set to show Skills, which lists every skill on its own. Set to show Bundles, it lists only bundles.</li>
         <li><strong>Its page</strong> explains how its skills work together, what each one needs from the others, and how to install them all at once.</li>
-        <li><strong>Its numbers</strong> come from its skills: Published is when its oldest skill was first seen, Total and Weekly Downloads are its most downloaded skill's, and Stars are its repo's. The filters' sliders use these numbers, so a bundle is as new as its oldest skill.</li>
+        <li><strong>Its numbers</strong> come from its skills: Published is when its oldest skill was first seen, Total and Weekly Downloads are its most downloaded skill's, and Stars are its repo's. The filters' sliders use these numbers, so an old bundle with a few new skills isn't in "Published: last 90 days".</li>
         <li><strong>Tags and the search</strong> match a bundle through any of its skills, and grey out its other skills.</li>
       </ul>
 
