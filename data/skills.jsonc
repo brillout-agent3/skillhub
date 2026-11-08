@@ -4904,7 +4904,7 @@
     },
     {
       "id": "nextlevelbuilder/ui-ux-pro-max-skill",
-      "skew": 0,
+      "skew": 6,
       "agentReview": {
         "name": "UI/UX Pro Max",
         "description": "UI design intelligence plus brand guidelines, design tokens, and generated logos, icons, banners, social images and HTML decks.",
@@ -5433,7 +5433,7 @@
     },
     {
       "id": "bmad-code-org/bmad-method",
-      "skew": 0,
+      "skew": 1838,
       "agentReview": {
         "name": "BMad Method",
         "description": "BMad's agile AI-driven development method: brainstorm and research an idea, plan it with product, UX and architecture skills and their personas, then build, review and test each change.",
@@ -5494,11 +5494,6 @@
           },
           {
             "id": "bmad-code-org/bmad-method/skills/bmad-deep-recon",
-            "standalone": false,
-            "note": "Runs its scripts from the _bmad/ folder that the bmad skill's setup creates, and offers that setup when it's missing."
-          },
-          {
-            "id": "bmad-code-org/bmad-method/skills/bmad-prfaq",
             "standalone": false,
             "note": "Runs its scripts from the _bmad/ folder that the bmad skill's setup creates, and offers that setup when it's missing."
           },
@@ -6190,7 +6185,7 @@
     },
     {
       "id": "earthtojake/text-to-cad",
-      "skew": 0,
+      "skew": 2849,
       "agentReview": {
         "name": "text-to-cad",
         "description": "Design physical parts with an agent: text-to-cad's skills for 3D models, purchasable parts, DXF drawings, robot descriptions, fabrication and 3D-printing checks, slicing and printer handoff.",
@@ -6226,39 +6221,7 @@
             "standalone": true
           },
           {
-            "id": "earthtojake/text-to-cad/skills/step-parts",
-            "standalone": true
-          },
-          {
-            "id": "earthtojake/text-to-cad/skills/dxf",
-            "standalone": true
-          },
-          {
             "id": "earthtojake/text-to-cad/skills/sendcutsend",
-            "standalone": true
-          },
-          {
-            "id": "earthtojake/text-to-cad/skills/dfam-check",
-            "standalone": true
-          },
-          {
-            "id": "earthtojake/text-to-cad/skills/gcode",
-            "standalone": true
-          },
-          {
-            "id": "earthtojake/text-to-cad/skills/bambu-labs",
-            "standalone": true
-          },
-          {
-            "id": "earthtojake/text-to-cad/skills/urdf",
-            "standalone": true
-          },
-          {
-            "id": "earthtojake/text-to-cad/skills/srdf",
-            "standalone": true
-          },
-          {
-            "id": "earthtojake/text-to-cad/skills/sdf",
             "standalone": true
           }
         ],
@@ -11091,9 +11054,9 @@
         "firstSeen": "2026-02-21"
       },
       "skillMd": {
-        "version": "9b4bf937a1f69348126959c15d2f99a73e65699b",
-        "updated": "2026-11-05",
-        "skew": 8709
+        "version": "f6b76575f949707b4e3c37cd86cb44b0b98643e8",
+        "updated": "2026-11-08",
+        "skew": 9818
       },
       "agentReview": {
         "description": "Reads the brief, picks a design direction and ships non-generic interfaces.",
@@ -11150,9 +11113,9 @@
         "firstSeen": "2026-01-19"
       },
       "skillMd": {
-        "version": "b7d5353e0130feb8c5574ef1251f8a1db1873ccb",
-        "updated": "2026-11-06",
-        "skew": 105
+        "version": "4f2dbb67e64969a9a30ab00742f2d55d66ddec2b",
+        "updated": "2026-11-08",
+        "skew": 111
       },
       "agentReview": {
         "description": "Searchable styles, palettes, font pairings and UX rules for web, mobile and desktop.",
@@ -11209,8 +11172,8 @@
         "firstSeen": "2026-04-08"
       },
       "skillMd": {
-        "version": "c3bb418ee38ee49a6b999b7752c1368f3123a2bd",
-        "updated": "2026-11-06",
+        "version": "924bbd194d02e5e15a227e75b5901fb0d7a4ecad",
+        "updated": "2026-11-08",
         "skew": 86
       },
       "agentReview": {
@@ -21760,9 +21723,9 @@
         "firstSeen": "2026-01-20"
       },
       "skillMd": {
-        "version": "8eef6dc6540dde5eef3fdc0ac487ad9c48ef3ba5",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "2362ca385ad74f061aa0e7b73f56543a4b7e6df2",
+        "updated": "2026-11-08",
+        "skew": 2
       },
       "agentReview": {
         "description": "Keeps a plan, findings and a progress log in Markdown files so long agent tasks survive lost context.",
@@ -29270,9 +29233,9 @@
         "firstSeen": "2026-03-12"
       },
       "skillMd": {
-        "version": "3742ee9527615b0fa325402d6c02498cc7fc19fa",
-        "updated": "2026-11-07",
-        "skew": 15
+        "version": "d479c5bf1efed979297dc4498c60aef7b67aa639",
+        "updated": "2026-11-08",
+        "skew": 111
       },
       "agentReview": {
         "description": "Routes your request to the right gstack skill, such as office-hours, review, qa or ship, or answers directly when none fits.",
@@ -31012,9 +30975,9 @@
         "firstSeen": "2026-03-17"
       },
       "skillMd": {
-        "version": "e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "a867e1604b365d48ea03cbd109da1066ba0c84bc",
+        "updated": "2026-11-08",
+        "skew": 263
       },
       "agentReview": {
         "description": "Turns the agent into John, BMad's product manager, who coaches PRDs, briefs, business cases and other planning documents out of you.",
@@ -31130,9 +31093,9 @@
         "firstSeen": "2026-03-17"
       },
       "skillMd": {
-        "version": "e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "a867e1604b365d48ea03cbd109da1066ba0c84bc",
+        "updated": "2026-11-08",
+        "skew": 1029
       },
       "agentReview": {
         "description": "Turns the agent into Mary, BMad's business analyst, who stays on until dismissed and runs BMad's research, brainstorming and brief skills.",
@@ -31245,9 +31208,9 @@
         "firstSeen": "2026-05-23"
       },
       "skillMd": {
-        "version": "e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "a867e1604b365d48ea03cbd109da1066ba0c84bc",
+        "updated": "2026-11-08",
+        "skew": 6
       },
       "agentReview": {
         "description": "Captures your UX vision in two specs: DESIGN.md for how the product looks and EXPERIENCE.md for how it behaves.",
@@ -31736,69 +31699,6 @@
       }
     },
     {
-      "id": "bmad-code-org/bmad-method/skills/bmad-prfaq",
-      "name": "bmad-prfaq",
-      "skills.sh": {
-        "url": "https://skills.sh/bmad-code-org/bmad-method/bmad-prfaq",
-        "installs": 14000,
-        "weeklyInstalls": [922, 923, 1169, 2265, 2467, 1398, 1609, 1389],
-        "firstSeen": "2026-03-29"
-      },
-      "skillMd": {
-        "version": "e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6",
-        "updated": "2026-11-06",
-        "skew": 0
-      },
-      "agentReview": {
-        "description": "Tests a product idea with Amazon's Working Backwards method: a press release for the finished product, then hard customer and internal FAQs.",
-        "tldr": {
-          "glance": [
-            {
-              "label": "Use it when",
-              "text": "you want to stress-test a product concept before building it, by writing its launch press release first"
-            },
-            {
-              "label": "It does",
-              "text": "coaches you hard through five stages: the concept, the press release, a customer FAQ, an internal FAQ, then a verdict"
-            },
-            {
-              "label": "You get",
-              "text": "a complete PRFAQ document, plus a distillate: dense notes on what didn't fit in it, such as rejected framings and open questions, to feed requirements or a PRD"
-            },
-            {
-              "label": "Tone",
-              "text": "direct and challenging: vague answers get pushed back, but it offers suggestions when you're stuck"
-            },
-            {
-              "label": "Grounds",
-              "text": "competitive and market claims in current web research, with subagents when available"
-            },
-            {
-              "label": "Needs",
-              "text": "uv and BMad set up in the project: run the bmad skill's setup first"
-            }
-          ],
-          "text": "BMad's take on Amazon's PRFAQ: if you can't write a compelling press release for the finished product, it isn't ready. The first stage insists on the customer before the solution; lead with a technology and it asks whether anyone still cares without the buzzword. Before moving on it needs a specific customer, a concrete problem, why it matters to them and a rough solution, and it notes whether the concept is commercial, internal, open source or nonprofit, which changes the FAQ questions. It asks for your existing documents and sends one subagent to scan them and another to research the market and competitors. The press release is drafted iteratively with coaching, followed by the questions a skeptical customer and then skeptical stakeholders would ask, and a final verdict on the concept's strength. Coaching notes are kept in the document, which can resume from its last stage. If after two or three exchanges you can't name a customer or problem, it points you to bmad-brainstorming or bmad-forge-idea. A headless mode writes a first draft from inputs you provide.",
-          "permalink": "https://github.com/bmad-code-org/bmad-method/tree/e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6/skills/bmad-prfaq"
-        },
-        "tags": [
-          "category:planning",
-          "category:writing",
-          "type:workflow",
-          "effect:local",
-          "needs:cli",
-          "by:community",
-          "requirements",
-          "interview",
-          "research",
-          "writing"
-        ],
-        "note": "Needs uv and BMad set up in the project: it runs scripts from the _bmad/ folder that the bmad skill's setup creates.",
-        "model": "Claude Opus 5.5",
-        "effort": "xhigh"
-      }
-    },
-    {
       "id": "bmad-code-org/bmad-method/skills/bmad-forge-idea",
       "name": "bmad-forge-idea",
       "skills.sh": {
@@ -31808,9 +31708,9 @@
         "firstSeen": "2026-06-22"
       },
       "skillMd": {
-        "version": "e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "a867e1604b365d48ea03cbd109da1066ba0c84bc",
+        "updated": "2026-11-08",
+        "skew": 2
       },
       "agentReview": {
         "description": "Pressure-tests a half-formed idea, one question at a time and with personas probing weak spots, until you act on it or drop it.",
@@ -31869,9 +31769,9 @@
         "firstSeen": "2026-04-22"
       },
       "skillMd": {
-        "version": "e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "a867e1604b365d48ea03cbd109da1066ba0c84bc",
+        "updated": "2026-11-08",
+        "skew": 538
       },
       "agentReview": {
         "description": "Writes TOML overrides that change installed BMad agents and workflows, such as a persona, template or extra steps, for your team or yourself.",
@@ -32522,9 +32422,9 @@
         "firstSeen": "2026-02-03"
       },
       "skillMd": {
-        "version": "463fd7b4d8168aadffc1b1613df96a342a47953e",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "b24ecf2091e94e4b445de0e32023dd9348223b87",
+        "updated": "2026-11-08",
+        "skew": 35
       },
       "agentReview": {
         "description": "Drives apps on iOS, Android, TV and macOS devices and simulators from the terminal: tap, type, scroll, snapshot and verify.",
@@ -32927,9 +32827,9 @@
         "firstSeen": "2026-07-18"
       },
       "skillMd": {
-        "version": "fdc4e3908b70d7cf6b03f357fb9c42a133bb5577",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "b81da90354e3ce4c1e01c5e5a06f4794f15f436a",
+        "updated": "2026-11-08",
+        "skew": 53
       },
       "agentReview": {
         "description": "Reverse engineers binaries, apps, packages, firmware and recorded traffic through the REA MCP server, separating what it observed from what it infers.",
@@ -32993,9 +32893,9 @@
         "firstSeen": "2026-03-07"
       },
       "skillMd": {
-        "version": "5386f227360bddb06c8beaff920a1a34c9f01932",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "e889033b68f418952cc65ba897fe2b1ec63d1564",
+        "updated": "2026-11-08",
+        "skew": 57
       },
       "agentReview": {
         "description": "Sets up a Next.js editor for designing App Store and Google Play screenshots as ads, with copy coaching and export at every required size.",
@@ -33179,9 +33079,9 @@
         "firstSeen": "2026-04-22"
       },
       "skillMd": {
-        "version": "4099cac3ddc56a5e696138c53fd7bee685e8ad9d",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "4ad86d617f1b9503d434b87b868a8f9e5ead3c19",
+        "updated": "2026-11-08",
+        "skew": 2459
       },
       "agentReview": {
         "description": "Models 3D parts and assemblies as Python build123d scripts that text-to-cad's viewer shows live, and exports them as STEP, STL, 3MF or GLB.",
@@ -43230,9 +43130,9 @@
         "firstSeen": "2026-02-26"
       },
       "skillMd": {
-        "version": "24802b13ef5e9bf61a84e650af446c4ff69ab399",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "3ab6e1a215c7bbcf716b9d8d763aa78bacba52a0",
+        "updated": "2026-11-08",
+        "skew": 11
       },
       "agentReview": {
         "description": "Explores code with claude-mem's tree-sitter search, outline and unfold tools instead of reading whole files, to spend fewer tokens.",
@@ -45710,236 +45610,6 @@
       }
     },
     {
-      "id": "earthtojake/text-to-cad/skills/step-parts",
-      "name": "step-parts",
-      "skills.sh": {
-        "url": "https://skills.sh/earthtojake/text-to-cad/step-parts",
-        "installs": 12000,
-        "weeklyInstalls": [596, 514, 318, 337, 485, 595, 523, 615],
-        "firstSeen": "2026-05-14"
-      },
-      "skillMd": {
-        "version": "4099cac3ddc56a5e696138c53fd7bee685e8ad9d",
-        "updated": "2026-11-06",
-        "skew": 0
-      },
-      "agentReview": {
-        "description": "Finds off-the-shelf CAD parts, such as screws, bearings, motors and servos, in the step.parts catalog and downloads their STEP files.",
-        "tldr": {
-          "glance": [
-            {
-              "label": "Use it when",
-              "text": "a CAD model needs a real purchasable part, such as an M3 screw, a 608ZZ bearing or a named servo, instead of a simplified placeholder"
-            },
-            {
-              "label": "It does",
-              "text": "searches the hosted step.parts API by name, standard, alias or dimension, retries vendor spellings for motors and servos, and lists the best few matches when unsure"
-            },
-            {
-              "label": "You get",
-              "text": "the chosen part's id and page and API links, and its STEP file when you ask or when it finds an exact actuator match, checked against the catalog's SHA-256 checksum"
-            },
-            {
-              "label": "Runs",
-              "text": "a bundled Python script for search and download; files land in the system temp folder unless the agent passes a folder"
-            },
-            {
-              "label": "Works with",
-              "text": "text-to-cad models, which read the part after converting the STEP once to an xbf file with cad export"
-            }
-          ],
-          "text": "step.parts is a hosted catalog of standard and purchasable CAD parts, from fasteners, bearings and standoffs to electronics boards, connectors, motors, servos and actuators, each with a STEP file. When an assembly needs such a part, the skill has the agent search the catalog before drawing a stand-in. It turns the request into search terms and optional filters by category, family, standard or tag, and for actuator model numbers retries aliases, dropped letters and vendor names (STS3215 may be listed as ST3215 or under Feetech). When the match is ambiguous it shows the best few candidates with their key attributes before choosing. If the API can't be reached it retries once rather than calling the part unavailable, and only after a real miss does it record the search and fall back to a simplified envelope. Downloads go through the bundled script, which prints JSON, verifies the SHA-256 checksum when the record has one, and refuses to overwrite an existing file unless told to. The reply gives the local path, the part id and its page and API links, so you can trace where the part came from. Catalog descriptions are treated as data, never as instructions.",
-          "permalink": "https://github.com/earthtojake/text-to-cad/tree/4099cac3ddc56a5e696138c53fd7bee685e8ad9d/skills/step-parts"
-        },
-        "tags": [
-          "category:hardware",
-          "type:tool",
-          "effect:local",
-          "needs:none",
-          "by:official",
-          "stack:step-parts",
-          "prototyping"
-        ],
-        "model": "Claude Opus 5.5",
-        "effort": "xhigh"
-      }
-    },
-    {
-      "id": "earthtojake/text-to-cad/skills/sdf",
-      "name": "sdf",
-      "skills.sh": {
-        "url": "https://skills.sh/earthtojake/text-to-cad/sdf",
-        "installs": 11500,
-        "weeklyInstalls": [562, 500, 303, 324, 461, 582, 517, 845],
-        "firstSeen": "2026-05-13"
-      },
-      "skillMd": {
-        "version": "4099cac3ddc56a5e696138c53fd7bee685e8ad9d",
-        "updated": "2026-11-06",
-        "skew": 0
-      },
-      "agentReview": {
-        "description": "Writes and validates SDFormat model and world files for Gazebo and other simulators, and shows them in text-to-cad's CAD Viewer.",
-        "tldr": {
-          "glance": [
-            {
-              "label": "Use it when",
-              "text": "you need an SDFormat (.sdf) model or world for Gazebo or another simulator: links, joints, frames, inertials, sensors, lights, physics or plugins"
-            },
-            {
-              "label": "It does",
-              "text": "writes a design ledger of frames, units and assumptions, writes the XML by hand, then validates it with text-to-cad's cad sdf validate and Gazebo's gz sdf --check when installed"
-            },
-            {
-              "label": "You get",
-              "text": "a validated .sdf with the ledger as a comment at its top, a CAD Viewer link to review it, and a report of checks run, checks skipped, assumptions and risks"
-            },
-            {
-              "label": "Needs",
-              "text": "text-to-cad's cad command, which it installs with a curl-to-shell script if missing"
-            },
-            {
-              "label": "Not for",
-              "text": "signed-distance-field geometry, raw geometry generation, or MoveIt planning semantics (the srdf skill)"
-            }
-          ],
-          "text": "SDFormat is the XML format Gazebo and other simulators read to load robot models and worlds. The skill treats the .sdf file as the source of truth, written directly. Before writing poses, frames, joint axes, mesh scales, inertials, sensors or plugins, the agent records a design ledger, a comment block at the top of the file listing frames, units and assumptions, and it writes relative_to and expressed_in on every nontrivial pose and axis, since implicit frame defaults are the most common SDF failure. Numbers come from source data, drawings, documentation or measurements, and computed values such as inertia tensors from formulas or a throwaway script. SI units and SDFormat 1.12 are the defaults, and a robot that already has a URDF gets its SDF derived from it. Every file is checked with cad sdf validate, which also runs gz sdf --check when gz is on the path, followed by simulator smoke tests when available. The agent shows the result in the CAD Viewer and can render posed stills with cad snapshot; neither runs plugins or dynamics. It ends with a report of what was checked, what was skipped and the risks left.",
-          "permalink": "https://github.com/earthtojake/text-to-cad/tree/4099cac3ddc56a5e696138c53fd7bee685e8ad9d/skills/sdf"
-        },
-        "tags": [
-          "category:hardware",
-          "type:workflow",
-          "effect:local",
-          "needs:cli",
-          "by:official",
-          "stack:text-to-cad",
-          "stack:gazebo",
-          "prototyping",
-          "verification"
-        ],
-        "note": "If the cad command is missing it installs text-to-cad with a curl-to-shell script.",
-        "model": "Claude Opus 5.5",
-        "effort": "xhigh"
-      }
-    },
-    {
-      "id": "earthtojake/text-to-cad/skills/urdf",
-      "name": "urdf",
-      "skills.sh": {
-        "url": "https://skills.sh/earthtojake/text-to-cad/urdf",
-        "installs": 11500,
-        "weeklyInstalls": [562, 502, 300, 318, 452, 580, 510, 839],
-        "firstSeen": "2026-04-22"
-      },
-      "skillMd": {
-        "version": "4099cac3ddc56a5e696138c53fd7bee685e8ad9d",
-        "updated": "2026-11-06",
-        "skew": 0
-      },
-      "agentReview": {
-        "description": "Writes and validates URDF robot descriptions, with links, joints, limits, inertials and meshes, and reviews every joint in text-to-cad's CAD Viewer.",
-        "tldr": {
-          "glance": [
-            {
-              "label": "Use it when",
-              "text": "you're creating, editing or debugging a .urdf robot description for RViz, robot_state_publisher, Gazebo, MoveIt, a robot driver or another simulator"
-            },
-            {
-              "label": "It does",
-              "text": "records frames, axes, units and assumptions in a ledger at the top of the file, writes the XML by hand, computes inertials, and validates with cad urdf validate"
-            },
-            {
-              "label": "You get",
-              "text": "a validated .urdf, a CAD Viewer link with every movable joint swept against the ledger, and a list of remaining assumptions and gaps"
-            },
-            {
-              "label": "Needs",
-              "text": "text-to-cad's cad command, which it installs with a curl-to-shell script if missing"
-            },
-            {
-              "label": "Not for",
-              "text": "MoveIt planning groups or path-planning semantics (the srdf skill), or the STEP, STL, 3MF and GLB files its meshes come from"
-            }
-          ],
-          "text": "URDF is the XML format ROS tools use to describe a robot's links and joints. The skill treats URDF work as kinematic modelling, where the risks are frame placement, joint-axis direction, units, mesh scale and inertia rather than XML syntax. The .urdf file is the source of truth: the agent writes it directly instead of building a generator, and before touching frames, origins, axes, limits or inertials it writes a design ledger, a comment block at the top of the file listing frames, joints, geometry, units and assumptions. Transforms, units and joint signs come from CAD, drawings, measurements or documented assumptions, never vague prose, and inertia tensors and centers of mass are computed with formulas or a throwaway script. Meshes are prepared first, one per link in that link's frame. cad urdf validate reports every finding in one pass, from tree topology and joint semantics to mesh references and inertial physics; the agent re-validates until it is clean, runs check_urdf when available, then shows the robot in the CAD Viewer and sweeps each movable joint. Validation alone can't prove a joint sits in the right place, which is why the ledger and the sweep exist.",
-          "permalink": "https://github.com/earthtojake/text-to-cad/tree/4099cac3ddc56a5e696138c53fd7bee685e8ad9d/skills/urdf"
-        },
-        "tags": [
-          "category:hardware",
-          "type:workflow",
-          "effect:local",
-          "needs:cli",
-          "by:official",
-          "stack:text-to-cad",
-          "stack:ros",
-          "prototyping",
-          "verification"
-        ],
-        "note": "If the cad command is missing it installs text-to-cad with a curl-to-shell script.",
-        "model": "Claude Opus 5.5",
-        "effort": "xhigh"
-      }
-    },
-    {
-      "id": "earthtojake/text-to-cad/skills/srdf",
-      "name": "srdf",
-      "skills.sh": {
-        "url": "https://skills.sh/earthtojake/text-to-cad/srdf",
-        "installs": 11400,
-        "weeklyInstalls": [560, 496, 299, 317, 448, 576, 508, 838],
-        "firstSeen": "2026-05-13"
-      },
-      "skillMd": {
-        "version": "4099cac3ddc56a5e696138c53fd7bee685e8ad9d",
-        "updated": "2026-11-06",
-        "skew": 0
-      },
-      "agentReview": {
-        "description": "Writes and validates MoveIt SRDF files, with planning groups, end effectors, named poses and disabled collisions, checked against their paired URDF.",
-        "tldr": {
-          "glance": [
-            {
-              "label": "Use it when",
-              "text": "you're setting up MoveIt for a robot that already has a valid URDF and need its .srdf: planning groups, end effectors, named states and collision rules"
-            },
-            {
-              "label": "It does",
-              "text": "lists the URDF's links and joints first and copies every name from that table, writes the XML by hand, and validates it against the URDF with cad srdf validate"
-            },
-            {
-              "label": "You get",
-              "text": "a validated .srdf beside its URDF under the same robot name, a CAD Viewer link, and a report of assumptions and skipped checks"
-            },
-            {
-              "label": "Needs",
-              "text": "a valid URDF to pair with, and text-to-cad's cad command, which it installs with a curl-to-shell script if missing"
-            },
-            {
-              "label": "Not for",
-              "text": "the robot's physical structure (the urdf skill) or simulator descriptions (sdf)"
-            }
-          ],
-          "text": "SRDF is the file MoveIt reads on top of a URDF to know how to plan: which joints form an arm, where the tool is, named poses such as home, and which link pairs never need collision checks. The skill's premise is that the real failure is a plausible SRDF with the wrong group, tool link or collision list, not invalid XML, so nothing is typed from memory. The agent starts from a validated URDF, extracts its table of links and joints, and keeps a planning ledger as a comment in the file. Groups come from the URDF's topology, preferring chains for serial arms; end effectors are defined once group membership is known; group states use radians and metres within the URDF's limits; and disabled collisions need evidence such as adjacency or MoveIt Setup Assistant sampling. The .srdf sits in the URDF's folder under the same robot name, the only link between the two. cad srdf validate cross-checks every name, chain, state and collision pair against that URDF; the agent re-runs it after each fix, runs MoveIt smoke tests when available, and shows the robot in the CAD Viewer, though a visual review can't prove planning is correct.",
-          "permalink": "https://github.com/earthtojake/text-to-cad/tree/4099cac3ddc56a5e696138c53fd7bee685e8ad9d/skills/srdf"
-        },
-        "tags": [
-          "category:hardware",
-          "type:workflow",
-          "effect:local",
-          "needs:cli",
-          "by:official",
-          "stack:text-to-cad",
-          "stack:moveit",
-          "stack:ros",
-          "prototyping",
-          "verification"
-        ],
-        "note": "If the cad command is missing it installs text-to-cad with a curl-to-shell script.",
-        "model": "Claude Opus 5.5",
-        "effort": "xhigh"
-      }
-    },
-    {
       "id": "earthtojake/text-to-cad/skills/sendcutsend",
       "name": "sendcutsend",
       "skills.sh": {
@@ -45949,9 +45619,9 @@
         "firstSeen": "2026-05-13"
       },
       "skillMd": {
-        "version": "4099cac3ddc56a5e696138c53fd7bee685e8ad9d",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "4ad86d617f1b9503d434b87b868a8f9e5ead3c19",
+        "updated": "2026-11-08",
+        "skew": 390
       },
       "agentReview": {
         "description": "Checks DXF and STEP files against SendCutSend's current specs before you order, and reports pass, fail or need-more-info for each cited rule.",
@@ -46000,180 +45670,6 @@
           "verification",
           "prototyping"
         ],
-        "model": "Claude Opus 5.5",
-        "effort": "xhigh"
-      }
-    },
-    {
-      "id": "earthtojake/text-to-cad/skills/gcode",
-      "name": "gcode",
-      "skills.sh": {
-        "url": "https://skills.sh/earthtojake/text-to-cad/gcode",
-        "installs": 10500,
-        "weeklyInstalls": [581, 512, 314, 319, 474, 589, 513, 853],
-        "firstSeen": "2026-05-27"
-      },
-      "skillMd": {
-        "version": "4099cac3ddc56a5e696138c53fd7bee685e8ad9d",
-        "updated": "2026-11-06",
-        "skew": 0
-      },
-      "agentReview": {
-        "description": "Slices STL, 3MF or OBJ models into printer-ready G-code with OrcaSlicer, using your own or built-in presets for your printer.",
-        "tldr": {
-          "glance": [
-            {
-              "label": "Use it when",
-              "text": "you have an STL, 3MF or OBJ model and want G-code for an FDM printer such as a Prusa, Bambu Lab, Creality or Voron"
-            },
-            {
-              "label": "It does",
-              "text": "finds your printer, process and filament presets, writes them out complete with a bundled script, and slices headless with OrcaSlicer's command line, or opens the model in OrcaSlicer"
-            },
-            {
-              "label": "You get",
-              "text": "plain G-code and a sliced .gcode.3mf, with the printer, nozzle, filament and temperatures read back from the file and checked against your printer"
-            },
-            {
-              "label": "Needs",
-              "text": "OrcaSlicer installed; STEP files are exported to STL or 3MF first"
-            },
-            {
-              "label": "Never",
-              "text": "contacts a printer: a Bambu Lab print goes on through Bambu Connect, any other from your printer's app, web interface or SD card"
-            }
-          ],
-          "text": "OrcaSlicer is an open-source slicer with built-in profiles for most FDM printers. Its command line needs complete presets: it doesn't fill in a preset's parent settings, and it slices only with a process whose compatible printers name the printer. A bundled Python script with no dependencies handles that: it searches your own OrcaSlicer presets first, then the built-in profiles, lists matches for the printer, process and filament, and writes complete preset files. The agent never invents a preset, since a wrong bed size or temperature can damage a printer. It then slices, arranging the plate and exporting both the plain G-code and a sliced 3MF to an output folder; single settings such as layer height can be overridden on the command line. Before anyone prints, it checks the model fits the bed and reads the printer model, nozzle, filament type, temperatures and print time from the end of the G-code to confirm they match. If you'd rather pick presets and slice yourself, or no preset can be found, it opens the model in the OrcaSlicer app instead. A text-to-cad model is exported to 3MF first.",
-          "permalink": "https://github.com/earthtojake/text-to-cad/tree/4099cac3ddc56a5e696138c53fd7bee685e8ad9d/skills/gcode"
-        },
-        "tags": [
-          "category:hardware",
-          "type:tool",
-          "effect:local",
-          "needs:cli",
-          "by:community",
-          "stack:orcaslicer",
-          "prototyping"
-        ],
-        "model": "Claude Opus 5.5",
-        "effort": "xhigh"
-      }
-    },
-    {
-      "id": "earthtojake/text-to-cad/skills/dxf",
-      "name": "dxf",
-      "skills.sh": {
-        "url": "https://skills.sh/earthtojake/text-to-cad/dxf",
-        "installs": 10200,
-        "weeklyInstalls": [607, 534, 330, 355, 492, 629, 563, 892],
-        "firstSeen": "2026-06-10"
-      },
-      "skillMd": {
-        "version": "4099cac3ddc56a5e696138c53fd7bee685e8ad9d",
-        "updated": "2026-11-06",
-        "skew": 0
-      },
-      "agentReview": {
-        "description": "Generates and validates 2D DXF drawings for laser, plasma, waterjet or CNC cutting, drafted from scratch or flattened from 3D parts, with text-to-cad.",
-        "tldr": {
-          "glance": [
-            {
-              "label": "Use it when",
-              "text": "you need a 2D profile, gasket, panel, template, flat pattern or cut layout as a DXF for laser, plasma, waterjet or CNC routing"
-            },
-            {
-              "label": "It does",
-              "text": "writes each drawing as a Python build123d function returning flat geometry, builds it with text-to-cad's cad run, and writes the DXF with cad export"
-            },
-            {
-              "label": "You get",
-              "text": "the drawing's Python script and a DXF with cut, bend or engrave layers and true arcs and circles, plus a viewer link when you ask to see it"
-            },
-            {
-              "label": "Checks",
-              "text": "units set, nothing drawn twice, no zero-length entities and every cut profile closed; a failed check refuses the file"
-            },
-            {
-              "label": "Needs",
-              "text": "text-to-cad's cad command, which it installs with a curl-to-shell script if missing"
-            },
-            {
-              "label": "Not for",
-              "text": "the 3D part itself (the cad skill) or a cutting service's order preflight (sendcutsend)"
-            }
-          ],
-          "text": "In text-to-cad a drawing is a model: a Python file whose parameterless @model function returns 2D build123d geometry on the z=0 plane, with its dimensions as named constants. One shape becomes the CUT layer, and a compound of labelled children gives one layer per label, for engraving or bend lines. There are three workflows: drafting from scratch, flattening a part the project already models by importing and calling it, and flattening a vendor STEP kept in a vendor folder. For CAD-backed parts the contours come from the real geometry through text-to-cad's flatten helpers, which also apply kerf compensation, rather than being redrawn. cad run builds the drawing in text-to-cad's server and writes nothing; cad export writes the DXF only after the drawing checks pass, and an unchanged drawing exports a byte-identical file. Text goes in as engraved outlines, never as DXF text entities, and the agent verifies the dimensions you asked for with ezdxf reads. The CAD Viewer opens the DXF as a 2D drawing with its layers, and cad snapshot renders it to a PNG. The reply lists the files, any viewer links, the checks that actually ran and its assumptions.",
-          "permalink": "https://github.com/earthtojake/text-to-cad/tree/4099cac3ddc56a5e696138c53fd7bee685e8ad9d/skills/dxf"
-        },
-        "tags": [
-          "category:hardware",
-          "type:tool",
-          "effect:local",
-          "needs:cli",
-          "by:official",
-          "stack:text-to-cad",
-          "stack:build123d",
-          "stack:python",
-          "prototyping"
-        ],
-        "note": "If the cad command is missing it installs text-to-cad with a curl-to-shell script.",
-        "model": "Claude Opus 5.5",
-        "effort": "xhigh"
-      }
-    },
-    {
-      "id": "earthtojake/text-to-cad/skills/bambu-labs",
-      "name": "bambu-labs",
-      "skills.sh": {
-        "url": "https://skills.sh/earthtojake/text-to-cad/bambu-labs",
-        "installs": 10200,
-        "weeklyInstalls": [559, 498, 301, 312, 449, 576, 514, 846],
-        "firstSeen": "2026-05-27"
-      },
-      "skillMd": {
-        "version": "4099cac3ddc56a5e696138c53fd7bee685e8ad9d",
-        "updated": "2026-11-06",
-        "skew": 0
-      },
-      "agentReview": {
-        "description": "Opens sliced prints or models in Bambu Connect or Bambu Studio so you can start them on your Bambu Lab printer.",
-        "tldr": {
-          "glance": [
-            {
-              "label": "Use it when",
-              "text": "you want to print a sliced .gcode.3mf, a Bambu .gcode or an unsliced model on a Bambu Lab printer, over Bambu Cloud or LAN"
-            },
-            {
-              "label": "It does",
-              "text": "opens the file in Bambu Connect through its import link, or an unsliced model in Bambu Studio, which slices it and sends it itself"
-            },
-            {
-              "label": "You get",
-              "text": "the job loaded in the app, and a checklist before you press Print: printer, plate type, nozzle, filament and AMS mapping, a clear plate, someone nearby"
-            },
-            {
-              "label": "Never",
-              "text": "starts, pauses or cancels prints, reads printer status or asks for access codes; you pick the printer and start the print"
-            },
-            {
-              "label": "Needs",
-              "text": "Bambu Connect signed in to your Bambu Lab account on Windows or macOS, or Bambu Studio on Linux"
-            }
-          ],
-          "text": "Bambu Lab printers accept jobs from other software only through Bambu Connect, Bambu Lab's desktop app for third-party tools. The skill picks the handoff from what you have. A sliced .gcode.3mf, from OrcaSlicer's command line or an exported plate, opens in Bambu Connect; so does a plain .gcode sliced with the printer's Bambu profile, with Bambu Studio as the fallback if Bambu Connect refuses it. An unsliced .3mf, .stl or .step opens in Bambu Studio, which slices it and sends it to the printer. To load a file in Bambu Connect the agent builds a bambu-connect://import-file link with the file's percent-encoded path and a display name, and opens it with the system's open command. It then tells you what to check before pressing Print, and never reports a print as started, since it can't see the printer. Controlling prints directly is out of scope: Bambu Lab's firmware takes that from other software only through Bambu Connect, or in a LAN-only Developer Mode. A sliced .gcode.3mf can come from the repo's gcode skill, which slices with OrcaSlicer's command line.",
-          "permalink": "https://github.com/earthtojake/text-to-cad/tree/4099cac3ddc56a5e696138c53fd7bee685e8ad9d/skills/bambu-labs"
-        },
-        "tags": [
-          "category:hardware",
-          "type:tool",
-          "effect:local",
-          "needs:cli",
-          "needs:account",
-          "by:community",
-          "stack:bambu-lab",
-          "prototyping"
-        ],
-        "note": "Needs Bambu Connect signed in to your Bambu Lab account (Windows or macOS), or Bambu Studio on Linux; you start each print yourself.",
         "model": "Claude Opus 5.5",
         "effort": "xhigh"
       }
@@ -73859,9 +73355,9 @@
         "firstSeen": "2026-03-16"
       },
       "skillMd": {
-        "version": "98d6dca712407b8cbf0bca21b539c197e5a7825c",
-        "updated": "2026-11-07",
-        "skew": 0
+        "version": "a6ea4024767df85ce4f99140d4f12ecfc5a81eb6",
+        "updated": "2026-11-08",
+        "skew": 64
       },
       "agentReview": {
         "description": "Maps a codebase into a knowledge graph of files, functions, classes and dependencies, with architectural layers and a guided tour.",
@@ -74566,66 +74062,6 @@
           "design"
         ],
         "note": "Spends money on every build: video clips are billed through Monid (about $27 for six scenes at 1080p, it estimates) or in Higgsfield credits, and stills in Higgsfield credits. Needs the Monid and Higgsfield CLIs and ffmpeg, and uploads rendered frames to Monid's file storage to get public links.",
-        "model": "Claude Opus 5.5",
-        "effort": "xhigh"
-      }
-    },
-    {
-      "id": "earthtojake/text-to-cad/skills/dfam-check",
-      "name": "dfam-check",
-      "skills.sh": {
-        "url": "https://skills.sh/earthtojake/text-to-cad/dfam-check",
-        "installs": 5200,
-        "weeklyInstalls": [575, 503, 313, 319, 478, 596, 540, 871],
-        "firstSeen": "2026-08-21"
-      },
-      "skillMd": {
-        "version": "4099cac3ddc56a5e696138c53fd7bee685e8ad9d",
-        "updated": "2026-11-07",
-        "skew": 0
-      },
-      "agentReview": {
-        "description": "Measures meshes against 3D-printing design rules for FDM, SLS, SLA, metal and MJF, and reports pass, fail or need-more-info findings with redesign targets.",
-        "tldr": {
-          "glance": [
-            {
-              "label": "Use it when",
-              "text": "you want to know whether an STL, OBJ, PLY or 3MF will print before slicing: wall thickness, overhangs, supports, or which way up to print it"
-            },
-            {
-              "label": "It does",
-              "text": "measures the mesh with a bundled Python tool and compares each fact with your process's limits, from its table or your datasheet"
-            },
-            {
-              "label": "You get",
-              "text": "findings ordered by severity, each pass, fail or need more info with its cited limit, and a redesign instruction with target numbers for every fail"
-            },
-            {
-              "label": "Won't",
-              "text": "slice, print, upload or edit the model; a STEP file must be exported to STL first, with cad export for a text-to-cad model"
-            },
-            {
-              "label": "Unlike",
-              "text": "sendcutsend, which checks DXF and STEP files against SendCutSend's specs before you order cut or bent parts, it checks meshes for 3D printing"
-            },
-            {
-              "label": "Needs",
-              "text": "Python with trimesh, numpy, rtree, scipy, networkx and lxml from its requirements.txt, installed in your project's environment"
-            }
-          ],
-          "text": "DfAM stands for design for additive manufacturing: the rules that decide whether a 3D-printed part comes out. The agent first asks for the process, material, layer height and any machine or material datasheet; without a process it measures at a 45° overhang limit and reports per candidate process. The tool only reports facts: watertightness, wall thickness sampled by ray casting, overhang and support area against the process's self-supporting angle, a support-volume estimate and the six axis-aligned orientations. The agent makes the verdicts, citing the limit and the measured field for each. Watertightness comes first, since a leaky mesh blocks slicing for every process, then walls, overhangs and supports, then orientation and cost. It skips support findings for powder processes (SLS, MJF), whose trapped-powder check the tool can't measure yet, and reports hole size, small features and bridges as not checked. If the scale suggests meters or inches, it asks you to confirm units before comparing anything. When the model's source can be edited, it offers to apply the fixes and measure again until nothing fails.",
-          "permalink": "https://github.com/earthtojake/text-to-cad/tree/4099cac3ddc56a5e696138c53fd7bee685e8ad9d/skills/dfam-check"
-        },
-        "tags": [
-          "category:hardware",
-          "type:workflow",
-          "effect:none",
-          "needs:cli",
-          "by:community",
-          "verification",
-          "prototyping"
-        ],
-        "note": "Runs a bundled Python tool that needs the packages in its requirements.txt (trimesh, numpy, rtree, scipy, networkx, lxml) installed in your project's Python environment.",
         "model": "Claude Opus 5.5",
         "effort": "xhigh"
       }
