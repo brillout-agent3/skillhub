@@ -1,0 +1,30 @@
+// The Cloudflare Worker that serves https://skillhub.build: the pre-rendered site as static
+// assets, and /api/* from worker/index.ts. CI deploys it: see .github/workflows/deploy.yml.
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "skillhub",
+  "main": "worker/index.ts",
+  "compatibility_date": "2026-11-01",
+  // A deploy points skillhub.build's DNS record at the Worker, replacing whatever it pointed at.
+  "routes": [{ "pattern": "skillhub.build", "custom_domain": true }],
+  "workers_dev": false,
+  "preview_urls": false,
+  "assets": {
+    "directory": "website/dist/client",
+    "binding": "ASSETS",
+    // Only /api/* runs the Worker: Cloudflare serves the pages and files itself.
+    "run_worker_first": ["/api/*"],
+    // Vike pre-renders /tags/ as tags/index.html, and the error page as 404.html.
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      // No database_id: Wrangler finds the database by its name. CI creates it on its first deploy.
+      "database_name": "skillhub",
+      "migrations_dir": "worker/migrations"
+    }
+  ],
+  "observability": { "enabled": true }
+}

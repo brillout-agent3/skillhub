@@ -32,6 +32,7 @@ import {
   type State,
 } from "./list.ts";
 import { href } from "./format.ts";
+import { ACCOUNT_EVENT, type AccountChange } from "./account-client.ts";
 
 const app = document.getElementById("app") as HTMLElement;
 const q = document.getElementById("q") as HTMLInputElement;
@@ -73,7 +74,14 @@ function renderSoon() {
 function focusSelector(): string | null {
   const el = document.activeElement as HTMLElement | null;
   if (!el || el.id === "q" || !app.contains(el)) return null;
-  for (const attr of ["data-tag", "data-action", "data-remove", "data-preset", "data-show"]) {
+  for (const attr of [
+    "data-tag",
+    "data-action",
+    "data-remove",
+    "data-preset",
+    "data-show",
+    "data-save",
+  ]) {
     const v = el.getAttribute(attr);
     if (v !== null)
       return `#${["facets", "settings", "scope"].find((id) => el.closest(`#${id}`)) ?? "results"} [${attr}="${CSS.escape(v)}"]`;
@@ -113,7 +121,7 @@ let lastFacets = "";
 let lastScope = "";
 
 function renderScope() {
-  const key = JSON.stringify([state.tags, state.repo, state.ranges, state.show]);
+  const key = JSON.stringify([state.saved, state.tags, state.repo, state.ranges, state.show]);
   if (key === lastScope) return;
   lastScope = key;
   (document.getElementById("scope") as HTMLElement).innerHTML = scopeHtml(state);
@@ -125,6 +133,7 @@ function renderScope() {
 /** The facets don't depend on the sort, so a preset leaves them as they are. */
 function renderFacets() {
   const key = JSON.stringify([
+    state.saved,
     state.q,
     state.tags,
     state.repo,
@@ -254,10 +263,11 @@ app.addEventListener("click", (event) => {
     go({ tags: toggleTag(state.tags, d.tag) });
   } else if (d.remove) {
     const v = d.value ?? "";
-    if (d.remove === "tag") go({ tags: state.tags.filter((t) => t !== v) });
+    if (d.remove === "saved") go({ saved: false });
+    else if (d.remove === "tag") go({ tags: state.tags.filter((t) => t !== v) });
     else if (d.remove === "repo") go({ repo: null });
     else if (d.remove === "range") go({ ranges: { ...state.ranges, [v]: fullRange(v as Prop) } });
-  } else if (d.action === "clear") go({ tags: [], repo: null, ranges: fullRanges() });
+  } else if (d.action === "clear") go({ saved: false, tags: [], repo: null, ranges: fullRanges() });
   else if (d.action === "ask") ask();
   else if (d.action === "focus-search") q.focus();
   else if (d.action === "focus-need") need.focus();
@@ -274,6 +284,19 @@ app.addEventListener("click", (event) => {
 app.addEventListener("change", (event) => {
   const el = event.target as HTMLInputElement | HTMLSelectElement;
   if (el.id === "sort") go({ sort: el.value as Sort });
+});
+
+/**
+ * Once the API says what you saved, the list of what you saved follows. A click on a Save button
+ * only changes the button: unsaving leaves the row in the list, where a second click saves it back.
+ */
+document.addEventListener(ACCOUNT_EVENT, (event) => {
+  if (!state.saved || (event as CustomEvent<AccountChange>).detail !== "load") return;
+  // What's saved is in no key of the renders' caches: a new state misses them all.
+  state = { ...state };
+  lastFacets = "";
+  lastScope = "";
+  renderSoon();
 });
 
 // The page was pre-rendered unfiltered, and without a tag search.

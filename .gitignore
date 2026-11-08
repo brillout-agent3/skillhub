@@ -1,2 +1,4 @@
 /node_modules/
 /website/dist/
+# Wrangler's local state, such as the local D1 database of `pnpm dev`.
+/.wrangler/

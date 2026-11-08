@@ -44,6 +44,7 @@ import {
   type ClientSkill as Skill,
   type SearchWords,
 } from "./client-data.ts";
+import { account, loginHref, saveButton, saveKey } from "./saves.ts";
 
 /** A row of the skills list: a skill, or a bundle with its skills inside. */
 type Entry = Skill | Bundle;
@@ -226,6 +227,8 @@ export interface State {
   asc: boolean;
   ranges: Record<Prop, Range>;
   show: Show;
+  /** Only what the logged-in person saved: the header's Saved link. */
+  saved: boolean;
 }
 
 /**
@@ -266,11 +269,13 @@ export function parse(search: string): State {
     asc: p.get("order") === "asc",
     ranges,
     show: (["skills", "bundles"] as const).find((v) => v === p.get("show")) ?? "all",
+    saved: p.has("saved"),
   };
 }
 /** The query string for a state, empty for the default view. */
 export function query(s: State): string {
   const p = new URLSearchParams();
+  if (s.saved) p.set("saved", "");
   if (s.q) p.set("q", s.q);
   for (const t of s.tags) p.append("tag", t);
   if (s.repo) p.set("repo", s.repo);
@@ -285,7 +290,8 @@ export function query(s: State): string {
       );
   }
   if (s.show !== "all") p.set("show", s.show);
-  const q = p.toString();
+  // ?saved rather than ?saved=
+  const q = p.toString().replace(/^saved=(&|$)/, "saved$1");
   return q ? `?${q}` : "";
 }
 /** The default view: Rising. */
@@ -445,9 +451,10 @@ const matchScore = (e: Entry, q: string): number =>
 /** Within a facet a skill needs any selected value; across facets it needs all of them. `skip` leaves one facet out, for its counts. */
 function passes(s: Skill, st: State, skip: string | null = null): boolean {
   if (st.repo && repoKey(s) !== st.repo) return false;
+  if (st.saved && !account.saved.has(saveKey("skill", s.id))) return false;
   // A skill listed only inside its bundle is in the sliders' ranges when its bundle is, unless
-  // the list shows every skill on its own.
-  const listedIn = st.show !== "skills" && !ownEntry(s) ? bundleOf.get(s.id)?.bundle : undefined;
+  // the list shows it on its own.
+  const listedIn = !listsAlone(s, st) ? bundleOf.get(s.id)?.bundle : undefined;
   if (!inRanges(listedIn ?? s, st)) return false;
   const selected = new Map<string, string[]>();
   for (const t of st.tags) selected.set(facetOf(t), [...(selected.get(facetOf(t)) ?? []), t]);
@@ -471,15 +478,27 @@ function inRanges(e: Entry, st: State): boolean {
   return true;
 }
 
-/** The state without its sliders' ranges: tags and the search are about a bundle's skills, the ranges about the bundle. */
-const withoutRanges = (st: State): State => ({ ...st, ranges: fullRanges() });
+/**
+ * Whether the list shows the skill on its own row. With bundles, a skill that only works inside its
+ * bundle is only listed in it; but what you saved is listed, whatever it is.
+ */
+const listsAlone = (s: Skill, st: State) => st.show === "skills" || st.saved || ownEntry(s);
+
+/**
+ * The filters about a bundle's skills: tags and the search. The sliders' ranges, and whether it's
+ * saved, are about the bundle itself.
+ */
+const skillFilters = (st: State): State => ({ ...st, ranges: fullRanges(), saved: false });
+/** Whether the bundle is saved, when the list shows only what's saved. */
+const savedBundle = (b: Bundle, st: State) =>
+  !st.saved || account.saved.has(saveKey("bundle", b.id));
 
 /**
  * The skills through which a bundle matches the tags and search: those that match them, or, when
  * the search matches the bundle itself, those that match the tags. `skip` leaves a facet out.
  */
 function matchedThrough(b: Bundle, st: State, skip: string | null = null): Skill[] {
-  const rest = withoutRanges(st);
+  const rest = skillFilters(st);
   const skills = skillsOf(b);
   const hits = skills.filter((s) => passes(s, rest, skip));
   if (hits.length || !st.q || !matches(bundleText.get(b.id) ?? "", st.q)) return hits;
@@ -488,7 +507,7 @@ function matchedThrough(b: Bundle, st: State, skip: string | null = null): Skill
 
 /** A bundle is in its sliders' ranges by its own numbers, and matches the tags and search through any of its skills. */
 const bundlePasses = (b: Bundle, st: State, skip: string | null = null) =>
-  inRanges(b, st) && matchedThrough(b, st, skip).length > 0;
+  savedBundle(b, st) && inRanges(b, st) && matchedThrough(b, st, skip).length > 0;
 
 const isFiltered = (st: State) =>
   Boolean(st.q || st.tags.length || st.repo) || PROP_IDS.some((p) => isNarrowed(p, st.ranges[p]));
@@ -528,9 +547,7 @@ function results(st: State): Results {
 function compute(st: State): Results {
   const matching = [
     ...(st.show === "skills" ? [] : data.bundles.filter((b) => bundlePasses(b, st))),
-    ...(st.show === "bundles"
-      ? []
-      : data.skills.filter((s) => (st.show === "skills" || ownEntry(s)) && passes(s, st))),
+    ...(st.show === "bundles" ? [] : data.skills.filter((s) => listsAlone(s, st) && passes(s, st))),
   ].sort(order(st.sort, st.asc, st.q));
   return { list: matching, total: matching.length, bundles: matching.filter(isBundle).length };
 }
@@ -543,7 +560,8 @@ function counts(st: State, facet: string, valuesOf: (s: Skill) => string[]): Map
   };
   if (st.show === "bundles") {
     for (const b of data.bundles)
-      if (inRanges(b, st)) add(matchedThrough(b, st, facet).flatMap(valuesOf));
+      if (savedBundle(b, st) && inRanges(b, st))
+        add(matchedThrough(b, st, facet).flatMap(valuesOf));
   } else for (const s of data.skills) if (passes(s, st, facet)) add(valuesOf(s));
   return n;
 }
@@ -553,6 +571,7 @@ function counts(st: State, facet: string, valuesOf: (s: Skill) => string[]): Map
 /** The active filters in words, the search left out. */
 function filtersText(st: State): string[] {
   const parts = st.tags.map((t) => `tag ${t}`);
+  if (st.saved) parts.unshift("the ones I saved");
   if (st.repo) parts.push(`from ${st.repo}`);
   for (const p of PROP_IDS)
     if (isNarrowed(p, st.ranges[p]))
@@ -656,6 +675,7 @@ function skillRow(s: Skill, st: State): string {
             ? ` · ${ownEntry(s) ? "part of" : "only works as part of"} <a href="${bundleHref(bundle.id)}">${esc(bundle.agentReview.name)}</a>`
             : ""
         }</span>
+        ${saveButton(saveKey("skill", s.id), s.name, true)}
       </div>
       ${s.agentReview.tldr?.glance.length ? glanceHtml(s.agentReview.tldr.glance, 2) : `<p class="skill-desc">${esc(s.agentReview.description)}</p>`}
       <div class="tags">${tags.map((t) => tagChip(t, null, st.tags.includes(t))).join("")}</div>
@@ -667,7 +687,7 @@ function skillRow(s: Skill, st: State): string {
 function bundleRow(b: Bundle, st: State): string {
   // When filtering, the skills that don't match are dimmed.
   // The ranges are about the bundle, so only the tags and search dim its skills.
-  const hits = isFiltered(st) ? skillsOf(b).filter((s) => passes(s, withoutRanges(st))) : [];
+  const hits = isFiltered(st) ? skillsOf(b).filter((s) => passes(s, skillFilters(st))) : [];
   const members = b.agentReview.skills.map(({ id }) => {
     const dim = hits.length && !hits.some((s) => s.id === id);
     return `<a href="${skillHref(id)}"${dim ? ` class="dim"` : ""}>${esc(skillById.get(id)?.name ?? id)}</a>`;
@@ -679,6 +699,7 @@ function bundleRow(b: Bundle, st: State): string {
         <h3><a class="skill-name" href="${bundleHref(b.id)}">${esc(b.agentReview.name)}</a></h3>
         <span class="kind">Bundle · ${plural(b.agentReview.skills.length, "skill")}</span>
         <span class="skill-source">${esc(repoKey(b))}</span>
+        ${saveButton(saveKey("bundle", b.id), b.agentReview.name, true)}
       </div>
       ${b.agentReview.tldr?.glance.length ? glanceHtml(b.agentReview.tldr.glance, 2) : `<p class="skill-desc">${esc(b.agentReview.description)}</p>`}
       <p class="members">${members.join('<span aria-hidden="true"> · </span>')}</p>
@@ -779,7 +800,8 @@ export function facetsHtml(st: State, stackExpanded: boolean, tagQ = ""): string
 
 /** Whether filters narrow the list: the search and the agent prompt then look through what they leave. */
 const filtersOn = (st: State) =>
-  Boolean(st.tags.length || st.repo) || PROP_IDS.some((p) => isNarrowed(p, st.ranges[p]));
+  Boolean(st.saved || st.tags.length || st.repo) ||
+  PROP_IDS.some((p) => isNarrowed(p, st.ranges[p]));
 
 /** How many entries there are without any filter, for each of `Show`. */
 /**
@@ -817,6 +839,7 @@ function scopeChipsHtml(st: State): string {
   const chips: string[] = [];
   const remove = (kind: string, value: string, label: string) =>
     `<button type="button" class="scope-chip" data-remove="${kind}" data-value="${esc(value)}" aria-label="Remove filter ${esc(label)}">${esc(label)} <span aria-hidden="true">×</span></button>`;
+  if (st.saved) chips.push(remove("saved", "", "Saved"));
   for (const t of st.tags) chips.push(remove("tag", t, t));
   if (st.repo) chips.push(remove("repo", st.repo, `from ${st.repo}`));
   for (const p of PROP_IDS)
@@ -876,6 +899,16 @@ export function rowsHtml(st: State, from: number, to: number): string {
 /** How many rows `st` lists. */
 export const rowCount = (st: State) => results(st).list.length;
 
+/** Instead of the list of what you saved: logged out, or nothing saved yet. */
+function savedNote(st: State): string | null {
+  if (!st.saved) return null;
+  if (!account.user)
+    return `<p class="empty"><a href="${esc(loginHref())}" data-login>Log in with GitHub</a> to see what you saved.</p>`;
+  if (!account.saved.size)
+    return `<p class="empty">Nothing saved yet. Each skill and bundle has a Save button, here in the list and on its page.</p>`;
+  return null;
+}
+
 /** The count, the active filters and the list, of only its first `limit` rows if given. */
 export function resultsHtml(st: State, limit = Infinity): string {
   const { list, total, bundles } = results(st);
@@ -894,18 +927,21 @@ export function resultsHtml(st: State, limit = Infinity): string {
           : ""
       }</p>
     </div>
+    ${savedNote(st) ?? ""}
     ${repoNote ? `<p class="repo-banner"><a href="https://github.com/${esc(repoNote.id)}">${esc(repoNote.id)}</a>${repoNote.agentReview.description ? ` · ${esc(repoNote.agentReview.description)}` : ""}</p>` : ""}
     ${
-      list.length
-        ? `<ol class="skill-list">${list
-            .slice(0, limit)
-            .map((e) => rowHtml(e, st))
-            .join("")}</ol>`
-        : `<p class="empty">No ${st.show === "all" ? "skill or bundle" : unitOf(st)} matches${st.q ? ` “${esc(st.q)}”` : ""}${filtersOn(st) ? ` among the ${plural(scopeOf(st), unitOf(st))} the filters leave. <button type="button" class="link-button" data-action="clear">Clear filters</button>` : "."}${
-            st.q
-              ? `<br />Describing a need in your own words? <button type="button" class="link-button" data-action="ask">Find skill with your agent</button>`
-              : ""
-          }</p>`
+      savedNote(st) !== null
+        ? ""
+        : list.length
+          ? `<ol class="skill-list">${list
+              .slice(0, limit)
+              .map((e) => rowHtml(e, st))
+              .join("")}</ol>`
+          : `<p class="empty">No ${st.show === "all" ? "skill or bundle" : unitOf(st)} matches${st.q ? ` “${esc(st.q)}”` : ""}${filtersOn(st) ? ` among the ${plural(scopeOf(st), unitOf(st))} the filters leave. <button type="button" class="link-button" data-action="clear">Clear filters</button>` : "."}${
+              st.q
+                ? `<br />Describing a need in your own words? <button type="button" class="link-button" data-action="ask">Find skill with your agent</button>`
+                : ""
+            }</p>`
     }`;
 }
 

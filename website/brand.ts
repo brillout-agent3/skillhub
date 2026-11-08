@@ -14,12 +14,13 @@ export function brandHtml(current = ""): string {
     ([to, label]) =>
       `<a href="${href(to)}"${to === current ? ` aria-current="page"` : ""}>${label}</a>`,
   ).join("");
+  // #account is Log in, or Saved and Log out: account-client.ts fills it in.
   return `
     <div class="brand-head">
       <a class="brand" href="${href()}">
         <img src="${href("gem.svg")}" alt="" width="28" height="28" />
         <span>SkillHub</span>
       </a>
-      <nav class="site-links" aria-label="Site">${links}<a href="${GITHUB}">GitHub</a></nav>
+      <nav class="site-links" aria-label="Site">${links}<a href="${GITHUB}">GitHub</a><span id="account" class="account"><a href="${href("api/auth/login")}" data-login>Log in</a></span></nav>
     </div>`;
 }

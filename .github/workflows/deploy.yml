@@ -1,8 +1,12 @@
-# Validate the data, pre-render the site with Vike and publish it to GitHub Pages
-# by pushing the build to the `gh-pages` branch, which GitHub serves at the custom
-# domain https://skillhub.build. Publishing from a branch needs no Pages settings,
-# unlike the Actions-based deployment.
-name: Deploy site to GitHub Pages
+# Validate the data, pre-render the site with Vike, and deploy it to Cloudflare: the Worker of
+# wrangler.jsonc serves the pages at https://skillhub.build, and /api/* from worker/index.ts, with
+# its D1 database. Every branch gets checked; only the default branch, whatever its name, gets
+# deployed.
+#
+# Until Cloudflare's secrets are set, the Cloudflare step is skipped. Meanwhile, the build is also
+# published to GitHub Pages, as before the move to Cloudflare. Once skillhub.build is served from
+# Cloudflare, the gh-pages step is to go.
+name: Deploy site
 
 on:
   push:
@@ -19,6 +23,10 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      # At the job's level, so that the Cloudflare step's `if` can see whether it's set.
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
     steps:
       - uses: actions/checkout@v5
       - uses: pnpm/action-setup@v4
@@ -32,7 +40,6 @@ jobs:
       - name: Build site
         run: pnpm run build
       - name: Publish to the gh-pages branch
-        # Every branch gets checked; only the default branch, whatever its name, gets published.
         if: github.ref_name == github.event.repository.default_branch
         uses: peaceiris/actions-gh-pages@v4
         with:
@@ -42,3 +49,16 @@ jobs:
           # Writes the CNAME file that tells GitHub Pages the custom domain; force_orphan
           # wipes the branch on every publish, so the file has to come with each one.
           cname: skillhub.build
+      - name: Deploy to Cloudflare
+        if: github.ref_name == github.event.repository.default_branch && env.CLOUDFLARE_API_TOKEN != ''
+        env:
+          # GitHub doesn't allow secret names that start with GITHUB_.
+          GITHUB_CLIENT_ID: ${{ secrets.OAUTH_GITHUB_CLIENT_ID }}
+          GITHUB_CLIENT_SECRET: ${{ secrets.OAUTH_GITHUB_CLIENT_SECRET }}
+        run: |
+          # The first deploy creates the D1 database; wrangler.jsonc finds it by its name.
+          pnpm wrangler d1 info skillhub > /dev/null 2>&1 || pnpm wrangler d1 create skillhub --no-update-config
+          pnpm wrangler d1 migrations apply skillhub --remote
+          # The GitHub OAuth App's id and secret, as Worker secrets.
+          node -e 'const { GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET } = process.env; console.log(JSON.stringify({ GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET }))' > "$RUNNER_TEMP/secrets.json"
+          pnpm wrangler deploy --secrets-file "$RUNNER_TEMP/secrets.json"

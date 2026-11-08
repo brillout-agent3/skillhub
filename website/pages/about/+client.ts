@@ -4,6 +4,8 @@
  * row. A click elsewhere, or Escape, closes it.
  */
 
+import "../../account-client.ts";
+
 const closeTips = (except?: Element | null) => {
   for (const row of document.querySelectorAll(".breakdown tr.open"))
     if (row !== except) row.classList.remove("open");

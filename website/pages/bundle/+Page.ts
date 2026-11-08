@@ -12,6 +12,7 @@ import {
   skillsOf,
   tldrHtml,
 } from "../../skills.ts";
+import { saveButton, saveKey } from "../../saves.ts";
 import type { Bundle } from "../../../data/types.ts";
 import type { Data } from "./+data.ts";
 
@@ -61,7 +62,7 @@ export default function Page(pageContext: PageContextServer): string {
   return `
     <div class="page skill-page bundle-page">
       <p class="crumbs"><a href="${href()}">Skills</a> <span aria-hidden="true">/</span> <a href="${skillsLink({ repo })}">${esc(repo)}</a></p>
-      <h1>${esc(b.agentReview.name)} <span class="kind">Bundle · ${plural(b.agentReview.skills.length, "skill")}</span></h1>
+      <div class="title-row"><h1>${esc(b.agentReview.name)} <span class="kind">Bundle · ${plural(b.agentReview.skills.length, "skill")}</span></h1>${saveButton(saveKey("bundle", b.id), b.agentReview.name)}</div>
       ${
         b.agentReview.tldr?.glance.length
           ? `<section class="at-a-glance" aria-label="At a glance">${glanceHtml(b.agentReview.tldr.glance)}</section>`

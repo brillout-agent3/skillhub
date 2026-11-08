@@ -45,7 +45,11 @@ export default {
   // Every page is HTML rendered at build time; the pages that need JavaScript add a +client.ts.
   prerender: true,
   trailingSlash: true,
-  vite: { plugins: [jsonc, serverOnly] },
+  vite: {
+    plugins: [jsonc, serverOnly],
+    // In `pnpm dev`, the Worker runs beside Vike's dev server: see ../../scripts/dev.ts.
+    server: { proxy: { "/api": "http://localhost:8787" } },
+  },
   meta: {
     // Pages render to HTML at build time only, so Page never runs in the browser. Server-only, it
     // and what it imports, such as crawl.jsonc, stay out of the client build.
