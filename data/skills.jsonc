@@ -6477,7 +6477,7 @@
               "text": "instruction-only SEO skills such as coreyhaines31's seo-audit, it runs its own Python tools and parallel subagents and saves its reports as files"
             }
           ],
-          "text": "Claude SEO is a Claude Code plugin whose skills share Python tools and subagents kept outside their folders, and many read the seo skill's references, so it's meant to be installed whole. seo is the entry point: /seo <command> <url> loads the matching skill. seo-audit crawls up to 500 pages, has subagents check technical SEO, content, schema, sitemaps, speed, visuals, AI search, agent readiness, search experience and backlinks in parallel, adds local, maps, clustering, e-commerce or drift checks when they apply, and scores the site out of 100; seo-page reviews one URL. Each other skill takes one job: seo-technical, seo-sitemap, seo-images, seo-hreflang, seo-schema, seo-content for E-E-A-T (Google's experience, expertise, authoritativeness and trust criteria), seo-geo for citations in AI answers, seo-sxo for whether a page is the type that ranks, seo-local, seo-maps, seo-backlinks and seo-ecommerce. seo-google and seo-dataforseo bring Google's own figures and live search data. seo-plan, seo-cluster, seo-content-brief, seo-competitor-pages and seo-programmatic plan sites and pages, seo-image-gen makes images, seo-flow supplies the author's FLOW prompts, and seo-drift snapshots a page to catch regressions. The plugin also installs seo-agentic, which SkillHub doesn't list.",
+          "text": "Claude SEO is a Claude Code plugin whose skills share Python tools and subagents kept outside their folders, and many read the seo skill's references, so it's meant to be installed whole. seo is the entry point: /seo <command> <url> loads the matching skill. seo-audit crawls up to 500 pages, has subagents check technical SEO, content, schema, sitemaps, speed, visuals, AI search, agent readiness, search experience and backlinks in parallel, adds local, maps, clustering, e-commerce or drift checks when they apply, and scores the site out of 100; seo-page reviews one URL. Each other skill takes one job: seo-technical, seo-sitemap, seo-images, seo-hreflang, seo-schema, seo-content for E-E-A-T (Google's experience, expertise, authoritativeness and trust criteria), seo-geo for citations in AI answers, seo-sxo for whether a page is the type that ranks, seo-local, seo-maps, seo-backlinks and seo-ecommerce. seo-google brings Google's own figures. seo-plan, seo-cluster, seo-content-brief, seo-competitor-pages and seo-programmatic plan sites and pages, seo-flow supplies the author's FLOW prompts, and seo-drift snapshots a page to catch regressions. The plugin also installs seo-agentic, and seo-dataforseo and seo-image-gen, optional front ends to DataForSEO's and Gemini's paid APIs, which SkillHub doesn't list.",
           "permalink": "https://github.com/AgriciDaniel/claude-seo/tree/6be93f45064ffbadced572b5d5c95f55fd263af0"
         },
         "skills": [
@@ -6591,15 +6591,6 @@
             "id": "AgriciDaniel/claude-seo/skills/seo-ecommerce",
             "standalone": false,
             "note": "Renders and parses pages, calls DataForSEO's Merchant API, checks costs and probes UCP profiles with the plugin's Python scripts."
-          },
-          {
-            "id": "AgriciDaniel/claude-seo/skills/seo-dataforseo",
-            "standalone": false,
-            "note": "Checks and logs every DataForSEO call with the plugin's cost script, and gets its MCP server from the plugin's DataForSEO extension installer."
-          },
-          {
-            "id": "AgriciDaniel/claude-seo/skills/seo-image-gen",
-            "standalone": true
           }
         ],
         "install": [
@@ -6617,7 +6608,7 @@
           }
         ],
         "model": "Claude Opus 5.5",
-        "effort": "xhigh"
+        "effort": null
       }
     },
     {
@@ -33954,65 +33945,6 @@
       }
     },
     {
-      "id": "github/awesome-copilot/skills/nano-banana-pro-openrouter",
-      "name": "nano-banana-pro-openrouter",
-      "skills.sh": {
-        "url": "https://skills.sh/github/awesome-copilot/nano-banana-pro-openrouter",
-        "installs": 9900,
-        "weeklyInstalls": [12, 11, 18, 20, 10, 13, 13, 20],
-        "firstSeen": "2026-02-10"
-      },
-      "skillMd": {
-        "version": "797337f33f73e35d08d82f840e21c4b8c4932d88",
-        "updated": "2026-11-06",
-        "skew": 0
-      },
-      "agentReview": {
-        "description": "Generates and edits images with Google's Gemini 3 Pro Image model through OpenRouter, from a prompt and up to three input images.",
-        "tldr": {
-          "glance": [
-            {
-              "label": "Use it when",
-              "text": "you want an image generated from a prompt, an existing image edited, or up to three images combined into one"
-            },
-            {
-              "label": "It does",
-              "text": "runs a bundled Python script with uv that sends your prompt and images to google/gemini-3-pro-image-preview on OpenRouter"
-            },
-            {
-              "label": "You get",
-              "text": "image files at the path you name, at 1K by default or 2K or 4K, numbered -1, -2 when several come back"
-            },
-            {
-              "label": "Needs",
-              "text": "an OpenRouter API key with credits in OPENROUTER_API_KEY, and uv installed"
-            },
-            {
-              "label": "Keeps",
-              "text": "a system prompt in assets/SYSTEM_TEMPLATE that shapes every request and that you can edit without touching code"
-            }
-          ],
-          "text": "A thin wrapper around one image model; Nano Banana Pro in its name is the Gemini 3 Pro Image model it calls. The agent runs scripts/generate_image.py with uv, passing your prompt, an output filename and, for edits or compositions, up to three --input-image files, plus --resolution 1K, 2K or 4K. The script calls OpenRouter's API with your key, saves each image that comes back and prints a MEDIA: line with its path; the agent doesn't read the images back into the conversation. Every request carries the system prompt in assets/SYSTEM_TEMPLATE: the one shipped casts the model as a dreamlike, poetic image artist that fills in missing details, may suggest a style, and keeps any text in the image in your language. On failure the agent checks for a missing key, a missing uv or a key that is invalid or out of credits, retries a rate limit or timeout once after 30 seconds, and otherwise reports the problem to you.",
-          "permalink": "https://github.com/github/awesome-copilot/tree/797337f33f73e35d08d82f840e21c4b8c4932d88/skills/nano-banana-pro-openrouter"
-        },
-        "tags": [
-          "category:media",
-          "type:tool",
-          "effect:local",
-          "needs:cli",
-          "needs:account",
-          "by:official",
-          "stack:openrouter",
-          "stack:gemini",
-          "image",
-          "ai-generation"
-        ],
-        "note": "Needs an OpenRouter API key with credits in OPENROUTER_API_KEY, and uv to run its Python script.",
-        "model": "Claude Opus 5.5",
-        "effort": "xhigh"
-      }
-    },
-    {
       "id": "github/awesome-copilot/skills/markdown-to-html",
       "name": "markdown-to-html",
       "skills.sh": {
@@ -48535,138 +48467,6 @@
       }
     },
     {
-      "id": "AgriciDaniel/claude-seo/skills/seo-dataforseo",
-      "name": "seo-dataforseo",
-      "skills.sh": {
-        "url": "https://skills.sh/agricidaniel/claude-seo/seo-dataforseo",
-        "installs": 6700,
-        "weeklyInstalls": [223, 215, 212, 223, 213, 237, 254, 323],
-        "firstSeen": "2026-03-27"
-      },
-      "skillMd": {
-        "version": "6be93f45064ffbadced572b5d5c95f55fd263af0",
-        "updated": "2026-11-06",
-        "skew": 0
-      },
-      "agentReview": {
-        "description": "Fetches live SERPs, keyword volume and difficulty, backlinks, competitor traffic and ChatGPT citations through the DataForSEO MCP server, with a spending guard.",
-        "tldr": {
-          "glance": [
-            {
-              "label": "Use it when",
-              "text": "you want real search data, such as rankings, search volume, backlinks or the sources ChatGPT cites, instead of estimates"
-            },
-            {
-              "label": "It does",
-              "text": "maps 23 /seo dataforseo commands to DataForSEO's MCP tools with US and English defaults, and reports results in tables marked as live data"
-            },
-            {
-              "label": "Covers",
-              "text": "Google, Bing, Yahoo and YouTube results, keyword ideas, intent and trends, backlinks and spam scores, competitor traffic, on-page Lighthouse, tech stacks and WHOIS"
-            },
-            {
-              "label": "AI visibility",
-              "text": "scrapes which sources ChatGPT's web search cites for a query, and tracks how often LLMs mention a brand, domain or topic"
-            },
-            {
-              "label": "Guards spend",
-              "text": "runs the plugin's cost script before every call: it proceeds, asks you, or stops at your daily budget, then logs what each call cost"
-            },
-            {
-              "label": "Works with",
-              "text": "other Claude SEO skills, such as seo-audit, seo-content and seo-geo, which draw on the same tools when the server is connected"
-            }
-          ],
-          "text": "DataForSEO is a paid API of search data, and this skill gets it through the 79-plus tools of DataForSEO's MCP server. Before any call it checks that the server is connected, and if not, says how to install it. Each command names the tools it calls and their defaults, such as US location, English and the top 100 results for a search. The agent is told to prefer bulk endpoints, not to fetch the same data twice in a session, and to warn you before costly runs such as full backlink crawls or long keyword lists. Image results aren't available on the server version it pins, and it says so rather than calling a tool that doesn't exist. You can review spending by day or over seven days, and set the approval threshold, with /seo dataforseo costs. When a query returns nothing it reports no data rather than guessing, and findings are sorted Critical to Low with scores out of 100 where they apply.",
-          "permalink": "https://github.com/AgriciDaniel/claude-seo/tree/6be93f45064ffbadced572b5d5c95f55fd263af0/skills/seo-dataforseo"
-        },
-        "tags": [
-          "category:marketing",
-          "type:tool",
-          "effect:local",
-          "needs:mcp",
-          "needs:account",
-          "needs:claude-code",
-          "by:community",
-          "stack:dataforseo",
-          "seo",
-          "research",
-          "marketing"
-        ],
-        "note": "Needs a DataForSEO account, billed per API call, and its MCP server, which the plugin's DataForSEO extension installs.",
-        "model": "Claude Opus 5.5",
-        "effort": "xhigh"
-      }
-    },
-    {
-      "id": "AgriciDaniel/claude-seo/skills/seo-image-gen",
-      "name": "seo-image-gen",
-      "skills.sh": {
-        "url": "https://skills.sh/agricidaniel/claude-seo/seo-image-gen",
-        "installs": 6700,
-        "weeklyInstalls": [215, 216, 214, 217, 209, 232, 241, 327],
-        "firstSeen": "2026-03-27"
-      },
-      "skillMd": {
-        "version": "6be93f45064ffbadced572b5d5c95f55fd263af0",
-        "updated": "2026-11-06",
-        "skew": 0
-      },
-      "agentReview": {
-        "description": "Generates social previews, blog heroes, product shots and infographics with Gemini through the nanobanana MCP server, then suggests alt text, file names and markup.",
-        "tldr": {
-          "glance": [
-            {
-              "label": "Use it when",
-              "text": "a page needs an Open Graph preview, blog hero, product photo, infographic, favicon or Pinterest pin; it's not for general artwork"
-            },
-            {
-              "label": "It does",
-              "text": "picks the aspect ratio, resolution and style for the use case, writes a detailed prompt and generates the image with Gemini"
-            },
-            {
-              "label": "You get",
-              "text": "the saved image, the prompt it sent and its settings, plus suggested alt text, an SEO file name, WebP conversion and ImageObject or og:image markup"
-            },
-            {
-              "label": "Defaults",
-              "text": "16:9 at 1K for social previews, 16:9 at 2K for heroes, 4:3 at 2K for products on white, 2:3 at 4K for infographics"
-            },
-            {
-              "label": "Costs",
-              "text": "shows an estimate before generating, especially for batches of variations, three by default, and logs each generation where the MCP setup allows"
-            },
-            {
-              "label": "Unlike",
-              "text": "seo-images from the same repo, which audits the images a page already has; its findings can drive what this skill makes"
-            },
-            {
-              "label": "Built on",
-              "text": "Claude Banana, the author's standalone image generation skill, with SEO use cases and presets added"
-            }
-          ],
-          "text": "Commands are og, hero, product, infographic, custom and batch. Each use case maps to a style mode, such as Product, Cinema, Editorial, Infographic or Logo, that shapes the prompt, which follows a six-part system from its reference files and describes concretely what the camera sees. It checks the MCP server's tools are there before generating, and if not, says how to install them. Brand presets apply when you have them. The model follows the job: a fast default for social previews, a higher-quality one for heroes and products, a text-capable one for infographics with text, and a draft model at 512 for quick drafts. After each image it walks you through alt text, renaming to keyword-description-widthxheight.webp, converting with ImageMagick, keeping heroes under 200 KB and thumbnails under 100 KB, and the Open Graph tags for social previews. A safety-filter refusal gets a rephrased prompt. During a site audit, a separate agent of the plugin only plans which images to make and never generates them.",
-          "permalink": "https://github.com/AgriciDaniel/claude-seo/tree/6be93f45064ffbadced572b5d5c95f55fd263af0/skills/seo-image-gen"
-        },
-        "tags": [
-          "category:marketing",
-          "category:media",
-          "type:tool",
-          "effect:local",
-          "needs:mcp",
-          "needs:account",
-          "by:community",
-          "stack:gemini",
-          "seo",
-          "image",
-          "ai-generation"
-        ],
-        "note": "Needs the nanobanana MCP server with a Google AI Studio API key, which the repo's banana extension installer sets up; each image costs money.",
-        "model": "Claude Opus 5.5",
-        "effort": "xhigh"
-      }
-    },
-    {
       "id": "AgriciDaniel/claude-seo/skills/seo-content-brief",
       "name": "seo-content-brief",
       "skills.sh": {
@@ -55579,66 +55379,6 @@
       }
     },
     {
-      "id": "affaan-m/ecc/skills/fal-ai-media",
-      "name": "fal-ai-media",
-      "skills.sh": {
-        "url": "https://skills.sh/affaan-m/ecc/fal-ai-media",
-        "installs": 5500,
-        "weeklyInstalls": [296, 266, 166, 145, 238, 424, 416, 481],
-        "firstSeen": "2026-05-19"
-      },
-      "skillMd": {
-        "version": "d2ef2680594f9a17526a6e1a2e18b3d242c5d17b",
-        "updated": "2026-11-06",
-        "skew": 0
-      },
-      "agentReview": {
-        "description": "Generates images, video and speech through the fal.ai MCP server, with models such as Nano Banana, Seedance, Kling and Veo 3.",
-        "tldr": {
-          "glance": [
-            {
-              "label": "Use it when",
-              "text": "you want the agent to generate an image, a short video, speech or sound from a prompt or an existing image"
-            },
-            {
-              "label": "It does",
-              "text": "picks a fal.ai model, such as Nano Banana for images, Seedance, Kling or Veo 3 for video and CSM-1B for speech, and runs it through fal.ai's MCP tools"
-            },
-            {
-              "label": "You get",
-              "text": "generated media from fal.ai, with seeds for repeatable iterations and a cost estimate before expensive runs"
-            },
-            {
-              "label": "Needs",
-              "text": "the fal.ai MCP server configured with a fal.ai API key"
-            },
-            {
-              "label": "Also covers",
-              "text": "ElevenLabs voices through its API and VideoDB's generated voice, music and sound effects, when those are set up"
-            }
-          ],
-          "text": "A guide to the fal.ai MCP server's tools: search, find, generate, result, status, cancel, estimate_cost, models and upload. For images, Nano Banana 2 is for fast drafts and edits and Nano Banana Pro for production shots, with parameters for size, count, seed and guidance; editing uploads a source image first, for inpainting, outpainting or style transfer. For video, Seedance 1.0 Pro is for motion quality, Kling v3 Pro adds native audio and Veo 3 generated sound, from text or an uploaded image, at 5 or 10 seconds in 16:9, 9:16 or 1:1. For audio, CSM-1B speaks text conversationally and ThinkSound makes audio to match a video. It warns that model IDs, prices and tool names drift, so the agent looks up current model metadata before promising a model or cost. Its tips: iterate on cheaper models, switch to Pro for finals, and check estimate_cost before long videos. For editing it points to ECC's video-editing skill.",
-          "permalink": "https://github.com/affaan-m/ecc/tree/d2ef2680594f9a17526a6e1a2e18b3d242c5d17b/skills/fal-ai-media"
-        },
-        "tags": [
-          "category:media",
-          "type:tool",
-          "effect:remote",
-          "needs:mcp",
-          "needs:account",
-          "by:community",
-          "stack:fal",
-          "image",
-          "video",
-          "audio",
-          "ai-generation"
-        ],
-        "note": "Needs the fal.ai MCP server and a fal.ai API key; generations are billed to your fal.ai account, and source images you edit are uploaded to fal.ai.",
-        "model": "Claude Opus 5.5",
-        "effort": "xhigh"
-      }
-    },
-    {
       "id": "affaan-m/ecc/skills/council",
       "name": "council",
       "skills.sh": {
@@ -55917,59 +55657,6 @@
       }
     },
     {
-      "id": "affaan-m/ecc/skills/nutrient-document-processing",
-      "name": "nutrient-document-processing",
-      "skills.sh": {
-        "url": "https://skills.sh/affaan-m/ecc/nutrient-document-processing",
-        "installs": 5300,
-        "weeklyInstalls": [292, 264, 164, 144, 226, 410, 400, 469],
-        "firstSeen": "2026-05-19"
-      },
-      "skillMd": {
-        "version": "d2ef2680594f9a17526a6e1a2e18b3d242c5d17b",
-        "updated": "2026-11-06",
-        "skew": 0
-      },
-      "agentReview": {
-        "description": "Converts, OCRs, extracts tables from, redacts, watermarks, signs and fills documents by sending them to Nutrient's document processing API.",
-        "tldr": {
-          "glance": [
-            {
-              "label": "Use it when",
-              "text": "you need to convert, OCR, redact, watermark, sign or fill documents and are fine sending them to a commercial API"
-            },
-            {
-              "label": "It does",
-              "text": "posts each file with a JSON instruction to Nutrient's DWS Processor API with curl and saves what comes back"
-            },
-            {
-              "label": "You get",
-              "text": "the processed file: a PDF or DOCX, plain text, tables as a spreadsheet, a searchable scan, or a redacted, watermarked, signed or filled copy"
-            },
-            {
-              "label": "Needs",
-              "text": "a Nutrient API key; Nutrient's MCP server is an alternative to curl"
-            }
-          ],
-          "text": "Every operation is one multipart POST to Nutrient's build endpoint, with the file and an instructions field naming the parts, actions and output type. It converts between PDF, Office formats, HTML and images, from over twenty input formats; extracts plain text, or tables as XLSX; runs OCR in more than 100 languages to make scans searchable; redacts by preset patterns, such as Social Security, credit card and phone numbers or email addresses, or by your own regex; stamps text watermarks; adds a self-signed CMS digital signature; and fills PDF form fields with values you give. Each recipe is a ready curl command that reads the key from NUTRIENT_API_KEY. It notes that Nutrient is a commercial service whose terms you should review, and that a free API key is available.",
-          "permalink": "https://github.com/affaan-m/ecc/tree/d2ef2680594f9a17526a6e1a2e18b3d242c5d17b/skills/nutrient-document-processing"
-        },
-        "tags": [
-          "category:documents",
-          "type:tool",
-          "effect:remote",
-          "needs:account",
-          "by:community",
-          "stack:nutrient",
-          "pdf",
-          "documents"
-        ],
-        "note": "Uploads each document to Nutrient's commercial API, and needs a Nutrient API key.",
-        "model": "Claude Opus 5.5",
-        "effort": "xhigh"
-      }
-    },
-    {
       "id": "affaan-m/ecc/skills/ai-first-engineering",
       "name": "ai-first-engineering",
       "skills.sh": {
@@ -56127,59 +55814,6 @@
           "copywriting",
           "writing",
           "finance"
-        ],
-        "model": "Claude Opus 5.5",
-        "effort": "xhigh"
-      }
-    },
-    {
-      "id": "affaan-m/ecc/skills/exa-search",
-      "name": "exa-search",
-      "skills.sh": {
-        "url": "https://skills.sh/affaan-m/ecc/exa-search",
-        "installs": 5400,
-        "weeklyInstalls": [294, 265, 164, 146, 230, 414, 405, 475],
-        "firstSeen": "2026-05-19"
-      },
-      "skillMd": {
-        "version": "d2ef2680594f9a17526a6e1a2e18b3d242c5d17b",
-        "updated": "2026-11-06",
-        "skew": 0
-      },
-      "agentReview": {
-        "description": "Searches the web, code examples, companies and people through Exa's MCP server, treating every result as untrusted data.",
-        "tldr": {
-          "glance": [
-            {
-              "label": "Use it when",
-              "text": "the agent needs current web results, code examples or API docs, company research, or people working in a field"
-            },
-            {
-              "label": "It does",
-              "text": "calls Exa's web_search_exa for pages, news and companies, and get_code_context_exa for code from GitHub, Stack Overflow and docs sites"
-            },
-            {
-              "label": "You get",
-              "text": "search results and code snippets in the conversation, treated as data rather than instructions"
-            },
-            {
-              "label": "Needs",
-              "text": "the Exa MCP server and an Exa API key"
-            }
-          ],
-          "text": "Exa is a neural search engine, and this skill drives it through two tools of its MCP server. web_search_exa takes a query, a result count, a search mode, a live-crawl setting and an optional category such as company or research paper, and works with operators like site:, quoted phrases and intitle:. get_code_context_exa returns code and documentation within a token budget from 1,000 to 50,000: lower for focused snippets, higher for broad context. Examples cover a quick lookup, code research, company funding, people through LinkedIn site searches, and a technical deep dive with both tools. It warns that tool names and parameters drift, so the agent confirms what the server exposes. Every result is untrusted: the agent doesn't follow instructions inside results, run retrieved code unreviewed, let a result pick its next query, or send data where a page says. ECC's deep-research skill uses it alongside Firecrawl.",
-          "permalink": "https://github.com/affaan-m/ecc/tree/d2ef2680594f9a17526a6e1a2e18b3d242c5d17b/skills/exa-search"
-        },
-        "tags": [
-          "category:browser",
-          "type:tool",
-          "effect:none",
-          "needs:mcp",
-          "needs:account",
-          "by:community",
-          "stack:exa",
-          "web-search",
-          "research"
         ],
         "model": "Claude Opus 5.5",
         "effort": "xhigh"
@@ -59279,64 +58913,6 @@
       }
     },
     {
-      "id": "affaan-m/ecc/skills/social-publisher",
-      "name": "social-publisher",
-      "skills.sh": {
-        "url": "https://skills.sh/affaan-m/ecc/social-publisher",
-        "installs": 5300,
-        "weeklyInstalls": [285, 264, 162, 141, 234, 411, 413, 488],
-        "firstSeen": "2026-05-25"
-      },
-      "skillMd": {
-        "version": "d2ef2680594f9a17526a6e1a2e18b3d242c5d17b",
-        "updated": "2026-11-06",
-        "skew": 0
-      },
-      "agentReview": {
-        "description": "Schedules and publishes posts to X, LinkedIn, Instagram, TikTok, YouTube, Reddit and other platforms through SocialClaw, after you approve the validated schedule.",
-        "tldr": {
-          "glance": [
-            {
-              "label": "Use it when",
-              "text": "you want the agent to schedule or publish a campaign across X, LinkedIn, Instagram, Facebook, TikTok, YouTube, Reddit, Discord, Telegram and more"
-            },
-            {
-              "label": "It does",
-              "text": "lists your connected accounts, uploads media, writes a schedule.json of posts, validates it with the socialclaw CLI, then publishes and checks delivery"
-            },
-            {
-              "label": "Asks first",
-              "text": "shows you every post in the validated schedule and waits for explicit approval before publishing, and asks again if the schedule changes"
-            },
-            {
-              "label": "Unlike",
-              "text": "posting skills that drive your logged-in browser, it goes through SocialClaw's API, with platform logins handled in SocialClaw's dashboard"
-            },
-            {
-              "label": "Needs",
-              "text": "a SocialClaw workspace API key and the socialclaw CLI, which you log in to yourself"
-            }
-          ],
-          "text": "ECC's connector to SocialClaw, which publishes to 13 social platform targets through one workspace API key, with each platform's login kept in its dashboard. The agent lists your connected accounts or opens the connect flow for a provider, uploads any media as assets, and writes a schedule.json of posts, each with provider, account, text and time. It validates the file with the socialclaw CLI, then shows you every post and waits for your approval before apply creates or schedules the real posts; if the file changes it asks again, and it never publishes in the same step that wrote the content. Afterwards it checks the run's status and lists posts. Because the CLI takes the key only as a command-line argument, the skill has you run socialclaw login yourself instead of the agent. Delivery statuses, error strings and post content pulled back from platforms are treated as data, never as instructions to publish, retarget or retry. For X campaigns, OpenClaw users who already approved the TweetClaw plugin can gather public tweet and follower evidence first.",
-          "permalink": "https://github.com/affaan-m/ecc/tree/d2ef2680594f9a17526a6e1a2e18b3d242c5d17b/skills/social-publisher"
-        },
-        "tags": [
-          "category:marketing",
-          "type:tool",
-          "effect:remote",
-          "needs:cli",
-          "needs:account",
-          "by:community",
-          "stack:socialclaw",
-          "social-media",
-          "marketing"
-        ],
-        "note": "Needs a SocialClaw account, its workspace API key and the socialclaw npm CLI. It uploads your media to getsocialclaw.com and publishes real posts on your connected accounts once you approve them.",
-        "model": "Claude Opus 5.5",
-        "effort": "xhigh"
-      }
-    },
-    {
       "id": "affaan-m/ecc/skills/latency-critical-systems",
       "name": "latency-critical-systems",
       "skills.sh": {
@@ -60017,66 +59593,6 @@
       }
     },
     {
-      "id": "openclaw/openclaw/skills/openai-whisper-api",
-      "name": "openai-whisper-api",
-      "skills.sh": {
-        "url": "https://skills.sh/openclaw/openclaw/openai-whisper-api",
-        "installs": 5500,
-        "weeklyInstalls": [126, 132, 121, 127, 21, 16, 11, 14],
-        "firstSeen": "2026-01-24"
-      },
-      "skillMd": {
-        "version": "f99d785d2ac6269b37a1c88eb8d5ef2283b76b99",
-        "updated": "2026-11-06",
-        "skew": 0
-      },
-      "agentReview": {
-        "description": "Transcribes audio files through OpenAI's transcription API with a bundled script, with optional speaker labels, language hints and JSON output.",
-        "tldr": {
-          "glance": [
-            {
-              "label": "Use it when",
-              "text": "you want a transcript of an audio file, with speakers labelled if you like, and don't mind sending it to OpenAI"
-            },
-            {
-              "label": "It does",
-              "text": "uploads the file to OpenAI's transcription endpoint with a bundled script, using gpt-4o-transcribe unless you pick mini, diarize or whisper-1"
-            },
-            {
-              "label": "You get",
-              "text": "a text file beside the audio or wherever --out points, or the JSON response with --json"
-            },
-            {
-              "label": "Needs",
-              "text": "an OpenAI API key, curl and Node.js; OPENAI_BASE_URL can point it at a compatible proxy or local gateway"
-            },
-            {
-              "label": "Limits",
-              "text": "25 MB per file on the hosted API, in formats such as mp3, m4a, wav and webm"
-            },
-            {
-              "label": "Unlike",
-              "text": "openai-whisper, which runs Whisper on your machine with no key, this one transcribes in OpenAI's cloud"
-            }
-          ],
-          "text": "A wrapper around OpenAI's /v1/audio/transcriptions endpoint. The agent runs the skill's transcribe.sh on an audio file, and the script writes the transcript beside it as a .txt file unless --out names another path. Flags pick the model, set the language, add a prompt with hints such as speaker names, or keep the JSON. The diarize model labels who is speaking, and the script writes each segment as a speaker: text line; that model doesn't take a prompt. The key comes from OPENAI_API_KEY or the skill's entry in OpenClaw's config file.",
-          "permalink": "https://github.com/openclaw/openclaw/tree/f99d785d2ac6269b37a1c88eb8d5ef2283b76b99/skills/openai-whisper-api"
-        },
-        "tags": [
-          "category:media",
-          "type:tool",
-          "effect:local",
-          "needs:account",
-          "by:community",
-          "stack:openai",
-          "audio"
-        ],
-        "note": "Needs an OpenAI API key; your audio is uploaded to OpenAI, or to the endpoint you set in OPENAI_BASE_URL.",
-        "model": "Claude Opus 5.5",
-        "effort": "xhigh"
-      }
-    },
-    {
       "id": "openclaw/openclaw/skills/blogwatcher",
       "name": "blogwatcher",
       "skills.sh": {
@@ -60126,64 +59642,6 @@
           "personal"
         ],
         "note": "Needs the blogwatcher CLI, installed with go install.",
-        "model": "Claude Opus 5.5",
-        "effort": "xhigh"
-      }
-    },
-    {
-      "id": "openclaw/openclaw/skills/goplaces",
-      "name": "goplaces",
-      "skills.sh": {
-        "url": "https://skills.sh/openclaw/openclaw/goplaces",
-        "installs": 5400,
-        "weeklyInstalls": [135, 142, 129, 132, 30, 28, 6, 8],
-        "firstSeen": "2026-01-24"
-      },
-      "skillMd": {
-        "version": "f99d785d2ac6269b37a1c88eb8d5ef2283b76b99",
-        "updated": "2026-11-06",
-        "skew": 0
-      },
-      "agentReview": {
-        "description": "Finds places such as cafés or restaurants through Google Places with the goplaces CLI, filtered by rating, area or open now, with reviews.",
-        "tldr": {
-          "glance": [
-            {
-              "label": "Use it when",
-              "text": "you ask for coffee open now, the best-rated pizza near a spot, or a place's details and reviews"
-            },
-            {
-              "label": "It does",
-              "text": "runs goplaces search, resolve or details against Google's Places API (New), in readable text or JSON"
-            },
-            {
-              "label": "Filters",
-              "text": "open now, minimum rating, result limit, and a location with a radius in meters"
-            },
-            {
-              "label": "You get",
-              "text": "matching places, or one place's details with its reviews"
-            },
-            {
-              "label": "Needs",
-              "text": "the goplaces CLI from Homebrew and a Google Places API key"
-            }
-          ],
-          "text": "A short OpenClaw guide to goplaces, a command-line client for the new Google Places API. The agent searches by text, such as coffee, with filters for places open now, a minimum rating and a result limit, and can bias a search to coordinates and a radius. It pages through results with a page token, resolves a place name like Soho, London to candidates, and fetches a place's details, with its reviews, by place ID. Output is readable text by default, or JSON for scripts. The skill notes that price levels run from 0, free, to 4, very expensive, and that only the first --type filter is sent, since the API accepts one.",
-          "permalink": "https://github.com/openclaw/openclaw/tree/f99d785d2ac6269b37a1c88eb8d5ef2283b76b99/skills/goplaces"
-        },
-        "tags": [
-          "category:personal",
-          "type:tool",
-          "effect:none",
-          "needs:cli",
-          "needs:account",
-          "by:community",
-          "stack:goplaces",
-          "stack:google-places",
-          "personal"
-        ],
-        "note": "Needs the goplaces CLI and a Google Places API key in GOOGLE_PLACES_API_KEY.",
         "model": "Claude Opus 5.5",
         "effort": "xhigh"
       }
@@ -60369,69 +59827,6 @@
           "stack:giphy",
           "image"
         ],
-        "model": "Claude Opus 5.5",
-        "effort": "xhigh"
-      }
-    },
-    {
-      "id": "openclaw/openclaw/skills/sag",
-      "name": "sag",
-      "skills.sh": {
-        "url": "https://skills.sh/openclaw/openclaw/sag",
-        "installs": 5200,
-        "weeklyInstalls": [126, 122, 114, 117, 18, 11, 3, 6],
-        "firstSeen": "2026-01-24"
-      },
-      "skillMd": {
-        "version": "f99d785d2ac6269b37a1c88eb8d5ef2283b76b99",
-        "updated": "2026-11-06",
-        "skew": 0
-      },
-      "agentReview": {
-        "description": "Speaks text aloud or saves it as audio with ElevenLabs voices through the sag CLI, with tips on pronunciation, pauses and tags like [whispers].",
-        "tldr": {
-          "glance": [
-            {
-              "label": "Use it when",
-              "text": "you want text read aloud, saved as an audio file, or a reply in a voice, such as a crazy scientist's"
-            },
-            {
-              "label": "It does",
-              "text": "runs sag, which plays ElevenLabs speech right away or writes an MP3 with -o"
-            },
-            {
-              "label": "Delivery",
-              "text": "respelling and hyphens for pronunciation, pause tags, and tags such as [whispers] or [laughs] on the expressive eleven_v3 model"
-            },
-            {
-              "label": "Models",
-              "text": "eleven_v3 by default; eleven_multilingual_v2 for stability, eleven_flash_v2_5 for speed"
-            },
-            {
-              "label": "Needs",
-              "text": "the sag CLI from Homebrew and an ElevenLabs API key"
-            },
-            {
-              "label": "Unlike sherpa-onnx-tts",
-              "text": "it uses ElevenLabs' cloud voices, where sherpa-onnx-tts runs offline with no account"
-            }
-          ],
-          "text": "An OpenClaw guide to sag, a command-line tool that speaks text with ElevenLabs voices, in the style of macOS's say command. The agent picks a voice, lists voices, or asks sag for model-specific prompting tips. To fix pronunciation it first respells words, adds hyphens or changes casing; it normalizes numbers, units and URLs, and can bias that to a language. Pauses are [pause] tags on eleven_v3 and SSML breaks on v2 and v2.5, and v3 also takes tags at the start of a line, such as [whispers], [sighs] or [sarcastic]. The skill says to confirm the voice and speaker before long output. When you ask for a voice reply, the agent writes an MP3 and attaches it to the chat with a MEDIA: line, in a voice called Clawd by default.",
-          "permalink": "https://github.com/openclaw/openclaw/tree/f99d785d2ac6269b37a1c88eb8d5ef2283b76b99/skills/sag"
-        },
-        "tags": [
-          "category:media",
-          "type:tool",
-          "effect:local",
-          "needs:cli",
-          "needs:account",
-          "by:community",
-          "stack:sag",
-          "stack:elevenlabs",
-          "audio",
-          "ai-generation"
-        ],
-        "note": "Needs the sag CLI and an ElevenLabs API key; your text is sent to ElevenLabs. Its chat voice replies attach the file with a MEDIA: line and default to a voice named Clawd, both from OpenClaw.",
         "model": "Claude Opus 5.5",
         "effort": "xhigh"
       }

@@ -56,7 +56,7 @@ export default function Page(): string {
       label: "Vendor paid service",
       count: t.vendorService,
       depth: 2,
-      tip: "A vendor's skill whose job runs on the vendor's own paid service, such as its API or cloud, so it only works with an account there. It reads as an ad for the service. A free tool that runs on your machine isn't one, even when its maker also sells a cloud.",
+      tip: "A skill whose job runs on one vendor's paid service, such as its API or cloud, so it only works with an account there. It reads as an ad for the service, whoever publishes it. A workflow where the agent does the job and a paid service supplies one part isn't one, nor is a free tool that runs on your machine, even when its maker also sells a cloud.",
     },
     {
       label: "Not in English",

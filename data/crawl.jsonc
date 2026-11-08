@@ -33213,6 +33213,106 @@
       "reason": {
         "goneFromRepo": "2026-11-08"
       }
+    },
+    {
+      "url": "https://skills.sh/github/awesome-copilot/nano-banana-pro-openrouter",
+      "reason": {
+        "agentReview": {
+          "note": "Vendor paid service: it runs its job on OpenRouter's API.",
+          "model": "Claude Opus 5.5",
+          "effort": null
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/agricidaniel/claude-seo/seo-dataforseo",
+      "reason": {
+        "agentReview": {
+          "note": "Vendor paid service: it runs its job on DataForSEO's MCP.",
+          "model": "Claude Opus 5.5",
+          "effort": null
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/agricidaniel/claude-seo/seo-image-gen",
+      "reason": {
+        "agentReview": {
+          "note": "Vendor paid service: it runs its job on Gemini's API, through the nanobanana MCP.",
+          "model": "Claude Opus 5.5",
+          "effort": null
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/affaan-m/ecc/fal-ai-media",
+      "reason": {
+        "agentReview": {
+          "note": "Vendor paid service: it runs its job on fal.ai's MCP.",
+          "model": "Claude Opus 5.5",
+          "effort": null
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/affaan-m/ecc/nutrient-document-processing",
+      "reason": {
+        "agentReview": {
+          "note": "Vendor paid service: it runs its job on Nutrient's document API.",
+          "model": "Claude Opus 5.5",
+          "effort": null
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/affaan-m/ecc/exa-search",
+      "reason": {
+        "agentReview": {
+          "note": "Vendor paid service: it runs its job on Exa's MCP.",
+          "model": "Claude Opus 5.5",
+          "effort": null
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/affaan-m/ecc/social-publisher",
+      "reason": {
+        "agentReview": {
+          "note": "Vendor paid service: it runs its job on SocialClaw's API.",
+          "model": "Claude Opus 5.5",
+          "effort": null
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/openclaw/openclaw/openai-whisper-api",
+      "reason": {
+        "agentReview": {
+          "note": "Vendor paid service: it runs its job on OpenAI's transcription API.",
+          "model": "Claude Opus 5.5",
+          "effort": null
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/openclaw/openclaw/goplaces",
+      "reason": {
+        "agentReview": {
+          "note": "Vendor paid service: it runs its job on Google's Places API.",
+          "model": "Claude Opus 5.5",
+          "effort": null
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/openclaw/openclaw/sag",
+      "reason": {
+        "agentReview": {
+          "note": "Vendor paid service: it runs its job on ElevenLabs' API, through the sag CLI.",
+          "model": "Claude Opus 5.5",
+          "effort": null
+        }
+      }
     }
   ]
 }
