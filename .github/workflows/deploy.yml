@@ -1,7 +1,7 @@
 # Validate the data, pre-render the site with Vike and publish it to GitHub Pages
-# by pushing the build to the `gh-pages` branch (which GitHub serves at
-# https://<owner>.github.io/<repo>). Publishing from a branch needs no Pages
-# settings, unlike the Actions-based deployment.
+# by pushing the build to the `gh-pages` branch, which GitHub serves at the custom
+# domain https://skillhub.build. Publishing from a branch needs no Pages settings,
+# unlike the Actions-based deployment.
 name: Deploy site to GitHub Pages
 
 on:
@@ -30,10 +30,6 @@ jobs:
       - name: Validate skills.jsonc and type-check
         run: pnpm run check
       - name: Build site
-        # GitHub serves the site under the repository's name
-        # (https://<owner>.github.io/<repo>/). With a custom domain, set BASE to /.
-        env:
-          BASE: /${{ github.event.repository.name }}/
         run: pnpm run build
       - name: Publish to the gh-pages branch
         # Every branch gets checked; only the default branch, whatever its name, gets published.
@@ -43,3 +39,6 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./website/dist/client
           force_orphan: true
+          # Writes the CNAME file that tells GitHub Pages the custom domain; force_orphan
+          # wipes the branch on every publish, so the file has to come with each one.
+          cname: skillhub.build

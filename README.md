@@ -1,3 +1,3 @@
 # SkillHub
 
-https://brillout.github.io/skillhub
+https://skillhub.build

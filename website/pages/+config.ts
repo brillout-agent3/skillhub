@@ -45,8 +45,7 @@ export default {
   // Every page is HTML rendered at build time; the pages that need JavaScript add a +client.ts.
   prerender: true,
   trailingSlash: true,
-  // GitHub Pages serves the site under the repo's name, such as /skillhub/.
-  vite: { base: process.env.BASE ?? "/", plugins: [jsonc, serverOnly] },
+  vite: { plugins: [jsonc, serverOnly] },
   meta: {
     // Pages render to HTML at build time only, so Page never runs in the browser. Server-only, it
     // and what it imports, such as crawl.jsonc, stay out of the client build.

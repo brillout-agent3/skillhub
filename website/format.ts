@@ -34,5 +34,5 @@ export const date = (iso: string) => longDate.format(new Date(`${iso}T00:00:00Z`
 export const plural = (n: number, word: string) =>
   `${n.toLocaleString("en")} ${word}${n === 1 ? "" : "s"}`;
 
-/** A path on this site, under the base it's served from (such as `/skillhub/` on GitHub Pages). */
+/** A path on this site, under the base it's served from (`/` at https://skillhub.build). */
 export const href = (path = "") => `${import.meta.env.BASE_URL}${path}`;
