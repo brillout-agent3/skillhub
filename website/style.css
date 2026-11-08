@@ -2,9 +2,9 @@
  * Design notes, for whoever changes this file next.
  *
  * The site borrows its look from its logo, a cut gem: SkillHub as a gem dealer's catalog.
- * - Color. Light: white paper (search fields, results, documents) on a warm, stone-colored page
- *   (--liner), with a blue-black --ink and --garnet, the logo's own red-pink. Dark: the same on
- *   a neutral near-black, with a lighter garnet. The page and its greys are never blue.
+ * - Color. Light: a white page (--liner) with a grey sidebar (--side) on the skills list, a
+ *   blue-black --ink and --garnet, the logo's own red-pink. Dark: a neutral near-black page, a
+ *   darker sidebar and a lighter garnet. The page and its greys are neutral, never blue.
  * - Garnet is for action and emphasis: links, the agent button, the number the list is sorted by,
  *   what you saved. A selected toggle (preset, chip, Show) is filled with ink instead.
  * - Tags are text, their facet prefix quieter than their value. Only safety gets a tint: good,
@@ -28,15 +28,17 @@
 :root {
   color-scheme: light;
   font-family: "Geologica Variable", system-ui, sans-serif;
-  --liner: #f2f1ee;
+  --liner: #ffffff;
+  /* The skills list's sidebar: set back from the page, so its white buttons stand out. */
+  --side: #ececee;
   --paper: #ffffff;
-  --paper-2: #f7f6f4;
+  --paper-2: #f6f6f7;
   /* A bundle's row in the results: a parcel holding several stones. */
   --wash: #fbf0f5;
-  --rule: #e3e1dc;
-  --rule-strong: #c8c5be;
+  --rule: #e4e4e7;
+  --rule-strong: #d0d0d5;
   /* The search fields' edge: 3:1 against the liner, as a field's edge needs. */
-  --edge: #807d75;
+  --edge: #7c7c85;
   --ink: #1a2142;
   --ink-2: #444e70;
   --ink-3: #5e6888;
@@ -50,9 +52,9 @@
   /* Weekly-installs trend: ink line, current week in garnet. */
   --spark-line: #5e6888;
   --spark-now: #b3175a;
-  --spark-base: #e3e1dc;
+  --spark-base: #e4e4e7;
   /* Tags: plain, then the three safety tints: background / text. */
-  --t-plain: #ebe9e4;
+  --t-plain: #efeff1;
   --t-good: #ddf3e4;
   --t-good-ink: #17603a;
   --t-warn: #fbefd0;
@@ -77,6 +79,7 @@
   :root {
     color-scheme: dark;
     --liner: #141416;
+    --side: #0d0d0f;
     --paper: #1c1c1f;
     --paper-2: #242428;
     --wash: #261d25;
@@ -363,6 +366,12 @@ code {
   grid-template-columns: 300px minmax(0, 1fr);
   max-width: 1360px;
   margin: 0 auto;
+}
+
+/* The sidebar's color runs from the screen's left edge to its rule, also where the view is
+   centered on a wide screen: 300px is its column, 380px half the view's 1360px less that. */
+body:has(.skills-view) {
+  background: linear-gradient(to right, var(--side) max(300px, calc(50% - 380px)), var(--liner) 0);
 }
 
 #filters {
@@ -1966,9 +1975,15 @@ code {
     grid-template-columns: minmax(0, 1fr);
   }
 
+  /* The sidebar is atop the list: its color is its own. */
+  body:has(.skills-view) {
+    background: var(--liner);
+  }
+
   #filters {
     position: static;
     height: auto;
+    background: var(--side);
     padding: 12px 16px 16px;
     border-right: 0;
     border-bottom: 1px solid var(--rule);
