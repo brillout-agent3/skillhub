@@ -670,11 +670,11 @@ function skillRow(s: Skill, st: State): string {
       <div class="skill-body">
       <div class="skill-head">
         <h3><a class="skill-name" href="${skillHref(s.id)}">${esc(s.name)}</a></h3>
-        <span class="skill-source">${esc(repoKey(s))}${
+        <span class="skill-source">${esc(repoKey(s))}</span>${
           bundle
-            ? ` · ${ownEntry(s) ? "part of" : "only works as part of"} <a href="${bundleHref(bundle.id)}">${esc(bundle.agentReview.name)}</a>`
+            ? `<span class="skill-source">${ownEntry(s) ? "Part of" : "Only works as part of"} <a href="${bundleHref(bundle.id)}">${esc(bundle.agentReview.name)}</a></span>`
             : ""
-        }</span>
+        }
         ${saveButton(saveKey("skill", s.id), s.name, true)}
       </div>
       ${s.agentReview.tldr?.glance.length ? glanceHtml(s.agentReview.tldr.glance, 2) : `<p class="skill-desc">${esc(s.agentReview.description)}</p>`}
@@ -697,12 +697,12 @@ function bundleRow(b: Bundle, st: State): string {
       <div class="skill-body">
       <div class="skill-head">
         <h3><a class="skill-name" href="${bundleHref(b.id)}">${esc(b.agentReview.name)}</a></h3>
-        <span class="kind">Bundle · ${plural(b.agentReview.skills.length, "skill")}</span>
+        <span class="kind">Bundle of ${plural(b.agentReview.skills.length, "skill")}</span>
         <span class="skill-source">${esc(repoKey(b))}</span>
         ${saveButton(saveKey("bundle", b.id), b.agentReview.name, true)}
       </div>
       ${b.agentReview.tldr?.glance.length ? glanceHtml(b.agentReview.tldr.glance, 2) : `<p class="skill-desc">${esc(b.agentReview.description)}</p>`}
-      <p class="members">${members.join('<span aria-hidden="true"> · </span>')}</p>
+      <p class="members">${members.join(", ")}</p>
       </div>
       ${propsHtml(b, st)}
     </li>`;
@@ -858,7 +858,7 @@ export function scopeHtml(st: State): string {
   const kinds = `${unitOf(st)}${all === 1 ? "" : "s"}`;
   if (!filtersOn(st))
     return `<span>Looking through all <strong>${all.toLocaleString("en")}</strong> ${kinds}</span>`;
-  return `<span>Looking through <strong>${n.toLocaleString("en")} of ${all.toLocaleString("en")}</strong> ${kinds}, filtered by</span> ${scopeChipsHtml(st)} <span aria-hidden="true">·</span> <button type="button" class="link-button" data-action="clear">Clear filters</button>`;
+  return `<span>Looking through <strong>${n.toLocaleString("en")} of ${all.toLocaleString("en")}</strong> ${kinds}, filtered by</span> ${scopeChipsHtml(st)} <button type="button" class="link-button" data-action="clear">Clear filters</button>`;
 }
 
 /** The prompt's size, highlighted in the line under the agent's box. */
@@ -928,7 +928,7 @@ export function resultsHtml(st: State, limit = Infinity): string {
       }</p>
     </div>
     ${savedNote(st) ?? ""}
-    ${repoNote ? `<p class="repo-banner"><a href="https://github.com/${esc(repoNote.id)}">${esc(repoNote.id)}</a>${repoNote.agentReview.description ? ` · ${esc(repoNote.agentReview.description)}` : ""}</p>` : ""}
+    ${repoNote ? `<p class="repo-banner"><a href="https://github.com/${esc(repoNote.id)}">${esc(repoNote.id)}</a>${repoNote.agentReview.description ? ` <span>${esc(repoNote.agentReview.description)}</span>` : ""}</p>` : ""}
     ${
       savedNote(st) !== null
         ? ""

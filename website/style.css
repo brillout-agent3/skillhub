@@ -1,74 +1,91 @@
+/*
+ * Design notes, for whoever changes this file next.
+ *
+ * The site borrows its look from its logo, a cut gem: SkillHub as a gem dealer's catalog.
+ * - Color. Light: "parcel paper", the white paper with a pale blue lining that loose stones are
+ *   kept in: --liner (page), --paper (search fields, results, documents), --ink, and --garnet,
+ *   the logo's own red-pink. Dark: "velvet tray", a navy (not near-black) with a lighter garnet.
+ * - Garnet is for action and emphasis: links, the agent button, the number the list is sorted by,
+ *   what you saved. A selected toggle (preset, chip, Show) is filled with ink instead.
+ * - Tags are text, their facet prefix quieter than their value. Only safety gets a tint: good,
+ *   warn, bad. The facet itself is in the prefix, so it gets no color of its own.
+ * - One family, Geologica. Headings and names use its sharpness axis ("SHRP" 100), whose cut
+ *   terminals echo the gem; text stays at 0. Monospace is only for actual code. Sizes keep to
+ *   12, 14, 16, 18, 21, 24 and 36px; prose stays under about 70 characters a line.
+ * - The one bold shape: the two search fields, cut like an emerald (an octagon). Nothing else
+ *   gets that cut. Elsewhere, corner radius follows the role: 8px for sheets, 6px for buttons
+ *   and fields, 4px for tags, round for filter chips.
+ * - Avoided on purpose: all-caps labels, meta joined with middle dots, arrows appended to links,
+ *   a stack of identical rounded cards (the results are one ruled sheet instead), decorative
+ *   shadows and gradients.
+ */
+
 :root {
   color-scheme: light;
-  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-  --bg: #f4f4f5;
-  --surface: #ffffff;
-  --surface-2: #fafafa;
-  --border: #e4e4e7;
-  --border-strong: #d4d4d8;
-  --text: #18181b;
-  --text-2: #52525b;
-  --text-3: #71717a;
-  --accent: #7209b7;
-  --accent-text: #6a0aab;
-  --accent-soft: #f3e8ff;
-  --on-accent: #ffffff;
-  --focus: #7209b7;
-  /* Weekly-installs trend: gray line, current week in the accent (validated). */
-  --spark-line: #71717a;
-  --spark-now: #7209b7;
-  --spark-base: #e4e4e7;
-  /* Tag tints: background / text. */
-  --t-type: #f3e8ff;
-  --t-type-ink: #6b21a8;
-  --t-needs: #e0ecff;
-  --t-needs-ink: #1e4fb0;
-  --t-good: #dcfce7;
-  --t-good-ink: #166534;
-  --t-warn: #fef3c7;
-  --t-warn-ink: #8a3c06;
-  --t-bad: #ffe4e6;
-  --t-bad-ink: #9f1239;
-  --t-stack: #ccfbf1;
-  --t-stack-ink: #115e59;
-  /* Darker than --bg, so a plain tag shows on a page as well as on a white card. */
-  --t-plain: #e9e9ec;
-  --t-plain-ink: #3f3f46;
+  font-family: "Geologica Variable", system-ui, sans-serif;
+  --liner: #e7edf6;
+  --paper: #ffffff;
+  --paper-2: #f4f7fb;
+  /* A bundle's row in the results: a parcel holding several stones. */
+  --wash: #fbf0f5;
+  --rule: #d3dcea;
+  --rule-strong: #b7c3d7;
+  /* The search fields' edge: 3:1 against the liner, as a field's edge needs. */
+  --edge: #6f7b99;
+  --ink: #1a2142;
+  --ink-2: #444e70;
+  --ink-3: #5e6888;
+  /* What fills a selected toggle, and its text. */
+  --on-ink: #ffffff;
+  --garnet: #b3175a;
+  --garnet-text: #a8124f;
+  --rose: #fce3ee;
+  --on-garnet: #ffffff;
+  --focus: #b3175a;
+  /* Weekly-installs trend: ink line, current week in garnet. */
+  --spark-line: #5e6888;
+  --spark-now: #b3175a;
+  --spark-base: #d3dcea;
+  /* Tags: plain, then the three safety tints: background / text. */
+  --t-plain: #dfe6f1;
+  --t-good: #ddf3e4;
+  --t-good-ink: #17603a;
+  --t-warn: #fbefd0;
+  --t-warn-ink: #7a4a06;
+  --t-bad: #fde2dc;
+  --t-bad-ink: #a1260f;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     color-scheme: dark;
-    --bg: #09090b;
-    --surface: #18181b;
-    --surface-2: #1f1f23;
-    --border: #2e2e33;
-    --border-strong: #3f3f46;
-    --text: #f4f4f5;
-    --text-2: #c4c4cc;
-    --text-3: #a1a1aa;
-    --accent: #a855f7;
-    --accent-text: #d0a6ff;
-    --accent-soft: #2e1745;
-    --on-accent: #ffffff;
-    --focus: #c084fc;
-    --spark-line: #a1a1aa;
-    --spark-now: #a855f7;
-    --spark-base: #3f3f46;
-    --t-type: #33194d;
-    --t-type-ink: #e2c6ff;
-    --t-needs: #172a4d;
-    --t-needs-ink: #bcd4ff;
-    --t-good: #123320;
-    --t-good-ink: #a7f3c0;
-    --t-warn: #3d2a07;
-    --t-warn-ink: #fcd98b;
-    --t-bad: #451520;
-    --t-bad-ink: #fecdd6;
-    --t-stack: #0f3330;
-    --t-stack-ink: #a7f3e6;
-    --t-plain: #27272a;
-    --t-plain-ink: #d4d4d8;
+    --liner: #0f1428;
+    --paper: #171e38;
+    --paper-2: #1e2644;
+    --wash: #221c3b;
+    --rule: #2b3556;
+    --rule-strong: #3c4870;
+    --edge: #68759c;
+    --ink: #e8ebf6;
+    --ink-2: #b7bed6;
+    --ink-3: #8f98b8;
+    --on-ink: #0f1428;
+    --garnet: #c42a66;
+    --garnet-text: #ff8db8;
+    --rose: #3a1a33;
+    --on-garnet: #ffffff;
+    --focus: #ff8db8;
+    --spark-line: #8f98b8;
+    --spark-now: #ff8db8;
+    --spark-base: #3c4870;
+    --t-plain: #252e4e;
+    --t-good: #12352a;
+    --t-good-ink: #9fe3bc;
+    --t-warn: #3b2e10;
+    --t-warn-ink: #f5d58a;
+    --t-bad: #43201a;
+    --t-bad-ink: #ffb4a3;
   }
 }
 
@@ -79,14 +96,24 @@
 body {
   margin: 0;
   min-height: 100vh;
-  background: var(--bg);
-  color: var(--text);
-  font-size: 15px;
+  background: var(--liner);
+  color: var(--ink);
+  font-size: 16px;
   line-height: 1.5;
 }
 
+/* Headings and names: the cut terminals. */
+h1,
+h2,
+h3,
+.brand,
+.skill-name {
+  font-variation-settings: "SHRP" 100;
+}
+
 a {
-  color: var(--accent-text);
+  color: var(--garnet-text);
+  text-underline-offset: 0.18em;
 }
 
 button,
@@ -96,14 +123,19 @@ select {
   color: inherit;
 }
 
+::placeholder {
+  color: var(--ink-3);
+  opacity: 1;
+}
+
 :focus-visible {
   outline: 2px solid var(--focus);
   outline-offset: 2px;
 }
 
 code {
-  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
-  font-size: 0.9em;
+  font-family: var(--mono);
+  font-size: 0.875em;
 }
 
 .sr-only {
@@ -116,7 +148,7 @@ code {
 }
 
 .muted {
-  color: var(--text-3);
+  color: var(--ink-3);
 }
 
 /* ------------------------------------------------------------- brand */
@@ -127,16 +159,17 @@ code {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 8px 14px;
+  gap: 8px 16px;
 }
 
 .brand {
   display: flex;
   align-items: center;
-  gap: 9px;
-  color: var(--text);
-  font-size: 17px;
-  font-weight: 650;
+  gap: 10px;
+  color: var(--ink);
+  font-size: 21px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
   text-decoration: none;
   white-space: nowrap;
 }
@@ -144,28 +177,31 @@ code {
 .site-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 0 12px;
-  font-size: 13px;
+  gap: 0 16px;
+  font-size: 14px;
 }
 
 .site-links a {
   /* Taller, to be easy to tap. */
   padding: 5px 0;
-  color: var(--text-2);
-  font-weight: 550;
+  color: var(--ink-2);
+  font-weight: 500;
   text-decoration: none;
   white-space: nowrap;
 }
 
-.site-links a:hover,
+.site-links a:hover {
+  color: var(--garnet-text);
+}
+
 .site-links a[aria-current="page"] {
-  color: var(--accent-text);
+  color: var(--ink);
+  font-weight: 650;
 }
 
 #page-head {
-  padding: 14px 24px;
-  background: var(--surface);
-  border-bottom: 1px solid var(--border);
+  padding: 16px 32px;
+  border-bottom: 1px solid var(--rule);
 }
 
 #page-head .brand-head {
@@ -180,27 +216,27 @@ code {
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
-  gap: 4px 14px;
-  margin: 0 0 16px;
+  gap: 4px 18px;
+  margin: 0 0 24px;
 }
 
 .intro h1 {
   margin: 0;
-  font-size: 30px;
-  font-weight: 750;
-  letter-spacing: -0.01em;
-  line-height: 1.2;
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
 }
 
 .intro a {
-  color: var(--text-2);
-  font-size: 15px;
-  text-decoration: none;
+  color: var(--ink-2);
+  font-size: 16px;
+  text-decoration-color: var(--rule-strong);
 }
 
 .intro a:hover {
-  color: var(--accent-text);
-  text-decoration: underline;
+  color: var(--garnet-text);
+  text-decoration-color: currentColor;
 }
 
 .skills-view {
@@ -215,12 +251,12 @@ code {
   top: 0;
   height: 100vh;
   overflow-y: auto;
-  padding: 16px 18px 48px 20px;
-  border-right: 1px solid var(--border);
+  padding: 20px 20px 48px 24px;
+  border-right: 1px solid var(--rule);
 }
 
 .side-body {
-  margin-top: 18px;
+  margin-top: 20px;
 }
 
 /* Rising & new, Top, Rising and New: they only set the sort and Published. */
@@ -232,22 +268,23 @@ code {
 
 .preset {
   padding: 7px 0;
-  border: 1px solid var(--border-strong);
-  border-radius: 8px;
-  background: var(--surface);
-  color: var(--text);
+  border: 1px solid var(--rule-strong);
+  border-radius: 6px;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 14px;
   font-weight: 600;
   cursor: pointer;
 }
 
 .preset:hover {
-  border-color: var(--accent);
+  border-color: var(--ink-3);
 }
 
 .preset[aria-pressed="true"] {
-  border-color: var(--accent);
-  background: var(--accent-soft);
-  color: var(--accent-text);
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--on-ink);
 }
 
 /* Sort by, with its order right of it, as a slider has its range. */
@@ -261,9 +298,9 @@ code {
 .settings select {
   width: 100%;
   padding: 6px 8px;
-  border: 1px solid var(--border-strong);
-  border-radius: 8px;
-  background: var(--surface);
+  border: 1px solid var(--rule-strong);
+  border-radius: 6px;
+  background: var(--paper);
 }
 
 .settings .order {
@@ -273,24 +310,24 @@ code {
   border: 0;
   border-radius: 6px;
   background: none;
-  color: var(--text-2);
-  font-size: 13px;
-  font-weight: 550;
+  color: var(--ink-2);
+  font-size: 14px;
+  font-weight: 500;
   white-space: nowrap;
   cursor: pointer;
 }
 
 .settings .order:hover {
-  color: var(--accent-text);
+  color: var(--garnet-text);
 }
 
 /* Skills & bundles, Skills or Bundles: one segmented control. */
 .show-switch {
   display: flex;
   overflow: hidden;
-  border: 1px solid var(--border-strong);
-  border-radius: 8px;
-  background: var(--surface);
+  border: 1px solid var(--rule-strong);
+  border-radius: 6px;
+  background: var(--paper);
 }
 
 .show-switch button {
@@ -298,34 +335,31 @@ code {
   padding: 6px 8px;
   border: 0;
   background: none;
-  color: var(--text-2);
-  font-size: 13px;
+  color: var(--ink-2);
+  font-size: 14px;
   cursor: pointer;
 }
 
 .show-switch button + button {
-  border-left: 1px solid var(--border-strong);
+  border-left: 1px solid var(--rule-strong);
 }
 
 .show-switch button[aria-pressed="true"] {
-  background: var(--accent-soft);
-  color: var(--accent-text);
+  background: var(--ink);
+  color: var(--on-ink);
   font-weight: 600;
 }
 
 /* The right side: the count line, the two ways to search, and the list. */
 .list-main {
   min-width: 0;
-  padding: 24px 24px 80px;
+  padding: 28px 32px 80px;
 }
 
 /*
- * The search box, with the filters that narrow it as chips inside it, and "Find skill with your
- * agent" beside it; under each, a line about what it looks through.
- */
-/*
  * Two ways to find a skill, side by side and styled apart, each with its line under it: the search,
- * which filters as you type, and the agent's box, with its own words and button.
+ * which filters as you type, and the agent's box, with its own words and button. Above both, the
+ * filters that narrow them.
  */
 .finder {
   display: grid;
@@ -334,132 +368,169 @@ code {
     "scope scope"
     "field agent"
     "note label";
-  gap: 8px 12px;
-  margin-bottom: 20px;
+  gap: 8px 16px;
+  margin-bottom: 28px;
+}
+
+/*
+ * The emerald cut: the fields are octagons. A clip-path cuts the corners, which would cut a border
+ * off, so the field's background is its edge and its ::before, inset by the edge's width, is its
+ * face. The face's cut is smaller by (√2 − 1) × the edge's width, so the edge is as thick along
+ * the cuts as along the sides.
+ */
+.search-field,
+.agent-field {
+  --cut: 14px;
+  --edge-w: 1px;
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  min-height: 56px;
+  background: var(--edge);
+  clip-path: polygon(
+    var(--cut) 0,
+    calc(100% - var(--cut)) 0,
+    100% var(--cut),
+    100% calc(100% - var(--cut)),
+    calc(100% - var(--cut)) 100%,
+    var(--cut) 100%,
+    0 calc(100% - var(--cut)),
+    0 var(--cut)
+  );
+  cursor: text;
+}
+
+.search-field::before,
+.agent-field::before {
+  --c: calc(var(--cut) - var(--edge-w) * 0.4142);
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: var(--edge-w);
+  background: var(--paper);
+  clip-path: polygon(
+    var(--c) 0,
+    calc(100% - var(--c)) 0,
+    100% var(--c),
+    100% calc(100% - var(--c)),
+    calc(100% - var(--c)) 100%,
+    var(--c) 100%,
+    0 calc(100% - var(--c)),
+    0 var(--c)
+  );
+}
+
+/* The clip-path would cut an outline off: the edge itself shows the focus. */
+.search-field:focus-within,
+.agent-field:focus-within {
+  --edge-w: 2px;
+  background: var(--focus);
 }
 
 .search-field {
   grid-area: field;
-  display: flex;
   flex-wrap: wrap;
-  align-items: center;
   gap: 6px;
-  min-height: 48px;
-  padding: 5px 12px;
-  border: 1px solid var(--border-strong);
-  border-radius: 12px;
-  background: var(--surface);
-  /* A faint inner shadow, as text boxes have: type here. */
-  box-shadow: inset 0 1px 2px rgb(0 0 0 / 0.07);
-  cursor: text;
-}
-
-.search-field:focus-within {
-  border-color: var(--accent);
-  box-shadow:
-    inset 0 1px 2px rgb(0 0 0 / 0.07),
-    0 0 0 3px var(--accent-soft);
+  padding: 5px 18px;
 }
 
 .search-icon {
   flex: none;
-  width: 18px;
-  height: 18px;
-  color: var(--text-3);
+  width: 20px;
+  height: 20px;
+  color: var(--ink-3);
 }
 
 .scope-chip {
-  padding: 3px 10px;
-  border: 1px solid var(--accent);
+  padding: 2px 10px;
+  border: 1px solid var(--ink);
   border-radius: 999px;
-  background: var(--accent-soft);
-  color: var(--accent-text);
-  font-size: 13px;
+  background: var(--ink);
+  color: var(--on-ink);
+  font-size: 14px;
   white-space: nowrap;
   cursor: pointer;
 }
 
 .scope-chip:hover {
-  background: var(--surface);
+  border-color: var(--garnet);
+  background: var(--garnet);
+  color: var(--on-garnet);
 }
 
-.search-field input {
+.search-field input,
+.agent-field input {
   flex: 1;
-  min-width: 140px;
   padding: 6px 2px;
   border: 0;
   background: none;
-  color: var(--text);
-  font-size: 16px;
+  color: var(--ink);
+  font-size: 18px;
   text-overflow: ellipsis;
 }
 
+.search-field input {
+  min-width: 140px;
+}
+
+.agent-field input {
+  min-width: 0;
+}
+
 /* The field shows the focus instead. */
-.search-field input:focus-visible {
+.search-field input:focus-visible,
+.agent-field input:focus-visible {
   outline: none;
 }
 
 /* A text box like the search's, told apart by its icon and its button. */
 .agent-field {
   grid-area: agent;
-  display: flex;
-  align-items: center;
   gap: 8px;
-  min-height: 48px;
-  padding: 5px 5px 5px 12px;
-  border: 1px solid var(--border-strong);
-  border-radius: 12px;
-  background: var(--surface);
-  box-shadow: inset 0 1px 2px rgb(0 0 0 / 0.07);
-  cursor: text;
-}
-
-.agent-field:focus-within {
-  border-color: var(--accent);
-  box-shadow:
-    inset 0 1px 2px rgb(0 0 0 / 0.07),
-    0 0 0 3px var(--accent-soft);
+  padding: 6px 6px 6px 18px;
 }
 
 .ask-icon {
   flex: none;
-  width: 18px;
-  height: 18px;
-  color: var(--accent-text);
+  width: 20px;
+  height: 20px;
+  color: var(--garnet-text);
 }
 
-.agent-field input {
-  flex: 1;
-  min-width: 0;
-  padding: 6px 2px;
-  border: 0;
-  background: none;
-  color: var(--text);
-  font-size: 16px;
-  text-overflow: ellipsis;
-}
-
-/* The box shows the focus instead. */
-.agent-field input:focus-visible {
-  outline: none;
-}
-
+/* Cut to nest in its field's corners, 6px in. */
 .ask-button {
+  --c: 11px;
   flex: none;
-  min-height: 38px;
-  padding: 0 14px;
+  min-height: 44px;
+  padding: 0 18px;
   border: 0;
-  border-radius: 9px;
-  background: var(--accent);
-  color: var(--on-accent);
+  background: var(--garnet);
+  color: var(--on-garnet);
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 650;
   white-space: nowrap;
   cursor: pointer;
+  clip-path: polygon(
+    var(--c) 0,
+    calc(100% - var(--c)) 0,
+    100% var(--c),
+    100% calc(100% - var(--c)),
+    calc(100% - var(--c)) 100%,
+    var(--c) 100%,
+    0 calc(100% - var(--c)),
+    0 var(--c)
+  );
 }
 
 .ask-button:hover {
-  filter: brightness(1.1);
+  filter: brightness(1.12);
+}
+
+/* Inside, since the clip-path would cut an outline off. */
+.ask-button:focus-visible {
+  outline: 2px solid var(--on-garnet);
+  outline-offset: -6px;
 }
 
 .scope {
@@ -467,59 +538,61 @@ code {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 6px;
-  margin: 0 0 2px 2px;
-  color: var(--text-2);
+  gap: 6px 8px;
+  margin: 0 0 4px;
+  color: var(--ink-2);
   font-size: 14px;
+}
+
+.scope strong {
+  color: var(--ink);
+  font-weight: 650;
+}
+
+.search-note,
+.ask-label {
+  margin: 0 0 0 4px;
+  color: var(--ink-3);
+  font-size: 14px;
+  line-height: 1.45;
 }
 
 .search-note {
   grid-area: note;
-  margin: 0;
-  color: var(--text-3);
-  font-size: 12.5px;
-}
-
-.scope strong {
-  color: var(--text);
 }
 
 .ask-label {
   grid-area: label;
-  margin: 0;
-  color: var(--text-3);
-  font-size: 12.5px;
-  line-height: 1.4;
 }
 
 /* A number ending the line under a box: how many skills the search looks through, or the prompt's
-   size, since a large one can be too much for some agents. */
+   size, since a large one can be too much for some agents. Information, not an action: in ink. */
 .badge {
   display: inline-block;
   padding: 0 6px;
-  border-radius: 6px;
-  background: var(--accent-soft);
-  color: var(--accent-text);
-  font-weight: 650;
+  border-radius: 4px;
+  background: var(--t-plain);
+  color: var(--ink);
+  font-weight: 600;
   white-space: nowrap;
 }
 
 .facet {
-  margin-top: 18px;
+  margin-top: 20px;
 }
 
 /* Above the tag facets: narrows them to the tags it names. */
 .tag-search {
-  margin-top: 22px;
+  margin-top: 24px;
 }
 
 .tag-search input {
   width: 100%;
   padding: 7px 10px;
-  border: 1px solid var(--border-strong);
-  border-radius: 8px;
-  background: var(--surface);
-  color: var(--text);
+  border: 1px solid var(--rule-strong);
+  border-radius: 6px;
+  background: var(--paper);
+  color: var(--ink);
   font-size: 14px;
 }
 
@@ -530,11 +603,9 @@ code {
 
 .facet h2 {
   margin: 0 0 8px;
-  color: var(--text-2);
-  font-size: 12px;
+  color: var(--ink);
+  font-size: 14px;
   font-weight: 650;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
 }
 
 .range h2 {
@@ -543,15 +614,14 @@ code {
 }
 
 .range output {
-  color: var(--text-3);
-  font-weight: 550;
-  letter-spacing: 0;
-  text-transform: none;
+  color: var(--ink-3);
+  font-weight: 450;
 }
 
-/* A slider shows in the accent only while it narrows the list; at its full range it's at rest. */
+/* A slider shows in garnet only while it narrows the list; at its full range it's at rest. */
 .range.narrowed output {
-  color: var(--accent-text);
+  color: var(--garnet-text);
+  font-weight: 600;
 }
 
 /* Two range inputs on one track; only their handles take the pointer. */
@@ -573,17 +643,17 @@ code {
 .slider::before {
   left: calc(var(--thumb) / 2);
   right: calc(var(--thumb) / 2);
-  background: var(--border);
+  background: var(--rule);
 }
 
 .slider::after {
   left: calc(var(--thumb) / 2 + var(--lo) * (100% - var(--thumb)));
   width: calc((var(--hi) - var(--lo)) * (100% - var(--thumb)));
-  background: var(--border-strong);
+  background: var(--rule-strong);
 }
 
 .narrowed .slider::after {
-  background: var(--accent);
+  background: var(--garnet);
 }
 
 .slider input {
@@ -601,9 +671,9 @@ code {
 .slider input::-webkit-slider-thumb {
   width: var(--thumb);
   height: var(--thumb);
-  border: 2px solid var(--thumb-color, var(--text-3));
+  border: 2px solid var(--thumb-color, var(--ink-3));
   border-radius: 50%;
-  background: var(--surface);
+  background: var(--paper);
   pointer-events: auto;
   cursor: pointer;
   appearance: none;
@@ -613,16 +683,16 @@ code {
   width: var(--thumb);
   height: var(--thumb);
   box-sizing: border-box;
-  border: 2px solid var(--thumb-color, var(--text-3));
+  border: 2px solid var(--thumb-color, var(--ink-3));
   border-radius: 50%;
-  background: var(--surface);
+  background: var(--paper);
   pointer-events: auto;
   cursor: pointer;
 }
 
 .narrowed .slider input,
 .slider input:hover {
-  --thumb-color: var(--accent);
+  --thumb-color: var(--garnet);
 }
 
 .slider input::-moz-range-track {
@@ -640,10 +710,10 @@ code {
 }
 
 .facet h3.group {
-  margin: 10px 0 6px;
-  color: var(--text-3);
-  font-size: 12px;
-  font-weight: 550;
+  margin: 12px 0 6px;
+  color: var(--ink-2);
+  font-size: 14px;
+  font-weight: 500;
 }
 
 .chips {
@@ -655,52 +725,52 @@ code {
 /* The values a parent includes, under it. */
 .chips.sub {
   flex-basis: 100%;
-  margin-left: 6px;
+  margin-left: 8px;
   padding-left: 10px;
-  border-left: 2px solid var(--border);
+  border-left: 2px solid var(--rule);
 }
 
 .chip {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 3px 9px;
-  border: 1px solid var(--border);
+  padding: 2px 10px;
+  border: 1px solid var(--rule-strong);
   border-radius: 999px;
-  background: var(--surface);
-  font-size: 13px;
+  background: var(--paper);
+  font-size: 14px;
   cursor: pointer;
 }
 
 .chip:hover {
-  border-color: var(--border-strong);
-  background: var(--surface-2);
+  border-color: var(--ink-3);
 }
 
 .chip .n {
-  color: var(--text-3);
+  color: var(--ink-3);
   font-size: 12px;
   font-variant-numeric: tabular-nums;
 }
 
 .chip[aria-pressed="true"] {
-  border-color: var(--accent);
-  background: var(--accent);
-  color: var(--on-accent);
+  border-color: var(--ink);
+  background: var(--ink);
+  color: var(--on-ink);
 }
 
 .chip[aria-pressed="true"] .n {
-  color: var(--on-accent);
-  opacity: 0.85;
+  color: var(--on-ink);
+  opacity: 0.8;
 }
 
 .link-button {
   padding: 3px 4px;
   border: 0;
   background: none;
-  color: var(--accent-text);
-  font-size: 13px;
+  color: var(--garnet-text);
+  font-size: 14px;
   text-decoration: underline;
+  text-underline-offset: 0.18em;
   cursor: pointer;
 }
 
@@ -713,12 +783,12 @@ code {
   flex-wrap: wrap;
   align-items: center;
   gap: 10px 18px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 #count {
   margin: 0 auto 0 0;
-  font-size: 15px;
+  font-size: 16px;
 }
 
 /* Without a search, the line under the search box gives the count. */
@@ -731,28 +801,36 @@ code {
 }
 
 .repo-banner {
-  margin: 0 0 12px;
-  padding: 10px 14px;
-  border-radius: 10px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  color: var(--text-2);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 12px;
+  margin: 0 0 16px;
+  color: var(--ink-2);
 }
 
+.repo-banner a {
+  font-weight: 650;
+}
+
+/* The results: one sheet of paper, a rule between rows. */
 .skill-list {
   margin: 0;
   padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  background: var(--paper);
   list-style: none;
 }
 
 .skill {
   display: flex;
-  gap: 16px;
-  margin-bottom: 10px;
-  padding: 14px 16px;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  background: var(--surface);
+  gap: 24px;
+  padding: 20px 24px;
+}
+
+.skill + .skill {
+  border-top: 1px solid var(--rule);
 }
 
 /* The browser lays out and paints only the rows near the screen, which keeps re-rendering the list
@@ -768,7 +846,7 @@ code {
 }
 
 /*
- * The row's numbers, top right; the one the list is sorted by is highlighted. As wide in every row,
+ * The row's numbers, top right; the one the list is sorted by is in garnet. As wide in every row,
  * so the numbers line up down the list.
  */
 .props {
@@ -776,11 +854,11 @@ code {
   flex: none;
   grid-template-columns: minmax(max-content, 1fr) max-content;
   align-self: flex-start;
-  min-width: 20em;
+  min-width: 19em;
   margin: 0;
-  padding-left: 12px;
-  border-left: 1px solid var(--border);
-  font-size: 13px;
+  padding-left: 16px;
+  border-left: 1px solid var(--rule);
+  font-size: 14px;
 }
 
 .props div {
@@ -793,77 +871,77 @@ code {
 }
 
 .props dt {
-  color: var(--text-3);
+  color: var(--ink-3);
 }
 
 .props dd {
   margin: 0;
-  color: var(--text-2);
+  color: var(--ink-2);
   font-variant-numeric: tabular-nums;
   text-align: right;
 }
 
 .props .on dt,
 .props .on dd {
-  background: var(--accent-soft);
-  color: var(--accent-text);
+  background: var(--rose);
+  color: var(--garnet-text);
   font-weight: 650;
 }
 
 .props .on dt {
-  border-radius: 6px 0 0 6px;
+  border-radius: 4px 0 0 4px;
 }
 
 .props .on dd {
-  border-radius: 0 6px 6px 0;
+  border-radius: 0 4px 4px 0;
 }
 
 .skill-head {
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
-  gap: 4px 12px;
+  gap: 4px 14px;
 }
 
 .skill-head h3 {
   margin: 0;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .skill-name {
-  color: var(--text);
+  color: var(--ink);
   font-weight: 650;
   text-decoration: none;
 }
 
 .skill-name:hover {
-  color: var(--accent-text);
+  color: var(--garnet-text);
   text-decoration: underline;
 }
 
 .skill-source {
-  color: var(--text-3);
-  font-size: 13px;
+  color: var(--ink-3);
+  font-size: 14px;
 }
 
 .metric {
   margin-left: auto;
-  color: var(--text-2);
-  font-size: 13px;
+  color: var(--ink-2);
+  font-size: 14px;
   white-space: nowrap;
 }
 
 .metric strong {
-  color: var(--text);
-  font-size: 15px;
+  color: var(--ink);
+  font-size: 16px;
 }
 
 .glance {
   display: grid;
-  grid-template-columns: max-content minmax(0, 1fr);
-  gap: 2px 12px;
-  margin: 6px 0 10px;
-  color: var(--text-2);
+  grid-template-columns: max-content minmax(0, 66ch);
+  gap: 2px 14px;
+  margin: 8px 0 12px;
+  color: var(--ink-2);
   font-size: 14px;
 }
 
@@ -872,7 +950,7 @@ code {
 }
 
 .glance dt {
-  color: var(--text-3);
+  color: var(--ink-3);
 }
 
 .glance dd {
@@ -880,61 +958,58 @@ code {
 }
 
 .at-a-glance .glance {
-  gap: 6px 16px;
-  margin: 12px 0 4px;
+  gap: 6px 20px;
+  margin: 16px 0 4px;
+  color: var(--ink);
   font-size: 16px;
 }
 
-.skill-desc {
-  margin: 4px 0 8px;
-  color: var(--text-2);
+.at-a-glance .glance dt {
+  color: var(--ink-2);
 }
 
+.skill-desc {
+  max-width: 66ch;
+  margin: 4px 0 8px;
+  color: var(--ink-2);
+}
+
+/* A skill to look at before installing: a mark down its left edge. */
 .skill.caution {
-  border-left: 3px solid var(--t-bad-ink);
+  box-shadow: inset 4px 0 0 var(--t-bad-ink);
 }
 
 .tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 5px;
+  gap: 6px;
 }
 
 .tag {
-  padding: 1px 8px;
-  border: 1px solid transparent;
-  border-radius: 6px;
+  padding: 1px 7px;
+  border: 0;
+  border-radius: 4px;
   background: var(--t-plain);
-  color: var(--t-plain-ink);
-  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  color: var(--ink);
   font-size: 12px;
-  line-height: 1.6;
+  font-weight: 500;
+  line-height: 1.7;
   text-decoration: none;
   cursor: pointer;
 }
 
+/* The facet, such as "needs:", quieter than the value. */
+.tag-facet {
+  color: var(--ink-2);
+  font-weight: 400;
+}
+
 .tag:hover {
-  border-color: var(--border-strong);
+  box-shadow: inset 0 0 0 1px var(--ink-3);
 }
 
 .tag[aria-pressed="true"] {
-  border-color: var(--accent);
-  box-shadow: inset 0 0 0 1px var(--accent);
-}
-
-.tag[data-facet="type"] {
-  background: var(--t-type);
-  color: var(--t-type-ink);
-}
-
-.tag[data-facet="needs"] {
-  background: var(--t-needs);
-  color: var(--t-needs-ink);
-}
-
-.tag[data-facet="stack"] {
-  background: var(--t-stack);
-  color: var(--t-stack-ink);
+  box-shadow: inset 0 0 0 2px var(--ink);
 }
 
 .tag[data-tag="by:official"],
@@ -956,18 +1031,31 @@ code {
   color: var(--t-bad-ink);
 }
 
+/* On a tinted tag, the prefix takes the tint's ink, a little lighter. */
+.tag[data-tag="by:official"] .tag-facet,
+.tag[data-tag="needs:none"] .tag-facet,
+.tag[data-tag="effect:local"] .tag-facet,
+.tag[data-tag="flag:dual-use"] .tag-facet,
+.tag[data-tag="flag:mirror"] .tag-facet,
+.tag[data-tag="effect:remote"] .tag-facet,
+.tag[data-tag="flag:republished"] .tag-facet {
+  color: inherit;
+  opacity: 0.8;
+}
+
 .empty {
-  padding: 40px 0;
-  color: var(--text-3);
-  text-align: center;
+  max-width: 66ch;
+  padding: 32px 0;
+  color: var(--ink-2);
 }
 
 /* ------------------------------------------------------------- skill details */
 
 .note {
+  max-width: 72ch;
   margin: 0 0 12px;
-  padding: 10px 12px;
-  border-radius: 8px;
+  padding: 10px 14px;
+  border-radius: 6px;
   background: var(--t-warn);
   color: var(--t-warn-ink);
 }
@@ -975,7 +1063,7 @@ code {
 .details-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  gap: 16px 28px;
+  gap: 16px 32px;
 }
 
 .install {
@@ -987,10 +1075,10 @@ code {
 .install code {
   flex: 1;
   min-width: 0;
-  padding: 7px 10px;
-  border-radius: 8px;
-  background: var(--surface-2);
-  border: 1px solid var(--border);
+  padding: 8px 12px;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  background: var(--paper);
   /* Wrapped between its words, so the whole command shows; a word too long for a line scrolls. */
   overflow-x: auto;
 }
@@ -1001,19 +1089,24 @@ code {
 
 .copy {
   flex-shrink: 0;
-  padding: 7px 14px;
-  border: 1px solid var(--border-strong);
-  border-radius: 8px;
-  background: var(--surface);
+  padding: 7px 16px;
+  border: 1px solid var(--rule-strong);
+  border-radius: 6px;
+  background: var(--paper);
+  font-size: 14px;
+  font-weight: 600;
   cursor: pointer;
 }
 
 .copy:hover {
-  background: var(--surface-2);
+  border-color: var(--ink-3);
 }
 
 .links {
-  margin: 10px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 20px;
+  margin: 12px 0;
   font-size: 14px;
 }
 
@@ -1026,13 +1119,13 @@ code {
 
 .facts div {
   display: flex;
-  gap: 10px;
+  gap: 12px;
 }
 
 .facts dt {
   width: 124px;
   flex-shrink: 0;
-  color: var(--text-3);
+  color: var(--ink-3);
 }
 
 .facts dd {
@@ -1041,32 +1134,33 @@ code {
 
 .tag-detail {
   width: 100%;
-  margin-top: 14px;
+  margin-top: 20px;
   border-collapse: collapse;
   font-size: 14px;
 }
 
 .tag-detail th {
   width: 112px;
-  padding: 8px 10px 8px 0;
-  color: var(--text-3);
-  font-weight: 500;
+  padding: 10px 12px 10px 0;
+  color: var(--ink-3);
+  font-weight: 450;
   text-align: left;
   vertical-align: top;
 }
 
 .tag-detail td {
-  padding: 8px 0;
+  padding: 10px 0;
 }
 
 .tag-detail tr + tr > * {
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--rule);
 }
 
 .tag-meaning {
+  max-width: 66ch;
   margin: 4px 0 0;
-  color: var(--text-2);
-  font-size: 13px;
+  color: var(--ink-2);
+  font-size: 14px;
 }
 
 /* ------------------------------------------------------------- stat tile */
@@ -1074,26 +1168,28 @@ code {
 .stat {
   width: 256px;
   margin: 0;
-  padding: 12px 14px;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  background: var(--surface);
+  padding: 14px 16px;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  background: var(--paper);
 }
 
 .stat-label {
-  color: var(--text-2);
-  font-size: 13px;
+  color: var(--ink-2);
+  font-size: 14px;
 }
 
 .stat-value {
-  font-size: 26px;
-  font-weight: 600;
-  line-height: 1.2;
+  font-size: 24px;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+  font-variation-settings: "SHRP" 100;
+  line-height: 1.25;
 }
 
 .stat-delta {
-  margin-bottom: 6px;
-  color: var(--text-3);
+  margin-bottom: 8px;
+  color: var(--ink-3);
   font-size: 12px;
 }
 
@@ -1124,13 +1220,13 @@ code {
 }
 
 .spark-cross {
-  stroke: var(--border-strong);
+  stroke: var(--rule-strong);
   stroke-width: 1;
 }
 
 .spark-now,
 .spark-hover {
-  stroke: var(--surface);
+  stroke: var(--paper);
   stroke-width: 2;
 }
 
@@ -1146,11 +1242,10 @@ code {
   position: absolute;
   bottom: calc(100% + 6px);
   transform: translateX(-50%);
-  padding: 5px 9px;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  background: var(--surface);
-  box-shadow: 0 2px 8px rgb(0 0 0 / 0.12);
+  padding: 5px 10px;
+  border: 1px solid var(--rule-strong);
+  border-radius: 6px;
+  background: var(--paper);
   font-size: 12px;
   white-space: nowrap;
   pointer-events: none;
@@ -1158,11 +1253,11 @@ code {
 
 .spark-tip strong {
   display: block;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .spark-tip span {
-  color: var(--text-3);
+  color: var(--ink-3);
 }
 
 .spark-table {
@@ -1171,7 +1266,7 @@ code {
 }
 
 .spark-table summary {
-  color: var(--text-3);
+  color: var(--ink-3);
   cursor: pointer;
 }
 
@@ -1196,7 +1291,7 @@ code {
 .page {
   max-width: 880px;
   margin: 0 auto;
-  padding: 28px 24px 80px;
+  padding: 36px 32px 96px;
 }
 
 .page.wide {
@@ -1204,31 +1299,46 @@ code {
 }
 
 .page h1 {
-  margin: 0 0 8px;
-  font-size: 28px;
+  margin: 0 0 12px;
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
 }
 
 .page h2 {
-  margin: 32px 0 8px;
-  font-size: 19px;
+  margin: 40px 0 10px;
+  font-size: 21px;
+  font-weight: 650;
+  letter-spacing: -0.01em;
 }
 
 .page h2 code {
   margin-left: 6px;
-  color: var(--text-3);
-  font-size: 13px;
-  font-weight: 500;
+  color: var(--ink-3);
+  font-size: 14px;
+  font-weight: 400;
 }
 
 .page h3 {
-  margin: 14px 0 6px;
-  color: var(--text-2);
-  font-size: 14px;
+  margin: 16px 0 6px;
+  color: var(--ink-2);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* Prose stays under about 70 characters a line. */
+.page > p,
+.page section > p,
+.page > ul,
+.lede {
+  max-width: 68ch;
 }
 
 .lede {
-  color: var(--text-2);
-  font-size: 16px;
+  color: var(--ink-2);
+  font-size: 18px;
+  line-height: 1.5;
 }
 
 .page li {
@@ -1238,13 +1348,13 @@ code {
 .toc {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px 14px;
-  padding: 10px 0;
-  border-bottom: 1px solid var(--border);
+  gap: 6px 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--rule);
 }
 
 .question {
-  margin: 0 0 10px;
+  margin: 0 0 12px;
 }
 
 .tag-table,
@@ -1257,9 +1367,9 @@ code {
 .tag-table th,
 .repo-table th {
   padding: 6px 12px 6px 0;
-  border-bottom: 1px solid var(--border-strong);
-  color: var(--text-3);
-  font-weight: 550;
+  border-bottom: 1px solid var(--rule-strong);
+  color: var(--ink-3);
+  font-weight: 500;
   text-align: left;
   white-space: nowrap;
 }
@@ -1276,8 +1386,8 @@ code {
 
 .tag-table td,
 .repo-table td {
-  padding: 8px 12px 8px 0;
-  border-bottom: 1px solid var(--border);
+  padding: 10px 12px 10px 0;
+  border-bottom: 1px solid var(--rule);
   vertical-align: top;
 }
 
@@ -1293,8 +1403,8 @@ code {
 }
 
 .breakdown td {
-  padding: 5px 0;
-  border-bottom: 1px solid var(--border);
+  padding: 6px 0;
+  border-bottom: 1px solid var(--rule);
 }
 
 .breakdown td.num {
@@ -1318,8 +1428,7 @@ code {
 }
 
 .breakdown .d2 td {
-  color: var(--text-2);
-  font-size: 13px;
+  color: var(--ink-2);
 }
 
 .breakdown .d2 td:first-child {
@@ -1338,26 +1447,26 @@ code {
 
 /* The last nested row closes its top row's group. */
 .breakdown :is(.d1, .d2):has(+ .d0) td {
-  padding-bottom: 6px;
-  border-bottom: 1px solid var(--border);
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--rule);
 }
 
 .breakdown tfoot td {
-  border-top: 1px solid var(--border-strong);
+  border-top: 1px solid var(--rule-strong);
   border-bottom: none;
   font-weight: 650;
 }
 
 .breakdown-note {
-  margin-top: 6px;
-  color: var(--text-3);
-  font-size: 13px;
+  margin-top: 8px;
+  color: var(--ink-3);
+  font-size: 14px;
 }
 
 /* A row's tooltip sits right of the table, or under the row where there's no room for it. Its
    markup is in the number cell, at the table's right edge. */
 .breakdown-box {
-  margin-top: 16px;
+  margin-top: 20px;
   container: breakdown / inline-size;
 }
 
@@ -1375,7 +1484,7 @@ code {
   border: 0;
   border-radius: 50%;
   background: none;
-  color: var(--text-3);
+  color: var(--ink-3);
   font:
     italic 700 11px/24px Georgia,
     "Times New Roman",
@@ -1399,13 +1508,12 @@ code {
   top: calc(100% - 2px);
   right: 0;
   width: 100cqw;
-  padding: 8px 11px;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  background: var(--surface);
-  box-shadow: 0 2px 8px rgb(0 0 0 / 0.12);
-  color: var(--text);
-  font-size: 13px;
+  padding: 8px 12px;
+  border: 1px solid var(--rule-strong);
+  border-radius: 6px;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 14px;
   font-weight: 400;
   font-variant-numeric: normal;
   line-height: 1.45;
@@ -1445,9 +1553,9 @@ code {
     left: -5px;
     width: 8px;
     height: 8px;
-    border: solid var(--border);
+    border: solid var(--rule-strong);
     border-width: 0 0 1px 1px;
-    background: var(--surface);
+    background: var(--paper);
     transform: rotate(45deg);
   }
 }
@@ -1461,7 +1569,7 @@ code {
 .breakdown tr:hover .tip-i,
 .tip-i:focus-visible,
 .breakdown tr.open .tip-i {
-  color: var(--accent-text);
+  color: var(--garnet-text);
 }
 
 .tag-table th:nth-child(2),
@@ -1472,12 +1580,12 @@ code {
 }
 
 .cloud {
-  line-height: 2.1;
+  line-height: 2.2;
 }
 
 .cloud .n {
-  margin: 0 8px 0 4px;
-  color: var(--text-3);
+  margin: 0 10px 0 4px;
+  color: var(--ink-3);
   font-size: 12px;
 }
 
@@ -1490,106 +1598,125 @@ code {
 }
 
 .attribution {
-  color: var(--text-3);
-  font-size: 13px;
+  color: var(--ink-3);
+  font-size: 14px;
 }
 
 /* ------------------------------------------------------------- skill page */
 
 .crumbs {
-  margin: 0 0 6px;
-  color: var(--text-3);
+  margin: 0 0 8px;
+  color: var(--ink-3);
   font-size: 14px;
 }
 
 /* Where you are, not where to go next: quieter than the page's links. */
 .crumbs a {
-  color: var(--text-2);
+  color: var(--ink-2);
   text-decoration: none;
 }
 
 .crumbs a:hover {
-  color: var(--accent-text);
+  color: var(--garnet-text);
   text-decoration: underline;
 }
 
 .skill-page .details-grid {
-  margin-top: 20px;
+  margin-top: 24px;
 }
 
+.in-bundle {
+  max-width: 68ch;
+  margin: 16px 0;
+  color: var(--ink-2);
+}
+
+/* The agent's summary: a sheet of its own. */
 .tldr {
-  margin: 20px 0;
-  padding: 14px 16px;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  background: var(--surface);
+  margin: 24px 0;
+  padding: 18px 24px 16px;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  background: var(--paper);
 }
 
 .page .tldr h2 {
-  margin: 0 0 6px;
-  font-size: 15px;
+  margin: 0 0 8px;
+  font-size: 16px;
 }
 
 .tldr p {
-  margin: 0 0 8px;
+  max-width: 68ch;
+  margin: 0 0 10px;
   /* Long lines of prose: more room between them, to keep your place. */
   line-height: 1.6;
 }
 
 .tldr p.muted {
   margin: 0;
-  font-size: 13px;
+  font-size: 14px;
+}
+
+/* Where the copy of the SKILL.md comes from. */
+.skill-md > p.muted {
+  font-size: 14px;
 }
 
 .frontmatter {
   margin: 8px 0;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .frontmatter summary {
-  color: var(--text-2);
+  color: var(--ink-2);
   cursor: pointer;
 }
 
+/* The SKILL.md, as a document: a sheet of paper. */
 .markdown {
   margin-top: 12px;
-  padding: 4px 20px;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  background: var(--surface);
+  padding: 8px 28px;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  background: var(--paper);
   line-height: 1.6;
   overflow-wrap: break-word;
+}
+
+.markdown > :is(p, ul, ol, blockquote, h3, h4, h5, h6) {
+  max-width: 68ch;
 }
 
 .page .markdown h3,
 .page .markdown h4,
 .page .markdown h5,
 .page .markdown h6 {
-  margin: 22px 0 8px;
-  color: var(--text);
+  margin: 28px 0 8px;
+  color: var(--ink);
 }
 
 .page .markdown h3 {
-  font-size: 18px;
+  font-size: 21px;
 }
 
 .page .markdown h4 {
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .page .markdown h5,
 .page .markdown h6 {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .markdown pre,
 .frontmatter pre {
-  padding: 10px 12px;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  background: var(--surface-2);
+  padding: 12px 14px;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  background: var(--paper-2);
   overflow-x: auto;
-  font-size: 13px;
+  font-size: 14px;
+  line-height: 1.5;
 }
 
 .markdown pre code {
@@ -1599,7 +1726,7 @@ code {
 .markdown :not(pre) > code {
   padding: 1px 4px;
   border-radius: 4px;
-  background: var(--surface-2);
+  background: var(--paper-2);
 }
 
 .markdown table {
@@ -1612,16 +1739,16 @@ code {
 .markdown th,
 .markdown td {
   padding: 6px 10px;
-  border: 1px solid var(--border);
+  border: 1px solid var(--rule);
   text-align: left;
   vertical-align: top;
 }
 
 .markdown blockquote {
   margin: 12px 0;
-  padding: 0 14px;
-  border-left: 3px solid var(--border-strong);
-  color: var(--text-2);
+  padding: 0 16px;
+  border-left: 3px solid var(--rule-strong);
+  color: var(--ink-2);
 }
 
 .markdown img {
@@ -1630,7 +1757,7 @@ code {
 
 .markdown hr {
   border: 0;
-  border-top: 1px solid var(--border);
+  border-top: 1px solid var(--rule);
 }
 
 /* ------------------------------------------------------------- narrow screens */
@@ -1653,11 +1780,11 @@ code {
   }
 
   .intro {
-    margin-bottom: 12px;
+    margin-bottom: 16px;
   }
 
   .intro h1 {
-    font-size: 23px;
+    font-size: 24px;
   }
 
   .skills-view {
@@ -1667,9 +1794,9 @@ code {
   #filters {
     position: static;
     height: auto;
-    padding: 12px 16px;
+    padding: 12px 16px 16px;
     border-right: 0;
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid var(--rule);
   }
 
   /* The presets stay in view; the Filters button opens the rest. */
@@ -1694,13 +1821,23 @@ code {
   }
 
   .list-main {
-    padding: 16px 12px 64px;
+    padding: 20px 16px 64px;
+  }
+
+  .search-field,
+  .agent-field {
+    --cut: 12px;
+  }
+
+  .search-field input,
+  .agent-field input {
+    font-size: 16px;
   }
 
   /* On a phone, the agent's button goes under its words. */
   .agent-field {
     flex-wrap: wrap;
-    padding: 5px 5px 5px 12px;
+    padding: 6px 6px 6px 16px;
   }
 
   .agent-field input {
@@ -1708,8 +1845,8 @@ code {
   }
 
   .ask-button {
+    --c: 9px;
     flex: 1 1 100%;
-    min-height: 42px;
   }
 
   .filters-toggle {
@@ -1717,10 +1854,11 @@ code {
     width: 100%;
     margin-top: 8px;
     padding: 7px 12px;
-    border: 1px solid var(--border-strong);
-    border-radius: 8px;
-    background: var(--surface);
-    color: var(--text);
+    border: 1px solid var(--rule-strong);
+    border-radius: 6px;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 14px;
     font-weight: 600;
     cursor: pointer;
   }
@@ -1741,6 +1879,11 @@ code {
   .skill {
     flex-direction: column;
     gap: 8px;
+    padding: 16px;
+  }
+
+  .glance {
+    grid-template-columns: max-content minmax(0, 1fr);
   }
 
   /* The numbers wrap into one line under the row. */
@@ -1750,7 +1893,7 @@ code {
     gap: 4px;
     min-width: 0;
     padding: 8px 0 0;
-    border-top: 1px solid var(--border);
+    border-top: 1px solid var(--rule);
     border-left: 0;
   }
 
@@ -1759,7 +1902,19 @@ code {
   }
 
   .page {
-    padding: 20px 16px 64px;
+    padding: 24px 16px 64px;
+  }
+
+  .page h1 {
+    font-size: 24px;
+  }
+
+  .lede {
+    font-size: 16px;
+  }
+
+  .tldr {
+    padding: 14px 16px;
   }
 
   /* A long tag breaks after its prefix and at hyphens, so the table fits a phone. Not anywhere: that
@@ -1769,7 +1924,7 @@ code {
   }
 
   .markdown {
-    padding: 4px 14px;
+    padding: 4px 16px;
   }
 }
 
@@ -1777,58 +1932,55 @@ code {
 
 .kind {
   padding: 0 8px;
-  border-radius: 6px;
-  background: var(--accent-soft);
-  color: var(--accent-text);
+  border-radius: 4px;
+  background: var(--rose);
+  color: var(--garnet-text);
   font-size: 12px;
-  font-weight: 550;
-  line-height: 1.7;
+  font-weight: 600;
+  line-height: 1.8;
   white-space: nowrap;
 }
 
 h1 .kind {
   vertical-align: middle;
-  font-size: 13px;
+  font-size: 14px;
+  font-variation-settings: "SHRP" 0;
+  letter-spacing: 0;
 }
 
+/* A bundle's row: tinted, as a parcel of several stones. */
 .skill.bundle {
-  border-left: 3px solid var(--accent);
+  background: var(--wash);
 }
 
 .members {
+  max-width: 80ch;
   margin: 0;
-  color: var(--text-3);
+  color: var(--ink-3);
   font-size: 14px;
   line-height: 1.7;
 }
 
 /* Many links in a row: underlined faintly, so they read as links without striping the row. */
 .members a {
-  color: var(--text-2);
-  text-decoration-color: var(--border-strong);
-  text-underline-offset: 2px;
+  color: var(--ink-2);
+  text-decoration-color: var(--rule-strong);
 }
 
 .members a:hover {
-  color: var(--accent-text);
+  color: var(--garnet-text);
   text-decoration-color: currentColor;
 }
 
 .members a.dim {
-  color: var(--text-3);
+  color: var(--ink-3);
   opacity: 0.6;
 }
 
-.in-bundle {
-  margin: 12px 0;
-  color: var(--text-2);
-  font-size: 14px;
-}
-
 .install-label {
-  margin: 12px 0 4px;
-  color: var(--text-3);
-  font-size: 13px;
+  margin: 16px 0 4px;
+  color: var(--ink-2);
+  font-size: 14px;
 }
 
 .install-label:first-child {
@@ -1836,7 +1988,7 @@ h1 .kind {
 }
 
 .bundle-skills {
-  margin: 12px 0 0;
+  margin: 16px 0 0;
   padding: 0;
   list-style: none;
   counter-reset: step;
@@ -1845,26 +1997,30 @@ h1 .kind {
 .page .bundle-skills li {
   position: relative;
   margin: 0;
-  padding: 12px 0 12px 36px;
-  border-top: 1px solid var(--border);
+  padding: 14px 0 14px 40px;
+  border-top: 1px solid var(--rule);
   counter-increment: step;
 }
 
+/* The skills are used in this order, so they're numbered. */
 .bundle-skills li::before {
   position: absolute;
-  top: 12px;
+  top: 14px;
   left: 0;
-  width: 24px;
-  color: var(--text-3);
+  width: 26px;
+  color: var(--ink-3);
   content: counter(step);
+  font-size: 18px;
   font-variant-numeric: tabular-nums;
+  font-variation-settings: "SHRP" 100;
+  line-height: 1.35;
   text-align: right;
 }
 
 .page .bundle-skills h3 {
   margin: 0;
-  color: var(--text);
-  font-size: 15px;
+  color: var(--ink);
+  font-size: 18px;
 }
 
 .bundle-skills .skill-desc {
@@ -1872,8 +2028,9 @@ h1 .kind {
 }
 
 .member-note {
+  max-width: 66ch;
   margin: 4px 0 0;
-  color: var(--text-3);
+  color: var(--ink-3);
   font-size: 14px;
 }
 
@@ -1895,15 +2052,15 @@ html:not([data-account]) .account {
   padding: 5px 0;
   border: 0;
   background: none;
-  color: var(--text-2);
+  color: var(--ink-2);
   font-size: inherit;
-  font-weight: 550;
+  font-weight: 500;
   white-space: nowrap;
   cursor: pointer;
 }
 
 .site-links .logout:hover {
-  color: var(--accent-text);
+  color: var(--garnet-text);
 }
 
 /* Your avatar and Log out, which wrap together. */
@@ -1923,11 +2080,11 @@ html:not([data-account]) .account {
   align-items: center;
   gap: 6px;
   padding: 5px 12px 5px 9px;
-  border: 1px solid var(--border-strong);
-  border-radius: 8px;
-  background: var(--surface);
-  color: var(--text-2);
-  font-size: 13px;
+  border: 1px solid var(--rule-strong);
+  border-radius: 6px;
+  background: var(--paper);
+  color: var(--ink-2);
+  font-size: 14px;
   font-weight: 550;
   cursor: pointer;
 }
@@ -1942,14 +2099,15 @@ html:not([data-account]) .account {
 }
 
 .save:hover {
-  border-color: var(--accent);
-  color: var(--accent-text);
+  border-color: var(--garnet);
+  color: var(--garnet-text);
 }
 
+/* What you saved is yours: in garnet. */
 .save[aria-pressed="true"] {
-  border-color: var(--accent);
-  background: var(--accent-soft);
-  color: var(--accent-text);
+  border-color: var(--garnet);
+  background: var(--rose);
+  color: var(--garnet-text);
 }
 
 .save[aria-pressed="true"] svg {

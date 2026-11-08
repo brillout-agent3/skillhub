@@ -47,7 +47,7 @@ export function statTile(
     <figure class="stat">
       <figcaption class="stat-label">Weekly Downloads</figcaption>
       <div class="stat-value">${compact(last)}</div>
-      <div class="stat-delta">${change === null ? "" : `${change > 0 ? "+" : ""}${change}% over 8 weeks · `}week to ${weeks[weeks.length - 1]}</div>
+      <div class="stat-delta">${change === null ? `Week to ${weeks[weeks.length - 1]}` : `${change > 0 ? "+" : ""}${change}% over the 8 weeks to ${weeks[weeks.length - 1]}`}</div>
       <div class="spark" tabindex="0" role="group"
         aria-label="Weekly downloads, ${spoken}. Use the left and right arrow keys to read each week."
         data-values="${values.join(",")}" data-weeks="${weeks.join("|")}">

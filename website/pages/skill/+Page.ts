@@ -79,14 +79,17 @@ function inBundle(s: Skill): string {
   if (!place) return "";
   const { bundle, index, standalone } = place;
   const note = fullBundleById.get(bundle.id)?.agentReview.skills[index]?.note;
-  const near = (i: number, label: string) => {
+  const link = (i: number) => {
     const id = bundle.agentReview.skills[i]?.id;
-    return id
-      ? ` · ${label}: <a href="${skillHref(id)}">${esc(skillById.get(id)?.name ?? id)}</a>`
-      : "";
+    return id ? `<a href="${skillHref(id)}">${esc(skillById.get(id)?.name ?? id)}</a>` : "";
   };
+  // Such as ", after brainstorming and before executing-plans".
+  const near = [
+    link(index - 1) && `after ${link(index - 1)}`,
+    link(index + 1) && `before ${link(index + 1)}`,
+  ].filter(Boolean);
   return `
-    <p class="in-bundle">Skill ${index + 1} of ${bundle.agentReview.skills.length} in the <a href="${bundleHref(bundle.id)}">${esc(bundle.agentReview.name)}</a> bundle${near(index - 1, "Before it")}${near(index + 1, "After it")}</p>
+    <p class="in-bundle">Skill ${index + 1} of ${bundle.agentReview.skills.length} in the <a href="${bundleHref(bundle.id)}">${esc(bundle.agentReview.name)}</a> bundle${near.length ? `, ${near.join(" and ")}` : ""}.</p>
     ${standalone ? "" : `<p class="note">Only works inside its bundle: ${esc(note ?? "")} Install <a href="${bundleHref(bundle.id)}">${esc(bundle.agentReview.name)}</a> instead.</p>`}`;
 }
 
@@ -120,7 +123,7 @@ export default function Page(pageContext: PageContextServer): string {
       <div class="details-grid">
         <div>
           <div class="install"><code>${commandHtml(installCommand(s))}</code><button type="button" class="copy" data-copy="${esc(installCommand(s))}">Copy</button></div>
-          <p class="links">${links.join(" · ")}</p>
+          <p class="links">${links.join("")}</p>
           ${facts(s)}
         </div>
         ${sh.weeklyInstalls ? statTile(sh.weeklyInstalls, data.asOf.installs, compact) : ""}

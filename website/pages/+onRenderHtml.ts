@@ -2,6 +2,8 @@ import { dangerouslySkipEscape, escapeInject } from "vike/server";
 import type { PageContextServer } from "vike/types";
 import { brandHtml } from "../brand.ts";
 import { href } from "../format.ts";
+// Geologica, with its sharpness axis: see the design notes atop style.css.
+import "@fontsource-variable/geologica/shrp.css";
 import "../style.css";
 
 /** A page's `Page` returns the HTML of its `<main>`. */

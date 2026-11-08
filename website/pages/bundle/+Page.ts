@@ -62,7 +62,7 @@ export default function Page(pageContext: PageContextServer): string {
   return `
     <div class="page skill-page bundle-page">
       <p class="crumbs"><a href="${href()}">Skills</a> <span aria-hidden="true">/</span> <a href="${skillsLink({ repo })}">${esc(repo)}</a></p>
-      <div class="title-row"><h1>${esc(b.agentReview.name)} <span class="kind">Bundle · ${plural(b.agentReview.skills.length, "skill")}</span></h1>${saveButton(saveKey("bundle", b.id), b.agentReview.name)}</div>
+      <div class="title-row"><h1>${esc(b.agentReview.name)} <span class="kind">Bundle of ${plural(b.agentReview.skills.length, "skill")}</span></h1>${saveButton(saveKey("bundle", b.id), b.agentReview.name)}</div>
       ${
         b.agentReview.tldr?.glance.length
           ? `<section class="at-a-glance" aria-label="At a glance">${glanceHtml(b.agentReview.tldr.glance)}</section>`
@@ -77,7 +77,7 @@ export default function Page(pageContext: PageContextServer): string {
                 `<p class="install-label">${esc(label)}</p><div class="install"><code>${commandHtml(command)}</code><button type="button" class="copy" data-copy="${esc(command)}">Copy</button></div>`,
             )
             .join("")}
-          <p class="links"><a href="https://github.com/${esc(repo)}">Source on GitHub</a> · <a href="${skillsLink({ repo })}">All skills from ${esc(repo)}</a></p>
+          <p class="links"><a href="https://github.com/${esc(repo)}">Source on GitHub</a><a href="${skillsLink({ repo })}">All skills from ${esc(repo)}</a></p>
           ${facts(b)}
         </div>
       </div>
