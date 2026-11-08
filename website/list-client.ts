@@ -6,6 +6,7 @@ import {
   PROPS,
   facetsHtml,
   fullRange,
+  isNarrowed,
   rangeLabel,
   parse,
   askPrompt,
@@ -95,6 +96,9 @@ function syncRanges() {
     }
     const label = app.querySelector(`[data-range-label="${p}"]`);
     if (label) label.textContent = rangeLabel(p, range);
+    app
+      .querySelector(`[data-range-section="${p}"]`)
+      ?.classList.toggle("narrowed", isNarrowed(p, range));
   }
 }
 

@@ -534,10 +534,15 @@ code {
 }
 
 .range output {
-  color: var(--text);
+  color: var(--text-3);
   font-weight: 550;
   letter-spacing: 0;
   text-transform: none;
+}
+
+/* A slider shows in the accent only while it narrows the list; at its full range it's at rest. */
+.range.narrowed output {
+  color: var(--accent-text);
 }
 
 /* Two range inputs on one track; only their handles take the pointer. */
@@ -565,6 +570,10 @@ code {
 .slider::after {
   left: calc(var(--thumb) / 2 + var(--lo) * (100% - var(--thumb)));
   width: calc((var(--hi) - var(--lo)) * (100% - var(--thumb)));
+  background: var(--border-strong);
+}
+
+.narrowed .slider::after {
   background: var(--accent);
 }
 
@@ -583,7 +592,7 @@ code {
 .slider input::-webkit-slider-thumb {
   width: var(--thumb);
   height: var(--thumb);
-  border: 2px solid var(--accent);
+  border: 2px solid var(--thumb-color, var(--text-3));
   border-radius: 50%;
   background: var(--surface);
   pointer-events: auto;
@@ -595,11 +604,16 @@ code {
   width: var(--thumb);
   height: var(--thumb);
   box-sizing: border-box;
-  border: 2px solid var(--accent);
+  border: 2px solid var(--thumb-color, var(--text-3));
   border-radius: 50%;
   background: var(--surface);
   pointer-events: auto;
   cursor: pointer;
+}
+
+.narrowed .slider input,
+.slider input:hover {
+  --thumb-color: var(--accent);
 }
 
 .slider input::-moz-range-track {
