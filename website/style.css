@@ -1500,6 +1500,17 @@ code {
   font-size: 14px;
 }
 
+/* Where you are, not where to go next: quieter than the page's links. */
+.crumbs a {
+  color: var(--text-2);
+  text-decoration: none;
+}
+
+.crumbs a:hover {
+  color: var(--accent-text);
+  text-decoration: underline;
+}
+
 .skill-page .details-grid {
   margin-top: 20px;
 }
@@ -1519,6 +1530,8 @@ code {
 
 .tldr p {
   margin: 0 0 8px;
+  /* Long lines of prose: more room between them, to keep your place. */
+  line-height: 1.6;
 }
 
 .tldr p.muted {
@@ -1542,6 +1555,7 @@ code {
   border: 1px solid var(--border);
   border-radius: 12px;
   background: var(--surface);
+  line-height: 1.6;
   overflow-wrap: break-word;
 }
 
