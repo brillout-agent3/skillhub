@@ -2,9 +2,9 @@
  * Design notes, for whoever changes this file next.
  *
  * The site borrows its look from its logo, a cut gem: SkillHub as a gem dealer's catalog.
- * - Color. Light: "parcel paper", the white paper with a pale blue lining that loose stones are
- *   kept in: --liner (page), --paper (search fields, results, documents), --ink, and --garnet,
- *   the logo's own red-pink. Dark: "velvet tray", a navy (not near-black) with a lighter garnet.
+ * - Color. Light: white paper (search fields, results, documents) on a warm, stone-colored page
+ *   (--liner), with a blue-black --ink and --garnet, the logo's own red-pink. Dark: the same on
+ *   a neutral near-black, with a lighter garnet. The page and its greys are never blue.
  * - Garnet is for action and emphasis: links, the agent button, the number the list is sorted by,
  *   what you saved. A selected toggle (preset, chip, Show) is filled with ink instead.
  * - Tags are text, their facet prefix quieter than their value. Only safety gets a tint: good,
@@ -28,15 +28,15 @@
 :root {
   color-scheme: light;
   font-family: "Geologica Variable", system-ui, sans-serif;
-  --liner: #e7edf6;
+  --liner: #f2f1ee;
   --paper: #ffffff;
-  --paper-2: #f4f7fb;
+  --paper-2: #f7f6f4;
   /* A bundle's row in the results: a parcel holding several stones. */
   --wash: #fbf0f5;
-  --rule: #d3dcea;
-  --rule-strong: #b7c3d7;
+  --rule: #e3e1dc;
+  --rule-strong: #c8c5be;
   /* The search fields' edge: 3:1 against the liner, as a field's edge needs. */
-  --edge: #6f7b99;
+  --edge: #807d75;
   --ink: #1a2142;
   --ink-2: #444e70;
   --ink-3: #5e6888;
@@ -50,9 +50,9 @@
   /* Weekly-installs trend: ink line, current week in garnet. */
   --spark-line: #5e6888;
   --spark-now: #b3175a;
-  --spark-base: #d3dcea;
+  --spark-base: #e3e1dc;
   /* Tags: plain, then the three safety tints: background / text. */
-  --t-plain: #dfe6f1;
+  --t-plain: #ebe9e4;
   --t-good: #ddf3e4;
   --t-good-ink: #17603a;
   --t-warn: #fbefd0;
@@ -76,17 +76,17 @@
 @media (prefers-color-scheme: dark) {
   :root {
     color-scheme: dark;
-    --liner: #0f1428;
-    --paper: #171e38;
-    --paper-2: #1e2644;
-    --wash: #221c3b;
-    --rule: #2b3556;
-    --rule-strong: #3c4870;
-    --edge: #68759c;
+    --liner: #141416;
+    --paper: #1c1c1f;
+    --paper-2: #242428;
+    --wash: #261d25;
+    --rule: #2e2e33;
+    --rule-strong: #404047;
+    --edge: #6e6e78;
     --ink: #e8ebf6;
     --ink-2: #b7bed6;
     --ink-3: #8f98b8;
-    --on-ink: #0f1428;
+    --on-ink: #141416;
     --garnet: #c42a66;
     --garnet-text: #ff8db8;
     --rose: #3a1a33;
@@ -94,8 +94,8 @@
     --focus: #ff8db8;
     --spark-line: #8f98b8;
     --spark-now: #ff8db8;
-    --spark-base: #3c4870;
-    --t-plain: #252e4e;
+    --spark-base: #404047;
+    --t-plain: #2a2a2f;
     --t-good: #12352a;
     --t-good-ink: #9fe3bc;
     --t-warn: #3b2e10;
