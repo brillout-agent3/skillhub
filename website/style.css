@@ -2,9 +2,10 @@
  * Design notes, for whoever changes this file next.
  *
  * The site borrows its look from its logo, a cut gem: SkillHub as a gem dealer's catalog.
- * - Color. Light: a white page (--liner) with a grey sidebar (--side) on the skills list, a
- *   blue-black --ink and --garnet, the logo's own red-pink. Dark: a neutral near-black page, a
- *   darker sidebar and a lighter garnet. The page and its greys are neutral, never blue.
+ * - Color. Three neutral greys, darkest to lightest: the skills list's sidebar (--side), the page
+ *   (--liner), and what lies on it, such as the results, documents, fields and buttons (--paper).
+ *   With them, a blue-black --ink and --garnet, the logo's own red-pink. Dark mode keeps the same
+ *   order, near-black, with a lighter garnet. The greys are never tinted blue.
  * - Garnet is for action and emphasis: links, the agent button, the number the list is sorted by,
  *   what you saved. A selected toggle (preset, chip, Show) is filled with ink instead.
  * - Tags are text, their facet prefix quieter than their value. Only safety gets a tint: good,
@@ -28,15 +29,16 @@
 :root {
   color-scheme: light;
   font-family: "Geologica Variable", system-ui, sans-serif;
-  --liner: #ffffff;
-  /* The skills list's sidebar: set back from the page, so its white buttons stand out. */
-  --side: #ececee;
-  --paper: #ffffff;
-  --paper-2: #f6f6f7;
+  --liner: #ebebee;
+  /* The skills list's sidebar: set back from the page, so its buttons stand out. */
+  --side: #dcdce0;
+  --paper: #f8f8f9;
+  /* Code on paper. */
+  --paper-2: #efeff1;
   /* A bundle's row in the results: a parcel holding several stones. */
   --wash: #fbf0f5;
-  --rule: #e4e4e7;
-  --rule-strong: #d0d0d5;
+  --rule: #dcdce0;
+  --rule-strong: #c6c6cc;
   /* The search fields' edge: 3:1 against the liner, as a field's edge needs. */
   --edge: #7c7c85;
   --ink: #1a2142;
@@ -52,9 +54,9 @@
   /* Weekly-installs trend: ink line, current week in garnet. */
   --spark-line: #5e6888;
   --spark-now: #b3175a;
-  --spark-base: #e4e4e7;
+  --spark-base: #dcdce0;
   /* Tags: plain, then the three safety tints: background / text. */
-  --t-plain: #efeff1;
+  --t-plain: #e2e2e6;
   --t-good: #ddf3e4;
   --t-good-ink: #17603a;
   --t-warn: #fbefd0;
@@ -792,7 +794,7 @@ body:has(.skills-view) {
 .slider::before {
   left: calc(var(--thumb) / 2);
   right: calc(var(--thumb) / 2);
-  background: var(--rule);
+  background: var(--rule-strong);
 }
 
 .slider::after {
@@ -892,7 +894,7 @@ body:has(.skills-view) {
   flex-basis: 100%;
   margin-left: 8px;
   padding-left: 10px;
-  border-left: 2px solid var(--rule);
+  border-left: 2px solid var(--rule-strong);
 }
 
 .chip {
