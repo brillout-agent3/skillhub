@@ -36,5 +36,5 @@ export const saveLabel = (saved: boolean) => (saved ? "Saved" : "Save");
 /** A Save button for the entry named `name`: its icon, and its word unless `iconOnly`. */
 export function saveButton(key: string, name: string, iconOnly = false): string {
   const on = account.saved.has(key);
-  return `<button type="button" class="save${iconOnly ? " icon-only" : ""}" data-save="${esc(key)}" aria-pressed="${on}" aria-label="Save ${esc(name)}" title="${saveLabel(on)}">${ICON}${iconOnly ? "" : `<span>${saveLabel(on)}</span>`}</button>`;
+  return `<button type="button" class="save${iconOnly ? " icon-only" : ""}" data-save="${esc(key)}" aria-pressed="${on}" aria-label="Save ${esc(name)}" title="${saveLabel(on)}">${ICON}${iconOnly ? "" : `<span class="save-word">${saveLabel(on)}</span>`}</button>`;
 }

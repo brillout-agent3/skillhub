@@ -54,7 +54,7 @@ function paint() {
     const on = account.saved.has(button.dataset.save ?? "");
     button.setAttribute("aria-pressed", String(on));
     button.title = saveLabel(on);
-    const word = button.querySelector("span");
+    const word = button.querySelector(".save-word");
     if (word) word.textContent = saveLabel(on);
   }
 }
