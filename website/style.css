@@ -765,13 +765,19 @@ code {
   min-width: 0;
 }
 
-/* The row's numbers, top right; the one the list is sorted by is highlighted. */
+/*
+ * The row's numbers, top right; the one the list is sorted by is highlighted. As wide in every row,
+ * so the numbers line up down the list.
+ */
 .props {
   display: grid;
   flex: none;
-  grid-template-columns: max-content max-content;
+  grid-template-columns: minmax(max-content, 1fr) max-content;
   align-self: flex-start;
+  min-width: 20em;
   margin: 0;
+  padding-left: 12px;
+  border-left: 1px solid var(--border);
   font-size: 13px;
 }
 
@@ -1721,6 +1727,10 @@ code {
     display: flex;
     flex-wrap: wrap;
     gap: 4px;
+    min-width: 0;
+    padding: 8px 0 0;
+    border-top: 1px solid var(--border);
+    border-left: 0;
   }
 
   .props div {
@@ -1765,8 +1775,16 @@ h1 .kind {
   line-height: 1.7;
 }
 
+/* Many links in a row: underlined faintly, so they read as links without striping the row. */
 .members a {
   color: var(--text-2);
+  text-decoration-color: var(--border-strong);
+  text-underline-offset: 2px;
+}
+
+.members a:hover {
+  color: var(--accent-text);
+  text-decoration-color: currentColor;
 }
 
 .members a.dim {
