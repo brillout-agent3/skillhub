@@ -19,7 +19,6 @@ import {
   askLabel,
   scopeHtml,
   searchNote,
-  searchPlaceholder,
   rowCount,
   rowsHtml,
   settingsHtml,
@@ -126,7 +125,6 @@ function renderScope() {
   lastScope = key;
   (document.getElementById("scope") as HTMLElement).innerHTML = scopeHtml(state);
   if (!askTimer) askLine.innerHTML = askLabel(state);
-  q.placeholder = searchPlaceholder(state);
   (document.getElementById("search-note") as HTMLElement).innerHTML = searchNote(state);
 }
 
@@ -213,7 +211,7 @@ function ask() {
     ?.writeText(prompt)
     .then(() =>
       flash(
-        `Copied: paste it into Claude, ChatGPT or any chat agent${text ? "" : ", then tell it what you need"}. ${tokensHtml(Math.round(prompt.length / 4))}`,
+        `Copied to your clipboard (${tokensHtml(Math.round(prompt.length / 4))}): paste it into any chat agent.`,
       ),
     );
 }

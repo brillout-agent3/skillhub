@@ -688,8 +688,8 @@ code {
   grid-area: label;
 }
 
-/* A number ending the line under a box: how many skills the search looks through, or the prompt's
-   size, since a large one can be too much for some agents. Information, not an action: in ink. */
+/* A number in the line under a box: how many skills the search and the prompt look through, or the
+   prompt's size, since a large one can be too much for some agents. Information, not an action: in ink. */
 .badge {
   display: inline-block;
   padding: 0 6px;

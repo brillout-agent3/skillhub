@@ -826,13 +826,14 @@ const scopeOf = (st: State) => {
   return lastScope.n;
 };
 
-/** The search box's placeholder: how many skills (or bundles) it looks through. */
-/** The search box's placeholder; how many skills it looks through is in the line under it. */
-export const searchPlaceholder = (st: State) => `Search ${unitOf(st)}s`;
+/** How many skills (or bundles) the filters leave, as the lines under the boxes say it: the number highlighted. */
+function scopeCountHtml(st: State): string {
+  const n = scopeOf(st);
+  return `${badgeHtml(n.toLocaleString("en"))} ${unitOf(st)}${n === 1 ? "" : "s"}`;
+}
 
 /** Under the search box: what it does, and how many skills (or bundles) it looks through. */
-export const searchNote = (st: State) =>
-  `Filters the list as you type. ${badgeHtml(plural(scopeOf(st), unitOf(st)))}`;
+export const searchNote = (st: State) => `Filters the list of ${scopeCountHtml(st)} below.`;
 
 /** The filters, as chips each with its × to remove it. */
 function scopeChipsHtml(st: State): string {
@@ -861,18 +862,16 @@ export function scopeHtml(st: State): string {
   return `<span>Looking through <strong>${n.toLocaleString("en")} of ${all.toLocaleString("en")}</strong> ${kinds}, filtered by</span> ${scopeChipsHtml(st)} <button type="button" class="link-button" data-action="clear">Clear filters</button>`;
 }
 
-/** The prompt's size, highlighted in the line under the agent's box. */
-export const tokensHtml = (tokens: number) => badgeHtml(`~${compact(tokens)} tokens`);
+/** The prompt's size, its number highlighted, in the line under the agent's box. */
+export const tokensHtml = (tokens: number) => `${badgeHtml(`~${compact(tokens)}`)} tokens`;
 
-/** A number highlighted at the end of the line under a box. */
+/** A number highlighted in the line under a box. */
 const badgeHtml = (text: string) => `<span class="badge">${esc(text)}</span>`;
 
-/** Under the agent's box: what Find skill with your agent copies, and its size. */
+/** Under the agent's box: what Find with your agent copies, and its size. */
 export function askLabel(st: State): string {
-  const n = scopeOf(st);
-  const kinds = `${unitOf(st)}${n === 1 ? "" : "s"}`;
-  const which = filtersOn(st) ? `these ${n.toLocaleString("en")}` : `all ${n.toLocaleString("en")}`;
-  return `Copies a prompt for Claude, ChatGPT or any chat agent, which picks from ${which} ${kinds}. ${tokensHtml(promptTokens(st))}`;
+  const which = filtersOn(st) ? "these" : "all";
+  return `Copies a prompt to your clipboard that includes the TLDR of ${which} ${scopeCountHtml(st)} below — ${tokensHtml(promptTokens(st))}.`;
 }
 
 /**
@@ -939,7 +938,7 @@ export function resultsHtml(st: State, limit = Infinity): string {
               .join("")}</ol>`
           : `<p class="empty">No ${st.show === "all" ? "skill or bundle" : unitOf(st)} matches${st.q ? ` “${esc(st.q)}”` : ""}${filtersOn(st) ? ` among the ${plural(scopeOf(st), unitOf(st))} the filters leave. <button type="button" class="link-button" data-action="clear">Clear filters</button>` : "."}${
               st.q
-                ? `<br />Describing a need in your own words? <button type="button" class="link-button" data-action="ask">Find skill with your agent</button>`
+                ? `<br />Describing a need in your own words? <button type="button" class="link-button" data-action="ask">Find with your agent</button>`
                 : ""
             }</p>`
     }`;
@@ -1027,14 +1026,14 @@ export function listView(st: State, intro = "", head = ""): string {
           <p id="scope" class="scope">${scopeHtml(st)}</p>
           <div class="search-field" data-action="focus-search">
             <svg class="search-icon" viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="1.5" /><path d="m13 13 4.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /></svg>
-            <label for="q" class="sr-only">Search skills</label>
-            <input id="q" type="search" value="${esc(st.q)}" placeholder="${esc(searchPlaceholder(st))}" autocomplete="off" spellcheck="false" aria-describedby="search-note scope" />
+            <label for="q" class="sr-only">Search</label>
+            <input id="q" type="search" value="${esc(st.q)}" placeholder="Search" autocomplete="off" spellcheck="false" aria-describedby="search-note scope" />
           </div>
           <div class="agent-field" data-action="focus-need">
-            <svg class="ask-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 2.5l1.6 4.4 4.4 1.6-4.4 1.6L10 14.5l-1.6-4.4L4 8.5l4.4-1.6zM15.5 13l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z" fill="currentColor" /></svg>
+            <svg class="ask-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 6.5V4M2 11v3M18 11v3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /><rect x="4" y="6.5" width="12" height="10" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.5" /><circle cx="10" cy="3" r="1.25" fill="currentColor" /><circle cx="7.75" cy="10.75" r="1.25" fill="currentColor" /><circle cx="12.25" cy="10.75" r="1.25" fill="currentColor" /><path d="M8.5 13.75h3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /></svg>
             <label for="need" class="sr-only">What you need, for your agent</label>
             <input id="need" type="text" placeholder="Describe what you need" autocomplete="off" aria-describedby="ask-label scope" />
-            <button type="button" class="ask-button" data-action="ask">Find skill with your agent</button>
+            <button type="button" class="ask-button" data-action="ask">Find with your agent</button>
           </div>
           <p id="search-note" class="search-note">${searchNote(st)}</p>
           <p id="ask-label" class="ask-label" aria-live="polite">${askLabel(st)}</p>
