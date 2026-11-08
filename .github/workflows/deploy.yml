@@ -2,10 +2,6 @@
 # wrangler.jsonc serves the pages at https://skillhub.build, and /api/* from worker/index.ts, with
 # its D1 database. Every branch gets checked; only the default branch, whatever its name, gets
 # deployed.
-#
-# Until Cloudflare's secrets are set, the Cloudflare step is skipped. Meanwhile, the build is also
-# published to GitHub Pages, as before the move to Cloudflare. Once skillhub.build is served from
-# Cloudflare, the gh-pages step is to go.
 name: Deploy site
 
 on:
@@ -13,20 +9,16 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 # Allow only one concurrent deployment, but let in-progress runs finish.
 concurrency:
-  group: github-pages
+  group: deploy
   cancel-in-progress: false
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    env:
-      # At the job's level, so that the Cloudflare step's `if` can see whether it's set.
-      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
     steps:
       - uses: actions/checkout@v5
       - uses: pnpm/action-setup@v4
@@ -39,19 +31,11 @@ jobs:
         run: pnpm run check
       - name: Build site
         run: pnpm run build
-      - name: Publish to the gh-pages branch
-        if: github.ref_name == github.event.repository.default_branch
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./website/dist/client
-          force_orphan: true
-          # Writes the CNAME file that tells GitHub Pages the custom domain; force_orphan
-          # wipes the branch on every publish, so the file has to come with each one.
-          cname: skillhub.build
       - name: Deploy to Cloudflare
-        if: github.ref_name == github.event.repository.default_branch && env.CLOUDFLARE_API_TOKEN != ''
+        if: github.ref_name == github.event.repository.default_branch
         env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           # GitHub doesn't allow secret names that start with GITHUB_.
           GITHUB_CLIENT_ID: ${{ secrets.OAUTH_GITHUB_CLIENT_ID }}
           GITHUB_CLIENT_SECRET: ${{ secrets.OAUTH_GITHUB_CLIENT_SECRET }}

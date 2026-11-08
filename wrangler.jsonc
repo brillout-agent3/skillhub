@@ -5,7 +5,8 @@
   "name": "skillhub",
   "main": "worker/index.ts",
   "compatibility_date": "2026-11-01",
-  // A deploy points skillhub.build's DNS record at the Worker, replacing whatever it pointed at.
+  // A deploy creates skillhub.build's DNS record, pointed at the Worker. It won't replace a record
+  // made by hand, such as GitHub Pages' former ones: those had to be deleted first.
   "routes": [{ "pattern": "skillhub.build", "custom_domain": true }],
   "workers_dev": false,
   "preview_urls": false,
