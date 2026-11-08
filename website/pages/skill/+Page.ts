@@ -2,6 +2,7 @@ import type { PageContextServer } from "vike/types";
 import { commandHtml, compact, date, esc, href } from "../../format.ts";
 import { skillsLink } from "../../list.ts";
 import { statTile } from "../../sparkline.ts";
+import { copyButton } from "../../copy.ts";
 import {
   FACET_ORDER,
   bundleHref,
@@ -122,7 +123,7 @@ export default function Page(pageContext: PageContextServer): string {
       ${s.agentReview.tldr ? tldrHtml(s.agentReview.tldr, "the skill", s.skillMd?.skew ?? 0) : ""}
       <div class="details-grid">
         <div>
-          <div class="install"><code>${commandHtml(installCommand(s))}</code><button type="button" class="copy" data-copy="${esc(installCommand(s))}">Copy</button></div>
+          <div class="install"><code>${commandHtml(installCommand(s))}</code>${copyButton(installCommand(s))}</div>
           <p class="links">${links.join("")}</p>
           ${facts(s)}
         </div>

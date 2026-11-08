@@ -15,9 +15,14 @@
  * - The one bold shape: the two search fields, cut like an emerald (an octagon). Nothing else
  *   gets that cut. Elsewhere, corner radius follows the role: 8px for sheets, 6px for buttons
  *   and fields, 4px for tags, round for filter chips.
+ * - Edges. A button's or a sheet's edge is --shadow-border, a transparent ring with a slight
+ *   lift, which suits whatever it sits on. Borders are for structure only: rules between rows,
+ *   dividers, and the edges of fields.
  * - Avoided on purpose: all-caps labels, meta joined with middle dots, arrows appended to links,
  *   a stack of identical rounded cards (the results are one ruled sheet instead), decorative
  *   shadows and gradients.
+ * - Motion. Transitions only, never keyframes, and only three: press feedback (scale 0.96), a
+ *   button's edge on hover (150ms), and the Save icon's swap. Colors change at once.
  */
 
 :root {
@@ -55,6 +60,17 @@
   --t-bad: #fde2dc;
   --t-bad-ink: #a1260f;
   --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  /* Edges of buttons and sheets: a ring, a slight lift and some ambient depth. */
+  --ring: oklch(0 0 0 / 0.06);
+  --shadow-border:
+    0 0 0 1px var(--ring), 0 1px 2px -1px oklch(0 0 0 / 0.06), 0 2px 4px 0 oklch(0 0 0 / 0.04);
+  --shadow-border-hover:
+    0 0 0 1px oklch(0 0 0 / 0.08), 0 1px 2px -1px oklch(0 0 0 / 0.08),
+    0 2px 4px 0 oklch(0 0 0 / 0.06);
+  /* Pure black, never a tinted ink, so it doesn't read as dirt on the image's edge. */
+  --image-outline: oklch(0 0 0 / 0.1);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -86,6 +102,11 @@
     --t-warn-ink: #f5d58a;
     --t-bad: #43201a;
     --t-bad-ink: #ffb4a3;
+    /* Lift doesn't show on a dark page: the ring alone. */
+    --ring: oklch(1 0 0 / 0.08);
+    --shadow-border: 0 0 0 1px var(--ring);
+    --shadow-border-hover: 0 0 0 1px oklch(1 0 0 / 0.13);
+    --image-outline: oklch(1 0 0 / 0.1);
   }
 }
 
@@ -109,6 +130,24 @@ h3,
 .brand,
 .skill-name {
   font-variation-settings: "SHRP" 100;
+}
+
+/* Even lines in headings; no word left alone on the last line of prose. */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+p,
+li,
+dd,
+figcaption,
+blockquote {
+  text-wrap: pretty;
 }
 
 a {
@@ -149,6 +188,86 @@ code {
 
 .muted {
   color: var(--ink-3);
+}
+
+/* Press feedback, for the buttons that have a face of their own. Not the tags, which are too
+   small for it to show, nor the segmented Show, whose buttons share one edge. */
+.preset,
+.filters-toggle,
+.chip,
+.scope-chip,
+.ask-button,
+.copy,
+.save {
+  transition-property: scale, box-shadow;
+  transition-duration: 150ms;
+  transition-timing-function: ease-out;
+}
+
+.preset:active,
+.filters-toggle:active,
+.chip:active,
+.scope-chip:active,
+.ask-button:active,
+.copy:active,
+.save:active {
+  scale: 0.96;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .preset:active,
+  .filters-toggle:active,
+  .chip:active,
+  .scope-chip:active,
+  .ask-button:active,
+  .copy:active,
+  .save:active {
+    scale: none;
+  }
+}
+
+/*
+ * Small controls take the pointer further out than they show, to be easier to hit: the icon-only
+ * Save buttons to 40px (44px on touch screens), and the dense toggles to half the gap around them,
+ * so that no two take the same spot.
+ */
+.save.icon-only,
+.tags > .tag,
+.chip,
+.scope-chip {
+  position: relative;
+}
+
+.save.icon-only::after,
+.tags > .tag::after,
+.chip::after,
+.scope-chip::after {
+  content: "";
+  position: absolute;
+}
+
+.save.icon-only::after {
+  --hit: 40px;
+  top: calc(50% - var(--hit) / 2);
+  left: calc(50% - var(--hit) / 2);
+  width: var(--hit);
+  height: var(--hit);
+}
+
+@media (pointer: coarse) {
+  .save.icon-only::after {
+    --hit: 44px;
+  }
+}
+
+/* Their gap is 6px. */
+.tags > .tag::after,
+.chip::after {
+  inset: -3px;
+}
+
+.scope-chip::after {
+  inset: -3px -4px;
 }
 
 /* ------------------------------------------------------------- brand */
@@ -267,10 +386,11 @@ code {
 }
 
 .preset {
-  padding: 7px 0;
-  border: 1px solid var(--rule-strong);
+  padding: 8px 0;
+  border: 0;
   border-radius: 6px;
   background: var(--paper);
+  box-shadow: var(--shadow-border);
   color: var(--ink);
   font-size: 14px;
   font-weight: 600;
@@ -278,12 +398,12 @@ code {
 }
 
 .preset:hover {
-  border-color: var(--ink-3);
+  box-shadow: var(--shadow-border-hover);
 }
 
 .preset[aria-pressed="true"] {
-  border-color: var(--ink);
   background: var(--ink);
+  box-shadow: none;
   color: var(--on-ink);
 }
 
@@ -325,14 +445,14 @@ code {
 .show-switch {
   display: flex;
   overflow: hidden;
-  border: 1px solid var(--rule-strong);
   border-radius: 6px;
   background: var(--paper);
+  box-shadow: var(--shadow-border);
 }
 
 .show-switch button {
   flex: auto;
-  padding: 6px 8px;
+  padding: 7px 8px;
   border: 0;
   background: none;
   color: var(--ink-2);
@@ -341,7 +461,7 @@ code {
 }
 
 .show-switch button + button {
-  border-left: 1px solid var(--rule-strong);
+  border-left: 1px solid var(--rule);
 }
 
 .show-switch button[aria-pressed="true"] {
@@ -375,8 +495,9 @@ code {
 /*
  * The emerald cut: the fields are octagons. A clip-path cuts the corners, which would cut a border
  * off, so the field's background is its edge and its ::before, inset by the edge's width, is its
- * face. The face's cut is smaller by (√2 − 1) × the edge's width, so the edge is as thick along
- * the cuts as along the sides.
+ * face. A cut inset by d is smaller by (2 − √2) × d ≈ 0.5858 × d, so that it runs parallel to the
+ * outer one: the face's cut, so the edge is as thick along the cuts as along the sides, and the
+ * agent's button's, so it nests in its field's corners.
  */
 .search-field,
 .agent-field {
@@ -403,7 +524,7 @@ code {
 
 .search-field::before,
 .agent-field::before {
-  --c: calc(var(--cut) - var(--edge-w) * 0.4142);
+  --c: calc(var(--cut) - var(--edge-w) * 0.5858);
   content: "";
   position: absolute;
   z-index: -1;
@@ -442,8 +563,9 @@ code {
   color: var(--ink-3);
 }
 
+/* Less room on the side of the ×, which looks further out than the words. */
 .scope-chip {
-  padding: 2px 10px;
+  padding: 2px 8px 2px 10px;
   border: 1px solid var(--ink);
   border-radius: 999px;
   background: var(--ink);
@@ -500,7 +622,7 @@ code {
 
 /* Cut to nest in its field's corners, 6px in. */
 .ask-button {
-  --c: 11px;
+  --c: calc(var(--cut) - 6px * 0.5858);
   flex: none;
   min-height: 44px;
   padding: 0 18px;
@@ -547,6 +669,7 @@ code {
 .scope strong {
   color: var(--ink);
   font-weight: 650;
+  font-variant-numeric: tabular-nums;
 }
 
 .search-note,
@@ -574,6 +697,7 @@ code {
   background: var(--t-plain);
   color: var(--ink);
   font-weight: 600;
+  font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }
 
@@ -613,9 +737,11 @@ code {
   justify-content: space-between;
 }
 
+/* It changes as a handle is dragged: digits of one width keep it from jittering. */
 .range output {
   color: var(--ink-3);
   font-weight: 450;
+  font-variant-numeric: tabular-nums;
 }
 
 /* A slider shows in garnet only while it narrows the list; at its full range it's at rest. */
@@ -624,11 +750,25 @@ code {
   font-weight: 600;
 }
 
-/* Two range inputs on one track; only their handles take the pointer. */
+/*
+ * Two range inputs on one track; only their handles take the pointer. A handle shows as a 16px
+ * circle, but takes the pointer --hit tall: its transparent top and bottom borders, with radii that
+ * leave its padding box a circle. Not wider, since the handles of neighboring stops can be 16px
+ * apart. The slider's negative margins keep the layout as if it were 16px tall.
+ */
 .slider {
   --thumb: 16px;
+  --hit: 40px;
+  --hit-pad: calc((var(--hit) - var(--thumb)) / 2);
   position: relative;
-  height: var(--thumb);
+  height: var(--hit);
+  margin: calc(var(--hit-pad) * -1) 0;
+}
+
+@media (pointer: coarse) {
+  .slider {
+    --hit: 44px;
+  }
 }
 
 .slider::before,
@@ -669,23 +809,28 @@ code {
 }
 
 .slider input::-webkit-slider-thumb {
+  box-sizing: border-box;
   width: var(--thumb);
-  height: var(--thumb);
-  border: 2px solid var(--thumb-color, var(--ink-3));
-  border-radius: 50%;
-  background: var(--paper);
+  height: var(--hit);
+  border: solid transparent;
+  border-width: var(--hit-pad) 0;
+  border-radius: calc(var(--thumb) / 2) / calc(var(--hit) / 2);
+  background: var(--paper) padding-box;
+  box-shadow: inset 0 0 0 2px var(--thumb-color, var(--ink-3));
   pointer-events: auto;
   cursor: pointer;
   appearance: none;
 }
 
 .slider input::-moz-range-thumb {
-  width: var(--thumb);
-  height: var(--thumb);
   box-sizing: border-box;
-  border: 2px solid var(--thumb-color, var(--ink-3));
-  border-radius: 50%;
-  background: var(--paper);
+  width: var(--thumb);
+  height: var(--hit);
+  border: solid transparent;
+  border-width: var(--hit-pad) 0;
+  border-radius: calc(var(--thumb) / 2) / calc(var(--hit) / 2);
+  background: var(--paper) padding-box;
+  box-shadow: inset 0 0 0 2px var(--thumb-color, var(--ink-3));
   pointer-events: auto;
   cursor: pointer;
 }
@@ -699,14 +844,25 @@ code {
   background: none;
 }
 
+/* The handle shows the focus, not the input: its box spans the whole track. */
+.slider input:focus-visible {
+  outline: none;
+}
+
+/* An outline would ring the whole tall box, not the circle: the focus fills the circle instead,
+   leaving a ring of paper inside the handle's own ring. */
 .slider input:focus-visible::-webkit-slider-thumb {
-  outline: 2px solid var(--focus);
-  outline-offset: 2px;
+  background-color: var(--focus);
+  box-shadow:
+    inset 0 0 0 2px var(--focus),
+    inset 0 0 0 4px var(--paper);
 }
 
 .slider input:focus-visible::-moz-range-thumb {
-  outline: 2px solid var(--focus);
-  outline-offset: 2px;
+  background-color: var(--focus);
+  box-shadow:
+    inset 0 0 0 2px var(--focus),
+    inset 0 0 0 4px var(--paper);
 }
 
 .facet h3.group {
@@ -734,16 +890,17 @@ code {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 2px 10px;
-  border: 1px solid var(--rule-strong);
+  padding: 3px 11px;
+  border: 0;
   border-radius: 999px;
   background: var(--paper);
+  box-shadow: var(--shadow-border);
   font-size: 14px;
   cursor: pointer;
 }
 
 .chip:hover {
-  border-color: var(--ink-3);
+  box-shadow: var(--shadow-border-hover);
 }
 
 .chip .n {
@@ -753,8 +910,8 @@ code {
 }
 
 .chip[aria-pressed="true"] {
-  border-color: var(--ink);
   background: var(--ink);
+  box-shadow: none;
   color: var(--on-ink);
 }
 
@@ -789,6 +946,7 @@ code {
 #count {
   margin: 0 auto 0 0;
   font-size: 16px;
+  font-variant-numeric: tabular-nums;
 }
 
 /* Without a search, the line under the search box gives the count. */
@@ -817,9 +975,9 @@ code {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  border: 1px solid var(--rule);
   border-radius: 8px;
   background: var(--paper);
+  box-shadow: var(--shadow-border);
   list-style: none;
 }
 
@@ -1087,19 +1245,31 @@ code {
   white-space: nowrap;
 }
 
+/* Copy and Copied share one cell, so the button keeps its width when it says it copied. */
 .copy {
+  display: inline-grid;
   flex-shrink: 0;
-  padding: 7px 16px;
-  border: 1px solid var(--rule-strong);
+  padding: 8px 17px;
+  border: 0;
   border-radius: 6px;
   background: var(--paper);
+  box-shadow: var(--shadow-border);
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
 }
 
+.copy > span {
+  grid-area: 1 / 1;
+}
+
+.copy:not([data-copied]) > :last-child,
+.copy[data-copied] > :first-child {
+  visibility: hidden;
+}
+
 .copy:hover {
-  border-color: var(--ink-3);
+  box-shadow: var(--shadow-border-hover);
 }
 
 .links {
@@ -1168,10 +1338,10 @@ code {
 .stat {
   width: 256px;
   margin: 0;
-  padding: 14px 16px;
-  border: 1px solid var(--rule);
+  padding: 15px 17px;
   border-radius: 8px;
   background: var(--paper);
+  box-shadow: var(--shadow-border);
 }
 
 .stat-label {
@@ -1242,11 +1412,12 @@ code {
   position: absolute;
   bottom: calc(100% + 6px);
   transform: translateX(-50%);
-  padding: 5px 10px;
-  border: 1px solid var(--rule-strong);
+  padding: 6px 11px;
   border-radius: 6px;
   background: var(--paper);
+  box-shadow: var(--shadow-border);
   font-size: 12px;
+  font-variant-numeric: tabular-nums;
   white-space: nowrap;
   pointer-events: none;
 }
@@ -1508,10 +1679,10 @@ code {
   top: calc(100% - 2px);
   right: 0;
   width: 100cqw;
-  padding: 8px 12px;
-  border: 1px solid var(--rule-strong);
+  padding: 9px 13px;
   border-radius: 6px;
   background: var(--paper);
+  box-shadow: var(--shadow-border);
   color: var(--ink);
   font-size: 14px;
   font-weight: 400;
@@ -1553,9 +1724,9 @@ code {
     left: -5px;
     width: 8px;
     height: 8px;
-    border: solid var(--rule-strong);
-    border-width: 0 0 1px 1px;
     background: var(--paper);
+    /* The tooltip's ring, on the arrow's two outer sides. */
+    box-shadow: -1px 1px 0 var(--ring);
     transform: rotate(45deg);
   }
 }
@@ -1634,10 +1805,10 @@ code {
 /* The agent's summary: a sheet of its own. */
 .tldr {
   margin: 24px 0;
-  padding: 18px 24px 16px;
-  border: 1px solid var(--rule);
+  padding: 19px 25px 17px;
   border-radius: 8px;
   background: var(--paper);
+  box-shadow: var(--shadow-border);
 }
 
 .page .tldr h2 {
@@ -1650,6 +1821,8 @@ code {
   margin: 0 0 10px;
   /* Long lines of prose: more room between them, to keep your place. */
   line-height: 1.6;
+  /* Often ten lines or more, where an orphan matters less than the cost of avoiding it. */
+  text-wrap: wrap;
 }
 
 .tldr p.muted {
@@ -1675,10 +1848,10 @@ code {
 /* The SKILL.md, as a document: a sheet of paper. */
 .markdown {
   margin-top: 12px;
-  padding: 8px 28px;
-  border: 1px solid var(--rule);
+  padding: 9px 29px;
   border-radius: 8px;
   background: var(--paper);
+  box-shadow: var(--shadow-border);
   line-height: 1.6;
   overflow-wrap: break-word;
 }
@@ -1753,6 +1926,8 @@ code {
 
 .markdown img {
   max-width: 100%;
+  outline: 1px solid var(--image-outline);
+  outline-offset: -1px;
 }
 
 .markdown hr {
@@ -1845,7 +2020,6 @@ code {
   }
 
   .ask-button {
-    --c: 9px;
     flex: 1 1 100%;
   }
 
@@ -1853,10 +2027,11 @@ code {
     display: block;
     width: 100%;
     margin-top: 8px;
-    padding: 7px 12px;
-    border: 1px solid var(--rule-strong);
+    padding: 8px 12px;
+    border: 0;
     border-radius: 6px;
     background: var(--paper);
+    box-shadow: var(--shadow-border);
     color: var(--ink);
     font-size: 14px;
     font-weight: 600;
@@ -2072,24 +2247,38 @@ html:not([data-account]) .account {
 
 .avatar {
   border-radius: 50%;
+  outline: 1px solid var(--image-outline);
+  outline-offset: -1px;
 }
 
+/*
+ * The bookmark's glyph is narrower than its 16px box, by 3px on each side. The padding on its side
+ * leaves 2px less in sight than on the word's side, for the icon to look as far in as the word.
+ */
 .save {
   display: inline-flex;
   flex: none;
   align-items: center;
-  gap: 6px;
-  padding: 5px 12px 5px 9px;
-  border: 1px solid var(--rule-strong);
+  gap: 4px;
+  padding: 6px 13px 6px 8px;
+  border: 0;
   border-radius: 6px;
   background: var(--paper);
+  box-shadow: var(--shadow-border);
   color: var(--ink-2);
   font-size: 14px;
   font-weight: 550;
   cursor: pointer;
 }
 
-.save svg {
+/* Outline when not saved, filled when saved. Both stay in the DOM, one on the other, so that a
+   click cross-fades them. */
+.save-icon {
+  display: grid;
+}
+
+.save-icon svg {
+  grid-area: 1 / 1;
   width: 16px;
   height: 16px;
   fill: none;
@@ -2098,31 +2287,49 @@ html:not([data-account]) .account {
   stroke-linejoin: round;
 }
 
+.save-icon .filled {
+  fill: currentColor;
+}
+
+.save[aria-pressed="true"] .save-icon svg:not(.filled),
+.save:not([aria-pressed="true"]) .save-icon .filled {
+  opacity: 0;
+  scale: 0.25;
+  filter: blur(4px);
+}
+
+/* Only a click animates it, not the page's load: account-client.ts sets data-toggled. */
+.save[data-toggled] .save-icon svg {
+  transition-property: opacity, scale, filter;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .save[aria-pressed="true"] .save-icon svg:not(.filled),
+  .save:not([aria-pressed="true"]) .save-icon .filled {
+    scale: none;
+    filter: none;
+  }
+}
+
 .save:hover {
-  border-color: var(--garnet);
+  box-shadow: 0 0 0 1px var(--garnet);
   color: var(--garnet-text);
 }
 
 /* What you saved is yours: in garnet. */
 .save[aria-pressed="true"] {
-  border-color: var(--garnet);
   background: var(--rose);
+  box-shadow: 0 0 0 1px var(--garnet);
   color: var(--garnet-text);
-}
-
-.save[aria-pressed="true"] svg {
-  fill: currentColor;
 }
 
 /* In the list's rows: the icon alone, filled once saved. */
 .save.icon-only {
-  padding: 4px;
-  border-color: transparent;
+  padding: 5px;
   background: none;
-}
-
-.save.icon-only[aria-pressed="true"] {
-  background: none;
+  box-shadow: none;
 }
 
 .skill-head .save {

@@ -26,7 +26,9 @@ export function loginHref(save?: string): string {
   return `${href("api/auth/login")}?${p}`;
 }
 
-const ICON = `<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5.5 3h9a.5.5 0 0 1 .5.5V17l-5-3.6L5 17V3.5a.5.5 0 0 1 .5-.5z" /></svg>`;
+const BOOKMARK = `<path d="M5.5 3h9a.5.5 0 0 1 .5.5V17l-5-3.6L5 17V3.5a.5.5 0 0 1 .5-.5z" />`;
+/** The bookmark, outlined and filled: style.css shows the one for the button's state. */
+const ICON = `<span class="save-icon" aria-hidden="true"><svg viewBox="0 0 20 20">${BOOKMARK}</svg><svg class="filled" viewBox="0 0 20 20">${BOOKMARK}</svg></span>`;
 
 /** The words a Save button shows, by whether it's saved. */
 export const saveLabel = (saved: boolean) => (saved ? "Saved" : "Save");

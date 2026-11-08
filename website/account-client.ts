@@ -102,7 +102,11 @@ document.addEventListener("click", (event) => {
   else if (el.closest("[data-logout]")) void logout();
   else {
     const key = el.closest<HTMLElement>("[data-save]")?.dataset.save;
-    if (key) void toggle(key);
+    if (!key) return;
+    // Its icon animates from now on, unlike when the page's load sets what's saved.
+    for (const button of document.querySelectorAll<HTMLElement>(`[data-save="${CSS.escape(key)}"]`))
+      button.dataset.toggled = "";
+    void toggle(key);
   }
 });
 
