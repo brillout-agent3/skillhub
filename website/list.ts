@@ -153,10 +153,19 @@ function crowd(what: string, values: (number | null)[], log: boolean): Crowd {
   const at = (v: number) => Math.min(1, Math.max(0, (scale(v) - lo) / (hi - lo || 1)));
   const bins = Array<number>(BINS).fill(0);
   for (const v of known) bins[Math.min(BINS - 1, Math.floor(at(v) * BINS))]++;
-  // Smoothed, so the outline reads as a crowd rather than as bars.
-  const smooth = bins.map(
-    (_, i) => [1, 2, 3, 2, 1].reduce((sum, w, j) => sum + w * (bins[i + j - 2] ?? 0), 0) / 9,
-  );
+  // Smoothed, so the outline reads as a crowd rather than as bars. At the ends, over the neighbors
+  // there are: a pile at an end, such as the skills skills.sh saw on its first day, keeps its height.
+  const smooth = bins.map((_, i) => {
+    let sum = 0;
+    let weights = 0;
+    [1, 2, 3, 2, 1].forEach((w, j) => {
+      const n = bins[i + j - 2];
+      if (n === undefined) return;
+      sum += w * n;
+      weights += w;
+    });
+    return sum / weights;
+  });
   const max = Math.max(...smooth);
   const y = (n: number) => FLOOR - (n / max) * (FLOOR - PEAK);
   return {
