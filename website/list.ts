@@ -115,7 +115,53 @@ interface PropInfo {
   keys?: string[];
   /** Its values are dates, and its stops ages: see AGES. */
   date?: boolean;
+  /** Where its value places the entry, for the numbers that rank: see rankLabel. */
+  ranking?: Ranking;
 }
+
+/**
+ * The places of a number's values, highest first. A value's place is 1 plus how many are higher,
+ * so equal values share a place: a bundle shares its most installed skill's, every skill of a repo
+ * its repo's.
+ */
+interface Ranking {
+  /** What it ranks, such as "skills". */
+  what: string;
+  total: number;
+  placeOf: (v: number) => number;
+}
+function ranking(what: string, values: (number | null)[]): Ranking {
+  const sorted = values.filter((v) => v !== null).sort((a, b) => b - a);
+  return {
+    what,
+    total: sorted.length,
+    placeOf: (v) => {
+      // Binary search for how many are higher.
+      let lo = 0;
+      let hi = sorted.length;
+      while (lo < hi) {
+        const mid = (lo + hi) >> 1;
+        if (sorted[mid] > v) lo = mid + 1;
+        else hi = mid;
+      }
+      return lo + 1;
+    },
+  };
+}
+/**
+ * A place as people read it at a glance: in the top 10, the place itself, such as #3; further down,
+ * the share of the field at or above it, such as top 12%, or, past the middle, at or below it, such
+ * as bottom 8%, since "top 97%" reads oddly. A place such as #473 means little without the total,
+ * which the tooltip gives.
+ */
+function rankLabel(place: number, total: number): string {
+  if (place <= 10) return `#${place}`;
+  return place <= total / 2
+    ? `top ${Math.ceil((place / total) * 100)}%`
+    : `bottom ${Math.ceil(((total - place + 1) / total) * 100)}%`;
+}
+/** The repos the catalog's skills and bundles are in, which stars rank among. */
+const listedRepos = new Set([...data.skills, ...data.bundles].map(repoKey));
 
 /** 0, 10, 20, 50, 100… up past the largest value. */
 function countStops(of: (s: Skill) => number | null): number[] {
@@ -168,18 +214,24 @@ export const PROPS: Record<Prop, PropInfo> = {
     of: starsOf,
     title: (e) => `GitHub stars of ${repoKey(e)}, ${date(data.asOf.stars)}`,
     stops: countStops(starsOf),
+    ranking: ranking(
+      "repos",
+      data.repos.filter((r) => listedRepos.has(r.id)).map((r) => r.stars),
+    ),
   },
   downloads: {
     label: "Total Downloads",
     of: installsOf,
     title: (e) => `${most(e)}All-time installs on skills.sh, ${date(data.asOf.installs)}`,
     stops: countStops(installsOf),
+    ranking: ranking("skills", data.skills.map(installsOf)),
   },
   week: {
     label: "Weekly Downloads",
     of: weekOf,
     title: (e) => `${most(e)}Installs on skills.sh in the week to ${date(data.asOf.installs)}`,
     stops: countStops(weekOf),
+    ranking: ranking("skills", data.skills.map(weekOf)),
   },
 };
 const PROP_IDS = Object.keys(PROPS) as Prop[];
@@ -663,24 +715,32 @@ function filterChip(
   }><span>${esc(label)}</span><span class="n">${n}</span></button>`;
 }
 
-/** The row's numbers, top right, with the one the list is sorted by highlighted. */
+/**
+ * The row's numbers, top right, with the one the list is sorted by highlighted. Each number that
+ * ranks is followed by its rank among the whole catalog, whatever the filters: see rankLabel.
+ * Every row has a rank cell, empty for a number that doesn't rank, so the columns line up.
+ */
 function propsHtml(e: Entry, st: State): string {
   const rows = PROP_IDS.map((p) => {
-    const v = PROPS[p].of(e);
+    const { of, date: isDate, ranking, label, rowLabel } = PROPS[p];
+    const v = of(e);
     // Ages count up to the data's date, as the Published slider does, not to the viewer's day.
     const shown =
-      v === null
-        ? "—"
-        : PROPS[p].date
-          ? age(v as string, data.asOf.installs)
-          : compact(v as number);
-    return `<div${p === st.sort ? ` class="on"` : ""}${v === null ? "" : ` title="${esc(PROPS[p].title(e))}"`}><dt>${PROPS[p].rowLabel ?? PROPS[p].label}</dt><dd>${shown}</dd></div>`;
+      v === null ? "—" : isDate ? age(v as string, data.asOf.installs) : compact(v as number);
+    let title = v === null ? null : PROPS[p].title(e);
+    let rank = "";
+    if (ranking && typeof v === "number") {
+      const place = ranking.placeOf(v);
+      rank = rankLabel(place, ranking.total);
+      title += `. #${place.toLocaleString("en")} of ${ranking.total.toLocaleString("en")} ${ranking.what}`;
+    }
+    return `<div${p === st.sort ? ` class="on"` : ""}${title === null ? "" : ` title="${esc(title)}"`}><dt>${rowLabel ?? label}</dt><dd>${shown}</dd><dd class="rank">${rank}</dd></div>`;
   });
   // The growth shows only while the list is sorted by it, to explain the order.
   if (st.sort === "growth") {
     const g = growthOf(e);
     rows.push(
-      `<div class="on" title="${esc(GROWTH.title(e))}"><dt>${GROWTH.label}</dt><dd>${g === null ? "—" : percent(g)}</dd></div>`,
+      `<div class="on" title="${esc(GROWTH.title(e))}"><dt>${GROWTH.label}</dt><dd>${g === null ? "—" : percent(g)}</dd><dd class="rank"></dd></div>`,
     );
   }
   return `<dl class="props">${rows.join("")}</dl>`;

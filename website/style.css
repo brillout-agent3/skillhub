@@ -1325,7 +1325,7 @@ body:has(.skills-view) {
 .props {
   display: grid;
   flex: none;
-  grid-template-columns: minmax(max-content, 1fr) max-content;
+  grid-template-columns: minmax(max-content, 1fr) max-content max-content;
   align-self: flex-start;
   min-width: 19em;
   margin: 0;
@@ -1361,12 +1361,21 @@ body:has(.skills-view) {
   font-weight: 650;
 }
 
+/* A number's rank, after it: quieter than the number itself. */
+.props .rank {
+  padding-left: 0;
+  color: var(--ink-3);
+  font-weight: 400;
+  text-align: left;
+}
+
 .props .on dt {
   border-radius: 4px 0 0 4px;
 }
 
-.props .on dd {
+.props .on .rank {
   border-radius: 0 4px 4px 0;
+  font-weight: 400;
 }
 
 .skill-head {
@@ -2430,6 +2439,14 @@ body:has(.skills-view) {
 
   .props div {
     display: flex;
+  }
+
+  .props .rank:empty {
+    display: none;
+  }
+
+  .props .on dd:nth-last-child(2):has(+ .rank:empty) {
+    border-radius: 0 4px 4px 0;
   }
 
   .page {
