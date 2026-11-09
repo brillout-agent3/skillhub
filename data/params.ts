@@ -11,7 +11,7 @@ export const MINIMUMS = { installs: 5000, stars: 100 };
  * whatever their installs, and they qualify whatever the minimums. An agent still reviews each one,
  * with the add-skill skill, which says the few reasons that disqualify them.
  */
-export const WHITELISTED_AUTHORS = ["mattpocock"];
+export const WHITELISTED_AUTHORS = ["mattpocock", "brillout"];
 
 /**
  * How far down skills.sh's sitemap the crawl reads: until this many skills in a row are under
