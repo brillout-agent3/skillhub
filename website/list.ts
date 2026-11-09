@@ -1080,19 +1080,19 @@ export function listView(st: State, reviewed: number): string {
         <p class="list-sub"><a href="${href("about/")}">Curated from ${reviewed.toLocaleString("en")} reviewed skills</a></p>
         <div class="finder">
           <p id="scope" class="scope">${scopeHtml(st)}</p>
-          <div class="search-field" data-action="focus-search">
-            <svg class="search-icon" viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="1.5" /><path d="m13 13 4.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /></svg>
-            <label for="q" class="sr-only">Search</label>
-            <input id="q" type="search" value="${esc(st.q)}" placeholder="Search" autocomplete="off" spellcheck="false" aria-describedby="search-note scope" />
-          </div>
           <div class="agent-field" data-action="focus-need">
             <svg class="ask-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 6.5V4M2 11v3M18 11v3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /><rect x="4" y="6.5" width="12" height="10" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.5" /><circle cx="10" cy="3" r="1.25" fill="currentColor" /><circle cx="7.75" cy="10.75" r="1.25" fill="currentColor" /><circle cx="12.25" cy="10.75" r="1.25" fill="currentColor" /><path d="M8.5 13.75h3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /></svg>
             <label for="need" class="sr-only">What you need, for your agent</label>
             <input id="need" type="text" placeholder="Describe what you need" autocomplete="off" aria-describedby="ask-label scope" />
             <button type="button" class="ask-button" data-action="ask">Find with your agent</button>
           </div>
-          <p id="search-note" class="search-note">${searchNote(st)}</p>
+          <div class="search-field" data-action="focus-search">
+            <svg class="search-icon" viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5" fill="none" stroke="currentColor" stroke-width="1.5" /><path d="m13 13 4.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /></svg>
+            <label for="q" class="sr-only">Search</label>
+            <input id="q" type="search" value="${esc(st.q)}" placeholder="Search" autocomplete="off" spellcheck="false" aria-describedby="search-note scope" />
+          </div>
           <p id="ask-label" class="ask-label" aria-live="polite">${askLabel(st)}</p>
+          <p id="search-note" class="search-note">${searchNote(st)}</p>
         </div>
         <section id="results" aria-label="Skills">${resultsHtml(st)}</section>
       </div>

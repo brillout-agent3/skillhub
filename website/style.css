@@ -694,17 +694,17 @@ body:has(.skills-view) {
 }
 
 /*
- * Two ways to find a skill, side by side and styled apart, each with its line under it: the search,
- * which filters as you type, and the agent's box, with its own words and button. Above both, the
- * filters that narrow them.
+ * Two ways to find a skill, side by side and styled apart, each with its line under it: the agent's
+ * box, first and wider, with its own words and button, and the search, which filters as you type.
+ * Above both, the filters that narrow them.
  */
 .finder {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) 300px;
   grid-template-areas:
     "scope scope"
-    "field agent"
-    "note label";
+    "agent field"
+    "label note";
   /* No row gap: the margins below space the rows, so that the scope's row takes no room while
      it's empty. */
   gap: 0 16px;
@@ -2266,13 +2266,13 @@ body:has(.skills-view) {
 /* ------------------------------------------------------------- narrow screens */
 
 /* Too narrow for the two boxes side by side: one under the other. */
-@media (max-width: 1250px) {
+@media (max-width: 1150px) {
   .finder {
     grid-template-columns: minmax(0, 1fr);
-    grid-template-areas: "scope" "field" "note" "agent" "label";
+    grid-template-areas: "scope" "agent" "label" "field" "note";
   }
 
-  .agent-field {
+  .search-field {
     margin-top: 16px;
   }
 }
