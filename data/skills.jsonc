@@ -5377,7 +5377,7 @@
     },
     {
       "id": "jakubantalik/transitions.dev@transitions",
-      "skew": 0,
+      "skew": 116,
       "agentReview": {
         "name": "Transitions.dev",
         "description": "Two skills that install tuned CSS transitions from transitions.dev and retune existing motion to the same token scale.",
@@ -6185,7 +6185,7 @@
     },
     {
       "id": "earthtojake/text-to-cad",
-      "skew": 2849,
+      "skew": 2880,
       "agentReview": {
         "name": "text-to-cad",
         "description": "Design physical parts with an agent: text-to-cad's skills for 3D models, purchasable parts, DXF drawings, robot descriptions, fabrication and 3D-printing checks, slicing and printer handoff.",
@@ -6613,7 +6613,7 @@
     },
     {
       "id": "mvanhorn/cli-printing-press",
-      "skew": 0,
+      "skew": 348,
       "agentReview": {
         "name": "CLI Printing Press",
         "description": "Prints agent-friendly Go CLIs with MCP servers for any API or website, then polishes, scores and publishes them, amends or reprints published ones, and files retros on the press itself.",
@@ -29162,9 +29162,9 @@
         "firstSeen": "2026-04-19"
       },
       "skillMd": {
-        "version": "e57eda6102a19444538ebd611d39534fad65b663",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "6a7f19fcc132b39b126bea90167679b46b14bcc4",
+        "updated": "2026-11-09",
+        "skew": 16
       },
       "agentReview": {
         "description": "Draws diagrams and charts of 45 types as self-contained HTML and SVG in your brand, and redraws draw.io, Mermaid and Excalidraw files.",
@@ -29636,9 +29636,9 @@
         "firstSeen": "2026-05-20"
       },
       "skillMd": {
-        "version": "e706ea0c6401f92af2ff7098c941bd7f59039058",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "20d70c1262bf721c0300c2946cbe1fc7605a555c",
+        "updated": "2026-11-09",
+        "skew": 116
       },
       "agentReview": {
         "description": "Adds ready-made CSS transitions to web UI, from dropdowns and modals to toasts and loaders, each pasted with its reduced-motion guard.",
@@ -32176,9 +32176,9 @@
         "firstSeen": "2026-03-21"
       },
       "skillMd": {
-        "version": "769547394107870a0c7b5ad8d1c0c75035123aef",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "ce92fb43e4ade9c701f4c869e286f13fce743c72",
+        "updated": "2026-11-09",
+        "skew": 2
       },
       "agentReview": {
         "description": "Generates natively editable PowerPoint decks from your material, and builds templates, fills existing PPTX files or redesigns finished decks.",
@@ -32818,9 +32818,9 @@
         "firstSeen": "2026-07-18"
       },
       "skillMd": {
-        "version": "b81da90354e3ce4c1e01c5e5a06f4794f15f436a",
-        "updated": "2026-11-08",
-        "skew": 53
+        "version": "78a84d75c091839aa59da01cc7cc0010aa6d1ec5",
+        "updated": "2026-11-09",
+        "skew": 171
       },
       "agentReview": {
         "description": "Reverse engineers binaries, apps, packages, firmware and recorded traffic through the REA MCP server, separating what it observed from what it infers.",
@@ -33070,9 +33070,9 @@
         "firstSeen": "2026-04-22"
       },
       "skillMd": {
-        "version": "4ad86d617f1b9503d434b87b868a8f9e5ead3c19",
-        "updated": "2026-11-08",
-        "skew": 2459
+        "version": "1cfd73cbbf0be943e0ff7aa0c672f824935b98a7",
+        "updated": "2026-11-09",
+        "skew": 2490
       },
       "agentReview": {
         "description": "Models 3D parts and assemblies as Python build123d scripts that text-to-cad's viewer shows live, and exports them as STEP, STL, 3MF or GLB.",
@@ -44849,9 +44849,9 @@
         "firstSeen": "2026-03-04"
       },
       "skillMd": {
-        "version": "2a12295a7717569baa7be181b4cfebe3ca38a6bb",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "9af7bfd0bc47fdad43c2eaa7a43cd13918e7aaef",
+        "updated": "2026-11-09",
+        "skew": 45
       },
       "agentReview": {
         "description": "Runs a pre-mortem on a PRD or launch plan, sorting risks into Tigers, Paper Tigers and Elephants, with action plans for launch blockers.",
@@ -44903,9 +44903,9 @@
         "firstSeen": "2026-03-04"
       },
       "skillMd": {
-        "version": "2a12295a7717569baa7be181b4cfebe3ca38a6bb",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "9af7bfd0bc47fdad43c2eaa7a43cd13918e7aaef",
+        "updated": "2026-11-09",
+        "skew": 33
       },
       "agentReview": {
         "description": "Explains nine prioritization frameworks, from Opportunity Score and ICE to RICE, Kano and MoSCoW, with formulas and when to use each.",
@@ -50561,9 +50561,9 @@
         "firstSeen": "2026-05-07"
       },
       "skillMd": {
-        "version": "94ce80e35cbc516cbab1b80f54d96ca419958ca0",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "7bf298bff3bb63b2e877e5e5e8856831e7c2254d",
+        "updated": "2026-11-09",
+        "skew": 2
       },
       "agentReview": {
         "description": "Researches an API, then generates, live-tests and polishes a Go CLI and MCP server for it from a spec, HAR file or browser capture.",
@@ -50627,9 +50627,9 @@
         "firstSeen": "2026-05-07"
       },
       "skillMd": {
-        "version": "94ce80e35cbc516cbab1b80f54d96ca419958ca0",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "7bf298bff3bb63b2e877e5e5e8856831e7c2254d",
+        "updated": "2026-11-09",
+        "skew": 346
       },
       "agentReview": {
         "description": "Validates, live-tests and packages a Printing Press CLI, then opens a pull request to the public printing-press-library and drives it to green review.",
