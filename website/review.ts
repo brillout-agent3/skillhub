@@ -5,7 +5,7 @@
  */
 
 import raw from "../data/crawl.jsonc";
-import { MINIMUMS } from "../scripts/data.ts";
+import { MINIMUMS } from "../data/params.ts";
 import type { Crawl } from "../data/types.ts";
 import { data } from "./skills.ts";
 

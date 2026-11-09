@@ -12,5 +12,5 @@
     "verbatimModuleSyntax": true,
     "skipLibCheck": true
   },
-  "include": ["website", "scripts", "data/types.ts"]
+  "include": ["website", "scripts", "data/types.ts", "data/params.ts"]
 }

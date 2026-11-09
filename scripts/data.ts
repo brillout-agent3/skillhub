@@ -8,6 +8,7 @@ import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { parse, stringify, type CommentToken } from "comment-json";
 import { fileURLToPath } from "node:url";
 import type { Crawl, Crawled, Data, Tldr } from "../data/types.ts";
+import { MINIMUMS, TLDR_LIMITS, WHITELISTED_AUTHORS } from "../data/params.ts";
 import { github } from "../website/github.ts";
 
 export const root = fileURLToPath(new URL("..", import.meta.url));
@@ -152,16 +153,6 @@ export function approvedPages(data: Data): Set<string> {
   return pages;
 }
 
-/** What a skill of the top 600 needs to qualify: all-time installs, and its GitHub repo's stars. */
-export const MINIMUMS = { installs: 5000, stars: 100 };
-
-/**
- * GitHub owners whose every skill SkillHub lists: the crawl records all their skills on skills.sh,
- * whatever their installs, and they qualify whatever the minimums. An agent still reviews each one,
- * with the add-skill skill, which says the few reasons that disqualify them.
- */
-export const WHITELISTED_AUTHORS = ["mattpocock"];
-
 /** Whether a repo, `owner/name`, is a whitelisted author's. GitHub doesn't care about case. */
 export const whitelisted = (repo: string) =>
   WHITELISTED_AUTHORS.some((a) => a.toLowerCase() === repo.split("/")[0].toLowerCase());
@@ -175,9 +166,6 @@ export const passes = (c: Crawled) =>
   ((c["skills.sh"].installs ?? 0) >= MINIMUMS.installs && (c.stars ?? -1) >= MINIMUMS.stars);
 
 // -------------------------------------------------------------------- TLDRs
-
-/** The most a TLDR may hold; there's no minimum. */
-export const TLDR_LIMITS = { glanceItems: 8, labelWords: 4, glanceWords: 30, textWords: 200 };
 
 /** What's wrong with a TLDR's glance and text, if anything. */
 export function tldrProblems({ glance, text }: Pick<Tldr, "glance" | "text">): string[] {

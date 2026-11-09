@@ -26,16 +26,15 @@
 
 import {
   approvedPages,
-  MINIMUMS,
   pageKey,
   passes,
   readCrawl,
   readData,
   whitelisted,
-  WHITELISTED_AUTHORS,
   writeCrawl,
   writeData,
 } from "./data.ts";
+import { MINIMUMS, UNDER_IN_A_ROW, WHITELISTED_AUTHORS } from "../data/params.ts";
 import { get, pool } from "./fetch.ts";
 import type { Crawled } from "../data/types.ts";
 import { bundleRepo, github } from "../website/github.ts";
@@ -303,13 +302,6 @@ await pool(board, 4, async (e) => {
 });
 
 // ------------------------------------------------------------------- beyond the top 600
-
-/**
- * How far down the sitemap the crawl reads: until this many skills in a row are under
- * MINIMUMS.installs. The sitemap lists skills roughly most installed first, but loosely, so a
- * skill that reaches the minimum can come after many that don't.
- */
-const UNDER_IN_A_ROW = 1000;
 
 // The sitemap's skills that reach MINIMUMS.installs land in crawl.jsonc too, with the rounded
 // numbers of their own page. A page that doesn't read is retried on the next run: only many of

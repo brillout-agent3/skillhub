@@ -46,7 +46,7 @@ export interface Data {
  * The shape of data/crawl.jsonc: every skill the crawl has seen that isn't approved (the approved
  * ones are in skills.jsonc), keyed by its skills.sh page: those of the skills.sh all-time top 600,
  * those further down skills.sh's sitemap that reach `MINIMUMS.installs`, and all those of the
- * `WHITELISTED_AUTHORS` of ../scripts/data.ts. The two
+ * `WHITELISTED_AUTHORS` of ./params.ts. The two
  * files are cumulative: a skill that lands in either never leaves them, only its state changes.
  * Unlike skills.jsonc, crawl.jsonc takes any skill, such as one a website publishes.
  */
@@ -61,7 +61,7 @@ export interface Crawl {
    */
   asOf: string;
   /**
-   * At the minimums (`MINIMUMS` in ../scripts/data.ts) or above, or by a whitelisted author
+   * At the minimums (`MINIMUMS` in ./params.ts) or above, or by a whitelisted author
    * (`WHITELISTED_AUTHORS` there), most installed first: waiting for an agent to approve or
    * disqualify them, with the add-skill skill.
    *
