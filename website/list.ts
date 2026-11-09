@@ -521,10 +521,7 @@ const matchScore = (e: Entry, q: string): number =>
 function passes(s: Skill, st: State, skip: string | null = null): boolean {
   if (st.repo && repoKey(s) !== st.repo) return false;
   if (st.saved && !account.saved.has(saveKey("skill", s.id))) return false;
-  // A skill listed only inside its bundle is in the sliders' ranges when its bundle is, unless
-  // the list shows it on its own.
-  const listedIn = !listsAlone(s, st) ? bundleOf.get(s.id)?.bundle : undefined;
-  if (!inRanges(listedIn ?? s, st)) return false;
+  if (!inRanges(rangedBy(s, st), st)) return false;
   const selected = new Map<string, string[]>();
   for (const t of st.tags) selected.set(facetOf(t), [...(selected.get(facetOf(t)) ?? []), t]);
   for (const [facet, tags] of selected)
@@ -537,15 +534,19 @@ function passes(s: Skill, st: State, skip: string | null = null): boolean {
  * row shows (its oldest skill's date, its most downloaded skill's downloads), so that a bundle
  * whose oldest skill is a year old isn't in "Published: last 90 days" for its newest skills.
  */
-function inRanges(e: Entry, st: State): boolean {
-  for (const p of PROP_IDS) {
-    const [lo, hi] = st.ranges[p];
-    if (!isNarrowed(p, [lo, hi])) continue;
-    const v = PROPS[p].of(e);
-    if (v === null || v < PROPS[p].stops[lo] || v >= PROPS[p].stops[hi]) return false;
-  }
-  return true;
+const inRanges = (e: Entry, st: State) => PROP_IDS.every((p) => inRange(e, p, st.ranges[p]));
+function inRange(e: Entry, p: Prop, [lo, hi]: Range): boolean {
+  if (!isNarrowed(p, [lo, hi])) return true;
+  const v = PROPS[p].of(e);
+  return v !== null && v >= PROPS[p].stops[lo] && v < PROPS[p].stops[hi];
 }
+
+/**
+ * The entry whose numbers the sliders filter a skill by: a skill listed only inside its bundle is
+ * in the sliders' ranges when its bundle is, unless the list shows it on its own.
+ */
+const rangedBy = (s: Skill, st: State): Entry =>
+  (!listsAlone(s, st) && bundleOf.get(s.id)?.bundle) || s;
 
 /**
  * Whether the list shows the skill on its own row. With bundles, a skill that isn't
@@ -635,6 +636,37 @@ function counts(st: State, facet: string, valuesOf: (s: Skill) => string[]): Map
         add(matchedThrough(b, st, facet).flatMap(valuesOf));
   } else for (const s of data.skills) if (passes(s, st, facet)) add(valuesOf(s));
   return n;
+}
+
+/**
+ * Each slider's histogram: how many skills, or bundles when the list shows only those, have a
+ * value between each two neighboring stops, one bar per step of the slider. A slider counts with
+ * the other filters, as a facet's chips do, but not with its own range, so that its bars outside
+ * the range show what widening it would bring back. For one state at a time.
+ */
+type Histograms = Record<Prop, number[]>;
+let lastHistograms: { st: State; h: Histograms } | undefined;
+function histograms(st: State): Histograms {
+  if (lastHistograms?.st === st) return lastHistograms.h;
+  const h = Object.fromEntries(
+    PROP_IDS.map((p) => [p, Array<number>(lastStop(p)).fill(0)]),
+  ) as Histograms;
+  const add = (e: Entry) => {
+    // An entry that only one range leaves out counts in that slider's histogram only.
+    const out = PROP_IDS.filter((p) => !inRange(e, p, st.ranges[p]));
+    for (const p of out.length === 0 ? PROP_IDS : out.length === 1 ? out : []) {
+      const v = PROPS[p].of(e);
+      // The stops end above every value, so every known value has its bar.
+      const bar = v === null ? -1 : PROPS[p].stops.findIndex((stop) => v < stop) - 1;
+      if (bar >= 0) h[p][bar]++;
+    }
+  };
+  const unranged = { ...st, ranges: fullRanges() };
+  if (st.show === "bundles") {
+    for (const b of data.bundles) if (bundlePasses(b, unranged)) add(b);
+  } else for (const s of data.skills) if (passes(s, unranged)) add(rangedBy(s, st));
+  lastHistograms = { st, h };
+  return h;
 }
 
 // ------------------------------------------------------------------- asking an agent
@@ -1058,11 +1090,47 @@ export function resultsHtml(st: State, limit = Infinity): string {
     }`;
 }
 
+/**
+ * A slider's histogram's bars (see histograms), each as tall as its count against the tallest; one
+ * with a count is at least a few pixels tall, so that it doesn't pass for none. The bars outside the
+ * range fade. The client re-renders them with the list, as their counts follow the filters.
+ */
+export function histogramHtml(st: State, p: Prop): string {
+  const bars = histograms(st)[p];
+  const max = Math.max(1, ...bars);
+  const [lo, hi] = st.ranges[p];
+  return bars
+    .map(
+      (n, i) =>
+        `<span${i >= lo && i < hi ? "" : ` class="out"`} style="--h: ${n ? Math.max(0.08, n / max).toFixed(3) : 0}" title="${esc(`${rangeLabel(p, [i, i + 1])}: ${plural(n, unitOf(st))}`)}"></span>`,
+    )
+    .join("");
+}
+
+/**
+ * Under a histogram, some of its stops' values, each under its stop: for counts, 0 and the powers
+ * of 10 at least 3 steps apart, such as 0, 100, 1K, 10K; for dates, the ages.
+ */
+function axisHtml(p: Prop): string {
+  const { stops, date } = PROPS[p];
+  const last = lastStop(p);
+  const labels: [number, string][] = [];
+  if (date) AGES.forEach((n, i) => labels.push([i + 1, n === 365 ? "1y" : `${n}d`]));
+  else
+    stops.forEach((v, i) => {
+      const decade = v === 0 || Number.isInteger(Math.log10(v as number));
+      if (decade && (!labels.length || i - labels[labels.length - 1][0] >= 3))
+        labels.push([i, compact(v as number)]);
+    });
+  return labels.map(([i, text]) => `<span style="--at: ${i / last}">${text}</span>`).join("");
+}
+
 const CHEVRON = `<svg class="chevron" viewBox="0 0 12 12" aria-hidden="true"><path d="m3 4.5 3 3 3-3" /></svg>`;
 
 /**
  * A pill per property, with its range; a click opens its two-handled slider in a popover under the
- * pills (see list-client.ts). The client updates both in place while a slider is dragged.
+ * pills (see list-client.ts), with a histogram above it. The client updates them in place while a
+ * slider is dragged.
  */
 export function rangesHtml(st: State): string {
   return PROP_IDS.map((p) => {
@@ -1072,7 +1140,7 @@ export function rangesHtml(st: State): string {
     const value = `<span data-range-label="${p}">${rangeLabel(p, [lo, hi])}</span>`;
     const handle = (end: 0 | 1, v: number) =>
       `<input type="range" min="0" max="${last}" step="1" value="${v}" data-range="${p}" data-end="${end}" aria-label="${label}, ${end ? "to" : "from"}" aria-valuetext="${rangeLabel(p, [lo, hi])}" />`;
-    return `<div class="range${isNarrowed(p, [lo, hi]) ? " narrowed" : ""}" data-range-section="${p}"><button type="button" class="range-pill" data-action="range" data-value="${p}" aria-expanded="false" aria-controls="range-pop-${p}"><span>${label}</span><span class="range-value">${value}${CHEVRON}</span></button><div class="range-pop" id="range-pop-${p}" role="group" aria-label="${label}" hidden><div class="range-pop-head"><span>${label}</span>${value}</div><div class="slider" data-slider="${p}" style="--lo: ${lo / last}; --hi: ${hi / last}">${handle(0, lo)}${handle(1, hi)}</div></div></div>`;
+    return `<div class="range${isNarrowed(p, [lo, hi]) ? " narrowed" : ""}" data-range-section="${p}"><button type="button" class="range-pill" data-action="range" data-value="${p}" aria-expanded="false" aria-controls="range-pop-${p}"><span>${label}</span><span class="range-value">${value}${CHEVRON}</span></button><div class="range-pop" id="range-pop-${p}" role="group" aria-label="${label}" hidden><div class="range-pop-head"><span>${label}</span>${value}</div><div class="histogram" data-histogram="${p}" aria-hidden="true">${histogramHtml(st, p)}</div><div class="histogram-axis" aria-hidden="true">${axisHtml(p)}</div><div class="slider" data-slider="${p}" style="--lo: ${lo / last}; --hi: ${hi / last}">${handle(0, lo)}${handle(1, hi)}</div></div></div>`;
   }).join("");
 }
 

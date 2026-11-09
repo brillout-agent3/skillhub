@@ -1021,7 +1021,9 @@ body:has(.skills-view) {
   color: var(--garnet-text);
 }
 
+/* --thumb: a slider handle's width, which the histogram above it is inset by, as the track is. */
 .range-pop {
+  --thumb: 16px;
   position: absolute;
   z-index: 2;
   top: calc(100% + 6px);
@@ -1056,13 +1058,59 @@ body:has(.skills-view) {
 }
 
 /*
+ * A bar per step of the slider under it, each spanning its step: the bars sit inset by half a
+ * handle, as the track does. At rest they're grey; while the range narrows the list, the bars in it
+ * are garnet, as the track is. The bars outside the range fade. A bar of none is a hairline.
+ */
+.histogram {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 40px;
+  padding: 0 calc(var(--thumb) / 2);
+  border-bottom: 1px solid var(--rule);
+}
+
+.histogram span {
+  flex: 1;
+  height: calc(var(--h) * 100%);
+  border-radius: 2px 2px 0 0;
+  background: var(--rule-strong);
+}
+
+.narrowed .histogram span {
+  background: var(--garnet);
+}
+
+.histogram span.out,
+.narrowed .histogram span.out {
+  background: var(--rule);
+}
+
+.histogram-axis {
+  position: relative;
+  height: 16px;
+  margin: 4px 0 6px;
+  color: var(--ink-3);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.histogram-axis span {
+  position: absolute;
+  left: calc(var(--thumb) / 2 + var(--at) * (100% - var(--thumb)));
+  translate: -50%;
+  line-height: 16px;
+  white-space: nowrap;
+}
+
+/*
  * Two range inputs on one track; only their handles take the pointer. A handle shows as a 16px
  * circle, but takes the pointer --hit tall: its transparent top and bottom borders, with radii that
  * leave its padding box a circle. Not wider, since the handles of neighboring stops can be 16px
  * apart. The slider's negative margins keep the layout as if it were 16px tall.
  */
 .slider {
-  --thumb: 16px;
   --hit: 40px;
   --hit-pad: calc((var(--hit) - var(--thumb)) / 2);
   position: relative;

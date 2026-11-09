@@ -6,6 +6,7 @@ import {
   PROPS,
   facetsHtml,
   fullRange,
+  histogramHtml,
   isNarrowed,
   rangeLabel,
   parse,
@@ -142,6 +143,12 @@ function syncRanges() {
   }
 }
 
+/** The histograms' counts follow the other filters, and their bars the slider's own range. */
+function renderHistograms() {
+  for (const el of app.querySelectorAll<HTMLElement>("[data-histogram]"))
+    el.innerHTML = histogramHtml(state, el.dataset.histogram as Prop);
+}
+
 /** Rows rendered right away; the rest follow STEP at a time, so a change shows without waiting for the whole list. */
 const FIRST = 40;
 const STEP = 150;
@@ -200,6 +207,7 @@ function render() {
   const focus = focusSelector();
   if (q.value !== state.q) q.value = state.q;
   syncRanges();
+  renderHistograms();
   syncSaved();
   (document.getElementById("settings") as HTMLElement).innerHTML = settingsHtml(state);
   (document.getElementById("show") as HTMLElement).innerHTML = showHtml(state);
