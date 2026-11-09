@@ -155,8 +155,7 @@ export default function Page(): string {
       </ul>
 
       <h2 id="weekly-growth">Weekly Growth</h2>
-      <p>How fast a skill's downloads grow. It compares the skill's downloads on skills.sh in an average week of the last 2 against an average week of the 4 before: ${n(2000)} a week against ${n(1000)} is +100%. Rising, the list's default view, sorts by it, to show the skills catching on now, which Top, sorted by weekly downloads, buries under the ones popular for a long time.</p>
-      <p>Only a skill with at least ${n(GROWTH_MIN)} downloads a week, and at least ${n(GROWTH_BASE_MIN)} in each of the last ${GROWTH_WEEKS} weeks, has one. A new skill, or one that sat almost unused before it took off, would grow from next to nothing, to a meaningless +45,000%. Rising &amp; new lists those instead, by weekly downloads, and counts a skill that took off as published the week it did.</p>
+      <p>How fast a skill's downloads on skills.sh grow: its average week of the last 2 against its average week of the 4 before. Rising sorts by it. Only for skills with at least ${n(GROWTH_MIN)} downloads a week, and at least ${n(GROWTH_BASE_MIN)} in each of the last ${GROWTH_WEEKS} weeks: newer ones show under Rising &amp; new.</p>
 
       <h2>Up-to-date</h2>
       <p>SkillHub follows each listed skill's SKILL.md in its repo. A skill's page says when its SKILL.md has changed since its TL;DR was written.</p>
