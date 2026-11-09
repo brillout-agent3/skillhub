@@ -149,13 +149,13 @@ function ranking(what: string, values: (number | null)[]): Ranking {
   };
 }
 /**
- * A place as people read it at a glance: in the top 10, the place itself, such as #3; further down,
+ * A place as people read it at a glance: up to #99, the place itself, such as #3; further down,
  * the share of the field at or above it, such as top 12%, or, past the middle, at or below it, such
  * as bottom 8%, since "top 97%" reads oddly. A place such as #473 means little without the total,
  * which the tooltip gives.
  */
 function rankLabel(place: number, total: number): string {
-  if (place <= 10) return `#${place}`;
+  if (place < 100) return `#${place}`;
   return place <= total / 2
     ? `top ${Math.ceil((place / total) * 100)}%`
     : `bottom ${Math.ceil(((total - place + 1) / total) * 100)}%`;
