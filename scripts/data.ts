@@ -155,9 +155,24 @@ export function approvedPages(data: Data): Set<string> {
 /** What a skill of the top 600 needs to qualify: all-time installs, and its GitHub repo's stars. */
 export const MINIMUMS = { installs: 5000, stars: 100 };
 
-/** Whether a skill of the top 600 reaches the minimums. Unknown stars don't. */
+/**
+ * GitHub owners whose every skill SkillHub lists: the crawl records all their skills on skills.sh,
+ * whatever their installs, and they qualify whatever the minimums. An agent still reviews each one,
+ * with the add-skill skill, which says the few reasons that disqualify them.
+ */
+export const WHITELISTED_AUTHORS = ["mattpocock"];
+
+/** Whether a repo, `owner/name`, is a whitelisted author's. GitHub doesn't care about case. */
+export const whitelisted = (repo: string) =>
+  WHITELISTED_AUTHORS.some((a) => a.toLowerCase() === repo.split("/")[0].toLowerCase());
+
+/**
+ * Whether a skill of crawl.jsonc qualifies: it's a whitelisted author's, or it reaches the
+ * minimums. Unknown stars don't.
+ */
 export const passes = (c: Crawled) =>
-  (c["skills.sh"].installs ?? 0) >= MINIMUMS.installs && (c.stars ?? -1) >= MINIMUMS.stars;
+  whitelisted(c.repo) ||
+  ((c["skills.sh"].installs ?? 0) >= MINIMUMS.installs && (c.stars ?? -1) >= MINIMUMS.stars);
 
 // -------------------------------------------------------------------- TLDRs
 

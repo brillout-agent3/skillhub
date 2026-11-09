@@ -1,10 +1,10 @@
 /**
  * crawl.ts — crawl skills.sh and GitHub: refresh the numbers, and record in data/crawl.jsonc every
- * skill of the skills.sh all-time top 600, and every skill further down that reaches
- * MINIMUMS.installs.
+ * skill of the skills.sh all-time top 600, every skill further down that reaches
+ * MINIMUMS.installs, and every skill of the WHITELISTED_AUTHORS.
  *
  * It reads the top 600, which skills.sh embeds in its home page (its robots.txt keeps scripts off
- * its API), and skills.sh's sitemap, then:
+ * its API), skills.sh's sitemap, and the whitelisted authors' pages on skills.sh, then:
  * - gives every approved skill (skills.jsonc) its installs and weekly installs: from the top 600,
  *   or for a skill outside it, from its own skills.sh page, which also gives a missing first-seen
  *   date;
@@ -14,10 +14,12 @@
  *   disqualified (not on GitHub);
  * - reads the page of every other skill of the sitemap, in its order, until UNDER_IN_A_ROW skills
  *   in a row are under MINIMUMS.installs, and records those that reach it the same way, or
- *   refreshes them once recorded.
+ *   refreshes them once recorded;
+ * - reads the page of every skill skills.sh lists for a whitelisted author, and records it whatever
+ *   its installs: it qualifies whatever the minimums.
  *
- * A skill outside both keeps its state and its last numbers. An agent approves or disqualifies the
- * qualified skills with the add-skill skill.
+ * A skill outside all three keeps its state and its last numbers. An agent approves or disqualifies
+ * the qualified skills with the add-skill skill.
  *
  * Run: pnpm run crawl
  */
@@ -29,6 +31,8 @@ import {
   passes,
   readCrawl,
   readData,
+  whitelisted,
+  WHITELISTED_AUTHORS,
   writeCrawl,
   writeData,
 } from "./data.ts";
@@ -166,6 +170,34 @@ function skillPage(url: string): Promise<Page | null> {
   return pages.get(pageKey(url)) as Promise<Page | null>;
 }
 
+/**
+ * Every skill skills.sh has of a GitHub owner, as https://skills.sh/owner/repo/skill, whatever its
+ * installs: the owner's page there lists its repos, and each repo's page lists all its skills.
+ */
+async function authorSkills(owner: string): Promise<string[]> {
+  const page = async (path: string) => {
+    const html = await get(`https://www.skills.sh/${path}`);
+    if (html === null) throw new Error(`https://skills.sh/${path} isn't on skills.sh`);
+    return html;
+  };
+  /** The pages one level under `path` that `html` links to, such as /owner/repo under /owner. */
+  const under = (html: string, path: string) => {
+    const escaped = path.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const links = html.matchAll(new RegExp(`href="/(${escaped}/[^/"?#]+)"`, "gi"));
+    return [...new Set([...links].map((m) => m[1]))];
+  };
+  const repos = under(await page(owner), owner);
+  if (!repos.length) throw new Error(`skills.sh lists no repos of ${owner}; did its page change?`);
+  const skills: string[] = [];
+  await pool(repos, 4, async (repo) => {
+    const found = under(await page(repo), repo);
+    if (!found.length)
+      throw new Error(`skills.sh lists no skills of ${repo}; did its page change?`);
+    skills.push(...found.map((path) => `https://skills.sh/${path}`));
+  });
+  return skills;
+}
+
 /** The skill pages of skills.sh's sitemap, as https://skills.sh/owner/repo/skill, in its order. */
 async function sitemapSkills(): Promise<string[]> {
   const index = (await get("https://www.skills.sh/sitemap.xml")) ?? "";
@@ -284,23 +316,27 @@ const UNDER_IN_A_ROW = 1000;
 // them fail the run, such as when skills.sh changed its pages.
 const sitemap = await sitemapSkills();
 const unread: string[] = [];
-let fromSitemap = 0;
+/** How many recorded skills `visit` refreshed. */
+let visited = 0;
 
-/** Read a skill of the sitemap: whether it reaches MINIMUMS.installs, or null when unknown. */
-async function visit(url: string): Promise<boolean | null> {
+/**
+ * Read a skill of the sitemap or of a whitelisted author: whether it reaches MINIMUMS.installs, or
+ * null when unknown. It's recorded when it does, or when its author is whitelisted.
+ */
+async function visit(url: string, failed = unread): Promise<boolean | null> {
   const key = pageKey(url);
   if (onBoard.has(key) || approved.has(key)) return true;
   if (disqualified.has(key)) return null;
   const page = await skillPage(url).catch((error: unknown) => {
-    unread.push(`${url}: ${message(error)}`);
+    failed.push(`${url}: ${message(error)}`);
     return undefined;
   });
   if (!page) return null;
   const reaches = (page.installs ?? 0) >= MINIMUMS.installs;
+  const [owner, repo, name] = url.replace("https://skills.sh/", "").split("/");
   let c = recorded.get(key);
   if (!c) {
-    if (!reaches) return false;
-    const [owner, repo, name] = url.replace("https://skills.sh/", "").split("/");
+    if (!reaches && !whitelisted(`${owner}/${repo}`)) return false;
     c = {
       name,
       repo: `${owner}/${repo}`,
@@ -312,7 +348,7 @@ async function visit(url: string): Promise<boolean | null> {
     recorded.set(key, c);
     added.push(`recorded ${url}`);
   }
-  fromSitemap++;
+  visited++;
   c.official = page.official;
   c.seen = today;
   c["skills.sh"].installs = page.installs;
@@ -334,11 +370,29 @@ while (depth < sitemap.length && under < UNDER_IN_A_ROW) {
 }
 if (unread.length > depth / 100)
   errors.push(`${unread.length} of the sitemap's skill pages didn't read, such as ${unread[0]}`);
+const fromSitemap = visited;
+
+// ------------------------------------------------------------------- whitelisted authors
+
+// Every skill a whitelisted author has on skills.sh lands in crawl.jsonc too, whatever its
+// installs, and qualifies (see passes()). They're a few dozen pages, so each one that doesn't read
+// is an error, as for the top 600.
+const authorUrls: string[] = [];
+for (const owner of WHITELISTED_AUTHORS) {
+  const urls = await authorSkills(owner).catch((error: unknown) => {
+    errors.push(`${owner}: ${message(error)}`);
+    return [];
+  });
+  authorUrls.push(...urls);
+}
+await pool(authorUrls, 4, async (url) => {
+  await visit(url, errors);
+});
 
 // ------------------------------------------------------------------- stars
 
 // For the repos of approved skills and bundles, and of the qualified and unqualified skills the
-// crawl just saw, in the top 600 or down the sitemap.
+// crawl just saw, in the top 600, down the sitemap or by a whitelisted author.
 const token = process.env.GITHUB_TOKEN;
 const seenToday = [...recorded.values()].filter((c) => c.seen === today);
 const repos = new Set([
@@ -371,7 +425,7 @@ for (const c of seenToday) c.stars = stars.get(c.repo) ?? c.stars;
 // ------------------------------------------------------------------- states
 
 // The minimums decide between qualified and unqualified, from the numbers of today's crawl only: a
-// skill it didn't see, in the top 600 or down the sitemap, keeps its state.
+// skill it didn't see, in the top 600, down the sitemap or by a whitelisted author, keeps its state.
 const byInstalls = (a: Crawled, b: Crawled) =>
   (b["skills.sh"].installs ?? -1) - (a["skills.sh"].installs ?? -1);
 const qualifiedBefore = new Set(crawl.qualified.map((c) => pageKey(c["skills.sh"].url)));
@@ -388,7 +442,7 @@ writeData(data);
 writeCrawl(crawl);
 
 console.log(
-  `Crawled the skills.sh top ${board.length}, and ${fromSitemap} skills further down its sitemap, whose first ${depth} it read${unread.length ? ` (${unread.length} pages didn't)` : ""}: refreshed ${data.skills.length} approved skills (${fromPages} from their own page)${stars.size ? ` and the stars of ${stars.size} repos` : ""}. crawl.jsonc: ${crawl.qualified.length} qualified (${newlyQualified.length} new), ${crawl.unqualified.length} unqualified, ${crawl.disqualified.length} disqualified.`,
+  `Crawled the skills.sh top ${board.length}, ${fromSitemap} skills further down its sitemap, whose first ${depth} it read${unread.length ? ` (${unread.length} pages didn't)` : ""}, and the ${authorUrls.length} skills of ${WHITELISTED_AUTHORS.join(", ")}: refreshed ${data.skills.length} approved skills (${fromPages} from their own page)${stars.size ? ` and the stars of ${stars.size} repos` : ""}. crawl.jsonc: ${crawl.qualified.length} qualified (${newlyQualified.length} new), ${crawl.unqualified.length} unqualified, ${crawl.disqualified.length} disqualified.`,
 );
 for (const line of added) console.log(`  ${line}`);
 for (const c of newlyQualified) console.log(`  qualified ${c["skills.sh"].url}`);

@@ -357,11 +357,11 @@
       "properties": {
         "url": {
           "type": "string",
-          "description": "The skill's page on skills.sh.\n\nSource: scripts/crawl.ts, when it records the skill: `pageOf()` builds it from the `source` and `skillId` of its leaderboard entry, or `sitemapSkills()` takes it from skills.sh's sitemap."
+          "description": "The skill's page on skills.sh.\n\nSource: scripts/crawl.ts, when it records the skill: `pageOf()` builds it from the `source` and `skillId` of its leaderboard entry, `sitemapSkills()` takes it from skills.sh's sitemap, or `authorSkills()` from a whitelisted author's repo pages there, such as https://www.skills.sh/mattpocock/skills."
         },
         "installs": {
           "type": ["number", "null"],
-          "description": "All-time installs, or null when unknown: exact for a skill in the skills.sh all-time top 600, rounded to three digits (such as 26.5K) for a skill outside it. A skill of crawl.jsonc the crawl no longer sees keeps its last number.\n\nSource: scraped from skills.sh's HTML, with no skills.sh API, by scripts/crawl.ts, which .github/workflows/crawl.yml runs daily. For a skill in the top 600, `topSkills()` fetches the HTML of https://www.skills.sh/ and parses the leaderboard JSON that the page's Next.js payload embeds (its `self.__next_f.push(…)` scripts, the `initialSkills` object of the all-time view). For a skill outside it, an approved one or one of the skills of https://www.skills.sh/sitemap.xml it reads, `skillPage()` fetches the HTML of the skill's skills.sh page and matches the \"Installs\" stat in its markup with a regex, such as \"26.5K\"; null when skills.sh no longer has the page."
+          "description": "All-time installs, or null when unknown: exact for a skill in the skills.sh all-time top 600, rounded to three digits (such as 26.5K) for a skill outside it. A skill of crawl.jsonc the crawl no longer sees keeps its last number.\n\nSource: scraped from skills.sh's HTML, with no skills.sh API, by scripts/crawl.ts, which .github/workflows/crawl.yml runs daily. For a skill in the top 600, `topSkills()` fetches the HTML of https://www.skills.sh/ and parses the leaderboard JSON that the page's Next.js payload embeds (its `self.__next_f.push(…)` scripts, the `initialSkills` object of the all-time view). For a skill outside it, an approved one, one of the skills of https://www.skills.sh/sitemap.xml it reads or one of a whitelisted author, `skillPage()` fetches the HTML of the skill's skills.sh page and matches the \"Installs\" stat in its markup with a regex, such as \"26.5K\"; null when skills.sh no longer has the page."
         },
         "weeklyInstalls": {
           "anyOf": [

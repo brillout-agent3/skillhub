@@ -19,7 +19,7 @@
           "items": {
             "$ref": "#/definitions/Crawled"
           },
-          "description": "At the minimums (`MINIMUMS` in ../scripts/data.ts) or above, most installed first: waiting for an agent to approve or disqualify them, with the add-skill skill.\n\nSource: scripts/crawl.ts sorts every skill it saw that day, in the top 600 or down the sitemap, into `qualified` or `unqualified`, with `passes()` of scripts/data.ts; a skill it didn't see keeps its state."
+          "description": "At the minimums (`MINIMUMS` in ../scripts/data.ts) or above, or by a whitelisted author (`WHITELISTED_AUTHORS` there), most installed first: waiting for an agent to approve or disqualify them, with the add-skill skill.\n\nSource: scripts/crawl.ts sorts every skill it saw that day, in the top 600, down the sitemap or by a whitelisted author, into `qualified` or `unqualified`, with `passes()` of scripts/data.ts; a skill it didn't see keeps its state."
         },
         "unqualified": {
           "type": "array",
@@ -38,22 +38,22 @@
       },
       "required": ["$schema", "asOf", "qualified", "unqualified", "disqualified"],
       "additionalProperties": false,
-      "description": "The shape of data/crawl.jsonc: every skill the crawl has seen that isn't approved (the approved ones are in skills.jsonc), keyed by its skills.sh page: those of the skills.sh all-time top 600, and those further down skills.sh's sitemap that reach `MINIMUMS.installs`. The two files are cumulative: a skill that lands in either never leaves them, only its state changes. Unlike skills.jsonc, crawl.jsonc takes any skill, such as one a website publishes."
+      "description": "The shape of data/crawl.jsonc: every skill the crawl has seen that isn't approved (the approved ones are in skills.jsonc), keyed by its skills.sh page: those of the skills.sh all-time top 600, those further down skills.sh's sitemap that reach `MINIMUMS.installs`, and all those of the `WHITELISTED_AUTHORS` of ../scripts/data.ts. The two files are cumulative: a skill that lands in either never leaves them, only its state changes. Unlike skills.jsonc, crawl.jsonc takes any skill, such as one a website publishes."
     },
     "Crawled": {
       "type": "object",
       "properties": {
         "name": {
           "type": "string",
-          "description": "Its name on skills.sh: the end of its skills.sh page.\n\nSource: scraped by scripts/crawl.ts when it records the skill: `topSkills()` takes `name` from the leaderboard JSON in the HTML of https://www.skills.sh/; for a skill found down the sitemap, it's the end of the skill's page there."
+          "description": "Its name on skills.sh: the end of its skills.sh page.\n\nSource: scraped by scripts/crawl.ts when it records the skill: `topSkills()` takes `name` from the leaderboard JSON in the HTML of https://www.skills.sh/; for a skill found down the sitemap or by a whitelisted author, it's the end of the skill's page there."
         },
         "repo": {
           "type": "string",
-          "description": "Its GitHub repo, `owner/name`, as skills.sh names it: possibly an old name the repo redirects from.\n\nSource: scraped by scripts/crawl.ts when it records the skill: the `source` of its leaderboard entry, or for a skill found down the sitemap, the owner and repo in its page's URL."
+          "description": "Its GitHub repo, `owner/name`, as skills.sh names it: possibly an old name the repo redirects from.\n\nSource: scraped by scripts/crawl.ts when it records the skill: the `source` of its leaderboard entry, or for a skill found down the sitemap or by a whitelisted author, the owner and repo in its page's URL."
         },
         "official": {
           "type": "boolean",
-          "description": "Whether skills.sh shows its publisher as verified.\n\nSource: scraped by scripts/crawl.ts, daily while it sees the skill: the `isOfficial` of its leaderboard entry, or for a skill down the sitemap, whether the HTML of its skills.sh page has `title=\"Verified organization on GitHub\"`."
+          "description": "Whether skills.sh shows its publisher as verified.\n\nSource: scraped by scripts/crawl.ts, daily while it sees the skill: the `isOfficial` of its leaderboard entry, or for any other skill, whether the HTML of its skills.sh page has `title=\"Verified organization on GitHub\"`."
         },
         "stars": {
           "type": ["number", "null"],
@@ -61,7 +61,7 @@
         },
         "seen": {
           "type": "string",
-          "description": "The last day the crawl saw it, in the top 600 or down the sitemap, which its numbers are from (YYYY-MM-DD).\n\nSource: scripts/crawl.ts sets it to the day it runs, for every skill it sees."
+          "description": "The last day the crawl saw it, in the top 600, down the sitemap or by a whitelisted author, which its numbers are from (YYYY-MM-DD).\n\nSource: scripts/crawl.ts sets it to the day it runs, for every skill it sees."
         },
         "skills.sh": {
           "$ref": "#/definitions/SkillsSh",
@@ -70,18 +70,18 @@
       },
       "required": ["name", "repo", "official", "stars", "seen", "skills.sh"],
       "additionalProperties": false,
-      "description": "A skill the crawl found, in the top 600 or down the sitemap, that's qualified or unqualified."
+      "description": "A skill the crawl found, in the top 600, down the sitemap or by a whitelisted author, that's qualified or unqualified."
     },
     "SkillsSh": {
       "type": "object",
       "properties": {
         "url": {
           "type": "string",
-          "description": "The skill's page on skills.sh.\n\nSource: scripts/crawl.ts, when it records the skill: `pageOf()` builds it from the `source` and `skillId` of its leaderboard entry, or `sitemapSkills()` takes it from skills.sh's sitemap."
+          "description": "The skill's page on skills.sh.\n\nSource: scripts/crawl.ts, when it records the skill: `pageOf()` builds it from the `source` and `skillId` of its leaderboard entry, `sitemapSkills()` takes it from skills.sh's sitemap, or `authorSkills()` from a whitelisted author's repo pages there, such as https://www.skills.sh/mattpocock/skills."
         },
         "installs": {
           "type": ["number", "null"],
-          "description": "All-time installs, or null when unknown: exact for a skill in the skills.sh all-time top 600, rounded to three digits (such as 26.5K) for a skill outside it. A skill of crawl.jsonc the crawl no longer sees keeps its last number.\n\nSource: scraped from skills.sh's HTML, with no skills.sh API, by scripts/crawl.ts, which .github/workflows/crawl.yml runs daily. For a skill in the top 600, `topSkills()` fetches the HTML of https://www.skills.sh/ and parses the leaderboard JSON that the page's Next.js payload embeds (its `self.__next_f.push(…)` scripts, the `initialSkills` object of the all-time view). For a skill outside it, an approved one or one of the skills of https://www.skills.sh/sitemap.xml it reads, `skillPage()` fetches the HTML of the skill's skills.sh page and matches the \"Installs\" stat in its markup with a regex, such as \"26.5K\"; null when skills.sh no longer has the page."
+          "description": "All-time installs, or null when unknown: exact for a skill in the skills.sh all-time top 600, rounded to three digits (such as 26.5K) for a skill outside it. A skill of crawl.jsonc the crawl no longer sees keeps its last number.\n\nSource: scraped from skills.sh's HTML, with no skills.sh API, by scripts/crawl.ts, which .github/workflows/crawl.yml runs daily. For a skill in the top 600, `topSkills()` fetches the HTML of https://www.skills.sh/ and parses the leaderboard JSON that the page's Next.js payload embeds (its `self.__next_f.push(…)` scripts, the `initialSkills` object of the all-time view). For a skill outside it, an approved one, one of the skills of https://www.skills.sh/sitemap.xml it reads or one of a whitelisted author, `skillPage()` fetches the HTML of the skill's skills.sh page and matches the \"Installs\" stat in its markup with a regex, such as \"26.5K\"; null when skills.sh no longer has the page."
         },
         "weeklyInstalls": {
           "anyOf": [

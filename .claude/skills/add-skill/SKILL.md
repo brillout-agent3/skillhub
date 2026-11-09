@@ -8,7 +8,7 @@ description: Approve or disqualify the qualified skills in SkillHub's crawl.json
 Every skill SkillHub knows of has one state, under its skills.sh page:
 
 - **Approved:** shown on the site, with tags, a TLDR and a copy of its SKILL.md. In `data/skills.jsonc`.
-- **Qualified:** in the skills.sh all-time top 600, or further down skills.sh's sitemap, at the minimums or above (`MINIMUMS` in `scripts/data.ts`: all-time installs, and its repo's GitHub stars), waiting for an agent to approve or disqualify it. In `data/crawl.jsonc`.
+- **Qualified:** in the skills.sh all-time top 600, or further down skills.sh's sitemap, at the minimums or above (`MINIMUMS` in `scripts/data.ts`: all-time installs, and its repo's GitHub stars), or by a whitelisted author (`WHITELISTED_AUTHORS` in `scripts/data.ts`) whatever its numbers, waiting for an agent to approve or disqualify it. In `data/crawl.jsonc`.
 - **Unqualified:** found by the crawl, but under the minimums. In `data/crawl.jsonc`.
 - **Disqualified:** not shown, with its `reason`, and no other agent data: no tags, no TLDR, no copy. In `data/crawl.jsonc`.
 
@@ -35,6 +35,8 @@ Both files are JSONC and may hold comments, which the scripts keep. Edit them in
 - A skill that isn't in English.
 - A copy: a skill republished under another name, or an approved skill under a second skills.sh listing, such as its repo under an old name.
 - Anything else the user doesn't want.
+
+A **whitelisted author**'s skill (`WHITELISTED_AUTHORS` in `scripts/data.ts`) is always listed: disqualify it only when its SKILL.md is gone from its repo, it's retired, a copy (such as a workshop repo's copy of the author's own skill), not in English, or a project's own skill that only works inside its repo (such as one that deploys or verifies that project), or when the user says so. Tool docs and vendor paid services are approved.
 
 **Approve** the others, with the steps below. Approving an unqualified or disqualified skill works the same way, when the user asks for it.
 

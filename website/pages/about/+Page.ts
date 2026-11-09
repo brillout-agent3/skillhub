@@ -113,7 +113,7 @@ export default function Page(): string {
       label: "Waiting for agent review",
       emoji: "⏳",
       count: review.waiting,
-      tip: "It has the minimum installs and stars, and is next in line for an agent review.",
+      tip: "It has the minimum installs and stars, or it's by an author SkillHub lists every skill of, and is next in line for an agent review.",
     },
   ];
   const total: Row = {

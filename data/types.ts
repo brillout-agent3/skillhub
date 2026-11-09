@@ -45,7 +45,8 @@ export interface Data {
 /**
  * The shape of data/crawl.jsonc: every skill the crawl has seen that isn't approved (the approved
  * ones are in skills.jsonc), keyed by its skills.sh page: those of the skills.sh all-time top 600,
- * and those further down skills.sh's sitemap that reach `MINIMUMS.installs`. The two
+ * those further down skills.sh's sitemap that reach `MINIMUMS.installs`, and all those of the
+ * `WHITELISTED_AUTHORS` of ../scripts/data.ts. The two
  * files are cumulative: a skill that lands in either never leaves them, only its state changes.
  * Unlike skills.jsonc, crawl.jsonc takes any skill, such as one a website publishes.
  */
@@ -60,11 +61,12 @@ export interface Crawl {
    */
   asOf: string;
   /**
-   * At the minimums (`MINIMUMS` in ../scripts/data.ts) or above, most installed first: waiting for
-   * an agent to approve or disqualify them, with the add-skill skill.
+   * At the minimums (`MINIMUMS` in ../scripts/data.ts) or above, or by a whitelisted author
+   * (`WHITELISTED_AUTHORS` there), most installed first: waiting for an agent to approve or
+   * disqualify them, with the add-skill skill.
    *
-   * Source: scripts/crawl.ts sorts every skill it saw that day, in the top 600 or down the
-   * sitemap, into `qualified` or `unqualified`, with `passes()` of scripts/data.ts; a skill it
+   * Source: scripts/crawl.ts sorts every skill it saw that day, in the top 600, down the sitemap or
+   * by a whitelisted author, into `qualified` or `unqualified`, with `passes()` of scripts/data.ts; a skill it
    * didn't see keeps its state.
    */
   qualified: Crawled[];
@@ -85,14 +87,17 @@ export interface Crawl {
   disqualified: Disqualified[];
 }
 
-/** A skill the crawl found, in the top 600 or down the sitemap, that's qualified or unqualified. */
+/**
+ * A skill the crawl found, in the top 600, down the sitemap or by a whitelisted author, that's
+ * qualified or unqualified.
+ */
 export interface Crawled {
   /**
    * Its name on skills.sh: the end of its skills.sh page.
    *
    * Source: scraped by scripts/crawl.ts when it records the skill: `topSkills()` takes `name`
    * from the leaderboard JSON in the HTML of https://www.skills.sh/; for a skill found down the
-   * sitemap, it's the end of the skill's page there.
+   * sitemap or by a whitelisted author, it's the end of the skill's page there.
    */
   name: string;
   /**
@@ -100,14 +105,15 @@ export interface Crawled {
    * from.
    *
    * Source: scraped by scripts/crawl.ts when it records the skill: the `source` of its
-   * leaderboard entry, or for a skill found down the sitemap, the owner and repo in its page's URL.
+   * leaderboard entry, or for a skill found down the sitemap or by a whitelisted author, the owner
+   * and repo in its page's URL.
    */
   repo: string;
   /**
    * Whether skills.sh shows its publisher as verified.
    *
    * Source: scraped by scripts/crawl.ts, daily while it sees the skill: the `isOfficial` of its
-   * leaderboard entry, or for a skill down the sitemap, whether the HTML of its skills.sh page
+   * leaderboard entry, or for any other skill, whether the HTML of its skills.sh page
    * has `title="Verified organization on GitHub"`.
    */
   official: boolean;
@@ -120,8 +126,8 @@ export interface Crawled {
    */
   stars: number | null;
   /**
-   * The last day the crawl saw it, in the top 600 or down the sitemap, which its numbers are from
-   * (YYYY-MM-DD).
+   * The last day the crawl saw it, in the top 600, down the sitemap or by a whitelisted author,
+   * which its numbers are from (YYYY-MM-DD).
    *
    * Source: scripts/crawl.ts sets it to the day it runs, for every skill it sees.
    */
@@ -436,7 +442,9 @@ export interface SkillsSh {
    * The skill's page on skills.sh.
    *
    * Source: scripts/crawl.ts, when it records the skill: `pageOf()` builds it from the `source`
-   * and `skillId` of its leaderboard entry, or `sitemapSkills()` takes it from skills.sh's sitemap.
+   * and `skillId` of its leaderboard entry, `sitemapSkills()` takes it from skills.sh's sitemap,
+   * or `authorSkills()` from a whitelisted author's repo pages there, such as
+   * https://www.skills.sh/mattpocock/skills.
    */
   url: string;
   /**
@@ -448,8 +456,8 @@ export interface SkillsSh {
    * .github/workflows/crawl.yml runs daily. For a skill in the top 600, `topSkills()` fetches the
    * HTML of https://www.skills.sh/ and parses the leaderboard JSON that the page's Next.js payload
    * embeds (its `self.__next_f.push(…)` scripts, the `initialSkills` object of the all-time
-   * view). For a skill outside it, an approved one or one of the skills of
-   * https://www.skills.sh/sitemap.xml it reads, `skillPage()` fetches the HTML of the skill's skills.sh page
+   * view). For a skill outside it, an approved one, one of the skills of
+   * https://www.skills.sh/sitemap.xml it reads or one of a whitelisted author, `skillPage()` fetches the HTML of the skill's skills.sh page
    * and matches the "Installs" stat in its markup with a regex, such as "26.5K"; null when
    * skills.sh no longer has the page.
    */

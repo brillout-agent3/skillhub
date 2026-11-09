@@ -1,6 +1,6 @@
 # Once a day, crawl skills.sh and GitHub: refresh the numbers and record the skills of the
-# skills.sh top 600, and those further down its sitemap that reach the minimums, in
-# data/crawl.jsonc, then commit to the default branch and redeploy the site.
+# skills.sh top 600, those further down its sitemap that reach the minimums, and every skill of the
+# whitelisted authors, in data/crawl.jsonc, then commit to the default branch and redeploy the site.
 # Approving or disqualifying the qualified skills is an agent's job, with the add-skill skill.
 name: Crawl skills.sh
 
