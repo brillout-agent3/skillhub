@@ -3,7 +3,7 @@
  * as a link, and its HTML. The page is pre-rendered unfiltered; its client script re-renders it.
  */
 
-import { compact, date, esc, href, plural } from "./format.ts";
+import { compact, date, daysBefore, esc, href, plural } from "./format.ts";
 import {
   CAUTION,
   FACET_ORDER,
@@ -37,6 +37,7 @@ import {
   tagLabel,
   tagOf,
   tagsOf,
+  publishedOf,
   weekOf,
 } from "./skills.ts";
 import { skillPage } from "./github.ts";
@@ -62,7 +63,8 @@ const quiet = (tag: string) => tag === "by:community" || facetOf(tag) === "categ
  * Buttons that only set the list's settings, highest first, each named after what it shows, which
  * the sidebar spells out: Rising, the default view, by how fast the weekly downloads grow; Rising &
  * new by weekly downloads among the skills published in the last NEW_SINCE days (a skill that young
- * has no growth yet, see growthOf); Top by weekly downloads; New by publishing date.
+ * has no growth yet, see growthOf; one that took off from almost nothing counts as published then,
+ * see publishedOf); Top by weekly downloads; New by publishing date.
  */
 export type Preset = "rising" | "rising-new" | "top" | "new";
 interface PresetInfo {
@@ -134,17 +136,23 @@ const LAST: Record<Age, string> = {
   30: "Last 30 days",
   7: "Last week",
 };
-const daysBefore = (day: string, n: number) =>
-  new Date(Date.parse(`${day}T00:00:00Z`) - n * 86_400_000).toISOString().slice(0, 10);
 
 // A bundle's numbers are its most popular skill's.
 const most = (e: Entry) => (isBundle(e) ? "The most of any of its skills: " : "");
 export const PROPS: Record<Prop, PropInfo> = {
   published: {
     label: "Published",
-    of: firstSeenOf,
-    title: (e) =>
-      isBundle(e) ? "When skills.sh first saw one of its skills" : "When skills.sh first saw it",
+    of: publishedOf,
+    title: (e) => {
+      const tookOff = publishedOf(e) !== firstSeenOf(e);
+      if (isBundle(e))
+        return tookOff
+          ? `The earliest of its skills: when skills.sh first saw one, or the week one took off after getting under ${compact(GROWTH_BASE_MIN)} installs a week`
+          : "When skills.sh first saw one of its skills";
+      return tookOff
+        ? `The week it took off on skills.sh: skills.sh first saw it ${date(firstSeenOf(e) as string)}, but it got under ${compact(GROWTH_BASE_MIN)} installs a week until then`
+        : "When skills.sh first saw it";
+    },
     // Below and above every date, so that the full range takes them all in.
     stops: ["", ...AGES.map((n) => daysBefore(data.asOf.installs, n)), "~"],
     keys: ["", ...AGES.map((n) => `${n}d`), "~"],
@@ -209,7 +217,7 @@ export type Sort = Prop | "growth" | "match";
 const GROWTH = {
   label: "Weekly Growth",
   title: (e: Entry) =>
-    `${isBundle(e) ? "The most of any of its skills: " : ""}Installs on skills.sh in an average week of the 2 to ${date(data.asOf.installs)}, against an average week of the 4 before. Only for skills with at least ${compact(GROWTH_MIN)} a week, at least ${compact(GROWTH_BASE_MIN)} a week in the 4 before, and installs in each of the last ${GROWTH_WEEKS} weeks: a younger skill shows under New.`,
+    `${isBundle(e) ? "The most of any of its skills: " : ""}Installs on skills.sh in an average week of the 2 to ${date(data.asOf.installs)}, against an average week of the 4 before. Only for skills with at least ${compact(GROWTH_MIN)} a week, at least ${compact(GROWTH_BASE_MIN)} a week in the 4 before, and installs in each of the last ${GROWTH_WEEKS} weeks: a younger skill, or one that took off from almost nothing, shows under New.`,
 };
 /** A growth as a percentage with its sign, such as +180% or −12%. */
 const percent = (g: number) =>

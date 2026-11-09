@@ -31,6 +31,9 @@ const longDate = new Intl.DateTimeFormat("en", {
   timeZone: "UTC",
 });
 export const date = (iso: string) => longDate.format(new Date(`${iso}T00:00:00Z`));
+/** The day `n` days before a day, both YYYY-MM-DD. */
+export const daysBefore = (day: string, n: number) =>
+  new Date(Date.parse(`${day}T00:00:00Z`) - n * 86_400_000).toISOString().slice(0, 10);
 export const plural = (n: number, word: string) =>
   `${n.toLocaleString("en")} ${word}${n === 1 ? "" : "s"}`;
 

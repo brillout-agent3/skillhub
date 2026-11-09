@@ -1,7 +1,7 @@
 /** The data behind every page, ../data/skills.jsonc, and what the pages derive from it. */
 
 import raw from "../data/skills.jsonc";
-import { esc, href, plural } from "./format.ts";
+import { daysBefore, esc, href, plural } from "./format.ts";
 import type { Facet, Tldr } from "../data/types.ts";
 // The browser runs this file, in the skills list, so it types the data as the browser's copy, which
 // leaves some fields out: reading one here doesn't type-check. Pages get them from server-data.ts.
@@ -123,6 +123,34 @@ export const growthOf = (e: Skill | Bundle): number | null => {
   if (base < GROWTH_BASE_MIN) return null;
   return recent / base - 1;
 };
+
+/**
+ * The day a skill took off on skills.sh, when it sat there almost unused first: the start of the
+ * week after its latest week with fewer than GROWTH_BASE_MIN installs, when it has GROWTH_MIN a
+ * week in its latest 2 weeks, as growthOf counts them, and that dormant week came after skills.sh
+ * first saw it (else it's just a new skill's first, partial week). So a skill with GROWTH_MIN a week
+ * but no growth, for growing from almost nothing, took off in the last 6 weeks: it shows under
+ * Rising & new instead.
+ */
+export const tookOffOf = (s: Skill): string | null => {
+  const { weeklyInstalls: weekly, firstSeen } = s["skills.sh"];
+  if (!weekly || !firstSeen) return null;
+  if ((weekly[weekly.length - 1] + weekly[weekly.length - 2]) / 2 < GROWTH_MIN) return null;
+  const since = weekly.findLastIndex((n) => n < GROWTH_BASE_MIN) + 1;
+  if (since === 0 || since === weekly.length) return null;
+  // The last week is the one to data.asOf.installs.
+  const day = daysBefore(data.asOf.installs, (weekly.length - since) * 7);
+  return daysBefore(day, 7) >= firstSeen ? day : null;
+};
+
+/**
+ * When it was published, as the skills list counts it: the day it took off, see tookOffOf, or else
+ * when skills.sh first saw it. For a bundle, the earliest of its skills.
+ */
+export const publishedOf = (e: Skill | Bundle): string | null =>
+  isBundle(e)
+    ? (skillsOf(e).map(publishedOf).filter(Boolean).sort()[0] ?? null)
+    : (tookOffOf(e) ?? e["skills.sh"].firstSeen);
 
 /** Compare for a descending sort, unknown values last. */
 export const desc = (a: number | null, b: number | null) => (b ?? -1) - (a ?? -1);
