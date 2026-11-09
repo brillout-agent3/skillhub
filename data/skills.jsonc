@@ -74406,10 +74406,36 @@
       "skillMd": {
         "version": "5f3a48113e3039adb4e5d289d0c4de4680b6cc45",
         "updated": "2026-11-09",
-        "skew": 453
+        "skew": 0
       },
       "agentReview": {
         "description": "Rates every file, function and piece of logic of the code you point it at, then refactors until it's exceptionally good, one commit per refactor.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "You want a PR, branch, file or function made as good as it can be, not just working"
+            },
+            {
+              "label": "It does",
+              "text": "Rates every file, function and piece of logic from 0 to 10 with a reason, then refactors for simplicity, clean abstractions and readability"
+            },
+            {
+              "label": "You get",
+              "text": "One commit per refactor, old => new ratings linked to the commits, the whole diff, and a list of opportunities beyond what you asked"
+            },
+            {
+              "label": "Unlike improve-codebase-architecture",
+              "text": "That one scans a whole codebase for modules worth restructuring and talks one through with you; this one works through the code you name until every part rates high"
+            },
+            {
+              "label": "Runs",
+              "text": "When you ask for a refactor, on the code you name or, by default, on what the agent is working on; it doesn't stop for your approval"
+            }
+          ],
+          "text": "You point it at code, such as a PR, a function or a file; by default it takes what the agent is working on, and asks when that's unclear. Before changing anything, the agent lists everything in scope and rates each item from 0 to 10 with a reason, skipping nothing. Then it refactors on three fronts. Simplify: remove duplicated logic, boilerplate, needless indirection and tests that only restate the code, and treat comments that justify a design as claims to check, not rules to follow. Clean abstractions: make each file and function a sensible unit, and check that each responsibility sits on the right side of each function boundary. Readability: read each top-level function as prose, and push low-level details, such as flags or error plumbing, down into the functions it calls. It keeps going on its own until the code is exceptionally good, with a separate commit for each refactor, and ends with the ratings before and after, a link or git command for the whole diff, and the opportunities it saw beyond your request.",
+          "permalink": "https://github.com/brillout/skills/tree/5f3a48113e3039adb4e5d289d0c4de4680b6cc45/skills/refactor"
+        },
         "tags": [
           "category:engineering",
           "type:workflow",
@@ -74436,10 +74462,36 @@
       "skillMd": {
         "version": "5f3a48113e3039adb4e5d289d0c4de4680b6cc45",
         "updated": "2026-11-09",
-        "skew": 722
+        "skew": 0
       },
       "agentReview": {
         "description": "Keeps a LOGIC.md next to every source file and directory, describing its business logic for readers who never read the code.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "An agent writes your code and you want to follow its business logic without reading the code"
+            },
+            {
+              "label": "It does",
+              "text": "Writes and updates a LOGIC.md beside each source file and directory that holds business logic: what the code does, why, and which user stories it serves"
+            },
+            {
+              "label": "You get",
+              "text": "A some-file.LOGIC.md next to each file and a LOGIC.md in each directory, from the whole product's story down to each part"
+            },
+            {
+              "label": "Reviewing",
+              "text": "You read a change's LOGIC.md diff instead of its code"
+            },
+            {
+              "label": "Runs",
+              "text": "By itself whenever the agent writes or updates a LOGIC.md, as after changing code; ask it to install LDD to generate them all"
+            }
+          ],
+          "text": "Logic-driven development, LDD for short, keeps a plain-language description of the business logic, what the code does for the product, next to the code. Every source file gets a some-file.LOGIC.md and every directory a LOGIC.md. Each is written for a technical product manager who knows the project and programming but never reads the code: a short description, then each piece of business logic with its context, such as the user stories it serves and why it exists. A glossary explains any coined term, and each concept keeps one name across all the files. Code that isn't business logic, such as examples, gets none, and tests only get a list of what they cover. The root LOGIC.md tells the whole product's story, and deeper ones tell each subsystem's. After a change, the agent updates every LOGIC.md it affects, not only those beside the changed code. Asking it to install LDD generates them for the entire codebase at once; asking it to reset LDD deletes them all and writes them again from scratch.",
+          "permalink": "https://github.com/brillout/skills/tree/5f3a48113e3039adb4e5d289d0c4de4680b6cc45/skills/logic-driven-development"
+        },
         "tags": [
           "category:engineering",
           "category:writing",
@@ -74468,10 +74520,36 @@
       "skillMd": {
         "version": "5f3a48113e3039adb4e5d289d0c4de4680b6cc45",
         "updated": "2026-11-09",
-        "skew": 272
+        "skew": 0
       },
       "agentReview": {
         "description": "Makes long replies, such as reports, plans and PR descriptions, quick to scan: TL;DR first, details buried, decisions numbered.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "You want the agent's long messages, such as summaries of its work, reports, plans or PR descriptions, readable at a glance"
+            },
+            {
+              "label": "It does",
+              "text": "Gives the gist first, such as a TL;DR of bullet points with one section per bullet, and moves the details into collapsibles, a gist or a file"
+            },
+            {
+              "label": "Decisions",
+              "text": "Numbered, with lettered choices and the agent's recommendation highlighted, so you can reply \"1B\""
+            },
+            {
+              "label": "Unlike caveman",
+              "text": "That one makes every reply terse; this one leaves short answers alone and structures only the long ones"
+            },
+            {
+              "label": "Runs",
+              "text": "By itself, before the agent writes a long message"
+            }
+          ],
+          "text": "It sets one goal for long messages: you get the gist in seconds, and can find any detail without reading everything. Short answers stay short, since structure there is overhead. The rest is a toolbox the agent picks from: a TL;DR of bullet points, then one section per bullet under the same name; details moved into collapsibles, a GitHub gist or a file; results ordered by what matters to you, not by the order the work happened; bold lead words, so your eye can scan the left edge; tables to compare items; before => after for changes; and a short snippet where it beats a paragraph. Decisions get numbered, with lettered choices and the agent's recommendation highlighted, so you can answer with something like \"1B\". The agent reads it before writing a summary of its work, a report, a plan, a review or a PR description, and at the start of a task that will end with one.",
+          "permalink": "https://github.com/brillout/skills/tree/5f3a48113e3039adb4e5d289d0c4de4680b6cc45/skills/human-parsable"
+        },
         "tags": [
           "category:output-style",
           "type:guidelines",
