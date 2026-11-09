@@ -33394,6 +33394,218 @@
           "effort": null
         }
       }
+    },
+    {
+      "url": "https://skills.sh/mattpocock/agent-browser/agent-browser",
+      "reason": {
+        "agentReview": {
+          "note": "A copy of vercel-labs/agent-browser's agent-browser, in Matt Pocock's fork of that repo.",
+          "model": "Claude Opus 5.5",
+          "effort": "xhigh"
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/mattpocock/chat/chat-sdk",
+      "reason": {
+        "agentReview": {
+          "note": "A copy of vercel/chat's chat-sdk, in Matt Pocock's fork of that repo.",
+          "model": "Claude Opus 5.5",
+          "effort": "xhigh"
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/mattpocock/ai-engineer-workshop-2026-project/grill-me",
+      "reason": {
+        "agentReview": {
+          "note": "A copy of mattpocock/skills's grill-me, as it read for a workshop project.",
+          "model": "Claude Opus 5.5",
+          "effort": "xhigh"
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/mattpocock/ai-engineer-workshop-2026-project/improve-codebase-architecture",
+      "reason": {
+        "agentReview": {
+          "note": "A copy of mattpocock/skills's improve-codebase-architecture, as it read for a workshop project.",
+          "model": "Claude Opus 5.5",
+          "effort": "xhigh"
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/mattpocock/ai-engineer-workshop-2026-project/tdd",
+      "reason": {
+        "agentReview": {
+          "note": "A copy of mattpocock/skills's tdd, as it read for a workshop project.",
+          "model": "Claude Opus 5.5",
+          "effort": "xhigh"
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/mattpocock/ai-engineer-workshop-2026-project/write-a-prd",
+      "reason": {
+        "agentReview": {
+          "note": "A copy of mattpocock/skills's write-a-prd, which it has since retired, in a workshop project.",
+          "model": "Claude Opus 5.5",
+          "effort": "xhigh"
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/mattpocock/ai-engineer-workshop-2026-project/prd-to-issues",
+      "reason": {
+        "agentReview": {
+          "note": "A copy of mattpocock/skills's prd-to-issues, which it has since retired, in a workshop project.",
+          "model": "Claude Opus 5.5",
+          "effort": "xhigh"
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/mattpocock/ralph-workshop-repo-001/write-a-prd",
+      "reason": {
+        "agentReview": {
+          "note": "A copy of mattpocock/skills's write-a-prd, which it has since retired, in a workshop repo.",
+          "model": "Claude Opus 5.5",
+          "effort": "xhigh"
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/mattpocock/ralph-workshop-repo-001/request-refactor-plan",
+      "reason": {
+        "agentReview": {
+          "note": "A copy of mattpocock/skills's request-refactor-plan, which it has since retired, in a workshop repo.",
+          "model": "Claude Opus 5.5",
+          "effort": "xhigh"
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/mattpocock/ai-hero-cli/what-to-test",
+      "reason": {
+        "agentReview": {
+          "note": "A project's own skill: what to test in Matt's ai-hero-cli, with its services to mock.",
+          "model": "Claude Opus 5.5",
+          "effort": "xhigh"
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/mattpocock/course-video-manager/deploy-migration",
+      "reason": {
+        "agentReview": {
+          "note": "A project's own skill: ships Course Video Manager's database migrations to its production.",
+          "model": "Claude Opus 5.5",
+          "effort": "xhigh"
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/mattpocock/course-video-manager/do-work",
+      "reason": {
+        "agentReview": {
+          "note": "A project's own skill: Course Video Manager's implementation workflow, with its own TDD guides and checks.",
+          "model": "Claude Opus 5.5",
+          "effort": "xhigh"
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/mattpocock/course-video-manager/document-ai-hero-api",
+      "reason": {
+        "agentReview": {
+          "note": "A project's own skill: documents the AI Hero API from Matt's local checkout of its source.",
+          "model": "Claude Opus 5.5",
+          "effort": "xhigh"
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/mattpocock/course-video-manager/improve-codebase-architecture-project",
+      "reason": {
+        "agentReview": {
+          "note": "A project's own skill: Course Video Manager's unattended architecture review in CI.",
+          "model": "Claude Opus 5.5",
+          "effort": "xhigh"
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/mattpocock/course-video-manager/install-effect-package",
+      "reason": {
+        "agentReview": {
+          "note": "A project's own skill: how Course Video Manager adds Effect packages with pnpm.",
+          "model": "Claude Opus 5.5",
+          "effort": "xhigh"
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/mattpocock/course-video-manager/optimize-loader",
+      "reason": {
+        "agentReview": {
+          "note": "A project's own skill: speeds up Course Video Manager's loaders through its own services.",
+          "model": "Claude Opus 5.5",
+          "effort": "xhigh"
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/mattpocock/course-video-manager/to-issues-project",
+      "reason": {
+        "agentReview": {
+          "note": "A project's own skill: Course Video Manager's variant of to-issues, for its PRD and sub-issue workflow.",
+          "model": "Claude Opus 5.5",
+          "effort": "xhigh"
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/mattpocock/course-video-manager/to-prd-project",
+      "reason": {
+        "agentReview": {
+          "note": "A project's own skill: Course Video Manager's variant of to-prd, for its PRD and sub-issue workflow.",
+          "model": "Claude Opus 5.5",
+          "effort": "xhigh"
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/mattpocock/course-video-manager/verify-cvm",
+      "reason": {
+        "agentReview": {
+          "note": "A project's own skill: drives Course Video Manager in a browser against a copy of Matt's data.",
+          "model": "Claude Opus 5.5",
+          "effort": "xhigh"
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/mattpocock/sandcastle/verify",
+      "reason": {
+        "agentReview": {
+          "note": "A project's own skill: verifies Sandcastle changes in its own isolated test harness.",
+          "model": "Claude Opus 5.5",
+          "effort": "xhigh"
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/mattpocock/course-video-manager/write-a-prd",
+      "reason": {
+        "goneFromRepo": "2026-11-09"
+      }
+    },
+    {
+      "url": "https://skills.sh/mattpocock/sandcastle/triage-repro",
+      "reason": {
+        "goneFromRepo": "2026-11-09"
+      }
     }
   ]
 }

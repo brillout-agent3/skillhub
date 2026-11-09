@@ -3,7 +3,7 @@
   "asOf": {
     "installs": "2026-11-09",
     "stars": "2026-11-09",
-    "tags": "2026-11-07"
+    "tags": "2026-11-09"
   },
   "facets": [
     {
@@ -3762,6 +3762,36 @@
         "kind": "project",
         "description": "Evolver, a GEP-powered self-evolution engine for AI agents and the core of the EvoMap network.",
         "note": "Its README says future releases move from open source to source-available; published MIT and GPL versions stay free to use.",
+        "model": "Claude Opus 5.5",
+        "effort": "xhigh"
+      }
+    },
+    {
+      "id": "mattpocock/ai-engineer-workshop-2026-project",
+      "stars": null,
+      "agentReview": {
+        "kind": "project",
+        "description": "Cadence, a course platform built with React Router, TypeScript, SQLite and Drizzle, used as the project of an AI-assisted development workshop.",
+        "model": "Claude Opus 5.5",
+        "effort": "xhigh"
+      }
+    },
+    {
+      "id": "mattpocock/sandcastle",
+      "stars": null,
+      "agentReview": {
+        "kind": "project",
+        "description": "CLI for orchestrating AI agents in isolated sandbox environments",
+        "model": "Claude Opus 5.5",
+        "effort": "xhigh"
+      }
+    },
+    {
+      "id": "mattpocock/ts-reset",
+      "stars": null,
+      "agentReview": {
+        "kind": "project",
+        "description": "A CSS reset for TypeScript, improving types for common JavaScript API's",
         "model": "Claude Opus 5.5",
         "effort": "xhigh"
       }
@@ -74069,6 +74099,165 @@
           "design",
           "implementation"
         ],
+        "model": "Claude Opus 5.5",
+        "effort": "xhigh"
+      }
+    },
+    {
+      "id": "mattpocock/skills/skills/in-progress/software-factory",
+      "name": "software-factory",
+      "skills.sh": {
+        "url": "https://skills.sh/mattpocock/skills/software-factory",
+        "installs": 1,
+        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 1, 0],
+        "firstSeen": "2026-11-01"
+      },
+      "skillMd": {
+        "version": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+        "updated": "2026-11-09",
+        "skew": 923
+      },
+      "agentReview": {
+        "description": "Gives the agent a shared vocabulary and product surveys for designing a software factory: agents that turn tickets into merged code.",
+        "tags": [
+          "category:agents",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "agent-workflows",
+          "multi-agent",
+          "architecture",
+          "issue-tracking"
+        ],
+        "model": "Claude Opus 5.5",
+        "effort": "xhigh"
+      }
+    },
+    {
+      "id": "mattpocock/skills/skills/misc/migrate-to-shoehorn",
+      "name": "migrate-to-shoehorn",
+      "skills.sh": {
+        "url": "https://skills.sh/mattpocock/skills/migrate-to-shoehorn",
+        "installs": 522700,
+        "weeklyInstalls": [25997, 23103, 22681, 28413, 25063, 22748, 20924, 20179],
+        "firstSeen": "2026-02-13"
+      },
+      "skillMd": {
+        "version": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+        "updated": "2026-11-09",
+        "skew": 415
+      },
+      "agentReview": {
+        "description": "Migrates test files from `as` type assertions to shoehorn's fromPartial and fromAny.",
+        "tags": [
+          "category:engineering",
+          "category:frameworks",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:official",
+          "stack:typescript",
+          "stack:shoehorn",
+          "testing",
+          "migration",
+          "refactoring"
+        ],
+        "model": "Claude Opus 5.5",
+        "effort": "xhigh"
+      }
+    },
+    {
+      "id": "mattpocock/ai-engineer-workshop-2026-project/.claude/skills/better-sqlite3-rebuild",
+      "name": "better-sqlite3-rebuild",
+      "skills.sh": {
+        "url": "https://skills.sh/mattpocock/ai-engineer-workshop-2026-project/better-sqlite3-rebuild",
+        "installs": 134,
+        "weeklyInstalls": [12, 6, 3, 9, 2, 3, 3, 8],
+        "firstSeen": "2026-05-03"
+      },
+      "skillMd": {
+        "version": "8f1ea9b0a210caddd5f8d1749be636f7b22a9e62",
+        "updated": "2026-11-09",
+        "skew": 75
+      },
+      "agentReview": {
+        "description": "Fixes better-sqlite3 native module errors by rebuilding it with npm.",
+        "tags": [
+          "category:debugging",
+          "type:tool",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "stack:better-sqlite3",
+          "stack:nodejs",
+          "stack:npm",
+          "debugging",
+          "build-tools"
+        ],
+        "note": "It runs npm rebuild without asking.",
+        "model": "Claude Opus 5.5",
+        "effort": "xhigh"
+      }
+    },
+    {
+      "id": "mattpocock/sandcastle/.agents/skills/pre-release",
+      "name": "pre-release",
+      "skills.sh": {
+        "url": "https://skills.sh/mattpocock/sandcastle/pre-release",
+        "installs": 40,
+        "weeklyInstalls": [1, 3, 1, 4, 0, 1, 0, 1],
+        "firstSeen": "2026-04-29"
+      },
+      "skillMd": {
+        "version": "049bb4d1da248fc9a1c79f47d7fe6f7a673e3c16",
+        "updated": "2026-11-09",
+        "skew": 106
+      },
+      "agentReview": {
+        "description": "Checks a repo's changesets before a release: user-facing, grouped, and free of implementation details.",
+        "tags": [
+          "category:engineering",
+          "category:writing",
+          "type:command",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "stack:changesets",
+          "docs-writing"
+        ],
+        "model": "Claude Opus 5.5",
+        "effort": "xhigh"
+      }
+    },
+    {
+      "id": "mattpocock/ts-reset/.claude/skills/research-ts-decisions",
+      "name": "research-ts-decisions",
+      "skills.sh": {
+        "url": "https://skills.sh/mattpocock/ts-reset/research-ts-decisions",
+        "installs": 25,
+        "weeklyInstalls": [1, 2, 1, 3, 0, 0, 0, 2],
+        "firstSeen": "2026-05-28"
+      },
+      "skillMd": {
+        "version": "81b3b2614a32e47948cd4b8d5468879c07c2b361",
+        "updated": "2026-11-09",
+        "skew": 662
+      },
+      "agentReview": {
+        "description": "Researches why the TypeScript team typed a built-in the way it did, from their issues, PRs and comments.",
+        "tags": [
+          "category:engineering",
+          "type:workflow",
+          "effect:none",
+          "needs:cli",
+          "by:community",
+          "stack:typescript",
+          "stack:github",
+          "stack:ts-reset",
+          "research"
+        ],
+        "note": "Written for ts-reset's maintainers: its report ends on whether the change belongs in ts-reset.",
         "model": "Claude Opus 5.5",
         "effort": "xhigh"
       }
