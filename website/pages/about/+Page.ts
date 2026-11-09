@@ -155,7 +155,7 @@ export default function Page(): string {
       </ul>
 
       <h2 id="weekly-growth">Weekly Growth</h2>
-      <p>How fast a <a href="https://skills.sh">skill's downloads</a> grow: its average weekly downloaded of the last 2 against its average weekly downloaded of the 4 before. Only for skills with at least ${n(GROWTH_MIN)} downloads a week, and at least ${n(GROWTH_BASE_MIN)} in each of the last ${GROWTH_WEEKS} weeks.</p>
+      <p>How fast a <a href="https://skills.sh">skill's downloads</a> grow: its average weekly downloads of the last 2 against its average weekly downloads of the 4 before. Only for skills with at least ${n(GROWTH_MIN)} downloads a week, and at least ${n(GROWTH_BASE_MIN)} in each of the last ${GROWTH_WEEKS} weeks.</p>
 
       <h2>Up-to-date</h2>
       <p>SkillHub follows each listed skill's SKILL.md in its repo. A skill's page says when its SKILL.md has changed since its TL;DR was written.</p>
