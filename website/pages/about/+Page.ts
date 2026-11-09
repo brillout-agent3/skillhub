@@ -150,7 +150,7 @@ export default function Page(): string {
       <ul>
         <li><strong>In the list,</strong> a bundle has a row of its own that names its skills in the order they're used. A skill that works alone, and that people would want without the rest of the bundle, such as a test-driven development skill in a bundle for a whole workflow, also keeps a row of its own, which says what bundle it's part of. The others are only listed inside their bundle: those that only work with the rest, such as one that works on another's output, and those that only interest the bundle's audience, such as a game-dev bundle's genre guides. Set to show Skills, the list shows every skill on its own row. Set to show Bundles, it lists only bundles.</li>
         <li><strong>Its page</strong> explains how its skills work together, what each one needs from the others, and how to install them all at once.</li>
-        <li><strong>Its numbers</strong> come from its skills: Published is its oldest skill's, Total and Weekly Downloads are its most downloaded skill's, and Stars are its repo's. The filters' sliders use these numbers, so an old bundle with a few new skills isn't in "Published: last 90 days".</li>
+        <li><strong>Its numbers</strong> come from its skills: Age is its oldest skill's, Total and Weekly Downloads are its most downloaded skill's, and Stars are its repo's. The filters' sliders use these numbers, so an old bundle with a few new skills isn't in "Published: last 90 days".</li>
         <li><strong>Tags and the search</strong> match a bundle through any of its skills, and grey out its other skills.</li>
       </ul>
 

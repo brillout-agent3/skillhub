@@ -3,7 +3,7 @@
  * as a link, and its HTML. The page is pre-rendered unfiltered; its client script re-renders it.
  */
 
-import { compact, date, daysBefore, esc, href, plural } from "./format.ts";
+import { age, compact, date, daysBefore, esc, href, plural } from "./format.ts";
 import {
   CAUTION,
   FACET_ORDER,
@@ -103,9 +103,11 @@ export type Prop = "published" | "stars" | "downloads" | "week";
 type Value = number | string;
 interface PropInfo {
   label: string;
+  /** The label on a row, when not `label`. */
+  rowLabel?: string;
   /** The entry's value, or null when unknown. Dates are YYYY-MM-DD. */
   of: (e: Entry) => Value | null;
-  /** Where the value comes from, for its tooltip. */
+  /** Where the value comes from, for its tooltip. Only called when the value is known. */
   title: (e: Entry) => string;
   /** The slider's stops, lowest first. The last one is above every value, so the full range includes them all. */
   stops: Value[];
@@ -142,16 +144,19 @@ const most = (e: Entry) => (isBundle(e) ? "The most of any of its skills: " : ""
 export const PROPS: Record<Prop, PropInfo> = {
   published: {
     label: "Published",
+    // The row shows its age, such as "3 days", and the date in its tooltip.
+    rowLabel: "Age",
     of: publishedOf,
     title: (e) => {
+      const on = date(publishedOf(e) as string);
       const tookOff = publishedOf(e) !== firstSeenOf(e);
       if (isBundle(e))
         return tookOff
-          ? `The earliest of its skills: when skills.sh first saw one, or the week one took off after getting under ${compact(GROWTH_BASE_MIN)} installs a week`
-          : "When skills.sh first saw one of its skills";
+          ? `Published ${on}, the earliest of its skills: when skills.sh first saw one, or the week one took off after getting under ${compact(GROWTH_BASE_MIN)} installs a week`
+          : `Published ${on}, when skills.sh first saw one of its skills`;
       return tookOff
-        ? `The week it took off on skills.sh: skills.sh first saw it ${date(firstSeenOf(e) as string)}, but it got under ${compact(GROWTH_BASE_MIN)} installs a week until then`
-        : "When skills.sh first saw it";
+        ? `Published ${on}, the week it took off on skills.sh: skills.sh first saw it ${date(firstSeenOf(e) as string)}, but it got under ${compact(GROWTH_BASE_MIN)} installs a week until then`
+        : `Published ${on}, when skills.sh first saw it`;
     },
     // Below and above every date, so that the full range takes them all in.
     stops: ["", ...AGES.map((n) => daysBefore(data.asOf.installs, n)), "~"],
@@ -662,8 +667,14 @@ function filterChip(
 function propsHtml(e: Entry, st: State): string {
   const rows = PROP_IDS.map((p) => {
     const v = PROPS[p].of(e);
-    const shown = v === null ? "—" : PROPS[p].date ? date(v as string) : compact(v as number);
-    return `<div${p === st.sort ? ` class="on"` : ""}${v === null ? "" : ` title="${esc(PROPS[p].title(e))}"`}><dt>${PROPS[p].label}</dt><dd>${shown}</dd></div>`;
+    // Ages count up to the data's date, as the Published slider does, not to the viewer's day.
+    const shown =
+      v === null
+        ? "—"
+        : PROPS[p].date
+          ? age(v as string, data.asOf.installs)
+          : compact(v as number);
+    return `<div${p === st.sort ? ` class="on"` : ""}${v === null ? "" : ` title="${esc(PROPS[p].title(e))}"`}><dt>${PROPS[p].rowLabel ?? PROPS[p].label}</dt><dd>${shown}</dd></div>`;
   });
   // The growth shows only while the list is sorted by it, to explain the order.
   if (st.sort === "growth") {

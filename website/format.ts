@@ -41,6 +41,18 @@ export const daysBefore = (day: string, n: number) =>
   new Date(Date.parse(`${day}T00:00:00Z`) - n * 86_400_000).toISOString().slice(0, 10);
 export const plural = (n: number, word: string) =>
   `${n.toLocaleString("en")} ${word}${n === 1 ? "" : "s"}`;
+/**
+ * How long before `asOf` a day was, both YYYY-MM-DD, as a number and one word, rounded down: 3 days,
+ * 5 weeks (from 2 to 8), 9 months, 1.5 years (a decimal under 5 years), 7 years.
+ */
+export function age(day: string, asOf: string): string {
+  const days = Math.max(0, Math.round((Date.parse(asOf) - Date.parse(day)) / 86_400_000));
+  const years = days / 365.25;
+  if (days < 14) return plural(days, "day");
+  if (days < 61) return plural(Math.floor(days / 7), "week");
+  if (years < 1) return plural(Math.floor(years * 12), "month");
+  return plural(years < 5 ? Math.floor(years * 10) / 10 : Math.floor(years), "year");
+}
 
 /** A path on this site, under the base it's served from (`/` at https://skillhub.build). */
 export const href = (path = "") => `${import.meta.env.BASE_URL}${path}`;
