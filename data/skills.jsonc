@@ -74115,10 +74115,36 @@
       "skillMd": {
         "version": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
         "updated": "2026-11-09",
-        "skew": 923
+        "skew": 0
       },
       "agentReview": {
         "description": "Gives the agent a shared vocabulary and product surveys for designing a software factory: agents that turn tickets into merged code.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "You're designing a software factory: a system of agents that turns tickets, PRs and schedules into merged code"
+            },
+            {
+              "label": "It does",
+              "text": "Fixes one vocabulary for the design, such as task, run, runner and orchestrator, and names the canonical term when you use another word"
+            },
+            {
+              "label": "You get",
+              "text": "A design, in the conversation: a product picked for each service, and each task's answers to five questions, from what triggers it to what stops duplicate work"
+            },
+            {
+              "label": "Unlike domain-modeling",
+              "text": "That one builds your project's own glossary as you go; this one brings a fixed vocabulary for one kind of system"
+            },
+            {
+              "label": "Runs",
+              "text": "Only when you invoke it; its author marks it in progress, so expect changes"
+            }
+          ],
+          "text": "A software factory is a system of agents that turns tickets, PRs and schedules into merged code, on infrastructure you choose. This skill gives you and the agent one set of terms for designing one. A task is a kind of work defined once, such as review or implement; a run is one execution of it, started by a trigger such as a ticket change or a clock, on a runner, a disposable machine. Around them sit the services: the ticket tracker, which is also how humans talk to the factory, the git host, the orchestrator that starts and tracks runs, and an optional observability platform. It advises starting slow: one throttled trigger at a time, braked by automated checks, automated review and human review. A design is done when you've picked a product for every service and every task says what triggers it, what it does, what it triggers next, where a human steps back in, and what stops two runs doing the same work. To help you choose, it comes with example tasks, grouped by the problem they solve, such as untriaged tickets, and a survey of the products for each service.",
+          "permalink": "https://github.com/mattpocock/skills/tree/4ae2317ddb22b046e26455e4f9c9b3aaaf62212d/skills/in-progress/software-factory"
+        },
         "tags": [
           "category:agents",
           "type:guidelines",
@@ -74146,10 +74172,40 @@
       "skillMd": {
         "version": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
         "updated": "2026-11-09",
-        "skew": 415
+        "skew": 0
       },
       "agentReview": {
         "description": "Migrates test files from `as` type assertions to shoehorn's fromPartial and fromAny.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "Your tests use `as` assertions to pass partial or deliberately wrong data to typed functions"
+            },
+            {
+              "label": "It does",
+              "text": "Installs shoehorn and replaces `as Type` with fromPartial() and `as unknown as Type` with fromAny() in your test files"
+            },
+            {
+              "label": "You get",
+              "text": "Tests that pass only the properties they need and still type-check, confirmed by a type check at the end"
+            },
+            {
+              "label": "Keeps",
+              "text": "shoehorn out of production code: it touches test files only"
+            },
+            {
+              "label": "From",
+              "text": "Matt Pocock, who maintains shoehorn"
+            },
+            {
+              "label": "Runs",
+              "text": "By itself when you mention shoehorn, want `as` out of your tests, or need partial test data"
+            }
+          ],
+          "text": "shoehorn (@total-typescript/shoehorn) is a small library for test data. A test often has to pass a large object, such as a request, when it only cares about one property, so people fake the whole object or silence TypeScript with `as`. With shoehorn, fromPartial() takes a partial object and still type-checks, fromAny() passes intentionally wrong data while keeping autocomplete, and fromExact() demands the full object until you swap it for fromPartial(). The agent first asks which test files have troublesome assertions and whether you need wrong data for error tests. It then installs the package with npm, searches .test.ts and .spec.ts files for `as` assertions, swaps each for the matching function, adds the imports and runs a type check.",
+          "permalink": "https://github.com/mattpocock/skills/tree/4ae2317ddb22b046e26455e4f9c9b3aaaf62212d/skills/misc/migrate-to-shoehorn"
+        },
         "tags": [
           "category:engineering",
           "category:frameworks",
@@ -74179,10 +74235,28 @@
       "skillMd": {
         "version": "8f1ea9b0a210caddd5f8d1749be636f7b22a9e62",
         "updated": "2026-11-09",
-        "skew": 75
+        "skew": 0
       },
       "agentReview": {
         "description": "Fixes better-sqlite3 native module errors by rebuilding it with npm.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "better-sqlite3 fails to load in your Node.js project because it was compiled for a different Node.js version"
+            },
+            {
+              "label": "It does",
+              "text": "Runs npm rebuild, which rebuilds every native module of the project, without asking you, then retries what failed"
+            },
+            {
+              "label": "Runs",
+              "text": "By itself, whenever such a native-module error shows up"
+            }
+          ],
+          "text": "better-sqlite3 is a SQLite library for Node.js that ships native code compiled for one Node.js version. Switch Node.js versions and it fails to load, with errors such as a NODE_MODULE_VERSION mismatch or \"was compiled against a different Node.js version\". This tiny skill tells the agent to fix that itself: when it sees such an error, it runs npm rebuild, which recompiles all the project's native modules for the Node.js you're running, and tries again, without asking you first. It comes from the demo project of Matt Pocock's AI engineering workshop, but nothing in it is specific to that project.",
+          "permalink": "https://github.com/mattpocock/ai-engineer-workshop-2026-project/tree/8f1ea9b0a210caddd5f8d1749be636f7b22a9e62/.claude/skills/better-sqlite3-rebuild"
+        },
         "tags": [
           "category:debugging",
           "type:tool",
@@ -74212,10 +74286,36 @@
       "skillMd": {
         "version": "049bb4d1da248fc9a1c79f47d7fe6f7a673e3c16",
         "updated": "2026-11-09",
-        "skew": 106
+        "skew": 0
       },
       "agentReview": {
         "description": "Checks a repo's changesets before a release: user-facing, grouped, and free of implementation details.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "You're about to release a package that records its changes with Changesets"
+            },
+            {
+              "label": "It does",
+              "text": "Checks every file in .changeset and fixes what fails: only user-facing changes, related ones under one changeset, no implementation details"
+            },
+            {
+              "label": "You get",
+              "text": "Changesets that read as release notes for users, in a new commit"
+            },
+            {
+              "label": "Unlike changeset pre",
+              "text": "That command puts a package in pre-release mode for alpha or beta versions; this skill only checks the changeset files"
+            },
+            {
+              "label": "Runs",
+              "text": "Only when you invoke it"
+            }
+          ],
+          "text": "Changesets is a release tool where each change to a package is described in a small Markdown file in the .changeset directory, and those files become the package's release notes. This skill has the agent check and fix them before a release. Each changeset should be about a feature users notice: internal refactors get none. Related changes belong under one changeset. And each should say what changed for users and why, not how it was built, because changesets aren't commit messages. When it's done, the agent commits its changes. It comes from Sandcastle, Matt Pocock's CLI for running agents in sandboxes, but works in any repo that uses Changesets.",
+          "permalink": "https://github.com/mattpocock/sandcastle/tree/049bb4d1da248fc9a1c79f47d7fe6f7a673e3c16/.agents/skills/pre-release"
+        },
         "tags": [
           "category:engineering",
           "category:writing",
@@ -74242,10 +74342,32 @@
       "skillMd": {
         "version": "81b3b2614a32e47948cd4b8d5468879c07c2b361",
         "updated": "2026-11-09",
-        "skew": 662
+        "skew": 0
       },
       "agentReview": {
         "description": "Researches why the TypeScript team typed a built-in the way it did, from their issues, PRs and comments.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "You want to know why TypeScript types a built-in the way it does, as ts-reset's maintainers do before overriding one"
+            },
+            {
+              "label": "It does",
+              "text": "Searches microsoft/TypeScript's issues and PRs with gh for what the TypeScript team said, including changes that were tried and reverted"
+            },
+            {
+              "label": "You get",
+              "text": "A report in the conversation: a timeline, quotes linked to the exact comments, the reasoning, past attempts, and whether ts-reset should override the type"
+            },
+            {
+              "label": "Needs",
+              "text": "The gh CLI; it falls back to web search when GitHub's search falls short"
+            }
+          ],
+          "text": "ts-reset is Matt Pocock's library that replaces some of TypeScript's built-in types with stricter ones. Before overriding one, its maintainers want to know why TypeScript typed it that way, and this skill researches that. The agent searches the microsoft/TypeScript repo's issues and PRs with gh, from narrow queries to broader ones, and keeps the comments of the TypeScript team: Ryan Cavanaugh, the project lead whose word usually settles it, then Daniel Rosenwasser, Anders Hejlsberg and Nathan Shively-Sanders. It checks for PRs that changed the type and were reverted, looks for principles stated on related issues, and falls back to web search. It knows the team's recurring arguments, such as \"any can never be wrong, just less right\" and caution about breaking changes. It only reads. Its report gives a timeline with links, direct quotes linked to the specific comments, the reasoning, earlier attempts to change the type, and whether the change fits ts-reset or the current typing is a deliberate trade-off.",
+          "permalink": "https://github.com/mattpocock/ts-reset/tree/81b3b2614a32e47948cd4b8d5468879c07c2b361/.claude/skills/research-ts-decisions"
+        },
         "tags": [
           "category:engineering",
           "type:workflow",
