@@ -1,7 +1,7 @@
 /** The data behind every page, ../data/skills.jsonc, and what the pages derive from it. */
 
 import raw from "../data/skills.jsonc";
-import { daysBefore, esc, href, plural } from "./format.ts";
+import { daysBefore, esc, glanceEnd, href, plural } from "./format.ts";
 import type { Facet, Tldr } from "../data/types.ts";
 // The browser runs this file, in the skills list, so it types the data as the browser's copy, which
 // leaves some fields out: reading one here doesn't type-check. Pages get them from server-data.ts.
@@ -183,7 +183,7 @@ export function crumbsHtml(repo: string, ...more: string[]): string {
 export function glanceHtml(glance: Tldr["glance"], max = glance.length): string {
   const items = glance
     .slice(0, max)
-    .map(({ label, text }) => `<div><dt>${esc(label)}</dt><dd>${esc(text)}</dd></div>`);
+    .map(({ label, text }) => `<div><dt>${esc(label)}</dt><dd>${esc(glanceEnd(text))}</dd></div>`);
   return `<dl class="glance">${items.join("")}</dl>`;
 }
 
