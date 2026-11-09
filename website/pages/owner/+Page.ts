@@ -1,6 +1,6 @@
 import type { PageContextServer } from "vike/types";
 import { esc, href, plural } from "../../format.ts";
-import { listingHtml } from "../../list.ts";
+import { crowdDefsHtml, listingHtml } from "../../list.ts";
 import { KINDS, numbersHtml } from "../../listings.ts";
 import { repoHref } from "../../skills.ts";
 import type { Data } from "./+data.ts";
@@ -25,5 +25,6 @@ export default function Page(pageContext: PageContextServer): string {
       <p class="lede">${plural(skills, "skill")} in ${listings.length === 1 ? "one repo" : `${listings.length} repos, most starred first`}.</p>
       <p class="links"><a href="https://github.com/${esc(owner)}">${esc(owner)} on GitHub</a></p>
       ${repos.join("")}
+      ${crowdDefsHtml()}
     </div>`;
 }

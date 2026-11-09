@@ -1,6 +1,6 @@
 import type { PageContextServer } from "vike/types";
 import { esc, href } from "../../format.ts";
-import { listingHtml, skillsLink } from "../../list.ts";
+import { crowdDefsHtml, listingHtml, skillsLink } from "../../list.ts";
 import { KINDS, numbersHtml } from "../../listings.ts";
 import { ownerHref } from "../../skills.ts";
 import type { Data } from "./+data.ts";
@@ -23,5 +23,6 @@ export default function Page(pageContext: PageContextServer): string {
           : ""
       }
       <section aria-labelledby="skills"><h2 id="skills">${skills.length === 1 ? "Its skill" : "Its skills, most installed first"}</h2>${listingHtml(skills)}</section>
+      ${crowdDefsHtml()}
     </div>`;
 }

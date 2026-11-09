@@ -60,6 +60,13 @@
   --spark-line: #5e6888;
   --spark-now: #b3175a;
   --spark-base: #e3e7e1;
+  /* The chart behind each number of a row: the crowd below it, above it, and its outline; then the same on the highlighted number. */
+  --crowd-below: rgb(163 171 194 / 0.55);
+  --crowd-above: rgb(223 227 221 / 0.55);
+  --crowd-line: rgb(163 171 194 / 0.8);
+  --crowd-on-below: rgb(209 107 151 / 0.55);
+  --crowd-on-above: rgb(243 189 211 / 0.55);
+  --crowd-on-line: rgb(209 107 151 / 0.8);
   /* Tags: plain, then the three safety tints: background / text. */
   --t-plain: #ecefea;
   --t-good: #ddf3e4;
@@ -108,6 +115,12 @@
   --spark-line: #8f98b8;
   --spark-now: #ff8db8;
   --spark-base: #404047;
+  --crowd-below: rgb(143 152 184 / 0.32);
+  --crowd-above: rgb(255 255 255 / 0.05);
+  --crowd-line: rgb(143 152 184 / 0.6);
+  --crowd-on-below: rgb(255 141 184 / 0.3);
+  --crowd-on-above: rgb(255 141 184 / 0.08);
+  --crowd-on-line: rgb(255 141 184 / 0.6);
   --t-plain: #2a2a2f;
   --t-good: #12352a;
   --t-good-ink: #9fe3bc;
@@ -1373,7 +1386,7 @@ body:has(.skills-view) {
 .props {
   display: grid;
   flex: none;
-  grid-template-columns: minmax(max-content, 1fr) max-content max-content;
+  grid-template-columns: minmax(max-content, 1fr) max-content;
   align-self: flex-start;
   min-width: 19em;
   margin: 0;
@@ -1382,13 +1395,37 @@ body:has(.skills-view) {
   font-size: 14px;
 }
 
+/*
+ * Each number is a box of its own across both columns, so that its chart can sit behind it. The
+ * text glows in the row's own background, so it reads over the chart.
+ */
 .props div {
-  display: contents;
+  --halo: var(--paper);
+  position: relative;
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: subgrid;
+  border-radius: 4px;
+}
+
+.skill.bundle .props div {
+  --halo: var(--wash);
+}
+
+.props div.on {
+  --halo: var(--rose);
+  background: var(--rose);
 }
 
 .props dt,
 .props dd {
+  position: relative;
+  z-index: 1;
   padding: 1px 8px;
+  text-shadow:
+    0 0 2px var(--halo),
+    0 0 2px var(--halo),
+    0 0 4px var(--halo);
 }
 
 .props dt {
@@ -1404,26 +1441,76 @@ body:has(.skills-view) {
 
 .props .on dt,
 .props .on dd {
-  background: var(--rose);
   color: var(--garnet-text);
   font-weight: 650;
 }
 
-/* A number's rank, after it: quieter than the number itself. */
-.props .rank {
-  padding-left: 0;
-  color: var(--ink-3);
-  font-weight: 400;
-  text-align: left;
+/*
+ * The chart behind a number (see crowdHtml in list.ts): the catalog's values, lowest on the left,
+ * shaded up to this one's, which the dot marks. Its two layers draw the same outline, each clipped
+ * to its side of the dot.
+ */
+.props .crowd {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  padding: 0;
+  overflow: hidden;
+  border-radius: inherit;
 }
 
-.props .on dt {
-  border-radius: 4px 0 0 4px;
+.crowd svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  stroke: var(--crowd-line);
 }
 
-.props .on .rank {
-  border-radius: 0 4px 4px 0;
-  font-weight: 400;
+.crowd .below {
+  fill: var(--crowd-below);
+  clip-path: inset(0 calc(100% - var(--x)) 0 0);
+}
+
+.crowd .above {
+  fill: var(--crowd-above);
+  clip-path: inset(0 0 0 var(--x));
+}
+
+.crowd i {
+  position: absolute;
+  bottom: clamp(3px, var(--y), calc(100% - 3px));
+  left: clamp(3px, var(--x), calc(100% - 3px));
+  width: 5px;
+  height: 5px;
+  margin: 0 0 -2.5px -2.5px;
+  border-radius: 50%;
+  background: var(--ink);
+  box-shadow: 0 0 0 1px var(--halo);
+}
+
+.on .crowd svg {
+  stroke: var(--crowd-on-line);
+}
+
+.on .crowd .below {
+  fill: var(--crowd-on-below);
+}
+
+.on .crowd .above {
+  fill: var(--crowd-on-above);
+}
+
+.on .crowd i {
+  background: var(--garnet);
+}
+
+/* The outlines the charts draw: see crowdDefsHtml in list.ts. */
+.crowd-defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
 }
 
 .skill-head {
@@ -2474,27 +2561,13 @@ body:has(.skills-view) {
     grid-template-columns: max-content minmax(0, 1fr);
   }
 
-  /* The numbers wrap into one line under the row. */
+  /* The numbers go under the row, as wide as it, so that their charts have room. */
   .props {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 4px;
+    align-self: stretch;
     min-width: 0;
     padding: 8px 0 0;
     border-top: 1px solid var(--rule);
     border-left: 0;
-  }
-
-  .props div {
-    display: flex;
-  }
-
-  .props .rank:empty {
-    display: none;
-  }
-
-  .props .on dd:nth-last-child(2):has(+ .rank:empty) {
-    border-radius: 0 4px 4px 0;
   }
 
   .page {

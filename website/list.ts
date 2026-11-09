@@ -115,51 +115,74 @@ interface PropInfo {
   keys?: string[];
   /** Its values are dates, and its stops ages: see AGES. */
   date?: boolean;
-  /** Where its value places the entry, for the numbers that rank: see rankLabel. */
-  ranking?: Ranking;
+  /** How the catalog's values spread out: see Crowd. */
+  crowd?: Crowd;
 }
 
 /**
- * The places of a number's values, highest first. A value's place is 1 plus how many are higher,
- * so equal values share a place: a bundle shares its most installed skill's, every skill of a repo
- * its repo's.
+ * How the catalog's values of a number spread out, so that a row shows whether its number is a lot:
+ * a chart behind it (see crowdHtml), and its place, in its tooltip. A value's place is 1 plus how
+ * many are higher, so equal values share a place: a bundle shares its most installed skill's,
+ * every skill of a repo its repo's.
  */
-interface Ranking {
+interface Crowd {
   /** What it ranks, such as "skills". */
   what: string;
   total: number;
-  placeOf: (v: number) => number;
+  placeOf: (n: number) => number;
+  /** Where a value sits along the chart, from 0 to 1. */
+  at: (n: number) => number;
+  /** The chart's outline, left to right, in its 100 × 20 viewBox. */
+  points: [number, number][];
 }
-function ranking(what: string, values: (number | null)[]): Ranking {
-  const sorted = values.filter((v) => v !== null).sort((a, b) => b - a);
+/** The chart's bins, and its outline's lowest and highest y. */
+const BINS = 40;
+const FLOOR = 19;
+const PEAK = 3;
+/**
+ * `log` spreads counts by their order of magnitude, so that 10 to 100 is as wide as 10K to 100K.
+ * The chart starts at the 1st percentile: a few new skills with a handful of downloads would
+ * squeeze the rest into its right end.
+ */
+function crowd(what: string, values: (number | null)[], log: boolean): Crowd {
+  const known = values.filter((v) => v !== null);
+  const desc = [...known].sort((a, b) => b - a);
+  const scale = log ? (v: number) => Math.log10(Math.max(v, 1)) : (v: number) => v;
+  const lo = scale(desc[Math.floor(desc.length * 0.99)]);
+  const hi = scale(desc[0]);
+  const at = (v: number) => Math.min(1, Math.max(0, (scale(v) - lo) / (hi - lo || 1)));
+  const bins = Array<number>(BINS).fill(0);
+  for (const v of known) bins[Math.min(BINS - 1, Math.floor(at(v) * BINS))]++;
+  // Smoothed, so the outline reads as a crowd rather than as bars.
+  const smooth = bins.map(
+    (_, i) => [1, 2, 3, 2, 1].reduce((sum, w, j) => sum + w * (bins[i + j - 2] ?? 0), 0) / 9,
+  );
+  const max = Math.max(...smooth);
+  const y = (n: number) => FLOOR - (n / max) * (FLOOR - PEAK);
   return {
     what,
-    total: sorted.length,
+    total: desc.length,
     placeOf: (v) => {
       // Binary search for how many are higher.
-      let lo = 0;
-      let hi = sorted.length;
-      while (lo < hi) {
-        const mid = (lo + hi) >> 1;
-        if (sorted[mid] > v) lo = mid + 1;
-        else hi = mid;
+      let a = 0;
+      let b = desc.length;
+      while (a < b) {
+        const mid = (a + b) >> 1;
+        if (desc[mid] > v) a = mid + 1;
+        else b = mid;
       }
-      return lo + 1;
+      return a + 1;
     },
+    at,
+    points: [
+      [0, y(smooth[0])],
+      ...smooth.map((n, i): [number, number] => [((i + 0.5) / BINS) * 100, y(n)]),
+      [100, y(smooth[BINS - 1])],
+    ],
   };
 }
-/**
- * A place as people read it at a glance: up to #99, the place itself, such as #3; further down,
- * the share of the field at or above it, such as top 12%, or, past the middle, at or below it, such
- * as bottom 8%, since "top 97%" reads oddly. A place such as #473 means little without the total,
- * which the tooltip gives.
- */
-function rankLabel(place: number, total: number): string {
-  if (place < 100) return `#${place}`;
-  return place <= total / 2
-    ? `top ${Math.ceil((place / total) * 100)}%`
-    : `bottom ${Math.ceil(((total - place + 1) / total) * 100)}%`;
-}
+/** A date as days, for the Age chart, on which the newest is the highest. */
+const days = (iso: string) => Date.parse(`${iso}T00:00:00Z`) / 86_400_000;
 /** The repos the catalog's skills and bundles are in, which stars rank among. */
 const listedRepos = new Set([...data.skills, ...data.bundles].map(repoKey));
 
@@ -208,15 +231,24 @@ export const PROPS: Record<Prop, PropInfo> = {
     stops: ["", ...AGES.map((n) => daysBefore(data.asOf.installs, n)), "~"],
     keys: ["", ...AGES.map((n) => `${n}d`), "~"],
     date: true,
+    crowd: crowd(
+      "skills, newest first",
+      data.skills.map((s) => {
+        const d = publishedOf(s);
+        return d ? days(d) : null;
+      }),
+      false,
+    ),
   },
   stars: {
     label: "Stars",
     of: starsOf,
     title: (e) => `GitHub stars of ${repoKey(e)}, ${date(data.asOf.stars)}`,
     stops: countStops(starsOf),
-    ranking: ranking(
+    crowd: crowd(
       "repos",
       data.repos.filter((r) => listedRepos.has(r.id)).map((r) => r.stars),
+      true,
     ),
   },
   downloads: {
@@ -224,14 +256,14 @@ export const PROPS: Record<Prop, PropInfo> = {
     of: installsOf,
     title: (e) => `${most(e)}All-time installs on skills.sh, ${date(data.asOf.installs)}`,
     stops: countStops(installsOf),
-    ranking: ranking("skills", data.skills.map(installsOf)),
+    crowd: crowd("skills", data.skills.map(installsOf), true),
   },
   week: {
     label: "Weekly Downloads",
     of: weekOf,
     title: (e) => `${most(e)}Installs on skills.sh in the week to ${date(data.asOf.installs)}`,
     stops: countStops(weekOf),
-    ranking: ranking("skills", data.skills.map(weekOf)),
+    crowd: crowd("skills", data.skills.map(weekOf), true),
   },
 };
 const PROP_IDS = Object.keys(PROPS) as Prop[];
@@ -748,34 +780,74 @@ function filterChip(
 }
 
 /**
- * The row's numbers, top right, with the one the list is sorted by highlighted. Each number that
- * ranks is followed by its rank among the whole catalog, whatever the filters: see rankLabel.
- * Every row has a rank cell, empty for a number that doesn't rank, so the columns line up.
+ * The row's numbers, top right, with the one the list is sorted by highlighted. Behind each, a chart
+ * of how the catalog's values spread out, with this one's place: see crowdHtml.
  */
 function propsHtml(e: Entry, st: State): string {
   const rows = PROP_IDS.map((p) => {
-    const { of, date: isDate, ranking, label, rowLabel } = PROPS[p];
+    const { of, date: isDate, crowd, label, rowLabel } = PROPS[p];
     const v = of(e);
     // Ages count up to the data's date, as the Published slider does, not to the viewer's day.
     const shown =
       v === null ? "—" : isDate ? age(v as string, data.asOf.installs) : compact(v as number);
     let title = v === null ? null : PROPS[p].title(e);
-    let rank = "";
-    if (ranking && typeof v === "number") {
-      const place = ranking.placeOf(v);
-      rank = rankLabel(place, ranking.total);
-      title += `. #${place.toLocaleString("en")} of ${ranking.total.toLocaleString("en")} ${ranking.what}`;
+    let chart = "";
+    if (crowd && v !== null) {
+      const n = isDate ? days(v as string) : (v as number);
+      title += `. #${crowd.placeOf(n).toLocaleString("en")} of ${crowd.total.toLocaleString("en")} ${crowd.what}`;
+      chart = crowdHtml(p, crowd, n);
     }
-    return `<div${p === st.sort ? ` class="on"` : ""}${title === null ? "" : ` title="${esc(title)}"`}><dt>${rowLabel ?? label}</dt><dd>${shown}</dd><dd class="rank">${rank}</dd></div>`;
+    return `<div${p === st.sort ? ` class="on"` : ""}${title === null ? "" : ` title="${esc(title)}"`}><dt>${rowLabel ?? label}</dt><dd>${shown}</dd>${chart}</div>`;
   });
   // The growth shows only while the list is sorted by it, to explain the order.
   if (st.sort === "growth") {
     const g = growthOf(e);
     rows.push(
-      `<div class="on" title="${esc(GROWTH.title(e))}"><dt>${GROWTH.label}</dt><dd>${g === null ? "—" : percent(g)}</dd><dd class="rank"></dd></div>`,
+      `<div class="on" title="${esc(GROWTH.title(e))}"><dt>${GROWTH.label}</dt><dd>${g === null ? "—" : percent(g)}</dd></div>`,
     );
   }
   return `<dl class="props">${rows.join("")}</dl>`;
+}
+
+/** Where the chart's outline is at `x`, from 0 to 100. */
+function outlineAt(points: [number, number][], x: number): number {
+  const i = Math.max(
+    1,
+    points.findIndex(([px]) => px >= x),
+  );
+  const [x0, y0] = points[i - 1];
+  const [x1, y1] = points[i];
+  return y0 + ((y1 - y0) * (x - x0)) / (x1 - x0 || 1);
+}
+
+/**
+ * The chart behind a row's number: the catalog's values, spread out from the lowest on the left to
+ * the highest on the right, shaded up to this one, which a dot marks on the outline. The outline is
+ * drawn once per page, as crowdDefsHtml; the row only says where its dot is, which the CSS clips the
+ * shading at.
+ */
+function crowdHtml(p: Prop, c: Crowd, n: number): string {
+  const x = c.at(n) * 100;
+  const y = ((20 - outlineAt(c.points, x)) / 20) * 100;
+  const layer = (cls: string) =>
+    `<svg class="${cls}" viewBox="0 0 100 20" preserveAspectRatio="none"><use href="#crowd-${p}" /></svg>`;
+  return `<dd class="crowd" aria-hidden="true" style="--x: ${x.toFixed(1)}%; --y: ${y.toFixed(1)}%">${layer("below")}${layer("above")}<i></i></dd>`;
+}
+
+/**
+ * The outlines the rows' charts draw (see crowdHtml), once per page that lists rows: an area, which
+ * takes its fill from the chart's layer, and a line, its stroke.
+ */
+export function crowdDefsHtml(): string {
+  const outlines = PROP_IDS.map((p) => {
+    const c = PROPS[p].crowd;
+    if (!c) return "";
+    const line = c.points
+      .map(([x, y], i) => `${i ? "L" : "M"}${+x.toFixed(2)},${+y.toFixed(2)}`)
+      .join("");
+    return `<g id="crowd-${p}"><path d="${line}L100,20L0,20Z" stroke="none" /><path d="${line}" fill="none" vector-effect="non-scaling-stroke" /></g>`;
+  });
+  return `<svg class="crowd-defs" aria-hidden="true"><defs>${outlines.join("")}</defs></svg>`;
 }
 
 /** A row's repo, as a link to its page. */
@@ -1037,7 +1109,7 @@ const rowHtml = (e: Entry, st: State) => (isBundle(e) ? bundleRow(e, st) : skill
 
 /**
  * Rows outside the skills list, on a page about their repo: what the page passes, in its order,
- * with Downloads highlighted, as they're most installed first.
+ * with Downloads highlighted, as they're most installed first. The page adds crowdDefsHtml once.
  */
 export function listingHtml(entries: Entry[]): string {
   const st: State = { ...fresh(), sort: "downloads" };
@@ -1236,6 +1308,7 @@ export function listView(st: State, reviewed: number): string {
           <p id="search-note" class="search-note">${searchNote(st)}</p>
         </div>
         <section id="results" aria-label="Skills">${resultsHtml(st)}</section>
+        ${crowdDefsHtml()}
       </div>
     </div>`;
 }
