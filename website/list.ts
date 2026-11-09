@@ -117,6 +117,8 @@ interface PropInfo {
   date?: boolean;
   /** How the catalog's values spread out: see Crowd. */
   crowd?: Crowd;
+  /** Where its value stands, in words, for the skill's page: see standingOf. */
+  standing?: { more: string; fewer: string; most: string };
 }
 
 /**
@@ -126,31 +128,43 @@ interface PropInfo {
  * every skill of a repo its repo's.
  */
 interface Crowd {
-  /** What it ranks, such as "skills". */
+  /** What it ranks, such as "skill". */
   what: string;
+  /** Which way its places go, when it says so, such as "newest first". */
+  order?: string;
   total: number;
   placeOf: (n: number) => number;
+  /** How many are lower. */
+  belowOf: (n: number) => number;
   /** Where a value sits along the chart, from 0 to 1. */
   at: (n: number) => number;
   /** The chart's outline, left to right, in its 100 × 20 viewBox. */
   points: [number, number][];
+  /** The chart's scale, for the skill's page: where each mark is, from 0 to 1, and its label. */
+  ticks: [at: number, label: string][];
 }
 /** The chart's bins, and its outline's lowest and highest y. */
 const BINS = 40;
 const FLOOR = 19;
 const PEAK = 3;
+const MONTH = new Intl.DateTimeFormat("en", { month: "short", timeZone: "UTC" });
 /**
- * `log` spreads counts by their order of magnitude, so that 10 to 100 is as wide as 10K to 100K.
- * The chart starts at the 1st percentile: a few new skills with a handful of downloads would
- * squeeze the rest into its right end.
+ * `scale` "log" spreads counts by their order of magnitude, so that 10 to 100 is as wide as 10K to
+ * 100K; "days" spreads dates, as days, evenly. The chart starts at the 1st percentile: a few new
+ * skills with a handful of downloads would squeeze the rest into its right end.
  */
-function crowd(what: string, values: (number | null)[], log: boolean): Crowd {
+function crowd(
+  what: string,
+  values: (number | null)[],
+  scale: "log" | "days",
+  order?: string,
+): Crowd {
   const known = values.filter((v) => v !== null);
   const desc = [...known].sort((a, b) => b - a);
-  const scale = log ? (v: number) => Math.log10(Math.max(v, 1)) : (v: number) => v;
-  const lo = scale(desc[Math.floor(desc.length * 0.99)]);
-  const hi = scale(desc[0]);
-  const at = (v: number) => Math.min(1, Math.max(0, (scale(v) - lo) / (hi - lo || 1)));
+  const f = scale === "log" ? (v: number) => Math.log10(Math.max(v, 1)) : (v: number) => v;
+  const lo = f(desc[Math.floor(desc.length * 0.99)]);
+  const hi = f(desc[0]);
+  const at = (v: number) => Math.min(1, Math.max(0, (f(v) - lo) / (hi - lo || 1)));
   const bins = Array<number>(BINS).fill(0);
   for (const v of known) bins[Math.min(BINS - 1, Math.floor(at(v) * BINS))]++;
   // Smoothed, so the outline reads as a crowd rather than as bars. At the ends, over the neighbors
@@ -168,26 +182,45 @@ function crowd(what: string, values: (number | null)[], log: boolean): Crowd {
   });
   const max = Math.max(...smooth);
   const y = (n: number) => FLOOR - (n / max) * (FLOOR - PEAK);
+  /** How many come before the first that `past` says is past, in `desc`. */
+  const countUntil = (past: (x: number) => boolean) => {
+    let a = 0;
+    let b = desc.length;
+    while (a < b) {
+      const mid = (a + b) >> 1;
+      if (past(desc[mid])) b = mid;
+      else a = mid + 1;
+    }
+    return a;
+  };
+  const ticks: [number, string][] = [];
+  if (scale === "log")
+    for (let p = Math.ceil(lo); p <= Math.floor(hi); p++)
+      ticks.push([at(10 ** p), compact(10 ** p)]);
+  else {
+    // A month's first day, some months apart: about six marks. January says its year.
+    const first = new Date((lo + 1) * 86_400_000);
+    const months = Math.max(1, Math.ceil((hi - lo) / 30 / 6));
+    const d = new Date(Date.UTC(first.getUTCFullYear(), first.getUTCMonth() + 1, 1));
+    for (; d.getTime() / 86_400_000 <= hi; d.setUTCMonth(d.getUTCMonth() + months))
+      ticks.push([
+        at(d.getTime() / 86_400_000),
+        d.getUTCMonth() ? MONTH.format(d) : String(d.getUTCFullYear()),
+      ]);
+  }
   return {
     what,
+    order,
     total: desc.length,
-    placeOf: (v) => {
-      // Binary search for how many are higher.
-      let a = 0;
-      let b = desc.length;
-      while (a < b) {
-        const mid = (a + b) >> 1;
-        if (desc[mid] > v) a = mid + 1;
-        else b = mid;
-      }
-      return a + 1;
-    },
+    placeOf: (v) => countUntil((x) => x <= v) + 1,
+    belowOf: (v) => desc.length - countUntil((x) => x < v),
     at,
     points: [
       [0, y(smooth[0])],
       ...smooth.map((n, i): [number, number] => [((i + 0.5) / BINS) * 100, y(n)]),
       [100, y(smooth[BINS - 1])],
     ],
+    ticks,
   };
 }
 /** A date as days, for the Age chart, on which the newest is the highest. */
@@ -241,13 +274,15 @@ export const PROPS: Record<Prop, PropInfo> = {
     keys: ["", ...AGES.map((n) => `${n}d`), "~"],
     date: true,
     crowd: crowd(
-      "skills, newest first",
+      "skill",
       data.skills.map((s) => {
         const d = publishedOf(s);
         return d ? days(d) : null;
       }),
-      false,
+      "days",
+      "newest first",
     ),
+    standing: { more: "Newer than", fewer: "Older than", most: "The newest skill" },
   },
   stars: {
     label: "Stars",
@@ -255,24 +290,39 @@ export const PROPS: Record<Prop, PropInfo> = {
     title: (e) => `GitHub stars of ${repoKey(e)}, ${date(data.asOf.stars)}`,
     stops: countStops(starsOf),
     crowd: crowd(
-      "repos",
+      "repo",
       data.repos.filter((r) => listedRepos.has(r.id)).map((r) => r.stars),
-      true,
+      "log",
     ),
+    standing: {
+      more: "More stars than",
+      fewer: "Fewer stars than",
+      most: "The most stars of any repo",
+    },
   },
   downloads: {
     label: "Total Downloads",
     of: installsOf,
     title: (e) => `${most(e)}All-time installs on skills.sh, ${date(data.asOf.installs)}`,
     stops: countStops(installsOf),
-    crowd: crowd("skills", data.skills.map(installsOf), true),
+    crowd: crowd("skill", data.skills.map(installsOf), "log"),
+    standing: {
+      more: "More downloads than",
+      fewer: "Fewer downloads than",
+      most: "The most downloads of any skill",
+    },
   },
   week: {
     label: "Weekly Downloads",
     of: weekOf,
     title: (e) => `${most(e)}Installs on skills.sh in the week to ${date(data.asOf.installs)}`,
     stops: countStops(weekOf),
-    crowd: crowd("skills", data.skills.map(weekOf), true),
+    crowd: crowd("skill", data.skills.map(weekOf), "log"),
+    standing: {
+      more: "More weekly downloads than",
+      fewer: "Fewer weekly downloads than",
+      most: "The most weekly downloads of any skill",
+    },
   },
 };
 const PROP_IDS = Object.keys(PROPS) as Prop[];
@@ -803,8 +853,8 @@ function propsHtml(e: Entry, st: State): string {
     let chart = "";
     if (crowd && v !== null) {
       const n = isDate ? days(v as string) : (v as number);
-      title += `. #${crowd.placeOf(n).toLocaleString("en")} of ${crowd.total.toLocaleString("en")} ${crowd.what}`;
-      chart = crowdHtml(p, crowd, n);
+      title += `. ${placeText(crowd, n)}`;
+      chart = crowdHtml(p, crowd, n, "dd");
     }
     return `<div${p === st.sort ? ` class="on"` : ""}${title === null ? "" : ` title="${esc(title)}"`}><dt>${rowLabel ?? label}</dt><dd>${shown}</dd>${chart}</div>`;
   });
@@ -835,12 +885,50 @@ function outlineAt(points: [number, number][], x: number): number {
  * drawn once per page, as crowdDefsHtml; the row only says where its dot is, which the CSS clips the
  * shading at.
  */
-function crowdHtml(p: Prop, c: Crowd, n: number): string {
+function crowdHtml(p: Prop, c: Crowd, n: number, tag: "dd" | "div"): string {
   const x = c.at(n) * 100;
   const y = ((20 - outlineAt(c.points, x)) / 20) * 100;
   const layer = (cls: string) =>
     `<svg class="${cls}" viewBox="0 0 100 20" preserveAspectRatio="none"><use href="#crowd-${p}" /></svg>`;
-  return `<dd class="crowd" aria-hidden="true" style="--x: ${x.toFixed(1)}%; --y: ${y.toFixed(1)}%">${layer("below")}${layer("above")}<i></i></dd>`;
+  return `<${tag} class="crowd" aria-hidden="true" style="--x: ${x.toFixed(1)}%; --y: ${y.toFixed(1)}%">${layer("below")}${layer("above")}<i></i></${tag}>`;
+}
+
+/** Such as "#34 of 1,190 skills", or "#586 of 1,190 skills, newest first". */
+const placeText = (c: Crowd, n: number) =>
+  `#${c.placeOf(n).toLocaleString("en")} of ${plural(c.total, c.what)}${c.order ? `, ${c.order}` : ""}`;
+
+/**
+ * Where an entry's number stands among the catalog's, for the skill's page: its place, in words,
+ * such as "More weekly downloads than 97% of skills", and the chart the rows show (see crowdHtml)
+ * with its scale under it. Null when the number is unknown, or doesn't rank. The page adds
+ * crowdDefsHtml.
+ */
+export function standingOf(
+  p: Prop,
+  e: Entry,
+): { place: string; words: string; chart: string } | null {
+  const { of, date: isDate, crowd: c, standing: say } = PROPS[p];
+  const v = of(e);
+  if (!c || !say || v === null) return null;
+  const n = isDate ? days(v as string) : (v as number);
+  const place = c.placeOf(n);
+  const below = c.belowOf(n);
+  // Past the middle, the share it beats; before it, the share that beats it.
+  const share = (k: number) => `<em>${Math.floor((k / c.total) * 100)}%</em> of ${c.what}s`;
+  const words =
+    place === 1
+      ? say.most
+      : below >= c.total / 2
+        ? `${say.more} ${share(below)}`
+        : `${say.fewer} ${share(place - 1)}`;
+  const axis = c.ticks
+    .map(([at, label]) => `<span style="--at: ${at.toFixed(3)}">${label}</span>`)
+    .join("");
+  return {
+    place: placeText(c, n),
+    words,
+    chart: `${crowdHtml(p, c, n, "div")}<div class="crowd-axis" aria-hidden="true">${axis}</div>`,
+  };
 }
 
 /**

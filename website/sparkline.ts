@@ -1,7 +1,7 @@
 /**
- * The weekly-installs stat tile: the latest week's installs, the change over
- * the eight weeks, and a sparkline whose crosshair reads out any week. A table
- * of the same values sits under it, so the tooltip never gates a value.
+ * The weekly installs' trend, in the Weekly Downloads tile of a skill's page: the change over the
+ * eight weeks, and a sparkline whose crosshair reads out any week. A table of the same values sits
+ * under the tile (see trendTableHtml), so the tooltip never gates a value.
  */
 
 const W = 240;
@@ -28,11 +28,7 @@ function geometry(values: number[]) {
   };
 }
 
-export function statTile(
-  values: number[],
-  snapshot: string,
-  compact: (n: number) => string,
-): string {
+export function trendHtml(values: number[], snapshot: string): string {
   const weeks = weekEnds(snapshot, values.length);
   const { x, y } = geometry(values);
   const first = values[0];
@@ -40,14 +36,8 @@ export function statTile(
   const change = first > 0 ? Math.round(((last - first) / first) * 100) : null;
   const points = values.map((v, i) => `${x(i).toFixed(1)},${y(v).toFixed(1)}`).join(" ");
   const spoken = values.map((v, i) => `week to ${weeks[i]}: ${v.toLocaleString("en")}`).join("; ");
-  const rows = values
-    .map((v, i) => `<tr><td>${weeks[i]}</td><td>${v.toLocaleString("en")}</td></tr>`)
-    .join("");
   return `
-    <figure class="stat">
-      <figcaption class="stat-label">Weekly Downloads</figcaption>
-      <div class="stat-value">${compact(last)}</div>
-      <div class="stat-delta">${change === null ? `Week to ${weeks[weeks.length - 1]}` : `${change > 0 ? "+" : ""}${change}% over the 8 weeks to ${weeks[weeks.length - 1]}`}</div>
+    <div class="trend">
       <div class="spark" tabindex="0" role="group"
         aria-label="Weekly downloads, ${spoken}. Use the left and right arrow keys to read each week."
         data-values="${values.join(",")}" data-weeks="${weeks.join("|")}">
@@ -60,17 +50,27 @@ export function statTile(
         </svg>
         <div class="spark-tip" aria-live="polite" hidden><strong></strong><span></span></div>
       </div>
-      <details class="spark-table">
-        <summary>Weekly values</summary>
-        <table>
-          <thead><tr><th scope="col">Week to</th><th scope="col">Installs</th></tr></thead>
-          <tbody>${rows}</tbody>
-        </table>
-      </details>
-    </figure>`;
+      <div class="stat-delta">${change === null ? "8 weeks" : `${change > 0 ? "+" : ""}${change}% in 8 weeks`}</div>
+    </div>`;
 }
 
-/** Wires the crosshair and tooltip of every stat tile inside `root`. */
+/** The trend's values as a table, under its tile. */
+export function trendTableHtml(values: number[], snapshot: string): string {
+  const weeks = weekEnds(snapshot, values.length);
+  const rows = values
+    .map((v, i) => `<tr><td>${weeks[i]}</td><td>${v.toLocaleString("en")}</td></tr>`)
+    .join("");
+  return `
+    <details class="spark-table">
+      <summary>Weekly values</summary>
+      <table>
+        <thead><tr><th scope="col">Week to</th><th scope="col">Installs</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </details>`;
+}
+
+/** Wires the crosshair and tooltip of every trend's sparkline inside `root`. */
 export function mountSparklines(root: ParentNode): void {
   for (const el of root.querySelectorAll<HTMLElement>(".spark:not([data-mounted])")) {
     el.dataset.mounted = "";

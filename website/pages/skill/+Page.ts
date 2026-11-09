@@ -1,7 +1,7 @@
 import type { PageContextServer } from "vike/types";
-import { commandHtml, compact, date, esc } from "../../format.ts";
-import { skillsLink } from "../../list.ts";
-import { statTile } from "../../sparkline.ts";
+import { age, commandHtml, date, esc } from "../../format.ts";
+import { PROPS, crowdDefsHtml, skillsLink, standingOf, type Prop } from "../../list.ts";
+import { trendHtml, trendTableHtml } from "../../sparkline.ts";
 import { copyButton } from "../../copy.ts";
 import {
   FACET_ORDER,
@@ -39,23 +39,40 @@ function source(s: Skill, { version }: SkillMd): string {
   return `<a href="https://github.com/${esc(gh.repo)}/blob/${version}/${esc(encodeURI(gh.dir ? `${gh.dir}/SKILL.md` : "SKILL.md"))}">${esc(gh.repo)} at ${short(version)}</a>`;
 }
 
-function facts(s: Skill): string {
+/**
+ * A tile per number, as the skills list's rows show them: the number, where it stands among the
+ * catalog's in words and as a chart, and where it comes from. The Weekly Downloads tile also shows
+ * the 8 weeks' trend.
+ */
+function tiles(s: Skill): string {
   const repo = repoById.get(github(s).repo);
   const sh = s["skills.sh"];
-  const list: string[] = [];
-  if (sh.installs !== null)
-    list.push(
-      `<div><dt>Total Downloads</dt><dd>${sh.installs.toLocaleString("en")} <span class="muted">on skills.sh, ${date(data.asOf.installs)}</span></dd></div>`,
-    );
-  if (repo?.stars != null)
-    list.push(
-      `<div><dt>Repo stars</dt><dd>${repo.stars.toLocaleString("en")} <span class="muted">${esc(repo.id)}</span></dd></div>`,
-    );
-  if (sh.firstSeen)
-    list.push(
-      `<div><dt>First seen</dt><dd>${date(sh.firstSeen)} <span class="muted">on skills.sh</span></dd></div>`,
-    );
-  return `<dl class="facts">${list.join("")}</dl>`;
+  const tile = (p: Prop, label: string, from: string, shown: string, extra = "") => {
+    const standing = standingOf(p, s);
+    if (!standing) return "";
+    // Where it comes from, and its exact place: on its words and chart, not over the trend's own tip.
+    const title = esc(`${PROPS[p].title(s)}. ${standing.place}`);
+    return `
+      <figure class="stat">
+        <figcaption class="stat-label">${label} <span class="muted">${from}</span></figcaption>
+        <div class="stat-head"><div class="stat-value">${shown}</div>${extra}</div>
+        <div title="${title}">
+          <p class="stat-standing">${standing.words}</p>
+          ${standing.chart}
+        </div>
+        ${p === "week" && sh.weeklyInstalls ? trendTableHtml(sh.weeklyInstalls, data.asOf.installs) : ""}
+      </figure>`;
+  };
+  const week = sh.weeklyInstalls?.[sh.weeklyInstalls.length - 1];
+  const published = PROPS.published.of(s) as string | null;
+  return `
+    <section class="stat-tiles" aria-label="Its numbers">
+      ${week == null ? "" : tile("week", "Weekly Downloads", `week to ${date(data.asOf.installs)}`, week.toLocaleString("en"), sh.weeklyInstalls ? trendHtml(sh.weeklyInstalls, data.asOf.installs) : "")}
+      ${sh.installs === null ? "" : tile("downloads", "Total Downloads", "on skills.sh", sh.installs.toLocaleString("en"))}
+      ${repo?.stars == null ? "" : tile("stars", "Repo stars", esc(repo.id), repo.stars.toLocaleString("en"))}
+      ${published === null ? "" : tile("published", "Age", `published ${date(published)}`, age(published, data.asOf.installs))}
+    </section>
+    ${crowdDefsHtml()}`;
 }
 
 function tagTable(s: Skill): string {
@@ -119,14 +136,11 @@ export default function Page(pageContext: PageContextServer): string {
       ${inBundle(s)}
       ${s.agentReview.note ? `<p class="note">${esc(s.agentReview.note)}</p>` : ""}
       ${s.agentReview.tldr ? tldrHtml(s.agentReview.tldr, "the skill", s.skillMd?.skew ?? 0) : ""}
-      <div class="details-grid">
-        <div>
-          <div class="install"><code>${commandHtml(installCommand(s))}</code>${copyButton(installCommand(s))}</div>
-          <p class="links">${links.join("")}</p>
-          ${facts(s)}
-        </div>
-        ${sh.weeklyInstalls ? statTile(sh.weeklyInstalls, data.asOf.installs, compact) : ""}
+      <div class="get">
+        <div class="install"><code>${commandHtml(installCommand(s))}</code>${copyButton(installCommand(s))}</div>
+        <p class="links">${links.join("")}</p>
       </div>
+      ${tiles(s)}
       ${tagTable(s)}
       <section class="skill-md" aria-labelledby="skill-md">
         <h2 id="skill-md">SKILL.md</h2>

@@ -1803,10 +1803,18 @@ body:has(.skills-view) {
   font-size: 14px;
 }
 
-/* ------------------------------------------------------------- stat tile */
+/* ------------------------------------------------------------- stat tiles */
+
+/* A skill's numbers, a tile each: see tiles() in pages/skill/+Page.ts. */
+.stat-tiles {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
 
 .stat {
-  width: 256px;
+  --halo: var(--paper);
   margin: 0;
   padding: 15px 17px;
   border-radius: 8px;
@@ -1819,6 +1827,22 @@ body:has(.skills-view) {
   font-size: 14px;
 }
 
+.stat-label .muted {
+  color: var(--ink-3);
+}
+
+.stat-label .muted::before {
+  content: "· ";
+}
+
+/* The number, and in the Weekly Downloads tile, its trend at its right. */
+.stat-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+}
+
 .stat-value {
   font-size: 24px;
   font-weight: 650;
@@ -1827,10 +1851,67 @@ body:has(.skills-view) {
   line-height: 1.25;
 }
 
-.stat-delta {
-  margin-bottom: 8px;
+.stat-standing {
+  margin: 2px 0 12px;
+  color: var(--ink-2);
+  font-size: 14px;
+}
+
+.stat-standing em {
+  color: var(--garnet-text);
+  font-style: normal;
+  font-weight: 650;
+}
+
+/* The chart the rows show behind their numbers (see .props .crowd), here on its own, with its scale. */
+.stat .crowd {
+  position: relative;
+  height: 36px;
+}
+
+.stat .crowd i {
+  width: 7px;
+  height: 7px;
+  margin: 0 0 -3.5px -3.5px;
+  background: var(--garnet);
+  box-shadow: 0 0 0 1.5px var(--halo);
+}
+
+.crowd-axis {
+  position: relative;
+  height: 18px;
+  border-top: 1px solid var(--rule-strong);
   color: var(--ink-3);
   font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.crowd-axis span {
+  position: absolute;
+  left: calc(var(--at) * 100%);
+  translate: -50%;
+  line-height: 18px;
+  white-space: nowrap;
+}
+
+.crowd-axis span::before {
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  height: 4px;
+  border-left: 1px solid var(--rule-strong);
+  content: "";
+}
+
+.trend {
+  width: 140px;
+  flex: none;
+}
+
+.stat-delta {
+  color: var(--ink-3);
+  font-size: 12px;
+  text-align: right;
 }
 
 .spark {
@@ -2268,7 +2349,7 @@ body:has(.skills-view) {
   text-decoration: underline;
 }
 
-.skill-page .details-grid {
+.skill-page .get {
   margin-top: 24px;
 }
 
@@ -2542,8 +2623,8 @@ body:has(.skills-view) {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .stat {
-    width: 100%;
+  .stat-tiles {
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .metric {
