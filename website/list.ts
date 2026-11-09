@@ -60,11 +60,11 @@ const quiet = (tag: string) => tag === "by:community" || facetOf(tag) === "categ
 // ------------------------------------------------------------------- state
 
 /**
- * Buttons that only set the list's settings, highest first, each named after what it shows, which
- * the sidebar spells out: Rising, the default view, by how fast the weekly downloads grow; Rising &
- * new by weekly downloads among the skills published in the last NEW_SINCE days (a skill that young
- * has no growth yet, see growthOf; one that took off from almost nothing counts as published then,
- * see publishedOf); Top by weekly downloads; New by publishing date.
+ * Buttons that set the sort and the sliders (see presetPatch), highest first, each named after what
+ * it shows, which the sidebar spells out: Rising, the default view, by how fast the weekly downloads
+ * grow; Rising & new by weekly downloads among the skills published in the last NEW_SINCE days (a
+ * skill that young has no growth yet, see growthOf; one that took off from almost nothing counts as
+ * published then, see publishedOf); Top by weekly downloads; New by publishing date.
  */
 export type Preset = "rising" | "rising-new" | "top" | "new";
 interface PresetInfo {
@@ -378,6 +378,19 @@ export const sinceRange = (since: Age | null): Range =>
     ? [PROPS.published.keys?.indexOf(`${since}d`) ?? 0, lastStop("published")]
     : fullRange("published");
 const sameRange = (a: Range, b: Range) => a[0] === b[0] && a[1] === b[1];
+/**
+ * What a preset sets: its sort, highest first, and its Published range, every other slider back at
+ * its full range, since one left narrowed (say Weekly Downloads from 5,000) would make the list
+ * something other than what the preset is named after. The search, tags and Show stay as they are.
+ */
+export function presetPatch(id: Preset) {
+  const { sort, since } = PRESETS[id];
+  return {
+    sort,
+    asc: false,
+    ranges: { ...fullRanges(), published: sinceRange(since) },
+  } satisfies Partial<State>;
+}
 export interface State {
   q: string;
   tags: string[];
@@ -1318,8 +1331,9 @@ export function settingsHtml(st: State): string {
   const presets = (Object.keys(PRESETS) as Preset[])
     .map((id) => {
       const p = PRESETS[id];
+      const { sort, ranges } = presetPatch(id);
       const on =
-        st.sort === p.sort && !st.asc && sameRange(st.ranges.published, sinceRange(p.since));
+        st.sort === sort && !st.asc && PROP_IDS.every((r) => sameRange(st.ranges[r], ranges[r]));
       return `<button type="button" class="preset" data-preset="${id}" aria-pressed="${on}" title="${esc(p.title)}">${esc(p.label)}</button>`;
     })
     .join("");

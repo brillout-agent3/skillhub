@@ -1,7 +1,6 @@
 /** The skills list's settings and filters: re-render the list whenever they change, and keep them in the URL. */
 
 import {
-  PRESETS,
   addSearchWords,
   PROPS,
   facetsHtml,
@@ -16,7 +15,7 @@ import {
   tokensHtml,
   fullRanges,
   patched,
-  sinceRange,
+  presetPatch,
   query,
   resultsHtml,
   askLabel,
@@ -293,8 +292,7 @@ app.addEventListener("click", (event) => {
   if (d.preset) {
     for (const b of app.querySelectorAll("[data-preset]"))
       b.setAttribute("aria-pressed", String(b === el));
-    const { sort, since } = PRESETS[d.preset as Preset];
-    go({ sort, asc: false, ranges: { ...state.ranges, published: sinceRange(since) } });
+    go(presetPatch(d.preset as Preset));
   } else if (d.show) {
     for (const b of app.querySelectorAll("[data-show]"))
       b.setAttribute("aria-pressed", String(b === el));
