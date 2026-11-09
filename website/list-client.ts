@@ -149,11 +149,21 @@ const STEP = 150;
 let renders = 0;
 /** What the facets were last rendered for: the pre-rendered page's are for no filters. */
 let lastFacets = "";
-/** What the scope line and the search box's placeholder were last rendered for, since they don't depend on the search; "" for the pre-rendered page's. */
+/**
+ * What the scope line and the lines under the boxes were last rendered for, since they depend on
+ * the search only through whether there is one; "" for the pre-rendered page's.
+ */
 let lastScope = "";
 
 function renderScope() {
-  const key = JSON.stringify([state.saved, state.tags, state.repo, state.ranges, state.show]);
+  const key = JSON.stringify([
+    state.saved,
+    state.tags,
+    state.repo,
+    state.ranges,
+    state.show,
+    Boolean(state.q.trim()),
+  ]);
   if (key === lastScope) return;
   lastScope = key;
   (document.getElementById("scope") as HTMLElement).innerHTML = scopeHtml(state);
@@ -336,6 +346,9 @@ if (location.search) render();
 void import("../data/skills.jsonc?search-words").then(({ default: words }) => {
   addSearchWords(words);
   if (!state.q) return;
+  // The renders' caches are keyed by the state, which the prose isn't in: a new state misses them
+  // all, the list's heading's count included.
+  state = { ...state };
   lastFacets = "";
   renderSoon();
 });

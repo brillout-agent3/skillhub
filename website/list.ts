@@ -877,8 +877,14 @@ function scopeCountHtml(st: State): string {
   return `${badgeHtml(n.toLocaleString("en"))} ${unitOf(st)}${n === 1 ? "" : "s"}${savedBundlesHtml(st, false, badgeHtml)}`;
 }
 
-/** Under the search box: what it does, and how many skills (or bundles) it looks through. */
-export const searchNote = (st: State) => `Filters the list of ${scopeCountHtml(st)} below.`;
+/**
+ * Under the search box: what it does, and how many skills (or bundles) it looks through. Once it's
+ * searched, the list below shows only what it found, which the list's heading counts.
+ */
+export const searchNote = (st: State) =>
+  st.q.trim()
+    ? `Searches ${scopeCountHtml(st)}.`
+    : `Filters the list of ${scopeCountHtml(st)} below.`;
 
 /** The filters, as chips each with its × to remove it. */
 function scopeChipsHtml(st: State): string {
@@ -909,10 +915,14 @@ export const tokensHtml = (tokens: number) => `${badgeHtml(`~${compact(tokens)}`
 /** A number highlighted in the line under a box. */
 const badgeHtml = (text: string) => `<span class="badge">${esc(text)}</span>`;
 
-/** Under the agent's box: what Find with your agent copies, and its size. */
+/**
+ * Under the agent's box: what Find with your agent copies, and its size. The prompt leaves the
+ * search out, so with one the list below shows fewer than the prompt has.
+ */
 export function askLabel(st: State): string {
   const which = filtersOn(st) ? "these" : "all";
-  return `Copies a prompt to your clipboard that includes the TL;DR of ${which} ${scopeCountHtml(st)} below — ${tokensHtml(promptTokens(st))}.`;
+  const where = st.q.trim() ? ", not only those the search finds" : " below";
+  return `Copies a prompt to your clipboard that includes the TL;DR of ${which} ${scopeCountHtml(st)}${where} — ${tokensHtml(promptTokens(st))}.`;
 }
 
 /**
