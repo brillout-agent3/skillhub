@@ -3795,6 +3795,16 @@
         "model": "Claude Opus 5.5",
         "effort": "xhigh"
       }
+    },
+    {
+      "id": "brillout/skills",
+      "stars": null,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Skills for refactoring code, documenting its business logic, and writing reports that are quick to scan.",
+        "model": "Claude Opus 5.5",
+        "effort": "xhigh"
+      }
     }
   ],
   "bundles": [
@@ -74380,6 +74390,96 @@
           "research"
         ],
         "note": "Written for ts-reset's maintainers: its report ends on whether the change belongs in ts-reset.",
+        "model": "Claude Opus 5.5",
+        "effort": "xhigh"
+      }
+    },
+    {
+      "id": "brillout/skills/skills/refactor",
+      "name": "refactor",
+      "skills.sh": {
+        "url": "https://skills.sh/brillout/skills/refactor",
+        "installs": 1,
+        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 1, 0],
+        "firstSeen": "2026-10-30"
+      },
+      "skillMd": {
+        "version": "5f3a48113e3039adb4e5d289d0c4de4680b6cc45",
+        "updated": "2026-11-09",
+        "skew": 453
+      },
+      "agentReview": {
+        "description": "Rates every file, function and piece of logic of the code you point it at, then refactors until it's exceptionally good, one commit per refactor.",
+        "tags": [
+          "category:engineering",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "refactoring",
+          "code-quality",
+          "architecture"
+        ],
+        "model": "Claude Opus 5.5",
+        "effort": "xhigh"
+      }
+    },
+    {
+      "id": "brillout/skills/skills/logic-driven-development",
+      "name": "logic-driven-development",
+      "skills.sh": {
+        "url": "https://skills.sh/brillout/skills/logic-driven-development",
+        "installs": 2,
+        "weeklyInstalls": [0, 0, 1, 0, 0, 0, 0, 0],
+        "firstSeen": "2026-09-09"
+      },
+      "skillMd": {
+        "version": "5f3a48113e3039adb4e5d289d0c4de4680b6cc45",
+        "updated": "2026-11-09",
+        "skew": 722
+      },
+      "agentReview": {
+        "description": "Keeps a LOGIC.md next to every source file and directory, describing its business logic for readers who never read the code.",
+        "tags": [
+          "category:engineering",
+          "category:writing",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "docs-writing",
+          "domain-modeling",
+          "code-review"
+        ],
+        "note": "Setting it up writes a LOGIC.md for every source file and directory of the codebase, in one go.",
+        "model": "Claude Opus 5.5",
+        "effort": "xhigh"
+      }
+    },
+    {
+      "id": "brillout/skills/skills/human-parsable",
+      "name": "human-parsable",
+      "skills.sh": {
+        "url": "https://skills.sh/brillout/skills/human-parsable",
+        "installs": 1,
+        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 1],
+        "firstSeen": "2026-11-06"
+      },
+      "skillMd": {
+        "version": "5f3a48113e3039adb4e5d289d0c4de4680b6cc45",
+        "updated": "2026-11-09",
+        "skew": 272
+      },
+      "agentReview": {
+        "description": "Makes long replies, such as reports, plans and PR descriptions, quick to scan: TL;DR first, details buried, decisions numbered.",
+        "tags": [
+          "category:output-style",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "output-style"
+        ],
         "model": "Claude Opus 5.5",
         "effort": "xhigh"
       }
