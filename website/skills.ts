@@ -183,7 +183,7 @@ export function crumbsHtml(repo: string, ...more: string[]): string {
 export function glanceHtml(glance: Tldr["glance"], max = glance.length): string {
   const items = glance
     .slice(0, max)
-    .map(({ label, text }) => `<div><dt>${esc(label)}</dt><dd>${esc(glanceEnd(text))}</dd></div>`);
+    .map(({ label, text }) => `<div><dt>${esc(label)}:</dt><dd>${esc(glanceEnd(text))}</dd></div>`);
   return `<dl class="glance">${items.join("")}</dl>`;
 }
 

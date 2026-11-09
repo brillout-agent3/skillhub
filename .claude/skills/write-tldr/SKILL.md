@@ -34,20 +34,26 @@ A TLDR has two parts:
 
 There are no minimums, only limits, which `pnpm run tldr` and `pnpm run check` enforce: at most 8 glance items, 4 words per label, 30 words per glance item and 200 words of text. Never pad to fill them.
 
+The site shows each glance item as "Label: Text.", adding the colon and the full stop itself. So each item stands on its own after its label:
+
+- Start it with a capital letter, unless it starts with a name written in lowercase, such as a command (`uv`), a file (`report.md`) or a skill (`grill-me`).
+- Don't end it with a full stop. A "?" or "!" that belongs to it stays.
+- Don't continue the label's sentence. An **Unlike X** item says, as a sentence of its own, what X does and how this skill differs, such as "That one drives a browser for one task; this one keeps what it learned as a skill you can rerun", not "which drives a browser for one task, it keeps…". Name X in the label, not a bare **Unlike**.
+
 How to write them:
 
 1. Use plain words. Explain any term the skill coins, such as "fragments", "beats" or "grounding", and don't just restate the skill's name.
 2. Say what you end up with: a file, a plan, a draft, a reply style.
-3. Say where it fits in its workflow, and how it differs from a close neighbour. One "unlike X" can do a lot.
+3. Say where it fits in its workflow, and how it differs from a close neighbour. One **Unlike X** item can do a lot.
 4. Mention practical facts that change the decision: it only runs when called (`disable-model-invocation` in its frontmatter), it stays on until stopped, it needs a CLI, it writes a file.
 5. Only state what the SKILL.md says or shows. Don't guess at behavior.
 
 For example, writing-fragments' frontmatter says "Writing, explore: mine raw fragments, no structure yet." Its TLDR says:
 
-- **Use it when:** you want to write an essay or article but don't know its shape yet
-- **It does:** interviews you and saves every usable line, anecdote and idea to one Markdown file
-- **You get:** a file of raw notes, with no outline
-- **Runs:** only when you call it
+- **Use it when:** You want to write an essay or article but don't know its shape yet.
+- **It does:** Interviews you and saves every usable line, anecdote and idea to one Markdown file.
+- **You get:** A file of raw notes, with no outline.
+- **Runs:** Only when you call it.
 
 > This is the exploring half of Matt Pocock's writing workflow. You say what you'd like to write about, and the agent keeps asking: what you noticed, what happened, what you meant by a phrase you used. Anything that might survive into the final piece goes into one Markdown file […]
 
