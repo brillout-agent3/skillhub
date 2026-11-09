@@ -900,8 +900,11 @@ body:has(.skills-view) {
   line-height: 1.45;
 }
 
+/* Centered under its box, which is narrow. */
 .search-note {
   grid-area: note;
+  margin-left: 0;
+  text-align: center;
 }
 
 .ask-label {
@@ -2276,6 +2279,12 @@ body:has(.skills-view) {
 
   .search-field {
     margin-top: 16px;
+  }
+
+  /* As wide as the page now, so on the left, as the agent's line above it. */
+  .search-note {
+    margin-left: 4px;
+    text-align: left;
   }
 }
 
