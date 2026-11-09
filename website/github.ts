@@ -6,13 +6,22 @@ export function github(skill: { id: string }): { repo: string; dir: string } {
   return { repo: `${owner}/${name}`, dir: dir.join("/") };
 }
 
-/**
- * Where a skill's page is on this site: its repo and its name, as on skills.sh, such as
+/*
+ * Where pages are on this site: an owner's, such as vercel-labs; a repo's, such as
+ * vercel-labs/agent-desktop; and a skill's, its repo's and its name, such as
  * vercel-labs/agent-desktop/agent-desktop for vercel-labs/agent-desktop/skills/agent-desktop.
- * `pnpm run check` makes sure no two skills share one.
+ * Lowercase, as on skills.sh: GitHub ignores case, and the ids spell some owners two ways, such as
+ * AgriciDaniel and agricidaniel, which get one page. `pnpm run check` makes sure no two skills
+ * share a page, and that none is taken by the site's other pages.
  */
+
+/** The page of the owner of a repo (`owner/name`). */
+export const ownerPage = (repo: string) => repo.split("/")[0].toLowerCase();
+/** The page of a repo (`owner/name`). */
+export const repoPage = (repo: string) => repo.toLowerCase();
+/** The page of a skill. */
 export const skillPage = (skill: { id: string; name: string }) =>
-  `${github(skill).repo}/${skill.name}`;
+  `${repoPage(github(skill).repo)}/${skill.name.toLowerCase()}`;
 
 /** The repo a bundle is in. */
 export const bundleRepo = (bundle: { id: string }) => bundle.id.split("@")[0];

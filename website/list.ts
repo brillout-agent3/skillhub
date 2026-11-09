@@ -22,6 +22,7 @@ import {
   ownEntry,
   parentsOf,
   repoById,
+  repoHref,
   repoKey,
   growthOf,
   GROWTH_MIN,
@@ -661,7 +662,15 @@ function propsHtml(e: Entry, st: State): string {
   return `<dl class="props">${rows.join("")}</dl>`;
 }
 
-function skillRow(s: Skill, st: State): string {
+/** A row's repo, as a link to its page. */
+const sourceHtml = (e: Entry) =>
+  `<span class="skill-source"><a class="repo-link" href="${repoHref(repoKey(e))}">${esc(repoKey(e))}</a></span>`;
+
+/**
+ * A skill's row. `outside` is for a row outside the skills list, on a page about its repo: its tags
+ * link to the list, filtered by them, rather than toggling its filters, and it doesn't repeat the repo.
+ */
+function skillRow(s: Skill, st: State, outside = false): string {
   const tags = s.agentReview.tags
     .filter((t) => !quiet(t))
     .sort((a, b) => FACET_ORDER.indexOf(facetOf(a)) - FACET_ORDER.indexOf(facetOf(b)));
@@ -673,7 +682,7 @@ function skillRow(s: Skill, st: State): string {
       <div class="row-head">
       <div class="skill-head">
         <h3><a class="skill-name" href="${skillHref(s.id)}">${esc(s.name)}</a></h3>
-        <span class="skill-source">${esc(repoKey(s))}</span>${
+        ${outside ? "" : sourceHtml(s)}${
           bundle
             ? `<span class="skill-source">${ownEntry(s) ? "Part of" : "Only works as part of"} <a href="${bundleHref(bundle.id)}">${esc(bundle.agentReview.name)}</a></span>`
             : ""
@@ -682,13 +691,14 @@ function skillRow(s: Skill, st: State): string {
       ${saveButton(saveKey("skill", s.id), s.name)}
       </div>
       ${s.agentReview.tldr?.glance.length ? glanceHtml(s.agentReview.tldr.glance, 2) : `<p class="skill-desc">${esc(s.agentReview.description)}</p>`}
-      <div class="tags">${tags.map((t) => tagChip(t, null, st.tags.includes(t))).join("")}</div>
+      <div class="tags">${tags.map((t) => tagChip(t, outside ? skillsLink({ tags: [t] }) : null, st.tags.includes(t))).join("")}</div>
       </div>
       ${propsHtml(s, st)}
     </li>`;
 }
 
-function bundleRow(b: Bundle, st: State): string {
+/** A bundle's row; `outside` as for skillRow(). */
+function bundleRow(b: Bundle, st: State, outside = false): string {
   // When filtering, the skills that don't match are dimmed.
   // The ranges are about the bundle, so only the tags and search dim its skills.
   const hits = isFiltered(st) ? skillsOf(b).filter((s) => passes(s, skillFilters(st))) : [];
@@ -703,7 +713,7 @@ function bundleRow(b: Bundle, st: State): string {
       <div class="skill-head">
         <h3><a class="skill-name" href="${bundleHref(b.id)}">${esc(b.agentReview.name)}</a></h3>
         <span class="kind">Bundle of ${plural(b.agentReview.skills.length, "skill")}</span>
-        <span class="skill-source">${esc(repoKey(b))}</span>
+        ${outside ? "" : sourceHtml(b)}
       </div>
       ${saveButton(saveKey("bundle", b.id), b.agentReview.name)}
       </div>
@@ -908,6 +918,17 @@ function promptTokens(st: State): number {
 }
 
 const rowHtml = (e: Entry, st: State) => (isBundle(e) ? bundleRow(e, st) : skillRow(e, st));
+
+/**
+ * Rows outside the skills list, on a page about their repo: what the page passes, in its order,
+ * with Downloads highlighted, as they're most installed first.
+ */
+export function listingHtml(entries: Entry[]): string {
+  const st: State = { ...fresh(), sort: "downloads" };
+  return `<ol class="skill-list">${entries
+    .map((e) => (isBundle(e) ? bundleRow(e, st, true) : skillRow(e, st, true)))
+    .join("")}</ol>`;
+}
 
 /** The rows from `from` to `to`, to append to the `limit` rows `resultsHtml` rendered. */
 export function rowsHtml(st: State, from: number, to: number): string {

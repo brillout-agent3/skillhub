@@ -1,12 +1,13 @@
 import type { PageContextServer } from "vike/types";
-import { commandHtml, compact, date, esc, href, plural } from "../../format.ts";
-import { skillsLink } from "../../list.ts";
+import { commandHtml, compact, date, esc, plural } from "../../format.ts";
 import {
+  crumbsHtml,
   data,
   firstSeenOf,
   glanceHtml,
   installsOf,
   repoById,
+  repoHref,
   repoKey,
   skillHref,
   skillsOf,
@@ -62,7 +63,7 @@ export default function Page(pageContext: PageContextServer): string {
   const alone = b.agentReview.skills.filter((m) => m.standalone).length;
   return `
     <div class="page skill-page bundle-page">
-      <p class="crumbs"><a href="${href()}">Skills</a> <span aria-hidden="true">/</span> <a href="${skillsLink({ repo })}">${esc(repo)}</a></p>
+      ${crumbsHtml(repo)}
       <div class="title-row"><h1>${esc(b.agentReview.name)} <span class="kind">Bundle of ${plural(b.agentReview.skills.length, "skill")}</span></h1>${saveButton(saveKey("bundle", b.id), b.agentReview.name)}</div>
       ${
         b.agentReview.tldr?.glance.length
@@ -78,7 +79,7 @@ export default function Page(pageContext: PageContextServer): string {
                 `<p class="install-label">${esc(label)}</p><div class="install"><code>${commandHtml(command)}</code>${copyButton(command)}</div>`,
             )
             .join("")}
-          <p class="links"><a href="https://github.com/${esc(repo)}">Source on GitHub</a><a href="${skillsLink({ repo })}">All skills from ${esc(repo)}</a></p>
+          <p class="links"><a href="https://github.com/${esc(repo)}">Source on GitHub</a><a href="${repoHref(repo)}">All skills from ${esc(repo)}</a></p>
           ${facts(b)}
         </div>
       </div>

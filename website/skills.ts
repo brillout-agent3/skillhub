@@ -11,7 +11,7 @@ import type {
   ClientData as Data,
   ClientSkill as Skill,
 } from "./client-data.ts";
-import { bundleRepo, github, skillPage } from "./github.ts";
+import { bundleRepo, github, ownerPage, repoPage, skillPage } from "./github.ts";
 
 export const data = raw as Data;
 export const GITHUB = "https://github.com/brillout/skillhub";
@@ -126,10 +126,26 @@ export const idPath = (id: string) =>
     .split("/")
     .map((segment) => encodeURIComponent(segment).replace(/%40/g, "@"))
     .join("/");
+/** The page of a repo's owner, from the repo (`owner/name`): see ownerPage(). */
+export const ownerHref = (repo: string) => href(`${idPath(ownerPage(repo))}/`);
+/** The repo's page: see repoPage(). */
+export const repoHref = (repo: string) => href(`${idPath(repoPage(repo))}/`);
 /** The skill's own page: see skillPage(). */
 export const skillHref = (id: string) => href(`${idPath(skillPage(skillById.get(id) as Skill))}/`);
 /** The bundle's page. */
 export const bundleHref = (id: string) => href(`bundle/${idPath(id)}/`);
+
+/** The crumbs atop a page inside a repo (`owner/name`): the list, its owner, the repo, then `more`. */
+export function crumbsHtml(repo: string, ...more: string[]): string {
+  const [owner, name] = repo.split("/");
+  const links = [
+    `<a href="${href()}">Skills</a>`,
+    `<a href="${ownerHref(repo)}">${esc(owner)}</a>`,
+    `<a href="${repoHref(repo)}">${esc(name)}</a>`,
+    ...more,
+  ];
+  return `<p class="crumbs">${links.join(` <span aria-hidden="true">/</span> `)}</p>`;
+}
 
 /** A TLDR's glance as a list of labelled facts, or its first `max` items. */
 export function glanceHtml(glance: Tldr["glance"], max = glance.length): string {

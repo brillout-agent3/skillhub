@@ -1,5 +1,5 @@
 import type { PageContextServer } from "vike/types";
-import { commandHtml, compact, date, esc, href } from "../../format.ts";
+import { commandHtml, compact, date, esc } from "../../format.ts";
 import { skillsLink } from "../../list.ts";
 import { statTile } from "../../sparkline.ts";
 import { copyButton } from "../../copy.ts";
@@ -7,11 +7,13 @@ import {
   FACET_ORDER,
   bundleHref,
   bundleOf,
+  crumbsHtml,
   data,
   facetById,
   facetOf,
   glanceHtml,
   repoById,
+  repoHref,
   repoKey,
   short,
   skillById,
@@ -102,16 +104,12 @@ export default function Page(pageContext: PageContextServer): string {
   const links = [
     `<a href="${esc(sh.url)}">skills.sh page</a>`,
     `<a href="https://github.com/${esc(gh.repo)}${gh.dir ? `/tree/HEAD/${esc(encodeURI(gh.dir))}` : ""}">Source on GitHub</a>`,
-    `<a href="${skillsLink({ repo: repoKey(s) })}">All skills from ${esc(repoKey(s))}</a>`,
+    `<a href="${repoHref(repoKey(s))}">All skills from ${esc(repoKey(s))}</a>`,
   ];
   const bundle = bundleOf.get(s.id)?.bundle;
   return `
     <div class="page skill-page">
-      <p class="crumbs"><a href="${href()}">Skills</a> <span aria-hidden="true">/</span> <a href="${skillsLink({ repo: repoKey(s) })}">${esc(repoKey(s))}</a>${
-        bundle
-          ? ` <span aria-hidden="true">/</span> <a href="${bundleHref(bundle.id)}">${esc(bundle.agentReview.name)}</a>`
-          : ""
-      }</p>
+      ${crumbsHtml(repoKey(s), ...(bundle ? [`<a href="${bundleHref(bundle.id)}">${esc(bundle.agentReview.name)}</a>`] : []))}
       <div class="title-row"><h1>${esc(s.name)}</h1>${saveButton(saveKey("skill", s.id), s.name)}</div>
       ${
         s.agentReview.tldr?.glance.length

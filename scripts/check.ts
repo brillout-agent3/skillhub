@@ -12,7 +12,7 @@ import { generate, SCHEMAS, TYPES, undocumented } from "./schema.ts";
 import { nameInSkillMd } from "../website/markdown.ts";
 import { copyPath } from "../website/skill-md.ts";
 import type { Facet } from "../data/types.ts";
-import { bundleRepo, github, skillPage } from "../website/github.ts";
+import { bundleRepo, github, repoPage, skillPage } from "../website/github.ts";
 
 const root = new URL("../", import.meta.url);
 const data = readData();
@@ -65,23 +65,27 @@ const COUNTS: Record<Facet["count"], (n: number) => boolean> = {
 };
 
 /**
- * The site's routes that a skill's page, /owner/repo/name/, would land in: an owner by one of
- * these names gets no page. The others, such as /tags/, have a single segment.
+ * The site's own pages that an owner's page, /owner/, or a page under it would land on, such as
+ * /tags/: an owner by one of these names gets no pages. See ownerPage() of website/github.ts.
  */
-const ROUTES = ["bundle", "api"];
+const ROUTES = ["bundle", "api", "tags", "about"];
+
+/** Whose each repo's and skill's page is: they're lowercase, so two that differ in case clash. */
+const pages = new Map<string, string>();
+function claim(at: string, page: string) {
+  if (pages.has(page)) fail(at, `its page /${page}/ is ${pages.get(page)}'s too`);
+  pages.set(page, at);
+  const top = page.split("/")[0];
+  if (ROUTES.includes(top)) fail(at, `its page /${page}/ is under the site's /${top}/`);
+}
+for (const repo of data.repos) claim(`repo ${repo.id}`, repoPage(repo.id));
 
 const ids = new Set<string>();
-/** The skills' pages, lowercased: they'd clash on a filesystem that ignores case, as macOS's does. */
-const pages = new Map<string, string>();
 for (const skill of data.skills) {
   const at = skill.id;
   if (ids.has(at)) fail(at, "duplicate skill id");
   ids.add(at);
-  const page = skillPage(skill).toLowerCase();
-  if (pages.has(page)) fail(at, `its page /${skillPage(skill)}/ is ${pages.get(page)}'s too`);
-  pages.set(page, at);
-  if (ROUTES.includes(page.split("/")[0]))
-    fail(at, `its page /${skillPage(skill)}/ is under the site's /${page.split("/")[0]}/`);
+  claim(at, skillPage(skill));
   if (!skill.agentReview.description) fail(at, "missing description");
   for (const t of skill.agentReview.tags)
     if (parents.has(t)) fail(at, `${t} comes with the tags it includes; don't tag it directly`);

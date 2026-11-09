@@ -13,4 +13,5 @@ import { skillPage } from "./github.ts";
 export const serverData = raw as Data;
 export const fullSkillById = new Map(serverData.skills.map((s) => [s.id, s]));
 export const fullSkillByPage = new Map(serverData.skills.map((s) => [skillPage(s), s]));
+export const fullRepoById = new Map(serverData.repos.map((r) => [r.id, r]));
 export const fullBundleById = new Map(serverData.bundles.map((b) => [b.id, b]));
