@@ -217,7 +217,7 @@ export type Sort = Prop | "growth" | "match";
 const GROWTH = {
   label: "Weekly Growth",
   title: (e: Entry) =>
-    `${isBundle(e) ? "The most of any of its skills: " : ""}Installs on skills.sh in an average week of the 2 to ${date(data.asOf.installs)}, against an average week of the 4 before. Only for skills with at least ${compact(GROWTH_MIN)} a week, at least ${compact(GROWTH_BASE_MIN)} a week in the 4 before, and installs in each of the last ${GROWTH_WEEKS} weeks: a younger skill, or one that took off from almost nothing, shows under New.`,
+    `${isBundle(e) ? "The most of any of its skills: " : ""}Installs on skills.sh in an average week of the 2 to ${date(data.asOf.installs)}, against an average week of the 4 before. Only for skills with at least ${compact(GROWTH_MIN)} a week, and at least ${compact(GROWTH_BASE_MIN)} in each of the last ${GROWTH_WEEKS} weeks: a younger skill, or one that took off from almost nothing, shows under New.`,
 };
 /** A growth as a percentage with its sign, such as +180% or −12%. */
 const percent = (g: number) =>
