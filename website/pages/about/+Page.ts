@@ -1,5 +1,6 @@
 import { date, href } from "../../format.ts";
 import { review } from "../../review.ts";
+import { GROWTH_BASE_MIN, GROWTH_MIN, GROWTH_WEEKS } from "../../skills.ts";
 
 const n = (x: number) => x.toLocaleString("en");
 
@@ -149,9 +150,13 @@ export default function Page(): string {
       <ul>
         <li><strong>In the list,</strong> a bundle has a row of its own that names its skills in the order they're used. A skill worth installing alone also keeps a row of its own, which says what bundle it's part of. One that only works with the rest, such as one that works on another's output, is only listed inside its bundle, unless the list is set to show Skills, which lists every skill on its own. Set to show Bundles, it lists only bundles.</li>
         <li><strong>Its page</strong> explains how its skills work together, what each one needs from the others, and how to install them all at once.</li>
-        <li><strong>Its numbers</strong> come from its skills: Published is when its oldest skill was first seen, Total and Weekly Downloads are its most downloaded skill's, and Stars are its repo's. The filters' sliders use these numbers, so an old bundle with a few new skills isn't in "Published: last 90 days".</li>
+        <li><strong>Its numbers</strong> come from its skills: Published is its oldest skill's, Total and Weekly Downloads are its most downloaded skill's, and Stars are its repo's. The filters' sliders use these numbers, so an old bundle with a few new skills isn't in "Published: last 90 days".</li>
         <li><strong>Tags and the search</strong> match a bundle through any of its skills, and grey out its other skills.</li>
       </ul>
+
+      <h2 id="weekly-growth">Weekly Growth</h2>
+      <p>How fast a skill's downloads grow. It compares the skill's downloads on skills.sh in an average week of the last 2 against an average week of the 4 before: ${n(2000)} a week against ${n(1000)} is +100%. Rising, the list's default view, sorts by it, to show the skills catching on now, which Top, sorted by weekly downloads, buries under the ones popular for a long time.</p>
+      <p>Only a skill with at least ${n(GROWTH_MIN)} downloads a week, and at least ${n(GROWTH_BASE_MIN)} in each of the last ${GROWTH_WEEKS} weeks, has one. A new skill, or one that sat almost unused before it took off, would grow from next to nothing, to a meaningless +45,000%. Rising &amp; new lists those instead, by weekly downloads, and counts a skill that took off as published the week it did.</p>
 
       <h2>Up-to-date</h2>
       <p>SkillHub follows each listed skill's SKILL.md in its repo. A skill's page says when its SKILL.md has changed since its TL;DR was written.</p>
