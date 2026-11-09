@@ -3808,15 +3808,18 @@
           },
           {
             "id": "obra/superpowers/skills/brainstorming",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "obra/superpowers/skills/using-git-worktrees",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "obra/superpowers/skills/writing-plans",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "obra/superpowers/skills/subagent-driven-development",
@@ -3830,35 +3833,43 @@
           },
           {
             "id": "obra/superpowers/skills/test-driven-development",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "obra/superpowers/skills/requesting-code-review",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "obra/superpowers/skills/receiving-code-review",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "obra/superpowers/skills/finishing-a-development-branch",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "obra/superpowers/skills/systematic-debugging",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "obra/superpowers/skills/verification-before-completion",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "obra/superpowers/skills/dispatching-parallel-agents",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "obra/superpowers/skills/writing-skills",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "obra/superpowers/skills/diagnosing-superpowers",
@@ -3919,27 +3930,33 @@
         "skills": [
           {
             "id": "juliusbrussee/caveman/skills/caveman",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "juliusbrussee/caveman/skills/ultracave",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "juliusbrussee/caveman/skills/megacave",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "juliusbrussee/caveman/skills/caveman-commit",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "juliusbrussee/caveman/skills/caveman-review",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "juliusbrussee/caveman/skills/caveman-compress",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "juliusbrussee/caveman/skills/caveman-stats",
@@ -3958,31 +3975,38 @@
           },
           {
             "id": "juliusbrussee/caveman/skills/caveman-explore",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "juliusbrussee/caveman/skills/investigate-first",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "juliusbrussee/caveman/skills/lean-build",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "juliusbrussee/caveman/skills/surgical-patch",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "juliusbrussee/caveman/skills/safe-refactor",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "juliusbrussee/caveman/skills/migration",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "juliusbrussee/caveman/skills/verify-and-stop",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           }
         ],
         "install": [
@@ -4034,15 +4058,18 @@
         "skills": [
           {
             "id": "mattpocock/skills/skills/in-progress/writing-fragments",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "mattpocock/skills/skills/in-progress/writing-beats",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "mattpocock/skills/skills/in-progress/writing-shape",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           }
         ],
         "install": [
@@ -4122,23 +4149,28 @@
           },
           {
             "id": "mattpocock/skills/skills/productivity/grilling",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "mattpocock/skills/skills/engineering/domain-modeling",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "mattpocock/skills/skills/engineering/research",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "mattpocock/skills/skills/productivity/handoff",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "mattpocock/skills/skills/engineering/prototype",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "mattpocock/skills/skills/engineering/wayfinder",
@@ -4177,31 +4209,38 @@
           },
           {
             "id": "mattpocock/skills/skills/engineering/tdd",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "mattpocock/skills/skills/engineering/codebase-design",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "mattpocock/skills/skills/engineering/code-review",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "mattpocock/skills/skills/engineering/pr",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "mattpocock/skills/skills/engineering/diagnosing-bugs",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "mattpocock/skills/skills/engineering/retro",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "mattpocock/skills/skills/productivity/writing-for-agents",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "mattpocock/skills/skills/engineering/improve-codebase-architecture",
@@ -4278,23 +4317,28 @@
         "skills": [
           {
             "id": "lllllllama/rigorpilot-skills/skills/ai-research-reproduction",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "lllllllama/rigorpilot-skills/skills/repo-intake-and-plan",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "lllllllama/rigorpilot-skills/skills/paper-context-resolver",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "lllllllama/rigorpilot-skills/skills/env-and-assets-bootstrap",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "lllllllama/rigorpilot-skills/skills/analyze-project",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "lllllllama/rigorpilot-skills/skills/minimal-run-and-audit",
@@ -4308,7 +4352,8 @@
           },
           {
             "id": "lllllllama/rigorpilot-skills/skills/safe-debug",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "lllllllama/rigorpilot-skills/skills/ai-research-explore",
@@ -4371,7 +4416,8 @@
         "skills": [
           {
             "id": "browser-act/skills/browser-act",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "browser-act/skills/browser-act-skill-forge",
@@ -4429,11 +4475,13 @@
           },
           {
             "id": "warpdotdev/common-skills/.agents/skills/write-product-spec",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "warpdotdev/common-skills/.agents/skills/write-tech-spec",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "warpdotdev/common-skills/.agents/skills/implement-specs",
@@ -4442,7 +4490,8 @@
           },
           {
             "id": "warpdotdev/common-skills/.agents/skills/validate-changes-match-specs",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           }
         ],
         "install": [
@@ -4456,7 +4505,7 @@
           }
         ],
         "model": "Claude Opus 5.5",
-        "effort": "xhigh"
+        "effort": null
       }
     },
     {
@@ -4507,99 +4556,123 @@
           },
           {
             "id": "addyosmani/agent-skills/skills/interview-me",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "addyosmani/agent-skills/skills/idea-refine",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "addyosmani/agent-skills/skills/spec-driven-development",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "addyosmani/agent-skills/skills/constraint-driven-development",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "addyosmani/agent-skills/skills/planning-and-task-breakdown",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "addyosmani/agent-skills/skills/context-engineering",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "addyosmani/agent-skills/skills/source-driven-development",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "addyosmani/agent-skills/skills/incremental-implementation",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "addyosmani/agent-skills/skills/frontend-ui-engineering",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "addyosmani/agent-skills/skills/api-and-interface-design",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "addyosmani/agent-skills/skills/observability-and-instrumentation",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "addyosmani/agent-skills/skills/doubt-driven-development",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "addyosmani/agent-skills/skills/test-driven-development",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "addyosmani/agent-skills/skills/browser-testing-with-devtools",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "addyosmani/agent-skills/skills/debugging-and-error-recovery",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "addyosmani/agent-skills/skills/code-review-and-quality",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "addyosmani/agent-skills/skills/code-simplification",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "addyosmani/agent-skills/skills/security-and-hardening",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "addyosmani/agent-skills/skills/performance-optimization",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "addyosmani/agent-skills/skills/git-workflow-and-versioning",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "addyosmani/agent-skills/skills/ci-cd-and-automation",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "addyosmani/agent-skills/skills/documentation-and-adrs",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "addyosmani/agent-skills/skills/deprecation-and-migration",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "addyosmani/agent-skills/skills/shipping-and-launch",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           }
         ],
         "install": [
@@ -4629,7 +4702,7 @@
           }
         ],
         "model": "Claude Opus 5.5",
-        "effort": "xhigh"
+        "effort": null
       }
     },
     {
@@ -4675,7 +4748,8 @@
         "skills": [
           {
             "id": "software-mansion/argent/packages/skills/skills/argent-device-interact",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "software-mansion/argent/packages/skills/skills/argent-ios-device-interact",
@@ -4684,27 +4758,33 @@
           },
           {
             "id": "software-mansion/argent/packages/skills/skills/argent-tv-interact",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "software-mansion/argent/packages/skills/skills/argent-settings-permissions",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "software-mansion/argent/packages/skills/skills/argent-test-ui-flow",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "software-mansion/argent/packages/skills/skills/argent-screenshot-diff",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "software-mansion/argent/packages/skills/skills/argent-screen-recording",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "software-mansion/argent/packages/skills/skills/argent-metro-debugger",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "software-mansion/argent/packages/skills/skills/argent-react-native-optimization",
@@ -4713,15 +4793,18 @@
           },
           {
             "id": "software-mansion/argent/packages/skills/skills/argent-react-native-profiler",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "software-mansion/argent/packages/skills/skills/argent-native-profiler",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "software-mansion/argent/packages/skills/skills/argent-lens",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           }
         ],
         "install": [
@@ -4735,7 +4818,7 @@
           }
         ],
         "model": "Claude Opus 5.5",
-        "effort": "xhigh"
+        "effort": null
       }
     },
     {
@@ -4791,27 +4874,33 @@
           },
           {
             "id": "jakubkrehel/skills/skills/better-accessibility",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "jakubkrehel/skills/skills/better-layout",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "jakubkrehel/skills/skills/better-writing",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "jakubkrehel/skills/skills/better-typography",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "jakubkrehel/skills/skills/better-colors",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "jakubkrehel/skills/skills/better-ui",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           }
         ],
         "install": [
@@ -4825,7 +4914,7 @@
           }
         ],
         "model": "Claude Opus 5.5",
-        "effort": "xhigh"
+        "effort": null
       }
     },
     {
@@ -4867,15 +4956,18 @@
         "skills": [
           {
             "id": "dietrichgebert/ponytail/skills/ponytail",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "dietrichgebert/ponytail/skills/ponytail-review",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "dietrichgebert/ponytail/skills/ponytail-audit",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "dietrichgebert/ponytail/skills/ponytail-debt",
@@ -4933,23 +5025,28 @@
         "skills": [
           {
             "id": "nextlevelbuilder/ui-ux-pro-max-skill/cli/assets/skills/brand",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "nextlevelbuilder/ui-ux-pro-max-skill/cli/assets/skills/design-system",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "nextlevelbuilder/ui-ux-pro-max-skill/.claude/skills/ui-ux-pro-max",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "nextlevelbuilder/ui-ux-pro-max-skill/cli/assets/skills/design",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "nextlevelbuilder/ui-ux-pro-max-skill/cli/assets/skills/banner-design",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "nextlevelbuilder/ui-ux-pro-max-skill/cli/assets/skills/slides",
@@ -5019,7 +5116,8 @@
           },
           {
             "id": "addyosmani/web-quality-skills/skills/performance",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "addyosmani/web-quality-skills/skills/core-web-vitals",
@@ -5028,15 +5126,18 @@
           },
           {
             "id": "addyosmani/web-quality-skills/skills/accessibility",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "addyosmani/web-quality-skills/skills/seo",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "addyosmani/web-quality-skills/skills/best-practices",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           }
         ],
         "install": [
@@ -5058,7 +5159,7 @@
           }
         ],
         "model": "Claude Opus 5.5",
-        "effort": "xhigh"
+        "effort": null
       }
     },
     {
@@ -5096,7 +5197,8 @@
         "skills": [
           {
             "id": "warpdotdev/common-skills/.agents/skills/review-pr",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "warpdotdev/common-skills/.agents/skills/check-impl-against-spec",
@@ -5115,7 +5217,7 @@
           }
         ],
         "model": "Claude Opus 5.5",
-        "effort": "xhigh"
+        "effort": null
       }
     },
     {
@@ -5153,31 +5255,38 @@
         "skills": [
           {
             "id": "tw93/waza/skills/think",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "tw93/waza/skills/hunt",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "tw93/waza/skills/check",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "tw93/waza/skills/read",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "tw93/waza/skills/learn",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "tw93/waza/skills/write",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "tw93/waza/skills/health",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           }
         ],
         "install": [
@@ -5199,7 +5308,7 @@
           }
         ],
         "model": "Claude Opus 5.5",
-        "effort": "xhigh"
+        "effort": null
       }
     },
     {
@@ -5245,35 +5354,43 @@
         "skills": [
           {
             "id": "rohitg00/agentmemory/plugin/skills/handoff",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "rohitg00/agentmemory/plugin/skills/recall",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "rohitg00/agentmemory/plugin/skills/remember",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "rohitg00/agentmemory/plugin/skills/forget",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "rohitg00/agentmemory/plugin/skills/session-history",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "rohitg00/agentmemory/plugin/skills/recap",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "rohitg00/agentmemory/plugin/skills/commit-history",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "rohitg00/agentmemory/plugin/skills/commit-context",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           }
         ],
         "install": [
@@ -5295,7 +5412,7 @@
           }
         ],
         "model": "Claude Opus 5.5",
-        "effort": "xhigh"
+        "effort": null
       }
     },
     {
@@ -5333,7 +5450,8 @@
         "skills": [
           {
             "id": "usestrix/strix/skills/penetration-testing-with-strix",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "usestrix/strix/skills/application-security-testing",
@@ -5342,27 +5460,33 @@
           },
           {
             "id": "usestrix/strix/skills/find-security-vulnerabilities-in-code",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "usestrix/strix/skills/web-app-penetration-testing",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "usestrix/strix/skills/api-security-testing",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "usestrix/strix/skills/owasp-top-10-testing",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "usestrix/strix/skills/fix-security-vulnerabilities-with-strix",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "usestrix/strix/skills/ci-security-scanning-with-strix",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           }
         ],
         "install": [
@@ -5410,11 +5534,13 @@
         "skills": [
           {
             "id": "jakubantalik/transitions.dev/skills/transitions-dev",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "jakubantalik/transitions.dev/skills/transitions-polish",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           }
         ],
         "install": [
@@ -5428,7 +5554,7 @@
           }
         ],
         "model": "Claude Opus 5.5",
-        "effort": "xhigh"
+        "effort": null
       }
     },
     {
@@ -5559,7 +5685,8 @@
           },
           {
             "id": "bmad-code-org/bmad-method/skills/bmad-project-context",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "bmad-code-org/bmad-method/skills/bmad-review",
@@ -5588,7 +5715,8 @@
           },
           {
             "id": "bmad-code-org/bmad-method/skills/bmad-eval",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           }
         ],
         "install": [
@@ -5598,7 +5726,7 @@
           }
         ],
         "model": "Claude Opus 5.5",
-        "effort": "xhigh"
+        "effort": null
       }
     },
     {
@@ -5640,19 +5768,23 @@
         "skills": [
           {
             "id": "github/awesome-copilot/skills/breakdown-epic-pm",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "github/awesome-copilot/skills/breakdown-epic-arch",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "github/awesome-copilot/skills/breakdown-feature-prd",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "github/awesome-copilot/skills/breakdown-feature-implementation",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "github/awesome-copilot/skills/breakdown-plan",
@@ -5680,7 +5812,7 @@
           }
         ],
         "model": "Claude Opus 5.5",
-        "effort": "xhigh"
+        "effort": null
       }
     },
     {
@@ -5718,7 +5850,8 @@
         "skills": [
           {
             "id": "github/awesome-copilot/skills/structured-autonomy-plan",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "github/awesome-copilot/skills/structured-autonomy-generate",
@@ -5742,7 +5875,7 @@
           }
         ],
         "model": "Claude Opus 5.5",
-        "effort": "xhigh"
+        "effort": null
       }
     },
     {
@@ -5776,7 +5909,8 @@
         "skills": [
           {
             "id": "github/awesome-copilot/skills/remember",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "github/awesome-copilot/skills/memory-merger",
@@ -5795,7 +5929,7 @@
           }
         ],
         "model": "Claude Opus 5.5",
-        "effort": "xhigh"
+        "effort": null
       }
     },
     {
@@ -5846,107 +5980,133 @@
           },
           {
             "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/disciplines/create-game-assets",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/disciplines/game-ai",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/disciplines/ai-behavior-trees-utility-ai",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/disciplines/procedural-gen",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/disciplines/dialogue-systems",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/disciplines/save-systems",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/disciplines/audio-design",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/disciplines/shader-programming",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/disciplines/physics-tuning",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/disciplines/level-design",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/disciplines/input-systems",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/disciplines/game-feel",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/disciplines/game-ui-ux",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/disciplines/camera-systems",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/disciplines/performance-optimization",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/genres/platformer",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/genres/roguelike",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/genres/rpg",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/genres/fps-shooter",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/genres/tower-defense",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/genres/card-game",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/genres/visual-novel",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/genres/survival-crafting",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/genres/puzzle",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/workflows/game-jam",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "gamedev-skills/awesome-gamedev-agent-skills/skills/workflows/prototype-fast",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           }
         ],
         "install": [
@@ -5960,7 +6120,7 @@
           }
         ],
         "model": "Claude Opus 5.5",
-        "effort": "xhigh"
+        "effort": null
       }
     },
     {
@@ -6002,11 +6162,13 @@
         "skills": [
           {
             "id": "wshobson/agents/plugins/conductor/skills/context-driven-development",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "wshobson/agents/plugins/conductor/skills/track-management",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "wshobson/agents/plugins/conductor/skills/workflow-patterns",
@@ -6029,7 +6191,7 @@
           }
         ],
         "model": "Claude Opus 5.5",
-        "effort": "xhigh"
+        "effort": null
       }
     },
     {
@@ -6076,11 +6238,13 @@
           },
           {
             "id": "anthropics/knowledge-work-plugins/productivity/skills/task-management",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "anthropics/knowledge-work-plugins/productivity/skills/memory-management",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "anthropics/knowledge-work-plugins/productivity/skills/update",
@@ -6095,7 +6259,7 @@
           }
         ],
         "model": "Claude Opus 5.5",
-        "effort": "xhigh"
+        "effort": null
       }
     },
     {
@@ -6134,43 +6298,53 @@
           },
           {
             "id": "ljagiello/ctf-skills/ctf-web",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "ljagiello/ctf-skills/ctf-pwn",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "ljagiello/ctf-skills/ctf-crypto",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "ljagiello/ctf-skills/ctf-reverse",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "ljagiello/ctf-skills/ctf-forensics",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "ljagiello/ctf-skills/ctf-osint",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "ljagiello/ctf-skills/ctf-malware",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "ljagiello/ctf-skills/ctf-ai-ml",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "ljagiello/ctf-skills/ctf-misc",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "ljagiello/ctf-skills/ctf-writeup",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           }
         ],
         "install": [
@@ -6179,8 +6353,8 @@
             "command": "npx skills add ljagiello/ctf-skills"
           }
         ],
-        "model": "Claude Opus 4.8",
-        "effort": "xhigh"
+        "model": "Claude Opus 5.5",
+        "effort": null
       }
     },
     {
@@ -6218,11 +6392,13 @@
         "skills": [
           {
             "id": "earthtojake/text-to-cad/skills/cad",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "earthtojake/text-to-cad/skills/sendcutsend",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           }
         ],
         "install": [
@@ -6252,7 +6428,7 @@
           }
         ],
         "model": "Claude Opus 5.5",
-        "effort": "xhigh"
+        "effort": null
       }
     },
     {
@@ -6290,7 +6466,8 @@
         "skills": [
           {
             "id": "miqdadbadjuber/anti-slop/skills/antislop",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "miqdadbadjuber/anti-slop/skills/antislop-ui",
@@ -6361,7 +6538,7 @@
           }
         ],
         "model": "Claude Opus 5.5",
-        "effort": "xhigh"
+        "effort": null
       }
     },
     {
@@ -6498,7 +6675,8 @@
           },
           {
             "id": "AgriciDaniel/claude-seo/skills/seo-plan",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "AgriciDaniel/claude-seo/skills/seo-technical",
@@ -6517,7 +6695,8 @@
           },
           {
             "id": "AgriciDaniel/claude-seo/skills/seo-hreflang",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "AgriciDaniel/claude-seo/skills/seo-programmatic",
@@ -6541,7 +6720,8 @@
           },
           {
             "id": "AgriciDaniel/claude-seo/skills/seo-content-brief",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "AgriciDaniel/claude-seo/skills/seo-cluster",
@@ -6560,7 +6740,8 @@
           },
           {
             "id": "AgriciDaniel/claude-seo/skills/seo-competitor-pages",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "AgriciDaniel/claude-seo/skills/seo-schema",
@@ -6669,7 +6850,8 @@
           },
           {
             "id": "mvanhorn/cli-printing-press/skills/printing-press-score",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "mvanhorn/cli-printing-press/skills/printing-press-publish",
@@ -6716,7 +6898,7 @@
           }
         ],
         "model": "Claude Opus 5.5",
-        "effort": "xhigh"
+        "effort": null
       }
     },
     {
@@ -6758,11 +6940,13 @@
         "skills": [
           {
             "id": "cursor/plugins/pstack/skills/how",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "cursor/plugins/pstack/skills/why",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "cursor/plugins/pstack/skills/architect",
@@ -6771,7 +6955,8 @@
           },
           {
             "id": "cursor/plugins/pstack/skills/arena",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "cursor/plugins/pstack/skills/interrogate",
@@ -6780,39 +6965,48 @@
           },
           {
             "id": "cursor/plugins/pstack/skills/blast-radius",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "cursor/plugins/pstack/skills/technical-writing",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "cursor/plugins/pstack/skills/unslop",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "cursor/plugins/pstack/skills/principle-boundary-discipline",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "cursor/plugins/pstack/skills/principle-type-system-discipline",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "cursor/plugins/pstack/skills/principle-fix-root-causes",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "cursor/plugins/pstack/skills/principle-prove-it-works",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "cursor/plugins/pstack/skills/principle-guard-the-context-window",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "cursor/plugins/pstack/skills/principle-encode-lessons-in-structure",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           }
         ],
         "install": [
@@ -6826,7 +7020,7 @@
           }
         ],
         "model": "Claude Opus 5.5",
-        "effort": "xhigh"
+        "effort": null
       }
     },
     {
@@ -6868,19 +7062,23 @@
         "skills": [
           {
             "id": "anthropics/knowledge-work-plugins/enterprise-search/skills/search",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "anthropics/knowledge-work-plugins/enterprise-search/skills/source-management",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "anthropics/knowledge-work-plugins/enterprise-search/skills/search-strategy",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "anthropics/knowledge-work-plugins/enterprise-search/skills/knowledge-synthesis",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           }
         ],
         "install": [
@@ -6890,7 +7088,7 @@
           }
         ],
         "model": "Claude Opus 5.5",
-        "effort": "xhigh"
+        "effort": null
       }
     },
     {
@@ -6933,27 +7131,33 @@
           },
           {
             "id": "julianoczkowski/designer-skills/design-brief",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "julianoczkowski/designer-skills/information-architecture",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "julianoczkowski/designer-skills/design-tokens",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "julianoczkowski/designer-skills/brief-to-tasks",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "julianoczkowski/designer-skills/frontend-design",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "julianoczkowski/designer-skills/design-review",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           }
         ],
         "install": [
@@ -6967,7 +7171,7 @@
           }
         ],
         "model": "Claude Opus 5.5",
-        "effort": "xhigh"
+        "effort": null
       }
     },
     {
@@ -7010,11 +7214,13 @@
           },
           {
             "id": "samber/cc-skills/skills/copywriting-hooks",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           },
           {
             "id": "samber/cc-skills/skills/copywriting-cta",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": true
           }
         ],
         "install": [
@@ -7040,7 +7246,7 @@
           }
         ],
         "model": "Claude Opus 5.5",
-        "effort": "xhigh"
+        "effort": null
       }
     },
     {
@@ -7087,19 +7293,23 @@
           },
           {
             "id": "amelnagdy/delegate-skills/skills/codex-delegate",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "amelnagdy/delegate-skills/skills/opencode-delegate",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "amelnagdy/delegate-skills/skills/claude-delegate",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "amelnagdy/delegate-skills/skills/agy-delegate",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           }
         ],
         "install": [
@@ -7113,7 +7323,7 @@
           }
         ],
         "model": "Claude Opus 5.5",
-        "effort": "xhigh"
+        "effort": null
       }
     },
     {
@@ -7152,11 +7362,13 @@
           },
           {
             "id": "rohitg00/ai-engineering-from-scratch/skills/find-your-level",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           },
           {
             "id": "rohitg00/ai-engineering-from-scratch/skills/check-understanding",
-            "standalone": true
+            "standalone": true,
+            "listedOutsideBundle": false
           }
         ],
         "install": [
@@ -7170,7 +7382,7 @@
           }
         ],
         "model": "Claude Opus 5.5",
-        "effort": "xhigh"
+        "effort": null
       }
     }
   ],

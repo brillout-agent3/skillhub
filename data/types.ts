@@ -366,11 +366,21 @@ export interface BundleSkill {
   /** Where its SKILL.md lives, as for a skill's `id`. */
   id: string;
   /**
-   * Whether it's worth installing alone, with no other skill of the bundle: then it also gets an
-   * entry of its own in the skills list. A skill that loads another one of the bundle, or only
-   * works on another's output, isn't.
+   * Whether it's worth installing alone, with no other skill of the bundle. A skill that loads
+   * another one of the bundle, or only works on another's output, isn't.
    */
   standalone: boolean;
+  /**
+   * For a standalone skill: whether the skills list also shows it on a row of its own, besides its
+   * bundle's row. True when people would want it without the rest of the bundle, such as `tdd` in
+   * an engineering-workflow bundle. False when whoever would want it would want the bundle too:
+   * a skill for the bundle's niche, such as `save-systems` in a game-dev bundle, or one of a
+   * family of siblings that only differ in what they cover, such as game genres. False too for the
+   * skill the bundle is named after, such as `caveman` in Caveman: the bundle's row already is its
+   * row. A bundle's skills get installed together and rise together, so such rows would flood the
+   * list.
+   */
+  listedOutsideBundle?: boolean;
   /** For a skill that isn't standalone: what it needs from the rest of the bundle. */
   note?: string;
 }

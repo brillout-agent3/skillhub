@@ -18,8 +18,8 @@ import {
   glanceHtml,
   installsOf,
   isBundle,
+  listedOutsideBundle,
   nameOf,
-  ownEntry,
   parentsOf,
   repoById,
   repoHref,
@@ -244,8 +244,8 @@ export interface State {
 }
 
 /**
- * What the list shows: bundles and the skills worth installing alone ("all"), every skill, those
- * only listed inside their bundle included ("skills"), or only bundles. Not a preset's business.
+ * What the list shows: bundles and the skills listedOutsideBundle ("all"), every skill, those only
+ * listed inside their bundle included ("skills"), or only bundles. Not a preset's business.
  */
 export type Show = "all" | "skills" | "bundles";
 export const SHOWS: [Show, string][] = [
@@ -491,10 +491,12 @@ function inRanges(e: Entry, st: State): boolean {
 }
 
 /**
- * Whether the list shows the skill on its own row. With bundles, a skill that only works inside its
- * bundle is only listed in it; but what you saved is listed, whatever it is.
+ * Whether the list shows the skill on its own row. With bundles, a skill that isn't
+ * listedOutsideBundle is only listed in its bundle's row; but what you saved is listed, whatever
+ * it is.
  */
-const listsAlone = (s: Skill, st: State) => st.show === "skills" || st.saved || ownEntry(s);
+const listsAlone = (s: Skill, st: State) =>
+  st.show === "skills" || st.saved || listedOutsideBundle(s);
 
 /**
  * The filters about a bundle's skills: tags and the search. The sliders' ranges, and whether it's
@@ -555,7 +557,7 @@ function results(st: State): Results {
   return last.r;
 }
 
-/** The filtered, sorted list. With bundles, a skill that only works inside its bundle is only listed in it. */
+/** The filtered, sorted list. With bundles, a skill that isn't listedOutsideBundle is only listed in its bundle's row. */
 function compute(st: State): Results {
   const matching = [
     ...(st.show === "skills" ? [] : data.bundles.filter((b) => bundlePasses(b, st))),
@@ -686,7 +688,7 @@ function skillRow(s: Skill, st: State, outside = false): string {
     .filter((t) => !quiet(t))
     .sort((a, b) => FACET_ORDER.indexOf(facetOf(a)) - FACET_ORDER.indexOf(facetOf(b)));
   const caution = s.agentReview.tags.some((t) => CAUTION.includes(t));
-  const bundle = bundleOf.get(s.id)?.bundle;
+  const place = bundleOf.get(s.id);
   return `
     <li class="skill${caution ? " caution" : ""}">
       <div class="skill-body">
@@ -694,8 +696,8 @@ function skillRow(s: Skill, st: State, outside = false): string {
       <div class="skill-head">
         <h3><a class="skill-name" href="${skillHref(s.id)}">${esc(s.name)}</a></h3>
         ${outside ? "" : sourceHtml(s)}${
-          bundle
-            ? `<span class="skill-source">${ownEntry(s) ? "Part of" : "Only works as part of"} <a href="${bundleHref(bundle.id)}">${esc(bundle.agentReview.name)}</a></span>`
+          place
+            ? `<span class="skill-source">${place.standalone ? "Part of" : "Only works as part of"} <a href="${bundleHref(place.bundle.id)}">${esc(place.bundle.agentReview.name)}</a></span>`
             : ""
         }
       </div>

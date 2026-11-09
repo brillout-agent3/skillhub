@@ -24,8 +24,11 @@ export const bundleById = new Map(data.bundles.map((b) => [b.id, b]));
 export const bundleOf = new Map<string, BundleSkill & { bundle: Bundle; index: number }>();
 for (const bundle of data.bundles)
   bundle.agentReview.skills.forEach((m, index) => bundleOf.set(m.id, { ...m, bundle, index }));
-/** Whether a skill gets an entry of its own in the skills list, rather than only inside its bundle. */
-export const ownEntry = (s: Skill) => bundleOf.get(s.id)?.standalone ?? true;
+/** Whether the skills list shows a skill on a row of its own, rather than only inside its bundle's row. */
+export const listedOutsideBundle = (s: Skill) => {
+  const m = bundleOf.get(s.id);
+  return !m || m.listedOutsideBundle === true;
+};
 // Every skill is on skills.sh; a bundle isn't.
 export const isBundle = (e: Skill | Bundle): e is Bundle => !("skills.sh" in e);
 export const nameOf = (e: Skill | Bundle) => (isBundle(e) ? e.agentReview.name : e.name);

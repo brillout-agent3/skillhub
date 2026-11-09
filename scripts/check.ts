@@ -161,13 +161,20 @@ for (const bundle of data.bundles) {
   if (!bundle.agentReview.name || !bundle.agentReview.description)
     fail(at, "needs a name and a description");
   if (bundle.agentReview.skills.length < 2) fail(at, "a bundle needs two skills or more");
-  for (const { id, standalone, note } of bundle.agentReview.skills) {
+  for (const { id, standalone, listedOutsideBundle, note } of bundle.agentReview.skills) {
     if (!ids.has(id)) fail(at, `no skill ${id}`);
     if (!id.startsWith(`${repo}/`)) fail(at, `${id} isn't in ${repo}`);
     if (bundled.has(id)) fail(at, `${id} is in ${bundled.get(id)} too`);
     bundled.set(id, bundle.id);
     if (!standalone && !note) fail(at, `${id} isn't standalone, so it needs a note saying why`);
     if (standalone && note) fail(at, `${id} is standalone, so it takes no note`);
+    if (standalone && typeof listedOutsideBundle !== "boolean")
+      fail(at, `${id} is standalone, so it needs listedOutsideBundle: true or false`);
+    if (!standalone && listedOutsideBundle !== undefined)
+      fail(
+        at,
+        `${id} isn't standalone, so it's only listed inside its bundle: drop listedOutsideBundle`,
+      );
   }
   if (
     !bundle.agentReview.install.length ||

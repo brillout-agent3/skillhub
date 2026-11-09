@@ -87,8 +87,8 @@ export default function Page(pageContext: PageContextServer): string {
         <h2 id="skills">Its skills, in the order they're used</h2>
         <p class="muted">${
           alone === b.agentReview.skills.length
-            ? "Each also works alone, so each also has its own entry in the skills list."
-            : "The ones marked “Only in the bundle” need the rest of it, so they're only listed here. The others also have their own entry in the skills list."
+            ? "Each also works alone."
+            : "The ones marked “Only in the bundle” need the rest of it. The others also work alone."
         }</p>
         ${skills(b)}
       </section>

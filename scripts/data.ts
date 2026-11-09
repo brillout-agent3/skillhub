@@ -28,6 +28,7 @@ const ORDER = [
   "tldr",
   "tags",
   "standalone",
+  "listedOutsideBundle",
   "note",
   "skills",
   "install",
