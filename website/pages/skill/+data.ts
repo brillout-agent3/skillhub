@@ -1,7 +1,7 @@
 import { render } from "vike/abort";
 import type { PageContextServer } from "vike/types";
 import { renderSkillMd } from "../../markdown.ts";
-import { fullSkillById } from "../../server-data.ts";
+import { fullSkillByPage } from "../../server-data.ts";
 import { github } from "../../github.ts";
 
 // The copy of every SKILL.md, read at build time.
@@ -13,9 +13,10 @@ const copies = import.meta.glob<string>("../../../data/skill-snapshots/**/*.md",
 export type Data = Awaited<ReturnType<typeof data>>;
 
 export async function data(pageContext: PageContextServer) {
-  const id = decodeURIComponent(pageContext.routeParams["*"]).replace(/\/$/, "");
-  const skill = fullSkillById.get(id);
+  const { owner, repo, name } = pageContext.routeParams;
+  const skill = fullSkillByPage.get([owner, repo, name].map(decodeURIComponent).join("/"));
   if (!skill) throw render(404);
+  const { id } = skill;
   const load = copies[`../../../data/skill-snapshots/${id}.md`];
   const gh = github(skill);
   const commit = skill.skillMd?.version;

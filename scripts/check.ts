@@ -12,7 +12,7 @@ import { generate, SCHEMAS, TYPES, undocumented } from "./schema.ts";
 import { nameInSkillMd } from "../website/markdown.ts";
 import { copyPath } from "../website/skill-md.ts";
 import type { Facet } from "../data/types.ts";
-import { bundleRepo, github } from "../website/github.ts";
+import { bundleRepo, github, skillPage } from "../website/github.ts";
 
 const root = new URL("../", import.meta.url);
 const data = readData();
@@ -64,11 +64,24 @@ const COUNTS: Record<Facet["count"], (n: number) => boolean> = {
   any: () => true,
 };
 
+/**
+ * The site's routes that a skill's page, /owner/repo/name/, would land in: an owner by one of
+ * these names gets no page. The others, such as /tags/, have a single segment.
+ */
+const ROUTES = ["bundle", "api"];
+
 const ids = new Set<string>();
+/** The skills' pages, lowercased: they'd clash on a filesystem that ignores case, as macOS's does. */
+const pages = new Map<string, string>();
 for (const skill of data.skills) {
   const at = skill.id;
   if (ids.has(at)) fail(at, "duplicate skill id");
   ids.add(at);
+  const page = skillPage(skill).toLowerCase();
+  if (pages.has(page)) fail(at, `its page /${skillPage(skill)}/ is ${pages.get(page)}'s too`);
+  pages.set(page, at);
+  if (ROUTES.includes(page.split("/")[0]))
+    fail(at, `its page /${skillPage(skill)}/ is under the site's /${page.split("/")[0]}/`);
   if (!skill.agentReview.description) fail(at, "missing description");
   for (const t of skill.agentReview.tags)
     if (parents.has(t)) fail(at, `${t} comes with the tags it includes; don't tag it directly`);

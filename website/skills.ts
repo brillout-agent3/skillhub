@@ -11,7 +11,7 @@ import type {
   ClientData as Data,
   ClientSkill as Skill,
 } from "./client-data.ts";
-import { bundleRepo, github } from "./github.ts";
+import { bundleRepo, github, skillPage } from "./github.ts";
 
 export const data = raw as Data;
 export const GITHUB = "https://github.com/brillout/skillhub";
@@ -126,8 +126,8 @@ export const idPath = (id: string) =>
     .split("/")
     .map((segment) => encodeURIComponent(segment).replace(/%40/g, "@"))
     .join("/");
-/** The skill's own page. */
-export const skillHref = (id: string) => href(`skill/${idPath(id)}/`);
+/** The skill's own page: see skillPage(). */
+export const skillHref = (id: string) => href(`${idPath(skillPage(skillById.get(id) as Skill))}/`);
 /** The bundle's page. */
 export const bundleHref = (id: string) => href(`bundle/${idPath(id)}/`);
 

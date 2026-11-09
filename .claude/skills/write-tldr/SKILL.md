@@ -68,4 +68,4 @@ This checks the limits, records the permalink, resets the skew to 0, and records
 - **A skill:** its directory on GitHub at the commit its copy was taken from.
 - **A bundle:** its repo at the current commit. Setting it fails when a skill's copy doesn't match that commit; then run `pnpm run sync <repo>`, reread what changed, and try again.
 
-Then run `pnpm run check`, and commit and push to `main`. To see the result, `pnpm run dev` serves the site at http://localhost:3000, with each skill at `/skill/<id>/` and each bundle at `/bundle/<id>/`.
+Then run `pnpm run check`, and commit and push to `main`. To see the result, `pnpm run dev` serves the site at http://localhost:3000, with each skill at `/<owner>/<repo>/<name>/` and each bundle at `/bundle/<id>/`.

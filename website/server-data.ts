@@ -8,7 +8,9 @@
 
 import raw from "../data/skills.jsonc";
 import type { Data } from "../data/types.ts";
+import { skillPage } from "./github.ts";
 
 export const serverData = raw as Data;
 export const fullSkillById = new Map(serverData.skills.map((s) => [s.id, s]));
+export const fullSkillByPage = new Map(serverData.skills.map((s) => [skillPage(s), s]));
 export const fullBundleById = new Map(serverData.bundles.map((b) => [b.id, b]));

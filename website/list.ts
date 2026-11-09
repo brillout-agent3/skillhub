@@ -37,6 +37,7 @@ import {
   tagsOf,
   weekOf,
 } from "./skills.ts";
+import { skillPage } from "./github.ts";
 // The browser's copy of the data, which leaves some fields out: see client-data.ts.
 import {
   searchWords,
@@ -597,7 +598,7 @@ export function askPrompt(st: State, base: string): string {
       ? `### ${nameOf(e)} (bundle/${idPath(e.id)}/): a bundle of ${skillsOf(e)
           .map((s) => s.name)
           .join(", ")}`
-      : `### ${e.name} (skill/${idPath(e.id)}/)`;
+      : `### ${e.name} (${idPath(skillPage(e))}/)`;
     const tags = isBundle(e) ? [] : e.agentReview.tags.filter((t) => !quiet(t));
     const facts = review.tldr?.glance.map((g) => `- ${g.label}: ${g.text}`) ?? [
       `- ${review.description}`,
