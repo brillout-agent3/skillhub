@@ -150,8 +150,8 @@ let renders = 0;
 /** What the facets were last rendered for: the pre-rendered page's are for no filters. */
 let lastFacets = "";
 /**
- * What the scope line and the lines under the boxes were last rendered for, since they depend on
- * the search only through whether there is one; "" for the pre-rendered page's.
+ * What the scope line and the lines under the boxes were last rendered for, since they don't
+ * depend on the sort; "" for the pre-rendered page's.
  */
 let lastScope = "";
 
@@ -162,7 +162,7 @@ function renderScope() {
     state.repo,
     state.ranges,
     state.show,
-    Boolean(state.q.trim()),
+    state.q,
   ]);
   if (key === lastScope) return;
   lastScope = key;
@@ -247,7 +247,7 @@ function flash(html: string) {
  */
 function ask() {
   const text = need.value.trim() || state.q.trim();
-  const prompt = askPrompt({ ...state, q: text }, new URL(href(), location.origin).href);
+  const prompt = askPrompt(state, text, new URL(href(), location.origin).href);
   navigator.clipboard
     ?.writeText(prompt)
     .then(() =>
@@ -347,8 +347,9 @@ void import("../data/skills.jsonc?search-words").then(({ default: words }) => {
   addSearchWords(words);
   if (!state.q) return;
   // The renders' caches are keyed by the state, which the prose isn't in: a new state misses them
-  // all, the list's heading's count included.
+  // all, the list's heading's count and the lines under the boxes included.
   state = { ...state };
   lastFacets = "";
+  lastScope = "";
   renderSoon();
 });

@@ -580,9 +580,10 @@ function counts(st: State, facet: string, valuesOf: (s: Skill) => string[]): Map
 
 // ------------------------------------------------------------------- asking an agent
 
-/** The active filters in words, the search left out. */
+/** The active filters in words, the search included. */
 function filtersText(st: State): string[] {
   const parts = st.tags.map((t) => `tag ${t}`);
+  if (st.q.trim()) parts.unshift(`the search "${st.q.trim()}"`);
   if (st.saved) parts.unshift("the ones I saved");
   if (st.repo) parts.push(`from ${st.repo}`);
   for (const p of PROP_IDS)
@@ -593,11 +594,12 @@ function filtersText(st: State): string[] {
 
 /**
  * A prompt to paste into any chat agent, for a need in your own words, which the search can't
- * match: the catalog is every entry the filters leave, the search is ignored and taken as the need
- * instead. `base` is the site's absolute URL, which the entries' paths are relative to.
+ * match: the catalog is the list below, every entry the filters and the search leave; "" for a need
+ * that comes in the next message. `base` is the site's absolute URL, which the entries' paths are
+ * relative to.
  */
-export function askPrompt(st: State, base: string): string {
-  const { list } = compute({ ...st, q: "" });
+export function askPrompt(st: State, need: string, base: string): string {
+  const { list } = results(st);
   const entry = (e: Entry) => {
     const review = e.agentReview;
     const numbers = [
@@ -636,7 +638,7 @@ ${list.map(entry).join("\n\n")}
 
 # My need
 
-${st.q.trim() || "I'll tell you in my next message."}`;
+${need.trim() || "I'll tell you in my next message."}`;
 }
 
 // ------------------------------------------------------------------- pieces
@@ -871,20 +873,14 @@ const scopeOf = (st: State) => {
   return lastScope.n;
 };
 
-/** How many skills (or bundles) the filters leave, as the lines under the boxes say it: the number highlighted. */
-function scopeCountHtml(st: State): string {
-  const n = scopeOf(st);
-  return `${badgeHtml(n.toLocaleString("en"))} ${unitOf(st)}${n === 1 ? "" : "s"}${savedBundlesHtml(st, false, badgeHtml)}`;
+/** How many skills (or bundles) the list below shows, as the lines under the boxes say it: the number highlighted. */
+function shownCountHtml(st: State): string {
+  const n = shownOf(st);
+  return `${badgeHtml(n.toLocaleString("en"))} ${unitOf(st)}${n === 1 ? "" : "s"}${savedBundlesHtml(st, true, badgeHtml)}`;
 }
 
-/**
- * Under the search box: what it does, and how many skills (or bundles) it looks through. Once it's
- * searched, the list below shows only what it found, which the list's heading counts.
- */
-export const searchNote = (st: State) =>
-  st.q.trim()
-    ? `Searches ${scopeCountHtml(st)}.`
-    : `Filters the list of ${scopeCountHtml(st)} below.`;
+/** Under the search box: what it does, and how many skills (or bundles) the list below shows. */
+export const searchNote = (st: State) => `Filters the list of ${shownCountHtml(st)} below.`;
 
 /** The filters, as chips each with its × to remove it. */
 function scopeChipsHtml(st: State): string {
@@ -915,14 +911,10 @@ export const tokensHtml = (tokens: number) => `${badgeHtml(`~${compact(tokens)}`
 /** A number highlighted in the line under a box. */
 const badgeHtml = (text: string) => `<span class="badge">${esc(text)}</span>`;
 
-/**
- * Under the agent's box: what Find with your agent copies, and its size. The prompt leaves the
- * search out, so with one the list below shows fewer than the prompt has.
- */
+/** Under the agent's box: what Find with your agent copies, the list below, and its size. */
 export function askLabel(st: State): string {
-  const which = filtersOn(st) ? "these" : "all";
-  const where = st.q.trim() ? ", not only those the search finds" : " below";
-  return `Copies a prompt to your clipboard that includes the TL;DR of ${which} ${scopeCountHtml(st)}${where} — ${tokensHtml(promptTokens(st))}.`;
+  const which = filtersOn(st) || st.q.trim() ? "these" : "all";
+  return `Copies a prompt to your clipboard that includes the TL;DR of ${which} ${shownCountHtml(st)} below — ${tokensHtml(promptTokens(st))}.`;
 }
 
 /**
@@ -932,7 +924,7 @@ export function askLabel(st: State): string {
 let lastPrompt: { st: State; tokens: number } | undefined;
 function promptTokens(st: State): number {
   if (lastPrompt?.st !== st)
-    lastPrompt = { st, tokens: Math.round(askPrompt({ ...st, q: "" }, href()).length / 4) };
+    lastPrompt = { st, tokens: Math.round(askPrompt(st, "", href()).length / 4) };
   return lastPrompt.tokens;
 }
 
