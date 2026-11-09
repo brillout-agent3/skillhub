@@ -880,7 +880,7 @@ function shownCountHtml(st: State): string {
 }
 
 /** Under the search box: what it does, and how many skills (or bundles) the list below shows. */
-export const searchNote = (st: State) => `Filters the list of ${shownCountHtml(st)} below.`;
+export const searchNote = (st: State) => `Filters ${shownCountHtml(st)} below.`;
 
 /** The filters, as chips each with its × to remove it. */
 function scopeChipsHtml(st: State): string {

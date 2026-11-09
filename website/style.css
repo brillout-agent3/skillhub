@@ -696,11 +696,12 @@ body:has(.skills-view) {
 /*
  * Two ways to find a skill, side by side and styled apart, each with its line under it: the agent's
  * box, first and wider, with its own words and button, and the search, which filters as you type.
- * Above both, the filters that narrow them.
+ * Above both, the filters that narrow them. The search's 200px fit its line on one line, unless
+ * it also counts saved bundles.
  */
 .finder {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 300px;
+  grid-template-columns: minmax(0, 1fr) 200px;
   grid-template-areas:
     "scope scope"
     "agent field"
@@ -811,8 +812,9 @@ body:has(.skills-view) {
   text-overflow: ellipsis;
 }
 
+/* Small enough to share the 200px of its column with the icon, rather than wrap under it. */
 .search-field input {
-  min-width: 140px;
+  min-width: 100px;
 }
 
 .agent-field input {
