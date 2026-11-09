@@ -96,6 +96,8 @@ export const weekOf = (e: Skill | Bundle): number | null => {
 
 /** A skill needs this many installs a week, in its latest 2 weeks, for its growth to count. */
 export const GROWTH_MIN = 1000;
+/** And this many a week in the 4 weeks before, the ones it grew from. */
+export const GROWTH_BASE_MIN = 100;
 /** The weeks a skill needs installs in to have a growth: the 6 it compares, and the one before. */
 export const GROWTH_WEEKS = 7;
 
@@ -104,6 +106,9 @@ export const GROWTH_WEEKS = 7;
  * average week of the 4 before, as a ratio minus 1 (0.5 for +50%). Null when it has fewer than
  * GROWTH_MIN a week, or a week without installs among the last GROWTH_WEEKS: a younger skill
  * would count the weeks before it existed, and its first, partial week, as weeks it grew from.
+ * Also null when the 4 weeks before have fewer than GROWTH_BASE_MIN a week: a skill that sat
+ * dormant, a handful of installs a week, then took off is new in all but its date, and growing
+ * from almost nothing reads as an absurd +45,000%.
  * For a bundle, the most of any of its skills.
  */
 export const growthOf = (e: Skill | Bundle): number | null => {
@@ -114,7 +119,9 @@ export const growthOf = (e: Skill | Bundle): number | null => {
   const avg = (a: number[]) => a.reduce((x, y) => x + y, 0) / a.length;
   const recent = avg(weekly.slice(-2));
   if (recent < GROWTH_MIN) return null;
-  return recent / avg(weekly.slice(-6, -2)) - 1;
+  const base = avg(weekly.slice(-6, -2));
+  if (base < GROWTH_BASE_MIN) return null;
+  return recent / base - 1;
 };
 
 /** Compare for a descending sort, unknown values last. */
