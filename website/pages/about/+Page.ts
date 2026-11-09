@@ -127,7 +127,7 @@ export default function Page(): string {
   return `
     <div class="page about">
       <h1>How skills get here</h1>
-      <p class="lede">SkillHub lists <span class="badge">${n(review.listed)}</span> agent skills, selected from a review of the <span class="badge">${n(review.reviewed)}</span> most downloaded skills at <a href="https://skills.sh/">skills.sh</a>.</p>
+      <p class="lede">SkillHub lists <span class="badge">${n(review.listed)}</span> agent skills, selected from a review of the <span class="badge">${n(review.reviewed)}</span> <a href="https://skills.sh">most downloaded skills</a>.</p>
       <div class="breakdown-box">
         <table class="breakdown">
           <tbody>${rows.map(row).join("")}</tbody>
@@ -155,7 +155,7 @@ export default function Page(): string {
       </ul>
 
       <h2 id="weekly-growth">Weekly Growth</h2>
-      <p>How fast a skill's downloads on skills.sh grow: its average week of the last 2 against its average week of the 4 before. Rising sorts by it. Only for skills with at least ${n(GROWTH_MIN)} downloads a week, and at least ${n(GROWTH_BASE_MIN)} in each of the last ${GROWTH_WEEKS} weeks: newer ones show under Rising &amp; new.</p>
+      <p>How fast a <a href="https://skills.sh">skill's downloads</a> grow: its average week of the last 2 against its average week of the 4 before. Only determined for skills with at least ${n(GROWTH_MIN)} downloads a week, and at least ${n(GROWTH_BASE_MIN)} in each of the last ${GROWTH_WEEKS} weeks.</p>
 
       <h2>Up-to-date</h2>
       <p>SkillHub follows each listed skill's SKILL.md in its repo. A skill's page says when its SKILL.md has changed since its TL;DR was written.</p>
