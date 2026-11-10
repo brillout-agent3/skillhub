@@ -1465,10 +1465,13 @@ body:has(.skills-view) {
 .props {
   display: grid;
   flex: none;
-  /* The icons' column fits the longest word under one, such as GROWTH, with room on either side. */
-  grid-template-columns: max-content max-content minmax(0, 1fr);
+  /*
+   * The icons' column is as wide in every view: it fits the longest word under an icon, GROWTH
+   * (46px), with room on either side, so that the numbers don't move when the list is sorted by it.
+   */
+  grid-template-columns: 58px max-content minmax(0, 1fr);
   align-self: flex-start;
-  min-width: 18em;
+  min-width: 20em;
   margin: 0;
   padding-left: 16px;
   border-left: 1px solid var(--rule);
@@ -1493,8 +1496,7 @@ body:has(.skills-view) {
   flex-direction: column;
   align-items: center;
   gap: 1px;
-  min-width: 44px;
-  padding: 1px 8px 0;
+  padding-top: 1px;
   color: var(--ink-3);
 }
 
@@ -1512,7 +1514,7 @@ body:has(.skills-view) {
 
 /* The word under an icon two numbers share, such as TOTAL and WEEK under the download icon. */
 .prop-tag {
-  font-size: 8px;
+  font-size: 9px;
   font-weight: 650;
   letter-spacing: 0.07em;
   line-height: 1;
@@ -1563,7 +1565,7 @@ body:has(.skills-view) {
   margin: 2px 0 0 calc(var(--at) * 100%);
   translate: calc(var(--at) * -100%);
   color: var(--garnet-text);
-  font-size: 8px;
+  font-size: 10px;
   font-weight: 650;
   letter-spacing: 0.07em;
   line-height: 1;
