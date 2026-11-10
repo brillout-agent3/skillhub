@@ -634,12 +634,74 @@ body:has(.skills-view) {
   gap: 8px;
 }
 
-.settings select {
+/* Sort by: a button like a <select>, and its options in a list under it, each with its icon. */
+.sort-menu {
+  position: relative;
+}
+
+.sort-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   width: 100%;
   padding: 6px 8px;
   border: 1px solid var(--rule-strong);
   border-radius: 6px;
   background: var(--paper);
+  text-align: left;
+  cursor: pointer;
+}
+
+.sort-button > span {
+  flex: auto;
+}
+
+.sort-button .prop-icon,
+.sort-options .prop-icon {
+  color: var(--ink-3);
+}
+
+.sort-options {
+  position: absolute;
+  z-index: 3;
+  top: calc(100% + 4px);
+  right: 0;
+  left: 0;
+  margin: 0;
+  padding: 4px;
+  border-radius: 8px;
+  background: var(--paper);
+  box-shadow:
+    var(--shadow-border),
+    0 8px 24px -6px oklch(0 0 0 / 0.18);
+  list-style: none;
+}
+
+.sort-options [role="option"] {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.sort-options [role="option"] > span {
+  flex: auto;
+}
+
+.sort-options [role="option"]:hover,
+.sort-options [role="option"]:focus-visible {
+  background: var(--t-plain);
+  outline: none;
+}
+
+.sort-options [aria-selected="true"] {
+  font-weight: 650;
+}
+
+.sort-options [aria-selected="true"] .prop-icon:last-child {
+  color: var(--ink);
 }
 
 .settings .order {
@@ -1403,8 +1465,8 @@ body:has(.skills-view) {
 .props {
   display: grid;
   flex: none;
-  /* The icons' column fits the longest word under one, GROWTH. */
-  grid-template-columns: 44px max-content minmax(0, 1fr);
+  /* The icons' column fits the longest word under one, such as GROWTH, with room on either side. */
+  grid-template-columns: max-content max-content minmax(0, 1fr);
   align-self: flex-start;
   min-width: 18em;
   margin: 0;
@@ -1431,7 +1493,8 @@ body:has(.skills-view) {
   flex-direction: column;
   align-items: center;
   gap: 1px;
-  padding-top: 1px;
+  min-width: 44px;
+  padding: 1px 8px 0;
   color: var(--ink-3);
 }
 

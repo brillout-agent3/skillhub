@@ -49,7 +49,7 @@ import {
   type SearchWords,
 } from "./client-data.ts";
 import { brandHtml } from "./brand.ts";
-import { CHICK, DOWNLOAD, STAR, iconDefsHtml } from "./prop-icons.ts";
+import { CHECK, CHICK, DOWNLOAD, SEARCH, STAR, iconDefsHtml } from "./prop-icons.ts";
 import { account, bookmarkSvg, loginHref, saveButton, saveKey, savedCount } from "./saves.ts";
 
 /** A row of the skills list: a skill, or a bundle with its skills inside. */
@@ -1365,7 +1365,11 @@ export function rangesHtml(st: State): string {
   }).join("");
 }
 
-/** The presets, then the sort and its order. Re-rendered with the list, since a search adds Best match. */
+/**
+ * The presets, then the sort and its order. Re-rendered with the list, since a search adds Best
+ * match. The sort is a menu of its own, rather than a <select>, to show each option's icon: see
+ * list-client.ts for its keys.
+ */
 export function settingsHtml(st: State): string {
   const presets = (Object.keys(PRESETS) as Preset[])
     .map((id) => {
@@ -1376,13 +1380,19 @@ export function settingsHtml(st: State): string {
       return `<button type="button" class="preset" data-preset="${id}" aria-pressed="${on}" title="${esc(p.title)}">${esc(p.label)}</button>`;
     })
     .join("");
-  const options = `${
-    st.q ? `<option value="match"${st.sort === "match" ? " selected" : ""}>Best match</option>` : ""
-  }${PROP_IDS.map(
-    (p) => `<option value="${p}"${p === st.sort ? " selected" : ""}>${PROPS[p].label}</option>`,
-  ).join(
-    "",
-  )}<option value="growth"${st.sort === "growth" ? " selected" : ""}>${GROWTH.label}</option>`;
+  // The sorts, each with its icon: Best match only while searching.
+  const sorts: [Sort, string, string][] = [
+    ...(st.q ? [["match", SEARCH, "Best match"] as [Sort, string, string]] : []),
+    ...PROP_IDS.map((p): [Sort, string, string] => [p, PROPS[p].icon, PROPS[p].label]),
+    ["growth", GROWTH.icon, GROWTH.label],
+  ];
+  const current = sorts.find(([id]) => id === st.sort) ?? sorts[0];
+  const options = sorts
+    .map(
+      ([id, icon, label]) =>
+        `<li role="option" id="sort-${id}" data-sort="${id}" aria-selected="${id === st.sort}" tabindex="-1">${icon}<span>${label}</span>${id === st.sort ? CHECK : ""}</li>`,
+    )
+    .join("");
   const order =
     st.sort === "match"
       ? ""
@@ -1399,8 +1409,11 @@ export function settingsHtml(st: State): string {
     <div class="presets" role="group" aria-label="Presets">${presets}</div>
     <button type="button" class="filters-toggle" data-action="filters" aria-controls="filters" aria-expanded="false">Filters</button>
     <section class="facet settings">
-      <div class="sort-head"><h2><label for="sort">Sort by</label></h2>${order}</div>
-      <select id="sort">${options}</select>
+      <div class="sort-head"><h2 id="sort-label">Sort by</h2>${order}</div>
+      <div class="sort-menu">
+        <button type="button" class="sort-button" id="sort" data-action="sort-menu" aria-haspopup="listbox" aria-expanded="false" aria-controls="sort-options" aria-labelledby="sort-label sort">${current[1]}<span>${current[2]}</span>${CHEVRON}</button>
+        <ul class="sort-options" id="sort-options" role="listbox" aria-labelledby="sort-label" hidden>${options}</ul>
+      </div>
     </section>`;
 }
 

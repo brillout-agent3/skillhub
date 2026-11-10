@@ -117,6 +117,56 @@ document.addEventListener("keydown", (event) => {
   if (inside) range?.querySelector<HTMLElement>(".range-pill")?.focus();
 });
 
+/**
+ * The Sort by menu: its button, and its options as a listbox under it. Arrow keys, Home and End move
+ * among the options, Enter or Space picks one, Escape closes it and Tab leaves it; a click elsewhere
+ * closes it.
+ */
+let sortOpen = false;
+function openSort(on: boolean, focus: "option" | "button" | null = null) {
+  sortOpen = on;
+  const button = app.querySelector<HTMLElement>("#sort");
+  const list = app.querySelector<HTMLElement>("#sort-options");
+  button?.setAttribute("aria-expanded", String(on));
+  list?.toggleAttribute("hidden", !on);
+  if (on && focus === "option")
+    (
+      list?.querySelector<HTMLElement>('[aria-selected="true"]') ??
+      list?.querySelector<HTMLElement>('[role="option"]')
+    )?.focus();
+  if (!on && focus === "button") button?.focus();
+}
+/** Its button keeps the focus, so that it gets it back once the settings are re-rendered. */
+function chooseSort(option: HTMLElement) {
+  openSort(false, "button");
+  if (option.dataset.sort !== state.sort) go({ sort: option.dataset.sort as Sort });
+}
+document.addEventListener("click", (event) => {
+  if (sortOpen && !(event.target as Element).closest(".sort-menu")) openSort(false);
+});
+app.addEventListener("keydown", (event) => {
+  const el = event.target as HTMLElement;
+  if (el.id === "sort" && (event.key === "ArrowDown" || event.key === "ArrowUp")) {
+    event.preventDefault();
+    openSort(true, "option");
+    return;
+  }
+  if (!el.matches('#sort-options [role="option"]')) return;
+  const options = [...app.querySelectorAll<HTMLElement>('#sort-options [role="option"]')];
+  const at = options.indexOf(el);
+  const to = { ArrowDown: at + 1, ArrowUp: at - 1, Home: 0, End: options.length - 1 }[event.key];
+  if (to !== undefined) {
+    event.preventDefault();
+    options[Math.max(0, Math.min(options.length - 1, to))].focus();
+  } else if (event.key === "Enter" || event.key === " ") {
+    event.preventDefault();
+    chooseSort(el);
+  } else if (event.key === "Escape") {
+    event.preventDefault();
+    openSort(false, "button");
+  } else if (event.key === "Tab") openSort(false);
+});
+
 /** The Saved switch isn't re-rendered, so that it can slide: it follows the state instead. */
 const savedSwitch = document.getElementById("saved-switch") as HTMLElement;
 const syncSaved = () => savedSwitch.setAttribute("aria-checked", String(state.saved));
@@ -209,6 +259,8 @@ function render() {
   renderHistograms();
   syncSaved();
   (document.getElementById("settings") as HTMLElement).innerHTML = settingsHtml(state);
+  // A render while the Sort by menu is open, such as once you're logged in, keeps it open.
+  if (sortOpen) openSort(true);
   (document.getElementById("show") as HTMLElement).innerHTML = showHtml(state);
   syncFiltersToggle();
   renderFacets();
@@ -284,10 +336,11 @@ app.addEventListener("input", (event) => {
 
 app.addEventListener("click", (event) => {
   const el = (event.target as Element).closest<HTMLElement>(
-    "[data-tag],[data-action],[data-remove],[data-preset],[data-show]",
+    "[data-tag],[data-action],[data-remove],[data-preset],[data-show],[data-sort]",
   );
   if (!el || el.tagName === "A") return;
   const d = el.dataset;
+  if (d.sort) return chooseSort(el);
   // A pressed button shows it right away; the list follows after the next paint.
   if (d.preset) {
     for (const b of app.querySelectorAll("[data-preset]"))
@@ -313,6 +366,7 @@ app.addEventListener("click", (event) => {
   else if (d.action === "focus-need") need.focus();
   else if (d.action === "order") go({ asc: !state.asc });
   else if (d.action === "range") openRange(open === d.value ? null : (d.value as Prop));
+  else if (d.action === "sort-menu") openSort(!sortOpen, "option");
   else if (d.action === "saved") {
     // It slides at once; the list follows after the next paint.
     savedSwitch.setAttribute("aria-checked", String(!state.saved));
@@ -324,11 +378,6 @@ app.addEventListener("click", (event) => {
     filtersShown = !filtersShown;
     syncFiltersToggle();
   }
-});
-
-app.addEventListener("change", (event) => {
-  const el = event.target as HTMLInputElement | HTMLSelectElement;
-  if (el.id === "sort") go({ sort: el.value as Sort });
 });
 
 /**
