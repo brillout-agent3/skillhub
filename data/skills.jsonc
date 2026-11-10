@@ -5262,7 +5262,7 @@
     },
     {
       "id": "tw93/waza",
-      "skew": 0,
+      "skew": 114,
       "agentReview": {
         "name": "Waza",
         "description": "Seven skills for an engineer's core habits with an agent: plan, debug, review and ship, read links and PDFs, research, write, and audit the agent's setup.",
@@ -5974,7 +5974,7 @@
     },
     {
       "id": "gamedev-skills/awesome-gamedev-agent-skills",
-      "skew": 0,
+      "skew": 509,
       "agentReview": {
         "name": "Gamedev Agent Skills",
         "description": "Cross-engine game-development skills for concepts, genres and process, with a router that detects your engine and task and loads only the skills that fit before the agent writes code.",
@@ -6399,7 +6399,7 @@
     },
     {
       "id": "earthtojake/text-to-cad",
-      "skew": 2880,
+      "skew": 2925,
       "agentReview": {
         "name": "text-to-cad",
         "description": "Design physical parts with an agent: text-to-cad's skills for 3D models, purchasable parts, DXF drawings, robot descriptions, fabrication and 3D-printing checks, slicing and printer handoff.",
@@ -11415,8 +11415,8 @@
         "firstSeen": "2026-04-08"
       },
       "skillMd": {
-        "version": "924bbd194d02e5e15a227e75b5901fb0d7a4ecad",
-        "updated": "2026-11-08",
+        "version": "ec229b48547f24685ffb22aa51c462c5ae27908c",
+        "updated": "2026-11-10",
         "skew": 86
       },
       "agentReview": {
@@ -12352,9 +12352,9 @@
         "firstSeen": "2026-01-22"
       },
       "skillMd": {
-        "version": "aa093a843da5edbf323c0b4145c9b6a0db3ecde8",
-        "updated": "2026-10-20",
-        "skew": 0
+        "version": "070be98109c03f04a95f704533e8f6e9868d0525",
+        "updated": "2026-11-10",
+        "skew": 704
       },
       "agentReview": {
         "description": "Controls a browser over CDP for automation, scraping and testing.",
@@ -12802,9 +12802,9 @@
         "firstSeen": "2026-01-19"
       },
       "skillMd": {
-        "version": "e85f3cbc2e4a79bf33b2a12e9bdd9087d414735b",
-        "updated": "2026-10-20",
-        "skew": 0
+        "version": "8a3bde8083bd121971f61cba4bdbe5fd8c0eee7d",
+        "updated": "2026-11-10",
+        "skew": 149
       },
       "agentReview": {
         "description": "Diagnoses technical SEO issues on a site.",
@@ -12857,9 +12857,9 @@
         "firstSeen": "2026-01-19"
       },
       "skillMd": {
-        "version": "0cd9b3a0ef4c411a1d690419ce843f2a1da32cce",
-        "updated": "2026-10-28",
-        "skew": 11
+        "version": "8a3bde8083bd121971f61cba4bdbe5fd8c0eee7d",
+        "updated": "2026-11-10",
+        "skew": 206
       },
       "agentReview": {
         "description": "Writes homepage, landing, pricing and feature-page copy.",
@@ -12913,9 +12913,9 @@
         "firstSeen": "2026-01-19"
       },
       "skillMd": {
-        "version": "e85f3cbc2e4a79bf33b2a12e9bdd9087d414735b",
-        "updated": "2026-10-20",
-        "skew": 0
+        "version": "8a3bde8083bd121971f61cba4bdbe5fd8c0eee7d",
+        "updated": "2026-11-10",
+        "skew": 100
       },
       "agentReview": {
         "description": "Applies behavioral science to marketing.",
@@ -12968,9 +12968,9 @@
         "firstSeen": "2026-01-26"
       },
       "skillMd": {
-        "version": "0cd9b3a0ef4c411a1d690419ce843f2a1da32cce",
-        "updated": "2026-10-28",
-        "skew": 4
+        "version": "8a3bde8083bd121971f61cba4bdbe5fd8c0eee7d",
+        "updated": "2026-11-10",
+        "skew": 105
       },
       "agentReview": {
         "description": "Plans what content to create and why.",
@@ -13024,9 +13024,9 @@
         "firstSeen": "2026-01-19"
       },
       "skillMd": {
-        "version": "0cd9b3a0ef4c411a1d690419ce843f2a1da32cce",
-        "updated": "2026-10-28",
-        "skew": 41
+        "version": "8a3bde8083bd121971f61cba4bdbe5fd8c0eee7d",
+        "updated": "2026-11-10",
+        "skew": 138
       },
       "agentReview": {
         "description": "Plans template-driven SEO pages at scale.",
@@ -14314,9 +14314,9 @@
         "firstSeen": "2026-02-19"
       },
       "skillMd": {
-        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "8a3bde8083bd121971f61cba4bdbe5fd8c0eee7d",
+        "updated": "2026-11-10",
+        "skew": 153
       },
       "agentReview": {
         "description": "Optimizes your content to be cited in AI answers from ChatGPT, Perplexity, Google AI Overviews and other assistants.",
@@ -14369,9 +14369,9 @@
         "firstSeen": "2026-01-19"
       },
       "skillMd": {
-        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "8a3bde8083bd121971f61cba4bdbe5fd8c0eee7d",
+        "updated": "2026-11-10",
+        "skew": 114
       },
       "agentReview": {
         "description": "Edits existing marketing copy in focused passes and strips AI tells, without changing its message.",
@@ -14425,9 +14425,9 @@
         "firstSeen": "2026-01-19"
       },
       "skillMd": {
-        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "8a3bde8083bd121971f61cba4bdbe5fd8c0eee7d",
+        "updated": "2026-11-10",
+        "skew": 111
       },
       "agentReview": {
         "description": "Suggests marketing ideas for a SaaS product from a library of 139, matched to your stage and budget.",
@@ -14479,9 +14479,9 @@
         "firstSeen": "2026-02-19"
       },
       "skillMd": {
-        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "8a3bde8083bd121971f61cba4bdbe5fd8c0eee7d",
+        "updated": "2026-11-10",
+        "skew": 159
       },
       "agentReview": {
         "description": "Writes and iterates ad copy for Google, Meta, LinkedIn, TikTok and X within each platform's limits.",
@@ -14591,9 +14591,9 @@
         "firstSeen": "2026-02-18"
       },
       "skillMd": {
-        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "8a3bde8083bd121971f61cba4bdbe5fd8c0eee7d",
+        "updated": "2026-11-10",
+        "skew": 113
       },
       "agentReview": {
         "description": "Writes B2B cold emails and follow-ups that sound human, and covers sending setup, LinkedIn steps, multichannel cadences and reply handling.",
@@ -14648,9 +14648,9 @@
         "firstSeen": "2026-02-27"
       },
       "skillMd": {
-        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "8a3bde8083bd121971f61cba4bdbe5fd8c0eee7d",
+        "updated": "2026-11-10",
+        "skew": 119
       },
       "agentReview": {
         "description": "Plans a website's page hierarchy, navigation, URL structure and internal linking, delivered as a page tree, a Mermaid sitemap and a URL map.",
@@ -14704,9 +14704,9 @@
         "firstSeen": "2026-02-19"
       },
       "skillMd": {
-        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "8a3bde8083bd121971f61cba4bdbe5fd8c0eee7d",
+        "updated": "2026-11-10",
+        "skew": 92
       },
       "agentReview": {
         "description": "Designs cancel flows with save offers, churn-risk health scores and failed-payment recovery to reduce subscription churn.",
@@ -14760,9 +14760,9 @@
         "firstSeen": "2026-02-27"
       },
       "skillMd": {
-        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "8a3bde8083bd121971f61cba4bdbe5fd8c0eee7d",
+        "updated": "2026-11-10",
+        "skew": 135
       },
       "agentReview": {
         "description": "Creates sales collateral reps will use: decks, one-pagers, objection docs, battle cards, demo scripts, ROI calculators, proposals and playbooks.",
@@ -14817,9 +14817,9 @@
         "firstSeen": "2026-03-28"
       },
       "skillMd": {
-        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "8a3bde8083bd121971f61cba4bdbe5fd8c0eee7d",
+        "updated": "2026-11-10",
+        "skew": 137
       },
       "agentReview": {
         "description": "Mines transcripts, surveys, reviews and online communities for customer pains, triggers and exact wording, and builds personas only from evidence.",
@@ -14872,9 +14872,9 @@
         "firstSeen": "2026-02-27"
       },
       "skillMd": {
-        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "8a3bde8083bd121971f61cba4bdbe5fd8c0eee7d",
+        "updated": "2026-11-10",
+        "skew": 107
       },
       "agentReview": {
         "description": "Designs the systems linking marketing to sales: lifecycle stages, lead scoring, routing, pipeline stages, CRM automations and deal desk rules.",
@@ -14928,9 +14928,9 @@
         "firstSeen": "2026-03-14"
       },
       "skillMd": {
-        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "8a3bde8083bd121971f61cba4bdbe5fd8c0eee7d",
+        "updated": "2026-11-10",
+        "skew": 116
       },
       "agentReview": {
         "description": "Plans a lead magnet, such as a checklist, template or ebook, plus how to gate, deliver, promote and measure it.",
@@ -14984,9 +14984,9 @@
         "firstSeen": "2026-04-21"
       },
       "skillMd": {
-        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "8a3bde8083bd121971f61cba4bdbe5fd8c0eee7d",
+        "updated": "2026-11-10",
+        "skew": 105
       },
       "agentReview": {
         "description": "Researches competitors from their URLs by scraping their sites and pulling SEO data, and writes one comparable Markdown profile per competitor.",
@@ -15045,9 +15045,9 @@
         "firstSeen": "2026-05-14"
       },
       "skillMd": {
-        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "8a3bde8083bd121971f61cba4bdbe5fd8c0eee7d",
+        "updated": "2026-11-10",
+        "skew": 107
       },
       "agentReview": {
         "description": "Reviews a marketing page or form for what's holding back conversions and recommends quick wins, bigger changes, test ideas and alternative copy.",
@@ -15097,9 +15097,9 @@
         "firstSeen": "2026-04-21"
       },
       "skillMd": {
-        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "8a3bde8083bd121971f61cba4bdbe5fd8c0eee7d",
+        "updated": "2026-11-10",
+        "skew": 104
       },
       "agentReview": {
         "description": "Plans how to launch, grow and measure an online community, from founding members and rituals to ambassador programs.",
@@ -15148,9 +15148,9 @@
         "firstSeen": "2026-04-24"
       },
       "skillMd": {
-        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "8a3bde8083bd121971f61cba4bdbe5fd8c0eee7d",
+        "updated": "2026-11-10",
+        "skew": 101
       },
       "agentReview": {
         "description": "Guides marketing image creation, such as blog heroes, social graphics and banners: which AI model or design tool to use, sizes and web optimization.",
@@ -15205,9 +15205,9 @@
         "firstSeen": "2026-05-14"
       },
       "skillMd": {
-        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "8a3bde8083bd121971f61cba4bdbe5fd8c0eee7d",
+        "updated": "2026-11-10",
+        "skew": 185
       },
       "agentReview": {
         "description": "Writes and plans social media posts for LinkedIn, X, Instagram, TikTok and Facebook, from hooks and carousels to repurposing, calendars and short-form video scripts.",
@@ -15266,9 +15266,9 @@
         "firstSeen": "2026-04-24"
       },
       "skillMd": {
-        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "8a3bde8083bd121971f61cba4bdbe5fd8c0eee7d",
+        "updated": "2026-11-10",
+        "skew": 124
       },
       "agentReview": {
         "description": "Guides marketing video production: picks programmatic, AI-generated, avatar or editing tools and lays out workflows for demos, explainers and batches of social clips.",
@@ -15325,9 +15325,9 @@
         "firstSeen": "2026-04-21"
       },
       "skillMd": {
-        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "8a3bde8083bd121971f61cba4bdbe5fd8c0eee7d",
+        "updated": "2026-11-10",
+        "skew": 134
       },
       "agentReview": {
         "description": "Plans and runs product submissions to startup, SaaS, AI and MCP directories for backlinks and discovery, with positioning varied per directory.",
@@ -15381,9 +15381,9 @@
         "firstSeen": "2026-05-14"
       },
       "skillMd": {
-        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "8a3bde8083bd121971f61cba4bdbe5fd8c0eee7d",
+        "updated": "2026-11-10",
+        "skew": 112
       },
       "agentReview": {
         "description": "Creates and maintains a shared product marketing file on your product, audience, positioning and brand voice that the repo's other marketing skills read.",
@@ -15436,9 +15436,9 @@
         "firstSeen": "2026-05-14"
       },
       "skillMd": {
-        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "8a3bde8083bd121971f61cba4bdbe5fd8c0eee7d",
+        "updated": "2026-11-10",
+        "skew": 138
       },
       "agentReview": {
         "description": "Plans and checks analytics tracking: event plans and naming, GA4 and Tag Manager setup, UTM conventions and validation.",
@@ -15493,9 +15493,9 @@
         "firstSeen": "2026-05-14"
       },
       "skillMd": {
-        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "8a3bde8083bd121971f61cba4bdbe5fd8c0eee7d",
+        "updated": "2026-11-10",
+        "skew": 169
       },
       "agentReview": {
         "description": "Plans and optimizes paid campaigns on Google, Meta, LinkedIn, X and TikTok: structure, targeting, budgets, retargeting and weekly account checks.",
@@ -15551,9 +15551,9 @@
         "firstSeen": "2026-05-14"
       },
       "skillMd": {
-        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "8a3bde8083bd121971f61cba4bdbe5fd8c0eee7d",
+        "updated": "2026-11-10",
+        "skew": 132
       },
       "agentReview": {
         "description": "Designs SaaS pricing (value metric, tiers, first price, research, increases) and audits pricing pages for buyers and AI agents.",
@@ -15607,9 +15607,9 @@
         "firstSeen": "2026-05-06"
       },
       "skillMd": {
-        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "8a3bde8083bd121971f61cba4bdbe5fd8c0eee7d",
+        "updated": "2026-11-10",
+        "skew": 67
       },
       "agentReview": {
         "description": "Helps choose co-marketing partners that share your audience, brainstorms joint campaigns, and outlines the outreach email and agreement.",
@@ -15661,9 +15661,9 @@
         "firstSeen": "2026-05-14"
       },
       "skillMd": {
-        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "8a3bde8083bd121971f61cba4bdbe5fd8c0eee7d",
+        "updated": "2026-11-10",
+        "skew": 97
       },
       "agentReview": {
         "description": "Writes JSON-LD structured data for your pages, first checking which Google rich results still exist, with a validation checklist.",
@@ -15716,9 +15716,9 @@
         "firstSeen": "2026-05-14"
       },
       "skillMd": {
-        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "8a3bde8083bd121971f61cba4bdbe5fd8c0eee7d",
+        "updated": "2026-11-10",
+        "skew": 135
       },
       "agentReview": {
         "description": "Writes competitor comparison and alternative pages in four formats, keeps claims about rivals dated and sourced, and audits existing pages for stale claims.",
@@ -15772,9 +15772,9 @@
         "firstSeen": "2026-05-14"
       },
       "skillMd": {
-        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "8a3bde8083bd121971f61cba4bdbe5fd8c0eee7d",
+        "updated": "2026-11-10",
+        "skew": 91
       },
       "agentReview": {
         "description": "Plans product and feature launches, from a readiness check through five rollout phases, Product Hunt and post-launch follow-up.",
@@ -15822,9 +15822,9 @@
         "firstSeen": "2026-05-14"
       },
       "skillMd": {
-        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "8a3bde8083bd121971f61cba4bdbe5fd8c0eee7d",
+        "updated": "2026-11-10",
+        "skew": 93
       },
       "agentReview": {
         "description": "Designs automated email sequences such as welcome, nurture, onboarding and re-engagement flows, with timing, subject lines and full copy for each email.",
@@ -15878,9 +15878,9 @@
         "firstSeen": "2026-05-14"
       },
       "skillMd": {
-        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "8a3bde8083bd121971f61cba4bdbe5fd8c0eee7d",
+        "updated": "2026-11-10",
+        "skew": 119
       },
       "agentReview": {
         "description": "Designs A/B tests with a hypothesis, metrics and sample size, interprets results without common statistical mistakes, and helps run an ongoing experiment program.",
@@ -15933,9 +15933,9 @@
         "firstSeen": "2026-05-14"
       },
       "skillMd": {
-        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "8a3bde8083bd121971f61cba4bdbe5fd8c0eee7d",
+        "updated": "2026-11-10",
+        "skew": 79
       },
       "agentReview": {
         "description": "Audits an App Store or Google Play listing, scores it out of 100, and returns a prioritized plan of specific fixes.",
@@ -15992,9 +15992,9 @@
         "firstSeen": "2026-05-14"
       },
       "skillMd": {
-        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "8a3bde8083bd121971f61cba4bdbe5fd8c0eee7d",
+        "updated": "2026-11-10",
+        "skew": 103
       },
       "agentReview": {
         "description": "Plans and evaluates free tools, such as calculators, generators or graders, that bring in leads, search traffic and links.",
@@ -16043,9 +16043,9 @@
         "firstSeen": "2026-05-14"
       },
       "skillMd": {
-        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "8a3bde8083bd121971f61cba4bdbe5fd8c0eee7d",
+        "updated": "2026-11-10",
+        "skew": 103
       },
       "agentReview": {
         "description": "Audits or designs post-signup onboarding so new users reach value fast, from finding the aha moment to checklists, empty states and emails.",
@@ -16094,9 +16094,9 @@
         "firstSeen": "2026-05-14"
       },
       "skillMd": {
-        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "8a3bde8083bd121971f61cba4bdbe5fd8c0eee7d",
+        "updated": "2026-11-10",
+        "skew": 100
       },
       "agentReview": {
         "description": "Designs and improves referral, affiliate and review programs that turn customers and partners into a source of new customers.",
@@ -16144,9 +16144,9 @@
         "firstSeen": "2026-05-14"
       },
       "skillMd": {
-        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "8a3bde8083bd121971f61cba4bdbe5fd8c0eee7d",
+        "updated": "2026-11-10",
+        "skew": 103
       },
       "agentReview": {
         "description": "Audits signup and registration flows field by field to cut drop-off, with prioritized fixes, test ideas and an optional form redesign.",
@@ -16195,9 +16195,9 @@
         "firstSeen": "2026-05-14"
       },
       "skillMd": {
-        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "8a3bde8083bd121971f61cba4bdbe5fd8c0eee7d",
+        "updated": "2026-11-10",
+        "skew": 128
       },
       "agentReview": {
         "description": "Designs in-app paywalls and upgrade prompts that convert free or trial users to paid at the right moment, without dark patterns.",
@@ -16250,9 +16250,9 @@
         "firstSeen": "2026-05-14"
       },
       "skillMd": {
-        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "8a3bde8083bd121971f61cba4bdbe5fd8c0eee7d",
+        "updated": "2026-11-10",
+        "skew": 89
       },
       "agentReview": {
         "description": "Designs popups, slide-ins and banners that capture emails or promote offers without annoying visitors, from trigger and targeting to copy.",
@@ -16301,9 +16301,9 @@
         "firstSeen": "2026-05-29"
       },
       "skillMd": {
-        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "8a3bde8083bd121971f61cba4bdbe5fd8c0eee7d",
+        "updated": "2026-11-10",
+        "skew": 148
       },
       "agentReview": {
         "description": "Builds a 12-month marketing plan structured by funnel stage and fitted to a company's budget, team and funding, reviewed with you section by section.",
@@ -16357,9 +16357,9 @@
         "firstSeen": "2026-05-26"
       },
       "skillMd": {
-        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "8a3bde8083bd121971f61cba4bdbe5fd8c0eee7d",
+        "updated": "2026-11-10",
+        "skew": 138
       },
       "agentReview": {
         "description": "Builds verified, scored prospect lists for B2B, SaaS or local-business outreach, or finds first customers from public signs of demand.",
@@ -16417,9 +16417,9 @@
         "firstSeen": "2026-05-21"
       },
       "skillMd": {
-        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "8a3bde8083bd121971f61cba4bdbe5fd8c0eee7d",
+        "updated": "2026-11-10",
+        "skew": 119
       },
       "agentReview": {
         "description": "Plans compliant SMS, MMS and WhatsApp marketing programs, from consent and carrier registration to flows like abandoned cart and win-back.",
@@ -16469,9 +16469,9 @@
         "firstSeen": "2026-06-17"
       },
       "skillMd": {
-        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "8a3bde8083bd121971f61cba4bdbe5fd8c0eee7d",
+        "updated": "2026-11-10",
+        "skew": 128
       },
       "agentReview": {
         "description": "Designs or improves the offer behind a sale (deliverable, bonuses, guarantee, urgency, name and payment terms) using Hormozi's value equation.",
@@ -16525,9 +16525,9 @@
         "firstSeen": "2026-06-10"
       },
       "skillMd": {
-        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "8a3bde8083bd121971f61cba4bdbe5fd8c0eee7d",
+        "updated": "2026-11-10",
+        "skew": 137
       },
       "agentReview": {
         "description": "Helps earn press coverage through pitches, newsjacking and journalist requests, and preps podcast appearances, press pages and crisis statements.",
@@ -16580,9 +16580,9 @@
         "firstSeen": "2026-07-02"
       },
       "skillMd": {
-        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "8a3bde8083bd121971f61cba4bdbe5fd8c0eee7d",
+        "updated": "2026-11-10",
+        "skew": 125
       },
       "agentReview": {
         "description": "Sets up recurring marketing workflows an agent runs on a schedule, such as weekly SEO scans, ad-fatigue checks or churn watches, with safeguards.",
@@ -16636,9 +16636,9 @@
         "firstSeen": "2026-07-06"
       },
       "skillMd": {
-        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "8a3bde8083bd121971f61cba4bdbe5fd8c0eee7d",
+        "updated": "2026-11-10",
+        "skew": 100
       },
       "agentReview": {
         "description": "Puts a marketing question to a simulated board of famous marketers like Ogilvy, Godin and Hormozi, then maps their disagreements into a recommendation.",
@@ -16690,9 +16690,9 @@
         "firstSeen": "2026-07-27"
       },
       "skillMd": {
-        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "8a3bde8083bd121971f61cba4bdbe5fd8c0eee7d",
+        "updated": "2026-11-10",
+        "skew": 144
       },
       "agentReview": {
         "description": "Works out which marketing channels really drive conversions, reconciling conflicting numbers across tools, and helps you build first-party attribution yourself.",
@@ -16745,9 +16745,9 @@
         "firstSeen": "2026-07-22"
       },
       "skillMd": {
-        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "8a3bde8083bd121971f61cba4bdbe5fd8c0eee7d",
+        "updated": "2026-11-10",
+        "skew": 125
       },
       "agentReview": {
         "description": "Plans influencer, creator and ambassador partnerships: finding and vetting partners, structuring deals, briefing creators, disclosure rules and measuring return.",
@@ -16800,9 +16800,9 @@
         "firstSeen": "2026-08-23"
       },
       "skillMd": {
-        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "8a3bde8083bd121971f61cba4bdbe5fd8c0eee7d",
+        "updated": "2026-11-10",
+        "skew": 109
       },
       "agentReview": {
         "description": "Plans events that produce sales pipeline, whether you host a webinar or dinner, sponsor a conference, speak, or only attend.",
@@ -19750,9 +19750,9 @@
         "firstSeen": "2026-02-07"
       },
       "skillMd": {
-        "version": "71dc2a1529f23dfe7b0d0e3b3e11d4a7e8afd428",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "7869eb17144789b843e6655c41bd3d570aa2288a",
+        "updated": "2026-11-10",
+        "skew": 25
       },
       "agentReview": {
         "description": "Researches what people said about a topic in the last 30 days on Reddit, X, YouTube, TikTok, Hacker News, Polymarket and the web.",
@@ -26481,9 +26481,9 @@
         "firstSeen": "2026-04-04"
       },
       "skillMd": {
-        "version": "58217546cd94fcf5ddcde4265c00a9377ed3192c",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "6095341ad46b063619f4d0a5afc1c6fa8f1b4696",
+        "updated": "2026-11-10",
+        "skew": 70
       },
       "agentReview": {
         "description": "Audits your Claude Code, Codex or Pi setup and the project's AI maintainability, and reports each finding with a copy-pasteable fix.",
@@ -26544,9 +26544,9 @@
         "firstSeen": "2026-04-04"
       },
       "skillMd": {
-        "version": "58217546cd94fcf5ddcde4265c00a9377ed3192c",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "6095341ad46b063619f4d0a5afc1c6fa8f1b4696",
+        "updated": "2026-11-10",
+        "skew": 44
       },
       "agentReview": {
         "description": "Reviews a diff or PR for drift, over-design and hard stops, then handles approved commits, pushes, releases and issue follow-up.",
@@ -29298,9 +29298,9 @@
         "firstSeen": "2026-06-27"
       },
       "skillMd": {
-        "version": "19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "4cce500ce1a779b12fdd824be581c7d2ab4e7ba2",
+        "updated": "2026-11-10",
+        "skew": 35
       },
       "agentReview": {
         "description": "Builds game HUDs and menus that scale to any screen and work with a gamepad: anchored layouts, safe areas, focus navigation and event-driven updates.",
@@ -29414,9 +29414,9 @@
         "firstSeen": "2026-04-19"
       },
       "skillMd": {
-        "version": "6a7f19fcc132b39b126bea90167679b46b14bcc4",
-        "updated": "2026-11-09",
-        "skew": 16
+        "version": "f2496acbde9f45ccb55c24d4f75210c8a1355df8",
+        "updated": "2026-11-10",
+        "skew": 65
       },
       "agentReview": {
         "description": "Draws diagrams and charts of 45 types as self-contained HTML and SVG in your brand, and redraws draw.io, Mermaid and Excalidraw files.",
@@ -32311,9 +32311,9 @@
         "firstSeen": "2026-07-11"
       },
       "skillMd": {
-        "version": "defe17e561e45ac46694a4ac6f17b13da84ff537",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "4edd3575d29dd1b111ce287b0944c8dd770d79d3",
+        "updated": "2026-11-10",
+        "skew": 9
       },
       "agentReview": {
         "description": "Answers SEO questions from your own Search Console, Analytics and Bing data, plus site crawls and keyword and backlink research.",
@@ -33070,9 +33070,9 @@
         "firstSeen": "2026-07-18"
       },
       "skillMd": {
-        "version": "78a84d75c091839aa59da01cc7cc0010aa6d1ec5",
-        "updated": "2026-11-09",
-        "skew": 171
+        "version": "d4a7c20e04024dced5e5d2d70e6b250cbd56f364",
+        "updated": "2026-11-10",
+        "skew": 536
       },
       "agentReview": {
         "description": "Reverse engineers binaries, apps, packages, firmware and recorded traffic through the REA MCP server, separating what it observed from what it infers.",
@@ -33322,9 +33322,9 @@
         "firstSeen": "2026-04-22"
       },
       "skillMd": {
-        "version": "1cfd73cbbf0be943e0ff7aa0c672f824935b98a7",
-        "updated": "2026-11-09",
-        "skew": 2490
+        "version": "6426f0fb03d283d33b5ca9e2f1dd9476da7a6cda",
+        "updated": "2026-11-10",
+        "skew": 2526
       },
       "agentReview": {
         "description": "Models 3D parts and assemblies as Python build123d scripts that text-to-cad's viewer shows live, and exports them as STEP, STL, 3MF or GLB.",
@@ -37325,9 +37325,9 @@
         "firstSeen": "2026-06-27"
       },
       "skillMd": {
-        "version": "19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "4cce500ce1a779b12fdd824be581c7d2ab4e7ba2",
+        "updated": "2026-11-10",
+        "skew": 167
       },
       "agentReview": {
         "description": "Plans and blocks out game levels from the player's movement metrics, then paces, gates and playtests them before any art goes in.",
@@ -37437,9 +37437,9 @@
         "firstSeen": "2026-06-27"
       },
       "skillMd": {
-        "version": "19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "4cce500ce1a779b12fdd824be581c7d2ab4e7ba2",
+        "updated": "2026-11-10",
+        "skew": 44
       },
       "agentReview": {
         "description": "Sets up a game's audio mix: buses with volume sliders in decibels, music ducking under dialogue, adaptive music, varied sound effects and beat sync.",
@@ -37660,9 +37660,9 @@
         "firstSeen": "2026-06-27"
       },
       "skillMd": {
-        "version": "19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "4cce500ce1a779b12fdd824be581c7d2ab4e7ba2",
+        "updated": "2026-11-10",
+        "skew": 61
       },
       "agentReview": {
         "description": "Builds a game input layer of named actions with per-device bindings, rebinding with conflict checks, stick deadzones, input buffering, coyote time and accessible controls.",
@@ -37886,9 +37886,9 @@
         "firstSeen": "2026-06-27"
       },
       "skillMd": {
-        "version": "19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "4cce500ce1a779b12fdd824be581c7d2ab4e7ba2",
+        "updated": "2026-11-10",
+        "skew": 33
       },
       "agentReview": {
         "description": "Writes game shaders in GLSL, with HLSL equivalents, from the vertex and fragment stages to effects such as dissolve, scrolling UVs and rim light.",
@@ -37940,9 +37940,9 @@
         "firstSeen": "2026-06-27"
       },
       "skillMd": {
-        "version": "19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "4cce500ce1a779b12fdd824be581c7d2ab4e7ba2",
+        "updated": "2026-11-10",
+        "skew": 38
       },
       "agentReview": {
         "description": "Builds branching game dialogue as a graph of lines, choices, conditions and variables, in Ink, Yarn Spinner or a small custom runner.",
@@ -37997,9 +37997,9 @@
         "firstSeen": "2026-06-27"
       },
       "skillMd": {
-        "version": "19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "4cce500ce1a779b12fdd824be581c7d2ab4e7ba2",
+        "updated": "2026-11-10",
+        "skew": 66
       },
       "agentReview": {
         "description": "Detects your game's engine from its project files and your task from the request, then loads only the matching skills from this game-dev collection.",
@@ -38644,9 +38644,9 @@
         "firstSeen": "2026-08-24"
       },
       "skillMd": {
-        "version": "19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "4cce500ce1a779b12fdd824be581c7d2ab4e7ba2",
+        "updated": "2026-11-10",
+        "skew": 65
       },
       "agentReview": {
         "description": "Builds a reusable behavior-tree runtime and a utility AI scorer for NPC decisions, plus hybrids where the tree delegates graded choices.",
@@ -45803,9 +45803,9 @@
         "firstSeen": "2026-05-13"
       },
       "skillMd": {
-        "version": "4ad86d617f1b9503d434b87b868a8f9e5ead3c19",
-        "updated": "2026-11-08",
-        "skew": 390
+        "version": "6426f0fb03d283d33b5ca9e2f1dd9476da7a6cda",
+        "updated": "2026-11-10",
+        "skew": 399
       },
       "agentReview": {
         "description": "Checks DXF and STEP files against SendCutSend's current specs before you order, and reports pass, fail or need-more-info for each cited rule.",
@@ -46991,9 +46991,9 @@
         "firstSeen": "2026-08-04"
       },
       "skillMd": {
-        "version": "458d9d0331fb31121fd38e0e09ae5036f952784b",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "667d3f7fe804f3f95d375fb0da24802f83a115ab",
+        "updated": "2026-11-10",
+        "skew": 43
       },
       "agentReview": {
         "description": "Looks up docs, release notes, issues and pull requests for a library or API in Firecrawl's developer index, citing the passages it finds.",
@@ -49102,9 +49102,9 @@
         "firstSeen": "2026-01-20"
       },
       "skillMd": {
-        "version": "0ef9fe5bc3572734fd3ae6c448fe00a30cd5dcf0",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "b48c832f0f809c1b5658edbb838c2521b72f2413",
+        "updated": "2026-11-10",
+        "skew": 623
       },
       "agentReview": {
         "description": "Rewrites AI-sounding text so it reads like a person wrote it, keeping every claim and adding no facts, from Wikipedia's Signs of AI writing.",
@@ -50160,9 +50160,9 @@
         "firstSeen": "2026-10-03"
       },
       "skillMd": {
-        "version": "053619b917c6bf2e17eae5496d05eb08e10fe889",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "5bebfd3974b20b7a89e039cae0fba5e11d933678",
+        "updated": "2026-11-10",
+        "skew": 140
       },
       "agentReview": {
         "description": "Turns answers into one-page visual HTML explainers with diagrams, tables and charts, laid out by a bundled CLI from a short Markdown draft.",
@@ -51599,9 +51599,9 @@
         "firstSeen": "2026-10-19"
       },
       "skillMd": {
-        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "8a3bde8083bd121971f61cba4bdbe5fd8c0eee7d",
+        "updated": "2026-11-10",
+        "skew": 131
       },
       "agentReview": {
         "description": "Sets up, audits and fixes website conversion tracking for GA4, Google Ads, Meta and other ad platforms, and verifies test conversions arrive.",
@@ -51664,9 +51664,9 @@
         "firstSeen": "2026-10-19"
       },
       "skillMd": {
-        "version": "96798cf38736ecdba015a1d2b0521b0c8f8f41dd",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "8a3bde8083bd121971f61cba4bdbe5fd8c0eee7d",
+        "updated": "2026-11-10",
+        "skew": 112
       },
       "agentReview": {
         "description": "Plans how to earn backlinks and third-party mentions that lift rankings and AI citations, from finding the link gap to outreach drafts.",
@@ -70609,9 +70609,9 @@
         "firstSeen": "2026-03-11"
       },
       "skillMd": {
-        "version": "078c0c731d19eb88d2391b236ab82a127dbabac3",
-        "updated": "2026-11-07",
-        "skew": 0
+        "version": "6e68ffcbad0e23cf4fa8c11795ce9e551aeef19b",
+        "updated": "2026-11-10",
+        "skew": 203
       },
       "agentReview": {
         "description": "Looks up current documentation and code examples for any library or framework through the Context7 MCP server, instead of relying on training data.",
@@ -70954,9 +70954,9 @@
         "firstSeen": "2026-03-24"
       },
       "skillMd": {
-        "version": "19be8d51c6a2f8ca949d33e5cd8e9662c5d243e8",
-        "updated": "2026-11-07",
-        "skew": 0
+        "version": "9d296d0768c3e29c813922b3b11e390f1e47d8aa",
+        "updated": "2026-11-10",
+        "skew": 86
       },
       "agentReview": {
         "description": "Builds or updates screens, modals and panels in Figma from your code or a description, using the file's published design system components and variables.",
@@ -74404,9 +74404,9 @@
         "firstSeen": "2026-10-30"
       },
       "skillMd": {
-        "version": "5f3a48113e3039adb4e5d289d0c4de4680b6cc45",
-        "updated": "2026-11-09",
-        "skew": 0
+        "version": "12e4fcfc6b2e5733debfabce84b4124a1423d077",
+        "updated": "2026-11-10",
+        "skew": 135
       },
       "agentReview": {
         "description": "Rates every file, function and piece of logic of the code you point it at, then refactors until it's exceptionally good, one commit per refactor.",
