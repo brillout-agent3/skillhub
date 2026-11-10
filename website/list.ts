@@ -49,6 +49,7 @@ import {
   type SearchWords,
 } from "./client-data.ts";
 import { brandHtml } from "./brand.ts";
+import { CHICK, DOWNLOAD, STAR, iconDefsHtml } from "./prop-icons.ts";
 import { account, bookmarkSvg, loginHref, saveButton, saveKey, savedCount } from "./saves.ts";
 
 /** A row of the skills list: a skill, or a bundle with its skills inside. */
@@ -103,6 +104,10 @@ export type Prop = "published" | "stars" | "downloads" | "week";
 type Value = number | string;
 interface PropInfo {
   label: string;
+  /** The icon that stands for it in the rows and on its filter's pill: see prop-icons.ts. */
+  icon: string;
+  /** The word under the icon, when it shares its icon with another number. */
+  tag?: string;
   /** The label on a row, when not `label`. */
   rowLabel?: string;
   /** The entry's value, or null when unknown. Dates are YYYY-MM-DD. */
@@ -123,65 +128,58 @@ interface PropInfo {
 
 /**
  * How the catalog's values of a number spread out, so that a row shows whether its number is a lot:
- * a chart behind it (see crowdHtml), and its place, in its tooltip. A value's place is 1 plus how
- * many are higher, so equal values share a place: a bundle shares its most installed skill's,
- * every skill of a repo its repo's.
+ * a histogram next to it, with its own bar in garnet and its rank under it (see crowdHtml). A
+ * value's place is 1 plus how many are higher, so equal values share a place: a bundle shares its
+ * most installed skill's, every skill of a repo its repo's.
  */
 interface Crowd {
   /** What it ranks, such as "skill". */
   what: string;
+  /** Its rank's words at either end: "Top" and "Bottom", or for an age "Newest" and "Oldest". */
+  ends: [top: string, bottom: string];
   /** Which way its places go, when it says so, such as "newest first". */
   order?: string;
   total: number;
   placeOf: (n: number) => number;
   /** How many are lower. */
   belowOf: (n: number) => number;
-  /** Where a value sits along the chart, from 0 to 1. */
-  at: (n: number) => number;
-  /** The chart's outline, left to right, in its 100 × 20 viewBox. */
-  points: [number, number][];
+  /** Which bar a value is in, from 0, the lowest values', to BINS - 1. */
+  binOf: (n: number) => number;
+  /**
+   * Each bar's height in the chart's 100 × 20 viewBox, lowest values first: as tall as the values
+   * it holds against the fullest bar's; one that holds any is at least 1.2, so it doesn't pass for
+   * none. The bar of a row's own value is as tall as the others: only its color sets it apart.
+   */
+  bars: number[];
   /** The chart's scale, for the skill's page: where each mark is, from 0 to 1, and its label. */
   ticks: [at: number, label: string][];
 }
-/** The chart's bins, and its outline's lowest and highest y. */
-const BINS = 40;
-const FLOOR = 19;
-const PEAK = 3;
+/** The histograms' bars, and the gap between two, in the chart's viewBox. */
+const BINS = 24;
+const BAR_GAP = 1;
 const MONTH = new Intl.DateTimeFormat("en", { month: "short", timeZone: "UTC" });
 /**
  * `scale` "log" spreads counts by their order of magnitude, so that 10 to 100 is as wide as 10K to
- * 100K; "days" spreads dates, as days, evenly. The chart starts at the 1st percentile: a few new
- * skills with a handful of downloads would squeeze the rest into its right end.
+ * 100K; "days" spreads dates, as days, evenly; "linear" spreads growths evenly. The chart starts at
+ * the 1st percentile: a few new skills with a handful of downloads would squeeze the rest into its
+ * right end. A growth's also ends at the 99th, as a few grow several times over.
  */
 function crowd(
   what: string,
   values: (number | null)[],
-  scale: "log" | "days",
-  order?: string,
+  scale: "log" | "days" | "linear",
+  { ends = ["Top", "Bottom"], order }: { ends?: [string, string]; order?: string } = {},
 ): Crowd {
   const known = values.filter((v) => v !== null);
   const desc = [...known].sort((a, b) => b - a);
   const f = scale === "log" ? (v: number) => Math.log10(Math.max(v, 1)) : (v: number) => v;
   const lo = f(desc[Math.floor(desc.length * 0.99)]);
-  const hi = f(desc[0]);
+  const hi = f(desc[scale === "linear" ? Math.floor(desc.length * 0.01) : 0]);
   const at = (v: number) => Math.min(1, Math.max(0, (f(v) - lo) / (hi - lo || 1)));
-  const bins = Array<number>(BINS).fill(0);
-  for (const v of known) bins[Math.min(BINS - 1, Math.floor(at(v) * BINS))]++;
-  // Smoothed, so the outline reads as a crowd rather than as bars. At the ends, over the neighbors
-  // there are: a pile at an end, such as the skills skills.sh saw on its first day, keeps its height.
-  const smooth = bins.map((_, i) => {
-    let sum = 0;
-    let weights = 0;
-    [1, 2, 3, 2, 1].forEach((w, j) => {
-      const n = bins[i + j - 2];
-      if (n === undefined) return;
-      sum += w * n;
-      weights += w;
-    });
-    return sum / weights;
-  });
-  const max = Math.max(...smooth);
-  const y = (n: number) => FLOOR - (n / max) * (FLOOR - PEAK);
+  const binOf = (v: number) => Math.min(BINS - 1, Math.floor(at(v) * BINS));
+  const counts = Array<number>(BINS).fill(0);
+  for (const v of known) counts[binOf(v)]++;
+  const fullest = Math.max(...counts);
   /** How many come before the first that `past` says is past, in `desc`. */
   const countUntil = (past: (x: number) => boolean) => {
     let a = 0;
@@ -197,7 +195,7 @@ function crowd(
   if (scale === "log")
     for (let p = Math.ceil(lo); p <= Math.floor(hi); p++)
       ticks.push([at(10 ** p), compact(10 ** p)]);
-  else {
+  else if (scale === "days") {
     // A month's first day, some months apart: about six marks. January says its year.
     const first = new Date((lo + 1) * 86_400_000);
     const months = Math.max(1, Math.ceil((hi - lo) / 30 / 6));
@@ -210,16 +208,13 @@ function crowd(
   }
   return {
     what,
+    ends,
     order,
     total: desc.length,
     placeOf: (v) => countUntil((x) => x <= v) + 1,
     belowOf: (v) => desc.length - countUntil((x) => x < v),
-    at,
-    points: [
-      [0, y(smooth[0])],
-      ...smooth.map((n, i): [number, number] => [((i + 0.5) / BINS) * 100, y(n)]),
-      [100, y(smooth[BINS - 1])],
-    ],
+    binOf,
+    bars: counts.map((n) => (n ? Math.max(1.2, (n / fullest) * 20) : 0)),
     ticks,
   };
 }
@@ -255,6 +250,7 @@ const most = (e: Entry) => (isBundle(e) ? "The most of any of its skills: " : ""
 export const PROPS: Record<Prop, PropInfo> = {
   published: {
     label: "Published",
+    icon: CHICK,
     // The row shows its age, such as "3 days", and the date in its tooltip.
     rowLabel: "Age",
     of: publishedOf,
@@ -280,12 +276,13 @@ export const PROPS: Record<Prop, PropInfo> = {
         return d ? days(d) : null;
       }),
       "days",
-      "newest first",
+      { ends: ["Newest", "Oldest"], order: "newest first" },
     ),
     standing: { more: "Newer than", fewer: "Older than", most: "The newest skill" },
   },
   stars: {
     label: "Stars",
+    icon: STAR,
     of: starsOf,
     title: (e) => `GitHub stars of ${repoKey(e)}, ${date(data.asOf.stars)}`,
     stops: countStops(starsOf),
@@ -302,6 +299,8 @@ export const PROPS: Record<Prop, PropInfo> = {
   },
   downloads: {
     label: "Total Downloads",
+    icon: DOWNLOAD,
+    tag: "Total",
     of: installsOf,
     title: (e) => `${most(e)}All-time installs on skills.sh, ${date(data.asOf.installs)}`,
     stops: countStops(installsOf),
@@ -314,6 +313,8 @@ export const PROPS: Record<Prop, PropInfo> = {
   },
   week: {
     label: "Weekly Downloads",
+    icon: DOWNLOAD,
+    tag: "Week",
     of: weekOf,
     title: (e) => `${most(e)}Installs on skills.sh in the week to ${date(data.asOf.installs)}`,
     stops: countStops(weekOf),
@@ -364,6 +365,10 @@ export function rangeLabel(p: Prop, [lo, hi]: Range): string {
 export type Sort = Prop | "growth" | "match";
 const GROWTH = {
   label: "Weekly Growth",
+  icon: DOWNLOAD,
+  tag: "Growth",
+  /** Among the skills that have a growth: see growthOf. */
+  crowd: crowd("skill", data.skills.map(growthOf), "linear"),
   title: (e: Entry) =>
     `${isBundle(e) ? "The most of any of its skills: " : ""}Installs on skills.sh in an average week of the 2 to ${date(data.asOf.installs)}, against an average week of the 4 before. Only for skills with at least ${compact(GROWTH_MIN)} a week, and at least ${compact(GROWTH_BASE_MIN)} in each of the last ${GROWTH_WEEKS} weeks: a younger skill, or one that took off from almost nothing, shows under New.`,
 };
@@ -852,58 +857,77 @@ function filterChip(
 }
 
 /**
- * The row's numbers, top right, with the one the list is sorted by highlighted. Behind each, a chart
- * of how the catalog's values spread out, with this one's place: see crowdHtml.
+ * The row's numbers, top right: each as its icon, the number, and a histogram of the catalog's
+ * values with its own bar and rank (see crowdHtml). The one the list is sorted by is on grey.
  */
 function propsHtml(e: Entry, st: State): string {
+  const row = (
+    on: boolean,
+    info: { icon: string; tag?: string },
+    label: string,
+    title: string | null,
+    shown: string,
+    chart: string,
+  ) =>
+    `<div${on ? ` class="on"` : ""}${title === null ? "" : ` title="${esc(`${label}: ${title}`)}"`}><dt>${info.icon}${info.tag ? `<span class="prop-tag" aria-hidden="true">${info.tag}</span>` : ""}<span class="sr-only">${label}</span></dt><dd class="prop-value">${shown}</dd>${chart}</div>`;
   const rows = PROP_IDS.map((p) => {
-    const { of, date: isDate, crowd, label, rowLabel } = PROPS[p];
-    const v = of(e);
+    const info = PROPS[p];
+    const v = info.of(e);
     // Ages count up to the data's date, as the Published slider does, not to the viewer's day.
     const shown =
-      v === null ? "—" : isDate ? age(v as string, data.asOf.installs) : compact(v as number);
-    let title = v === null ? null : PROPS[p].title(e);
+      v === null ? "—" : info.date ? age(v as string, data.asOf.installs) : compact(v as number);
+    let title = v === null ? null : info.title(e);
     let chart = "";
-    if (crowd && v !== null) {
-      const n = isDate ? days(v as string) : (v as number);
-      title += `. ${placeText(crowd, n)}`;
-      chart = crowdHtml(p, crowd, n, "dd");
+    if (info.crowd && v !== null) {
+      const n = info.date ? days(v as string) : (v as number);
+      title += `. ${placeText(info.crowd, n)}`;
+      chart = crowdHtml(p, info.crowd, n, "dd", true);
     }
-    return `<div${p === st.sort ? ` class="on"` : ""}${title === null ? "" : ` title="${esc(title)}"`}><dt>${rowLabel ?? label}</dt><dd>${shown}</dd>${chart}</div>`;
+    return row(p === st.sort, info, info.rowLabel ?? info.label, title, shown, chart);
   });
   // The growth shows only while the list is sorted by it, to explain the order.
   if (st.sort === "growth") {
     const g = growthOf(e);
-    rows.push(
-      `<div class="on" title="${esc(GROWTH.title(e))}"><dt>${GROWTH.label}</dt><dd>${g === null ? "—" : percent(g)}</dd></div>`,
-    );
+    const title = `${GROWTH.title(e)}${g === null ? "" : `. ${placeText(GROWTH.crowd, g)}`}`;
+    const chart = g === null ? "" : crowdHtml("growth", GROWTH.crowd, g, "dd", true);
+    rows.push(row(true, GROWTH, GROWTH.label, title, g === null ? "—" : percent(g), chart));
   }
   return `<dl class="props">${rows.join("")}</dl>`;
 }
 
-/** Where the chart's outline is at `x`, from 0 to 100. */
-function outlineAt(points: [number, number][], x: number): number {
-  const i = Math.max(
-    1,
-    points.findIndex(([px]) => px >= x),
-  );
-  const [x0, y0] = points[i - 1];
-  const [x1, y1] = points[i];
-  return y0 + ((y1 - y0) * (x - x0)) / (x1 - x0 || 1);
+/** Where a bar is in the chart's viewBox: its left edge and its width. */
+const barX = (i: number) => (i * 100) / BINS + BAR_GAP / 2;
+const BAR_WIDTH = 100 / BINS - BAR_GAP;
+
+/**
+ * A histogram of the catalog's values, lowest on the left: its bars are drawn once per page, as
+ * crowdDefsHtml; the row draws its own value's bar over them in garnet, as tall as it is. With
+ * `rank`, its rank in words under it, such as "Top #34" or "Oldest 23%", which slides with its bar:
+ * under the first bar it starts where the chart starts, under the last it ends where it ends.
+ */
+function crowdHtml(id: string, c: Crowd, n: number, tag: "dd" | "div", rank: boolean): string {
+  const bin = c.binOf(n);
+  const h = c.bars[bin];
+  const bar = h
+    ? `<rect class="me" x="${barX(bin).toFixed(2)}" y="${(20 - h).toFixed(2)}" width="${BAR_WIDTH.toFixed(2)}" height="${h.toFixed(2)}" />`
+    : "";
+  return `<${tag} class="crowd" style="--at: ${(bin / (BINS - 1)).toFixed(3)}"><svg viewBox="0 0 100 20" preserveAspectRatio="none" aria-hidden="true"><use href="#crowd-${id}" />${bar}</svg>${
+    rank ? `<span class="rank">${rankText(c, n)}</span>` : ""
+  }</${tag}>`;
 }
 
 /**
- * The chart behind a row's number: the catalog's values, spread out from the lowest on the left to
- * the highest on the right, shaded up to this one, which a dot marks on the outline. The outline is
- * drawn once per page, as crowdDefsHtml; the row only says where its dot is, which the CSS clips the
- * shading at.
+ * Its rank, at a glance: up to #99, its place, such as "Top #34"; further down, the share of the
+ * field at or above it, such as "Top 12%", or, past the middle, at or below it, such as
+ * "Bottom 8%". For an age, "Newest" and "Oldest".
  */
-function crowdHtml(p: Prop, c: Crowd, n: number, tag: "dd" | "div"): string {
-  const x = c.at(n) * 100;
-  const y = ((20 - outlineAt(c.points, x)) / 20) * 100;
-  const layer = (cls: string) =>
-    `<svg class="${cls}" viewBox="0 0 100 20" preserveAspectRatio="none"><use href="#crowd-${p}" /></svg>`;
-  return `<${tag} class="crowd" aria-hidden="true" style="--x: ${x.toFixed(1)}%; --y: ${y.toFixed(1)}%">${layer("below")}${layer("above")}<i></i></${tag}>`;
+function rankText(c: Crowd, n: number): string {
+  const place = c.placeOf(n);
+  const [top, bottom] = c.ends;
+  if (place < 100) return `${top} #${place}`;
+  return place <= c.total / 2
+    ? `${top} ${Math.ceil((place / c.total) * 100)}%`
+    : `${bottom} ${Math.ceil(((c.total - place + 1) / c.total) * 100)}%`;
 }
 
 /** Such as "#34 of 1,190 skills", or "#586 of 1,190 skills, newest first". */
@@ -912,9 +936,9 @@ const placeText = (c: Crowd, n: number) =>
 
 /**
  * Where an entry's number stands among the catalog's, for the skill's page: its place, in words,
- * such as "More weekly downloads than 97% of skills", and the chart the rows show (see crowdHtml)
- * with its scale under it. Null when the number is unknown, or doesn't rank. The page adds
- * crowdDefsHtml.
+ * such as "More weekly downloads than 97% of skills", and the histogram the rows show (see
+ * crowdHtml) with its scale under it. Null when the number is unknown, or doesn't rank. The page
+ * adds crowdDefsHtml.
  */
 export function standingOf(
   p: Prop,
@@ -940,24 +964,32 @@ export function standingOf(
   return {
     place: placeText(c, n),
     words,
-    chart: `${crowdHtml(p, c, n, "div")}<div class="crowd-axis" aria-hidden="true">${axis}</div>`,
+    chart: `${crowdHtml(p, c, n, "div", false)}<div class="crowd-axis" aria-hidden="true">${axis}</div>`,
   };
 }
 
 /**
- * The outlines the rows' charts draw (see crowdHtml), once per page that lists rows: an area, which
- * takes its fill from the chart's layer, and a line, its stroke.
+ * The histograms' grey bars, which the rows' charts draw (see crowdHtml), and the icons (see
+ * prop-icons.ts), once per page that lists rows or tiles. The bars take their color from the
+ * chart's CSS.
  */
 export function crowdDefsHtml(): string {
-  const outlines = PROP_IDS.map((p) => {
-    const c = PROPS[p].crowd;
+  const charts: [string, Crowd | undefined][] = [
+    ...PROP_IDS.map((p): [string, Crowd | undefined] => [p, PROPS[p].crowd]),
+    ["growth", GROWTH.crowd],
+  ];
+  const groups = charts.map(([id, c]) => {
     if (!c) return "";
-    const line = c.points
-      .map(([x, y], i) => `${i ? "L" : "M"}${+x.toFixed(2)},${+y.toFixed(2)}`)
+    const bars = c.bars
+      .map((h, i) =>
+        h
+          ? `<rect x="${barX(i).toFixed(2)}" y="${(20 - h).toFixed(2)}" width="${BAR_WIDTH.toFixed(2)}" height="${h.toFixed(2)}" />`
+          : "",
+      )
       .join("");
-    return `<g id="crowd-${p}"><path d="${line}L100,20L0,20Z" stroke="none" /><path d="${line}" fill="none" vector-effect="non-scaling-stroke" /></g>`;
+    return `<g id="crowd-${id}">${bars}</g>`;
   });
-  return `<svg class="crowd-defs" aria-hidden="true"><defs>${outlines.join("")}</defs></svg>`;
+  return `<svg class="crowd-defs" aria-hidden="true"><defs>${groups.join("")}${iconDefsHtml()}</defs></svg>`;
 }
 
 /** A row's repo, as a link to its page. */
@@ -1322,7 +1354,14 @@ export function rangesHtml(st: State): string {
     const value = `<span data-range-label="${p}">${rangeLabel(p, [lo, hi])}</span>`;
     const handle = (end: 0 | 1, v: number) =>
       `<input type="range" min="0" max="${last}" step="1" value="${v}" data-range="${p}" data-end="${end}" aria-label="${label}, ${end ? "to" : "from"}" aria-valuetext="${rangeLabel(p, [lo, hi])}" />`;
-    return `<div class="range${isNarrowed(p, [lo, hi]) ? " narrowed" : ""}" data-range-section="${p}"><button type="button" class="range-pill" data-action="range" data-value="${p}" aria-expanded="false" aria-controls="range-pop-${p}"><span>${label}</span><span class="range-value">${value}${CHEVRON}</span></button><div class="range-pop" id="range-pop-${p}" role="group" aria-label="${label}" hidden><div class="range-pop-head"><span>${label}</span>${value}</div><div class="histogram" data-histogram="${p}" aria-hidden="true">${histogramHtml(st, p)}</div><div class="histogram-axis" aria-hidden="true">${axisHtml(p)}</div><div class="slider" data-slider="${p}" style="--lo: ${lo / last}; --hi: ${hi / last}">${handle(0, lo)}${handle(1, hi)}</div></div></div>`;
+    const { icon, tag } = PROPS[p];
+    // The pill says the word the rows say under a shared icon, such as Total, to fit the sidebar; its
+    // popover says the whole name.
+    const short = tag
+      ? `<span class="range-name">${icon}<span aria-hidden="true">${tag}</span><span class="sr-only">${label}</span></span>`
+      : `<span class="range-name">${icon}${label}</span>`;
+    const name = `<span class="range-name">${icon}${label}</span>`;
+    return `<div class="range${isNarrowed(p, [lo, hi]) ? " narrowed" : ""}" data-range-section="${p}"><button type="button" class="range-pill" data-action="range" data-value="${p}" aria-expanded="false" aria-controls="range-pop-${p}">${short}<span class="range-value">${value}${CHEVRON}</span></button><div class="range-pop" id="range-pop-${p}" role="group" aria-label="${label}" hidden><div class="range-pop-head">${name}${value}</div><div class="histogram" data-histogram="${p}" aria-hidden="true">${histogramHtml(st, p)}</div><div class="histogram-axis" aria-hidden="true">${axisHtml(p)}</div><div class="slider" data-slider="${p}" style="--lo: ${lo / last}; --hi: ${hi / last}">${handle(0, lo)}${handle(1, hi)}</div></div></div>`;
   }).join("");
 }
 

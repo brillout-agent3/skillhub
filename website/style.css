@@ -60,13 +60,8 @@
   --spark-line: #5e6888;
   --spark-now: #b3175a;
   --spark-base: #e3e7e1;
-  /* The chart behind each number of a row: the crowd below it, above it, and its outline; then the same on the highlighted number. */
-  --crowd-below: rgb(163 171 194 / 0.55);
-  --crowd-above: rgb(223 227 221 / 0.55);
-  --crowd-line: rgb(163 171 194 / 0.8);
-  --crowd-on-below: rgb(209 107 151 / 0.55);
-  --crowd-on-above: rgb(243 189 211 / 0.55);
-  --crowd-on-line: rgb(209 107 151 / 0.8);
+  /* The histograms' bars, next to a row's numbers and in a page's tiles; the row's own bar is garnet. */
+  --crowd-bar: rgb(163 171 194 / 0.55);
   /* Tags: plain, then the three safety tints: background / text. */
   --t-plain: #ecefea;
   --t-good: #ddf3e4;
@@ -115,12 +110,7 @@
   --spark-line: #8f98b8;
   --spark-now: #ff8db8;
   --spark-base: #404047;
-  --crowd-below: rgb(143 152 184 / 0.32);
-  --crowd-above: rgb(255 255 255 / 0.05);
-  --crowd-line: rgb(143 152 184 / 0.6);
-  --crowd-on-below: rgb(255 141 184 / 0.3);
-  --crowd-on-above: rgb(255 141 184 / 0.08);
-  --crowd-on-line: rgb(255 141 184 / 0.6);
+  --crowd-bar: rgb(143 152 184 / 0.4);
   --t-plain: #2a2a2f;
   --t-good: #12352a;
   --t-good-ink: #9fe3bc;
@@ -1059,13 +1049,35 @@ body:has(.skills-view) {
   font-weight: 650;
 }
 
+.range-name {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.range-name .prop-icon {
+  width: 13px;
+  height: 13px;
+}
+
 .range-pop-head [data-range-label] {
   color: var(--ink-3);
   font-weight: 450;
   font-variant-numeric: tabular-nums;
 }
 
-.range.narrowed .range-pop-head [data-range-label] {
+.range.narrowed .range-name {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.range-name .prop-icon {
+  width: 13px;
+  height: 13px;
+}
+
+.range-pop-head [data-range-label] {
   color: var(--garnet-text);
   font-weight: 600;
 }
@@ -1383,129 +1395,118 @@ body:has(.skills-view) {
  * The row's numbers, top right; the one the list is sorted by is in garnet. As wide in every row,
  * so the numbers line up down the list.
  */
+/*
+ * A row's numbers, top right: each as its icon (see prop-icons.ts), the number, and a histogram of
+ * the catalog's values with its own bar and rank (see crowdHtml in list.ts). The one the list is
+ * sorted by is on grey.
+ */
 .props {
   display: grid;
   flex: none;
-  grid-template-columns: minmax(max-content, 1fr) max-content;
+  grid-template-columns: 30px max-content minmax(0, 1fr);
   align-self: flex-start;
-  min-width: 19em;
+  min-width: 18em;
   margin: 0;
   padding-left: 16px;
   border-left: 1px solid var(--rule);
   font-size: 14px;
 }
 
-/*
- * Each number is a box of its own across both columns, so that its chart can sit behind it. The
- * text glows in the row's own background, so it reads over the chart.
- */
 .props div {
-  --halo: var(--paper);
-  position: relative;
   display: grid;
   grid-column: 1 / -1;
   grid-template-columns: subgrid;
+  align-items: start;
+  padding: 3px 0;
   border-radius: 4px;
 }
 
-.skill.bundle .props div {
-  --halo: var(--wash);
-}
-
 .props div.on {
-  --halo: var(--rose);
-  background: var(--rose);
-}
-
-.props dt,
-.props dd {
-  position: relative;
-  z-index: 1;
-  padding: 1px 8px;
-  text-shadow:
-    0 0 2px var(--halo),
-    0 0 2px var(--halo),
-    0 0 4px var(--halo);
+  background: var(--t-plain);
 }
 
 .props dt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  padding: 1px 0 0 4px;
   color: var(--ink-3);
+}
+
+.prop-icon {
+  display: block;
+  flex: none;
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* The word under an icon two numbers share, such as TOTAL and WEEK under the download icon. */
+.prop-tag {
+  font-size: 8px;
+  font-weight: 650;
+  letter-spacing: 0.07em;
+  line-height: 1;
+  text-transform: uppercase;
 }
 
 .props dd {
   margin: 0;
+}
+
+.prop-value {
+  padding: 0 8px 0 10px;
   color: var(--ink-2);
   font-variant-numeric: tabular-nums;
+  line-height: 18px;
   text-align: right;
 }
 
-.props .on dt,
-.props .on dd {
-  color: var(--garnet-text);
+.props .on dt {
+  color: var(--ink-2);
+}
+
+.props .on .prop-value {
+  color: var(--ink);
   font-weight: 650;
 }
 
-/*
- * The chart behind a number (see crowdHtml in list.ts): the catalog's values, lowest on the left,
- * shaded up to this one's, which the dot marks. Its two layers draw the same outline, each clipped
- * to its side of the dot.
- */
 .props .crowd {
-  position: absolute;
-  z-index: 0;
-  inset: 0;
-  padding: 0;
-  overflow: hidden;
-  border-radius: inherit;
+  padding: 1px 8px 0 4px;
 }
 
+/* A histogram (see crowdHtml in list.ts): the catalog's bars in grey, its own in garnet. */
 .crowd svg {
-  position: absolute;
-  inset: 0;
+  display: block;
   width: 100%;
-  height: 100%;
-  stroke: var(--crowd-line);
+  height: 16px;
+  fill: var(--crowd-bar);
 }
 
-.crowd .below {
-  fill: var(--crowd-below);
-  clip-path: inset(0 calc(100% - var(--x)) 0 0);
+.crowd .me {
+  fill: var(--garnet);
 }
 
-.crowd .above {
-  fill: var(--crowd-above);
-  clip-path: inset(0 0 0 var(--x));
+/* Its rank, under its bar: it slides with it, so that it never leaves the chart. */
+.crowd .rank {
+  display: block;
+  width: max-content;
+  margin: 2px 0 0 calc(var(--at) * 100%);
+  translate: calc(var(--at) * -100%);
+  color: var(--garnet-text);
+  font-size: 8px;
+  font-weight: 650;
+  letter-spacing: 0.07em;
+  line-height: 1;
+  text-transform: uppercase;
 }
 
-.crowd i {
-  position: absolute;
-  bottom: clamp(3px, var(--y), calc(100% - 3px));
-  left: clamp(3px, var(--x), calc(100% - 3px));
-  width: 5px;
-  height: 5px;
-  margin: 0 0 -2.5px -2.5px;
-  border-radius: 50%;
-  background: var(--ink);
-  box-shadow: 0 0 0 1px var(--halo);
-}
-
-.on .crowd svg {
-  stroke: var(--crowd-on-line);
-}
-
-.on .crowd .below {
-  fill: var(--crowd-on-below);
-}
-
-.on .crowd .above {
-  fill: var(--crowd-on-above);
-}
-
-.on .crowd i {
-  background: var(--garnet);
-}
-
-/* The outlines the charts draw: see crowdDefsHtml in list.ts. */
+/* The bars the charts draw: see crowdDefsHtml in list.ts. */
 .crowd-defs {
   position: absolute;
   width: 0;
@@ -1786,7 +1787,6 @@ body:has(.skills-view) {
 }
 
 .stat {
-  --halo: var(--paper);
   margin: 0;
   padding: 15px 17px;
   border-radius: 8px;
@@ -1835,18 +1835,9 @@ body:has(.skills-view) {
   font-weight: 650;
 }
 
-/* The chart the rows show behind their numbers (see .props .crowd), here on its own, with its scale. */
-.stat .crowd {
-  position: relative;
+/* The histogram the rows show next to their numbers (see .props .crowd), here bigger, with its scale. */
+.stat .crowd svg {
   height: 36px;
-}
-
-.stat .crowd i {
-  width: 7px;
-  height: 7px;
-  margin: 0 0 -3.5px -3.5px;
-  background: var(--garnet);
-  box-shadow: 0 0 0 1.5px var(--halo);
 }
 
 .crowd-axis {
