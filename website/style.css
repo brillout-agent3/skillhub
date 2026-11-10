@@ -1403,7 +1403,8 @@ body:has(.skills-view) {
 .props {
   display: grid;
   flex: none;
-  grid-template-columns: 30px max-content minmax(0, 1fr);
+  /* The icons' column fits the longest word under one, GROWTH. */
+  grid-template-columns: 44px max-content minmax(0, 1fr);
   align-self: flex-start;
   min-width: 18em;
   margin: 0;
@@ -1430,7 +1431,7 @@ body:has(.skills-view) {
   flex-direction: column;
   align-items: center;
   gap: 1px;
-  padding: 1px 0 0 4px;
+  padding-top: 1px;
   color: var(--ink-3);
 }
 

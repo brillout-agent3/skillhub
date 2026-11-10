@@ -6,8 +6,8 @@
  */
 
 const SHAPES = {
-  /** A chick hatching, for its age. Its eye is a hole, so that it shows on any background. */
-  chick: `<path d="M2 8.75 4 10.75 6 8.75 8 10.75 10 8.75 12 10.75 14 8.75v.75a6 5.25 0 0 1-12 0Z" fill="currentColor" /><path d="M4 5a3.25 3.25 0 1 0 6.5 0a3.25 3.25 0 1 0-6.5 0ZM7.05 4.35a.95.95 0 1 0 1.9 0a.95.95 0 1 0-1.9 0Z" fill="currentColor" fill-rule="evenodd" stroke="none" /><path d="M10.25 4 13.5 5 10.25 6Z" fill="currentColor" />`,
+  /** A chick hatching, for its age: its head out of the shell's bottom half. */
+  chick: `<path d="M2 8.75 4 10.75 6 8.75 8 10.75 10 8.75 12 10.75 14 8.75v.75a6 5.25 0 0 1-12 0Z" /><circle cx="7.25" cy="5.25" r="3" /><path d="M10.25 4.25 13.25 5.25 10.25 6.25Z" fill="currentColor" /><circle cx="7.9" cy="4.6" r=".85" fill="currentColor" stroke="none" />`,
   star: `<path d="m8 1.9 1.85 3.9 4.25.55-3.1 2.95.8 4.2L8 11.45 4.2 13.5l.8-4.2-3.1-2.95 4.25-.55Z" />`,
   download: `<path d="M8 2v8M4.75 6.75 8 10l3.25-3.25M2.25 11v1.5c0 .7.55 1.25 1.25 1.25h9c.7 0 1.25-.55 1.25-1.25V11" />`,
 };
