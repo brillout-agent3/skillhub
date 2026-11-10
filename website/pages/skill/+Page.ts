@@ -1,7 +1,7 @@
 import type { PageContextServer } from "vike/types";
 import { age, commandHtml, date, esc } from "../../format.ts";
-import { PROPS, crowdDefsHtml, skillsLink, standingOf, type Prop } from "../../list.ts";
-import { trendHtml, trendTableHtml } from "../../sparkline.ts";
+import { skillsLink } from "../../list.ts";
+import { statTilesHtml } from "../../stat-tiles.ts";
 import { copyButton } from "../../copy.ts";
 import {
   FACET_ORDER,
@@ -12,12 +12,13 @@ import {
   facetById,
   facetOf,
   glanceHtml,
-  repoById,
+  publishedOf,
   repoHref,
   repoKey,
   short,
   skillById,
   skillHref,
+  starsOf,
   tagChip,
   tagInfo,
   tagsOf,
@@ -39,40 +40,39 @@ function source(s: Skill, { version }: SkillMd): string {
   return `<a href="https://github.com/${esc(gh.repo)}/blob/${version}/${esc(encodeURI(gh.dir ? `${gh.dir}/SKILL.md` : "SKILL.md"))}">${esc(gh.repo)} at ${short(version)}</a>`;
 }
 
-/**
- * A tile per number, as the skills list's rows show them: the number, where it stands among the
- * catalog's in words and as a chart, and where it comes from. The Weekly Downloads tile also shows
- * the 8 weeks' trend.
- */
+/** Its numbers, a tile each: see stat-tiles.ts. */
 function tiles(s: Skill): string {
-  const repo = repoById.get(github(s).repo);
   const sh = s["skills.sh"];
-  const tile = (p: Prop, label: string, from: string, shown: string, extra = "") => {
-    const standing = standingOf(p, s);
-    if (!standing) return "";
-    // Where it comes from, and its exact place: on its words and chart, not over the trend's own tip.
-    const title = esc(`${PROPS[p].title(s)}. ${standing.place}`);
-    return `
-      <figure class="stat">
-        <figcaption class="stat-label">${label} <span class="muted">${from}</span></figcaption>
-        <div class="stat-head"><div class="stat-value">${shown}</div>${extra}</div>
-        <div title="${title}">
-          <p class="stat-standing">${standing.words}</p>
-          ${standing.chart}
-        </div>
-        ${p === "week" && sh.weeklyInstalls ? trendTableHtml(sh.weeklyInstalls, data.asOf.installs) : ""}
-      </figure>`;
-  };
-  const week = sh.weeklyInstalls?.[sh.weeklyInstalls.length - 1];
-  const published = PROPS.published.of(s) as string | null;
-  return `
-    <section class="stat-tiles" aria-label="Its numbers">
-      ${week == null ? "" : tile("week", "Weekly Downloads", `week to ${date(data.asOf.installs)}`, week.toLocaleString("en"), sh.weeklyInstalls ? trendHtml(sh.weeklyInstalls, data.asOf.installs) : "")}
-      ${sh.installs === null ? "" : tile("downloads", "Total Downloads", "on skills.sh", sh.installs.toLocaleString("en"))}
-      ${repo?.stars == null ? "" : tile("stars", "Repo stars", esc(repo.id), repo.stars.toLocaleString("en"))}
-      ${published === null ? "" : tile("published", "Age", `published ${date(published)}`, age(published, data.asOf.installs))}
-    </section>
-    ${crowdDefsHtml()}`;
+  const week = sh.weeklyInstalls?.[sh.weeklyInstalls.length - 1] ?? null;
+  const stars = starsOf(s);
+  const published = publishedOf(s);
+  return statTilesHtml(s, [
+    {
+      p: "week",
+      label: "Weekly Downloads",
+      from: `week to ${date(data.asOf.installs)}`,
+      shown: week?.toLocaleString("en") ?? "",
+      trend: sh.weeklyInstalls,
+    },
+    {
+      p: "downloads",
+      label: "Total Downloads",
+      from: "on skills.sh",
+      shown: sh.installs?.toLocaleString("en") ?? "",
+    },
+    {
+      p: "stars",
+      label: "Repo stars",
+      from: esc(repoKey(s)),
+      shown: stars?.toLocaleString("en") ?? "",
+    },
+    {
+      p: "published",
+      label: "Age",
+      from: published ? `published ${date(published)}` : "",
+      shown: published ? age(published, data.asOf.installs) : "",
+    },
+  ]);
 }
 
 function tagTable(s: Skill): string {

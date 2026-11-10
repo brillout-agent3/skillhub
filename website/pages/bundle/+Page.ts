@@ -1,42 +1,65 @@
 import type { PageContextServer } from "vike/types";
-import { commandHtml, compact, date, esc, plural } from "../../format.ts";
+import { age, commandHtml, compact, date, esc, plural } from "../../format.ts";
 import {
   crumbsHtml,
   data,
-  firstSeenOf,
   glanceHtml,
   installsOf,
-  repoById,
+  publishedOf,
   repoHref,
   repoKey,
   skillHref,
   skillsOf,
+  starsOf,
   tldrHtml,
+  weekOf,
 } from "../../skills.ts";
+import type { ClientSkill as Skill } from "../../client-data.ts";
+import { statTilesHtml } from "../../stat-tiles.ts";
 import { saveButton, saveKey } from "../../saves.ts";
 import { copyButton } from "../../copy.ts";
 import type { Bundle } from "../../../data/types.ts";
 import type { Data } from "./+data.ts";
 
-function facts(b: Bundle): string {
-  const repo = repoById.get(repoKey(b));
-  const top = skillsOf(b).toSorted((x, y) => (installsOf(y) ?? -1) - (installsOf(x) ?? -1))[0];
-  const installs = installsOf(top);
-  const firstSeen = firstSeenOf(b);
-  const list: string[] = [];
-  if (installs !== null)
-    list.push(
-      `<div><dt>Total Downloads</dt><dd>${installs.toLocaleString("en")} <span class="muted">of <a href="${skillHref(top.id)}">${esc(top.name)}</a>, its most installed skill, on skills.sh, ${date(data.asOf.installs)}</span></dd></div>`,
-    );
-  if (repo?.stars != null)
-    list.push(
-      `<div><dt>Repo stars</dt><dd>${repo.stars.toLocaleString("en")} <span class="muted">${esc(repo.id)}</span></dd></div>`,
-    );
-  if (firstSeen)
-    list.push(
-      `<div><dt>First seen</dt><dd>${date(firstSeen)} <span class="muted">on skills.sh, its first skill</span></dd></div>`,
-    );
-  return `<dl class="facts">${list.join("")}</dl>`;
+/**
+ * Its numbers, a tile each (see stat-tiles.ts): as the skills list counts a bundle's, its most
+ * downloaded skill's downloads, which each tile names, its repo's stars and its first skill's age.
+ */
+function tiles(b: Bundle): string {
+  const most = (of: (s: Skill) => number | null) =>
+    skillsOf(b).toSorted((x, y) => (of(y) ?? -1) - (of(x) ?? -1))[0];
+  const link = (s: Skill) => `<a href="${skillHref(s.id)}">${esc(s.name)}</a>`;
+  const topWeek = most(weekOf);
+  const top = most(installsOf);
+  const stars = starsOf(b);
+  const published = publishedOf(b);
+  return statTilesHtml(b, [
+    {
+      p: "week",
+      label: "Weekly Downloads",
+      from: `${link(topWeek)}, its top skill`,
+      shown: weekOf(topWeek)?.toLocaleString("en") ?? "",
+      trend: topWeek["skills.sh"].weeklyInstalls,
+    },
+    {
+      p: "downloads",
+      label: "Total Downloads",
+      from: `${link(top)}, its top skill`,
+      shown: installsOf(top)?.toLocaleString("en") ?? "",
+    },
+    {
+      p: "stars",
+      label: "Repo stars",
+      from: esc(repoKey(b)),
+      shown: stars?.toLocaleString("en") ?? "",
+    },
+    {
+      p: "published",
+      label: "Age",
+      from: published ? `its first skill, published ${date(published)}` : "",
+      shown: published ? age(published, data.asOf.installs) : "",
+    },
+  ]);
 }
 
 function skills(b: Bundle): string {
@@ -71,8 +94,7 @@ export default function Page(pageContext: PageContextServer): string {
           : `<p class="lede">${esc(b.agentReview.description)}</p>`
       }
       ${b.agentReview.tldr ? tldrHtml(b.agentReview.tldr, "the repo", b.skew) : ""}
-      <div class="details-grid">
-        <div>
+      <div class="get">
           ${b.agentReview.install
             .map(
               ({ label, command }) =>
@@ -80,9 +102,8 @@ export default function Page(pageContext: PageContextServer): string {
             )
             .join("")}
           <p class="links"><a href="https://github.com/${esc(repo)}">Source on GitHub</a><a href="${repoHref(repo)}">All skills from ${esc(repo)}</a></p>
-          ${facts(b)}
-        </div>
       </div>
+      ${tiles(b)}
       <section aria-labelledby="skills">
         <h2 id="skills">Its skills, in the order they're used</h2>
         <p class="muted">${

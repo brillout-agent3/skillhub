@@ -1688,12 +1688,6 @@ body:has(.skills-view) {
   color: var(--t-warn-ink);
 }
 
-.details-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 16px 32px;
-}
-
 .install {
   display: flex;
   align-items: flex-start;
@@ -1748,28 +1742,6 @@ body:has(.skills-view) {
   gap: 4px 20px;
   margin: 12px 0;
   font-size: 14px;
-}
-
-.facts {
-  display: grid;
-  gap: 4px;
-  margin: 0;
-  font-size: 14px;
-}
-
-.facts div {
-  display: flex;
-  gap: 12px;
-}
-
-.facts dt {
-  width: 124px;
-  flex-shrink: 0;
-  color: var(--ink-3);
-}
-
-.facts dd {
-  margin: 0;
 }
 
 .tag-detail {
@@ -2617,10 +2589,6 @@ body:has(.skills-view) {
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
-  }
-
-  .details-grid {
-    grid-template-columns: minmax(0, 1fr);
   }
 
   .stat-tiles {
