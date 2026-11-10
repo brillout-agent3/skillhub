@@ -1,7 +1,8 @@
 /**
- * A skill's or a bundle's numbers on its page, a tile each: the number, where it stands among the
- * catalog's in words and as the chart the skills list's rows show (see standingOf in list.ts), and
- * where it comes from. The Weekly Downloads tile also shows the 8 weeks' trend.
+ * A skill's or a bundle's numbers on its page, a tile each: its icon, as in the skills list's rows,
+ * the number, where it stands among the catalog's in words and as the chart the rows show (see
+ * standingOf in list.ts), and where it comes from. The Weekly Downloads tile also shows the 8
+ * weeks' trend.
  */
 
 import { esc } from "./format.ts";
@@ -30,7 +31,7 @@ export function statTilesHtml(e: Entry, tiles: Tile[]): string {
     const title = esc(`${PROPS[p].title(e)}. ${standing.place}`);
     return `
       <figure class="stat">
-        <figcaption class="stat-label">${label} <span class="muted">${from}</span></figcaption>
+        <figcaption class="stat-label">${PROPS[p].icon}<span>${label} <span class="muted">${from}</span></span></figcaption>
         <div class="stat-head"><div class="stat-value">${shown}</div>${trend ? trendHtml(trend, data.asOf.installs) : ""}</div>
         <div title="${title}">
           <p class="stat-standing">${standing.words}</p>

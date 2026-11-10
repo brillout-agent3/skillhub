@@ -1467,7 +1467,7 @@ body:has(.skills-view) {
   flex: none;
   /*
    * The icons' column is as wide in every view: it fits the longest word under an icon, GROWTH
-   * (46px), with room on either side, so that the numbers don't move when the list is sorted by it.
+   * (41px), with room on either side, so that the numbers don't move when the list is sorted by it.
    */
   grid-template-columns: 58px max-content minmax(0, 1fr);
   align-self: flex-start;
@@ -1514,7 +1514,7 @@ body:has(.skills-view) {
 
 /* The word under an icon two numbers share, such as TOTAL and WEEK under the download icon. */
 .prop-tag {
-  font-size: 9px;
+  font-size: 8px;
   font-weight: 650;
   letter-spacing: 0.07em;
   line-height: 1;
@@ -1565,7 +1565,7 @@ body:has(.skills-view) {
   margin: 2px 0 0 calc(var(--at) * 100%);
   translate: calc(var(--at) * -100%);
   color: var(--garnet-text);
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 650;
   letter-spacing: 0.07em;
   line-height: 1;
@@ -1860,9 +1860,18 @@ body:has(.skills-view) {
   box-shadow: var(--shadow-border);
 }
 
+/* The number's icon, as in the skills list's rows, then its name and where it comes from. */
 .stat-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
   color: var(--ink-2);
   font-size: 14px;
+}
+
+.stat-label .prop-icon {
+  margin-top: 2px;
+  color: var(--ink-3);
 }
 
 .stat-label .muted {
