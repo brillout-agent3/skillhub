@@ -1215,12 +1215,12 @@ function scopeChipsHtml(st: State): string {
 }
 
 /**
- * Right of the list's count, over the settings' line: the filters as chips, and Clear filters.
- * Nothing without filters: the count says how many skills there are.
+ * Under the settings' line: the filters as chips, and Clear filters. Nothing without filters: the
+ * count says how many skills there are.
  */
 export function scopeHtml(st: State): string {
   if (!filtersOn(st)) return "";
-  return `<span>Filtered by</span> ${scopeChipsHtml(st)} <button type="button" class="link-button" data-action="clear">Clear filters</button>`;
+  return `${scopeChipsHtml(st)} <button type="button" class="link-button" data-action="clear">Clear filters</button>`;
 }
 
 /** The prompt's size, its number highlighted, in the line under the agent's box. */
@@ -1395,18 +1395,14 @@ export function sortHtml(st: State): string {
         `<li role="option" id="sort-${id}" data-sort="${id}" aria-selected="${id === st.sort}" tabindex="-1">${icon}<span>${label}</span>${id === st.sort ? CHECK : ""}</li>`,
     )
     .join("");
+  // The order: both directions as arrows, the current one pressed, their words in their labels.
+  const dates = st.sort !== "match" && st.sort !== "growth" && PROPS[st.sort].date;
+  const direction = (asc: boolean, arrow: string, words: string) =>
+    `<button type="button" data-order="${asc ? "asc" : "desc"}" aria-pressed="${st.asc === asc}" aria-label="${words}" title="${words}">${arrow}</button>`;
   const order =
     st.sort === "match"
       ? ""
-      : `<button type="button" class="order" data-action="order" title="Reverse the order">${
-          st.sort !== "growth" && PROPS[st.sort].date
-            ? st.asc
-              ? "Oldest first"
-              : "Newest first"
-            : st.asc
-              ? "Lowest first"
-              : "Highest first"
-        } <span aria-hidden="true">${st.asc ? "↑" : "↓"}</span></button>`;
+      : `<div class="order" role="group" aria-label="Order">${direction(false, "↓", dates ? "Newest first" : "Highest first")}${direction(true, "↑", dates ? "Oldest first" : "Lowest first")}</div>`;
   return `
     <div class="sort-head"><h2 id="sort-label">Sort by</h2>${order}</div>
     <div class="sort-menu">
@@ -1431,17 +1427,21 @@ const savedSwitchHtml = (st: State) =>
   `<button type="button" id="saved-switch" class="saved-switch" role="switch" aria-checked="${st.saved}" data-action="saved" title="Show only what you saved">${bookmarkSvg}<span>Saved</span><span class="n" data-saved-count>${savedCount()}</span><span class="switch" aria-hidden="true"></span></button>`;
 
 /**
- * The skills list's page, under the site's header. Across the page's top: the two ways to search;
- * the presets, the count in the middle, and the filters' chips; and one line of every other
- * setting: the sort, the number filters and Show. Under them, the list, and the tags in a sidebar on
- * the right. On narrow screens, the Filters button opens the line's settings and the sidebar, which
- * comes before the list. `reviewed` is how many skills SkillHub reviewed, from review.ts, which only
- * the server reads: the line saying so isn't re-rendered.
+ * The skills list's page, under the site's header. Across the page's top: the count; the two ways to
+ * search; the presets; one line of every other setting: the sort, the number filters and Show; and
+ * the filters' chips. Under them, the list, and the tags in a sidebar on the right. On narrow
+ * screens, the Filters button opens the line's settings and the sidebar, which comes before the
+ * list. `reviewed` is how many skills SkillHub reviewed, from review.ts, which only the server
+ * reads: the line saying so isn't re-rendered.
  */
 export function listView(st: State, reviewed: number): string {
   return `
     <div class="list-top">
       <div class="list-top-in">
+        <div class="list-title">
+          <h1 id="count" class="list-head" aria-live="polite">${countHtml(st)}</h1>
+          <p class="list-sub"><a href="${href("about/")}">Curated from ${reviewed.toLocaleString("en")} reviewed skills</a></p>
+        </div>
         <div class="finder">
           <div class="agent-field" data-action="focus-need">
             <svg class="ask-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 6.5V4M2 11v3M18 11v3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /><rect x="4" y="6.5" width="12" height="10" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.5" /><circle cx="10" cy="3" r="1.25" fill="currentColor" /><circle cx="7.75" cy="10.75" r="1.25" fill="currentColor" /><circle cx="12.25" cy="10.75" r="1.25" fill="currentColor" /><path d="M8.5 13.75h3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /></svg>
@@ -1457,14 +1457,7 @@ export function listView(st: State, reviewed: number): string {
           <p id="ask-label" class="ask-label" aria-live="polite">${askLabel(st)}</p>
           <p id="search-note" class="search-note">${searchNote(st)}</p>
         </div>
-        <div class="list-head-row">
-          <div id="presets" class="presets" role="group" aria-label="Presets">${presetsHtml(st)}</div>
-          <div class="list-title">
-            <h1 id="count" class="list-head" aria-live="polite">${countHtml(st)}</h1>
-            <p class="list-sub"><a href="${href("about/")}">Curated from ${reviewed.toLocaleString("en")} reviewed skills</a></p>
-          </div>
-          <p id="scope" class="scope">${scopeHtml(st)}</p>
-        </div>
+        <div id="presets" class="presets" role="group" aria-label="Presets">${presetsHtml(st)}</div>
         <button type="button" class="filters-toggle" data-action="filters" aria-controls="settings filters" aria-expanded="false">Filters</button>
         <div id="settings" class="settings-line" role="group" aria-label="Settings">
           <section id="sort-group" class="setting sort-group">${sortHtml(st)}</section>
@@ -1480,6 +1473,7 @@ export function listView(st: State, reviewed: number): string {
             </div>
           </section>
         </div>
+        <p id="scope" class="scope">${scopeHtml(st)}</p>
       </div>
     </div>
     <div class="skills-view">

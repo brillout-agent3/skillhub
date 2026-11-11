@@ -369,24 +369,15 @@ body:has(.skills-view) {
   padding: 32px 24px 20px 32px;
 }
 
-/* The presets left, the count in the middle of the page, whatever is either side of it, and the
-   filters' chips right. */
-.list-head-row {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 18px;
-}
-
+/* The count, over the search. */
 .list-title {
+  margin-bottom: 24px;
   text-align: center;
 }
 
-.list-head-row .scope {
-  justify-self: end;
-  justify-content: flex-end;
-  margin: 0;
+/* The filters' chips, under the settings' line, where the filters are. */
+.list-top-in > .scope {
+  margin: 14px 0 0;
 }
 
 /*
@@ -408,7 +399,7 @@ body:has(.skills-view) {
 .setting h2 {
   margin: 0;
   color: var(--ink-2);
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
   white-space: nowrap;
 }
@@ -420,16 +411,11 @@ body:has(.skills-view) {
 }
 
 /*
- * A filter at its full range says "Any", unless that would push the line onto two: then it shows
- * only its name, and its range once it narrows the list. So once a filter narrows the list, the
- * others drop their "Any", which also sets the narrowed ones apart; and so does a view too narrow
- * for every "Any".
+ * A filter at its full range says "Any", unless the view is too narrow for the line with every
+ * "Any" and the longest ranges, such as "Last 30 days" (about 1,250px): then it shows only its
+ * name, and its range once it narrows the list. Not on a phone, whose pills are two a row.
  */
-.ranges:has(.narrowed) .range:not(.narrowed) .range-pill [data-range-label] {
-  display: none;
-}
-
-@media (max-width: 1400px) {
+@media (min-width: 901px) and (max-width: 1380px) {
   .range:not(.narrowed) .range-pill [data-range-label] {
     display: none;
   }
@@ -674,22 +660,24 @@ body:has(.skills-view) {
   }
 }
 
-/* Rising & new, Top, Rising and New: they only set the sort and Published. A size up from the
-   line's buttons under them, as they're what most visitors use. */
+/* Rising & new, Top, Rising and New, in the middle under the search: they only set the sort and
+   Published. Two sizes up from the line's buttons under them, as they're what most visitors use. */
 .presets {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 6px;
+  margin-bottom: 18px;
 }
 
 .preset {
-  padding: 9px 18px;
+  padding: 10px 22px;
   border: 0;
   border-radius: 6px;
   background: var(--paper);
   box-shadow: var(--shadow-border);
   color: var(--ink);
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
   cursor: pointer;
 }
@@ -704,10 +692,10 @@ body:has(.skills-view) {
   color: var(--on-selected);
 }
 
-/* Sort by over its menu, and the order right of the menu. */
+/* Sort by and the order over the menu, the order at its right end. */
 .sort-group {
   grid-template-columns: auto auto;
-  grid-template-areas: "label label" "menu order";
+  grid-template-areas: "label order" "menu menu";
   align-items: center;
 }
 
@@ -794,22 +782,48 @@ body:has(.skills-view) {
   color: var(--ink);
 }
 
-.sort-group .order {
+/*
+ * The order: ↓ and ↑, a tiny segmented control, the current one pressed, their words in their
+ * labels. A control, unlike Sort by beside it; as tall as Sort by's line, so it doesn't push the
+ * menu down.
+ */
+.order {
   grid-area: order;
-  margin: 0;
-  padding: 6px;
+  justify-self: end;
+  display: flex;
+  margin: -2px 0;
+  overflow: hidden;
+  border-radius: 4px;
+  background: var(--paper);
+  box-shadow: 0 0 0 1px var(--rule-strong);
+}
+
+.order button {
+  padding: 0 8px;
   border: 0;
-  border-radius: 6px;
   background: none;
-  color: var(--ink-2);
+  color: var(--ink-3);
   font-size: 14px;
-  font-weight: 500;
-  white-space: nowrap;
+  line-height: 22px;
   cursor: pointer;
 }
 
-.sort-group .order:hover {
-  color: var(--garnet-text);
+.order button + button {
+  border-left: 1px solid var(--rule);
+}
+
+.order button:hover {
+  color: var(--ink);
+}
+
+.order button[aria-pressed="true"] {
+  background: var(--selected);
+  color: var(--on-selected);
+}
+
+/* Inside, since the group's overflow would cut an outline off. */
+.order button:focus-visible {
+  outline-offset: -2px;
 }
 
 /* Skills & bundles, Skills or Bundles: one segmented control. */
@@ -1461,11 +1475,11 @@ body:has(.skills-view) {
   min-width: 0;
 }
 
-/* The list's heading, in the middle of the page, under the search: how many skills the list shows,
+/* The list's heading, in the middle of the page, over the search: how many skills the list shows,
    the filters and the search included. Under it, a link to how they get here. */
 .list-head {
   margin: 0;
-  font-size: 32px;
+  font-size: 36px;
   text-align: center;
   font-weight: 700;
   font-variant-numeric: tabular-nums;
@@ -1474,7 +1488,7 @@ body:has(.skills-view) {
 }
 
 .list-sub {
-  margin: 2px 0 0;
+  margin: 4px 0 0;
   color: var(--ink-2);
   font-size: 14px;
   text-align: center;
@@ -2626,18 +2640,6 @@ body:has(.skills-view) {
   .search-field {
     margin-top: 16px;
   }
-
-  /* The count on a line of its own, the presets and the filters' chips under it. */
-  .list-head-row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
-  .list-title {
-    order: -1;
-    flex-basis: 100%;
-  }
 }
 
 @media (max-width: 900px) {
@@ -2668,25 +2670,20 @@ body:has(.skills-view) {
     padding: 20px 16px 16px;
   }
 
-  /* The count, the filters' chips, then the presets, two a row, as wide as the screen. */
-  .list-head-row {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 12px;
-    margin-bottom: 0;
+  .list-title {
+    margin-bottom: 16px;
   }
 
-  .list-head-row .scope {
-    justify-content: center;
-  }
-
+  /* The presets two a row, as wide as the screen. */
   .presets {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    margin: 20px 0 0;
   }
 
   .preset {
     padding: 8px 0;
+    font-size: 16px;
   }
 
   /* The settings one under the other, as wide as the screen, their labels over them. */

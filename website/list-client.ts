@@ -86,6 +86,7 @@ function focusSelector(): string | null {
     "data-remove",
     "data-preset",
     "data-show",
+    "data-order",
     "data-save",
   ]) {
     const v = el.getAttribute(attr);
@@ -342,7 +343,7 @@ app.addEventListener("input", (event) => {
 
 app.addEventListener("click", (event) => {
   const el = (event.target as Element).closest<HTMLElement>(
-    "[data-tag],[data-action],[data-remove],[data-preset],[data-show],[data-sort]",
+    "[data-tag],[data-action],[data-remove],[data-preset],[data-show],[data-order],[data-sort]",
   );
   if (!el || el.tagName === "A") return;
   const d = el.dataset;
@@ -352,6 +353,11 @@ app.addEventListener("click", (event) => {
     for (const b of app.querySelectorAll("[data-preset]"))
       b.setAttribute("aria-pressed", String(b === el));
     go(presetPatch(d.preset as Preset));
+  } else if (d.order) {
+    if ((d.order === "asc") === state.asc) return;
+    for (const b of app.querySelectorAll("[data-order]"))
+      b.setAttribute("aria-pressed", String(b === el));
+    go({ asc: d.order === "asc" });
   } else if (d.show) {
     for (const b of app.querySelectorAll("[data-show]"))
       b.setAttribute("aria-pressed", String(b === el));
@@ -370,7 +376,6 @@ app.addEventListener("click", (event) => {
   else if (d.action === "ask") ask();
   else if (d.action === "focus-search") q.focus();
   else if (d.action === "focus-need") need.focus();
-  else if (d.action === "order") go({ asc: !state.asc });
   else if (d.action === "range") openRange(open === d.value ? null : (d.value as Prop));
   else if (d.action === "sort-menu") openSort(!sortOpen, "option");
   else if (d.action === "saved") {
