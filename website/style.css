@@ -417,9 +417,10 @@ body:has(.skills-view) #page-head {
   padding: 8px 24px 48px 32px;
 }
 
-/* How many skills the list shows, over it, and how many tags, over them. */
+/* How many skills the list shows, centered over it, and how many tags, over them. */
 .list-count {
   margin: 0 0 12px;
+  text-align: center;
   color: var(--ink);
   font-size: 18px;
   font-weight: 650;
@@ -2738,7 +2739,8 @@ body:has(.skills-view) #page-head {
     display: none;
   }
 
-  /* The tags, atop the list, behind their count: a button as wide as the screen, as Saved is. */
+  /* The tags, atop the list, behind their count: a button as wide as the screen, its words in the
+     middle, as the Filters button's. */
   .tags-count,
   #filters:not(.tags-shown) .tag-facets {
     display: none;
@@ -2751,7 +2753,8 @@ body:has(.skills-view) #page-head {
   .tags-toggle {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 6px;
     width: 100%;
     padding: 8px 12px;
     border: 0;
