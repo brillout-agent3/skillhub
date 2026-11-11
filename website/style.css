@@ -206,8 +206,7 @@ code {
 }
 
 /* Press feedback, for the buttons that have a face of their own. Not the tags, which are too
-   small for it to show, nor the segmented Show, whose buttons share one edge. */
-.preset,
+   small for it to show, nor the segmented presets and Show, whose buttons share one edge. */
 .filters-toggle,
 .range-pill,
 .chip,
@@ -220,7 +219,6 @@ code {
   transition-timing-function: ease-out;
 }
 
-.preset:active,
 .filters-toggle:active,
 .range-pill:active,
 .chip:active,
@@ -232,7 +230,6 @@ code {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .preset:active,
   .filters-toggle:active,
   .range-pill:active,
   .chip:active,
@@ -375,20 +372,26 @@ body:has(.skills-view) {
   text-align: center;
 }
 
-/* The filters' chips, under the settings' line, where the filters are. */
+/* The filters' chips, centered under the settings' line, where the filters are. */
 .list-top-in > .scope {
+  justify-content: center;
   margin: 14px 0 0;
 }
 
 /*
- * Every setting but the presets, on one line: Sort by, Filter and Show, each its label over its
- * controls. Where the view is too narrow for one line, Show goes onto a second.
+ * Every setting on one centered line: Presets, Sort by, Filter and Show, each its label over its
+ * controls. Where the view is too narrow for one line, Show goes onto a second: under about 1,320px,
+ * or 1,350px while a filter narrows the list; with more narrowed, up to about 1,560px.
  */
 .settings-line {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-end;
-  gap: 12px 28px;
+  justify-content: center;
+  gap: 12px 16px;
+  /* On a wide screen, it reaches past the view's edges into the page's margins, up to 100px each
+     side, for the ranges of narrowed filters: 1,376px leaves room for a scroll bar. */
+  margin-inline: calc(-1 * clamp(0px, (100vw - 1376px) / 2, 100px));
 }
 
 .setting {
@@ -411,11 +414,10 @@ body:has(.skills-view) {
 }
 
 /*
- * A filter at its full range says "Any", unless the view is too narrow for the line with every
- * "Any" and the longest ranges, such as "Last 30 days" (about 1,250px): then it shows only its
- * name, and its range once it narrows the list. Not on a phone, whose pills are two a row.
+ * A filter at its full range shows only its name, as the line has no room for four "Any"; its range
+ * once it narrows the list. On a phone, whose pills are two a row, it says "Any".
  */
-@media (min-width: 901px) and (max-width: 1380px) {
+@media (min-width: 901px) {
   .range:not(.narrowed) .range-pill [data-range-label] {
     display: none;
   }
@@ -660,36 +662,45 @@ body:has(.skills-view) {
   }
 }
 
-/* Rising & new, Top, Rising and New, in the middle under the search: they only set the sort and
-   Published. A size up from the line's buttons under them, as they're what most visitors use. */
+/* Rising, Rising & new, Top and New, first in the settings' line: they only set the sort and
+   Published. One segmented control, as Show's; none is pressed once the sort or a slider differs. */
 .presets {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 6px;
-  margin-bottom: 18px;
-}
-
-.preset {
-  padding: 10px 22px;
-  border: 0;
+  overflow: hidden;
   border-radius: 6px;
   background: var(--paper);
   box-shadow: var(--shadow-border);
-  color: var(--ink);
-  font-size: 16px;
-  font-weight: 600;
+}
+
+.preset {
+  flex: auto;
+  padding: 8px 10px;
+  border: 0;
+  background: none;
+  color: var(--ink-2);
+  font-size: 14px;
+  white-space: nowrap;
   cursor: pointer;
 }
 
+.preset + .preset {
+  border-left: 1px solid var(--rule);
+}
+
 .preset:hover {
-  box-shadow: var(--shadow-border-hover);
+  color: var(--ink);
 }
 
 .preset[aria-pressed="true"] {
   background: var(--selected);
-  box-shadow: none;
   color: var(--on-selected);
+  font-weight: 600;
+}
+
+/* Inside, since the group's overflow would cut an outline off; Show's too. */
+.preset:focus-visible,
+.show-switch button:focus-visible {
+  outline-offset: -2px;
 }
 
 /* Sort by and the order over the menu, the order at its right end. */
@@ -714,12 +725,12 @@ body:has(.skills-view) {
   font-size: 14px;
 }
 
-/* As wide as its longest option, so that the order beside it stays put. */
+/* As wide as its longest option, so that the line stays put as the sort changes. */
 .sort-button {
   display: flex;
   align-items: center;
   gap: 8px;
-  width: 12.5em;
+  width: 11.6em;
   padding: 6px 8px;
   border: 1px solid var(--rule-strong);
   border-radius: 6px;
@@ -730,6 +741,7 @@ body:has(.skills-view) {
 
 .sort-button > span {
   flex: auto;
+  white-space: nowrap;
 }
 
 .sort-button .prop-icon,
@@ -837,7 +849,7 @@ body:has(.skills-view) {
 
 .show-switch button {
   flex: auto;
-  padding: 7px 10px;
+  padding: 7px 8px;
   border: 0;
   background: none;
   color: var(--ink-2);
@@ -874,7 +886,7 @@ body:has(.skills-view) {
     "agent field"
     "label note";
   gap: 0 16px;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
 
 /*
@@ -1136,7 +1148,7 @@ body:has(.skills-view) {
   align-items: center;
   gap: 6px;
   width: 100%;
-  padding: 8px 10px;
+  padding: 8px;
   border: 0;
   border-radius: 6px;
   background: var(--paper);
@@ -2674,18 +2686,6 @@ body:has(.skills-view) {
     margin-bottom: 16px;
   }
 
-  /* The presets two a row, as wide as the screen. */
-  .presets {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin: 20px 0 0;
-  }
-
-  .preset {
-    padding: 8px 0;
-    font-size: 16px;
-  }
-
   /* The settings one under the other, as wide as the screen, their labels over them. */
   .settings-line {
     display: block;
@@ -2737,6 +2737,10 @@ body:has(.skills-view) {
 
   /* The presets, the Filters button and the Saved switch stay in view; the button opens the rest
      of the settings and the sidebar. */
+  .settings-line .filters-toggle {
+    margin-top: 12px;
+  }
+
   .settings-line:not(.shown) .sort-group,
   .settings-line:not(.shown) .filter-group,
   .settings-line:not(.shown) #show-label,

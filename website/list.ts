@@ -1428,11 +1428,12 @@ const savedSwitchHtml = (st: State) =>
 
 /**
  * The skills list's page, under the site's header. Across the page's top: the count; the two ways to
- * search; the presets; one line of every other setting: the sort, the number filters and Show; and
- * the filters' chips. Under them, the list, and the tags in a sidebar on the right. On narrow
- * screens, the Filters button opens the line's settings and the sidebar, which comes before the
- * list. `reviewed` is how many skills SkillHub reviewed, from review.ts, which only the server
- * reads: the line saying so isn't re-rendered.
+ * search; one centered line of every setting: the presets, the sort, the number filters and Show;
+ * and the filters' chips. Under them, the list, and the tags in a sidebar on the right. On narrow
+ * screens, the presets and the Saved switch stay in view, and the Filters button, between them,
+ * opens the line's other settings and the sidebar, which comes before the list. `reviewed` is how
+ * many skills SkillHub reviewed, from review.ts, which only the server reads: the line saying so
+ * isn't re-rendered.
  */
 export function listView(st: State, reviewed: number): string {
   return `
@@ -1457,9 +1458,12 @@ export function listView(st: State, reviewed: number): string {
           <p id="ask-label" class="ask-label" aria-live="polite">${askLabel(st)}</p>
           <p id="search-note" class="search-note">${searchNote(st)}</p>
         </div>
-        <div id="presets" class="presets" role="group" aria-label="Presets">${presetsHtml(st)}</div>
-        <button type="button" class="filters-toggle" data-action="filters" aria-controls="settings filters" aria-expanded="false">Filters</button>
         <div id="settings" class="settings-line" role="group" aria-label="Settings">
+          <section class="setting preset-group" aria-labelledby="presets-label">
+            <h2 id="presets-label">Presets</h2>
+            <div id="presets" class="presets" role="group" aria-labelledby="presets-label">${presetsHtml(st)}</div>
+          </section>
+          <button type="button" class="filters-toggle" data-action="filters" aria-controls="settings filters" aria-expanded="false">Filters</button>
           <section id="sort-group" class="setting sort-group">${sortHtml(st)}</section>
           <section class="setting filter-group" aria-labelledby="filter-label">
             <h2 id="filter-label">Filter</h2>
