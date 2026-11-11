@@ -100,7 +100,7 @@ test("filters that leave nothing say so, and leave the agent nothing to copy", a
   await expect(label).toContainText("Copies a prompt of");
 });
 
-test("the presets set the sort and the Published range", async ({ page }) => {
+test("the presets set the sort and the Age range", async ({ page }) => {
   await open(page, "/");
   const preset = (id: string) => page.locator(`[data-preset="${id}"]`);
 
@@ -115,8 +115,8 @@ test("the presets set the sort and the Published range", async ({ page }) => {
   await preset("rising-new").click();
   await settled(page);
   await expect(page).toHaveURL("/?sort=week&published=90d..");
-  await expect(page.locator('[data-range-label="published"]').first()).toHaveText("Last 90 days");
-  await expect(list(page).scope).toContainText("Published: Last 90 days");
+  await expect(page.locator('[data-range-label="published"]').first()).toHaveText("≤ 90 days");
+  await expect(list(page).scope).toContainText("Age: ≤ 90 days");
 
   await preset("new").click();
   await settled(page);
@@ -134,13 +134,32 @@ test("Rising & new keeps the settings on one line, and the list where it is", as
 
   await page.locator('[data-preset="rising-new"]').click();
   await settled(page);
-  // Published shows its range in place of its name, which leaves Show room on the line.
+  // Age shows its range in place of its name, which leaves Show room on the line.
   const pill = page.locator('.range-pill[data-value="published"]');
-  await expect(pill.locator(".range-value")).toHaveText("Last 90 days");
+  await expect(pill.locator(".range-value")).toHaveText("≤ 90 days");
   await expect(pill.locator(".range-word")).not.toBeInViewport();
-  await expect(pill).toHaveAccessibleName("Published Last 90 days");
+  await expect(pill).toHaveAccessibleName("Age ≤ 90 days");
   expect(await top(".show-group")).toBe(await top(".preset-group"));
   expect(await top("#results")).toBe(list);
+});
+
+test.describe("on a laptop's screen, 1,280px wide", () => {
+  test.use({ viewport: { width: 1280, height: 800 } });
+
+  test("the settings are on one line, with Rising & new too", async ({ page }) => {
+    const top = async (selector: string) => (await page.locator(selector).boundingBox())?.y;
+    await open(page, "/");
+    // Show's first button is the one word, Both: at its full length, Show was on a second line.
+    await expect(page.locator('[data-show="all"]')).toHaveText("Both");
+    await expect(page.locator('[data-show="all"]')).toHaveAccessibleName(
+      "Both: skills and bundles",
+    );
+    expect(await top(".show-group")).toBe(await top(".preset-group"));
+
+    await page.locator('[data-preset="rising-new"]').click();
+    await settled(page);
+    expect(await top(".show-group")).toBe(await top(".preset-group"));
+  });
 });
 
 test("the Sort by menu works with the mouse and with the keyboard", async ({ page }) => {

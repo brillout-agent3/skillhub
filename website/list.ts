@@ -70,7 +70,7 @@ export type Preset = "rising" | "rising-new" | "top" | "new";
 interface PresetInfo {
   label: string;
   sort: Sort;
-  /** The Published range it sets: the last so many days, or any date. */
+  /** The Age range it sets: so many days at most, or any age. */
   since: Age | null;
   title: string;
 }
@@ -107,8 +107,6 @@ interface PropInfo {
   icon: string;
   /** The word under the icon, when it shares its icon with another number. */
   tag?: string;
-  /** The label on a row, when not `label`. */
-  rowLabel?: string;
   /** The entry's value, or null when unknown. Dates are YYYY-MM-DD. */
   of: (e: Entry) => Value | null;
   /** Where the value comes from, for its tooltip. Only called when the value is known. */
@@ -230,28 +228,24 @@ function countStops(of: (s: Skill) => number | null): number[] {
   return stops.slice(0, stops.findIndex((n) => n > max) + 1);
 }
 /**
- * The Published slider's inner stops, oldest first, in days before the data's date: its range is
- * relative, such as the last 30 days, so a link keeps its meaning as the data moves on. The URL
- * names them such as 30d.
+ * The Age slider's inner stops, oldest first, in days before the data's date: its range is
+ * relative, such as 30 days at most, so a link keeps its meaning as the data moves on. The URL names
+ * them such as 30d, in its `published` parameter: the filter was named Published, and links to it
+ * still work.
  */
 const AGES = [365, 90, 30, 7] as const;
 type Age = (typeof AGES)[number];
-const AGO: Record<Age, string> = { 365: "a year", 90: "90 days", 30: "30 days", 7: "a week" };
-const LAST: Record<Age, string> = {
-  365: "Last year",
-  90: "Last 90 days",
-  30: "Last 30 days",
-  7: "Last week",
-};
+/** Each stop in words, as a range says it: "≤ 90 days", "> 1 year", "1 week – 30 days". */
+const AGE_WORDS: Record<Age, string> = { 365: "1 year", 90: "90 days", 30: "30 days", 7: "1 week" };
 
 // A bundle's numbers are its most popular skill's.
 const most = (e: Entry) => (isBundle(e) ? "The most of any of its skills: " : "");
 export const PROPS: Record<Prop, PropInfo> = {
+  // Its age, such as "3 days", counted from the day it was published, which its tooltip gives: the
+  // values are those dates, so the newest is the highest, and "published" names it in the URL.
   published: {
-    label: "Published",
+    label: "Age",
     icon: CHICK,
-    // The row shows its age, such as "3 days", and the date in its tooltip.
-    rowLabel: "Age",
     of: publishedOf,
     title: (e) => {
       const on = date(publishedOf(e) as string);
@@ -338,18 +332,24 @@ export const isNarrowed = (p: Prop, [lo, hi]: Range) => lo > 0 || hi < lastStop(
 /** How the URL names a slider's stop. */
 const stopKey = (p: Prop, i: number) => PROPS[p].keys?.[i] ?? String(PROPS[p].stops[i]);
 
-/** A slider's range in words, such as "≥ 1K", "Last 30 days" or "30 days to a year ago". */
+/**
+ * A slider's range in words, such as "≥ 1K" or "1K – 5K"; and for an age, said as the counts are,
+ * "≤ 30 days" or "30 days – 1 year": in words, "Under 90 days" was too long for the settings' line
+ * on a 1,280px screen (see .settings-line in style.css).
+ */
 export function rangeLabel(p: Prop, [lo, hi]: Range): string {
   const { stops, date } = PROPS[p];
   if (date) {
-    // A date at or after `lo`'s is within that age; one before `hi`'s is older than it.
-    const within = lo > 0 ? AGES[lo - 1] : null;
-    const older = hi < lastStop(p) ? AGES[hi - 1] : null;
-    if (within && older) {
-      const young = AGO[older];
-      return `${young[0].toUpperCase()}${young.slice(1)} to ${AGO[within]} ago`;
-    }
-    return within ? LAST[within] : older ? `Over ${AGO[older]} ago` : "Any";
+    // A date at or after `lo`'s is that age at most; one before `hi`'s is over it.
+    const atMost = lo > 0 ? AGE_WORDS[AGES[lo - 1]] : null;
+    const over = hi < lastStop(p) ? AGE_WORDS[AGES[hi - 1]] : null;
+    return atMost && over
+      ? `${over} – ${atMost}`
+      : atMost
+        ? `≤ ${atMost}`
+        : over
+          ? `> ${over}`
+          : "Any";
   }
   const from = lo > 0 ? compact(stops[lo] as number) : null;
   const to = hi < lastStop(p) ? compact(stops[hi] as number) : null;
@@ -379,14 +379,14 @@ export const defaultSort = (q: string): Sort => (q.trim() ? "match" : "growth");
  * holds spaces isn't a search: it neither narrows the list nor sorts it by best match.
  */
 const term = (st: State) => st.q.trim();
-/** The Published range for the last `since` days, or any date. */
+/** The Age range for `since` days at most, or any age. */
 export const sinceRange = (since: Age | null): Range =>
   since
     ? [PROPS.published.keys?.indexOf(`${since}d`) ?? 0, lastStop("published")]
     : fullRange("published");
 const sameRange = (a: Range, b: Range) => a[0] === b[0] && a[1] === b[1];
 /**
- * What a preset sets: its sort, highest first, and its Published range, every other slider back at
+ * What a preset sets: its sort, highest first, and its Age range, every other slider back at
  * its full range, since one left narrowed (say Weekly Downloads from 5,000) would make the list
  * something other than what the preset is named after. The search, tags and Show stay as they are.
  */
@@ -416,8 +416,13 @@ export interface State {
  * listed inside their bundle included ("skills"), or only bundles. Not a preset's business.
  */
 export type Show = "all" | "skills" | "bundles";
-export const SHOWS: [Show, string][] = [
-  ["all", "Skills & bundles"],
+/**
+ * Each with its button's word, and what it means in full where the word alone doesn't say: "Both"
+ * rather than "Skills & bundles", whose length sent Show onto a second line of settings on a
+ * 1,280px screen (see .settings-line in style.css).
+ */
+export const SHOWS: [show: Show, label: string, full?: string][] = [
+  ["all", "Both", "Skills and bundles"],
   ["skills", "Skills"],
   ["bundles", "Bundles"],
 ];
@@ -648,7 +653,7 @@ function passes(s: Skill, st: State, skip: string | null = null): boolean {
 /**
  * Whether the entry's numbers are within the sliders' ranges. A bundle's are its own, the ones its
  * row shows (its oldest skill's date, its most downloaded skill's downloads), so that a bundle
- * whose oldest skill is a year old isn't in "Published: last 90 days" for its newest skills.
+ * whose oldest skill is a year old isn't in "Age: ≤ 90 days" for its newest skills.
  */
 const inRanges = (e: Entry, st: State) => PROP_IDS.every((p) => inRange(e, p, st.ranges[p]));
 function inRange(e: Entry, p: Prop, [lo, hi]: Range): boolean {
@@ -929,7 +934,7 @@ function propsHtml(e: Entry, st: State): string {
   const rows = PROP_IDS.map((p) => {
     const info = PROPS[p];
     const v = info.of(e);
-    // Ages count up to the data's date, as the Published slider does, not to the viewer's day.
+    // Ages count up to the data's date, as the Age slider does, not to the viewer's day.
     const shown =
       v === null ? "—" : info.date ? age(v as string, data.asOf.installs) : compact(v as number);
     let title = v === null ? null : info.title(e);
@@ -939,7 +944,7 @@ function propsHtml(e: Entry, st: State): string {
       title += `. ${placeText(info.crowd, n)}`;
       chart = crowdHtml(p, info.crowd, n, "dd", true);
     }
-    return row(p === st.sort, info, info.rowLabel ?? info.label, title, shown, chart);
+    return row(p === st.sort, info, info.label, title, shown, chart);
   });
   // The growth shows only while the list is sorted by it, to explain the order.
   if (st.sort === "growth") {
@@ -1484,7 +1489,7 @@ export function rangesHtml(st: State): string {
       `<input type="range" min="0" max="${last}" step="1" value="${v}" data-range="${p}" data-end="${end}" aria-label="${label}, ${end ? "to" : "from"}" aria-valuetext="${rangeLabel(p, [lo, hi])}" />`;
     const { icon, tag } = PROPS[p];
     // The pill says the word the rows say under a shared icon, such as Total, to fit the settings'
-    // line; its popover says the whole name. A name on its own, as Published's and Stars', whose
+    // line; its popover says the whole name. A name on its own, as Age's and Stars', whose
     // icons are theirs alone, gives way to the range once it narrows the list: see .range-word in
     // style.css.
     const short = tag
@@ -1545,13 +1550,17 @@ export function sortHtml(st: State): string {
 }
 
 /**
- * Show's buttons: Skills & bundles, Skills or Bundles. Re-rendered with the list. `data-label`, as
- * on the presets, is the room a button keeps for its words once pressed, and bold: see style.css.
+ * Show's buttons: Both, Skills or Bundles. Re-rendered with the list. `data-label`, as on the
+ * presets, is the room a button keeps for its words once pressed, and bold: see style.css. Both
+ * says what it means in its tooltip, and to a screen reader, which meets it before the two it's
+ * the both of.
  */
 export const showHtml = (st: State) =>
   SHOWS.map(
-    ([v, label]) =>
-      `<button type="button" data-show="${v}" data-label="${esc(label)}" aria-pressed="${st.show === v}">${esc(label)}</button>`,
+    ([v, label, full]) =>
+      `<button type="button" data-show="${v}" data-label="${esc(label)}" aria-pressed="${st.show === v}"${
+        full ? ` title="${esc(full)}" aria-label="${esc(`${label}: ${full.toLowerCase()}`)}"` : ""
+      }>${esc(label)}</button>`,
   ).join("");
 
 /**
