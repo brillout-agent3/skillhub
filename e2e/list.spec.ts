@@ -319,21 +319,40 @@ test("the keyboard can skip the tags, and keeps its place when a filter goes", a
   await expect(page.locator("#count")).toBeFocused();
 });
 
-test("going back to a list returns to where you were in it", async ({ page }) => {
+test("the list is where you left it after a skill's page, and after a reload", async ({ page }) => {
   await open(page, "/?sort=week");
-  const link = list(page).rows.nth(200).locator(".skill-name");
-  const href = (await link.getAttribute("href")) as string;
-  // A person scrolls, then clicks: the browser notes where the page is scrolled to once it has
-  // drawn it there, which a click in the same instant, as Playwright's own scroll is, comes before.
-  await link.scrollIntoViewIfNeeded();
-  await page.evaluate(() => new Promise((drawn) => requestAnimationFrame(() => setTimeout(drawn))));
-  await link.click();
-  await ready(page);
-  await expect(page).toHaveURL(href);
+  // The row at the window's top, how far down it the window starts, and the row after it.
+  const place = () =>
+    page.evaluate(() => {
+      const rows = [...document.querySelectorAll("#results .skill-list > li")];
+      const at = rows.findIndex((row) => row.getBoundingClientRect().bottom > 1);
+      const href = (row?: Element) => row?.querySelector(".skill-name")?.getAttribute("href");
+      const top = Math.round(rows[at]?.getBoundingClientRect().top ?? 0);
+      return { row: href(rows[at]), top, next: href(rows[at + 1]) };
+    });
+  const back = async (left: Awaited<ReturnType<typeof place>>) => {
+    await ready(page);
+    // To the row, and within a pixel or two of where the window started in it.
+    await expect.poll(async () => (await place()).row).toBe(left.row);
+    await expect.poll(async () => Math.abs((await place()).top - left.top)).toBeLessThan(3);
+  };
 
-  await page.goBack();
+  // As a person does: down through the rows, which get their own height as they're drawn, rather
+  // than the typical height they count as until then.
+  for (let i = 0; i < 20; i++) await page.mouse.wheel(0, 700);
+  // The list notes its place once the page has stopped scrolling.
+  await page.waitForFunction(() => history.state?.at);
+  const left = await place();
+  expect(left.top).toBeLessThan(1);
+
+  await page.locator(`#results .skill-name[href="${left.next}"]`).first().click();
+  await expect(page).toHaveURL(left.next as string);
   await ready(page);
-  await expect(page.locator(`#results .skill-name[href="${href}"]`).first()).toBeInViewport();
+  await page.goBack();
+  await back(left);
+
+  await page.reload();
+  await back(left);
 });
 
 test.describe("until the list's script has run, as on a slow connection", () => {

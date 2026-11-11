@@ -1381,15 +1381,16 @@ function axisHtml(p: Prop): string {
 /**
  * Inline, right after the search box, so that it runs before the rest of the page shows. The page
  * is pre-rendered unfiltered, and its script, list-client.ts, comes last, after megabytes of rows:
- * - A link to another list, such as a search's, would show the unfiltered one until then. It
- *   marks <html data-pending>, which hides the settings and the list (see style.css) until the
- *   script has rendered what the link asks for, and puts the link's search in the box.
+ * - A link to another list, such as a search's, would show the unfiltered one until then, and a
+ *   list returned to, such as from a skill's page, its top. It marks <html data-pending>, which
+ *   hides the settings and the list (see style.css) until the script has rendered what the link
+ *   asks for, where it was left, and puts the link's search in the box.
  * - A search typed until then would do nothing. It marks the box, for the script to search for
  *   what it holds.
  */
 const PENDING_SCRIPT = `(() => {
   const q = document.getElementById("q");
-  if (location.search) {
+  if (location.search || history.state?.at) {
     document.documentElement.dataset.pending = "";
     q.value = new URLSearchParams(location.search).get("q") || "";
   }

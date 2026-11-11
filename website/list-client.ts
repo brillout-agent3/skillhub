@@ -68,6 +68,71 @@ function go(patch: Partial<State>) {
  */
 const busy = (on: boolean) => results.setAttribute("aria-busy", String(on));
 
+/**
+ * Where the list is scrolled to, as the row at the window's top and how far down that row the
+ * window starts; or, above the rows, as the page's own offset. By row rather than by pixels alone:
+ * a row off the screen counts as a typical row's height (see `.skill-list > .skill` in style.css),
+ * so the same pixels are another row, some rows away, once the list is rendered again.
+ */
+type Place = { row: string; top: number } | { y: number };
+
+function place(): Place {
+  const box = results.getBoundingClientRect();
+  const row = document
+    .elementFromPoint(box.left + box.width / 2, 1)
+    ?.closest<HTMLElement>("#results .skill-list > li");
+  const href = row?.querySelector(".skill-name")?.getAttribute("href");
+  return row && href ? { row: href, top: row.getBoundingClientRect().top } : { y: scrollY };
+}
+
+function backTo(at: Place) {
+  if ("y" in at) return scrollTo(0, at.y);
+  const row = results
+    .querySelector(`.skill-list > li .skill-name[href="${CSS.escape(at.row)}"]`)
+    ?.closest("li");
+  if (!row) return;
+  const under = () => scrollBy(0, row.getBoundingClientRect().top - at.top);
+  row.scrollIntoView({ block: "start" });
+  under();
+  // The row gets its own height once it's drawn, which the browser does next: once more then.
+  requestAnimationFrame(() => setTimeout(under));
+}
+
+/**
+ * The browser puts a page back where it was scrolled to, by pixels, when it's reloaded or returned
+ * to, such as from a skill's page: the list does it itself, by row, from the place it noted with
+ * the page's entry in the browser's history as the page was left.
+ */
+history.scrollRestoration = "manual";
+const note = () => history.replaceState({ at: place() }, "");
+addEventListener("pagehide", note);
+// A reload keeps what was noted before it began: so also once the page has stopped scrolling.
+let scrolled: ReturnType<typeof setTimeout> | undefined;
+addEventListener(
+  "scroll",
+  () => {
+    clearTimeout(scrolled);
+    scrolled = setTimeout(note, 250);
+  },
+  { passive: true },
+);
+
+/**
+ * The same list again, with what just came in, such as the TLDRs' prose for the search: whole and
+ * at once, as its first rows alone would cut the page short under a window scrolled further, and
+ * back at the row it was at.
+ */
+function refresh() {
+  const at = place();
+  // What came in is in no key of the renders' caches: a new state misses them all, the list's
+  // heading's count and the lines under the boxes included.
+  state = { ...state };
+  lastFacets = "";
+  lastScope = "";
+  render(true);
+  backTo(at);
+}
+
 let soon = false;
 /**
  * Render after the next paint, once for however many changes come before it, so that the control
@@ -449,12 +514,7 @@ app.addEventListener("click", (event) => {
  * only changes the button: unsaving leaves the row in the list, where a second click saves it back.
  */
 document.addEventListener(ACCOUNT_EVENT, (event) => {
-  if (!state.saved || (event as CustomEvent<AccountChange>).detail !== "load") return;
-  // What's saved is in no key of the renders' caches: a new state misses them all.
-  state = { ...state };
-  lastFacets = "";
-  lastScope = "";
-  renderSoon();
+  if (state.saved && (event as CustomEvent<AccountChange>).detail === "load") refresh();
 });
 
 // What was typed in the search before this script ran, on a slow connection, is searched for:
@@ -463,8 +523,11 @@ if ("typed" in q.dataset && q.value !== state.q) {
   state = patched(state, { q: q.value });
   history.replaceState(null, "", query(state) || location.pathname);
 }
-// The page was pre-rendered unfiltered, and hidden until now if its link asks for another list.
+// The page was pre-rendered unfiltered, and hidden until now if its link asks for another list, or
+// if it's returned to, to be put back where it was.
 if (location.search) render(true);
+const left = (history.state as { at?: Place } | null)?.at;
+if (left) backTo(left);
 delete document.documentElement.dataset.pending;
 
 // The TLDRs' prose, which only the search reads, is half the data, so it loads after the page.
@@ -473,11 +536,5 @@ void import("../data/skills.jsonc?search-words").then(({ default: words }) => {
   addSearchWords(words);
   // For whoever drives the page: from now on, a search finds what it will always find. See ready.ts.
   document.documentElement.setAttribute("data-search-words", "");
-  if (!state.q.trim()) return;
-  // The renders' caches are keyed by the state, which the prose isn't in: a new state misses them
-  // all, the list's heading's count and the lines under the boxes included.
-  state = { ...state };
-  lastFacets = "";
-  lastScope = "";
-  renderSoon();
+  if (state.q.trim()) refresh();
 });
