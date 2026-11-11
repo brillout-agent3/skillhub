@@ -3022,8 +3022,11 @@ body:has(.skills-view) #page-head {
   }
 
   /* The numbers go under the row, as wide as it, so that their charts have room. */
+  /* Under the row's words, as wide as it. Its charts stop at a phone's width: on a tablet they
+     would stretch to bars as wide as words. */
   .props {
     order: 0;
+    grid-template-columns: 58px max-content minmax(0, 22em);
     align-self: stretch;
     min-width: 0;
     padding: 8px 0 0;
