@@ -49,12 +49,12 @@ That's also how to reach states the pages can't set up fast, such as the most a 
 
 The pages are pre-rendered, so they show before their controls work. Wait for what the page says about itself, never for a fixed time:
 
-| Wait for | Meaning |
-| --- | --- |
-| `html[data-ready]` | The page's script ran: its controls work |
-| `html[data-account]` | The API told who's logged in: the Save buttons and the Saved switch show it |
-| `html[data-search-words]` | The search looks through the TLDRs' prose too; until then it finds fewer skills |
-| no `#results[aria-busy="true"]` | The list a change leads to is complete |
+| Wait for                        | Meaning                                                                         |
+| ------------------------------- | ------------------------------------------------------------------------------- |
+| `html[data-ready]`              | The page's script ran: its controls work                                        |
+| `html[data-account]`            | The API told who's logged in: the Save buttons and the Saved switch show it     |
+| `html[data-search-words]`       | The search looks through the TLDRs' prose too; until then it finds fewer skills |
+| no `#results[aria-busy="true"]` | The list a change leads to is complete                                          |
 
 `networkidle` isn't one of them: in `pnpm dev` it fires before the home page's script runs.
 
