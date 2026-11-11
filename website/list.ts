@@ -831,9 +831,10 @@ export function askPrompt(shown: State, need: string, base: string): string {
           .join(", ")}`
       : `### ${e.name} (${idPath(skillPage(e))}/)`;
     const tags = isBundle(e) ? [] : e.agentReview.tags.filter((t) => !quiet(t));
-    const facts = review.tldr?.glance.map((g) => `- ${g.label}: ${g.text}`) ?? [
-      `- ${review.description}`,
-    ];
+    // As in its row: its description stands in for a glance it doesn't have.
+    const facts = review.tldr?.glance.length
+      ? review.tldr.glance.map((g) => `- ${g.label}: ${g.text}`)
+      : [`- ${review.description}`];
     return [
       head,
       [repoKey(e), ...numbers, tags.length ? `tags: ${tags.join(", ")}` : ""]

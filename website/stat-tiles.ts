@@ -22,11 +22,14 @@ export interface Tile {
   trend?: number[] | null;
 }
 
-/** The tiles, in their order; a tile whose number is unknown is left out. */
+/**
+ * The tiles, in their order; a tile whose number is unknown is left out, and so is the whole
+ * section when none is known.
+ */
 export function statTilesHtml(e: Entry, tiles: Tile[]): string {
-  const html = tiles.map(({ p, label, from, shown, trend }) => {
+  const html = tiles.flatMap(({ p, label, from, shown, trend }) => {
     const standing = standingOf(p, e);
-    if (!standing) return "";
+    if (!standing) return [];
     // Where it comes from, and its exact place: on its words and chart, not over the trend's own tip.
     const title = esc(`${PROPS[p].title(e)}. ${standing.place}`);
     return `
@@ -40,6 +43,7 @@ export function statTilesHtml(e: Entry, tiles: Tile[]): string {
         ${trend ? trendTableHtml(trend, data.asOf.installs) : ""}
       </figure>`;
   });
+  if (!html.length) return "";
   return `
     <section class="stat-tiles" aria-label="Its numbers">${html.join("")}</section>
     ${crowdDefsHtml()}`;
