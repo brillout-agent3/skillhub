@@ -1,6 +1,16 @@
 /** Every page besides the skills list, and the header they share. */
 
-import { bundle, bundleUrl, data, owner, repo, skill, skillUrl } from "./data.ts";
+import {
+  anchorsUrl,
+  bundle,
+  bundleUrl,
+  data,
+  owner,
+  repo,
+  skill,
+  skillUrl,
+  wideCodeUrl,
+} from "./data.ts";
 import { expect, list, n, open, ready, test } from "./fixtures.ts";
 
 const clipboard = (page: import("@playwright/test").Page) =>
@@ -37,6 +47,27 @@ test("a skill's page: its name, numbers, install command and SKILL.md", async ({
   await ready(page);
   await expect(page).toHaveURL(`/?tag=${encodeURIComponent(name)}`);
   await expect(list(page).scope.locator('[data-remove="tag"]')).toHaveCount(1);
+});
+
+test("a SKILL.md's links to its own headings lead to them", async ({ page }) => {
+  await open(page, anchorsUrl);
+  const link = page.locator('.markdown a[href^="#md-"]').first();
+  const href = (await link.getAttribute("href")) as string;
+  await link.click();
+  await expect(page).toHaveURL(`${anchorsUrl}${href}`);
+  await expect(page.locator(`[id="${href.slice(1)}"]`)).toBeInViewport();
+});
+
+test("the keyboard reaches a SKILL.md's blocks that scroll sideways, and only those", async ({
+  page,
+}) => {
+  await open(page, wideCodeUrl);
+  const blocks = page.locator(".markdown pre, .markdown table");
+  await expect(page.locator('.markdown pre[tabindex="0"]')).not.toHaveCount(0);
+  const mismatched = await blocks.evaluateAll(
+    (all) => all.filter((b) => b.scrollWidth > b.clientWidth !== (b.tabIndex === 0)).length,
+  );
+  expect(mismatched).toBe(0);
 });
 
 test("a bundle's page: its skills in order, and how to install them", async ({ page }) => {

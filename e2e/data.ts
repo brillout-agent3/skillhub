@@ -3,8 +3,11 @@
  * tests name no number and no skill of their own.
  */
 
-import { readData } from "../scripts/data.ts";
+import { existsSync, readFileSync } from "node:fs";
+import { readData, root } from "../scripts/data.ts";
 import { bundleRepo, github, ownerPage, repoPage, skillPage } from "../website/github.ts";
+import { renderSkillMd } from "../website/markdown.ts";
+import { copyPath } from "../website/skill-md.ts";
 
 export const data = readData();
 
@@ -37,6 +40,27 @@ export const skill = data.skills
   )
   .toSorted((a, b) => (b["skills.sh"].installs ?? 0) - (a["skills.sh"].installs ?? 0))[0];
 export const skillUrl = `/${skillPage(skill)}/`;
+
+const mostInstalled = data.skills.toSorted(
+  (a, b) => (b["skills.sh"].installs ?? 0) - (a["skills.sh"].installs ?? 0),
+);
+/** The most installed skill whose SKILL.md, as its page renders it, has what `has` looks for. */
+function skillWhoseSkillMd(has: (html: string, text: string) => boolean): string {
+  const found = mostInstalled.find((s) => {
+    const file = `${root}${copyPath(s)}`;
+    if (!existsSync(file)) return false;
+    const text = readFileSync(file, "utf8");
+    return has(renderSkillMd(text, null).html, text);
+  });
+  if (!found) throw new Error("no SKILL.md copy has what a test looks for");
+  return `/${skillPage(found)}/`;
+}
+/** The page of a skill whose SKILL.md links to one of its own headings, as a table of contents does. */
+export const anchorsUrl = skillWhoseSkillMd((html) => html.includes('href="#md-'));
+/** The page of a skill whose SKILL.md has a line of code too long for any screen. */
+export const wideCodeUrl = skillWhoseSkillMd(
+  (html, text) => html.includes("<pre>") && /^```[\s\S]*?^.{240,}$/m.test(text),
+);
 
 /** A bundle to test with: the one with the most skills. */
 export const bundle = data.bundles.toSorted(
