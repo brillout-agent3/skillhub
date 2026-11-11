@@ -17,6 +17,8 @@ import { siteOf } from "./data/edge-cases.ts";
  * Playwright may not look for. Elsewhere: `pnpm exec playwright install chromium`, once.
  */
 const CLOUD_CHROMIUM = "/opt/pw-browsers/chromium";
+/** How to launch the browser, here and wherever else this repo drives one: scripts/check-widths.ts. */
+export const launchOptions = existsSync(CLOUD_CHROMIUM) ? { executablePath: CLOUD_CHROMIUM } : {};
 
 export default defineConfig({
   testDir: "e2e",
@@ -33,7 +35,7 @@ export default defineConfig({
     // Recording every test costs a third of the run: turn it on to debug one, with --trace on.
     trace: "off",
     screenshot: "only-on-failure",
-    launchOptions: existsSync(CLOUD_CHROMIUM) ? { executablePath: CLOUD_CHROMIUM } : {},
+    launchOptions,
   },
   // One after the other: the second starts once the first answers.
   webServer: [server(false), server(true)],

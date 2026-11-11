@@ -13,6 +13,8 @@
     "check:types": "tsc --noEmit && tsc --noEmit -p worker",
     "// After pnpm build: the built site's links and ids": "",
     "check:site": "pnpm run node-ts scripts/check-site.ts",
+    "// After pnpm build, when the layout changed: the pages that scroll sideways, at a phone's width and wider. A minute a width: not in CI": "",
+    "check:widths": "pnpm run node-ts scripts/check-widths.ts",
     "// After a deploy: whether the live site answers as it should": "",
     "check:live": "pnpm run node-ts scripts/check-live.ts",
     "========= The Worker's tests, in worker/index.test.ts": "",
