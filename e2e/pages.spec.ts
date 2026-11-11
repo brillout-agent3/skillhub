@@ -199,6 +199,16 @@ test.describe("a page that doesn't exist", () => {
     await ready(page);
     await expect(page).toHaveURL("/");
   });
+
+  test("an address with capitals, as GitHub writes some names, leads to its page", async ({
+    page,
+  }) => {
+    // The pages' addresses are lowercase: in capitals there's none, until it's tried in lowercase.
+    await page.goto(skillUrl.toUpperCase());
+    await expect(page).toHaveURL(skillUrl);
+    await ready(page);
+    await expect(page.locator("h1")).toHaveText(skill.name);
+  });
 });
 
 test("the header leads to every page, and marks the one you're on", async ({ page }) => {
