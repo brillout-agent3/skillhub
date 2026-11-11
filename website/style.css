@@ -132,6 +132,9 @@ body {
   color: var(--ink);
   font-size: 16px;
   line-height: 1.5;
+  /* A word too long for its line, such as a file's name on a phone, breaks rather than stick out
+     of its box, and scroll the page sideways. */
+  overflow-wrap: break-word;
 }
 
 /* Headings and names: the cut terminals. */
@@ -1922,15 +1925,24 @@ body:has(.skills-view) #page-head {
   display: contents;
 }
 
+/* "anywhere": a label's longest word doesn't count as its least width, so that the label's column
+   keeps to its share of the line (see fit-content, below) whatever the label is. */
 .glance dt {
   color: var(--ink-3);
+  overflow-wrap: anywhere;
 }
 
 .glance dd {
   margin: 0;
 }
 
+/*
+ * On a page every fact shows, and a label can be as long as "Unlike <another skill's name>": past
+ * 14em it wraps. Left as wide as it gets, one long label pushed every fact's text into what was
+ * left of the line: half of it on a wide screen, nothing at all on a phone, see below.
+ */
 .at-a-glance .glance {
+  grid-template-columns: fit-content(14em) minmax(0, 66ch);
   gap: 6px 20px;
   margin: 16px 0 4px;
   color: var(--ink);
@@ -2283,10 +2295,15 @@ body:has(.skills-view) #page-head {
   fill: var(--spark-line);
 }
 
+/* Over its week (--at, from 0 to 1 along the chart: see mountSparklines), sliding with it as a
+   row's rank does under its bar: over the first week it starts where the chart starts, over the
+   last it ends where it ends. Centered on its week, it stuck out of the tile at the chart's right
+   end, and past a phone's screen, which then scrolled sideways. */
 .spark-tip {
   position: absolute;
   bottom: calc(100% + 6px);
-  transform: translateX(-50%);
+  left: calc(var(--at, 0.5) * 100%);
+  translate: calc(var(--at, 0.5) * -100%);
   padding: 6px 11px;
   border-radius: 6px;
   background: var(--paper);
@@ -3045,8 +3062,11 @@ body:has(.skills-view) #page-head {
     padding: 16px;
   }
 
-  .glance {
-    grid-template-columns: max-content minmax(0, 1fr);
+  /* The labels take two fifths of the line at most, and wrap past that: a long one, left on one
+     line, took the whole screen, and the facts' text was off it. */
+  .glance,
+  .at-a-glance .glance {
+    grid-template-columns: fit-content(40%) minmax(0, 1fr);
   }
 
   /* The numbers go under the row, as wide as it, so that their charts have room. */

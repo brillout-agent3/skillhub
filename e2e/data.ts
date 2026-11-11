@@ -62,6 +62,27 @@ export const wideCodeUrl = skillWhoseSkillMd(
   (html, text) => html.includes("<pre>") && /^```[\s\S]*?^.{240,}$/m.test(text),
 );
 
+/** The page of the skill whose glance has the most of something, which a phone's width has to take. */
+function skillWhoseGlanceHasMost(of: (fact: { label: string; text: string }) => number): string {
+  const most = (s: (typeof data.skills)[number]) =>
+    Math.max(0, ...(s.agentReview.tldr?.glance ?? []).map(of));
+  return `/${skillPage(data.skills.toSorted((a, b) => most(b) - most(a))[0])}/`;
+}
+/** The page of the skill whose glance has the longest label, such as "Unlike <another skill's name>". */
+export const longLabelUrl = skillWhoseGlanceHasMost((fact) => fact.label.length);
+/**
+ * The page of the skill whose glance has the longest run of letters a line can't break in, such as
+ * a file's name: a line breaks at a space, and after a hyphen.
+ */
+export const longWordUrl = skillWhoseGlanceHasMost((fact) =>
+  Math.max(...fact.text.split(/[\s-]+/).map((word) => word.length)),
+);
+
+/** The stack tags the skills have: stack is the one facet whose values aren't a closed list. */
+export const stackTags = new Set(
+  data.skills.flatMap((s) => s.agentReview.tags.filter((t) => t.startsWith("stack:"))),
+);
+
 /** A bundle to test with: the one with the most skills. */
 export const bundle = data.bundles.toSorted(
   (a, b) => b.agentReview.skills.length - a.agentReview.skills.length,

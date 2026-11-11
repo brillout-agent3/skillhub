@@ -1,6 +1,6 @@
 /** On a phone: nothing wider than the screen, and the list's settings and tags behind their buttons. */
 
-import { bundleUrl, owner, repo, skillUrl } from "./data.ts";
+import { bundleUrl, longLabelUrl, longWordUrl, owner, repo, skillUrl } from "./data.ts";
 import { expect, open, test } from "./fixtures.ts";
 
 const WIDTH = 390;
@@ -10,6 +10,9 @@ for (const [name, url] of [
   ["the skills list", "/"],
   ["a filtered list", "/?q=design&tag=type%3Aworkflow&stars=100..&show=bundles"],
   ["a skill's page", skillUrl],
+  // What's hardest to fit: a label as long as another skill's name, and a word as long as a file's.
+  ["a skill's page whose glance has a long label", longLabelUrl],
+  ["a skill's page whose glance has a long word", longWordUrl],
   ["a bundle's page", bundleUrl],
   ["a repo's page", repo.url],
   ["an owner's page", owner.url],
@@ -20,6 +23,35 @@ for (const [name, url] of [
     await open(page, url);
     expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(WIDTH);
   });
+
+test("a glance's facts keep most of the line, however long a label is", async ({ page }) => {
+  await open(page, longLabelUrl);
+  const [glance, text] = await page
+    .locator(".at-a-glance .glance")
+    .evaluate((dl) => [
+      dl.getBoundingClientRect().width,
+      (dl.querySelector("dd") as Element).getBoundingClientRect().width,
+    ]);
+  expect(text).toBeGreaterThan(glance / 2);
+});
+
+test("a trend's tooltip stays on the screen, at its last week too", async ({ page }) => {
+  await open(page, skillUrl);
+  const spark = page.locator(".spark");
+  await spark.scrollIntoViewIfNeeded();
+  const box = (await spark.boundingBox()) as {
+    x: number;
+    y: number;
+    width: number;
+    height: number;
+  };
+  // The last week is at the chart's right end, by the screen's edge.
+  await page.touchscreen.tap(box.x + box.width - 3, box.y + box.height / 2);
+  const tip = page.locator(".spark-tip");
+  await expect(tip).toBeVisible();
+  expect(await tip.evaluate((el) => el.getBoundingClientRect().right)).toBeLessThanOrEqual(WIDTH);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(WIDTH);
+});
 
 test("a number filter's slider opens in view", async ({ page }) => {
   await open(page, "/?show=bundles");

@@ -4,6 +4,8 @@
  * under the tile (see trendTableHtml), so the tooltip never gates a value.
  */
 
+import { percent } from "./format.ts";
+
 const W = 240;
 const H = 56;
 const PAD_X = 6;
@@ -33,7 +35,7 @@ export function trendHtml(values: number[], snapshot: string): string {
   const { x, y } = geometry(values);
   const first = values[0];
   const last = values[values.length - 1];
-  const change = first > 0 ? Math.round(((last - first) / first) * 100) : null;
+  const change = first > 0 ? percent((last - first) / first) : null;
   const points = values.map((v, i) => `${x(i).toFixed(1)},${y(v).toFixed(1)}`).join(" ");
   const spoken = values.map((v, i) => `week to ${weeks[i]}: ${v.toLocaleString("en")}`).join("; ");
   return `
@@ -50,7 +52,7 @@ export function trendHtml(values: number[], snapshot: string): string {
         </svg>
         <div class="spark-tip" aria-live="polite" hidden><strong></strong><span></span></div>
       </div>
-      <div class="stat-delta">${change === null ? "8 weeks" : `${change > 0 ? "+" : ""}${change}% in 8 weeks`}</div>
+      <div class="stat-delta">${change === null ? "8 weeks" : `${change} in 8 weeks`}</div>
     </div>`;
 }
 
@@ -97,7 +99,8 @@ export function mountSparklines(root: ParentNode): void {
       marker.setAttribute("visibility", "visible");
       value.textContent = `${values[active].toLocaleString("en")} installs`;
       week.textContent = `week to ${weeks[active]}`;
-      tip.style.left = `${(x(active) / W) * 100}%`;
+      // Where the week is along the chart, from 0 to 1: the tooltip slides with it, see .spark-tip.
+      tip.style.setProperty("--at", (x(active) / W).toFixed(3));
       tip.hidden = false;
     };
     const hide = () => {
