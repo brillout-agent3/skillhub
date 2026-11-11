@@ -11,7 +11,7 @@ import type {
   ClientData as Data,
   ClientSkill as Skill,
 } from "./client-data.ts";
-import { bundleRepo, github, ownerPage, repoPage, skillPage } from "./github.ts";
+import { bundlePage, bundleRepo, github, ownerPage, repoPage, skillPage } from "./github.ts";
 
 export const data = raw as Data;
 export const GITHUB = "https://github.com/brillout/skillhub";
@@ -167,8 +167,8 @@ export const ownerHref = (repo: string) => href(`${idPath(ownerPage(repo))}/`);
 export const repoHref = (repo: string) => href(`${idPath(repoPage(repo))}/`);
 /** The skill's own page: see skillPage(). */
 export const skillHref = (id: string) => href(`${idPath(skillPage(skillById.get(id) as Skill))}/`);
-/** The bundle's page. */
-export const bundleHref = (id: string) => href(`bundle/${idPath(id)}/`);
+/** The bundle's page: see bundlePage(). */
+export const bundleHref = (id: string) => href(`${idPath(bundlePage({ id }))}/`);
 
 /** The crumbs atop a page inside a repo (`owner/name`): the list, its owner, the repo, then `more`. */
 export function crumbsHtml(repo: string, ...more: string[]): string {

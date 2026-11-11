@@ -40,7 +40,7 @@ import {
   publishedOf,
   weekOf,
 } from "./skills.ts";
-import { skillPage } from "./github.ts";
+import { bundlePage, skillPage } from "./github.ts";
 // The browser's copy of the data, which leaves some fields out: see client-data.ts.
 import {
   searchWords,
@@ -867,7 +867,7 @@ export function askPrompt(shown: State, need: string, base: string): string {
       starsOf(e) !== null ? `${compact(starsOf(e) as number)} stars` : "",
     ].filter(Boolean);
     const head = isBundle(e)
-      ? `### ${nameOf(e)} (bundle/${idPath(e.id)}/): a bundle of ${skillsOf(e)
+      ? `### ${nameOf(e)} (${idPath(bundlePage(e))}/): a bundle of ${skillsOf(e)
           .map((s) => s.name)
           .join(", ")}`
       : `### ${e.name} (${idPath(skillPage(e))}/)`;

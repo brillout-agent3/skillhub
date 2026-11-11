@@ -5,7 +5,14 @@
 
 import { existsSync, readFileSync } from "node:fs";
 import { readData, root } from "../scripts/data.ts";
-import { bundleRepo, github, ownerPage, repoPage, skillPage } from "../website/github.ts";
+import {
+  bundlePage,
+  bundleRepo,
+  github,
+  ownerPage,
+  repoPage,
+  skillPage,
+} from "../website/github.ts";
 import { renderSkillMd } from "../website/markdown.ts";
 import { copyPath } from "../website/skill-md.ts";
 
@@ -87,7 +94,7 @@ export const stackTags = new Set(
 export const bundle = data.bundles.toSorted(
   (a, b) => b.agentReview.skills.length - a.agentReview.skills.length,
 )[0];
-export const bundleUrl = `/bundle/${bundle.id}/`;
+export const bundleUrl = `/${bundlePage(bundle)}/`;
 
 /** What a repo's page lists: its bundles, then every skill of the repo. */
 const listing = (repo: string) => ({

@@ -15,7 +15,14 @@
  */
 
 import { existsSync, readFileSync } from "node:fs";
-import { bundleRepo, github, ownerPage, repoPage, skillPage } from "../website/github.ts";
+import {
+  bundlePage,
+  bundleRepo,
+  github,
+  ownerPage,
+  repoPage,
+  skillPage,
+} from "../website/github.ts";
 import { readData, root } from "./data.ts";
 
 const args = process.argv.slice(2);
@@ -54,7 +61,7 @@ const PAGES = [
     `/${skillPage(skill)}/`,
     `/${repoPage(github(skill).repo)}/`,
     `/${ownerPage(github(skill).repo)}/`,
-    `/bundle/${bundle.id}/`,
+    `/${bundlePage(bundle)}/`,
     `/${repoPage(bundleRepo(bundle))}/`,
   ]),
 ];

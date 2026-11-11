@@ -12,6 +12,7 @@ import {
   stackTags,
   wideCodeUrl,
 } from "./data.ts";
+import { bundlePage } from "../website/github.ts";
 import { expect, list, n, open, ready, test } from "./fixtures.ts";
 
 const clipboard = (page: import("@playwright/test").Page) =>
@@ -100,7 +101,7 @@ test("a bundle's page says which of its skills work alone: all, some or none", a
     // The data may have no bundle of a kind, on some day.
     const found = data.bundles.find(is);
     if (!found) continue;
-    await open(page, `/bundle/${found.id}/`);
+    await open(page, `/${bundlePage(found)}/`);
     await expect(page.locator("#skills + p")).toContainText(said);
     await expect(page.locator(".bundle-skills .kind")).toHaveCount(
       found.agentReview.skills.length - alone(found),
@@ -208,6 +209,18 @@ test.describe("a page that doesn't exist", () => {
     await expect(page).toHaveURL(skillUrl);
     await ready(page);
     await expect(page.locator("h1")).toHaveText(skill.name);
+  });
+
+  test("a bundle's address with its repo's capitals, as it once was, leads to its page", async ({
+    page,
+  }) => {
+    const cased = data.bundles.find((b) => b.id !== b.id.toLowerCase());
+    test.skip(!cased, "no bundle's id has capitals today");
+    if (!cased) return;
+    await page.goto(`/bundle/${cased.id}/`);
+    await expect(page).toHaveURL(`/${bundlePage(cased)}/`);
+    await ready(page);
+    await expect(page.locator("h1")).toContainText(cased.agentReview.name);
   });
 });
 

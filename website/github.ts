@@ -8,11 +8,13 @@ export function github(skill: { id: string }): { repo: string; dir: string } {
 
 /*
  * Where pages are on this site: an owner's, such as vercel-labs; a repo's, such as
- * vercel-labs/agent-desktop; and a skill's, its repo's and its name, such as
- * vercel-labs/agent-desktop/agent-desktop for vercel-labs/agent-desktop/skills/agent-desktop.
+ * vercel-labs/agent-desktop; a skill's, its repo's and its name, such as
+ * vercel-labs/agent-desktop/agent-desktop for vercel-labs/agent-desktop/skills/agent-desktop; and
+ * a bundle's, its id under bundle/, such as bundle/mattpocock/skills@writing.
  * Lowercase, as on skills.sh: GitHub ignores case, and the ids spell some owners two ways, such as
  * AgriciDaniel and agricidaniel, which get one page. `pnpm run check` makes sure no two skills
- * share a page, and that none is taken by the site's other pages.
+ * share a page, nor two bundles, and that none is taken by the site's other pages. An address
+ * written with capitals, as GitHub writes it, leads to its lowercase page: see pages/_error.
  */
 
 /** The page of the owner of a repo (`owner/name`). */
@@ -22,6 +24,9 @@ export const repoPage = (repo: string) => repo.toLowerCase();
 /** The page of a skill. */
 export const skillPage = (skill: { id: string; name: string }) =>
   `${repoPage(github(skill).repo)}/${skill.name.toLowerCase()}`;
+
+/** The page of a bundle. */
+export const bundlePage = (bundle: { id: string }) => `bundle/${bundle.id.toLowerCase()}`;
 
 /** The repo a bundle is in. */
 export const bundleRepo = (bundle: { id: string }) => bundle.id.split("@")[0];

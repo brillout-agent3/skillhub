@@ -12,7 +12,7 @@ import { generate, SCHEMAS, TYPES, undocumented } from "./schema.ts";
 import { nameInSkillMd } from "../website/markdown.ts";
 import { copyPath } from "../website/skill-md.ts";
 import type { Facet } from "../data/types.ts";
-import { bundleRepo, github, repoPage, skillPage } from "../website/github.ts";
+import { bundlePage, bundleRepo, github, repoPage, skillPage } from "../website/github.ts";
 
 const root = new URL("../", import.meta.url);
 const data = readData();
@@ -152,10 +152,16 @@ for (const skill of data.skills) {
 
 const bundled = new Map<string, string>();
 const bundleIds = new Set<string>();
+const bundlePages = new Map<string, string>();
 for (const bundle of data.bundles) {
   const at = `bundle ${bundle.id}`;
   if (bundleIds.has(bundle.id)) fail(at, "duplicate bundle id");
   bundleIds.add(bundle.id);
+  // Its page is its id in lowercase, as a skill's is: two ids that differ in case would share it.
+  const page = bundlePage(bundle);
+  if (bundlePages.has(page))
+    fail(at, `its page /${page}/ is bundle ${bundlePages.get(page)}'s too`);
+  bundlePages.set(page, bundle.id);
   const repo = bundleRepo(bundle);
   if (!repos.has(repo)) fail(at, `repo "${repo}" has no entry in repos`);
   if (!bundle.agentReview.name || !bundle.agentReview.description)

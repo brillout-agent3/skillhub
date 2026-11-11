@@ -10,14 +10,14 @@ import AxeBuilder from "@axe-core/playwright";
 import type { Locator, Page } from "@playwright/test";
 import { edgeCases, siteOf, type BundleCase, type SkillCase } from "../data/edge-cases.ts";
 import { readData } from "../scripts/data.ts";
-import { github, repoPage, skillPage } from "../website/github.ts";
+import { bundlePage, github, repoPage, skillPage } from "../website/github.ts";
 import { expect, list, open, searchable, settled, test } from "./fixtures.ts";
 
 test.use({ baseURL: `http://localhost:${siteOf(true).port}` });
 
 const { data, skills, bundles } = edgeCases(readData());
 const skillUrl = (name: SkillCase) => `/${skillPage(skills[name])}/`;
-const bundleUrl = (name: BundleCase) => `/bundle/${bundles[name].id}/`;
+const bundleUrl = (name: BundleCase) => `/${bundlePage(bundles[name])}/`;
 const PAGES: [name: string, url: string][] = [
   ["the list", "/"],
   ...(Object.keys(skills) as SkillCase[]).map((name) => [name, skillUrl(name)] as [string, string]),
