@@ -411,8 +411,20 @@ body:has(.skills-view) #page-head {
   margin-bottom: 12px;
 }
 
-.list-count-row .list-count {
+.list-count-row .list-count,
+.list-count-row .scope {
   margin: 0;
+}
+
+/* Both counts' rows as tall as a chip, so that the list and the tags start level, filters or not. */
+.list-count-row,
+#facets > .list-count {
+  min-height: 28px;
+}
+
+#facets > .list-count {
+  display: flex;
+  align-items: center;
 }
 
 .show-row {
@@ -452,6 +464,19 @@ body:has(.skills-view) #page-head {
 
 .tag-facets > .facet:first-child {
   margin-top: 0;
+}
+
+/* The tags on a light tile, as the settings are, its top level with the list's. */
+@media (min-width: 901px) {
+  #filters {
+    padding-left: 24px;
+  }
+
+  .tag-facets {
+    padding: 12px 12px 16px;
+    border-radius: 8px;
+    background: var(--t-plain);
+  }
 }
 
 /* The tags' count is a button on narrow screens only, where it shows and hides them. */
