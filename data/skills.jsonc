@@ -4747,7 +4747,7 @@
     },
     {
       "id": "software-mansion/argent",
-      "skew": 0,
+      "skew": 369,
       "agentReview": {
         "name": "Argent",
         "description": "Software Mansion's skills for Argent, an MCP server that lets the agent use your app on simulators, emulators, phones, TVs and Chromium apps, to test its UI, record it, debug its JavaScript, profile it and try out design variants.",
@@ -6399,7 +6399,7 @@
     },
     {
       "id": "earthtojake/text-to-cad",
-      "skew": 2925,
+      "skew": 4701,
       "agentReview": {
         "name": "text-to-cad",
         "description": "Design physical parts with an agent: text-to-cad's skills for 3D models, purchasable parts, DXF drawings, robot descriptions, fabrication and 3D-printing checks, slicing and printer handoff.",
@@ -6659,7 +6659,7 @@
     },
     {
       "id": "AgriciDaniel/claude-seo",
-      "skew": 0,
+      "skew": 2313,
       "agentReview": {
         "name": "Claude SEO",
         "description": "An SEO plugin for Claude Code: full-site audits by parallel subagents, plus skills for each area of SEO, Google and DataForSEO data, planning, briefs and drift checks.",
@@ -12352,9 +12352,9 @@
         "firstSeen": "2026-01-22"
       },
       "skillMd": {
-        "version": "070be98109c03f04a95f704533e8f6e9868d0525",
-        "updated": "2026-11-10",
-        "skew": 704
+        "version": "7fdd63c03fd342aab4fe44507c77c3221ffd43c6",
+        "updated": "2026-11-11",
+        "skew": 747
       },
       "agentReview": {
         "description": "Controls a browser over CDP for automation, scraping and testing.",
@@ -14479,9 +14479,9 @@
         "firstSeen": "2026-02-19"
       },
       "skillMd": {
-        "version": "8a3bde8083bd121971f61cba4bdbe5fd8c0eee7d",
-        "updated": "2026-11-10",
-        "skew": 159
+        "version": "3e729622e3de0c82abdb906190d91f9018045872",
+        "updated": "2026-11-11",
+        "skew": 184
       },
       "agentReview": {
         "description": "Writes and iterates ad copy for Google, Meta, LinkedIn, TikTok and X within each platform's limits.",
@@ -18838,9 +18838,9 @@
         "firstSeen": "2026-04-28"
       },
       "skillMd": {
-        "version": "b965c94827d6167fd2912a7ca5ad5505040ae4e0",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "b7cc1452ee2a3be6250ddf170f0c201621050ff9",
+        "updated": "2026-11-11",
+        "skew": 25
       },
       "agentReview": {
         "description": "Optimizes a React Native app's performance with lint and code sweeps, then profiling the running app to find and fix the worst bottlenecks.",
@@ -18901,9 +18901,9 @@
         "firstSeen": "2026-05-12"
       },
       "skillMd": {
-        "version": "b965c94827d6167fd2912a7ca5ad5505040ae4e0",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "b7cc1452ee2a3be6250ddf170f0c201621050ff9",
+        "updated": "2026-11-11",
+        "skew": 31
       },
       "agentReview": {
         "description": "Drives iOS simulators, Android emulators, phones and Chromium apps through Argent: taps, gestures, typing, hardware buttons and screenshots.",
@@ -18959,9 +18959,9 @@
         "firstSeen": "2026-04-28"
       },
       "skillMd": {
-        "version": "b965c94827d6167fd2912a7ca5ad5505040ae4e0",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "b7cc1452ee2a3be6250ddf170f0c201621050ff9",
+        "updated": "2026-11-11",
+        "skew": 256
       },
       "agentReview": {
         "description": "Profiles a React Native app's re-renders and CPU use through Argent, ranks the slowest commits and components, and re-profiles after each fix.",
@@ -19016,9 +19016,9 @@
         "firstSeen": "2026-04-28"
       },
       "skillMd": {
-        "version": "b965c94827d6167fd2912a7ca5ad5505040ae4e0",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "b7cc1452ee2a3be6250ddf170f0c201621050ff9",
+        "updated": "2026-11-11",
+        "skew": 5
       },
       "agentReview": {
         "description": "Tests app UI flows on iOS or Android through Argent, checking each tap or keystroke with screenshots, element trees or logs.",
@@ -19750,9 +19750,9 @@
         "firstSeen": "2026-02-07"
       },
       "skillMd": {
-        "version": "7869eb17144789b843e6655c41bd3d570aa2288a",
-        "updated": "2026-11-10",
-        "skew": 25
+        "version": "d3b2e791102e3d89c2260db1c3818d42ceb1012b",
+        "updated": "2026-11-11",
+        "skew": 224
       },
       "agentReview": {
         "description": "Researches what people said about a topic in the last 30 days on Reddit, X, YouTube, TikTok, Hacker News, Polymarket and the web.",
@@ -21966,9 +21966,9 @@
         "firstSeen": "2026-01-20"
       },
       "skillMd": {
-        "version": "2362ca385ad74f061aa0e7b73f56543a4b7e6df2",
-        "updated": "2026-11-08",
-        "skew": 2
+        "version": "73606e0e2c457057ef3445d3217e08495069973d",
+        "updated": "2026-11-11",
+        "skew": 67
       },
       "agentReview": {
         "description": "Keeps a plan, findings and a progress log in Markdown files so long agent tasks survive lost context.",
@@ -27667,9 +27667,9 @@
         "firstSeen": "2026-06-01"
       },
       "skillMd": {
-        "version": "b965c94827d6167fd2912a7ca5ad5505040ae4e0",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "b7cc1452ee2a3be6250ddf170f0c201621050ff9",
+        "updated": "2026-11-11",
+        "skew": 2
       },
       "agentReview": {
         "description": "Compares a baseline and a current screenshot of a running app through Argent to check visual changes and catch visual regressions.",
@@ -27782,9 +27782,9 @@
         "firstSeen": "2026-07-01"
       },
       "skillMd": {
-        "version": "b965c94827d6167fd2912a7ca5ad5505040ae4e0",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "b7cc1452ee2a3be6250ddf170f0c201621050ff9",
+        "updated": "2026-11-11",
+        "skew": 50
       },
       "agentReview": {
         "description": "Drives TV apps on Apple TV, Android TV and Fire TV through Argent: reads focus, navigates with the D-pad remote, types and takes screenshots.",
@@ -29828,9 +29828,9 @@
         "firstSeen": "2026-04-24"
       },
       "skillMd": {
-        "version": "4ef4095ac6e66bab11fa35cb5ef9bc2d13556ed3",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "ea1d9d13602090420ab29fc30b6afcaf3b3cf66f",
+        "updated": "2026-11-11",
+        "skew": 18
       },
       "agentReview": {
         "description": "Pays for purchases from your Link wallet: gets a virtual card or payment token for each checkout once you approve the spend request.",
@@ -33070,9 +33070,9 @@
         "firstSeen": "2026-07-18"
       },
       "skillMd": {
-        "version": "d4a7c20e04024dced5e5d2d70e6b250cbd56f364",
-        "updated": "2026-11-10",
-        "skew": 536
+        "version": "a54e8483022200ddeb488da39ed4b43cfee60a4d",
+        "updated": "2026-11-11",
+        "skew": 542
       },
       "agentReview": {
         "description": "Reverse engineers binaries, apps, packages, firmware and recorded traffic through the REA MCP server, separating what it observed from what it infers.",
@@ -33322,9 +33322,9 @@
         "firstSeen": "2026-04-22"
       },
       "skillMd": {
-        "version": "6426f0fb03d283d33b5ca9e2f1dd9476da7a6cda",
-        "updated": "2026-11-10",
-        "skew": 2526
+        "version": "0560a3f38a788c415a6babc0b3747e6fbb4354ab",
+        "updated": "2026-11-11",
+        "skew": 4167
       },
       "agentReview": {
         "description": "Models 3D parts and assemblies as Python build123d scripts that text-to-cad's viewer shows live, and exports them as STEP, STL, 3MF or GLB.",
@@ -33440,9 +33440,9 @@
         "firstSeen": "2026-07-21"
       },
       "skillMd": {
-        "version": "a6fcb4fde098b33617cc1578d151ebf58774b883",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "300432a9e4c473229a7049ab61b8ca2522d9214c",
+        "updated": "2026-11-11",
+        "skew": 79
       },
       "agentReview": {
         "description": "Writes and rewrites docs and replies in plain English based on Simplified Technical English: short sentences, active voice, defined terms, no filler.",
@@ -45803,9 +45803,9 @@
         "firstSeen": "2026-05-13"
       },
       "skillMd": {
-        "version": "6426f0fb03d283d33b5ca9e2f1dd9476da7a6cda",
-        "updated": "2026-11-10",
-        "skew": 399
+        "version": "0560a3f38a788c415a6babc0b3747e6fbb4354ab",
+        "updated": "2026-11-11",
+        "skew": 534
       },
       "agentReview": {
         "description": "Checks DXF and STEP files against SendCutSend's current specs before you order, and reports pass, fail or need-more-info for each cited rule.",
@@ -47667,9 +47667,9 @@
         "firstSeen": "2026-02-10"
       },
       "skillMd": {
-        "version": "6be93f45064ffbadced572b5d5c95f55fd263af0",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "734998e5fdbb16cd96dbaafe2da24eee6fb0d291",
+        "updated": "2026-11-11",
+        "skew": 12
       },
       "agentReview": {
         "description": "Routes /seo commands to Claude SEO's sub-skills and runs full-site audits with parallel subagents, scored out of 100.",
@@ -47729,9 +47729,9 @@
         "firstSeen": "2026-02-10"
       },
       "skillMd": {
-        "version": "6be93f45064ffbadced572b5d5c95f55fd263af0",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "734998e5fdbb16cd96dbaafe2da24eee6fb0d291",
+        "updated": "2026-11-11",
+        "skew": 2
       },
       "agentReview": {
         "description": "Audits a whole website for SEO with parallel subagents, then writes a scored report and a prioritized action plan.",
@@ -47787,9 +47787,9 @@
         "firstSeen": "2026-02-19"
       },
       "skillMd": {
-        "version": "6be93f45064ffbadced572b5d5c95f55fd263af0",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "734998e5fdbb16cd96dbaafe2da24eee6fb0d291",
+        "updated": "2026-11-11",
+        "skew": 79
       },
       "agentReview": {
         "description": "Scores a page's content for E-E-A-T, readability, thinness and AI citation readiness, and cleans AI-typical phrasing from your own drafts.",
@@ -47844,9 +47844,9 @@
         "firstSeen": "2026-02-10"
       },
       "skillMd": {
-        "version": "6be93f45064ffbadced572b5d5c95f55fd263af0",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "734998e5fdbb16cd96dbaafe2da24eee6fb0d291",
+        "updated": "2026-11-11",
+        "skew": 2
       },
       "agentReview": {
         "description": "Outlines \"X vs Y\", \"alternatives to X\" and roundup pages: structure, feature table, schema markup and target keywords.",
@@ -47896,9 +47896,9 @@
         "firstSeen": "2026-03-23"
       },
       "skillMd": {
-        "version": "6be93f45064ffbadced572b5d5c95f55fd263af0",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "734998e5fdbb16cd96dbaafe2da24eee6fb0d291",
+        "updated": "2026-11-11",
+        "skew": 18
       },
       "agentReview": {
         "description": "Audits a local business site's Google Business Profile signals, reviews, NAP consistency, citations and local schema, and scores it out of 100.",
@@ -47951,9 +47951,9 @@
         "firstSeen": "2026-02-10"
       },
       "skillMd": {
-        "version": "6be93f45064ffbadced572b5d5c95f55fd263af0",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "734998e5fdbb16cd96dbaafe2da24eee6fb0d291",
+        "updated": "2026-11-11",
+        "skew": 419
       },
       "agentReview": {
         "description": "Validates a site's XML sitemaps against Google's limits and rules, or generates new ones from an industry template.",
@@ -48001,9 +48001,9 @@
         "firstSeen": "2026-02-19"
       },
       "skillMd": {
-        "version": "6be93f45064ffbadced572b5d5c95f55fd263af0",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "734998e5fdbb16cd96dbaafe2da24eee6fb0d291",
+        "updated": "2026-11-11",
+        "skew": 189
       },
       "agentReview": {
         "description": "Audits a site's technical SEO across nine areas, from crawlability and indexing to Core Web Vitals and JavaScript rendering.",
@@ -48057,9 +48057,9 @@
         "firstSeen": "2026-02-10"
       },
       "skillMd": {
-        "version": "6be93f45064ffbadced572b5d5c95f55fd263af0",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "734998e5fdbb16cd96dbaafe2da24eee6fb0d291",
+        "updated": "2026-11-11",
+        "skew": 193
       },
       "agentReview": {
         "description": "Audits how likely AI Overviews, ChatGPT, Perplexity and other answer engines are to cite your pages, and what to change.",
@@ -48112,9 +48112,9 @@
         "firstSeen": "2026-03-30"
       },
       "skillMd": {
-        "version": "6be93f45064ffbadced572b5d5c95f55fd263af0",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "734998e5fdbb16cd96dbaafe2da24eee6fb0d291",
+        "updated": "2026-11-11",
+        "skew": 235
       },
       "agentReview": {
         "description": "Analyzes a site's backlinks, anchor text, toxic links and competitor gaps from free and paid link data, without scoring what it didn't measure.",
@@ -48168,9 +48168,9 @@
         "firstSeen": "2026-02-19"
       },
       "skillMd": {
-        "version": "6be93f45064ffbadced572b5d5c95f55fd263af0",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "734998e5fdbb16cd96dbaafe2da24eee6fb0d291",
+        "updated": "2026-11-11",
+        "skew": 77
       },
       "agentReview": {
         "description": "Detects, validates and generates Schema.org JSON-LD for a page, and flags structured data types Google has retired.",
@@ -48218,9 +48218,9 @@
         "firstSeen": "2026-02-10"
       },
       "skillMd": {
-        "version": "6be93f45064ffbadced572b5d5c95f55fd263af0",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "734998e5fdbb16cd96dbaafe2da24eee6fb0d291",
+        "updated": "2026-11-11",
+        "skew": 544
       },
       "agentReview": {
         "description": "Reviews one URL's titles, headings, content, metadata, schema and images, and returns a score card with prioritized fixes.",
@@ -48268,9 +48268,9 @@
         "firstSeen": "2026-02-19"
       },
       "skillMd": {
-        "version": "6be93f45064ffbadced572b5d5c95f55fd263af0",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "734998e5fdbb16cd96dbaafe2da24eee6fb0d291",
+        "updated": "2026-11-11",
+        "skew": 272
       },
       "agentReview": {
         "description": "Audits a page's images for alt text, size, format, dimensions and lazy loading, and converts files to WebP or AVIF with SEO metadata.",
@@ -48326,9 +48326,9 @@
         "firstSeen": "2026-02-10"
       },
       "skillMd": {
-        "version": "6be93f45064ffbadced572b5d5c95f55fd263af0",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "734998e5fdbb16cd96dbaafe2da24eee6fb0d291",
+        "updated": "2026-11-11",
+        "skew": 11
       },
       "agentReview": {
         "description": "Validates and generates hreflang tags for multilingual sites, and checks content parity and cultural fit across language versions.",
@@ -48380,9 +48380,9 @@
         "firstSeen": "2026-02-10"
       },
       "skillMd": {
-        "version": "6be93f45064ffbadced572b5d5c95f55fd263af0",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "734998e5fdbb16cd96dbaafe2da24eee6fb0d291",
+        "updated": "2026-11-11",
+        "skew": 2
       },
       "agentReview": {
         "description": "Writes an SEO strategy for a new or existing site: competitor analysis, site structure, content calendar and a 12-month roadmap.",
@@ -48431,9 +48431,9 @@
         "firstSeen": "2026-04-15"
       },
       "skillMd": {
-        "version": "6be93f45064ffbadced572b5d5c95f55fd263af0",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "734998e5fdbb16cd96dbaafe2da24eee6fb0d291",
+        "updated": "2026-11-11",
+        "skew": 2
       },
       "agentReview": {
         "description": "Groups keywords by how many Google results they share and designs pillar-and-spoke content clusters with an internal link plan.",
@@ -48486,9 +48486,9 @@
         "firstSeen": "2026-02-19"
       },
       "skillMd": {
-        "version": "6be93f45064ffbadced572b5d5c95f55fd263af0",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "734998e5fdbb16cd96dbaafe2da24eee6fb0d291",
+        "updated": "2026-11-11",
+        "skew": 2
       },
       "agentReview": {
         "description": "Plans and audits pages generated at scale from data, with quality gates against thin content, templated pages and index bloat.",
@@ -48537,9 +48537,9 @@
         "firstSeen": "2026-03-28"
       },
       "skillMd": {
-        "version": "6be93f45064ffbadced572b5d5c95f55fd263af0",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "734998e5fdbb16cd96dbaafe2da24eee6fb0d291",
+        "updated": "2026-11-11",
+        "skew": 190
       },
       "agentReview": {
         "description": "Pulls Search Console performance, indexing status, Core Web Vitals field data and GA4 organic traffic from Google's APIs for SEO analysis.",
@@ -48601,9 +48601,9 @@
         "firstSeen": "2026-03-27"
       },
       "skillMd": {
-        "version": "6be93f45064ffbadced572b5d5c95f55fd263af0",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "734998e5fdbb16cd96dbaafe2da24eee6fb0d291",
+        "updated": "2026-11-11",
+        "skew": 32
       },
       "agentReview": {
         "description": "Audits how a local business shows up on Google Maps, Bing, Apple and OpenStreetMap: geo-grid rankings, Business Profile, reviews, competitors and listing consistency.",
@@ -48663,9 +48663,9 @@
         "firstSeen": "2026-04-15"
       },
       "skillMd": {
-        "version": "6be93f45064ffbadced572b5d5c95f55fd263af0",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "734998e5fdbb16cd96dbaafe2da24eee6fb0d291",
+        "updated": "2026-11-11",
+        "skew": 2
       },
       "agentReview": {
         "description": "Audits product pages and Product schema for e-commerce SEO, and with DataForSEO compares Google Shopping and Amazon prices, sellers and keyword gaps.",
@@ -48728,9 +48728,9 @@
         "firstSeen": "2026-05-09"
       },
       "skillMd": {
-        "version": "6be93f45064ffbadced572b5d5c95f55fd263af0",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "734998e5fdbb16cd96dbaafe2da24eee6fb0d291",
+        "updated": "2026-11-11",
+        "skew": 24
       },
       "agentReview": {
         "description": "Writes SEO content briefs from the top-ranking competitors: an outline with word counts per section, keyword placement, meta tags and content gaps.",
@@ -48789,9 +48789,9 @@
         "firstSeen": "2026-04-15"
       },
       "skillMd": {
-        "version": "6be93f45064ffbadced572b5d5c95f55fd263af0",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "734998e5fdbb16cd96dbaafe2da24eee6fb0d291",
+        "updated": "2026-11-11",
+        "skew": 2
       },
       "agentReview": {
         "description": "Snapshots a page's SEO elements as a baseline and diffs later states against it, to catch regressions after deploys.",
@@ -48850,9 +48850,9 @@
         "firstSeen": "2026-04-15"
       },
       "skillMd": {
-        "version": "6be93f45064ffbadced572b5d5c95f55fd263af0",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "734998e5fdbb16cd96dbaafe2da24eee6fb0d291",
+        "updated": "2026-11-11",
+        "skew": 2
       },
       "agentReview": {
         "description": "Checks whether a page is the type Google rewards for its keyword, then scores it against personas and user stories drawn from search results.",
@@ -48911,9 +48911,9 @@
         "firstSeen": "2026-04-26"
       },
       "skillMd": {
-        "version": "6be93f45064ffbadced572b5d5c95f55fd263af0",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "734998e5fdbb16cd96dbaafe2da24eee6fb0d291",
+        "updated": "2026-11-11",
+        "skew": 2
       },
       "agentReview": {
         "description": "Applies prompts from the FLOW SEO framework to your URL or topic, one stage at a time: find, leverage, optimize, win or local.",
@@ -51828,9 +51828,9 @@
         "firstSeen": "2026-01-27"
       },
       "skillMd": {
-        "version": "0b37364dc0a88a804c6d73d3335e776adc7f33c4",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "1d692d31ae370105afcf4d826dc36f1c4c22e21a",
+        "updated": "2026-11-11",
+        "skew": 11
       },
       "agentReview": {
         "description": "Drives and inspects a live Chrome through the Chrome DevTools MCP server, for debugging pages, automating interactions, profiling performance and testing extensions.",
@@ -51888,9 +51888,9 @@
         "firstSeen": "2026-03-11"
       },
       "skillMd": {
-        "version": "0b37364dc0a88a804c6d73d3335e776adc7f33c4",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "1d692d31ae370105afcf4d826dc36f1c4c22e21a",
+        "updated": "2026-11-11",
+        "skew": 66
       },
       "agentReview": {
         "description": "Controls and inspects Chrome from shell commands or scripts with the chrome-devtools CLI: clicks and forms, screenshots, network, performance traces and heap snapshots.",
@@ -72514,9 +72514,9 @@
         "firstSeen": "2026-02-23"
       },
       "skillMd": {
-        "version": "b43ac4f6e892ef608f8851428613c4009f0e84c7",
-        "updated": "2026-11-07",
-        "skew": 0
+        "version": "0217868a5820d791730e5c1e172d094c134ff86e",
+        "updated": "2026-11-11",
+        "skew": 420
       },
       "agentReview": {
         "description": "Operates desktop apps on macOS, Windows and Linux through their accessibility trees with the agent-desktop CLI: clicks, typing, menus, windows and screenshots.",
