@@ -1,0 +1,254 @@
+/** The skills list: its search, its settings and its tags, which all live in the URL. */
+
+import { data, listedRows, repo, skill } from "./data.ts";
+import {
+  expect,
+  fromCompact,
+  list,
+  n,
+  open,
+  ready,
+  searchable,
+  settled,
+  test,
+} from "./fixtures.ts";
+
+const all = `${n(data.skills.length)} skills`;
+
+test("opens on Rising, with every skill counted and every row in", async ({ page }) => {
+  await open(page, "/");
+  const { count, rows } = list(page);
+  await expect(count).toHaveText(all);
+  await expect(rows).toHaveCount(listedRows);
+  await expect(page.locator('[data-preset="rising"]')).toHaveAttribute("aria-pressed", "true");
+  await expect(page.locator("#sort")).toContainText("Weekly Growth");
+});
+
+test("the search narrows the list as you type, best match first", async ({ page }) => {
+  await open(page, "/");
+  await searchable(page);
+  const { count, rows, search } = list(page);
+  await search.fill(skill.name);
+  await settled(page);
+  await expect(page).toHaveURL(`/?q=${encodeURIComponent(skill.name)}`);
+  await expect(rows.first().locator(".skill-name")).toHaveText(skill.name);
+  await expect(page.locator("#sort")).toContainText("Best match");
+  await expect(count).not.toHaveText(all);
+  // What the list shows is what the lines under the boxes count.
+  const found = (await count.innerText()).split(" ")[0];
+  await expect(page.locator("#search-note")).toContainText(`Filters ${found} skill`);
+
+  await search.fill("");
+  await settled(page);
+  await expect(page).toHaveURL("/");
+  await expect(count).toHaveText(all);
+  await expect(page.locator("#sort")).toContainText("Weekly Growth");
+});
+
+test("a search that finds nothing says so, and offers the agent", async ({ page }) => {
+  await open(page, "/");
+  const { count, empty, search } = list(page);
+  await search.fill("zzzqqqxxx");
+  await settled(page);
+  await expect(count).toHaveText("0 skills");
+  await expect(empty).toContainText("No skill or bundle matches “zzzqqqxxx”");
+  await expect(empty.locator('[data-action="ask"]')).toBeVisible();
+});
+
+test("the presets set the sort and the Published range", async ({ page }) => {
+  await open(page, "/");
+  const preset = (id: string) => page.locator(`[data-preset="${id}"]`);
+
+  await preset("top").click();
+  await settled(page);
+  await expect(page).toHaveURL("/?sort=week");
+  await expect(preset("top")).toHaveAttribute("aria-pressed", "true");
+  await expect(preset("rising")).toHaveAttribute("aria-pressed", "false");
+  const weeks = (await list(page).sortedValues.allInnerTexts()).slice(0, 30).map(fromCompact);
+  expect(weeks).toEqual(weeks.toSorted((a, b) => b - a));
+
+  await preset("rising-new").click();
+  await settled(page);
+  await expect(page).toHaveURL("/?sort=week&published=90d..");
+  await expect(page.locator('[data-range-label="published"]').first()).toHaveText("Last 90 days");
+  await expect(list(page).scope).toContainText("Published: Last 90 days");
+
+  await preset("new").click();
+  await settled(page);
+  await expect(page).toHaveURL("/?sort=published");
+
+  await preset("rising").click();
+  await settled(page);
+  await expect(page).toHaveURL("/");
+});
+
+test("the Sort by menu works with the mouse and with the keyboard", async ({ page }) => {
+  await open(page, "/");
+  const button = page.locator("#sort");
+  const options = page.locator("#sort-options");
+
+  await button.click();
+  await expect(options).toBeVisible();
+  await options.locator('[data-sort="stars"]').click();
+  await settled(page);
+  await expect(options).toBeHidden();
+  await expect(page).toHaveURL("/?sort=stars");
+  await expect(button).toContainText("Stars");
+
+  await page.locator('[data-order="asc"]').click();
+  await settled(page);
+  await expect(page).toHaveURL("/?sort=stars&order=asc");
+  const stars = (await list(page).sortedValues.allInnerTexts()).slice(0, 30).map(fromCompact);
+  expect(stars).toEqual(stars.toSorted((a, b) => a - b));
+
+  // Arrow keys open it on the current sort and move among the options; Escape hands the focus back.
+  await button.focus();
+  await page.keyboard.press("ArrowDown");
+  await expect(options.locator('[data-sort="stars"]')).toBeFocused();
+  await page.keyboard.press("Home");
+  await expect(options.locator('[role="option"]').first()).toBeFocused();
+  await page.keyboard.press("Escape");
+  await expect(options).toBeHidden();
+  await expect(button).toBeFocused();
+
+  // Enter picks: the last option is Weekly Growth, the default, so the URL drops the sort.
+  await page.keyboard.press("ArrowDown");
+  await page.keyboard.press("End");
+  await page.keyboard.press("Enter");
+  await settled(page);
+  await expect(page).toHaveURL("/?order=asc");
+  await expect(button).toBeFocused();
+});
+
+test("a number filter narrows the list from its popover", async ({ page }) => {
+  await open(page, "/");
+  const { count, scope } = list(page);
+  const pill = page.locator('.range-pill[data-value="stars"]');
+  const pop = page.locator("#range-pop-stars");
+
+  await pill.click();
+  await expect(pop).toBeVisible();
+  await expect(pill).toHaveAttribute("aria-expanded", "true");
+  await pop.locator('input[data-end="0"]').focus();
+  for (let i = 0; i < 6; i++) await page.keyboard.press("ArrowRight");
+  await settled(page);
+  await expect(page).toHaveURL(/\/\?stars=\d+\.\.$/);
+  const label = await page.locator('[data-range-label="stars"]').first().innerText();
+  expect(label).toMatch(/^≥ /);
+  await expect(scope).toContainText(`Stars: ${label}`);
+  expect(Number.parseInt((await count.innerText()).replace(/,/g, ""))).toBeLessThan(
+    data.skills.length,
+  );
+
+  // Escape closes the popover and hands the focus back to its pill.
+  await page.keyboard.press("Escape");
+  await expect(pop).toBeHidden();
+  await expect(pill).toBeFocused();
+  // So does a click elsewhere.
+  await pill.click();
+  await expect(pop).toBeVisible();
+  await page.locator("h1").click();
+  await expect(pop).toBeHidden();
+
+  await scope.locator('[data-remove="range"]').click();
+  await settled(page);
+  await expect(page).toHaveURL("/");
+  await expect(count).toHaveText(all);
+});
+
+test("Show switches between skills, bundles and both", async ({ page }) => {
+  await open(page, "/");
+  const { count, rows } = list(page);
+
+  await page.locator('[data-show="bundles"]').click();
+  await settled(page);
+  await expect(page).toHaveURL("/?show=bundles");
+  await expect(count).toHaveText(`${n(data.bundles.length)} bundles`);
+  await expect(rows).toHaveCount(data.bundles.length);
+
+  // Every skill on a row of its own, those only listed inside a bundle included.
+  await page.locator('[data-show="skills"]').click();
+  await settled(page);
+  await expect(page).toHaveURL("/?show=skills");
+  await expect(count).toHaveText(all);
+  await expect(rows).toHaveCount(data.skills.length);
+
+  await page.locator('[data-show="all"]').click();
+  await settled(page);
+  await expect(page).toHaveURL("/");
+  await expect(rows).toHaveCount(listedRows);
+});
+
+test("a tag narrows the list to as many skills as it says", async ({ page }) => {
+  await open(page, "/");
+  const { count, rows, scope } = list(page);
+  const first = page.locator("#facets .chip[data-tag]").first();
+  const tag = (await first.getAttribute("data-tag")) as string;
+  const chip = page.locator(`#facets .chip[data-tag="${tag}"]`);
+  const says = Number(await chip.locator(".n").innerText());
+
+  await chip.click();
+  await settled(page);
+  await expect(page).toHaveURL(`/?tag=${encodeURIComponent(tag)}`);
+  await expect(chip).toHaveAttribute("aria-pressed", "true");
+  await expect(count).toHaveText(`${n(says)} skills`);
+  await expect(scope.locator('[data-remove="tag"]')).toHaveCount(1);
+
+  // A row's own tag joins the filters.
+  await rows.first().locator("button.tag").first().click();
+  await settled(page);
+  await expect(scope.locator('[data-remove="tag"]')).toHaveCount(2);
+
+  await scope.locator('[data-action="clear"]').click();
+  await settled(page);
+  await expect(page).toHaveURL("/");
+  await expect(count).toHaveText(all);
+  await expect(chip).toHaveAttribute("aria-pressed", "false");
+});
+
+test("a link holds the whole view, and a reload shows it again", async ({ page }) => {
+  await open(page, "/?q=design&tag=type%3Aworkflow&sort=stars&order=asc&stars=100..&show=skills");
+  await searchable(page);
+  const { count, search } = list(page);
+  const shows = async () => {
+    await expect(search).toHaveValue("design");
+    await expect(page.locator('#facets .chip[data-tag="type:workflow"]')).toHaveAttribute(
+      "aria-pressed",
+      "true",
+    );
+    await expect(page.locator("#sort")).toContainText("Stars");
+    await expect(page.locator('[data-order="asc"]')).toHaveAttribute("aria-pressed", "true");
+    await expect(page.locator('[data-range-label="stars"]').first()).toHaveText("≥ 100");
+    await expect(page.locator('[data-show="skills"]')).toHaveAttribute("aria-pressed", "true");
+  };
+  await shows();
+  const before = await count.innerText();
+  expect(before).not.toBe(all);
+
+  await page.reload();
+  await ready(page);
+  await searchable(page);
+  await shows();
+  await expect(count).toHaveText(before);
+});
+
+test("a repo's link lists that repo's skills, under its banner", async ({ page }) => {
+  await open(page, `/?repo=${encodeURIComponent(repo.repo)}&show=skills`);
+  const { count, rows, scope } = list(page);
+  await expect(page.locator(".repo-banner")).toContainText(repo.repo);
+  await expect(rows).toHaveCount(repo.skills.length);
+  await expect(count).toHaveText(`${n(repo.skills.length)} skills`);
+  await expect(scope.locator('[data-remove="repo"]')).toContainText(`from ${repo.repo}`);
+});
+
+test("Find with your agent copies a prompt with the list and the need", async ({ page }) => {
+  await open(page, "/?tag=type%3Aworkflow&show=bundles");
+  const rows = await list(page).rows.count();
+  await page.locator("#need").fill("review my pull requests");
+  await page.locator(".ask-button").click();
+  await expect(page.locator("#ask-label")).toContainText("Copied to your clipboard");
+  const prompt = await page.evaluate(() => navigator.clipboard.readText());
+  expect(prompt).toContain(`# Catalog (${rows} entries)`);
+  expect(prompt).toContain("narrowed to: tag type:workflow");
+  expect(prompt.trimEnd().endsWith("review my pull requests")).toBe(true);
+});

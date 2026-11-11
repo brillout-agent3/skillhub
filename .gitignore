@@ -2,3 +2,5 @@
 /website/dist/
 # Wrangler's local state, such as the local D1 database of `pnpm dev`.
 /.wrangler/
+# What a failed run of the end-to-end walk leaves, such as screenshots.
+/test-results/

@@ -12,5 +12,12 @@
     "verbatimModuleSyntax": true,
     "skipLibCheck": true
   },
-  "include": ["website", "scripts", "data/types.ts", "data/params.ts"]
+  "include": [
+    "website",
+    "scripts",
+    "e2e",
+    "playwright.config.ts",
+    "data/types.ts",
+    "data/params.ts"
+  ]
 }
