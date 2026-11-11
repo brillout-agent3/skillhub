@@ -1935,7 +1935,8 @@ body:has(.skills-view) #page-head {
   color: var(--t-bad-ink);
 }
 
-/* On a tinted tag, the prefix takes the tint's ink, a little lighter. */
+/* On a tinted tag, the prefix takes the tint's ink, a little lighter: at 0.88 it still reads, at
+   4.9:1 on each tint, where 0.8 fell short of the 4.5:1 that text this small needs. */
 .tag[data-tag="by:official"] .tag-facet,
 .tag[data-tag="needs:none"] .tag-facet,
 .tag[data-tag="effect:local"] .tag-facet,
@@ -1944,7 +1945,7 @@ body:has(.skills-view) #page-head {
 .tag[data-tag="effect:remote"] .tag-facet,
 .tag[data-tag="flag:republished"] .tag-facet {
   color: inherit;
-  opacity: 0.8;
+  opacity: 0.88;
 }
 
 .empty {
@@ -3077,9 +3078,22 @@ h1 .kind {
   text-decoration-color: currentColor;
 }
 
+/*
+ * While tags or a search narrow the list, the skills of a bundle that don't match step back,
+ * lighter and without their underline, beside the ones that do, in ink. Still links, so still
+ * readable: faded further, they fell to 2.4:1.
+ */
 .members a.dim {
   color: var(--ink-3);
-  opacity: 0.6;
+  text-decoration: none;
+}
+
+.members a.dim:hover {
+  text-decoration: underline;
+}
+
+.members:has(.dim) a:not(.dim) {
+  color: var(--ink);
 }
 
 .install-label {

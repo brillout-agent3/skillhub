@@ -83,6 +83,12 @@ export const repo = listings
   .filter((l) => l.bundles.length)
   .toSorted((a, b) => b.skills.length - a.skills.length)[0];
 
+/** A short page of the same kind, for what reads a whole page, such as axe: the repo with a bundle and the fewest skills. */
+export const smallRepo = listings
+  .filter((l) => l.bundles.length)
+  .toSorted((a, b) => a.skills.length - b.skills.length)[0];
+export const smallOwnerUrl = `/${ownerPage(smallRepo.repo)}/`;
+
 /** Its owner, whose page lists every repo of theirs: however their name is spelled, as GitHub ignores case. */
 const theirs = listings.filter((l) => ownerPage(l.repo) === ownerPage(repo.repo));
 export const owner = {
