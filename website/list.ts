@@ -48,7 +48,6 @@ import {
   type ClientSkill as Skill,
   type SearchWords,
 } from "./client-data.ts";
-import { brandHtml } from "./brand.ts";
 import { CHECK, CHICK, DOWNLOAD, SEARCH, STAR, iconDefsHtml } from "./prop-icons.ts";
 import { account, bookmarkSvg, loginHref, saveButton, saveKey, savedCount } from "./saves.ts";
 
@@ -62,7 +61,7 @@ const quiet = (tag: string) => tag === "by:community" || facetOf(tag) === "categ
 
 /**
  * Buttons that set the sort and the sliders (see presetPatch), highest first, each named after what
- * it shows, which the sidebar spells out: Rising, the default view, by how fast the weekly downloads
+ * it shows, which the settings spell out: Rising, the default view, by how fast the weekly downloads
  * grow; Rising & new by weekly downloads among the skills published in the last NEW_SINCE days (a
  * skill that young has no growth yet, see growthOf; one that took off from almost nothing counts as
  * published then, see publishedOf); Top by weekly downloads; New by publishing date.
@@ -857,7 +856,7 @@ function filterChip(
 }
 
 /**
- * The row's numbers, top right: each as its icon, the number, and a histogram of the catalog's
+ * The row's numbers, on its left: each as its icon, the number, and a histogram of the catalog's
  * values with its own bar and rank (see crowdHtml). The one the list is sorted by is on grey.
  */
 function propsHtml(e: Entry, st: State): string {
@@ -1216,8 +1215,8 @@ function scopeChipsHtml(st: State): string {
 }
 
 /**
- * Above the search and the agent's box, since the filters narrow both: the filters as chips, and
- * Clear filters. Nothing without filters: the list's heading says how many skills there are.
+ * Right of the list's count, over the settings' line: the filters as chips, and Clear filters.
+ * Nothing without filters: the count says how many skills there are.
  */
 export function scopeHtml(st: State): string {
   if (!filtersOn(st)) return "";
@@ -1343,7 +1342,7 @@ const CHEVRON = `<svg class="chevron" viewBox="0 0 12 12" aria-hidden="true"><pa
 
 /**
  * A pill per property, with its range; a click opens its two-handled slider in a popover under the
- * pills (see list-client.ts), with a histogram above it. The client updates them in place while a
+ * pill (see list-client.ts), with a histogram above it. The client updates them in place while a
  * slider is dragged.
  */
 export function rangesHtml(st: State): string {
@@ -1355,8 +1354,8 @@ export function rangesHtml(st: State): string {
     const handle = (end: 0 | 1, v: number) =>
       `<input type="range" min="0" max="${last}" step="1" value="${v}" data-range="${p}" data-end="${end}" aria-label="${label}, ${end ? "to" : "from"}" aria-valuetext="${rangeLabel(p, [lo, hi])}" />`;
     const { icon, tag } = PROPS[p];
-    // The pill says the word the rows say under a shared icon, such as Total, to fit the sidebar; its
-    // popover says the whole name.
+    // The pill says the word the rows say under a shared icon, such as Total, to fit the settings'
+    // line; its popover says the whole name.
     const short = tag
       ? `<span class="range-name">${icon}<span aria-hidden="true">${tag}</span><span class="sr-only">${label}</span></span>`
       : `<span class="range-name">${icon}${label}</span>`;
@@ -1365,13 +1364,9 @@ export function rangesHtml(st: State): string {
   }).join("");
 }
 
-/**
- * The presets, then the sort and its order. Re-rendered with the list, since a search adds Best
- * match. The sort is a menu of its own, rather than a <select>, to show each option's icon: see
- * list-client.ts for its keys.
- */
-export function settingsHtml(st: State): string {
-  const presets = (Object.keys(PRESETS) as Preset[])
+/** The presets' buttons, the one the state matches pressed. Re-rendered with the list. */
+export const presetsHtml = (st: State) =>
+  (Object.keys(PRESETS) as Preset[])
     .map((id) => {
       const p = PRESETS[id];
       const { sort, ranges } = presetPatch(id);
@@ -1380,6 +1375,13 @@ export function settingsHtml(st: State): string {
       return `<button type="button" class="preset" data-preset="${id}" aria-pressed="${on}" title="${esc(p.title)}">${esc(p.label)}</button>`;
     })
     .join("");
+
+/**
+ * Sort by: its menu and its order. Re-rendered with the list, since a search adds Best match. The
+ * sort is a menu of its own, rather than a <select>, to show each option's icon: see list-client.ts
+ * for its keys.
+ */
+export function sortHtml(st: State): string {
   // The sorts, each with its icon: Best match only while searching.
   const sorts: [Sort, string, string][] = [
     ...(st.q ? [["match", SEARCH, "Best match"] as [Sort, string, string]] : []),
@@ -1406,15 +1408,11 @@ export function settingsHtml(st: State): string {
               : "Highest first"
         } <span aria-hidden="true">${st.asc ? "↑" : "↓"}</span></button>`;
   return `
-    <div class="presets" role="group" aria-label="Presets">${presets}</div>
-    <button type="button" class="filters-toggle" data-action="filters" aria-controls="filters" aria-expanded="false">Filters</button>
-    <section class="facet settings">
-      <div class="sort-head"><h2 id="sort-label">Sort by</h2>${order}</div>
-      <div class="sort-menu">
-        <button type="button" class="sort-button" id="sort" data-action="sort-menu" aria-haspopup="listbox" aria-expanded="false" aria-controls="sort-options" aria-labelledby="sort-label sort">${current[1]}<span>${current[2]}</span>${CHEVRON}</button>
-        <ul class="sort-options" id="sort-options" role="listbox" aria-labelledby="sort-label" hidden>${options}</ul>
-      </div>
-    </section>`;
+    <div class="sort-head"><h2 id="sort-label">Sort by</h2>${order}</div>
+    <div class="sort-menu">
+      <button type="button" class="sort-button" id="sort" data-action="sort-menu" aria-haspopup="listbox" aria-expanded="false" aria-controls="sort-options" aria-labelledby="sort-label sort">${current[1]}<span>${current[2]}</span>${CHEVRON}</button>
+      <ul class="sort-options" id="sort-options" role="listbox" aria-labelledby="sort-label" hidden>${options}</ul>
+    </div>`;
 }
 
 /** Show's buttons: Skills & bundles, Skills or Bundles. Re-rendered with the list. */
@@ -1425,37 +1423,26 @@ export const showHtml = (st: State) =>
   ).join("");
 
 /**
- * Under Show's heading, before its buttons: a switch that shows only what you saved. list-client.ts keeps it in step with
- * the state rather than re-rendering it, so that it slides; account-client.ts keeps its count.
+ * Before Show's buttons: a switch that shows only what you saved. list-client.ts keeps it in step
+ * with the state rather than re-rendering it, so that it slides; account-client.ts keeps its count.
+ * On narrow screens, it stays in view while the Filters button hides the rest of the line.
  */
 const savedSwitchHtml = (st: State) =>
   `<button type="button" id="saved-switch" class="saved-switch" role="switch" aria-checked="${st.saved}" data-action="saved" title="Show only what you saved">${bookmarkSvg}<span>Saved</span><span class="n" data-saved-count>${savedCount()}</span><span class="switch" aria-hidden="true"></span></button>`;
 
 /**
- * The skills list's page, under the site's header. The left sidebar holds every setting: presets,
- * sort, sliders and tags. The right side holds what the page is for: the two ways to search, and
- * the list. `reviewed` is how many skills SkillHub reviewed, from review.ts, which only the server
- * reads: the line saying so isn't re-rendered.
+ * The skills list's page, under the site's header. Across the page's top: the two ways to search;
+ * the presets, the count in the middle, and the filters' chips; and one line of every other
+ * setting: the sort, the number filters and Show. Under them, the list, and the tags in a sidebar on
+ * the right. On narrow screens, the Filters button opens the line's settings and the sidebar, which
+ * comes before the list. `reviewed` is how many skills SkillHub reviewed, from review.ts, which only
+ * the server reads: the line saying so isn't re-rendered.
  */
 export function listView(st: State, reviewed: number): string {
   return `
-    <div class="skills-view">
-      <aside id="filters" aria-label="Settings and filters">
-        ${brandHtml()}
-        <div id="settings">${settingsHtml(st)}</div>
-        <section class="facet">
-          <h2 id="show-label">Show</h2>
-          ${savedSwitchHtml(st)}
-          <div id="show" class="show-switch" role="group" aria-labelledby="show-label">${showHtml(st)}</div>
-        </section>
-        <section id="ranges" class="facet"><h2>Filter</h2><div class="ranges">${rangesHtml(st)}</div></section>
-        <div id="facets">${facetsHtml(st, false)}</div>
-      </aside>
-      <div class="list-main">
-        <h1 id="count" class="list-head" aria-live="polite">${countHtml(st)}</h1>
-        <p class="list-sub"><a href="${href("about/")}">Curated from ${reviewed.toLocaleString("en")} reviewed skills</a></p>
+    <div class="list-top">
+      <div class="list-top-in">
         <div class="finder">
-          <p id="scope" class="scope">${scopeHtml(st)}</p>
           <div class="agent-field" data-action="focus-need">
             <svg class="ask-icon" viewBox="0 0 20 20" aria-hidden="true"><path d="M10 6.5V4M2 11v3M18 11v3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /><rect x="4" y="6.5" width="12" height="10" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.5" /><circle cx="10" cy="3" r="1.25" fill="currentColor" /><circle cx="7.75" cy="10.75" r="1.25" fill="currentColor" /><circle cx="12.25" cy="10.75" r="1.25" fill="currentColor" /><path d="M8.5 13.75h3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /></svg>
             <label for="need" class="sr-only">What you need, for your agent</label>
@@ -1470,6 +1457,36 @@ export function listView(st: State, reviewed: number): string {
           <p id="ask-label" class="ask-label" aria-live="polite">${askLabel(st)}</p>
           <p id="search-note" class="search-note">${searchNote(st)}</p>
         </div>
+        <div class="list-head-row">
+          <div id="presets" class="presets" role="group" aria-label="Presets">${presetsHtml(st)}</div>
+          <div class="list-title">
+            <h1 id="count" class="list-head" aria-live="polite">${countHtml(st)}</h1>
+            <p class="list-sub"><a href="${href("about/")}">Curated from ${reviewed.toLocaleString("en")} reviewed skills</a></p>
+          </div>
+          <p id="scope" class="scope">${scopeHtml(st)}</p>
+        </div>
+        <button type="button" class="filters-toggle" data-action="filters" aria-controls="settings filters" aria-expanded="false">Filters</button>
+        <div id="settings" class="settings-line" role="group" aria-label="Settings">
+          <section id="sort-group" class="setting sort-group">${sortHtml(st)}</section>
+          <section class="setting filter-group" aria-labelledby="filter-label">
+            <h2 id="filter-label">Filter</h2>
+            <div class="ranges">${rangesHtml(st)}</div>
+          </section>
+          <section class="setting show-group" aria-labelledby="show-label">
+            <h2 id="show-label">Show</h2>
+            <div class="show-row">
+              ${savedSwitchHtml(st)}
+              <div id="show" class="show-switch" role="group" aria-labelledby="show-label">${showHtml(st)}</div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+    <div class="skills-view">
+      <aside id="filters" aria-label="Tags">
+        <div id="facets">${facetsHtml(st, false)}</div>
+      </aside>
+      <div class="list-main">
         <section id="results" aria-label="Skills">${resultsHtml(st)}</section>
         ${crowdDefsHtml()}
       </div>

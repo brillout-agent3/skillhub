@@ -23,7 +23,8 @@ import {
   searchNote,
   rowCount,
   rowsHtml,
-  settingsHtml,
+  presetsHtml,
+  sortHtml,
   showHtml,
   toggleTag,
   type Preset,
@@ -89,7 +90,7 @@ function focusSelector(): string | null {
   ]) {
     const v = el.getAttribute(attr);
     if (v !== null)
-      return `#${["facets", "settings", "show", "scope"].find((id) => el.closest(`#${id}`)) ?? "results"} [${attr}="${CSS.escape(v)}"]`;
+      return `#${["facets", "presets", "settings", "scope"].find((id) => el.closest(`#${id}`)) ?? "results"} [${attr}="${CSS.escape(v)}"]`;
   }
   return el.id ? `#${CSS.escape(el.id)}` : null;
 }
@@ -243,10 +244,14 @@ function renderFacets() {
   (document.getElementById("facets") as HTMLElement).innerHTML = facetsHtml(state, stackExpanded);
 }
 
-/** On narrow screens, the presets stay in view and the Filters button opens the rest. */
+/**
+ * On narrow screens, the presets and the Saved switch stay in view, and the Filters button opens the
+ * rest of the settings' line (the sort, the number filters, Show's buttons) and the sidebar.
+ */
 let filtersShown = false;
 function syncFiltersToggle() {
-  document.getElementById("filters")?.classList.toggle("shown", filtersShown);
+  for (const id of ["settings", "filters"])
+    document.getElementById(id)?.classList.toggle("shown", filtersShown);
   const button = app.querySelector(".filters-toggle");
   button?.setAttribute("aria-expanded", String(filtersShown));
   if (button) button.textContent = filtersShown ? "Hide filters" : "Filters";
@@ -258,7 +263,8 @@ function render() {
   syncRanges();
   renderHistograms();
   syncSaved();
-  (document.getElementById("settings") as HTMLElement).innerHTML = settingsHtml(state);
+  (document.getElementById("presets") as HTMLElement).innerHTML = presetsHtml(state);
+  (document.getElementById("sort-group") as HTMLElement).innerHTML = sortHtml(state);
   // A render while the Sort by menu is open, such as once you're logged in, keeps it open.
   if (sortOpen) openSort(true);
   (document.getElementById("show") as HTMLElement).innerHTML = showHtml(state);

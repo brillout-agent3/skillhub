@@ -2,8 +2,8 @@
  * Design notes, for whoever changes this file next.
  *
  * The site borrows its look from its logo, a cut gem: SkillHub as a gem dealer's catalog.
- * - Color. Three light greys with a faint green, darkest to lightest: the skills list's sidebar
- *   (--side), the page (--liner), and white for what lies on it, such as the results, documents,
+ * - Color. Three light greys with a faint green, darkest to lightest: the skills list's settings
+ *   bar and sidebar (--side), the page (--liner), and white for what lies on it, such as the results, documents,
  *   fields and buttons (--paper). With them, a blue-black --ink and --garnet, the logo's own
  *   red-pink. Dark mode, the header's toggle or else the system's setting, keeps the same order,
  *   near-black, with a lighter garnet. The greys are never tinted blue.
@@ -34,7 +34,7 @@
   color-scheme: light;
   font-family: "Geologica Variable", system-ui, sans-serif;
   --liner: #fafbf9;
-  /* The skills list's sidebar: set back from the page, so its buttons stand out. */
+  /* The skills list's settings bar and sidebar: set back from the page, so their buttons stand out. */
   --side: #f3f5f2;
   --paper: #ffffff;
   /* Code on paper. */
@@ -275,9 +275,7 @@ code {
 
 /*
  * The site's header, on every page: its name top left, its links top right. It has no edge or
- * background of its own: it's the top of the page. Its name sits where the skills list's sidebar
- * has it, the same distance from the top and from the view's left edge: 20px and 24px, the
- * sidebar's padding.
+ * background of its own: it's the top of the page.
  */
 .site-head {
   display: flex;
@@ -290,15 +288,9 @@ code {
   padding: 20px 32px 0 24px;
 }
 
-/*
- * On the skills list, it's only the links, the name being atop the sidebar: over the top right of
- * the list's column (see .list-main's padding), so that the sidebar runs the page's full height.
- * 1360px is .skills-view's width.
- */
+/* On the skills list, the page's color, over the sidebar's, which runs the page's height. */
 body:has(.skills-view) #page-head {
-  position: absolute;
-  top: 0;
-  right: max(0px, (100% - 1360px) / 2);
+  background: var(--liner);
 }
 
 .brand {
@@ -312,10 +304,6 @@ body:has(.skills-view) #page-head {
   letter-spacing: -0.01em;
   text-decoration: none;
   white-space: nowrap;
-}
-
-#filters .brand {
-  margin-bottom: 20px;
 }
 
 /* As tall as the name, so that both are centered on one line, also on the skills list. */
@@ -349,38 +337,127 @@ body:has(.skills-view) #page-head {
 
 /* ------------------------------------------------------------- skills view */
 
+/*
+ * The skills list's page: across the top, the search, the presets and the count, and the settings'
+ * line (.list-top); under them, the list, and the tags in a sidebar on the right. The sidebar comes
+ * first in the page, since on narrow screens it's atop the list.
+ */
 .skills-view {
   display: grid;
-  grid-template-columns: 300px minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) 300px;
+  grid-template-areas: "main side";
   max-width: 1360px;
   margin: 0 auto;
 }
 
-/* The sidebar's color runs from the screen's left edge to its rule, also where the view is
+/* The sidebar's color runs from its rule to the screen's right edge, also where the view is
    centered on a wide screen: 300px is its column, 380px half the view's 1360px less that. */
 body:has(.skills-view) {
-  background: linear-gradient(to right, var(--side) max(300px, calc(50% - 380px)), var(--liner) 0);
+  background: linear-gradient(to left, var(--side) max(300px, calc(50% - 380px)), var(--liner) 0);
 }
 
+/* As wide as the page, in its color, over the sidebar's, with its rule under it; its content as
+   wide as the view, lined up with the list's and the sidebar's. */
+.list-top {
+  background: var(--liner);
+  border-bottom: 1px solid var(--rule);
+}
+
+.list-top-in {
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 32px 24px 20px 32px;
+}
+
+/* The presets left, the count in the middle of the page, whatever is either side of it, and the
+   filters' chips right. */
+.list-head-row {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.list-title {
+  text-align: center;
+}
+
+.list-head-row .scope {
+  justify-self: end;
+  justify-content: flex-end;
+  margin: 0;
+}
+
+/*
+ * Every setting but the presets, on one line: Sort by, Filter and Show, each its label over its
+ * controls. Where the view is too narrow for one line, Show goes onto a second.
+ */
+.settings-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 12px 28px;
+}
+
+.setting {
+  display: grid;
+  gap: 4px 6px;
+}
+
+.setting h2 {
+  margin: 0;
+  color: var(--ink-2);
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.show-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/*
+ * A filter at its full range says "Any", unless that would push the line onto two: then it shows
+ * only its name, and its range once it narrows the list. So once a filter narrows the list, the
+ * others drop their "Any", which also sets the narrowed ones apart; and so does a view too narrow
+ * for every "Any".
+ */
+.ranges:has(.narrowed) .range:not(.narrowed) .range-pill [data-range-label] {
+  display: none;
+}
+
+@media (max-width: 1400px) {
+  .range:not(.narrowed) .range-pill [data-range-label] {
+    display: none;
+  }
+}
+
+/* The tags. It stays in view while the list scrolls, scrolling on its own. */
 #filters {
+  grid-area: side;
   position: sticky;
   top: 0;
   height: 100vh;
   overflow-y: auto;
-  padding: 20px 20px 48px 24px;
-  border-right: 1px solid var(--rule);
+  padding: 24px 24px 48px 20px;
+  border-left: 1px solid var(--rule);
+}
+
+#facets > .facet:first-child {
+  margin-top: 0;
 }
 
 /*
- * Under Show's heading, before its buttons, as tall as a preset: shows only what you saved. On, it's in garnet, as what you
- * saved is everywhere, its bookmark filled and its knob slid right.
+ * Before Show's buttons, as tall as a preset: shows only what you saved. On, it's in garnet, as what
+ * you saved is everywhere, its bookmark filled and its knob slid right.
  */
 .saved-switch {
   display: flex;
   align-items: center;
   gap: 8px;
-  width: 100%;
-  margin-bottom: 8px;
   padding: 8px 10px 8px 12px;
   border: 0;
   border-radius: 6px;
@@ -552,7 +629,7 @@ body:has(.skills-view) {
   }
 }
 
-/* The track, and its knob. */
+/* The track, and its knob, at the switch's right end. */
 .switch {
   position: relative;
   flex: none;
@@ -597,21 +674,22 @@ body:has(.skills-view) {
   }
 }
 
-/* Rising & new, Top, Rising and New: they only set the sort and Published. */
+/* Rising & new, Top, Rising and New: they only set the sort and Published. A size up from the
+   line's buttons under them, as they're what most visitors use. */
 .presets {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-wrap: wrap;
   gap: 6px;
 }
 
 .preset {
-  padding: 8px 0;
+  padding: 9px 18px;
   border: 0;
   border-radius: 6px;
   background: var(--paper);
   box-shadow: var(--shadow-border);
   color: var(--ink);
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   cursor: pointer;
 }
@@ -626,24 +704,34 @@ body:has(.skills-view) {
   color: var(--on-selected);
 }
 
-/* Sort by, with its order right of it, as a slider has its range. */
+/* Sort by over its menu, and the order right of the menu. */
+.sort-group {
+  grid-template-columns: auto auto;
+  grid-template-areas: "label label" "menu order";
+  align-items: center;
+}
+
 .sort-head {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 8px;
+  display: contents;
+}
+
+.sort-head h2 {
+  grid-area: label;
 }
 
 /* Sort by: a button like a <select>, and its options in a list under it, each with its icon. */
 .sort-menu {
+  grid-area: menu;
   position: relative;
+  font-size: 14px;
 }
 
+/* As wide as its longest option, so that the order beside it stays put. */
 .sort-button {
   display: flex;
   align-items: center;
   gap: 8px;
-  width: 100%;
+  width: 12.5em;
   padding: 6px 8px;
   border: 1px solid var(--rule-strong);
   border-radius: 6px;
@@ -661,12 +749,14 @@ body:has(.skills-view) {
   color: var(--ink-3);
 }
 
+/* At least as wide as the menu's button, and as its longest option. */
 .sort-options {
   position: absolute;
   z-index: 3;
   top: calc(100% + 4px);
-  right: 0;
   left: 0;
+  width: max-content;
+  min-width: 100%;
   margin: 0;
   padding: 4px;
   border-radius: 8px;
@@ -704,9 +794,9 @@ body:has(.skills-view) {
   color: var(--ink);
 }
 
-.settings .order {
-  /* Taller, to be easy to tap, without moving the heading. */
-  margin: -6px -6px -6px 0;
+.sort-group .order {
+  grid-area: order;
+  margin: 0;
   padding: 6px;
   border: 0;
   border-radius: 6px;
@@ -718,7 +808,7 @@ body:has(.skills-view) {
   cursor: pointer;
 }
 
-.settings .order:hover {
+.sort-group .order:hover {
   color: var(--garnet-text);
 }
 
@@ -733,7 +823,7 @@ body:has(.skills-view) {
 
 .show-switch button {
   flex: auto;
-  padding: 7px 8px;
+  padding: 7px 10px;
   border: 0;
   background: none;
   color: var(--ink-2);
@@ -751,30 +841,26 @@ body:has(.skills-view) {
   font-weight: 600;
 }
 
-/* The right side: the count line, the two ways to search, and the list. */
-/* Its top leaves room for the header, which lies over it. */
+/* Left of the sidebar: the list. */
 .list-main {
+  grid-area: main;
   min-width: 0;
-  padding: 88px 32px 80px;
+  padding: 24px 32px 80px;
 }
 
 /*
- * Two ways to find a skill, side by side and styled apart, each with its line under it: the agent's
- * box, first and wider, with its own words and button, and the search, which filters as you type.
- * Above both, the filters that narrow them. The search's 240px fit its line on one line, unless
- * it also counts saved bundles.
+ * Two ways to find a skill, side by side across the page and styled apart, each with its line under
+ * it: the agent's box, first and wider, with its own words and button, and the search, which
+ * filters as you type.
  */
 .finder {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 240px;
+  grid-template-columns: minmax(0, 1fr) 380px;
   grid-template-areas:
-    "scope scope"
     "agent field"
     "label note";
-  /* No row gap: the margins below space the rows, so that the scope's row takes no room while
-     it's empty. */
   gap: 0 16px;
-  margin-bottom: 32px;
+  margin-bottom: 28px;
 }
 
 /*
@@ -942,12 +1028,10 @@ body:has(.skills-view) {
 }
 
 .scope {
-  grid-area: scope;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 6px 8px;
-  margin: 0 0 12px;
   color: var(--ink-2);
   font-size: 14px;
 }
@@ -1020,29 +1104,31 @@ body:has(.skills-view) {
 }
 
 /*
- * Published, Stars and the downloads: a pill each, two a row, with its range. A click opens its
- * slider in a popover under all the pills, as wide as they are, so that it covers none of them. A
- * range shows in garnet only while it narrows the list; at its full range it's at rest.
+ * Published, Stars and the downloads: a pill each, in a row, with its name and range. A click opens
+ * its slider in a popover under it. A range shows in garnet only while it narrows the list; at its
+ * full range it's at rest.
  */
 .ranges {
-  position: relative;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
   gap: 6px;
+}
+
+.range {
+  position: relative;
 }
 
 .range-pill {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  gap: 6px;
   width: 100%;
-  padding: 6px 10px;
+  padding: 8px 10px;
   border: 0;
   border-radius: 6px;
   background: var(--paper);
   box-shadow: var(--shadow-border);
-  color: var(--ink-3);
-  font-size: 12px;
+  color: var(--ink-2);
+  font-size: 14px;
   text-align: left;
   white-space: nowrap;
   cursor: pointer;
@@ -1092,8 +1178,8 @@ body:has(.skills-view) {
   position: absolute;
   z-index: 2;
   top: calc(100% + 6px);
-  right: 0;
   left: 0;
+  width: 320px;
   padding: 12px 14px 14px;
   border-radius: 8px;
   background: var(--paper);
@@ -1375,11 +1461,11 @@ body:has(.skills-view) {
   min-width: 0;
 }
 
-/* The list's heading, centered over the search and the agent's box: how many skills the list
-   shows, the filters and the search included. Under it, a link to how they get here. */
+/* The list's heading, in the middle of the page, under the search: how many skills the list shows,
+   the filters and the search included. Under it, a link to how they get here. */
 .list-head {
   margin: 0;
-  font-size: 36px;
+  font-size: 32px;
   text-align: center;
   font-weight: 700;
   font-variant-numeric: tabular-nums;
@@ -1388,7 +1474,7 @@ body:has(.skills-view) {
 }
 
 .list-sub {
-  margin: 4px 0 28px;
+  margin: 2px 0 0;
   color: var(--ink-2);
   font-size: 14px;
   text-align: center;
@@ -1454,17 +1540,15 @@ body:has(.skills-view) {
 }
 
 /*
- * The row's numbers, top right; the one the list is sorted by is in garnet. As wide in every row,
- * so the numbers line up down the list.
- */
-/*
- * A row's numbers, top right: each as its icon (see prop-icons.ts), the number, and a histogram of
- * the catalog's values with its own bar and rank (see crowdHtml in list.ts). The one the list is
- * sorted by is on grey.
+ * A row's numbers, on its left: each as its icon (see prop-icons.ts), the number, and a histogram
+ * of the catalog's values with its own bar and rank (see crowdHtml in list.ts). The one the list is
+ * sorted by is on grey. As wide in every row, so the numbers line up down the list. They come after
+ * the row's name in the page, for screen readers, and go first by `order`.
  */
 .props {
   display: grid;
   flex: none;
+  order: -1;
   /*
    * The icons' column is as wide in every view: it fits the longest word under an icon, GROWTH
    * (41px), with room on either side, so that the numbers don't move when the list is sorted by it.
@@ -1473,8 +1557,8 @@ body:has(.skills-view) {
   align-self: flex-start;
   min-width: 20em;
   margin: 0;
-  padding-left: 16px;
-  border-left: 1px solid var(--rule);
+  padding-right: 16px;
+  border-right: 1px solid var(--rule);
   font-size: 14px;
 }
 
@@ -2536,11 +2620,23 @@ body:has(.skills-view) {
 @media (max-width: 1150px) {
   .finder {
     grid-template-columns: minmax(0, 1fr);
-    grid-template-areas: "scope" "agent" "label" "field" "note";
+    grid-template-areas: "agent" "label" "field" "note";
   }
 
   .search-field {
     margin-top: 16px;
+  }
+
+  /* The count on a line of its own, the presets and the filters' chips under it. */
+  .list-head-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .list-title {
+    order: -1;
+    flex-basis: 100%;
   }
 }
 
@@ -2551,9 +2647,10 @@ body:has(.skills-view) {
 
   .skills-view {
     grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "side" "main";
   }
 
-  /* The sidebar is atop the list: its color is its own. */
+  /* The sidebar is atop the list, under the settings: its color is its own. */
   body:has(.skills-view) {
     background: var(--liner);
   }
@@ -2562,9 +2659,97 @@ body:has(.skills-view) {
     position: static;
     height: auto;
     background: var(--side);
-    padding: 12px 16px 16px;
-    border-right: 0;
+    padding: 16px;
+    border-left: 0;
     border-bottom: 1px solid var(--rule);
+  }
+
+  .list-top-in {
+    padding: 20px 16px 16px;
+  }
+
+  /* The count, the filters' chips, then the presets, two a row, as wide as the screen. */
+  .list-head-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    margin-bottom: 0;
+  }
+
+  .list-head-row .scope {
+    justify-content: center;
+  }
+
+  .presets {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .preset {
+    padding: 8px 0;
+  }
+
+  /* The settings one under the other, as wide as the screen, their labels over them. */
+  .settings-line {
+    display: block;
+  }
+
+  .setting {
+    display: block;
+    margin-top: 20px;
+  }
+
+  .setting h2 {
+    margin-bottom: 8px;
+  }
+
+  .sort-group {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .sort-group h2 {
+    margin-bottom: 4px;
+  }
+
+  .sort-button,
+  .saved-switch {
+    width: 100%;
+  }
+
+  /* The pills two a row; a slider's popover under them all, as wide as they are. */
+  .ranges {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .range {
+    position: static;
+  }
+
+  .range-pop {
+    right: 0;
+    width: auto;
+  }
+
+  .show-row {
+    display: grid;
+    gap: 8px;
+  }
+
+  /* The presets, the Filters button and the Saved switch stay in view; the button opens the rest
+     of the settings and the sidebar. */
+  .settings-line:not(.shown) .sort-group,
+  .settings-line:not(.shown) .filter-group,
+  .settings-line:not(.shown) #show-label,
+  .settings-line:not(.shown) #show,
+  #filters:not(.shown) {
+    display: none;
+  }
+
+  .settings-line:not(.shown) .show-group {
+    margin-top: 8px;
   }
 
   /* Under 16px, iOS zooms in on the field. */
@@ -2572,22 +2757,7 @@ body:has(.skills-view) {
     font-size: 16px;
   }
 
-  /* Of Show, the Saved switch stays in view, under the Filters button. */
-  #filters:not(.shown) .settings,
-  #filters:not(.shown) #show-label,
-  #filters:not(.shown) #show,
-  #filters:not(.shown) #ranges,
-  #filters:not(.shown) #facets {
-    display: none;
-  }
-
-  #filters:not(.shown) .saved-switch {
-    margin-top: -12px;
-  }
-
-  /* The links on a line of their own, then the name, 16px in, the sidebar's padding. On the skills
-     list, the header is only the links, over the sidebar, which is atop the list and has the
-     name: the 16px between the lines here are its 4px under the links and the sidebar's 12px. */
+  /* The links on a line of their own, then the name, 16px in. */
   .site-head {
     row-gap: 16px;
     padding: 12px 16px 0;
@@ -2596,18 +2766,6 @@ body:has(.skills-view) {
   .site-links {
     flex-basis: 100%;
     order: -1;
-  }
-
-  body:has(.skills-view) #page-head {
-    position: static;
-  }
-
-  body:has(.skills-view) .site-head {
-    padding-bottom: 4px;
-  }
-
-  #filters .brand {
-    margin-bottom: 12px;
   }
 
   .list-main {
@@ -2678,11 +2836,12 @@ body:has(.skills-view) {
 
   /* The numbers go under the row, as wide as it, so that their charts have room. */
   .props {
+    order: 0;
     align-self: stretch;
     min-width: 0;
     padding: 8px 0 0;
     border-top: 1px solid var(--rule);
-    border-left: 0;
+    border-right: 0;
   }
 
   .page {
