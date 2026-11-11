@@ -1082,7 +1082,8 @@ function tagSection(st: State, facetId: string, listed: Set<string>): string {
 /**
  * The tag facets, under how many tags they list: every tag the skills the other filters leave have,
  * and the selected ones, each once (a value under two parents shows under both), the stack's that
- * "Show all" hides included.
+ * "Show all" hides included. On narrow screens the count is a button that shows and hides the
+ * facets, which are hidden at first: see list-client.ts.
  */
 export function facetsHtml(st: State, stackExpanded: boolean): string {
   const sections: string[] = [];
@@ -1131,7 +1132,8 @@ export function facetsHtml(st: State, stackExpanded: boolean): string {
           : ""),
     ),
   );
-  return `<h2 class="list-count">${plural(listed.size, "tag")}</h2>${sections.join("")}`;
+  const count = plural(listed.size, "tag");
+  return `<h2 class="list-count"><span class="tags-count">${count}</span><button type="button" class="tags-toggle" data-action="tags" aria-expanded="false" aria-controls="tag-facets">${count}${CHEVRON}</button></h2><div id="tag-facets" class="tag-facets">${sections.join("")}</div>`;
 }
 
 /** Whether filters narrow the list: the search and the agent prompt then look through what they leave. */
@@ -1438,11 +1440,11 @@ const savedSwitchHtml = (st: State) =>
 /**
  * The skills list's page, under the site's header. Across the page's top: its heading; the two ways
  * to search; one centered line of every setting: the presets, the sort, the number filters and Show;
- * and the filters' chips. Under them, the list and the tags on the right, each under its count. On narrow
- * screens, the presets and the Saved switch stay in view, and the Filters button, between them,
- * opens the line's other settings and the sidebar, which comes before the list. `reviewed` is how
- * many skills SkillHub reviewed, from review.ts, which only the server reads: the line saying so
- * isn't re-rendered.
+ * and the filters' chips. Under them, the list and the tags on the right, each under its count. On
+ * narrow screens, the presets and the Saved switch stay in view, and the Filters button, between
+ * them, opens the line's other settings; the tags come before the list, behind their count, which
+ * opens them. `reviewed` is how many skills SkillHub reviewed, from review.ts, which only the
+ * server reads: the line saying so isn't re-rendered.
  */
 export function listView(st: State, reviewed: number): string {
   return `
@@ -1472,7 +1474,7 @@ export function listView(st: State, reviewed: number): string {
             <h2 id="presets-label">Presets</h2>
             <div id="presets" class="presets" role="group" aria-labelledby="presets-label">${presetsHtml(st)}</div>
           </section>
-          <button type="button" class="filters-toggle" data-action="filters" aria-controls="settings filters" aria-expanded="false">Filters</button>
+          <button type="button" class="filters-toggle" data-action="filters" aria-controls="settings" aria-expanded="false">Filters</button>
           <section id="sort-group" class="setting sort-group">${sortHtml(st)}</section>
           <section class="setting filter-group" aria-labelledby="filter-label">
             <h2 id="filter-label">Filter</h2>

@@ -426,8 +426,13 @@ body:has(.skills-view) #page-head {
   font-variant-numeric: tabular-nums;
 }
 
-#facets > .list-count + .facet {
+.tag-facets > .facet:first-child {
   margin-top: 0;
+}
+
+/* The tags' count is a button on narrow screens only, where it shows and hides them. */
+.tags-toggle {
+  display: none;
 }
 
 /*
@@ -2660,7 +2665,7 @@ body:has(.skills-view) #page-head {
   #filters {
     position: static;
     height: auto;
-    padding: 20px 16px 8px;
+    padding: 0 16px 8px;
   }
 
   .list-top-in {
@@ -2721,7 +2726,7 @@ body:has(.skills-view) #page-head {
   }
 
   /* The presets, the Filters button and the Saved switch stay in view; the button opens the rest
-     of the settings and the sidebar. */
+     of the settings. */
   .settings-line .filters-toggle {
     margin-top: 12px;
   }
@@ -2729,9 +2734,42 @@ body:has(.skills-view) #page-head {
   .settings-line:not(.shown) .sort-group,
   .settings-line:not(.shown) .filter-group,
   .settings-line:not(.shown) #show-label,
-  .settings-line:not(.shown) #show,
-  #filters:not(.shown) {
+  .settings-line:not(.shown) #show {
     display: none;
+  }
+
+  /* The tags, atop the list, behind their count: a button as wide as the screen, as Saved is. */
+  .tags-count,
+  #filters:not(.tags-shown) .tag-facets {
+    display: none;
+  }
+
+  #filters .list-count {
+    margin: 0;
+  }
+
+  .tags-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 8px 12px;
+    border: 0;
+    border-radius: 6px;
+    background: var(--paper);
+    box-shadow: var(--shadow-border);
+    color: var(--ink);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .tags-toggle[aria-expanded="true"] .chevron {
+    scale: 1 -1;
+  }
+
+  .tag-facets {
+    margin-top: 16px;
   }
 
   .settings-line:not(.shown) .show-group {

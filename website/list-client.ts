@@ -243,16 +243,26 @@ function renderFacets() {
   if (key === lastFacets) return;
   lastFacets = key;
   (document.getElementById("facets") as HTMLElement).innerHTML = facetsHtml(state, stackExpanded);
+  syncTags();
+}
+
+/**
+ * On narrow screens, the tags are hidden behind their count, a button. It's re-rendered with the
+ * facets; what it shows is kept on #filters, which isn't.
+ */
+let tagsShown = false;
+function syncTags() {
+  document.getElementById("filters")?.classList.toggle("tags-shown", tagsShown);
+  app.querySelector(".tags-toggle")?.setAttribute("aria-expanded", String(tagsShown));
 }
 
 /**
  * On narrow screens, the presets and the Saved switch stay in view, and the Filters button opens the
- * rest of the settings' line (the sort, the number filters, Show's buttons) and the sidebar.
+ * rest of the settings' line: the sort, the number filters, Show's buttons.
  */
 let filtersShown = false;
 function syncFiltersToggle() {
-  for (const id of ["settings", "filters"])
-    document.getElementById(id)?.classList.toggle("shown", filtersShown);
+  document.getElementById("settings")?.classList.toggle("shown", filtersShown);
   const button = app.querySelector(".filters-toggle");
   button?.setAttribute("aria-expanded", String(filtersShown));
   if (button) button.textContent = filtersShown ? "Hide filters" : "Filters";
@@ -385,6 +395,9 @@ app.addEventListener("click", (event) => {
   } else if (d.action === "stack") {
     stackExpanded = !stackExpanded;
     renderSoon();
+  } else if (d.action === "tags") {
+    tagsShown = !tagsShown;
+    syncTags();
   } else if (d.action === "filters") {
     filtersShown = !filtersShown;
     syncFiltersToggle();
