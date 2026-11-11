@@ -281,7 +281,12 @@ function cookies(request: Request): Map<string, string> {
   const map = new Map<string, string>();
   for (const part of (request.headers.get("Cookie") ?? "").split(";")) {
     const i = part.indexOf("=");
-    if (i > 0) map.set(part.slice(0, i).trim(), decodeURIComponent(part.slice(i + 1).trim()));
+    if (i <= 0) continue;
+    // A cookie that isn't SkillHub's own, such as one an extension sets, may not decode: it's
+    // left out, rather than failing every request that carries it.
+    try {
+      map.set(part.slice(0, i).trim(), decodeURIComponent(part.slice(i + 1).trim()));
+    } catch {}
   }
   return map;
 }

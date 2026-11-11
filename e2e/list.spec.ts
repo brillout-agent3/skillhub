@@ -1,5 +1,6 @@
 /** The skills list: its search, its settings and its tags, which all live in the URL. */
 
+import type { Page, Route } from "@playwright/test";
 import { data, listedRows, repo, skill } from "./data.ts";
 import {
   expect,
@@ -42,6 +43,12 @@ test("the search narrows the list as you type, best match first", async ({ page 
   await settled(page);
   await expect(page).toHaveURL("/");
   await expect(count).toHaveText(all);
+  await expect(page.locator("#sort")).toContainText("Weekly Growth");
+
+  // Spaces alone aren't a search: the list keeps its order.
+  await search.fill("  ");
+  await settled(page);
+  await expect(page).toHaveURL("/");
   await expect(page.locator("#sort")).toContainText("Weekly Growth");
 });
 
@@ -192,6 +199,17 @@ test("the Sort by button fits each sort's name, at one width", async ({ page }) 
   }
 });
 
+test("Find with your agent says so when the browser refuses the clipboard", async ({ page }) => {
+  await page.addInitScript(() => {
+    navigator.clipboard.writeText = () => Promise.reject(new Error("refused"));
+  });
+  await open(page, "/?show=bundles");
+  await page.locator(".ask-button").click();
+  await expect(page.locator("#ask-label")).toContainText(
+    "didn't let the prompt onto your clipboard",
+  );
+});
+
 test("Show switches between skills, bundles and both", async ({ page }) => {
   await open(page, "/");
   const { count, rows } = list(page);
@@ -275,6 +293,68 @@ test("a repo's link lists that repo's skills, under its banner", async ({ page }
   await expect(rows).toHaveCount(repo.skills.length);
   await expect(count).toHaveText(`${n(repo.skills.length)} skills`);
   await expect(scope.locator('[data-remove="repo"]')).toContainText(`from ${repo.repo}`);
+});
+
+test("going back to a list returns to where you were in it", async ({ page }) => {
+  await open(page, "/?sort=week");
+  const link = list(page).rows.nth(200).locator(".skill-name");
+  const href = (await link.getAttribute("href")) as string;
+  // A person scrolls, then clicks: the browser notes where the page is scrolled to once it has
+  // drawn it there, which a click in the same instant, as Playwright's own scroll is, comes before.
+  await link.scrollIntoViewIfNeeded();
+  await page.evaluate(() => new Promise((drawn) => requestAnimationFrame(() => setTimeout(drawn))));
+  await link.click();
+  await ready(page);
+  await expect(page).toHaveURL(href);
+
+  await page.goBack();
+  await ready(page);
+  await expect(page.locator(`#results .skill-name[href="${href}"]`).first()).toBeInViewport();
+});
+
+test.describe("until the list's script has run, as on a slow connection", () => {
+  /** Holds the page's scripts back until the returned function is called. */
+  async function holdScripts(page: Page) {
+    const held: Route[] = [];
+    let released = false;
+    await page.route("**/*", (route) => {
+      if (released || route.request().resourceType() !== "script") return route.continue();
+      held.push(route);
+    });
+    return async () => {
+      released = true;
+      await Promise.all(held.map((route) => route.continue()));
+    };
+  }
+
+  test("a link to another list doesn't show the unfiltered one", async ({ page }) => {
+    const release = await holdScripts(page);
+    await page.goto(`/?q=${encodeURIComponent(skill.name)}&show=skills`, { waitUntil: "commit" });
+    const { rows, search } = list(page);
+    await expect(search).toHaveValue(skill.name);
+    await expect(page.locator("html[data-pending]")).toHaveCount(1);
+    await expect(page.locator("#results")).toBeHidden();
+    await expect(page.locator("#settings")).toBeHidden();
+
+    await release();
+    await ready(page);
+    await expect(page.locator("html[data-pending]")).toHaveCount(0);
+    await expect(page.locator("#results")).toBeVisible();
+    await expect(rows.first().locator(".skill-name")).toHaveText(skill.name);
+  });
+
+  test("a search typed meanwhile is searched for", async ({ page }) => {
+    const release = await holdScripts(page);
+    await page.goto("/", { waitUntil: "commit" });
+    const { rows, search } = list(page);
+    await search.fill(skill.name);
+
+    await release();
+    await ready(page);
+    await expect(page).toHaveURL(`/?q=${encodeURIComponent(skill.name)}`);
+    await expect(search).toHaveValue(skill.name);
+    await expect(rows.first().locator(".skill-name")).toHaveText(skill.name);
+  });
 });
 
 test("Find with your agent copies a prompt with the list and the need", async ({ page }) => {

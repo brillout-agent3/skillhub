@@ -149,6 +149,9 @@ test("the API refuses what isn't a logged-in page's own request", async ({ page 
   expect((await post({ key, saved: true }, { "Sec-Fetch-Site": "cross-site" })).status()).toBe(403);
   expect((await post("key=x", { "Content-Type": "text/plain" })).status(), "a form").toBe(403);
   expect((await page.request.get("/api/nope")).status()).toBe(404);
+  // A cookie that doesn't decode, as another script may set, doesn't get in the way.
+  const odd = await page.request.get("/api/me", { headers: { Cookie: "other=%E0%A4%A" } });
+  expect(odd.status(), "an undecodable cookie").toBe(200);
 
   // Logging in never leads off the site.
   const back = await page.request.get("/api/auth/login?return=//evil.example/", {

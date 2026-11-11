@@ -409,6 +409,23 @@ body:has(.skills-view) #page-head {
   }
 }
 
+/*
+ * A link to a filtered list opens on the unfiltered one, as pre-rendered, until the list's script
+ * has rendered what the link asks for (see PENDING_SCRIPT in list.ts): the settings and the list
+ * are hidden until then, rather than shown wrong. Shown anyway after a few seconds, should the
+ * script never come.
+ */
+[data-pending] :is(#settings, .skills-view, #ask-label, #search-note) {
+  visibility: hidden;
+  animation: 0s 6s forwards pending;
+}
+
+@keyframes pending {
+  to {
+    visibility: visible;
+  }
+}
+
 /* How many skills the list shows, and the filters' chips, which narrow it, beside it. */
 .list-count-row {
   display: flex;

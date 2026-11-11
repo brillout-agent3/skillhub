@@ -10,13 +10,17 @@ export function mountCopyButtons() {
   document.addEventListener("click", (event) => {
     const button = (event.target as Element).closest<HTMLElement>("[data-copy]");
     if (!button?.dataset.copy) return;
-    navigator.clipboard?.writeText(button.dataset.copy).then(() => {
-      button.dataset.copied = "";
-      clearTimeout(timers.get(button));
-      timers.set(
-        button,
-        setTimeout(() => delete button.dataset.copied, 1500),
-      );
-    });
+    navigator.clipboard?.writeText(button.dataset.copy).then(
+      () => {
+        button.dataset.copied = "";
+        clearTimeout(timers.get(button));
+        timers.set(
+          button,
+          setTimeout(() => delete button.dataset.copied, 1500),
+        );
+      },
+      // The browser refused: the button keeps saying Copy, and the command beside it can be selected.
+      () => {},
+    );
   });
 }

@@ -375,7 +375,12 @@ const GROWTH = {
 const percent = (g: number) =>
   `${g > 0 ? "+" : g < 0 ? "−" : ""}${Math.round(Math.abs(g) * 100).toLocaleString("en")}%`;
 /** A search sorts by best match unless another sort is picked; otherwise the list is Rising, by growth. */
-export const defaultSort = (q: string): Sort => (q ? "match" : "growth");
+export const defaultSort = (q: string): Sort => (q.trim() ? "match" : "growth");
+/**
+ * The search as it's looked for: what the box holds, without the spaces around it. A box that only
+ * holds spaces isn't a search: it neither narrows the list nor sorts it by best match.
+ */
+const term = (st: State) => st.q.trim();
 /** The Published range for the last `since` days, or any date. */
 export const sinceRange = (since: Age | null): Range =>
   since
@@ -440,7 +445,7 @@ export function parse(search: string): State {
     tags: p.getAll("tag"),
     repo: p.get("repo"),
     sort:
-      sort && (sort in PROPS || sort === "growth" || (sort === "match" && q))
+      sort && (sort in PROPS || sort === "growth" || (sort === "match" && q.trim()))
         ? sort
         : defaultSort(q),
     asc: p.get("order") === "asc",
@@ -453,7 +458,7 @@ export function parse(search: string): State {
 export function query(s: State): string {
   const p = new URLSearchParams();
   if (s.saved) p.set("saved", "");
-  if (s.q) p.set("q", s.q);
+  if (term(s)) p.set("q", s.q);
   for (const t of s.tags) p.append("tag", t);
   if (s.repo) p.set("repo", s.repo);
   if (s.sort !== defaultSort(s.q)) p.set("sort", s.sort);
@@ -480,7 +485,7 @@ export const fresh = (): State => parse("");
 export function patched(prev: State, patch: Partial<State>): State {
   const next = { ...prev, ...patch };
   if (!("sort" in patch) && prev.sort === defaultSort(prev.q)) next.sort = defaultSort(next.q);
-  if (next.sort === "match" && !next.q) next.sort = defaultSort("");
+  if (next.sort === "match" && !term(next)) next.sort = defaultSort("");
   return next;
 }
 /**
@@ -634,7 +639,7 @@ function passes(s: Skill, st: State, skip: string | null = null): boolean {
   for (const t of st.tags) selected.set(facetOf(t), [...(selected.get(facetOf(t)) ?? []), t]);
   for (const [facet, tags] of selected)
     if (facet !== skip && !tags.some((t) => tagsOf(s).includes(t))) return false;
-  return !st.q || matches(searchText.get(s.id) ?? "", st.q);
+  return !term(st) || matches(searchText.get(s.id) ?? "", st.q);
 }
 
 /**
@@ -681,7 +686,7 @@ function matchedThrough(b: Bundle, st: State, skip: string | null = null): Skill
   const rest = skillFilters(st);
   const skills = skillsOf(b);
   const hits = skills.filter((s) => passes(s, rest, skip));
-  if (hits.length || !st.q || !matches(bundleText.get(b.id) ?? "", st.q)) return hits;
+  if (hits.length || !term(st) || !matches(bundleText.get(b.id) ?? "", st.q)) return hits;
   return skills.filter((s) => passes(s, { ...rest, q: "" }, skip));
 }
 
@@ -690,7 +695,8 @@ const bundlePasses = (b: Bundle, st: State, skip: string | null = null) =>
   savedBundle(b, st) && inRanges(b, st) && matchedThrough(b, st, skip).length > 0;
 
 const isFiltered = (st: State) =>
-  Boolean(st.q || st.tags.length || st.repo) || PROP_IDS.some((p) => isNarrowed(p, st.ranges[p]));
+  Boolean(term(st) || st.tags.length || st.repo) ||
+  PROP_IDS.some((p) => isNarrowed(p, st.ranges[p]));
 
 /** On a tie, such as a bundle and its most installed skill, the bundle goes first. */
 const bundleFirst = (a: Entry, b: Entry) => Number(isBundle(b)) - Number(isBundle(a));
@@ -782,7 +788,7 @@ function histograms(st: State): Histograms {
 /** The active filters in words, the search included. */
 function filtersText(st: State): string[] {
   const parts = st.tags.map((t) => `tag ${t}`);
-  if (st.q.trim()) parts.unshift(`the search "${st.q.trim()}"`);
+  if (term(st)) parts.unshift(`the search "${term(st)}"`);
   if (st.saved) parts.unshift("the ones I saved");
   if (st.repo) parts.push(`from ${st.repo}`);
   for (const p of PROP_IDS)
@@ -800,7 +806,7 @@ function filtersText(st: State): string[] {
 let lastAsk: { st: State; of: State } | undefined;
 function askState(st: State): State {
   if (lastAsk?.st !== st)
-    lastAsk = { st, of: st.q.trim() && !results(st).list.length ? { ...st, q: "" } : st };
+    lastAsk = { st, of: term(st) && !results(st).list.length ? { ...st, q: "" } : st };
   return lastAsk.of;
 }
 
@@ -1265,7 +1271,7 @@ export function askLabel(st: State): string {
     return filtersOn(of)
       ? `${copies} the ${shownCountHtml(of)} the filters leave.`
       : `${copies} all ${shownCountHtml(of)}.`;
-  const which = filtersOn(st) || st.q.trim() ? "these" : "all";
+  const which = filtersOn(st) || term(st) ? "these" : "all";
   return `${copies} ${which} ${shownCountHtml(st)} below.`;
 }
 
@@ -1329,8 +1335,8 @@ export function resultsHtml(st: State, limit = Infinity): string {
               .slice(0, limit)
               .map((e) => rowHtml(e, st))
               .join("")}</ol>`
-          : `<p class="empty">No ${st.show === "all" ? "skill or bundle" : unitOf(st)} matches${st.q ? ` “${esc(st.q)}”` : ""}${filtersOn(st) ? ` among the ${plural(scopeOf(st), unitOf(st))} the filters leave. <button type="button" class="link-button" data-action="clear">Clear filters</button>` : "."}${
-              st.q
+          : `<p class="empty">No ${st.show === "all" ? "skill or bundle" : unitOf(st)} matches${term(st) ? ` “${esc(term(st))}”` : ""}${filtersOn(st) ? ` among the ${plural(scopeOf(st), unitOf(st))} the filters leave. <button type="button" class="link-button" data-action="clear">Clear filters</button>` : "."}${
+              term(st)
                 ? `<br />Describing a need in your own words? <button type="button" class="link-button" data-action="ask">Find with your agent</button>`
                 : ""
             }</p>`
@@ -1371,6 +1377,24 @@ function axisHtml(p: Prop): string {
     });
   return labels.map(([i, text]) => `<span style="--at: ${i / last}">${text}</span>`).join("");
 }
+
+/**
+ * Inline, right after the search box, so that it runs before the rest of the page shows. The page
+ * is pre-rendered unfiltered, and its script, list-client.ts, comes last, after megabytes of rows:
+ * - A link to another list, such as a search's, would show the unfiltered one until then. It
+ *   marks <html data-pending>, which hides the settings and the list (see style.css) until the
+ *   script has rendered what the link asks for, and puts the link's search in the box.
+ * - A search typed until then would do nothing. It marks the box, for the script to search for
+ *   what it holds.
+ */
+const PENDING_SCRIPT = `(() => {
+  const q = document.getElementById("q");
+  if (location.search) {
+    document.documentElement.dataset.pending = "";
+    q.value = new URLSearchParams(location.search).get("q") || "";
+  }
+  q.addEventListener("input", () => { q.dataset.typed = ""; }, { once: true });
+})();`;
 
 const CHEVRON = `<svg class="chevron" viewBox="0 0 12 12" aria-hidden="true"><path d="m3 4.5 3 3 3-3" /></svg>`;
 
@@ -1418,7 +1442,7 @@ export const presetsHtml = (st: State) =>
 export function sortHtml(st: State): string {
   // The sorts, each with its icon: Best match only while searching.
   const sorts: [Sort, string, string][] = [
-    ...(st.q ? [["match", SEARCH, "Best match"] as [Sort, string, string]] : []),
+    ...(term(st) ? [["match", SEARCH, "Best match"] as [Sort, string, string]] : []),
     ...PROP_IDS.map((p): [Sort, string, string] => [p, PROPS[p].icon, PROPS[p].label]),
     ["growth", GROWTH.icon, GROWTH.label],
   ];
@@ -1497,6 +1521,7 @@ export function listView(st: State, reviewed: number): string {
           </div>
           <p id="ask-label" class="ask-label" aria-live="polite">${askLabel(st)}</p>
           <p id="search-note" class="search-note">${searchNote(st)}</p>
+          <script>${PENDING_SCRIPT}</script>
         </div>
         <div id="settings" class="settings-line" role="group" aria-label="Settings">
           <section class="setting preset-group" aria-labelledby="presets-label">

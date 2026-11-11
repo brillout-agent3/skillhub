@@ -287,7 +287,12 @@ function syncFiltersToggle() {
   if (button) button.textContent = filtersShown ? "Hide filters" : "Filters";
 }
 
-function render() {
+/**
+ * `whole`: every row at once, rather than the first ones now and the rest in steps. For the page's
+ * first render, so that the list is whole by the time the browser puts the page back where it was
+ * scrolled to, on a reload or on the way back from a skill's page.
+ */
+function render(whole = false) {
   busy(true);
   const focus = focusSelector();
   if (q.value !== state.q) q.value = state.q;
@@ -305,7 +310,8 @@ function render() {
   // From deep in the list, a preset, sort or filter would leave you amid the new list's middle.
   const scrolledPast = toTop && results.getBoundingClientRect().top < 0;
   toTop = false;
-  results.innerHTML = resultsHtml(state, FIRST);
+  const first = whole ? Infinity : FIRST;
+  results.innerHTML = resultsHtml(state, first);
   (document.getElementById("count") as HTMLElement).innerHTML = countHtml(state);
   if (scrolledPast) results.scrollIntoView({ block: "start" });
   if (focus) (document.querySelector(focus) as HTMLElement | null)?.focus({ preventScroll: true });
@@ -320,7 +326,7 @@ function render() {
       ?.insertAdjacentHTML("beforeend", rowsHtml(st, from, from + STEP));
     setTimeout(() => append(from + STEP));
   };
-  setTimeout(() => append(FIRST));
+  setTimeout(() => append(first));
 }
 
 /** The agent's box: what you need, in your own words. */
@@ -345,12 +351,17 @@ function flash(html: string) {
 function ask() {
   const text = need.value.trim() || state.q.trim();
   const prompt = askPrompt(state, text, new URL(href(), location.origin).href);
+  // A browser can refuse, or have no clipboard at all, as on a page that isn't served over HTTPS.
+  const refused = () => flash("Your browser didn't let the prompt onto your clipboard.");
+  if (!navigator.clipboard) return refused();
   navigator.clipboard
-    ?.writeText(prompt)
-    .then(() =>
-      flash(
-        `Copied to your clipboard (${tokensHtml(Math.round(prompt.length / 4))}): paste it into any chat agent.`,
-      ),
+    .writeText(prompt)
+    .then(
+      () =>
+        flash(
+          `Copied to your clipboard (${tokensHtml(Math.round(prompt.length / 4))}): paste it into any chat agent.`,
+        ),
+      refused,
     );
 }
 
@@ -438,8 +449,15 @@ document.addEventListener(ACCOUNT_EVENT, (event) => {
   renderSoon();
 });
 
-// The page was pre-rendered unfiltered.
-if (location.search) render();
+// What was typed in the search before this script ran, on a slow connection, is searched for:
+// list.ts's inline script marked the box.
+if ("typed" in q.dataset && q.value !== state.q) {
+  state = patched(state, { q: q.value });
+  history.replaceState(null, "", query(state) || location.pathname);
+}
+// The page was pre-rendered unfiltered, and hidden until now if its link asks for another list.
+if (location.search) render(true);
+delete document.documentElement.dataset.pending;
 
 // The TLDRs' prose, which only the search reads, is half the data, so it loads after the page.
 // Until it's in, a search finds fewer skills; once it is, a search under way shows them too.
@@ -447,7 +465,7 @@ void import("../data/skills.jsonc?search-words").then(({ default: words }) => {
   addSearchWords(words);
   // For whoever drives the page: from now on, a search finds what it will always find. See ready.ts.
   document.documentElement.setAttribute("data-search-words", "");
-  if (!state.q) return;
+  if (!state.q.trim()) return;
   // The renders' caches are keyed by the state, which the prose isn't in: a new state misses them
   // all, the list's heading's count and the lines under the boxes included.
   state = { ...state };
