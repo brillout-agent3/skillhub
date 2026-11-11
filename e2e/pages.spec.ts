@@ -117,7 +117,10 @@ test("the tags page: its search narrows it, and a tag leads to the list", async 
   const shown = page.locator(".tag-table tbody tr:visible, .cloud-item:visible");
   await expect(shown).not.toHaveCount(0);
   for (const text of await shown.allInnerTexts()) expect(text.toLowerCase()).toContain("security");
-  expect(await sections.filter({ visible: true }).count()).toBeLessThan(all);
+  const left = await sections.filter({ visible: true }).count();
+  expect(left).toBeLessThan(all);
+  // The links atop the page lead only to the facets that are left.
+  await expect(page.locator(".toc a:visible")).toHaveCount(left);
 
   await input.fill("zzzqqq");
   await expect(page.locator("#tag-none")).toHaveText("No tag matches “zzzqqq”.");
@@ -125,6 +128,7 @@ test("the tags page: its search narrows it, and a tag leads to the list", async 
 
   await input.fill("");
   await expect(sections.filter({ visible: true })).toHaveCount(all);
+  await expect(page.locator(".toc a:visible")).toHaveCount(all);
   await expect(page.locator("#tag-none")).toBeHidden();
 
   const tag = page.locator(".tag-table a.tag").first();

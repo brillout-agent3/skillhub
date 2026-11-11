@@ -2134,21 +2134,28 @@ body:has(.skills-view) #page-head {
   font-variant-numeric: tabular-nums;
 }
 
-.crowd-axis span {
+/* Each mark where its value is on the scale. */
+.crowd-axis > span {
   position: absolute;
   left: calc(var(--at) * 100%);
-  translate: -50%;
   line-height: 18px;
   white-space: nowrap;
 }
 
-.crowd-axis span::before {
+.crowd-axis > span::before {
   position: absolute;
   top: -1px;
-  left: 50%;
+  left: 0;
   height: 4px;
   border-left: 1px solid var(--rule-strong);
   content: "";
+}
+
+/* Its label slides under it, as a row's rank does under its bar: it starts at the first mark and
+   ends at the last, so that none sticks out of the chart, such as "100K" at its right end. */
+.crowd-axis > span > span {
+  display: block;
+  translate: calc(var(--at) * -100%);
 }
 
 .trend {
@@ -2349,14 +2356,21 @@ body:has(.skills-view) #page-head {
   white-space: nowrap;
 }
 
-/* A tag stays whole where there's room. On a phone, a long tag breaks, so the table fits: see the media query. */
+/*
+ * A tag stays whole where there's room: its <wbr> would break it nowrap or not, so it's taken
+ * out. On a phone, a long tag breaks, so the table fits: see the media query.
+ */
 .tag-table td:first-child {
   white-space: nowrap;
 }
 
+.tag-table td:first-child wbr {
+  display: none;
+}
+
+/* One chip, however many lines it takes: as an inline box, each of its lines would look like a tag. */
 .tag-table .tag {
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
+  display: inline-block;
 }
 
 .tag-table td,
@@ -2995,6 +3009,10 @@ body:has(.skills-view) #page-head {
      would let the table squeeze the column to a few letters. */
   .tag-table td:first-child {
     white-space: normal;
+  }
+
+  .tag-table td:first-child wbr {
+    display: inline;
   }
 
   .markdown {

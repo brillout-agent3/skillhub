@@ -1,6 +1,6 @@
 /**
  * Tags: the search narrows the page to the tags whose name, label or meaning hold each of its
- * words, and to the facets and topic groups that have any.
+ * words, and to the facets and topic groups that have any, with their links atop the page.
  */
 
 import "../../account-client.ts";
@@ -39,6 +39,10 @@ function search() {
       inSection ||= inCloud;
     }
     section.hidden = !inSection;
+    // Its link atop the page would lead nowhere.
+    document
+      .querySelector<HTMLElement>(`.toc a[href="#${section.id}"]`)
+      ?.toggleAttribute("hidden", !inSection);
     any ||= inSection;
   }
   none.hidden = any;

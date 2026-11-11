@@ -972,7 +972,7 @@ export function standingOf(
         ? `${say.more} ${share(below)}`
         : `${say.fewer} ${share(place - 1)}`;
   const axis = c.ticks
-    .map(([at, label]) => `<span style="--at: ${at.toFixed(3)}">${label}</span>`)
+    .map(([at, label]) => `<span style="--at: ${at.toFixed(3)}"><span>${label}</span></span>`)
     .join("");
   return {
     place: placeText(c, n),
