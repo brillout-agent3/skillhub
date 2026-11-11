@@ -21,6 +21,8 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    # A run takes about two minutes: one that hangs shouldn't hold the next one back for long.
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v5
       - uses: pnpm/action-setup@v4
@@ -35,9 +37,20 @@ jobs:
         run: pnpm run build
       - name: Check the built site's links and ids
         run: pnpm run check:site
-      - name: Install the browser the walk drives
-        run: pnpm exec playwright install --with-deps --only-shell chromium
+      # Only the browser itself: the runner has the libraries it needs. Installing them anyway, with
+      # --with-deps, runs apt-get, which once failed to reach its mirrors for ten minutes.
+      - name: Restore the browser the walk drives
+        id: browser
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
+      - name: Download it, when it wasn't kept
+        if: steps.browser.outputs.cache-hit != 'true'
+        timeout-minutes: 3
+        run: pnpm exec playwright install --only-shell chromium
       - name: Walk the built site end to end
+        timeout-minutes: 10
         run: pnpm run test:e2e
       - name: Keep what a failed walk leaves, such as screenshots
         if: failure()
