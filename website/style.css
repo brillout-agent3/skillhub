@@ -661,7 +661,7 @@ body:has(.skills-view) {
 }
 
 /* Rising & new, Top, Rising and New, in the middle under the search: they only set the sort and
-   Published. Two sizes up from the line's buttons under them, as they're what most visitors use. */
+   Published. A size up from the line's buttons under them, as they're what most visitors use. */
 .presets {
   display: flex;
   flex-wrap: wrap;
@@ -677,7 +677,7 @@ body:has(.skills-view) {
   background: var(--paper);
   box-shadow: var(--shadow-border);
   color: var(--ink);
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   cursor: pointer;
 }
