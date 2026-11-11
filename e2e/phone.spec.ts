@@ -21,6 +21,13 @@ for (const [name, url] of [
     expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(WIDTH);
   });
 
+test("a number filter's slider opens in view", async ({ page }) => {
+  await open(page, "/?show=bundles");
+  await page.locator(".filters-toggle").click();
+  await page.locator('.range-pill[data-value="week"]').click();
+  await expect(page.locator("#range-pop-week")).toBeInViewport({ ratio: 1 });
+});
+
 test("the list's settings and tags open from their buttons", async ({ page }) => {
   await open(page, "/");
   const settings = page.locator("#sort-group");

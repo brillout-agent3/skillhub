@@ -792,12 +792,26 @@ function filtersText(st: State): string[] {
 }
 
 /**
- * A prompt to paste into any chat agent, for a need in your own words, which the search can't
- * match: the catalog is the list below, every entry the filters and the search leave; "" for a need
- * that comes in the next message. `base` is the site's absolute URL, which the entries' paths are
- * relative to.
+ * The state whose list the agent's prompt holds: the list below, unless its search finds nothing.
+ * A search that finds nothing is most likely a need in the person's own words, which is what the
+ * agent is for, so the prompt then holds what the filters leave, rather than nothing. For one state
+ * at a time.
  */
-export function askPrompt(st: State, need: string, base: string): string {
+let lastAsk: { st: State; of: State } | undefined;
+function askState(st: State): State {
+  if (lastAsk?.st !== st)
+    lastAsk = { st, of: st.q.trim() && !results(st).list.length ? { ...st, q: "" } : st };
+  return lastAsk.of;
+}
+
+/**
+ * A prompt to paste into any chat agent, for a need in your own words, which the search can't
+ * match: the catalog is the list below, every entry the filters and the search leave (see
+ * askState); "" for a need that comes in the next message. `base` is the site's absolute URL, which
+ * the entries' paths are relative to.
+ */
+export function askPrompt(shown: State, need: string, base: string): string {
+  const st = askState(shown);
   const { list } = results(st);
   const entry = (e: Entry) => {
     const review = e.agentReview;
@@ -1240,10 +1254,19 @@ export const tokensHtml = (tokens: number) => `${badgeHtml(`~${compact(tokens)}`
 /** A number highlighted in the line under a box. */
 const badgeHtml = (text: string) => `<span class="badge">${esc(text)}</span>`;
 
-/** Under the agent's box: what Find with your agent copies, the list below, and its size. */
+/**
+ * Under the agent's box: what Find with your agent copies, the list below, and its size. When the
+ * search finds nothing, that's what the filters leave: see askState.
+ */
 export function askLabel(st: State): string {
+  const of = askState(st);
+  const copies = `Copies a prompt (${tokensHtml(promptTokens(st))}) to your clipboard that includes the TL;DR of`;
+  if (of !== st)
+    return filtersOn(of)
+      ? `${copies} the ${shownCountHtml(of)} the filters leave.`
+      : `${copies} all ${shownCountHtml(of)}.`;
   const which = filtersOn(st) || st.q.trim() ? "these" : "all";
-  return `Copies a prompt (${tokensHtml(promptTokens(st))}) to your clipboard that includes the TL;DR of ${which} ${shownCountHtml(st)} below.`;
+  return `${copies} ${which} ${shownCountHtml(st)} below.`;
 }
 
 /**
@@ -1383,7 +1406,7 @@ export const presetsHtml = (st: State) =>
       const { sort, ranges } = presetPatch(id);
       const on =
         st.sort === sort && !st.asc && PROP_IDS.every((r) => sameRange(st.ranges[r], ranges[r]));
-      return `<button type="button" class="preset" data-preset="${id}" aria-pressed="${on}" title="${esc(p.title)}">${esc(p.label)}</button>`;
+      return `<button type="button" class="preset" data-preset="${id}" data-label="${esc(p.label)}" aria-pressed="${on}" title="${esc(p.title)}">${esc(p.label)}</button>`;
     })
     .join("");
 
@@ -1400,6 +1423,8 @@ export function sortHtml(st: State): string {
     ["growth", GROWTH.icon, GROWTH.label],
   ];
   const current = sorts.find(([id]) => id === st.sort) ?? sorts[0];
+  // The button keeps the room for the longest name, so that picking another sort doesn't resize it.
+  const longest = sorts.reduce((a, [, , label]) => (label.length > a.length ? label : a), "");
   const options = sorts
     .map(
       ([id, icon, label]) =>
@@ -1417,16 +1442,19 @@ export function sortHtml(st: State): string {
   return `
     <div class="sort-head"><h2 id="sort-label">Sort by</h2>${order}</div>
     <div class="sort-menu">
-      <button type="button" class="sort-button" id="sort" data-action="sort-menu" aria-haspopup="listbox" aria-expanded="false" aria-controls="sort-options" aria-labelledby="sort-label sort">${current[1]}<span>${current[2]}</span>${CHEVRON}</button>
+      <button type="button" class="sort-button" id="sort" data-action="sort-menu" aria-haspopup="listbox" aria-expanded="false" aria-controls="sort-options" aria-labelledby="sort-label sort">${current[1]}<span data-longest="${longest}">${current[2]}</span>${CHEVRON}</button>
       <ul class="sort-options" id="sort-options" role="listbox" aria-labelledby="sort-label" hidden>${options}</ul>
     </div>`;
 }
 
-/** Show's buttons: Skills & bundles, Skills or Bundles. Re-rendered with the list. */
+/**
+ * Show's buttons: Skills & bundles, Skills or Bundles. Re-rendered with the list. `data-label`, as
+ * on the presets, is the room a button keeps for its words once pressed, and bold: see style.css.
+ */
 export const showHtml = (st: State) =>
   SHOWS.map(
     ([v, label]) =>
-      `<button type="button" data-show="${v}" aria-pressed="${st.show === v}">${label}</button>`,
+      `<button type="button" data-show="${v}" data-label="${esc(label)}" aria-pressed="${st.show === v}">${esc(label)}</button>`,
   ).join("");
 
 /**

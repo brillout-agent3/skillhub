@@ -111,10 +111,19 @@ function openRange(p: Prop | null) {
   open = p;
   for (const range of app.querySelectorAll<HTMLElement>("[data-range-section]")) {
     const on = range.dataset.rangeSection === p;
-    range.querySelector(".range-pop")?.toggleAttribute("hidden", !on);
+    const pop = range.querySelector(".range-pop");
+    pop?.toggleAttribute("hidden", !on);
     range.querySelector(".range-pill")?.setAttribute("aria-expanded", String(on));
+    if (on) intoView(pop);
   }
 }
+
+/**
+ * Brings what just opened under its button into view, when the window's bottom cuts it off: on a
+ * phone, a filter's slider opens below the screen's edge.
+ */
+const intoView = (el: Element | null | undefined) =>
+  el?.scrollIntoView({ block: "nearest", inline: "nearest" });
 
 // A click elsewhere closes the popover; so does Escape, which puts the focus back on its pill.
 document.addEventListener("click", (event) => {
@@ -140,6 +149,7 @@ function openSort(on: boolean, focus: "option" | "button" | null = null) {
   const list = app.querySelector<HTMLElement>("#sort-options");
   button?.setAttribute("aria-expanded", String(on));
   list?.toggleAttribute("hidden", !on);
+  if (on) intoView(list);
   if (on && focus === "option")
     (
       list?.querySelector<HTMLElement>('[aria-selected="true"]') ??

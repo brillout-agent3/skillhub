@@ -52,7 +52,14 @@ test("a search that finds nothing says so, and offers the agent", async ({ page 
   await settled(page);
   await expect(count).toHaveText("0 skills");
   await expect(empty).toContainText("No skill or bundle matches “zzzqqqxxx”");
-  await expect(empty.locator('[data-action="ask"]')).toBeVisible();
+
+  // The agent gets the search as the need, and the skills it would have looked through.
+  await expect(page.locator("#ask-label")).toContainText(`of all ${n(data.skills.length)} skills.`);
+  await empty.locator('[data-action="ask"]').click();
+  await expect(page.locator("#ask-label")).toContainText("Copied to your clipboard");
+  const prompt = await page.evaluate(() => navigator.clipboard.readText());
+  expect(prompt).toContain(`# Catalog (${listedRows} entries)`);
+  expect(prompt.trimEnd().endsWith("zzzqqqxxx")).toBe(true);
 });
 
 test("the presets set the sort and the Published range", async ({ page }) => {
@@ -154,6 +161,35 @@ test("a number filter narrows the list from its popover", async ({ page }) => {
   await settled(page);
   await expect(page).toHaveURL("/");
   await expect(count).toHaveText(all);
+});
+
+test("a number filter's slider stays where it is while it narrows the list", async ({ page }) => {
+  await open(page, "/");
+  const pill = page.locator('.range-pill[data-value="stars"]');
+  const left = async () => Math.round((await pill.boundingBox())?.x ?? Number.NaN);
+  await pill.click();
+  const before = await left();
+  await page.locator('#range-pop-stars input[data-end="0"]').focus();
+  for (let i = 0; i < 3; i++) await page.keyboard.press("ArrowRight");
+  await settled(page);
+  // Its pill got longer, for its range, and Rising isn't pressed anymore: neither moved it.
+  await expect(pill).toContainText("≥");
+  await expect(page.locator('[data-preset="rising"]')).toHaveAttribute("aria-pressed", "false");
+  expect(await left()).toBe(before);
+});
+
+test("the Sort by button fits each sort's name, at one width", async ({ page }) => {
+  await open(page, "/?show=bundles");
+  const button = page.locator("#sort");
+  const width = async () => (await button.boundingBox())?.width;
+  const first = await width();
+  for (const sort of ["published", "stars", "downloads", "week"]) {
+    await button.click();
+    await page.locator(`#sort-options [data-sort="${sort}"]`).click();
+    await settled(page);
+    expect(await button.evaluate((b) => b.scrollWidth <= b.clientWidth), sort).toBe(true);
+    expect(await width(), sort).toBe(first);
+  }
 });
 
 test("Show switches between skills, bundles and both", async ({ page }) => {

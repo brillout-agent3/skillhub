@@ -358,9 +358,12 @@ body:has(.skills-view) #page-head {
 
 /*
  * Every setting on one line: Presets, Sort by, Filter and Show, each its label over its controls,
- * on a tile of its own. The tiles grow to fill the line, so that it runs from the cards' left edge
- * to the tags' right edge. Where the view is too narrow for one line, Show goes onto a second: under
- * about 1,320px, or while a long range such as "Last 30 days", or two number filters, narrow the list.
+ * on a tile of its own. Filter's and Show's tiles grow to fill the line, so that it runs from the
+ * cards' left edge to the tags' right edge. Presets' and Sort by's keep their width: a number
+ * filter's pill gets longer as its range narrows the list, and were the tiles before it to give
+ * way, the pill and the slider under it would move while a handle is dragged. Where the view is too
+ * narrow for one line, Show goes onto a second: under about 1,320px, or while a long range such as
+ * "Last 30 days", or two number filters, narrow the list.
  */
 .settings-line {
   display: flex;
@@ -391,10 +394,14 @@ body:has(.skills-view) #page-head {
 
 @media (min-width: 901px) {
   .settings-line > .setting {
-    flex: 1 1 auto;
+    flex: 0 1 auto;
     padding: 6px 5px 8px;
     border-radius: 8px;
     background: var(--t-plain);
+  }
+
+  .settings-line > :is(.filter-group, .show-group) {
+    flex-grow: 1;
   }
 
   .setting h2 {
@@ -723,7 +730,7 @@ body:has(.skills-view) #page-head {
 
 .preset {
   flex: auto;
-  padding: 0 9px;
+  padding: 0 8px;
   border: 0;
   background: none;
   color: var(--ink-2);
@@ -750,6 +757,27 @@ body:has(.skills-view) #page-head {
 .preset:focus-visible,
 .show-switch button:focus-visible {
   outline-offset: -2px;
+}
+
+/*
+ * A pressed button's words are bolder, so wider. Each button keeps the room for them, on a line
+ * of no height under its words, so that pressing one doesn't nudge the others, or the settings
+ * after them: a number filter's pill would move while its handle is dragged.
+ */
+.preset,
+.show-switch button {
+  display: grid;
+  align-content: center;
+  justify-items: center;
+}
+
+.preset::after,
+.show-switch button::after {
+  content: attr(data-label);
+  height: 0;
+  overflow: hidden;
+  font-weight: 600;
+  visibility: hidden;
 }
 
 /* Sort by and the order over the menu, the order at its right end. */
@@ -779,10 +807,9 @@ body:has(.skills-view) #page-head {
 .sort-button {
   display: flex;
   align-items: center;
-  gap: 8px;
-  width: 12.2em;
+  gap: 6px;
   height: 36px;
-  padding: 0 8px;
+  padding: 0 6px;
   border: 1px solid var(--rule-strong);
   border-radius: 6px;
   background: var(--paper);
@@ -791,8 +818,17 @@ body:has(.skills-view) #page-head {
 }
 
 .sort-button > span {
+  display: grid;
   flex: auto;
   white-space: nowrap;
+}
+
+/* The room for its longest option, on a line of no height under the sort's own name. */
+.sort-button > span::after {
+  content: attr(data-longest);
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
 }
 
 .sort-button .prop-icon,
@@ -901,7 +937,7 @@ body:has(.skills-view) #page-head {
 
 .show-switch button {
   flex: auto;
-  padding: 0 8px;
+  padding: 0 7px;
   border: 0;
   background: none;
   color: var(--ink-2);
@@ -1201,7 +1237,7 @@ body:has(.skills-view) #page-head {
   gap: 6px;
   width: 100%;
   height: 36px;
-  padding: 0 7px;
+  padding: 0 6px;
   border: 0;
   border-radius: 6px;
   background: var(--paper);
@@ -1252,7 +1288,16 @@ body:has(.skills-view) #page-head {
   color: var(--garnet-text);
 }
 
-/* --thumb: a slider handle's width, which the histogram above it is inset by, as the track is. */
+/*
+ * --thumb: a slider handle's width, which the histogram above it is inset by, as the track is.
+ * Brought into view when it opens below the window's edge, as the Sort by menu is, with some air
+ * under it: see intoView in list-client.ts.
+ */
+.range-pop,
+.sort-options {
+  scroll-margin: 12px;
+}
+
 .range-pop {
   --thumb: 16px;
   position: absolute;
