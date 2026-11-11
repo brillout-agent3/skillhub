@@ -31,12 +31,12 @@ export default function Page(): string {
               `<h3>${esc(g.name)}</h3><p class="cloud">${g.values.map(cloudItem).join(" ")}</p>`,
           )
           .join("");
-      // Stack is the one open vocabulary (see scripts/check.ts): the tags the skills have, most
-      // used first, as the skills list shows them, rather than the facet's own values, which name
-      // only some of them, and some that no skill has anymore.
-      else if (f.id === "stack")
+      // A facet that lists no values takes any: stack, the one open vocabulary (see Facet in
+      // data/types.ts). Its tags are the ones the skills have, most used first, as in the skills
+      // list.
+      else if (!f.values)
         body = `<p class="cloud">${[...n.keys()]
-          .filter((t) => facetOf(t) === "stack")
+          .filter((t) => facetOf(t) === f.id)
           .sort((a, b) => (n.get(b) ?? 0) - (n.get(a) ?? 0) || a.localeCompare(b))
           .map(cloudItem)
           .join(" ")}</p>`;

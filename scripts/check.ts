@@ -20,7 +20,7 @@ const errors: string[] = [];
 const fail = (where: string, message: string) => errors.push(`${where}: ${message}`);
 
 const facets = new Map<string, Facet>(data.facets.map((f) => [f.id, f]));
-const topics = new Set(facets.get("topic")?.values.map((v) => v.id));
+const topics = new Set(facets.get("topic")?.values?.map((v) => v.id));
 const repos = new Set<string>();
 for (const repo of data.repos) {
   if (repos.has(repo.id)) fail(repo.id, "duplicate repo");
@@ -39,14 +39,25 @@ for (const [at, review] of [
     fail(at, "agentReview's effort must be low, medium, high, xhigh, max or null");
 }
 
+/** The facets that take any value, and so list none: see `Facet` in data/types.ts. */
+const OPEN = ["stack"];
+for (const f of data.facets)
+  if (Boolean(f.values) === OPEN.includes(f.id))
+    fail(
+      `facet ${f.id}`,
+      f.values
+        ? "takes any value, so it lists none: drop its values"
+        : "needs the list of the values its tags can take",
+    );
+
 // A parent includes plain values of its own facet: parents don't nest, and skills don't carry them.
 const parents = new Set<string>();
 for (const f of data.facets)
-  for (const v of f.values) {
+  for (const v of f.values ?? []) {
     if (!v.includes) continue;
     parents.add(f.prefix === false ? v.id : `${f.id}:${v.id}`);
     for (const id of v.includes) {
-      const child = f.values.find((c) => c.id === id);
+      const child = f.values?.find((c) => c.id === id);
       if (!child) fail(`facet ${f.id}`, `${v.id} includes unknown value "${id}"`);
       else if (child.includes) fail(`facet ${f.id}`, `${v.id} includes ${id}, another parent`);
     }
@@ -129,9 +140,9 @@ for (const skill of data.skills) {
       fail(at, `unknown tag "${tag}"`);
       continue;
     }
-    // Stack values are open-ended; every other facet has a closed vocabulary.
-    if (facetId !== "stack" && !facet.values.some((v) => v.id === value))
-      fail(at, `unknown tag "${tag}"`);
+    // A facet that lists its values has a closed vocabulary. One that lists none takes any value:
+    // stack, whose tags are the technologies and services the skills are about.
+    if (facet.values && !facet.values.some((v) => v.id === value)) fail(at, `unknown tag "${tag}"`);
     perFacet.set(facetId, [...(perFacet.get(facetId) ?? []), value]);
   }
   for (const facet of data.facets) {

@@ -45,7 +45,8 @@ const labels = new Map<string, string>();
 /** The parents each tag has through `includes`, such as category:software-engineering for category:debugging. */
 const parents = new Map<string, string[]>();
 for (const facet of data.facets)
-  for (const v of facet.values) {
+  // A facet that takes any value, stack, lists none: see Facet in ../data/types.ts.
+  for (const v of facet.values ?? []) {
     const tag = tagOf(facet, v.id);
     if (v.description) tagInfo.set(tag, v.description);
     if (v.label) labels.set(tag, v.label);

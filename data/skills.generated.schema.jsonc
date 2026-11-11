@@ -111,7 +111,7 @@
             "required": ["id"],
             "additionalProperties": false
           },
-          "description": "The values its tags can take."
+          "description": "The values its tags can take, when they're a closed list. Left out for a facet that takes any value, as stack does, a technology or a service: its tags are the ones the skills carry."
         },
         "prefix": {
           "type": "boolean",
@@ -141,7 +141,7 @@
           "description": "Display groups (topics only)."
         }
       },
-      "required": ["id", "name", "question", "count", "values"],
+      "required": ["id", "name", "question", "count"],
       "additionalProperties": false,
       "description": "A tag dimension. Tags are written `facet:value`, except topics, which have no prefix."
     },

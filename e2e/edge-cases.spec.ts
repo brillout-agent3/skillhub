@@ -272,7 +272,9 @@ test("a republished skill is marked in its row, and its page says what that mean
   await expect(marked.locator('[data-tag="flag:republished"]')).toHaveCount(1);
 
   await open(page, skillUrl("republished"));
-  const flag = data.facets.find((f) => f.id === "flag")?.values.find((v) => v.id === "republished");
+  const flag = data.facets
+    .find((f) => f.id === "flag")
+    ?.values?.find((v) => v.id === "republished");
   await expect(page.locator(".tag-detail")).toContainText(flag?.description ?? "");
   // Its tag leads to the list of such skills.
   await page.locator('.tag-detail [data-tag="flag:republished"]').click();

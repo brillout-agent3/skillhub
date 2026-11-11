@@ -1131,7 +1131,9 @@ function tagSection(st: State, facetId: string, listed: Set<string>): string {
     return filterChip("data-tag", t, label(t), n.get(t) ?? 0, st.tags.includes(t), tagInfo.get(t));
   };
   // A parent's values sit indented under it; a value with two parents shows under both.
-  const top = facet.values.map((v) => tagOf(facet, v.id)).filter((t) => !parentsOf(t).length);
+  const top = (facet.values ?? [])
+    .map((v) => tagOf(facet, v.id))
+    .filter((t) => !parentsOf(t).length);
   const chips = top
     .map((t) => {
       const children = includedBy(t).filter(shown);

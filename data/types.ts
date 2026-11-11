@@ -181,8 +181,11 @@ export interface Facet {
   question: string;
   /** How many values of this facet a skill carries. */
   count: "one" | "one or more" | "at most one" | "one to five" | "any";
-  /** The values its tags can take. */
-  values: {
+  /**
+   * The values its tags can take, when they're a closed list. Left out for a facet that takes any
+   * value, as stack does, a technology or a service: its tags are the ones the skills carry.
+   */
+  values?: {
     /** Its id: the tag is `facet:id`, or just `id` for a topic. */
     id: string;
     /** A name for chips, when the id alone isn't one. */
