@@ -81,6 +81,21 @@ test("the list has a row for every case, named after it", async ({ page }) => {
     await expect(row(page, name)).toHaveCount(1);
 });
 
+test("the numbers line up down the list, whatever a row has of them", async ({ page }) => {
+  await open(page, "/");
+  // A row off the screen isn't laid out until it's drawn.
+  await page.addStyleTag({ content: ".skill-list > li { content-visibility: visible; }" });
+  const ends = await list(page).rows.evaluateAll((rows) =>
+    rows.map((row) => {
+      const numbers = row.querySelector(".props") as Element;
+      const first = numbers.querySelector(".prop-value") as Element;
+      return Math.round(first.getBoundingClientRect().right - numbers.getBoundingClientRect().left);
+    }),
+  );
+  // Where the numbers end, and the charts start: the same in a row of dashes as in any other.
+  expect(new Set(ends).size, String(ends)).toBe(1);
+});
+
 test.describe("without a TLDR, or with a TLDR that has no glance", () => {
   const lacking = [skills["no-tldr"], skills["empty-glance"], bundles["bundle-no-tldr"]];
 

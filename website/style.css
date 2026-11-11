@@ -1797,6 +1797,20 @@ body:has(.skills-view) #page-head {
   text-align: right;
 }
 
+/*
+ * Every number takes the room of the widest one a row can show, an age in bold, so that the
+ * numbers and the charts line up down the list: a row is otherwise only as wide as its own widest,
+ * and one a few days old, or with a number unknown, ends its numbers further left than the others.
+ */
+.prop-value::after {
+  display: block;
+  height: 0;
+  overflow: hidden;
+  font-weight: 650;
+  visibility: hidden;
+  content: "10 months";
+}
+
 .props .on dt {
   color: var(--ink-2);
 }
