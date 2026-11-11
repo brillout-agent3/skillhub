@@ -314,7 +314,15 @@ function render(whole = false) {
   results.innerHTML = resultsHtml(state, first);
   (document.getElementById("count") as HTMLElement).innerHTML = countHtml(state);
   if (scrolledPast) results.scrollIntoView({ block: "start" });
-  if (focus) (document.querySelector(focus) as HTMLElement | null)?.focus({ preventScroll: true });
+  if (focus) {
+    // A filter's chip is gone once it's removed, as Clear filters is with the last of them: the
+    // focus goes to the next chip, or else to the count they stood beside, from where Tab leads
+    // into the list. Left alone, it would fall back to the top of the page.
+    const gone = focus.startsWith("#scope")
+      ? (document.querySelector("#scope button") ?? document.getElementById("count"))
+      : null;
+    ((document.querySelector(focus) ?? gone) as HTMLElement | null)?.focus({ preventScroll: true });
+  }
   const st = state;
   const id = ++renders;
   const append = (from: number) => {

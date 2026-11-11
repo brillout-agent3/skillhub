@@ -295,6 +295,30 @@ test("a repo's link lists that repo's skills, under its banner", async ({ page }
   await expect(scope.locator('[data-remove="repo"]')).toContainText(`from ${repo.repo}`);
 });
 
+test("the keyboard can skip the tags, and keeps its place when a filter goes", async ({ page }) => {
+  await open(page, "/?tag=type%3Aworkflow&stars=1000..&show=bundles");
+  const { rows, scope } = list(page);
+
+  // The tags come before the list: a link atop them, shown once focused, leads past them.
+  await page.locator('[data-show="bundles"]').focus();
+  await page.keyboard.press("Tab");
+  const skip = page.locator(".skip-tags");
+  await expect(skip).toBeFocused();
+  await expect(skip).toBeInViewport();
+  await page.keyboard.press("Enter");
+  await page.keyboard.press("Tab");
+  await expect(rows.first().locator(".skill-name")).toBeFocused();
+
+  // Removing a filter's chip hands the focus to the next one, and the last one to the count.
+  await scope.locator('[data-remove="tag"]').focus();
+  await page.keyboard.press("Enter");
+  await settled(page);
+  await expect(scope.locator('[data-remove="range"]')).toBeFocused();
+  await page.keyboard.press("Enter");
+  await settled(page);
+  await expect(page.locator("#count")).toBeFocused();
+});
+
 test("going back to a list returns to where you were in it", async ({ page }) => {
   await open(page, "/?sort=week");
   const link = list(page).rows.nth(200).locator(".skill-name");

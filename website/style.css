@@ -467,6 +467,30 @@ body:has(.skills-view) #page-head {
   }
 }
 
+/*
+ * Atop the tags, for the keyboard, which meets them before the list: a link to skip them, in view
+ * only while it has the focus, over the tags' count, so that nothing moves.
+ */
+.skip-tags {
+  position: absolute;
+  z-index: 1;
+  top: 26px;
+  left: 22px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: var(--paper);
+  box-shadow: var(--shadow-border);
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.skip-tags:not(:focus) {
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+
 /* The tags. They stay in view while the list scrolls, scrolling on their own. */
 #filters {
   grid-area: side;
@@ -2877,7 +2901,8 @@ body:has(.skills-view) #page-head {
   /* The tags, atop the list, behind their count: a button as wide as the screen, its words in the
      middle, as the Filters button's. */
   .tags-count,
-  #filters:not(.tags-shown) .tag-facets {
+  #filters:not(.tags-shown) .tag-facets,
+  #filters:not(.tags-shown) .skip-tags {
     display: none;
   }
 

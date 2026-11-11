@@ -1496,7 +1496,8 @@ const savedSwitchHtml = (st: State) =>
  * chips. On
  * narrow screens, the presets and the Saved switch stay in view, and the Filters button, between
  * them, opens the line's other settings; the tags come before the list, behind their count, which
- * opens them. `reviewed` is how many skills SkillHub reviewed, from review.ts, which only the
+ * opens them. The tags come before the list for the keyboard too, some 150 of them: a link atop
+ * them, which only shows once it has the focus, skips to the list. `reviewed` is how many skills SkillHub reviewed, from review.ts, which only the
  * server reads: the line saying so isn't re-rendered.
  */
 export function listView(st: State, reviewed: number): string {
@@ -1546,11 +1547,12 @@ export function listView(st: State, reviewed: number): string {
     </div>
     <div class="skills-view">
       <aside id="filters" aria-label="Tags">
+        <a class="skip-tags" href="#results">Skip the tags, to the list</a>
         <div id="facets">${facetsHtml(st, false)}</div>
       </aside>
       <div class="list-main">
         <div class="list-count-row">
-          <h2 id="count" class="list-count" aria-live="polite">${countHtml(st)}</h2>
+          <h2 id="count" class="list-count" aria-live="polite" tabindex="-1">${countHtml(st)}</h2>
           <p id="scope" class="scope">${scopeHtml(st)}</p>
         </div>
         <section id="results" aria-label="Skills">${resultsHtml(st)}</section>
