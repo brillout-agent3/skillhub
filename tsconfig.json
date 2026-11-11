@@ -19,6 +19,7 @@
     "playwright.config.ts",
     "worker/index.test.ts",
     "data/types.ts",
-    "data/params.ts"
+    "data/params.ts",
+    "data/edge-cases.ts"
   ]
 }

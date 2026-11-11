@@ -1,7 +1,8 @@
 # Validate the data, test the Worker, pre-render the site with Vike, check and walk the built site,
-# and deploy it to Cloudflare: the Worker of wrangler.jsonc serves the pages at https://skillhub.build, and /api/*
-# from worker/index.ts, with its D1 database. Every branch gets checked; only the default branch,
-# whatever its name, gets deployed, and only when every check before it passed.
+# and deploy it to Cloudflare: the Worker of wrangler.jsonc serves the pages at
+# https://skillhub.build, and /api/* from worker/index.ts, with its D1 database. Every branch gets
+# checked; only the default branch, whatever its name, gets deployed, and only when every check
+# before it passed.
 name: Deploy site
 
 on:
@@ -39,6 +40,12 @@ jobs:
         run: pnpm run build
       - name: Check the built site's links and ids
         run: pnpm run check:site
+      # A second site, in its own directory: the states the pages handle but that today's data may
+      # have no example of, which the walk covers too. See data/edge-cases.ts.
+      - name: Build and check the edge cases' site
+        env:
+          SKILLHUB_DATA: edge-cases
+        run: pnpm run build && pnpm run check:site
       # Only the browser itself: the runner has the libraries it needs. Installing them anyway, with
       # --with-deps, runs apt-get, which once failed to reach its mirrors for ten minutes.
       - name: Restore the browser the walk drives
@@ -51,7 +58,7 @@ jobs:
         if: steps.browser.outputs.cache-hit != 'true'
         timeout-minutes: 3
         run: pnpm exec playwright install --only-shell chromium
-      - name: Walk the built site end to end
+      - name: Walk both built sites end to end
         timeout-minutes: 10
         run: pnpm run test:e2e
       - name: Keep what a failed walk leaves, such as screenshots

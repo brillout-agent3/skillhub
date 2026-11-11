@@ -1,23 +1,24 @@
 ---
 name: test-site
-description: Run SkillHub's site and verify a change to it. Start it locally with a test login, drive it in a browser, and run the checks CI runs before it deploys, the end-to-end walk included. Use when asked to run, start, test, verify, debug or screenshot the site, when writing a test for it, and before pushing any change to website/, worker/ or e2e/.
+description: Run SkillHub's site and verify a change to it. Start it locally with a test login, drive it in a browser, and run the checks CI runs before it deploys, the Worker's tests and the end-to-end walk included. Use when asked to run, start, test, verify, debug or screenshot the site, when writing a test for it, and before pushing any change to website/, worker/ or e2e/.
 ---
 
 # Run and test the site
 
-A push to `main` goes live within three minutes, so check a change before pushing it.
+A push to `main` goes live within four minutes, so check a change before pushing it.
 
 ## Check a change
 
 ```bash
 pnpm check                      # the data files and the types: 5 s
-pnpm test:e2e                   # the end-to-end walk, e2e/: 1.5 min
+pnpm test:worker                # the Worker's tests, worker/index.test.ts: 5 s
+pnpm test:e2e                   # the end-to-end walk, e2e/: 2.5 min
 pnpm build && pnpm check:site   # the built site's links and ids: 15 s
 ```
 
-CI runs all three, in `.github/workflows/deploy.yml`, and deploys only when they pass. A failed walk in CI leaves its screenshots as the run's `test-results` artifact.
+CI runs all four, in `.github/workflows/deploy.yml`, and deploys only when they pass. A failed walk in CI leaves its screenshots as the run's `test-results` artifact.
 
-`pnpm test:e2e` uses whatever serves `localhost:3000`, such as a `pnpm dev` you left running. With nothing there, it builds the site and starts `pnpm preview` itself. One test: `pnpm test:e2e -g "part of its name"`.
+`pnpm test:e2e` uses whatever serves `localhost:3000`, such as a `pnpm dev` you left running. With nothing there, it builds the site and starts `pnpm preview` itself. It does the same on port 3100 for the edge cases' site, below. One test: `pnpm test:e2e -g "part of its name"`. One file: `pnpm test:e2e e2e/list.spec.ts`.
 
 Don't edit a file while the walk runs against `pnpm dev`: the edit reloads the pages under the tests, which then fail with "Execution context was destroyed".
 
@@ -27,7 +28,7 @@ Don't edit a file while the walk runs against `pnpm dev`: the edit reloads the p
 pnpm dev             # the site at http://localhost:3000, with hot reload
 pnpm dev --fresh     # the same, from an empty database
 pnpm preview         # the built site, as Cloudflare serves it: run pnpm build first
-pnpm dev:stop        # stop the one running in this checkout, from anywhere
+pnpm dev:stop        # stop every one running in this checkout, from anywhere
 ```
 
 - **Ready:** it prints a line starting with `Ready:` once the site and the Worker answer. Started in the background, wait for that line, or for `http://localhost:3000/api/me` to answer.
@@ -35,9 +36,26 @@ pnpm dev:stop        # stop the one running in this checkout, from anywhere
 - **Stopping:** Ctrl-C, or `pnpm dev:stop`. A `kill` of `pnpm dev` itself does nothing, as pnpm doesn't pass the signal on.
 - **404s and trailing slashes** behave as in production only in `pnpm preview`.
 
+## The edge cases: states today's data has no example of
+
+The pages handle states that the real data lacks on most days, so neither the eye nor a test of the real site sees them: a skill without a TLDR, with a TLDR that has no glance, without a copy of its SKILL.md, with unknown installs, weekly installs, first-seen date or stars, one flagged `republished`, a bundle without a TLDR, and a bundle whose skills have no numbers. Some go live unreviewed, such as a skill between the add-skill and write-tldr skills.
+
+`SKILLHUB_DATA=edge-cases` puts a second site beside the real one, whose catalog of some twenty entries has one for each of those states, named after it, such as `no-tldr`:
+
+```bash
+SKILLHUB_DATA=edge-cases pnpm dev                              # http://localhost:3100
+SKILLHUB_DATA=edge-cases pnpm build                            # into website/dist-edge-cases/
+SKILLHUB_DATA=edge-cases pnpm preview
+SKILLHUB_DATA=edge-cases pnpm check:site
+```
+
+- **It's carved out of the real data,** by `data/edge-cases.ts`: each entry is a real skill or bundle with one thing taken away. A new state is one more entry in `SKILL_CASES` or `BUNDLE_CASES` there, and a test in `e2e/edge-cases.spec.ts`.
+- **It runs beside the real site:** ports 3100 and 8887, its own build directory, which a deploy can't take, and its own database, in `.wrangler/edge-cases/`.
+- **When you change how a page renders something that can be missing,** look at it there, and run its walk: `pnpm test:e2e e2e/edge-cases.spec.ts`.
+
 ## Log in and save
 
-Locally, Log in logs you in as a test user at once, without GitHub: see `DEV_LOGIN` in `worker/index.ts`. There's only that one user. GitHub's own callback can't run locally.
+Locally, Log in logs you in as a test user at once, without GitHub: see `DEV_LOGIN` in `worker/index.ts`. There's only that one user.
 
 The database is in `.wrangler/state/` and keeps what you saved between runs. Read or change it while the site runs:
 
@@ -46,6 +64,15 @@ pnpm exec wrangler d1 execute skillhub --local --command "SELECT * FROM saves"
 ```
 
 That's also how to reach states the pages can't set up fast, such as the most a person can save: insert 1,000 rows for user `0`, then save one more.
+
+## The Worker's tests
+
+Logging in with GitHub can't run locally, nor in the walk. `worker/index.test.ts` covers it, and the rest of the API: it runs `worker/index.ts` in Miniflare, the runtime `wrangler dev` uses, with a database of its own and with GitHub played by the tests, by GitHub's rules.
+
+- **One test:** `pnpm run node-ts --test --test-name-pattern "part of its name" worker/index.test.ts`. The pattern goes before the file.
+- **A browser** there is a `Browser`, which keeps its cookies; `logIn(browser)` takes it through GitHub and back.
+- **An error the Worker logs fails the test,** unless the test expects it.
+- **After a wrangler upgrade,** give `miniflare` in `package.json` the version wrangler pins: a test says so when they differ.
 
 ## Drive it in a browser
 
@@ -61,7 +88,7 @@ The pages are pre-rendered, so they show before their controls work. Wait for wh
 `networkidle` isn't one of them: in `pnpm dev` it fires before the home page's script runs.
 
 - **Selectors:** the controls carry what they do, such as `[data-preset="top"]`, `[data-tag="type:workflow"]`, `[data-show="bundles"]`, `[data-save]`, `#q`, `#sort`, `#saved-switch`, and their state in `aria-pressed`, `aria-expanded` and `aria-checked`.
-- **Rows off the screen aren't drawn:** each counts as a typical row's height until it's scrolled to, and its `innerText` is empty until then. Read a row's text with `textContent`.
+- **Rows off the screen aren't drawn:** each counts as a typical row's height until it's scrolled to, and its `innerText` is empty until then. Read a row's text with `textContent`. A full-page screenshot shows them blank: scroll to them, or add `.skill-list > li { content-visibility: visible }` for the picture.
 - **The whole list is heavy:** `/` holds some 90,000 elements. Whatever reads the whole page is slow there: axe takes 30 s, and Playwright describes the whole page on every retry of an `expect` that starts out wrong on an element that isn't visible, which stalls the page for seconds. Use a shorter list for such things, such as `/?show=bundles` or a search.
 - **Screens:** the tests use 1440×900, and 390×844 for a phone. Dark mode is the header's toggle, or Playwright's `colorScheme: "dark"`.
 - **The app's own functions:** in a `pnpm dev` page, `await import("/list.ts")` gives them with the real data, such as `parse` and `query`.
@@ -73,7 +100,4 @@ Add it to the spec in `e2e/` that covers its page, with the helpers of `e2e/fixt
 - **No numbers, no names:** the data changes every day. `e2e/data.ts` derives what the pages should show from the data files, such as the skill and the bundle to test with.
 - **Any browser error fails a test:** console errors, uncaught exceptions, failed requests and error responses. A test that brings one about on purpose, such as a 404, says so with `test.use({ expected: /…/ })`.
 - **The account's tests share the one test user,** so they're in `account.spec.ts`, which runs in order and starts each test from nothing saved. Tests elsewhere don't log in.
-
-## What it can't show you
-
-Today's data has no skill or bundle for some of what the pages handle, so neither the eye nor the walk sees it: a skill without a TLDR, without a copy of its SKILL.md, with unknown installs, weekly installs, first-seen date or stars, one flagged `republished`, and a bundle without a TLDR. Some go live unreviewed, such as a skill between the add-skill and write-tldr skills. When you change how one of them renders, set it up by editing `data/skills.jsonc` locally, look, and don't commit the edit.
+- **A test that can't fail proves nothing:** break what it's about, see it fail, then put it back.

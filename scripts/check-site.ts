@@ -7,13 +7,15 @@
  * is double-quoted, and the text of a SKILL.md is escaped.
  *
  * Run: pnpm run build && pnpm run check:site
+ * With SKILLHUB_DATA=edge-cases on both, it checks the edge cases' site: see data/edge-cases.ts.
  */
 
 import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import { join, posix } from "node:path";
+import { EDGE_CASES, siteOf } from "../data/edge-cases.ts";
 import { root } from "./data.ts";
 
-const site = join(root, "website/dist/client");
+const site = join(root, siteOf().dist, "client");
 if (!existsSync(join(site, "index.html"))) {
   console.error("There's no built site to check: run pnpm run build first.");
   process.exit(1);
@@ -132,9 +134,11 @@ if (errors.size) {
     const others = where.length > 1 ? ` and ${where.length - 1} other page(s)` : "";
     return `  ${problem}: ${where[0]}${others}`;
   });
-  console.error(`The built site has ${errors.size} problem(s):\n${lines.join("\n")}`);
+  console.error(
+    `The built site${EDGE_CASES ? " of the edge cases" : ""} has ${errors.size} problem(s):\n${lines.join("\n")}`,
+  );
   process.exit(1);
 }
 console.log(
-  `The built site is sound: ${pages.length.toLocaleString("en")} pages, ${links.toLocaleString("en")} internal links.`,
+  `The built site${EDGE_CASES ? " of the edge cases" : ""} is sound: ${pages.length.toLocaleString("en")} pages, ${links.toLocaleString("en")} internal links.`,
 );

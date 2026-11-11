@@ -1,5 +1,7 @@
 /node_modules/
 /website/dist/
+# The edge cases' site: see data/edge-cases.ts.
+/website/dist-edge-cases/
 # Wrangler's local state, such as the local D1 database of `pnpm dev`.
 /.wrangler/
 # What a failed run of the end-to-end walk leaves, such as screenshots.

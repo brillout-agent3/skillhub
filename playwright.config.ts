@@ -3,10 +3,14 @@
  * http://localhost:3000, such as a `pnpm dev` left running, or else builds the site and starts
  * `pnpm preview` itself, as CI does before it deploys (see .github/workflows/deploy.yml).
  * e2e/fixtures.ts says how the tests wait for the pages, and what fails them.
+ *
+ * e2e/edge-cases.spec.ts walks a second site, the edge cases' (see data/edge-cases.ts), which is
+ * found or started the same way, on its own port.
  */
 
 import { existsSync } from "node:fs";
 import { defineConfig } from "@playwright/test";
+import { siteOf } from "./data/edge-cases.ts";
 
 /**
  * Claude Code's cloud sessions come with a Chromium of their own, at a version this repo's
@@ -22,7 +26,7 @@ export default defineConfig({
   // Tests run side by side, except account.spec.ts's, which share the one test user.
   fullyParallel: true,
   use: {
-    baseURL: "http://localhost:3000",
+    baseURL: `http://localhost:${siteOf(false).port}`,
     viewport: { width: 1440, height: 900 },
     // For Find with your agent and the Copy buttons.
     permissions: ["clipboard-read", "clipboard-write"],
@@ -31,12 +35,20 @@ export default defineConfig({
     screenshot: "only-on-failure",
     launchOptions: existsSync(CLOUD_CHROMIUM) ? { executablePath: CLOUD_CHROMIUM } : {},
   },
-  webServer: {
+  // One after the other: the second starts once the first answers.
+  webServer: [server(false), server(true)],
+});
+
+/** What serves a site, the real one or the edge cases': its port's server, or else its build, previewed. */
+function server(edgeCases: boolean) {
+  return {
     // CI has just built the site. Elsewhere the build could be stale, or missing.
     command: process.env.CI ? "pnpm preview" : "pnpm build && pnpm preview",
+    // Which of the two sites the commands are about, whatever the walk itself was started with.
+    env: { SKILLHUB_DATA: edgeCases ? "edge-cases" : "" },
     // The Worker answers through the site: both are up.
-    url: "http://localhost:3000/api/me",
+    url: `http://localhost:${siteOf(edgeCases).port}/api/me`,
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
-  },
-});
+  };
+}

@@ -1,12 +1,16 @@
 import { parse } from "comment-json";
 import type { Config, PageContextServer } from "vike/types";
+import { EDGE_CASES, edgeCases, siteOf } from "../../data/edge-cases.ts";
 import type { Data } from "../../data/types.ts";
 import { forClient, searchWords } from "../client-data.ts";
+
+const site = siteOf();
 
 /**
  * Imports the data files, which are JSONC, as JSON, without their comments. The browser gets a
  * trimmed skills.jsonc, and `skills.jsonc?search-words` is the prose it leaves out: see
- * ../client-data.ts.
+ * ../client-data.ts. With SKILLHUB_DATA=edge-cases, skills.jsonc is the edge cases' catalog
+ * instead: see ../../data/edge-cases.ts.
  */
 const jsonc = {
   name: "jsonc",
@@ -15,6 +19,7 @@ const jsonc = {
     if (!file.endsWith(".jsonc")) return;
     let value: unknown = parse(code, undefined, true);
     if (file.endsWith("/skills.jsonc")) {
+      if (EDGE_CASES) value = edgeCases(value as Data).data;
       if (new URLSearchParams(query).has("search-words")) value = searchWords(value as Data);
       else if (this.environment?.config.consumer === "client") forClient(value as Data);
     }
@@ -49,7 +54,7 @@ export default {
     plugins: [jsonc, serverOnly],
     // In `pnpm dev`, the Worker runs beside Vike's dev server: see ../../scripts/dev.ts. On its
     // port or not at all: the script, and whoever tests the site, count on it.
-    server: { proxy: { "/api": "http://localhost:8787" }, strictPort: true },
+    server: { proxy: { "/api": `http://localhost:${site.workerPort}` }, strictPort: true },
   },
   meta: {
     // Pages render to HTML at build time only, so Page never runs in the browser. Server-only, it

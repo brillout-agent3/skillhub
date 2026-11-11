@@ -1,0 +1,262 @@
+/**
+ * The edge cases: the states the pages handle but that the real data has no example of on most
+ * days, such as a skill without a TLDR, or with unknown installs. They're walked on a site of their
+ * own, whose catalog has an entry for each, named after it: see data/edge-cases.ts.
+ *
+ * To look at one yourself: `SKILLHUB_DATA=edge-cases pnpm dev`, at http://localhost:3100.
+ */
+
+import AxeBuilder from "@axe-core/playwright";
+import type { Locator, Page } from "@playwright/test";
+import { edgeCases, siteOf, type BundleCase, type SkillCase } from "../data/edge-cases.ts";
+import { readData } from "../scripts/data.ts";
+import { github, repoPage, skillPage } from "../website/github.ts";
+import { expect, list, open, test } from "./fixtures.ts";
+
+test.use({ baseURL: `http://localhost:${siteOf(true).port}` });
+
+const { data, skills, bundles } = edgeCases(readData());
+const skillUrl = (name: SkillCase) => `/${skillPage(skills[name])}/`;
+const bundleUrl = (name: BundleCase) => `/bundle/${bundles[name].id}/`;
+const PAGES: [name: string, url: string][] = [
+  ["the list", "/"],
+  ...(Object.keys(skills) as SkillCase[]).map((name) => [name, skillUrl(name)] as [string, string]),
+  ...(Object.keys(bundles) as BundleCase[]).map(
+    (name) => [name, bundleUrl(name)] as [string, string],
+  ),
+];
+
+/** How many rows the unfiltered list has: every bundle, and every skill with a row of its own. */
+const members = new Map(
+  data.bundles.flatMap((b) => b.agentReview.skills.map((m) => [m.id, m] as const)),
+);
+const listedRows =
+  data.bundles.length +
+  data.skills.filter((s) => !members.has(s.id) || members.get(s.id)?.listedOutsideBundle === true)
+    .length;
+
+/** The row of an entry, by its name: a case's entry is named after it. */
+const row = (page: Page, name: string) =>
+  list(page).rows.filter({
+    has: page.locator(".skill-name", { hasText: new RegExp(`^${name}$`) }),
+  });
+/** A number of a row, or of every row, by the name a screen reader gives it. Read it with textContent: a row off the screen isn't drawn. */
+const number = (rows: Locator, label: string) =>
+  rows
+    .locator(".props > div")
+    .filter({ has: rows.page().locator("dt", { hasText: label }) })
+    .locator(".prop-value");
+const UNKNOWN = "—";
+
+/**
+ * A number that can be unknown: what a row calls it, its tile on a page, its sort and its filter in
+ * the URL, and the skill that lacks it. Each filter is one that takes nearly every known value, on
+ * any day: ten or more, or published over a week ago.
+ */
+const NUMBERS: { row: string; tile: string; param: string; range: string; lacking: SkillCase }[] = [
+  {
+    row: "Total Downloads",
+    tile: "Total Downloads",
+    param: "downloads",
+    range: "10..",
+    lacking: "unknown-installs",
+  },
+  {
+    row: "Weekly Downloads",
+    tile: "Weekly Downloads",
+    param: "week",
+    range: "10..",
+    lacking: "unknown-weekly-installs",
+  },
+  { row: "Age", tile: "Age", param: "published", range: "..7d", lacking: "unknown-first-seen" },
+  { row: "Stars", tile: "Repo stars", param: "stars", range: "10..", lacking: "unknown-stars" },
+];
+
+test("the list has a row for every case, named after it", async ({ page }) => {
+  await open(page, "/");
+  const { count, rows } = list(page);
+  await expect(count).toHaveText(`${data.skills.length} skills`);
+  await expect(rows).toHaveCount(listedRows);
+  for (const name of [...Object.keys(skills), ...Object.keys(bundles)])
+    await expect(row(page, name)).toHaveCount(1);
+});
+
+test.describe("without a TLDR, or with a TLDR that has no glance", () => {
+  const lacking = [skills["no-tldr"], skills["empty-glance"], bundles["bundle-no-tldr"]];
+
+  test("a row shows the description instead", async ({ page }) => {
+    await open(page, "/");
+    for (const entry of lacking) {
+      const name = "name" in entry ? entry.name : entry.agentReview.name;
+      await expect(row(page, name).locator(".skill-desc")).toHaveText(
+        entry.agentReview.description,
+      );
+      await expect(row(page, name).locator(".glance")).toHaveCount(0);
+    }
+    // Every other row has its glance.
+    await expect(list(page).rows.locator(".glance")).toHaveCount(listedRows - lacking.length);
+  });
+
+  test("a page shows the description instead, and the TLDR's prose when there's one", async ({
+    page,
+  }) => {
+    for (const [url, entry] of [
+      [skillUrl("no-tldr"), skills["no-tldr"]],
+      [skillUrl("empty-glance"), skills["empty-glance"]],
+      [bundleUrl("bundle-no-tldr"), bundles["bundle-no-tldr"]],
+    ] as const) {
+      await open(page, url);
+      await expect(page.locator(".lede")).toHaveText(entry.agentReview.description);
+      await expect(page.locator(".at-a-glance")).toHaveCount(0);
+      const prose = entry.agentReview.tldr?.text;
+      if (prose) await expect(page.locator(".tldr")).toContainText(prose.split("\n")[0]);
+      else await expect(page.locator(".tldr")).toHaveCount(0);
+    }
+  });
+
+  test("the agent's prompt describes it by its description", async ({ page }) => {
+    await open(page, "/");
+    await page.locator(".ask-button").click();
+    await expect(page.locator("#ask-label")).toContainText("Copied to your clipboard");
+    const prompt = await page.evaluate(() => navigator.clipboard.readText());
+    for (const entry of lacking) expect(prompt).toContain(`\n- ${entry.agentReview.description}`);
+    // No entry comes with nothing said about it: each has its heading, where it's from, and a fact.
+    const entries = prompt.split("\n# My need")[0].split("\n\n### ").slice(1);
+    expect(entries).toHaveLength(listedRows);
+    for (const entry of entries) {
+      const [, numbers, fact = ""] = entry.split("\n");
+      expect(fact, entry).toMatch(/^- \S/);
+      // And a number that isn't known isn't written.
+      expect(numbers, entry).not.toMatch(/undefined|null|NaN|—/);
+    }
+  });
+});
+
+test("a skill without a copy of its SKILL.md says so", async ({ page }) => {
+  await open(page, skillUrl("no-skill-md-copy"));
+  const section = page.locator(".skill-md");
+  await expect(section).toContainText("No copy of its SKILL.md yet.");
+  await expect(section.locator(".markdown, .frontmatter")).toHaveCount(0);
+  // The rest of the page is all there.
+  await expect(page.locator(".stat-tiles .stat")).toHaveCount(NUMBERS.length);
+});
+
+test.describe("a number that's unknown", () => {
+  test("is a dash in its row, beside the numbers that are known", async ({ page }) => {
+    await open(page, "/");
+    for (const { row: label, lacking } of NUMBERS) {
+      await expect(number(row(page, lacking), label)).toHaveText(UNKNOWN);
+      for (const other of NUMBERS)
+        if (other.row !== label)
+          await expect(number(row(page, lacking), other.row)).not.toHaveText(UNKNOWN);
+    }
+    // Without its weekly installs, a skill has no growth either: the list opens sorted by it.
+    await expect(number(row(page, "unknown-weekly-installs"), "Weekly Growth")).toHaveText(UNKNOWN);
+  });
+
+  test("has no tile on its page, which keeps the others", async ({ page }) => {
+    for (const { tile, lacking } of NUMBERS) {
+      await open(page, skillUrl(lacking));
+      const labels = await page.locator(".stat-tiles .stat-label").allTextContents();
+      const others = NUMBERS.map((n) => n.tile).filter((t) => t !== tile);
+      expect(labels.map((l) => others.find((t) => l.includes(t))).sort()).toEqual(others.sort());
+      await expect(page.locator(".stat-tiles")).not.toContainText(/undefined|null|NaN/);
+    }
+  });
+
+  test("goes last when the list is sorted by it, whichever way", async ({ page }) => {
+    for (const sort of ["growth", ...NUMBERS.map((n) => n.param)])
+      for (const order of ["", "order=asc"]) {
+        const query = [sort === "growth" ? "" : `sort=${sort}`, order].filter(Boolean).join("&");
+        await open(page, `/?${query}`);
+        const values = await list(page).sortedValues.allTextContents();
+        expect(values, query).toHaveLength(listedRows);
+        const known = values.filter((v) => v !== UNKNOWN);
+        expect(known.length, query).toBeGreaterThan(0);
+        expect(known.length, query).toBeLessThan(values.length);
+        expect(values.slice(0, known.length), query).toEqual(known);
+      }
+  });
+
+  test("is left out when the list is narrowed by it", async ({ page }) => {
+    for (const { row: label, param, range, lacking } of NUMBERS) {
+      await open(page, `/?${param}=${range}`);
+      const { rows } = list(page);
+      await expect(row(page, lacking)).toHaveCount(0);
+      await expect(row(page, "bundle-unknown-numbers")).toHaveCount(0);
+      const shown = await number(rows, label).allTextContents();
+      expect(shown.length, param).toBeGreaterThan(0);
+      expect(shown, param).not.toContain(UNKNOWN);
+    }
+  });
+
+  test("a repo with unknown stars says how many skills it has, and nothing of stars", async ({
+    page,
+  }) => {
+    await open(page, `/${repoPage(github(skills["unknown-stars"]).repo)}/`);
+    await expect(page.locator(".listing-page > .muted")).toHaveText("1 skill");
+  });
+});
+
+test.describe("a bundle none of whose skills has numbers", () => {
+  const bundle = bundles["bundle-unknown-numbers"];
+
+  test("has a dash for each in its row", async ({ page }) => {
+    await open(page, "/");
+    const values = await row(page, "bundle-unknown-numbers")
+      .locator(".prop-value")
+      .allTextContents();
+    expect(values).toEqual([...NUMBERS.map(() => UNKNOWN), UNKNOWN]);
+  });
+
+  test("has no numbers on its page, for itself or for its skills", async ({ page }) => {
+    await open(page, bundleUrl("bundle-unknown-numbers"));
+    // Not even the section they'd be in, which a screen reader would announce empty.
+    await expect(page.locator(".stat-tiles")).toHaveCount(0);
+    await expect(page.locator(".bundle-skills > li")).toHaveCount(bundle.agentReview.skills.length);
+    await expect(page.locator(".bundle-skills .metric")).toHaveCount(0);
+  });
+});
+
+test("a republished skill is marked in its row, and its page says what that means", async ({
+  page,
+}) => {
+  await open(page, "/");
+  const marked = page.locator("#results .skill-list > li.caution");
+  await expect(marked).toHaveCount(1);
+  await expect(marked.locator(".skill-name")).toHaveText("republished");
+  await expect(marked.locator('[data-tag="flag:republished"]')).toHaveCount(1);
+
+  await open(page, skillUrl("republished"));
+  const flag = data.facets.find((f) => f.id === "flag")?.values.find((v) => v.id === "republished");
+  await expect(page.locator(".tag-detail")).toContainText(flag?.description ?? "");
+  // Its tag leads to the list of such skills.
+  await page.locator('.tag-detail [data-tag="flag:republished"]').click();
+  await expect(page).toHaveURL("/?tag=flag%3Arepublished");
+  await expect(list(page).rows).toHaveCount(1);
+});
+
+for (const scheme of ["light", "dark"] as const)
+  test.describe(`in ${scheme}`, () => {
+    test.use({ colorScheme: scheme });
+    for (const [name, url] of PAGES)
+      test(`${name} passes axe`, async ({ page }) => {
+        await open(page, url);
+        // Not inside a SKILL.md, which is its author's: see a11y.spec.ts.
+        const { violations } = await new AxeBuilder({ page }).exclude(".markdown").analyze();
+        const found = violations.map(
+          (v) => `${v.id}: ${v.help} (${v.nodes.length}) e.g. ${v.nodes[0].html.slice(0, 120)}`,
+        );
+        expect(found).toEqual([]);
+      });
+  });
+
+test.describe("on a phone", () => {
+  const WIDTH = 390;
+  test.use({ viewport: { width: WIDTH, height: 844 }, isMobile: true, hasTouch: true });
+  for (const [name, url] of PAGES)
+    test(`${name} fits the screen's width`, async ({ page }) => {
+      await open(page, url);
+      expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(WIDTH);
+    });
+});
