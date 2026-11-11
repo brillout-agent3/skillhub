@@ -83,7 +83,10 @@ export const list = (page: Page) => ({
   search: page.locator("#q"),
   scope: page.locator("#scope"),
   empty: page.locator("#results .empty"),
-  /** A row's numbers, as the row shows them, for the number the list is sorted by. */
+  /**
+   * A row's numbers, as the row shows them, for the number the list is sorted by. Read them with
+   * allTextContents(): a row off the screen isn't drawn, so its innerText is empty.
+   */
   sortedValues: page.locator("#results .skill-list > li .props > .on .prop-value"),
 });
 

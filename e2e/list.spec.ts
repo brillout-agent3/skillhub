@@ -78,7 +78,7 @@ test("the presets set the sort and the Published range", async ({ page }) => {
   await expect(page).toHaveURL("/?sort=week");
   await expect(preset("top")).toHaveAttribute("aria-pressed", "true");
   await expect(preset("rising")).toHaveAttribute("aria-pressed", "false");
-  const weeks = (await list(page).sortedValues.allInnerTexts()).slice(0, 30).map(fromCompact);
+  const weeks = (await list(page).sortedValues.allTextContents()).slice(0, 30).map(fromCompact);
   expect(weeks).toEqual(weeks.toSorted((a, b) => b - a));
 
   await preset("rising-new").click();
@@ -112,7 +112,7 @@ test("the Sort by menu works with the mouse and with the keyboard", async ({ pag
   await page.locator('[data-order="asc"]').click();
   await settled(page);
   await expect(page).toHaveURL("/?sort=stars&order=asc");
-  const stars = (await list(page).sortedValues.allInnerTexts()).slice(0, 30).map(fromCompact);
+  const stars = (await list(page).sortedValues.allTextContents()).slice(0, 30).map(fromCompact);
   expect(stars).toEqual(stars.toSorted((a, b) => a - b));
 
   // Arrow keys open it on the current sort and move among the options; Escape hands the focus back.

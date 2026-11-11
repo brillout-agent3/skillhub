@@ -5,19 +5,21 @@ description: Run SkillHub's site and verify a change to it. Start it locally wit
 
 # Run and test the site
 
-A push to `main` goes live within two minutes, so check a change before pushing it.
+A push to `main` goes live within three minutes, so check a change before pushing it.
 
 ## Check a change
 
 ```bash
 pnpm check                      # the data files and the types: 5 s
-pnpm test:e2e                   # the end-to-end walk, e2e/: 1 min
+pnpm test:e2e                   # the end-to-end walk, e2e/: 1.5 min
 pnpm build && pnpm check:site   # the built site's links and ids: 15 s
 ```
 
 CI runs all three, in `.github/workflows/deploy.yml`, and deploys only when they pass. A failed walk in CI leaves its screenshots as the run's `test-results` artifact.
 
 `pnpm test:e2e` uses whatever serves `localhost:3000`, such as a `pnpm dev` you left running. With nothing there, it builds the site and starts `pnpm preview` itself. One test: `pnpm test:e2e -g "part of its name"`.
+
+Don't edit a file while the walk runs against `pnpm dev`: the edit reloads the pages under the tests, which then fail with "Execution context was destroyed".
 
 ## Run it
 
@@ -59,6 +61,7 @@ The pages are pre-rendered, so they show before their controls work. Wait for wh
 `networkidle` isn't one of them: in `pnpm dev` it fires before the home page's script runs.
 
 - **Selectors:** the controls carry what they do, such as `[data-preset="top"]`, `[data-tag="type:workflow"]`, `[data-show="bundles"]`, `[data-save]`, `#q`, `#sort`, `#saved-switch`, and their state in `aria-pressed`, `aria-expanded` and `aria-checked`.
+- **Rows off the screen aren't drawn:** each counts as a typical row's height until it's scrolled to, and its `innerText` is empty until then. Read a row's text with `textContent`.
 - **The whole list is heavy:** `/` holds some 90,000 elements. Whatever reads the whole page is slow there: axe takes 30 s, and Playwright describes the whole page on every retry of an `expect` that starts out wrong on an element that isn't visible, which stalls the page for seconds. Use a shorter list for such things, such as `/?show=bundles` or a search.
 - **Screens:** the tests use 1440×900, and 390×844 for a phone. Dark mode is the header's toggle, or Playwright's `colorScheme: "dark"`.
 - **The app's own functions:** in a `pnpm dev` page, `await import("/list.ts")` gives them with the real data, such as `parse` and `query`.
