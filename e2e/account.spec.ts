@@ -96,6 +96,26 @@ test("a saved bundle counts as a bundle, not as its skills", async ({ page }) =>
   await settled(page);
   await expect(list(page).count).toHaveText("0 skills and 1 bundle");
   await expect(list(page).rows).toHaveCount(1);
+
+  // A search that finds nothing in it counts what you saved the same way.
+  await list(page).search.fill("zzzqqqxxx");
+  await settled(page);
+  await expect(list(page).empty).toContainText(
+    "among the 0 skills and 1 bundle the filters leave.",
+  );
+});
+
+test("the Saved list is empty when what you saved is no longer listed", async ({ page }) => {
+  // As a skill whose SKILL.md is gone from its repo: saved once, and off the list since.
+  const key = "skill:some/repo/delisted";
+  await page.request.get("/api/auth/login", { maxRedirects: 0 });
+  await page.request.post("/api/saves", { data: { key, saved: true } });
+  await open(page, "/?saved");
+  await accountLoaded(page);
+  await settled(page);
+  await expect(savedCount(page)).toHaveText("");
+  await expect(list(page).empty).toContainText("Nothing saved yet.");
+  await expect(page.locator("#ask-label")).toContainText("there's nothing to copy");
 });
 
 test("Save, logged out, logs you in and saves", async ({ page }) => {
@@ -158,4 +178,7 @@ test("the API refuses what isn't a logged-in page's own request", async ({ page 
     maxRedirects: 0,
   });
   expect(back.headers().location).toBe("/");
+
+  // Nothing stays saved for the test user, whose site may be a `pnpm dev` left running.
+  expect((await post({ key, saved: false })).status(), "unsaved").toBe(200);
 });

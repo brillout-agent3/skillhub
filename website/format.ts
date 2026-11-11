@@ -42,6 +42,14 @@ export const daysBefore = (day: string, n: number) =>
 export const plural = (n: number, word: string) =>
   `${n.toLocaleString("en")} ${word}${n === 1 ? "" : "s"}`;
 /**
+ * A change as a percentage with its sign, such as +180% or −12%, from its ratio, 1.8 or −0.12: a
+ * minus sign rather than a hyphen, and no sign on what rounds to 0%.
+ */
+export function percent(ratio: number): string {
+  const p = Math.round(ratio * 100);
+  return `${p > 0 ? "+" : p < 0 ? "−" : ""}${Math.abs(p).toLocaleString("en")}%`;
+}
+/**
  * How long before `asOf` a day was, both YYYY-MM-DD, as a number and one word, rounded down: 3 days,
  * 5 weeks (from 2 to 8), 9 months, 1.5 years (a decimal under 5 years), 7 years.
  */

@@ -11,7 +11,7 @@ import type { Locator, Page } from "@playwright/test";
 import { edgeCases, siteOf, type BundleCase, type SkillCase } from "../data/edge-cases.ts";
 import { readData } from "../scripts/data.ts";
 import { github, repoPage, skillPage } from "../website/github.ts";
-import { expect, list, open, test } from "./fixtures.ts";
+import { expect, list, open, searchable, settled, test } from "./fixtures.ts";
 
 test.use({ baseURL: `http://localhost:${siteOf(true).port}` });
 
@@ -81,6 +81,35 @@ test("the list has a row for every case, named after it", async ({ page }) => {
     await expect(row(page, name)).toHaveCount(1);
 });
 
+test("a search that finds a bundle only by its own name counts its skills", async ({ page }) => {
+  // A case's bundle is named after the case, which none of its skills says.
+  const bundle = bundles["bundle-no-tldr"];
+  const skillCount = `${bundle.agentReview.skills.length} skills`;
+  await open(page, "/");
+  await searchable(page);
+  const { count, rows, search } = list(page);
+  await search.fill(bundle.agentReview.name);
+  await settled(page);
+  await expect(rows).toHaveCount(1);
+  await expect(row(page, bundle.agentReview.name)).toHaveCount(1);
+  // Its row shows every skill of it as found: so do the count, the lines under the boxes, the tags.
+  await expect(rows.locator(".members a.dim")).toHaveCount(0);
+  await expect(count).toHaveText(skillCount);
+  await expect(page.locator("#search-note")).toContainText(skillCount);
+  await expect(page.locator("#ask-label")).toContainText(`the ${skillCount} below`);
+  await expect(page.locator("#facets .tags-count")).not.toHaveText("0 tags");
+  await expect(page.locator("#facets .chip")).not.toHaveCount(0);
+});
+
+test("a search that finds one skill says so in the singular", async ({ page }) => {
+  await open(page, "/");
+  await searchable(page);
+  await list(page).search.fill("unknown-stars");
+  await settled(page);
+  await expect(list(page).count).toHaveText("1 skill");
+  await expect(page.locator("#ask-label")).toContainText("the 1 skill below.");
+});
+
 test("the numbers line up down the list, whatever a row has of them", async ({ page }) => {
   await open(page, "/");
   // A row off the screen isn't laid out until it's drawn.
@@ -132,7 +161,7 @@ test.describe("without a TLDR, or with a TLDR that has no glance", () => {
   test("the agent's prompt describes it by its description", async ({ page }) => {
     await open(page, "/");
     await page.locator(".ask-button").click();
-    await expect(page.locator("#ask-label")).toContainText("Copied to your clipboard");
+    await expect(page.locator("#ask-label")).toContainText("Copied a prompt of");
     const prompt = await page.evaluate(() => navigator.clipboard.readText());
     for (const entry of lacking) expect(prompt).toContain(`\n- ${entry.agentReview.description}`);
     // No entry comes with nothing said about it: each has its heading, where it's from, and a fact.

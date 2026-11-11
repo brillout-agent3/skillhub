@@ -3,7 +3,7 @@
  * as a link, and its HTML. The page is pre-rendered unfiltered; its client script re-renders it.
  */
 
-import { age, compact, date, daysBefore, esc, href, plural } from "./format.ts";
+import { age, compact, date, daysBefore, esc, href, percent, plural } from "./format.ts";
 import {
   CAUTION,
   FACET_ORDER,
@@ -368,12 +368,10 @@ const GROWTH = {
   tag: "Growth",
   /** Among the skills that have a growth: see growthOf. */
   crowd: crowd("skill", data.skills.map(growthOf), "linear"),
+  // No full stop at its end, as the numbers' titles: propsHtml adds one before the place.
   title: (e: Entry) =>
-    `${isBundle(e) ? "The most of any of its skills: " : ""}Installs on skills.sh in an average week of the 2 to ${date(data.asOf.installs)}, against an average week of the 4 before. Only for skills with at least ${compact(GROWTH_MIN)} a week, and at least ${compact(GROWTH_BASE_MIN)} in each of the last ${GROWTH_WEEKS} weeks: a younger skill, or one that took off from almost nothing, shows under New.`,
+    `${isBundle(e) ? "The most of any of its skills: " : ""}Installs on skills.sh in an average week of the 2 to ${date(data.asOf.installs)}, against an average week of the 4 before. Only for skills with at least ${compact(GROWTH_MIN)} a week, and at least ${compact(GROWTH_BASE_MIN)} in each of the last ${GROWTH_WEEKS} weeks: a younger skill, or one that took off from almost nothing, shows under ${PRESETS["rising-new"].label}`,
 };
-/** A growth as a percentage with its sign, such as +180% or −12%. */
-const percent = (g: number) =>
-  `${g > 0 ? "+" : g < 0 ? "−" : ""}${Math.round(Math.abs(g) * 100).toLocaleString("en")}%`;
 /** A search sorts by best match unless another sort is picked; otherwise the list is Rising, by growth. */
 export const defaultSort = (q: string): Sort => (q.trim() ? "match" : "growth");
 /**
@@ -424,10 +422,15 @@ export const SHOWS: [Show, string][] = [
   ["bundles", "Bundles"],
 ];
 
+/** The repos' ids by their lowercase: GitHub ignores case, and so do this site's pages (see github.ts). */
+const repoIdByLower = new Map(data.repos.map((r) => [r.id.toLowerCase(), r.id]));
+
 export function parse(search: string): State {
   const p = new URLSearchParams(search);
   const sort = p.get("sort") as Sort | null;
   const q = p.get("q") ?? "";
+  // A repo as the data spells it, however the link does: ?repo=Anthropics/Skills is anthropics/skills.
+  const repo = p.get("repo");
   const ranges = fullRanges();
   for (const prop of PROP_IDS) {
     // Such as stars=1000..50000, published=30d.. with no upper bound, or published=.. for any.
@@ -443,7 +446,7 @@ export function parse(search: string): State {
   return {
     q,
     tags: p.getAll("tag"),
-    repo: p.get("repo"),
+    repo: repo && (repoIdByLower.get(repo.toLowerCase()) ?? repo),
     sort:
       sort && (sort in PROPS || sort === "growth" || (sort === "match" && q.trim()))
         ? sort
@@ -683,11 +686,44 @@ const savedBundle = (b: Bundle, st: State) =>
  * the search matches the bundle itself, those that match the tags. `skip` leaves a facet out.
  */
 function matchedThrough(b: Bundle, st: State, skip: string | null = null): Skill[] {
+  const hits = skillsOf(b).filter((s) => passes(s, skillFilters(st), skip));
+  return hits.length ? hits : matchedByItself(b, st, skip);
+}
+
+/**
+ * The skills a bundle matches through when the search matches only the bundle itself, its name or
+ * its words, and none of its skills: those that match the tags. None when a skill of it matches the
+ * search, or when the bundle doesn't.
+ */
+function matchedByItself(b: Bundle, st: State, skip: string | null = null): Skill[] {
+  if (!term(st) || !matches(bundleText.get(b.id) ?? "", st.q)) return [];
   const rest = skillFilters(st);
   const skills = skillsOf(b);
-  const hits = skills.filter((s) => passes(s, rest, skip));
-  if (hits.length || !term(st) || !matches(bundleText.get(b.id) ?? "", st.q)) return hits;
+  if (skills.some((s) => passes(s, rest, skip))) return [];
   return skills.filter((s) => passes(s, { ...rest, q: "" }, skip));
+}
+
+/**
+ * The skills the list shows as matching, on a row of their own or in their bundle's: those that
+ * pass the filters and the search, and those of a bundle that a search only finds by the bundle's
+ * own name or words, which its row then shows as matching too. The list's count, the tags' counts
+ * and the sliders' histograms all count these, so that a search for a bundle's name doesn't show
+ * its row under "0 skills" and no tags. Not with Saved on, where a saved bundle counts as a bundle,
+ * not as its skills (see savedBundlesHtml), nor when the list shows no bundle. `skip` leaves a
+ * facet out.
+ */
+function shownSkills(st: State, skip: string | null = null): Skill[] {
+  const shown = data.skills.filter((s) => passes(s, st, skip));
+  if (!term(st) || st.saved || st.show === "skills") return shown;
+  const seen = new Set(shown);
+  for (const b of data.bundles)
+    if (inRanges(b, st))
+      for (const s of matchedByItself(b, st, skip))
+        if (!seen.has(s)) {
+          seen.add(s);
+          shown.push(s);
+        }
+  return shown;
 }
 
 /** A bundle is in its sliders' ranges by its own numbers, and matches the tags and search through any of its skills. */
@@ -748,7 +784,7 @@ function counts(st: State, facet: string, valuesOf: (s: Skill) => string[]): Map
     for (const b of data.bundles)
       if (savedBundle(b, st) && inRanges(b, st))
         add(matchedThrough(b, st, facet).flatMap(valuesOf));
-  } else for (const s of data.skills) if (passes(s, st, facet)) add(valuesOf(s));
+  } else for (const s of shownSkills(st, facet)) add(valuesOf(s));
   return n;
 }
 
@@ -778,7 +814,7 @@ function histograms(st: State): Histograms {
   const unranged = { ...st, ranges: fullRanges() };
   if (st.show === "bundles") {
     for (const b of data.bundles) if (bundlePasses(b, unranged)) add(b);
-  } else for (const s of data.skills) if (passes(s, unranged)) add(rangedBy(s, st));
+  } else for (const s of shownSkills(unranged)) add(rangedBy(s, st));
   lastHistograms = { st, h };
   return h;
 }
@@ -1049,9 +1085,9 @@ function skillRow(s: Skill, st: State, outside = false): string {
 
 /** A bundle's row; `outside` as for skillRow(). */
 function bundleRow(b: Bundle, st: State, outside = false): string {
-  // When filtering, the skills that don't match are dimmed.
-  // The ranges are about the bundle, so only the tags and search dim its skills.
-  const hits = isFiltered(st) ? skillsOf(b).filter((s) => passes(s, skillFilters(st))) : [];
+  // When filtering, the skills the bundle doesn't match through are dimmed. The ranges are about the
+  // bundle, so only the tags and search dim its skills.
+  const hits = isFiltered(st) ? matchedThrough(b, st) : [];
   const members = b.agentReview.skills.map(({ id }) => {
     const dim = hits.length && !hits.some((s) => s.id === id);
     return `<a href="${skillHref(id)}"${dim ? ` class="dim"` : ""}>${esc(skillById.get(id)?.name ?? id)}</a>`;
@@ -1178,15 +1214,14 @@ const shownOf = (st: State) => {
       n:
         st.show === "bundles"
           ? data.bundles.filter((b) => bundlePasses(b, st)).length
-          : data.skills.filter((s) => passes(s, st)).length,
+          : shownSkills(st).length,
     };
   return lastShown.n;
 };
 
 /** Over the list: how many skills (or bundles) it shows. */
 export function countHtml(st: State): string {
-  const n = shownOf(st);
-  return `${n.toLocaleString("en")} ${unitOf(st)}${n === 1 ? "" : "s"}${savedBundlesHtml(st, true)}`;
+  return `${plural(shownOf(st), unitOf(st))}${savedBundlesHtml(st, true)}`;
 }
 
 /**
@@ -1209,18 +1244,23 @@ const listedKeys = new Set([
 ]);
 export const isListed = (key: string) => listedKeys.has(key);
 
-/** The search's scope, for one state at a time: how many skills (or bundles) the filters leave. */
-let lastScope: { st: State; n: number } | undefined;
+/**
+ * The search's scope, for one state at a time: what the filters leave for it to look through, in
+ * words, counted as the list's heading counts, such as "54 skills" or "2 skills and 1 bundle"; ""
+ * when they leave nothing.
+ */
+let lastScope: { st: State; text: string } | undefined;
 const scopeOf = (st: State) => {
   if (lastScope?.st !== st) {
     const rest = { ...st, q: "" };
-    const n =
-      st.show === "bundles"
-        ? data.bundles.filter((b) => bundlePasses(b, rest)).length
-        : data.skills.filter((s) => passes(s, rest)).length;
-    lastScope = { st, n };
+    lastScope = {
+      st,
+      text: results(rest).list.length
+        ? `${plural(shownOf(rest), unitOf(st))}${savedBundlesHtml(st, false)}`
+        : "",
+    };
   }
-  return lastScope.n;
+  return lastScope.text;
 };
 
 /** How many skills (or bundles) the list below shows, as the lines under the boxes say it: the number highlighted. */
@@ -1266,15 +1306,24 @@ const badgeHtml = (text: string) => `<span class="badge">${esc(text)}</span>`;
  * search finds nothing, that's what the filters leave: see askState.
  */
 export function askLabel(st: State): string {
+  if (!askable(st)) return "The list below is empty: there's nothing to copy.";
   const of = askState(st);
-  const copies = `Copies a prompt (${tokensHtml(promptTokens(st))}) to your clipboard that includes the TL;DR of`;
+  const copies = `Copies a prompt of ${tokensHtml(promptTokens(st))} to your clipboard that includes the TL;DR of`;
   if (of !== st)
     return filtersOn(of)
       ? `${copies} the ${shownCountHtml(of)} the filters leave.`
       : `${copies} all ${shownCountHtml(of)}.`;
-  const which = filtersOn(st) || term(st) ? "these" : "all";
+  // "the", not "these": it reads right for one, too, as in "the 1 skill below".
+  const which = filtersOn(st) || term(st) ? "the" : "all";
   return `${copies} ${which} ${shownCountHtml(st)} below.`;
 }
+
+/**
+ * Whether there's anything for the agent's prompt to hold: not when the filters leave nothing,
+ * nor for a Saved list that's empty or asks to log in. A search that finds nothing still has what
+ * the filters leave: see askState.
+ */
+export const askable = (st: State) => results(askState(st)).list.length > 0;
 
 /**
  * About how many tokens the prompt for a state takes, at 4 characters a token, before the need is
@@ -1316,9 +1365,33 @@ function savedNote(st: State): string | null {
   if (!st.saved) return null;
   if (!account.user)
     return `<p class="empty"><a href="${esc(loginHref())}" data-login>Log in with GitHub</a> to see what you saved.</p>`;
-  if (!account.saved.size)
+  // Nothing that's still listed, as the Saved switch counts: a saved skill can leave the list.
+  if (![...account.saved].some(isListed))
     return `<p class="empty">Nothing saved yet. Each skill and bundle has a Save button, here in the list and on its page.</p>`;
   return null;
+}
+
+/**
+ * Instead of the list, when nothing is left to list: whether it's the search that finds nothing
+ * among what the filters leave, or the filters that leave nothing, with the way out of each.
+ */
+function emptyHtml(st: State): string {
+  const what = st.show === "all" ? "skill or bundle" : unitOf(st);
+  const clear = `<button type="button" class="link-button" data-action="clear">Clear filters</button>`;
+  const found = `No ${what} matches “${esc(term(st))}”`;
+  const said = !filtersOn(st)
+    ? term(st)
+      ? `${found}.`
+      : `No ${what} to list.`
+    : term(st) && scopeOf(st)
+      ? `${found} among the ${scopeOf(st)} the filters leave. ${clear}`
+      : `No ${what} matches the filters. ${clear}`;
+  // A search that finds nothing may be a need in the person's own words, which is the agent's job.
+  const ask =
+    term(st) && askable(st)
+      ? `<br />Describing a need in your own words? <button type="button" class="link-button" data-action="ask">Find with your agent</button>`
+      : "";
+  return `<p class="empty">${said}${ask}</p>`;
 }
 
 /** The count, the active filters and the list, of only its first `limit` rows if given. */
@@ -1336,11 +1409,7 @@ export function resultsHtml(st: State, limit = Infinity): string {
               .slice(0, limit)
               .map((e) => rowHtml(e, st))
               .join("")}</ol>`
-          : `<p class="empty">No ${st.show === "all" ? "skill or bundle" : unitOf(st)} matches${term(st) ? ` “${esc(term(st))}”` : ""}${filtersOn(st) ? ` among the ${plural(scopeOf(st), unitOf(st))} the filters leave. <button type="button" class="link-button" data-action="clear">Clear filters</button>` : "."}${
-              term(st)
-                ? `<br />Describing a need in your own words? <button type="button" class="link-button" data-action="ask">Find with your agent</button>`
-                : ""
-            }</p>`
+          : emptyHtml(st)
     }`;
 }
 

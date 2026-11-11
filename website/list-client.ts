@@ -10,6 +10,7 @@ import {
   rangeLabel,
   parse,
   askPrompt,
+  askable,
   countHtml,
   isListed,
   tokensHtml,
@@ -422,6 +423,8 @@ function flash(html: string) {
  * says it comes in the next message.
  */
 function ask() {
+  // An empty list, such as when the filters leave nothing, would make a prompt without a catalog.
+  if (!askable(state)) return flash("Nothing copied: the list below is empty.");
   const text = need.value.trim() || state.q.trim();
   const prompt = askPrompt(state, text, new URL(href(), location.origin).href);
   // A browser can refuse, or have no clipboard at all, as on a page that isn't served over HTTPS.
@@ -432,7 +435,7 @@ function ask() {
     .then(
       () =>
         flash(
-          `Copied to your clipboard (${tokensHtml(Math.round(prompt.length / 4))}): paste it into any chat agent.`,
+          `Copied a prompt of ${tokensHtml(Math.round(prompt.length / 4))} to your clipboard: paste it into any chat agent.`,
         ),
       refused,
     );

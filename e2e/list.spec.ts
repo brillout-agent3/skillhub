@@ -23,6 +23,11 @@ test("opens on Rising, with every skill counted and every row in", async ({ page
   await expect(rows).toHaveCount(listedRows);
   await expect(page.locator('[data-preset="rising"]')).toHaveAttribute("aria-pressed", "true");
   await expect(page.locator("#sort")).toContainText("Weekly Growth");
+  // The growth's tooltip ends in its place, after one full stop.
+  await expect(rows.first().locator(".props > .on")).toHaveAttribute(
+    "title",
+    /shows under Rising & new\. #1 of [\d,]+ skills$/,
+  );
 });
 
 test("the search narrows the list as you type, best match first", async ({ page }) => {
@@ -63,10 +68,36 @@ test("a search that finds nothing says so, and offers the agent", async ({ page 
   // The agent gets the search as the need, and the skills it would have looked through.
   await expect(page.locator("#ask-label")).toContainText(`of all ${n(data.skills.length)} skills.`);
   await empty.locator('[data-action="ask"]').click();
-  await expect(page.locator("#ask-label")).toContainText("Copied to your clipboard");
+  await expect(page.locator("#ask-label")).toContainText("Copied a prompt of");
   const prompt = await page.evaluate(() => navigator.clipboard.readText());
   expect(prompt).toContain(`# Catalog (${listedRows} entries)`);
   expect(prompt.trimEnd().endsWith("zzzqqqxxx")).toBe(true);
+});
+
+test("filters that leave nothing say so, and leave the agent nothing to copy", async ({ page }) => {
+  // No skill has it: a tag from an old link, say. The same as a slider's range with nothing in it.
+  await open(page, "/?tag=no-such-tag&q=design");
+  const { count, empty, rows } = list(page);
+  const label = page.locator("#ask-label");
+  await expect(count).toHaveText("0 skills");
+  await expect(empty).toContainText("No skill or bundle matches the filters.");
+  // It's the filters that find nothing, not the search: no "among the 0 skills", and no agent to
+  // offer a prompt that would hold no skill.
+  await expect(empty).not.toContainText("among");
+  await expect(empty.locator('[data-action="ask"]')).toHaveCount(0);
+  await expect(label).toHaveText("The list below is empty: there's nothing to copy.");
+
+  await page.evaluate(() => navigator.clipboard.writeText("as it was"));
+  await page.locator(".ask-button").click();
+  await expect(label).toHaveText("Nothing copied: the list below is empty.");
+  expect(await page.evaluate(() => navigator.clipboard.readText())).toBe("as it was");
+
+  // The way out: without the filters, the search finds its skills.
+  await empty.locator('[data-action="clear"]').click();
+  await settled(page);
+  await expect(page).toHaveURL("/?q=design");
+  await expect(rows).not.toHaveCount(0);
+  await expect(label).toContainText("Copies a prompt of");
 });
 
 test("the presets set the sort and the Published range", async ({ page }) => {
@@ -309,6 +340,11 @@ test("a repo's link lists that repo's skills, under its banner", async ({ page }
   await expect(rows).toHaveCount(repo.skills.length);
   await expect(count).toHaveText(`${n(repo.skills.length)} skills`);
   await expect(scope.locator('[data-remove="repo"]')).toContainText(`from ${repo.repo}`);
+
+  // However the link spells it: GitHub ignores a repo's case, and so do this site's pages.
+  await open(page, `/?repo=${encodeURIComponent(repo.repo.toUpperCase())}&show=skills`);
+  await expect(page.locator(".repo-banner")).toContainText(repo.repo);
+  await expect(rows).toHaveCount(repo.skills.length);
 });
 
 test("the keyboard can skip the tags, and keeps its place when a filter goes", async ({ page }) => {
@@ -421,7 +457,7 @@ test("Find with your agent copies a prompt with the list and the need", async ({
   const rows = await list(page).rows.count();
   await page.locator("#need").fill("review my pull requests");
   await page.locator(".ask-button").click();
-  await expect(page.locator("#ask-label")).toContainText("Copied to your clipboard");
+  await expect(page.locator("#ask-label")).toContainText("Copied a prompt of");
   const prompt = await page.evaluate(() => navigator.clipboard.readText());
   expect(prompt).toContain(`# Catalog (${rows} entries)`);
   expect(prompt).toContain("narrowed to: tag type:workflow");
