@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "pnpm run node-ts scripts/dev.ts",
+    "dev:stop": "pnpm run node-ts scripts/dev.ts --stop",
     "build": "vike build --root website",
     "preview": "pnpm run node-ts scripts/dev.ts --preview",
     "========= Checks": "",

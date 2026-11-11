@@ -47,8 +47,9 @@ export default {
   trailingSlash: true,
   vite: {
     plugins: [jsonc, serverOnly],
-    // In `pnpm dev`, the Worker runs beside Vike's dev server: see ../../scripts/dev.ts.
-    server: { proxy: { "/api": "http://localhost:8787" } },
+    // In `pnpm dev`, the Worker runs beside Vike's dev server: see ../../scripts/dev.ts. On its
+    // port or not at all: the script, and whoever tests the site, count on it.
+    server: { proxy: { "/api": "http://localhost:8787" }, strictPort: true },
   },
   meta: {
     // Pages render to HTML at build time only, so Page never runs in the browser. Server-only, it
