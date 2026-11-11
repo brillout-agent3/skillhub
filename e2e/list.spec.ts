@@ -96,6 +96,22 @@ test("the presets set the sort and the Published range", async ({ page }) => {
   await expect(page).toHaveURL("/");
 });
 
+test("Rising & new keeps the settings on one line, and the list where it is", async ({ page }) => {
+  await open(page, "/");
+  const top = async (selector: string) => (await page.locator(selector).boundingBox())?.y;
+  const list = await top("#results");
+
+  await page.locator('[data-preset="rising-new"]').click();
+  await settled(page);
+  // Published shows its range in place of its name, which leaves Show room on the line.
+  const pill = page.locator('.range-pill[data-value="published"]');
+  await expect(pill.locator(".range-value")).toHaveText("Last 90 days");
+  await expect(pill.locator(".range-word")).not.toBeInViewport();
+  await expect(pill).toHaveAccessibleName("Published Last 90 days");
+  expect(await top(".show-group")).toBe(await top(".preset-group"));
+  expect(await top("#results")).toBe(list);
+});
+
 test("the Sort by menu works with the mouse and with the keyboard", async ({ page }) => {
   await open(page, "/");
   const button = page.locator("#sort");

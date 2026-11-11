@@ -1414,12 +1414,14 @@ export function rangesHtml(st: State): string {
       `<input type="range" min="0" max="${last}" step="1" value="${v}" data-range="${p}" data-end="${end}" aria-label="${label}, ${end ? "to" : "from"}" aria-valuetext="${rangeLabel(p, [lo, hi])}" />`;
     const { icon, tag } = PROPS[p];
     // The pill says the word the rows say under a shared icon, such as Total, to fit the settings'
-    // line; its popover says the whole name.
+    // line; its popover says the whole name. A name on its own, as Published's and Stars', whose
+    // icons are theirs alone, gives way to the range once it narrows the list: see .range-word in
+    // style.css.
     const short = tag
       ? `<span class="range-name">${icon}<span aria-hidden="true">${tag}</span><span class="sr-only">${label}</span></span>`
-      : `<span class="range-name">${icon}${label}</span>`;
+      : `<span class="range-name">${icon}<span class="range-word">${label}</span></span>`;
     const name = `<span class="range-name">${icon}${label}</span>`;
-    return `<div class="range${isNarrowed(p, [lo, hi]) ? " narrowed" : ""}" data-range-section="${p}"><button type="button" class="range-pill" data-action="range" data-value="${p}" aria-expanded="false" aria-controls="range-pop-${p}">${short}<span class="range-value">${value}${CHEVRON}</span></button><div class="range-pop" id="range-pop-${p}" role="group" aria-label="${label}" hidden><div class="range-pop-head">${name}${value}</div><div class="histogram" data-histogram="${p}" aria-hidden="true">${histogramHtml(st, p)}</div><div class="histogram-axis" aria-hidden="true">${axisHtml(p)}</div><div class="slider" data-slider="${p}" style="--lo: ${lo / last}; --hi: ${hi / last}">${handle(0, lo)}${handle(1, hi)}</div></div></div>`;
+    return `<div class="range${isNarrowed(p, [lo, hi]) ? " narrowed" : ""}" data-range-section="${p}"><button type="button" class="range-pill" data-action="range" data-value="${p}" title="${label}" aria-expanded="false" aria-controls="range-pop-${p}">${short}<span class="range-value">${value}${CHEVRON}</span></button><div class="range-pop" id="range-pop-${p}" role="group" aria-label="${label}" hidden><div class="range-pop-head">${name}${value}</div><div class="histogram" data-histogram="${p}" aria-hidden="true">${histogramHtml(st, p)}</div><div class="histogram-axis" aria-hidden="true">${axisHtml(p)}</div><div class="slider" data-slider="${p}" style="--lo: ${lo / last}; --hi: ${hi / last}">${handle(0, lo)}${handle(1, hi)}</div></div></div>`;
   }).join("");
 }
 
