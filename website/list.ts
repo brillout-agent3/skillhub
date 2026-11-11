@@ -1226,8 +1226,8 @@ function scopeChipsHtml(st: State): string {
 }
 
 /**
- * Under the settings' line: the filters as chips, and Clear filters. Nothing without filters: the
- * count says how many skills there are.
+ * Beside the count over the list: the filters as chips, and Clear filters. Nothing without filters:
+ * the count says how many skills there are.
  */
 export function scopeHtml(st: State): string {
   if (!filtersOn(st)) return "";
@@ -1439,8 +1439,9 @@ const savedSwitchHtml = (st: State) =>
 
 /**
  * The skills list's page, under the site's header. Across the page's top: its heading; the two ways
- * to search; one centered line of every setting: the presets, the sort, the number filters and Show;
- * and the filters' chips. Under them, the list and the tags on the right, each under its count. On
+ * to search; one line of every setting: the presets, the sort, the number filters and Show. Under
+ * them, the list and the tags on the right, each under its count, the list's with the filters'
+ * chips. On
  * narrow screens, the presets and the Saved switch stay in view, and the Filters button, between
  * them, opens the line's other settings; the tags come before the list, behind their count, which
  * opens them. `reviewed` is how many skills SkillHub reviewed, from review.ts, which only the
@@ -1488,7 +1489,6 @@ export function listView(st: State, reviewed: number): string {
             </div>
           </section>
         </div>
-        <p id="scope" class="scope">${scopeHtml(st)}</p>
       </div>
     </div>
     <div class="skills-view">
@@ -1496,7 +1496,10 @@ export function listView(st: State, reviewed: number): string {
         <div id="facets">${facetsHtml(st, false)}</div>
       </aside>
       <div class="list-main">
-        <h2 id="count" class="list-count" aria-live="polite">${countHtml(st)}</h2>
+        <div class="list-count-row">
+          <h2 id="count" class="list-count" aria-live="polite">${countHtml(st)}</h2>
+          <p id="scope" class="scope">${scopeHtml(st)}</p>
+        </div>
         <section id="results" aria-label="Skills">${resultsHtml(st)}</section>
         ${crowdDefsHtml()}
       </div>
