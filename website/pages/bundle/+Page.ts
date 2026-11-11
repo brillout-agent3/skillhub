@@ -109,7 +109,9 @@ export default function Page(pageContext: PageContextServer): string {
         <p class="muted">${
           alone === b.agentReview.skills.length
             ? "Each also works alone."
-            : "The ones marked “Only in the bundle” need the rest of it. The others also work alone."
+            : alone === 0
+              ? "None works alone: each needs the rest of the bundle."
+              : "The ones marked “Only in the bundle” need the rest of it. The others also work alone."
         }</p>
         ${skills(b)}
       </section>

@@ -1,0 +1,1 @@
+export default "Every tag SkillHub gives a skill, with what it means and how many skills have it: its area, how it works, what it can change, what it needs, who publishes it, its topics and its stack.";

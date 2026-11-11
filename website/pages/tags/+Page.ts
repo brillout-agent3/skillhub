@@ -4,6 +4,7 @@ import {
   FACET_ORDER,
   data,
   facetById,
+  facetOf,
   includedBy,
   tagChip,
   tagLabel,
@@ -30,9 +31,12 @@ export default function Page(): string {
               `<h3>${esc(g.name)}</h3><p class="cloud">${g.values.map(cloudItem).join(" ")}</p>`,
           )
           .join("");
+      // Stack is the one open vocabulary (see scripts/check.ts): the tags the skills have, most
+      // used first, as the skills list shows them, rather than the facet's own values, which name
+      // only some of them, and some that no skill has anymore.
       else if (f.id === "stack")
-        body = `<p class="cloud">${f.values
-          .map((v) => `stack:${v.id}`)
+        body = `<p class="cloud">${[...n.keys()]
+          .filter((t) => facetOf(t) === "stack")
           .sort((a, b) => (n.get(b) ?? 0) - (n.get(a) ?? 0) || a.localeCompare(b))
           .map(cloudItem)
           .join(" ")}</p>`;

@@ -15,7 +15,7 @@ export default function Page(pageContext: PageContextServer): string {
       <h1>${esc(name)} <span class="kind">${KINDS[repo.agentReview.kind]}</span></h1>
       ${repo.agentReview.description ? `<p class="lede">${esc(repo.agentReview.description)}</p>` : ""}
       ${repo.agentReview.note ? `<p class="note">${esc(repo.agentReview.note)}</p>` : ""}
-      <p class="links"><a href="https://github.com/${esc(repo.id)}">Source on GitHub</a><a href="${skillsLink({ repo: repo.id })}">Sort and filter them in the skills list</a></p>
+      <p class="links"><a href="https://github.com/${esc(repo.id)}">Source on GitHub</a><a href="${skillsLink({ repo: repo.id })}">${skills.length === 1 ? "See it in the skills list" : "Sort and filter them in the skills list"}</a></p>
       <p class="muted">${numbersHtml(listing)}</p>
       ${
         bundles.length

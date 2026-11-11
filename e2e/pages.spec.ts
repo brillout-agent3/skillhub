@@ -9,6 +9,7 @@ import {
   repo,
   skill,
   skillUrl,
+  stackTags,
   wideCodeUrl,
 } from "./data.ts";
 import { expect, list, n, open, ready, test } from "./fixtures.ts";
@@ -88,6 +89,25 @@ test("a bundle's page: its skills in order, and how to install them", async ({ p
   await expect(page.locator(".spark-tip")).toBeVisible();
 });
 
+test("a bundle's page says which of its skills work alone: all, some or none", async ({ page }) => {
+  const alone = (b: typeof bundle) => b.agentReview.skills.filter((m) => m.standalone).length;
+  const kinds: [said: string, is: (b: typeof bundle) => boolean][] = [
+    ["Each also works alone.", (b) => alone(b) === b.agentReview.skills.length],
+    ["None works alone: each needs the rest of the bundle.", (b) => alone(b) === 0],
+    ["The others also work alone.", (b) => alone(b) > 0 && alone(b) < b.agentReview.skills.length],
+  ];
+  for (const [said, is] of kinds) {
+    // The data may have no bundle of a kind, on some day.
+    const found = data.bundles.find(is);
+    if (!found) continue;
+    await open(page, `/bundle/${found.id}/`);
+    await expect(page.locator("#skills + p")).toContainText(said);
+    await expect(page.locator(".bundle-skills .kind")).toHaveCount(
+      found.agentReview.skills.length - alone(found),
+    );
+  }
+});
+
 test("a repo's page lists its bundles and skills, and leads to the list", async ({ page }) => {
   await open(page, repo.url);
   await expect(page.locator("h1")).toContainText(repo.repo.split("/")[1]);
@@ -130,6 +150,19 @@ test("the tags page: its search narrows it, and a tag leads to the list", async 
   await expect(sections.filter({ visible: true })).toHaveCount(all);
   await expect(page.locator(".toc a:visible")).toHaveCount(all);
   await expect(page.locator("#tag-none")).toBeHidden();
+
+  // Stack is an open vocabulary: the page lists the stack tags the skills have, each with skills.
+  const stack = page.locator("#facet-stack .cloud-item");
+  await expect(stack).toHaveCount(stackTags.size);
+  expect(await stack.locator(".tag").evaluateAll((tags) => tags.map((t) => t.dataset.tag))).toEqual(
+    expect.arrayContaining([...stackTags]),
+  );
+  expect(await stack.locator(".n").allTextContents()).not.toContain("0");
+  // No tag is cut in two at a line's end, where its halves would look like two tags.
+  const cut = await page
+    .locator(".cloud-item .tag")
+    .evaluateAll((tags) => tags.filter((t) => t.getClientRects().length > 1).length);
+  expect(cut).toBe(0);
 
   const tag = page.locator(".tag-table a.tag").first();
   const name = (await tag.getAttribute("data-tag")) as string;

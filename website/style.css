@@ -191,6 +191,13 @@ code {
   font-size: 0.875em;
 }
 
+/* What's hidden stays hidden, whatever its class displays it as: left to the browser, a class's
+   `display` wins over the attribute's, and the Tags page's search hid nothing of a tag that's an
+   inline-block. */
+[hidden] {
+  display: none !important;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -2657,6 +2664,12 @@ body:has(.skills-view) #page-head {
 
 .cloud {
   line-height: 2.2;
+}
+
+/* A tag and its count go to the next line whole: broken after its prefix or at a hyphen, a tag's
+   two halves looked like two tags. It only breaks when it's wider than the page. */
+.cloud-item {
+  display: inline-block;
 }
 
 .cloud .n {
