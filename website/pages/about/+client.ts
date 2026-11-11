@@ -5,6 +5,7 @@
  */
 
 import "../../account-client.ts";
+import { ready } from "../../ready.ts";
 
 const closeTips = (except?: Element | null) => {
   for (const row of document.querySelectorAll(".breakdown tr.open"))
@@ -23,3 +24,5 @@ document.addEventListener("keydown", (event) => {
   if (document.activeElement?.classList.contains("tip-i"))
     (document.activeElement as HTMLElement).blur();
 });
+
+ready();

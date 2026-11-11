@@ -4,6 +4,7 @@
  */
 
 import "../../account-client.ts";
+import { ready } from "../../ready.ts";
 
 const input = document.getElementById("tag-q") as HTMLInputElement;
 const none = document.getElementById("tag-none") as HTMLElement;
@@ -47,3 +48,5 @@ function search() {
 input.addEventListener("input", search);
 // The browser may restore what was typed, such as after going back.
 if (input.value) search();
+
+ready();

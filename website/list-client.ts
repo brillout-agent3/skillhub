@@ -45,6 +45,7 @@ for (const n of document.querySelectorAll("[data-saved-count]")) n.textContent =
 
 const app = document.getElementById("app") as HTMLElement;
 const q = document.getElementById("q") as HTMLInputElement;
+const results = document.getElementById("results") as HTMLElement;
 let state = parse(location.search);
 let stackExpanded = false;
 
@@ -60,12 +61,20 @@ function go(patch: Partial<State>) {
   renderSoon();
 }
 
+/**
+ * Whether the list is on its way: `#results[aria-busy="true"]` from the change that calls for a
+ * render until its last rows are in (see `render`). For assistive tech, and for whoever drives the
+ * page, a test or an agent, to wait for the list a change leads to: see ready.ts.
+ */
+const busy = (on: boolean) => results.setAttribute("aria-busy", String(on));
+
 let soon = false;
 /**
  * Render after the next paint, once for however many changes come before it, so that the control
  * just used shows its new state without waiting for the list.
  */
 function renderSoon() {
+  busy(true);
   if (soon) return;
   soon = true;
   requestAnimationFrame(() =>
@@ -269,6 +278,7 @@ function syncFiltersToggle() {
 }
 
 function render() {
+  busy(true);
   const focus = focusSelector();
   if (q.value !== state.q) q.value = state.q;
   syncRanges();
@@ -282,7 +292,6 @@ function render() {
   syncFiltersToggle();
   renderFacets();
   renderScope();
-  const results = document.getElementById("results") as HTMLElement;
   // From deep in the list, a preset, sort or filter would leave you amid the new list's middle.
   const scrolledPast = toTop && results.getBoundingClientRect().top < 0;
   toTop = false;
@@ -293,7 +302,9 @@ function render() {
   const st = state;
   const id = ++renders;
   const append = (from: number) => {
-    if (id !== renders || from >= rowCount(st)) return;
+    // A newer render appends its own rows, and says when they're in.
+    if (id !== renders) return;
+    if (from >= rowCount(st)) return busy(false);
     results
       .querySelector(".skill-list")
       ?.insertAdjacentHTML("beforeend", rowsHtml(st, from, from + STEP));
@@ -424,6 +435,8 @@ if (location.search) render();
 // Until it's in, a search finds fewer skills; once it is, a search under way shows them too.
 void import("../data/skills.jsonc?search-words").then(({ default: words }) => {
   addSearchWords(words);
+  // For whoever drives the page: from now on, a search finds what it will always find. See ready.ts.
+  document.documentElement.setAttribute("data-search-words", "");
   if (!state.q) return;
   // The renders' caches are keyed by the state, which the prose isn't in: a new state misses them
   // all, the list's heading's count and the lines under the boxes included.

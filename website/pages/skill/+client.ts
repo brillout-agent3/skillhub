@@ -3,6 +3,8 @@
 import "../../account-client.ts";
 import { mountCopyButtons } from "../../copy.ts";
 import { mountSparklines } from "../../sparkline.ts";
+import { ready } from "../../ready.ts";
 
 mountSparklines(document);
 mountCopyButtons();
+ready();
