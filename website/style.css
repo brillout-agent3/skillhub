@@ -2,9 +2,8 @@
  * Design notes, for whoever changes this file next.
  *
  * The site borrows its look from its logo, a cut gem: SkillHub as a gem dealer's catalog.
- * - Color. Three light greys with a faint green, darkest to lightest: the skills list's settings
- *   bar and sidebar (--side), the page (--liner), and white for what lies on it, such as the results, documents,
- *   fields and buttons (--paper). With them, a blue-black --ink and --garnet, the logo's own
+ * - Color. A light grey with a faint green for the page (--liner), and white for what lies on it,
+ *   such as the results, documents, fields and buttons (--paper). With them, a blue-black --ink and --garnet, the logo's own
  *   red-pink. Dark mode, the header's toggle or else the system's setting, keeps the same order,
  *   near-black, with a lighter garnet. The greys are never tinted blue.
  * - Garnet is for action and emphasis: links, the agent button, the number the list is sorted by,
@@ -34,8 +33,6 @@
   color-scheme: light;
   font-family: "Geologica Variable", system-ui, sans-serif;
   --liner: #fafbf9;
-  /* The skills list's settings bar and sidebar: set back from the page, so their buttons stand out. */
-  --side: #f3f5f2;
   --paper: #ffffff;
   /* Code on paper. */
   --paper-2: #f3f5f2;
@@ -89,7 +86,6 @@
 :root[data-theme="dark"] {
   color-scheme: dark;
   --liner: #141416;
-  --side: #0d0d0f;
   --paper: #1c1c1f;
   --paper-2: #242428;
   --wash: #261d25;
@@ -335,9 +331,9 @@ body:has(.skills-view) #page-head {
 /* ------------------------------------------------------------- skills view */
 
 /*
- * The skills list's page: across the top, the search, the presets and the count, and the settings'
- * line (.list-top); under them, the list, and the tags in a sidebar on the right. The sidebar comes
- * first in the page, since on narrow screens it's atop the list.
+ * The skills list's page: across the top, its heading, the search and the settings' line
+ * (.list-top); under them, the list, and the tags on the right, each under its count, set apart by
+ * space alone. The tags come first in the page, since on narrow screens they're atop the list.
  */
 .skills-view {
   display: grid;
@@ -347,26 +343,14 @@ body:has(.skills-view) #page-head {
   margin: 0 auto;
 }
 
-/* The sidebar's color runs from its rule to the screen's right edge, also where the view is
-   centered on a wide screen: 300px is its column, 380px half the view's 1360px less that. */
-body:has(.skills-view) {
-  background: linear-gradient(to left, var(--side) max(300px, calc(50% - 380px)), var(--liner) 0);
-}
-
-/* As wide as the page, in its color, over the sidebar's, with its rule under it; its content as
-   wide as the view, lined up with the list's and the sidebar's. */
-.list-top {
-  background: var(--liner);
-  border-bottom: 1px solid var(--rule);
-}
-
+/* Its content as wide as the view, lined up with the list's and the tags'. */
 .list-top-in {
   max-width: 1360px;
   margin: 0 auto;
   padding: 32px 24px 20px 32px;
 }
 
-/* The count, over the search. */
+/* The page's heading, over the search. */
 .list-title {
   margin-bottom: 24px;
   text-align: center;
@@ -423,18 +407,26 @@ body:has(.skills-view) {
   }
 }
 
-/* The tags. It stays in view while the list scrolls, scrolling on its own. */
+/* The tags. They stay in view while the list scrolls, scrolling on their own. */
 #filters {
   grid-area: side;
   position: sticky;
   top: 0;
   height: 100vh;
   overflow-y: auto;
-  padding: 24px 24px 48px 20px;
-  border-left: 1px solid var(--rule);
+  padding: 8px 24px 48px 32px;
 }
 
-#facets > .facet:first-child {
+/* How many skills the list shows, over it, and how many tags, over them. */
+.list-count {
+  margin: 0 0 12px;
+  color: var(--ink);
+  font-size: 18px;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+}
+
+#facets > .list-count + .facet {
   margin-top: 0;
 }
 
@@ -871,7 +863,7 @@ body:has(.skills-view) {
 .list-main {
   grid-area: main;
   min-width: 0;
-  padding: 24px 32px 80px;
+  padding: 8px 32px 80px;
 }
 
 /*
@@ -2664,18 +2656,11 @@ body:has(.skills-view) {
     grid-template-areas: "side" "main";
   }
 
-  /* The sidebar is atop the list, under the settings: its color is its own. */
-  body:has(.skills-view) {
-    background: var(--liner);
-  }
-
+  /* The tags are atop the list, under the settings. */
   #filters {
     position: static;
     height: auto;
-    background: var(--side);
-    padding: 16px;
-    border-left: 0;
-    border-bottom: 1px solid var(--rule);
+    padding: 20px 16px 8px;
   }
 
   .list-top-in {

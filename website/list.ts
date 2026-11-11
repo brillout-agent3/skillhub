@@ -1057,15 +1057,17 @@ function section(title: string, question: string | null, chips: string): string 
   return `<section class="facet"><h2${question ? ` title="${esc(question)}"` : ""}>${esc(title)}</h2><div class="chips">${chips || `<span class="muted">None</span>`}</div></section>`;
 }
 
-/** A facet's tags, with their counts for the other filters. */
-function tagSection(st: State, facetId: string): string {
+/** A facet's tags, with their counts for the other filters. Adds the tags it lists to `listed`. */
+function tagSection(st: State, facetId: string, listed: Set<string>): string {
   const facet = facetById.get(facetId);
   if (!facet) return "";
   const n = counts(st, facetId, (s) => tagsOf(s).filter((t) => facetOf(t) === facetId));
   const label = (t: string) => tagLabel(t) ?? t.slice(facetId.length + 1);
   const shown = (t: string) => Boolean(n.get(t) || st.tags.includes(t));
-  const chip = (t: string) =>
-    filterChip("data-tag", t, label(t), n.get(t) ?? 0, st.tags.includes(t), tagInfo.get(t));
+  const chip = (t: string) => {
+    listed.add(t);
+    return filterChip("data-tag", t, label(t), n.get(t) ?? 0, st.tags.includes(t), tagInfo.get(t));
+  };
   // A parent's values sit indented under it; a value with two parents shows under both.
   const top = facet.values.map((v) => tagOf(facet, v.id)).filter((t) => !parentsOf(t).length);
   const chips = top
@@ -1077,11 +1079,16 @@ function tagSection(st: State, facetId: string): string {
   return section(facet.name, facet.question, chips);
 }
 
-/** The tag facets. */
+/**
+ * The tag facets, under how many tags they list: every tag the skills the other filters leave have,
+ * and the selected ones, each once (a value under two parents shows under both), the stack's that
+ * "Show all" hides included.
+ */
 export function facetsHtml(st: State, stackExpanded: boolean): string {
   const sections: string[] = [];
+  const listed = new Set<string>();
   for (const f of ["category", "type", "effect", "needs", "by", "flag"])
-    sections.push(tagSection(st, f));
+    sections.push(tagSection(st, f, listed));
   // Topics, by group.
   const topic = facetById.get("topic");
   const topicCounts = counts(st, "topic", (s) =>
@@ -1089,8 +1096,9 @@ export function facetsHtml(st: State, stackExpanded: boolean): string {
   );
   const groups = (topic?.groups ?? [])
     .map((g) => {
-      const chips = g.values
-        .filter((v) => topicCounts.get(v) || st.tags.includes(v))
+      const values = g.values.filter((v) => topicCounts.get(v) || st.tags.includes(v));
+      for (const v of values) listed.add(v);
+      const chips = values
         .map((v) => filterChip("data-tag", v, v, topicCounts.get(v) ?? 0, st.tags.includes(v)))
         .join("");
       return chips ? `<h3 class="group">${esc(g.name)}</h3><div class="chips">${chips}</div>` : "";
@@ -1107,6 +1115,7 @@ export function facetsHtml(st: State, stackExpanded: boolean): string {
     ...stackCounts.keys(),
     ...st.tags.filter((t) => t.startsWith("stack:") && !stackCounts.has(t)),
   ].sort((a, b) => (stackCounts.get(b) ?? 0) - (stackCounts.get(a) ?? 0) || a.localeCompare(b));
+  for (const t of stack) listed.add(t);
   const shown = stackExpanded ? stack : stack.slice(0, 16);
   sections.push(
     section(
@@ -1122,7 +1131,7 @@ export function facetsHtml(st: State, stackExpanded: boolean): string {
           : ""),
     ),
   );
-  return sections.join("");
+  return `<h2 class="list-count">${plural(listed.size, "tag")}</h2>${sections.join("")}`;
 }
 
 /** Whether filters narrow the list: the search and the agent prompt then look through what they leave. */
@@ -1151,10 +1160,10 @@ const shownOf = (st: State) => {
   return lastShown.n;
 };
 
-/** The list's heading: how many agent skills (or bundles) it shows. */
+/** Over the list: how many skills (or bundles) it shows. */
 export function countHtml(st: State): string {
   const n = shownOf(st);
-  return `${n.toLocaleString("en")} ${st.show === "bundles" ? "" : "agent "}${unitOf(st)}${n === 1 ? "" : "s"}${savedBundlesHtml(st, true)}`;
+  return `${n.toLocaleString("en")} ${unitOf(st)}${n === 1 ? "" : "s"}${savedBundlesHtml(st, true)}`;
 }
 
 /**
@@ -1427,9 +1436,9 @@ const savedSwitchHtml = (st: State) =>
   `<button type="button" id="saved-switch" class="saved-switch" role="switch" aria-checked="${st.saved}" data-action="saved" title="Show only what you saved">${bookmarkSvg}<span>Saved</span><span class="n" data-saved-count>${savedCount()}</span><span class="switch" aria-hidden="true"></span></button>`;
 
 /**
- * The skills list's page, under the site's header. Across the page's top: the count; the two ways to
- * search; one centered line of every setting: the presets, the sort, the number filters and Show;
- * and the filters' chips. Under them, the list, and the tags in a sidebar on the right. On narrow
+ * The skills list's page, under the site's header. Across the page's top: its heading; the two ways
+ * to search; one centered line of every setting: the presets, the sort, the number filters and Show;
+ * and the filters' chips. Under them, the list and the tags on the right, each under its count. On narrow
  * screens, the presets and the Saved switch stay in view, and the Filters button, between them,
  * opens the line's other settings and the sidebar, which comes before the list. `reviewed` is how
  * many skills SkillHub reviewed, from review.ts, which only the server reads: the line saying so
@@ -1440,7 +1449,7 @@ export function listView(st: State, reviewed: number): string {
     <div class="list-top">
       <div class="list-top-in">
         <div class="list-title">
-          <h1 id="count" class="list-head" aria-live="polite">${countHtml(st)}</h1>
+          <h1 class="list-head">Agent skills</h1>
           <p class="list-sub"><a href="${href("about/")}">Curated from ${reviewed.toLocaleString("en")} reviewed skills</a></p>
         </div>
         <div class="finder">
@@ -1485,6 +1494,7 @@ export function listView(st: State, reviewed: number): string {
         <div id="facets">${facetsHtml(st, false)}</div>
       </aside>
       <div class="list-main">
+        <h2 id="count" class="list-count" aria-live="polite">${countHtml(st)}</h2>
         <section id="results" aria-label="Skills">${resultsHtml(st)}</section>
         ${crowdDefsHtml()}
       </div>
