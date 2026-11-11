@@ -13,6 +13,8 @@
     "check:types": "tsc --noEmit && tsc --noEmit -p worker",
     "// After pnpm build: the built site's links and ids": "",
     "check:site": "pnpm run node-ts scripts/check-site.ts",
+    "// After a deploy: whether the live site answers as it should": "",
+    "check:live": "pnpm run node-ts scripts/check-live.ts",
     "========= The Worker's tests, in worker/index.test.ts": "",
     "test:worker": "pnpm run node-ts --test --test-reporter=spec worker/index.test.ts",
     "========= End-to-end walk of the site, in e2e/": "",

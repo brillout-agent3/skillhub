@@ -1,5 +1,5 @@
 # Validate the data, test the Worker, pre-render the site with Vike, check and walk the built site,
-# and deploy it to Cloudflare: the Worker of wrangler.jsonc serves the pages at
+# deploy it to Cloudflare, and check the live site: the Worker of wrangler.jsonc serves the pages at
 # https://skillhub.build, and /api/* from worker/index.ts, with its D1 database. Every branch gets
 # checked; only the default branch, whatever its name, gets deployed, and only when every check
 # before it passed.
@@ -83,4 +83,13 @@ jobs:
           pnpm wrangler d1 migrations apply skillhub --remote
           # The GitHub OAuth App's id and secret, as Worker secrets.
           node -e 'const { GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET } = process.env; console.log(JSON.stringify({ GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET }))' > "$RUNNER_TEMP/secrets.json"
+          # The commit this deploy is of, at https://skillhub.build/version.txt: for the check below,
+          # and for whoever asks whether a push is live yet.
+          echo "$GITHUB_SHA" > website/dist/client/version.txt
           pnpm wrangler deploy --secrets-file "$RUNNER_TEMP/secrets.json"
+      # What no check before the deploy can tell: that the site Cloudflare now serves is the one
+      # built here, and that its Worker has its database and its secrets. See scripts/check-live.ts.
+      - name: Check that the live site is this deploy, and answers as it should
+        if: github.ref_name == github.event.repository.default_branch
+        timeout-minutes: 5
+        run: pnpm run check:live --commit "$GITHUB_SHA"

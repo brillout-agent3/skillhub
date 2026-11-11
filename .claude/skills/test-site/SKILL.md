@@ -18,6 +18,8 @@ pnpm build && pnpm check:site   # the built site's links and ids: 15 s
 
 CI runs all four, in `.github/workflows/deploy.yml`, and deploys only when they pass. A failed walk in CI leaves its screenshots as the run's `test-results` artifact.
 
+After the deploy, CI asks the live site whether it's that deploy and answers as it should: its pages are the build's, its API reaches its database, and Log in leads to GitHub with the OAuth App's id. That's `pnpm check:live`, which only reads, so you can run it too: 5 s. Whether a push is live yet: `https://skillhub.build/version.txt` is the commit that is.
+
 `pnpm test:e2e` uses whatever serves `localhost:3000`, such as a `pnpm dev` you left running. With nothing there, it builds the site and starts `pnpm preview` itself. It does the same on port 3100 for the edge cases' site, below. One test: `pnpm test:e2e -g "part of its name"`. One file: `pnpm test:e2e e2e/list.spec.ts`.
 
 Don't edit a file while the walk runs against `pnpm dev`: the edit reloads the pages under the tests, which then fail with "Execution context was destroyed".
