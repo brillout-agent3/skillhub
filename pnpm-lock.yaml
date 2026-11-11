@@ -32,6 +32,9 @@ importers:
       markdown-it:
         specifier: ^15.0.3
         version: 15.0.3
+      miniflare:
+        specifier: 5.20261104.0-beta
+        version: 5.20261104.0-beta(@types/node@26.6.5)
       oxfmt:
         specifier: ^0.74.0
         version: 0.74.0

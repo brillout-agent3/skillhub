@@ -11,5 +11,7 @@
     "verbatimModuleSyntax": true,
     "skipLibCheck": true
   },
-  "include": ["."]
+  "include": ["."],
+  // Its tests run in Node: the root tsconfig.json checks them.
+  "exclude": ["index.test.ts"]
 }

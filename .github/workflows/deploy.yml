@@ -1,5 +1,5 @@
-# Validate the data, pre-render the site with Vike, check and walk the built site, and deploy it to
-# Cloudflare: the Worker of wrangler.jsonc serves the pages at https://skillhub.build, and /api/*
+# Validate the data, test the Worker, pre-render the site with Vike, check and walk the built site,
+# and deploy it to Cloudflare: the Worker of wrangler.jsonc serves the pages at https://skillhub.build, and /api/*
 # from worker/index.ts, with its D1 database. Every branch gets checked; only the default branch,
 # whatever its name, gets deployed, and only when every check before it passed.
 name: Deploy site
@@ -33,6 +33,8 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - name: Validate skills.jsonc and type-check
         run: pnpm run check
+      - name: Test the Worker, logging in with GitHub included
+        run: pnpm run test:worker
       - name: Build site
         run: pnpm run build
       - name: Check the built site's links and ids

@@ -17,6 +17,7 @@
     "scripts",
     "e2e",
     "playwright.config.ts",
+    "worker/index.test.ts",
     "data/types.ts",
     "data/params.ts"
   ]
