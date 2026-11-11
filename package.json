@@ -11,6 +11,8 @@
     "check": "pnpm run check:data && pnpm run check:types",
     "check:data": "pnpm run node-ts scripts/check.ts",
     "check:types": "tsc --noEmit && tsc --noEmit -p worker",
+    "// After pnpm build: the built site's links and ids": "",
+    "check:site": "pnpm run node-ts scripts/check-site.ts",
     "========= End-to-end walk of the site, in e2e/": "",
     "test:e2e": "playwright test",
     "========= SKILL.md copies": "",
