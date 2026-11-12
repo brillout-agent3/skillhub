@@ -30,7 +30,7 @@ const alone = data.skills.filter((s) => {
 /** How many rows the unfiltered list has: every bundle, and every skill with a row of its own. */
 export const listedRows = data.bundles.length + alone.length;
 
-/** A search's word as the list's search cuts it: see `words` in website/list.ts. */
+/** A search's word as the list's search cuts it: see `terms` in website/search-terms.ts. */
 const stem = (w: string) =>
   w.length < 4 ? w : w.endsWith("ies") ? w.slice(0, -3) : /[^s]s$/.test(w) ? w.slice(0, -1) : w;
 const names = [...data.skills.map((s) => s.name), ...data.bundles.map((b) => b.agentReview.name)];
@@ -110,6 +110,38 @@ export const meaningTag = data.facets
   )
   .filter((t) => t.word && t.carried)
   .toSorted((a, b) => b.carried - a.carried)[0];
+
+/**
+ * A word of a tag's meaning, and its end, which starts no word of any tag, in its name, label or
+ * meaning: the Tags page's search finds the tag by the word, and nothing by its end, as it finds a
+ * word by its start, never by its middle. The longest such word.
+ */
+export const insideWord = (() => {
+  const texts = [
+    ...data.facets.flatMap((f) =>
+      (f.values ?? []).map(
+        (v) =>
+          `${f.prefix === false ? "" : `${f.id}:`}${v.id} ${v.label ?? ""} ${v.description ?? ""}`,
+      ),
+    ),
+    ...stackTags,
+  ];
+  const wordsOf = (text: string) =>
+    text
+      .toLowerCase()
+      .split(/[^a-z0-9]+/)
+      .filter(Boolean);
+  const all = new Set(texts.flatMap(wordsOf));
+  const found = data.facets
+    .flatMap((f) => (f.values ?? []).flatMap((v) => wordsOf(v.description ?? "")))
+    .filter((word) => word.length >= 8)
+    .toSorted((a, b) => b.length - a.length)
+    .map((word) => ({ word, end: word.slice(2) }))
+    // As the search cuts it, too: see `stem`.
+    .find(({ end }) => ![...all].some((w) => w.startsWith(end) || w.startsWith(stem(end))));
+  if (!found) throw new Error("no tag's meaning has a word whose end starts no other");
+  return found;
+})();
 
 /**
  * The longest tag with a facet that skills have, by themselves or through the tags it includes,

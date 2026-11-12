@@ -6,6 +6,7 @@ import {
   bundleUrl,
   data,
   flagsBundleUrl,
+  insideWord,
   owner,
   repo,
   skill,
@@ -190,6 +191,13 @@ test("the tags page: its search narrows it, and a tag leads to the list", async 
   await input.fill("zzzqqq");
   await expect(page.locator("#tag-none")).toHaveText("No tag matches “zzzqqq”.");
   await expect(sections.filter({ visible: true })).toHaveCount(0);
+
+  // A word finds a tag by its start, as in the skills list's search, not by its middle: "git"
+  // found the tag whose meaning says "legitimate".
+  await input.fill(insideWord.word);
+  await expect(shown).not.toHaveCount(0);
+  await input.fill(insideWord.end);
+  await expect(page.locator("#tag-none")).toHaveText(`No tag matches “${insideWord.end}”.`);
 
   await input.fill("");
   await expect(sections.filter({ visible: true })).toHaveCount(all);

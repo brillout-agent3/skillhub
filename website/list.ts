@@ -50,6 +50,7 @@ import {
   type SearchWords,
 } from "./client-data.ts";
 import { CHECK, CHICK, DOWNLOAD, SEARCH, STAR, iconDefsHtml } from "./prop-icons.ts";
+import { plain, sought, terms, type Term } from "./search-terms.ts";
 import { account, bookmarkSvg, loginHref, saveButton, saveKey, savedCount } from "./saves.ts";
 
 /** A row of the skills list: a skill, or a bundle with its skills inside. */
@@ -702,47 +703,20 @@ export function addSearchWords(words: SearchWords) {
 }
 
 /**
- * A text as the search compares it: in lowercase and without accents, so that "résumé" finds
- * "resume", and the other way around. Both what's searched for and what's looked in.
- */
-const plain = (text: string) =>
-  text
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/\p{M}+/gu, "");
-/**
- * What's searched for, plain, and without its double quotes, straight or curly: a search in quotes,
- * as one for an exact phrase elsewhere, looked for the quotes themselves, and found nothing.
- */
-const sought = (q: string) =>
-  plain(q)
-    .replace(/["“”]/g, " ")
-    .trim();
-/**
- * A search, read once for the many times every skill is asked about it: its words, plurals cut
- * back so they match the singular too ("resumes" finds "resume", "strategies" finds "strategy"),
- * each with what tells whether it starts a word of a text; and the whole of it, for `score`.
+ * A search, read once for the many times every skill is asked about it: its words, each with what
+ * tells whether it starts a word of a text (see search-terms.ts, which the Tags page's search reads
+ * its own with); and the whole of it, for `score`.
  */
 interface Sought {
   q: string;
-  words: { w: string; start: RegExp }[];
+  words: Term[];
   phrase: string;
 }
 let lastSought: Sought | undefined;
 function read(q: string): Sought {
   if (lastSought?.q === q) return lastSought;
   const phrase = sought(q);
-  const singular = (w: string) =>
-    w.length < 4 ? w : w.endsWith("ies") ? w.slice(0, -3) : /[^s]s$/.test(w) ? w.slice(0, -1) : w;
-  const words = phrase
-    .split(/\s+/)
-    .filter(Boolean)
-    .map(singular)
-    .map((w) => ({
-      w,
-      start: new RegExp(`(^|[^\\p{L}\\p{N}])${w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}`, "u"),
-    }));
-  return (lastSought = { q, words, phrase });
+  return (lastSought = { q, words: terms(phrase), phrase });
 }
 const words = (q: string) => read(q).words;
 const matches = (text: string, q: string) => words(q).every(({ w }) => text.includes(w));
