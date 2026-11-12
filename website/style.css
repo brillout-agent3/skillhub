@@ -2497,10 +2497,14 @@ input[type="search"]::-webkit-search-cancel-button:hover {
   opacity: 0.88;
 }
 
+/* Instead of the list, when there's nothing to list: in the middle of its column, under its count,
+   which is. From the column's left edge, it stood far from the count it explains. */
 .empty {
   max-width: 66ch;
+  margin: 0 auto;
   padding: 32px 0;
   color: var(--ink-2);
+  text-align: center;
 }
 
 /* Its actions are part of its sentences: as large as their words, and no further in at a line's
