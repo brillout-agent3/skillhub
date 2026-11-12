@@ -444,16 +444,22 @@ export function parse(search: string): State {
     ranges[prop] = fullRange(prop);
     const [lo, hi] = param.split("..");
     const keys = PROPS[prop].stops.map((_, i) => stopKey(prop, i));
-    if (lo && keys.includes(lo)) ranges[prop][0] = keys.indexOf(lo);
+    // A range keeps at least one step, as the slider's handles do: a lower bound at the last
+    // stop, which is above every value, isn't one. Its handles would sit on one another.
+    if (lo && keys.includes(lo) && keys.indexOf(lo) < lastStop(prop))
+      ranges[prop][0] = keys.indexOf(lo);
     if (hi && keys.includes(hi) && keys.indexOf(hi) > ranges[prop][0])
       ranges[prop][1] = keys.indexOf(hi);
   }
   return {
     q,
-    tags: p.getAll("tag"),
+    // Each tag once, and none without a name: ?tag= would be a filter's chip that says nothing.
+    tags: [...new Set(p.getAll("tag").filter(Boolean))],
     repo: repo && (repoIdByLower.get(repo.toLowerCase()) ?? repo),
+    // A sort the list has, by its own name: `in` would also take what every object inherits, such
+    // as ?sort=constructor, which has no number to sort by, and the list's script would throw.
     sort:
-      sort && (sort in PROPS || sort === "growth" || (sort === "match" && q.trim()))
+      sort && (Object.hasOwn(PROPS, sort) || sort === "growth" || (sort === "match" && q.trim()))
         ? sort
         : defaultSort(q),
     asc: p.get("order") === "asc",

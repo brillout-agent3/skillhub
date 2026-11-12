@@ -100,6 +100,21 @@ test("filters that leave nothing say so, and leave the agent nothing to copy", a
   await expect(label).toContainText("Copies a prompt of");
 });
 
+test("a link with what the list doesn't have opens on what it has", async ({ page }) => {
+  // A sort that isn't one, though every object has something by that name; a tag without a name,
+  // and one twice; an age that starts where its slider ends.
+  await open(
+    page,
+    "/?sort=constructor&tag=&tag=type%3Aworkflow&tag=type%3Aworkflow&published=~..&show=bundles",
+  );
+  const { rows, scope } = list(page);
+  await expect(page.locator("#sort")).toContainText("Weekly Growth");
+  await expect(scope.locator("[data-remove]")).toHaveCount(1);
+  await expect(scope.locator('[data-remove="tag"]')).toHaveText(/^type:workflow/);
+  await expect(page.locator('[data-range-label="published"]').first()).toHaveText("Any");
+  await expect(rows).not.toHaveCount(0);
+});
+
 test("the presets set the sort and the Age range", async ({ page }) => {
   await open(page, "/");
   const preset = (id: string) => page.locator(`[data-preset="${id}"]`);
