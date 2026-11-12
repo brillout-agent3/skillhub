@@ -4,10 +4,16 @@ import {
   addSearchWords,
   PROPS,
   facetsHtml,
+  boundAt,
+  fieldText,
   fullRange,
   histogramHtml,
   isNarrowed,
+  parseAge,
+  parseCount,
+  rangeError,
   rangeLabel,
+  rangePositions,
   parse,
   askPrompt,
   askable,
@@ -290,25 +296,43 @@ app.addEventListener("keydown", (event) => {
 const savedSwitch = document.getElementById("saved-switch") as HTMLElement;
 const syncSaved = () => savedSwitch.setAttribute("aria-checked", String(state.saved));
 
-/** The sliders aren't re-rendered, so that one can be dragged while the list updates; they follow the state instead. */
+/**
+ * The sliders and their fields aren't re-rendered, so that a handle can be dragged, or an amount
+ * typed, while the list updates; they follow the state instead. A field being typed in keeps what
+ * it holds, which may be on its way to an amount, such as "2w ".
+ */
 function syncRanges() {
   for (const p of Object.keys(PROPS) as Prop[]) {
     const range = state.ranges[p];
     const slider = app.querySelector<HTMLElement>(`[data-slider="${p}"]`);
     if (!slider) continue;
     const last = PROPS[p].stops.length - 1;
-    slider.style.setProperty("--lo", String(range[0] / last));
-    slider.style.setProperty("--hi", String(range[1] / last));
+    const at = rangePositions(p, range);
+    slider.style.setProperty("--lo", String(at[0] / last));
+    slider.style.setProperty("--hi", String(at[1] / last));
     for (const input of slider.querySelectorAll<HTMLInputElement>("input")) {
-      input.value = String(range[Number(input.dataset.end)]);
+      input.value = String(at[Number(input.dataset.end)]);
       input.setAttribute("aria-valuetext", rangeLabel(p, range));
     }
+    const fields = [...app.querySelectorAll<HTMLInputElement>(`[data-exact="${p}"]`)];
+    for (const field of fields)
+      if (field !== document.activeElement) {
+        field.value = fieldText(p, range[Number(field.dataset.bound)]);
+        field.removeAttribute("aria-invalid");
+      }
+    if (!fields.includes(document.activeElement as HTMLInputElement)) sayRangeError(p, "");
     for (const label of app.querySelectorAll(`[data-range-label="${p}"]`))
       label.textContent = rangeLabel(p, range);
     app
       .querySelector(`[data-range-section="${p}"]`)
-      ?.classList.toggle("narrowed", isNarrowed(p, range));
+      ?.classList.toggle("narrowed", isNarrowed(range));
   }
+}
+
+/** What's wrong with what a slider's field holds, under its fields; "" for nothing. */
+function sayRangeError(p: Prop, message: string) {
+  const error = document.getElementById(`range-error-${p}`);
+  if (error && error.textContent !== message) error.textContent = message;
 }
 
 /** The histograms' counts follow the other filters, and their bars the slider's own range. */
@@ -479,16 +503,88 @@ need.addEventListener("keydown", (event) => {
 
 q.addEventListener("input", () => go({ q: q.value }));
 
+/**
+ * Moves a slider's handle to a stop. The handles can't cross: the range keeps at least a part of a
+ * step, so a handle stops short of the other, at the stop before it. The handle shows at its stop
+ * at once, rather than where the pointer is until the list's next render: it's a range input of
+ * step="any", so that a typed amount can put it between two stops (see rangesHtml).
+ */
+function toStop(p: Prop, end: 0 | 1, stop: number) {
+  const range = state.ranges[p];
+  const [lo, hi] = rangePositions(p, range);
+  const last = PROPS[p].stops.length - 1;
+  const to: Range =
+    end === 0
+      ? [boundAt(p, 0, Math.max(0, Math.min(stop, Math.ceil(hi) - 1))), range[1]]
+      : [range[0], boundAt(p, 1, Math.min(last, Math.max(stop, Math.floor(lo) + 1)))];
+  if (to[0] !== range[0] || to[1] !== range[1]) go({ ranges: { ...state.ranges, [p]: to } });
+  syncRanges();
+}
+
 app.addEventListener("input", (event) => {
   const el = event.target as HTMLInputElement;
+  if (el.dataset.exact) return typed(el);
   const p = el.dataset.range as Prop | undefined;
-  if (!p) return;
-  // The handles can't cross: the range keeps at least one step.
-  const [lo, hi] = state.ranges[p];
-  const v = Number(el.value);
-  const range: Range =
-    el.dataset.end === "0" ? [Math.min(v, hi - 1), hi] : [lo, Math.max(v, lo + 1)];
+  if (p) toStop(p, Number(el.dataset.end) as 0 | 1, Math.round(Number(el.value)));
+});
+
+// The arrow keys move a handle from stop to stop, which a range input of step="any" doesn't do on
+// its own; from between two stops, such as a typed amount's, to the next one.
+app.addEventListener("keydown", (event) => {
+  const el = event.target as HTMLInputElement;
+  const p = el.dataset.range as Prop | undefined;
+  const dir = { ArrowLeft: -1, ArrowDown: -1, ArrowRight: 1, ArrowUp: 1 }[event.key];
+  if (!p || !dir) return;
+  event.preventDefault();
+  const at = Number(el.value);
+  toStop(
+    p,
+    Number(el.dataset.end) as 0 | 1,
+    dir > 0 ? Math.floor(at + 1e-9) + 1 : Math.ceil(at - 1e-9) - 1,
+  );
+});
+
+/**
+ * An amount typed in a slider's field: the list follows as it's typed, as it does a search. What
+ * isn't an amount, or would put a bound on the wrong side of the other, is said under the fields,
+ * and leaves the range as it was.
+ */
+function typed(field: HTMLInputElement) {
+  const p = field.dataset.exact as Prop;
+  const end = Number(field.dataset.bound) as 0 | 1;
+  const text = field.value.trim();
+  let n = text ? (PROPS[p].date ? parseAge(text) : parseCount(text)) : null;
+  const wrong = (message: string) => {
+    field.setAttribute("aria-invalid", "true");
+    sayRangeError(p, message);
+  };
+  if (text && n === null)
+    return wrong(
+      PROPS[p].date
+        ? "Type an age, such as 45d, 3w or 2w 3d."
+        : "Type a number, such as 1500 or 1.5K.",
+    );
+  // At least 0 is any count.
+  if (n === 0 && end === 0) n = null;
+  const range: Range = end === 0 ? [n, state.ranges[p][1]] : [state.ranges[p][0], n];
+  const error = rangeError(p, range);
+  if (error) return wrong(error);
+  for (const f of app.querySelectorAll(`[data-exact="${p}"]`)) f.removeAttribute("aria-invalid");
+  sayRangeError(p, "");
   go({ ranges: { ...state.ranges, [p]: range } });
+}
+
+// Once a field is left, or Enter pressed in it, it shows its amount as the others do: "2w 3d" is
+// 17d, and what wasn't an amount gives way to the range's own.
+app.addEventListener("change", (event) => {
+  const el = event.target as HTMLInputElement;
+  if (!el.dataset.exact) return;
+  el.value = fieldText(
+    el.dataset.exact as Prop,
+    state.ranges[el.dataset.exact as Prop][Number(el.dataset.bound)],
+  );
+  el.removeAttribute("aria-invalid");
+  sayRangeError(el.dataset.exact as Prop, "");
 });
 
 /**
@@ -511,11 +607,10 @@ app.addEventListener("click", (event) => {
   const box = slider.getBoundingClientRect();
   const at = (event.clientX - box.left - thumb / 2) / (box.width - thumb);
   const stop = Math.max(0, Math.min(last, Math.round(at * last)));
-  const [lo, hi] = state.ranges[p];
+  const [lo, hi] = rangePositions(p, state.ranges[p]);
   const end = stop <= lo ? 0 : stop >= hi ? 1 : stop - lo <= hi - stop ? 0 : 1;
-  // As when a handle is dragged: the range keeps at least one step.
-  const range: Range = end === 0 ? [Math.min(stop, hi - 1), hi] : [lo, Math.max(stop, lo + 1)];
-  if (range[0] !== lo || range[1] !== hi) go({ ranges: { ...state.ranges, [p]: range } });
+  // As when a handle is dragged.
+  toStop(p, end, stop);
   // The arrow keys go on from there.
   slider.querySelector<HTMLElement>(`input[data-end="${end}"]`)?.focus();
 });
@@ -552,7 +647,7 @@ app.addEventListener("click", (event) => {
     if (d.remove === "saved") go({ saved: false });
     else if (d.remove === "tag") go({ tags: state.tags.filter((t) => t !== v) });
     else if (d.remove === "repo") go({ repo: null });
-    else if (d.remove === "range") go({ ranges: { ...state.ranges, [v]: fullRange(v as Prop) } });
+    else if (d.remove === "range") go({ ranges: { ...state.ranges, [v]: fullRange() } });
   } else if (d.action === "clear") go({ saved: false, tags: [], repo: null, ranges: fullRanges() });
   else if (d.action === "ask") ask();
   else if (d.action === "focus-search") q.focus();

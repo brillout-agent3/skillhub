@@ -61,26 +61,36 @@ const quiet = (tag: string) => tag === "by:community" || facetOf(tag) === "categ
 
 /**
  * The Age slider's inner stops, oldest first, in days before the data's date: its range is
- * relative, such as a month at most, so a link keeps its meaning as the data moves on. The URL
- * names them such as 30d, in its `published` parameter: the filter was named Published, and links
- * to it still work.
+ * relative, such as a month at most, so a link keeps its meaning as the data moves on. A year, and
+ * every whole month up to 3, week up to 3 and day up to 6. Not 4 weeks, 2 days off a month: a stop
+ * that would filter almost what its neighbor does. Its fields take any age between them, such as
+ * 45 days (see parseAge). The URL names an age in days, such as 30d, in its `published` parameter:
+ * the filter was named Published, and links to it still work.
  */
-const AGES = [365, 90, 30, 7] as const;
-type Age = (typeof AGES)[number];
-/**
- * Each stop in words, as a range says it: "≤ 3 months", "> 1 year", "1 week – 1 month". In weeks,
- * months and years, as a row says its age: 30 days are a month, and 90 are three.
- */
-const AGE_WORDS: Record<Age, string> = {
-  365: "1 year",
-  90: "3 months",
-  30: "1 month",
-  7: "1 week",
+const AGES = [365, 90, 60, 30, 21, 14, 7, 6, 5, 4, 3, 2, 1];
+/** The stops named under the Age slider's histogram: 1 year is a step from 3 months, too close for both. */
+const AGE_MARKS = [90, 30, 7, 1];
+/** An age's units, largest first: a month is 30 days and a year 365, as a row's age says them. */
+const AGE_UNITS: [days: number, word: string, short: string][] = [
+  [365, "year", "y"],
+  [30, "month", "mo"],
+  [7, "week", "w"],
+  [1, "day", "d"],
+];
+/** The largest unit that divides an age: 60 days are 2 months, 21 are 3 weeks, 45 stay 45 days. */
+const unitOfAge = (days: number) => AGE_UNITS.find(([n]) => days % n === 0) ?? AGE_UNITS[3];
+/** An age in words, as a range says it: "≤ 3 months", "> 1 year", "1 week – 45 days". */
+const ageWords = (days: number) => {
+  const [n, word] = unitOfAge(days);
+  return plural(days / n, word);
 };
-/** Each stop in short, under the slider's histogram. */
-const AGE_SHORT: Record<Age, string> = { 365: "1y", 90: "3mo", 30: "1mo", 7: "1w" };
+/** An age in short, under the slider's histogram and in its fields: "3mo", "2w", "45d". */
+const ageShort = (days: number) => {
+  const [n, , short] = unitOfAge(days);
+  return `${days / n}${short}`;
+};
 /** An age as a preset's tooltip says it: "the last 3 months", "the last month". */
-const theLast = (since: Age) => `the last ${AGE_WORDS[since].replace(/^1 /, "")}`;
+const theLast = (since: number) => `the last ${ageWords(since).replace(/^1 /, "")}`;
 
 /**
  * Buttons that set the sort and the sliders (see presetPatch), highest first, each named after what
@@ -96,7 +106,7 @@ interface PresetInfo {
   label: string;
   sort: Sort;
   /** The Age range it sets: so many days at most, or any age. */
-  since: Age | null;
+  since: number | null;
   title: string;
 }
 /** How recent the skills of Rising & new are, and of New, in days: each a stop of the Age slider. */
@@ -137,11 +147,17 @@ interface PropInfo {
   of: (e: Entry) => Value | null;
   /** Where the value comes from, for its tooltip. Only called when the value is known. */
   title: (e: Entry) => string;
-  /** The slider's stops, lowest first. The last one is above every value, so the full range includes them all. */
+  /**
+   * The slider's stops, lowest first, as its values: the first is at most every value and the last
+   * above every one, so that the full range includes them all. Each bar of its histogram is a step.
+   */
   stops: Value[];
-  /** How the URL names each stop, when not by its value. */
-  keys?: string[];
-  /** Its values are dates, and its stops ages: see AGES. */
+  /**
+   * What each stop stands for as a range's bound (see Range): a count, or an age in days. The ends'
+   * are only for placing a bound that lies between them on the track: see positionOf.
+   */
+  bounds: number[];
+  /** Its values are dates, and its bounds ages: see AGES. */
   date?: boolean;
   /** How the catalog's values spread out: see Crowd. */
   crowd?: Crowd;
@@ -246,12 +262,17 @@ const days = (iso: string) => Date.parse(`${iso}T00:00:00Z`) / 86_400_000;
 /** The repos the catalog's skills and bundles are in, which stars rank among. */
 const listedRepos = new Set([...data.skills, ...data.bundles].map(repoKey));
 
-/** 0, 10, 20, 50, 100… up past the largest value. */
-function countStops(of: (s: Skill) => number | null): number[] {
+/**
+ * A count's stops, 0, 10, 20, 30… 90, 100, 200… up past the largest value: every whole tens,
+ * hundreds, thousands. Each is the bound it stands for, as it is the count.
+ */
+function countStops(of: (s: Skill) => number | null): Pick<PropInfo, "stops" | "bounds"> {
   const max = Math.max(0, ...data.skills.map(of).filter((n) => n !== null));
   const stops = [0];
-  for (let p = 10; stops[stops.length - 1] <= max; p *= 10) stops.push(p, 2 * p, 5 * p);
-  return stops.slice(0, stops.findIndex((n) => n > max) + 1);
+  for (let p = 10; stops[stops.length - 1] <= max; p *= 10)
+    for (let m = 1; m < 10; m++) stops.push(m * p);
+  const counts = stops.slice(0, stops.findIndex((n) => n > max) + 1);
+  return { stops: counts, bounds: counts };
 }
 
 // A bundle's numbers are its most popular skill's.
@@ -277,9 +298,10 @@ export const PROPS: Record<Prop, PropInfo> = {
         ? `Published ${on}, the week it took off on skills.sh: skills.sh first saw it ${date(firstSeenOf(e) as string)}, but it got under ${compact(GROWTH_BASE_MIN)} installs a week until then`
         : `Published ${on}, when skills.sh first saw it`;
     },
-    // Below and above every date, so that the full range takes them all in.
+    // Below and above every date, so that the full range takes them all in. The ends' ages place an
+    // age between them: over a year, toward 2; under a day, toward none.
     stops: ["", ...AGES.map((n) => daysBefore(data.asOf.installs, n)), "~"],
-    keys: ["", ...AGES.map((n) => `${n}d`), "~"],
+    bounds: [2 * AGES[0], ...AGES, 0],
     date: true,
     crowd: crowd(
       "skill",
@@ -297,7 +319,7 @@ export const PROPS: Record<Prop, PropInfo> = {
     icon: STAR,
     of: starsOf,
     title: (e) => `GitHub stars of ${repoKey(e)}, ${date(data.asOf.stars)}`,
-    stops: countStops(starsOf),
+    ...countStops(starsOf),
     crowd: crowd(
       "repo",
       data.repos.filter((r) => listedRepos.has(r.id)).map((r) => r.stars),
@@ -315,7 +337,7 @@ export const PROPS: Record<Prop, PropInfo> = {
     tag: "Total",
     of: installsOf,
     title: (e) => `${most(e)}All-time installs on skills.sh, ${date(data.asOf.installs)}`,
-    stops: countStops(installsOf),
+    ...countStops(installsOf),
     crowd: crowd("skill", data.skills.map(installsOf), "log"),
     standing: {
       more: "More downloads than",
@@ -329,7 +351,7 @@ export const PROPS: Record<Prop, PropInfo> = {
     tag: "Week",
     of: weekOf,
     title: (e) => `${most(e)}Installs on skills.sh in the week to ${date(data.asOf.installs)}`,
-    stops: countStops(weekOf),
+    ...countStops(weekOf),
     crowd: crowd("skill", data.skills.map(weekOf), "log"),
     standing: {
       more: "More weekly downloads than",
@@ -341,15 +363,111 @@ export const PROPS: Record<Prop, PropInfo> = {
 const PROP_IDS = Object.keys(PROPS) as Prop[];
 const lastStop = (p: Prop) => PROPS[p].stops.length - 1;
 
-/** A slider's range, as indexes into its stops: `lo` included, `hi` excluded. */
-export type Range = [lo: number, hi: number];
-export const fullRange = (p: Prop): Range => [0, lastStop(p)];
+/**
+ * A slider's range, as the URL says it: a count at least `lo` and under `hi`, such as
+ * stars=1000..50000; an age at most `lo` days and over `hi`, such as published=90d..7d. null: no
+ * bound. Any amount, which its fields take: the slider's stops are only where its handles stop.
+ */
+export type Range = [lo: number | null, hi: number | null];
+export const fullRange = (): Range => [null, null];
 export const fullRanges = () =>
-  Object.fromEntries(PROP_IDS.map((p) => [p, fullRange(p)])) as Record<Prop, Range>;
-export const isNarrowed = (p: Prop, [lo, hi]: Range) => lo > 0 || hi < lastStop(p);
+  Object.fromEntries(PROP_IDS.map((p) => [p, fullRange()])) as Record<Prop, Range>;
+export const isNarrowed = ([lo, hi]: Range) => lo !== null || hi !== null;
 
-/** How the URL names a slider's stop. */
-const stopKey = (p: Prop, i: number) => PROPS[p].keys?.[i] ?? String(PROPS[p].stops[i]);
+/** How the URL names a bound: an age in days, such as 30d; a count as itself. */
+const boundKey = (p: Prop, n: number) => (PROPS[p].date ? `${n}d` : String(n));
+
+/**
+ * Where a bound is on its slider's track, from 0 to its last stop: at a stop, or between two, in
+ * proportion. Counts by their order of magnitude, as their stops spread, from 0 to the first stop
+ * by their value; ages by their days.
+ */
+function positionOf(p: Prop, n: number): number {
+  const { bounds, date } = PROPS[p];
+  // Ages run the other way: the newest, the fewest days, on the right.
+  const key = (v: number) => (date ? -v : v);
+  if (key(n) <= key(bounds[0])) return 0;
+  for (let i = 0; i < bounds.length - 1; i++) {
+    const [a, b] = [bounds[i], bounds[i + 1]];
+    if (key(n) > key(b)) continue;
+    return i + (date || a === 0 ? (n - a) / (b - a) : Math.log(n / a) / Math.log(b / a));
+  }
+  return bounds.length - 1;
+}
+/** A range's handles on its track: see positionOf. No bound is either end. */
+export const rangePositions = (p: Prop, [lo, hi]: Range): [number, number] => [
+  lo === null ? 0 : positionOf(p, lo),
+  hi === null ? lastStop(p) : positionOf(p, hi),
+];
+/** The bound a handle at a stop stands for: at its end of the track, none. */
+export const boundAt = (p: Prop, end: 0 | 1, stop: number): number | null =>
+  stop === (end ? lastStop(p) : 0) ? null : PROPS[p].bounds[stop];
+/** The range between two neighboring stops, a step: what a bar of the histogram counts. */
+const stepRange = (p: Prop, i: number): Range => [boundAt(p, 0, i), boundAt(p, 1, i + 1)];
+
+/** A count in words: as the rows say it, 1.5K, where that's all of it; otherwise 1,234. */
+const countWords = (n: number) =>
+  parseCount(compact(n)) === n ? compact(n) : n.toLocaleString("en");
+
+/** A bound as its field shows it: an age such as 3mo or 45d, a count such as 1.5K. */
+export const fieldText = (p: Prop, n: number | null) =>
+  n === null ? "" : PROPS[p].date ? ageShort(n) : countWords(n);
+
+/** A typed count, such as 1500, 1,500 or 1.5K: a whole number, or null. */
+export function parseCount(text: string): number | null {
+  const m = text.replace(/[,\s_]/g, "").match(/^(\d+(?:\.\d+)?)([km])?$/i);
+  if (!m) return null;
+  return Math.round(Number(m[1]) * (m[2] ? (m[2].toLowerCase() === "k" ? 1e3 : 1e6) : 1));
+}
+/** The words a typed age's units go by, and their days: a bare number is days. */
+const AGE_WORD_DAYS: Record<string, number> = {
+  "": 1,
+  d: 1,
+  day: 1,
+  days: 1,
+  w: 7,
+  wk: 7,
+  wks: 7,
+  week: 7,
+  weeks: 7,
+  mo: 30,
+  mos: 30,
+  month: 30,
+  months: 30,
+  y: 365,
+  yr: 365,
+  yrs: 365,
+  year: 365,
+  years: 365,
+};
+/**
+ * A typed age, in days: 45, 45d, 3w, 2mo, 1y, 2w 3d or 1 month 2 weeks; null when it isn't one, or
+ * is under a day. A bare number is days. Not m, which could be minutes as well as months.
+ */
+export function parseAge(text: string): number | null {
+  let days = 0;
+  let parts = 0;
+  const rest = text
+    .toLowerCase()
+    .replace(/(\d+(?:\.\d+)?)\s*([a-z]*)/g, (_, n: string, unit: string) => {
+      parts++;
+      days += Object.hasOwn(AGE_WORD_DAYS, unit) ? Number(n) * AGE_WORD_DAYS[unit] : Number.NaN;
+      return "";
+    });
+  if (!parts || rest.replace(/[\s,+]|and/g, "") || !(days >= 1)) return null;
+  return Math.round(days);
+}
+/** What the fields of a range say is wrong with it, if anything: each bound on the right side of the other. */
+export function rangeError(p: Prop, [lo, hi]: Range): string | null {
+  if (PROPS[p].date)
+    return lo !== null && hi !== null && hi >= lo ? "Older than has to be under Newer than." : null;
+  return hi !== null && hi <= (lo ?? 0)
+    ? `Under has to be over ${lo === null ? "0" : "At least"}.`
+    : null;
+}
+/** What each field of a slider's popover sets, and an example of what it takes. */
+export const fieldWords = (p: Prop): [lo: string, hi: string, example: string] =>
+  PROPS[p].date ? ["Newer than", "Older than", "2w 3d"] : ["At least", "Under", "1.5K"];
 
 /**
  * A slider's range in words, such as "≥ 1K" or "1K – 5K"; and for an age, said as the counts are,
@@ -357,11 +475,10 @@ const stopKey = (p: Prop, i: number) => PROPS[p].keys?.[i] ?? String(PROPS[p].st
  * settings' line on a 1,280px screen (see .settings-line in style.css).
  */
 export function rangeLabel(p: Prop, [lo, hi]: Range): string {
-  const { stops, date } = PROPS[p];
-  if (date) {
-    // A date at or after `lo`'s is that age at most; one before `hi`'s is over it.
-    const atMost = lo > 0 ? AGE_WORDS[AGES[lo - 1]] : null;
-    const over = hi < lastStop(p) ? AGE_WORDS[AGES[hi - 1]] : null;
+  if (PROPS[p].date) {
+    // An age at most `lo` days, and over `hi`.
+    const atMost = lo === null ? null : ageWords(lo);
+    const over = hi === null ? null : ageWords(hi);
     return atMost && over
       ? `${over} – ${atMost}`
       : atMost
@@ -370,8 +487,8 @@ export function rangeLabel(p: Prop, [lo, hi]: Range): string {
           ? `> ${over}`
           : "Any";
   }
-  const from = lo > 0 ? compact(stops[lo] as number) : null;
-  const to = hi < lastStop(p) ? compact(stops[hi] as number) : null;
+  const from = lo === null ? null : countWords(lo);
+  const to = hi === null ? null : countWords(hi);
   return from && to ? `${from} – ${to}` : from ? `≥ ${from}` : to ? `< ${to}` : "Any";
 }
 
@@ -399,10 +516,7 @@ export const defaultSort = (q: string): Sort => (q.trim() ? "match" : "growth");
  */
 const term = (st: State) => st.q.trim();
 /** The Age range for `since` days at most, or any age. */
-export const sinceRange = (since: Age | null): Range =>
-  since
-    ? [PROPS.published.keys?.indexOf(`${since}d`) ?? 0, lastStop("published")]
-    : fullRange("published");
+export const sinceRange = (since: number | null): Range => [since, null];
 const sameRange = (a: Range, b: Range) => a[0] === b[0] && a[1] === b[1];
 /**
  * What a preset sets: its sort, highest first, and its Age range, every other slider back at
@@ -457,18 +571,18 @@ export function parse(search: string): State {
   const repo = p.get("repo");
   const ranges = fullRanges();
   for (const prop of PROP_IDS) {
-    // Such as stars=1000..50000, published=30d.. with no upper bound, or published=.. for any.
+    // Such as stars=1000..50000, published=30d.. with no upper bound, or published=.. for any: any
+    // amount, as the fields take, not only a stop's. A count of 0 is no lower bound, and an age is
+    // at least a day.
     const param = p.get(prop);
     if (param === null) continue;
-    ranges[prop] = fullRange(prop);
-    const [lo, hi] = param.split("..");
-    const keys = PROPS[prop].stops.map((_, i) => stopKey(prop, i));
-    // A range keeps at least one step, as the slider's handles do: a lower bound at the last
-    // stop, which is above every value, isn't one. Its handles would sit on one another.
-    if (lo && keys.includes(lo) && keys.indexOf(lo) < lastStop(prop))
-      ranges[prop][0] = keys.indexOf(lo);
-    if (hi && keys.includes(hi) && keys.indexOf(hi) > ranges[prop][0])
-      ranges[prop][1] = keys.indexOf(hi);
+    const [lo, hi] = param.split("..").map((key) => {
+      const m = key.match(PROPS[prop].date ? /^(\d+)d$/ : /^(\d+)$/);
+      return m && Number(m[1]) > 0 ? Number(m[1]) : null;
+    });
+    // An upper bound on the wrong side of the lower one, which the fields don't let through, is none.
+    ranges[prop] = [lo ?? null, hi ?? null];
+    if (rangeError(prop, ranges[prop])) ranges[prop][1] = null;
   }
   return {
     q,
@@ -499,10 +613,10 @@ export function query(s: State): string {
   if (s.asc) p.set("order", "asc");
   for (const prop of PROP_IDS) {
     const [lo, hi] = s.ranges[prop];
-    if (isNarrowed(prop, [lo, hi]))
+    if (isNarrowed([lo, hi]))
       p.set(
         prop,
-        `${lo > 0 ? stopKey(prop, lo) : ""}..${hi < lastStop(prop) ? stopKey(prop, hi) : ""}`,
+        `${lo === null ? "" : boundKey(prop, lo)}..${hi === null ? "" : boundKey(prop, hi)}`,
       );
   }
   if (s.show !== "all") p.set("show", s.show);
@@ -714,9 +828,18 @@ function passes(s: Skill, st: State, skip: string | null = null): boolean {
  */
 const inRanges = (e: Entry, st: State) => PROP_IDS.every((p) => inRange(e, p, st.ranges[p]));
 function inRange(e: Entry, p: Prop, [lo, hi]: Range): boolean {
-  if (!isNarrowed(p, [lo, hi])) return true;
+  if (!isNarrowed([lo, hi])) return true;
   const v = PROPS[p].of(e);
-  return v !== null && v >= PROPS[p].stops[lo] && v < PROPS[p].stops[hi];
+  return v !== null && (lo === null || v >= valueOf(p, lo)) && (hi === null || v < valueOf(p, hi));
+}
+/** The dates so many days before the data's: see valueOf. */
+const daysAgo = new Map<number, string>();
+/** A bound as the entries' values are: for an age, the date so many days before the data's. */
+function valueOf(p: Prop, n: number): Value {
+  if (!PROPS[p].date) return n;
+  let day = daysAgo.get(n);
+  if (day === undefined) daysAgo.set(n, (day = daysBefore(data.asOf.installs, n)));
+  return day;
 }
 
 /**
@@ -793,8 +916,7 @@ const bundlePasses = (b: Bundle, st: State) =>
   savedBundle(b, st) && inRanges(b, st) && matchedThrough(b, st).length > 0;
 
 const isFiltered = (st: State) =>
-  Boolean(term(st) || st.tags.length || st.repo) ||
-  PROP_IDS.some((p) => isNarrowed(p, st.ranges[p]));
+  Boolean(term(st) || st.tags.length || st.repo) || PROP_IDS.some((p) => isNarrowed(st.ranges[p]));
 
 /** On a tie, such as a bundle and its most installed skill, the bundle goes first. */
 const bundleFirst = (a: Entry, b: Entry) => Number(isBundle(b)) - Number(isBundle(a));
@@ -991,8 +1113,7 @@ function filtersText(st: State): string[] {
   if (st.saved) parts.unshift("the ones I saved");
   if (st.repo) parts.push(`from ${st.repo}`);
   for (const p of PROP_IDS)
-    if (isNarrowed(p, st.ranges[p]))
-      parts.push(`${PROPS[p].label}: ${rangeLabel(p, st.ranges[p])}`);
+    if (isNarrowed(st.ranges[p])) parts.push(`${PROPS[p].label}: ${rangeLabel(p, st.ranges[p])}`);
   return parts;
 }
 
@@ -1417,8 +1538,7 @@ export function facetsHtml(st: State, stackExpanded: boolean): string {
 
 /** Whether filters narrow the list: the search and the agent prompt then look through what they leave. */
 const filtersOn = (st: State) =>
-  Boolean(st.saved || st.tags.length || st.repo) ||
-  PROP_IDS.some((p) => isNarrowed(p, st.ranges[p]));
+  Boolean(st.saved || st.tags.length || st.repo) || PROP_IDS.some((p) => isNarrowed(st.ranges[p]));
 
 /**
  * The list and the search's scope are counted in skills, those listed only inside a bundle
@@ -1512,7 +1632,7 @@ function scopeChipsHtml(st: State): string {
   for (const t of st.tags) chips.push(remove("tag", t, t));
   if (st.repo) chips.push(remove("repo", st.repo, `from ${st.repo}`));
   for (const p of PROP_IDS)
-    if (isNarrowed(p, st.ranges[p]))
+    if (isNarrowed(st.ranges[p]))
       chips.push(remove("range", p, `${PROPS[p].label}: ${rangeLabel(p, st.ranges[p])}`));
   return chips.join(" ");
 }
@@ -1663,24 +1783,35 @@ export function resultsHtml(st: State, limit = Infinity): string {
 export function histogramHtml(st: State, p: Prop): string {
   const bars = histograms(st)[p];
   const max = Math.max(1, ...bars);
-  const [lo, hi] = st.ranges[p];
+  const [lo, hi] = rangePositions(p, st.ranges[p]);
   return bars
-    .map(
-      (n, i) =>
-        `<span${i >= lo && i < hi ? "" : ` class="out"`} style="--h: ${n ? Math.max(0.08, n / max).toFixed(3) : 0}" title="${esc(`${rangeLabel(p, [i, i + 1])}: ${plural(n, unitOf(st))}`)}"></span>`,
-    )
+    .map((n, i) => {
+      // How much of its step is in the range: all of it, none, or, where a typed bound lies between
+      // two stops, the part up to the bound, which the bar fills that far (see .part in style.css).
+      const from = Math.max(lo, i) - i;
+      const to = Math.min(hi, i + 1) - i;
+      const part = to - from > 0.999 ? "" : to - from < 0.001 ? "out" : "part";
+      const fill =
+        part === "part"
+          ? `; --from: ${(from * 100).toFixed(1)}%; --to: ${(to * 100).toFixed(1)}%`
+          : "";
+      return `<span${part ? ` class="${part}"` : ""} style="--h: ${n ? Math.max(0.08, n / max).toFixed(3) : 0}${fill}" title="${esc(`${rangeLabel(p, stepRange(p, i))}: ${plural(n, unitOf(st))}`)}"></span>`;
+    })
     .join("");
 }
 
 /**
  * Under a histogram, some of its stops' values, each under its stop: for counts, 0 and the powers
- * of 10 at least 3 steps apart, such as 0, 100, 1K, 10K; for dates, the ages.
+ * of 10 at least 3 steps apart, such as 0, 100, 1K, 10K; for dates, some of the ages: AGE_MARKS.
  */
 function axisHtml(p: Prop): string {
   const { stops, date } = PROPS[p];
   const last = lastStop(p);
   const labels: [number, string][] = [];
-  if (date) AGES.forEach((n, i) => labels.push([i + 1, AGE_SHORT[n]]));
+  if (date)
+    AGES.forEach((n, i) => {
+      if (AGE_MARKS.includes(n)) labels.push([i + 1, ageShort(n)]);
+    });
   else
     stops.forEach((v, i) => {
       const decade = v === 0 || Number.isInteger(Math.log10(v as number));
@@ -1718,12 +1849,25 @@ const CHEVRON = `<svg class="chevron" viewBox="0 0 12 12" aria-hidden="true"><pa
  */
 export function rangesHtml(st: State): string {
   return PROP_IDS.map((p) => {
-    const [lo, hi] = st.ranges[p];
+    const range = st.ranges[p];
+    const [lo, hi] = rangePositions(p, range);
     const last = lastStop(p);
     const { label } = PROPS[p];
-    const value = `<span data-range-label="${p}">${rangeLabel(p, [lo, hi])}</span>`;
+    const value = `<span data-range-label="${p}">${rangeLabel(p, range)}</span>`;
+    // step="any", so that a typed bound between two stops puts its handle there; a dragged handle
+    // stops at a stop all the same, as do the arrow keys: see list-client.ts.
     const handle = (end: 0 | 1, v: number) =>
-      `<input type="range" min="0" max="${last}" step="1" value="${v}" data-range="${p}" data-end="${end}" aria-label="${label}, ${end ? "to" : "from"}" aria-valuetext="${rangeLabel(p, [lo, hi])}" />`;
+      `<input type="range" min="0" max="${last}" step="any" value="${v}" data-range="${p}" data-end="${end}" aria-label="${label}, ${end ? "to" : "from"}" aria-valuetext="${rangeLabel(p, range)}" />`;
+    // Where a handle stops, as dots on the track.
+    const stops = Array.from(
+      { length: last - 1 },
+      (_, i) => `<i style="--at: ${(i + 1) / last}"></i>`,
+    ).join("");
+    // Any amount, typed, under the slider: the list follows as it's typed, as it does a search.
+    const [loWords, hiWords, example] = fieldWords(p);
+    const field = (end: 0 | 1, words: string) =>
+      `<div class="range-field"><label for="range-${p}-${end}">${words}</label><input type="text" id="range-${p}-${end}" autocomplete="off" spellcheck="false" placeholder="Any, or such as ${example}" value="${esc(fieldText(p, range[end]))}" data-exact="${p}" data-bound="${end}" aria-describedby="range-error-${p}" /></div>`;
+    const fields = `<div class="range-fields">${field(0, loWords)}${field(1, hiWords)}<p class="range-error" id="range-error-${p}" aria-live="polite"></p></div>`;
     const { icon, tag } = PROPS[p];
     // The pill says the word the rows say under a shared icon, such as Total, to fit the settings'
     // line; its popover says the whole name. A name on its own, as Age's and Stars', whose
@@ -1733,7 +1877,7 @@ export function rangesHtml(st: State): string {
       ? `<span class="range-name">${icon}<span aria-hidden="true">${tag}</span><span class="sr-only">${label}</span></span>`
       : `<span class="range-name">${icon}<span class="range-word">${label}</span></span>`;
     const name = `<span class="range-name">${icon}${label}</span>`;
-    return `<div class="range${isNarrowed(p, [lo, hi]) ? " narrowed" : ""}" data-range-section="${p}"><button type="button" class="range-pill" data-action="range" data-value="${p}" title="${label}" aria-expanded="false" aria-controls="range-pop-${p}">${short}<span class="range-value">${value}${CHEVRON}</span></button><div class="range-pop" id="range-pop-${p}" role="group" aria-label="${label}" hidden><div class="range-pop-head">${name}${value}</div><div class="histogram" data-histogram="${p}" aria-hidden="true">${histogramHtml(st, p)}</div><div class="histogram-axis" aria-hidden="true">${axisHtml(p)}</div><div class="slider" data-slider="${p}" style="--lo: ${lo / last}; --hi: ${hi / last}">${handle(0, lo)}${handle(1, hi)}</div></div></div>`;
+    return `<div class="range${isNarrowed(range) ? " narrowed" : ""}" data-range-section="${p}"><button type="button" class="range-pill" data-action="range" data-value="${p}" title="${label}" aria-expanded="false" aria-controls="range-pop-${p}">${short}<span class="range-value">${value}${CHEVRON}</span></button><div class="range-pop" id="range-pop-${p}" role="group" aria-label="${label}" hidden><div class="range-pop-head">${name}${value}</div><div class="histogram${last > 28 ? " dense" : ""}" data-histogram="${p}" aria-hidden="true">${histogramHtml(st, p)}</div><div class="histogram-axis" aria-hidden="true">${axisHtml(p)}</div><div class="slider" data-slider="${p}" style="--lo: ${lo / last}; --hi: ${hi / last}"><span class="slider-stops" aria-hidden="true">${stops}</span>${handle(0, lo)}${handle(1, hi)}</div>${fields}</div></div>`;
   }).join("");
 }
 

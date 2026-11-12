@@ -285,13 +285,17 @@ test("a number filter narrows the list from its popover", async ({ page }) => {
   await expect(pop).toBeVisible();
   await page.locator("h1").click();
   await expect(pop).toBeHidden();
-  // And so does the keyboard on its way out: past its two handles, to the next filter.
+  // And so does the keyboard on its way out: past its two handles and its two fields, to the next
+  // filter.
   await pill.focus();
   await page.keyboard.press("Enter");
   await expect(pop).toBeVisible();
   await page.keyboard.press("Tab");
   await page.keyboard.press("Tab");
   await expect(pop.locator('input[data-end="1"]')).toBeFocused();
+  await page.keyboard.press("Tab");
+  await page.keyboard.press("Tab");
+  await expect(pop.getByLabel("Under")).toBeFocused();
   await expect(pop).toBeVisible();
   await page.keyboard.press("Tab");
   await expect(page.locator('.range-pill[data-value="downloads"]')).toBeFocused();
@@ -357,6 +361,92 @@ test("a click on a number filter's track moves the nearer handle there", async (
   await settled(page);
   await expect(pop.locator('input[data-end="0"]')).toHaveValue(String(high - 1));
   await expect(pop.locator('input[data-end="1"]')).toHaveValue(String(high));
+});
+
+test("a number filter's handles stop at every whole month, week and day of an age, and every tens of a count", async ({
+  page,
+}) => {
+  await open(page, "/?show=bundles");
+  const steps = async (p: string, labels: string[]) => {
+    await page.locator(`.range-pill[data-value="${p}"]`).click();
+    await page.locator(`#range-pop-${p} input[data-end="0"]`).focus();
+    for (const label of labels) {
+      await page.keyboard.press("ArrowRight");
+      await expect(page.locator(`[data-range-label="${p}"]`).first()).toHaveText(label);
+    }
+    await page.keyboard.press("Escape");
+  };
+  // Not 4 weeks, 2 days off a month.
+  await steps("published", [
+    "≤ 1 year",
+    "≤ 3 months",
+    "≤ 2 months",
+    "≤ 1 month",
+    "≤ 3 weeks",
+    "≤ 2 weeks",
+    "≤ 1 week",
+    "≤ 6 days",
+  ]);
+  await steps("stars", ["≥ 10", "≥ 20", "≥ 30", "≥ 40"]);
+  await settled(page);
+  await expect(page).toHaveURL("/?published=6d..&stars=40..&show=bundles");
+});
+
+test("a number filter takes any amount, typed in its fields", async ({ page }) => {
+  await open(page, "/?sort=published");
+  const pop = page.locator("#range-pop-published");
+  const newer = pop.getByLabel("Newer than");
+  const older = pop.getByLabel("Older than");
+  const error = pop.locator(".range-error");
+  const label = page.locator('[data-range-label="published"]').first();
+  await page.locator('.range-pill[data-value="published"]').click();
+
+  // Between two stops, 2 months and 1 month: its handle halfway between theirs.
+  await newer.fill("45");
+  await settled(page);
+  await expect(page).toHaveURL("/?sort=published&published=45d..");
+  await expect(label).toHaveText("≤ 45 days");
+  await expect(pop.locator('input[data-end="0"]')).toHaveValue("3.5");
+
+  // In weeks and days, as a row says its age: none of them over it.
+  await newer.fill("2w 3d");
+  await settled(page);
+  await expect(page).toHaveURL("/?sort=published&published=17d..");
+  await expect(label).toHaveText("≤ 17 days");
+  for (const age of await list(page).sortedValues.allTextContents())
+    expect(Number.parseInt(age) * (age.includes("week") ? 7 : 1), age).toBeLessThanOrEqual(17);
+  // Once left, the field says it in short, as it would a stop: 17d.
+  await newer.press("Tab");
+  await expect(newer).toHaveValue("17d");
+
+  // What isn't an age, or isn't under Newer than, is said, and leaves the list as it was.
+  await older.fill("soon");
+  await expect(error).toHaveText("Type an age, such as 45d, 3w or 2w 3d.");
+  await expect(older).toHaveAttribute("aria-invalid", "true");
+  await older.fill("3w");
+  await expect(error).toHaveText("Older than has to be under Newer than.");
+  await older.fill("1w");
+  await settled(page);
+  await expect(error).toBeHidden();
+  await expect(page).toHaveURL("/?sort=published&published=17d..7d");
+  await expect(label).toHaveText("1 week – 17 days");
+
+  // A count, as the rows say it: the least of the list is at least that.
+  await open(page, "/?sort=stars&order=asc&show=skills");
+  const stars = page.locator("#range-pop-stars");
+  await page.locator('.range-pill[data-value="stars"]').click();
+  await stars.getByLabel("At least").fill("1.5K");
+  await settled(page);
+  await expect(page).toHaveURL("/?sort=stars&order=asc&stars=1500..&show=skills");
+  await expect(page.locator('[data-range-label="stars"]').first()).toHaveText("≥ 1.5K");
+  expect(fromCompact(await list(page).sortedValues.first().innerText())).toBeGreaterThanOrEqual(
+    1500,
+  );
+
+  // A link with any amount: its field says it, every digit where 1.2K wouldn't be all of it.
+  await open(page, "/?stars=1234..");
+  await expect(page.locator('[data-range-label="stars"]').first()).toHaveText("≥ 1,234");
+  await expect(page.locator("#range-stars-0")).toHaveValue("1,234");
 });
 
 test.describe("in a window 1,100px wide, where Show is on a line of its own", () => {

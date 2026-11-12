@@ -1500,6 +1500,21 @@ input[type="search"]::-webkit-search-cancel-button:hover {
   background: var(--rule);
 }
 
+/* A step that a typed bound ends in, between two stops: in garnet up to the bound, from --from to --to. */
+.narrowed .histogram span.part {
+  background: linear-gradient(
+    90deg,
+    var(--rule) var(--from),
+    var(--garnet) var(--from) var(--to),
+    var(--rule) var(--to)
+  );
+}
+
+/* Some 50 steps on a count's slider: a narrower gap leaves its bars some width. */
+.histogram.dense {
+  gap: 1px;
+}
+
 .histogram-axis {
   position: relative;
   height: 16px;
@@ -1560,6 +1575,23 @@ input[type="search"]::-webkit-search-cancel-button:hover {
 
 .narrowed .slider::after {
   background: var(--garnet);
+}
+
+/* Where a handle stops: a dot on the track per stop, which the range's own track covers. */
+.slider-stops {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.slider-stops i {
+  position: absolute;
+  top: calc(50% - 1px);
+  left: calc(var(--thumb) / 2 + var(--at) * (100% - var(--thumb)) - 1px);
+  width: 2px;
+  height: 2px;
+  border-radius: 1px;
+  background: var(--paper);
 }
 
 .slider input {
@@ -1629,6 +1661,61 @@ input[type="search"]::-webkit-search-cancel-button:hover {
   box-shadow:
     inset 0 0 0 2px var(--focus),
     inset 0 0 0 4px var(--paper);
+}
+
+/* Any amount, typed under the slider: its two bounds, each a line of its own. */
+.range-fields {
+  display: grid;
+  gap: 6px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--rule);
+}
+
+.range-field {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+}
+
+.range-field label {
+  flex: none;
+  width: 72px;
+  color: var(--ink-2);
+  white-space: nowrap;
+}
+
+.range-field input {
+  flex: 1 1 0;
+  width: 0;
+  height: 30px;
+  padding: 0 7px;
+  border: 1px solid var(--edge);
+  border-radius: 5px;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+
+.range-field input:focus-visible {
+  outline-offset: -1px;
+  border-color: transparent;
+}
+
+.range-field input[aria-invalid="true"] {
+  border-color: var(--t-bad-ink);
+}
+
+.range-error {
+  margin: 0;
+  color: var(--t-bad-ink);
+  font-size: 12px;
+}
+
+.range-error:empty {
+  display: none;
 }
 
 .facet h3.group {
@@ -3099,7 +3186,8 @@ input[type="search"]::-webkit-search-cancel-button:hover {
   }
 
   /* Under 16px, iOS zooms in on the field. */
-  .tag-search input {
+  .tag-search input,
+  .range-field input {
     font-size: 16px;
   }
 
