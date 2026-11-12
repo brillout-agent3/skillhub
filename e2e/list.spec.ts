@@ -132,17 +132,27 @@ test("a link with what the list doesn't have opens on what it has", async ({ pag
   await expect(rows).not.toHaveCount(0);
 });
 
-test("the presets set the sort and the Age range", async ({ page }) => {
+test("the presets set the sort, the Age range and the Weekly Downloads range", async ({ page }) => {
   await open(page, "/");
   const preset = (id: string) => page.locator(`[data-preset="${id}"]`);
 
+  // Top is the most downloaded of those with 1K weekly downloads or more: without them, it was every
+  // skill, those hardly downloaded too.
   await preset("top").click();
   await settled(page);
-  await expect(page).toHaveURL("/?sort=week");
+  await expect(page).toHaveURL("/?sort=week&week=1000..");
   await expect(preset("top")).toHaveAttribute("aria-pressed", "true");
   await expect(preset("rising")).toHaveAttribute("aria-pressed", "false");
-  const weeks = (await list(page).sortedValues.allTextContents()).slice(0, 30).map(fromCompact);
+  await expect(preset("top")).toHaveAttribute(
+    "title",
+    /of those with at least 1K weekly downloads$/,
+  );
+  await expect(page.locator('[data-range-label="week"]').first()).toHaveText("≥ 1K");
+  const weeks = (await list(page).sortedValues.allTextContents()).map(fromCompact);
+  expect(weeks.length).toBeGreaterThan(0);
+  expect(weeks.length).toBeLessThan(listedRows);
   expect(weeks).toEqual(weeks.toSorted((a, b) => b - a));
+  expect(weeks.at(-1)).toBeGreaterThanOrEqual(1000);
 
   await preset("rising-new").click();
   await settled(page);
@@ -189,7 +199,7 @@ test("Rising & new keeps the settings on one line, and the list where it is", as
 test.describe("on a laptop's screen, 1,280px wide", () => {
   test.use({ viewport: { width: 1280, height: 800 } });
 
-  test("the settings are on one line, with Rising & new too", async ({ page }) => {
+  test("the settings are on one line, with Rising & new and Top too", async ({ page }) => {
     const top = async (selector: string) => (await page.locator(selector).boundingBox())?.y;
     await open(page, "/");
     // Show's first button is the one word, Both: at its full length, Show was on a second line.
@@ -199,9 +209,11 @@ test.describe("on a laptop's screen, 1,280px wide", () => {
     );
     expect(await top(".show-group")).toBe(await top(".preset-group"));
 
-    await page.locator('[data-preset="rising-new"]').click();
-    await settled(page);
-    expect(await top(".show-group")).toBe(await top(".preset-group"));
+    for (const id of ["rising-new", "top"]) {
+      await page.locator(`[data-preset="${id}"]`).click();
+      await settled(page);
+      expect(await top(".show-group"), id).toBe(await top(".preset-group"));
+    }
   });
 });
 

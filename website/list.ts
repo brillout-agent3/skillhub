@@ -101,9 +101,10 @@ const theLast = (since: number) => `the last ${ageWords(since).replace(/^1 /, ""
  * it shows, which the settings spell out: Rising, the default view, by how fast the weekly downloads
  * grow; Rising & new by weekly downloads among the skills published in the last RISING_NEW_SINCE
  * days (a skill that young has no growth yet, see growthOf; one that took off from almost nothing
- * counts as published then, see publishedOf); Top by weekly downloads; New by publishing date among
- * those published in the last NEW_SINCE days: without an age, it was every skill, the oldest too,
- * under a name that says new.
+ * counts as published then, see publishedOf); Top by weekly downloads among the skills with at least
+ * TOP_WEEKLY of them; New by publishing date among those published in the last NEW_SINCE days.
+ * Without a range, Top was every skill, those hardly downloaded too, under a name that says top; New
+ * was every skill, the oldest too, under a name that says new.
  */
 export type Preset = "rising" | "rising-new" | "top" | "new";
 interface PresetInfo {
@@ -111,29 +112,45 @@ interface PresetInfo {
   sort: Sort;
   /** The Age range it sets: so many days at most, or any age. */
   since: number | null;
+  /** The Weekly Downloads range it sets: so many at least, or any number. */
+  weekly: number | null;
   title: string;
 }
 /** How recent the skills of Rising & new are, and of New, in days: each a stop of the Age slider. */
 const RISING_NEW_SINCE = 90;
 const NEW_SINCE = 30;
+/**
+ * The weekly downloads of Top's skills, at least: a stop of the Weekly Downloads slider, and the bar
+ * Rising's growth sets too (GROWTH_MIN). Low enough that Top with a tag or a search still lists a few.
+ */
+const TOP_WEEKLY = 1000;
 export const PRESETS: Record<Preset, PresetInfo> = {
   rising: {
     label: "Rising",
     sort: "growth",
     since: null,
+    weekly: null,
     title: "Downloads growing the fastest",
   },
   "rising-new": {
     label: "Rising & new",
     sort: "week",
     since: RISING_NEW_SINCE,
+    weekly: null,
     title: `The most downloaded this week of those published in ${theLast(RISING_NEW_SINCE)}`,
   },
-  top: { label: "Top", sort: "week", since: null, title: "Most downloaded this week" },
+  top: {
+    label: "Top",
+    sort: "week",
+    since: null,
+    weekly: TOP_WEEKLY,
+    title: `The most downloaded this week of those with at least ${compact(TOP_WEEKLY)} weekly downloads`,
+  },
   new: {
     label: "New",
     sort: "published",
     since: NEW_SINCE,
+    weekly: null,
     title: `The newest of those published in ${theLast(NEW_SINCE)}`,
   },
 };
@@ -524,16 +541,16 @@ const term = (st: State) => st.q.trim();
 export const sinceRange = (since: number | null): Range => [since, null];
 const sameRange = (a: Range, b: Range) => a[0] === b[0] && a[1] === b[1];
 /**
- * What a preset sets: its sort, highest first, and its Age range, every other slider back at
- * its full range, since one left narrowed (say Weekly Downloads from 5,000) would make the list
+ * What a preset sets: its sort, highest first, and its Age and Weekly Downloads ranges, every other
+ * slider back at its full range, since one left narrowed (say Stars from 5,000) would make the list
  * something other than what the preset is named after. The search, tags and Show stay as they are.
  */
 export function presetPatch(id: Preset) {
-  const { sort, since } = PRESETS[id];
+  const { sort, since, weekly } = PRESETS[id];
   return {
     sort,
     asc: false,
-    ranges: { ...fullRanges(), published: sinceRange(since) },
+    ranges: { ...fullRanges(), published: sinceRange(since), week: [weekly, null] },
   } satisfies Partial<State>;
 }
 export interface State {
