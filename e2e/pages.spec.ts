@@ -51,6 +51,19 @@ test("a skill's page: its name, numbers, install command and SKILL.md", async ({
   await expect(list(page).scope.locator('[data-remove="tag"]')).toHaveCount(1);
 });
 
+test("a skill's numbers are level from one tile to the one beside it", async ({ page }) => {
+  await open(page, skillUrl);
+  // Two tiles a row: Weekly Downloads, whose trend is on its number's own line, then Total
+  // Downloads. Taller than the number, the trend pushed it, and what's under it, down.
+  await expect(page.locator(".stat-tiles .stat").first().locator(".trend")).toBeVisible();
+  for (const part of [".stat-value", ".stat-standing", ".crowd"]) {
+    const [weekly, total] = await page
+      .locator(`.stat-tiles ${part}`)
+      .evaluateAll((all) => all.map((el) => Math.round(el.getBoundingClientRect().top)));
+    expect(weekly, part).toBe(total);
+  }
+});
+
 test("a SKILL.md's links to its own headings lead to them", async ({ page }) => {
   await open(page, anchorsUrl);
   const link = page.locator('.markdown a[href^="#md-"]').first();

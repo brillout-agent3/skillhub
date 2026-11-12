@@ -100,8 +100,6 @@ export function mountSparklines(root: ParentNode): void {
       // Downloads, as its tile calls them, and as the sparkline's own label does.
       value.textContent = `${values[active].toLocaleString("en")} downloads`;
       week.textContent = `week to ${weeks[active]}`;
-      // Where the week is along the chart, from 0 to 1: the tooltip slides with it, see .spark-tip.
-      tip.style.setProperty("--at", (x(active) / W).toFixed(3));
       tip.hidden = false;
     };
     const hide = () => {

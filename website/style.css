@@ -2629,12 +2629,19 @@ input[type="search"]::-webkit-search-cancel-button:hover {
   content: "· ";
 }
 
-/* The number, and in the Weekly Downloads tile, its trend at its right. */
+/*
+ * The number, and in the Weekly Downloads tile, its trend at its right, on the number's own line:
+ * how much it changed, then its line, as tall as the number. So the tile's number, words and chart
+ * are level with those of the tile beside it. With the change under the line, the trend was taller
+ * than the number, which then sat lower than its neighbor's, and the line hugged the tile's label.
+ * Where the line has no room for both, even with the trend's line at its narrowest, such as a long
+ * number on a small phone, the trend goes under the number.
+ */
 .stat-head {
   display: flex;
+  flex-wrap: wrap;
   align-items: flex-end;
-  justify-content: space-between;
-  gap: 16px;
+  gap: 4px 16px;
 }
 
 .stat-value {
@@ -2695,19 +2702,31 @@ input[type="search"]::-webkit-search-cancel-button:hover {
   translate: calc(var(--at) * -100%);
 }
 
+/* It takes what the number leaves of the line, its change and its line at the line's end: it goes
+   to the next line only once its least width, with the line at its narrowest, doesn't fit. */
 .trend {
-  width: 140px;
-  flex: none;
+  display: flex;
+  flex: 1 0 0;
+  flex-direction: row-reverse;
+  align-items: flex-end;
+  gap: 10px;
 }
 
+/* Its words on the number's baseline. */
 .stat-delta {
+  flex: none;
+  padding-bottom: 2px;
   color: var(--ink-3);
   font-size: 12px;
-  text-align: right;
+  white-space: nowrap;
 }
 
+/* 128px wide, it's as tall as the number's line, 30px: narrower, and shorter, where room is short,
+   down to what fits beside the catalog's longest number on a 360px phone. */
 .spark {
   position: relative;
+  flex: 0 1 128px;
+  min-width: 72px;
   border-radius: 6px;
   cursor: crosshair;
 }
@@ -2751,15 +2770,13 @@ input[type="search"]::-webkit-search-cancel-button:hover {
   fill: var(--spark-line);
 }
 
-/* Over its week (--at, from 0 to 1 along the chart: see mountSparklines), sliding with it as a
-   row's rank does under its bar: over the first week it starts where the chart starts, over the
-   last it ends where it ends. Centered on its week, it stuck out of the tile at the chart's right
-   end, and past a phone's screen, which then scrolled sideways. */
+/* Over the line, and ending where it ends, at the tile's edge, whichever week it reads out: it's
+   wider than the line, so it has nowhere to slide to. Centered on its week, it stuck out of the
+   tile at the chart's right end, and past a phone's screen, which then scrolled sideways. */
 .spark-tip {
   position: absolute;
+  right: 0;
   bottom: calc(100% + 6px);
-  left: calc(var(--at, 0.5) * 100%);
-  translate: calc(var(--at, 0.5) * -100%);
   padding: 6px 11px;
   border-radius: 6px;
   background: var(--paper);
