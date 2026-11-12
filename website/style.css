@@ -238,6 +238,7 @@ code {
 .chip,
 .scope-chip,
 .ask-button,
+.tags-done button,
 .copy,
 .save {
   transition-property: scale, box-shadow;
@@ -250,6 +251,7 @@ code {
 .chip:active,
 .scope-chip:active,
 .ask-button:active,
+.tags-done button:active,
 .copy:active,
 .save:active {
   scale: 0.96;
@@ -261,6 +263,7 @@ code {
   .chip:active,
   .scope-chip:active,
   .ask-button:active,
+  .tags-done button:active,
   .copy:active,
   .save:active {
     scale: none;
@@ -478,6 +481,12 @@ body:has(.skills-view) #page-head {
 /* The filters' chips centered too, once they wrap onto lines of their own. */
 .list-count-row .scope {
   justify-content: center;
+}
+
+/* Where the list's count is brought to the screen's top, as from the button under the open tags on
+   a narrow screen, it keeps some air over it. */
+#count {
+  scroll-margin-top: 16px;
 }
 
 /* Both counts' rows as tall as a chip, so that the list and the tags start level, filters or not. */
@@ -819,6 +828,11 @@ body:has(.skills-view) #page-head {
 
 /* The tags' count is a button on narrow screens only, where it shows and hides them. */
 .tags-toggle {
+  display: none;
+}
+
+/* Under the open tags, on narrow screens only: see below. */
+.tags-done {
   display: none;
 }
 
@@ -3593,6 +3607,49 @@ input[type="search"]::-webkit-search-cancel-button:hover {
 
   .tag-facets {
     margin-top: 16px;
+  }
+
+  /*
+   * Open, the tags are some 2,000px of the page, over the list: a tag picked there showed nothing
+   * of the list it leaves. So they keep a button at the screen's bottom, which says how many
+   * skills they leave, closes them and leads to the list. Sticky, not fixed: it's there while the
+   * tags are on the screen, and past their end it's in its place, right over the list. For that
+   * the tags' column mustn't be what scrolls, as it is beside the list on a wide screen.
+   */
+  #filters {
+    overflow: visible;
+  }
+
+  #filters.tags-shown .tags-done {
+    display: block;
+    position: sticky;
+    z-index: 1;
+    bottom: 0;
+    margin: 12px -16px 0;
+    padding: 10px 16px calc(12px + env(safe-area-inset-bottom, 0px));
+    background: var(--liner);
+    box-shadow: 0 -1px 0 var(--rule);
+  }
+
+  /* As wide as a phone's screen at most: on a tablet, as wide as its own, it was a band of garnet
+     across the page. */
+  .tags-done button {
+    display: block;
+    width: 100%;
+    max-width: 358px;
+    min-height: 44px;
+    margin: 0 auto;
+    border: 0;
+    border-radius: 6px;
+    background: var(--garnet);
+    color: var(--on-garnet);
+    font-size: 14px;
+    font-weight: 650;
+    cursor: pointer;
+  }
+
+  .tags-done button:hover {
+    filter: brightness(1.12);
   }
 
   /* The keyboard's way past the open tags: over their count, as on a wide screen, where the tags'

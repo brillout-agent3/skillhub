@@ -444,6 +444,8 @@ function render(whole = false) {
   const first = whole ? Infinity : FIRST;
   results.innerHTML = resultsHtml(state, first);
   (document.getElementById("count") as HTMLElement).innerHTML = countHtml(state);
+  // And on the button under the open tags, on a narrow screen: see .tags-done in style.css.
+  for (const n of app.querySelectorAll("[data-list-count]")) n.innerHTML = countHtml(state);
   if (scrolledPast) results.scrollIntoView({ block: "start" });
   if (focus) {
     // A filter's chip is gone once it's removed, as Clear filters is with the last of them: the
@@ -679,6 +681,15 @@ app.addEventListener("click", (event) => {
   } else if (d.action === "tags") {
     tagsShown = !tagsShown;
     syncTags();
+  } else if (d.action === "tags-done") {
+    // From the open tags, on a narrow screen, to the list they leave, which is under them all: the
+    // tags close, and the list's count, which says how many it has, takes the screen's top and the
+    // focus.
+    tagsShown = false;
+    syncTags();
+    const count = document.getElementById("count") as HTMLElement;
+    count.scrollIntoView({ block: "start" });
+    count.focus({ preventScroll: true });
   } else if (d.action === "filters") {
     filtersShown = !filtersShown;
     syncFiltersToggle();

@@ -1,8 +1,9 @@
 /** On a phone: nothing wider than the screen, and the list's settings and tags behind their buttons. */
 
-import { bundleUrl, longLabelUrl, longWordUrl, owner, repo, skillUrl } from "./data.ts";
-import { expect, open, test } from "./fixtures.ts";
+import { bundleUrl, data, longLabelUrl, longWordUrl, owner, repo, skillUrl } from "./data.ts";
+import { expect, list, n, open, settled, test } from "./fixtures.ts";
 
+const all = `${n(data.skills.length)} skills`;
 const WIDTH = 390;
 test.use({ viewport: { width: WIDTH, height: 844 }, isMobile: true, hasTouch: true });
 
@@ -137,6 +138,41 @@ test("the list's settings and tags open from their buttons", async ({ page }) =>
   await expect(tagsToggle).toHaveAttribute("aria-expanded", "true");
   await tagsToggle.click();
   await expect(tags).toBeHidden();
+});
+
+test("the open tags keep a way to the list at the screen's bottom, which says how many skills they leave", async ({
+  page,
+}) => {
+  await open(page, "/");
+  const { count } = list(page);
+  const tags = page.locator("#tag-facets");
+  const toList = page.locator(".tags-done button");
+  await expect(toList).toBeHidden();
+
+  await page.locator(".tags-toggle").click();
+  await expect(toList).toBeInViewport({ ratio: 1 });
+  await expect(toList).toHaveText(`Show ${all}`);
+
+  // A tag picked there narrows a list that's under them all, out of sight: the button says to how
+  // many, as the tag's chip did.
+  const chip = tags.locator(".chip").first();
+  const said = await chip.locator(".n").innerText();
+  const left = `${said} ${said === "1" ? "skill" : "skills"}`;
+  await chip.click();
+  await settled(page);
+  await expect(count).not.toBeInViewport();
+  await expect(toList).toBeInViewport({ ratio: 1 });
+  await expect(toList).toHaveText(`Show ${left}`);
+
+  // It closes the tags, and the list starts at the screen's top, under its count.
+  await toList.click();
+  await expect(tags).toBeHidden();
+  await expect(toList).toBeHidden();
+  await expect(page.locator(".tags-toggle")).toHaveAttribute("aria-expanded", "false");
+  await expect(count).toHaveText(left);
+  await expect(count).toBeInViewport({ ratio: 1 });
+  await expect(count).toBeFocused();
+  expect(await count.evaluate((el) => el.getBoundingClientRect().top)).toBeLessThan(40);
 });
 
 test.describe("on a small phone, 360px wide", () => {
