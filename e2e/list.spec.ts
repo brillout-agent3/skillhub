@@ -16,6 +16,10 @@ import {
 
 const all = `${n(data.skills.length)} skills`;
 
+/** A name with an accent on its first vowel, as someone may type it: "résumé" for "resume". */
+const accented = (name: string) =>
+  name.replace(/[aeiou]/, (vowel) => "áéíóú"["aeiou".indexOf(vowel)]);
+
 test("opens on Rising, with every skill counted and every row in", async ({ page }) => {
   await open(page, "/");
   const { count, rows } = list(page);
@@ -43,6 +47,19 @@ test("the search narrows the list as you type, best match first", async ({ page 
   // What the list shows is what the lines under the boxes count.
   const found = (await count.innerText()).split(" ")[0];
   await expect(page.locator("#search-note")).toContainText(`Filters ${found} skill`);
+
+  // In quotes, as for an exact phrase elsewhere, or with an accent it doesn't have: the same skill.
+  for (const written of [`"${skill.name}"`, `\u201c${skill.name}\u201d`, accented(skill.name)]) {
+    await search.fill(written);
+    await settled(page);
+    await expect(rows.first().locator(".skill-name"), written).toHaveText(skill.name);
+    await expect(count, written).toHaveText(`${found} ${found === "1" ? "skill" : "skills"}`);
+  }
+  // A space after it, as while the next word is typed, stays in the box and out of the link.
+  await search.fill(`${skill.name} `);
+  await settled(page);
+  await expect(page).toHaveURL(`/?q=${encodeURIComponent(skill.name)}`);
+  await expect(search).toHaveValue(`${skill.name} `);
 
   await search.fill("");
   await settled(page);

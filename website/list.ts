@@ -472,7 +472,8 @@ export function parse(search: string): State {
 export function query(s: State): string {
   const p = new URLSearchParams();
   if (s.saved) p.set("saved", "");
-  if (term(s)) p.set("q", s.q);
+  // As it's looked for: the box may hold a space after it, while the next word is typed.
+  if (term(s)) p.set("q", term(s));
   for (const t of s.tags) p.append("tag", t);
   if (s.repo) p.set("repo", s.repo);
   if (s.sort !== defaultSort(s.q)) p.set("sort", s.sort);
@@ -538,16 +539,51 @@ export function addSearchWords(words: SearchWords) {
   last = undefined;
 }
 
-/** The search's words, plurals cut back so they match the singular too: "resumes" finds "resume", "strategies" finds "strategy". */
-const words = (q: string) =>
-  q
+/**
+ * A text as the search compares it: in lowercase and without accents, so that "résumé" finds
+ * "resume", and the other way around. Both what's searched for and what's looked in.
+ */
+const plain = (text: string) =>
+  text
     .toLowerCase()
+    .normalize("NFD")
+    .replace(/\p{M}+/gu, "");
+/**
+ * What's searched for, plain, and without its double quotes, straight or curly: a search in quotes,
+ * as one for an exact phrase elsewhere, looked for the quotes themselves, and found nothing.
+ */
+const sought = (q: string) =>
+  plain(q)
+    .replace(/["“”]/g, " ")
+    .trim();
+/**
+ * A search, read once for the many times every skill is asked about it: its words, plurals cut
+ * back so they match the singular too ("resumes" finds "resume", "strategies" finds "strategy"),
+ * each with what tells whether it starts a word of a text; and the whole of it, for `score`.
+ */
+interface Sought {
+  q: string;
+  words: { w: string; start: RegExp }[];
+  phrase: string;
+}
+let lastSought: Sought | undefined;
+function read(q: string): Sought {
+  if (lastSought?.q === q) return lastSought;
+  const phrase = sought(q);
+  const singular = (w: string) =>
+    w.length < 4 ? w : w.endsWith("ies") ? w.slice(0, -3) : /[^s]s$/.test(w) ? w.slice(0, -1) : w;
+  const words = phrase
     .split(/\s+/)
     .filter(Boolean)
-    .map((w) =>
-      w.length < 4 ? w : w.endsWith("ies") ? w.slice(0, -3) : /[^s]s$/.test(w) ? w.slice(0, -1) : w,
-    );
-const matches = (text: string, q: string) => words(q).every((word) => text.includes(word));
+    .map(singular)
+    .map((w) => ({
+      w,
+      start: new RegExp(`(^|[^\\p{L}\\p{N}])${w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}`, "u"),
+    }));
+  return (lastSought = { q, words, phrase });
+}
+const words = (q: string) => read(q).words;
+const matches = (text: string, q: string) => words(q).every(({ w }) => text.includes(w));
 
 /**
  * For sorting a search by best match: each word of it scores where it appears, a name the most,
@@ -556,7 +592,7 @@ const matches = (text: string, q: string) => words(q).every((word) => text.inclu
  */
 type Fields = [text: string, weight: number][];
 const fields = (parts: [string | null | undefined, number][]): Fields =>
-  parts.filter((p): p is [string, number] => Boolean(p[0])).map(([t, w]) => [t.toLowerCase(), w]);
+  parts.filter((p): p is [string, number] => Boolean(p[0])).map(([t, w]) => [plain(t), w]);
 function index() {
   searchText = new Map(
     data.skills.map((s) => [
@@ -572,8 +608,8 @@ function index() {
         ...tagsOf(s).map(tagLabel),
       ]
         .filter(Boolean)
-        .join(" ")
-        .toLowerCase(),
+        .map((text) => plain(text as string))
+        .join(" "),
     ]),
   );
   bundleText = new Map(
@@ -586,8 +622,8 @@ function index() {
         prose.bundles[b.id],
       ]
         .filter(Boolean)
-        .join(" ")
-        .toLowerCase(),
+        .map((text) => plain(text as string))
+        .join(" "),
     ]),
   );
   skillFields = new Map(
@@ -621,14 +657,10 @@ index();
 
 /** A word counts in full where it starts a word, and a quarter inside one, such as "cad" in "academic". */
 function score(f: Fields, q: string): number {
-  const ws = words(q).map((w) => ({
-    w,
-    start: new RegExp(`(^|[^\\p{L}\\p{N}])${w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}`, "u"),
-  }));
   const name = f[0]?.[1] === 8 ? f[0][0] : "";
-  const phrase = q.trim().toLowerCase();
+  const { words, phrase } = read(q);
   return (
-    ws.reduce(
+    words.reduce(
       (n, { w, start }) =>
         n + Math.max(0, ...f.map(([t, wt]) => (start.test(t) ? wt : t.includes(w) ? wt / 4 : 0))),
       0,
