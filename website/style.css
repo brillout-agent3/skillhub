@@ -3709,6 +3709,15 @@ input[type="search"]::-webkit-search-cancel-button:hover {
 
 /* ------------------------------------------------------------- owners' and repos' pages */
 
+/*
+ * One of a line of facts, such as a repo's stars and how many skills it has: it goes to the next
+ * line whole. On a phone the line broke inside one, "39" at its end and "skills" on the next. It
+ * still breaks inside where it's wider than the line by itself.
+ */
+.fact {
+  display: inline-block;
+}
+
 /* As wide as the skills list's column, for its rows. */
 .page.listing-page {
   max-width: 1080px;

@@ -50,7 +50,10 @@ export const KINDS: Record<Repo["agentReview"]["kind"], string> = {
   index: "Catalog",
 };
 
-/** A repo's stars, and how many skills and bundles it has on the site. */
+/**
+ * A repo's stars, and how many skills and bundles it has on the site: each a fact of its own, which
+ * a line breaks between, not inside (see .fact in style.css).
+ */
 export function numbersHtml({ repo, bundles, skills }: Listing): string {
   return [
     repo.stars === null
@@ -60,5 +63,6 @@ export function numbersHtml({ repo, bundles, skills }: Listing): string {
     bundles.length ? plural(bundles.length, "bundle") : "",
   ]
     .filter(Boolean)
+    .map((fact) => `<span class="fact">${fact}</span>`)
     .join(" · ");
 }

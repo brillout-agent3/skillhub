@@ -76,6 +76,22 @@ test("a label of the about page's table, too long for its line, goes on under it
   for (const lines of starts) expect(new Set(lines).size, lines.join(", ")).toBe(1);
 });
 
+test("a repo's numbers break between two of them, not inside one", async ({ page }) => {
+  await open(page, repo.url);
+  const facts = page.locator(".listing-page > .muted .fact");
+  await expect(facts).not.toHaveCount(0);
+  // Each on one line: none is wider than the screen.
+  const broken = await facts.evaluateAll(
+    (all) =>
+      all.filter(
+        (fact) =>
+          fact.getBoundingClientRect().height >
+          1.5 * Number.parseFloat(getComputedStyle(fact).lineHeight),
+      ).length,
+  );
+  expect(broken).toBe(0);
+});
+
 test("a number filter's slider opens in view", async ({ page }) => {
   await open(page, "/?show=bundles");
   await page.locator(".filters-toggle").click();
