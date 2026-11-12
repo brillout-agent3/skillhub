@@ -1,7 +1,7 @@
 /** The skills list: its search, its settings and its tags, which all live in the URL. */
 
 import type { Page, Route } from "@playwright/test";
-import { data, listedRows, meaningTag, repo, skill } from "./data.ts";
+import { data, listedRows, longTag, meaningTag, repo, skill } from "./data.ts";
 import {
   expect,
   fromCompact,
@@ -612,6 +612,29 @@ test("the search finds tags too, one of which takes its place once picked", asyn
     "aria-pressed",
     "true",
   );
+});
+
+test("a tag the search finds, too long for a line of the tags' column, breaks after its facet", async ({
+  page,
+}) => {
+  // The longest tag there is, found by its own name.
+  await open(page, `/?q=${encodeURIComponent(longTag.slice(longTag.indexOf(":") + 1))}`);
+  const chip = page.locator(`#found-tags [data-tag="${longTag}"]`);
+  await expect(chip).toBeVisible();
+  const laid = await chip.evaluate((el) => {
+    const box = (part: string) => el.querySelector(part)?.getBoundingClientRect();
+    const [name, facet, value] = [box("span") as DOMRect, box(".tag-facet"), box(".tag-value")];
+    const line = Number.parseFloat(getComputedStyle(el).lineHeight);
+    const lines = (height: number) => Math.round(height / line);
+    return {
+      lines: lines(name.height),
+      valueLines: value ? lines(value.height) : null,
+      valueStartsLine: value && facet ? value.left === facet.left : null,
+    };
+  });
+  test.skip(laid.lines < 2, "no tag is too long for the tags' column today");
+  // Its value whole on the next line, rather than broken at one of its hyphens.
+  expect(laid).toMatchObject({ lines: 2, valueLines: 1, valueStartsLine: true });
 });
 
 test("with a search on, a tag still narrows the list to as many as it says", async ({ page }) => {

@@ -1538,14 +1538,16 @@ const tagCountOf = (st: State) => (term(st) ? foundTags(st).length : listedOf(st
 /**
  * A tag the search finds, as the rows write it: picking it filters by it in place of the search
  * (see list-client.ts), and its count is the skills it then lists. Its tooltip is its meaning,
- * which may be why the search found it.
+ * which may be why the search found it. One too long for the tags' column, such as
+ * category:software-engineering, breaks after its facet, its value whole on the next line (see
+ * .tag-value in style.css), rather than at a hyphen inside the value.
  */
 function foundChip(t: string, n: number, pressed: boolean): string {
   const colon = t.indexOf(":");
   const name =
     colon < 0
       ? esc(t)
-      : `<span class="tag-facet">${esc(t.slice(0, colon + 1))}</span><wbr>${esc(t.slice(colon + 1))}`;
+      : `<span class="tag-facet">${esc(t.slice(0, colon + 1))}</span><wbr><span class="tag-value">${esc(t.slice(colon + 1))}</span>`;
   const title = [tagInfo.get(t), pressed ? "" : "Filters by this tag in place of the search."]
     .filter(Boolean)
     .join(" ");

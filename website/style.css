@@ -767,6 +767,16 @@ body:has(.skills-view) #page-head {
 }
 
 /*
+ * One too long for the tags' column, such as category:software-engineering, breaks after its
+ * facet: its value goes to the next line whole, and only breaks inside, at a hyphen, when it's
+ * wider than the line by itself. Left to the browser, it broke at the hyphen, "category:software-"
+ * over "engineering".
+ */
+.chip .tag-value {
+  display: inline-block;
+}
+
+/*
  * The tags on a light tile, as the settings are, the first one's top level with the list's: the
  * facets, and, while there's a search, the tags it finds above them, on a tile of their own.
  */
@@ -1931,16 +1941,22 @@ input[type="search"]::-webkit-search-cancel-button:hover {
   border-left: 2px solid var(--rule-strong);
 }
 
+/*
+ * Round: its radius is half its height, 27px. Not more, so that a chip of two lines, a long tag
+ * the search found, is a rounded box with its words from the left, rather than an oval with its
+ * words in the middle, as a button's are.
+ */
 .chip {
   display: inline-flex;
   align-items: center;
   gap: 6px;
   padding: 3px 11px;
   border: 0;
-  border-radius: 999px;
+  border-radius: 14px;
   background: var(--paper);
   box-shadow: var(--shadow-border);
   font-size: 14px;
+  text-align: left;
   cursor: pointer;
 }
 

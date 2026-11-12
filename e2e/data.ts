@@ -111,6 +111,22 @@ export const meaningTag = data.facets
   .filter((t) => t.word && t.carried)
   .toSorted((a, b) => b.carried - a.carried)[0];
 
+/**
+ * The longest tag with a facet that skills have, by themselves or through the tags it includes,
+ * such as category:software-engineering: on most days too long for a line of the tags' column.
+ */
+export const longTag = (() => {
+  const carried = new Set(data.skills.flatMap((s) => s.agentReview.tags));
+  return data.facets
+    .filter((f) => f.prefix !== false)
+    .flatMap((f) =>
+      (f.values ?? [])
+        .filter((v) => [v.id, ...(v.includes ?? [])].some((id) => carried.has(`${f.id}:${id}`)))
+        .map((v) => `${f.id}:${v.id}`),
+    )
+    .toSorted((a, b) => b.length - a.length)[0];
+})();
+
 /** A bundle to test with: the one with the most skills. */
 export const bundle = data.bundles.toSorted(
   (a, b) => b.agentReview.skills.length - a.agentReview.skills.length,
