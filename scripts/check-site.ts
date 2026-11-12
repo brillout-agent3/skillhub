@@ -2,7 +2,8 @@
  * check-site.ts — check the built site, website/dist/client, as Cloudflare serves it: every
  * internal link, image and script leads somewhere, `#fragment` included; every id a page refers to
  * is in it, once; no page shows a value that never got filled in; each preloads the one font
- * file its words are drawn in; and each has what a shared link's card shows.
+ * file its words are drawn in; each has what a shared link's card shows; and the sitemap lists
+ * every page, which robots.txt sends search engines to.
  *
  * It reads the HTML as text, which is enough for pages this repo renders itself: every attribute
  * is double-quoted, and the text of a SKILL.md is escaped.
@@ -13,7 +14,7 @@
 
 import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import { join, posix } from "node:path";
-import { EDGE_CASES, siteOf } from "../data/edge-cases.ts";
+import { EDGE_CASES, LIVE, siteOf } from "../data/edge-cases.ts";
 import { root } from "./data.ts";
 
 const site = join(root, siteOf().dist, "client");
@@ -146,6 +147,50 @@ for (const page of pages) {
   }
 }
 
+/*
+ * What search engines ask for first: robots.txt (website/public/), which sends them to the
+ * sitemap, and the sitemap (scripts/sitemap.ts), which lists every page once, at the address it's
+ * live at, and nothing that isn't one, such as the Not found page.
+ */
+const text = (path: string) =>
+  isFile(join(site, path)) ? readFileSync(join(site, path), "utf8") : null;
+/** The pages' paths, as their addresses spell them: tags/index.html is /tags/. */
+const paths = pages
+  .filter((page) => /(^|\/)index\.html$/.test(page))
+  .map((page) => `/${page.slice(0, -"index.html".length)}`);
+const sitemap = text("sitemap.xml");
+let listed = 0;
+if (sitemap === null)
+  fail("there's no sitemap: pnpm build writes it, after vike build", "/sitemap.xml");
+else {
+  const found = new Set<string>();
+  for (const [, loc] of sitemap.matchAll(/<loc>([^<]*)<\/loc>/g)) {
+    const address = unescape(loc);
+    listed++;
+    if (!address.startsWith(`${LIVE}/`)) {
+      fail(`the sitemap lists an address that isn't on ${LIVE}`, address);
+      continue;
+    }
+    const path = decodeURIComponent(address.slice(LIVE.length));
+    if (found.has(path)) fail("the sitemap lists a page twice", path);
+    found.add(path);
+    if (!paths.includes(path)) fail("the sitemap lists what isn't a page", path);
+  }
+  for (const path of paths) if (!found.has(path)) fail("the sitemap lacks a page", path);
+}
+const robots = text("robots.txt");
+if (robots === null)
+  fail("there's no robots.txt, which sends search engines to the sitemap", "/robots.txt");
+else {
+  if (!robots.split("\n").includes(`Sitemap: ${LIVE}/sitemap.xml`))
+    fail(`robots.txt doesn't name the sitemap, with "Sitemap: ${LIVE}/sitemap.xml"`, "/robots.txt");
+  // What it keeps them from is the API alone: an empty Disallow keeps them from nothing.
+  for (const [, rule] of robots.matchAll(/^Disallow:[ \t]*(\S+)/gm)) {
+    const kept = paths.find((path) => path.startsWith(rule));
+    if (kept) fail(`robots.txt keeps search engines from a page, with "Disallow: ${rule}"`, kept);
+  }
+}
+
 if (errors.size) {
   const lines = [...errors].map(([problem, where]) => {
     const others = where.length > 1 ? ` and ${where.length - 1} other page(s)` : "";
@@ -157,5 +202,5 @@ if (errors.size) {
   process.exit(1);
 }
 console.log(
-  `The built site${EDGE_CASES ? " of the edge cases" : ""} is sound: ${pages.length.toLocaleString("en")} pages, ${links.toLocaleString("en")} internal links.`,
+  `The built site${EDGE_CASES ? " of the edge cases" : ""} is sound: ${pages.length.toLocaleString("en")} pages, ${links.toLocaleString("en")} internal links, ${listed.toLocaleString("en")} pages in its sitemap.`,
 );

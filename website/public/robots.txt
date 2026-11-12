@@ -1,0 +1,6 @@
+# Every page is for everyone to read, search engines and agents included. Not the API, which
+# only answers the pages' own requests, and whose login leads to GitHub.
+User-agent: *
+Disallow: /api/
+
+Sitemap: https://skillhub.build/sitemap.xml

@@ -690,14 +690,44 @@ test.describe("dark mode", () => {
   });
 });
 
-test("the files named after their content may be kept by the browser for good", async ({
-  page,
-}) => {
+/** The files a page loads that are named after their content: none on Vike's dev server, which serves the source files. */
+async function builtFiles(page: import("@playwright/test").Page): Promise<string[]> {
   await open(page, "/about/");
   const files = await page
     .locator('link[rel="stylesheet"], link[rel="preload"], script[src]')
     .evaluateAll((all) => all.map((el) => el.getAttribute("href") ?? el.getAttribute("src") ?? ""));
-  const named = files.filter((file) => file.startsWith("/assets/"));
+  return files.filter((file) => file.startsWith("/assets/"));
+}
+
+test("search engines are sent to a sitemap of every page", async ({ page }) => {
+  // The build writes the sitemap: Vike's dev server has none.
+  test.skip((await builtFiles(page)).length === 0, "the dev server has no sitemap");
+  // Each answered with the Not found page, as the site does for a file it lacks.
+  const robots = await page.request.get("/robots.txt");
+  expect(robots.status()).toBe(200);
+  expect(robots.headers()["content-type"]).toContain("text/plain");
+  const lines = (await robots.text()).split("\n");
+  expect(lines).toContain("Sitemap: https://skillhub.build/sitemap.xml");
+  // Not from the pages: only from the API, whose login leads to GitHub.
+  expect(lines.filter((line) => line.startsWith("Disallow:"))).toEqual(["Disallow: /api/"]);
+
+  const sitemap = await page.request.get("/sitemap.xml");
+  expect(sitemap.status()).toBe(200);
+  expect(sitemap.headers()["content-type"]).toContain("xml");
+  const listed = [...(await sitemap.text()).matchAll(/<loc>([^<]*)<\/loc>/g)].map(([, loc]) => loc);
+  expect(new Set(listed).size).toBe(listed.length);
+  // A page of each kind, at the address it's live at.
+  for (const path of ["/", "/about/", "/tags/", skillUrl, bundleUrl, repo.url, owner.url])
+    expect(listed).toContain(`https://skillhub.build${path}`);
+  // And every skill and bundle: each has a page.
+  expect(listed.length).toBeGreaterThan(data.skills.length + data.bundles.length);
+  expect(listed.filter((loc) => !loc.endsWith("/"))).toEqual([]);
+});
+
+test("the files named after their content may be kept by the browser for good", async ({
+  page,
+}) => {
+  const named = await builtFiles(page);
   // Vike's dev server serves the source files, under their own names.
   test.skip(named.length === 0, "the dev server's files aren't named after their content");
   // Asked again at each page, they were seven requests before a page could show.

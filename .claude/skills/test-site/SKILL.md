@@ -13,7 +13,7 @@ A push to `main` goes live within four minutes, so check a change before pushing
 pnpm check                      # the data files and the types: 5 s
 pnpm test:worker                # the Worker's tests, worker/index.test.ts: 5 s
 pnpm test:e2e                   # the end-to-end walk, e2e/: 2.5 min
-pnpm build && pnpm check:site   # the built site's links and ids: 15 s
+pnpm build && pnpm check:site   # the built site's links, ids and sitemap: 15 s
 ```
 
 CI runs all four, in `.github/workflows/deploy.yml`, and deploys only when they pass. A failed walk in CI leaves its screenshots as the run's `test-results` artifact.

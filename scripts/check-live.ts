@@ -1,8 +1,9 @@
 /**
- * check-live.ts — ask a deployed site whether it answers as it should: its pages, its API with the
- * database behind it, and the way to GitHub that Log in takes. The checks before a deploy can't
- * tell: they run the Worker here, with a database and secrets of their own, so a deploy can pass
- * them all and still be broken, by a secret that's missing or a database that isn't bound.
+ * check-live.ts — ask a deployed site whether it answers as it should: its pages, what search
+ * engines ask it for, its API with the database behind it, and the way to GitHub that Log in
+ * takes. The checks before a deploy can't tell: they run the Worker here, with a database and
+ * secrets of their own, so a deploy can pass them all and still be broken, by a secret that's
+ * missing or a database that isn't bound.
  *
  * Run: pnpm check:live [site] [--commit <sha>]
  *
@@ -23,14 +24,12 @@ import {
   repoPage,
   skillPage,
 } from "../website/github.ts";
+import { LIVE } from "../data/edge-cases.ts";
 import { readData, root } from "./data.ts";
 
 const args = process.argv.slice(2);
 const commit = args.includes("--commit") ? args[args.indexOf("--commit") + 1] : null;
-const site = (args.find((arg) => /^https?:\/\//.test(arg)) ?? "https://skillhub.build").replace(
-  /\/+$/,
-  "",
-);
+const site = (args.find((arg) => /^https?:\/\//.test(arg)) ?? LIVE).replace(/\/+$/, "");
 const built = `${root}website/dist/client`;
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -85,6 +84,25 @@ const page = (path: string): Check => [
   },
 ];
 
+/**
+ * What a search engine asks for first, robots.txt and the sitemap it names, answers as the file it
+ * is, rather than as the Not found page, which is what the site answers for a file it lacks; and
+ * with the build's own bytes when there's a build to compare with.
+ */
+const crawled = (path: string, type: RegExp, holds: string): Check => [
+  `the file ${path}`,
+  async () => {
+    const res = await get(path);
+    if (res.status !== 200) return `answers ${res.status}`;
+    const served = res.headers.get("Content-Type") ?? "nothing";
+    if (!type.test(served)) return `is served as ${served}`;
+    const body = new Uint8Array(await res.arrayBuffer());
+    const expected = file(path);
+    if (expected) return same(body, expected) ? null : "isn't the file that was built";
+    return new TextDecoder().decode(body).includes(holds) ? null : `doesn't hold ${holds}`;
+  },
+];
+
 /** What the home page loads: its styles and scripts, which the site serves as files. */
 async function assets(): Promise<Check[]> {
   const home = commit ? readFileSync(`${built}/index.html`, "utf8") : await (await get("/")).text();
@@ -109,6 +127,8 @@ const LOGGED_OUT = JSON.stringify({ user: null, saved: [] });
 
 const CHECKS: Check[] = [
   ...PAGES.map(page),
+  crawled("/robots.txt", /^text\/plain\b/, `Sitemap: ${LIVE}/sitemap.xml`),
+  crawled("/sitemap.xml", /^(application|text)\/xml\b/, `<loc>${LIVE}/</loc>`),
   [
     "a page without its trailing slash",
     async () => {
@@ -241,5 +261,5 @@ if (found.length) {
 }
 const live = commit ?? (await liveCommit().catch(() => null));
 console.log(
-  `${site} answers as it should${live ? `, as the deploy of ${live.slice(0, 7)}` : ""}: its pages${commit ? ", which are the build's" : ""}, its API and database, and Log in's way to GitHub.`,
+  `${site} answers as it should${live ? `, as the deploy of ${live.slice(0, 7)}` : ""}: its pages${commit ? ", which are the build's" : ""}, its robots.txt and sitemap, its API and database, and Log in's way to GitHub.`,
 );

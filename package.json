@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "pnpm run node-ts scripts/dev.ts",
     "dev:stop": "pnpm run node-ts scripts/dev.ts --stop",
-    "build": "vike build --root website",
+    "build": "vike build --root website && pnpm run node-ts scripts/sitemap.ts",
     "preview": "pnpm run node-ts scripts/dev.ts --preview",
     "========= Checks": "",
     "check": "pnpm run check:data && pnpm run check:types",

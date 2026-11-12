@@ -37,6 +37,12 @@ export const siteOf = (edgeCases = EDGE_CASES) =>
       }
     : { port: 3000, workerPort: 8787, dist: "website/dist", state: ".wrangler/state" };
 
+/**
+ * Where the real site is live: its sitemap and its robots.txt say so (scripts/sitemap.ts), and
+ * `pnpm check:live` asks it.
+ */
+export const LIVE = "https://skillhub.build";
+
 /** What each case takes from a skill that lacks nothing, or from its repo. */
 const SKILL_CASES = {
   /** As from the add-skill skill to the write-tldr skill: its description stands in. */
