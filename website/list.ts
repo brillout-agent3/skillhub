@@ -477,19 +477,26 @@ export function parseAge(text: string): number | null {
   if (!parts || rest.replace(/[\s,+]|and/g, "") || !(days >= 1)) return null;
   return Math.round(days);
 }
-/** What the fields of a range say is wrong with it, if anything: each bound on the right side of the other. */
-export function rangeError(p: Prop, [lo, hi]: Range): string | null {
-  if (PROPS[p].date)
-    return lo !== null && hi !== null && hi >= lo ? "Older than has to be under Newer than." : null;
-  return hi !== null && hi <= (lo ?? 0)
-    ? `Under has to be over ${lo === null ? "0" : "At least"}.`
-    : null;
-}
 /** What each field of a slider's popover sets, and some of what it takes, for its placeholder. */
 export const fieldWords = (p: Prop): [lo: string, hi: string, examples: string] =>
   PROPS[p].date
     ? ["Newer than", "Older than", "45d / 3w / 2m"]
     : ["At least", "Under", "500 / 1.5K / 2M"];
+/**
+ * What the fields of a range say is wrong with it, if anything: each bound on the right side of the
+ * other. It names the fields in quotes: without them, "Under has to be over At least" read as a
+ * sentence gone wrong.
+ */
+export function rangeError(p: Prop, [lo, hi]: Range): string | null {
+  const [loWords, hiWords] = fieldWords(p);
+  if (PROPS[p].date)
+    return lo !== null && hi !== null && hi >= lo
+      ? `“${hiWords}” has to be less than “${loWords}”.`
+      : null;
+  return hi !== null && hi <= (lo ?? 0)
+    ? `“${hiWords}” has to be more than ${lo === null ? "0" : `“${loWords}”`}.`
+    : null;
+}
 
 /**
  * A slider's range in words, such as "≥ 1K" or "1K – 5K"; and for an age, said as the counts are,

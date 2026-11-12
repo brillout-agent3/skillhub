@@ -448,7 +448,7 @@ test("a number filter takes any amount, typed in its fields", async ({ page }) =
   await expect(error).toHaveText("Type an age, such as 45d, 3w or 2w 3d.");
   await expect(older).toHaveAttribute("aria-invalid", "true");
   await older.fill("3w");
-  await expect(error).toHaveText("Older than has to be under Newer than.");
+  await expect(error).toHaveText("“Older than” has to be less than “Newer than”.");
   await older.fill("1w");
   await settled(page);
   await expect(error).toBeHidden();
@@ -466,6 +466,15 @@ test("a number filter takes any amount, typed in its fields", async ({ page }) =
   expect(fromCompact(await list(page).sortedValues.first().innerText())).toBeGreaterThanOrEqual(
     1500,
   );
+  // What isn't over At least, or over nothing, is said in the fields' own words.
+  const starsError = stars.locator(".range-error");
+  await stars.getByLabel("Under").fill("1K");
+  await expect(starsError).toHaveText("“Under” has to be more than “At least”.");
+  await stars.getByLabel("At least").fill("");
+  await settled(page);
+  await stars.getByLabel("Under").fill("0");
+  await expect(starsError).toHaveText("“Under” has to be more than 0.");
+  await expect(page).toHaveURL("/?sort=stars&order=asc&show=skills");
 
   // A link with any amount: its field says it, every digit where 1.2K wouldn't be all of it.
   await open(page, "/?stars=1234..");
