@@ -635,10 +635,11 @@ test("Find with your agent copies a prompt with the list and the need", async ({
   const rows = await list(page).rows.count();
   await page.locator("#need").fill("review my pull requests");
   await page.locator(".ask-button").click();
-  // Its size is an estimate, said in short: about so many tokens.
+  // Its size in short, the number highlighted as in the line before the click, and without a ~.
   await expect(page.locator("#ask-label")).toHaveText(
-    /^Copied a prompt \(~[\d.]+[KM]? tokens\) to your clipboard, ready to use with any AI agent\.$/,
+    /^Copied a prompt \([\d.]+[KM]? tokens\) to your clipboard, ready to use with any AI\.$/,
   );
+  await expect(page.locator("#ask-label .badge")).toHaveText(/^[\d.]+[KM]?$/);
   const prompt = await page.evaluate(() => navigator.clipboard.readText());
   expect(prompt).toContain(`# Catalog (${rows} entries)`);
   expect(prompt).toContain("narrowed to: tag type:workflow");

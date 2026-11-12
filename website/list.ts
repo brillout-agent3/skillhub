@@ -1401,16 +1401,19 @@ export function scopeHtml(st: State): string {
 }
 
 /**
- * About how many tokens a prompt takes: an estimate, hence the ~ where it's said. The site has no
- * tokenizer, and each model counts with its own. At 4 characters a token, the count is within some
- * 5% of what the tokenizers of GPT-4o and GPT-4 give for these prompts, and Claude's older one.
+ * About how many tokens a prompt takes: an estimate. The site has no tokenizer, and each model
+ * counts with its own. At 4 characters a token, the count is within some 5% of what the tokenizers
+ * of GPT-4o and GPT-4 give for these prompts, and Claude's older one. It's said without a ~, on
+ * purpose: in thousands, as 203K, a number already reads as about so many.
  */
 export const tokensOf = (prompt: string) => Math.round(prompt.length / 4);
-const about = (tokens: number) => `~${compact(tokens)}`;
-/** A prompt's size in words, such as "~203K tokens". */
-export const tokensText = (tokens: number) => `${about(tokens)} tokens`;
-/** The same with its number highlighted, in the line under the agent's box. */
-const tokensHtml = (tokens: number) => `${badgeHtml(about(tokens))} tokens`;
+/**
+ * A prompt's size, its number highlighted, as the line under the agent's box says it: 203K tokens.
+ * Under a thousand it's rounded to the ten, as an estimate is: 330 rather than 333, which the line
+ * after the click would give as 332, for the few letters by which the copied prompt differs.
+ */
+export const tokensHtml = (tokens: number) =>
+  `${badgeHtml(compact(tokens < 1000 ? Math.round(tokens / 10) * 10 : tokens))} tokens`;
 
 /** A number highlighted in the line under a box. */
 const badgeHtml = (text: string) => `<span class="badge">${esc(text)}</span>`;

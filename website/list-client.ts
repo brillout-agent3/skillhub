@@ -13,8 +13,8 @@ import {
   askable,
   countHtml,
   isListed,
+  tokensHtml,
   tokensOf,
-  tokensText,
   fullRanges,
   patched,
   presetPatch,
@@ -464,7 +464,7 @@ function ask() {
     .then(
       () =>
         flash(
-          `Copied a prompt (${tokensText(tokensOf(prompt))}) to your clipboard, ready to use with any AI agent.`,
+          `Copied a prompt (${tokensHtml(tokensOf(prompt))}) to your clipboard, ready to use with any AI.`,
         ),
       refused,
     );
