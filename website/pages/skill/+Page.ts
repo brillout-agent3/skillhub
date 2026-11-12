@@ -12,6 +12,7 @@ import {
   facetById,
   facetOf,
   glanceHtml,
+  installCommand,
   publishedOf,
   repoHref,
   repoKey,
@@ -29,10 +30,6 @@ import { github } from "../../github.ts";
 import { saveButton, saveKey } from "../../saves.ts";
 import { fullBundleById } from "../../server-data.ts";
 import type { Data } from "./+data.ts";
-
-/** The command that installs the skill, as skills.sh gives it: the skills CLI's --skill ignores case. */
-const installCommand = (s: Skill) =>
-  `npx skills add https://github.com/${github(s).repo} --skill ${s.name}`;
 
 /** Where the copy of the SKILL.md came from. */
 function source(s: Skill, { version }: SkillMd): string {

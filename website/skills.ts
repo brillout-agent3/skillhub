@@ -210,6 +210,10 @@ export function tagChip(tag: string, link: string | null, pressed = false): stri
     : `<a ${attrs} href="${link}">${text}</a>`;
 }
 
+/** The command that installs a skill, as skills.sh gives it: the skills CLI's --skill ignores case. */
+export const installCommand = (s: Skill) =>
+  `npx skills add https://github.com/${github(s).repo} --skill ${s.name}`;
+
 /** A commit as its first 7 characters. */
 export const short = (commit: string) => commit.slice(0, 7);
 

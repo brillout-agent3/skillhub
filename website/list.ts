@@ -1337,6 +1337,13 @@ export function crowdDefsHtml(): string {
   return `<svg class="crowd-defs" aria-hidden="true"><defs>${groups.join("")}${iconDefsHtml()}</defs></svg>`;
 }
 
+/**
+ * A row's link to its page, beside Save, where a click on the row opens its preview rather than
+ * its page: on the skills list, on a wide screen (see #preview in style.css). Elsewhere the row
+ * itself leads there, and its name.
+ */
+const detailsLink = (page: string) => `<a class="details" href="${page}">More details</a>`;
+
 /** A row's repo, as a link to its page. */
 const sourceHtml = (e: Entry) =>
   `<span class="skill-source"><a class="repo-link" href="${repoHref(repoKey(e))}">${esc(repoKey(e))}</a></span>`;
@@ -1363,7 +1370,7 @@ function skillRow(s: Skill, st: State, outside = false): string {
             : ""
         }
       </div>
-      ${saveButton(saveKey("skill", s.id), s.name)}
+      ${detailsLink(skillHref(s.id))}${saveButton(saveKey("skill", s.id), s.name)}
       </div>
       ${s.agentReview.tldr?.glance.length ? glanceHtml(s.agentReview.tldr.glance, 2) : `<p class="skill-desc">${esc(s.agentReview.description)}</p>`}
       <div class="tags">${tags.map((t) => tagChip(t, outside ? skillsLink({ tags: [t] }) : null, st.tags.includes(t))).join("")}</div>
@@ -1390,7 +1397,7 @@ function bundleRow(b: Bundle, st: State, outside = false): string {
         <span class="kind">Bundle of ${plural(b.agentReview.skills.length, "skill")}</span>
         ${outside ? "" : sourceHtml(b)}
       </div>
-      ${saveButton(saveKey("bundle", b.id), b.agentReview.name)}
+      ${detailsLink(bundleHref(b.id))}${saveButton(saveKey("bundle", b.id), b.agentReview.name)}
       </div>
       ${b.agentReview.tldr?.glance.length ? glanceHtml(b.agentReview.tldr.glance, 2) : `<p class="skill-desc">${esc(b.agentReview.description)}</p>`}
       <p class="members">${members.join(", ")}</p>
@@ -1961,7 +1968,8 @@ const savedSwitchHtml = (st: State) =>
  * The skills list's page, under the site's header. Across the page's top: its heading; the two ways
  * to search; one line of every setting: the presets, the sort, the number filters and Show. Under
  * them, the tags on the left and the list, each under its count, the list's with the filters'
- * chips; on a wide screen, a row's preview opens over the tags (see preview-client.ts). On
+ * chips; on a wide screen, a click on a row opens its preview over the tags (see
+ * preview-client.ts). On
  * narrow screens, the presets and the Saved switch stay in view, and the Filters button, between
  * them, opens the line's other settings; the tags come before the list, behind their count, which
  * opens them. The tags come before the list for the keyboard too, some 150 of them: a link atop
@@ -2030,6 +2038,6 @@ export function listView(
         <section id="results" aria-label="Skills">${resultsHtml(st)}</section>
         ${crowdDefsHtml()}
       </div>
-      <div id="preview" class="preview" aria-hidden="true" hidden></div>
+      <aside id="preview" class="preview" aria-label="Preview" hidden></aside>
     </div>`;
 }

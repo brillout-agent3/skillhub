@@ -85,9 +85,10 @@
      is a bright blue, on a page whose greys are never tinted blue. */
   --tap: oklch(0 0 0 / 0.08);
   -webkit-tap-highlight-color: var(--tap);
-  /* Over a row of the skills list the pointer is on, or whose preview is open: a grey laid over
-     its own color, white or a bundle's wash. */
+  /* Over a row of the skills list the pointer is on, and a darker one over the row whose preview
+     is open: a grey laid over its own color, white or a bundle's wash. */
   --row-hover: oklch(0 0 0 / 0.025);
+  --row-picked: oklch(0 0 0 / 0.05);
   /* The edge of the preview, a sheet over the window's left side, as it lifts off the list: see
      #preview. */
   --shadow-side: 1px 0 0 var(--ring), 8px 0 24px -6px oklch(0 0 0 / 0.18);
@@ -136,6 +137,7 @@
   --image-outline: oklch(1 0 0 / 0.1);
   --tap: oklch(1 0 0 / 0.1);
   --row-hover: oklch(1 0 0 / 0.035);
+  --row-picked: oklch(1 0 0 / 0.07);
   --shadow-side: 1px 0 0 var(--ring), 8px 0 24px -6px oklch(0 0 0 / 0.5);
 }
 
@@ -555,12 +557,10 @@ body:has(.skills-view) #page-head {
 }
 
 /*
- * A row's preview (see preview-client.ts), on a wide screen: a sheet over the window's left side,
- * its whole height, up to just short of the rows' words, over the tags and the rows' numbers. Its
- * words start where the tags do. The script measures that into --left, and its width into
- * --width. Its edge lifts off the list. The pointer goes through it, to the tags and the settings
- * under it: it's for reading only, and what doesn't fit fades out at its bottom (.cut), as the
- * row's page has it all.
+ * A row's preview (see preview-client.ts), on a wide screen, which a click on the row opens: a
+ * sheet over the window's left side, its whole height, up to just short of the rows' words, over
+ * the tags and the rows' numbers, scrolling on its own. Its words start where the tags do. The
+ * script measures that into --left, and its width into --width. Its edge lifts off the list.
  */
 .preview {
   position: fixed;
@@ -568,29 +568,57 @@ body:has(.skills-view) #page-head {
   top: 0;
   bottom: 0;
   left: 0;
-  display: flex;
-  flex-direction: column;
   width: var(--width);
   box-sizing: border-box;
-  padding: 28px 24px 24px var(--left);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 28px 24px 32px var(--left);
   background: var(--paper);
   box-shadow: var(--shadow-side);
   font-size: 14px;
-  pointer-events: none;
 }
 
-.preview[hidden] {
-  display: none;
+/* Its name, More details and its ×, which closes it. */
+.preview-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
 }
 
-.preview-in {
+.preview-title {
   flex: 1;
-  min-height: 0;
-  overflow: hidden;
+  min-width: 0;
 }
 
-.preview.cut .preview-in {
-  mask-image: linear-gradient(to bottom, #000 calc(100% - 64px), transparent);
+.preview-close {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 6px;
+  background: none;
+  color: var(--ink-2);
+  cursor: pointer;
+}
+
+.preview-close:hover {
+  background: var(--t-plain);
+  color: var(--ink);
+}
+
+.preview-close svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+}
+
+.preview .install {
+  margin: 16px 0 0;
 }
 
 .preview-title h2 {
@@ -695,6 +723,7 @@ body:has(.skills-view) #page-head {
 
 /* The start of its SKILL.md, on a sheet of its own, its headings no larger than the preview's. */
 .preview .markdown {
+  margin-bottom: 8px;
   padding: 4px 16px;
   border: 1px solid var(--rule);
   border-radius: 8px;
@@ -2278,22 +2307,59 @@ input[type="search"]::-webkit-search-cancel-button:hover {
 }
 
 /*
- * A row opens its page wherever it's clicked (see row-links.ts): where the pointer hovers, the row
- * says so, as its name does. Also while its preview is open, with the pointer on the preview.
+ * A row opens wherever it's clicked, its page or its preview (see row-links.ts): where the pointer
+ * hovers, the row says so. The row whose preview is open stays marked, a shade darker.
  */
 @media (hover: hover) {
   .skill-list > .skill {
     cursor: pointer;
   }
 
-  .skill-list > .skill:is(:hover, .previewed) {
+  .skill-list > .skill:hover {
     background-image: linear-gradient(var(--row-hover), var(--row-hover));
   }
+}
 
-  .skill-list > .skill:is(:hover, .previewed) .skill-name {
-    color: var(--garnet-text);
-    text-decoration: underline;
+.skill-list > .skill.previewed {
+  background-image: linear-gradient(var(--row-picked), var(--row-picked));
+}
+
+/*
+ * A row's link to its page, beside Save, and the preview's: only where a click on the row opens its
+ * preview rather than its page, on the skills list, on a wide screen. A button, as Save is.
+ */
+.details {
+  display: none;
+  flex: none;
+  padding: 6px 13px;
+  border-radius: 6px;
+  background: var(--paper);
+  box-shadow: var(--shadow-border);
+  color: var(--ink-2);
+  font-size: 14px;
+  font-weight: 550;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.details:hover {
+  box-shadow: var(--shadow-border-hover);
+  color: var(--ink);
+}
+
+.preview .details {
+  display: inline-flex;
+}
+
+@media (min-width: 1151px) {
+  .skills-view .skill-list .details {
+    display: inline-flex;
   }
+}
+
+/* Beside Save, closer to it than to the row's name. */
+.row-head .details {
+  margin: -3px -8px -3px 0;
 }
 
 .tags {

@@ -1,22 +1,23 @@
 /**
- * The skills list's preview: on a wide screen, with a mouse, resting the pointer on a row's words
- * opens the row's skill or bundle on a sheet over the window's left side, its whole height, up to
- * the rows' words: over the tags and the rows' numbers. What the row shows and more: every fact of its TLDR, its note, its numbers, its TLDR's
- * prose, and the start of its SKILL.md, or a bundle's skills. Moving down the list, it follows the
- * pointer from row to row; it closes once the pointer leaves the rows' words, and with Escape.
+ * The skills list's preview: on a wide screen, a click on a row (see row-links.ts) opens its skill
+ * or bundle on a sheet over the window's left side, its whole height, up to the rows' words: over
+ * the tags and the rows' numbers. What the row shows and more: every fact of its TLDR, its note,
+ * its numbers, how to install it, its TLDR's prose, and the start of its SKILL.md, or a bundle's
+ * skills. A click on another row shows that one instead; a click on the same row, the preview's ×,
+ * or Escape closes it. Its page is a click away, from More details, on the preview and on the row.
  *
- * It's a preview only, which the pointer goes through (see #preview in style.css): the tags under
- * it stay clickable, and a click on the row opens its page, where all of it is, with how to install
- * it. With a preview that held on to the pointer, a pointer on its way from a row to a tag ended on
- * the preview, and the tags were out of reach until it was closed. The keyboard and screen readers
- * get the pages instead, as touch screens do.
+ * It opens on a click rather than when the pointer rests on a row: one that opened by itself hid
+ * the tags, the search and the settings whenever the pointer was on the list. On a narrow screen,
+ * where it would have only the tags' column, a click on a row opens its page.
  */
 
-import { age, esc, plural } from "./format.ts";
+import { age, commandHtml, esc, plural } from "./format.ts";
+import { copyButton, mountCopyButtons } from "./copy.ts";
 import {
   bundleHref,
   data,
   glanceHtml,
+  installCommand,
   installsOf,
   isBundle,
   nameOf,
@@ -31,9 +32,6 @@ import type { ClientBundle as Bundle, ClientSkill as Skill, Prose } from "./clie
 
 type Entry = Skill | Bundle;
 
-/** How long the pointer rests on a row's words before its preview opens, and how long it may be off them, such as between two rows, before the preview closes, in ms. */
-const OPEN_AFTER = 300;
-const CLOSE_AFTER = 200;
 /** The narrowest window it opens in: under it, a row's numbers go under its words (see style.css), and the tags' column alone is too narrow for it. */
 const wide = matchMedia("(min-width: 1151px)");
 
@@ -57,6 +55,8 @@ function entryOf(row: Element): Entry | undefined {
   return byHref.get(row.querySelector(".skill-name")?.getAttribute("href") ?? "");
 }
 
+const pageOf = (e: Entry) => (isBundle(e) ? bundleHref(e.id) : skillHref(e.id));
+
 // ------------------------------------------------------------------- what it shows
 
 /** The 8 weeks' downloads as a line, as the Weekly Downloads tile of a skill's page draws them, smaller. */
@@ -69,7 +69,7 @@ function sparkHtml(weekly: number[] | null): string {
         `${((i * 100) / (weekly.length - 1)).toFixed(1)},${(22 - (v / max) * 20).toFixed(1)}`,
     )
     .join(" ");
-  return `<svg class="preview-spark" viewBox="0 0 100 24" preserveAspectRatio="none"><polyline points="${points}" /></svg>`;
+  return `<svg class="preview-spark" viewBox="0 0 100 24" preserveAspectRatio="none" aria-hidden="true"><polyline points="${points}" /></svg>`;
 }
 
 /** Its numbers, which it covers on its row: exact, as on its page. An unknown one is left out. */
@@ -98,64 +98,74 @@ function statsHtml(e: Entry): string {
   return `<dl class="preview-stats">${stats.join("")}</dl>${most}`;
 }
 
+const CROSS = `<svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4 4 8 8m0-8-8 8" /></svg>`;
+
 function paneHtml(e: Entry): string {
   const review = e.agentReview;
   const text = prose && (isBundle(e) ? prose.bundles : prose.skills)[e.id];
   const note = isBundle(e) ? undefined : e.agentReview.note;
+  const install = isBundle(e)
+    ? ""
+    : `<div class="install"><code>${commandHtml(installCommand(e))}</code>${copyButton(installCommand(e))}</div>`;
   const end = isBundle(e)
     ? `<section class="preview-part"><h3>Its skills</h3><p class="members">${e.agentReview.skills
-        .map(({ id }) => esc(skillById.get(id)?.name ?? id))
+        .map(({ id }) => `<a href="${skillHref(id)}">${esc(skillById.get(id)?.name ?? id)}</a>`)
         .join(", ")}</p></section>`
     : `<section class="preview-part"><h3>SKILL.md</h3><div data-skill-md><p class="muted">Loading its SKILL.md…</p></div></section>`;
   return `
-    <div class="preview-in">
+    <div class="preview-head">
       <div class="preview-title">
         <h2>${esc(nameOf(e))}${isBundle(e) ? ` <span class="kind">Bundle of ${plural(e.agentReview.skills.length, "skill")}</span>` : ""}</h2>
         <p class="skill-source">${esc(repoKey(e))}</p>
       </div>
-      ${review.tldr?.glance.length ? glanceHtml(review.tldr.glance) : `<p class="skill-desc">${esc(review.description)}</p>`}
-      ${note ? `<p class="note">${esc(note)}</p>` : ""}
-      ${statsHtml(e)}
-      ${
-        text
-          ? `<section class="preview-part"><h3>TL;DR</h3>${text
-              .split(/\n\s*\n/)
-              .map((p) => `<p>${esc(p)}</p>`)
-              .join("")}</section>`
-          : ""
-      }
-      ${end}
-    </div>`;
+      <a class="details" href="${pageOf(e)}">More details</a>
+      <button type="button" class="preview-close" data-close-preview aria-label="Close the preview">${CROSS}</button>
+    </div>
+    ${review.tldr?.glance.length ? glanceHtml(review.tldr.glance) : `<p class="skill-desc">${esc(review.description)}</p>`}
+    ${note ? `<p class="note">${esc(note)}</p>` : ""}
+    ${statsHtml(e)}
+    ${install}
+    ${
+      text
+        ? `<section class="preview-part"><h3>TL;DR</h3>${text
+            .split(/\n\s*\n/)
+            .map((p) => `<p>${esc(p)}</p>`)
+            .join("")}</section>`
+        : ""
+    }
+    ${end}`;
 }
 
 /**
  * The start of a skill's SKILL.md, from its page: the line saying where the copy is from, and its
- * first blocks, some 500 characters' worth, its links as their words. Each skill's page is fetched
- * once, when its preview first opens.
+ * first blocks, some 500 characters' worth. Each skill's page is fetched once, when its preview
+ * first opens.
  */
 const skillMds = new Map<string, Promise<string>>();
 function skillMdOf(s: Skill): Promise<string> {
+  const page = skillHref(s.id);
   let html = skillMds.get(s.id);
   if (!html) {
-    html = fetch(skillHref(s.id))
+    html = fetch(page)
       .then((res) => (res.ok ? res.text() : Promise.reject(new Error(String(res.status)))))
-      .then(startOf)
+      .then((text) => startOf(text, page))
       .catch(() => {
         // Tried again the next time it opens.
         skillMds.delete(s.id);
-        return `<p class="muted">Its SKILL.md didn't load: it's on its page.</p>`;
+        return `<p class="muted">Its SKILL.md didn't load: it's on <a href="${page}">its page</a>.</p>`;
       });
     skillMds.set(s.id, html);
   }
   return html;
 }
 
-function startOf(text: string): string {
+function startOf(text: string, page: string): string {
   const section = new DOMParser().parseFromString(text, "text/html").querySelector(".skill-md");
   if (!section) return "";
-  // Its headings' ids would be the list's; its links can't be clicked here.
+  // Its headings' ids would be the list's: a link to one of them leads to its page.
   for (const el of section.querySelectorAll("[id]")) el.removeAttribute("id");
-  for (const a of section.querySelectorAll("a")) a.replaceWith(...a.childNodes);
+  for (const a of section.querySelectorAll<HTMLAnchorElement>('a[href^="#"]'))
+    a.setAttribute("href", page + a.getAttribute("href"));
   const from = section.querySelector(":scope > p.muted");
   const fromHtml = from ? `<p class="muted">${from.innerHTML}</p>` : "";
   const markdown = section.querySelector(".markdown");
@@ -167,42 +177,45 @@ function startOf(text: string): string {
     blocks.push(block.outerHTML);
     length += block.textContent?.length ?? 0;
   }
-  return `${fromHtml}<div class="markdown">${blocks.join("")}</div>`;
+  return `${fromHtml}<div class="markdown">${blocks.join("")}</div><p><a href="${page}">Read it all on its page</a></p>`;
 }
 
 // ------------------------------------------------------------------- opening and closing
 
 /** The row whose preview is open. */
 let shown: HTMLElement | null = null;
-/** The row whose preview opens once the pointer has rested on it long enough. */
-let pending: HTMLElement | null = null;
-let openTimer: ReturnType<typeof setTimeout> | undefined;
-let closeTimer: ReturnType<typeof setTimeout> | undefined;
 
 function show(row: HTMLElement, again = false) {
-  if (row === shown && !again) return;
   const e = entryOf(row);
   if (!e) return;
   shown?.classList.remove("previewed");
   shown = row;
   row.classList.add("previewed");
+  pane.setAttribute("aria-label", `Preview of ${nameOf(e)}`);
   pane.innerHTML = paneHtml(e);
+  if (!again) pane.scrollTop = 0;
   pane.hidden = false;
   place();
   if (!isBundle(e))
     void skillMdOf(e).then((html) => {
       const slot = shown === row && pane.querySelector("[data-skill-md]");
-      if (!slot) return;
-      slot.innerHTML = html;
-      fits();
+      if (slot) slot.innerHTML = html;
     });
+}
+
+/**
+ * For a click on a row: opens its preview, or closes it when it's the one open. False on a narrow
+ * screen, where the click opens the row's page.
+ */
+export function previewRow(row: HTMLElement): boolean {
+  if (!wide.matches) return false;
+  if (row === shown) hidePreview();
+  else show(row);
+  return true;
 }
 
 /** Closes it, as when the list is rendered again, whose rows it was about. */
 export function hidePreview() {
-  clearTimeout(openTimer);
-  clearTimeout(closeTimer);
-  pending = null;
   shown?.classList.remove("previewed");
   shown = null;
   pane.hidden = true;
@@ -220,48 +233,14 @@ function place() {
   if (!tags || !words) return hidePreview();
   pane.style.setProperty("--left", `${tags.left}px`);
   pane.style.setProperty("--width", `${words.left - 16}px`);
-  fits();
 }
 
-/** What doesn't fit fades out at its bottom, which says there's more: on its page. */
-function fits() {
-  const inner = pane.querySelector<HTMLElement>(".preview-in");
-  if (inner) pane.classList.toggle("cut", inner.scrollHeight > inner.clientHeight + 1);
-}
-
-/** The row whose words the pointer is on, for a mouse on a wide screen. */
-function rowOf(event: PointerEvent): HTMLElement | null {
-  if (event.pointerType !== "mouse" || !wide.matches) return null;
-  const target = event.target as Element;
-  return target.closest(".skill-body") ? target.closest<HTMLElement>(".skill-list > li") : null;
-}
-
-results.addEventListener("pointerover", (event) => {
-  const row = rowOf(event);
-  if (!row) return;
-  clearTimeout(closeTimer);
-  // Open, it follows the pointer at once.
-  if (shown) return show(row);
-  if (row === pending) return;
-  pending = row;
-  clearTimeout(openTimer);
-  openTimer = setTimeout(() => {
-    pending = null;
-    show(row);
-  }, OPEN_AFTER);
+pane.addEventListener("click", (event) => {
+  if ((event.target as Element).closest("[data-close-preview]")) hidePreview();
 });
-
-results.addEventListener("pointerout", (event) => {
-  const words = (event.target as Element).closest(".skill-body");
-  if (!words || words.contains(event.relatedTarget as Node | null)) return;
-  clearTimeout(openTimer);
-  pending = null;
-  if (!shown) return;
-  clearTimeout(closeTimer);
-  closeTimer = setTimeout(hidePreview, CLOSE_AFTER);
-});
-
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && shown) hidePreview();
 });
 addEventListener("resize", () => (wide.matches ? place() : hidePreview()));
+
+mountCopyButtons();
