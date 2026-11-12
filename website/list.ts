@@ -3,7 +3,7 @@
  * as a link, and its HTML. The page is pre-rendered unfiltered; its client script re-renders it.
  */
 
-import { age, compact, date, daysBefore, esc, href, percent, plural } from "./format.ts";
+import { age, compact, date, daysBefore, esc, href, number, percent, plural } from "./format.ts";
 import {
   CAUTION,
   FACET_ORDER,
@@ -428,8 +428,7 @@ export const boundAt = (p: Prop, end: 0 | 1, stop: number): number | null =>
 const stepRange = (p: Prop, i: number): Range => [boundAt(p, 0, i), boundAt(p, 1, i + 1)];
 
 /** A count in words: as the rows say it, 1.5K, where that's all of it; otherwise 1,234. */
-const countWords = (n: number) =>
-  parseCount(compact(n)) === n ? compact(n) : n.toLocaleString("en");
+const countWords = (n: number) => (parseCount(compact(n)) === n ? compact(n) : number(n));
 
 /** A bound as its field shows it: an age such as 3m or 45d, a count such as 1.5K. */
 export const fieldText = (p: Prop, n: number | null) =>
@@ -704,6 +703,12 @@ let searchText = new Map<string, string>();
 let bundleText = new Map<string, string>();
 let skillFields = new Map<string, Fields>();
 let bundleFields = new Map<string, Fields>();
+/**
+ * Each entry's score for the search under way (see matchScore), worked out once: the sort asks for
+ * the scores of both entries at each comparison, some twenty thousand times for a search that most
+ * skills match, such as its first letter. `index` empties it, as the fields it scores change.
+ */
+let scores: { q: string; of: Map<Entry, number> } | undefined;
 
 /** Adds the TLDRs' words to what the search looks in. */
 export function addSearchWords(words: SearchWords) {
@@ -740,6 +745,7 @@ type Fields = [text: string, weight: number][];
 const fields = (parts: [string | null | undefined, number][]): Fields =>
   parts.filter((p): p is [string, number] => Boolean(p[0])).map(([t, w]) => [plain(t), w]);
 function index() {
+  scores = undefined;
   searchText = new Map(
     data.skills.map((s) => [
       s.id,
@@ -814,13 +820,20 @@ function score(f: Fields, q: string): number {
   );
 }
 /** A bundle matches as well as itself or its best matching skill. */
-const matchScore = (e: Entry, q: string): number =>
-  isBundle(e)
-    ? Math.max(
-        score(bundleFields.get(e.id) ?? [], q),
-        ...skillsOf(e).map((s) => score(skillFields.get(s.id) ?? [], q)),
-      )
-    : score(skillFields.get(e.id) ?? [], q);
+function matchScore(e: Entry, q: string): number {
+  if (scores?.q !== q) scores = { q, of: new Map() };
+  let n = scores.of.get(e);
+  if (n === undefined) {
+    n = isBundle(e)
+      ? Math.max(
+          score(bundleFields.get(e.id) ?? [], q),
+          ...skillsOf(e).map((s) => matchScore(s, q)),
+        )
+      : score(skillFields.get(e.id) ?? [], q);
+    scores.of.set(e, n);
+  }
+  return n;
+}
 
 /** Within a facet a skill needs any selected value; across facets it needs all of them. `skip` leaves one facet out, for its counts. */
 function passes(s: Skill, st: State, skip: string | null = null): boolean {
@@ -1153,6 +1166,42 @@ function askState(st: State): State {
 }
 
 /**
+ * An entry as the agent's prompt lists it: its name and its path, its repo, numbers and tags, and
+ * its glance. Written once each, as no filter changes it: the prompt is put together again, for the
+ * line under the agent's box to say its size, with each letter typed in the search, and writing a
+ * thousand entries anew took as long as the search itself.
+ */
+const promptEntries = new Map<Entry, string>();
+function promptEntry(e: Entry): string {
+  let text = promptEntries.get(e);
+  if (text !== undefined) return text;
+  const review = e.agentReview;
+  const numbers = [
+    installsOf(e) !== null ? `${compact(installsOf(e) as number)} installs` : "",
+    starsOf(e) !== null ? `${compact(starsOf(e) as number)} stars` : "",
+  ].filter(Boolean);
+  const head = isBundle(e)
+    ? `### ${nameOf(e)} (${idPath(bundlePage(e))}/): a bundle of ${skillsOf(e)
+        .map((s) => s.name)
+        .join(", ")}`
+    : `### ${e.name} (${idPath(skillPage(e))}/)`;
+  const tags = isBundle(e) ? [] : e.agentReview.tags.filter((t) => !quiet(t));
+  // As in its row: its description stands in for a glance it doesn't have.
+  const facts = review.tldr?.glance.length
+    ? review.tldr.glance.map((g) => `- ${g.label}: ${g.text}`)
+    : [`- ${review.description}`];
+  text = [
+    head,
+    [repoKey(e), ...numbers, tags.length ? `tags: ${tags.join(", ")}` : ""]
+      .filter(Boolean)
+      .join(" · "),
+    ...facts,
+  ].join("\n");
+  promptEntries.set(e, text);
+  return text;
+}
+
+/**
  * A prompt to paste into any chat agent, for a need in your own words, which the search can't
  * match: the catalog is the list below, every entry the filters and the search leave (see
  * askState); "" for a need that comes in the next message. `base` is the site's absolute URL, which
@@ -1161,30 +1210,6 @@ function askState(st: State): State {
 export function askPrompt(shown: State, need: string, base: string): string {
   const st = askState(shown);
   const { list } = results(st);
-  const entry = (e: Entry) => {
-    const review = e.agentReview;
-    const numbers = [
-      installsOf(e) !== null ? `${compact(installsOf(e) as number)} installs` : "",
-      starsOf(e) !== null ? `${compact(starsOf(e) as number)} stars` : "",
-    ].filter(Boolean);
-    const head = isBundle(e)
-      ? `### ${nameOf(e)} (${idPath(bundlePage(e))}/): a bundle of ${skillsOf(e)
-          .map((s) => s.name)
-          .join(", ")}`
-      : `### ${e.name} (${idPath(skillPage(e))}/)`;
-    const tags = isBundle(e) ? [] : e.agentReview.tags.filter((t) => !quiet(t));
-    // As in its row: its description stands in for a glance it doesn't have.
-    const facts = review.tldr?.glance.length
-      ? review.tldr.glance.map((g) => `- ${g.label}: ${g.text}`)
-      : [`- ${review.description}`];
-    return [
-      head,
-      [repoKey(e), ...numbers, tags.length ? `tags: ${tags.join(", ")}` : ""]
-        .filter(Boolean)
-        .join(" · "),
-      ...facts,
-    ].join("\n");
-  };
   const filters = filtersText(st);
   return `I'm looking for an agent skill: a SKILL.md that teaches a coding agent (Claude Code, Codex, Cursor…) how to do something. Below is the catalog of SkillHub, a directory of agent-reviewed skills${
     filters.length ? `, narrowed to: ${filters.join("; ")}` : ""
@@ -1196,7 +1221,7 @@ Each entry's link is its path in parentheses, after ${base}
 
 # Catalog (${list.length} ${list.length === 1 ? "entry" : "entries"})
 
-${list.map(entry).join("\n\n")}
+${list.map(promptEntry).join("\n\n")}
 
 # My need
 
@@ -1294,7 +1319,7 @@ function rankText(c: Crowd, n: number): string {
 
 /** Such as "#34 of 1,190 skills", or "#586 of 1,190 skills, newest first". */
 const placeText = (c: Crowd, n: number) =>
-  `#${c.placeOf(n).toLocaleString("en")} of ${plural(c.total, c.what)}${c.order ? `, ${c.order}` : ""}`;
+  `#${number(c.placeOf(n))} of ${plural(c.total, c.what)}${c.order ? `, ${c.order}` : ""}`;
 
 /**
  * Where an entry's number stands among the catalog's, for the skill's page: its place, in words,
@@ -1622,7 +1647,7 @@ function savedBundlesHtml(st: State, search: boolean, badge = (s: string) => s):
   if (!st.saved || st.show !== "all") return "";
   const rest = search ? st : { ...st, q: "" };
   const n = data.bundles.filter((b) => bundlePasses(b, rest)).length;
-  return n ? ` and ${badge(n.toLocaleString("en"))} bundle${n === 1 ? "" : "s"}` : "";
+  return n ? ` and ${badge(number(n))} bundle${n === 1 ? "" : "s"}` : "";
 }
 
 /** Every key a Save button can save: what the Saved switch counts (see `account.listed`). */
@@ -1654,7 +1679,7 @@ const scopeOf = (st: State) => {
 /** How many skills (or bundles) the list below shows, as the lines under the boxes say it: the number highlighted. */
 function shownCountHtml(st: State): string {
   const n = shownOf(st);
-  return `${badgeHtml(n.toLocaleString("en"))} ${unitOf(st)}${n === 1 ? "" : "s"}${savedBundlesHtml(st, true, badgeHtml)}`;
+  return `${badgeHtml(number(n))} ${unitOf(st)}${n === 1 ? "" : "s"}${savedBundlesHtml(st, true, badgeHtml)}`;
 }
 
 /**
@@ -1663,7 +1688,7 @@ function shownCountHtml(st: State): string {
  */
 export function searchNote(st: State): string {
   const n = tagCountOf(st);
-  const tags = `${badgeHtml(n.toLocaleString("en"))} tag${n === 1 ? "" : "s"}`;
+  const tags = `${badgeHtml(number(n))} tag${n === 1 ? "" : "s"}`;
   // "2 skills, 1 bundle and 5 tags", with Saved on: see savedBundlesHtml.
   const shown = shownCountHtml(st).replace(" and ", ", ");
   return `Filters ${shown} and ${tags} below.`;
@@ -2056,7 +2081,7 @@ export function listView(
       <div class="list-top-in">
         <div class="list-title">
           <h1 class="list-head">Agent skills</h1>
-          <p class="list-sub"><a href="${href("about/")}">${listed.toLocaleString("en")} skills curated from ${reviewed.toLocaleString("en")} reviewed skills</a></p>
+          <p class="list-sub"><a href="${href("about/")}">${number(listed)} skills curated from ${number(reviewed)} reviewed skills</a></p>
         </div>
         <div class="finder">
           <div class="agent-field" data-action="focus-need">

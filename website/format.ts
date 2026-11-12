@@ -75,15 +75,21 @@ export const glanceEnd = (text: string) => (/[.!?]$/.test(text) ? text : `${text
 /** The day `n` days before a day, both YYYY-MM-DD. */
 export const daysBefore = (day: string, n: number) =>
   new Date(Date.parse(`${day}T00:00:00Z`) - n * 86_400_000).toISOString().slice(0, 10);
-export const plural = (n: number, word: string) =>
-  `${n.toLocaleString("en")} ${word}${n === 1 ? "" : "s"}`;
+/**
+ * A number with its thousands apart: 1,190. From one formatter for all of them: `toLocaleString`
+ * makes one of its own at every call, which takes some twenty times as long, and the skills list
+ * writes ten numbers a row this way, in its tooltips: ten thousand for the whole list.
+ */
+const grouped = new Intl.NumberFormat("en");
+export const number = (n: number) => grouped.format(n);
+export const plural = (n: number, word: string) => `${number(n)} ${word}${n === 1 ? "" : "s"}`;
 /**
  * A change as a percentage with its sign, such as +180% or −12%, from its ratio, 1.8 or −0.12: a
  * minus sign rather than a hyphen, and no sign on what rounds to 0%.
  */
 export function percent(ratio: number): string {
   const p = Math.round(ratio * 100);
-  return `${p > 0 ? "+" : p < 0 ? "−" : ""}${Math.abs(p).toLocaleString("en")}%`;
+  return `${p > 0 ? "+" : p < 0 ? "−" : ""}${number(Math.abs(p))}%`;
 }
 /**
  * How long before `asOf` a day was, both YYYY-MM-DD, as a number and one word, rounded down: 3 days,

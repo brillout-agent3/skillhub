@@ -57,18 +57,34 @@ for (const n of document.querySelectorAll("[data-saved-count]")) n.textContent =
 const app = document.getElementById("app") as HTMLElement;
 const q = document.getElementById("q") as HTMLInputElement;
 const results = document.getElementById("results") as HTMLElement;
+/**
+ * The settings' line. What each render looks up in it, the sliders, their fields and histograms, is
+ * looked up in it, not in the page: the page holds the list too, some 90,000 elements, and a dozen
+ * searches through them took a tenth of the time of the render that follows a letter of a search.
+ */
+const settings = document.getElementById("settings") as HTMLElement;
 let state = parse(location.search);
 let stackExpanded = false;
 
 /** Whether the next render should bring the top of the list into view: see `go`. */
 let toTop = false;
 
-function go(patch: Partial<State>) {
+/**
+ * Whether every change the next render is for came as it was typed or dragged, a search, an amount
+ * in a filter's field, a slider's handle: the list's rows past the first ones then wait for a pause
+ * (see `render`).
+ */
+let typing = false;
+
+/** `typed`: the change is one of a run, a letter of a search or a step of a slider's handle. */
+function go(patch: Partial<State>, typed = false) {
   state = patched(state, patch);
   history.replaceState(null, "", query(state) || location.pathname);
   // A new order or new filters start the list over, except while typing a search, which happens
   // at the top anyway.
   if (Object.keys(patch).some((k) => k !== "q")) toTop = true;
+  // A click that comes with it, before the render, takes it out of the run.
+  typing = typed && (typing || !soon);
   renderSoon();
 }
 
@@ -190,7 +206,7 @@ function focusSelector(): string | null {
 let open: Prop | null = null;
 function openRange(p: Prop | null) {
   open = p;
-  for (const range of app.querySelectorAll<HTMLElement>("[data-range-section]")) {
+  for (const range of settings.querySelectorAll<HTMLElement>("[data-range-section]")) {
     const on = range.dataset.rangeSection === p;
     const pop = range.querySelector<HTMLElement>(".range-pop");
     pop?.toggleAttribute("hidden", !on);
@@ -215,7 +231,8 @@ function fit(pop: HTMLElement) {
 }
 // Again when the window's width changes under an open one, as when a tablet is turned.
 addEventListener("resize", () => {
-  const pop = open && app.querySelector<HTMLElement>(`[data-range-section="${open}"] .range-pop`);
+  const pop =
+    open && settings.querySelector<HTMLElement>(`[data-range-section="${open}"] .range-pop`);
   if (pop) fit(pop);
 });
 
@@ -232,7 +249,7 @@ document.addEventListener("click", (event) => {
 });
 document.addEventListener("keydown", (event) => {
   if (event.key !== "Escape" || !open) return;
-  const range = app.querySelector(`[data-range-section="${open}"]`);
+  const range = settings.querySelector(`[data-range-section="${open}"]`);
   const inside = range?.contains(document.activeElement);
   openRange(null);
   if (inside) range?.querySelector<HTMLElement>(".range-pill")?.focus();
@@ -241,7 +258,7 @@ document.addEventListener("keydown", (event) => {
 // stayed over the list while the focus moved on to the next filter. Only when the focus goes to
 // something else: a click on the popover's own histogram takes it from the handle to nothing.
 app.addEventListener("focusout", (event) => {
-  const range = open && app.querySelector(`[data-range-section="${open}"]`);
+  const range = open && settings.querySelector(`[data-range-section="${open}"]`);
   const to = event.relatedTarget as Node | null;
   if (range && range.contains(event.target as Node) && to && !range.contains(to)) openRange(null);
 });
@@ -309,7 +326,7 @@ const syncSaved = () => savedSwitch.setAttribute("aria-checked", String(state.sa
 function syncRanges() {
   for (const p of Object.keys(PROPS) as Prop[]) {
     const range = state.ranges[p];
-    const slider = app.querySelector<HTMLElement>(`[data-slider="${p}"]`);
+    const slider = settings.querySelector<HTMLElement>(`[data-slider="${p}"]`);
     if (!slider) continue;
     const last = PROPS[p].stops.length - 1;
     const at = rangePositions(p, range);
@@ -319,16 +336,16 @@ function syncRanges() {
       input.value = String(at[Number(input.dataset.end)]);
       input.setAttribute("aria-valuetext", rangeLabel(p, range));
     }
-    const fields = [...app.querySelectorAll<HTMLInputElement>(`[data-exact="${p}"]`)];
+    const fields = [...settings.querySelectorAll<HTMLInputElement>(`[data-exact="${p}"]`)];
     for (const field of fields)
       if (field !== document.activeElement) {
         field.value = fieldText(p, range[Number(field.dataset.bound)]);
         field.removeAttribute("aria-invalid");
       }
     if (!fields.includes(document.activeElement as HTMLInputElement)) sayRangeError(p, "");
-    for (const label of app.querySelectorAll(`[data-range-label="${p}"]`))
+    for (const label of settings.querySelectorAll(`[data-range-label="${p}"]`))
       label.textContent = rangeLabel(p, range);
-    app
+    settings
       .querySelector(`[data-range-section="${p}"]`)
       ?.classList.toggle("narrowed", isNarrowed(range));
   }
@@ -342,13 +359,20 @@ function sayRangeError(p: Prop, message: string) {
 
 /** The histograms' counts follow the other filters, and their bars the slider's own range. */
 function renderHistograms() {
-  for (const el of app.querySelectorAll<HTMLElement>("[data-histogram]"))
+  for (const el of settings.querySelectorAll<HTMLElement>("[data-histogram]"))
     el.innerHTML = histogramHtml(state, el.dataset.histogram as Prop);
 }
 
 /** Rows rendered right away; the rest follow STEP at a time, so a change shows without waiting for the whole list. */
 const FIRST = 40;
 const STEP = 150;
+/**
+ * How long the rest waits, in milliseconds, after a change that's one of a run (see `go`): about
+ * as long as from one letter of a search to the next. Following at once, the rest of a list that
+ * the next letter replaces kept the page busy between two letters, a thousand rows for each: the
+ * next letter showed late, and its list later. They now follow once the typing pauses.
+ */
+const TYPING_PAUSE = 200;
 /** Counts renders, so that rows still on their way for an older one are dropped. */
 let renders = 0;
 /** What the facets were last rendered for: the pre-rendered page's are for no filters. */
@@ -455,7 +479,8 @@ function render(whole = false) {
   results.innerHTML = resultsHtml(state, first);
   count.innerHTML = countHtml(state);
   // And on the button under the open tags, on a narrow screen: see .tags-done in style.css.
-  for (const n of app.querySelectorAll("[data-list-count]")) n.innerHTML = countHtml(state);
+  const tagsDone = document.querySelector("#filters [data-list-count]");
+  if (tagsDone) tagsDone.innerHTML = countHtml(state);
   if (scrolledPast) (results.closest(".list-main") ?? results).scrollIntoView({ block: "start" });
   if (focus) {
     // A filter's chip is gone once it's removed, as Clear filters is with the last of them: the
@@ -472,15 +497,16 @@ function render(whole = false) {
   const st = state;
   const id = ++renders;
   const append = (from: number) => {
-    // A newer render appends its own rows, and says when they're in.
-    if (id !== renders) return;
+    // A newer render appends its own rows, and says when they're in: so does one on its way.
+    if (id !== renders || soon) return;
     if (from >= rowCount(st)) return busy(false);
     results
       .querySelector(".skill-list")
       ?.insertAdjacentHTML("beforeend", rowsHtml(st, from, from + STEP));
     setTimeout(() => append(from + STEP));
   };
-  setTimeout(() => append(first));
+  setTimeout(() => append(first), typing ? TYPING_PAUSE : 0);
+  typing = false;
 }
 
 /** The agent's box: what you need, in your own words. */
@@ -531,7 +557,7 @@ need.addEventListener("keydown", (event) => {
   if (event.key === "Enter") ask();
 });
 
-q.addEventListener("input", () => go({ q: q.value }));
+q.addEventListener("input", () => go({ q: q.value }, true));
 
 /**
  * Moves a slider's handle to a stop. The handles can't cross: the range keeps at least a part of a
@@ -547,7 +573,7 @@ function toStop(p: Prop, end: 0 | 1, stop: number) {
     end === 0
       ? [boundAt(p, 0, Math.max(0, Math.min(stop, Math.ceil(hi) - 1))), range[1]]
       : [range[0], boundAt(p, 1, Math.min(last, Math.max(stop, Math.floor(lo) + 1)))];
-  if (to[0] !== range[0] || to[1] !== range[1]) go({ ranges: { ...state.ranges, [p]: to } });
+  if (to[0] !== range[0] || to[1] !== range[1]) go({ ranges: { ...state.ranges, [p]: to } }, true);
   syncRanges();
 }
 
@@ -599,9 +625,10 @@ function typed(field: HTMLInputElement) {
   const range: Range = end === 0 ? [n, state.ranges[p][1]] : [state.ranges[p][0], n];
   const error = rangeError(p, range);
   if (error) return wrong(error);
-  for (const f of app.querySelectorAll(`[data-exact="${p}"]`)) f.removeAttribute("aria-invalid");
+  for (const f of settings.querySelectorAll(`[data-exact="${p}"]`))
+    f.removeAttribute("aria-invalid");
   sayRangeError(p, "");
-  go({ ranges: { ...state.ranges, [p]: range } });
+  go({ ranges: { ...state.ranges, [p]: range } }, true);
 }
 
 // Once a field is left, or Enter pressed in it, it shows its amount as the others do: "2w 3d" is
@@ -654,16 +681,16 @@ app.addEventListener("click", (event) => {
   if (d.sort) return chooseSort(el);
   // A pressed button shows it right away; the list follows after the next paint.
   if (d.preset) {
-    for (const b of app.querySelectorAll("[data-preset]"))
+    for (const b of settings.querySelectorAll("[data-preset]"))
       b.setAttribute("aria-pressed", String(b === el));
     go(presetPatch(d.preset as Preset));
   } else if (d.order) {
     if ((d.order === "asc") === state.asc) return;
-    for (const b of app.querySelectorAll("[data-order]"))
+    for (const b of settings.querySelectorAll("[data-order]"))
       b.setAttribute("aria-pressed", String(b === el));
     go({ asc: d.order === "asc" });
   } else if (d.show) {
-    for (const b of app.querySelectorAll("[data-show]"))
+    for (const b of settings.querySelectorAll("[data-show]"))
       b.setAttribute("aria-pressed", String(b === el));
     go({ show: d.show as Show });
   } else if (d.tag) {
