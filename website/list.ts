@@ -1533,19 +1533,34 @@ function foundChip(t: string, n: number, pressed: boolean): string {
  * boxes: first the tags the search finds, then, under how many they are, the tags of the skills it
  * finds, which are the facets. On narrow screens the count is a button that shows and hides them,
  * which are hidden at first: see list-client.ts.
+ *
+ * With no tag to list, the facets aren't there: an empty list has no tags, and each of the eight
+ * facets said "None" under "0 tags of the 0 skills", a column of them beside a search that found
+ * nothing. What's left says why, in a line.
  */
 export function facetsHtml(st: State, stackExpanded: boolean): string {
   const count = plural(tagCountOf(st), "tag");
   const head = `<h2 class="list-count"><span class="tags-count">${count}</span><button type="button" class="tags-toggle" data-action="tags" aria-expanded="false" aria-controls="tag-facets">${count}${CHEVRON}</button></h2>`;
-  const facets = `<div id="skill-tags" class="tag-box">${facetSections(st, stackExpanded)}</div>`;
+  const sections = facetSections(st, stackExpanded);
+  const listed = listedOf(st).size;
+  const none = `<span class="muted">No tags: the list is empty.</span>`;
+  const facets = `<div id="skill-tags" class="tag-box">${listed ? sections : `<div class="chips">${none}</div>`}</div>`;
   if (!term(st)) return `${head}<div id="tag-facets" class="tag-facets">${facets}</div>`;
   const found = foundTags(st)
     .map(([t, n]) => foundChip(t, n, st.tags.includes(t)))
     .join("");
-  const of = `${plural(shownOf(st), unitOf(st))}${savedBundlesHtml(st, true)}`;
+  // Not "of the 0 skills": the tags a filter keeps listed when the search finds nothing with it,
+  // which are the selected ones and those that would bring skills back, are of no skill listed.
+  const of = shownOf(st)
+    ? ` of the ${plural(shownOf(st), unitOf(st))}${savedBundlesHtml(st, true)}`
+    : "";
+  // Where the filters leave nothing, there's no tag for the search to find, whatever its words.
+  const unfound = scopeOf(st)
+    ? `<span class="muted">No tag matches “${esc(term(st))}”.</span>`
+    : none;
   return `${head}<div id="tag-facets" class="tag-facets"><div id="found-tags" class="tag-box"><div class="chips">${
-    found || `<span class="muted">No tag matches “${esc(term(st))}”.</span>`
-  }</div></div><h2 class="tags-of">${plural(listedOf(st).size, "tag")} of the ${of}</h2>${facets}</div>`;
+    found || unfound
+  }</div></div>${listed ? `<h2 class="tags-of">${plural(listed, "tag")}${of}</h2>${facets}` : ""}</div>`;
 }
 
 /** Whether filters narrow the list: the search and the agent prompt then look through what they leave. */

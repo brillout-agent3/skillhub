@@ -136,6 +136,8 @@ test("the Saved list, logged out, asks to log in", async ({ page }) => {
   await accountLoaded(page);
   const { empty } = list(page);
   await expect(empty).toContainText("to see what you saved.");
+  // An empty list has no tags: the tags' column says so in a line, not once per facet.
+  await expect(page.locator("#tag-facets")).toHaveText("No tags: the list is empty.");
   await empty.getByRole("link", { name: "Log in with GitHub" }).click();
   await ready(page);
   await accountLoaded(page);

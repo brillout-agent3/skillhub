@@ -81,6 +81,9 @@ test("a search that finds nothing says so, and offers the agent", async ({ page 
   await settled(page);
   await expect(count).toHaveText("0 skills");
   await expect(empty).toContainText("No skill or bundle matches “zzzqqqxxx”");
+  // The tags' column says as much, once: it had every facet under it, each with "None".
+  await expect(page.locator("#tag-facets")).toHaveText("No tag matches “zzzqqqxxx”.");
+  await expect(page.locator("#facets .facet")).toHaveCount(0);
 
   // The agent gets the search as the need, and the skills it would have looked through.
   await expect(page.locator("#ask-label")).toContainText(`of all ${n(data.skills.length)} skills.`);
@@ -103,6 +106,8 @@ test("filters that leave nothing say so, and leave the agent nothing to copy", a
   await expect(empty).not.toContainText("among");
   await expect(empty.locator('[data-action="ask"]')).toHaveCount(0);
   await expect(label).toHaveText("The list below is empty: there's nothing to copy.");
+  // The tags a filter keeps listed, such as the one that's picked, aren't "of the 0 skills".
+  await expect(page.locator(".tags-of")).toHaveText(/^[\d,]+ tags?$/);
 
   await page.evaluate(() => navigator.clipboard.writeText("as it was"));
   await page.locator(".ask-button").click();
