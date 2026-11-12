@@ -4016,6 +4016,22 @@ html[data-logged-in]:not([data-account]) .account {
   visibility: hidden;
 }
 
+/*
+ * Meanwhile it takes the room of what replaces it, which is wider: the avatar's 20px and its gap,
+ * then Log out's words in place of its own. At its own width, the links before it jumped 37px to
+ * the left once the page knew who's logged in, on every page: until then, Tags stood where About
+ * was about to be.
+ */
+html[data-logged-in]:not([data-account]) .account > [data-login] {
+  padding-left: 26px;
+  font-size: 0;
+}
+
+html[data-logged-in]:not([data-account]) .account > [data-login]::after {
+  content: "Log out";
+  font-size: 14px;
+}
+
 /* As wide as "Saved", also while it says "Save", so that the button keeps its width once the page
    knows what you saved. */
 .save-word {

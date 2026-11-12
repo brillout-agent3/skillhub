@@ -41,6 +41,32 @@ test("Log in comes back to the page you were on, its filters included", async ({
   await expect(login(page)).toHaveCount(0);
 });
 
+test("the header's links stay put once a page knows who's logged in", async ({ page }) => {
+  await openLoggedIn(page, "/about/");
+  const tags = page.locator(".site-links a").first();
+  const left = async () => (await tags.boundingBox())?.x ?? Number.NaN;
+
+  // The next page, until its script has run, as on a slow connection: Log in is hidden, for
+  // whoever was logged in on the last page, and replaced by their avatar and Log out once it has.
+  let run = () => {};
+  const held = new Promise<void>((resolve) => (run = resolve));
+  await page.route("**/*", async (route) => {
+    if (route.request().resourceType() === "script") await held;
+    await route.continue();
+  });
+  await page.goto("/tags/", { waitUntil: "commit" });
+  await expect(tags).toBeVisible();
+  await expect(page.locator("html[data-logged-in]:not([data-account])")).toHaveCount(1);
+  await expect(login(page)).toBeHidden();
+  const before = await left();
+
+  run();
+  await ready(page);
+  await expect(logout(page)).toBeVisible();
+  // Log out and the avatar are wider than Log in: the links before them jumped that much left.
+  expect(Math.abs((await left()) - before)).toBeLessThan(1);
+});
+
 test("a save shows on its button, on the Saved switch and in the Saved list", async ({ page }) => {
   await openLoggedIn(page, LIST);
   const { count, rows, empty } = list(page);
