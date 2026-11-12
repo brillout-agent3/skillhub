@@ -9,8 +9,10 @@ interface Row {
   count: number;
   /** The explanation the row's [i] shows. */
   tip: string;
-  /** 1 or 2 when the row splits the last row of a lower depth. */
-  depth?: 0 | 1 | 2;
+  /** 1, 2 or 3 when the row splits the last row of a lower depth. */
+  depth?: 0 | 1 | 2 | 3;
+  /** A row that adds up the rows it splits into, in bold. */
+  total?: boolean;
   emoji?: string;
   /** What a screen reader calls the row, when the label alone isn't clear. Defaults to the label. */
   name?: string;
@@ -25,17 +27,26 @@ export default function Page(): string {
   const { turnedDown: t, minimums } = review;
   const byAgent = t.toolDocs + t.vendorService + t.language + t.copy + t.retired + t.other;
   const byScript = review.gone + review.notOnGitHub;
-  // Each skill SkillHub knows of is in exactly one row of depth 0.
+  // Each skill SkillHub knows of is in exactly one row of depth 0: Reviewed or Waiting.
   const rows: Row[] = [
+    {
+      label: "Reviewed",
+      emoji: "👀",
+      total: true,
+      count: review.reviewed,
+      tip: "SkillHub has a verdict on it: listed, disqualified, or checked on its installs and stars and found under the minimums.",
+    },
     {
       label: "Listed",
       emoji: "✅",
+      depth: 1,
       count: review.listed,
       tip: "An agent review judged it useful to people looking for skills.",
     },
     {
       label: "Disqualified",
       emoji: "❌",
+      depth: 1,
       count: byAgent + byScript,
       tip: "Not listed: an agent review turned it down, or a script found its SKILL.md can't be read on GitHub.",
     },
@@ -43,69 +54,70 @@ export default function Page(): string {
       label: "By agent",
       name: "Disqualified by agent",
       emoji: "🤖",
-      depth: 1,
+      depth: 2,
       count: byAgent,
       tip: "An agent review read the skill's whole SKILL.md, not only its description, and judged it not useful to people looking for skills.",
     },
     {
       label: "Tool docs",
       count: t.toolDocs,
-      depth: 2,
+      depth: 3,
       tip: "A manual for one product, framework, cloud or language, such as a cloud's CLI or a framework's best practices. It only matters once you've chosen the product. A skill that gets a job done through a tool, such as testing, scraping or generating media, isn't tool docs.",
     },
     {
       label: "Vendor paid service",
       count: t.vendorService,
-      depth: 2,
+      depth: 3,
       tip: "A skill whose job runs on one vendor's paid service, such as its API or cloud, so it only works with an account there. It reads as an ad for the service, whoever publishes it. A workflow where the agent does the job and a paid service supplies one part isn't one, nor is a free tool that runs on your machine, even when its maker also sells a cloud.",
     },
     {
       label: "Not in English",
       count: t.language,
-      depth: 2,
+      depth: 3,
       tip: "Its SKILL.md isn't in English.",
     },
     {
       label: "Copies",
       count: t.copy,
-      depth: 2,
+      depth: 3,
       tip: "A skill republished under another name, or listed twice, such as under its repo's old name.",
     },
     {
       label: "Retired",
       count: t.retired,
-      depth: 2,
+      depth: 3,
       tip: "Its SKILL.md points to a replacement.",
     },
     {
       label: "Other reasons",
       count: t.other,
-      depth: 2,
+      depth: 3,
       tip: "It only works inside one company's codebase or brand, does nothing for whoever installs it, or does something you wouldn't want, such as installing dozens of other skills without asking or removing the watermarks that mark images as AI-generated.",
     },
     {
       label: "By script",
       name: "Disqualified by script",
       emoji: "⚙️",
-      depth: 1,
+      depth: 2,
       count: byScript,
       tip: "A script found the skill's SKILL.md can't be read on GitHub, so there's nothing for an agent review to judge.",
     },
     {
       label: "SKILL.md gone from its repo",
       count: review.gone,
-      depth: 2,
+      depth: 3,
       tip: "Its repo no longer has its SKILL.md, such as after deleting or moving it. A listed skill whose SKILL.md goes comes off the list.",
     },
     {
       label: "Not on GitHub",
       count: review.notOnGitHub,
-      depth: 2,
+      depth: 3,
       tip: "It's hosted somewhere other than GitHub, where SkillHub reads each SKILL.md and follows its changes.",
     },
     {
       label: "Under the minimum installs or stars",
       emoji: "🌱",
+      depth: 1,
       count: review.under,
       tip: `It has fewer than ${n(minimums.installs)} installs, or its repo fewer than ${n(minimums.stars)} stars. It gets an agent review once it has both.`,
     },
@@ -116,22 +128,22 @@ export default function Page(): string {
       tip: "It has the minimum installs and stars, or it's by an author SkillHub lists every skill of, and is next in line for an agent review.",
     },
   ];
-  const total: Row = {
-    label: "Found on skills.sh",
+  const crawled: Row = {
+    label: "Crawled",
     emoji: "🔍",
-    count: review.found,
-    tip: "Every skill SkillHub found on skills.sh: each one is in one of the rows above.",
+    count: review.crawled,
+    tip: "Every skill SkillHub found on skills.sh: reviewed, or waiting for an agent review.",
   };
-  const row = ({ label, count, tip, depth = 0, emoji, name = label }: Row, i: number) =>
-    `<tr class="d${depth}"><td>${emoji ? `<span class="emoji" aria-hidden="true">${emoji}</span>` : ""}${label}<button type="button" class="tip-i" aria-label="About ${name}" aria-describedby="tip-${i}">i</button></td><td class="num">${n(count)}<span class="tip-text" role="tooltip" id="tip-${i}">${tip}</span></td></tr>`;
+  const row = ({ label, count, tip, depth = 0, total, emoji, name = label }: Row, i: number) =>
+    `<tr class="d${depth}${total ? " total" : ""}"><td>${emoji ? `<span class="emoji" aria-hidden="true">${emoji}</span>` : ""}${label}<button type="button" class="tip-i" aria-label="About ${name}" aria-describedby="tip-${i}">i</button></td><td class="num">${n(count)}<span class="tip-text" role="tooltip" id="tip-${i}">${tip}</span></td></tr>`;
   return `
     <div class="page about">
       <h1>How skills get here</h1>
-      <p class="lede">SkillHub lists <span class="badge">${n(review.listed)}</span> agent skills, selected from the <span class="badge">${n(review.found)}</span> <a href="https://skills.sh">most downloaded skills</a>.</p>
+      <p class="lede">SkillHub lists <span class="badge">${n(review.listed)}</span> agent skills, selected from a review of the <span class="badge">${n(review.reviewed)}</span> <a href="https://skills.sh">most downloaded skills</a>.</p>
       <div class="breakdown-box">
         <table class="breakdown">
           <tbody>${rows.map(row).join("")}</tbody>
-          <tfoot>${row(total, rows.length)}</tfoot>
+          <tfoot>${row(crawled, rows.length)}</tfoot>
         </table>
       </div>
       <p class="breakdown-note">As of ${date(review.asOf)}.</p>

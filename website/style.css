@@ -2649,9 +2649,9 @@ input[type="search"]::-webkit-search-cancel-button:hover {
   padding-left: 24px;
 }
 
-/* A row of depth 1 splits the top row above it, one of depth 2 the depth-1 row above it. Each
-   lines up with the label after its parent's emoji. */
-.breakdown :is(.d1, .d2) td {
+/* A row of depth 1 splits the top row above it, one of depth 2 the depth-1 row above it, and so
+   on. Each lines up with the label after its parent's emoji. */
+.breakdown :is(.d1, .d2, .d3) td {
   padding-top: 2px;
   padding-bottom: 2px;
   border-bottom: none;
@@ -2661,16 +2661,21 @@ input[type="search"]::-webkit-search-cancel-button:hover {
   padding-left: 24px;
 }
 
-.breakdown .d2 + .d1 td {
+/* A row after a deeper row's group, apart from it. */
+.breakdown :is(.d2 + .d1, .d3 + .d1, .d3 + .d2) td {
   padding-top: 8px;
-}
-
-.breakdown .d2 td {
-  color: var(--ink-2);
 }
 
 .breakdown .d2 td:first-child {
   padding-left: 48px;
+}
+
+.breakdown .d3 td {
+  color: var(--ink-2);
+}
+
+.breakdown .d3 td:first-child {
+  padding-left: 72px;
 }
 
 .breakdown .emoji {
@@ -2679,12 +2684,12 @@ input[type="search"]::-webkit-search-cancel-button:hover {
   font-weight: 400;
 }
 
-.breakdown tr:has(+ :is(.d1, .d2)) td {
+.breakdown tr:has(+ :is(.d1, .d2, .d3)) td {
   border-bottom: none;
 }
 
 /* The last nested row closes its top row's group. */
-.breakdown :is(.d1, .d2):has(+ .d0) td {
+.breakdown :is(.d1, .d2, .d3):has(+ .d0) td {
   padding-bottom: 8px;
   border-bottom: 1px solid var(--rule);
 }
@@ -2692,6 +2697,9 @@ input[type="search"]::-webkit-search-cancel-button:hover {
 .breakdown tfoot td {
   border-top: 1px solid var(--rule-strong);
   border-bottom: none;
+}
+
+.breakdown :is(tfoot, .total) td {
   font-weight: 650;
 }
 

@@ -178,7 +178,9 @@ test("the tags page: its search narrows it, and a tag leads to the list", async 
 
 test("the about page counts what the site lists, and explains each row", async ({ page }) => {
   await open(page, "/about/");
-  const listed = page.locator(".breakdown tbody tr").first();
+  const listed = page.locator(".breakdown tr", {
+    has: page.getByRole("button", { name: "About Listed", exact: true }),
+  });
   await expect(listed.locator(".num")).toContainText(n(data.skills.length));
   await expect(page.locator(".lede")).toContainText(n(data.skills.length));
 
@@ -197,6 +199,21 @@ test("the about page counts what the site lists, and explains each row", async (
   await listed.locator(".tip-i").click();
   await page.mouse.move(0, 0);
   await expect(tip).toBeHidden();
+});
+
+test("the list's tagline and the about page give the same number of reviewed skills", async ({
+  page,
+}) => {
+  await open(page, "/about/");
+  const row = page.locator(".breakdown tr", {
+    has: page.getByRole("button", { name: "About Reviewed", exact: true }),
+  });
+  // innerText leaves out the row's hidden tooltip, which is in the same cell.
+  const reviewed = (await row.locator(".num").innerText()).trim();
+  expect(reviewed).toMatch(/^[\d,]+$/);
+  await expect(page.locator(".lede")).toContainText(`a review of the ${reviewed} `);
+  await open(page, "/");
+  await expect(page.locator(".list-sub")).toContainText(`from ${reviewed} reviewed skills`);
 });
 
 test.describe("a page that doesn't exist", () => {
