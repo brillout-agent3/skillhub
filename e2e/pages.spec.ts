@@ -224,6 +224,26 @@ test("the tags page: its search narrows it, and a tag leads to the list", async 
   await expect(page).toHaveURL(`/?tag=${encodeURIComponent(name)}`);
 });
 
+test.describe("on a tablet, 768px wide", () => {
+  test.use({ viewport: { width: 768, height: 900 } });
+
+  test("the tags page's tables have the room for whole tags", async ({ page }) => {
+    await open(page, "/tags/");
+    const tags = page.locator(".tag-table td:first-child .tag");
+    await expect(tags).not.toHaveCount(0);
+    // They broke after their prefix, or inside their value, as on a phone, beside half a page of
+    // room.
+    const lines = await tags.evaluateAll((all) =>
+      all.map((tag) =>
+        Math.round(
+          tag.getBoundingClientRect().height / Number.parseFloat(getComputedStyle(tag).lineHeight),
+        ),
+      ),
+    );
+    expect(Math.max(...lines)).toBe(1);
+  });
+});
+
 test("the about page counts what the site lists, and explains each row", async ({ page }) => {
   await open(page, "/about/");
   const listed = page.locator(".breakdown tr", {

@@ -2972,7 +2972,7 @@ input[type="search"]::-webkit-search-cancel-button:hover {
 
 /*
  * A tag stays whole where there's room: its <wbr> would break it nowrap or not, so it's taken
- * out. On a phone, a long tag breaks, so the table fits: see the media query.
+ * out. On a phone, a long tag breaks, so the table fits: see the media query for 600px.
  */
 .tag-table td:first-child {
   white-space: nowrap;
@@ -3769,16 +3769,6 @@ input[type="search"]::-webkit-search-cancel-button:hover {
     padding: 14px 16px;
   }
 
-  /* A long tag breaks after its prefix and at hyphens, so the table fits a phone. Not anywhere: that
-     would let the table squeeze the column to a few letters. */
-  .tag-table td:first-child {
-    white-space: normal;
-  }
-
-  .tag-table td:first-child wbr {
-    display: inline;
-  }
-
   .markdown {
     padding: 4px 16px;
   }
@@ -3808,6 +3798,27 @@ input[type="search"]::-webkit-search-cancel-button:hover {
 
   .ask-button {
     flex: 1 1 100%;
+  }
+
+  /*
+   * The Tags page's tables. A tag and its meaning don't fit side by side on a phone, so a tag
+   * breaks after its prefix, and its value goes to the next line whole, in a column with the room
+   * for it: left to the table, the column was as wide as its longest word, and needs:issue-tracker
+   * took three lines, "issue-" over "tracker". All but the longest value, which still breaks at its
+   * hyphen: a column as wide as category:software-engineering's would leave its meaning less than
+   * half of a small phone. Not on a tablet, where a table has the room for whole tags.
+   */
+  .tag-table td:first-child {
+    min-width: 109px;
+    white-space: normal;
+  }
+
+  .tag-table td:first-child wbr {
+    display: inline;
+  }
+
+  .tag-table td:first-child .tag-value {
+    display: inline-block;
   }
 }
 

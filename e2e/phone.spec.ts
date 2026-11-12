@@ -93,6 +93,48 @@ test("a repo's numbers break between two of them, not inside one", async ({ page
   expect(broken).toBe(0);
 });
 
+test("a tag of the tags page's tables breaks after its prefix, its value whole on the next line", async ({
+  page,
+}) => {
+  await open(page, "/tags/");
+  const tags = page.locator(".tag-table td:first-child .tag");
+  await expect(tags.locator(".tag-value")).not.toHaveCount(0);
+  const [lines, broken] = await tags.evaluateAll((all) => {
+    const linesOf = (el: Element) =>
+      Math.round(
+        el.getBoundingClientRect().height / Number.parseFloat(getComputedStyle(el).lineHeight),
+      );
+    // How wide a value is by itself, on one line: as wide as its lines together.
+    const widthOf = (value: Element) => {
+      const range = document.createRange();
+      range.selectNodeContents(value);
+      return [...range.getClientRects()].reduce((sum, rect) => sum + rect.width, 0);
+    };
+    const values = all.map((tag) => {
+      const value = tag.querySelector(".tag-value") as HTMLElement;
+      const style = getComputedStyle(tag);
+      const room =
+        (tag.closest("td") as HTMLElement).clientWidth -
+        Number.parseFloat(getComputedStyle(tag.closest("td") as Element).paddingRight) -
+        Number.parseFloat(style.paddingLeft) -
+        Number.parseFloat(style.paddingRight);
+      // On two lines, or as an inline box in two boxes: either way, broken.
+      const parts = Math.max(linesOf(value), value.getClientRects().length);
+      return { tag: tag as HTMLElement, value, parts, room, text: value.textContent ?? "" };
+    });
+    // The longest value, which a phone's column hasn't the room for.
+    const longest = values.toSorted((a, b) => b.text.length - a.text.length)[0];
+    return [
+      // Its prefix, then its value: two lines at most, but for the longest.
+      values.filter((v) => v !== longest && linesOf(v.tag) > 2).map((v) => v.tag.dataset.tag),
+      // And none is broken that its column has the room for, as "needs:claude-" over "ai" would be.
+      values.filter((v) => v.parts > 1 && widthOf(v.value) <= v.room).map((v) => v.tag.dataset.tag),
+    ];
+  });
+  expect(lines).toEqual([]);
+  expect(broken).toEqual([]);
+});
+
 test("a number filter's slider opens in view", async ({ page }) => {
   await open(page, "/?show=bundles");
   await page.locator(".filters-toggle").click();

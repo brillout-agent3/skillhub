@@ -199,12 +199,14 @@ export function glanceHtml(glance: Tldr["glance"], max = glance.length): string 
 export function tagChip(tag: string, link: string | null, pressed = false): string {
   const info = tagInfo.get(tag);
   const attrs = `class="tag" data-tag="${esc(tag)}" data-facet="${esc(facetOf(tag))}"${info ? ` title="${esc(info)}"` : ""}`;
-  // The prefix is quieter than the value. Where a tag must break, it breaks after its prefix, or at a hyphen.
+  // The prefix is quieter than the value. Where a tag must break, it breaks after its prefix, or at
+  // a hyphen. Its value is an element of its own for the Tags page's tables, where it goes to the
+  // next line whole on a phone: see .tag-table in style.css.
   const colon = tag.indexOf(":");
   const text =
     colon < 0
       ? esc(tag)
-      : `<span class="tag-facet">${esc(tag.slice(0, colon + 1))}</span><wbr>${esc(tag.slice(colon + 1))}`;
+      : `<span class="tag-facet">${esc(tag.slice(0, colon + 1))}</span><wbr><span class="tag-value">${esc(tag.slice(colon + 1))}</span>`;
   return link === null
     ? `<button type="button" ${attrs} aria-pressed="${pressed}">${text}</button>`
     : `<a ${attrs} href="${link}">${text}</a>`;
