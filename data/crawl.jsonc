@@ -3,58 +3,6 @@
   "asOf": "2026-11-12",
   "qualified": [
     {
-      "name": "obsidian-markdown",
-      "repo": "obsidianmd/obsidian-skills",
-      "official": false,
-      "stars": 51729,
-      "seen": "2026-11-12",
-      "skills.sh": {
-        "url": "https://skills.sh/obsidianmd/obsidian-skills/obsidian-markdown",
-        "installs": 96144,
-        "weeklyInstalls": [1183, 1127, 1195, 1302, 1276, 1856, 1350, 1317],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "obsidian-cli",
-      "repo": "obsidianmd/obsidian-skills",
-      "official": false,
-      "stars": 51729,
-      "seen": "2026-11-12",
-      "skills.sh": {
-        "url": "https://skills.sh/obsidianmd/obsidian-skills/obsidian-cli",
-        "installs": 85015,
-        "weeklyInstalls": [1040, 970, 986, 1085, 1056, 1592, 1117, 1600],
-        "firstSeen": "2026-02-11"
-      }
-    },
-    {
-      "name": "obsidian-bases",
-      "repo": "obsidianmd/obsidian-skills",
-      "official": false,
-      "stars": 51729,
-      "seen": "2026-11-12",
-      "skills.sh": {
-        "url": "https://skills.sh/obsidianmd/obsidian-skills/obsidian-bases",
-        "installs": 82679,
-        "weeklyInstalls": [1011, 960, 1013, 1096, 1074, 1606, 1148, 1094],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
-      "name": "json-canvas",
-      "repo": "obsidianmd/obsidian-skills",
-      "official": false,
-      "stars": 51729,
-      "seen": "2026-11-12",
-      "skills.sh": {
-        "url": "https://skills.sh/obsidianmd/obsidian-skills/json-canvas",
-        "installs": 77200,
-        "weeklyInstalls": [935, 887, 923, 1016, 969, 1547, 1054, 1033],
-        "firstSeen": "2026-01-20"
-      }
-    },
-    {
       "name": "defuddle",
       "repo": "obsidianmd/obsidian-skills",
       "official": false,
@@ -81,71 +29,6 @@
       }
     },
     {
-      "name": "knap",
-      "repo": "obsidianmd/obsidian-skills",
-      "official": false,
-      "stars": 51729,
-      "seen": "2026-11-12",
-      "skills.sh": {
-        "url": "https://skills.sh/obsidianmd/obsidian-skills/knap",
-        "installs": 7300,
-        "weeklyInstalls": [712, 707, 677, 804, 774, 1317, 841, 796],
-        "firstSeen": "2026-09-10"
-      }
-    },
-    {
-      "name": "company-analysis",
-      "repo": "nomadamas/k-skill",
-      "official": false,
-      "stars": 8401,
-      "seen": "2026-11-12",
-      "skills.sh": {
-        "url": "https://skills.sh/nomadamas/k-skill/company-analysis",
-        "installs": 5800,
-        "weeklyInstalls": [0, 0, 0, 206, 495, 624, 1528, 1931],
-        "firstSeen": "2026-10-08"
-      }
-    },
-    {
-      "name": "market-event-impact",
-      "repo": "nomadamas/k-skill",
-      "official": false,
-      "stars": 8401,
-      "seen": "2026-11-12",
-      "skills.sh": {
-        "url": "https://skills.sh/nomadamas/k-skill/market-event-impact",
-        "installs": 5800,
-        "weeklyInstalls": [0, 0, 0, 202, 491, 622, 1521, 1924],
-        "firstSeen": "2026-10-08"
-      }
-    },
-    {
-      "name": "government-bond-analysis",
-      "repo": "nomadamas/k-skill",
-      "official": false,
-      "stars": 8401,
-      "seen": "2026-11-12",
-      "skills.sh": {
-        "url": "https://skills.sh/nomadamas/k-skill/government-bond-analysis",
-        "installs": 5800,
-        "weeklyInstalls": [0, 0, 0, 202, 491, 624, 1520, 1924],
-        "firstSeen": "2026-10-08"
-      }
-    },
-    {
-      "name": "korean-bond-search",
-      "repo": "nomadamas/k-skill",
-      "official": false,
-      "stars": 8401,
-      "seen": "2026-11-12",
-      "skills.sh": {
-        "url": "https://skills.sh/nomadamas/k-skill/korean-bond-search",
-        "installs": 5800,
-        "weeklyInstalls": [0, 0, 0, 203, 491, 623, 1518, 1922],
-        "firstSeen": "2026-10-08"
-      }
-    },
-    {
       "name": "reverse-engineer-marketing",
       "repo": "coreyhaines31/marketingskills",
       "official": false,
@@ -156,45 +39,6 @@
         "installs": 5800,
         "weeklyInstalls": [0, 0, 0, 0, 0, 0, 843, 3359],
         "firstSeen": "2026-10-30"
-      }
-    },
-    {
-      "name": "openfilm",
-      "repo": "openfilm/openfilm",
-      "official": false,
-      "stars": 5819,
-      "seen": "2026-11-12",
-      "skills.sh": {
-        "url": "https://skills.sh/openfilm/openfilm/openfilm",
-        "installs": 5600,
-        "weeklyInstalls": [0, 0, 0, 204, 659, 1788, 1229, 1261],
-        "firstSeen": "2026-10-10"
-      }
-    },
-    {
-      "name": "threejs-performance",
-      "repo": "cloudai-x/threejs-skills",
-      "official": false,
-      "stars": 4139,
-      "seen": "2026-11-12",
-      "skills.sh": {
-        "url": "https://skills.sh/cloudai-x/threejs-skills/threejs-performance",
-        "installs": 5600,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 1337, 1680, 1720],
-        "firstSeen": "2026-10-19"
-      }
-    },
-    {
-      "name": "uv",
-      "repo": "astral-sh/agent-plugins",
-      "official": false,
-      "stars": 317,
-      "seen": "2026-11-12",
-      "skills.sh": {
-        "url": "https://skills.sh/astral-sh/agent-plugins/uv",
-        "installs": 5500,
-        "weeklyInstalls": [315, 342, 326, 214, 244, 233, 250, 297],
-        "firstSeen": "2026-03-01"
       }
     },
     {
@@ -224,32 +68,6 @@
       }
     },
     {
-      "name": "threejs-react-three-fiber",
-      "repo": "cloudai-x/threejs-skills",
-      "official": false,
-      "stars": 4139,
-      "seen": "2026-11-12",
-      "skills.sh": {
-        "url": "https://skills.sh/cloudai-x/threejs-skills/threejs-react-three-fiber",
-        "installs": 5400,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 1269, 1575, 1649],
-        "firstSeen": "2026-10-19"
-      }
-    },
-    {
-      "name": "retrieving-developer-knowledge",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 23958,
-      "seen": "2026-11-12",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/retrieving-developer-knowledge",
-        "installs": 5300,
-        "weeklyInstalls": [503, 387, 444, 517, 479, 343, 447, 554],
-        "firstSeen": "2026-08-27"
-      }
-    },
-    {
       "name": "team-agent-orchestration",
       "repo": "affaan-m/ecc",
       "official": false,
@@ -260,19 +78,6 @@
         "installs": 5300,
         "weeklyInstalls": [270, 166, 147, 246, 428, 412, 493, 475],
         "firstSeen": "2026-06-04"
-      }
-    },
-    {
-      "name": "managed-airflow-migrations",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 23958,
-      "seen": "2026-11-12",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/managed-airflow-migrations",
-        "installs": 5200,
-        "weeklyInstalls": [441, 309, 354, 397, 364, 278, 346, 431],
-        "firstSeen": "2026-08-06"
       }
     },
     {
@@ -325,19 +130,6 @@
         "installs": 5200,
         "weeklyInstalls": [0, 0, 0, 0, 0, 220, 2023, 2057],
         "firstSeen": "2026-10-25"
-      }
-    },
-    {
-      "name": "threejs-webgl",
-      "repo": "freshtechbro/claudedesignskills",
-      "official": false,
-      "stars": 1328,
-      "seen": "2026-11-12",
-      "skills.sh": {
-        "url": "https://skills.sh/freshtechbro/claudedesignskills/threejs-webgl",
-        "installs": 5100,
-        "weeklyInstalls": [148, 134, 117, 183, 163, 208, 171, 255],
-        "firstSeen": "2026-02-27"
       }
     },
     {
@@ -458,32 +250,6 @@
       }
     },
     {
-      "name": "cloud-monitoring-list-time-series-request",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 23958,
-      "seen": "2026-11-12",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/cloud-monitoring-list-time-series-request",
-        "installs": 5100,
-        "weeklyInstalls": [449, 327, 372, 410, 379, 303, 358, 442],
-        "firstSeen": "2026-08-14"
-      }
-    },
-    {
-      "name": "local-seo",
-      "repo": "every-app/open-seo",
-      "official": false,
-      "stars": 27389,
-      "seen": "2026-11-12",
-      "skills.sh": {
-        "url": "https://skills.sh/every-app/open-seo/local-seo",
-        "installs": 5100,
-        "weeklyInstalls": [342, 485, 404, 388, 338, 357, 325, 311],
-        "firstSeen": "2026-08-18"
-      }
-    },
-    {
       "name": "show-me-your-work",
       "repo": "cursor/plugins",
       "official": false,
@@ -494,71 +260,6 @@
         "installs": 5100,
         "weeklyInstalls": [223, 260, 319, 325, 391, 479, 362, 299],
         "firstSeen": "2026-05-24"
-      }
-    },
-    {
-      "name": "aws-security",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3470,
-      "seen": "2026-11-12",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/aws-security",
-        "installs": 5100,
-        "weeklyInstalls": [327, 379, 333, 354, 375, 370, 322, 284],
-        "firstSeen": "2026-08-06"
-      }
-    },
-    {
-      "name": "kubernetes-patterns",
-      "repo": "affaan-m/ecc",
-      "official": false,
-      "stars": 301482,
-      "seen": "2026-11-12",
-      "skills.sh": {
-        "url": "https://skills.sh/affaan-m/ecc/kubernetes-patterns",
-        "installs": 5100,
-        "weeklyInstalls": [265, 165, 144, 232, 412, 406, 480, 457],
-        "firstSeen": "2026-06-07"
-      }
-    },
-    {
-      "name": "vue-patterns",
-      "repo": "affaan-m/ecc",
-      "official": false,
-      "stars": 301482,
-      "seen": "2026-11-12",
-      "skills.sh": {
-        "url": "https://skills.sh/affaan-m/ecc/vue-patterns",
-        "installs": 5100,
-        "weeklyInstalls": [267, 169, 149, 240, 418, 405, 471, 453],
-        "firstSeen": "2026-06-15"
-      }
-    },
-    {
-      "name": "threejs-asset-pipeline",
-      "repo": "cloudai-x/threejs-skills",
-      "official": false,
-      "stars": 4139,
-      "seen": "2026-11-12",
-      "skills.sh": {
-        "url": "https://skills.sh/cloudai-x/threejs-skills/threejs-asset-pipeline",
-        "installs": 5100,
-        "weeklyInstalls": [0, 0, 0, 0, 0, 1250, 1547, 1546],
-        "firstSeen": "2026-10-19"
-      }
-    },
-    {
-      "name": "n8n-workflow",
-      "repo": "claude-office-skills/skills",
-      "official": false,
-      "stars": 572,
-      "seen": "2026-11-12",
-      "skills.sh": {
-        "url": "https://skills.sh/claude-office-skills/skills/n8n-workflow",
-        "installs": 5000,
-        "weeklyInstalls": [79, 58, 57, 98, 223, 176, 64, 73],
-        "firstSeen": "2026-03-09"
       }
     },
     {
@@ -601,19 +302,6 @@
       }
     },
     {
-      "name": "notion-automation",
-      "repo": "claude-office-skills/skills",
-      "official": false,
-      "stars": 572,
-      "seen": "2026-11-12",
-      "skills.sh": {
-        "url": "https://skills.sh/claude-office-skills/skills/notion-automation",
-        "installs": 5000,
-        "weeklyInstalls": [74, 52, 60, 100, 224, 180, 65, 72],
-        "firstSeen": "2026-03-09"
-      }
-    },
-    {
       "name": "oklch-skill",
       "repo": "jakubkrehel/oklch-skill",
       "official": false,
@@ -624,45 +312,6 @@
         "installs": 5000,
         "weeklyInstalls": [290, 259, 235, 214, 224, 143, 131, 178],
         "firstSeen": "2026-04-01"
-      }
-    },
-    {
-      "name": "sitetositevpn",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3470,
-      "seen": "2026-11-12",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/sitetositevpn",
-        "installs": 5000,
-        "weeklyInstalls": [232, 258, 217, 204, 253, 241, 199, 184],
-        "firstSeen": "2026-07-06"
-      }
-    },
-    {
-      "name": "frontend-design",
-      "repo": "nexu-io/open-design",
-      "official": false,
-      "stars": 107248,
-      "seen": "2026-11-12",
-      "skills.sh": {
-        "url": "https://skills.sh/nexu-io/open-design/frontend-design",
-        "installs": 5000,
-        "weeklyInstalls": [189, 117, 84, 85, 71, 88, 89, 81],
-        "firstSeen": "2026-05-11"
-      }
-    },
-    {
-      "name": "rds-oracle",
-      "repo": "aws/agent-toolkit-for-aws",
-      "official": false,
-      "stars": 3470,
-      "seen": "2026-11-12",
-      "skills.sh": {
-        "url": "https://skills.sh/aws/agent-toolkit-for-aws/rds-oracle",
-        "installs": 5000,
-        "weeklyInstalls": [233, 259, 215, 200, 247, 234, 202, 184],
-        "firstSeen": "2026-07-02"
       }
     },
     {
@@ -679,19 +328,6 @@
       }
     },
     {
-      "name": "google-cloud-filestore-autoscale",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 23958,
-      "seen": "2026-11-12",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/google-cloud-filestore-autoscale",
-        "installs": 5000,
-        "weeklyInstalls": [443, 310, 363, 413, 369, 267, 340, 430],
-        "firstSeen": "2026-08-11"
-      }
-    },
-    {
       "name": "agent-self-evaluation",
       "repo": "affaan-m/ecc",
       "official": false,
@@ -705,19 +341,6 @@
       }
     },
     {
-      "name": "managed-airflow-dag-authoring",
-      "repo": "google/skills",
-      "official": true,
-      "stars": 23958,
-      "seen": "2026-11-12",
-      "skills.sh": {
-        "url": "https://skills.sh/google/skills/managed-airflow-dag-authoring",
-        "installs": 5000,
-        "weeklyInstalls": [441, 310, 358, 410, 365, 283, 347, 434],
-        "firstSeen": "2026-08-12"
-      }
-    },
-    {
       "name": "principle-minimize-reader-load",
       "repo": "cursor/plugins",
       "official": false,
@@ -728,32 +351,6 @@
         "installs": 5000,
         "weeklyInstalls": [290, 322, 390, 326, 398, 474, 355, 308],
         "firstSeen": "2026-05-24"
-      }
-    },
-    {
-      "name": "wp-phpstan",
-      "repo": "wordpress/agent-skills",
-      "official": false,
-      "stars": 2353,
-      "seen": "2026-11-12",
-      "skills.sh": {
-        "url": "https://skills.sh/wordpress/agent-skills/wp-phpstan",
-        "installs": 5000,
-        "weeklyInstalls": [170, 170, 148, 182, 185, 190, 175, 169],
-        "firstSeen": "2026-02-01"
-      }
-    },
-    {
-      "name": "firecrawl-build",
-      "repo": "firecrawl/skills",
-      "official": false,
-      "stars": 154,
-      "seen": "2026-11-12",
-      "skills.sh": {
-        "url": "https://skills.sh/firecrawl/skills/firecrawl-build",
-        "installs": 5000,
-        "weeklyInstalls": [247, 251, 338, 285, 453, 613, 466, 510],
-        "firstSeen": "2026-04-08"
       }
     },
     {
@@ -796,32 +393,6 @@
       }
     },
     {
-      "name": "iii-engine-config",
-      "repo": "iii-hq/iii",
-      "official": false,
-      "stars": 18936,
-      "seen": "2026-11-12",
-      "skills.sh": {
-        "url": "https://skills.sh/iii-hq/iii/iii-engine-config",
-        "installs": 5000,
-        "weeklyInstalls": [222, 215, 193, 232, 392, 454, 317, 321],
-        "firstSeen": "2026-04-06"
-      }
-    },
-    {
-      "name": "iii-getting-started",
-      "repo": "iii-hq/iii",
-      "official": false,
-      "stars": 18936,
-      "seen": "2026-11-12",
-      "skills.sh": {
-        "url": "https://skills.sh/iii-hq/iii/iii-getting-started",
-        "installs": 5000,
-        "weeklyInstalls": [221, 213, 193, 232, 393, 455, 317, 322],
-        "firstSeen": "2026-04-06"
-      }
-    },
-    {
       "name": "principle-experience-first",
       "repo": "cursor/plugins",
       "official": false,
@@ -832,32 +403,6 @@
         "installs": 5000,
         "weeklyInstalls": [303, 338, 394, 309, 347, 463, 355, 301],
         "firstSeen": "2026-05-24"
-      }
-    },
-    {
-      "name": "mongodb-natural-language-querying",
-      "repo": "mongodb/agent-skills",
-      "official": false,
-      "stars": 198,
-      "seen": "2026-11-12",
-      "skills.sh": {
-        "url": "https://skills.sh/mongodb/agent-skills/mongodb-natural-language-querying",
-        "installs": 5000,
-        "weeklyInstalls": [101, 119, 107, 149, 122, 162, 148, 118],
-        "firstSeen": "2026-03-22"
-      }
-    },
-    {
-      "name": "langsmith-dataset",
-      "repo": "langchain-ai/langsmith-skills",
-      "official": false,
-      "stars": 166,
-      "seen": "2026-11-12",
-      "skills.sh": {
-        "url": "https://skills.sh/langchain-ai/langsmith-skills/langsmith-dataset",
-        "installs": 5000,
-        "weeklyInstalls": [173, 136, 122, 75, 72, 73, 73, 63],
-        "firstSeen": "2026-03-04"
       }
     },
     {
@@ -988,19 +533,6 @@
         "installs": 5000,
         "weeklyInstalls": [196, 273, 447, 389, 303, 330, 353, 318],
         "firstSeen": "2026-08-02"
-      }
-    },
-    {
-      "name": "skill-creator",
-      "repo": "composiohq/awesome-claude-skills",
-      "official": true,
-      "stars": 79296,
-      "seen": "2026-11-12",
-      "skills.sh": {
-        "url": "https://skills.sh/composiohq/awesome-claude-skills/skill-creator",
-        "installs": 5000,
-        "weeklyInstalls": [83, 82, 137, 102, 93, 88, 96, 91],
-        "firstSeen": "2026-01-20"
       }
     },
     {
@@ -34560,6 +34092,366 @@
       "url": "https://skills.sh/kepano/obsidian-skills/defuddle",
       "reason": {
         "goneFromRepo": "2026-11-12"
+      }
+    },
+    {
+      "url": "https://skills.sh/obsidianmd/obsidian-skills/obsidian-markdown",
+      "reason": {
+        "agentReview": {
+          "note": "Tool docs: an agent's manual for obsidian.",
+          "model": "Claude Opus 5.5",
+          "effort": null
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/obsidianmd/obsidian-skills/obsidian-cli",
+      "reason": {
+        "agentReview": {
+          "note": "Tool docs: an agent's manual for obsidian.",
+          "model": "Claude Opus 5.5",
+          "effort": null
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/obsidianmd/obsidian-skills/obsidian-bases",
+      "reason": {
+        "agentReview": {
+          "note": "Tool docs: an agent's manual for obsidian.",
+          "model": "Claude Opus 5.5",
+          "effort": null
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/obsidianmd/obsidian-skills/json-canvas",
+      "reason": {
+        "agentReview": {
+          "note": "Tool docs: an agent's manual for obsidian.",
+          "model": "Claude Opus 5.5",
+          "effort": null
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/obsidianmd/obsidian-skills/knap",
+      "reason": {
+        "agentReview": {
+          "note": "Tool docs: an agent's manual for knap.",
+          "model": "Claude Opus 5.5",
+          "effort": null
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/nomadamas/k-skill/company-analysis",
+      "reason": {
+        "agentReview": {
+          "note": "Before each use, its CLI installs all of k-skill's skills globally, without asking.",
+          "model": "Claude Opus 5.5",
+          "effort": null
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/nomadamas/k-skill/market-event-impact",
+      "reason": {
+        "agentReview": {
+          "note": "Before each use, its CLI installs all of k-skill's skills globally, without asking.",
+          "model": "Claude Opus 5.5",
+          "effort": null
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/nomadamas/k-skill/government-bond-analysis",
+      "reason": {
+        "agentReview": {
+          "note": "Before each use, its CLI installs all of k-skill's skills globally, without asking.",
+          "model": "Claude Opus 5.5",
+          "effort": null
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/nomadamas/k-skill/korean-bond-search",
+      "reason": {
+        "agentReview": {
+          "note": "Before each use, its CLI installs all of k-skill's skills globally, without asking.",
+          "model": "Claude Opus 5.5",
+          "effort": null
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/openfilm/openfilm/openfilm",
+      "reason": {
+        "agentReview": {
+          "note": "Tool docs: an agent's manual for openfilm.",
+          "model": "Claude Opus 5.5",
+          "effort": null
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/cloudai-x/threejs-skills/threejs-performance",
+      "reason": {
+        "agentReview": {
+          "note": "Tool docs: an agent's manual for threejs.",
+          "model": "Claude Opus 5.5",
+          "effort": null
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/astral-sh/agent-plugins/uv",
+      "reason": {
+        "agentReview": {
+          "note": "Tool docs: an agent's manual for uv.",
+          "model": "Claude Opus 5.5",
+          "effort": null
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/cloudai-x/threejs-skills/threejs-react-three-fiber",
+      "reason": {
+        "agentReview": {
+          "note": "Tool docs: an agent's manual for threejs and react-three-fiber.",
+          "model": "Claude Opus 5.5",
+          "effort": null
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/google/skills/retrieving-developer-knowledge",
+      "reason": {
+        "agentReview": {
+          "note": "Tool docs: it looks up Google's own documentation, for google-cloud, android, firebase and other Google platforms.",
+          "model": "Claude Opus 5.5",
+          "effort": null
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/google/skills/managed-airflow-migrations",
+      "reason": {
+        "agentReview": {
+          "note": "Tool docs: an agent's manual for google-cloud and airflow.",
+          "model": "Claude Opus 5.5",
+          "effort": null
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/freshtechbro/claudedesignskills/threejs-webgl",
+      "reason": {
+        "agentReview": {
+          "note": "Tool docs: an agent's manual for threejs.",
+          "model": "Claude Opus 5.5",
+          "effort": null
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/google/skills/cloud-monitoring-list-time-series-request",
+      "reason": {
+        "agentReview": {
+          "note": "Tool docs: an agent's manual for google-cloud.",
+          "model": "Claude Opus 5.5",
+          "effort": null
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/every-app/open-seo/local-seo",
+      "reason": {
+        "agentReview": {
+          "note": "Vendor paid service: it runs its job on OpenSEO's credits.",
+          "model": "Claude Opus 5.5",
+          "effort": null
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/aws-security",
+      "reason": {
+        "agentReview": {
+          "note": "Tool docs: an agent's manual for aws.",
+          "model": "Claude Opus 5.5",
+          "effort": null
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/affaan-m/ecc/kubernetes-patterns",
+      "reason": {
+        "agentReview": {
+          "note": "Tool docs: an agent's manual for kubernetes.",
+          "model": "Claude Opus 5.5",
+          "effort": null
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/affaan-m/ecc/vue-patterns",
+      "reason": {
+        "agentReview": {
+          "note": "Tool docs: an agent's manual for vue.",
+          "model": "Claude Opus 5.5",
+          "effort": null
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/cloudai-x/threejs-skills/threejs-asset-pipeline",
+      "reason": {
+        "agentReview": {
+          "note": "Tool docs: an agent's manual for threejs and gltf-transform.",
+          "model": "Claude Opus 5.5",
+          "effort": null
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/claude-office-skills/skills/n8n-workflow",
+      "reason": {
+        "agentReview": {
+          "note": "Tool docs: an agent's manual for n8n.",
+          "model": "Claude Opus 5.5",
+          "effort": null
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/claude-office-skills/skills/notion-automation",
+      "reason": {
+        "agentReview": {
+          "note": "Tool docs: an agent's manual for automating notion.",
+          "model": "Claude Opus 5.5",
+          "effort": null
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/sitetositevpn",
+      "reason": {
+        "agentReview": {
+          "note": "Tool docs: an agent's manual for aws.",
+          "model": "Claude Opus 5.5",
+          "effort": null
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/nexu-io/open-design/frontend-design",
+      "reason": {
+        "agentReview": {
+          "note": "A copy of anthropics/skills/skills/frontend-design, shortened and adapted for OpenDesign.",
+          "model": "Claude Opus 5.5",
+          "effort": null
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/aws/agent-toolkit-for-aws/rds-oracle",
+      "reason": {
+        "agentReview": {
+          "note": "Tool docs: an agent's manual for aws.",
+          "model": "Claude Opus 5.5",
+          "effort": null
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/google/skills/google-cloud-filestore-autoscale",
+      "reason": {
+        "agentReview": {
+          "note": "Tool docs: an agent's manual for google-cloud.",
+          "model": "Claude Opus 5.5",
+          "effort": null
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/google/skills/managed-airflow-dag-authoring",
+      "reason": {
+        "agentReview": {
+          "note": "Tool docs: an agent's manual for google-cloud and airflow.",
+          "model": "Claude Opus 5.5",
+          "effort": null
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/wordpress/agent-skills/wp-phpstan",
+      "reason": {
+        "agentReview": {
+          "note": "Tool docs: an agent's manual for wordpress and phpstan.",
+          "model": "Claude Opus 5.5",
+          "effort": null
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/firecrawl/skills/firecrawl-build",
+      "reason": {
+        "agentReview": {
+          "note": "Tool docs: an agent's manual for firecrawl.",
+          "model": "Claude Opus 5.5",
+          "effort": null
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/iii-hq/iii/iii-engine-config",
+      "reason": {
+        "agentReview": {
+          "note": "Tool docs: an agent's manual for iii.",
+          "model": "Claude Opus 5.5",
+          "effort": null
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/iii-hq/iii/iii-getting-started",
+      "reason": {
+        "agentReview": {
+          "note": "Tool docs: an agent's manual for iii.",
+          "model": "Claude Opus 5.5",
+          "effort": null
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/mongodb/agent-skills/mongodb-natural-language-querying",
+      "reason": {
+        "agentReview": {
+          "note": "Tool docs: an agent's manual for mongodb.",
+          "model": "Claude Opus 5.5",
+          "effort": null
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/langchain-ai/langsmith-skills/langsmith-dataset",
+      "reason": {
+        "agentReview": {
+          "note": "Tool docs: an agent's manual for langsmith.",
+          "model": "Claude Opus 5.5",
+          "effort": null
+        }
+      }
+    },
+    {
+      "url": "https://skills.sh/composiohq/awesome-claude-skills/skill-creator",
+      "reason": {
+        "agentReview": {
+          "note": "A copy of an older version of anthropics/skills/skills/skill-creator.",
+          "model": "Claude Opus 5.5",
+          "effort": null
+        }
       }
     }
   ]
