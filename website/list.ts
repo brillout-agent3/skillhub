@@ -60,11 +60,36 @@ const quiet = (tag: string) => tag === "by:community" || facetOf(tag) === "categ
 // ------------------------------------------------------------------- state
 
 /**
+ * The Age slider's inner stops, oldest first, in days before the data's date: its range is
+ * relative, such as a month at most, so a link keeps its meaning as the data moves on. The URL
+ * names them such as 30d, in its `published` parameter: the filter was named Published, and links
+ * to it still work.
+ */
+const AGES = [365, 90, 30, 7] as const;
+type Age = (typeof AGES)[number];
+/**
+ * Each stop in words, as a range says it: "≤ 3 months", "> 1 year", "1 week – 1 month". In weeks,
+ * months and years, as a row says its age: 30 days are a month, and 90 are three.
+ */
+const AGE_WORDS: Record<Age, string> = {
+  365: "1 year",
+  90: "3 months",
+  30: "1 month",
+  7: "1 week",
+};
+/** Each stop in short, under the slider's histogram. */
+const AGE_SHORT: Record<Age, string> = { 365: "1y", 90: "3mo", 30: "1mo", 7: "1w" };
+/** An age as a preset's tooltip says it: "the last 3 months", "the last month". */
+const theLast = (since: Age) => `the last ${AGE_WORDS[since].replace(/^1 /, "")}`;
+
+/**
  * Buttons that set the sort and the sliders (see presetPatch), highest first, each named after what
  * it shows, which the settings spell out: Rising, the default view, by how fast the weekly downloads
- * grow; Rising & new by weekly downloads among the skills published in the last NEW_SINCE days (a
- * skill that young has no growth yet, see growthOf; one that took off from almost nothing counts as
- * published then, see publishedOf); Top by weekly downloads; New by publishing date.
+ * grow; Rising & new by weekly downloads among the skills published in the last RISING_NEW_SINCE
+ * days (a skill that young has no growth yet, see growthOf; one that took off from almost nothing
+ * counts as published then, see publishedOf); Top by weekly downloads; New by publishing date among
+ * those published in the last NEW_SINCE days: without an age, it was every skill, the oldest too,
+ * under a name that says new.
  */
 export type Preset = "rising" | "rising-new" | "top" | "new";
 interface PresetInfo {
@@ -74,8 +99,9 @@ interface PresetInfo {
   since: Age | null;
   title: string;
 }
-/** How recent Rising & new's skills are, in days. */
-const NEW_SINCE = 90;
+/** How recent the skills of Rising & new are, and of New, in days: each a stop of the Age slider. */
+const RISING_NEW_SINCE = 90;
+const NEW_SINCE = 30;
 export const PRESETS: Record<Preset, PresetInfo> = {
   rising: {
     label: "Rising",
@@ -86,15 +112,15 @@ export const PRESETS: Record<Preset, PresetInfo> = {
   "rising-new": {
     label: "Rising & new",
     sort: "week",
-    since: NEW_SINCE,
-    title: `The most downloaded this week of those published in the last ${NEW_SINCE} days`,
+    since: RISING_NEW_SINCE,
+    title: `The most downloaded this week of those published in ${theLast(RISING_NEW_SINCE)}`,
   },
   top: { label: "Top", sort: "week", since: null, title: "Most downloaded this week" },
   new: {
     label: "New",
     sort: "published",
-    since: null,
-    title: "Most recently published",
+    since: NEW_SINCE,
+    title: `The newest of those published in ${theLast(NEW_SINCE)}`,
   },
 };
 
@@ -227,16 +253,6 @@ function countStops(of: (s: Skill) => number | null): number[] {
   for (let p = 10; stops[stops.length - 1] <= max; p *= 10) stops.push(p, 2 * p, 5 * p);
   return stops.slice(0, stops.findIndex((n) => n > max) + 1);
 }
-/**
- * The Age slider's inner stops, oldest first, in days before the data's date: its range is
- * relative, such as 30 days at most, so a link keeps its meaning as the data moves on. The URL names
- * them such as 30d, in its `published` parameter: the filter was named Published, and links to it
- * still work.
- */
-const AGES = [365, 90, 30, 7] as const;
-type Age = (typeof AGES)[number];
-/** Each stop in words, as a range says it: "≤ 90 days", "> 1 year", "1 week – 30 days". */
-const AGE_WORDS: Record<Age, string> = { 365: "1 year", 90: "90 days", 30: "30 days", 7: "1 week" };
 
 // A bundle's numbers are its most popular skill's.
 const most = (e: Entry) => (isBundle(e) ? "The most of any of its skills: " : "");
@@ -337,8 +353,8 @@ const stopKey = (p: Prop, i: number) => PROPS[p].keys?.[i] ?? String(PROPS[p].st
 
 /**
  * A slider's range in words, such as "≥ 1K" or "1K – 5K"; and for an age, said as the counts are,
- * "≤ 30 days" or "30 days – 1 year": in words, "Under 90 days" was too long for the settings' line
- * on a 1,280px screen (see .settings-line in style.css).
+ * "≤ 1 month" or "1 month – 1 year": in words, as "Under 3 months", it was too long for the
+ * settings' line on a 1,280px screen (see .settings-line in style.css).
  */
 export function rangeLabel(p: Prop, [lo, hi]: Range): string {
   const { stops, date } = PROPS[p];
@@ -694,7 +710,7 @@ function passes(s: Skill, st: State, skip: string | null = null): boolean {
 /**
  * Whether the entry's numbers are within the sliders' ranges. A bundle's are its own, the ones its
  * row shows (its oldest skill's date, its most downloaded skill's downloads), so that a bundle
- * whose oldest skill is a year old isn't in "Age: ≤ 90 days" for its newest skills.
+ * whose oldest skill is a year old isn't in "Age: ≤ 3 months" for its newest skills.
  */
 const inRanges = (e: Entry, st: State) => PROP_IDS.every((p) => inRange(e, p, st.ranges[p]));
 function inRange(e: Entry, p: Prop, [lo, hi]: Range): boolean {
@@ -1527,7 +1543,7 @@ function axisHtml(p: Prop): string {
   const { stops, date } = PROPS[p];
   const last = lastStop(p);
   const labels: [number, string][] = [];
-  if (date) AGES.forEach((n, i) => labels.push([i + 1, n === 365 ? "1y" : `${n}d`]));
+  if (date) AGES.forEach((n, i) => labels.push([i + 1, AGE_SHORT[n]]));
   else
     stops.forEach((v, i) => {
       const decade = v === 0 || Number.isInteger(Math.log10(v as number));

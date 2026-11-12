@@ -147,12 +147,23 @@ test("the presets set the sort and the Age range", async ({ page }) => {
   await preset("rising-new").click();
   await settled(page);
   await expect(page).toHaveURL("/?sort=week&published=90d..");
-  await expect(page.locator('[data-range-label="published"]').first()).toHaveText("≤ 90 days");
-  await expect(list(page).scope).toContainText("Age: ≤ 90 days");
+  await expect(page.locator('[data-range-label="published"]').first()).toHaveText("≤ 3 months");
+  await expect(list(page).scope).toContainText("Age: ≤ 3 months");
+  await expect(preset("rising-new")).toHaveAttribute("title", /published in the last 3 months$/);
 
+  // New is the newest of the last month: without an age, it was every skill, the oldest too.
   await preset("new").click();
   await settled(page);
-  await expect(page).toHaveURL("/?sort=published");
+  await expect(page).toHaveURL("/?sort=published&published=30d..");
+  await expect(preset("new")).toHaveAttribute("aria-pressed", "true");
+  await expect(preset("new")).toHaveAttribute("title", /published in the last month$/);
+  await expect(page.locator('[data-range-label="published"]').first()).toHaveText("≤ 1 month");
+  await expect(list(page).scope).toContainText("Age: ≤ 1 month");
+  // A month at most is so many days or weeks, as a row says its age: the youngest first.
+  const ages = await list(page).sortedValues.allTextContents();
+  for (const age of ages) expect(age).toMatch(/^\d+ (day|week)s?$/);
+  const days = ages.map((age) => Number.parseInt(age) * (age.includes("week") ? 7 : 1));
+  expect(days).toEqual(days.toSorted((a, b) => a - b));
 
   await preset("rising").click();
   await settled(page);
@@ -168,9 +179,9 @@ test("Rising & new keeps the settings on one line, and the list where it is", as
   await settled(page);
   // Age shows its range in place of its name, which leaves Show room on the line.
   const pill = page.locator('.range-pill[data-value="published"]');
-  await expect(pill.locator(".range-value")).toHaveText("≤ 90 days");
+  await expect(pill.locator(".range-value")).toHaveText("≤ 3 months");
   await expect(pill.locator(".range-word")).not.toBeInViewport();
-  await expect(pill).toHaveAccessibleName("Age ≤ 90 days");
+  await expect(pill).toHaveAccessibleName("Age ≤ 3 months");
   expect(await top(".show-group")).toBe(await top(".preset-group"));
   expect(await top("#results")).toBe(list);
 });

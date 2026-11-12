@@ -379,9 +379,10 @@ body:has(.skills-view) #page-head {
  * cards' left edge to the tags' right edge. Presets' and Sort by's keep their width: a number
  * filter's pill gets longer as its range narrows the list, and were the tiles before it to give
  * way, the pill and the slider under it would move while a handle is dragged. Where the view is too
- * narrow for one line, Show goes onto a second: under about 1,200px, or 1,240px with Rising & new,
- * which leaves a 1,280px screen its one line; or on a wider one while several filters narrow the
- * list, whose pills get longer, even as Age's and Stars' stay short (see .range-word).
+ * narrow for one line, Show goes onto a second: under about 1,200px, or 1,250px with Rising & new
+ * and 1,240px with New, whose Age says its range, "≤ 3 months" and "≤ 1 month", which leaves a
+ * 1,280px screen its one line; or on a wider one while several filters narrow the list, whose pills
+ * get longer, even as Age's and Stars' stay short (see .range-word).
  */
 .settings-line {
   display: flex;
@@ -480,7 +481,7 @@ body:has(.skills-view) #page-head {
  * once it narrows the list. On a phone, whose pills are two a row, it says "Any".
  *
  * Once they narrow the list, Age and Stars, whose icons are theirs alone, show their range in
- * place of their name: "≤ 90 days" beside the chick. With both, the line didn't fit, so that
+ * place of their name: "≤ 3 months" beside the chick. With both, the line didn't fit, so that
  * Rising & new sent Show onto a second line, and the list down with it. The name stays for screen
  * readers, and is the pill's tooltip.
  */
