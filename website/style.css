@@ -2965,21 +2965,38 @@ input[type="search"]::-webkit-search-cancel-button:hover {
 }
 
 /* Each row adds up the rows one level deeper under it, and each level lines up with the label after
-   its parent's emoji. */
-.breakdown .d1 td:first-child {
-  padding-left: 24px;
+   its parent's emoji: --indent, a step of 24px, an emoji's width. */
+.breakdown td:first-child {
+  padding-left: var(--indent, 0px);
 }
 
-.breakdown .d2 td:first-child {
-  padding-left: 48px;
+.breakdown .d1 {
+  --indent: 24px;
 }
 
-.breakdown .d3 td:first-child {
-  padding-left: 72px;
+.breakdown .d2 {
+  --indent: 48px;
 }
 
-.breakdown .d4 td:first-child {
-  padding-left: 96px;
+.breakdown .d3 {
+  --indent: 72px;
+}
+
+.breakdown .d4 {
+  --indent: 96px;
+}
+
+/* A label too long for its line, as some are on a phone, goes on under its own start, not under
+   its emoji: the emoji hangs in the cell's padding. */
+.breakdown td:first-child:has(.emoji) {
+  padding-left: calc(var(--indent, 0px) + 24px);
+  text-indent: -24px;
+}
+
+/* Boxes of their own, which would each indent their own line. */
+.breakdown .emoji,
+.breakdown .tip-i {
+  text-indent: 0;
 }
 
 /* Crawled, all the others' sum, over a strong line. */
@@ -3111,20 +3128,20 @@ input[type="search"]::-webkit-search-cancel-button:hover {
     padding-left: 16px;
   }
 
-  .breakdown .d1 td:first-child {
-    padding-left: 12px;
+  .breakdown .d1 {
+    --indent: 12px;
   }
 
-  .breakdown .d2 td:first-child {
-    padding-left: 24px;
+  .breakdown .d2 {
+    --indent: 24px;
   }
 
-  .breakdown .d3 td:first-child {
-    padding-left: 36px;
+  .breakdown .d3 {
+    --indent: 36px;
   }
 
-  .breakdown .d4 td:first-child {
-    padding-left: 48px;
+  .breakdown .d4 {
+    --indent: 48px;
   }
 }
 

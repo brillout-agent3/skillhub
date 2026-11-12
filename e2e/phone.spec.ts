@@ -53,6 +53,29 @@ test("a trend's tooltip stays on the screen, at its last week too", async ({ pag
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(WIDTH);
 });
 
+test("a label of the about page's table, too long for its line, goes on under its own start", async ({
+  page,
+}) => {
+  await open(page, "/about/");
+  // Where each line of a label starts, for the labels that take more than one.
+  const starts = await page.locator(".breakdown td:first-child").evaluateAll((cells) =>
+    cells
+      .map((cell) => {
+        const label = [...cell.childNodes].find(
+          (node) => node.nodeType === Node.TEXT_NODE && node.textContent?.trim(),
+        );
+        if (!label) return [];
+        const range = document.createRange();
+        range.selectNodeContents(label);
+        return [...range.getClientRects()].map((line) => Math.round(line.left));
+      })
+      .filter((lines) => lines.length > 1),
+  );
+  expect(starts).not.toHaveLength(0);
+  // Not under the row's emoji, which comes before the label's first line.
+  for (const lines of starts) expect(new Set(lines).size, lines.join(", ")).toBe(1);
+});
+
 test("a number filter's slider opens in view", async ({ page }) => {
   await open(page, "/?show=bundles");
   await page.locator(".filters-toggle").click();
