@@ -2851,7 +2851,6 @@ input[type="search"]::-webkit-search-cancel-button:hover {
 /* Crawled, all the others' sum, over a strong line. */
 .breakdown .d0 td {
   border-bottom: 1px solid var(--rule-strong);
-  font-weight: 650;
 }
 
 /* A line before each group of the next two levels, but not between a sum and its first part. */
@@ -2879,7 +2878,7 @@ input[type="search"]::-webkit-search-cancel-button:hover {
   font-weight: 400;
 }
 
-/* A row's share of the reviewed skills, in the histograms' colors: grey, and garnet for Listed. */
+/* A row's share of the crawled skills, in the histograms' colors: grey, and garnet for Listed. */
 .breakdown td.bar {
   width: 130px;
   padding-left: 24px;

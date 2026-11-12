@@ -14,6 +14,8 @@ interface Row {
   emoji?: string;
   /** Its bar is garnet, as the row the page is about. */
   accent?: boolean;
+  /** It has no bar: Crawled, whose bar would always be full, and Waiting. */
+  noBar?: boolean;
   /** What a screen reader calls the row, when the label alone isn't clear. Defaults to the label. */
   name?: string;
 }
@@ -28,11 +30,12 @@ export default function Page(): string {
   const byAgent = t.toolDocs + t.vendorService + t.language + t.copy + t.retired + t.other;
   const byScript = review.gone + review.notOnGitHub;
   // Each row adds up the rows one level deeper under it, down from Crawled: every skill SkillHub
-  // knows of. The rows under Reviewed have a bar of their share of the reviewed skills.
+  // knows of. A row's bar is its share of them.
   const rows: Row[] = [
     {
       label: "Crawled",
       emoji: "🔍",
+      noBar: true,
       count: review.crawled,
       tip: "Every skill SkillHub found on skills.sh: reviewed, or waiting for an agent review.",
     },
@@ -40,6 +43,7 @@ export default function Page(): string {
       label: "Waiting for agent review",
       emoji: "⏳",
       depth: 1,
+      noBar: true,
       count: review.waiting,
       tip: "It has the minimum installs and stars, or it's by an author SkillHub lists every skill of, and is next in line for an agent review.",
     },
@@ -51,19 +55,19 @@ export default function Page(): string {
       tip: "SkillHub has a verdict on it: listed, disqualified, or checked on its installs and stars and found under the minimums.",
     },
     {
-      label: "Under the minimum installs or stars",
-      emoji: "🌱",
-      depth: 2,
-      count: review.under,
-      tip: `It has fewer than ${n(minimums.installs)} installs, or its repo fewer than ${n(minimums.stars)} stars. It gets an agent review once it has both.`,
-    },
-    {
       label: "Listed",
       emoji: "✅",
       depth: 2,
       accent: true,
       count: review.listed,
       tip: "An agent review judged it useful to people looking for skills.",
+    },
+    {
+      label: "Under the minimum installs or stars",
+      emoji: "🌱",
+      depth: 2,
+      count: review.under,
+      tip: `It has fewer than ${n(minimums.installs)} installs, or its repo fewer than ${n(minimums.stars)} stars. It gets an agent review once it has both.`,
     },
     {
       label: "Disqualified",
@@ -137,10 +141,13 @@ export default function Page(): string {
       tip: "It's hosted somewhere other than GitHub, where SkillHub reads each SKILL.md and follows its changes.",
     },
   ];
-  const row = ({ label, count, tip, depth = 0, emoji, accent, name = label }: Row, i: number) => {
+  const row = (
+    { label, count, tip, depth = 0, emoji, accent, noBar, name = label }: Row,
+    i: number,
+  ) => {
     const bar =
-      depth >= 2 && count
-        ? `<span${accent ? ' class="accent"' : ""} style="--share: ${(count / review.reviewed).toFixed(4)}"></span>`
+      !noBar && count
+        ? `<span${accent ? ' class="accent"' : ""} style="--share: ${(count / review.crawled).toFixed(4)}"></span>`
         : "";
     return `<tr class="d${depth}"><td>${emoji ? `<span class="emoji" aria-hidden="true">${emoji}</span>` : ""}${label}<button type="button" class="tip-i" aria-label="About ${name}" aria-describedby="tip-${i}">i</button></td><td class="bar">${bar}</td><td class="num">${n(count)}<span class="tip-text" role="tooltip" id="tip-${i}">${tip}</span></td></tr>`;
   };
