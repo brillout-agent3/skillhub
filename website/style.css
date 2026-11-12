@@ -3595,6 +3595,18 @@ input[type="search"]::-webkit-search-cancel-button:hover {
     margin-top: 16px;
   }
 
+  /* The keyboard's way past the open tags: over their count, as on a wide screen, where the tags'
+     column is what places it. Here nothing did, so it showed at the page's top, where the screen
+     then went. */
+  #filters {
+    position: relative;
+  }
+
+  .skip-tags {
+    top: 4px;
+    left: 20px;
+  }
+
   .settings-line:not(.shown) .show-group {
     margin-top: 8px;
   }

@@ -230,6 +230,27 @@ test.describe("on a tablet, 768px wide", () => {
     };
     expect(Math.abs((await middle(".ask-button")) - (await middle("#need")))).toBeLessThan(2);
   });
+
+  test("the keyboard's link past the open tags shows over them, not at the page's top", async ({
+    page,
+  }) => {
+    await open(page, "/?show=bundles");
+    const toggle = page.locator(".tags-toggle");
+    await toggle.click();
+    // It comes right before the tags' count, which opened them.
+    await toggle.focus();
+    await page.keyboard.press("Shift+Tab");
+    const skip = page.locator(".skip-tags");
+    await expect(skip).toBeFocused();
+    await expect(skip).toBeInViewport({ ratio: 1 });
+    const [link, tags] = [await skip.boundingBox(), await page.locator("#filters").boundingBox()];
+    if (!link || !tags) throw new Error("the tags aren't laid out");
+    expect(link.y).toBeGreaterThanOrEqual(tags.y);
+    expect(link.y + link.height).toBeLessThan(tags.y + 60);
+    // And leads to the list.
+    await page.keyboard.press("Enter");
+    await expect(page).toHaveURL(/#results$/);
+  });
 });
 
 test("the Sort by menu works with the mouse and with the keyboard", async ({ page }) => {
