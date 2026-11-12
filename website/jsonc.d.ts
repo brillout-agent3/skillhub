@@ -3,7 +3,7 @@ declare module "*.jsonc" {
   const value: unknown;
   export default value;
 }
-declare module "*.jsonc?search-words" {
-  const value: import("./client-data.ts").SearchWords;
+declare module "*.jsonc?prose" {
+  const value: import("./client-data.ts").Prose;
   export default value;
 }

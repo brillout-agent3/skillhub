@@ -1,9 +1,9 @@
 /**
  * What the browser gets of skills.jsonc. The skills list's client script embeds the data, so the
  * jsonc plugin of pages/+config.ts gives it a trimmed copy: without the fields no client code reads,
- * and without the TLDRs' prose, which only the search reads and which is half the data. The prose
- * comes as `searchWords`, a module the client script loads after the page (see list-client.ts).
- * Pages render on the server, with all of the data.
+ * and without the TLDRs' prose, which is half the data and which only the search and a row's
+ * preview read. The prose comes as `Prose`, a module the client script loads after the page (see
+ * list-client.ts). Pages render on the server, with all of the data.
  */
 
 import type {
@@ -65,32 +65,41 @@ export type ClientData = Omit<Data, Stripped<"data"> | "skills" | "bundles" | "r
   repos: ClientRepo[];
 };
 
-/**
- * The distinct words of each TLDR's prose, lowercased, keyed by skill or bundle id. The search
- * only asks whether a word is in a text and whether it starts a word there, so these find and rank
- * exactly as the prose would.
- */
-export interface SearchWords {
+/** Each TLDR's prose, keyed by skill or bundle id: what the browser's copy leaves out of the TLDRs. */
+export interface Prose {
   skills: Record<string, string>;
   bundles: Record<string, string>;
 }
-
-const distinct = (text: string) =>
-  [...new Set(text.toLowerCase().split(/\s+/).filter(Boolean))].join(" ");
 
 /**
  * Takes the server's data, which has the prose, or the browser's copy, which finds none: list.ts
  * runs on both.
  */
-export function searchWords(data: Data | ClientData): SearchWords {
+export function proseOf(data: Data | ClientData): Prose {
   const of = (entries: { id: string; agentReview: { tldr?: Partial<Tldr> } }[]) =>
     Object.fromEntries(
-      entries.flatMap((e) =>
-        e.agentReview.tldr?.text ? [[e.id, distinct(e.agentReview.tldr.text)]] : [],
-      ),
+      entries.flatMap((e) => (e.agentReview.tldr?.text ? [[e.id, e.agentReview.tldr.text]] : [])),
     );
   return { skills: of(data.skills), bundles: of(data.bundles) };
 }
+
+/**
+ * The distinct words of each TLDR's prose, lowercased, keyed by skill or bundle id. The search
+ * only asks whether a word is in a text and whether it starts a word there, so these find and rank
+ * exactly as the prose would.
+ */
+export type SearchWords = Prose;
+
+const distinct = (text: string) =>
+  [...new Set(text.toLowerCase().split(/\s+/).filter(Boolean))].join(" ");
+
+const mapValues = (o: Record<string, string>, f: (v: string) => string) =>
+  Object.fromEntries(Object.entries(o).map(([k, v]) => [k, f(v)]));
+
+export const searchWords = (prose: Prose): SearchWords => ({
+  skills: mapValues(prose.skills, distinct),
+  bundles: mapValues(prose.bundles, distinct),
+});
 
 const drop = (o: object | undefined, keys: readonly string[]) => {
   for (const k of keys) if (o) delete (o as Record<string, unknown>)[k];

@@ -43,6 +43,8 @@ import {
   type State,
 } from "./list.ts";
 import { href } from "./format.ts";
+import { searchWords } from "./client-data.ts";
+import { hidePreview, setPreviewProse } from "./preview-client.ts";
 import { ACCOUNT_EVENT, type AccountChange } from "./account-client.ts";
 import { account, savedCount } from "./saves.ts";
 
@@ -416,6 +418,8 @@ function syncFiltersToggle() {
  */
 function render(whole = false) {
   busy(true);
+  // Its row is about to go.
+  hidePreview();
   const focus = focusSelector();
   if (q.value !== state.q) q.value = state.q;
   syncRanges();
@@ -691,10 +695,12 @@ const left = (history.state as { at?: Place } | null)?.at;
 if (left) backTo(left);
 delete document.documentElement.dataset.pending;
 
-// The TLDRs' prose, which only the search reads, is half the data, so it loads after the page.
-// Until it's in, a search finds fewer skills; once it is, a search under way shows them too.
-void import("../data/skills.jsonc?search-words").then(({ default: words }) => {
-  addSearchWords(words);
+// The TLDRs' prose, which only the search and the rows' previews read, is half the data, so it
+// loads after the page. Until it's in, a search finds fewer skills; once it is, a search under way
+// shows them too.
+void import("../data/skills.jsonc?prose").then(({ default: prose }) => {
+  addSearchWords(searchWords(prose));
+  setPreviewProse(prose);
   // For whoever drives the page: from now on, a search finds what it will always find. See ready.ts.
   document.documentElement.setAttribute("data-search-words", "");
   if (state.q.trim()) refresh();

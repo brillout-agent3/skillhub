@@ -83,6 +83,11 @@
      is a bright blue, on a page whose greys are never tinted blue. */
   --tap: oklch(0 0 0 / 0.08);
   -webkit-tap-highlight-color: var(--tap);
+  /* Over a row of the skills list the pointer is on, or whose preview is open: a grey laid over
+     its own color, white or a bundle's wash. */
+  --row-hover: oklch(0 0 0 / 0.025);
+  /* The preview's lift off the list, as the popovers': see #preview. */
+  --shadow-pop: var(--shadow-border), 0 8px 24px -6px oklch(0 0 0 / 0.18);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -126,6 +131,8 @@
   --shadow-border-hover: 0 0 0 1px var(--ink-3);
   --image-outline: oklch(1 0 0 / 0.1);
   --tap: oklch(1 0 0 / 0.1);
+  --row-hover: oklch(1 0 0 / 0.035);
+  --shadow-pop: var(--shadow-border), 0 8px 24px -6px oklch(0 0 0 / 0.5);
 }
 
 * {
@@ -349,22 +356,23 @@ body:has(.skills-view) #page-head {
 
 /*
  * The skills list's page: across the top, its heading, the search and the settings' line
- * (.list-top); under them, the list, and the tags on the right, each under its count, set apart by
- * space alone. The tags come first in the page, since on narrow screens they're atop the list.
+ * (.list-top); under them, the tags on the left and the list, each under its count, set apart by
+ * space alone. The tags come first in the page too, as on narrow screens they're atop the list.
+ * On a wide screen, hovering a row's words opens its preview over the tags: see #preview.
  */
 .skills-view {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 300px;
-  grid-template-areas: "main side";
+  grid-template-columns: 300px minmax(0, 1fr);
+  grid-template-areas: "side main";
   max-width: 1360px;
   margin: 0 auto;
 }
 
-/* Its content as wide as the view, lined up with the list's and the tags'. */
+/* Its content as wide as the view, lined up with the tags' and the list's, and with the header's. */
 .list-top-in {
   max-width: 1360px;
   margin: 0 auto;
-  padding: 32px 24px 0 32px;
+  padding: 32px 32px 0 24px;
 }
 
 /* The page's heading, over the search. */
@@ -376,7 +384,7 @@ body:has(.skills-view) #page-head {
 /*
  * Every setting on one line: Presets, Sort by, Filter and Show, each its label over its controls,
  * on a tile of its own. Filter's and Show's tiles grow to fill the line, so that it runs from the
- * cards' left edge to the tags' right edge. Presets' and Sort by's keep their width: a number
+ * tags' left edge to the cards' right edge. Presets' and Sort by's keep their width: a number
  * filter's pill gets longer as its range narrows the list, and were the tiles before it to give
  * way, the pill and the slider under it would move while a handle is dragged. Where the view is too
  * narrow for one line, Show goes onto a second: under about 1,200px, or 1,250px with Rising & new
@@ -540,6 +548,175 @@ body:has(.skills-view) #page-head {
   height: 100vh;
   overflow-y: auto;
   padding: 28px 24px 48px 32px;
+}
+
+/*
+ * A row's preview (see preview-client.ts), on a wide screen: over the tags and the rows' numbers,
+ * from the tags' left edge to just short of the rows' words, down to the window's bottom. The
+ * script measures where it goes into --top, --left and --width. It lifts off the list as the
+ * popovers do. The pointer goes through it, to the tags under it: it's for reading only, and what
+ * doesn't fit fades out at its bottom (.cut), as the row's page has it all.
+ */
+.preview {
+  position: fixed;
+  z-index: 3;
+  top: var(--top);
+  bottom: 16px;
+  left: var(--left);
+  display: flex;
+  flex-direction: column;
+  width: var(--width);
+  box-sizing: border-box;
+  padding: 20px 24px;
+  border-radius: 8px;
+  background: var(--paper);
+  box-shadow: var(--shadow-pop);
+  font-size: 14px;
+  pointer-events: none;
+}
+
+.preview[hidden] {
+  display: none;
+}
+
+.preview-in {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.preview.cut .preview-in {
+  mask-image: linear-gradient(to bottom, #000 calc(100% - 64px), transparent);
+}
+
+.preview-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.preview-title {
+  flex: 1;
+  min-width: 0;
+}
+
+.preview-title h2 {
+  margin: 0;
+  font-size: 21px;
+  font-weight: 650;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.preview-title .kind {
+  margin-left: 6px;
+  vertical-align: 3px;
+}
+
+.preview-title .skill-source {
+  display: block;
+  margin: 4px 0 0;
+}
+
+.preview-hint {
+  flex: none;
+  margin: 4px 0 0;
+  color: var(--ink-3);
+  font-size: 12px;
+}
+
+/* Every fact, as on its page, a size smaller: a label as long as "Unlike <another skill>" wraps. */
+.preview .glance {
+  grid-template-columns: fit-content(11em) minmax(0, 1fr);
+  gap: 6px 16px;
+  margin: 16px 0 0;
+  color: var(--ink);
+}
+
+.preview .glance dt {
+  color: var(--ink-2);
+}
+
+.preview .skill-desc {
+  margin: 12px 0 0;
+}
+
+.preview .note {
+  margin: 16px 0 0;
+}
+
+/* Its numbers, which it covers on its row, a tile each. */
+.preview-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  margin: 16px 0 0;
+}
+
+.preview-stats div {
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: var(--paper-2);
+}
+
+.preview-stats dt {
+  color: var(--ink-2);
+  font-size: 12px;
+}
+
+.preview-stats dd {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+}
+
+.preview-stats + .muted {
+  margin: 6px 0 0;
+  font-size: 12px;
+}
+
+.preview-spark {
+  display: block;
+  width: 100%;
+  height: 22px;
+  margin-top: 2px;
+  fill: none;
+  stroke: var(--spark-line);
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+}
+
+.preview-spark polyline {
+  vector-effect: non-scaling-stroke;
+}
+
+.preview-part {
+  margin: 20px 0 0;
+}
+
+.preview-part h3 {
+  margin: 0 0 4px;
+  font-size: 16px;
+  font-weight: 650;
+}
+
+.preview-part > p {
+  max-width: 72ch;
+  margin: 0 0 8px;
+  line-height: 1.6;
+}
+
+/* The start of its SKILL.md, on a sheet of its own, its headings no larger than the preview's. */
+.preview .markdown {
+  padding: 4px 16px;
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+}
+
+.preview .markdown :is(h3, h4, h5, h6) {
+  margin: 12px 0 6px;
+  font-size: 16px;
 }
 
 /* How many skills the list shows, over it, and how many tags, over them: their columns' headings. */
@@ -1059,7 +1236,7 @@ body:has(.skills-view) #page-head {
   font-weight: 600;
 }
 
-/* Left of the sidebar: the list. */
+/* Right of the sidebar: the list. */
 .list-main {
   grid-area: main;
   min-width: 0;
@@ -2112,6 +2289,25 @@ input[type="search"]::-webkit-search-cancel-button:hover {
 /* A skill to look at before installing: a mark down its left edge. */
 .skill.caution {
   box-shadow: inset 4px 0 0 var(--t-bad-ink);
+}
+
+/*
+ * A row opens its page wherever it's clicked (see row-links.ts): where the pointer hovers, the row
+ * says so, as its name does. Also while its preview is open, with the pointer on the preview.
+ */
+@media (hover: hover) {
+  .skill-list > .skill {
+    cursor: pointer;
+  }
+
+  .skill-list > .skill:is(:hover, .previewed) {
+    background-image: linear-gradient(var(--row-hover), var(--row-hover));
+  }
+
+  .skill-list > .skill:is(:hover, .previewed) .skill-name {
+    color: var(--garnet-text);
+    text-decoration: underline;
+  }
 }
 
 .tags {
