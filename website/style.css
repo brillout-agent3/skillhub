@@ -557,6 +557,28 @@ body:has(.skills-view) #page-head {
 }
 
 /*
+ * The scrollbars of what scrolls on its own, where the system always shows them, as Windows does:
+ * the tags, a row's preview, and a command, a code block or a table too wide for its page. Thin,
+ * and in the page's own grey: left to the system, a dark bar with its arrows stood between the
+ * tags and the list.
+ */
+#filters,
+.preview,
+.install code,
+.markdown pre,
+.markdown table,
+.frontmatter pre {
+  scrollbar-width: thin;
+  scrollbar-color: var(--rule-strong) transparent;
+}
+
+/* The preview keeps the room for its scrollbar, so that its words don't wrap anew as the mouse
+   goes from a row whose preview scrolls to one whose doesn't. */
+.preview {
+  scrollbar-gutter: stable;
+}
+
+/*
  * A row's preview (see preview-client.ts), on a wide screen, which a click on the row opens: a
  * sheet over the window's left side, its whole height, up to just short of the rows' words, over
  * the tags and the rows' numbers, scrolling on its own. Its words start where the tags do. The
@@ -781,8 +803,11 @@ body:has(.skills-view) #page-head {
  * facets, and, while there's a search, the tags it finds above them, on a tile of their own.
  */
 @media (min-width: 901px) {
+  /* The room for its scrollbar stays when a search leaves too few tags to scroll, so that the tags
+     keep their width. Only here: on a narrow screen it doesn't scroll on its own. */
   #filters {
     padding-left: 24px;
+    scrollbar-gutter: stable;
   }
 
   .tag-box {
