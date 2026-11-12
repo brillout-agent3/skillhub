@@ -34,6 +34,7 @@ import {
   presetsHtml,
   sortHtml,
   showHtml,
+  titleOf,
   toggleTag,
   type Preset,
   type Prop,
@@ -355,6 +356,8 @@ let lastFacets = "";
  * depend on the sort; "" for the pre-rendered page's.
  */
 let lastScope = "";
+/** The page's own title, which the whole list keeps: see titleOf in list.ts. */
+const siteTitle = document.title;
 
 /** What the list holds, whatever its order: its search and its filters. */
 const scopeKey = () =>
@@ -365,6 +368,7 @@ function renderScope() {
   if (key === lastScope) return;
   lastScope = key;
   (document.getElementById("scope") as HTMLElement).innerHTML = scopeHtml(state);
+  document.title = titleOf(state) ?? siteTitle;
   // What the line says for a moment (see `flash`) is about the list as it was: a change to the
   // search or the filters ends it, rather than leave "the list below is empty" over a list for
   // five seconds. Not what comes in by itself for the same ones, such as the TLDRs' prose (see

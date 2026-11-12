@@ -124,6 +124,34 @@ test("filters that leave nothing say so, and leave the agent nothing to copy", a
   await expect(label).toContainText("Copies a prompt of", { timeout: 1000 });
 });
 
+test("the page's title says what the list is narrowed to", async ({ page }) => {
+  await open(page, "/");
+  await searchable(page);
+  // Every list had the site's own title: a tab, a bookmark or the history couldn't tell two apart.
+  const site = await page.title();
+  const { scope, search } = list(page);
+  await search.fill("design");
+  await settled(page);
+  await expect(page).toHaveTitle("“design” · SkillHub");
+
+  // Then the filters, as their chips say them.
+  const chip = page.locator("#skill-tags .chip").first();
+  await chip.click();
+  await settled(page);
+  const tag = (await scope.locator('[data-remove="tag"]').getAttribute("data-value")) as string;
+  await expect(page).toHaveTitle(`“design”, ${tag} · SkillHub`);
+  await page.locator('[data-show="bundles"]').click();
+  await settled(page);
+  await expect(page).toHaveTitle(`“design”, ${tag} · SkillHub`);
+
+  // A link to a list opens under the list's title, and the whole list has the site's again.
+  await open(page, "/?tag=type%3Aworkflow&saved");
+  await expect(page).toHaveTitle("Saved, type:workflow · SkillHub");
+  await scope.locator('[data-action="clear"]').click();
+  await settled(page);
+  await expect(page).toHaveTitle(site);
+});
+
 test("a link with what the list doesn't have opens on what it has", async ({ page }) => {
   // A sort that isn't one, though every object has something by that name; a tag without a name,
   // and one twice; an age that starts where its slider ends.

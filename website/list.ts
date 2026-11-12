@@ -1650,18 +1650,41 @@ export function searchNote(st: State): string {
   return `Filters ${shown} and ${tags} below.`;
 }
 
-/** The filters, as chips each with its × to remove it. */
-function scopeChipsHtml(st: State): string {
-  const chips: string[] = [];
-  const remove = (kind: string, value: string, label: string) =>
-    `<button type="button" class="scope-chip" data-remove="${kind}" data-value="${esc(value)}" aria-label="Remove filter ${esc(label)}">${esc(label)} <span aria-hidden="true">×</span></button>`;
-  if (st.saved) chips.push(remove("saved", "", "Saved"));
-  for (const t of st.tags) chips.push(remove("tag", t, t));
-  if (st.repo) chips.push(remove("repo", st.repo, `from ${st.repo}`));
+/** The filters, each as its chip says it. */
+function filtersOf(st: State): { kind: string; value: string; label: string }[] {
+  const filters: { kind: string; value: string; label: string }[] = [];
+  if (st.saved) filters.push({ kind: "saved", value: "", label: "Saved" });
+  for (const t of st.tags) filters.push({ kind: "tag", value: t, label: t });
+  if (st.repo) filters.push({ kind: "repo", value: st.repo, label: `from ${st.repo}` });
   for (const p of PROP_IDS)
     if (isNarrowed(st.ranges[p]))
-      chips.push(remove("range", p, `${PROPS[p].label}: ${rangeLabel(p, st.ranges[p])}`));
-  return chips.join(" ");
+      filters.push({
+        kind: "range",
+        value: p,
+        label: `${PROPS[p].label}: ${rangeLabel(p, st.ranges[p])}`,
+      });
+  return filters;
+}
+
+/** The filters, as chips each with its × to remove it. */
+function scopeChipsHtml(st: State): string {
+  return filtersOf(st)
+    .map(
+      ({ kind, value, label }) =>
+        `<button type="button" class="scope-chip" data-remove="${kind}" data-value="${esc(value)}" aria-label="Remove filter ${esc(label)}">${esc(label)} <span aria-hidden="true">×</span></button>`,
+    )
+    .join(" ");
+}
+
+/**
+ * The page's title for a list that a search or filters narrow: what it's narrowed to, the search
+ * first, then the filters as their chips say them, such as "“design”, type:workflow · SkillHub".
+ * Null for the whole list, which keeps the page's own title. Every list had that one, so a tab, a
+ * bookmark or the history couldn't tell one search from another.
+ */
+export function titleOf(st: State): string | null {
+  const parts = [...(term(st) ? [`“${term(st)}”`] : []), ...filtersOf(st).map((f) => f.label)];
+  return parts.length ? `${parts.join(", ")} · SkillHub` : null;
 }
 
 /**
