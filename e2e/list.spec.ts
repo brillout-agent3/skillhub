@@ -717,6 +717,8 @@ test("a repo's link lists that repo's skills, under its banner", async ({ page }
   await open(page, `/?repo=${encodeURIComponent(repo.repo)}&show=skills`);
   const { count, rows, scope } = list(page);
   await expect(page.locator(".repo-banner")).toContainText(repo.repo);
+  // Its name leads to the repo's page, as it does in each row, not to GitHub.
+  await expect(page.locator(".repo-banner a")).toHaveAttribute("href", repo.url);
   await expect(rows).toHaveCount(repo.skills.length);
   await expect(count).toHaveText(`${n(repo.skills.length)} skills`);
   await expect(scope.locator('[data-remove="repo"]')).toContainText(`from ${repo.repo}`);

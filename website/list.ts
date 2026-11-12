@@ -1768,13 +1768,17 @@ function emptyHtml(st: State): string {
   return `<p class="empty">${said}${ask}</p>`;
 }
 
-/** The count, the active filters and the list, of only its first `limit` rows if given. */
+/**
+ * The count, the active filters and the list, of only its first `limit` rows if given. Over a list
+ * of one repo's skills, the repo and what it is: its name leads to its page, as it does in each of
+ * the rows under it, rather than to GitHub, which its page leads to.
+ */
 export function resultsHtml(st: State, limit = Infinity): string {
   const { list } = results(st);
   const repoNote = st.repo ? repoById.get(st.repo) : undefined;
   return `
     ${savedNote(st) ?? ""}
-    ${repoNote ? `<p class="repo-banner"><a href="https://github.com/${esc(repoNote.id)}">${esc(repoNote.id)}</a>${repoNote.agentReview.description ? ` <span>${esc(repoNote.agentReview.description)}</span>` : ""}</p>` : ""}
+    ${repoNote ? `<p class="repo-banner"><a href="${repoHref(repoNote.id)}">${esc(repoNote.id)}</a>${repoNote.agentReview.description ? ` <span>${esc(repoNote.agentReview.description)}</span>` : ""}</p>` : ""}
     ${
       savedNote(st) !== null
         ? ""
