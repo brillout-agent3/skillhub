@@ -445,11 +445,13 @@ body:has(.skills-view) #page-head {
   }
 }
 
-/* How many skills the list shows, and the filters' chips, which narrow it, beside it. */
+/* How many skills the list shows, and the filters' chips, which narrow it, beside it: centered over
+   the list, as the tags' count is over the tags. */
 .list-count-row {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
   gap: 8px 16px;
   margin-bottom: 12px;
 }
@@ -457,6 +459,11 @@ body:has(.skills-view) #page-head {
 .list-count-row .list-count,
 .list-count-row .scope {
   margin: 0;
+}
+
+/* The filters' chips centered too, once they wrap onto lines of their own. */
+.list-count-row .scope {
+  justify-content: center;
 }
 
 /* Both counts' rows as tall as a chip, so that the list and the tags start level, filters or not. */
@@ -468,6 +475,7 @@ body:has(.skills-view) #page-head {
 #facets > .list-count {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .show-row {
@@ -554,6 +562,7 @@ body:has(.skills-view) #page-head {
 .tags-of {
   margin: 24px 0 12px;
   color: var(--ink);
+  text-align: center;
   font-size: 16px;
   font-weight: 650;
   font-variant-numeric: tabular-nums;
