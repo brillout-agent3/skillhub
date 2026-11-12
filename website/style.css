@@ -1396,15 +1396,23 @@ body:has(.skills-view) #page-head {
   color: var(--ink-3);
 }
 
-/* Less room on the side of the ×, which looks further out than the words. */
+/*
+ * Less room on the side of the ×, which looks further out than the words. On one line where the
+ * line has the room, its ends round: 14px is half its height. One longer than its line, such as
+ * "from 199-biotechnologies/claude-deep-research-skill" on a phone, wraps, rather than stick out
+ * of the screen's both sides, its start out of reach: its × stays with its last word (see
+ * scopeChipsHtml in list.ts).
+ */
 .scope-chip {
+  max-width: 100%;
   padding: 2px 8px 2px 10px;
   border: 1px solid var(--selected);
-  border-radius: 999px;
+  border-radius: 14px;
   background: var(--selected);
   color: var(--on-selected);
   font-size: 14px;
-  white-space: nowrap;
+  text-align: left;
+  overflow-wrap: anywhere;
   cursor: pointer;
 }
 
@@ -1544,6 +1552,17 @@ input[type="search"]::-webkit-search-cancel-button:hover {
 
 .ask-label {
   grid-area: label;
+}
+
+/*
+ * The room for the line under the agent's box: an unseen copy of its longest, what it says of the
+ * whole list, in the line's own place. On a phone that takes two or three lines, and what the line
+ * says for a filtered list, an empty one or once the prompt is copied takes fewer: everything
+ * under it moved up, 20 to 40px, with the switch or the button just tapped, and back down by
+ * itself five seconds after a copy.
+ */
+.ask-room {
+  visibility: hidden;
 }
 
 /* A number in the line under a box: how many skills the search and the prompt look through, or the
@@ -1976,6 +1995,13 @@ input[type="search"]::-webkit-search-cancel-button:hover {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
+}
+
+/* What the tags' box says when it has none, such as "No tag matches “x”": no wider than the box,
+   whatever it quotes. A search without a space, such as a pasted link, is one word, which the
+   line was as wide as: it stuck out of the box, and off a phone's screen. */
+.chips > .muted {
+  min-width: 0;
 }
 
 /* The values a parent includes, under it. */
@@ -3570,6 +3596,19 @@ input[type="search"]::-webkit-search-cancel-button:hover {
   .sort-button,
   .saved-switch {
     width: 100%;
+  }
+
+  /* The order's arrows are 22px tall to fit Sort by's line on a wide screen, where every setting
+     is on one line. Stacked, the line has the room: 40 by 32px, for a finger. */
+  .order {
+    height: 32px;
+    border-radius: 6px;
+  }
+
+  .order button {
+    padding: 0 13px;
+    font-size: 15px;
+    line-height: 32px;
   }
 
   /*

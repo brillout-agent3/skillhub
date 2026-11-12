@@ -89,9 +89,22 @@ test("a search that finds nothing says so, and offers the agent", async ({ page 
   await expect(page.locator("#ask-label")).toContainText(`of all ${n(data.skills.length)} skills.`);
   await empty.locator('[data-action="ask"]').click();
   await expect(page.locator("#ask-label")).toContainText("copied to your clipboard");
+  // The link says so too: on a phone, the line under the agent's box is a screen above it.
+  await expect(empty.locator('[data-action="ask"]')).toHaveText(
+    "Prompt copied: paste it into your agent",
+  );
   const prompt = await page.evaluate(() => navigator.clipboard.readText());
   expect(prompt).toContain(`# Catalog (${listedRows} entries)`);
   expect(prompt.trimEnd().endsWith("zzzqqqxxx")).toBe(true);
+
+  // A search without a space, such as a pasted link, is one long word: what the tags' box says of
+  // it wraps inside the box, as what the list says of it does.
+  await search.fill("https://github.com/anthropics/skills/tree/main/skills/zzzqqqxxx");
+  await settled(page);
+  const right = (selector: string) =>
+    page.locator(selector).evaluate((el) => el.getBoundingClientRect().right);
+  expect(await right("#found-tags .muted")).toBeLessThanOrEqual(await right("#found-tags"));
+  expect(await right("#results .empty")).toBeLessThanOrEqual(await right("#results"));
 });
 
 test("filters that leave nothing say so, and leave the agent nothing to copy", async ({ page }) => {

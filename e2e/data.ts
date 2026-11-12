@@ -211,6 +211,9 @@ export const smallRepo = listings
   .toSorted((a, b) => a.skills.length - b.skills.length)[0];
 export const smallOwnerUrl = `/${ownerPage(smallRepo.repo)}/`;
 
+/** The repo with the longest name, whose chip, in a list filtered to it, is longer than a phone's line. */
+export const longRepo = listings.toSorted((a, b) => b.repo.length - a.repo.length)[0];
+
 /** Its owner, whose page lists every repo of theirs: however their name is spelled, as GitHub ignores case. */
 const theirs = listings.filter((l) => ownerPage(l.repo) === ownerPage(repo.repo));
 export const owner = {

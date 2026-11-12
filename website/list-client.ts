@@ -581,23 +581,37 @@ function flash(html: string) {
  * agents. The need is what the agent's box holds, or else the search; with neither, the prompt
  * says it comes in the next message.
  */
-function ask() {
+function ask(from?: HTMLElement) {
   // An empty list, such as when the filters leave nothing, would make a prompt without a catalog.
   if (!askable(state)) return flash("Nothing copied: the list below is empty.");
   const text = need.value.trim() || state.q.trim();
   const prompt = askPrompt(state, text, new URL(href(), location.origin).href);
   // A browser can refuse, or have no clipboard at all, as on a page that isn't served over HTTPS.
-  const refused = () => flash("Your browser didn't let the prompt onto your clipboard.");
+  const refused = () => {
+    flash("Your browser didn't let the prompt onto your clipboard.");
+    sayOn(from, "Not copied: your browser didn't let it onto your clipboard");
+  };
   if (!navigator.clipboard) return refused();
-  navigator.clipboard
-    .writeText(prompt)
-    .then(
-      () =>
-        flash(
-          `Prompt of ${tokensHtml(tokensOf(prompt))} copied to your clipboard, ready to use with any AI.`,
-        ),
-      refused,
+  navigator.clipboard.writeText(prompt).then(() => {
+    flash(
+      `Prompt of ${tokensHtml(tokensOf(prompt))} copied to your clipboard, ready to use with any AI.`,
     );
+    sayOn(from, "Prompt copied: paste it into your agent");
+  }, refused);
+}
+
+/**
+ * Says it on the link that was clicked too, for as long: the Find with your agent of an empty
+ * list's message. The line under the agent's box is a screen above it on a phone, where the link
+ * copied without a word.
+ */
+function sayOn(link: HTMLElement | undefined, words: string) {
+  if (!link?.matches("#results .link-button")) return;
+  link.dataset.words ??= link.textContent ?? "";
+  link.textContent = words;
+  setTimeout(() => {
+    if (link.textContent === words) link.textContent = link.dataset.words ?? "";
+  }, 5000);
 }
 
 need.addEventListener("keydown", (event) => {
@@ -758,7 +772,7 @@ app.addEventListener("click", (event) => {
     else if (d.remove === "repo") go({ repo: null });
     else if (d.remove === "range") go({ ranges: { ...state.ranges, [v]: fullRange() } });
   } else if (d.action === "clear") go({ saved: false, tags: [], repo: null, ranges: fullRanges() });
-  else if (d.action === "ask") ask();
+  else if (d.action === "ask") ask(el);
   else if (d.action === "focus-search") q.focus();
   else if (d.action === "focus-need") need.focus();
   else if (d.action === "range") openRange(open === d.value ? null : (d.value as Prop));

@@ -5,6 +5,7 @@ import {
   bundleUrl,
   data,
   longLabelUrl,
+  longRepo,
   longWordUrl,
   owner,
   repo,
@@ -254,6 +255,9 @@ test("the list's settings and tags open from their buttons", async ({ page }) =>
   await expect(settings).toBeVisible();
   await expect(filters).toHaveAttribute("aria-expanded", "true");
   await expect(filters).toHaveText("Hide filters");
+  // Stacked, the order's arrows are as easy to tap as the settings around them.
+  for (const arrow of await page.locator(".order button").all())
+    expect((await arrow.boundingBox())?.height).toBeGreaterThanOrEqual(32);
   await filters.click();
   await expect(settings).toBeHidden();
 
@@ -349,6 +353,29 @@ test.describe("on a phone 667px tall, whose first screen ends at the tags' butto
 test.describe("on a small phone, 360px wide", () => {
   const SMALL = 360;
   test.use({ viewport: { width: SMALL, height: 740 } });
+
+  test("a filter's chip longer than the screen wraps", async ({ page }) => {
+    await open(page, `/?repo=${encodeURIComponent(longRepo.repo)}`);
+    const chip = list(page).scope.locator('[data-remove="repo"]');
+    await expect(chip).toContainText(`from ${longRepo.repo}`);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(SMALL);
+    const box = (await chip.boundingBox()) as { x: number; width: number };
+    expect(box.x).toBeGreaterThanOrEqual(0);
+    expect(box.x + box.width).toBeLessThanOrEqual(SMALL);
+  });
+
+  test("the Saved switch stays under the finger that taps it", async ({ page }) => {
+    await open(page, "/");
+    const saved = page.locator("#saved-switch");
+    const top = () => saved.evaluate((el) => el.getBoundingClientRect().top);
+    const before = await top();
+    // The line under the agent's box says less for the empty list that follows, on fewer lines:
+    // what's under it moved up, the switch included.
+    await saved.click();
+    await settled(page);
+    await expect(page.locator("#ask-label")).toContainText("nothing to copy");
+    expect(Math.abs((await top()) - before)).toBeLessThan(1);
+  });
 
   test("the filters' pills fit the screen, however long their ranges", async ({ page }) => {
     // Every filter narrowed, and Age at its longest, which doesn't fit half a row: its pill takes

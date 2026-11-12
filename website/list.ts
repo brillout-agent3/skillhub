@@ -1710,12 +1710,15 @@ function filtersOf(st: State): { kind: string; value: string; label: string }[] 
   return filters;
 }
 
-/** The filters, as chips each with its × to remove it. */
+/**
+ * The filters, as chips each with its × to remove it: after a space that doesn't break, so that a
+ * chip that wraps, as a long repo's on a phone, keeps its × with its last word.
+ */
 function scopeChipsHtml(st: State): string {
   return filtersOf(st)
     .map(
       ({ kind, value, label }) =>
-        `<button type="button" class="scope-chip" data-remove="${kind}" data-value="${esc(value)}" aria-label="Remove filter ${esc(label)}">${esc(label)} <span aria-hidden="true">×</span></button>`,
+        `<button type="button" class="scope-chip" data-remove="${kind}" data-value="${esc(value)}" aria-label="Remove filter ${esc(label)}">${esc(label)}&nbsp;<span aria-hidden="true">×</span></button>`,
     )
     .join(" ");
 }
@@ -2071,6 +2074,9 @@ const savedSwitchHtml = (st: State) =>
  * them, which only shows once it has the focus, skips to the list. `listed` is how many skills the
  * site lists, all of them whatever the list below shows, and `reviewed` how many SkillHub reviewed,
  * both from review.ts, which only the server reads: the line saying so isn't re-rendered.
+ *
+ * The line under the agent's box has an unseen copy of itself as the page is pre-rendered, its
+ * longest, in the same place: the room the line keeps (see .ask-room in style.css).
  */
 export function listView(
   st: State,
@@ -2095,6 +2101,7 @@ export function listView(
             <label for="q" class="sr-only">Search</label>
             <input id="q" type="search" value="${esc(st.q)}" placeholder="Search" autocomplete="off" spellcheck="false" aria-describedby="search-note scope" />
           </div>
+          <p class="ask-label ask-room" aria-hidden="true">${askLabel(st)}</p>
           <p id="ask-label" class="ask-label" aria-live="polite">${askLabel(st)}</p>
           <p id="search-note" class="search-note">${searchNote(st)}</p>
           <script>${PENDING_SCRIPT}</script>
