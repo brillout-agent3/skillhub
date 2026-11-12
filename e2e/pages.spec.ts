@@ -340,6 +340,33 @@ test.describe("a page that doesn't exist", () => {
     await ready(page);
     await expect(page.locator("h1")).toContainText(cased.agentReview.name);
   });
+
+  test("a bundle's address with an @, as it once was, leads to its page", async ({ page }) => {
+    const named = data.bundles.find((b) => b.id.includes("@"));
+    test.skip(!named, "no bundle's id has a name after its repo today");
+    if (!named) return;
+    // With the @, and with the %40 that the address bar had for it: what was copied from there.
+    for (const at of ["@", "%40"]) {
+      await page.goto(`/bundle/${named.id.toLowerCase().replace("@", at)}/`);
+      await expect(page).toHaveURL(`/${bundlePage(named)}/`);
+      await ready(page);
+      await expect(page.locator("h1")).toContainText(named.agentReview.name);
+    }
+  });
+});
+
+test("a bundle's page is at the address its links have, with no redirect on the way", async ({
+  page,
+}) => {
+  // One with a name after its repo: its address had its id's @, which Cloudflare redirects to
+  // %40, so each link to it cost a redirect, and the address bar read skills%40writing.
+  const named = data.bundles.find((b) => b.id.includes("@")) ?? bundle;
+  const url = `/${bundlePage(named)}/`;
+  const response = await page.goto(url);
+  expect(response?.request().redirectedFrom()).toBeNull();
+  await ready(page);
+  await expect(page).toHaveURL(url);
+  await expect(page.locator("h1")).toContainText(named.agentReview.name);
 });
 
 test("the header leads to every page, and marks the one you're on", async ({ page }) => {

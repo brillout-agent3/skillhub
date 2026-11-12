@@ -160,12 +160,8 @@ export const publishedOf = (e: Skill | Bundle): string | null =>
 /** Compare for a descending sort, unknown values last. */
 export const desc = (a: number | null, b: number | null) => (b ?? -1) - (a ?? -1);
 
-/** An id as URL path segments; `@` stays as is. */
-export const idPath = (id: string) =>
-  id
-    .split("/")
-    .map((segment) => encodeURIComponent(segment).replace(/%40/g, "@"))
-    .join("/");
+/** A page (see github.ts) as URL path segments. */
+export const idPath = (page: string) => page.split("/").map(encodeURIComponent).join("/");
 /** The page of a repo's owner, from the repo (`owner/name`): see ownerPage(). */
 export const ownerHref = (repo: string) => href(`${idPath(ownerPage(repo))}/`);
 /** The repo's page: see repoPage(). */
