@@ -1963,19 +1963,19 @@ const savedSwitchHtml = (st: State) =>
  * them, opens the line's other settings; the tags come before the list, behind their count, which
  * opens them. The tags come before the list for the keyboard too, some 150 of them: a link atop
  * them, which only shows once it has the focus, skips to the list. `listed` is how many skills the
- * site lists, all of them whatever the list below shows, and `reviewed` how many SkillHub reviewed,
+ * site lists, all of them whatever the list below shows, and `found` how many SkillHub found,
  * both from review.ts, which only the server reads: the line saying so isn't re-rendered.
  */
 export function listView(
   st: State,
-  { listed, reviewed }: { listed: number; reviewed: number },
+  { listed, found }: { listed: number; found: number },
 ): string {
   return `
     <div class="list-top">
       <div class="list-top-in">
         <div class="list-title">
           <h1 class="list-head">Agent skills</h1>
-          <p class="list-sub"><a href="${href("about/")}">${listed.toLocaleString("en")} skills curated from ${reviewed.toLocaleString("en")} reviewed skills</a></p>
+          <p class="list-sub"><a href="${href("about/")}">${listed.toLocaleString("en")} skills curated from ${found.toLocaleString("en")} skills</a></p>
         </div>
         <div class="finder">
           <div class="agent-field" data-action="focus-need">

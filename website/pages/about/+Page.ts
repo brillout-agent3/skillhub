@@ -117,17 +117,17 @@ export default function Page(): string {
     },
   ];
   const total: Row = {
-    label: "Reviewed",
-    emoji: "👀",
-    count: review.reviewed,
-    tip: "Every skill SkillHub found on skills.sh. Each was reviewed at least on its installs, from skills.sh, and its repo's stars, from GitHub.",
+    label: "Found on skills.sh",
+    emoji: "🔍",
+    count: review.found,
+    tip: "Every skill SkillHub found on skills.sh: each one is in one of the rows above.",
   };
   const row = ({ label, count, tip, depth = 0, emoji, name = label }: Row, i: number) =>
     `<tr class="d${depth}"><td>${emoji ? `<span class="emoji" aria-hidden="true">${emoji}</span>` : ""}${label}<button type="button" class="tip-i" aria-label="About ${name}" aria-describedby="tip-${i}">i</button></td><td class="num">${n(count)}<span class="tip-text" role="tooltip" id="tip-${i}">${tip}</span></td></tr>`;
   return `
     <div class="page about">
       <h1>How skills get here</h1>
-      <p class="lede">SkillHub lists <span class="badge">${n(review.listed)}</span> agent skills, selected from a review of the <span class="badge">${n(review.reviewed)}</span> <a href="https://skills.sh">most downloaded skills</a>.</p>
+      <p class="lede">SkillHub lists <span class="badge">${n(review.listed)}</span> agent skills, selected from the <span class="badge">${n(review.found)}</span> <a href="https://skills.sh">most downloaded skills</a>.</p>
       <div class="breakdown-box">
         <table class="breakdown">
           <tbody>${rows.map(row).join("")}</tbody>

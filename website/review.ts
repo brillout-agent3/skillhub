@@ -42,8 +42,11 @@ export const review = {
   /** The skills the site lists. */
   listed: data.skills.length,
   bundles: data.bundles.length,
-  /** Every skill SkillHub knows of: listed, waiting, under the minimums or disqualified. */
-  reviewed:
+  /**
+   * Every skill SkillHub found on skills.sh: listed, waiting, under the minimums or disqualified.
+   * Not "reviewed": those waiting or under the minimums haven't had an agent review.
+   */
+  found:
     data.skills.length +
     crawl.qualified.length +
     crawl.unqualified.length +
