@@ -59,6 +59,8 @@
   --spark-base: #e3e7e1;
   /* The histograms' bars, next to a row's numbers and in a page's tiles; the row's own bar is garnet. */
   --crowd-bar: rgb(163 171 194 / 0.55);
+  /* The About page's bars, the histograms' grey made solid, to read on their own. */
+  --share-bar: rgb(163 171 194);
   /* Tags: plain, then the three safety tints: background / text. */
   --t-plain: #ecefea;
   --t-good: #ddf3e4;
@@ -118,6 +120,7 @@
   --spark-now: #ff8db8;
   --spark-base: #404047;
   --crowd-bar: rgb(143 152 184 / 0.4);
+  --share-bar: rgb(143 152 184);
   --t-plain: #2a2a2f;
   --t-good: #12352a;
   --t-good-ink: #9fe3bc;
@@ -2845,9 +2848,9 @@ input[type="search"]::-webkit-search-cancel-button:hover {
   padding-left: 24px;
 }
 
-/* A row of depth 1 splits the top row above it, one of depth 2 the depth-1 row above it, and so
-   on. Each lines up with the label after its parent's emoji. */
-.breakdown :is(.d1, .d2, .d3) td {
+/* A row of depth 1 splits the top row above it, one of depth 2 the depth-1 row above it. Each
+   lines up with the label after its parent's emoji. */
+.breakdown :is(.d1, .d2) td {
   padding-top: 2px;
   padding-bottom: 2px;
   border-bottom: none;
@@ -2857,21 +2860,16 @@ input[type="search"]::-webkit-search-cancel-button:hover {
   padding-left: 24px;
 }
 
-/* A row after a deeper row's group, apart from it. */
-.breakdown :is(.d2 + .d1, .d3 + .d1, .d3 + .d2) td {
+.breakdown .d2 + .d1 td {
   padding-top: 8px;
+}
+
+.breakdown .d2 td {
+  color: var(--ink-2);
 }
 
 .breakdown .d2 td:first-child {
   padding-left: 48px;
-}
-
-.breakdown .d3 td {
-  color: var(--ink-2);
-}
-
-.breakdown .d3 td:first-child {
-  padding-left: 72px;
 }
 
 .breakdown .emoji {
@@ -2880,12 +2878,12 @@ input[type="search"]::-webkit-search-cancel-button:hover {
   font-weight: 400;
 }
 
-.breakdown tr:has(+ :is(.d1, .d2, .d3)) td {
+.breakdown tr:has(+ :is(.d1, .d2)) td {
   border-bottom: none;
 }
 
 /* The last nested row closes its top row's group. */
-.breakdown :is(.d1, .d2, .d3):has(+ .d0) td {
+.breakdown :is(.d1, .d2):has(+ .d0) td {
   padding-bottom: 8px;
   border-bottom: 1px solid var(--rule);
 }
@@ -2893,10 +2891,39 @@ input[type="search"]::-webkit-search-cancel-button:hover {
 .breakdown tfoot td {
   border-top: 1px solid var(--rule-strong);
   border-bottom: none;
+  font-weight: 650;
 }
 
-.breakdown :is(tfoot, .total) td {
-  font-weight: 650;
+/* A row's share of the reviewed skills, in the histograms' colors: grey, and garnet for Listed. */
+.breakdown td.bar {
+  width: 130px;
+  padding-left: 24px;
+}
+
+.breakdown td.bar span {
+  display: block;
+  width: calc(var(--share) * 100%);
+  min-width: 2px;
+  height: 8px;
+  border-radius: 0 4px 4px 0;
+  background: var(--share-bar);
+}
+
+.breakdown td.bar .accent {
+  background: var(--garnet);
+}
+
+/* The reviewed skills' table above the crawled skills', both as wide as the wider, so their
+   numbers line up. */
+.breakdowns {
+  display: grid;
+  row-gap: 28px;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.breakdowns .breakdown {
+  width: 100%;
 }
 
 .breakdown-note {
@@ -2962,14 +2989,25 @@ input[type="search"]::-webkit-search-cancel-button:hover {
   text-align: left;
 }
 
-/* Room for the table, 360px, the gap, 12px, and the tooltip, 320px. */
-@container breakdown (max-width: 699px) {
-  .breakdown {
+/* A tooltip goes right of the tables where the window has room for it: the page's margin, the
+   tables, some 480px, the gap, 12px, and the tooltip, 320px. The tables then overhang the box,
+   which is as wide as the page's prose. Elsewhere a tooltip goes under its row, as wide as the box,
+   and so are the tables. */
+@media (max-width: 959px) {
+  .breakdowns {
     width: 100%;
   }
 }
 
-@container breakdown (min-width: 700px) {
+/* A phone: shorter bars, for the labels to keep their room. */
+@container breakdown (max-width: 499px) {
+  .breakdown td.bar {
+    width: 56px;
+    padding-left: 16px;
+  }
+}
+
+@media (min-width: 960px) {
   .tip-text {
     top: -4px;
     right: auto;
