@@ -74995,10 +74995,40 @@
       "skillMd": {
         "version": "d2ef2680594f9a17526a6e1a2e18b3d242c5d17b",
         "updated": "2026-11-12",
-        "skew": 989
+        "skew": 0
       },
       "agentReview": {
         "description": "Defines the gated pipeline the orch-* skills share: a size check, research, plan approval, test-first build, review and commit confirmation, each phase delegated to an ECC agent.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "What it is",
+              "text": "The shared engine orch-add-feature and orch-build-mvp load for their phases and gates; read it directly only to add an operation or tune the phases"
+            },
+            {
+              "label": "It does",
+              "text": "Sizes the request, then runs only the phases that size needs: research, plan, test-first build, review and commit, each handed to an ECC agent or command"
+            },
+            {
+              "label": "Two gates",
+              "text": "It stops for you to approve the plan before any code is written, and to confirm the diff and commit messages before committing"
+            },
+            {
+              "label": "Sizes",
+              "text": "Trivial, small, standard or large, judged by files touched, new dependencies or contracts, and open design questions; trivial work goes straight to build, review and commit"
+            },
+            {
+              "label": "You get",
+              "text": "Conventional commits, one per logical chunk, of code written test-first and reviewed, with critical and high findings fixed before you're asked to confirm"
+            },
+            {
+              "label": "Needs",
+              "text": "ECC installed, for agents such as planner, tdd-guide and code-reviewer, commands such as /code-review and /gan-build, and its rules files; research uses gh"
+            }
+          ],
+          "text": "ECC's orch-* skills are thin wrappers: each picks which phases of this pipeline run and hands every phase to an existing ECC agent or command. Before anything else it scores the request on three signals, takes the highest tier any of them reaches and states it in one line so you can override it; a change touching security or a public API is at least standard. Research looks for something to adopt before writing new code: gh search, then Context7 or vendor docs, then package registries, then Exa search. The planner agent writes a task list of thin vertical slices, which you approve. orch-build-mvp alone adds a scaffold phase that stands up the first end-to-end slice. Each task then goes red, green, refactor through the tdd-guide agent. Review runs code-reviewer, plus security-reviewer whenever the diff touches authentication, user input, database queries, file paths, external APIs, cryptography or secrets. Nothing is kept in hidden state: the task list, and for larger work PRD and architecture docs under docs/, are the handoff between phases. Its final checks ask for tests on new behavior and coverage of at least 80%. It also names orch-fix-defect, orch-change-feature and orch-refine-code, which SkillHub doesn't list.",
+          "permalink": "https://github.com/affaan-m/ecc/tree/d2ef2680594f9a17526a6e1a2e18b3d242c5d17b/skills/orch-pipeline"
+        },
         "tags": [
           "category:engineering",
           "category:agents",
@@ -75031,10 +75061,44 @@
       "skillMd": {
         "version": "d2ef2680594f9a17526a6e1a2e18b3d242c5d17b",
         "updated": "2026-11-12",
-        "skew": 1401
+        "skew": 0
       },
       "agentReview": {
         "description": "Scores a set of competitors on nine weighted dimensions with evidence-anchored 1 to 5 rubrics, and plots them on the two-sided tension your positioning aims for.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "You have a scoped list of competitors and need comparable, evidence-backed scores rather than gut-feel rankings"
+            },
+            {
+              "label": "It does",
+              "text": "Scores each rival 1 to 5 on eight weighted dimensions, from positioning clarity to pricing transparency, and separately on both poles of the client's strategic tension"
+            },
+            {
+              "label": "You get",
+              "text": "One Markdown profile card per competitor, with scores, one-line justifications and sources, its quadrant on the tension 2×2, and what the client can learn or exploit"
+            },
+            {
+              "label": "Strategic tension",
+              "text": "Two qualities the client wants to hold at once, such as memorable and credible; who else already sits high on both is the key finding"
+            },
+            {
+              "label": "Written for",
+              "text": "Design and brand studios: it judges site craft, case studies, packaged offers and enterprise-readiness, from sources such as Clutch.co and LinkedIn"
+            },
+            {
+              "label": "Unlike competitive-landscape",
+              "text": "That one maps a startup's market with Porter's five forces and Blue Ocean Strategy; this one scores each rival on the same rubric, with a source for every score"
+            },
+            {
+              "label": "Needs",
+              "text": "The client's positioning brief, and a competitor set from competitive-platform-analysis, which SkillHub doesn't list; it names no tool for browsing or screenshots"
+            }
+          ],
+          "text": "The middle step of ECC's competitive analysis: competitive-platform-analysis produces a tiered set of competitors, this skill scores them, and competitive-report-structure assembles the cards into a client report. The positioning brief supplies the tension, the client's differentiator and the brand balance its recommendations must keep. The weights (positioning 18%, voice 15%, visual craft 15%, offer packaging 12%, evidence 12%, enterprise-readiness 10%, thought leadership 8%, pricing 5%, tension 5%) steer emphasis only: it never blends them into one score, since an average hides the asymmetries that matter, and never averages the two tension poles, since the gap between them is the finding. Evidence is gathered cheapest first: the competitor's site, with screenshots of the homepage and one case study, then case studies, review directories, LinkedIn, portfolio platforms and content channels. No score goes in without a justification and a source. Its bias controls downgrade claims nobody corroborates, score craft apart from credibility so a plain site that wins big clients isn't marked down, note strong but quiet studios found in directories, and reread every score side by side so a 4 means the same for every competitor.",
+          "permalink": "https://github.com/affaan-m/ecc/tree/d2ef2680594f9a17526a6e1a2e18b3d242c5d17b/skills/benchmark-methodology"
+        },
         "tags": [
           "category:business",
           "category:marketing",
@@ -75062,10 +75126,40 @@
       "skillMd": {
         "version": "a5539b15a3d56e04992565aafee2b37051329ce3",
         "updated": "2026-11-12",
-        "skew": 1059
+        "skew": 0
       },
       "agentReview": {
         "description": "Writes a project-local skill that launches your app, drives it the way a user does and captures evidence, and proves the skill by running it once end to end.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "Your project has no scripted way for an agent to launch the app and prove a UI, CLI or service change works"
+            },
+            {
+              "label": "It does",
+              "text": "Works out from the repo how the app starts, how an agent can drive it and what evidence it can capture, then writes a skill for exactly that"
+            },
+            {
+              "label": "You get",
+              "text": "A .cursor/skills/verify-<app>/ skill with launch, health check, drive, evidence and cleanup steps, and a feature map seeded with the top 3–5 user-facing features"
+            },
+            {
+              "label": "Proves it",
+              "text": "Runs the new skill once end to end on one feature, and checks the evidence survives cleanup, before handing it over"
+            },
+            {
+              "label": "Unlike verification-loop",
+              "text": "That one runs the build, type checks, lint and tests on finished work; this one writes a reusable skill that drives the running app the way a user does"
+            },
+            {
+              "label": "Runs",
+              "text": "Only when you call it; maintain-verification-skill, which comes with pstack but isn't listed here, keeps the map current as the app changes"
+            }
+          ],
+          "text": "It answers from the repo, asking you only what it can't observe: what a user touches (web UI, CLI, desktop or mobile app, API, library), the documented dev command with its ports, env vars, seed data and auth, any existing harness, and whether two instances can run side by side. If the app doesn't build or start, it fixes that or reports it first. The generated skill is written for an agent reading it cold: launch from an empty data folder until the app is actually usable, a read-only \"doctor\" check of whether the instance is worth driving, such as the right build on a port it owns, a drive recipe with the repo's real selectors and commands, proof standards (the real user path, the action and its result, side effects such as files or rows), and a cleanup that kills only what it started and keeps the evidence. Each feature file says how a user reaches it, how to drive it and what end state proves it; a journey the seed data can't satisfy is reported as failing, never weakened. If it proved the skill in a stand-in, such as a container, it lists the steps still unverified.",
+          "permalink": "https://github.com/cursor/plugins/tree/a5539b15a3d56e04992565aafee2b37051329ce3/pstack/skills/create-verification-skill"
+        },
         "tags": [
           "category:debugging",
           "category:skill-tools",
@@ -75093,10 +75187,44 @@
       "skillMd": {
         "version": "a5539b15a3d56e04992565aafee2b37051329ce3",
         "updated": "2026-11-12",
-        "skew": 1097
+        "skew": 0
       },
       "agentReview": {
         "description": "Keeps an append-only TSV log of each decision in long or unattended work, with its reason and evidence, then audits it against the transcript and has another model review it.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "An agent works long, unattended or in several phases, and you want to see what it decided and why when you come back"
+            },
+            {
+              "label": "It does",
+              "text": "Logs one row per decision: time, phase, what was done, why, a pointer to evidence such as a commit or file:line, and the result"
+            },
+            {
+              "label": "You get",
+              "text": "A decisions.tsv kept out of git by default, and replies ending in an Attention section of flags from a reviewer on another model"
+            },
+            {
+              "label": "Before handing back",
+              "text": "Checks its rows against the run's transcript, adds rows for missed forks and wrong claims, then has a subagent from another model family review the trail"
+            },
+            {
+              "label": "Append-only",
+              "text": "A wrong row gets a new row that supersedes it, never an edit or a deletion, even during the audit"
+            },
+            {
+              "label": "Unlike handoff",
+              "text": "That one compacts a conversation into a document for the next agent; this one logs decisions as they happen, with evidence, for a human reviewer"
+            },
+            {
+              "label": "Runs",
+              "text": "Only when you call it; it reads transcripts from Cursor's agent-transcripts folder and needs subagents on a different model"
+            }
+          ],
+          "text": "pstack's audit trail: its other skills send their record here instead of inventing one. Rows stay on one line and read the way you'd tell a teammate what you did, with pstack's unslop rules applying to log text; evidence is a pointer, never a paragraph. It logs decision points, not every action: a fork chosen, a unit finished with its check, a pivot or revert and its trigger, a blocker. The helper scripts/log.sh stamps the time, writes the header on first use and quotes cells a spreadsheet would read as formulas. When several runs share a log, each marks where it began with a start row, so the audit checks only its own rows. The log lives at decisions.tsv in the work folder, or .audit/<task-slug>.tsv when several efforts run at once, and is committed only when a reviewer needs the trail to trust the result. The reviewer from another model family flags weak or missing evidence, verification claimed without proof, choices that look risky in hindsight and gaps you'd miss on a skim; \"No flags\" is a valid answer. It picks the reviewer's settings per the poteto-mode skill, which comes with pstack but isn't listed here.",
+          "permalink": "https://github.com/cursor/plugins/tree/a5539b15a3d56e04992565aafee2b37051329ce3/pstack/skills/show-me-your-work"
+        },
         "tags": [
           "category:agents",
           "type:workflow",
@@ -75123,10 +75251,32 @@
       "skillMd": {
         "version": "a5539b15a3d56e04992565aafee2b37051329ce3",
         "updated": "2026-11-12",
-        "skew": 386
+        "skew": 0
       },
       "agentReview": {
         "description": "Makes the agent build a codemod, script or generator for any non-trivial change instead of doing it by hand, so the work can be rerun and checked.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "Doing any non-trivial edit, migration, analysis or check, not just bulk work"
+            },
+            {
+              "label": "It does",
+              "text": "Builds the tool that does or proves the work, such as a codemod, script, generator or SQLite query, instead of working by hand"
+            },
+            {
+              "label": "Proof of use",
+              "text": "A file in the diff: with no codemod, script, generator or subagent skill there, the principle wasn't applied"
+            },
+            {
+              "label": "Runs",
+              "text": "Only when you call it"
+            }
+          ],
+          "text": "One of pstack's principle skills, in Cursor's plugin repo. The lever is the tool: it does the work the same way every time, reruns for free, and gives a reviewer one artifact to read and rerun, turning \"trust me\" into \"run this\". The bar is triviality, not repetition: only a couple of obvious edits skip it, and a one-off still earns a lever when the lever is what makes the work checkable. The agent does the first unit by hand to learn the recipe, builds the tool, and proves it by rerunning it on that unit and diffing against the hand-done version; the tool must be safe to rerun. A script that handles every unit in one pass beats fanning out to subagents. When work is fanned out, the lever is a skill every subagent reads, holding the recipe, the check and what not to touch, kept where they can't edit it. Per the laziness-protocol principle, it builds the smallest script that does the job, never a framework, and commits it when the work outlives the session. Unlike encode-lessons-in-structure, which turns a repeated instruction into a lasting guardrail, it's about the work in front of you.",
+          "permalink": "https://github.com/cursor/plugins/tree/a5539b15a3d56e04992565aafee2b37051329ce3/pstack/skills/principle-build-the-lever"
+        },
         "tags": [
           "category:engineering",
           "type:guidelines",
@@ -75152,10 +75302,32 @@
       "skillMd": {
         "version": "a5539b15a3d56e04992565aafee2b37051329ce3",
         "updated": "2026-11-12",
-        "skew": 54
+        "skew": 0
       },
       "agentReview": {
         "description": "Has the agent build two or three competing prototypes of a novel interaction or architecture and compare them side by side before committing to one.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "Facing a novel UI interaction or architecture decision with no precedent in the codebase"
+            },
+            {
+              "label": "It does",
+              "text": "Builds two or three competing prototypes and compares them side by side before committing to one"
+            },
+            {
+              "label": "Also for",
+              "text": "Product design decisions where the experience depends on feel rather than logic"
+            },
+            {
+              "label": "Runs",
+              "text": "Only when you call it"
+            }
+          ],
+          "text": "One of pstack's principle skills, in Cursor's plugin repo, and its shortest: the rule is its description, and the body adds one sentence extending it to product decisions that depend on feel. It doesn't say how to build or compare the prototypes.",
+          "permalink": "https://github.com/cursor/plugins/tree/a5539b15a3d56e04992565aafee2b37051329ce3/pstack/skills/principle-exhaust-the-design-space"
+        },
         "tags": [
           "category:design",
           "category:planning",
@@ -75183,10 +75355,32 @@
       "skillMd": {
         "version": "a5539b15a3d56e04992565aafee2b37051329ce3",
         "updated": "2026-11-12",
-        "skew": 178
+        "skew": 0
       },
       "agentReview": {
         "description": "Has the agent choose user delight over implementation convenience: fewer, polished features, prototypes before production code and the details right.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "Product, UX or feature-scope tradeoffs come up, and the convenient implementation would cost the experience"
+            },
+            {
+              "label": "It does",
+              "text": "Chooses user delight over implementation convenience: fewer features, polished, prototyped in throwaway HTML before production code, with the details right"
+            },
+            {
+              "label": "The user",
+              "text": "Whoever consumes the work: the end user of a UI, the colleague who imports a library or API, and the next engineer to maintain the code"
+            },
+            {
+              "label": "Runs",
+              "text": "Only when you call it"
+            }
+          ],
+          "text": "One of pstack's principle skills, in Cursor's plugin repo. Every feature, control and option must justify itself, and a polished product with three features beats a rough one with ten. The details it names are transitions, alignment, spacing, feedback and error states, and every feature should serve the central workflow or get out of the way. The agent explains impact from the user's side. It pairs with the foundational-thinking principle: that one sets the order of the work, this one sets what the work aims at.",
+          "permalink": "https://github.com/cursor/plugins/tree/a5539b15a3d56e04992565aafee2b37051329ce3/pstack/skills/principle-experience-first"
+        },
         "tags": [
           "category:design",
           "category:planning",
@@ -75214,10 +75408,32 @@
       "skillMd": {
         "version": "a5539b15a3d56e04992565aafee2b37051329ce3",
         "updated": "2026-11-12",
-        "skew": 207
+        "skew": 0
       },
       "agentReview": {
         "description": "Has the agent get the data structures and core types right before writing logic, and lay scaffold such as CI, linting and shared types before features.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "Before writing logic: choosing core types and data structures, ordering scaffold against features, or sharing state between concurrent actors"
+            },
+            {
+              "label": "It does",
+              "text": "Gets the data shape right first, tracing every access pattern, and lays scaffold such as CI, linting, test setup and shared types before features"
+            },
+            {
+              "label": "Key question",
+              "text": "What happens if another actor changes this state at the same time? If the answer isn't \"nothing\", isolate it"
+            },
+            {
+              "label": "Runs",
+              "text": "Only when you call it"
+            }
+          ],
+          "text": "One of pstack's principle skills, in Cursor's plugin repo. Structural decisions protect option value, the freedom to change course later; code-level ones protect simplicity. At code level it removes duplicated structure, not every repeated line: three similar statements beat a premature abstraction, explicit beats clever, and tests cover behavior and edge cases, not line counts. Scaffold is anything every later phase benefits from, so setup comes before features and tests before fixes, in small single-purpose commits. Each increment should land a coherent abstraction or deepen one, not spread a new capability across callers as special cases. Dead code goes first, before any foundation is laid.",
+          "permalink": "https://github.com/cursor/plugins/tree/a5539b15a3d56e04992565aafee2b37051329ce3/pstack/skills/principle-foundational-thinking"
+        },
         "tags": [
           "category:engineering",
           "type:guidelines",
@@ -75244,10 +75460,28 @@
       "skillMd": {
         "version": "a5539b15a3d56e04992565aafee2b37051329ce3",
         "updated": "2026-11-12",
-        "skew": 80
+        "skew": 0
       },
       "agentReview": {
         "description": "Biases the agent toward the smallest diff that solves the problem, with one source of truth per decision and no abstractions the change doesn't need.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "Refactoring, judging a diff's size, or tempted to add abstractions, layers or signals threaded through the code"
+            },
+            {
+              "label": "It does",
+              "text": "Puts a decision repeated in several places behind one source of truth, passed on as a simple flag, and makes the smallest change that solves the problem"
+            },
+            {
+              "label": "Runs",
+              "text": "Only when you call it"
+            }
+          ],
+          "text": "One of pstack's principle skills, in Cursor's plugin repo, and a very short one: two rules under a description that biases the agent toward deletion. Fewer lines beat \"elegant\" boilerplate. pstack's build-the-lever principle cites it to keep tools to the smallest script, never a framework.",
+          "permalink": "https://github.com/cursor/plugins/tree/a5539b15a3d56e04992565aafee2b37051329ce3/pstack/skills/principle-laziness-protocol"
+        },
         "tags": [
           "category:engineering",
           "type:guidelines",
@@ -75274,10 +75508,32 @@
       "skillMd": {
         "version": "a5539b15a3d56e04992565aafee2b37051329ce3",
         "updated": "2026-11-12",
-        "skew": 293
+        "skew": 0
       },
       "agentReview": {
         "description": "Has the agent design commands, lifecycle steps and processing loops so rerunning them, even after a crash halfway, converges on the same end state.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "Designing commands, lifecycle steps or processing loops that must survive crashes, restarts and retries"
+            },
+            {
+              "label": "It does",
+              "text": "Derives each step from the state that exists: reads it, compares it to the goal and applies only the difference, so a rerun finds nothing left to do"
+            },
+            {
+              "label": "The test",
+              "text": "What if it runs twice? What if the last run crashed at any point? Does rerunning reach the same end state?"
+            },
+            {
+              "label": "Runs",
+              "text": "Only when you call it"
+            }
+          ],
+          "text": "One of pstack's principle skills, in Cursor's plugin repo. An idempotent operation reaches the same correct state however many times it runs and wherever the previous run stopped; otherwise every restart becomes a debugging session. Whatever a run leaves behind, such as a lock, a temporary file, a half-written record or a claimed job, must be recognizable as stale by the next run, judged by evidence that holds wherever the crash happened, not only in the common case. Its examples: write to a temporary path and rename it into place, and compare artifacts by content rather than by creation order. If any answer to the test is \"it depends on what state was left behind\", the operation needs a reconciliation step.",
+          "permalink": "https://github.com/cursor/plugins/tree/a5539b15a3d56e04992565aafee2b37051329ce3/pstack/skills/principle-make-operations-idempotent"
+        },
         "tags": [
           "category:engineering",
           "type:guidelines",
@@ -75303,10 +75559,32 @@
       "skillMd": {
         "version": "a5539b15a3d56e04992565aafee2b37051329ce3",
         "updated": "2026-11-12",
-        "skew": 306
+        "skew": 0
       },
       "agentReview": {
         "description": "Has the agent judge code by how many layers a reader must trace and how much state they must hold, and collapse wrappers that don't pay for themselves.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "Reviewing or reshaping code that's hard to trace"
+            },
+            {
+              "label": "It does",
+              "text": "Judges code by the layers a reader must trace and the state they must hold, then inlines one-caller wrappers, collapses pass-through layers and shrinks mutable state"
+            },
+            {
+              "label": "The test",
+              "text": "Can a new reader answer \"where does X come from?\" and \"what can change X?\" in under 30 seconds? If not, cut layers or state"
+            },
+            {
+              "label": "Runs",
+              "text": "Only when you call it"
+            }
+          ],
+          "text": "One of pstack's principle skills, in Cursor's plugin repo. Reader load is the work a reader does to understand code; lines of code, cyclomatic complexity and \"clean architecture\" are only proxies for it. Its two axes are independent: a flat file with 50 globals can be as hard to follow as a six-layer adapter stack. Adapters with no second implementation and speculative indirection go too. Each layer should change the abstraction, and an interface should hide meaningful decisions rather than make readers learn both its surface and its implementation. State stays as narrow as possible: pure functions over mutation, locals over fields, fields over module state, module state over globals, and derived values over synced copies. Invariants are named once at the boundary, not in every consumer. Before adding a layer or a piece of state, the agent asks whether it saves at least as much reader load elsewhere. It calls itself the human counterpart of the guard-the-context-window principle: a reader's working memory is finite too.",
+          "permalink": "https://github.com/cursor/plugins/tree/a5539b15a3d56e04992565aafee2b37051329ce3/pstack/skills/principle-minimize-reader-load"
+        },
         "tags": [
           "category:engineering",
           "category:debugging",
@@ -75334,10 +75612,28 @@
       "skillMd": {
         "version": "a5539b15a3d56e04992565aafee2b37051329ce3",
         "updated": "2026-11-12",
-        "skew": 110
+        "skew": 0
       },
       "agentReview": {
         "description": "Has the agent integrate a new requirement by redesigning as if it had been there from the start, and carry the change through types, docs and examples.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "A new requirement has to fit into an existing design"
+            },
+            {
+              "label": "It does",
+              "text": "Redesigns as if the requirement had been a founding assumption instead of bolting it on, then carries the change through types, docs, examples and rationale"
+            },
+            {
+              "label": "Runs",
+              "text": "Only when you call it"
+            }
+          ],
+          "text": "One of pstack's principle skills, in Cursor's plugin repo. The agent reads every affected file to understand the current design, asks what it would build from scratch with the new requirement, thinks through the whole redesign, then delivers it in increments. It calls this the way to keep options open when changing an existing design.",
+          "permalink": "https://github.com/cursor/plugins/tree/a5539b15a3d56e04992565aafee2b37051329ce3/pstack/skills/principle-redesign-from-first-principles"
+        },
         "tags": [
           "category:engineering",
           "type:guidelines",
@@ -75363,10 +75659,32 @@
       "skillMd": {
         "version": "a5539b15a3d56e04992565aafee2b37051329ce3",
         "updated": "2026-11-12",
-        "skew": 132
+        "skew": 0
       },
       "agentReview": {
         "description": "Has the agent remove dead code, speculative guards and redundant instructions before building anything new.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "Planning the order of an addition, refactor or rewrite"
+            },
+            {
+              "label": "It does",
+              "text": "Removes dead code, redundant validators and stub references first, then builds on the simpler base"
+            },
+            {
+              "label": "Aims for",
+              "text": "A design left slightly simpler and more capable, behind the same or a smaller surface than before"
+            },
+            {
+              "label": "Runs",
+              "text": "Only when you call it"
+            }
+          ],
+          "text": "One of pstack's principle skills, in Cursor's plugin repo. Subtraction is the default and a continual investment. It cuts to the minimum before polishing, designs for observed usage rather than imagined edge cases, adds no validators, parsers or guards beyond what the spec demands, trims prompts of redundant instructions and heavy templates, and deletes a reference with nothing new in it rather than leaving a stub.",
+          "permalink": "https://github.com/cursor/plugins/tree/a5539b15a3d56e04992565aafee2b37051329ce3/pstack/skills/principle-subtract-before-you-add"
+        },
         "tags": [
           "category:engineering",
           "type:guidelines",
@@ -75393,10 +75711,40 @@
       "skillMd": {
         "version": "b85e50c4cef5ff17aa2187a10d49d2dae9226c74",
         "updated": "2026-11-12",
-        "skew": 1215
+        "skew": 0
       },
       "agentReview": {
         "description": "Sets the motion language of a motion graphics piece before anything is animated: tone and energy, one easing and timing scale, what moves and what stays still, checked shot by shot.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "Starting a motion graphics piece, such as an explainer, launch film, UI demo or data story, or when its motion feels busy or inconsistent"
+            },
+            {
+              "label": "It does",
+              "text": "Turns a brief into one motion language before anything is animated, ranks what moves, decides what stays still, and checks every shot against it"
+            },
+            {
+              "label": "You get",
+              "text": "A written direction: a one-line intent, a filled motion-language spec, a ranked list of what moves, what stays still, notes per shot and a pass or fail per shot"
+            },
+            {
+              "label": "Motion language",
+              "text": "A short spec of single choices every shot obeys: one easing family, timing unit, transition family, stagger rhythm, motion intensity and minimum rest"
+            },
+            {
+              "label": "Unlike motion-design",
+              "text": "LottieFiles' skill applies the same four motion personalities to UI animation code; this one directs a whole piece before anyone animates, with intent per shot, not keyframes"
+            },
+            {
+              "label": "Works with",
+              "text": "Technique skills for GSAP, Lottie, shaders or three.js, which carry out the rules it sets"
+            }
+          ],
+          "text": "From iart.ai's motion design collection. It places the piece on a tone matrix, calm or kinetic against soft or sharp, and commits to one cell, since mixing cells is the most common cause of inconsistent motion. Each cell maps to a named personality with durations, an easing curve and an overshoot budget: Playful, Premium, Corporate or Energetic. Two easing curves at most: one for entrances, one for exits. Every element is ranked hero, support or texture, and each frame gets exactly one hero. A restraint pass holds still anything whose motion carries no meaning: no animating the whole frame at once, no looping text the viewer is still reading, no overshoot on financial content, and one \"wow\" moment per piece. Pacing is mapped across the timeline before single moves are timed, usually a calm open, a build, a peak and a settled end card, with key moments on the audio. The final check audits every shot against the spec; any miss is a direction defect to fix before polishing. A reference file holds filled specs for five tone cells, brief and shot-note templates, brand-to-motion tables and a pre-render checklist.",
+          "permalink": "https://github.com/iart-ai/motion-design-skills/tree/b85e50c4cef5ff17aa2187a10d49d2dae9226c74/skills/motion-art-direction"
+        },
         "tags": [
           "category:media",
           "category:design",
