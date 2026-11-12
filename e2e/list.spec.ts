@@ -114,7 +114,9 @@ test("filters that leave nothing say so, and leave the agent nothing to copy", a
   await settled(page);
   await expect(page).toHaveURL("/?q=design");
   await expect(rows).not.toHaveCount(0);
-  await expect(label).toContainText("Copies a prompt of");
+  // And the line under the agent's box is about them at once: what it said for a moment, that the
+  // list is empty, goes with the empty list, not five seconds later.
+  await expect(label).toContainText("Copies a prompt of", { timeout: 1000 });
 });
 
 test("a link with what the list doesn't have opens on what it has", async ({ page }) => {

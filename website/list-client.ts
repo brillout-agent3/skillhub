@@ -356,18 +356,23 @@ let lastFacets = "";
  */
 let lastScope = "";
 
+/** What the list holds, whatever its order: its search and its filters. */
+const scopeKey = () =>
+  JSON.stringify([state.saved, state.tags, state.repo, state.ranges, state.show, state.q]);
+
 function renderScope() {
-  const key = JSON.stringify([
-    state.saved,
-    state.tags,
-    state.repo,
-    state.ranges,
-    state.show,
-    state.q,
-  ]);
+  const key = scopeKey();
   if (key === lastScope) return;
   lastScope = key;
   (document.getElementById("scope") as HTMLElement).innerHTML = scopeHtml(state);
+  // What the line says for a moment (see `flash`) is about the list as it was: a change to the
+  // search or the filters ends it, rather than leave "the list below is empty" over a list for
+  // five seconds. Not what comes in by itself for the same ones, such as the TLDRs' prose (see
+  // `refresh`): that would take "copied" away before it's read.
+  if (askTimer && key !== flashedFor) {
+    clearTimeout(askTimer);
+    askTimer = undefined;
+  }
   if (!askTimer) askLine.innerHTML = askLabel(state);
   (document.getElementById("search-note") as HTMLElement).innerHTML = searchNote(state);
 }
@@ -467,9 +472,15 @@ function render(whole = false) {
 const need = document.getElementById("need") as HTMLInputElement;
 const askLine = document.getElementById("ask-label") as HTMLElement;
 let askTimer: ReturnType<typeof setTimeout> | undefined;
-/** Say something under the agent's box for a few seconds, then put its line back. */
+/** The search and filters the line was last said about: see scopeKey. */
+let flashedFor = "";
+/**
+ * Say something under the agent's box for a few seconds, then put its line back; sooner when the
+ * search or the filters change meanwhile (see renderScope).
+ */
 function flash(html: string) {
   askLine.innerHTML = html;
+  flashedFor = scopeKey();
   clearTimeout(askTimer);
   askTimer = setTimeout(() => {
     askTimer = undefined;
