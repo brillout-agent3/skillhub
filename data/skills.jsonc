@@ -5750,7 +5750,7 @@
     },
     {
       "id": "gamedev-skills/awesome-gamedev-agent-skills",
-      "skew": 509,
+      "skew": 45482,
       "agentReview": {
         "name": "Gamedev Agent Skills",
         "description": "Cross-engine game-development skills for concepts, genres and process, with a router that detects your engine and task and loads only the skills that fit before the agent writes code.",
@@ -6175,7 +6175,7 @@
     },
     {
       "id": "earthtojake/text-to-cad",
-      "skew": 4701,
+      "skew": 5074,
       "agentReview": {
         "name": "text-to-cad",
         "description": "Design physical parts with an agent: text-to-cad's skills for 3D models, purchasable parts, DXF drawings, robot descriptions, fabrication and 3D-printing checks, slicing and printer handoff.",
@@ -6359,7 +6359,7 @@
     },
     {
       "id": "imbad0202/academic-research-skills",
-      "skew": 0,
+      "skew": 286,
       "agentReview": {
         "name": "Academic Research Skills",
         "description": "Researches, writes, reviews and revises academic papers through role-separated agents, with integrity checks and your approval at every stage.",
@@ -12177,61 +12177,6 @@
       }
     },
     {
-      "id": "kepano/obsidian-skills/skills/defuddle",
-      "name": "defuddle",
-      "skills.sh": {
-        "url": "https://skills.sh/kepano/obsidian-skills/defuddle",
-        "installs": 77000,
-        "weeklyInstalls": [1136, 1034, 999, 1091, 1010, 1570, 1040, 941],
-        "firstSeen": "2026-02-11"
-      },
-      "skillMd": {
-        "version": "3ccff5338ea700537839b21900aa5358a0402c98",
-        "updated": "2026-10-20",
-        "skew": 0
-      },
-      "agentReview": {
-        "description": "Extracts clean Markdown from any HTML page.",
-        "tldr": {
-          "glance": [
-            {
-              "label": "Use it when",
-              "text": "The agent needs to read a web page and you'd rather it skipped the menus, ads and clutter"
-            },
-            {
-              "label": "It does",
-              "text": "Runs the Defuddle command-line tool on a URL to pull out the page's main content"
-            },
-            {
-              "label": "You get",
-              "text": "The page as clean Markdown, in the chat or saved to a file, or just its title, description or domain"
-            },
-            {
-              "label": "Needs",
-              "text": "The defuddle CLI, installed with npm"
-            },
-            {
-              "label": "Unlike its siblings",
-              "text": "The other skills in its repo are for the Obsidian notes app; this one is only about reading web pages"
-            }
-          ],
-          "text": "It tells the agent to prefer the Defuddle CLI over its built-in web fetch for standard web pages, because Defuddle strips navigation, ads and other clutter, which saves tokens. The agent runs defuddle parse with --md to get Markdown, can save the result to a file with -o, and can pull out a single property such as the page's title, description or domain. JSON output with both the HTML and the Markdown is also available. If the tool is missing, it installs it with npm.",
-          "permalink": "https://github.com/kepano/obsidian-skills/tree/3ccff5338ea700537839b21900aa5358a0402c98/skills/defuddle"
-        },
-        "tags": [
-          "category:browser",
-          "type:tool",
-          "effect:none",
-          "needs:cli",
-          "by:official",
-          "stack:defuddle",
-          "scraping"
-        ],
-        "model": "Claude Opus 5.5",
-        "effort": null
-      }
-    },
-    {
       "id": "anthropics/skills/skills/algorithmic-art",
       "name": "algorithmic-art",
       "skills.sh": {
@@ -14704,8 +14649,8 @@
         "firstSeen": "2026-03-14"
       },
       "skillMd": {
-        "version": "8a3bde8083bd121971f61cba4bdbe5fd8c0eee7d",
-        "updated": "2026-11-10",
+        "version": "1f837447b20bb6f0e72d87b80ece1c221c362c7d",
+        "updated": "2026-11-12",
         "skew": 116
       },
       "agentReview": {
@@ -15101,9 +15046,9 @@
         "firstSeen": "2026-04-21"
       },
       "skillMd": {
-        "version": "8a3bde8083bd121971f61cba4bdbe5fd8c0eee7d",
-        "updated": "2026-11-10",
-        "skew": 134
+        "version": "1f837447b20bb6f0e72d87b80ece1c221c362c7d",
+        "updated": "2026-11-12",
+        "skew": 1016
       },
       "agentReview": {
         "description": "Plans and runs product submissions to startup, SaaS, AI and MCP directories for backlinks and discovery, with positioning varied per directory.",
@@ -15269,8 +15214,8 @@
         "firstSeen": "2026-05-14"
       },
       "skillMd": {
-        "version": "8a3bde8083bd121971f61cba4bdbe5fd8c0eee7d",
-        "updated": "2026-11-10",
+        "version": "1f837447b20bb6f0e72d87b80ece1c221c362c7d",
+        "updated": "2026-11-12",
         "skew": 169
       },
       "agentReview": {
@@ -19526,9 +19471,9 @@
         "firstSeen": "2026-02-07"
       },
       "skillMd": {
-        "version": "d3b2e791102e3d89c2260db1c3818d42ceb1012b",
-        "updated": "2026-11-11",
-        "skew": 224
+        "version": "70c5b3dbcb42d58f8f901f181ba82651c3ba2350",
+        "updated": "2026-11-12",
+        "skew": 352
       },
       "agentReview": {
         "description": "Researches what people said about a topic in the last 30 days on Reddit, X, YouTube, TikTok, Hacker News, Polymarket and the web.",
@@ -29018,9 +28963,9 @@
         "firstSeen": "2026-06-27"
       },
       "skillMd": {
-        "version": "19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "25eec57919aec2cfd87d4ef9ae5661832302585e",
+        "updated": "2026-11-12",
+        "skew": 1747
       },
       "agentReview": {
         "description": "Adds juice to game actions, such as screen shake, hit-stop, eased tweens, squash and stretch and layered feedback, scaled to each event's importance.",
@@ -29074,9 +29019,9 @@
         "firstSeen": "2026-06-27"
       },
       "skillMd": {
-        "version": "4cce500ce1a779b12fdd824be581c7d2ab4e7ba2",
-        "updated": "2026-11-10",
-        "skew": 35
+        "version": "25eec57919aec2cfd87d4ef9ae5661832302585e",
+        "updated": "2026-11-12",
+        "skew": 1793
       },
       "agentReview": {
         "description": "Builds game HUDs and menus that scale to any screen and work with a gamepad: anchored layouts, safe areas, focus navigation and event-driven updates.",
@@ -32087,9 +32032,9 @@
         "firstSeen": "2026-07-11"
       },
       "skillMd": {
-        "version": "4edd3575d29dd1b111ce287b0944c8dd770d79d3",
-        "updated": "2026-11-10",
-        "skew": 9
+        "version": "7d474401191dfe92d448d9a236b5207b726dc0b2",
+        "updated": "2026-11-12",
+        "skew": 10
       },
       "agentReview": {
         "description": "Answers SEO questions from your own Search Console, Analytics and Bing data, plus site crawls and keyword and backlink research.",
@@ -32846,9 +32791,9 @@
         "firstSeen": "2026-07-18"
       },
       "skillMd": {
-        "version": "a54e8483022200ddeb488da39ed4b43cfee60a4d",
-        "updated": "2026-11-11",
-        "skew": 542
+        "version": "a01674377f1f2a0fed467035fddc25e90e74d75a",
+        "updated": "2026-11-12",
+        "skew": 661
       },
       "agentReview": {
         "description": "Reverse engineers binaries, apps, packages, firmware and recorded traffic through the REA MCP server, separating what it observed from what it infers.",
@@ -33098,9 +33043,9 @@
         "firstSeen": "2026-04-22"
       },
       "skillMd": {
-        "version": "0560a3f38a788c415a6babc0b3747e6fbb4354ab",
-        "updated": "2026-11-11",
-        "skew": 4167
+        "version": "8ea243463968e81b682d678ace010ad835f162b1",
+        "updated": "2026-11-12",
+        "skew": 4540
       },
       "agentReview": {
         "description": "Models 3D parts and assemblies as Python build123d scripts that text-to-cad's viewer shows live, and exports them as STEP, STL, 3MF or GLB.",
@@ -37101,9 +37046,9 @@
         "firstSeen": "2026-06-27"
       },
       "skillMd": {
-        "version": "4cce500ce1a779b12fdd824be581c7d2ab4e7ba2",
-        "updated": "2026-11-10",
-        "skew": 167
+        "version": "25eec57919aec2cfd87d4ef9ae5661832302585e",
+        "updated": "2026-11-12",
+        "skew": 2014
       },
       "agentReview": {
         "description": "Plans and blocks out game levels from the player's movement metrics, then paces, gates and playtests them before any art goes in.",
@@ -37157,9 +37102,9 @@
         "firstSeen": "2026-06-27"
       },
       "skillMd": {
-        "version": "19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "25eec57919aec2cfd87d4ef9ae5661832302585e",
+        "updated": "2026-11-12",
+        "skew": 2210
       },
       "agentReview": {
         "description": "Finds what makes a game slow with the engine profiler, fixes that one bottleneck, and reports measured frame times before and after.",
@@ -37213,9 +37158,9 @@
         "firstSeen": "2026-06-27"
       },
       "skillMd": {
-        "version": "4cce500ce1a779b12fdd824be581c7d2ab4e7ba2",
-        "updated": "2026-11-10",
-        "skew": 44
+        "version": "25eec57919aec2cfd87d4ef9ae5661832302585e",
+        "updated": "2026-11-12",
+        "skew": 1215
       },
       "agentReview": {
         "description": "Sets up a game's audio mix: buses with volume sliders in decibels, music ducking under dialogue, adaptive music, varied sound effects and beat sync.",
@@ -37268,9 +37213,9 @@
         "firstSeen": "2026-06-27"
       },
       "skillMd": {
-        "version": "19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "25eec57919aec2cfd87d4ef9ae5661832302585e",
+        "updated": "2026-11-12",
+        "skew": 2075
       },
       "agentReview": {
         "description": "Builds enemy and NPC behavior in three layers: a state machine or behavior tree decides, pathfinding routes, and steering moves.",
@@ -37324,9 +37269,9 @@
         "firstSeen": "2026-06-27"
       },
       "skillMd": {
-        "version": "19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "25eec57919aec2cfd87d4ef9ae5661832302585e",
+        "updated": "2026-11-12",
+        "skew": 1067
       },
       "agentReview": {
         "description": "Builds game cameras that follow smoothly with a deadzone, look-ahead and level bounds, plus third-person orbits with wall collision and first-person look.",
@@ -37380,9 +37325,9 @@
         "firstSeen": "2026-06-27"
       },
       "skillMd": {
-        "version": "19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "25eec57919aec2cfd87d4ef9ae5661832302585e",
+        "updated": "2026-11-12",
+        "skew": 1391
       },
       "agentReview": {
         "description": "Designs game save and load: plain-data snapshots with a version number, crash-safe writes, migrations for old saves, slots and throttled autosave.",
@@ -37436,9 +37381,9 @@
         "firstSeen": "2026-06-27"
       },
       "skillMd": {
-        "version": "4cce500ce1a779b12fdd824be581c7d2ab4e7ba2",
-        "updated": "2026-11-10",
-        "skew": 61
+        "version": "25eec57919aec2cfd87d4ef9ae5661832302585e",
+        "updated": "2026-11-12",
+        "skew": 1906
       },
       "agentReview": {
         "description": "Builds a game input layer of named actions with per-device bindings, rebinding with conflict checks, stick deadzones, input buffering, coyote time and accessible controls.",
@@ -37493,9 +37438,9 @@
         "firstSeen": "2026-06-27"
       },
       "skillMd": {
-        "version": "19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "25eec57919aec2cfd87d4ef9ae5661832302585e",
+        "updated": "2026-11-12",
+        "skew": 1826
       },
       "agentReview": {
         "description": "Generates game levels, terrain and loot from a seed: deterministic random numbers, layered noise heightmaps, room-and-corridor dungeons and weighted drop tables.",
@@ -37549,9 +37494,9 @@
         "firstSeen": "2026-08-08"
       },
       "skillMd": {
-        "version": "19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "25eec57919aec2cfd87d4ef9ae5661832302585e",
+        "updated": "2026-11-12",
+        "skew": 705
       },
       "agentReview": {
         "description": "Directs and produces cohesive game art: a locked visual target, an asset manifest, families generated or sourced from it, then normalized and checked in-game.",
@@ -37607,9 +37552,9 @@
         "firstSeen": "2026-06-27"
       },
       "skillMd": {
-        "version": "19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "25eec57919aec2cfd87d4ef9ae5661832302585e",
+        "updated": "2026-11-12",
+        "skew": 1899
       },
       "agentReview": {
         "description": "Fixes jittery, tunneling or floaty game physics with a fixed timestep, render interpolation, continuous collision, body tuning and collision layers.",
@@ -37662,9 +37607,9 @@
         "firstSeen": "2026-06-27"
       },
       "skillMd": {
-        "version": "4cce500ce1a779b12fdd824be581c7d2ab4e7ba2",
-        "updated": "2026-11-10",
-        "skew": 33
+        "version": "25eec57919aec2cfd87d4ef9ae5661832302585e",
+        "updated": "2026-11-12",
+        "skew": 1421
       },
       "agentReview": {
         "description": "Writes game shaders in GLSL, with HLSL equivalents, from the vertex and fragment stages to effects such as dissolve, scrolling UVs and rim light.",
@@ -37716,9 +37661,9 @@
         "firstSeen": "2026-06-27"
       },
       "skillMd": {
-        "version": "4cce500ce1a779b12fdd824be581c7d2ab4e7ba2",
-        "updated": "2026-11-10",
-        "skew": 38
+        "version": "25eec57919aec2cfd87d4ef9ae5661832302585e",
+        "updated": "2026-11-12",
+        "skew": 1123
       },
       "agentReview": {
         "description": "Builds branching game dialogue as a graph of lines, choices, conditions and variables, in Ink, Yarn Spinner or a small custom runner.",
@@ -37773,9 +37718,9 @@
         "firstSeen": "2026-06-27"
       },
       "skillMd": {
-        "version": "4cce500ce1a779b12fdd824be581c7d2ab4e7ba2",
-        "updated": "2026-11-10",
-        "skew": 66
+        "version": "25eec57919aec2cfd87d4ef9ae5661832302585e",
+        "updated": "2026-11-12",
+        "skew": 1677
       },
       "agentReview": {
         "description": "Detects your game's engine from its project files and your task from the request, then loads only the matching skills from this game-dev collection.",
@@ -37833,9 +37778,9 @@
         "firstSeen": "2026-06-27"
       },
       "skillMd": {
-        "version": "19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "25eec57919aec2cfd87d4ef9ae5661832302585e",
+        "updated": "2026-11-12",
+        "skew": 1833
       },
       "agentReview": {
         "description": "Plans an RPG's core systems, stats and leveling, inventory, quests, combat, dialogue and saves, with design knobs, example formulas and pitfalls.",
@@ -37885,9 +37830,9 @@
         "firstSeen": "2026-06-27"
       },
       "skillMd": {
-        "version": "19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "25eec57919aec2cfd87d4ef9ae5661832302585e",
+        "updated": "2026-11-12",
+        "skew": 1110
       },
       "agentReview": {
         "description": "Greyboxes one game mechanic within a hard timebox to answer whether it's fun, then makes a keep, kill or refactor call.",
@@ -37942,9 +37887,9 @@
         "firstSeen": "2026-06-27"
       },
       "skillMd": {
-        "version": "19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "25eec57919aec2cfd87d4ef9ae5661832302585e",
+        "updated": "2026-11-12",
+        "skew": 1734
       },
       "agentReview": {
         "description": "Guides building a turn-based roguelike: an energy turn scheduler, connected procedural dungeons, symmetric field of view, depth-scaled loot and permadeath.",
@@ -37994,9 +37939,9 @@
         "firstSeen": "2026-06-27"
       },
       "skillMd": {
-        "version": "19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "25eec57919aec2cfd87d4ef9ae5661832302585e",
+        "updated": "2026-11-12",
+        "skew": 1735
       },
       "agentReview": {
         "description": "Guides building a first-person shooter: hitscan or projectile shots, damage falloff, time-to-kill balance, learnable recoil and spread, and hit feedback.",
@@ -38046,9 +37991,9 @@
         "firstSeen": "2026-06-27"
       },
       "skillMd": {
-        "version": "19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "25eec57919aec2cfd87d4ef9ae5661832302585e",
+        "updated": "2026-11-12",
+        "skew": 1702
       },
       "agentReview": {
         "description": "Guides building match-3, sokoban and other grid puzzles: a board model, rule resolution repeated until stable, exact undo and solvable levels.",
@@ -38098,9 +38043,9 @@
         "firstSeen": "2026-06-27"
       },
       "skillMd": {
-        "version": "19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "25eec57919aec2cfd87d4ef9ae5661832302585e",
+        "updated": "2026-11-12",
+        "skew": 2045
       },
       "agentReview": {
         "description": "Guides building card games and deckbuilders: cards as data, deck, hand and discard zones, reshuffling, turn phases and one interpreter for all effects.",
@@ -38150,9 +38095,9 @@
         "firstSeen": "2026-06-27"
       },
       "skillMd": {
-        "version": "19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "25eec57919aec2cfd87d4ef9ae5661832302585e",
+        "updated": "2026-11-12",
+        "skew": 2347
       },
       "agentReview": {
         "description": "Guides building 2D platformers around a jump that feels right: gravity derived from height and apex time, coyote time, jump buffering and variable height.",
@@ -38206,9 +38151,9 @@
         "firstSeen": "2026-06-27"
       },
       "skillMd": {
-        "version": "19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "25eec57919aec2cfd87d4ef9ae5661832302585e",
+        "updated": "2026-11-12",
+        "skew": 1815
       },
       "agentReview": {
         "description": "Guides building survival-crafting games: resource gathering gated by tool tiers, crafting that consumes inputs atomically, decaying needs with graded consequences, and base building.",
@@ -38258,9 +38203,9 @@
         "firstSeen": "2026-06-27"
       },
       "skillMd": {
-        "version": "19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "25eec57919aec2cfd87d4ef9ae5661832302585e",
+        "updated": "2026-11-12",
+        "skew": 1620
       },
       "agentReview": {
         "description": "Guides building tower defense games: data-driven waves, tower targeting priorities, and enemy health balanced against gold income and tower damage.",
@@ -38310,9 +38255,9 @@
         "firstSeen": "2026-06-27"
       },
       "skillMd": {
-        "version": "19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "25eec57919aec2cfd87d4ef9ae5661832302585e",
+        "updated": "2026-11-12",
+        "skew": 1775
       },
       "agentReview": {
         "description": "Guides building visual novels: a branching script with flags, a typewriter text box, choices, and expected conveniences like save-anywhere, backlog, skip and auto-advance.",
@@ -38362,9 +38307,9 @@
         "firstSeen": "2026-06-27"
       },
       "skillMd": {
-        "version": "19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "25eec57919aec2cfd87d4ef9ae5661832302585e",
+        "updated": "2026-11-12",
+        "skew": 1777
       },
       "agentReview": {
         "description": "Plans a game jam entry to the deadline: a one-sentence concept, scope by jam length, a 48-hour schedule, feature cuts and a submission checklist.",
@@ -38420,9 +38365,9 @@
         "firstSeen": "2026-08-24"
       },
       "skillMd": {
-        "version": "4cce500ce1a779b12fdd824be581c7d2ab4e7ba2",
-        "updated": "2026-11-10",
-        "skew": 65
+        "version": "25eec57919aec2cfd87d4ef9ae5661832302585e",
+        "updated": "2026-11-12",
+        "skew": 1920
       },
       "agentReview": {
         "description": "Builds a reusable behavior-tree runtime and a utility AI scorer for NPC decisions, plus hybrids where the tree delegates graded choices.",
@@ -46208,9 +46153,9 @@
         "firstSeen": "2026-03-10"
       },
       "skillMd": {
-        "version": "6d9388674de1ad0437ad95db3d52f92b92204d84",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "c67a7be53f23d9dbba4030bbcd6f5ccfeda3afa9",
+        "updated": "2026-11-12",
+        "skew": 286
       },
       "agentReview": {
         "description": "Drafts, revises and formats academic papers through an interview-first, phase-by-phase pipeline with citation checks and a simulated peer review.",
@@ -49358,9 +49303,9 @@
         "firstSeen": "2026-03-25"
       },
       "skillMd": {
-        "version": "2d633a27f00d18db701534207908866d28bddccb",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "2ebdcb8e501a511407cdf37e5a645f66d39f1b86",
+        "updated": "2026-11-12",
+        "skew": 226
       },
       "agentReview": {
         "description": "Finds unused code, duplication, import cycles, complexity hotspots and risky changes in TypeScript and JavaScript with the fallow CLI, and removes unused exports.",
@@ -51318,9 +51263,9 @@
         "firstSeen": "2026-03-11"
       },
       "skillMd": {
-        "version": "078c0c731d19eb88d2391b236ab82a127dbabac3",
-        "updated": "2026-11-06",
-        "skew": 0
+        "version": "681554c5d3a688c67879d02d4f01d79ffd15df13",
+        "updated": "2026-11-12",
+        "skew": 6
       },
       "agentReview": {
         "description": "Looks up current documentation and code examples for any library, framework or SDK through the Context7 CLI, instead of relying on training data.",
@@ -51664,9 +51609,9 @@
         "firstSeen": "2026-03-11"
       },
       "skillMd": {
-        "version": "1d692d31ae370105afcf4d826dc36f1c4c22e21a",
-        "updated": "2026-11-11",
-        "skew": 66
+        "version": "e2f08b4f611b18f7e62e2075f1e1ef0df1146583",
+        "updated": "2026-11-12",
+        "skew": 80
       },
       "agentReview": {
         "description": "Controls and inspects Chrome from shell commands or scripts with the chrome-devtools CLI: clicks and forms, screenshots, network, performance traces and heap snapshots.",
@@ -72099,9 +72044,9 @@
         "firstSeen": "2026-01-27"
       },
       "skillMd": {
-        "version": "8c7d0748309e49c592e7f6cba184c66845517064",
-        "updated": "2026-11-07",
-        "skew": 0
+        "version": "08a7b34a3575cbd7de9cfd442e01e38dfd9719d6",
+        "updated": "2026-11-12",
+        "skew": 133
       },
       "agentReview": {
         "description": "Checks and polishes an existing English LaTeX paper: compile errors, venue format, citations, grammar, logic, related work, tables, pseudocode and AI-sounding prose.",
