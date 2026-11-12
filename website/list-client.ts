@@ -70,6 +70,30 @@ let stackExpanded = false;
 let toTop = false;
 
 /**
+ * What was just clicked among the tags, and where it was in the window: the next render puts it
+ * back there (see `stay`). The tags above a picked one change with it, as do their counts, some
+ * going and some coming back, so what's under them moves: the tag just tapped went up out of the
+ * screen, by some 370px on a phone, and Show fewer left the screen amid the list, 3,000px on.
+ * Noted at the click rather than from what has the focus, which a tap doesn't give a button on
+ * every phone.
+ */
+let clicked: { selector: string; top: number } | null = null;
+const noteClicked = (el: HTMLElement, selector: string) => {
+  if (el.closest("#facets")) clicked = { selector, top: el.getBoundingClientRect().top };
+};
+/** Scrolls what the tags scroll with, their own column or else the page, to put it back. */
+function stay() {
+  const was = clicked;
+  clicked = null;
+  const el = was && document.querySelector(was.selector);
+  if (!was || !el) return;
+  const by = el.getBoundingClientRect().top - was.top;
+  const column = document.getElementById("filters") as HTMLElement;
+  if (getComputedStyle(column).overflowY === "visible") scrollBy(0, by);
+  else column.scrollTop += by;
+}
+
+/**
  * Whether every change the next render is for came as it was typed or dragged, a search, an amount
  * in a filter's field, a slider's handle: the list's rows past the first ones then wait for a pause
  * (see `render`).
@@ -259,6 +283,15 @@ document.addEventListener("keydown", (event) => {
   const inside = range?.contains(document.activeElement);
   openRange(null);
   if (inside) range?.querySelector<HTMLElement>(".range-pill")?.focus();
+});
+// On a narrow screen, Escape also closes the open tags from among them, as it closes a menu: the
+// keyboard's only other way out was through them all, some 150 Tabs, to the button under them.
+document.addEventListener("keydown", (event) => {
+  if (event.key !== "Escape" || !tagsShown || open || sortOpen) return;
+  if (!document.getElementById("filters")?.contains(document.activeElement)) return;
+  tagsShown = false;
+  syncTags();
+  app.querySelector<HTMLElement>(".tags-toggle")?.focus();
 });
 // And so does the keyboard on its way out, as Tab closes the Sort by menu: left open, the popover
 // stayed over the list while the focus moved on to the next filter. Only when the focus goes to
@@ -507,6 +540,7 @@ function render(whole = false) {
   // Last, once the focus is back: a row that gets it is drawn at its own height, which moves what's
   // under it.
   if (scrolledPast) (results.closest(".list-main") ?? results).scrollIntoView({ block: "start" });
+  stay();
   const st = state;
   const id = ++renders;
   const append = (from: number) => {
@@ -709,6 +743,11 @@ app.addEventListener("click", (event) => {
   } else if (d.tag) {
     if (el.hasAttribute("aria-pressed"))
       el.setAttribute("aria-pressed", String(el.getAttribute("aria-pressed") !== "true"));
+    // As the focus: a facet's chip stays the facet's, and a found one becomes it.
+    noteClicked(
+      el,
+      `#${el.closest("#skill-tags") ? "skill-tags" : "facets"} [data-tag="${CSS.escape(d.tag)}"]`,
+    );
     // A tag the search found takes the search's place: see foundTags in list.ts.
     const replaces = "replacesSearch" in d && !state.tags.includes(d.tag);
     go({ tags: toggleTag(state.tags, d.tag), ...(replaces ? { q: "" } : {}) });
@@ -729,11 +768,16 @@ app.addEventListener("click", (event) => {
     savedSwitch.setAttribute("aria-checked", String(!state.saved));
     go({ saved: !state.saved });
   } else if (d.action === "stack") {
+    noteClicked(el, '#facets [data-action="stack"]');
     stackExpanded = !stackExpanded;
     renderSoon();
   } else if (d.action === "tags") {
     tagsShown = !tagsShown;
     syncTags();
+    // They open under their button, which is low on a phone's first screen: under it, the bar that
+    // leads to the list covered what little of them was in view, and no tag showed. The button
+    // goes to the screen's top, the tags under it. It was replaced with the facets: the one there.
+    if (tagsShown) app.querySelector(".tags-toggle")?.scrollIntoView({ block: "start" });
   } else if (d.action === "tags-done") {
     // From the open tags, on a narrow screen, to the list they leave, which is under them all: the
     // tags close, and the list's count, which says how many it has, takes the screen's top and the

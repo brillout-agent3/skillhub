@@ -3644,6 +3644,11 @@ input[type="search"]::-webkit-search-cancel-button:hover {
     scale: 1 -1;
   }
 
+  /* Brought to the screen's top as it opens the tags (see list-client.ts), with some air over it. */
+  .tags-toggle {
+    scroll-margin-top: 12px;
+  }
+
   .tag-facets {
     margin-top: 16px;
   }

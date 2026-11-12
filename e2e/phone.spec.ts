@@ -299,6 +299,53 @@ test("the open tags keep a way to the list at the screen's bottom, which says ho
   expect(await count.evaluate((el) => el.getBoundingClientRect().top)).toBeLessThan(40);
 });
 
+test("what's tapped among the open tags stays under the finger", async ({ page }) => {
+  await open(page, "/");
+  await page.locator(".tags-toggle").click();
+  const top = (selector: string) =>
+    page.locator(selector).evaluate((el) => el.getBoundingClientRect().top);
+
+  // A tag far down them, a stack's: the tags over it change with it, some going, and it went up
+  // out of the screen with what was under them.
+  const tag = await page.locator("#skill-tags .facet").last().locator(".chip").first();
+  const chip = `#skill-tags [data-tag="${await tag.getAttribute("data-tag")}"]`;
+  await page.locator(chip).scrollIntoViewIfNeeded();
+  let before = await top(chip);
+  await page.locator(chip).click();
+  await settled(page);
+  await expect(page.locator(chip)).toHaveAttribute("aria-pressed", "true");
+  expect(Math.abs((await top(chip)) - before)).toBeLessThan(2);
+  await page.locator(chip).click();
+  await settled(page);
+
+  // And the button that shows every stack tag, then fewer: it left the screen amid the list.
+  const stack = '#facets [data-action="stack"]';
+  await page.locator(stack).click();
+  await settled(page);
+  await page.locator(stack).scrollIntoViewIfNeeded();
+  await expect(page.locator(stack)).toHaveText("Show fewer");
+  before = await top(stack);
+  await page.locator(stack).click();
+  await settled(page);
+  await expect(page.locator(stack)).toHaveText(/^Show all/);
+  expect(Math.abs((await top(stack)) - before)).toBeLessThan(2);
+});
+
+test.describe("on a phone 667px tall, whose first screen ends at the tags' button", () => {
+  test.use({ viewport: { width: 375, height: 667 } });
+
+  test("the tags open in view, their button at the screen's top", async ({ page }) => {
+    await open(page, "/");
+    const toggle = page.locator(".tags-toggle");
+    await toggle.scrollIntoViewIfNeeded();
+    await toggle.click();
+    // Under the button where it was, the bar that leads to the list covered what little of the
+    // tags was in view: none showed.
+    await expect(page.locator("#skill-tags .chip").first()).toBeInViewport({ ratio: 1 });
+    expect(await toggle.evaluate((el) => el.getBoundingClientRect().top)).toBeLessThan(40);
+  });
+});
+
 test.describe("on a small phone, 360px wide", () => {
   const SMALL = 360;
   test.use({ viewport: { width: SMALL, height: 740 } });

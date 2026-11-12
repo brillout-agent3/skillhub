@@ -284,6 +284,21 @@ test.describe("on a tablet, 768px wide", () => {
     await page.keyboard.press("Enter");
     await expect(page).toHaveURL(/#results$/);
   });
+
+  test("Escape closes the open tags, from among them", async ({ page }) => {
+    await open(page, "/?show=bundles");
+    const toggle = page.locator(".tags-toggle");
+    await toggle.focus();
+    await page.keyboard.press("Enter");
+    await expect(page.locator("#tag-facets")).toBeVisible();
+    // Into the tags: the only other way out was through them all, to the button under them.
+    await page.keyboard.press("Tab");
+    await expect(page.locator("#skill-tags .chip").first()).toBeFocused();
+    await page.keyboard.press("Escape");
+    await expect(page.locator("#tag-facets")).toBeHidden();
+    await expect(toggle).toBeFocused();
+    await expect(toggle).toHaveAttribute("aria-expanded", "false");
+  });
 });
 
 test("the Sort by menu works with the mouse and with the keyboard", async ({ page }) => {
