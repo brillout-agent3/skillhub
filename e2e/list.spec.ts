@@ -751,6 +751,14 @@ test("the keyboard can skip the tags, and keeps its place when a filter goes", a
   await page.keyboard.press("Enter");
   await settled(page);
   await expect(page.locator("#count")).toBeFocused();
+
+  // As does the Clear filters of an empty list's message, which the skills that come back replace.
+  await open(page, "/?tag=no-such-tag");
+  await list(page).empty.locator('[data-action="clear"]').focus();
+  await page.keyboard.press("Enter");
+  await settled(page);
+  await expect(rows).not.toHaveCount(0);
+  await expect(page.locator("#count")).toBeFocused();
 });
 
 test("the list is where you left it after a skill's page, and after a reload", async ({ page }) => {

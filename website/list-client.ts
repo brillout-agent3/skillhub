@@ -450,10 +450,14 @@ function render(whole = false) {
   if (focus) {
     // A filter's chip is gone once it's removed, as Clear filters is with the last of them: the
     // focus goes to the next chip, or else to the count they stood beside, from where Tab leads
-    // into the list. Left alone, it would fall back to the top of the page.
+    // into the list. Left alone, it would fall back to the top of the page. As it did from the
+    // Clear filters of an empty list's message, which the skills that come back take the place of.
+    const count = document.getElementById("count");
     const gone = focus.startsWith("#scope")
-      ? (document.querySelector("#scope button") ?? document.getElementById("count"))
-      : null;
+      ? (document.querySelector("#scope button") ?? count)
+      : focus.startsWith("#results")
+        ? count
+        : null;
     ((document.querySelector(focus) ?? gone) as HTMLElement | null)?.focus({ preventScroll: true });
   }
   const st = state;
