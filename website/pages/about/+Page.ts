@@ -29,6 +29,13 @@ export default function Page(): string {
   const { turnedDown: t, minimums } = review;
   const byAgent = t.toolDocs + t.vendorService + t.language + t.copy + t.retired + t.other;
   const byScript = review.gone + review.notOnGitHub;
+  /** The reasons a skill was disqualified, most frequent first, and Other reasons last. */
+  const byCount = (reasons: Row[]) =>
+    reasons.sort(
+      (a, b) =>
+        Number(a.label === "Other reasons") - Number(b.label === "Other reasons") ||
+        b.count - a.count,
+    );
   // Each row adds up the rows one level deeper under it, down from Crawled: every skill SkillHub
   // knows of. A row's bar is its share of them.
   const rows: Row[] = [
@@ -84,42 +91,44 @@ export default function Page(): string {
       count: byAgent,
       tip: "An agent review read the skill's whole SKILL.md, not only its description, and judged it not useful to people looking for skills.",
     },
-    {
-      label: "Tool docs",
-      depth: 4,
-      count: t.toolDocs,
-      tip: "A manual for one product, framework, cloud or language, such as a cloud's CLI or a framework's best practices. It only matters once you've chosen the product. A skill that gets a job done through a tool, such as testing, scraping or generating media, isn't tool docs.",
-    },
-    {
-      label: "Vendor paid service",
-      depth: 4,
-      count: t.vendorService,
-      tip: "A skill whose job runs on one vendor's paid service, such as its API or cloud, so it only works with an account there. It reads as an ad for the service, whoever publishes it. A workflow where the agent does the job and a paid service supplies one part isn't one, nor is a free tool that runs on your machine, even when its maker also sells a cloud.",
-    },
-    {
-      label: "Not in English",
-      depth: 4,
-      count: t.language,
-      tip: "Its SKILL.md isn't in English.",
-    },
-    {
-      label: "Copies",
-      depth: 4,
-      count: t.copy,
-      tip: "A skill republished under another name, or listed twice, such as under its repo's old name.",
-    },
-    {
-      label: "Retired",
-      depth: 4,
-      count: t.retired,
-      tip: "Its SKILL.md points to a replacement.",
-    },
-    {
-      label: "Other reasons",
-      depth: 4,
-      count: t.other,
-      tip: "It only works inside one company's codebase or brand, does nothing for whoever installs it, or does something you wouldn't want, such as installing dozens of other skills without asking or removing the watermarks that mark images as AI-generated.",
-    },
+    ...byCount([
+      {
+        label: "Tool docs",
+        depth: 4,
+        count: t.toolDocs,
+        tip: "A manual for one product, framework, cloud or language, such as a cloud's CLI or a framework's best practices. It only matters once you've chosen the product. A skill that gets a job done through a tool, such as testing, scraping or generating media, isn't tool docs.",
+      },
+      {
+        label: "Vendor paid service",
+        depth: 4,
+        count: t.vendorService,
+        tip: "A skill whose job runs on one vendor's paid service, such as its API or cloud, so it only works with an account there. It reads as an ad for the service, whoever publishes it. A workflow where the agent does the job and a paid service supplies one part isn't one, nor is a free tool that runs on your machine, even when its maker also sells a cloud.",
+      },
+      {
+        label: "Not in English",
+        depth: 4,
+        count: t.language,
+        tip: "Its SKILL.md isn't in English.",
+      },
+      {
+        label: "Copies",
+        depth: 4,
+        count: t.copy,
+        tip: "A skill republished under another name, or listed twice, such as under its repo's old name.",
+      },
+      {
+        label: "Retired",
+        depth: 4,
+        count: t.retired,
+        tip: "Its SKILL.md points to a replacement.",
+      },
+      {
+        label: "Other reasons",
+        depth: 4,
+        count: t.other,
+        tip: "It only works inside one company's codebase or brand, does nothing for whoever installs it, or does something you wouldn't want, such as installing dozens of other skills without asking or removing the watermarks that mark images as AI-generated.",
+      },
+    ]),
     {
       label: "By script",
       name: "Disqualified by script",
@@ -128,18 +137,20 @@ export default function Page(): string {
       count: byScript,
       tip: "A script found the skill's SKILL.md can't be read on GitHub, so there's nothing for an agent review to judge.",
     },
-    {
-      label: "SKILL.md gone from its repo",
-      depth: 4,
-      count: review.gone,
-      tip: "Its repo no longer has its SKILL.md, such as after deleting or moving it. A listed skill whose SKILL.md goes comes off the list.",
-    },
-    {
-      label: "Not on GitHub",
-      depth: 4,
-      count: review.notOnGitHub,
-      tip: "It's hosted somewhere other than GitHub, where SkillHub reads each SKILL.md and follows its changes.",
-    },
+    ...byCount([
+      {
+        label: "SKILL.md gone from its repo",
+        depth: 4,
+        count: review.gone,
+        tip: "Its repo no longer has its SKILL.md, such as after deleting or moving it. A listed skill whose SKILL.md goes comes off the list.",
+      },
+      {
+        label: "Not on GitHub",
+        depth: 4,
+        count: review.notOnGitHub,
+        tip: "It's hosted somewhere other than GitHub, where SkillHub reads each SKILL.md and follows its changes.",
+      },
+    ]),
   ];
   const row = (
     { label, count, tip, depth = 0, emoji, accent, noBar, name = label }: Row,
