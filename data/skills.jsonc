@@ -3,7 +3,7 @@
   "asOf": {
     "installs": "2026-11-12",
     "stars": "2026-11-12",
-    "tags": "2026-11-09"
+    "tags": "2026-11-12"
   },
   "facets": [
     {
@@ -921,7 +921,7 @@
       }
     },
     {
-      "id": "kepano/obsidian-skills",
+      "id": "obsidianmd/obsidian-skills",
       "stars": 51729,
       "agentReview": {
         "kind": "skills",
@@ -3581,6 +3581,56 @@
         "model": "Claude Opus 5.5",
         "effort": "xhigh"
       }
+    },
+    {
+      "id": "elayadesign/ai-design-skills",
+      "stars": 15310,
+      "agentReview": {
+        "kind": "skills",
+        "description": null,
+        "model": "Claude Opus 5.5",
+        "effort": null
+      }
+    },
+    {
+      "id": "iart-ai/motion-design-skills",
+      "stars": 226,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Motion design fundamentals, engines, and brand elements as installable Claude Code skills — timing, typography, color, composition, After Effects, Remotion, logos, and backgrounds.",
+        "model": "Claude Opus 5.5",
+        "effort": null
+      }
+    },
+    {
+      "id": "medusajs/medusa-agent-skills",
+      "stars": 236,
+      "agentReview": {
+        "kind": "skills",
+        "description": "Agent skills and commands for Medusa best practices and conventions.",
+        "model": "Claude Opus 5.5",
+        "effort": null
+      }
+    },
+    {
+      "id": "boristane/agent-skills",
+      "stars": 127,
+      "agentReview": {
+        "kind": "skills",
+        "description": null,
+        "model": "Claude Opus 5.5",
+        "effort": null
+      }
+    },
+    {
+      "id": "jakubkrehel/oklch-skill",
+      "stars": 282,
+      "agentReview": {
+        "kind": "skills",
+        "description": "An agent skill that helps you work with OKLCH colors.",
+        "model": "Claude Opus 5.5",
+        "effort": null
+      }
     }
   ],
   "bundles": [
@@ -5375,7 +5425,7 @@
     },
     {
       "id": "bmad-code-org/bmad-method",
-      "skew": 1838,
+      "skew": 0,
       "agentReview": {
         "name": "BMad Method",
         "description": "BMad's agile AI-driven development method: brainstorm and research an idea, plan it with product, UX and architecture skills and their personas, then build, review and test each change.",
@@ -5387,7 +5437,7 @@
             },
             {
               "label": "It does",
-              "text": "Gives each phase its own skills and named personas: explore and research, product and UX documents, architecture, then build, review and test, ending with a retrospective per epic"
+              "text": "Gives each phase its own skills and named personas: explore and research, product and UX documents, architecture and tickets, then build, review and test, ending with a retrospective per epic"
             },
             {
               "label": "Start with",
@@ -5395,7 +5445,7 @@
             },
             {
               "label": "You get",
-              "text": "Markdown files under one output folder, such as briefs, PRDs, UX specs, an architecture spine, plans and research reports, plus local commits"
+              "text": "Markdown files under one output folder, such as briefs, PRDs, UX specs, an architecture spine, tickets, plans and research reports, plus local commits"
             },
             {
               "label": "For your own skills",
@@ -5410,8 +5460,8 @@
               "text": "The default branch is v7, a preview alpha that changes often; the stable v6.12 installs separately, with npx bmad-method install"
             }
           ],
-          "text": "BMad Method carries every decision forward as files. The bmad skill's setup creates the _bmad/ folder whose scripts the other skills run, and bmad later answers what to run next. Work is grouped into initiatives, each a ticket tree: the initiative, its epics and their stories. A small change goes straight to bmad-build, which plans, implements, has a subagent review the diff and commits locally; bmad-build-auto does the same unattended. Bigger work gets planning first. bmad-brainstorming, bmad-forge-idea, bmad-deep-recon and bmad-prfaq explore and test ideas; John (bmad-agent-pm) coaches PRDs and other product documents; bmad-ux writes DESIGN.md and EXPERIENCE.md; bmad-architecture records the decisions separately built parts must share. Sofia (bmad-agent-po), in the full install but not listed here, turns those documents into an initiative's requirements, epics and stories. Mary, Sally, Winston and Amelia are personas that stay on and run these skills from a menu. After a build, bmad-code-review, bmad-walkthrough and bmad-qa-generate-e2e-tests check it; bmad-retrospective then judges each finished epic by its own criteria. bmad-party-mode, bmad-advanced-elicitation and bmad-review bring other views to a draft or a change, bmad-project-context keeps AGENTS.md's agent rules verified, and bmad-customize changes a skill through override files. Smithy (bmad-toolsmith) builds your own skills, and bmad-eval measures them.",
-          "permalink": "https://github.com/bmad-code-org/bmad-method/tree/e734d3ac3c0f4ea31cc2c2bbbe79e86e54f2cae6"
+          "text": "BMad Method carries every decision forward as files. The bmad skill's setup creates the _bmad/ folder whose scripts the other skills run, and bmad later answers what to run next. Work is grouped into initiatives, each a ticket tree: the initiative, its epics and their stories. A small change goes straight to bmad-build, which plans, implements, has a subagent review the diff and commits locally; bmad-build-auto does the same unattended. Bigger work gets planning first. bmad-brainstorming, bmad-forge-idea, bmad-deep-recon and bmad-prfaq explore and test ideas; John (bmad-agent-pm) coaches PRDs and other product documents; bmad-ux writes DESIGN.md and EXPERIENCE.md; bmad-architecture records the decisions separately built parts must share. Sofia (bmad-agent-po) turns those documents into the initiative's requirements, epics and stories, in the repo or on a tracker. Mary, Sally, Winston and Amelia are personas that stay on and run these skills from a menu. After a build, bmad-code-review, bmad-walkthrough and bmad-qa-generate-e2e-tests check it; bmad-retrospective then judges each finished epic by its own criteria. bmad-party-mode, bmad-advanced-elicitation and bmad-review bring other views to a draft or a change, bmad-project-context keeps AGENTS.md's agent rules verified, and bmad-customize changes a skill through override files. Smithy (bmad-toolsmith) builds your own skills, and bmad-eval measures them.",
+          "permalink": "https://github.com/bmad-code-org/bmad-method/tree/a867e1604b365d48ea03cbd109da1066ba0c84bc"
         },
         "skills": [
           {
@@ -5463,6 +5513,11 @@
             "id": "bmad-code-org/bmad-method/skills/bmad-architecture",
             "standalone": false,
             "note": "Runs its scripts from the _bmad/ folder that the bmad skill's setup creates, and offers that setup when it's missing."
+          },
+          {
+            "id": "bmad-code-org/bmad-method/skills/bmad-agent-po",
+            "standalone": false,
+            "note": "Its workflow is printed by a script in the _bmad/ folder that the bmad skill's setup creates, so it does nothing without that setup."
           },
           {
             "id": "bmad-code-org/bmad-method/skills/bmad-agent-dev",
@@ -6750,8 +6805,8 @@
               "text": "Each skill only when called, by you or by another pstack skill"
             }
           ],
-          "text": "pstack is the plugin Lauren Tan (poteto) uses to ship code at Cursor, aimed at writing less code of higher quality. how explains what code does through read-only explorer subagents, and why digs through git, PRs and each connected evidence source for the reasons behind it. architect grounds a design with both, has arena sketch it, then writes the code against the chosen sketch. arena has several models attempt the same task, picks a base and grafts in the best of the rest. interrogate reuses arena's fan-out so adversaries try to break a change, keeping only findings a run proves, and blast-radius proves the one fact a risky-looking change is safe because of. technical-writing and unslop hold the prose rules for docs, PR descriptions and replies, and technical-writing runs every doc through unslop. The principle skills are one rule each, such as fix root causes or prove it works, which poteto-mode indexes and the other skills cite by name. The plugin's 44 other skills, among them poteto-mode, setup-pstack, swarm and in-your-own-words, and its two subagents aren't listed here: install the plugin for the full set.",
-          "permalink": "https://github.com/cursor/plugins/tree/8ecfb19f844b67a4bc7af7f66c366d57bc7b6d2b"
+          "text": "pstack is the plugin Lauren Tan (poteto) uses to ship code at Cursor, aimed at writing less code of higher quality. how explains what code does through read-only explorer subagents, and why digs through git, PRs and each connected evidence source for the reasons behind it. architect grounds a design with both, has arena sketch it, then writes the code against the chosen sketch. arena has several models attempt the same task, picks a base and grafts in the best of the rest. interrogate reuses arena's fan-out so adversaries try to break a change, keeping only findings a run proves, and blast-radius proves the one fact a risky-looking change is safe because of. create-verification-skill writes a project skill that drives your app the way a user does, and show-me-your-work keeps an audited log of the decisions in long unattended runs. technical-writing and unslop hold the prose rules for docs, PR descriptions and replies. The fifteen principle skills are one rule each, such as fix root causes or build the lever, which poteto-mode indexes and the other skills cite. The plugin's 33 other skills, among them poteto-mode, setup-pstack and swarm, and its two subagents aren't listed here.",
+          "permalink": "https://github.com/cursor/plugins/tree/a5539b15a3d56e04992565aafee2b37051329ce3"
         },
         "skills": [
           {
@@ -6781,6 +6836,16 @@
           },
           {
             "id": "cursor/plugins/pstack/skills/blast-radius",
+            "standalone": true,
+            "listedOutsideBundle": true
+          },
+          {
+            "id": "cursor/plugins/pstack/skills/create-verification-skill",
+            "standalone": true,
+            "listedOutsideBundle": true
+          },
+          {
+            "id": "cursor/plugins/pstack/skills/show-me-your-work",
             "standalone": true,
             "listedOutsideBundle": true
           },
@@ -6823,11 +6888,56 @@
             "id": "cursor/plugins/pstack/skills/principle-encode-lessons-in-structure",
             "standalone": true,
             "listedOutsideBundle": false
+          },
+          {
+            "id": "cursor/plugins/pstack/skills/principle-build-the-lever",
+            "standalone": true,
+            "listedOutsideBundle": false
+          },
+          {
+            "id": "cursor/plugins/pstack/skills/principle-subtract-before-you-add",
+            "standalone": true,
+            "listedOutsideBundle": false
+          },
+          {
+            "id": "cursor/plugins/pstack/skills/principle-laziness-protocol",
+            "standalone": true,
+            "listedOutsideBundle": false
+          },
+          {
+            "id": "cursor/plugins/pstack/skills/principle-foundational-thinking",
+            "standalone": true,
+            "listedOutsideBundle": false
+          },
+          {
+            "id": "cursor/plugins/pstack/skills/principle-redesign-from-first-principles",
+            "standalone": true,
+            "listedOutsideBundle": false
+          },
+          {
+            "id": "cursor/plugins/pstack/skills/principle-exhaust-the-design-space",
+            "standalone": true,
+            "listedOutsideBundle": false
+          },
+          {
+            "id": "cursor/plugins/pstack/skills/principle-experience-first",
+            "standalone": true,
+            "listedOutsideBundle": false
+          },
+          {
+            "id": "cursor/plugins/pstack/skills/principle-minimize-reader-load",
+            "standalone": true,
+            "listedOutsideBundle": false
+          },
+          {
+            "id": "cursor/plugins/pstack/skills/principle-make-operations-idempotent",
+            "standalone": true,
+            "listedOutsideBundle": false
           }
         ],
         "install": [
           {
-            "label": "Cursor plugin; also adds the plugin's 44 other skills, poteto-mode among them, and its two subagents",
+            "label": "Cursor plugin; also adds the plugin's 33 other skills, poteto-mode among them, and its two subagents",
             "command": "/add-plugin pstack"
           },
           {
@@ -7146,35 +7256,39 @@
       "id": "rohitg00/ai-engineering-from-scratch@learning",
       "skew": 0,
       "agentReview": {
-        "name": "AI Engineering from Scratch placement and quizzes",
-        "description": "Starts you on the AI Engineering from Scratch course and tests you along the way: a placement quiz, a saved study plan and end-of-phase quizzes.",
+        "name": "AI Engineering from Scratch tutor",
+        "description": "Takes you through the AI Engineering from Scratch course with your agent: a placement quiz and study plan, lessons taught one at a time, phase quizzes and a guide to where each topic is taught.",
         "tldr": {
           "glance": [
             {
               "label": "Use it when",
-              "text": "You want to start the free AI Engineering from Scratch course with your coding agent, and check yourself after each phase"
+              "text": "You want to work through the free AI Engineering from Scratch course with your coding agent as the tutor"
             },
             {
               "label": "It does",
-              "text": "Places you with a ten-question quiz, saves a study plan to LEARNING.md, and quizzes you with eight questions at the end of each phase"
+              "text": "Places you with a quiz, saves a study plan, teaches the lessons one at a time, quizzes you per phase and finds where a topic is taught"
             },
             {
               "label": "You get",
-              "text": "An entry phase, a 20-phase path marked Skip, Review or Do with hours, and per-phase grades with the lessons to re-read"
+              "text": "A LEARNING.md with your path, progress log and review queue, interactive lessons with their code, and per-phase grades naming lessons to re-read"
             },
             {
-              "label": "Not included",
-              "text": "learn, the repo's tutor that teaches lesson by lesson from LEARNING.md, and course-guide, which finds the lessons on a topic; the repo's installer offers both"
+              "label": "Start with",
+              "text": "start-learning for a plan, or just ask learn for the next lesson: without a plan it starts at Phase 1, Lesson 1"
+            },
+            {
+              "label": "Works from",
+              "text": "A clone of the repo, or lesson files fetched from GitHub with no setup"
             }
           ],
-          "text": "The course is 542 lessons in 20 phases, from linear algebra to autonomous agents. These three skills start you on it and check you along the way; the teaching itself is the repo's learn skill, which isn't listed here. start-learning is the front door: three questions about why you're learning, your weekly hours and what you want to build, then find-your-level's placement quiz, then a LEARNING.md with your mission, entry phase, a Skip, Review or Do path with hours, a progress log and a review queue that learn keeps up to date. find-your-level also works alone and shows the same path in the conversation. Ask start-learning for only the MCP, Agent Skills or reverse engineering track and it hands you to that track's own tutor instead, also not listed. When you finish a phase, check-understanding writes eight multiple-choice questions from that phase's lesson docs, asks them one at a time, grades you from Mastered to Start Over and names the lessons to re-read. Both quizzes keep the answers hidden until you reply. Lesson docs and hour estimates come from a clone of the repo or are fetched from GitHub.",
-          "permalink": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/d7b5633f91591ee3bf55c8d80831b515498cc0e6"
+          "text": "The course is 542 lessons in 20 phases, from linear algebra to autonomous agents, and these five skills make your agent its tutor. start-learning is the front door: three questions about why you're learning, your weekly hours and what you want to build, then find-your-level's placement quiz, then a LEARNING.md with your mission, entry phase, a Skip, Review or Do path with hours, a progress log and a review queue. find-your-level also works alone and shows the same path in the conversation. learn teaches one lesson per call: a warm-up from the last lesson's quiz, the concept with questions before the math, the from-scratch code in small chunks, run when it can be, the production library's version, then the lesson's quiz, logged in LEARNING.md, with lessons under 70% queued for review. check-understanding quizzes you on a finished phase with eight questions and names the lessons to re-read. course-guide maps a topic, a question or a bug to the one to three lessons that teach it and the command to run next. The MCP, Agent Skills, reverse engineering and Claude certification tracks have tutors of their own, which these skills hand you to and which aren't listed here.",
+          "permalink": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/a509402c0b5455d11ddc2b5fa83cc8c0d2e0692b"
         },
         "skills": [
           {
             "id": "rohitg00/ai-engineering-from-scratch/skills/start-learning",
             "standalone": false,
-            "note": "Runs find-your-level's placement quiz, which it expects installed alongside it; the LEARNING.md it writes is driven by the repo's learn skill, which isn't listed."
+            "note": "Runs find-your-level's placement quiz, which it expects installed alongside it, and writes the LEARNING.md plan that learn teaches from."
           },
           {
             "id": "rohitg00/ai-engineering-from-scratch/skills/find-your-level",
@@ -7182,19 +7296,150 @@
             "listedOutsideBundle": false
           },
           {
+            "id": "rohitg00/ai-engineering-from-scratch/skills/learn",
+            "standalone": true,
+            "listedOutsideBundle": false
+          },
+          {
             "id": "rohitg00/ai-engineering-from-scratch/skills/check-understanding",
+            "standalone": true,
+            "listedOutsideBundle": false
+          },
+          {
+            "id": "rohitg00/ai-engineering-from-scratch/skills/course-guide",
             "standalone": true,
             "listedOutsideBundle": false
           }
         ],
         "install": [
           {
-            "label": "Any agent, with the skills CLI (needs Node.js); it asks which of the repo's skills to add and for which agent and scope: add learn too, which teaches from the plan",
+            "label": "Any agent, with the skills CLI (needs Node.js); it asks which of the repo's skills to add and for which agent and scope",
             "command": "npx skills add rohitg00/ai-engineering-from-scratch"
           },
           {
-            "label": "Any agent, with the skills CLI: just these three, plus learn and course-guide, which start-learning's plan hands you to",
-            "command": "npx skills add rohitg00/ai-engineering-from-scratch --skill start-learning --skill find-your-level --skill check-understanding --skill learn --skill course-guide"
+            "label": "Any agent, with the skills CLI: just these five",
+            "command": "npx skills add rohitg00/ai-engineering-from-scratch --skill start-learning --skill find-your-level --skill learn --skill check-understanding --skill course-guide"
+          }
+        ],
+        "model": "Claude Opus 5.5",
+        "effort": null
+      }
+    },
+    {
+      "id": "affaan-m/ecc@orch",
+      "skew": 0,
+      "agentReview": {
+        "name": "ECC orch pipeline",
+        "description": "ECC's gated delivery pipeline: build an MVP from a spec or add a feature through research, a plan you approve, test-first code, review and a commit you confirm.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "You want ECC's agents to deliver an MVP or a new feature, with a plan you approve first and every commit confirmed"
+            },
+            {
+              "label": "It does",
+              "text": "Sizes the request, then runs research, planning, test-first implementation, review and commit, handing each phase to one of ECC's agents"
+            },
+            {
+              "label": "Start with",
+              "text": "orch-build-mvp for a spec or design document, orch-add-feature for a capability that doesn't exist yet"
+            },
+            {
+              "label": "Stops twice",
+              "text": "After the plan, until you approve it, and before committing, until you confirm the diff and messages"
+            },
+            {
+              "label": "You get",
+              "text": "Tested code in conventional commits, one per slice or logical change, with a security review whenever the diff touches a sensitive area"
+            },
+            {
+              "label": "Needs",
+              "text": "ECC installed, for its planner, tdd-guide and code-reviewer agents and its /gan-build command"
+            }
+          ],
+          "text": "ECC's orch skills are thin wrappers over one shared engine, orch-pipeline, which describes the phases but isn't meant to be run alone. A run starts by sizing the request as trivial, small, standard or large, from the files it touches, any new dependency and how many design questions are open, and says the tier so you can override it; the tier decides which phases run. Research looks for existing code and libraries first, the planner agent writes a task list of thin vertical slices, and the run waits for your approval. Each task then goes through test-first implementation, review by code-reviewer, and security-reviewer when the diff touches authentication, user input, database queries, file paths, external APIs, cryptography or secrets, before the run stops again to show the diff and commit messages. orch-build-mvp reads a spec or design document, orders it into slices with one end-to-end path first, stands up that first slice and builds each slice through ECC's /gan-build loop, where a generator writes and an evaluator scores the result against the spec. orch-add-feature skips the scaffold and starts by writing failing tests for the new behavior. ECC's other orch skills, for fixes, changes and refactors, aren't listed here.",
+          "permalink": "https://github.com/affaan-m/ecc/tree/d2ef2680594f9a17526a6e1a2e18b3d242c5d17b"
+        },
+        "skills": [
+          {
+            "id": "affaan-m/ecc/skills/orch-build-mvp",
+            "standalone": false,
+            "note": "Loads orch-pipeline for its phases and gates, and drives the build with ECC's /gan-build loop."
+          },
+          {
+            "id": "affaan-m/ecc/skills/orch-add-feature",
+            "standalone": false,
+            "note": "Loads orch-pipeline for its phases and gates, which hand each phase to one of ECC's agents."
+          },
+          {
+            "id": "affaan-m/ecc/skills/orch-pipeline",
+            "standalone": false,
+            "note": "The engine the other two load: alone it only describes phases that ECC's agents and commands carry out."
+          }
+        ],
+        "install": [
+          {
+            "label": "Claude Code plugin, after /plugin marketplace add https://github.com/affaan-m/ECC; installs all of ECC, with the agents and commands these skills call",
+            "command": "/plugin install ecc@ecc"
+          },
+          {
+            "label": "Claude Code, Codex, Cursor and other harnesses, with ECC's guided installer (needs Node.js)",
+            "command": "npx ecc-universal@2.2.3 install --guided"
+          }
+        ],
+        "model": "Claude Opus 5.5",
+        "effort": null
+      }
+    },
+    {
+      "id": "jsmastery-pro/skills",
+      "skew": 0,
+      "agentReview": {
+        "name": "Engineering Workflow Skills",
+        "description": "JS Mastery's one-skill-per-phase engineering workflow, of which SkillHub lists two: architect settles a load-bearing decision as a build spec, develop builds from it.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "You want each phase of a change handled by its own skill, with decisions and progress kept in files rather than in the chat"
+            },
+            {
+              "label": "It does",
+              "text": "architect settles a load-bearing decision as a build spec; develop builds the feature from that spec and your AGENTS.md"
+            },
+            {
+              "label": "You get",
+              "text": "Numbered specs in docs/specs/, the code, and the feature's progress ticked in your scope files"
+            },
+            {
+              "label": "Not listed",
+              "text": "The workflow's seven other skills: scope, audit, check, test, document, sync and debug; installing the repo adds all nine"
+            }
+          ],
+          "text": "JS Mastery's workflow takes a change from a vague idea to shipped code with one skill per phase, and keeps its state in files, a scope, specs and AGENTS.md, so the work survives across sessions and teammates. architect is the design step: it infers what the repo shows, asks only what you alone know, recommends each choice with a runner-up, and writes a numbered spec. develop is the build step: it reads the spec and AGENTS.md, builds the UI, the backend or both, and marks the feature in progress in the scope. When a load-bearing choice, such as an auth approach or a payment provider, has no spec, develop stops and sends you to architect, or, if you say so, builds on an assumption it records for architect to ratify later. Each works alone too: architect writes a spec without the rest, and a small change can go straight to develop. Both write in plain words with no dashes or hyphens. The README's full loop is scope, audit, architect, develop, check, test, document and sync, with debug whenever something breaks.",
+          "permalink": "https://github.com/jsmastery-pro/skills/tree/43b69e44c9ca905fe3a3418ccdf4102255e20d40"
+        },
+        "skills": [
+          {
+            "id": "jsmastery-pro/skills/skills/architect",
+            "standalone": true,
+            "listedOutsideBundle": true
+          },
+          {
+            "id": "jsmastery-pro/skills/skills/develop",
+            "standalone": true,
+            "listedOutsideBundle": false
+          }
+        ],
+        "install": [
+          {
+            "label": "Claude Code, with the skills CLI (needs Node.js); adds all nine of the repo's skills, then restart Claude Code",
+            "command": "npx skills@latest add jsmastery-pro/skills -a claude-code"
+          },
+          {
+            "label": "Codex and other agents that read .agents/skills, with the skills CLI; adds all nine",
+            "command": "npx skills@latest add jsmastery-pro/skills"
           }
         ],
         "model": "Claude Opus 5.5",
@@ -50023,8 +50268,8 @@
               "text": "A numbered spec in docs/specs/ with requirements, decision, build plan and consequences, and a separate rationale file for big decisions"
             },
             {
-              "label": "Part of",
-              "text": "jsmastery-pro's workflow of one skill per phase; it reads the scope and AGENTS.md files the others write, when they exist"
+              "label": "Reads",
+              "text": "The scope and AGENTS.md files the workflow's other skills write, when they exist"
             },
             {
               "label": "Writes",
@@ -50046,7 +50291,7 @@
           "interview"
         ],
         "model": "Claude Opus 5.5",
-        "effort": "xhigh"
+        "effort": null
       }
     },
     {
@@ -74281,6 +74526,1295 @@
         ],
         "model": "Claude Opus 5.5",
         "effort": "xhigh"
+      }
+    },
+    {
+      "id": "obsidianmd/obsidian-skills/plugins/obsidian/skills/defuddle",
+      "name": "defuddle",
+      "skills.sh": {
+        "url": "https://skills.sh/obsidianmd/obsidian-skills/defuddle",
+        "installs": 76998,
+        "weeklyInstalls": [1136, 1034, 999, 1091, 1010, 1570, 1040, 941],
+        "firstSeen": "2026-02-11"
+      },
+      "skillMd": {
+        "version": "398127736bd4ba42d767b1419fee1a927508370b",
+        "updated": "2026-11-12",
+        "skew": 156
+      },
+      "agentReview": {
+        "description": "Extracts clean Markdown from any HTML page.",
+        "tags": [
+          "category:browser",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "by:official",
+          "stack:defuddle",
+          "scraping"
+        ],
+        "model": "Claude Opus 5.5",
+        "effort": null
+      }
+    },
+    {
+      "id": "emilkowalski/skills/skills/gestures",
+      "name": "gestures",
+      "skills.sh": {
+        "url": "https://skills.sh/emilkowalski/skills/gestures",
+        "installs": 9700,
+        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 0, 1358],
+        "firstSeen": "2026-11-08"
+      },
+      "skillMd": {
+        "version": "4061b67b8d976a186aca118594f54b638c5f718a",
+        "updated": "2026-11-12",
+        "skew": 1339
+      },
+      "agentReview": {
+        "description": "Builds drag, swipe and sheet interactions that follow the finger exactly while held and finish with a spring carrying the release velocity.",
+        "tags": [
+          "category:design",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:framer-motion",
+          "stack:react",
+          "stack:vaul",
+          "animation",
+          "mobile",
+          "design",
+          "accessibility"
+        ],
+        "model": "Claude Opus 5.5",
+        "effort": null
+      }
+    },
+    {
+      "id": "coreyhaines31/marketingskills/skills/reverse-engineer-marketing",
+      "name": "reverse-engineer-marketing",
+      "skills.sh": {
+        "url": "https://skills.sh/coreyhaines31/marketingskills/reverse-engineer-marketing",
+        "installs": 5800,
+        "weeklyInstalls": [0, 0, 0, 0, 0, 0, 843, 3359],
+        "firstSeen": "2026-10-30"
+      },
+      "skillMd": {
+        "version": "1f837447b20bb6f0e72d87b80ece1c221c362c7d",
+        "updated": "2026-11-12",
+        "skew": 3910
+      },
+      "agentReview": {
+        "description": "Works out how a competitor grew, as a dated log of its moves against its traffic from public evidence, compares it with your numbers and ends with plays to run.",
+        "tags": [
+          "category:marketing",
+          "type:workflow",
+          "effect:remote",
+          "needs:cli",
+          "needs:account",
+          "needs:browser",
+          "by:community",
+          "stack:dataforseo",
+          "stack:scrapecreators",
+          "research",
+          "marketing",
+          "seo",
+          "social-media"
+        ],
+        "note": "Traffic, keyword and social-post data come from paid tools you connect, such as DataForSEO or ScrapeCreators, within a $5 cap by default. It signs up, books demos or buys from the competitor only with your approval for each step, under your real name.",
+        "model": "Claude Opus 5.5",
+        "effort": null
+      }
+    },
+    {
+      "id": "elayadesign/ai-design-skills/skills/landing-page-design",
+      "name": "landing-page-design",
+      "skills.sh": {
+        "url": "https://skills.sh/elayadesign/ai-design-skills/landing-page-design",
+        "installs": 5500,
+        "weeklyInstalls": [169, 124, 124, 161, 188, 290, 953, 2175],
+        "firstSeen": "2026-07-29"
+      },
+      "skillMd": {
+        "version": "456d9e0d3e2d84c748bb143c6ca3d90c45e16213",
+        "updated": "2026-11-12",
+        "skew": 3742
+      },
+      "agentReview": {
+        "description": "Plans, writes and styles landing pages around one offer, audience and action, with conversion copy, SEO and a strict visual system for type, spacing, radius and motion.",
+        "tags": [
+          "category:design",
+          "category:marketing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:tailwind",
+          "design",
+          "copywriting",
+          "conversion",
+          "seo",
+          "design-system"
+        ],
+        "note": "It asks to be applied to all web UI work, dashboards included, and requires every landing page to have a scroll-animated tagline section.",
+        "model": "Claude Opus 5.5",
+        "effort": null
+      }
+    },
+    {
+      "id": "bmad-code-org/bmad-method/skills/bmad-agent-po",
+      "name": "bmad-agent-po",
+      "skills.sh": {
+        "url": "https://skills.sh/bmad-code-org/bmad-method/bmad-agent-po",
+        "installs": 5500,
+        "weeklyInstalls": [0, 0, 0, 0, 129, 1648, 1416, 1547],
+        "firstSeen": "2026-10-18"
+      },
+      "skillMd": {
+        "version": "a867e1604b365d48ea03cbd109da1066ba0c84bc",
+        "updated": "2026-11-12",
+        "skew": 233
+      },
+      "agentReview": {
+        "description": "Turns the agent into Sofia, BMad's product owner, who distills PRDs and other inputs into requirements, slices them into epics and stories, and keeps the ticket board.",
+        "tags": [
+          "category:planning",
+          "type:mode",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "requirements",
+          "planning",
+          "issue-tracking"
+        ],
+        "note": "Needs uv and BMad set up in the project. Tickets live in the repo by default; it publishes them to GitHub, Jira, Linear, Notion or Trello only when you ask.",
+        "model": "Claude Opus 5.5",
+        "effort": null
+      }
+    },
+    {
+      "id": "affaan-m/ecc/skills/team-agent-orchestration",
+      "name": "team-agent-orchestration",
+      "skills.sh": {
+        "url": "https://skills.sh/affaan-m/ecc/team-agent-orchestration",
+        "installs": 5300,
+        "weeklyInstalls": [270, 166, 147, 246, 428, 412, 493, 475],
+        "firstSeen": "2026-06-04"
+      },
+      "skillMd": {
+        "version": "d2ef2680594f9a17526a6e1a2e18b3d242c5d17b",
+        "updated": "2026-11-12",
+        "skew": 744
+      },
+      "agentReview": {
+        "description": "Runs a squad of agents like a team: work items with an owner and scope, a Kanban of their states, a branch or worktree each, and merge gates.",
+        "tags": [
+          "category:agents",
+          "category:engineering",
+          "type:workflow",
+          "effect:local",
+          "needs:subagents",
+          "by:community",
+          "multi-agent",
+          "agent-workflows",
+          "git"
+        ],
+        "model": "Claude Opus 5.5",
+        "effort": null
+      }
+    },
+    {
+      "id": "affaan-m/ecc/skills/dynamic-workflow-mode",
+      "name": "dynamic-workflow-mode",
+      "skills.sh": {
+        "url": "https://skills.sh/affaan-m/ecc/dynamic-workflow-mode",
+        "installs": 5100,
+        "weeklyInstalls": [261, 160, 141, 229, 406, 403, 473, 439],
+        "firstSeen": "2026-06-04"
+      },
+      "skillMd": {
+        "version": "d2ef2680594f9a17526a6e1a2e18b3d242c5d17b",
+        "updated": "2026-11-12",
+        "skew": 1235
+      },
+      "agentReview": {
+        "description": "Decides when a task deserves its own throwaway harness, gives it an objective, inputs, an eval gate and a handoff, and promotes repeated harnesses to shared skills.",
+        "tags": [
+          "category:agents",
+          "category:skill-tools",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "agent-workflows",
+          "verification",
+          "skill-authoring",
+          "guardrails",
+          "handoff"
+        ],
+        "model": "Claude Opus 5.5",
+        "effort": null
+      }
+    },
+    {
+      "id": "affaan-m/ecc/skills/brand-discovery",
+      "name": "brand-discovery",
+      "skills.sh": {
+        "url": "https://skills.sh/affaan-m/ecc/brand-discovery",
+        "installs": 5100,
+        "weeklyInstalls": [266, 165, 164, 255, 450, 433, 508, 463],
+        "firstSeen": "2026-06-15"
+      },
+      "skillMd": {
+        "version": "d2ef2680594f9a17526a6e1a2e18b3d242c5d17b",
+        "updated": "2026-11-12",
+        "skew": 1071
+      },
+      "agentReview": {
+        "description": "Interviews founders over several sessions, one question at a time, about purpose, positioning, audience, personality, voice and story, and writes a master brandbook.",
+        "tags": [
+          "category:business",
+          "category:marketing",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "interview",
+          "marketing",
+          "writing"
+        ],
+        "model": "Claude Opus 5.5",
+        "effort": null
+      }
+    },
+    {
+      "id": "affaan-m/ecc/skills/agent-self-evaluation",
+      "name": "agent-self-evaluation",
+      "skills.sh": {
+        "url": "https://skills.sh/affaan-m/ecc/agent-self-evaluation",
+        "installs": 5000,
+        "weeklyInstalls": [277, 173, 156, 251, 433, 414, 483, 453],
+        "firstSeen": "2026-06-15"
+      },
+      "skillMd": {
+        "version": "d2ef2680594f9a17526a6e1a2e18b3d242c5d17b",
+        "updated": "2026-11-12",
+        "skew": 1178
+      },
+      "agentReview": {
+        "description": "Has the agent score its finished work from 1 to 5 on accuracy, completeness, clarity, actionability and conciseness, with evidence for each score, and fix the quick gaps.",
+        "tags": [
+          "category:debugging",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "self-improvement",
+          "verification"
+        ],
+        "model": "Claude Opus 5.5",
+        "effort": null
+      }
+    },
+    {
+      "id": "affaan-m/ecc/skills/intent-driven-development",
+      "name": "intent-driven-development",
+      "skills.sh": {
+        "url": "https://skills.sh/affaan-m/ecc/intent-driven-development",
+        "installs": 5000,
+        "weeklyInstalls": [266, 161, 140, 232, 411, 404, 472, 441],
+        "firstSeen": "2026-06-07"
+      },
+      "skillMd": {
+        "version": "d2ef2680594f9a17526a6e1a2e18b3d242c5d17b",
+        "updated": "2026-11-12",
+        "skew": 2481
+      },
+      "agentReview": {
+        "description": "Turns an ambiguous or risky change into scoped, testable acceptance criteria, asking only what the repository can't answer.",
+        "tags": [
+          "category:planning",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "requirements",
+          "planning",
+          "verification",
+          "handoff"
+        ],
+        "model": "Claude Opus 5.5",
+        "effort": null
+      }
+    },
+    {
+      "id": "affaan-m/ecc/skills/codehealth-mcp",
+      "name": "codehealth-mcp",
+      "skills.sh": {
+        "url": "https://skills.sh/affaan-m/ecc/codehealth-mcp",
+        "installs": 5000,
+        "weeklyInstalls": [260, 161, 139, 228, 407, 398, 469, 440],
+        "firstSeen": "2026-06-07"
+      },
+      "skillMd": {
+        "version": "d2ef2680594f9a17526a6e1a2e18b3d242c5d17b",
+        "updated": "2026-11-12",
+        "skew": 1000
+      },
+      "agentReview": {
+        "description": "Checks CodeScene's Code Health score of a file before and after each edit, and before commits and pull requests, so the agent never leaves code less maintainable than it found it.",
+        "tags": [
+          "category:debugging",
+          "type:workflow",
+          "effect:local",
+          "needs:mcp",
+          "needs:account",
+          "by:community",
+          "stack:codescene",
+          "code-quality",
+          "refactoring",
+          "code-review"
+        ],
+        "note": "Needs CodeScene's MCP server and an access token; its standalone mode, which the skill sticks to, needs no paid CodeScene plan.",
+        "model": "Claude Opus 5.5",
+        "effort": null
+      }
+    },
+    {
+      "id": "affaan-m/ecc/skills/inherit-legacy-style",
+      "name": "inherit-legacy-style",
+      "skills.sh": {
+        "url": "https://skills.sh/affaan-m/ecc/inherit-legacy-style",
+        "installs": 5000,
+        "weeklyInstalls": [259, 159, 138, 234, 414, 402, 471, 445],
+        "firstSeen": "2026-06-07"
+      },
+      "skillMd": {
+        "version": "d2ef2680594f9a17526a6e1a2e18b3d242c5d17b",
+        "updated": "2026-11-12",
+        "skew": 1244
+      },
+      "agentReview": {
+        "description": "Scans a legacy codebase for its unwritten conventions, settles conflicts with you one question at a time, and writes them to .ai-style-rules.md for the agent to follow.",
+        "tags": [
+          "category:engineering",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "code-quality",
+          "guardrails",
+          "interview"
+        ],
+        "model": "Claude Opus 5.5",
+        "effort": null
+      }
+    },
+    {
+      "id": "affaan-m/ecc/skills/orch-add-feature",
+      "name": "orch-add-feature",
+      "skills.sh": {
+        "url": "https://skills.sh/affaan-m/ecc/orch-add-feature",
+        "installs": 5000,
+        "weeklyInstalls": [261, 157, 138, 232, 405, 398, 467, 438],
+        "firstSeen": "2026-06-07"
+      },
+      "skillMd": {
+        "version": "d2ef2680594f9a17526a6e1a2e18b3d242c5d17b",
+        "updated": "2026-11-12",
+        "skew": 286
+      },
+      "agentReview": {
+        "description": "Builds a new feature through ECC's gated pipeline: research, a plan you approve, test-first implementation, review, and a commit you confirm.",
+        "tags": [
+          "category:engineering",
+          "category:agents",
+          "type:workflow",
+          "effect:local",
+          "needs:subagents",
+          "needs:cli",
+          "by:community",
+          "implementation",
+          "tdd",
+          "planning",
+          "code-review",
+          "multi-agent"
+        ],
+        "note": "Runs orch-pipeline's phases through ECC's agents and commands, such as planner, tdd-guide and code-reviewer, so it needs ECC installed.",
+        "model": "Claude Opus 5.5",
+        "effort": null
+      }
+    },
+    {
+      "id": "affaan-m/ecc/skills/orch-build-mvp",
+      "name": "orch-build-mvp",
+      "skills.sh": {
+        "url": "https://skills.sh/affaan-m/ecc/orch-build-mvp",
+        "installs": 5000,
+        "weeklyInstalls": [260, 159, 142, 233, 407, 399, 468, 438],
+        "firstSeen": "2026-06-07"
+      },
+      "skillMd": {
+        "version": "d2ef2680594f9a17526a6e1a2e18b3d242c5d17b",
+        "updated": "2026-11-12",
+        "skew": 348
+      },
+      "agentReview": {
+        "description": "Turns a design or spec document into a running MVP, one thin vertical slice at a time, through ECC's generator and evaluator build loop, with a plan you approve and commits you confirm.",
+        "tags": [
+          "category:engineering",
+          "category:planning",
+          "category:agents",
+          "type:workflow",
+          "effect:local",
+          "needs:subagents",
+          "needs:cli",
+          "needs:browser",
+          "by:community",
+          "stack:playwright",
+          "implementation",
+          "prototyping",
+          "planning",
+          "multi-agent"
+        ],
+        "note": "Runs orch-pipeline's phases and ECC's /gan-build loop, so it needs ECC installed.",
+        "model": "Claude Opus 5.5",
+        "effort": null
+      }
+    },
+    {
+      "id": "affaan-m/ecc/skills/orch-pipeline",
+      "name": "orch-pipeline",
+      "skills.sh": {
+        "url": "https://skills.sh/affaan-m/ecc/orch-pipeline",
+        "installs": 5000,
+        "weeklyInstalls": [260, 160, 142, 236, 406, 398, 470, 439],
+        "firstSeen": "2026-06-07"
+      },
+      "skillMd": {
+        "version": "d2ef2680594f9a17526a6e1a2e18b3d242c5d17b",
+        "updated": "2026-11-12",
+        "skew": 989
+      },
+      "agentReview": {
+        "description": "Defines the gated pipeline the orch-* skills share: a size check, research, plan approval, test-first build, review and commit confirmation, each phase delegated to an ECC agent.",
+        "tags": [
+          "category:engineering",
+          "category:agents",
+          "category:planning",
+          "type:workflow",
+          "effect:local",
+          "needs:subagents",
+          "needs:cli",
+          "by:community",
+          "agent-workflows",
+          "multi-agent",
+          "planning",
+          "tdd",
+          "code-review"
+        ],
+        "note": "Not meant to be run alone: orch-add-feature and orch-build-mvp load it, and its phases call ECC's agents and commands.",
+        "model": "Claude Opus 5.5",
+        "effort": null
+      }
+    },
+    {
+      "id": "affaan-m/ecc/skills/benchmark-methodology",
+      "name": "benchmark-methodology",
+      "skills.sh": {
+        "url": "https://skills.sh/affaan-m/ecc/benchmark-methodology",
+        "installs": 5000,
+        "weeklyInstalls": [262, 166, 150, 241, 414, 408, 472, 443],
+        "firstSeen": "2026-06-15"
+      },
+      "skillMd": {
+        "version": "d2ef2680594f9a17526a6e1a2e18b3d242c5d17b",
+        "updated": "2026-11-12",
+        "skew": 1401
+      },
+      "agentReview": {
+        "description": "Scores a set of competitors on nine weighted dimensions with evidence-anchored 1 to 5 rubrics, and plots them on the two-sided tension your positioning aims for.",
+        "tags": [
+          "category:business",
+          "category:marketing",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "research",
+          "marketing"
+        ],
+        "note": "It's the middle step of ECC's competitive analysis, between competitive-platform-analysis and competitive-report-structure, which SkillHub doesn't list. Its dimensions are written for design and brand studios.",
+        "model": "Claude Opus 5.5",
+        "effort": null
+      }
+    },
+    {
+      "id": "cursor/plugins/pstack/skills/create-verification-skill",
+      "name": "create-verification-skill",
+      "skills.sh": {
+        "url": "https://skills.sh/cursor/plugins/create-verification-skill",
+        "installs": 5200,
+        "weeklyInstalls": [216, 228, 346, 353, 496, 569, 471, 387],
+        "firstSeen": "2026-07-12"
+      },
+      "skillMd": {
+        "version": "a5539b15a3d56e04992565aafee2b37051329ce3",
+        "updated": "2026-11-12",
+        "skew": 1059
+      },
+      "agentReview": {
+        "description": "Writes a project-local skill that launches your app, drives it the way a user does and captures evidence, and proves the skill by running it once end to end.",
+        "tags": [
+          "category:debugging",
+          "category:skill-tools",
+          "type:setup",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "verification",
+          "testing",
+          "skill-authoring"
+        ],
+        "model": "Claude Opus 5.5",
+        "effort": null
+      }
+    },
+    {
+      "id": "cursor/plugins/pstack/skills/show-me-your-work",
+      "name": "show-me-your-work",
+      "skills.sh": {
+        "url": "https://skills.sh/cursor/plugins/show-me-your-work",
+        "installs": 5100,
+        "weeklyInstalls": [223, 260, 319, 325, 391, 479, 362, 299],
+        "firstSeen": "2026-05-24"
+      },
+      "skillMd": {
+        "version": "a5539b15a3d56e04992565aafee2b37051329ce3",
+        "updated": "2026-11-12",
+        "skew": 1097
+      },
+      "agentReview": {
+        "description": "Keeps an append-only TSV log of each decision in long or unattended work, with its reason and evidence, then audits it against the transcript and has another model review it.",
+        "tags": [
+          "category:agents",
+          "type:workflow",
+          "effect:local",
+          "needs:subagents",
+          "by:community",
+          "verification",
+          "handoff",
+          "agent-workflows"
+        ],
+        "model": "Claude Opus 5.5",
+        "effort": null
+      }
+    },
+    {
+      "id": "cursor/plugins/pstack/skills/principle-build-the-lever",
+      "name": "principle-build-the-lever",
+      "skills.sh": {
+        "url": "https://skills.sh/cursor/plugins/principle-build-the-lever",
+        "installs": 5100,
+        "weeklyInstalls": [309, 342, 399, 333, 392, 472, 353, 295],
+        "firstSeen": "2026-05-26"
+      },
+      "skillMd": {
+        "version": "a5539b15a3d56e04992565aafee2b37051329ce3",
+        "updated": "2026-11-12",
+        "skew": 386
+      },
+      "agentReview": {
+        "description": "Makes the agent build a codemod, script or generator for any non-trivial change instead of doing it by hand, so the work can be rerun and checked.",
+        "tags": [
+          "category:engineering",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "implementation",
+          "verification"
+        ],
+        "model": "Claude Opus 5.5",
+        "effort": null
+      }
+    },
+    {
+      "id": "cursor/plugins/pstack/skills/principle-exhaust-the-design-space",
+      "name": "principle-exhaust-the-design-space",
+      "skills.sh": {
+        "url": "https://skills.sh/cursor/plugins/principle-exhaust-the-design-space",
+        "installs": 5000,
+        "weeklyInstalls": [295, 328, 391, 295, 409, 471, 351, 297],
+        "firstSeen": "2026-05-24"
+      },
+      "skillMd": {
+        "version": "a5539b15a3d56e04992565aafee2b37051329ce3",
+        "updated": "2026-11-12",
+        "skew": 54
+      },
+      "agentReview": {
+        "description": "Has the agent build two or three competing prototypes of a novel interaction or architecture and compare them side by side before committing to one.",
+        "tags": [
+          "category:design",
+          "category:planning",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "prototyping",
+          "architecture",
+          "design"
+        ],
+        "model": "Claude Opus 5.5",
+        "effort": null
+      }
+    },
+    {
+      "id": "cursor/plugins/pstack/skills/principle-experience-first",
+      "name": "principle-experience-first",
+      "skills.sh": {
+        "url": "https://skills.sh/cursor/plugins/principle-experience-first",
+        "installs": 5000,
+        "weeklyInstalls": [303, 338, 394, 309, 347, 463, 355, 301],
+        "firstSeen": "2026-05-24"
+      },
+      "skillMd": {
+        "version": "a5539b15a3d56e04992565aafee2b37051329ce3",
+        "updated": "2026-11-12",
+        "skew": 178
+      },
+      "agentReview": {
+        "description": "Has the agent choose user delight over implementation convenience: fewer, polished features, prototypes before production code and the details right.",
+        "tags": [
+          "category:design",
+          "category:planning",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "design",
+          "scope-control",
+          "prototyping"
+        ],
+        "model": "Claude Opus 5.5",
+        "effort": null
+      }
+    },
+    {
+      "id": "cursor/plugins/pstack/skills/principle-foundational-thinking",
+      "name": "principle-foundational-thinking",
+      "skills.sh": {
+        "url": "https://skills.sh/cursor/plugins/principle-foundational-thinking",
+        "installs": 5000,
+        "weeklyInstalls": [303, 327, 397, 307, 351, 459, 353, 302],
+        "firstSeen": "2026-05-24"
+      },
+      "skillMd": {
+        "version": "a5539b15a3d56e04992565aafee2b37051329ce3",
+        "updated": "2026-11-12",
+        "skew": 207
+      },
+      "agentReview": {
+        "description": "Has the agent get the data structures and core types right before writing logic, and lay scaffold such as CI, linting and shared types before features.",
+        "tags": [
+          "category:engineering",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "architecture",
+          "domain-modeling",
+          "planning"
+        ],
+        "model": "Claude Opus 5.5",
+        "effort": null
+      }
+    },
+    {
+      "id": "cursor/plugins/pstack/skills/principle-laziness-protocol",
+      "name": "principle-laziness-protocol",
+      "skills.sh": {
+        "url": "https://skills.sh/cursor/plugins/principle-laziness-protocol",
+        "installs": 5100,
+        "weeklyInstalls": [295, 331, 399, 311, 424, 477, 357, 306],
+        "firstSeen": "2026-05-24"
+      },
+      "skillMd": {
+        "version": "a5539b15a3d56e04992565aafee2b37051329ce3",
+        "updated": "2026-11-12",
+        "skew": 80
+      },
+      "agentReview": {
+        "description": "Biases the agent toward the smallest diff that solves the problem, with one source of truth per decision and no abstractions the change doesn't need.",
+        "tags": [
+          "category:engineering",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "scope-control",
+          "code-quality",
+          "refactoring"
+        ],
+        "model": "Claude Opus 5.5",
+        "effort": null
+      }
+    },
+    {
+      "id": "cursor/plugins/pstack/skills/principle-make-operations-idempotent",
+      "name": "principle-make-operations-idempotent",
+      "skills.sh": {
+        "url": "https://skills.sh/cursor/plugins/principle-make-operations-idempotent",
+        "installs": 5000,
+        "weeklyInstalls": [287, 332, 387, 305, 391, 484, 365, 304],
+        "firstSeen": "2026-05-24"
+      },
+      "skillMd": {
+        "version": "a5539b15a3d56e04992565aafee2b37051329ce3",
+        "updated": "2026-11-12",
+        "skew": 293
+      },
+      "agentReview": {
+        "description": "Has the agent design commands, lifecycle steps and processing loops so rerunning them, even after a crash halfway, converges on the same end state.",
+        "tags": [
+          "category:engineering",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "architecture",
+          "backend"
+        ],
+        "model": "Claude Opus 5.5",
+        "effort": null
+      }
+    },
+    {
+      "id": "cursor/plugins/pstack/skills/principle-minimize-reader-load",
+      "name": "principle-minimize-reader-load",
+      "skills.sh": {
+        "url": "https://skills.sh/cursor/plugins/principle-minimize-reader-load",
+        "installs": 5000,
+        "weeklyInstalls": [290, 322, 390, 326, 398, 474, 355, 308],
+        "firstSeen": "2026-05-24"
+      },
+      "skillMd": {
+        "version": "a5539b15a3d56e04992565aafee2b37051329ce3",
+        "updated": "2026-11-12",
+        "skew": 306
+      },
+      "agentReview": {
+        "description": "Has the agent judge code by how many layers a reader must trace and how much state they must hold, and collapse wrappers that don't pay for themselves.",
+        "tags": [
+          "category:engineering",
+          "category:debugging",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "code-quality",
+          "refactoring",
+          "code-review"
+        ],
+        "model": "Claude Opus 5.5",
+        "effort": null
+      }
+    },
+    {
+      "id": "cursor/plugins/pstack/skills/principle-redesign-from-first-principles",
+      "name": "principle-redesign-from-first-principles",
+      "skills.sh": {
+        "url": "https://skills.sh/cursor/plugins/principle-redesign-from-first-principles",
+        "installs": 5100,
+        "weeklyInstalls": [311, 323, 398, 328, 413, 477, 359, 312],
+        "firstSeen": "2026-05-24"
+      },
+      "skillMd": {
+        "version": "a5539b15a3d56e04992565aafee2b37051329ce3",
+        "updated": "2026-11-12",
+        "skew": 110
+      },
+      "agentReview": {
+        "description": "Has the agent integrate a new requirement by redesigning as if it had been there from the start, and carry the change through types, docs and examples.",
+        "tags": [
+          "category:engineering",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "architecture",
+          "refactoring"
+        ],
+        "model": "Claude Opus 5.5",
+        "effort": null
+      }
+    },
+    {
+      "id": "cursor/plugins/pstack/skills/principle-subtract-before-you-add",
+      "name": "principle-subtract-before-you-add",
+      "skills.sh": {
+        "url": "https://skills.sh/cursor/plugins/principle-subtract-before-you-add",
+        "installs": 5100,
+        "weeklyInstalls": [292, 318, 396, 326, 406, 474, 363, 307],
+        "firstSeen": "2026-05-24"
+      },
+      "skillMd": {
+        "version": "a5539b15a3d56e04992565aafee2b37051329ce3",
+        "updated": "2026-11-12",
+        "skew": 132
+      },
+      "agentReview": {
+        "description": "Has the agent remove dead code, speculative guards and redundant instructions before building anything new.",
+        "tags": [
+          "category:engineering",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "refactoring",
+          "code-quality",
+          "scope-control"
+        ],
+        "model": "Claude Opus 5.5",
+        "effort": null
+      }
+    },
+    {
+      "id": "iart-ai/motion-design-skills/skills/motion-art-direction",
+      "name": "motion-art-direction",
+      "skills.sh": {
+        "url": "https://skills.sh/iart-ai/motion-design-skills/motion-art-direction",
+        "installs": 5200,
+        "weeklyInstalls": [142, 196, 378, 433, 581, 712, 715, 726],
+        "firstSeen": "2026-06-23"
+      },
+      "skillMd": {
+        "version": "b85e50c4cef5ff17aa2187a10d49d2dae9226c74",
+        "updated": "2026-11-12",
+        "skew": 1215
+      },
+      "agentReview": {
+        "description": "Sets the motion language of a motion graphics piece before anything is animated: tone and energy, one easing and timing scale, what moves and what stays still, checked shot by shot.",
+        "tags": [
+          "category:media",
+          "category:design",
+          "type:workflow",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "animation",
+          "video",
+          "design"
+        ],
+        "model": "Claude Opus 5.5",
+        "effort": null
+      }
+    },
+    {
+      "id": "jakubkrehel/skills/skills/teardown",
+      "name": "teardown",
+      "skills.sh": {
+        "url": "https://skills.sh/jakubkrehel/skills/teardown",
+        "installs": 5200,
+        "weeklyInstalls": [0, 0, 0, 0, 0, 220, 2023, 2057],
+        "firstSeen": "2026-10-25"
+      },
+      "skillMd": {
+        "version": "8b254eb75dadf3615a6abce87aed28e1b6e4d77c",
+        "updated": "2026-11-12",
+        "skew": 1653
+      },
+      "agentReview": {
+        "description": "Draws technical illustrations of objects and concepts, such as exploded assembly views, from photos, CAD models or descriptions, as a viewer page with SVG, PNG and PDF downloads.",
+        "tags": [
+          "category:science",
+          "category:media",
+          "type:workflow",
+          "effect:local",
+          "needs:cli",
+          "needs:browser",
+          "by:community",
+          "stack:svg",
+          "diagrams",
+          "image"
+        ],
+        "note": "Needs Node.js 22 or later, and Chrome or an SVG rasterizer such as rsvg-convert to render its proofs.",
+        "model": "Claude Opus 5.5",
+        "effort": null
+      }
+    },
+    {
+      "id": "anthropics/knowledge-work-plugins/design/skills/ux-copy",
+      "name": "ux-copy",
+      "skills.sh": {
+        "url": "https://skills.sh/anthropics/knowledge-work-plugins/ux-copy",
+        "installs": 5100,
+        "weeklyInstalls": [113, 102, 122, 152, 182, 176, 193, 177],
+        "firstSeen": "2026-03-13"
+      },
+      "skillMd": {
+        "version": "877a617b435ee2edfb002d9a3703c0a1a03aa1ba",
+        "updated": "2026-11-12",
+        "skew": 552
+      },
+      "agentReview": {
+        "description": "Writes or reviews interface microcopy, such as buttons, error messages, empty states and confirmation dialogs, with alternatives and the reasoning behind them.",
+        "tags": [
+          "category:design",
+          "category:writing",
+          "type:command",
+          "effect:none",
+          "needs:none",
+          "by:official",
+          "copywriting",
+          "design",
+          "writing"
+        ],
+        "model": "Claude Opus 5.5",
+        "effort": null
+      }
+    },
+    {
+      "id": "medusajs/medusa-agent-skills/plugins/ecommerce-storefront/skills/storefront-best-practices",
+      "name": "storefront-best-practices",
+      "skills.sh": {
+        "url": "https://skills.sh/medusajs/medusa-agent-skills/storefront-best-practices",
+        "installs": 5100,
+        "weeklyInstalls": [110, 123, 120, 121, 144, 141, 160, 179],
+        "firstSeen": "2026-01-30"
+      },
+      "skillMd": {
+        "version": "42b9afd28b22ee6077d3c0ea8b5444a8c9bee1bc",
+        "updated": "2026-11-12",
+        "skew": 3256
+      },
+      "agentReview": {
+        "description": "Guides building ecommerce storefronts, from product pages and cart to checkout, SEO and mobile, with framework-agnostic patterns and Medusa backend integration.",
+        "tags": [
+          "category:design",
+          "category:marketing",
+          "category:frameworks",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:official",
+          "stack:medusa",
+          "ecommerce",
+          "design",
+          "conversion",
+          "seo"
+        ],
+        "model": "Claude Opus 5.5",
+        "effort": null
+      }
+    },
+    {
+      "id": "rohitg00/ai-engineering-from-scratch/skills/learn",
+      "name": "learn",
+      "skills.sh": {
+        "url": "https://skills.sh/rohitg00/ai-engineering-from-scratch/learn",
+        "installs": 5100,
+        "weeklyInstalls": [197, 279, 452, 395, 305, 334, 354, 322],
+        "firstSeen": "2026-08-02"
+      },
+      "skillMd": {
+        "version": "a509402c0b5455d11ddc2b5fa83cc8c0d2e0692b",
+        "updated": "2026-11-12",
+        "skew": 1791
+      },
+      "agentReview": {
+        "description": "Teaches the AI Engineering from Scratch course one lesson at a time, with questions at each step, the lesson's code, a closing quiz and progress saved to LEARNING.md.",
+        "tags": [
+          "category:personal",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:official",
+          "learning"
+        ],
+        "model": "Claude Opus 5.5",
+        "effort": null
+      }
+    },
+    {
+      "id": "rohitg00/ai-engineering-from-scratch/skills/course-guide",
+      "name": "course-guide",
+      "skills.sh": {
+        "url": "https://skills.sh/rohitg00/ai-engineering-from-scratch/course-guide",
+        "installs": 5000,
+        "weeklyInstalls": [196, 273, 447, 389, 303, 330, 353, 318],
+        "firstSeen": "2026-08-02"
+      },
+      "skillMd": {
+        "version": "a509402c0b5455d11ddc2b5fa83cc8c0d2e0692b",
+        "updated": "2026-11-12",
+        "skew": 1042
+      },
+      "agentReview": {
+        "description": "Points you to the lessons of the AI Engineering from Scratch course that cover a topic, question or bug, and to the command to run next.",
+        "tags": [
+          "category:personal",
+          "type:router",
+          "effect:none",
+          "needs:none",
+          "by:official",
+          "learning"
+        ],
+        "model": "Claude Opus 5.5",
+        "effort": null
+      }
+    },
+    {
+      "id": "claude-office-skills/skills/seo-optimizer",
+      "name": "seo-optimizer",
+      "skills.sh": {
+        "url": "https://skills.sh/claude-office-skills/skills/seo-optimizer",
+        "installs": 5000,
+        "weeklyInstalls": [79, 57, 61, 104, 226, 183, 62, 74],
+        "firstSeen": "2026-03-09"
+      },
+      "skillMd": {
+        "version": "9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11",
+        "updated": "2026-11-12",
+        "skew": 1358
+      },
+      "agentReview": {
+        "description": "Plans SEO work: keyword research and mapping, on-page optimization, technical audits, content optimization and rank tracking, with checklists and templates.",
+        "tags": [
+          "category:marketing",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "seo",
+          "marketing"
+        ],
+        "model": "Claude Opus 5.5",
+        "effort": null
+      }
+    },
+    {
+      "id": "claude-office-skills/skills/batch-convert",
+      "name": "batch-convert",
+      "skills.sh": {
+        "url": "https://skills.sh/claude-office-skills/skills/batch-convert",
+        "installs": 5000,
+        "weeklyInstalls": [77, 59, 57, 101, 223, 178, 60, 74],
+        "firstSeen": "2026-03-09"
+      },
+      "skillMd": {
+        "version": "9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11",
+        "updated": "2026-11-12",
+        "skew": 1459
+      },
+      "agentReview": {
+        "description": "Converts whole folders of documents between Word, PDF, Markdown, HTML and PowerPoint in parallel, with Pandoc, MarkItDown, pdf2docx and LibreOffice.",
+        "tags": [
+          "category:documents",
+          "type:tool",
+          "effect:local",
+          "needs:cli",
+          "by:community",
+          "stack:pandoc",
+          "stack:libreoffice",
+          "stack:python",
+          "stack:markitdown",
+          "stack:marp",
+          "documents",
+          "pdf"
+        ],
+        "model": "Claude Opus 5.5",
+        "effort": null
+      }
+    },
+    {
+      "id": "boristane/agent-skills/skills/logging-best-practices",
+      "name": "logging-best-practices",
+      "skills.sh": {
+        "url": "https://skills.sh/boristane/agent-skills/logging-best-practices",
+        "installs": 5000,
+        "weeklyInstalls": [52, 58, 70, 43, 41, 33, 49, 61],
+        "firstSeen": "2026-01-21"
+      },
+      "skillMd": {
+        "version": "8aa14dd16a1340a6049e6d7cd58e2ed52333a550",
+        "updated": "2026-11-12",
+        "skew": 609
+      },
+      "agentReview": {
+        "description": "Has the agent log one wide, structured event per request per service, with business and deployment context, instead of scattered log lines.",
+        "tags": [
+          "category:engineering",
+          "category:cloud",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "observability",
+          "backend"
+        ],
+        "model": "Claude Opus 5.5",
+        "effort": null
+      }
+    },
+    {
+      "id": "wshobson/agents/plugins/ship-mate/skills/scan",
+      "name": "scan",
+      "skills.sh": {
+        "url": "https://skills.sh/wshobson/agents/scan",
+        "installs": 5000,
+        "weeklyInstalls": [185, 211, 271, 208, 187, 191, 168, 154],
+        "firstSeen": "2026-05-11"
+      },
+      "skillMd": {
+        "version": "9c61ab243def98f72da12abd41cfcf5bcd91af9d",
+        "updated": "2026-11-12",
+        "skew": 906
+      },
+      "agentReview": {
+        "description": "Scans a codebase into a project-doc.md of its stack, architecture and conventions plus an AGENTS.md, then rescans only what changed and asks before updating AGENTS.md.",
+        "tags": [
+          "category:agents",
+          "category:writing",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "architecture",
+          "docs-writing",
+          "agent-workflows"
+        ],
+        "model": "Claude Opus 5.5",
+        "effort": null
+      }
+    },
+    {
+      "id": "jakubkrehel/oklch-skill/skills/oklch-skill",
+      "name": "oklch-skill",
+      "skills.sh": {
+        "url": "https://skills.sh/jakubkrehel/oklch-skill/oklch-skill",
+        "installs": 5000,
+        "weeklyInstalls": [290, 259, 235, 214, 224, 143, 131, 178],
+        "firstSeen": "2026-04-01"
+      },
+      "skillMd": {
+        "version": "0e81f040e16d48fcc61d3e1b7ea548542371321f",
+        "updated": "2026-11-12",
+        "skew": 805
+      },
+      "agentReview": {
+        "description": "Converts colors to OKLCH and builds palettes, contrast checks, gamut fallbacks and Tailwind v4 themes with it.",
+        "tags": [
+          "category:design",
+          "type:guidelines",
+          "effect:none",
+          "needs:none",
+          "by:community",
+          "stack:css",
+          "stack:tailwind",
+          "design-system",
+          "accessibility",
+          "design"
+        ],
+        "model": "Claude Opus 5.5",
+        "effort": null
+      }
+    },
+    {
+      "id": "jeffallan/claude-skills/skills/rag-architect",
+      "name": "rag-architect",
+      "skills.sh": {
+        "url": "https://skills.sh/jeffallan/claude-skills/rag-architect",
+        "installs": 5000,
+        "weeklyInstalls": [81, 89, 95, 99, 136, 112, 135, 119],
+        "firstSeen": "2026-01-21"
+      },
+      "skillMd": {
+        "version": "078a25cc5bfd8011459be7b91d004e900c1d02d3",
+        "updated": "2026-11-12",
+        "skew": 864
+      },
+      "agentReview": {
+        "description": "Designs and builds retrieval-augmented generation systems: chunking, embeddings, the vector store, hybrid search, reranking and retrieval evaluation.",
+        "tags": [
+          "category:agents",
+          "type:workflow",
+          "effect:local",
+          "needs:none",
+          "by:community",
+          "stack:python",
+          "agent-development",
+          "databases"
+        ],
+        "model": "Claude Opus 5.5",
+        "effort": null
+      }
+    },
+    {
+      "id": "jeffallan/claude-skills/skills/cloud-architect",
+      "name": "cloud-architect",
+      "skills.sh": {
+        "url": "https://skills.sh/jeffallan/claude-skills/cloud-architect",
+        "installs": 5000,
+        "weeklyInstalls": [91, 96, 97, 103, 128, 117, 141, 103],
+        "firstSeen": "2026-01-20"
+      },
+      "skillMd": {
+        "version": "078a25cc5bfd8011459be7b91d004e900c1d02d3",
+        "updated": "2026-11-12",
+        "skew": 829
+      },
+      "agentReview": {
+        "description": "Designs cloud architectures on AWS, Azure or GCP, with migration plans, cost optimization and disaster recovery, checked against the Well-Architected Framework.",
+        "tags": [
+          "category:cloud",
+          "category:planning",
+          "type:workflow",
+          "effect:none",
+          "needs:cli",
+          "needs:account",
+          "by:community",
+          "stack:amazon",
+          "stack:azure",
+          "stack:google-cloud",
+          "stack:terraform",
+          "infrastructure",
+          "architecture",
+          "migration"
+        ],
+        "model": "Claude Opus 5.5",
+        "effort": null
+      }
+    },
+    {
+      "id": "jsmastery-pro/skills/skills/develop",
+      "name": "develop",
+      "skills.sh": {
+        "url": "https://skills.sh/jsmastery-pro/skills/develop",
+        "installs": 5000,
+        "weeklyInstalls": [689, 513, 414, 364, 307, 220, 237, 222],
+        "firstSeen": "2026-07-09"
+      },
+      "skillMd": {
+        "version": "43b69e44c9ca905fe3a3418ccdf4102255e20d40",
+        "updated": "2026-11-12",
+        "skew": 2353
+      },
+      "agentReview": {
+        "description": "Builds a feature, UI or backend, from its spec and AGENTS.md, and sends you to /architect first when a load-bearing decision is still open.",
+        "tags": [
+          "category:engineering",
+          "type:workflow",
+          "effect:local",
+          "needs:subagents",
+          "by:community",
+          "implementation",
+          "requirements"
+        ],
+        "model": "Claude Opus 5.5",
+        "effort": null
       }
     }
   ]
