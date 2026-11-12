@@ -52,7 +52,8 @@ export const KINDS: Record<Repo["agentReview"]["kind"], string> = {
 
 /**
  * A repo's stars, and how many skills and bundles it has on the site: each a fact of its own, which
- * a line breaks between, not inside (see .fact in style.css).
+ * a line breaks between, not inside (see .fact in style.css). A fact's dot is its own, at its end,
+ * so that a line ends on it: between two facts, it started the next line on some phones.
  */
 export function numbersHtml({ repo, bundles, skills }: Listing): string {
   return [
@@ -63,6 +64,6 @@ export function numbersHtml({ repo, bundles, skills }: Listing): string {
     bundles.length ? plural(bundles.length, "bundle") : "",
   ]
     .filter(Boolean)
-    .map((fact) => `<span class="fact">${fact}</span>`)
-    .join(" · ");
+    .map((fact, i, facts) => `<span class="fact">${fact}${i < facts.length - 1 ? " ·" : ""}</span>`)
+    .join(" ");
 }

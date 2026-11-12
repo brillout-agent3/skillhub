@@ -30,12 +30,18 @@ function geometry(values: number[]) {
   };
 }
 
-export function trendHtml(values: number[], snapshot: string): string {
+/**
+ * `from`: the fewest downloads of its first week for the change over the weeks to be told. From
+ * a handful, it reads as an absurd +273,050%, which the skills list refuses for its Weekly Growth
+ * (see growthOf in skills.ts): the tile then says "8 weeks" alone, as for a first week of none.
+ * The page passes it, so that this file, which the browser runs too, doesn't take the data in.
+ */
+export function trendHtml(values: number[], snapshot: string, from: number): string {
   const weeks = weekEnds(snapshot, values.length);
   const { x, y } = geometry(values);
   const first = values[0];
   const last = values[values.length - 1];
-  const change = first > 0 ? percent((last - first) / first) : null;
+  const change = first >= Math.max(from, 1) ? percent((last - first) / first) : null;
   const points = values.map((v, i) => `${x(i).toFixed(1)},${y(v).toFixed(1)}`).join(" ");
   const spoken = values.map((v, i) => `week to ${weeks[i]}: ${v.toLocaleString("en")}`).join("; ");
   return `
@@ -108,12 +114,17 @@ export function mountSparklines(root: ParentNode): void {
       tip.hidden = true;
     };
 
-    // The crosshair snaps to the nearest week, so the pointer never has to land on the line.
-    el.addEventListener("pointermove", (event) => {
+    // The crosshair snaps to the nearest week, so the pointer never has to land on the line. A
+    // finger's too, from where it lands: a tap read out the last week wherever it was, as only
+    // the focus it gave showed the tooltip. And along the line, which is the finger's to follow
+    // sideways: see touch-action on .spark in style.css.
+    const read = (event: PointerEvent) => {
       const box = svg.getBoundingClientRect();
       const px = ((event.clientX - box.left) / box.width) * W;
       show(Math.round(((px - PAD_X) / (W - 2 * PAD_X)) * (values.length - 1)));
-    });
+    };
+    el.addEventListener("pointermove", read);
+    el.addEventListener("pointerdown", read);
     el.addEventListener("pointerleave", () => {
       if (document.activeElement !== el) hide();
     });

@@ -7,7 +7,7 @@
 
 import { esc } from "./format.ts";
 import { PROPS, crowdDefsHtml, standingOf, type Prop } from "./list.ts";
-import { data } from "./skills.ts";
+import { GROWTH_BASE_MIN, data } from "./skills.ts";
 import { trendHtml, trendTableHtml } from "./sparkline.ts";
 
 type Entry = Parameters<typeof standingOf>[1];
@@ -34,8 +34,8 @@ export function statTilesHtml(e: Entry, tiles: Tile[]): string {
     const title = esc(`${PROPS[p].title(e)}. ${standing.place}`);
     return `
       <figure class="stat">
-        <figcaption class="stat-label">${PROPS[p].icon}<span>${label} <span class="muted">${from}</span></span></figcaption>
-        <div class="stat-head"><div class="stat-value">${shown}</div>${trend ? trendHtml(trend, data.asOf.installs) : ""}</div>
+        <figcaption class="stat-label">${PROPS[p].icon}<span><span class="stat-name">${label}</span> <span class="muted">${from}</span></span></figcaption>
+        <div class="stat-head"><div class="stat-value">${shown}</div>${trend ? trendHtml(trend, data.asOf.installs, GROWTH_BASE_MIN) : ""}</div>
         <div title="${title}">
           <p class="stat-standing">${standing.words}</p>
           ${standing.chart}

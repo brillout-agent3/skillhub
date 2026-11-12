@@ -9,6 +9,7 @@ import {
   longWordUrl,
   owner,
   repo,
+  skill,
   skillUrl,
 } from "./data.ts";
 import { expect, list, n, open, settled, test } from "./fixtures.ts";
@@ -62,6 +63,11 @@ test("a trend's tooltip stays on the screen, at its last week too", async ({ pag
   await expect(tip).toBeVisible();
   expect(await tip.evaluate((el) => el.getBoundingClientRect().right)).toBeLessThanOrEqual(WIDTH);
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(WIDTH);
+
+  // A tap reads out the week it's on: it read out the last one wherever it was.
+  const weekly = skill["skills.sh"].weeklyInstalls as number[];
+  await page.touchscreen.tap(box.x + 3, box.y + box.height / 2);
+  await expect(tip).toContainText(`${n(weekly[0])} downloads`);
 });
 
 test("a label of the about page's table, too long for its line, goes on under its own start", async ({
@@ -127,6 +133,10 @@ test("a repo's numbers break between two of them, not inside one", async ({ page
       ).length,
   );
   expect(broken).toBe(0);
+  // And a line ends on the dot between two, rather than start with it: each but the last has its
+  // own.
+  const texts = await facts.allInnerTexts();
+  texts.forEach((text, i) => expect(text.endsWith("·")).toBe(i < texts.length - 1));
 });
 
 test("a tag of the tags page's tables breaks after its prefix, its value whole on the next line", async ({

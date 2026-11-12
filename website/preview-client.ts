@@ -16,6 +16,7 @@ import { age, commandHtml, esc, plural } from "./format.ts";
 import { copyButton, mountCopyButtons } from "./copy.ts";
 import {
   bundleHref,
+  bundleOf,
   data,
   glanceHtml,
   installCommand,
@@ -106,9 +107,13 @@ function paneHtml(e: Entry): string {
   const review = e.agentReview;
   const text = prose && (isBundle(e) ? prose.bundles : prose.skills)[e.id];
   const note = isBundle(e) ? undefined : e.agentReview.note;
+  // A skill that only works inside its bundle is installed with it: no command for it alone.
+  const place = isBundle(e) ? undefined : bundleOf.get(e.id);
   const install = isBundle(e)
     ? ""
-    : `<div class="install"><code>${commandHtml(installCommand(e))}</code>${copyButton(installCommand(e))}</div>`;
+    : place && !place.standalone
+      ? `<p class="note">Only works inside its bundle: install <a href="${bundleHref(place.bundle.id)}">${esc(place.bundle.agentReview.name)}</a> instead.</p>`
+      : `<div class="install"><code>${commandHtml(installCommand(e))}</code>${copyButton(installCommand(e))}</div>`;
   const end = isBundle(e)
     ? `<section class="preview-part"><h3>Its skills</h3><p class="members">${e.agentReview.skills
         .map(({ id }) => `<a href="${skillHref(id)}">${esc(skillById.get(id)?.name ?? id)}</a>`)

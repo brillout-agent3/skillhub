@@ -224,6 +224,11 @@ select {
   outline-offset: 2px;
 }
 
+/* A link's and a disclosure's ring has round corners, as a button's has its button's. */
+:where(a, summary):focus-visible {
+  border-radius: 4px;
+}
+
 code {
   font-family: var(--mono);
   font-size: 0.875em;
@@ -2620,6 +2625,11 @@ input[type="search"]::-webkit-search-cancel-button:hover {
   display: inline-block;
 }
 
+/* Its ring is drawn outside its box, the command's border inside: 1px down, their edges are level. */
+.install .copy {
+  margin-top: 1px;
+}
+
 /* Copy and Copied share one cell, so the button keeps its width when it says it copied. */
 .copy {
   display: inline-grid;
@@ -2704,6 +2714,27 @@ input[type="search"]::-webkit-search-cancel-button:hover {
   box-shadow: var(--shadow-border);
 }
 
+/*
+ * The tiles of a line share their rows: label, number, words and chart, weekly values. Each laid
+ * out by itself, a label on two lines, such as a bundle's "Weekly Downloads · systematic-debugging,
+ * its top skill" or a long repo's stars, put its tile's number, words and chart 21px under its
+ * neighbor's. The gap between two lines of tiles is the tiles' own margin: as the grid's row gap,
+ * it would also part a tile's own rows.
+ */
+@supports (grid-template-rows: subgrid) {
+  .stat-tiles {
+    row-gap: 0;
+    margin-top: 8px;
+  }
+
+  .stat {
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 4;
+    margin-top: 16px;
+  }
+}
+
 /* The number's icon, as in the skills list's rows, then its name and where it comes from. */
 .stat-label {
   display: flex;
@@ -2718,12 +2749,16 @@ input[type="search"]::-webkit-search-cancel-button:hover {
   color: var(--ink-3);
 }
 
+/* Where it comes from goes to the next line whole, the dot left at the name's end: on a small
+   phone the line broke inside its date, "week to Nov" over "12, 2026". */
 .stat-label .muted {
+  display: inline-block;
   color: var(--ink-3);
 }
 
-.stat-label .muted::before {
-  content: "· ";
+.stat-name::after {
+  content: " ·";
+  color: var(--ink-3);
 }
 
 /*
@@ -2820,12 +2855,15 @@ input[type="search"]::-webkit-search-cancel-button:hover {
 
 /* 128px wide, it's as tall as the number's line, 30px: narrower, and shorter, where room is short,
    down to what fits beside the catalog's longest number on a 360px phone. */
+/* A finger follows the line sideways, and scrolls the page up and down from it: left to the
+   browser, a finger along the line was a pan, which ended its reading after one week. */
 .spark {
   position: relative;
   flex: 0 1 128px;
   min-width: 72px;
   border-radius: 6px;
   cursor: crosshair;
+  touch-action: pan-y;
 }
 
 .spark svg {
@@ -2899,6 +2937,7 @@ input[type="search"]::-webkit-search-cancel-button:hover {
 }
 
 .spark-table summary {
+  width: fit-content;
   color: var(--ink-3);
   cursor: pointer;
 }
@@ -3437,7 +3476,10 @@ input[type="search"]::-webkit-search-cancel-button:hover {
   font-size: 14px;
 }
 
+/* As wide as its word, as Weekly values is: its focus ring ran across the page, around 730px of
+   nothing, all of which took a click. */
 .frontmatter summary {
+  width: fit-content;
   color: var(--ink-2);
   cursor: pointer;
 }
@@ -3489,8 +3531,29 @@ input[type="search"]::-webkit-search-cancel-button:hover {
   line-height: 1.5;
 }
 
+/* The frontmatter's lines wrap: its description, which says when an agent picks the skill and is
+   what one opens it for, is one line, some 270 characters on most skills, cut off at the box's
+   edge on all but a tenth of them. Code keeps its lines, and scrolls. */
+.frontmatter pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
 .markdown pre code {
   font-size: inherit;
+}
+
+/* A task of a list, "- [ ] to do": its box in the bullet's place. */
+.markdown li.task {
+  list-style: none;
+}
+
+.markdown li.task input {
+  width: 14px;
+  height: 14px;
+  margin: 0 6px 0 -20px;
+  vertical-align: -1px;
+  accent-color: var(--ink-3);
 }
 
 .markdown :not(pre) > code {

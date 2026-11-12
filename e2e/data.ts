@@ -69,6 +69,51 @@ export const wideCodeUrl = skillWhoseSkillMd(
   (html, text) => html.includes("<pre>") && /^```[\s\S]*?^.{240,}$/m.test(text),
 );
 
+/** The page of a skill whose frontmatter has a line too long for any screen, as most descriptions are. */
+export const longFrontmatterUrl = skillWhoseSkillMd((_html, text) =>
+  /^---\n[\s\S]*?^description:.{400,}$[\s\S]*?^---$/m.test(text),
+);
+/**
+ * The page of a skill whose SKILL.md has an HTML comment on a line of its own, and none that its
+ * page keeps, as one in a code block.
+ */
+export const commentUrl = skillWhoseSkillMd(
+  (html, text) => /^<!--.*-->$/m.test(text) && !html.includes("&lt;!--"),
+);
+/** The page of a skill whose SKILL.md has a task list, `- [ ] to do`. */
+export const taskListUrl = skillWhoseSkillMd((html) => html.includes('class="task"'));
+
+/**
+ * A skill that only works inside its bundle, and the bundle: of those bundles, the first with more
+ * than one way to install it.
+ */
+export const onlyInBundle = (() => {
+  const of = data.bundles
+    .filter((b) => b.agentReview.skills.some((m) => !m.standalone))
+    .toSorted(
+      (a, b) =>
+        Math.min(b.agentReview.install.length, 2) - Math.min(a.agentReview.install.length, 2),
+    )[0];
+  const member = of.agentReview.skills.find((m) => !m.standalone) as { id: string };
+  const skill = data.skills.find((s) => s.id === member.id) as (typeof data.skills)[number];
+  return { skill, url: `/${skillPage(skill)}/`, bundle: of };
+})();
+
+/**
+ * A skill whose 8 weeks began with a handful of downloads, under the 100 its change is told from,
+ * if there's one today: the one that grew the most since.
+ */
+export const fromAHandful = data.skills
+  .filter((s) => {
+    const weekly = s["skills.sh"].weeklyInstalls;
+    return weekly && weekly.length >= 2 && weekly[0] > 0 && weekly[0] < 100;
+  })
+  .toSorted(
+    (a, b) =>
+      (b["skills.sh"].weeklyInstalls?.at(-1) ?? 0) - (a["skills.sh"].weeklyInstalls?.at(-1) ?? 0),
+  )
+  .map((s) => `/${skillPage(s)}/`)[0] as string | undefined;
+
 /** The page of the skill whose glance has the most of something, which a phone's width has to take. */
 function skillWhoseGlanceHasMost(of: (fact: { label: string; text: string }) => number): string {
   const most = (s: (typeof data.skills)[number]) =>

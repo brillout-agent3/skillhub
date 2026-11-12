@@ -4,18 +4,23 @@ import {
   anchorsUrl,
   bundle,
   bundleUrl,
+  commentUrl,
   data,
   flagsBundleUrl,
+  fromAHandful,
   insideWord,
   joinedBundleUrl,
+  longFrontmatterUrl,
+  onlyInBundle,
   owner,
   repo,
   skill,
   skillUrl,
   stackTags,
+  taskListUrl,
   wideCodeUrl,
 } from "./data.ts";
-import { bundlePage } from "../website/github.ts";
+import { bundlePage, bundleRepo } from "../website/github.ts";
 import { expect, list, n, open, ready, test } from "./fixtures.ts";
 
 const clipboard = (page: import("@playwright/test").Page) =>
@@ -23,18 +28,22 @@ const clipboard = (page: import("@playwright/test").Page) =>
 
 test("a skill's page: its name, numbers, install command and SKILL.md", async ({ page }) => {
   await open(page, skillUrl);
-  await expect(page).toHaveTitle(`${skill.name} · SkillHub`);
+  const [ownerName, repoName] = skill.id.split("/");
+  // With its repo: some seventy skills share their name with another's.
+  await expect(page).toHaveTitle(`${skill.name} · ${ownerName}/${repoName} · SkillHub`);
   await expect(page.locator("h1")).toHaveText(skill.name);
-  // The card of its link, where it's shared: its name, the site's apart, and what it's for.
+  // The card of its link, where it's shared: its name and repo, the site's apart, and what it's for.
   const card = (tag: string) => page.locator(`meta[property="og:${tag}"]`);
-  await expect(card("title")).toHaveAttribute("content", skill.name);
+  await expect(card("title")).toHaveAttribute(
+    "content",
+    `${skill.name} · ${ownerName}/${repoName}`,
+  );
   await expect(card("site_name")).toHaveAttribute("content", "SkillHub");
   // The start of the page's own description, as much of it as a card has the room for.
   const described = await page.locator('meta[name="description"]').getAttribute("content");
   const onCard = ((await card("description").getAttribute("content")) ?? "").replace(/…$/, "");
   expect(onCard).not.toBe("");
   expect(described?.startsWith(onCard)).toBe(true);
-  const [ownerName, repoName] = skill.id.split("/");
   await expect(page.locator(".crumbs a")).toHaveText(["Skills", ownerName, repoName]);
 
   // The install command is copied as shown.
@@ -43,6 +52,15 @@ test("a skill's page: its name, numbers, install command and SKILL.md", async ({
   await page.locator(".install .copy").click();
   await expect(page.locator(".install .copy[data-copied]")).toBeVisible();
   expect(await clipboard(page)).toBe(command);
+  // Copy's edge, a ring outside its box, is level with the command's, a border inside its own.
+  const edges = async (selector: string) => {
+    const box = (await page.locator(selector).boundingBox()) as { y: number; height: number };
+    return [box.y, box.y + box.height];
+  };
+  const [top, bottom] = await edges(".install code");
+  const [ringTop, ringBottom] = (await edges(".install .copy")).map((y, i) => y + (i ? 1 : -1));
+  expect(Math.abs(ringTop - top)).toBeLessThan(0.5);
+  expect(Math.abs(ringBottom - bottom)).toBeLessThan(0.5);
 
   // The sparkline reads out each week with the keyboard.
   const weekly = skill["skills.sh"].weeklyInstalls as number[];
@@ -76,6 +94,86 @@ test("a skill's numbers are level from one tile to the one beside it", async ({ 
   }
 });
 
+test("the numbers stay level where a tile's label takes more lines than its neighbor's", async ({
+  page,
+}) => {
+  await open(page, bundleUrl);
+  // As a bundle's Weekly Downloads, which names its top skill, or the stars of a repo with a long
+  // name: on a second line, the label put its tile's number, words and chart under its neighbor's.
+  const label = page.locator(".stat-tiles .stat-label > span").first();
+  await label.locator(".muted").evaluate((from) => {
+    from.textContent += " and what makes a label long enough for a second line of its tile";
+  });
+  const tall = await page
+    .locator(".stat-tiles .stat-label > span")
+    .evaluateAll((labels) => labels.slice(0, 2).map((el) => el.getBoundingClientRect().height));
+  expect(tall[0]).toBeGreaterThan(tall[1] + 10);
+  for (const part of [".stat-value", ".stat-standing", ".crowd"]) {
+    const [weekly, total] = await page
+      .locator(`.stat-tiles ${part}`)
+      .evaluateAll((all) => all.map((el) => Math.round(el.getBoundingClientRect().top)));
+    expect(weekly, part).toBe(total);
+  }
+});
+
+test("a skill's change over its 8 weeks is told only from a week of 100 downloads or more", async ({
+  page,
+}) => {
+  test.skip(!fromAHandful, "no skill's 8 weeks began with a handful of downloads today");
+  await open(page, fromAHandful as string);
+  // From a handful, it read as "+273,050% in 8 weeks", which the list refuses for its growth.
+  await expect(page.locator(".stat-delta")).toHaveText("8 weeks");
+  await open(page, skillUrl);
+  await expect(page.locator(".stat-delta")).toHaveText(/^([+−][\d,]+|0)% in 8 weeks$/);
+});
+
+test("a skill that only works inside its bundle is installed with it", async ({ page }) => {
+  const { skill: member, url, bundle: whole } = onlyInBundle;
+  const [{ label, command }] = whole.agentReview.install;
+  await open(page, url);
+  await expect(page.locator(".note").first()).toContainText("Only works inside its bundle");
+  // Its page says to install the bundle instead: its one command installed the skill alone.
+  await expect(page.locator(".install")).toHaveCount(1);
+  await expect(page.locator(".install code")).toHaveText(command);
+  await expect(page.locator(".install code")).not.toHaveText(new RegExp(`--skill ${member.name}$`));
+  await expect(page.locator(".install-label")).toHaveText(
+    `Installs ${whole.agentReview.name}, the bundle it works in. ${label}`,
+  );
+  await page.locator(".install .copy").click();
+  expect(await clipboard(page)).toBe(command);
+  const others = page.locator(".links a", { hasText: "Other ways to install it" });
+  await expect(others).toHaveCount(whole.agentReview.install.length > 1 ? 1 : 0);
+  await page.locator(".install-label a").click();
+  await expect(page).toHaveURL(`/${bundlePage(whole)}/`);
+});
+
+test("a SKILL.md's frontmatter wraps, its comments are hidden and its tasks have boxes", async ({
+  page,
+}) => {
+  // The description, which says when an agent picks the skill, is one long line: cut off at the
+  // box's edge, which scrolled.
+  await open(page, longFrontmatterUrl);
+  await page.locator(".frontmatter summary").click();
+  const pre = page.locator(".frontmatter pre");
+  await expect(pre).toBeVisible();
+  expect(await pre.evaluate((el) => el.scrollWidth - el.clientWidth)).toBe(0);
+  // The disclosure is as wide as its word, not as the page.
+  expect((await page.locator(".frontmatter summary").boundingBox())?.width).toBeLessThan(200);
+
+  // An HTML comment, which GitHub hides, showed as text.
+  await open(page, commentUrl);
+  await expect(page.locator(".skill-md .markdown")).not.toContainText("<!--");
+  await expect(page.locator(".skill-md .markdown")).not.toContainText("-->");
+
+  // A task list's items showed as a bullet, then "[ ]".
+  await open(page, taskListUrl);
+  const tasks = page.locator(".skill-md .markdown li.task");
+  await expect(tasks).not.toHaveCount(0);
+  await expect(tasks.first().locator('input[type="checkbox"]')).toBeDisabled();
+  for (const text of (await tasks.allInnerTexts()).slice(0, 20))
+    expect(text).not.toMatch(/^\[[ xX]\]/);
+});
+
 test("a SKILL.md's links to its own headings lead to them", async ({ page }) => {
   await open(page, anchorsUrl);
   const link = page.locator('.markdown a[href^="#md-"]').first();
@@ -100,7 +198,7 @@ test("the keyboard reaches a SKILL.md's blocks that scroll sideways, and only th
 test("a bundle's page: its skills in order, and how to install them", async ({ page }) => {
   const { name, skills, install } = bundle.agentReview;
   await open(page, bundleUrl);
-  await expect(page).toHaveTitle(`${name} · SkillHub`);
+  await expect(page).toHaveTitle(`${name} · bundle of ${bundleRepo(bundle)} · SkillHub`);
   await expect(page.locator("h1")).toContainText(name);
   await expect(page.locator("h1 .kind")).toHaveText(`Bundle of ${skills.length} skills`);
   const names = skills.map(({ id }) => data.skills.find((s) => s.id === id)?.name ?? "");

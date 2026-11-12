@@ -122,6 +122,17 @@ export default function Page(pageContext: PageContextServer): string {
     `<a href="${repoHref(repoKey(s))}">All skills from ${esc(repoKey(s))}</a>`,
   ];
   const bundle = bundleOf.get(s.id)?.bundle;
+  // A skill that only works inside its bundle is installed with it: its page says "Install <the
+  // bundle> instead", and its one command, with Copy beside it, installed the skill alone.
+  const whole = bundleOf.get(s.id)?.standalone === false && bundle && fullBundleById.get(bundle.id);
+  const with_ = whole ? whole.agentReview.install[0] : undefined;
+  const get =
+    whole && with_
+      ? `<p class="install-label">Installs <a href="${bundleHref(whole.id)}">${esc(whole.agentReview.name)}</a>, the bundle it works in. ${esc(with_.label)}</p>
+        <div class="install"><code>${commandHtml(with_.command)}</code>${copyButton(with_.command)}</div>`
+      : `<div class="install"><code>${commandHtml(installCommand(s))}</code>${copyButton(installCommand(s))}</div>`;
+  if (whole && whole.agentReview.install.length > 1)
+    links.unshift(`<a href="${bundleHref(whole.id)}">Other ways to install it</a>`);
   return `
     <div class="page skill-page">
       ${crumbsHtml(repoKey(s), ...(bundle ? [`<a href="${bundleHref(bundle.id)}">${esc(bundle.agentReview.name)}</a>`] : []))}
@@ -135,7 +146,7 @@ export default function Page(pageContext: PageContextServer): string {
       ${s.agentReview.note ? `<p class="note">${esc(s.agentReview.note)}</p>` : ""}
       ${s.agentReview.tldr ? tldrHtml(s.agentReview.tldr, "the skill", s.skillMd?.skew ?? 0) : ""}
       <div class="get">
-        <div class="install"><code>${commandHtml(installCommand(s))}</code>${copyButton(installCommand(s))}</div>
+        ${get}
         <p class="links">${links.join("")}</p>
       </div>
       ${tiles(s)}

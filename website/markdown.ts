@@ -25,6 +25,72 @@ const slug = (heading: string) =>
     .replace(/[^\p{L}\p{M}\p{N}\p{Pc}\- ]/gu, "")
     .replace(/ /g, "-");
 
+/**
+ * A SKILL.md without its HTML comments, which GitHub and every markdown viewer hide: with HTML off,
+ * they showed as text, and a document opened on "<!-- AUTO-GENERATED from SKILL.md.tmpl: do not
+ * edit directly -->". Not the ones in code, fenced or `inline`, which are shown on purpose; nor one
+ * that never ends, which is no comment. A line that held nothing else goes with its comment.
+ */
+function withoutComments(text: string): string {
+  const lines = text.split("\n");
+  const out: string[] = [];
+  let fence: [mark: string, length: number] | null = null;
+  /** Inside a comment that began on a line before. */
+  let open = false;
+  lines.forEach((line, n) => {
+    if (!open) {
+      const mark = /^\s*(`{3,}|~{3,})(.*)$/.exec(line);
+      if (fence) {
+        const [char, length] = fence;
+        if (mark && mark[1][0] === char && mark[1].length >= length && !mark[2].trim())
+          fence = null;
+        out.push(line);
+        return;
+      }
+      // A fence of backticks has none after it, on its line: that would be code within a line.
+      if (mark && !(mark[1][0] === "`" && mark[2].includes("`"))) {
+        fence = [mark[1][0], mark[1].length];
+        out.push(line);
+        return;
+      }
+    }
+    let kept = "";
+    // The line's code spans, at the odd places, stay as they are.
+    line.split(/(`+[^`]*`+)/).forEach((part, i) => {
+      if (i % 2 && !open) {
+        kept += part;
+        return;
+      }
+      let rest = part;
+      while (rest) {
+        if (open) {
+          const end = rest.indexOf("-->");
+          if (end < 0) return;
+          open = false;
+          rest = rest.slice(end + 3);
+        } else {
+          const start = rest.indexOf("<!--");
+          const ends =
+            start >= 0 &&
+            (rest.includes("-->", start + 4) || lines.slice(n + 1).some((l) => l.includes("-->")));
+          if (!ends) {
+            kept += rest;
+            return;
+          }
+          kept += rest.slice(0, start);
+          rest = rest.slice(start + 4);
+          open = true;
+        }
+      }
+    });
+    if (kept.trim() || !line.trim()) out.push(kept);
+  });
+  return out.join("\n");
+}
+
+/** A task of a list, `- [ ] to do` or `- [x] done`, as GitHub writes it: its box, and what it says. */
+const TASK = /^\[([ xX])\]\s+/;
+
 /** The `name` in a SKILL.md's frontmatter, unquoted, or null when it has none. */
 export function nameInSkillMd(text: string): string | null {
   const frontmatter = FRONTMATTER.exec(text)?.[1] ?? "";
@@ -59,6 +125,20 @@ export function renderSkillMd(
       anchors.add(anchor);
       token.attrSet("id", ANCHOR + anchor);
     });
+    // A task list's items get a checkbox for their "[ ]", as on GitHub, in place of the bullet:
+    // they showed as a bullet, then the brackets. It can't be ticked: it's the SKILL.md's.
+    state.tokens.forEach((token, i) => {
+      const inline = state.tokens[i + 2];
+      const text = inline?.children?.[0];
+      const task =
+        token.type === "list_item_open" && text?.type === "text" && TASK.exec(text.content);
+      if (!task || state.tokens[i + 1].type !== "paragraph_open") return;
+      text.content = text.content.slice(task[0].length);
+      const box = new state.Token("html_inline", "", 0);
+      box.content = `<input type="checkbox" disabled${task[1] === " " ? "" : " checked"} /> `;
+      inline.children?.unshift(box);
+      token.attrJoin("class", "task");
+    });
     for (const token of state.tokens) {
       if (token.type === "heading_close")
         token.tag = `h${Math.min(6, Number(token.tag.slice(1)) + 2)}`;
@@ -85,7 +165,8 @@ export function renderSkillMd(
     }
   });
   const m = FRONTMATTER.exec(text);
-  return { frontmatter: m ? m[1] : null, html: md.render(m ? text.slice(m[0].length) : text) };
+  const body = withoutComments(m ? text.slice(m[0].length) : text);
+  return { frontmatter: m ? m[1] : null, html: md.render(body) };
 }
 
 /** The anchor a link such as `#Getting-Started` points to: `getting-started`. */
