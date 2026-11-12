@@ -694,11 +694,11 @@ const savedBundle = (b: Bundle, st: State) =>
 
 /**
  * The skills through which a bundle matches the tags and search: those that match them, or, when
- * the search matches the bundle itself, those that match the tags. `skip` leaves a facet out.
+ * the search matches the bundle itself, those that match the tags.
  */
-function matchedThrough(b: Bundle, st: State, skip: string | null = null): Skill[] {
-  const hits = skillsOf(b).filter((s) => passes(s, skillFilters(st), skip));
-  return hits.length ? hits : matchedByItself(b, st, skip);
+function matchedThrough(b: Bundle, st: State): Skill[] {
+  const hits = skillsOf(b).filter((s) => passes(s, skillFilters(st)));
+  return hits.length ? hits : matchedByItself(b, st);
 }
 
 /**
@@ -706,30 +706,30 @@ function matchedThrough(b: Bundle, st: State, skip: string | null = null): Skill
  * its words, and none of its skills: those that match the tags. None when a skill of it matches the
  * search, or when the bundle doesn't.
  */
-function matchedByItself(b: Bundle, st: State, skip: string | null = null): Skill[] {
+function matchedByItself(b: Bundle, st: State): Skill[] {
   if (!term(st) || !matches(bundleText.get(b.id) ?? "", st.q)) return [];
   const rest = skillFilters(st);
   const skills = skillsOf(b);
-  if (skills.some((s) => passes(s, rest, skip))) return [];
-  return skills.filter((s) => passes(s, { ...rest, q: "" }, skip));
+  if (skills.some((s) => passes(s, rest))) return [];
+  return skills.filter((s) => passes(s, { ...rest, q: "" }));
 }
 
 /**
  * The skills the list shows as matching, on a row of their own or in their bundle's: those that
  * pass the filters and the search, and those of a bundle that a search only finds by the bundle's
- * own name or words, which its row then shows as matching too. The list's count, the tags' counts
- * and the sliders' histograms all count these, so that a search for a bundle's name doesn't show
- * its row under "0 skills" and no tags. Not with Saved on, where a saved bundle counts as a bundle,
- * not as its skills (see savedBundlesHtml), nor when the list shows no bundle. `skip` leaves a
- * facet out.
+ * own name or words, which its row then shows as matching too. The list's count and the sliders'
+ * histograms count these, and the tags' counts go by them (see counts), so that a search for a
+ * bundle's name doesn't show its row under "0 skills" and no tags. Not with Saved on, where a saved
+ * bundle counts as a bundle, not as its skills (see savedBundlesHtml), nor when the list shows no
+ * bundle.
  */
-function shownSkills(st: State, skip: string | null = null): Skill[] {
-  const shown = data.skills.filter((s) => passes(s, st, skip));
+function shownSkills(st: State): Skill[] {
+  const shown = data.skills.filter((s) => passes(s, st));
   if (!term(st) || st.saved || st.show === "skills") return shown;
   const seen = new Set(shown);
   for (const b of data.bundles)
     if (inRanges(b, st))
-      for (const s of matchedByItself(b, st, skip))
+      for (const s of matchedByItself(b, st))
         if (!seen.has(s)) {
           seen.add(s);
           shown.push(s);
@@ -738,8 +738,8 @@ function shownSkills(st: State, skip: string | null = null): Skill[] {
 }
 
 /** A bundle is in its sliders' ranges by its own numbers, and matches the tags and search through any of its skills. */
-const bundlePasses = (b: Bundle, st: State, skip: string | null = null) =>
-  savedBundle(b, st) && inRanges(b, st) && matchedThrough(b, st, skip).length > 0;
+const bundlePasses = (b: Bundle, st: State) =>
+  savedBundle(b, st) && inRanges(b, st) && matchedThrough(b, st).length > 0;
 
 const isFiltered = (st: State) =>
   Boolean(term(st) || st.tags.length || st.repo) ||
@@ -785,17 +785,50 @@ function compute(st: State): Results {
   return { list: matching, total: matching.length, bundles: matching.filter(isBundle).length };
 }
 
-/** How many skills, or bundles when the list shows only those, have each value of a facet, with the other filters. */
+/**
+ * How many skills, or bundles when the list shows only those, have each value of a facet, with the
+ * other filters: as many as the list counts once the value is the facet's selected tag.
+ *
+ * A bundle that the search finds by its own name or words takes some care, as which of its skills
+ * it matches through depends on the tag (see matchedThrough): the ones that match the search and
+ * have the tag, or else every one that has the tag. So a value also counts the skills that have
+ * it and don't match the search, unless one that matches the search has it too. Counting only what
+ * the search finds without the tag, a chip said 49 and the list it led to 53.
+ */
 function counts(st: State, facet: string, valuesOf: (s: Skill) => string[]): Map<string, number> {
   const n = new Map<string, number>();
   const add = (values: string[]) => {
     for (const v of new Set(values)) n.set(v, (n.get(v) ?? 0) + 1);
   };
+  const rest = skillFilters(st);
+  const unsearched = { ...rest, q: "" };
+  const itself = (b: Bundle) => Boolean(term(st)) && matches(bundleText.get(b.id) ?? "", st.q);
   if (st.show === "bundles") {
+    // A bundle has a value through any skill the search finds, or through any skill at all when
+    // the search finds the bundle itself.
     for (const b of data.bundles)
-      if (savedBundle(b, st) && inRanges(b, st))
-        add(matchedThrough(b, st, facet).flatMap(valuesOf));
-  } else for (const s of shownSkills(st, facet)) add(valuesOf(s));
+      if (savedBundle(b, st) && inRanges(b, st)) {
+        const through = itself(b) ? unsearched : rest;
+        add(
+          skillsOf(b)
+            .filter((s) => passes(s, through, facet))
+            .flatMap(valuesOf),
+        );
+      }
+    return n;
+  }
+  for (const s of data.skills) if (passes(s, st, facet)) add(valuesOf(s));
+  // As in shownSkills: only a search brings in a bundle's skills through the bundle itself.
+  if (!term(st) || st.saved || st.show === "skills") return n;
+  for (const b of data.bundles) {
+    if (!inRanges(b, st) || !itself(b)) continue;
+    const skills = skillsOf(b);
+    const found = skills.filter((s) => passes(s, rest, facet));
+    const foundValues = new Set(found.flatMap(valuesOf));
+    for (const s of skills)
+      if (!found.includes(s) && passes(s, unsearched, facet))
+        add(valuesOf(s).filter((v) => !foundValues.has(v)));
+  }
   return n;
 }
 

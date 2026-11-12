@@ -341,6 +341,35 @@ test("a tag narrows the list to as many skills as it says", async ({ page }) => 
   await expect(chip).toHaveAttribute("aria-pressed", "false");
 });
 
+test("with a search on, a tag still narrows the list to as many as it says", async ({ page }) => {
+  // A common word, which finds some bundles by their own words and others by their skills': a tag
+  // can then bring a bundle in through skills the search alone didn't count.
+  for (const view of ["/?q=design", "/?q=design&show=bundles"]) {
+    await open(page, view);
+    await searchable(page);
+    const chips = page.locator(
+      '#facets .chip[data-tag^="type:"], #facets .chip[data-tag^="effect:"]',
+    );
+    const said = await chips.evaluateAll((all) =>
+      all.map((chip) => [
+        (chip as HTMLElement).dataset.tag as string,
+        chip.querySelector(".n")?.textContent as string,
+      ]),
+    );
+    expect(said.length, view).toBeGreaterThan(0);
+    for (const [tag, says] of said) {
+      const chip = page.locator(`#facets .chip[data-tag="${tag}"]`);
+      await chip.click();
+      await settled(page);
+      await expect(list(page).count, `${view}, ${tag}`).toHaveText(
+        new RegExp(`^${n(Number(says))} (skill|bundle)s?$`),
+      );
+      await chip.click();
+      await settled(page);
+    }
+  }
+});
+
 test("a link holds the whole view, and a reload shows it again", async ({ page }) => {
   await open(page, "/?q=design&tag=type%3Aworkflow&sort=stars&order=asc&stars=100..&show=skills");
   await searchable(page);
