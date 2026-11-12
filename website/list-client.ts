@@ -193,11 +193,17 @@ function focusSelector(): string | null {
     "data-save",
   ]) {
     const v = el.getAttribute(attr);
-    if (v !== null)
-      // A facet's chip keeps the focus in the facets, rather than pass it to the same tag's among
-      // those the search found, which come first; one of those passes it to the facet's once it
-      // replaced the search, and its box is gone. See facetsHtml in list.ts.
-      return `#${["skill-tags", "facets", "presets", "settings", "scope"].find((id) => el.closest(`#${id}`)) ?? "results"} [${attr}="${CSS.escape(v)}"]`;
+    if (v === null) continue;
+    // A facet's chip keeps the focus in the facets, rather than pass it to the same tag's among
+    // those the search found, which come first; one of those passes it to the facet's once it
+    // replaced the search, and its box is gone. See facetsHtml in list.ts.
+    const within =
+      ["skill-tags", "facets", "presets", "settings", "scope"].find((id) => el.closest(`#${id}`)) ??
+      "results";
+    // A filter's pill is told from the other three by its filter: they're all `data-action="range"`.
+    const which =
+      attr === "data-action" && el.dataset.value ? `[data-value="${el.dataset.value}"]` : "";
+    return `#${within} [${attr}="${CSS.escape(v)}"]${which}`;
   }
   return el.id ? `#${CSS.escape(el.id)}` : null;
 }
@@ -456,6 +462,7 @@ function render(whole = false) {
   // Its row is about to go.
   hidePreview();
   const focus = focusSelector();
+  const focused = document.activeElement;
   if (q.value !== state.q) q.value = state.q;
   syncRanges();
   renderHistograms();
@@ -481,8 +488,11 @@ function render(whole = false) {
   // And on the button under the open tags, on a narrow screen: see .tags-done in style.css.
   const tagsDone = document.querySelector("#filters [data-list-count]");
   if (tagsDone) tagsDone.innerHTML = countHtml(state);
-  if (scrolledPast) (results.closest(".list-main") ?? results).scrollIntoView({ block: "start" });
-  if (focus) {
+  // Only what was replaced: what's still in the page, such as a filter's pill, kept the focus.
+  // Given to what its selector finds first, the focus went from the pill of an open filter to the
+  // first filter's, which closed the open one's slider: under a finger on its handle, as a finger
+  // leaves the focus on the pill it tapped to open it.
+  if (focus && !focused?.isConnected) {
     // A filter's chip is gone once it's removed, as Clear filters is with the last of them: the
     // focus goes to the next chip, or else to the count they stood beside, from where Tab leads
     // into the list. Left alone, it would fall back to the top of the page. As it did from the
@@ -494,6 +504,9 @@ function render(whole = false) {
         : null;
     ((document.querySelector(focus) ?? gone) as HTMLElement | null)?.focus({ preventScroll: true });
   }
+  // Last, once the focus is back: a row that gets it is drawn at its own height, which moves what's
+  // under it.
+  if (scrolledPast) (results.closest(".list-main") ?? results).scrollIntoView({ block: "start" });
   const st = state;
   const id = ++renders;
   const append = (from: number) => {

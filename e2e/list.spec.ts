@@ -390,6 +390,32 @@ test("a number filter's slider stays where it is while it narrows the list", asy
   expect(await left()).toBe(before);
 });
 
+test("a number filter's slider stays open while a finger drags its handle", async ({ page }) => {
+  await open(page, "/?show=bundles");
+  const { count } = list(page);
+  const all = await count.innerText();
+  // Not the first filter's: the focus was handed to the first pill there is.
+  for (const filter of ["stars", "week"]) {
+    const pill = page.locator(`.range-pill[data-value="${filter}"]`);
+    const pop = page.locator(`#range-pop-${filter}`);
+    await pill.click();
+    await expect(pop).toBeVisible();
+    // A finger on a handle moves it without giving it the focus, which stays on the pill it tapped.
+    await pop.locator('input[data-end="0"]').evaluate((handle: HTMLInputElement) => {
+      handle.value = "12";
+      handle.dispatchEvent(new Event("input", { bubbles: true }));
+    });
+    await settled(page);
+    await expect(count).not.toHaveText(all);
+    await expect(pop).toBeVisible();
+    await expect(pill).toBeFocused();
+    await page.keyboard.press("Escape");
+    await expect(pop).toBeHidden();
+    await page.locator(`#scope [data-remove="range"]`).click();
+    await settled(page);
+  }
+});
+
 test("a click on a number filter's track moves the nearer handle there", async ({ page }) => {
   await open(page, "/?show=bundles");
   await page.locator('.range-pill[data-value="stars"]').click();
