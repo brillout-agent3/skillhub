@@ -300,6 +300,58 @@ test("the about page counts what the site lists, and explains each row", async (
   await expect(tip).toBeHidden();
 });
 
+test("the about page shows one explanation at a time", async ({ page }) => {
+  await open(page, "/about/");
+  const rows = page.locator(".breakdown tr");
+  const shown = page.locator(".breakdown .tip-text:visible");
+  const tipOf = (row: number) => rows.nth(row).locator(".tip-text");
+
+  // The pointer's row's, over a pinned one, which is back once the pointer leaves the table: the
+  // two showed together, one over the other's words.
+  await rows.nth(3).locator(".tip-i").click();
+  await expect(shown).toHaveCount(1);
+  await rows.nth(4).locator("td").first().hover();
+  await expect(tipOf(4)).toBeVisible();
+  await expect(shown).toHaveCount(1);
+  await page.mouse.move(0, 0);
+  await expect(tipOf(3)).toBeVisible();
+  await expect(shown).toHaveCount(1);
+  await page.keyboard.press("Escape");
+  await expect(shown).toHaveCount(0);
+
+  // And the keyboard's row's, over the pointer's.
+  await rows.nth(1).locator(".tip-i").focus();
+  await page.keyboard.press("Shift+Tab");
+  await page.keyboard.press("Tab");
+  await expect(rows.nth(1).locator(".tip-i")).toBeFocused();
+  await rows.nth(6).locator("td").first().hover();
+  await expect(tipOf(1)).toBeVisible();
+  await expect(shown).toHaveCount(1);
+});
+
+test.describe("in a window 960px wide, where an explanation goes under its row", () => {
+  test.use({ viewport: { width: 960, height: 900 } });
+
+  test("the about page explains each row the pointer goes down to", async ({ page }) => {
+    await open(page, "/about/");
+    const rows = page.locator(".breakdown tr");
+    const count = await rows.count();
+    expect(count).toBeGreaterThan(10);
+    // Down the labels, as someone reading the table: an explanation lies over the next rows, and
+    // kept the pointer that came down onto it, so that every other row showed none.
+    for (let row = 0; row < count; row++) {
+      const label = (await rows.nth(row).locator("td").first().boundingBox()) as {
+        x: number;
+        y: number;
+        height: number;
+      };
+      await page.mouse.move(label.x + 80, label.y + label.height / 2, { steps: 4 });
+      await expect(rows.nth(row).locator(".tip-text")).toBeVisible();
+      await expect(page.locator(".breakdown .tip-text:visible")).toHaveCount(1);
+    }
+  });
+});
+
 test("the list's tagline and the about page give the same number of reviewed skills", async ({
   page,
 }) => {

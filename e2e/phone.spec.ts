@@ -86,6 +86,32 @@ test("a label of the about page's table, too long for its line, goes on under it
   for (const lines of starts) expect(new Set(lines).size, lines.join(", ")).toBe(1);
 });
 
+test("a tap opens an explanation of the about page's table, and a second tap closes it", async ({
+  page,
+}) => {
+  await open(page, "/about/");
+  const rows = page.locator(".breakdown tr");
+  const shown = page.locator(".breakdown .tip-text:visible");
+  // A finger stays "on" the row it last tapped: the explanation that the second tap unpinned
+  // stayed open until a tap elsewhere.
+  await rows.nth(3).locator(".tip-i").tap();
+  await expect(rows.nth(3).locator(".tip-text")).toBeVisible();
+  await rows.nth(3).locator(".tip-i").tap();
+  await expect(shown).toHaveCount(0);
+
+  // A tap anywhere on a row opens its explanation, as a pointer on the row does elsewhere; a tap
+  // on the explanation closes it, rather than open the one of the row it covers.
+  await rows
+    .nth(5)
+    .locator("td")
+    .first()
+    .tap({ position: { x: 60, y: 10 } });
+  await expect(rows.nth(5).locator(".tip-text")).toBeVisible();
+  await expect(shown).toHaveCount(1);
+  await rows.nth(5).locator(".tip-text").tap();
+  await expect(shown).toHaveCount(0);
+});
+
 test("a repo's numbers break between two of them, not inside one", async ({ page }) => {
   await open(page, repo.url);
   const facts = page.locator(".listing-page > .muted .fact");

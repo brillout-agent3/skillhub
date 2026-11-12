@@ -3231,16 +3231,51 @@ input[type="search"]::-webkit-search-cancel-button:hover {
   }
 }
 
-.breakdown tr:hover .tip-text,
+/*
+ * A row's tooltip shows while the keyboard is on its [i], once a click or a tap pinned it (see
+ * pages/about/+client.ts), and while the pointer is on the row. Not a finger's, which stays "on"
+ * the row it last tapped: the tooltip that a second tap unpinned stayed open.
+ */
 .breakdown tr:focus-within .tip-text,
 .breakdown tr.open .tip-text {
   display: block;
 }
 
-.breakdown tr:hover .tip-i,
 .tip-i:focus-visible,
 .breakdown tr.open .tip-i {
   color: var(--garnet-text);
+}
+
+@media (hover: hover) {
+  .breakdown tr:hover .tip-text {
+    display: block;
+  }
+
+  .breakdown tr:hover .tip-i {
+    color: var(--garnet-text);
+  }
+}
+
+/*
+ * One at a time: the keyboard's row's, or else the pointer's row's, over a pinned one, which is
+ * back once the pointer leaves the table. Each on its own terms, the pinned one and the pointer's
+ * showed together, one over the other's words.
+ */
+.breakdown:has(.tip-i:focus-visible) tr:not(:focus-within) .tip-text,
+.breakdown:not(:has(.tip-i:focus-visible)):has(tr:hover) tr:not(:hover) .tip-text {
+  display: none;
+}
+
+/*
+ * Under its row, a tooltip lies over the next rows, and is part of its own: it kept the pointer
+ * that moved down onto it, and with it its row's hover, so that going down the table showed every
+ * other tooltip. There, the pointer goes through it, to the row under it. A finger doesn't: a tap
+ * on a tooltip closes it, rather than open the one of the row it covers.
+ */
+@media (max-width: 1023px) and (hover: hover) {
+  .tip-text {
+    pointer-events: none;
+  }
 }
 
 .tag-table th:nth-child(2),
