@@ -47,7 +47,7 @@ import { href } from "./format.ts";
 import { searchWords } from "./client-data.ts";
 import { hidePreview, previewAgain, previewed, setPreviewProse } from "./preview-client.ts";
 import { ACCOUNT_EVENT, type AccountChange } from "./account-client.ts";
-import { account, savedCount } from "./saves.ts";
+import { LEFT_AT, LOGIN_FROM, account, savedCount } from "./saves.ts";
 
 // The Saved switch counts only what's still listed, as the list does; account-client.ts may have
 // counted before this script ran.
@@ -155,8 +155,33 @@ function backTo(at: Place) {
  * the page's entry in the browser's history as the page was left.
  */
 history.scrollRestoration = "manual";
-const note = () => history.replaceState({ at: place() }, "");
+const here = () => location.pathname + location.search;
+const note = () => {
+  const at = place();
+  history.replaceState({ at }, "");
+  // And for the tab, should it be leaving to log in: see `leftToLogIn`.
+  try {
+    sessionStorage.setItem(LEFT_AT, JSON.stringify({ page: here(), at }));
+  } catch {}
+};
 addEventListener("pagehide", note);
+
+/**
+ * Where this list was left to log in, when the page is the way back from it: within some minutes,
+ * to the list it left, which then is a new page, with no place in the browser's history (see
+ * LOGIN_FROM in saves.ts). Not on any other way to the same list, such as the site's name's link,
+ * which starts it at its top.
+ */
+function leftToLogIn(): Place | undefined {
+  try {
+    const from = JSON.parse(sessionStorage.getItem(LOGIN_FROM) ?? "null");
+    sessionStorage.removeItem(LOGIN_FROM);
+    const left = JSON.parse(sessionStorage.getItem(LEFT_AT) ?? "null");
+    if (from?.page === here() && left?.page === here() && Date.now() - from.time < 600_000)
+      return left.at;
+  } catch {}
+  return undefined;
+}
 // A reload keeps what was noted before it began: so also once the page has stopped scrolling.
 let scrolled: ReturnType<typeof setTimeout> | undefined;
 addEventListener(
@@ -824,7 +849,7 @@ if ("typed" in q.dataset && q.value !== state.q) {
 // The page was pre-rendered unfiltered, and hidden until now if its link asks for another list, or
 // if it's returned to, to be put back where it was.
 if (location.search) render(true);
-const left = (history.state as { at?: Place } | null)?.at;
+const left = (history.state as { at?: Place } | null)?.at ?? leftToLogIn();
 if (left) backTo(left);
 delete document.documentElement.dataset.pending;
 

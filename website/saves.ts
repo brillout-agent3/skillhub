@@ -32,10 +32,23 @@ export const ACCOUNT_CACHE = "skillhub:account";
  */
 export const loggedInScript = `try { if (JSON.parse(localStorage.getItem(${JSON.stringify(ACCOUNT_CACHE)}) || "null")?.user) document.documentElement.dataset.loggedIn = ""; } catch {}`;
 
-/** Log in with GitHub, then back to this page, with `save` saved. */
+/**
+ * Kept for the tab while it's away logging in: the page it left for it, and when. And where the
+ * skills list was scrolled to as it was left, which it notes whenever it's left. The list comes
+ * back from logging in as a new page, with no place noted in the browser's history: it opens where
+ * it was left all the same (see list-client.ts). A first save, logged out, came back to the list's
+ * top, the row just saved thousands of pixels down.
+ */
+export const LOGIN_FROM = "skillhub:login-from";
+export const LEFT_AT = "skillhub:left-at";
+
+/** Log in with GitHub, then back to this page, where it was, with `save` saved. */
 export function loginHref(save?: string): string {
   const p = new URLSearchParams({
-    return: typeof location === "undefined" ? href() : location.pathname + location.search,
+    return:
+      typeof location === "undefined"
+        ? href()
+        : location.pathname + location.search + location.hash,
   });
   if (save) p.set("save", save);
   return `${href("api/auth/login")}?${p}`;
@@ -61,8 +74,15 @@ const ICON = `<span class="save-icon" aria-hidden="true"><svg viewBox="0 0 20 20
 /** The words a Save button shows, by whether it's saved. */
 export const saveLabel = (saved: boolean) => (saved ? "Saved" : "Save");
 
+/**
+ * What a Save button is called, for a screen reader: its word and the entry's name, "Save pdf" or
+ * "Saved pdf". With its word as it shows it: named "Save pdf" while it read "Saved", what it's
+ * called didn't hold what it says, which whoever speaks to their browser goes by.
+ */
+export const saveName = (saved: boolean, name: string) => `${saveLabel(saved)} ${name}`;
+
 /** A Save button for the entry named `name`: its icon and its word. */
 export function saveButton(key: string, name: string): string {
   const on = account.saved.has(key);
-  return `<button type="button" class="save" data-save="${esc(key)}" aria-pressed="${on}" aria-label="Save ${esc(name)}" title="${saveLabel(on)}">${ICON}<span class="save-word">${saveLabel(on)}</span></button>`;
+  return `<button type="button" class="save" data-save="${esc(key)}" data-name="${esc(name)}" aria-pressed="${on}" aria-label="${esc(saveName(on, name))}" title="${saveLabel(on)}">${ICON}<span class="save-word">${saveLabel(on)}</span></button>`;
 }

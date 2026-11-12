@@ -39,6 +39,23 @@ test("Log in comes back to the page you were on, its filters included", async ({
   await expect(page).toHaveURL("/?show=bundles");
   await expect(page.locator("#account .avatar")).toHaveAttribute("title", "Logged in as test-user");
   await expect(login(page)).toHaveCount(0);
+
+  // And to the part of it you were at.
+  await logout(page).click();
+  await openLoggedIn(page, "/about/#bundles");
+  await expect(page).toHaveURL("/about/#bundles");
+  await expect(page.locator("#bundles")).toBeInViewport();
+});
+
+test("the header of whoever is logged in fits one line on the narrowest phone", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 320, height: 640 });
+  await openLoggedIn(page, "/about/");
+  // The avatar and Log out are wider than Log in: dark mode's toggle went onto a line of its own.
+  const top = async (selector: string) => (await page.locator(selector).boundingBox())?.y ?? 0;
+  expect(Math.abs((await top(".theme-toggle")) - (await top("#account .logout")))).toBeLessThan(12);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(320);
 });
 
 test("the header's links stay put once a page knows who's logged in", async ({ page }) => {
@@ -74,9 +91,12 @@ test("a save shows on its button, on the Saved switch and in the Saved list", as
   const href = (await skillRow(page).locator(".skill-name").getAttribute("href")) as string;
   await expect(savedCount(page)).toHaveText("");
 
+  // It's called what it says, with the skill's name.
+  await expect(save).toHaveAccessibleName(`Save ${skill.name}`);
   await save.click();
   await expect(save).toHaveAttribute("aria-pressed", "true");
   await expect(save).toHaveText("Saved");
+  await expect(save).toHaveAccessibleName(`Saved ${skill.name}`);
   await expect(savedCount(page)).toHaveText("1");
 
   await page.locator("#saved-switch").click();
@@ -215,6 +235,38 @@ test("Save, logged out, logs you in and saves", async ({ page }) => {
   await expect(logout(page)).toBeVisible();
   await expect(page.locator(`[data-save="${key}"]`)).toHaveAttribute("aria-pressed", "true");
   await expect(savedCount(page)).toHaveText("1");
+});
+
+test("Save, logged out, down a list, comes back to where the list was", async ({ page }) => {
+  await open(page, "/?show=bundles");
+  await accountLoaded(page);
+  for (let i = 0; i < 6; i++) await page.mouse.wheel(0, 700);
+  // The list notes its place once the page has stopped scrolling.
+  await page.waitForFunction(() => history.state?.at);
+  const save = await page.evaluate(() => {
+    for (const button of document.querySelectorAll<HTMLElement>("#results [data-save]")) {
+      const box = button.getBoundingClientRect();
+      if (box.top > 200 && box.bottom < innerHeight - 200)
+        return { x: box.x + box.width / 2, y: box.y + box.height / 2, key: button.dataset.save };
+    }
+  });
+  if (!save) throw new Error("no row's Save button is in view");
+  await page.mouse.click(save.x, save.y);
+
+  // Logging in comes back to the list as a new page: at its top, the row just saved was thousands
+  // of pixels down, and only the Saved switch's count said the save had worked.
+  await ready(page);
+  await expect(page).toHaveURL("/?show=bundles");
+  await expect(logout(page)).toBeVisible();
+  const saved = page.locator(`#results [data-save="${save.key}"]`);
+  await expect(saved).toHaveAttribute("aria-pressed", "true");
+  await expect(saved).toBeInViewport({ ratio: 1 });
+
+  // Not on another way to the same list, which starts at its top.
+  await page.locator(".brand").click();
+  await ready(page);
+  await open(page, "/?show=bundles");
+  expect(await page.evaluate(() => scrollY)).toBe(0);
 });
 
 test("the Saved list, logged out, asks to log in", async ({ page }) => {

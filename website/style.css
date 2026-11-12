@@ -3868,6 +3868,14 @@ input[type="search"]::-webkit-search-cancel-button:hover {
     order: -1;
   }
 
+  /* On the narrowest phones, 320px, the links of whoever is logged in were a fraction of a pixel
+     wider than their line: dark mode's toggle went onto a line of its own. */
+  @media (max-width: 340px) {
+    .site-links {
+      column-gap: 12px;
+    }
+  }
+
   /* The agent's button goes under its words, as wide as its field. A tablet has the room for it
      beside them, as a wide screen does: there, under them, it was a bar across the page. */
   .agent-field {
@@ -4275,9 +4283,13 @@ html[data-logged-in]:not([data-account]) .account > [data-login]::after {
   }
 }
 
-.save:hover {
-  box-shadow: 0 0 0 1px var(--garnet);
-  color: var(--garnet-text);
+/* Not a finger's, which stays "on" the button it last tapped: unsaved by a second tap, the
+   button kept its garnet edge and word, as if still saved. */
+@media (hover: hover) {
+  .save:hover {
+    box-shadow: 0 0 0 1px var(--garnet);
+    color: var(--garnet-text);
+  }
 }
 
 /* What you saved is yours: in garnet. */

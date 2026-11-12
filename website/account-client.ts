@@ -13,10 +13,12 @@
 import { esc, href } from "./format.ts";
 import {
   ACCOUNT_CACHE,
+  LOGIN_FROM,
   account,
   bookmarkSvg,
   loginHref,
   saveLabel,
+  saveName,
   savedCount,
   type Account,
 } from "./saves.ts";
@@ -126,6 +128,7 @@ function paint(animate = false) {
   for (const button of document.querySelectorAll<HTMLElement>("[data-save]")) {
     const on = account.saved.has(button.dataset.save ?? "");
     button.setAttribute("aria-pressed", String(on));
+    button.setAttribute("aria-label", saveName(on, button.dataset.name ?? ""));
     button.title = saveLabel(on);
     const word = button.querySelector(".save-word");
     if (word) word.textContent = saveLabel(on);
@@ -150,8 +153,27 @@ const post = (path: string, body: unknown) =>
     body: JSON.stringify(body),
   });
 
+/** Notes that the tab leaves this page to log in: see LOGIN_FROM in saves.ts. */
+function leaveToLogIn() {
+  try {
+    const page = location.pathname + location.search;
+    sessionStorage.setItem(LOGIN_FROM, JSON.stringify({ page, time: Date.now() }));
+  } catch {}
+}
+
+/**
+ * Says so on an entry's Save buttons, for a moment, when its save didn't go through, as when the
+ * connection dropped: the button went from Saved back to Save without a word.
+ */
+function notSaved(key: string) {
+  for (const word of document.querySelectorAll(`[data-save="${CSS.escape(key)}"] .save-word`))
+    word.textContent = "Not saved";
+  setTimeout(() => paint(), 3000);
+}
+
 async function toggle(key: string) {
   if (!account.user) {
+    leaveToLogIn();
     location.href = loginHref(key);
     return;
   }
@@ -168,8 +190,10 @@ async function toggle(key: string) {
     // The session ended: log in again, and save on the way back.
     apply({ user: null, saved: [] });
     store();
+    leaveToLogIn();
     location.href = loginHref(on ? key : undefined);
   } else if (res?.status === 409) alert((await res.json()).error);
+  else if (on) notSaved(key);
 }
 
 async function logout() {
@@ -182,8 +206,10 @@ document.addEventListener("click", (event) => {
   const el = event.target as Element;
   const login = el.closest<HTMLAnchorElement>("a[data-login]");
   // The list keeps its filters in the URL, so where to come back to is only known at the click.
-  if (login) login.href = loginHref();
-  else if (el.closest("[data-logout]")) void logout();
+  if (login) {
+    login.href = loginHref();
+    leaveToLogIn();
+  } else if (el.closest("[data-logout]")) void logout();
   else {
     const clicked = el.closest<HTMLElement>("[data-save]");
     const key = clicked?.dataset.save;

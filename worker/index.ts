@@ -98,7 +98,10 @@ async function save(request: Request, env: Env): Promise<Response> {
       .bind(user.id, entry.kind, entry.id)
       .run();
   else if (!(await addSave(env, user.id, entry)))
-    return json({ error: `You can save at most ${MAX_SAVES} skills and bundles.` }, 409);
+    return json(
+      { error: `You can save at most ${MAX_SAVES.toLocaleString("en")} skills and bundles.` },
+      409,
+    );
   return json({ ok: true });
 }
 
