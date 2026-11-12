@@ -85,7 +85,7 @@ test("a search that finds nothing says so, and offers the agent", async ({ page 
   // The agent gets the search as the need, and the skills it would have looked through.
   await expect(page.locator("#ask-label")).toContainText(`of all ${n(data.skills.length)} skills.`);
   await empty.locator('[data-action="ask"]').click();
-  await expect(page.locator("#ask-label")).toContainText("Copied a prompt (");
+  await expect(page.locator("#ask-label")).toContainText("copied to your clipboard");
   const prompt = await page.evaluate(() => navigator.clipboard.readText());
   expect(prompt).toContain(`# Catalog (${listedRows} entries)`);
   expect(prompt.trimEnd().endsWith("zzzqqqxxx")).toBe(true);
@@ -672,7 +672,7 @@ test("Find with your agent copies a prompt with the list and the need", async ({
   await page.locator(".ask-button").click();
   // Its size in short, the number highlighted as in the line before the click, and without a ~.
   await expect(page.locator("#ask-label")).toHaveText(
-    /^Copied a prompt \([\d.]+[KM]? tokens\) to your clipboard, ready to use with any AI\.$/,
+    /^Prompt \([\d.]+[KM]? tokens\) copied to your clipboard, ready to use with any AI\.$/,
   );
   await expect(page.locator("#ask-label .badge")).toHaveText(/^[\d.]+[KM]?$/);
   const prompt = await page.evaluate(() => navigator.clipboard.readText());
