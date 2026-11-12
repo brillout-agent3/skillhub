@@ -408,6 +408,16 @@ test("a number filter takes any amount, typed in its fields", async ({ page }) =
   await expect(label).toHaveText("≤ 45 days");
   await expect(pop.locator('input[data-end="0"]')).toHaveValue("3.5");
 
+  // m is a month, as under the histogram: not mo.
+  await expect(pop.locator(".histogram-axis")).toContainText("3m");
+  await newer.fill("2m");
+  await settled(page);
+  await expect(page).toHaveURL("/?sort=published&published=60d..");
+  await expect(label).toHaveText("≤ 2 months");
+  await newer.fill("2mo");
+  await expect(error).toHaveText("Type an age, such as 45d, 3w or 2w 3d.");
+  await expect(page).toHaveURL("/?sort=published&published=60d..");
+
   // In weeks and days, as a row says its age: none of them over it.
   await newer.fill("2w 3d");
   await settled(page);

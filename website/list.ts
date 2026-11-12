@@ -73,7 +73,7 @@ const AGE_MARKS = [90, 30, 7, 1];
 /** An age's units, largest first: a month is 30 days and a year 365, as a row's age says them. */
 const AGE_UNITS: [days: number, word: string, short: string][] = [
   [365, "year", "y"],
-  [30, "month", "mo"],
+  [30, "month", "m"],
   [7, "week", "w"],
   [1, "day", "d"],
 ];
@@ -84,7 +84,10 @@ const ageWords = (days: number) => {
   const [n, word] = unitOfAge(days);
   return plural(days / n, word);
 };
-/** An age in short, under the slider's histogram and in its fields: "3mo", "2w", "45d". */
+/**
+ * An age in short, under the slider's histogram and in its fields: "3m", "2w", "45d". m is a month:
+ * an age is never in minutes, and a count's M, a million, is in fields of its own.
+ */
 const ageShort = (days: number) => {
   const [n, , short] = unitOfAge(days);
   return `${days / n}${short}`;
@@ -409,7 +412,7 @@ const stepRange = (p: Prop, i: number): Range => [boundAt(p, 0, i), boundAt(p, 1
 const countWords = (n: number) =>
   parseCount(compact(n)) === n ? compact(n) : n.toLocaleString("en");
 
-/** A bound as its field shows it: an age such as 3mo or 45d, a count such as 1.5K. */
+/** A bound as its field shows it: an age such as 3m or 45d, a count such as 1.5K. */
 export const fieldText = (p: Prop, n: number | null) =>
   n === null ? "" : PROPS[p].date ? ageShort(n) : countWords(n);
 
@@ -430,8 +433,7 @@ const AGE_WORD_DAYS: Record<string, number> = {
   wks: 7,
   week: 7,
   weeks: 7,
-  mo: 30,
-  mos: 30,
+  m: 30,
   month: 30,
   months: 30,
   y: 365,
@@ -441,8 +443,8 @@ const AGE_WORD_DAYS: Record<string, number> = {
   years: 365,
 };
 /**
- * A typed age, in days: 45, 45d, 3w, 2mo, 1y, 2w 3d or 1 month 2 weeks; null when it isn't one, or
- * is under a day. A bare number is days. Not m, which could be minutes as well as months.
+ * A typed age, in days: 45, 45d, 3w, 2m, 1y, 2w 3d or 1 month 2 weeks; null when it isn't one, or
+ * is under a day. A bare number is days, and m months, as the fields show them: see ageShort.
  */
 export function parseAge(text: string): number | null {
   let days = 0;
@@ -468,7 +470,7 @@ export function rangeError(p: Prop, [lo, hi]: Range): string | null {
 /** What each field of a slider's popover sets, and some of what it takes, for its placeholder. */
 export const fieldWords = (p: Prop): [lo: string, hi: string, examples: string] =>
   PROPS[p].date
-    ? ["Newer than", "Older than", "45d / 3w / 2mo"]
+    ? ["Newer than", "Older than", "45d / 3w / 2m"]
     : ["At least", "Under", "500 / 1.5K / 2M"];
 
 /**
