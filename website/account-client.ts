@@ -114,10 +114,15 @@ function bump(n: HTMLElement, up: boolean) {
 /** `animate`: whether a click caused the change, rather than the page's load. */
 function paint(animate = false) {
   const links = document.getElementById("account");
-  if (links)
+  if (links) {
+    // What's replaced takes the keyboard's focus with it, which then starts over from the page's
+    // top: after Log out, it's on Log in.
+    const focused = links.contains(document.activeElement);
     links.innerHTML = account.user
       ? `<span class="me"><img class="avatar" src="${esc(account.user.avatar)}" alt="" width="20" height="20" title="Logged in as ${esc(account.user.login)}" /><button type="button" class="logout" data-logout>Log out</button></span>`
       : `<a href="${href("api/auth/login")}" data-login>Log in</a>`;
+    if (focused) links.querySelector<HTMLElement>("a, button")?.focus();
+  }
   for (const button of document.querySelectorAll<HTMLElement>("[data-save]")) {
     const on = account.saved.has(button.dataset.save ?? "");
     button.setAttribute("aria-pressed", String(on));

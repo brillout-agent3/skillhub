@@ -65,7 +65,7 @@ export default {
   },
   title: "SkillHub: popular agent skills, tagged",
   description:
-    "Browse the most popular agent skills, ranked by installs and tagged by what they do, need and change.",
+    "Browse the most popular agent skills, ranked by downloads and tagged by what they do, need and change.",
 } satisfies Config;
 
 type PerPage = string | ((pageContext: PageContextServer) => string);

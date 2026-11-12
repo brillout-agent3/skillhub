@@ -60,6 +60,19 @@ test("a number filter's slider opens in view", async ({ page }) => {
   await expect(page.locator("#range-pop-week")).toBeInViewport({ ratio: 1 });
 });
 
+test("the agent's button is under its box, as wide as it", async ({ page }) => {
+  await open(page, "/?show=bundles");
+  const box = async (selector: string) =>
+    (await page.locator(selector).boundingBox()) as { y: number; width: number; height: number };
+  const [need, button, field] = [
+    await box("#need"),
+    await box(".ask-button"),
+    await box(".agent-field"),
+  ];
+  expect(button.y).toBeGreaterThanOrEqual(need.y + need.height);
+  expect(button.width).toBeGreaterThan(field.width * 0.9);
+});
+
 test("the list's settings and tags open from their buttons", async ({ page }) => {
   await open(page, "/");
   const settings = page.locator("#sort-group");

@@ -36,9 +36,9 @@ test("a skill's page: its name, numbers, install command and SKILL.md", async ({
   const weekly = skill["skills.sh"].weeklyInstalls as number[];
   await page.locator(".spark").focus();
   await page.keyboard.press("Home");
-  await expect(page.locator(".spark-tip")).toContainText(`${n(weekly[0])} installs`);
+  await expect(page.locator(".spark-tip")).toContainText(`${n(weekly[0])} downloads`);
   await page.keyboard.press("ArrowRight");
-  await expect(page.locator(".spark-tip")).toContainText(`${n(weekly[1])} installs`);
+  await expect(page.locator(".spark-tip")).toContainText(`${n(weekly[1])} downloads`);
 
   await expect(page.locator(".skill-md .markdown")).not.toBeEmpty();
 
@@ -133,6 +133,10 @@ test("the tags page: its search narrows it, and a tag leads to the list", async 
   const input = page.locator("#tag-q");
   const sections = page.locator(".facet-doc");
   const all = await sections.count();
+  // After each facet's question, how many of its tags a skill has, as a sentence of its own.
+  const counts = await page.locator(".question .muted").allTextContents();
+  expect(counts).toHaveLength(all);
+  for (const count of counts) expect(count).toMatch(/^[A-Z][a-z ]+ per skill\.$/);
 
   await input.fill("security");
   const shown = page.locator(".tag-table tbody tr:visible, .cloud-item:visible");
@@ -185,6 +189,13 @@ test("the about page counts what the site lists, and explains each row", async (
   await page.mouse.move(0, 0);
   await expect(tip).toBeVisible();
   await page.keyboard.press("Escape");
+  await expect(tip).toBeHidden();
+  // So does a second click, though the first gave its button the focus, which shows it too.
+  await listed.locator(".tip-i").click();
+  await page.mouse.move(0, 0);
+  await expect(tip).toBeVisible();
+  await listed.locator(".tip-i").click();
+  await page.mouse.move(0, 0);
   await expect(tip).toBeHidden();
 });
 

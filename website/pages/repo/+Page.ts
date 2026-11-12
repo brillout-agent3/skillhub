@@ -22,7 +22,7 @@ export default function Page(pageContext: PageContextServer): string {
           ? `<section aria-labelledby="bundles"><h2 id="bundles">${bundles.length === 1 ? "Its bundle" : "Its bundles"}</h2>${listingHtml(bundles)}</section>`
           : ""
       }
-      <section aria-labelledby="skills"><h2 id="skills">${skills.length === 1 ? "Its skill" : "Its skills, most installed first"}</h2>${listingHtml(skills)}</section>
+      <section aria-labelledby="skills"><h2 id="skills">${skills.length === 1 ? "Its skill" : "Its skills, most downloaded first"}</h2>${listingHtml(skills)}</section>
       ${crowdDefsHtml()}
     </div>`;
 }

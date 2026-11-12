@@ -150,8 +150,11 @@ test("Log out brings Log in back, and forgets what's saved", async ({ page }) =>
   await save.click();
   await expect(savedCount(page)).toHaveText("1");
 
-  await logout(page).click();
+  await logout(page).focus();
+  await page.keyboard.press("Enter");
   await expect(login(page)).toBeVisible();
+  // The keyboard is on what took Log out's place, rather than back at the page's top.
+  await expect(login(page)).toBeFocused();
   await expect(save).toHaveAttribute("aria-pressed", "false");
   await expect(savedCount(page)).toHaveText("");
 });

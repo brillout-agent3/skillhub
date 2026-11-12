@@ -13,6 +13,18 @@ import {
 } from "../../skills.ts";
 import type { Facet } from "../../../data/types.ts";
 
+/**
+ * How many of a facet's tags a skill has, as a sentence of its own after the facet's question:
+ * "What area is it for? One or more per skill."
+ */
+const COUNTS: Record<Facet["count"], string> = {
+  one: "One per skill.",
+  "one or more": "One or more per skill.",
+  "at most one": "At most one per skill.",
+  "one to five": "One to five per skill.",
+  any: "Any number per skill.",
+};
+
 export default function Page(): string {
   const n = new Map<string, number>();
   for (const s of data.skills) for (const t of tagsOf(s)) n.set(t, (n.get(t) ?? 0) + 1);
@@ -52,7 +64,7 @@ export default function Page(): string {
             }</td></tr>`;
           })
           .join("")}</tbody></table>`;
-      return `<section class="facet-doc" id="facet-${f.id}"><h2>${esc(f.name)} <code>${f.prefix === false ? "no prefix" : `${f.id}:`}</code></h2><p class="question">${esc(f.question)} <span class="muted">${esc(f.count)} per skill.</span></p>${body}</section>`;
+      return `<section class="facet-doc" id="facet-${f.id}"><h2>${esc(f.name)} <code>${f.prefix === false ? "no prefix" : `${f.id}:`}</code></h2><p class="question">${esc(f.question)} <span class="muted">${COUNTS[f.count]}</span></p>${body}</section>`;
     })
     .join("");
   return `

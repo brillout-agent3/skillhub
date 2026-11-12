@@ -13,9 +13,13 @@ const closeTips = (except?: Element | null) => {
 };
 
 document.addEventListener("click", (event) => {
-  const row = (event.target as Element).closest(".tip-i")?.closest("tr") ?? null;
+  const button = (event.target as Element).closest<HTMLElement>(".tip-i");
+  const row = button?.closest("tr") ?? null;
   closeTips(row);
-  row?.classList.toggle("open");
+  // A second click or tap closes it, which takes the focus off the button too: where a click gives
+  // it the focus, as in Chrome, the focus alone kept the tooltip open. Not the keyboard's, whose
+  // focus is its place in the page: `detail` is 0 for a click made with Enter or Space.
+  if (row && !row.classList.toggle("open") && event.detail > 0) button?.blur();
 });
 
 document.addEventListener("keydown", (event) => {

@@ -66,7 +66,7 @@ export function trendTableHtml(values: number[], snapshot: string): string {
     <details class="spark-table">
       <summary>Weekly values</summary>
       <table>
-        <thead><tr><th scope="col">Week to</th><th scope="col">Installs</th></tr></thead>
+        <thead><tr><th scope="col">Week to</th><th scope="col">Downloads</th></tr></thead>
         <tbody>${rows}</tbody>
       </table>
     </details>`;
@@ -97,7 +97,8 @@ export function mountSparklines(root: ParentNode): void {
       marker.setAttribute("cx", cx);
       marker.setAttribute("cy", y(values[active]).toFixed(1));
       marker.setAttribute("visibility", "visible");
-      value.textContent = `${values[active].toLocaleString("en")} installs`;
+      // Downloads, as its tile calls them, and as the sparkline's own label does.
+      value.textContent = `${values[active].toLocaleString("en")} downloads`;
       week.textContent = `week to ${weeks[active]}`;
       // Where the week is along the chart, from 0 to 1: the tooltip slides with it, see .spark-tip.
       tip.style.setProperty("--at", (x(active) / W).toFixed(3));

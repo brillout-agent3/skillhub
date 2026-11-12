@@ -79,6 +79,10 @@
     0 0 0 1px var(--ink-3), 0 1px 2px -1px oklch(0 0 0 / 0.08), 0 2px 4px 0 oklch(0 0 0 / 0.06);
   /* Pure black, never a tinted ink, so it doesn't read as dirt on the image's edge. */
   --image-outline: oklch(0 0 0 / 0.1);
+  /* What a tap flashes over a link or a button on a phone: a grey, where Chrome on Android's own
+     is a bright blue, on a page whose greys are never tinted blue. */
+  --tap: oklch(0 0 0 / 0.08);
+  -webkit-tap-highlight-color: var(--tap);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -121,6 +125,7 @@
   --shadow-border: 0 0 0 1px var(--ring);
   --shadow-border-hover: 0 0 0 1px var(--ink-3);
   --image-outline: oklch(1 0 0 / 0.1);
+  --tap: oklch(1 0 0 / 0.1);
 }
 
 * {
@@ -3086,18 +3091,8 @@ input[type="search"]::-webkit-search-cancel-button:hover {
     font-size: 16px;
   }
 
-  /* On a phone, the agent's button goes under its words. */
   .agent-field {
-    flex-wrap: wrap;
     padding: 6px 6px 6px 16px;
-  }
-
-  .agent-field input {
-    flex-basis: calc(100% - 40px);
-  }
-
-  .ask-button {
-    flex: 1 1 100%;
   }
 
   .filters-toggle {
@@ -3191,6 +3186,20 @@ input[type="search"]::-webkit-search-cancel-button:hover {
   .site-links {
     flex-basis: 100%;
     order: -1;
+  }
+
+  /* The agent's button goes under its words, as wide as its field. A tablet has the room for it
+     beside them, as a wide screen does: there, under them, it was a bar across the page. */
+  .agent-field {
+    flex-wrap: wrap;
+  }
+
+  .agent-field input {
+    flex-basis: calc(100% - 40px);
+  }
+
+  .ask-button {
+    flex: 1 1 100%;
   }
 }
 

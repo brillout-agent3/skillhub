@@ -194,6 +194,19 @@ test.describe("on a laptop's screen, 1,280px wide", () => {
   });
 });
 
+test.describe("on a tablet, 768px wide", () => {
+  test.use({ viewport: { width: 768, height: 900 } });
+
+  test("the agent's button is beside its box, as on a wide screen", async ({ page }) => {
+    await open(page, "/?show=bundles");
+    const middle = async (selector: string) => {
+      const box = (await page.locator(selector).boundingBox()) as { y: number; height: number };
+      return box.y + box.height / 2;
+    };
+    expect(Math.abs((await middle(".ask-button")) - (await middle("#need")))).toBeLessThan(2);
+  });
+});
+
 test("the Sort by menu works with the mouse and with the keyboard", async ({ page }) => {
   await open(page, "/");
   const button = page.locator("#sort");
