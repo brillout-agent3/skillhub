@@ -1,7 +1,7 @@
 /**
  * The skills list's preview: on a wide screen, with a mouse, resting the pointer on a row's words
- * opens the row's skill or bundle over the tags, as wide as the tags and the rows' numbers, which
- * it covers. What the row shows and more: every fact of its TLDR, its note, its numbers, its TLDR's
+ * opens the row's skill or bundle on a sheet over the window's left side, its whole height, up to
+ * the rows' words: over the tags and the rows' numbers. What the row shows and more: every fact of its TLDR, its note, its numbers, its TLDR's
  * prose, and the start of its SKILL.md, or a bundle's skills. Moving down the list, it follows the
  * pointer from row to row; it closes once the pointer leaves the rows' words, and with Escape.
  *
@@ -109,12 +109,9 @@ function paneHtml(e: Entry): string {
     : `<section class="preview-part"><h3>SKILL.md</h3><div data-skill-md><p class="muted">Loading its SKILL.md…</p></div></section>`;
   return `
     <div class="preview-in">
-      <div class="preview-head">
-        <div class="preview-title">
-          <h2>${esc(nameOf(e))}${isBundle(e) ? ` <span class="kind">Bundle of ${plural(e.agentReview.skills.length, "skill")}</span>` : ""}</h2>
-          <p class="skill-source">${esc(repoKey(e))}</p>
-        </div>
-        <p class="preview-hint">Click to open its page</p>
+      <div class="preview-title">
+        <h2>${esc(nameOf(e))}${isBundle(e) ? ` <span class="kind">Bundle of ${plural(e.agentReview.skills.length, "skill")}</span>` : ""}</h2>
+        <p class="skill-source">${esc(repoKey(e))}</p>
       </div>
       ${review.tldr?.glance.length ? glanceHtml(review.tldr.glance) : `<p class="skill-desc">${esc(review.description)}</p>`}
       ${note ? `<p class="note">${esc(note)}</p>` : ""}
@@ -212,19 +209,17 @@ export function hidePreview() {
 }
 
 /**
- * Over the tags and the rows' numbers: from the tags' left edge to just short of the rows' words,
- * and from the top of the tags' column, their count's, or the window's once the page is scrolled
- * past it, to the window's bottom. See #preview in style.css.
+ * From the window's left edge to just short of the rows' words, its words starting where the tags
+ * do, at --left, rather than at the window's edge, which can be far from the list on a wide
+ * screen. See #preview in style.css.
  */
 function place() {
   if (pane.hidden) return;
-  const view = pane.parentElement?.getBoundingClientRect();
   const tags = document.getElementById("facets")?.getBoundingClientRect();
   const words = results.querySelector(".skill-list > li .skill-body")?.getBoundingClientRect();
-  if (!view || !tags || !words) return hidePreview();
-  pane.style.setProperty("--top", `${Math.max(view.top + 16, 16)}px`);
+  if (!tags || !words) return hidePreview();
   pane.style.setProperty("--left", `${tags.left}px`);
-  pane.style.setProperty("--width", `${words.left - 16 - tags.left}px`);
+  pane.style.setProperty("--width", `${words.left - 16}px`);
   fits();
 }
 
@@ -269,5 +264,4 @@ results.addEventListener("pointerout", (event) => {
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && shown) hidePreview();
 });
-addEventListener("scroll", () => requestAnimationFrame(place), { passive: true });
 addEventListener("resize", () => (wide.matches ? place() : hidePreview()));

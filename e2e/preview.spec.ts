@@ -85,14 +85,18 @@ test("resting the pointer on a row's words previews it over the tags, which stay
   await expect(preview(page).locator("[data-skill-md]")).toContainText(
     skill.skillMd ? "Checked daily" : "No copy",
   );
-  // Over the tags, and over the row's numbers, up to its words.
+  // Over the window's left side, its whole height, up to the row's words: over the tags, and over
+  // the row's numbers. Its words start where the tags do.
   const pane = await preview(page).boundingBox();
   const tags = await page.locator("#facets").boundingBox();
+  const name = await preview(page).locator("h2").boundingBox();
   const words = await row.locator(".skill-body").boundingBox();
-  if (!pane || !tags || !words) throw new Error("the preview isn't laid out");
-  expect(Math.abs(pane.x - tags.x)).toBeLessThan(2);
-  expect(pane.x + pane.width).toBeLessThan(words.x);
-  expect(pane.x + pane.width).toBeGreaterThan(words.x - 40);
+  const window = page.viewportSize();
+  if (!pane || !tags || !name || !words || !window) throw new Error("the preview isn't laid out");
+  expect(pane).toMatchObject({ x: 0, y: 0, height: window.height });
+  expect(pane.width).toBeLessThan(words.x);
+  expect(pane.width).toBeGreaterThan(words.x - 40);
+  expect(Math.abs(name.x - tags.x)).toBeLessThan(2);
 
   // A tag under it takes the click, which closes it, as the list it was about goes.
   const chip = page.locator("#facets .chip").first();

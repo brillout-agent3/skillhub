@@ -88,8 +88,9 @@
   /* Over a row of the skills list the pointer is on, or whose preview is open: a grey laid over
      its own color, white or a bundle's wash. */
   --row-hover: oklch(0 0 0 / 0.025);
-  /* The preview's lift off the list, as the popovers': see #preview. */
-  --shadow-pop: var(--shadow-border), 0 8px 24px -6px oklch(0 0 0 / 0.18);
+  /* The edge of the preview, a sheet over the window's left side, as it lifts off the list: see
+     #preview. */
+  --shadow-side: 1px 0 0 var(--ring), 8px 0 24px -6px oklch(0 0 0 / 0.18);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -135,7 +136,7 @@
   --image-outline: oklch(1 0 0 / 0.1);
   --tap: oklch(1 0 0 / 0.1);
   --row-hover: oklch(1 0 0 / 0.035);
-  --shadow-pop: var(--shadow-border), 0 8px 24px -6px oklch(0 0 0 / 0.5);
+  --shadow-side: 1px 0 0 var(--ring), 8px 0 24px -6px oklch(0 0 0 / 0.5);
 }
 
 * {
@@ -554,26 +555,26 @@ body:has(.skills-view) #page-head {
 }
 
 /*
- * A row's preview (see preview-client.ts), on a wide screen: over the tags and the rows' numbers,
- * from the tags' left edge to just short of the rows' words, down to the window's bottom. The
- * script measures where it goes into --top, --left and --width. It lifts off the list as the
- * popovers do. The pointer goes through it, to the tags under it: it's for reading only, and what
- * doesn't fit fades out at its bottom (.cut), as the row's page has it all.
+ * A row's preview (see preview-client.ts), on a wide screen: a sheet over the window's left side,
+ * its whole height, up to just short of the rows' words, over the tags and the rows' numbers. Its
+ * words start where the tags do. The script measures that into --left, and its width into
+ * --width. Its edge lifts off the list. The pointer goes through it, to the tags and the settings
+ * under it: it's for reading only, and what doesn't fit fades out at its bottom (.cut), as the
+ * row's page has it all.
  */
 .preview {
   position: fixed;
   z-index: 3;
-  top: var(--top);
-  bottom: 16px;
-  left: var(--left);
+  top: 0;
+  bottom: 0;
+  left: 0;
   display: flex;
   flex-direction: column;
   width: var(--width);
   box-sizing: border-box;
-  padding: 20px 24px;
-  border-radius: 8px;
+  padding: 28px 24px 24px var(--left);
   background: var(--paper);
-  box-shadow: var(--shadow-pop);
+  box-shadow: var(--shadow-side);
   font-size: 14px;
   pointer-events: none;
 }
@@ -592,17 +593,6 @@ body:has(.skills-view) #page-head {
   mask-image: linear-gradient(to bottom, #000 calc(100% - 64px), transparent);
 }
 
-.preview-head {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-}
-
-.preview-title {
-  flex: 1;
-  min-width: 0;
-}
-
 .preview-title h2 {
   margin: 0;
   font-size: 21px;
@@ -619,13 +609,6 @@ body:has(.skills-view) #page-head {
 .preview-title .skill-source {
   display: block;
   margin: 4px 0 0;
-}
-
-.preview-hint {
-  flex: none;
-  margin: 4px 0 0;
-  color: var(--ink-3);
-  font-size: 12px;
 }
 
 /* Every fact, as on its page, a size smaller: a label as long as "Unlike <another skill>" wraps. */
