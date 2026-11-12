@@ -468,8 +468,8 @@ export function rangeError(p: Prop, [lo, hi]: Range): string | null {
 /** What each field of a slider's popover sets, and some of what it takes, for its placeholder. */
 export const fieldWords = (p: Prop): [lo: string, hi: string, examples: string] =>
   PROPS[p].date
-    ? ["Newer than", "Older than", "45d, 3w, 2mo"]
-    : ["At least", "Under", "500, 1.5K, 2M"];
+    ? ["Newer than", "Older than", "45d / 3w / 2mo"]
+    : ["At least", "Under", "500 / 1.5K / 2M"];
 
 /**
  * A slider's range in words, such as "≥ 1K" or "1K – 5K"; and for an age, said as the counts are,
@@ -1868,7 +1868,7 @@ export function rangesHtml(st: State): string {
     // Any amount, typed, under the slider: the list follows as it's typed, as it does a search.
     const [loWords, hiWords, examples] = fieldWords(p);
     const field = (end: 0 | 1, words: string) =>
-      `<div class="range-field"><label for="range-${p}-${end}">${words}</label><input type="text" id="range-${p}-${end}" autocomplete="off" spellcheck="false" placeholder="Examples: ${examples}" value="${esc(fieldText(p, range[end]))}" data-exact="${p}" data-bound="${end}" aria-describedby="range-error-${p}" /></div>`;
+      `<div class="range-field"><label for="range-${p}-${end}">${words}</label><input type="text" id="range-${p}-${end}" autocomplete="off" spellcheck="false" placeholder="${examples}" value="${esc(fieldText(p, range[end]))}" data-exact="${p}" data-bound="${end}" aria-describedby="range-error-${p}" /></div>`;
     const fields = `<div class="range-fields">${field(0, loWords)}${field(1, hiWords)}<p class="range-error" id="range-error-${p}" aria-live="polite"></p></div>`;
     const { icon, tag } = PROPS[p];
     // The pill says the word the rows say under a shared icon, such as Total, to fit the settings'
