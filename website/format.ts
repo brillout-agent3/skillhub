@@ -3,29 +3,54 @@
 export const esc = (s: string) => s.replace(/[&<>"']/g, (c) => `&#${c.charCodeAt(0)};`);
 
 /**
- * A shell command, escaped, that wraps only between its words, or after a slash in a URL: a browser
- * would otherwise break a line after a hyphen, such as inside --skill. A flag stays with what it's
- * set to, `--skill grill-me`, where a line has room for both (see .pair in style.css): a bundle's
- * command names a skill per flag, and its lines ended on a flag, with the skill on the next.
+ * A shell command, escaped, that wraps only between its words, or inside one after a slash or an
+ * @: a browser would otherwise break a line after a hyphen, such as inside --skill. After an @, so
+ * that a plugin's `name@marketplace` too long for a phone's line shows whole: it was cut off at
+ * its box's edge, which scrolled. What reads together stays together where a line has room for it
+ * (see .install code in style.css):
+ * - a command of several joined by &&, with what joins it to the next: `codex plugin marketplace
+ *   add a/b && codex plugin add b@a` broke inside its second command, which now starts a line;
+ * - a flag and what it's set to, `--skill grill-me`: a bundle's command names a skill per flag,
+ *   and its lines ended on a flag, with the skill on the next.
  */
 export function commandHtml(command: string): string {
-  const html = (word: string) =>
-    word
-      .split(/(?<=\/)/)
+  // Not after what starts a word, as in /plugin or @scope/name, nor between the slashes of ://.
+  const word = (w: string) =>
+    w
+      .split(/(?<=.\/)(?!\/)|(?<=[\p{L}\p{N}]@)/u)
       .map((part) => `<span class="word">${esc(part)}</span>`)
       .join("<wbr>");
-  const words = command.split(" ");
-  const out: string[] = [];
-  for (let i = 0; i < words.length; i++) {
-    const next = words[i + 1];
-    // What a flag is set to: not the next flag, what joins two commands, or a URL, which is long
-    // enough to need the lines of its own.
-    const set =
-      words[i].startsWith("-") && next && !/^(-|&&$|\|\|?$|;$)/.test(next) && !next.includes("://");
-    out.push(set ? `<span class="pair">${html(words[i])} ${html(next)}</span>` : html(words[i]));
-    if (set) i++;
+  const joins = (w: string) => /^(&&|\|\|?|;)$/.test(w);
+  // The commands, each with what joins it to the next.
+  const commands: string[][] = [[]];
+  for (const w of command.split(" ")) {
+    commands[commands.length - 1].push(w);
+    if (joins(w)) commands.push([]);
   }
-  return out.join(" ");
+  const html = commands
+    .filter((words) => words.length)
+    .map((words) => {
+      const out: string[] = [];
+      for (let i = 0; i < words.length; i++) {
+        const next = words[i + 1];
+        // What a flag is set to: not the next flag, what joins two commands, or a URL, which is
+        // long enough to need the lines of its own.
+        const set =
+          words[i].startsWith("-") &&
+          next &&
+          !next.startsWith("-") &&
+          !joins(next) &&
+          !next.includes("://");
+        out.push(
+          set ? `<span class="pair">${word(words[i])} ${word(next)}</span>` : word(words[i]),
+        );
+        if (set) i++;
+      }
+      return out.join(" ");
+    });
+  return html.length > 1
+    ? html.map((c) => `<span class="cmd">${c}</span>`).join(" ")
+    : html.join(" ");
 }
 
 /** 3.5M, 907K, 54.5K, 812 */

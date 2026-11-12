@@ -7,6 +7,7 @@ import {
   data,
   flagsBundleUrl,
   insideWord,
+  joinedBundleUrl,
   owner,
   repo,
   skill,
@@ -105,30 +106,51 @@ test("a bundle's page: its skills in order, and how to install them", async ({ p
   await expect(page.locator(".spark-tip")).toBeVisible();
 });
 
-test("where an install command wraps, a flag stays with what it's set to", async ({ page }) => {
-  await open(page, flagsBundleUrl);
-  const pairs = page.locator(".install code .pair");
-  await expect(pairs).not.toHaveCount(0);
-  // Each on one line, unless it's wider than a line by itself: the command is in a font whose
-  // letters are all as wide, so a pair is as wide as its letters.
-  const parted = await pairs.evaluateAll(
+/**
+ * How many of an install command's parts that read together are on two lines though one has the
+ * room for them: the command is in a font whose letters are all as wide, so a part is as wide as
+ * its letters.
+ */
+const parted = (parts: import("@playwright/test").Locator) =>
+  parts.evaluateAll(
     (all) =>
-      all.filter((pair) => {
-        const code = pair.closest("code") as HTMLElement;
+      all.filter((part) => {
+        const code = part.closest("code") as HTMLElement;
         const style = getComputedStyle(code);
         const room =
           code.clientWidth -
           Number.parseFloat(style.paddingLeft) -
           Number.parseFloat(style.paddingRight);
-        const words = [...pair.querySelectorAll(".word")].map((word) =>
+        const words = [...part.querySelectorAll(".word")].map((word) =>
           word.getBoundingClientRect(),
         );
-        const letter = words[0].width / (pair.querySelector(".word")?.textContent ?? " ").length;
+        const letter = words[0].width / (part.querySelector(".word")?.textContent ?? " ").length;
         const lines = new Set(words.map((word) => Math.round(word.top))).size;
-        return lines > 1 && (pair.textContent ?? "").length * letter <= room;
+        return lines > 1 && (part.textContent ?? "").length * letter <= room;
       }).length,
   );
-  expect(parted).toBe(0);
+
+test("where an install command wraps, a flag stays with what it's set to", async ({ page }) => {
+  await open(page, flagsBundleUrl);
+  const pairs = page.locator(".install code .pair");
+  await expect(pairs).not.toHaveCount(0);
+  expect(await parted(pairs)).toBe(0);
+});
+
+test("where an install command of several wraps, each of its commands starts a line", async ({
+  page,
+}) => {
+  // Joined by &&: a line ended inside the next command, rather than after the &&.
+  await open(page, joinedBundleUrl);
+  const commands = page.locator(".install code .cmd");
+  await expect(commands).not.toHaveCount(0);
+  expect(await parted(commands)).toBe(0);
+  // What's copied is the command as it's written: on one line, whatever lines it shows on.
+  const joined = page.locator(".install", { has: page.locator(".cmd") }).first();
+  const text = (await joined.locator("code").textContent()) as string;
+  expect(text).toContain(" && ");
+  await joined.locator(".copy").click();
+  expect(await clipboard(page)).toBe(text);
 });
 
 test("a bundle's page says which of its skills work alone: all, some or none", async ({ page }) => {

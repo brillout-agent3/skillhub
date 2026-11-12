@@ -174,6 +174,22 @@ const flagsSet = (b: (typeof data.bundles)[number]) =>
 /** The page of the bundle whose install commands set the most flags: the ones with the most to wrap. */
 export const flagsBundleUrl = `/${bundlePage(data.bundles.toSorted((a, b) => flagsSet(b) - flagsSet(a))[0])}/`;
 
+/** The words of a bundle's install commands. */
+const installWords = (b: (typeof data.bundles)[number]) =>
+  b.agentReview.install.flatMap(({ command }) => command.split(" "));
+const most = (count: (b: (typeof data.bundles)[number]) => number) =>
+  `/${bundlePage(data.bundles.toSorted((a, b) => count(b) - count(a))[0])}/`;
+/** The page of the bundle whose install commands join the most commands with &&. */
+export const joinedBundleUrl = most((b) => installWords(b).filter((w) => w === "&&").length);
+/**
+ * The page of the bundle whose install commands have the longest word with an @ inside and no
+ * slash, such as a plugin's `name@marketplace`: on most days longer than a line of a phone's
+ * command box, with nowhere else to break.
+ */
+export const atBundleUrl = most((b) =>
+  Math.max(0, ...installWords(b).map((w) => (/^[^/]*[a-z0-9]@[^/]*$/i.test(w) ? w.length : 0))),
+);
+
 /** What a repo's page lists: its bundles, then every skill of the repo. */
 const listing = (repo: string) => ({
   repo,

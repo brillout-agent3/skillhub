@@ -1,6 +1,15 @@
 /** On a phone: nothing wider than the screen, and the list's settings and tags behind their buttons. */
 
-import { bundleUrl, data, longLabelUrl, longWordUrl, owner, repo, skillUrl } from "./data.ts";
+import {
+  atBundleUrl,
+  bundleUrl,
+  data,
+  longLabelUrl,
+  longWordUrl,
+  owner,
+  repo,
+  skillUrl,
+} from "./data.ts";
 import { expect, list, n, open, settled, test } from "./fixtures.ts";
 
 const all = `${n(data.skills.length)} skills`;
@@ -133,6 +142,29 @@ test("a tag of the tags page's tables breaks after its prefix, its value whole o
   });
   expect(lines).toEqual([]);
   expect(broken).toEqual([]);
+});
+
+test("a plugin's name too long for a line of its install command breaks after its @", async ({
+  page,
+}) => {
+  await open(page, atBundleUrl);
+  // It was one word, cut off at the edge of its box, which scrolled sideways for the rest.
+  const starts = page.locator(".install code .word", { hasText: /^[^/]+@$/ });
+  await expect(starts).not.toHaveCount(0);
+  const cut = await starts.evaluateAll(
+    (all) =>
+      all.filter((start) => {
+        const code = start.closest("code") as HTMLElement;
+        const end =
+          code.getBoundingClientRect().right -
+          Number.parseFloat(getComputedStyle(code).paddingRight);
+        // Its start, up to the @, and what follows it.
+        return [start, start.nextElementSibling?.nextElementSibling as Element].some(
+          (word) => word.getBoundingClientRect().right > end + 0.5,
+        );
+      }).length,
+  );
+  expect(cut).toBe(0);
 });
 
 test("a number filter's slider opens in view", async ({ page }) => {
