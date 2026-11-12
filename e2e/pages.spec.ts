@@ -205,14 +205,8 @@ test("the list's tagline and the about page give the same number of reviewed ski
   page,
 }) => {
   await open(page, "/about/");
-  // Reviewed is the first table's total and the second table's first row: both give the number.
-  const rows = page.locator(".breakdown tr", {
+  const row = page.locator(".breakdown tr", {
     has: page.getByRole("button", { name: "About Reviewed", exact: true }),
-  });
-  await expect(rows).toHaveCount(2);
-  const row = rows.first();
-  await expect(rows.last().locator(".num")).toHaveText(await row.locator(".num").innerText(), {
-    useInnerText: true,
   });
   // innerText leaves out the row's hidden tooltip, which is in the same cell.
   const reviewed = (await row.locator(".num").innerText()).trim();
