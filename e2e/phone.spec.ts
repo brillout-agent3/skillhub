@@ -99,3 +99,25 @@ test("the list's settings and tags open from their buttons", async ({ page }) =>
   await tagsToggle.click();
   await expect(tags).toBeHidden();
 });
+
+test.describe("on a small phone, 360px wide", () => {
+  const SMALL = 360;
+  test.use({ viewport: { width: SMALL, height: 740 } });
+
+  test("the filters' pills fit the screen, however long their ranges", async ({ page }) => {
+    // Every filter narrowed, and Age at its longest, which doesn't fit half a row: its pill takes
+    // a row of its own, rather than push the others off the screen.
+    await open(
+      page,
+      "/?show=bundles&published=90d..30d&stars=1000..50000&downloads=1000..100000&week=100..5000",
+    );
+    await page.locator(".filters-toggle").click();
+    const pills = page.locator(".range-pill");
+    await expect(pills.first()).toContainText("1 month – 3 months");
+    expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(SMALL);
+    // Nor do a pill's words stick out of it.
+    expect(
+      await pills.evaluateAll((all) => all.filter((pill) => pill.scrollWidth > pill.clientWidth)),
+    ).toHaveLength(0);
+  });
+});

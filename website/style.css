@@ -2988,15 +2988,20 @@ input[type="search"]::-webkit-search-cancel-button:hover {
     width: 100%;
   }
 
-  /* The pills two a row; a slider's popover under them all, as wide as they are. */
+  /*
+   * The pills two a row, each half of it; a slider's popover under them all, as wide as they are.
+   * A pill whose range is too long to share a row, such as "Age 1 month – 3 months" on a phone,
+   * takes one of its own: in a grid of two columns it widened its column instead, past the
+   * screen's edge, and the page scrolled sideways.
+   */
   .ranges {
     position: relative;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    flex-wrap: wrap;
   }
 
   .range {
     position: static;
+    flex: 1 1 calc(50% - 3px);
   }
 
   .range-pop {
