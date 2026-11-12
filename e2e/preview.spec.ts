@@ -80,6 +80,36 @@ test("a click on a row previews it over the tags, with its page a click away", a
   for (const name of numbers) expect(tiles.filter((tile) => tile.startsWith(name))).toHaveLength(1);
 });
 
+test("a preview opened while the TLDRs' prose is still loading stays open once it's in", async ({
+  page,
+}) => {
+  // The prose is what the list's script asks for once it runs, after it took the page's scroll in
+  // charge: held back until `arrive` is called, as a slow connection holds it.
+  let arrive = () => {};
+  const arrived = new Promise<void>((resolve) => (arrive = resolve));
+  await page.route("**/*", async (route) => {
+    const running = () => page.evaluate(() => history.scrollRestoration === "manual");
+    if (route.request().resourceType() === "script" && (await running().catch(() => false)))
+      await arrived;
+    await route.continue();
+  });
+  await open(page, `/?q=${encodeURIComponent(skill.name)}`);
+  const row = list(page).rows.first();
+  await wordsOf(row).click();
+  await expect(preview(page)).toBeVisible();
+  await expect(page.locator("html[data-search-words]")).toHaveCount(0);
+
+  // With a search on, the list is rendered again once the prose is in, to look through it too:
+  // the preview closed with the rows it was about, under the eyes of whoever was reading it.
+  arrive();
+  await searchable(page);
+  await expect(preview(page)).toBeVisible();
+  await expect(preview(page).locator("h2")).toHaveText(skill.name);
+  await expect(row).toHaveClass(/previewed/);
+  const prose = skill.agentReview.tldr?.text;
+  if (prose) await expect(preview(page)).toContainText(prose.slice(0, 60));
+});
+
 test("the start of a SKILL.md, in a preview, ends on what it says, not on a heading", async ({
   page,
 }) => {

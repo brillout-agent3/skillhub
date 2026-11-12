@@ -229,6 +229,31 @@ export function hidePreview() {
 }
 
 /**
+ * For a list that's rendered again by itself, with what just came in (see `refresh` in
+ * list-client.ts): what to open the preview again with, once it is, or null when none is open. The
+ * page of its row, and how far down it was read.
+ */
+export const previewed = () => {
+  const page = shown?.querySelector(".skill-name")?.getAttribute("href");
+  return page ? { page, top: pane.scrollTop } : null;
+};
+
+/**
+ * Opens it again, where it was read, if its row is still listed. The list rendered again closed
+ * it: a row previewed while the TLDRs' prose was still loading, with a search on, lost its preview
+ * under the reader's eyes once the prose was in.
+ */
+export function previewAgain({ page, top }: { page: string; top: number }) {
+  if (!wide.matches) return;
+  const row = results
+    .querySelector(`.skill-list > li .skill-name[href="${CSS.escape(page)}"]`)
+    ?.closest<HTMLElement>("li");
+  if (!row) return;
+  show(row);
+  pane.scrollTop = top;
+}
+
+/**
  * From the window's left edge to just short of the rows' words, its words starting where the tags
  * do, at --left, rather than at the window's edge, which can be far from the list on a wide
  * screen. See #preview in style.css.

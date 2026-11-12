@@ -45,7 +45,7 @@ import {
 } from "./list.ts";
 import { href } from "./format.ts";
 import { searchWords } from "./client-data.ts";
-import { hidePreview, setPreviewProse } from "./preview-client.ts";
+import { hidePreview, previewAgain, previewed, setPreviewProse } from "./preview-client.ts";
 import { ACCOUNT_EVENT, type AccountChange } from "./account-client.ts";
 import { account, savedCount } from "./saves.ts";
 
@@ -131,10 +131,11 @@ addEventListener(
 /**
  * The same list again, with what just came in, such as the TLDRs' prose for the search: whole and
  * at once, as its first rows alone would cut the page short under a window scrolled further, and
- * back at the row it was at.
+ * back at the row it was at, with the preview that was open.
  */
 function refresh() {
   const at = place();
+  const preview = previewed();
   // What came in is in no key of the renders' caches: a new state misses them all, the list's
   // heading's count and the lines under the boxes included.
   state = { ...state };
@@ -142,6 +143,7 @@ function refresh() {
   lastScope = "";
   render(true);
   backTo(at);
+  if (preview) previewAgain(preview);
 }
 
 let soon = false;
