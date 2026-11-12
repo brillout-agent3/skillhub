@@ -3,8 +3,9 @@
  * or bundle on a sheet over the window's left side, its whole height, up to the rows' words: over
  * the tags and the rows' numbers. What the row shows and more: every fact of its TLDR, its note,
  * its numbers, how to install it, its TLDR's prose, and the start of its SKILL.md, or a bundle's
- * skills. A click on another row shows that one instead; a click on the same row, the preview's ×,
- * or Escape closes it. Its page is a click away, from More details, on the preview and on the row.
+ * skills. Once open, it follows the mouse from row to row, so that a click on a row, the one it
+ * shows, closes it, as do a click anywhere but on a row or on the preview itself, the preview's ×,
+ * and Escape. Its page is a click away, from All details, on the preview and on the row.
  *
  * It opens on a click rather than when the pointer rests on a row: one that opened by itself hid
  * the tags, the search and the settings whenever the pointer was on the list. On a narrow screen,
@@ -118,7 +119,7 @@ function paneHtml(e: Entry): string {
         <h2>${esc(nameOf(e))}${isBundle(e) ? ` <span class="kind">Bundle of ${plural(e.agentReview.skills.length, "skill")}</span>` : ""}</h2>
         <p class="skill-source">${esc(repoKey(e))}</p>
       </div>
-      <a class="details" href="${pageOf(e)}">More details</a>
+      <a class="details" href="${pageOf(e)}">All details</a>
       <button type="button" class="preview-close" data-close-preview aria-label="Close the preview">${CROSS}</button>
     </div>
     ${review.tldr?.glance.length ? glanceHtml(review.tldr.glance) : `<p class="skill-desc">${esc(review.description)}</p>`}
@@ -204,8 +205,8 @@ function show(row: HTMLElement, again = false) {
 }
 
 /**
- * For a click on a row: opens its preview, or closes it when it's the one open. False on a narrow
- * screen, where the click opens the row's page.
+ * For a click on a row: opens its preview, or closes it when it's the one open, as the row the
+ * mouse is on is once it's open. False on a narrow screen, where the click opens the row's page.
  */
 export function previewRow(row: HTMLElement): boolean {
   if (!wide.matches) return false;
@@ -234,6 +235,19 @@ function place() {
   pane.style.setProperty("--left", `${tags.left}px`);
   pane.style.setProperty("--width", `${words.left - 16}px`);
 }
+
+// Open, it shows the row the mouse is on. Not a touch's: a tap on another row is a click on it.
+results.addEventListener("pointerover", (event) => {
+  if (!shown || event.pointerType !== "mouse") return;
+  const row = (event.target as Element).closest<HTMLElement>(".skill-list > li");
+  if (row && row !== shown) show(row);
+});
+
+// A click outside the rows, which row-links.ts takes, and outside the preview, closes it.
+document.addEventListener("click", (event) => {
+  const target = event.target as Element;
+  if (shown && !pane.contains(target) && !target.closest(".skill-list > li")) hidePreview();
+});
 
 pane.addEventListener("click", (event) => {
   if ((event.target as Element).closest("[data-close-preview]")) hidePreview();

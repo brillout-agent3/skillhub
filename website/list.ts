@@ -1342,7 +1342,7 @@ export function crowdDefsHtml(): string {
  * its page: on the skills list, on a wide screen (see #preview in style.css). Elsewhere the row
  * itself leads there, and its name.
  */
-const detailsLink = (page: string) => `<a class="details" href="${page}">More details</a>`;
+const detailsLink = (page: string) => `<a class="details" href="${page}">All details</a>`;
 
 /** A row's repo, as a link to its page. */
 const sourceHtml = (e: Entry) =>

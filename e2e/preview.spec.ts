@@ -67,14 +67,14 @@ test("a click on a row previews it over the tags, with its page a click away", a
   await settled(page);
   await expect(page).toHaveURL(new RegExp(`tag=${encodeURIComponent(tag as string)}`));
 
-  // More details, on the preview as on the row, opens its page.
+  // All details, on the preview as on the row, opens its page.
   await open(page, `/?q=${encodeURIComponent(skill.name)}`);
   await wordsOf(list(page).rows.first()).click();
-  await preview(page).getByRole("link", { name: "More details" }).click();
+  await preview(page).getByRole("link", { name: "All details" }).click();
   await expect(page).toHaveURL(skillUrl);
 });
 
-test("a click on another row previews that one, and on the same row, or Escape, closes it", async ({
+test("once open, the preview shows the row the mouse is on, and a click on it, outside it, or Escape, closes it", async ({
   page,
 }) => {
   // A short list: on the whole one, Playwright's waits on the preview hold up the page.
@@ -83,17 +83,27 @@ test("a click on another row previews that one, and on the same row, or Escape, 
   const names = await rows.locator(".skill-name").allInnerTexts();
   await wordsOf(rows.nth(0)).click();
   await expect(preview(page).locator("h2")).toContainText(names[0]);
-  await wordsOf(rows.nth(1)).click();
+  await wordsOf(rows.nth(1)).hover();
   await expect(preview(page).locator("h2")).toContainText(names[1]);
   await expect(rows.nth(0)).not.toHaveClass(/previewed/);
   await expect(rows.nth(1)).toHaveClass(/previewed/);
   await wordsOf(rows.nth(1)).click();
   await expect(preview(page)).toBeHidden();
-  await wordsOf(rows.nth(1)).click();
-  await expect(preview(page)).toBeVisible();
+  // Closed, it waits for a click again.
+  await wordsOf(rows.nth(0)).hover();
+  await expect(preview(page)).toBeHidden();
+  await wordsOf(rows.nth(0)).click();
+  await expect(preview(page).locator("h2")).toContainText(names[0]);
   await page.keyboard.press("Escape");
   await expect(preview(page)).toBeHidden();
-  await expect(rows.nth(1)).not.toHaveClass(/previewed/);
+  await expect(rows.nth(0)).not.toHaveClass(/previewed/);
+  // A click on the preview leaves it open; one outside it and the rows, such as on the list's
+  // count, closes it.
+  await wordsOf(rows.nth(0)).click();
+  await preview(page).locator(".glance").click();
+  await expect(preview(page)).toBeVisible();
+  await page.locator("#count").click();
+  await expect(preview(page)).toBeHidden();
 });
 
 test("a row's own buttons, a selection in it, and Ctrl leave its preview closed", async ({
@@ -128,8 +138,8 @@ test("a row's own buttons, a selection in it, and Ctrl leave its preview closed"
   await tab.close();
   await expect(preview(page)).toBeHidden();
 
-  // More details, on the row, opens its page.
-  await row.getByRole("link", { name: "More details" }).click();
+  // All details, on the row, opens its page.
+  await row.getByRole("link", { name: "All details" }).click();
   await expect(page).toHaveURL(skillUrl);
 });
 

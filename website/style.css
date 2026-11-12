@@ -578,7 +578,7 @@ body:has(.skills-view) #page-head {
   font-size: 14px;
 }
 
-/* Its name, More details and its ×, which closes it. */
+/* Its name, All details and its ×, which closes it. */
 .preview-head {
   display: flex;
   align-items: flex-start;
