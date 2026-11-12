@@ -362,6 +362,54 @@ test.describe("a page that doesn't exist", () => {
       await expect(page.locator("h1")).toContainText(named.agentReview.name);
     }
   });
+
+  /** The addresses the page goes to, in order, from the next navigation on. */
+  const loads = (page: import("@playwright/test").Page) => {
+    const urls: string[] = [];
+    page.on("request", (r) => {
+      if (r.isNavigationRequest() && r.frame() === page.mainFrame()) urls.push(r.url());
+    });
+    return urls;
+  };
+
+  /** Once on the page, a second passes without it going elsewhere. */
+  async function staysPut(page: import("@playwright/test").Page, urls: string[]) {
+    await ready(page);
+    await expect(page.locator("h1")).toHaveText("Page not found");
+    const count = urls.length;
+    await page.waitForTimeout(1000);
+    expect(urls.slice(count)).toEqual([]);
+  }
+
+  test("an address with an escape, such as a comma's, is tried in lowercase once", async ({
+    page,
+  }) => {
+    // Cloudflare writes an escape in capitals, and redirects %2c to %2C. The retry in lowercase
+    // made it %2c again, and the two went back and forth without end.
+    const urls = loads(page);
+    await page.goto("/No-Such/Page%2c%20Here/");
+    await expect(page).toHaveURL("/no-such/page%2C%20here/");
+    await staysPut(page, urls);
+    expect(urls.map((url) => new URL(url).pathname)).toEqual([
+      "/No-Such/Page%2c%20Here/",
+      "/No-Such/Page%2C%20Here/",
+      "/no-such/page%2C%20here/",
+    ]);
+  });
+
+  test("a retry in lowercase that the server sends back isn't tried again", async ({ page }) => {
+    await page.route("**/no-such-page/", (route) =>
+      route.fulfill({ status: 307, headers: { location: "/No-Such-Page/" } }),
+    );
+    const urls = loads(page);
+    await page.goto("/No-Such-Page/");
+    await staysPut(page, urls);
+    expect(urls.map((url) => new URL(url).pathname)).toEqual([
+      "/No-Such-Page/",
+      "/no-such-page/",
+      "/No-Such-Page/",
+    ]);
+  });
 });
 
 test("a bundle's page is at the address its links have, with no redirect on the way", async ({
