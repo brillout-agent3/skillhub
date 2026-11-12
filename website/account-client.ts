@@ -1,8 +1,8 @@
 /**
- * Every page's login and saves, in the browser: the header's Log in, or Log out, the Save buttons,
- * and the count on the skills list's Saved switch. The Worker's /api/me says who's logged in and
- * what they saved. Its last answer is kept in localStorage, so that a page shows it at once, before
- * the API answers.
+ * Every page's login and saves, in the browser: the header's Log in, or its link to what you saved
+ * and Log out, the Save buttons, and the count on the skills list's Saved switch. The Worker's
+ * /api/me says who's logged in and what they saved. Its last answer is kept in localStorage, so
+ * that a page shows it at once, before the API answers.
  *
  * The Save buttons, the Saved switch and the header's Log in are pre-rendered, as if nobody were
  * logged in, and show at once: the click handler below makes them work, and paint() shows who's
@@ -17,6 +17,7 @@ import {
   account,
   bookmarkSvg,
   loginHref,
+  loginHtml,
   saveLabel,
   saveName,
   savedCount,
@@ -58,17 +59,55 @@ function changed(change: AccountChange) {
 /** The API answers: show the buttons and links. */
 const reachable = () => document.documentElement.setAttribute("data-account", "");
 
+/** The header's Saved link, among the account's links: see paintLinks. */
+const SAVED_LINK = ".saved-link";
+
 /**
- * On a save, a garnet bookmark flies from the Save button to the Saved switch's, so that you see
- * where what you save goes; null when nothing is flying. The switch's count waits for it to land.
+ * Where what you save goes, for the eye: the bookmark of the skills list's Saved switch, or, where
+ * there's none, that of the header's Saved link. That's on every other page, such as a skill's or
+ * a repo's: saving there changed the button and nothing else, with no word of where to find what's
+ * saved.
+ */
+function savedPlace(): { box: DOMRect; link: boolean } | null {
+  for (const [selector, link] of [
+    ["#saved-switch svg", false],
+    [`#account ${SAVED_LINK} svg`, true],
+  ] as const) {
+    const box = document.querySelector(selector)?.getBoundingClientRect();
+    if (box?.width) return { box, link };
+  }
+  return null;
+}
+
+/**
+ * The header's Saved link shows that a save went to it: its bookmark fills and pops, in garnet. The
+ * animation is in style.css, on [data-pulse]; reading offsetWidth restarts it for a second save.
+ */
+function pulseLink() {
+  const link = document.querySelector<HTMLElement>(`#account ${SAVED_LINK}`);
+  if (!link) return;
+  delete link.dataset.pulse;
+  void link.offsetWidth;
+  link.dataset.pulse = "";
+}
+
+/**
+ * On a save, a garnet bookmark flies from the Save button to where what you save goes (see
+ * savedPlace), so that you see it; null when nothing is flying. The switch's count waits for it to
+ * land, and so does the header's link, which then shows it took it.
  */
 let landing: Promise<void> | null = null;
 
 function fly(from: Element) {
-  const to = document.querySelector("#saved-switch svg");
+  const place = savedPlace();
+  if (!place) return;
+  const landed = () => {
+    if (place.link) pulseLink();
+  };
   const a = from.getBoundingClientRect();
-  const b = to?.getBoundingClientRect();
-  if (!b?.width || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const b = place.box;
+  // Nothing moves: the link only takes its color.
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return landed();
   const icon = document.createElement("div");
   icon.className = "save-flight";
   icon.innerHTML = bookmarkSvg;
@@ -92,6 +131,7 @@ function fly(from: Element) {
   landing = flight.finished.then(() => {
     icon.remove();
     landing = null;
+    landed();
   });
 }
 
@@ -113,18 +153,47 @@ function bump(n: HTMLElement, up: boolean) {
   if (up && row) row.dataset.pulse = "";
 }
 
+/** Whether the page is the list of what you saved, which its link then says: see showsSaved. */
+let onSaved = false;
+/** What the header's account links were last filled with: the pre-rendered page has Log in. */
+let links = loginHtml();
+
+/**
+ * The header's links for who's logged in: Log in; or what's theirs, a link to what they saved, the
+ * skills list with its Saved switch on, then their avatar and Log out. The link is on every page:
+ * the switch is on the list alone, so from a skill's page there was no way to what you had just
+ * saved there. In its bookmark alone on a phone, whose line has no room for its word (see
+ * .saved-link in style.css): its tooltip says what it is to a pointer on a window that narrow.
+ */
+function paintLinks() {
+  const el = document.getElementById("account");
+  const { user } = account;
+  const html = user
+    ? `<a class="saved-link" href="${href("?saved")}" title="What you saved"${onSaved ? ` aria-current="page"` : ""}>${bookmarkSvg}<span class="saved-word">Saved</span></a><span class="me"><img class="avatar" src="${esc(user.avatar)}" alt="" width="20" height="20" title="Logged in as ${esc(user.login)}" /><button type="button" class="logout" data-logout>Log out</button></span>`
+    : loginHtml();
+  // Only when they change: a link that's replaced loses the pointer's hover, and its animation.
+  if (!el || html === links) return;
+  // What's replaced takes the keyboard's focus with it, which then starts over from the page's
+  // top: after Log out, it's on Log in.
+  const focused = el.contains(document.activeElement) ? document.activeElement : null;
+  const again = focused?.matches("[data-logout]") ? "[data-logout]" : "a, button";
+  el.innerHTML = links = html;
+  if (focused)
+    (el.querySelector<HTMLElement>(again) ?? el.querySelector<HTMLElement>("a"))?.focus();
+}
+
+/**
+ * The skills list tells whether it shows only what you saved, with its Saved switch on: the
+ * header's Saved link is then the page you're on, as Tags is on the tags' page.
+ */
+export function showsSaved(on: boolean) {
+  onSaved = on;
+  paintLinks();
+}
+
 /** `animate`: whether a click caused the change, rather than the page's load. */
 function paint(animate = false) {
-  const links = document.getElementById("account");
-  if (links) {
-    // What's replaced takes the keyboard's focus with it, which then starts over from the page's
-    // top: after Log out, it's on Log in.
-    const focused = links.contains(document.activeElement);
-    links.innerHTML = account.user
-      ? `<span class="me"><img class="avatar" src="${esc(account.user.avatar)}" alt="" width="20" height="20" title="Logged in as ${esc(account.user.login)}" /><button type="button" class="logout" data-logout>Log out</button></span>`
-      : `<a href="${href("api/auth/login")}" data-login>Log in</a>`;
-    if (focused) links.querySelector<HTMLElement>("a, button")?.focus();
-  }
+  paintLinks();
   for (const button of document.querySelectorAll<HTMLElement>("[data-save]")) {
     const on = account.saved.has(button.dataset.save ?? "");
     button.setAttribute("aria-pressed", String(on));

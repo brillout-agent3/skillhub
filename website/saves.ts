@@ -42,6 +42,12 @@ export const loggedInScript = `try { if (JSON.parse(localStorage.getItem(${JSON.
 export const LOGIN_FROM = "skillhub:login-from";
 export const LEFT_AT = "skillhub:left-at";
 
+/**
+ * The header's Log in, as every page is pre-rendered with (brand.ts), and as account-client.ts puts
+ * it back after Log out.
+ */
+export const loginHtml = () => `<a href="${href("api/auth/login")}" data-login>Log in</a>`;
+
 /** Log in with GitHub, then back to this page, where it was, with `save` saved. */
 export function loginHref(save?: string): string {
   const p = new URLSearchParams({

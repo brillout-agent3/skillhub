@@ -1,6 +1,7 @@
 /** The site's name and its links, in every page's header: the name top left, the links top right. */
 
 import { href } from "./format.ts";
+import { loginHtml } from "./saves.ts";
 import { GITHUB } from "./skills.ts";
 
 const LINKS = [
@@ -24,10 +25,11 @@ export function siteHeadHtml(current: string): string {
     ([to, label]) =>
       `<a href="${href(to)}"${to === current ? ` aria-current="page"` : ""}>${label}</a>`,
   ).join("");
-  // #account is Log in, or your avatar and Log out: account-client.ts fills it in.
+  // #account is Log in, or a link to what you saved, your avatar and Log out: account-client.ts
+  // fills it in.
   return `
     <div class="site-head">
       ${brandHtml()}
-      <nav class="site-links" aria-label="Site">${links}<a href="${GITHUB}">GitHub</a><span id="account" class="account"><a href="${href("api/auth/login")}" data-login>Log in</a></span>${THEME_TOGGLE}</nav>
+      <nav class="site-links" aria-label="Site">${links}<a href="${GITHUB}">GitHub</a><span id="account" class="account">${loginHtml()}</span>${THEME_TOGGLE}</nav>
     </div>`;
 }

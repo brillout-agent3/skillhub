@@ -46,7 +46,7 @@ import {
 import { href } from "./format.ts";
 import { searchWords } from "./client-data.ts";
 import { hidePreview, previewAgain, previewed, setPreviewProse } from "./preview-client.ts";
-import { ACCOUNT_EVENT, type AccountChange } from "./account-client.ts";
+import { ACCOUNT_EVENT, showsSaved, type AccountChange } from "./account-client.ts";
 import { LEFT_AT, LOGIN_FROM, account, savedCount } from "./saves.ts";
 
 // The Saved switch counts only what's still listed, as the list does; account-client.ts may have
@@ -378,9 +378,15 @@ app.addEventListener("keydown", (event) => {
   } else if (event.key === "Tab") openSort(false);
 });
 
-/** The Saved switch isn't re-rendered, so that it can slide: it follows the state instead. */
+/**
+ * The Saved switch isn't re-rendered, so that it can slide: it follows the state instead. And so
+ * does the header's Saved link, which leads to this list with the switch on.
+ */
 const savedSwitch = document.getElementById("saved-switch") as HTMLElement;
-const syncSaved = () => savedSwitch.setAttribute("aria-checked", String(state.saved));
+function syncSaved() {
+  savedSwitch.setAttribute("aria-checked", String(state.saved));
+  showsSaved(state.saved);
+}
 
 /**
  * The sliders and their fields aren't re-rendered, so that a handle can be dragged, or an amount

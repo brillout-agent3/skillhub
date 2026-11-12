@@ -4,8 +4,9 @@
  * run in order, and each starts from nothing saved and nobody logged in.
  */
 
+import AxeBuilder from "@axe-core/playwright";
 import type { Page } from "@playwright/test";
-import { skill } from "./data.ts";
+import { skill, skillUrl } from "./data.ts";
 import { accountLoaded, expect, list, open, ready, settled, test } from "./fixtures.ts";
 
 /** A short list, which the test skill's row heads: see fixtures.ts for why not the whole list. */
@@ -22,6 +23,8 @@ test.beforeEach(async ({ page }) => {
 
 const login = (page: Page) => page.locator("#account a[data-login]");
 const logout = (page: Page) => page.locator("#account [data-logout]");
+/** The header's link to what you saved. */
+const savedLink = (page: Page) => page.locator("#account .saved-link");
 const savedCount = (page: Page) => page.locator("[data-saved-count]");
 /** The test skill's row. */
 const skillRow = (page: Page) => list(page).rows.first();
@@ -47,18 +50,41 @@ test("Log in comes back to the page you were on, its filters included", async ({
   await expect(page.locator("#bundles")).toBeInViewport();
 });
 
-test("the header of whoever is logged in fits one line on the narrowest phone", async ({
-  page,
-}) => {
-  await page.setViewportSize({ width: 320, height: 640 });
-  await openLoggedIn(page, "/about/");
-  // The avatar and Log out are wider than Log in: dark mode's toggle went onto a line of its own.
-  const top = async (selector: string) => (await page.locator(selector).boundingBox())?.y ?? 0;
-  expect(Math.abs((await top(".theme-toggle")) - (await top("#account .logout")))).toBeLessThan(12);
-  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(320);
-});
+// 320px is the narrowest phone, and 360px the narrowest that keeps the avatar and the links' gap.
+for (const width of [320, 360])
+  test(`the header of whoever is logged in fits one line on a phone ${width}px wide`, async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width, height: 640 });
+    await openLoggedIn(page, "/about/");
+    // The Saved link, the avatar and Log out are wider than Log in: dark mode's toggle went onto a
+    // line of its own.
+    await expect(savedLink(page)).toBeVisible();
+    const middles = await page
+      .locator(".site-links")
+      .locator("a, .logout, .theme-toggle")
+      .evaluateAll((links) =>
+        links.map((link) => {
+          const box = link.getBoundingClientRect();
+          return box.top + box.height / 2;
+        }),
+      );
+    expect(middles).toHaveLength(6);
+    expect(Math.max(...middles) - Math.min(...middles)).toBeLessThan(4);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBe(width);
+  });
 
-test("the header's links stay put once a page knows who's logged in", async ({ page }) => {
+// A wide screen, a phone, whose Saved link is its bookmark alone, and the narrowest, without the
+// avatar: each keeps the room of what's about to show in its own way.
+for (const width of [1440, 390, 320])
+  test(`the header's links stay put once a page knows who's logged in, ${width}px wide`, async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width, height: 800 });
+    await staysPut(page);
+  });
+
+async function staysPut(page: Page) {
   await openLoggedIn(page, "/about/");
   const tags = page.locator(".site-links a").first();
   const left = async () => (await tags.boundingBox())?.x ?? Number.NaN;
@@ -80,8 +106,147 @@ test("the header's links stay put once a page knows who's logged in", async ({ p
   run();
   await ready(page);
   await expect(logout(page)).toBeVisible();
-  // Log out and the avatar are wider than Log in: the links before them jumped that much left.
+  await expect(savedLink(page)).toBeVisible();
+  // The Saved link, the avatar and Log out are wider than Log in: the links before them jumped
+  // that much left.
   expect(Math.abs((await left()) - before)).toBeLessThan(1);
+}
+
+test("the header's Saved link leads from a skill's page to what you saved", async ({ page }) => {
+  // Nobody's logged in: there's nothing of theirs to lead to.
+  await open(page, skillUrl);
+  await accountLoaded(page);
+  await expect(savedLink(page)).toHaveCount(0);
+
+  await openLoggedIn(page, skillUrl);
+  const save = page.locator(".title-row [data-save]");
+  const saved = page.waitForResponse((res) => res.url().endsWith("/api/saves"));
+  await save.click();
+  await expect(save).toHaveAttribute("aria-pressed", "true");
+  await saved;
+  // The Saved switch is on the list alone: from here, there was no way to what was just saved.
+  await expect(savedLink(page)).toHaveAccessibleName("Saved");
+  await expect(savedLink(page)).not.toHaveAttribute("aria-current");
+  await savedLink(page).click();
+  await ready(page);
+  await accountLoaded(page);
+  await settled(page);
+  await expect(page).toHaveURL("/?saved");
+  const { rows } = list(page);
+  await expect(rows).toHaveCount(1);
+  await expect(rows.locator(".skill-name")).toHaveAttribute("href", skillUrl);
+
+  // It's the page you're on there, for as long as the Saved switch is on.
+  const toggle = page.locator("#saved-switch");
+  await expect(toggle).toHaveAttribute("aria-checked", "true");
+  await expect(savedLink(page)).toHaveAttribute("aria-current", "page");
+  const tags = page.locator(".site-links a").first();
+  const left = async () => (await tags.boundingBox())?.x ?? Number.NaN;
+  const before = await left();
+  await toggle.click();
+  await settled(page);
+  await expect(savedLink(page)).not.toHaveAttribute("aria-current");
+  // Its word is bold on that list, and wider: the links before it stay put all the same.
+  expect(Math.abs((await left()) - before)).toBeLessThan(0.5);
+  await toggle.click();
+  await settled(page);
+  await expect(savedLink(page)).toHaveAttribute("aria-current", "page");
+});
+
+test("a save lands on the header's Saved link, where the page has no Saved switch", async ({
+  page,
+}) => {
+  await openLoggedIn(page, skillUrl);
+  const link = savedLink(page);
+  const save = page.locator(".title-row [data-save]");
+  const answered = () => page.waitForResponse((res) => res.url().endsWith("/api/saves"));
+  await expect(link).not.toHaveAttribute("data-pulse");
+  let kept = answered();
+  await save.click();
+  // A bookmark flies from the button to the link, which then shows that it took it.
+  await expect(page.locator(".save-flight")).toHaveCount(1);
+  await expect(link).toHaveAttribute("data-pulse", "");
+  await expect(page.locator(".save-flight")).toHaveCount(0);
+  await kept;
+  // Unsaving goes nowhere.
+  await link.evaluate((el) => delete (el as HTMLElement).dataset.pulse);
+  kept = answered();
+  await save.click();
+  await expect(save).toHaveAttribute("aria-pressed", "false");
+  await expect(page.locator(".save-flight")).toHaveCount(0);
+  await expect(link).not.toHaveAttribute("data-pulse");
+  await kept;
+
+  // On the list, a save lands on the Saved switch, as it did: the link stays as it is.
+  await open(page, LIST);
+  await accountLoaded(page);
+  await skillRow(page).locator("[data-save]").click();
+  await expect(page.locator("#saved-switch")).toHaveAttribute("data-pulse", "");
+  await expect(savedCount(page)).toHaveText("1");
+  await expect(savedLink(page)).not.toHaveAttribute("data-pulse");
+});
+
+test.describe("with reduced motion", () => {
+  test.use({ contextOptions: { reducedMotion: "reduce" } });
+
+  test("a save still shows on the header's Saved link, with nothing flying", async ({ page }) => {
+    await openLoggedIn(page, skillUrl);
+    await page.locator(".title-row [data-save]").click();
+    await expect(savedLink(page)).toHaveAttribute("data-pulse", "");
+    await expect(page.locator(".save-flight")).toHaveCount(0);
+  });
+});
+
+// What a11y.spec.ts checks of the pages as nobody logged in sees them, of what only shows logged
+// in: the header's Saved link, avatar and Log out, a saved Save button and the Saved switch, on.
+for (const scheme of ["light", "dark"] as const)
+  test.describe(`in ${scheme}`, () => {
+    test.use({ colorScheme: scheme });
+
+    test("the list of what you saved passes axe", async ({ page }) => {
+      await openLoggedIn(page, LIST);
+      await skillRow(page).locator("[data-save]").click();
+      await expect(savedCount(page)).toHaveText("1");
+      await page.locator("#saved-switch").click();
+      await settled(page);
+      await expect(savedLink(page)).toHaveAttribute("aria-current", "page");
+      // The animations of a save, which tint what they're on, are over.
+      await page.evaluate(() => Promise.all(document.getAnimations().map((a) => a.finished)));
+      const { violations } = await new AxeBuilder({ page }).analyze();
+      const found = violations.map(
+        (v) => `${v.id}: ${v.help} (${v.nodes.length}) e.g. ${v.nodes[0].html.slice(0, 120)}`,
+      );
+      expect(found).toEqual([]);
+    });
+  });
+
+test("on a phone, the header's Saved link is its bookmark, still called Saved", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await openLoggedIn(page, skillUrl);
+  const link = savedLink(page);
+  await expect(link).toHaveAccessibleName("Saved");
+  // Its word is for a screen reader: the line has no room for it. Big enough to tap all the same.
+  const word = (await link.locator(".saved-word").boundingBox()) ?? { width: 0, height: 0 };
+  expect(word.width).toBeLessThanOrEqual(1);
+  const box = (await link.boundingBox()) ?? { x: 0, width: 0, height: 0 };
+  expect(box.width).toBeGreaterThanOrEqual(24);
+  expect(box.height).toBeGreaterThanOrEqual(24);
+  // Without reaching over its neighbors, which a tap meant for them would then miss.
+  const edges = await page.evaluate(() => {
+    const box = (selector: string) =>
+      (document.querySelector(selector) as Element).getBoundingClientRect();
+    return {
+      github: box(".site-links > a:nth-of-type(3)").right,
+      avatar: box("#account .avatar").left,
+    };
+  });
+  expect(box.x).toBeGreaterThanOrEqual(edges.github);
+  expect(box.x + box.width).toBeLessThanOrEqual(edges.avatar);
+  await link.click();
+  await ready(page);
+  await expect(page).toHaveURL("/?saved");
 });
 
 test("a save shows on its button, on the Saved switch and in the Saved list", async ({ page }) => {

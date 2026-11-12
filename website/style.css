@@ -3971,9 +3971,10 @@ input[type="search"]::-webkit-search-cancel-button:hover {
     order: -1;
   }
 
-  /* On the narrowest phones, 320px, the links of whoever is logged in were a fraction of a pixel
-     wider than their line: dark mode's toggle went onto a line of its own. */
-  @media (max-width: 340px) {
+  /* On the narrowest phones, 320px, the links of whoever is logged in were wider than their line:
+     dark mode's toggle went onto a line of its own. Closer together, and without the avatar: see
+     .saved-link, further down. */
+  @media (max-width: 359px) {
     .site-links {
       column-gap: 12px;
     }
@@ -4222,6 +4223,15 @@ html[data-logged-in]:not([data-account]) .account > [data-login]::after {
   font-size: 14px;
 }
 
+/* And before it, the room of the Saved link: its bookmark's 13px and gap, then its word, as wide
+   as .saved-word is. One more of the header's links, with their gap, as the link itself is. */
+html[data-logged-in]:not([data-account]) .account::before {
+  content: "Saved";
+  padding-left: 16px;
+  font-weight: 650;
+  white-space: nowrap;
+}
+
 /* As wide as "Saved", also while it says "Save", so that the button keeps its width once the page
    knows what you saved. */
 .save-word {
@@ -4316,6 +4326,121 @@ html[data-logged-in]:not([data-account]) .account > [data-login]::after {
   display: inline-flex;
   align-items: center;
   gap: 6px;
+}
+
+/*
+ * Before them, the link to what you saved (account-client.ts): the Save buttons' bookmark, then
+ * its word. The bookmark's glyph is 3px narrower than its box on each side: it starts where the
+ * link does, so that the gap before it looks like the other links'.
+ */
+.site-links .saved-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.saved-link svg {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  margin-left: -3px;
+  fill: currentColor;
+  fill-opacity: 0;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linejoin: round;
+  transition: fill-opacity 150ms ease-out;
+}
+
+/* On the list of what you saved, the link is the page you're on: its bookmark is filled, as the
+   Saved switch's is. */
+.saved-link[aria-current="page"] svg {
+  fill-opacity: 1;
+}
+
+/* As wide as its word in bold, which it is on that list, so that the links before it stay put when
+   the Saved switch turns the list into it: as .save-word does. */
+.saved-word {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.saved-word::after {
+  content: "Saved";
+  height: 0;
+  overflow: hidden;
+  font-weight: 650;
+  visibility: hidden;
+}
+
+/*
+ * A save on a page without the Saved switch in sight lands here (see savedPlace in
+ * account-client.ts): the link turns garnet for a while, and its bookmark fills and pops, as the
+ * switch's does. With reduced motion, only the color.
+ */
+.site-links .saved-link[data-pulse] {
+  animation: saved-link-flash 2.2s ease-out;
+}
+
+.saved-link[data-pulse] svg {
+  animation: saved-pop 2.2s cubic-bezier(0.2, 0, 0, 1);
+}
+
+@keyframes saved-link-flash {
+  from,
+  60% {
+    color: var(--garnet-text);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .saved-link[data-pulse] svg {
+    animation: none;
+  }
+}
+
+/*
+ * On a phone, the links' line has no room for the Saved link's word: the link is its bookmark
+ * alone, 10px wide, and its word is for a screen reader. Easy to tap all the same: it reaches 10px
+ * into the gaps on its sides, which are wider. Here rather than with the header's other rules for
+ * a phone, which come before the rules above, and would lose to them.
+ */
+@media (max-width: 600px) {
+  .site-links .saved-link {
+    margin: 0 -10px;
+    padding: 7px 10px;
+  }
+
+  .saved-link svg {
+    margin: 0 -3px;
+  }
+
+  .saved-word {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  html[data-logged-in]:not([data-account]) .account::before {
+    content: "";
+    width: 10px;
+    padding: 0;
+  }
+
+  /* The narrowest phones have no room for the bookmark either, beside the avatar: without the
+     avatar, which says who's logged in to a pointer that hovers it, and a phone has none. */
+  @media (max-width: 359px) {
+    .avatar {
+      display: none;
+    }
+
+    html[data-logged-in]:not([data-account]) .account > [data-login] {
+      padding-left: 0;
+    }
+  }
 }
 
 .avatar {
