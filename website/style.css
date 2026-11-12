@@ -3804,6 +3804,25 @@ input[type="search"]::-webkit-search-cancel-button:hover {
   }
 
   /*
+   * An install command has the page's width, with its Copy button under it, at its right. Beside
+   * the button a line held 25 to 28 letters, and a longer word, as the name of one skill in eight
+   * is on a small phone, ran out of its box, which scrolled sideways for it.
+   */
+  .install {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+  }
+
+  .install code {
+    flex: none;
+  }
+
+  .install .copy {
+    align-self: flex-end;
+  }
+
+  /*
    * The Tags page's tables. A tag and its meaning don't fit side by side on a phone, so a tag
    * breaks after its prefix, and its value goes to the next line whole, in a column with the room
    * for it: left to the table, the column was as wide as its longest word, and needs:issue-tracker

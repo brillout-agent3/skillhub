@@ -144,6 +144,30 @@ test("a tag of the tags page's tables breaks after its prefix, its value whole o
   expect(broken).toEqual([]);
 });
 
+test("an install command is as wide as the page, with its Copy button under it", async ({
+  page,
+}) => {
+  await open(page, skillUrl);
+  const install = page.locator(".install").first();
+  const box = async (selector: string) =>
+    (await install.locator(selector).boundingBox()) as {
+      x: number;
+      y: number;
+      width: number;
+      height: number;
+    };
+  const [code, copy] = [await box("code"), await box(".copy")];
+  const whole = (await install.boundingBox()) as { x: number; width: number };
+  // Beside the button, the command had a line of some 26 letters, which a long name ran out of.
+  expect(Math.round(code.width)).toBe(Math.round(whole.width));
+  expect(copy.y).toBeGreaterThanOrEqual(code.y + code.height);
+  expect(Math.round(copy.x + copy.width)).toBe(Math.round(whole.x + whole.width));
+  // Under the box or beside it, it copies the command.
+  const command = await install.locator("code").textContent();
+  await install.locator(".copy").click();
+  expect(await page.evaluate(() => navigator.clipboard.readText())).toBe(command);
+});
+
 test("a plugin's name too long for a line of its install command breaks after its @", async ({
   page,
 }) => {
