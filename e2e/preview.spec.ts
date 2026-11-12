@@ -74,6 +74,25 @@ test("a click on a row previews it over the tags, with its page a click away", a
   await expect(page).toHaveURL(skillUrl);
 });
 
+test("the start of a SKILL.md, in a preview, ends on what it says, not on a heading", async ({
+  page,
+}) => {
+  await open(page, `/?q=${encodeURIComponent(skill.name)}`);
+  await searchable(page);
+  // The skill's page, as the preview fetches it, with a SKILL.md whose fifth block, where its start
+  // is cut, is a heading: it would head nothing.
+  const blocks = `<h3>Its title</h3><p>One.</p><p>Two.</p><p>Three.</p><h4>Cut here</h4><p>Four.</p>`;
+  await page.route(`**${skillUrl}`, (route) =>
+    route.fulfill({
+      contentType: "text/html",
+      body: `<section class="skill-md"><p class="muted">From its repo.</p><div class="markdown">${blocks}</div></section>`,
+    }),
+  );
+  await wordsOf(list(page).rows.first()).click();
+  const start = preview(page).locator("[data-skill-md] .markdown");
+  await expect(start.locator("> *")).toHaveText(["Its title", "One.", "Two.", "Three."]);
+});
+
 test("once open, the preview shows the row the mouse is on, and a click on it, outside it, or Escape, closes it", async ({
   page,
 }) => {

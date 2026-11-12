@@ -139,8 +139,8 @@ function paneHtml(e: Entry): string {
 
 /**
  * The start of a skill's SKILL.md, from its page: the line saying where the copy is from, and its
- * first blocks, some 500 characters' worth. Each skill's page is fetched once, when its preview
- * first opens.
+ * first blocks, some 500 characters' worth, up to a paragraph or a list rather than a heading (see
+ * startOf). Each skill's page is fetched once, when its preview first opens.
  */
 const skillMds = new Map<string, Promise<string>>();
 function skillMdOf(s: Skill): Promise<string> {
@@ -171,14 +171,16 @@ function startOf(text: string, page: string): string {
   const fromHtml = from ? `<p class="muted">${from.innerHTML}</p>` : "";
   const markdown = section.querySelector(".markdown");
   if (!markdown) return fromHtml;
-  const blocks: string[] = [];
+  const blocks: Element[] = [];
   let length = 0;
   for (const block of markdown.children) {
     if (length > 500 || blocks.length >= 5) break;
-    blocks.push(block.outerHTML);
+    blocks.push(block);
     length += block.textContent?.length ?? 0;
   }
-  return `${fromHtml}<div class="markdown">${blocks.join("")}</div><p><a href="${page}">Read it all on its page</a></p>`;
+  // A heading the cut leaves last would head nothing: the start ends with what's before it.
+  while (blocks.length > 1 && /^H[1-6]$/.test(blocks[blocks.length - 1].tagName)) blocks.pop();
+  return `${fromHtml}<div class="markdown">${blocks.map((block) => block.outerHTML).join("")}</div><p><a href="${page}">Read it all on its page</a></p>`;
 }
 
 // ------------------------------------------------------------------- opening and closing
