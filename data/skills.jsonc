@@ -7281,7 +7281,7 @@
               "text": "A clone of the repo, or lesson files fetched from GitHub with no setup"
             }
           ],
-          "text": "The course is 542 lessons in 20 phases, from linear algebra to autonomous agents, and these five skills make your agent its tutor. start-learning is the front door: three questions about why you're learning, your weekly hours and what you want to build, then find-your-level's placement quiz, then a LEARNING.md with your mission, entry phase, a Skip, Review or Do path with hours, a progress log and a review queue. find-your-level also works alone and shows the same path in the conversation. learn teaches one lesson per call: a warm-up from the last lesson's quiz, the concept with questions before the math, the from-scratch code in small chunks, run when it can be, the production library's version, then the lesson's quiz, logged in LEARNING.md, with lessons under 70% queued for review. check-understanding quizzes you on a finished phase with eight questions and names the lessons to re-read. course-guide maps a topic, a question or a bug to the one to three lessons that teach it and the command to run next. The MCP, Agent Skills, reverse engineering and Claude certification tracks have tutors of their own, which these skills hand you to and which aren't listed here.",
+          "text": "The course is 542 lessons in 20 phases, from linear algebra to autonomous agents, and these five skills make your agent its tutor. start-learning is the front door: three questions about why you're learning, your weekly hours and what you want to build, then find-your-level's placement quiz, then a LEARNING.md with your mission, entry phase, a Skip, Review or Do path with hours, a progress log and a review queue. find-your-level also works alone and shows the same path in the conversation. learn teaches one lesson per call: a warm-up from the last lesson's quiz, the concept with questions before the math, the from-scratch code in small chunks, run when it can be, the production library's version, then the lesson's quiz, logged in LEARNING.md, with lessons under 70% queued for review. check-understanding quizzes you on a finished phase with eight questions and names the lessons to re-read. course-guide maps a topic, a question or a bug to the one to three lessons that teach it and the command to run next. The MCP, Agent Skills, reverse engineering, Claude certification and interview practice tracks have tutors of their own, which these skills hand you to and which aren't listed here.",
           "permalink": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/a509402c0b5455d11ddc2b5fa83cc8c0d2e0692b"
         },
         "skills": [
@@ -7347,7 +7347,7 @@
             },
             {
               "label": "Stops twice",
-              "text": "After the plan, until you approve it, and before committing, until you confirm the diff and messages"
+              "text": "After the plan, until you approve it, and before committing, until you confirm the diff and messages; work too small for a plan gets only the second"
             },
             {
               "label": "You get",
@@ -74679,7 +74679,7 @@
             },
             {
               "label": "Needs",
-              "text": "Node for its bundled script, which covers the free sources; traffic, keyword and social-post data come from paid tools you connect, within a $5 cap by default"
+              "text": "Node for its bundled script, which covers the free sources; traffic, keyword and social-post data come from paid tools you connect, within a spending cap per teardown, $5 by default"
             },
             {
               "label": "Goes inside",
@@ -74708,7 +74708,7 @@
           "seo",
           "social-media"
         ],
-        "note": "Traffic, keyword and social-post data come from paid tools you connect, such as DataForSEO or ScrapeCreators, within a $5 cap by default. It signs up, books demos or buys from the competitor only with your approval for each step, under your real name.",
+        "note": "Traffic, keyword and social-post data come from paid tools you connect, such as DataForSEO or ScrapeCreators, within a spending cap per teardown, $5 by default. It signs up, books demos or buys from the competitor only with your approval for each step, under your real name.",
         "model": "Claude Opus 5.5",
         "effort": null
       }
@@ -74887,7 +74887,7 @@
             },
             {
               "label": "Keep in mind",
-              "text": "A one-page operating model with no scripts or board tool; it says what a control pane, a status view of every agent, should show but builds none"
+              "text": "An operating model with no scripts or board tool: the board lives wherever you keep it, and its control pane, a status view of every agent, is yours to build"
             }
           ],
           "text": "The skill treats a squad of agents like a team. Work starts as a board: fuzzy goals become cards, each with one owner, a file scope, acceptance criteria, a branch or worktree and a merge gate, in a small JSON format. Then you pick how to run them, from a single agent to tmux, worktree fan-out or an external orchestrator, and no two agents write the same files without an integrator. Agents leave evidence and handoff notes, not just code. Review goes in order: tests, the diff, security, then polish, and one integrator merges. It names the failure modes to watch: agent soup (many agents, no owner or gate), board theater (cards without acceptance criteria), work that lives only in a chat transcript, overlapping writes, and a process that ships no product. A card pattern that repeats gets promoted into a skill, and a card that needs its own harness follows dynamic-workflow-mode's rules.",
@@ -75192,7 +75192,7 @@
             },
             {
               "label": "Needs",
-              "text": "CodeScene's Code Health MCP server, run with npx, and a personal access token you set; its free standalone mode is enough"
+              "text": "CodeScene's Code Health MCP server, run with npx, and a personal access token from a CodeScene account; its standalone mode needs no paid plan"
             },
             {
               "label": "If it's down",
@@ -75315,7 +75315,7 @@
             },
             {
               "label": "Stops twice",
-              "text": "After the plan, until you approve it, and before the commit, until you confirm the diff and messages"
+              "text": "After the plan, until you approve it, and before the commit, until you confirm the diff and messages; work too small for a plan gets only the second stop"
             },
             {
               "label": "Right-sizes",
@@ -75383,8 +75383,8 @@
               "text": "ECC's /gan-build loop: a generator agent writes the code and an evaluator scores it against the spec, until it passes or stops improving"
             },
             {
-              "label": "Stops twice",
-              "text": "After the slice plan, until you approve it, and before each commit, until you confirm it; the scaffold and each slice get their own feat: commit"
+              "label": "Waits for you",
+              "text": "To approve the slice plan, and to confirm each commit, until you confirm it; the scaffold and each slice get their own feat: commit"
             },
             {
               "label": "You get",
@@ -75513,7 +75513,7 @@
             },
             {
               "label": "It does",
-              "text": "Scores each rival 1 to 5 on eight weighted dimensions, from positioning clarity to pricing transparency, and separately on both poles of the client's strategic tension"
+              "text": "Scores each rival 1 to 5 on eight dimensions, from positioning clarity to pricing transparency, and separately on both poles of the client's strategic tension"
             },
             {
               "label": "You get",
@@ -76352,7 +76352,7 @@
             },
             {
               "label": "Rules",
-              "text": "Cart count announced to screen readers, 44px touch targets, Product JSON-LD, a three-step checkout, and categories, prices and shipping options fetched, never hardcoded"
+              "text": "Cart count announced to screen readers, 44px touch targets, Product JSON-LD, at most three checkout steps, and categories, prices and shipping options fetched, never hardcoded"
             },
             {
               "label": "Agent-friendly",
@@ -76599,14 +76599,14 @@
             },
             {
               "label": "Gaps",
-              "text": "Its code converts only Markdown to HTML and nothing from HTML, though its format table lists more; images aren't handled despite an example prompt"
+              "text": "Its code makes HTML only from Markdown and has no working converter from HTML, though its format table lists more; images aren't handled despite an example prompt"
             },
             {
               "label": "Unlike convert-documents-to-markdown",
               "text": "That one turns many document types into Markdown with one CLI so the agent can read them; this one converts whole folders between formats, Markdown included"
             }
           ],
-          "text": "From Claude Office Skills. You name a folder or files and a target format. Its DocumentConverter class picks up Markdown, Word, PDF, Excel, PowerPoint and HTML files, in subfolders too if you ask, and converts them four at a time by default. Markdown goes to Word, PDF and HTML with Pandoc and to PowerPoint with Marp; Word, Excel, PowerPoint and PDF go to Markdown with Microsoft's MarkItDown; PDF goes to Word with pdf2docx; Office files go to PDF with LibreOffice, run without a window. Examples export a docs folder to PDF, Word and HTML with an export_report.json, move old .doc, .xls, .ppt and .rtf files to current Office formats, and turn spreadsheets into PDF and Word reports. It advises converting a few files first, checking disk space and spot-checking results, and warns that complex formatting may be lost. Its frontmatter names an office-mcp server, but its instructions never use it.",
+          "text": "From Claude Office Skills. You name a folder or files and a target format. Its DocumentConverter class picks up Markdown, Word, PDF, Excel, PowerPoint and HTML files, in subfolders too if you ask, and converts them four at a time by default. Markdown goes to Word, PDF and HTML with Pandoc and to PowerPoint with Marp; Word, Excel, PowerPoint and PDF go to Markdown with Microsoft's MarkItDown; PDF goes to Word with pdf2docx; Office files go to PDF with LibreOffice, run without a window. Examples export a docs folder to PDF, Word and HTML with an export_report.json, convert old .doc, .xls, .ppt and .rtf files to current Office formats, and turn spreadsheets into PDF and Word reports. It advises converting a few files first, checking disk space and spot-checking results, and warns that complex formatting may be lost. Its frontmatter names an office-mcp server, but its instructions never use it.",
           "permalink": "https://github.com/claude-office-skills/skills/tree/9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11/batch-convert"
         },
         "tags": [
@@ -76902,7 +76902,7 @@
             },
             {
               "label": "Needs",
-              "text": "The aws or az CLI and an account for its checks and cost queries; its examples are mostly AWS with Terraform"
+              "text": "Your cloud's CLI and account for its checks and cost queries, which it spells out for AWS and Azure; its examples are mostly AWS with Terraform"
             },
             {
               "label": "Unlike multi-cloud-architecture",
