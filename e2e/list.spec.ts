@@ -612,6 +612,26 @@ test.describe("in a window 1,100px wide, where Show is on a line of its own", ()
   });
 });
 
+test("Best match has no order: another sort's doesn't come back once the search ends", async ({
+  page,
+}) => {
+  await open(page, "/?sort=published&order=asc&show=bundles");
+  const { search } = list(page);
+  await search.fill("design");
+  await settled(page);
+  await page.locator("#sort").click();
+  await page.locator('#sort-options [data-sort="match"]').click();
+  await settled(page);
+  await expect(page).toHaveURL("/?q=design&show=bundles");
+  // The list is back on Rising, highest first: it was "Weekly Growth, lowest first", from Age's
+  // oldest first, which stayed, unseen, while the search was sorted by best match.
+  await search.fill("");
+  await settled(page);
+  await expect(page).toHaveURL("/?show=bundles");
+  await expect(page.locator('[data-order="desc"]')).toHaveAttribute("aria-pressed", "true");
+  await expect(page.locator('[data-preset="rising"]')).toHaveAttribute("aria-pressed", "true");
+});
+
 test("the Sort by button fits each sort's name, at one width", async ({ page }) => {
   await open(page, "/?show=bundles");
   const button = page.locator("#sort");

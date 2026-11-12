@@ -679,5 +679,33 @@ test.describe("dark mode", () => {
     await page.reload();
     await ready(page);
     await expect(html).toHaveAttribute("data-theme", "light");
+
+    // Toggled back to what the system says, it follows the system again: kept as a choice, dark
+    // stayed dark whatever the system turned to since.
+    await toggle.click();
+    await expect(html).toHaveAttribute("data-theme", "dark");
+    await page.emulateMedia({ colorScheme: "light" });
+    await expect(html).toHaveAttribute("data-theme", "light");
+    await expect(toggle).toHaveAttribute("aria-pressed", "false");
   });
+});
+
+test("the files named after their content may be kept by the browser for good", async ({
+  page,
+}) => {
+  await open(page, "/about/");
+  const files = await page
+    .locator('link[rel="stylesheet"], link[rel="preload"], script[src]')
+    .evaluateAll((all) => all.map((el) => el.getAttribute("href") ?? el.getAttribute("src") ?? ""));
+  const named = files.filter((file) => file.startsWith("/assets/"));
+  // Vike's dev server serves the source files, under their own names.
+  test.skip(named.length === 0, "the dev server's files aren't named after their content");
+  // Asked again at each page, they were seven requests before a page could show.
+  for (const file of named) {
+    const res = await page.request.get(file);
+    expect(res.headers()["cache-control"], file).toContain("immutable");
+  }
+  // Not the pages, which change with each deploy under the same address.
+  const again = await page.request.get("/about/");
+  expect(again.headers()["cache-control"] ?? "").not.toContain("immutable");
 });

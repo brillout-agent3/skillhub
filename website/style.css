@@ -2414,12 +2414,17 @@ input[type="search"]::-webkit-search-cancel-button:hover {
 /*
  * A row opens wherever it's clicked, its page or its preview (see row-links.ts): where the pointer
  * hovers, the row says so. The row whose preview is open stays marked, a shade darker.
+ *
+ * The pointer's hand is the row's on a touch screen too, where none shows: Safari on a phone only
+ * makes a click of a tap on what it takes for clickable, and a row is nothing of the kind but for
+ * this. On the pages whose only click handler is the document's, a repo's and an owner's, a tap on
+ * a row's words would otherwise do nothing.
  */
-@media (hover: hover) {
-  .skill-list > .skill {
-    cursor: pointer;
-  }
+.skill-list > .skill {
+  cursor: pointer;
+}
 
+@media (hover: hover) {
   .skill-list > .skill:hover {
     background-image: linear-gradient(var(--row-hover), var(--row-hover));
   }
@@ -3518,6 +3523,11 @@ input[type="search"]::-webkit-search-cancel-button:hover {
 .page .markdown h5,
 .page .markdown h6 {
   font-size: 16px;
+}
+
+/* A SKILL.md's fourth level, told from its third, which is as large, by its ink. */
+.page .markdown h6 {
+  color: var(--ink-2);
 }
 
 .markdown pre,

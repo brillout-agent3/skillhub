@@ -1,0 +1,7 @@
+# What Cloudflare serves the site's files with: see https://developers.cloudflare.com/workers/static-assets/headers/
+#
+# Everything under /assets/ has its content's hash in its name, so a browser may keep it for good:
+# asked again at each page, as it was, the styles, the font and the scripts were seven requests
+# before a page could show, and the font's preload was reported as unused from the second page on.
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable

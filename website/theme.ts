@@ -1,8 +1,9 @@
 /**
- * Light or dark: the visitor's choice, kept in localStorage, or else their system's. The script
- * runs inline in every page's <head>, so that the page is drawn in its theme from the start. It
- * sets <html data-theme>, which style.css's dark tokens hang on; keeps the header's toggle's
- * aria-pressed; and handles the toggle's clicks. Without JavaScript, the site is light.
+ * Light or dark: the visitor's choice, kept in localStorage while it differs from their system's,
+ * or else their system's. The script runs inline in every page's <head>, so that the page is drawn
+ * in its theme from the start. It sets <html data-theme>, which style.css's dark tokens hang on;
+ * keeps the header's toggle's aria-pressed; and handles the toggle's clicks. Without JavaScript,
+ * the site is light.
  *
  * A string, not a function to stringify: a bundler could add helpers to a function's body that
  * the inline script wouldn't have.
@@ -21,12 +22,21 @@ export const themeScript = `(() => {
   };
   apply();
   system.addEventListener("change", apply);
+  // And another tab's choice, as it's made.
+  addEventListener("storage", (event) => {
+    if (event.key !== KEY) return;
+    choice = event.newValue;
+    apply();
+  });
   document.addEventListener("DOMContentLoaded", apply);
   document.addEventListener("click", (event) => {
     const button = event.target.closest && event.target.closest("[data-theme-toggle]");
     if (!button) return;
     choice = root.dataset.theme === "dark" ? "light" : "dark";
-    try { localStorage.setItem(KEY, choice); } catch {}
+    // Toggled back to what the system says, it follows the system again: kept as a choice, light
+    // stayed light for good once tried in dark, whatever the system turned to since.
+    if ((choice === "dark") === system.matches) choice = null;
+    try { choice ? localStorage.setItem(KEY, choice) : localStorage.removeItem(KEY); } catch {}
     // Only a click animates the icons, not the page's load: see .theme-toggle in style.css.
     button.dataset.toggled = "";
     apply();

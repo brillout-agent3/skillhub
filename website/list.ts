@@ -573,7 +573,7 @@ export interface State {
   asc: boolean;
   ranges: Record<Prop, Range>;
   show: Show;
-  /** Only what the logged-in person saved: the header's Saved link. */
+  /** Only what the logged-in person saved: the Saved switch. */
   saved: boolean;
 }
 
@@ -671,6 +671,9 @@ export const fresh = (): State => parse("");
 export function patched(prev: State, patch: Partial<State>): State {
   const next = { ...prev, ...patch };
   if (!("sort" in patch) && prev.sort === defaultSort(prev)) next.sort = defaultSort(next);
+  // Best match has no order. One picked for another sort stayed, unseen, and came back with the
+  // search's end, on the sort that follows: "Weekly Growth, lowest first", from Age's oldest first.
+  if (next.sort === "match") next.asc = false;
   if (next.sort === "match" && !term(next)) next.sort = defaultSort(next);
   if (next.sort === "saved" && !next.saved) next.sort = defaultSort(next);
   return next;
