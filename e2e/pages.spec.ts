@@ -25,6 +25,15 @@ test("a skill's page: its name, numbers, install command and SKILL.md", async ({
   await open(page, skillUrl);
   await expect(page).toHaveTitle(`${skill.name} · SkillHub`);
   await expect(page.locator("h1")).toHaveText(skill.name);
+  // The card of its link, where it's shared: its name, the site's apart, and what it's for.
+  const card = (tag: string) => page.locator(`meta[property="og:${tag}"]`);
+  await expect(card("title")).toHaveAttribute("content", skill.name);
+  await expect(card("site_name")).toHaveAttribute("content", "SkillHub");
+  // The start of the page's own description, as much of it as a card has the room for.
+  const described = await page.locator('meta[name="description"]').getAttribute("content");
+  const onCard = ((await card("description").getAttribute("content")) ?? "").replace(/…$/, "");
+  expect(onCard).not.toBe("");
+  expect(described?.startsWith(onCard)).toBe(true);
   const [ownerName, repoName] = skill.id.split("/");
   await expect(page.locator(".crumbs a")).toHaveText(["Skills", ownerName, repoName]);
 

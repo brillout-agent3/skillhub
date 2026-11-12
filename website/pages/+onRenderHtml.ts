@@ -25,6 +25,11 @@ export function onRenderHtml(pageContext: PageContextServer) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>${value(title)}</title>
     <meta name="description" content="${value(description)}" />
+    <meta property="og:site_name" content="SkillHub" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="${cardTitle(value(title))}" />
+    <meta property="og:description" content="${cardText(value(description))}" />
+    <meta name="twitter:card" content="summary" />
     <link rel="icon" type="image/svg+xml" href="${href("gem.svg")}" />
     <script>${dangerouslySkipEscape(themeScript)}</script>
     <script>${dangerouslySkipEscape(loggedInScript)}</script>
@@ -36,6 +41,21 @@ export function onRenderHtml(pageContext: PageContextServer) {
 </html>`;
   return { documentHtml, injectFilter: preloadLatinOnly };
 }
+
+/*
+ * A page's card, where its link is shared: its title, a description and the site's name, as Open
+ * Graph tags, which chats and social sites read. Without them a link showed bare on some, such as
+ * X, which wants the last tag too. In words only: there's no picture of a page yet.
+ */
+
+/** A page's title on its card: without the site's name after it, which the card has of its own. */
+const cardTitle = (title: string) => title.replace(/ · SkillHub$/, "");
+/**
+ * A page's description on its card: its start, up to a word's end, where it's longer than the
+ * 300 characters a card has the room for. A bundle's runs to a thousand.
+ */
+const cardText = (text: string) =>
+  text.length <= 300 ? text : `${text.slice(0, 300).replace(/\s+\S*$/, "")}…`;
 
 /**
  * Vike preloads every font file the stylesheets name: Geologica's six subsets, some 110 KB, of

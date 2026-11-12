@@ -1,8 +1,8 @@
 /**
  * check-site.ts — check the built site, website/dist/client, as Cloudflare serves it: every
  * internal link, image and script leads somewhere, `#fragment` included; every id a page refers to
- * is in it, once; no page shows a value that never got filled in; and each preloads the one font
- * file its words are drawn in.
+ * is in it, once; no page shows a value that never got filled in; each preloads the one font
+ * file its words are drawn in; and each has what a shared link's card shows.
  *
  * It reads the HTML as text, which is enough for pages this repo renders itself: every attribute
  * is double-quoted, and the text of a SKILL.md is escaped.
@@ -138,6 +138,12 @@ for (const page of pages) {
   if ((html.match(/<h1[\s>]/g) ?? []).length !== 1) fail("not exactly one <h1>", at);
   if (!/<title>[^<]+<\/title>/.test(html)) fail("no <title>", at);
   if (!/<meta name="description" content="[^"]+"/.test(html)) fail("no description", at);
+  // What a shared link shows: see the card's tags in website/pages/+onRenderHtml.ts.
+  for (const tag of ["og:site_name", "og:title", "og:description"]) {
+    const said = new RegExp(`<meta property="${tag}" content="([^"]*)"`).exec(html)?.[1];
+    if (!said) fail(`no ${tag} for the card of a shared link`, at);
+    else if (unescape(said).length > 301) fail(`an ${tag} too long for a card`, at);
+  }
 }
 
 if (errors.size) {
