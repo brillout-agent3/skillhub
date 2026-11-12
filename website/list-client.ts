@@ -45,7 +45,14 @@ import {
 } from "./list.ts";
 import { href } from "./format.ts";
 import { searchWords } from "./client-data.ts";
-import { hidePreview, previewAgain, previewed, setPreviewProse } from "./preview-client.ts";
+import {
+  hidePreview,
+  previewAgain,
+  previewed,
+  setPreviewProse,
+  watchPreview,
+  type Previewed,
+} from "./preview-client.ts";
 import { ACCOUNT_EVENT, showsSaved, type AccountChange } from "./account-client.ts";
 import { LEFT_AT, LOGIN_FROM, account, savedCount } from "./saves.ts";
 
@@ -152,16 +159,20 @@ function backTo(at: Place) {
 /**
  * The browser puts a page back where it was scrolled to, by pixels, when it's reloaded or returned
  * to, such as from a skill's page: the list does it itself, by row, from the place it noted with
- * the page's entry in the browser's history as the page was left.
+ * the page's entry in the browser's history as the page was left. With the preview that was open:
+ * its All details leads to the skill's page, and the way back came to a list without the preview
+ * it was left from, nor a sign of which row that was.
  */
 history.scrollRestoration = "manual";
 const here = () => location.pathname + location.search;
+/** Where the list was left, and the preview that was open, if any. */
+type Left = { at?: Place; preview?: Previewed | null };
 const note = () => {
-  const at = place();
-  history.replaceState({ at }, "");
+  const left: Left = { at: place(), preview: previewed() };
+  history.replaceState(left, "");
   // And for the tab, should it be leaving to log in: see `leftToLogIn`.
   try {
-    sessionStorage.setItem(LEFT_AT, JSON.stringify({ page: here(), at }));
+    sessionStorage.setItem(LEFT_AT, JSON.stringify({ page: here(), ...left }));
   } catch {}
 };
 addEventListener("pagehide", note);
@@ -172,26 +183,25 @@ addEventListener("pagehide", note);
  * LOGIN_FROM in saves.ts). Not on any other way to the same list, such as the site's name's link,
  * which starts it at its top.
  */
-function leftToLogIn(): Place | undefined {
+function leftToLogIn(): Left | undefined {
   try {
     const from = JSON.parse(sessionStorage.getItem(LOGIN_FROM) ?? "null");
     sessionStorage.removeItem(LOGIN_FROM);
     const left = JSON.parse(sessionStorage.getItem(LEFT_AT) ?? "null");
     if (from?.page === here() && left?.page === here() && Date.now() - from.time < 600_000)
-      return left.at;
+      return left;
   } catch {}
   return undefined;
 }
-// A reload keeps what was noted before it began: so also once the page has stopped scrolling.
+// A reload keeps what was noted before it began: so also once the page has stopped scrolling, and
+// once a preview has opened, closed or taken another row.
 let scrolled: ReturnType<typeof setTimeout> | undefined;
-addEventListener(
-  "scroll",
-  () => {
-    clearTimeout(scrolled);
-    scrolled = setTimeout(note, 250);
-  },
-  { passive: true },
-);
+const noteSoon = () => {
+  clearTimeout(scrolled);
+  scrolled = setTimeout(note, 250);
+};
+addEventListener("scroll", noteSoon, { passive: true });
+watchPreview(noteSoon);
 
 /**
  * The same list again, with what just came in, such as the TLDRs' prose for the search: whole and
@@ -855,8 +865,10 @@ if ("typed" in q.dataset && q.value !== state.q) {
 // The page was pre-rendered unfiltered, and hidden until now if its link asks for another list, or
 // if it's returned to, to be put back where it was.
 if (location.search) render(true);
-const left = (history.state as { at?: Place } | null)?.at ?? leftToLogIn();
-if (left) backTo(left);
+// A Save in a row's preview, logged out, logs in on the way: back with the preview, now saved.
+const left = (history.state as Left | null)?.at ? (history.state as Left) : leftToLogIn();
+if (left?.at) backTo(left.at);
+if (left?.preview) previewAgain(left.preview);
 delete document.documentElement.dataset.pending;
 
 // The TLDRs' prose, which only the search and the rows' previews read, is half the data, so it

@@ -1,6 +1,7 @@
 import type { PageContextServer } from "vike/types";
 import { age, commandHtml, compact, date, esc, plural } from "../../format.ts";
 import {
+  aloneLine,
   crumbsHtml,
   data,
   glanceHtml,
@@ -84,7 +85,6 @@ function skills(b: Bundle): string {
 export default function Page(pageContext: PageContextServer): string {
   const { bundle: b } = pageContext.data as Data;
   const repo = repoKey(b);
-  const alone = b.agentReview.skills.filter((m) => m.standalone).length;
   return `
     <div class="page skill-page bundle-page">
       ${crumbsHtml(repo)}
@@ -107,13 +107,7 @@ export default function Page(pageContext: PageContextServer): string {
       ${tiles(b)}
       <section aria-labelledby="skills">
         <h2 id="skills">Its skills, in the order they're used</h2>
-        <p class="muted">${
-          alone === b.agentReview.skills.length
-            ? "Each also works alone."
-            : alone === 0
-              ? "None works alone: each needs the rest of the bundle."
-              : "The ones marked “Only in the bundle” need the rest of it. The others also work alone."
-        }</p>
+        <p class="muted">${aloneLine(b)}</p>
         ${skills(b)}
       </section>
     </div>`;

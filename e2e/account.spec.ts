@@ -186,6 +186,49 @@ test("a save lands on the header's Saved link, where the page has no Saved switc
   await expect(savedLink(page)).not.toHaveAttribute("data-pulse");
 });
 
+/** The test skill's row's words, a click on which opens its preview on a wide screen. */
+const skillWords = (page: Page) =>
+  skillRow(page).locator(".skill-body :is(.glance dd, .skill-desc)").first();
+
+test("a preview's own Save saves, and its bookmark lands where it's in sight", async ({ page }) => {
+  // Just wide enough for the preview: Show is then on a line of its own, at the left, and the
+  // Saved switch under the sheet.
+  await page.setViewportSize({ width: 1160, height: 900 });
+  await openLoggedIn(page, LIST);
+  await skillWords(page).click();
+  const sheet = page.locator("#preview");
+  await expect(sheet).toBeVisible();
+  const edge = (await sheet.boundingBox())?.width ?? 0;
+  expect((await page.locator("#saved-switch").boundingBox())?.x).toBeLessThan(edge);
+
+  // The sheet had no Save of its own: the row's, beside it, can be scrolled out of sight.
+  const save = sheet.locator("[data-save]");
+  await expect(save).toHaveAccessibleName(`Save ${skill.name}`);
+  await save.click();
+  await expect(save).toHaveAttribute("aria-pressed", "true");
+  await expect(save).toHaveAccessibleName(`Saved ${skill.name}`);
+  await expect(skillRow(page).locator("[data-save]")).toHaveAttribute("aria-pressed", "true");
+  // The bookmark flew to the switch, onto the sheet's words: to the header's link instead.
+  await expect(savedLink(page)).toHaveAttribute("data-pulse", "");
+  await expect(sheet).toBeVisible();
+  await expect(sheet.locator("h2")).toHaveText(skill.name);
+});
+
+test("Save in a preview, logged out, comes back to the preview, saved", async ({ page }) => {
+  await open(page, LIST);
+  await accountLoaded(page);
+  await skillWords(page).click();
+  const sheet = page.locator("#preview");
+  await sheet.locator("[data-save]").click();
+  // Saving logs in on the way, and the list comes back as a new page.
+  await ready(page);
+  await expect(page).toHaveURL(LIST);
+  await expect(logout(page)).toBeVisible();
+  await expect(sheet.locator("h2")).toHaveText(skill.name);
+  await expect(sheet.locator("[data-save]")).toHaveAttribute("aria-pressed", "true");
+  await expect(skillRow(page)).toHaveClass(/previewed/);
+});
+
 test.describe("with reduced motion", () => {
   test.use({ contextOptions: { reducedMotion: "reduce" } });
 

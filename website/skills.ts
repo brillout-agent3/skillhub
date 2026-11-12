@@ -221,6 +221,36 @@ export function tagChip(tag: string, link: string | null, pressed = false): stri
     : `<a ${attrs} href="${link}">${text}</a>`;
 }
 
+/**
+ * Where a skill sits in its bundle, with the skills before and after it, such as "Skill 3 of 14 in
+ * the Superpowers bundle, after brainstorming and before executing-plans."; "" for one in none. On
+ * its page and in its preview.
+ */
+export function inBundleHtml(s: Skill): string {
+  const place = bundleOf.get(s.id);
+  if (!place) return "";
+  const { bundle, index } = place;
+  const link = (i: number) => {
+    const id = bundle.agentReview.skills[i]?.id;
+    return id ? `<a href="${skillHref(id)}">${esc(skillById.get(id)?.name ?? id)}</a>` : "";
+  };
+  const near = [
+    link(index - 1) && `after ${link(index - 1)}`,
+    link(index + 1) && `before ${link(index + 1)}`,
+  ].filter(Boolean);
+  return `<p class="in-bundle">Skill ${index + 1} of ${bundle.agentReview.skills.length} in the <a href="${bundleHref(bundle.id)}">${esc(bundle.agentReview.name)}</a> bundle${near.length ? `, ${near.join(" and ")}` : ""}.</p>`;
+}
+
+/** Which of a bundle's skills work without the rest of it, in a sentence: on its page and in its preview. */
+export function aloneLine(b: Bundle, marked = "The ones marked “Only in the bundle”"): string {
+  const alone = b.agentReview.skills.filter((m) => m.standalone).length;
+  return alone === b.agentReview.skills.length
+    ? "Each also works alone."
+    : alone === 0
+      ? "None works alone: each needs the rest of the bundle."
+      : `${marked} need the rest of it. The others also work alone.`;
+}
+
 /** The command that installs a skill, as skills.sh gives it: the skills CLI's --skill ignores case. */
 export const installCommand = (s: Skill) =>
   `npx skills add https://github.com/${github(s).repo} --skill ${s.name}`;

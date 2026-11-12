@@ -64,17 +64,20 @@ const SAVED_LINK = ".saved-link";
 
 /**
  * Where what you save goes, for the eye: the bookmark of the skills list's Saved switch, or, where
- * there's none, that of the header's Saved link. That's on every other page, such as a skill's or
- * a repo's: saving there changed the button and nothing else, with no word of where to find what's
- * saved.
+ * there's none in sight, that of the header's Saved link. That's on every other page, such as a
+ * skill's or a repo's: saving there changed the button and nothing else, with no word of where to
+ * find what's saved.
  */
 function savedPlace(): { box: DOMRect; link: boolean } | null {
+  // A row's preview, open, lies over the window's left side: in a window just wide enough for
+  // it, over the switch, and the bookmark landed on the preview's words.
+  const sheet = document.querySelector("#preview:not([hidden])")?.getBoundingClientRect();
   for (const [selector, link] of [
     ["#saved-switch svg", false],
     [`#account ${SAVED_LINK} svg`, true],
   ] as const) {
     const box = document.querySelector(selector)?.getBoundingClientRect();
-    if (box?.width) return { box, link };
+    if (box?.width && !(sheet && box.left < sheet.right)) return { box, link };
   }
   return null;
 }

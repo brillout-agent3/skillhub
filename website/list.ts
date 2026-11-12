@@ -1385,9 +1385,12 @@ export function crowdDefsHtml(): string {
 /**
  * A row's link to its page, beside Save, where a click on the row opens its preview rather than
  * its page: on the skills list, on a wide screen (see #preview in style.css). Elsewhere the row
- * itself leads there, and its name.
+ * itself leads there, and its name. For the pointer alone: the row's name is that link already,
+ * for the keyboard and screen readers, to which this one was a second stop in every row, a
+ * thousand in the list, each called All details.
  */
-const detailsLink = (page: string) => `<a class="details" href="${page}">All details</a>`;
+const detailsLink = (page: string) =>
+  `<a class="details" href="${page}" tabindex="-1" aria-hidden="true">All details</a>`;
 
 /** A row's repo, as a link to its page. */
 const sourceHtml = (e: Entry) =>
@@ -2144,6 +2147,6 @@ export function listView(
         <section id="results" aria-label="Skills">${resultsHtml(st)}</section>
         ${crowdDefsHtml()}
       </div>
-      <aside id="preview" class="preview" aria-label="Preview" hidden></aside>
+      <aside id="preview" class="preview" aria-label="Preview" tabindex="-1" hidden></aside>
     </div>`;
 }

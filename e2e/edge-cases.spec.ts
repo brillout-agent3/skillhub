@@ -287,6 +287,55 @@ test("a republished skill is marked in its row, and its page says what that mean
   await expect(list(page).rows).toHaveCount(1);
 });
 
+/** A row's words, a click on which opens its preview. */
+const wordsOf = (rows: Locator) => rows.locator(".skill-body :is(.glance dd, .skill-desc)").first();
+
+test("a preview's numbers take its width, however many are known", async ({ page }) => {
+  await open(page, "/");
+  for (const { lacking } of NUMBERS) {
+    await wordsOf(row(page, lacking)).click();
+    await expect(page.locator("#preview h2")).toHaveText(lacking);
+    // Three tiles left the fourth's quarter empty.
+    const tiles = page.locator("#preview .preview-stats > div");
+    await expect(tiles).toHaveCount(3);
+    const all = await page.locator("#preview .preview-stats").boundingBox();
+    const last = await tiles.last().boundingBox();
+    if (!all || !last) throw new Error("the preview's numbers aren't laid out");
+    expect(Math.abs(last.x + last.width - (all.x + all.width)), lacking).toBeLessThan(1);
+    await page.keyboard.press("Escape");
+  }
+});
+
+test("a republished skill's preview says what that means", async ({ page }) => {
+  await open(page, "/");
+  // Its row says so down its left edge, which the preview covers.
+  await wordsOf(row(page, "republished")).click();
+  const flag = data.facets
+    .find((f) => f.id === "flag")
+    ?.values?.find((v) => v.id === "republished");
+  await expect(page.locator("#preview .note")).toHaveText(flag?.description ?? "");
+});
+
+test("each case's preview opens whole, and says what its page says of what it lacks", async ({
+  page,
+}) => {
+  await open(page, "/");
+  await searchable(page);
+  const sheet = page.locator("#preview");
+  // By textContent: a row off the screen isn't drawn.
+  const names = await list(page).rows.locator(".skill-name").allTextContents();
+  for (const name of names.map((text) => text.trim())) {
+    await wordsOf(row(page, name)).click();
+    await expect(sheet.locator("h2")).toContainText(name);
+    // Once what comes from its page is in: the start of its SKILL.md, or how to install it.
+    await expect(sheet.getByText(/Loading its SKILL\.md|How to install it…/)).toHaveCount(0);
+    expect(await sheet.innerText(), name).not.toMatch(/undefined|NaN|\[object/);
+    await page.keyboard.press("Escape");
+  }
+  await wordsOf(row(page, "no-skill-md-copy")).click();
+  await expect(sheet.locator("[data-skill-md]")).toHaveText("No copy of its SKILL.md yet.");
+});
+
 for (const scheme of ["light", "dark"] as const)
   test.describe(`in ${scheme}`, () => {
     test.use({ colorScheme: scheme });

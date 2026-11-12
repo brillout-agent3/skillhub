@@ -8,7 +8,7 @@
  */
 
 import AxeBuilder from "@axe-core/playwright";
-import { bundleUrl, skillUrl, smallOwnerUrl, smallRepo, wideCodeUrl } from "./data.ts";
+import { bundleUrl, skill, skillUrl, smallOwnerUrl, smallRepo, wideCodeUrl } from "./data.ts";
 import { expect, open, test } from "./fixtures.ts";
 
 const PAGES: [name: string, url: string][] = [
@@ -22,6 +22,12 @@ const PAGES: [name: string, url: string][] = [
   ["an owner's page", smallOwnerUrl],
   ["the tags page", "/tags/"],
   ["the about page", "/about/"],
+];
+
+/** A list and the entry to preview in it: a skill, and a bundle. */
+const PREVIEWS: [name: string, url: string, entry: string][] = [
+  ["a skill's preview", `/?q=${encodeURIComponent(skill.name)}`, skillUrl],
+  ["a bundle's preview", "/?show=bundles", bundleUrl],
 ];
 
 for (const scheme of ["light", "dark"] as const)
@@ -39,6 +45,29 @@ for (const scheme of ["light", "dark"] as const)
           );
         }
         // What's wrong, and where, in a line each: the report itself runs to pages.
+        const found = violations.map(
+          (v) => `${v.id}: ${v.help} (${v.nodes.length}) e.g. ${v.nodes[0].html.slice(0, 120)}`,
+        );
+        expect(found).toEqual([]);
+      });
+
+    // A row's preview, open, on a wide screen: the sheet with its head, its numbers, how to install
+    // it, and the start of a SKILL.md, whose own words are its author's, as on the skill's page.
+    for (const [name, url, entry] of PREVIEWS)
+      test(`${name} passes axe`, async ({ page }) => {
+        await open(page, url);
+        await page
+          .locator(`#results .skill-list > li:has(.skill-name[href="${entry}"])`)
+          .locator(".skill-body :is(.glance dd, .skill-desc)")
+          .first()
+          .click();
+        const sheet = page.locator("#preview");
+        await expect(sheet.locator("[data-skill-md] .markdown, [data-get] .copy")).toBeVisible();
+        const { violations } = await new AxeBuilder({ page }).exclude(".markdown").analyze();
+        const inSkillMd = new AxeBuilder({ page }).include("#preview");
+        violations.push(
+          ...(await inSkillMd.withRules(["scrollable-region-focusable"]).analyze()).violations,
+        );
         const found = violations.map(
           (v) => `${v.id}: ${v.help} (${v.nodes.length}) e.g. ${v.nodes[0].html.slice(0, 120)}`,
         );

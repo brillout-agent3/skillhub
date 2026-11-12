@@ -390,7 +390,7 @@ body:has(.skills-view) #page-head {
  * The skills list's page: across the top, its heading, the search and the settings' line
  * (.list-top); under them, the tags on the left and the list, each under its count, set apart by
  * space alone. The tags come first in the page too, as on narrow screens they're atop the list.
- * On a wide screen, hovering a row's words opens its preview over the tags: see #preview.
+ * On a wide screen, a click on a row opens its preview over the tags: see #preview.
  */
 .skills-view {
   display: grid;
@@ -626,17 +626,54 @@ body:has(.skills-view) #page-head {
   box-sizing: border-box;
   overflow-y: auto;
   overscroll-behavior: contain;
-  padding: 28px 24px 32px var(--left);
+  /* Its top padding is its head's, which stays there: see .preview-head. */
+  padding: 0 24px 32px var(--left);
   background: var(--paper);
   box-shadow: var(--shadow-side);
   font-size: 14px;
 }
 
-/* Its name, All details and its ×, which closes it. */
+/* While a selection that began in the sheet is dragged, nothing else can be selected, so that it
+   ends at the sheet's edge rather than take in the list behind it: see preview-client.ts. */
+body[data-preview-selecting] :is(#page-head, .skills-view > :not(.preview)) {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* The click that opens it hands it the keyboard, for its keys to scroll it (see preview-client.ts):
+   it's the sheet as a whole that has the focus then, which needs no ring around it. */
+.preview:focus-visible {
+  outline: none;
+}
+
+/*
+ * Its name, All details and its ×, which closes it. They stay at the sheet's top as it's read
+ * down, on the sheet's own color, across its whole width: read to its end, the sheet no longer
+ * said whose it was, and its × was a screen up, which on a tablet, without an Escape key, left
+ * the few places outside it that aren't a row to close it.
+ */
 .preview-head {
+  position: sticky;
+  z-index: 1;
+  top: 0;
   display: flex;
   align-items: flex-start;
   gap: 8px;
+  margin: 0 -24px 0 calc(-1 * var(--left));
+  padding: 28px 24px 12px var(--left);
+  background: var(--paper);
+  transition: box-shadow 150ms ease-out;
+}
+
+/* Once the sheet is read down, a line under it, for the words that go under it: without one they
+   were cut off in mid-air. */
+.preview[data-read] .preview-head {
+  box-shadow: 0 1px 0 var(--rule);
+}
+
+/* What follows it is as far from its words as before it had room of its own under them. */
+.preview .preview-head + :is(.glance, .skill-desc) {
+  margin-top: 4px;
 }
 
 .preview-title {
@@ -673,6 +710,25 @@ body:has(.skills-view) #page-head {
 
 .preview .install {
   margin: 16px 0 0;
+}
+
+/* A bundle's command, or that of the bundle a skill only works in, with what it's for over it and,
+   under it, where its other ways are: see fromPage in preview-client.ts. */
+.preview-get {
+  margin-top: 16px;
+}
+
+.preview-get .install {
+  margin-top: 4px;
+}
+
+.preview-get .muted {
+  margin: 6px 0 0;
+}
+
+/* Where a skill sits in its bundle, as on its page. */
+.preview .in-bundle {
+  margin: 12px 0 0;
 }
 
 .preview-title h2 {
@@ -716,7 +772,10 @@ body:has(.skills-view) #page-head {
 /* Its numbers, which it covers on its row, a tile each. */
 .preview-stats {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  /* As many columns as it has numbers: an unknown one is left out, and three tiles left the fourth's
+     quarter empty. */
+  grid-auto-columns: minmax(0, 1fr);
+  grid-auto-flow: column;
   gap: 8px;
   margin: 16px 0 0;
 }
@@ -2436,8 +2495,10 @@ input[type="search"]::-webkit-search-cancel-button:hover {
 
 /*
  * Where a click on a row opens its preview, over the window's left side, the pointer is an arrow
- * away from the left edge; once the preview is open, where a click on a row closes it, an arrow
- * back to it (see preview-client.ts). Windows has no cursor of an arrow one way: it shows e-resize
+ * away from the left edge; on the row whose preview is open, where a click closes it, an arrow
+ * back to it (see preview-client.ts). On that row alone: the pointer can be over another one while
+ * the preview is open, on its way to the sheet or after the list scrolled, where a click opens
+ * that row's. Windows has no cursor of an arrow one way: it shows e-resize
  * and w-resize both as its ↔, as for resizing. There, <html data-windows>, the rows take images of
  * the arrows, as macOS draws them.
  */
@@ -2446,7 +2507,7 @@ input[type="search"]::-webkit-search-cancel-button:hover {
     cursor: e-resize;
   }
 
-  .skills-view[data-previewing] .skill-list > .skill {
+  .skills-view .skill-list > .skill.previewed {
     cursor: w-resize;
   }
 
@@ -2456,7 +2517,7 @@ input[type="search"]::-webkit-search-cancel-button:hover {
       e-resize;
   }
 
-  [data-windows] .skills-view[data-previewing] .skill-list > .skill {
+  [data-windows] .skills-view .skill-list > .skill.previewed {
     cursor:
       url("./cursors/preview-close.svg") 16 16,
       w-resize;
