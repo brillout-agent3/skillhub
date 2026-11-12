@@ -442,21 +442,24 @@ function render(whole = false) {
   syncFiltersToggle();
   renderFacets();
   renderScope();
-  // From deep in the list, a preset, sort or filter would leave you amid the new list's middle.
-  const scrolledPast = toTop && results.getBoundingClientRect().top < 0;
+  // From deep in the list, a sort or filter would leave you amid the new list's middle: it starts
+  // over at the window's top instead. From its column's top, not from its first row, which left
+  // its count and the filters' chips just above the window: a tag picked down the list, in a row
+  // or among the tags, which stay in view, showed neither how many skills it left nor its chip.
+  const count = document.getElementById("count") as HTMLElement;
+  const scrolledPast = toTop && count.getBoundingClientRect().top < 0;
   toTop = false;
   const first = whole ? Infinity : FIRST;
   results.innerHTML = resultsHtml(state, first);
-  (document.getElementById("count") as HTMLElement).innerHTML = countHtml(state);
+  count.innerHTML = countHtml(state);
   // And on the button under the open tags, on a narrow screen: see .tags-done in style.css.
   for (const n of app.querySelectorAll("[data-list-count]")) n.innerHTML = countHtml(state);
-  if (scrolledPast) results.scrollIntoView({ block: "start" });
+  if (scrolledPast) (results.closest(".list-main") ?? results).scrollIntoView({ block: "start" });
   if (focus) {
     // A filter's chip is gone once it's removed, as Clear filters is with the last of them: the
     // focus goes to the next chip, or else to the count they stood beside, from where Tab leads
     // into the list. Left alone, it would fall back to the top of the page. As it did from the
     // Clear filters of an empty list's message, which the skills that come back take the place of.
-    const count = document.getElementById("count");
     const gone = focus.startsWith("#scope")
       ? (document.querySelector("#scope button") ?? count)
       : focus.startsWith("#results")

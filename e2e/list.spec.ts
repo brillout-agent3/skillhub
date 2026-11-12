@@ -830,6 +830,42 @@ test("the list is where you left it after a skill's page, and after a reload", a
   await back(left);
 });
 
+test("a tag picked down the list starts the new list under its count and its chip", async ({
+  page,
+}) => {
+  await open(page, "/?sort=week");
+  const { count, rows, scope } = list(page);
+  for (let i = 0; i < 10; i++) await page.mouse.wheel(0, 700);
+  await expect(count).not.toBeInViewport();
+
+  // A tag of a row in view, clicked where it is, as a person does.
+  const tag = await page.evaluate(() => {
+    for (const chip of document.querySelectorAll<HTMLElement>("#results .tags .tag")) {
+      const box = chip.getBoundingClientRect();
+      if (box.top > 100 && box.bottom < innerHeight - 100)
+        return { x: box.x + box.width / 2, y: box.y + box.height / 2, name: chip.dataset.tag };
+    }
+  });
+  if (!tag) throw new Error("no row's tag is in view");
+  await page.mouse.click(tag.x, tag.y);
+  await settled(page);
+
+  // Not from its first row alone, which left what says what it holds just above the window.
+  await expect(count).toBeInViewport({ ratio: 1 });
+  await expect(scope.locator(`[data-remove="tag"][data-value="${tag.name}"]`)).toBeInViewport({
+    ratio: 1,
+  });
+  await expect(rows.first().locator(".skill-name")).toBeInViewport();
+  // Level with the tags' count, which stayed in view beside it.
+  const middle = async (selector: string) => {
+    const box = (await page.locator(selector).boundingBox()) as { y: number; height: number };
+    return box.y + box.height / 2;
+  };
+  expect(Math.abs((await middle("#count")) - (await middle("#facets > .list-count")))).toBeLessThan(
+    2,
+  );
+});
+
 test.describe("until the list's script has run, as on a slow connection", () => {
   /** Holds the page's scripts back until the returned function is called. */
   async function holdScripts(page: Page) {
