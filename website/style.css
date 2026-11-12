@@ -2325,6 +2325,35 @@ input[type="search"]::-webkit-search-cancel-button:hover {
 }
 
 /*
+ * Where a click on a row opens its preview, over the window's left side, the pointer is an arrow
+ * away from the left edge; once the preview is open, where a click on a row closes it, an arrow
+ * back to it (see preview-client.ts). Windows has no cursor of an arrow one way: it shows e-resize
+ * and w-resize both as its ↔, as for resizing. There, <html data-windows>, the rows take images of
+ * the arrows, as macOS draws them.
+ */
+@media (hover: hover) and (min-width: 1151px) {
+  .skills-view .skill-list > .skill {
+    cursor: e-resize;
+  }
+
+  .skills-view[data-previewing] .skill-list > .skill {
+    cursor: w-resize;
+  }
+
+  [data-windows] .skills-view .skill-list > .skill {
+    cursor:
+      url("./cursors/preview-open.svg") 16 16,
+      e-resize;
+  }
+
+  [data-windows] .skills-view[data-previewing] .skill-list > .skill {
+    cursor:
+      url("./cursors/preview-close.svg") 16 16,
+      w-resize;
+  }
+}
+
+/*
  * A row's link to its page, beside Save, and the preview's: only where a click on the row opens its
  * preview rather than its page, on the skills list, on a wide screen. A button, as Save is.
  */

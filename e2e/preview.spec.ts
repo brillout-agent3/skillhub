@@ -143,11 +143,34 @@ test("a row's own buttons, a selection in it, and Ctrl leave its preview closed"
   await expect(page).toHaveURL(skillUrl);
 });
 
+/** The cursor over a row, as the browser has it, such as "e-resize". */
+const cursorOf = (row: import("@playwright/test").Locator) =>
+  row.evaluate((el) => getComputedStyle(el).cursor);
+
+test("the pointer says whether a click on a row opens its preview or closes it", async ({
+  page,
+}) => {
+  await open(page, `/?repo=${encodeURIComponent(repo.repo)}`);
+  const row = list(page).rows.first();
+  // An arrow away from the left edge, where the preview opens, then back to it.
+  await expect.poll(() => cursorOf(row)).toBe("e-resize");
+  await wordsOf(row).click();
+  await expect(preview(page)).toBeVisible();
+  await expect.poll(() => cursorOf(row)).toBe("w-resize");
+  // Windows shows both as its ↔: there, images of the arrows.
+  await page.evaluate(() => document.documentElement.setAttribute("data-windows", ""));
+  await expect.poll(() => cursorOf(row)).toMatch(/^url\(.*\) 16 16, w-resize$/);
+  await page.keyboard.press("Escape");
+  await expect.poll(() => cursorOf(row)).toMatch(/^url\(.*\) 16 16, e-resize$/);
+});
+
 test("a repo's rows open their pages", async ({ page }) => {
   await open(page, smallRepo.url);
   const row = page.locator(".skill-list > li").first();
   const href = await row.locator(".skill-name").getAttribute("href");
   await expect(row.locator(".details")).toBeHidden();
+  // The hand, as for a link.
+  await expect.poll(() => cursorOf(row)).toBe("pointer");
   await wordsOf(row).click();
   await expect(page).toHaveURL(href as string);
 });
@@ -160,6 +183,7 @@ test.describe("in a window 1,100px wide, too narrow for the preview", () => {
     const row = list(page).rows.first();
     await expect(row.locator(".skill-name")).toHaveText(skill.name);
     await expect(row.locator(".details")).toBeHidden();
+    await expect.poll(() => cursorOf(row)).toBe("pointer");
     await wordsOf(row).click();
     await expect(page).toHaveURL(skillUrl);
   });

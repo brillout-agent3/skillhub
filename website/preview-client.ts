@@ -192,6 +192,8 @@ function show(row: HTMLElement, again = false) {
   shown?.classList.remove("previewed");
   shown = row;
   row.classList.add("previewed");
+  // For the rows' cursor: see style.css.
+  pane.parentElement?.setAttribute("data-previewing", "");
   pane.setAttribute("aria-label", `Preview of ${nameOf(e)}`);
   pane.innerHTML = paneHtml(e);
   if (!again) pane.scrollTop = 0;
@@ -220,6 +222,7 @@ export function hidePreview() {
   shown?.classList.remove("previewed");
   shown = null;
   pane.hidden = true;
+  pane.parentElement?.removeAttribute("data-previewing");
 }
 
 /**
@@ -248,6 +251,16 @@ document.addEventListener("click", (event) => {
   const target = event.target as Element;
   if (shown && !pane.contains(target) && !target.closest(".skill-list > li")) hidePreview();
 });
+
+/**
+ * Windows has no cursor of an arrow one way, which e-resize and w-resize, the rows' cursors, are
+ * elsewhere: it shows both as its ↔, as for resizing. There, the rows take images of the arrows
+ * instead (see style.css).
+ */
+const platform =
+  (navigator as Navigator & { userAgentData?: { platform: string } }).userAgentData?.platform ??
+  navigator.platform;
+if (/^win/i.test(platform)) document.documentElement.setAttribute("data-windows", "");
 
 pane.addEventListener("click", (event) => {
   if ((event.target as Element).closest("[data-close-preview]")) hidePreview();
