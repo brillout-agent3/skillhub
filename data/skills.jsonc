@@ -76212,10 +76212,44 @@
       "skillMd": {
         "version": "8b254eb75dadf3615a6abce87aed28e1b6e4d77c",
         "updated": "2026-11-12",
-        "skew": 1653
+        "skew": 0
       },
       "agentReview": {
         "description": "Draws technical illustrations of objects and concepts, such as exploded assembly views, from photos, CAD models or descriptions, as a viewer page with SVG, PNG and PDF downloads.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "You want a drawing that explains how an object is built, such as an exploded assembly view, or a concept like screen subpixels drawn as stacked layers"
+            },
+            {
+              "label": "It does",
+              "text": "Builds one 3D model in JavaScript from your photos, CAD model or description, then draws every view from it in fine linework on plain paper"
+            },
+            {
+              "label": "You get",
+              "text": "A standalone HTML viewer that switches between assembled and exploded views, colors and labels parts, and downloads SVG, PNG and PDF"
+            },
+            {
+              "label": "Keeps",
+              "text": "evidence.md, recording for each part of the object whether it was supplied, estimated from a photo, left out, or invented and labelled a concept"
+            },
+            {
+              "label": "Not for",
+              "text": "Making parts: nothing is toleranced, invented dimensions stay invented, and it points you to your CAD tool's drawing workflow instead"
+            },
+            {
+              "label": "Needs",
+              "text": "Node.js 22 or later, three npm packages, and Chrome or an SVG rasterizer such as rsvg-convert for its proof images"
+            },
+            {
+              "label": "Unlike anatomy",
+              "text": "That one invents a working machine to stand for an abstract idea; this one draws the real object, or a concept as layered plates, as a technical illustration"
+            }
+          ],
+          "text": "Teardown aims for the look of an assembly print: dark outlines on plain paper, open interiors, and parts spread apart along the paths they fit together by. It first separates the object to draw from any reference that only shows the style you want, and won't invent internals it can't see: hidden construction is left out, asked for, or marked illustrative. It then copies its scripts into tools/teardown/ in your project, writes drawing.json and a model script, and builds the geometry with its own helpers, or projects an existing CAD model. Because every view comes from one model, rib and hole counts agree between views. It renders proof images, crops close-ups and fixes the worst visible fault first until its checks pass; if it can't render, it says the drawing is unverified. The page is one file that works offline, with sliders for spacing and any editable dimensions, one part shown alone, fills, and an Annotations switch that names each part with a leader line. Numbered balloons and dimensioned sheets come only when you ask. It leaves type, color, accessible embedding and the surrounding interface to the repo's better-* skills.",
+          "permalink": "https://github.com/jakubkrehel/skills/tree/8b254eb75dadf3615a6abce87aed28e1b6e4d77c/skills/teardown"
+        },
         "tags": [
           "category:science",
           "category:media",
@@ -76245,10 +76279,36 @@
       "skillMd": {
         "version": "877a617b435ee2edfb002d9a3703c0a1a03aa1ba",
         "updated": "2026-11-12",
-        "skew": 552
+        "skew": 0
       },
       "agentReview": {
         "description": "Writes or reviews interface microcopy, such as buttons, error messages, empty states and confirmation dialogs, with alternatives and the reasoning behind them.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "You need the words for a button, error message, empty state, confirmation dialog, tooltip or onboarding step, or want existing copy reviewed"
+            },
+            {
+              "label": "It does",
+              "text": "Asks for the screen, what the user is trying to do and how they feel, the tone and any limits, then writes to a set pattern for each element"
+            },
+            {
+              "label": "You get",
+              "text": "A Markdown block: the recommended copy, three alternatives with their tone and when to use each, the reasoning, and notes for translators"
+            },
+            {
+              "label": "Works with",
+              "text": "A connected knowledge base for your brand voice and style guide, and Figma for the screen's flow and character limits"
+            },
+            {
+              "label": "Unlike better-writing",
+              "text": "That one first lists the words and capitalization your product already uses and checks copy against them; this one works from the context and tone you give it"
+            }
+          ],
+          "text": "A short copywriting guide from Anthropic's design plugin, run as /ux-copy with the context or the copy to review. Its five principles are clear, concise, consistent, useful and human. Each element has a pattern: buttons and other calls to action start with a verb and name the outcome (\"Create account\", not \"Submit\"); error messages say what happened, why, and how to fix it; empty states say what this is, why it's empty and how to start; confirmation dialogs name the action and its consequence, with buttons labelled \"Delete files\" and \"Keep files\" rather than OK and Cancel. Tone shifts with the moment: celebratory but restrained for success, empathetic for errors, clear and actionable for warnings. Its localization notes flag idioms to avoid and text that grows in translation.",
+          "permalink": "https://github.com/anthropics/knowledge-work-plugins/tree/877a617b435ee2edfb002d9a3703c0a1a03aa1ba/design/skills/ux-copy"
+        },
         "tags": [
           "category:design",
           "category:writing",
@@ -76276,10 +76336,44 @@
       "skillMd": {
         "version": "42b9afd28b22ee6077d3c0ea8b5444a8c9bee1bc",
         "updated": "2026-11-12",
-        "skew": 3256
+        "skew": 0
       },
       "agentReview": {
         "description": "Guides building ecommerce storefronts, from product pages and cart to checkout, SEO and mobile, with framework-agnostic patterns and Medusa backend integration.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "You're building or changing an online store's frontend: product pages, listings, cart, checkout, navigation, search or account pages"
+            },
+            {
+              "label": "It does",
+              "text": "Loads the matching guides among 28 reference files, one per component, page or topic, with decision guides such as single-page versus multi-step checkout"
+            },
+            {
+              "label": "Rules",
+              "text": "Cart count announced to screen readers, 44px touch targets, Product JSON-LD, a three-step checkout, and categories, prices and shipping options fetched, never hardcoded"
+            },
+            {
+              "label": "Agent-friendly",
+              "text": "Product name, price and stock in the server HTML, add to cart as a real form, and search at a /search?q= URL, so AI shopping agents can buy"
+            },
+            {
+              "label": "Backend code",
+              "text": "Before each SDK or API call, it looks up the exact method in the docs or an MCP server and tells you what it found"
+            },
+            {
+              "label": "With Medusa",
+              "text": "SDK setup, regions and pricing, such as showing Medusa prices as stored instead of dividing by 100, and Medusa's docs MCP server"
+            },
+            {
+              "label": "Runs",
+              "text": "On any storefront task: its description tells the agent to always load it"
+            }
+          ],
+          "text": "Medusa's guide to building store frontends, for any backend and framework, with extra detail for Medusa's own. The SKILL.md routes to its reference files and lists the mistakes to avoid, and any plan the agent writes should name the file to load for each step. Before any UI it reads your existing colors, fonts, spacing and Tailwind version, and won't add new colors or fonts without asking. It separates what a store needs at launch (navbar with cart, listing with filters, product details with variants, cart, checkout, order confirmation) from nice-to-haves and from choices to ask you about, such as guest checkout or multiple currencies. Other rules: dynamic routes like /products/[handle] instead of a file per product, lazy-loaded images below the fold, no emojis in the UI, staying on the product page after add to cart, a real 404 for unknown products, and clearing the cart after an order. Agent-friendly means AI agents shopping for people, most of which don't run JavaScript, can read the store and act on it. Examples are React and TypeScript, with route patterns for Next.js, SvelteKit, TanStack Start and Remix.",
+          "permalink": "https://github.com/medusajs/medusa-agent-skills/tree/42b9afd28b22ee6077d3c0ea8b5444a8c9bee1bc/plugins/ecommerce-storefront/skills/storefront-best-practices"
+        },
         "tags": [
           "category:design",
           "category:marketing",
@@ -76310,10 +76404,44 @@
       "skillMd": {
         "version": "a509402c0b5455d11ddc2b5fa83cc8c0d2e0692b",
         "updated": "2026-11-12",
-        "skew": 1791
+        "skew": 0
       },
       "agentReview": {
         "description": "Teaches the AI Engineering from Scratch course one lesson at a time, with questions at each step, the lesson's code, a closing quiz and progress saved to LEARNING.md.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "You're taking the AI Engineering from Scratch course and want your agent to teach you the next lesson"
+            },
+            {
+              "label": "It does",
+              "text": "Teaches one lesson per call: the problem, the concept with a question before any math, the code in chunks of 5 to 15 lines, then the lesson's quiz"
+            },
+            {
+              "label": "You get",
+              "text": "A warm-up on your last lesson, a quiz score, and a row in LEARNING.md's progress log; lessons scored under 70% join its review queue"
+            },
+            {
+              "label": "Needs",
+              "text": "Nothing to install: lessons come from a clone of the repo or from GitHub; start-learning's LEARNING.md picks the next lesson, or it starts at Phase 1, Lesson 1"
+            },
+            {
+              "label": "Lesson screen",
+              "text": "An optional browser page beside the terminal, from the repo's lesson-screen skill, with figures, code traces and clickable predictions; needs Node.js 20 or later"
+            },
+            {
+              "label": "Hands off",
+              "text": "The MCP, Agent Skills and reverse engineering routes, Claude certification and interview practice to their own tutors, which SkillHub doesn't list"
+            },
+            {
+              "label": "Unlike course-guide",
+              "text": "That one points you to the lessons on a topic or bug; this one teaches a lesson, has you answer and predict, and records the result"
+            }
+          ],
+          "text": "learn is the course's teacher, and it expects you to type, answer and run things rather than scroll. With a LEARNING.md it takes the first unlogged lesson of the first phase you marked Do or Review; name a topic, such as \"teach me backprop\", and it teaches that instead, noting the detour. A warm-up asks two questions from your previous lesson's quiz, unscored, to help you remember. Each lesson follows the course's fixed shape: frame the problem, explain the core concept, build it from scratch, then show the production library and ask what it does for you. Code runs for real when the repo is cloned and the runtime is there; otherwise the agent traces a tiny input by hand. Quiz answers stay hidden until you reply. It closes in two lines: what you can now build or explain, and the next lesson's title. Finishing a phase marks it Done and suggests check-understanding; finishing your whole path offers the review queue, a phase quiz or extending the plan. It writes skill calls the way your agent expects: /learn in Claude Code, learn in Codex, plain words elsewhere.",
+          "permalink": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/a509402c0b5455d11ddc2b5fa83cc8c0d2e0692b/skills/learn"
+        },
         "tags": [
           "category:personal",
           "type:workflow",
@@ -76338,10 +76466,36 @@
       "skillMd": {
         "version": "a509402c0b5455d11ddc2b5fa83cc8c0d2e0692b",
         "updated": "2026-11-12",
-        "skew": 1042
+        "skew": 0
       },
       "agentReview": {
         "description": "Points you to the lessons of the AI Engineering from Scratch course that cover a topic, question or bug, and to the command to run next.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "You want to know which lessons of AI Engineering from Scratch cover a topic or the bug you're fighting, or what to do next in the course"
+            },
+            {
+              "label": "It does",
+              "text": "Scans the course README's lesson tables for one to three lessons; for a bug, it reads each candidate lesson to confirm it covers the concept behind it"
+            },
+            {
+              "label": "You get",
+              "text": "A reply of about 12 lines: each lesson with why and a link to the course site, prerequisites if needed, and the skill to run next"
+            },
+            {
+              "label": "Routes elsewhere",
+              "text": "MCP, Agent Skills, reverse engineering, Claude certification and interview practice go to their own tutors, which SkillHub doesn't list"
+            },
+            {
+              "label": "Unlike learn",
+              "text": "That one teaches a lesson and records your progress; this one only points you to lessons and writes no files"
+            }
+          ],
+          "text": "The course has 542 lessons in 20 phases, and course-guide is its map. Ask about a topic (\"how do diffusion models work\"), a struggle (\"loss goes to NaN\") or your progress (\"am I ready for phase 7\"). A struggle goes to the concept behind it: a NaN loss points to the loss-function and numerical-stability lessons, not a framework FAQ. Progress questions are answered from your LEARNING.md when there is one; otherwise it suggests start-learning. If nothing matches, it says so and names the closest phase rather than invent a lesson. Its next step is learn to be taught the lesson now, check-understanding to test yourself on a phase, or start-learning for a plan, written the way your agent calls skills: /learn in Claude Code, learn in Codex, plain words elsewhere. It reads the README and the glossary from a local clone, or fetches them from GitHub.",
+          "permalink": "https://github.com/rohitg00/ai-engineering-from-scratch/tree/a509402c0b5455d11ddc2b5fa83cc8c0d2e0692b/skills/course-guide"
+        },
         "tags": [
           "category:personal",
           "type:router",
@@ -76366,10 +76520,36 @@
       "skillMd": {
         "version": "9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11",
         "updated": "2026-11-12",
-        "skew": 1358
+        "skew": 0
       },
       "agentReview": {
         "description": "Plans SEO work: keyword research and mapping, on-page optimization, technical audits, content optimization and rank tracking, with checklists and templates.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "You want an SEO plan for a site or a page: keywords to target, on-page fixes, a technical checklist, a content brief or a monthly report"
+            },
+            {
+              "label": "It does",
+              "text": "Applies templates and rules of thumb, such as titles of 50 to 60 characters, the keyword in the first 100 words, and priority as volume times relevance over difficulty"
+            },
+            {
+              "label": "You get",
+              "text": "Written recommendations, like its blog post example: target keywords, a new title and meta description, a heading outline, word count, internal links and a checklist"
+            },
+            {
+              "label": "Doesn't",
+              "text": "Fetch any data: it names tools such as Google Keyword Planner, Ahrefs and PageSpeed Insights but calls none of them"
+            },
+            {
+              "label": "Unlike iannuttall's seo",
+              "text": "That one answers SEO questions from your own Search Console, Analytics and Bing data; this one is templates and checklists with no data source"
+            }
+          ],
+          "text": "From Claude Office Skills. A marketing playbook in five parts. Keyword research starts from seed terms (your product words, competitors' keywords, customer language from support tickets and reviews), sorts keywords by intent (informational, navigational, commercial, transactional) and maps them to the homepage, product pages, blog posts and landing pages. The on-page checklist covers the title, meta description, one H1, heading structure, word counts by page type, 1 to 2% keyword density, image alt text, URLs and internal links. The technical audit covers crawling, indexing, Core Web Vitals, mobile, HTTPS and structured data. A content brief template sets the target keyword, intent, word count, outline, competitors to beat and call to action, with checklists for before and after publishing. A monthly report template tracks traffic, conversions, ranking changes, top pages and technical health. Its frontmatter lists English and Chinese.",
+          "permalink": "https://github.com/claude-office-skills/skills/tree/9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11/seo-optimizer"
+        },
         "tags": [
           "category:marketing",
           "type:guidelines",
@@ -76395,10 +76575,40 @@
       "skillMd": {
         "version": "9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11",
         "updated": "2026-11-12",
-        "skew": 1459
+        "skew": 0
       },
       "agentReview": {
         "description": "Converts whole folders of documents between Word, PDF, Markdown, HTML and PowerPoint in parallel, with Pandoc, MarkItDown, pdf2docx and LibreOffice.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "You have a folder of documents to convert at once, such as PDFs to Word, Markdown to PDF and HTML, or Office files to Markdown"
+            },
+            {
+              "label": "It does",
+              "text": "Runs a Python pipeline that converts files in parallel, handing each format pair to Pandoc, MarkItDown, pdf2docx, Marp or LibreOffice, and carries on past failures"
+            },
+            {
+              "label": "You get",
+              "text": "Converted files in a converted folder inside the source folder, or one you name, and a success or error entry for each file"
+            },
+            {
+              "label": "Needs",
+              "text": "Python packages pdf2docx, markitdown, python-docx and openpyxl, plus Pandoc, LibreOffice, and the Marp CLI for slides"
+            },
+            {
+              "label": "Gaps",
+              "text": "Its code converts only Markdown to HTML and nothing from HTML, though its format table lists more; images aren't handled despite an example prompt"
+            },
+            {
+              "label": "Unlike convert-documents-to-markdown",
+              "text": "That one turns many document types into Markdown with one CLI so the agent can read them; this one converts whole folders between formats, Markdown included"
+            }
+          ],
+          "text": "From Claude Office Skills. You name a folder or files and a target format. Its DocumentConverter class picks up Markdown, Word, PDF, Excel, PowerPoint and HTML files, in subfolders too if you ask, and converts them four at a time by default. Markdown goes to Word, PDF and HTML with Pandoc and to PowerPoint with Marp; Word, Excel, PowerPoint and PDF go to Markdown with Microsoft's MarkItDown; PDF goes to Word with pdf2docx; Office files go to PDF with LibreOffice, run without a window. Examples export a docs folder to PDF, Word and HTML with an export_report.json, move old .doc, .xls, .ppt and .rtf files to current Office formats, and turn spreadsheets into PDF and Word reports. It advises converting a few files first, checking disk space and spot-checking results, and warns that complex formatting may be lost. Its frontmatter names an office-mcp server, but its instructions never use it.",
+          "permalink": "https://github.com/claude-office-skills/skills/tree/9c4c7d5cd2813a8936bf2c9fdb174ea883b85a11/batch-convert"
+        },
         "tags": [
           "category:documents",
           "type:tool",
@@ -76429,10 +76639,36 @@
       "skillMd": {
         "version": "8aa14dd16a1340a6049e6d7cd58e2ed52333a550",
         "updated": "2026-11-12",
-        "skew": 609
+        "skew": 0
       },
       "agentReview": {
         "description": "Has the agent log one wide, structured event per request per service, with business and deployment context, instead of scattered log lines.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "You're adding or reviewing logging in a backend service, or deciding how a new service should log"
+            },
+            {
+              "label": "It does",
+              "text": "Has the agent build one wide event per request per service, filling it in as the request runs and logging it once at the end, errors included"
+            },
+            {
+              "label": "You get",
+              "text": "One JSON record per request with timing, outcome, user, business and deployment details such as commit hash and region, instead of scattered console.log lines"
+            },
+            {
+              "label": "Rules",
+              "text": "One logger set up at startup, middleware that times and emits the event, only info and error levels, the same field names across services, no plain-text log lines"
+            },
+            {
+              "label": "Unlike observability-and-instrumentation",
+              "text": "That one instruments a feature with logs, metrics, traces and alerts; this one covers logs only, as one wide event per request"
+            }
+          ],
+          "text": "A wide event, also called a canonical log line, is one structured record holding everything about a request. Its point is answering questions you didn't plan for, such as \"which free-trial users hit this bug\", by querying any field. So the skill wants many fields per event, including fields with millions of distinct values, like user and request IDs. Every event carries business context (subscription tier, cart value, feature flags, account age) and environment context (commit hash, service version, region, instance ID), and a request ID passed between services ties their events together. Middleware starts the event, times it and emits it in a finally block, so it's logged even on failure; handlers only add business context. Four rule files give incorrect and correct TypeScript examples, with the pino logger, for wide events, context, structure and pitfalls. It cites the author's post \"Observability Wide Events 101\", loggingsucks.com and Stripe's post on canonical log lines.",
+          "permalink": "https://github.com/boristane/agent-skills/tree/8aa14dd16a1340a6049e6d7cd58e2ed52333a550/skills/logging-best-practices"
+        },
         "tags": [
           "category:engineering",
           "category:cloud",
@@ -76459,10 +76695,44 @@
       "skillMd": {
         "version": "9c61ab243def98f72da12abd41cfcf5bcd91af9d",
         "updated": "2026-11-12",
-        "skew": 906
+        "skew": 0
       },
       "agentReview": {
         "description": "Scans a codebase into a project-doc.md of its stack, architecture and conventions plus an AGENTS.md, then rescans only what changed and asks before updating AGENTS.md.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "You're setting up ShipMate, a pipeline of coding agents, in a repo, or want its project notes refreshed after code changes"
+            },
+            {
+              "label": "It does",
+              "text": "First run: maps the stack, dependencies, architecture, folders, conventions and test coverage into project-doc.md, then rewrites it as AGENTS.md rules for agents"
+            },
+            {
+              "label": "Later runs",
+              "text": "Rescan the files changed in the last commit and patch project-doc.md; on an architectural change, it asks before patching AGENTS.md"
+            },
+            {
+              "label": "You get",
+              "text": "project-doc.md in .claude/pipeline/, an AGENTS.md at the repo root with do and don't rules and notes for each pipeline agent, and a short summary"
+            },
+            {
+              "label": "Works with",
+              "text": "The understand-anything and context-mode plugins, when installed, for deeper analysis and keeping large outputs out of context; otherwise find, grep and git"
+            },
+            {
+              "label": "Unlike create-agentsmd",
+              "text": "That one writes an AGENTS.md of setup, test, build and PR instructions; this one adds a fuller project-doc.md and notes for each ShipMate agent, and keeps both current"
+            },
+            {
+              "label": "Part of",
+              "text": "ShipMate, whose orchestrator, architect, developer, reviewer and QA agents read the AGENTS.md it writes before any work"
+            }
+          ],
+          "text": "The full scan writes .claude/pipeline/project-doc.md: tech stack, key dependencies with versions, architecture pattern, a folder map, code style inferred from the actual code, data architecture, auth and error handling, how services talk, test coverage and entry points. It then writes AGENTS.md as instructions rather than a copy: do and don't style rules, architecture guardrails, testing requirements, where code goes, security rules, and notes for each agent, such as which paths the reviewer treats as critical. MERN projects (MongoDB, Express, React, Node) get extra notes, such as keeping login tokens in httpOnly cookies rather than localStorage. Later runs are delta scans: they take the files changed in the last commit, patch only the affected sections, and look for a new framework, directory pattern, dependency swap or auth pattern. AGENTS.md changes only when you answer y, and only in the affected sections. Each run ends with a summary, including test coverage, and marks the scan done in the pipeline's state.json.",
+          "permalink": "https://github.com/wshobson/agents/tree/9c61ab243def98f72da12abd41cfcf5bcd91af9d/plugins/ship-mate/skills/scan"
+        },
         "tags": [
           "category:agents",
           "category:writing",
@@ -76490,10 +76760,36 @@
       "skillMd": {
         "version": "0e81f040e16d48fcc61d3e1b7ea548542371321f",
         "updated": "2026-11-12",
-        "skew": 805
+        "skew": 0
       },
       "agentReview": {
         "description": "Converts colors to OKLCH and builds palettes, contrast checks, gamut fallbacks and Tailwind v4 themes with it.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "You're moving a web project's colors to OKLCH, building a palette, fixing failing contrast or setting up a Tailwind v4 theme"
+            },
+            {
+              "label": "It does",
+              "text": "Converts hex, rgb and hsl to oklch() and leaves the rest of the CSS alone, builds 50 to 950 scales at one hue, and fixes contrast by changing lightness only"
+            },
+            {
+              "label": "You get",
+              "text": "Every changed color in a Before and After table, plus CSS variables, sRGB fallbacks or a Tailwind v4 @theme"
+            },
+            {
+              "label": "OKLCH means",
+              "text": "A CSS color format of lightness from 0 to 1, chroma (colorfulness) and hue in degrees, where equal lightness steps look equally bright across hues"
+            },
+            {
+              "label": "Unlike better-colors",
+              "text": "That one, by the same author, builds ramps with a color library and names semantic tokens; this one is a reference on OKLCH itself, with no scripts"
+            }
+          ],
+          "text": "OKLCH matches how people see color better than HSL: a step in lightness looks the same for every hue, and the hue stays put as a color gets lighter or darker, where HSL blues drift toward purple. The skill holds the rules and four reference files. Conversion changes only the color values, leaving alone keywords like currentColor, gradient functions and third-party configs that expect hex. Palettes spread lightness evenly and give each step the same share of the most chroma its hue can show, so blues, greens and reds look equally vivid and stay displayable; dark mode reverses the light palette rather than picking new colors. Contrast is checked with APCA, a newer contrast measure (|Lc| of 60 for body text), or WCAG 2 (4.5:1), and fixed by moving lightness alone. Colors outside sRGB, such as Display P3, get a @media (color-gamut: p3) wrapper with an sRGB fallback. Values are written to three decimals. It points to oklch.fyi to explore colors interactively.",
+          "permalink": "https://github.com/jakubkrehel/oklch-skill/tree/0e81f040e16d48fcc61d3e1b7ea548542371321f/skills/oklch-skill"
+        },
         "tags": [
           "category:design",
           "type:guidelines",
@@ -76522,10 +76818,40 @@
       "skillMd": {
         "version": "078a25cc5bfd8011459be7b91d004e900c1d02d3",
         "updated": "2026-11-12",
-        "skew": 864
+        "skew": 0
       },
       "agentReview": {
         "description": "Designs and builds retrieval-augmented generation systems: chunking, embeddings, the vector store, hybrid search, reranking and retrieval evaluation.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "You're building search or question answering over your own documents and want retrieval you can measure, not just one that runs"
+            },
+            {
+              "label": "It does",
+              "text": "Works through requirements, vector database, chunking, retrieval and evaluation, with a check after each step, such as every chunk keeping its source"
+            },
+            {
+              "label": "You get",
+              "text": "An architecture diagram, a vector database pick with trade-offs, a chunking strategy, the query-to-results flow and an evaluation plan with pass and fail thresholds"
+            },
+            {
+              "label": "Code",
+              "text": "Python with LangChain's text splitter, OpenAI embeddings, Qdrant, BM25 keyword scoring, Cohere reranking and Ragas for evaluation"
+            },
+            {
+              "label": "Bar to pass",
+              "text": "Context precision of 0.7 and recall of 0.6 on a labeled question set before a language model is connected"
+            },
+            {
+              "label": "Unlike rag-implementation",
+              "text": "That one is a reference of options with LangChain and LangGraph code; this one is a staged build with a check at each step and set thresholds"
+            }
+          ],
+          "text": "RAG, retrieval-augmented generation, means finding the passages of your documents that answer a question and handing them to the model. This skill treats retrieval as the part to get right before the model is involved. Its rules: compare embedding models on your own data, don't take a default chunk size of 512 untested, tag every chunk with its source, timestamp and section, combine vector and keyword search, rerank the top results, and filter by metadata such as tenant. Ingestion must be safe to rerun, with IDs derived from each chunk's content so duplicates collapse. Embeddings are versioned and kept apart from app code, so the model can change later. Precision@k, recall@k, MRR and NDCG are tracked, along with latency over time. Five reference files load as needed: a comparison of Pinecone, Weaviate, Qdrant, Chroma and pgvector, embedding models from OpenAI, Cohere, Voyage and open source, chunking strategies, retrieval techniques such as rank fusion and cross-encoder reranking, and evaluation with Ragas.",
+          "permalink": "https://github.com/jeffallan/claude-skills/tree/078a25cc5bfd8011459be7b91d004e900c1d02d3/skills/rag-architect"
+        },
         "tags": [
           "category:agents",
           "type:workflow",
@@ -76552,10 +76878,40 @@
       "skillMd": {
         "version": "078a25cc5bfd8011459be7b91d004e900c1d02d3",
         "updated": "2026-11-12",
-        "skew": 829
+        "skew": 0
       },
       "agentReview": {
         "description": "Designs cloud architectures on AWS, Azure or GCP, with migration plans, cost optimization and disaster recovery, checked against the Well-Architected Framework.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "You're designing a system on AWS, Azure or Google Cloud, planning a move to the cloud, cutting cloud costs or planning disaster recovery"
+            },
+            {
+              "label": "It does",
+              "text": "Works through discovery, design, security, cost, migration and operations, checking that nothing is a single point of failure and network links are live before cutover"
+            },
+            {
+              "label": "You get",
+              "text": "An architecture diagram with data flow, the reason for each service, IAM, network and encryption design, a cost estimate, and a deployment and rollback plan"
+            },
+            {
+              "label": "Rules",
+              "text": "At least 99.9% availability, least-privilege access, infrastructure as code, cost allocation tags, multi-region for critical workloads, and disaster recovery that's tested"
+            },
+            {
+              "label": "Needs",
+              "text": "The aws or az CLI and an account for its checks and cost queries; its examples are mostly AWS with Terraform"
+            },
+            {
+              "label": "Unlike multi-cloud-architecture",
+              "text": "That one maps equivalent services across four clouds for designs that span them; this one takes one design from discovery through migration to operations"
+            }
+          ],
+          "text": "It acts as a cloud architect working in six stages. Migration uses the 6Rs: for each app, rehost it as is, replatform with small changes, repurchase as SaaS, refactor, retire or retain it, moving in waves. Each stage has a check: after design, every component needs a redundancy plan; before cutover, VPC or VNet peering must show as active; after migration, load balancer targets must be healthy; after a disaster recovery test, actual recovery times are recorded against the targets for downtime (RTO) and data loss (RPO). Its examples are a least-privilege IAM role limited to one S3 bucket, a VPC with public and private subnets across two availability zones, an auto-scaling group that targets 60% CPU, and CLI queries for the biggest costs of the last 30 days on AWS and Azure. Five reference files load as needed: AWS with its Well-Architected Framework, Azure, Google Cloud, multi-cloud and vendor lock-in, and cost (FinOps).",
+          "permalink": "https://github.com/jeffallan/claude-skills/tree/078a25cc5bfd8011459be7b91d004e900c1d02d3/skills/cloud-architect"
+        },
         "tags": [
           "category:cloud",
           "category:planning",
@@ -76588,10 +76944,44 @@
       "skillMd": {
         "version": "43b69e44c9ca905fe3a3418ccdf4102255e20d40",
         "updated": "2026-11-12",
-        "skew": 2353
+        "skew": 0
       },
       "agentReview": {
         "description": "Builds a feature, UI or backend, from its spec and AGENTS.md, and sends you to /architect first when a load-bearing decision is still open.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "You have a spec or design for a feature, page, component, API or service and want it built in an existing project"
+            },
+            {
+              "label": "It does",
+              "text": "Checks that the spec names the source of every value the feature needs; if a decision such as an auth provider is still open, it stops"
+            },
+            {
+              "label": "Open decisions",
+              "text": "You choose: settle it with architect first, build anyway, or build on an assumption it records as an Assumed spec for architect to confirm later"
+            },
+            {
+              "label": "You get",
+              "text": "The code, ticked tasks in the spec's build plan and in docs/scope/, and verify steps for each acceptance criterion, saved to verify.md if you want"
+            },
+            {
+              "label": "First it checks",
+              "text": "Whether you're behind the remote branch, have uncommitted changes in that area, or a teammate is partway through the same feature, and warns you"
+            },
+            {
+              "label": "UI bar",
+              "text": "A complete product page, never a lone form or default styling, built from Figma, a screenshot, your design.md, or a design system it sets up first"
+            },
+            {
+              "label": "Needs",
+              "text": "An existing project, unless this run is the scaffold step, and subagents for cheap read-only code mapping and doc lookups"
+            }
+          ],
+          "text": "develop is the build step of JS Mastery's workflow, which keeps its state in files: a scope of features and their checkboxes in docs/scope/, numbered specs in docs/specs/ and conventions in AGENTS.md. Its rule is that it implements decisions and never makes them. Before writing code it lists every value the feature must produce or show; one whose source the spec doesn't name, such as a database column or a prior decision, counts as an open decision, however small. It then sorts the work into a UI track, a logic track (data layer, services, API, integrations) or both, reads only this feature's spec and the nearest AGENTS.md, and has a read-only subagent map the code to touch. It resumes at the first unticked task, applies database migrations and confirms the schema is live, and deletes the code it replaces. If the spec proves wrong partway, it stops and sends you back to architect. It marks the feature done only for a prototype; otherwise it leaves it in progress for the workflow's check and test skills, which SkillHub doesn't list, to close. It writes in plain words with no dashes or hyphens.",
+          "permalink": "https://github.com/jsmastery-pro/skills/tree/43b69e44c9ca905fe3a3418ccdf4102255e20d40/skills/develop"
+        },
         "tags": [
           "category:engineering",
           "type:workflow",
