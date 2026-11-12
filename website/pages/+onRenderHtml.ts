@@ -1,5 +1,5 @@
 import { dangerouslySkipEscape, escapeInject } from "vike/server";
-import type { PageContextServer } from "vike/types";
+import type { InjectFilterEntry, PageContextServer } from "vike/types";
 import { siteHeadHtml } from "../brand.ts";
 import { href } from "../format.ts";
 import { themeScript } from "../theme.ts";
@@ -18,7 +18,7 @@ export function onRenderHtml(pageContext: PageContextServer) {
   const path = pageContext.urlPathname.replace(/^\//, "");
   const head = `<header id="page-head">${siteHeadHtml(path && !path.endsWith("/") ? `${path}/` : path)}</header>`;
   const main = (pageContext.Page as Page)(pageContext);
-  return escapeInject`<!doctype html>
+  const documentHtml = escapeInject`<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -34,4 +34,18 @@ export function onRenderHtml(pageContext: PageContextServer) {
     <main id="app">${dangerouslySkipEscape(main)}</main>
   </body>
 </html>`;
+  return { documentHtml, injectFilter: preloadLatinOnly };
+}
+
+/**
+ * Vike preloads every font file the stylesheets name: Geologica's six subsets, some 110 KB, of
+ * which a page in English uses the Latin one, 29 KB. Only that one is preloaded: every visit
+ * fetched the other five for nothing, ahead of the page's own script, and the browser said so in
+ * its console. One of them still loads when a page has a letter of its own, such as a SKILL.md
+ * that quotes Greek, as the stylesheet tells which letters each file has.
+ */
+function preloadLatinOnly(assets: InjectFilterEntry[]) {
+  for (const asset of assets)
+    if (asset.assetType === "font" && !/\/geologica-latin-shrp-[^/]*$/.test(asset.src))
+      asset.inject = false;
 }
