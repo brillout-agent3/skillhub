@@ -5,6 +5,7 @@ import {
   data,
   glanceHtml,
   installsOf,
+  NUMBER_LABELS,
   publishedOf,
   repoHref,
   repoKey,
@@ -36,26 +37,26 @@ function tiles(b: Bundle): string {
   return statTilesHtml(b, [
     {
       p: "week",
-      label: "Weekly Downloads",
+      label: NUMBER_LABELS.week,
       from: `${link(topWeek)}, its top skill`,
       shown: weekOf(topWeek)?.toLocaleString("en") ?? "",
       trend: topWeek["skills.sh"].weeklyInstalls,
     },
     {
       p: "downloads",
-      label: "Total Downloads",
+      label: NUMBER_LABELS.downloads,
       from: `${link(top)}, its top skill`,
       shown: installsOf(top)?.toLocaleString("en") ?? "",
     },
     {
       p: "stars",
-      label: "Repo stars",
+      label: NUMBER_LABELS.stars,
       from: esc(repoKey(b)),
       shown: stars?.toLocaleString("en") ?? "",
     },
     {
       p: "published",
-      label: "Age",
+      label: NUMBER_LABELS.published,
       from: published ? `its first skill, published ${date(published)}` : "",
       shown: published ? age(published, data.asOf.installs) : "",
     },

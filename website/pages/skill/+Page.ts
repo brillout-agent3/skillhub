@@ -13,6 +13,7 @@ import {
   facetOf,
   glanceHtml,
   installCommand,
+  NUMBER_LABELS,
   publishedOf,
   repoHref,
   repoKey,
@@ -46,26 +47,26 @@ function tiles(s: Skill): string {
   return statTilesHtml(s, [
     {
       p: "week",
-      label: "Weekly Downloads",
+      label: NUMBER_LABELS.week,
       from: `week to ${date(data.asOf.installs)}`,
       shown: week?.toLocaleString("en") ?? "",
       trend: sh.weeklyInstalls,
     },
     {
       p: "downloads",
-      label: "Total Downloads",
+      label: NUMBER_LABELS.downloads,
       from: "on skills.sh",
       shown: sh.installs?.toLocaleString("en") ?? "",
     },
     {
       p: "stars",
-      label: "Repo stars",
+      label: NUMBER_LABELS.stars,
       from: esc(repoKey(s)),
       shown: stars?.toLocaleString("en") ?? "",
     },
     {
       p: "published",
-      label: "Age",
+      label: NUMBER_LABELS.published,
       from: published ? `published ${date(published)}` : "",
       shown: published ? age(published, data.asOf.installs) : "",
     },

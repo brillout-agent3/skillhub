@@ -102,6 +102,19 @@ export const weekOf = (e: Skill | Bundle): number | null => {
   return weekly?.length ? weekly[weekly.length - 1] : null;
 };
 
+/**
+ * What each number is called where it's on a tile of its own: on a skill's or a bundle's page (see
+ * stat-tiles.ts) and in its preview in the skills list (see preview-client.ts). One name each, for
+ * both: the preview said "Weekly downloads" where the page it previews says "Weekly Downloads".
+ * The stars are the repo's, which the rows say with their tooltip.
+ */
+export const NUMBER_LABELS = {
+  week: "Weekly Downloads",
+  downloads: "Total Downloads",
+  stars: "Repo stars",
+  published: "Age",
+} as const;
+
 /** A skill needs this many installs a week, in its latest 2 weeks, for its growth to count. */
 export const GROWTH_MIN = 1000;
 /** And this many in each of its last GROWTH_WEEKS weeks: fewer is a week it sat almost unused. */

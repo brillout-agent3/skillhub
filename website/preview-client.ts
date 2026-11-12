@@ -22,6 +22,7 @@ import {
   installsOf,
   isBundle,
   nameOf,
+  NUMBER_LABELS,
   publishedOf,
   repoKey,
   skillById,
@@ -73,7 +74,7 @@ function sparkHtml(weekly: number[] | null): string {
   return `<svg class="preview-spark" viewBox="0 0 100 24" preserveAspectRatio="none" aria-hidden="true"><polyline points="${points}" /></svg>`;
 }
 
-/** Its numbers, which it covers on its row: exact, as on its page. An unknown one is left out. */
+/** Its numbers, which it covers on its row: exact, and named, as on its page. An unknown one is left out. */
 function statsHtml(e: Entry): string {
   const week = weekOf(e);
   const total = installsOf(e);
@@ -85,13 +86,13 @@ function statsHtml(e: Entry): string {
     week === null
       ? ""
       : stat(
-          "Weekly downloads",
+          NUMBER_LABELS.week,
           week.toLocaleString("en"),
           isBundle(e) ? "" : sparkHtml(e["skills.sh"].weeklyInstalls),
         ),
-    total === null ? "" : stat("Total downloads", total.toLocaleString("en")),
-    stars === null ? "" : stat("Repo stars", stars.toLocaleString("en")),
-    published === null ? "" : stat("Age", age(published, data.asOf.installs)),
+    total === null ? "" : stat(NUMBER_LABELS.downloads, total.toLocaleString("en")),
+    stars === null ? "" : stat(NUMBER_LABELS.stars, stars.toLocaleString("en")),
+    published === null ? "" : stat(NUMBER_LABELS.published, age(published, data.asOf.installs)),
   ].filter(Boolean);
   if (!stats.length) return "";
   // A bundle's numbers are its skills' most, as on its row.

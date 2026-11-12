@@ -5,7 +5,7 @@
  */
 
 import { repo, skill, skillUrl, smallRepo } from "./data.ts";
-import { expect, list, open, searchable, settled, test } from "./fixtures.ts";
+import { expect, list, open, ready, searchable, settled, test } from "./fixtures.ts";
 
 const preview = (page: import("@playwright/test").Page) => page.locator("#preview");
 /** A row's words, beside its numbers, which the preview covers once open. */
@@ -70,8 +70,14 @@ test("a click on a row previews it over the tags, with its page a click away", a
   // All details, on the preview as on the row, opens its page.
   await open(page, `/?q=${encodeURIComponent(skill.name)}`);
   await wordsOf(list(page).rows.first()).click();
+  const numbers = await preview(page).locator(".preview-stats dt").allInnerTexts();
+  expect(numbers.length).toBeGreaterThan(0);
   await preview(page).getByRole("link", { name: "All details" }).click();
   await expect(page).toHaveURL(skillUrl);
+  // Which names its numbers as the preview did: "Weekly Downloads", not "Weekly downloads" there.
+  await ready(page);
+  const tiles = await page.locator(".stat-label").allInnerTexts();
+  for (const name of numbers) expect(tiles.filter((tile) => tile.startsWith(name))).toHaveLength(1);
 });
 
 test("the start of a SKILL.md, in a preview, ends on what it says, not on a heading", async ({
