@@ -105,6 +105,54 @@ test("a saved bundle counts as a bundle, not as its skills", async ({ page }) =>
   );
 });
 
+test("Recently saved sorts what you saved, the last saved first", async ({ page }) => {
+  await openLoggedIn(page, "/?show=bundles");
+  const { rows } = list(page);
+  const sort = page.locator("#sort");
+  const option = page.locator('#sort-options [data-sort="saved"]');
+  /** The rows' links, in the list's order: a bundle's own comes before its skills'. */
+  const hrefs = () =>
+    rows.evaluateAll((lis) =>
+      lis.map((li) => li.querySelector(".skill-name")?.getAttribute("href")),
+    );
+  // Only while the list shows only what you saved.
+  await expect(option).toHaveCount(0);
+
+  // The list's first two bundles, saved in its order, each once the server has it.
+  const [first, second] = (await hrefs()).slice(0, 2);
+  for (const i of [0, 1]) {
+    const save = rows.nth(i).locator("[data-save]");
+    const saved = page.waitForResponse((res) => res.url().endsWith("/api/saves"));
+    await save.click();
+    await saved;
+  }
+
+  await page.locator("#saved-switch").click();
+  await settled(page);
+  await sort.click();
+  await option.click();
+  await settled(page);
+  await expect(page).toHaveURL("/?saved&sort=saved&show=bundles");
+  await expect(sort).toContainText("Recently saved");
+  await expect(page.locator('[data-order="desc"]')).toHaveAttribute("title", "Last saved first");
+  expect(await hrefs()).toEqual([second, first]);
+
+  await page.locator('[data-order="asc"]').click();
+  await settled(page);
+  await expect(page).toHaveURL("/?saved&sort=saved&order=asc&show=bundles");
+  expect(await hrefs()).toEqual([first, second]);
+
+  // It goes with the Saved switch, back to the default sort.
+  await page.locator("#saved-switch").click();
+  await settled(page);
+  await expect(page).toHaveURL("/?order=asc&show=bundles");
+  await expect(sort).toContainText("Weekly Growth");
+  await expect(option).toHaveCount(0);
+  // And a link to it without Saved opens on the default sort.
+  await open(page, "/?sort=saved&show=bundles");
+  await expect(sort).toContainText("Weekly Growth");
+});
+
 test("the Saved list is empty when what you saved is no longer listed", async ({ page }) => {
   // As a skill whose SKILL.md is gone from its repo: saved once, and off the list since.
   const key = "skill:some/repo/delisted";

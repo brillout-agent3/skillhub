@@ -49,7 +49,7 @@ import {
   type ClientSkill as Skill,
   type SearchWords,
 } from "./client-data.ts";
-import { CHECK, CHICK, DOWNLOAD, SEARCH, STAR, iconDefsHtml } from "./prop-icons.ts";
+import { CHECK, CHICK, DOWNLOAD, SAVED, SEARCH, STAR, iconDefsHtml } from "./prop-icons.ts";
 import { plain, sought, terms, type Term } from "./search-terms.ts";
 import { account, bookmarkSvg, loginHref, saveButton, saveKey, savedCount } from "./saves.ts";
 
@@ -524,10 +524,10 @@ export function rangeLabel(p: Prop, [lo, hi]: Range): string {
 
 /**
  * A number to sort by; "growth", how fast the weekly downloads grow (a sort only: it can be
- * negative or infinite, so it gets no slider); or "match", how well the entry matches the search,
- * for when there is one.
+ * negative or infinite, so it gets no slider); "match", how well the entry matches the search,
+ * for when there is one; or "saved", when you saved it, for when the list shows only what you saved.
  */
-export type Sort = Prop | "growth" | "match";
+export type Sort = Prop | "growth" | "match" | "saved";
 const GROWTH = {
   label: "Weekly Growth",
   icon: DOWNLOAD,
@@ -622,7 +622,11 @@ export function parse(search: string): State {
     // A sort the list has, by its own name: `in` would also take what every object inherits, such
     // as ?sort=constructor, which has no number to sort by, and the list's script would throw.
     sort:
-      sort && (Object.hasOwn(PROPS, sort) || sort === "growth" || (sort === "match" && q.trim()))
+      sort &&
+      (Object.hasOwn(PROPS, sort) ||
+        sort === "growth" ||
+        (sort === "match" && q.trim()) ||
+        (sort === "saved" && p.has("saved")))
         ? sort
         : defaultSort(q),
     asc: p.get("order") === "asc",
@@ -658,12 +662,14 @@ export function query(s: State): string {
 export const fresh = (): State => parse("");
 /**
  * `prev` with `patch` applied. The sort, while at its default, follows the default for the new
- * search: best match while there is one.
+ * search: best match while there is one. Best match goes with the search, and Recently saved with
+ * the Saved switch.
  */
 export function patched(prev: State, patch: Partial<State>): State {
   const next = { ...prev, ...patch };
   if (!("sort" in patch) && prev.sort === defaultSort(prev.q)) next.sort = defaultSort(next.q);
   if (next.sort === "match" && !term(next)) next.sort = defaultSort("");
+  if (next.sort === "saved" && !next.saved) next.sort = defaultSort(next.q);
   return next;
 }
 /**
@@ -929,15 +935,24 @@ const descending = (a: Value | null, b: Value | null) =>
 /** Compare for an ascending sort, unknown values still last. */
 const ascending = (a: Value | null, b: Value | null) =>
   a === null || b === null ? descending(a, b) : -descending(a, b);
-const order = (sort: Sort, asc: boolean, q: string) => (a: Entry, b: Entry) =>
-  (sort === "match"
-    ? matchScore(b, q) - matchScore(a, q)
-    : sort === "growth"
-      ? (asc ? ascending : descending)(growthOf(a), growthOf(b))
-      : (asc ? ascending : descending)(PROPS[sort].of(a), PROPS[sort].of(b))) ||
-  descending(installsOf(a), installsOf(b)) ||
-  bundleFirst(a, b) ||
-  nameOf(a).localeCompare(nameOf(b));
+function order(sort: Sort, asc: boolean, q: string) {
+  // When it was saved, as its place among what's saved: the API lists them in the order they were
+  // saved, and a click on Save adds to the end (see account-client.ts).
+  const savedAt = new Map(sort === "saved" ? [...account.saved].map((k, i) => [k, i]) : []);
+  const value = (e: Entry): Value | null =>
+    sort === "growth"
+      ? growthOf(e)
+      : sort === "saved"
+        ? (savedAt.get(saveKey(isBundle(e) ? "bundle" : "skill", e.id)) ?? null)
+        : PROPS[sort as Prop].of(e);
+  return (a: Entry, b: Entry) =>
+    (sort === "match"
+      ? matchScore(b, q) - matchScore(a, q)
+      : (asc ? ascending : descending)(value(a), value(b))) ||
+    descending(installsOf(a), installsOf(b)) ||
+    bundleFirst(a, b) ||
+    nameOf(a).localeCompare(nameOf(b));
+}
 
 interface Results {
   list: Entry[];
@@ -1948,14 +1963,16 @@ export const presetsHtml = (st: State) =>
     .join("");
 
 /**
- * Sort by: its menu and its order. Re-rendered with the list, since a search adds Best match. The
- * sort is a menu of its own, rather than a <select>, to show each option's icon: see list-client.ts
- * for its keys.
+ * Sort by: its menu and its order. Re-rendered with the list, since a search adds Best match, and
+ * the Saved switch Recently saved. The sort is a menu of its own, rather than a <select>, to show
+ * each option's icon: see list-client.ts for its keys.
  */
 export function sortHtml(st: State): string {
-  // The sorts, each with its icon: Best match only while searching.
+  // The sorts, each with its icon: Best match only while searching, Recently saved only while the
+  // list shows only what you saved.
   const sorts: [Sort, string, string][] = [
     ...(term(st) ? [["match", SEARCH, "Best match"] as [Sort, string, string]] : []),
+    ...(st.saved ? [["saved", SAVED, "Recently saved"] as [Sort, string, string]] : []),
     ...PROP_IDS.map((p): [Sort, string, string] => [p, PROPS[p].icon, PROPS[p].label]),
     ["growth", GROWTH.icon, GROWTH.label],
   ];
@@ -1969,13 +1986,18 @@ export function sortHtml(st: State): string {
     )
     .join("");
   // The order: both directions as arrows, the current one pressed, their words in their labels.
-  const dates = st.sort !== "match" && st.sort !== "growth" && PROPS[st.sort].date;
+  const [down, up] =
+    st.sort === "saved"
+      ? ["Last saved first", "First saved first"]
+      : st.sort !== "match" && st.sort !== "growth" && PROPS[st.sort].date
+        ? ["Newest first", "Oldest first"]
+        : ["Highest first", "Lowest first"];
   const direction = (asc: boolean, arrow: string, words: string) =>
     `<button type="button" data-order="${asc ? "asc" : "desc"}" aria-pressed="${st.asc === asc}" aria-label="${words}" title="${words}">${arrow}</button>`;
   const order =
     st.sort === "match"
       ? ""
-      : `<div class="order" role="group" aria-label="Order">${direction(false, "↓", dates ? "Newest first" : "Highest first")}${direction(true, "↑", dates ? "Oldest first" : "Lowest first")}</div>`;
+      : `<div class="order" role="group" aria-label="Order">${direction(false, "↓", down)}${direction(true, "↑", up)}</div>`;
   return `
     <div class="sort-head"><h2 id="sort-label">Sort by</h2>${order}</div>
     <div class="sort-menu">

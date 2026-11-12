@@ -12,6 +12,8 @@ const SHAPES = {
   download: `<path d="M8 2v8M4.75 6.75 8 10l3.25-3.25M2.25 11v1.5c0 .7.55 1.25 1.25 1.25h9c.7 0 1.25-.55 1.25-1.25V11" />`,
   /** For the Sort by menu: Best match, and the option it's set to. */
   search: `<circle cx="7" cy="7" r="4.75" /><path d="m10.5 10.5 3.75 3.75" />`,
+  /** For the Sort by menu: Recently saved, the bookmark of the Save buttons and the Saved switch. */
+  bookmark: `<path d="M4.5 2.25h7a.5.5 0 0 1 .5.5v11L8 10.9l-4 2.85v-11a.5.5 0 0 1 .5-.5Z" />`,
   check: `<path d="m3.25 8.5 3 3 6.5-7" />`,
 };
 
@@ -23,6 +25,7 @@ export const CHICK = icon("chick");
 export const STAR = icon("star");
 export const DOWNLOAD = icon("download");
 export const SEARCH = icon("search");
+export const SAVED = icon("bookmark");
 export const CHECK = icon("check");
 
 /** The icons' shapes, for a page's <defs>. */
