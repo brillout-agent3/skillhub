@@ -105,9 +105,9 @@ test("a saved bundle counts as a bundle, not as its skills", async ({ page }) =>
   );
 });
 
-test("Recently saved sorts what you saved, the last saved first", async ({ page }) => {
+test("the Saved list is sorted by Recently saved, the last saved first", async ({ page }) => {
   await openLoggedIn(page, "/?show=bundles");
-  const { rows } = list(page);
+  const { rows, search } = list(page);
   const sort = page.locator("#sort");
   const option = page.locator('#sort-options [data-sort="saved"]');
   /** The rows' links, in the list's order: a bundle's own comes before its skills'. */
@@ -120,6 +120,7 @@ test("Recently saved sorts what you saved, the last saved first", async ({ page 
 
   // The list's first two bundles, saved in its order, each once the server has it.
   const [first, second] = (await hrefs()).slice(0, 2);
+  const name = (await rows.first().locator(".skill-name").textContent()) as string;
   for (const i of [0, 1]) {
     const save = rows.nth(i).locator("[data-save]");
     const saved = page.waitForResponse((res) => res.url().endsWith("/api/saves"));
@@ -127,19 +128,26 @@ test("Recently saved sorts what you saved, the last saved first", async ({ page 
     await saved;
   }
 
+  // The Saved switch sorts by it, with nothing in the URL to say so.
   await page.locator("#saved-switch").click();
   await settled(page);
-  await sort.click();
-  await option.click();
-  await settled(page);
-  await expect(page).toHaveURL("/?saved&sort=saved&show=bundles");
+  await expect(page).toHaveURL("/?saved&show=bundles");
   await expect(sort).toContainText("Recently saved");
   await expect(page.locator('[data-order="desc"]')).toHaveAttribute("title", "Last saved first");
   expect(await hrefs()).toEqual([second, first]);
 
+  // A search sorts by best match, until it's cleared.
+  await search.fill(name);
+  await settled(page);
+  await expect(sort).toContainText("Best match");
+  await search.fill("");
+  await settled(page);
+  await expect(sort).toContainText("Recently saved");
+  await expect(page).toHaveURL("/?saved&show=bundles");
+
   await page.locator('[data-order="asc"]').click();
   await settled(page);
-  await expect(page).toHaveURL("/?saved&sort=saved&order=asc&show=bundles");
+  await expect(page).toHaveURL("/?saved&order=asc&show=bundles");
   expect(await hrefs()).toEqual([first, second]);
 
   // It goes with the Saved switch, back to the default sort.
@@ -151,6 +159,10 @@ test("Recently saved sorts what you saved, the last saved first", async ({ page 
   // And a link to it without Saved opens on the default sort.
   await open(page, "/?sort=saved&show=bundles");
   await expect(sort).toContainText("Weekly Growth");
+  // Another sort picked for the Saved list stays picked.
+  await open(page, "/?saved&sort=growth&show=bundles");
+  await expect(sort).toContainText("Weekly Growth");
+  await expect(option).toHaveCount(1);
 });
 
 test("the Saved list is empty when what you saved is no longer listed", async ({ page }) => {

@@ -538,8 +538,12 @@ const GROWTH = {
   title: (e: Entry) =>
     `${isBundle(e) ? "The most of any of its skills: " : ""}Installs on skills.sh in an average week of the 2 to ${date(data.asOf.installs)}, against an average week of the 4 before. Only for skills with at least ${compact(GROWTH_MIN)} a week, and at least ${compact(GROWTH_BASE_MIN)} in each of the last ${GROWTH_WEEKS} weeks: a younger skill, or one that took off from almost nothing, shows under ${PRESETS["rising-new"].label}`,
 };
-/** A search sorts by best match unless another sort is picked; otherwise the list is Rising, by growth. */
-export const defaultSort = (q: string): Sort => (q.trim() ? "match" : "growth");
+/**
+ * The sort unless another is picked: a search's is best match; the list of what you saved is
+ * Recently saved, the last saved first, unless it's searched; otherwise the list is Rising, by growth.
+ */
+export const defaultSort = ({ q, saved }: Pick<State, "q" | "saved">): Sort =>
+  q.trim() ? "match" : saved ? "saved" : "growth";
 /**
  * The search as it's looked for: what the box holds, without the spaces around it. A box that only
  * holds spaces isn't a search: it neither narrows the list nor sorts it by best match.
@@ -628,7 +632,7 @@ export function parse(search: string): State {
         (sort === "match" && q.trim()) ||
         (sort === "saved" && p.has("saved")))
         ? sort
-        : defaultSort(q),
+        : defaultSort({ q, saved: p.has("saved") }),
     asc: p.get("order") === "asc",
     ranges,
     show: (["skills", "bundles"] as const).find((v) => v === p.get("show")) ?? "all",
@@ -643,7 +647,7 @@ export function query(s: State): string {
   if (term(s)) p.set("q", term(s));
   for (const t of s.tags) p.append("tag", t);
   if (s.repo) p.set("repo", s.repo);
-  if (s.sort !== defaultSort(s.q)) p.set("sort", s.sort);
+  if (s.sort !== defaultSort(s)) p.set("sort", s.sort);
   if (s.asc) p.set("order", "asc");
   for (const prop of PROP_IDS) {
     const [lo, hi] = s.ranges[prop];
@@ -662,14 +666,14 @@ export function query(s: State): string {
 export const fresh = (): State => parse("");
 /**
  * `prev` with `patch` applied. The sort, while at its default, follows the default for the new
- * search: best match while there is one. Best match goes with the search, and Recently saved with
- * the Saved switch.
+ * search and Saved switch: best match while there's a search, Recently saved while the switch is
+ * on (see defaultSort). Best match goes with the search, and Recently saved with the switch.
  */
 export function patched(prev: State, patch: Partial<State>): State {
   const next = { ...prev, ...patch };
-  if (!("sort" in patch) && prev.sort === defaultSort(prev.q)) next.sort = defaultSort(next.q);
-  if (next.sort === "match" && !term(next)) next.sort = defaultSort("");
-  if (next.sort === "saved" && !next.saved) next.sort = defaultSort(next.q);
+  if (!("sort" in patch) && prev.sort === defaultSort(prev)) next.sort = defaultSort(next);
+  if (next.sort === "match" && !term(next)) next.sort = defaultSort(next);
+  if (next.sort === "saved" && !next.saved) next.sort = defaultSort(next);
   return next;
 }
 /**
