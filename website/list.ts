@@ -535,7 +535,7 @@ const GROWTH = {
   crowd: crowd("skill", data.skills.map(growthOf), "linear"),
   // No full stop at its end, as the numbers' titles: propsHtml adds one before the place.
   title: (e: Entry) =>
-    `${isBundle(e) ? "The most of any of its skills: " : ""}Installs on skills.sh in an average week of the 2 to ${date(data.asOf.installs)}, against an average week of the 4 before. Only for skills with at least ${compact(GROWTH_MIN)} a week, and at least ${compact(GROWTH_BASE_MIN)} in each of the last ${GROWTH_WEEKS} weeks: a younger skill, or one that took off from almost nothing, shows under ${PRESETS["rising-new"].label}`,
+    `${isBundle(e) ? "The most of any of its skills: " : ""}Installs on skills.sh in an average week of the 2 weeks to ${date(data.asOf.installs)}, against an average week of the 4 weeks before. Only for skills with at least ${compact(GROWTH_MIN)} a week, and at least ${compact(GROWTH_BASE_MIN)} in each of the last ${GROWTH_WEEKS} weeks: a younger skill, or one that took off from almost nothing, shows under ${PRESETS["rising-new"].label}`,
 };
 /**
  * The sort unless another is picked: a search's is best match; the list of what you saved is

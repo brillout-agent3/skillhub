@@ -55,8 +55,21 @@ function search() {
   none.textContent = any ? "" : `No tag matches “${input.value.trim()}”.`;
 }
 
-input.addEventListener("input", search);
-// The browser may restore what was typed, such as after going back.
+/**
+ * The search is kept in the page's address, /tags/?q=git, as the skills list keeps its own: a link
+ * holds it, and the way back from a tag's list finds the page as it was left, narrowed. Left to
+ * the browser, which is told not to complete the box, the box came back empty, with every tag, at
+ * the place of the narrowed page.
+ */
+input.addEventListener("input", () => {
+  search();
+  const typed = input.value.trim();
+  const address = typed ? `?q=${encodeURIComponent(typed)}` : location.pathname;
+  history.replaceState(history.state, "", address + location.hash);
+});
+const asked = new URLSearchParams(location.search).get("q");
+if (asked !== null) input.value = asked;
+// Or what the browser put back by itself.
 if (input.value) search();
 
 ready();

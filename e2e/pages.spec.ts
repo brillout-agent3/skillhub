@@ -255,6 +255,66 @@ test("the tags page: its search narrows it, and a tag leads to the list", async 
   await expect(page).toHaveURL(`/?tag=${encodeURIComponent(name)}`);
 });
 
+test("the tags page keeps its search in its address, for a link and for the way back", async ({
+  page,
+}) => {
+  await open(page, "/tags/");
+  const input = page.locator("#tag-q");
+  const shown = page.locator(".tag-table tbody tr:visible, .cloud-item:visible");
+  await input.fill("security");
+  await expect(page).toHaveURL("/tags/?q=security");
+  const found = await shown.count();
+  expect(found).toBeGreaterThan(0);
+
+  // To a tag's list and back: the box came back empty, with every tag.
+  await shown.first().locator("a.tag").first().click();
+  await ready(page);
+  await page.goBack();
+  await ready(page);
+  await expect(input).toHaveValue("security");
+  await expect(shown).toHaveCount(found);
+
+  // And a link to a search opens on it.
+  await open(page, "/tags/?q=zzzqqq");
+  await expect(input).toHaveValue("zzzqqq");
+  await expect(page.locator("#tag-none")).toHaveText("No tag matches “zzzqqq”.");
+  await input.fill("");
+  await expect(page).toHaveURL("/tags/");
+});
+
+test("the tags page's tables line up, whatever their tags and whatever the search hides", async ({
+  page,
+}) => {
+  await open(page, "/tags/");
+  // Where each table's second and third columns start.
+  const columns = () =>
+    page
+      .locator(".tag-table:visible")
+      .evaluateAll((tables) =>
+        tables.map((table) =>
+          [...table.querySelectorAll("th")].slice(1).map((th) => th.getBoundingClientRect().left),
+        ),
+      );
+  const all = await columns();
+  expect(all.length).toBeGreaterThan(3);
+  const lined = (tables: number[][]) => {
+    for (const table of tables)
+      table.forEach((left, column) => expect(Math.abs(left - all[0][column])).toBeLessThan(0.5));
+  };
+  lined(all);
+  await page.locator("#tag-q").fill("git");
+  lined(await columns());
+});
+
+test("a link to a part of a page leaves some air over its heading", async ({ page }) => {
+  await open(page, "/tags/");
+  await page.locator(".toc a").nth(2).click();
+  const target = decodeURIComponent(new URL(page.url()).hash);
+  expect(
+    await page.locator(target).evaluate((el) => el.getBoundingClientRect().top),
+  ).toBeGreaterThan(12);
+});
+
 test.describe("on a tablet, 768px wide", () => {
   test.use({ viewport: { width: 768, height: 900 } });
 

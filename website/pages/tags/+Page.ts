@@ -75,7 +75,7 @@ export default function Page(): string {
         <input id="tag-q" type="search" placeholder="Search tags" autocomplete="off" spellcheck="false" aria-controls="tag-sections" />
       </div>
       <nav class="toc" aria-label="Facets">${FACET_ORDER.map((id) => `<a href="#facet-${id}">${esc(facetById.get(id)?.name ?? id)}</a>`).join("")}</nav>
-      <p id="tag-none" class="muted tag-none" hidden></p>
+      <p id="tag-none" class="muted tag-none" role="status" hidden></p>
       <div id="tag-sections">${sections}</div>
     </div>`;
 }

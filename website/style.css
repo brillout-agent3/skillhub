@@ -206,6 +206,19 @@ select {
   opacity: 1;
 }
 
+/*
+ * What a link within a page or the Tab key brings into view keeps some air from the window's edge:
+ * a heading stood against its top, its letters at the edge, and a button's focus ring was cut by
+ * it. In :where(), so that whatever says its own margin, as the list's count does, keeps it.
+ */
+:where(h2, h3, h4, h5, h6, section)[id] {
+  scroll-margin-top: 16px;
+}
+
+:where(a, button, summary, input, [tabindex]) {
+  scroll-margin-block: 8px;
+}
+
 :focus-visible {
   outline: 2px solid var(--focus);
   outline-offset: 2px;
@@ -3014,6 +3027,23 @@ input[type="search"]::-webkit-search-cancel-button:hover {
 /* One chip, however many lines it takes: as an inline box, each of its lines would look like a tag. */
 .tag-table .tag {
   display: inline-block;
+}
+
+/*
+ * The tables' columns line up down the page, and stay where they are while the search hides rows:
+ * each table sized its own, so that Skills and Meaning started elsewhere under each facet, up to
+ * 100px apart, and moved as a search was typed. The first as wide as the longest tag,
+ * category:software-engineering; a longer one would widen its own table's. Not on a phone, where
+ * a tag breaks for its table to fit: see the media query for 600px.
+ */
+@media (min-width: 601px) {
+  .tag-table th:first-child {
+    width: 208px;
+  }
+
+  .tag-table th:nth-child(2) {
+    width: 36px;
+  }
 }
 
 .tag-table td,
