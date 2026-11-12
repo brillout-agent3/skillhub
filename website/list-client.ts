@@ -13,7 +13,8 @@ import {
   askable,
   countHtml,
   isListed,
-  tokensHtml,
+  tokensOf,
+  tokensText,
   fullRanges,
   patched,
   presetPatch,
@@ -463,7 +464,7 @@ function ask() {
     .then(
       () =>
         flash(
-          `Copied a prompt of ${tokensHtml(Math.round(prompt.length / 4))} to your clipboard: paste it into any chat agent.`,
+          `Copied a prompt (${tokensText(tokensOf(prompt))}) to your clipboard, ready to use with any AI agent.`,
         ),
       refused,
     );

@@ -161,7 +161,7 @@ test.describe("without a TLDR, or with a TLDR that has no glance", () => {
   test("the agent's prompt describes it by its description", async ({ page }) => {
     await open(page, "/");
     await page.locator(".ask-button").click();
-    await expect(page.locator("#ask-label")).toContainText("Copied a prompt of");
+    await expect(page.locator("#ask-label")).toContainText("Copied a prompt (");
     const prompt = await page.evaluate(() => navigator.clipboard.readText());
     for (const entry of lacking) expect(prompt).toContain(`\n- ${entry.agentReview.description}`);
     // No entry comes with nothing said about it: each has its heading, where it's from, and a fact.

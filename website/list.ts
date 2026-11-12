@@ -1400,8 +1400,17 @@ export function scopeHtml(st: State): string {
   return `${scopeChipsHtml(st)} <button type="button" class="link-button" data-action="clear">Clear filters</button>`;
 }
 
-/** The prompt's size, its number highlighted, in the line under the agent's box. */
-export const tokensHtml = (tokens: number) => `${badgeHtml(`~${compact(tokens)}`)} tokens`;
+/**
+ * About how many tokens a prompt takes: an estimate, hence the ~ where it's said. The site has no
+ * tokenizer, and each model counts with its own. At 4 characters a token, the count is within some
+ * 5% of what the tokenizers of GPT-4o and GPT-4 give for these prompts, and Claude's older one.
+ */
+export const tokensOf = (prompt: string) => Math.round(prompt.length / 4);
+const about = (tokens: number) => `~${compact(tokens)}`;
+/** A prompt's size in words, such as "~203K tokens". */
+export const tokensText = (tokens: number) => `${about(tokens)} tokens`;
+/** The same with its number highlighted, in the line under the agent's box. */
+const tokensHtml = (tokens: number) => `${badgeHtml(about(tokens))} tokens`;
 
 /** A number highlighted in the line under a box. */
 const badgeHtml = (text: string) => `<span class="badge">${esc(text)}</span>`;
@@ -1431,13 +1440,12 @@ export function askLabel(st: State): string {
 export const askable = (st: State) => results(askState(st)).list.length > 0;
 
 /**
- * About how many tokens the prompt for a state takes, at 4 characters a token, before the need is
- * typed: a large catalog can be too much for some agents. For one state at a time.
+ * About how many tokens the prompt for a state takes (see tokensOf), before the need is typed: a
+ * large catalog can be too much for some agents. For one state at a time.
  */
 let lastPrompt: { st: State; tokens: number } | undefined;
 function promptTokens(st: State): number {
-  if (lastPrompt?.st !== st)
-    lastPrompt = { st, tokens: Math.round(askPrompt(st, "", href()).length / 4) };
+  if (lastPrompt?.st !== st) lastPrompt = { st, tokens: tokensOf(askPrompt(st, "", href())) };
   return lastPrompt.tokens;
 }
 

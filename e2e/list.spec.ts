@@ -85,7 +85,7 @@ test("a search that finds nothing says so, and offers the agent", async ({ page 
   // The agent gets the search as the need, and the skills it would have looked through.
   await expect(page.locator("#ask-label")).toContainText(`of all ${n(data.skills.length)} skills.`);
   await empty.locator('[data-action="ask"]').click();
-  await expect(page.locator("#ask-label")).toContainText("Copied a prompt of");
+  await expect(page.locator("#ask-label")).toContainText("Copied a prompt (");
   const prompt = await page.evaluate(() => navigator.clipboard.readText());
   expect(prompt).toContain(`# Catalog (${listedRows} entries)`);
   expect(prompt.trimEnd().endsWith("zzzqqqxxx")).toBe(true);
@@ -635,7 +635,10 @@ test("Find with your agent copies a prompt with the list and the need", async ({
   const rows = await list(page).rows.count();
   await page.locator("#need").fill("review my pull requests");
   await page.locator(".ask-button").click();
-  await expect(page.locator("#ask-label")).toContainText("Copied a prompt of");
+  // Its size is an estimate, said in short: about so many tokens.
+  await expect(page.locator("#ask-label")).toHaveText(
+    /^Copied a prompt \(~[\d.]+[KM]? tokens\) to your clipboard, ready to use with any AI agent\.$/,
+  );
   const prompt = await page.evaluate(() => navigator.clipboard.readText());
   expect(prompt).toContain(`# Catalog (${rows} entries)`);
   expect(prompt).toContain("narrowed to: tag type:workflow");
