@@ -90,6 +90,27 @@ export const stackTags = new Set(
   data.skills.flatMap((s) => s.agentReview.tags.filter((t) => t.startsWith("stack:"))),
 );
 
+/**
+ * A tag the search finds only by its meaning: of the facets' values that skills carry and that have
+ * a meaning, the most carried, with the longest word of its meaning that its name doesn't hold.
+ */
+export const meaningTag = data.facets
+  .flatMap((f) =>
+    (f.values ?? []).map((v) => {
+      const tag = f.prefix === false ? v.id : `${f.id}:${v.id}`;
+      const name = `${tag} ${v.label ?? ""}`.toLowerCase();
+      const word = (v.description ?? "")
+        .toLowerCase()
+        .split(/[^a-z]+/)
+        .filter((w) => w.length >= 4 && !name.includes(stem(w)))
+        .toSorted((a, b) => b.length - a.length)[0];
+      const carried = data.skills.filter((s) => s.agentReview.tags.includes(tag)).length;
+      return { tag, word, meaning: v.description ?? "", carried };
+    }),
+  )
+  .filter((t) => t.word && t.carried)
+  .toSorted((a, b) => b.carried - a.carried)[0];
+
 /** A bundle to test with: the one with the most skills. */
 export const bundle = data.bundles.toSorted(
   (a, b) => b.agentReview.skills.length - a.agentReview.skills.length,

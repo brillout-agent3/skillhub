@@ -1,7 +1,7 @@
 /** The skills list: its search, its settings and its tags, which all live in the URL. */
 
 import type { Page, Route } from "@playwright/test";
-import { data, listedRows, repo, skill } from "./data.ts";
+import { data, listedRows, meaningTag, repo, skill } from "./data.ts";
 import {
   expect,
   fromCompact,
@@ -456,6 +456,41 @@ test("a tag narrows the list to as many skills as it says", async ({ page }) => 
   await expect(chip).toHaveAttribute("aria-pressed", "false");
 });
 
+test("the search finds tags too, one of which takes its place once picked", async ({ page }) => {
+  await open(page, "/");
+  await searchable(page);
+  const { count, search } = list(page);
+  const tags = page.locator("#facets .tags-count");
+  const note = page.locator("#search-note");
+  // Without a search, the line under its box counts the facets' tags, as their heading does.
+  await expect(note).toContainText(` and ${await tags.innerText()} below.`);
+
+  // By a word of its meaning, which its name doesn't hold.
+  await search.fill(meaningTag.word);
+  await settled(page);
+  const chip = page.locator(`#found-tags .chip[data-tag="${meaningTag.tag}"]`);
+  expect(await chip.getAttribute("title")).toContain(meaningTag.meaning);
+  // The heading and the line under the box count the tags the search finds.
+  const found = await page.locator("#found-tags .chip").count();
+  const said = `${n(found)} ${found === 1 ? "tag" : "tags"}`;
+  await expect(tags).toHaveText(said);
+  await expect(note).toContainText(` and ${said} below.`);
+  // The tags of the skills it finds follow, under their own count.
+  await expect(page.locator(".tags-of")).toContainText(` of the ${await count.innerText()}`);
+
+  const says = Number(await chip.locator(".n").innerText());
+  await chip.click();
+  await settled(page);
+  await expect(page).toHaveURL(`/?tag=${encodeURIComponent(meaningTag.tag)}`);
+  await expect(search).toHaveValue("");
+  await expect(count).toHaveText(`${n(says)} ${says === 1 ? "skill" : "skills"}`);
+  await expect(page.locator("#found-tags")).toHaveCount(0);
+  await expect(page.locator(`#skill-tags .chip[data-tag="${meaningTag.tag}"]`)).toHaveAttribute(
+    "aria-pressed",
+    "true",
+  );
+});
+
 test("with a search on, a tag still narrows the list to as many as it says", async ({ page }) => {
   // A common word, which finds some bundles by their own words and others by their skills': a tag
   // can then bring a bundle in through skills the search alone didn't count.
@@ -463,7 +498,7 @@ test("with a search on, a tag still narrows the list to as many as it says", asy
     await open(page, view);
     await searchable(page);
     const chips = page.locator(
-      '#facets .chip[data-tag^="type:"], #facets .chip[data-tag^="effect:"]',
+      '#skill-tags .chip[data-tag^="type:"], #skill-tags .chip[data-tag^="effect:"]',
     );
     const said = await chips.evaluateAll((all) =>
       all.map((chip) => [
@@ -473,7 +508,7 @@ test("with a search on, a tag still narrows the list to as many as it says", asy
     );
     expect(said.length, view).toBeGreaterThan(0);
     for (const [tag, says] of said) {
-      const chip = page.locator(`#facets .chip[data-tag="${tag}"]`);
+      const chip = page.locator(`#skill-tags .chip[data-tag="${tag}"]`);
       await chip.click();
       await settled(page);
       await expect(list(page).count, `${view}, ${tag}`).toHaveText(
@@ -491,7 +526,7 @@ test("a link holds the whole view, and a reload shows it again", async ({ page }
   const { count, search } = list(page);
   const shows = async () => {
     await expect(search).toHaveValue("design");
-    await expect(page.locator('#facets .chip[data-tag="type:workflow"]')).toHaveAttribute(
+    await expect(page.locator('#skill-tags .chip[data-tag="type:workflow"]')).toHaveAttribute(
       "aria-pressed",
       "true",
     );

@@ -543,17 +543,38 @@ body:has(.skills-view) #page-head {
   font-variant-numeric: tabular-nums;
 }
 
-.tag-facets > .facet:first-child {
+.tag-box > .facet:first-child {
   margin-top: 0;
 }
 
-/* The tags on a light tile, as the settings are, its top level with the list's. */
+/*
+ * While there's a search, over the facets: how many tags the skills it finds have, under the box of
+ * the tags it finds itself. See facetsHtml in list.ts.
+ */
+.tags-of {
+  margin: 24px 0 12px;
+  color: var(--ink);
+  font-size: 16px;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+}
+
+/* A tag the search found is written as the rows write it, its facet quieter, also once picked. */
+.chip[aria-pressed="true"] .tag-facet {
+  color: inherit;
+  opacity: 0.8;
+}
+
+/*
+ * The tags on a light tile, as the settings are, the first one's top level with the list's: the
+ * facets, and, while there's a search, the tags it finds above them, on a tile of their own.
+ */
 @media (min-width: 901px) {
   #filters {
     padding-left: 24px;
   }
 
-  .tag-facets {
+  .tag-box {
     padding: 12px 12px 16px;
     border-radius: 8px;
     background: var(--t-plain);

@@ -97,8 +97,8 @@ test("a search that finds a bundle only by its own name counts its skills", asyn
   await expect(count).toHaveText(skillCount);
   await expect(page.locator("#search-note")).toContainText(skillCount);
   await expect(page.locator("#ask-label")).toContainText(`the ${skillCount} below`);
-  await expect(page.locator("#facets .tags-count")).not.toHaveText("0 tags");
-  await expect(page.locator("#facets .chip")).not.toHaveCount(0);
+  await expect(page.locator(".tags-of")).not.toContainText(/^0 tags/);
+  await expect(page.locator("#skill-tags .chip")).not.toHaveCount(0);
 });
 
 test("a search that finds one skill says so in the singular", async ({ page }) => {

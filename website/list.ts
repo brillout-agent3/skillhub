@@ -883,6 +883,74 @@ function counts(st: State, facet: string, valuesOf: (s: Skill) => string[]): Map
   return n;
 }
 
+/** A facet's values on a skill: its tags in that facet, the parents it has through them included. */
+const valuesIn = (facet: string) => (s: Skill) => tagsOf(s).filter((t) => facetOf(t) === facet);
+
+/**
+ * Every tag, with what the search looks in for it: its name, the tag and its label, and its
+ * meaning, which the values of some facets have (see Facet in ../data/types.ts).
+ */
+const tagFields = new Map<string, { name: string; meaning: string }>();
+for (const t of new Set([
+  ...data.facets.flatMap((f) => (f.values ?? []).map((v) => tagOf(f, v.id))),
+  ...data.skills.flatMap(tagsOf),
+]))
+  tagFields.set(t, {
+    name: plain(`${t} ${tagLabel(t) ?? ""}`),
+    meaning: plain(tagInfo.get(t) ?? ""),
+  });
+
+/**
+ * How well a tag matches the search: every word of it starts a word of the tag's name, 2 each, or
+ * of its meaning, 1 each; 0 when one doesn't. A word must start one, unlike in a skill's text,
+ * which is longer: inside words, "git" found flag:dual-use, by "legitimate". A tag named the
+ * whole search, its facet aside, scores extra: git and stack:git before stack:github.
+ */
+function tagScore(tag: string, q: string): number {
+  const f = tagFields.get(tag);
+  if (!f) return 0;
+  const { words, phrase } = read(q);
+  let n = 0;
+  for (const { start } of words) {
+    const w = start.test(f.name) ? 2 : start.test(f.meaning) ? 1 : 0;
+    if (!w) return 0;
+    n += w;
+  }
+  const label = tagLabel(tag);
+  const named = [tag.slice(tag.indexOf(":") + 1), ...(label ? [label] : [])].map(plain);
+  return n + (named.includes(phrase) ? 1 : 0);
+}
+
+/**
+ * The tags the search finds, best match first, each with how many skills (or bundles, when the list
+ * shows only those) have it with the other filters. One of them takes the search's place when
+ * picked (see list-client.ts), so it counts as the list will then, without the search. Those that
+ * count none are left out, unless selected, as the facets leave them out. For one state at a time.
+ */
+let lastFound: { st: State; tags: [tag: string, n: number][] } | undefined;
+function foundTags(st: State): [tag: string, n: number][] {
+  if (lastFound?.st === st) return lastFound.tags;
+  const unsearched = { ...st, q: "" };
+  const byFacet = new Map<string, Map<string, number>>();
+  const countOf = (t: string) => {
+    const facet = facetOf(t);
+    let n = byFacet.get(facet);
+    if (!n) byFacet.set(facet, (n = counts(unsearched, facet, valuesIn(facet))));
+    return n.get(t) ?? 0;
+  };
+  const tags = !term(st)
+    ? []
+    : [...tagFields.keys()]
+        .map((t) => ({ t, score: tagScore(t, st.q) }))
+        .filter(({ score }) => score > 0)
+        .map(({ t, score }) => ({ t, score, n: countOf(t) }))
+        .filter(({ t, n }) => n > 0 || st.tags.includes(t))
+        .sort((a, b) => b.score - a.score || b.n - a.n || a.t.localeCompare(b.t))
+        .map(({ t, n }): [string, number] => [t, n]);
+  lastFound = { st, tags };
+  return tags;
+}
+
 /**
  * Each slider's histogram: how many skills, or bundles when the list shows only those, have a
  * value between each two neighboring stops, one bar per step of the slider. A slider counts with
@@ -1218,7 +1286,7 @@ function section(title: string, question: string | null, chips: string): string 
 function tagSection(st: State, facetId: string, listed: Set<string>): string {
   const facet = facetById.get(facetId);
   if (!facet) return "";
-  const n = counts(st, facetId, (s) => tagsOf(s).filter((t) => facetOf(t) === facetId));
+  const n = counts(st, facetId, valuesIn(facetId));
   const label = (t: string) => tagLabel(t) ?? t.slice(facetId.length + 1);
   const shown = (t: string) => Boolean(n.get(t) || st.tags.includes(t));
   const chip = (t: string) => {
@@ -1239,12 +1307,18 @@ function tagSection(st: State, facetId: string, listed: Set<string>): string {
 }
 
 /**
- * The tag facets, under how many tags they list: every tag the skills the other filters leave have,
- * and the selected ones, each once (a value under two parents shows under both), the stack's that
- * "Show all" hides included. On narrow screens the count is a button that shows and hides the
- * facets, which are hidden at first: see list-client.ts.
+ * The tags the facets list for a state: every tag the skills the other filters leave have, and the
+ * selected ones, each once (a value under two parents shows under both), the stack's that "Show
+ * all" hides included. facetSections notes them as it renders them, for one state at a time.
  */
-export function facetsHtml(st: State, stackExpanded: boolean): string {
+let lastListed: { st: State; tags: Set<string> } | undefined;
+function listedOf(st: State): Set<string> {
+  if (lastListed?.st !== st) facetSections(st, false);
+  return (lastListed as { tags: Set<string> }).tags;
+}
+
+/** The tag facets, Category to Stack, each with its tags: see listedOf. */
+function facetSections(st: State, stackExpanded: boolean): string {
   const sections: string[] = [];
   const listed = new Set<string>();
   // Flags before Topics and Stack, unlike FACET_ORDER, and on purpose: those two are the long
@@ -1294,8 +1368,51 @@ export function facetsHtml(st: State, stackExpanded: boolean): string {
           : ""),
     ),
   );
-  const count = plural(listed.size, "tag");
-  return `<h2 class="list-count"><span class="tags-count">${count}</span><button type="button" class="tags-toggle" data-action="tags" aria-expanded="false" aria-controls="tag-facets">${count}${CHEVRON}</button></h2><div id="tag-facets" class="tag-facets">${sections.join("")}</div>`;
+  lastListed = { st, tags: listed };
+  return sections.join("");
+}
+
+/**
+ * How many tags the tags' column lists, as its heading and the line under the search box count
+ * them: those the search finds, while there's one (see foundTags), or else those of the facets.
+ */
+const tagCountOf = (st: State) => (term(st) ? foundTags(st).length : listedOf(st).size);
+
+/**
+ * A tag the search finds, as the rows write it: picking it filters by it in place of the search
+ * (see list-client.ts), and its count is the skills it then lists. Its tooltip is its meaning,
+ * which may be why the search found it.
+ */
+function foundChip(t: string, n: number, pressed: boolean): string {
+  const colon = t.indexOf(":");
+  const name =
+    colon < 0
+      ? esc(t)
+      : `<span class="tag-facet">${esc(t.slice(0, colon + 1))}</span><wbr>${esc(t.slice(colon + 1))}`;
+  const title = [tagInfo.get(t), pressed ? "" : "Filters by this tag in place of the search."]
+    .filter(Boolean)
+    .join(" ");
+  return `<button type="button" class="chip" data-tag="${esc(t)}" data-replaces-search aria-pressed="${pressed}" title="${esc(title)}"><span>${name}</span><span class="n">${n}</span></button>`;
+}
+
+/**
+ * The tags' column, under how many tags it lists (see tagCountOf). While there's a search, two
+ * boxes: first the tags the search finds, then, under how many they are, the tags of the skills it
+ * finds, which are the facets. On narrow screens the count is a button that shows and hides them,
+ * which are hidden at first: see list-client.ts.
+ */
+export function facetsHtml(st: State, stackExpanded: boolean): string {
+  const count = plural(tagCountOf(st), "tag");
+  const head = `<h2 class="list-count"><span class="tags-count">${count}</span><button type="button" class="tags-toggle" data-action="tags" aria-expanded="false" aria-controls="tag-facets">${count}${CHEVRON}</button></h2>`;
+  const facets = `<div id="skill-tags" class="tag-box">${facetSections(st, stackExpanded)}</div>`;
+  if (!term(st)) return `${head}<div id="tag-facets" class="tag-facets">${facets}</div>`;
+  const found = foundTags(st)
+    .map(([t, n]) => foundChip(t, n, st.tags.includes(t)))
+    .join("");
+  const of = `${plural(shownOf(st), unitOf(st))}${savedBundlesHtml(st, true)}`;
+  return `${head}<div id="tag-facets" class="tag-facets"><div id="found-tags" class="tag-box"><div class="chips">${
+    found || `<span class="muted">No tag matches “${esc(term(st))}”.</span>`
+  }</div></div><h2 class="tags-of">${plural(listedOf(st).size, "tag")} of the ${of}</h2>${facets}</div>`;
 }
 
 /** Whether filters narrow the list: the search and the agent prompt then look through what they leave. */
@@ -1374,8 +1491,17 @@ function shownCountHtml(st: State): string {
   return `${badgeHtml(n.toLocaleString("en"))} ${unitOf(st)}${n === 1 ? "" : "s"}${savedBundlesHtml(st, true, badgeHtml)}`;
 }
 
-/** Under the search box: what it does, and how many skills (or bundles) the list below shows. */
-export const searchNote = (st: State) => `Filters ${shownCountHtml(st)} below.`;
+/**
+ * Under the search box: what it does, and how many skills (or bundles) the list below shows, and
+ * how many tags the tags' column does (see tagCountOf).
+ */
+export function searchNote(st: State): string {
+  const n = tagCountOf(st);
+  const tags = `${badgeHtml(n.toLocaleString("en"))} tag${n === 1 ? "" : "s"}`;
+  // "2 skills, 1 bundle and 5 tags", with Saved on: see savedBundlesHtml.
+  const shown = shownCountHtml(st).replace(" and ", ", ");
+  return `Filters ${shown} and ${tags} below.`;
+}
 
 /** The filters, as chips each with its × to remove it. */
 function scopeChipsHtml(st: State): string {

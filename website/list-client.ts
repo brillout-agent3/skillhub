@@ -167,7 +167,10 @@ function focusSelector(): string | null {
   ]) {
     const v = el.getAttribute(attr);
     if (v !== null)
-      return `#${["facets", "presets", "settings", "scope"].find((id) => el.closest(`#${id}`)) ?? "results"} [${attr}="${CSS.escape(v)}"]`;
+      // A facet's chip keeps the focus in the facets, rather than pass it to the same tag's among
+      // those the search found, which come first; one of those passes it to the facet's once it
+      // replaced the search, and its box is gone. See facetsHtml in list.ts.
+      return `#${["skill-tags", "facets", "presets", "settings", "scope"].find((id) => el.closest(`#${id}`)) ?? "results"} [${attr}="${CSS.escape(v)}"]`;
   }
   return el.id ? `#${CSS.escape(el.id)}` : null;
 }
@@ -541,7 +544,9 @@ app.addEventListener("click", (event) => {
   } else if (d.tag) {
     if (el.hasAttribute("aria-pressed"))
       el.setAttribute("aria-pressed", String(el.getAttribute("aria-pressed") !== "true"));
-    go({ tags: toggleTag(state.tags, d.tag) });
+    // A tag the search found takes the search's place: see foundTags in list.ts.
+    const replaces = "replacesSearch" in d && !state.tags.includes(d.tag);
+    go({ tags: toggleTag(state.tags, d.tag), ...(replaces ? { q: "" } : {}) });
   } else if (d.remove) {
     const v = d.value ?? "";
     if (d.remove === "saved") go({ saved: false });
