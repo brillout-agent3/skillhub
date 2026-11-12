@@ -69,7 +69,11 @@ const withParents = new Map(
 /** A skill's tags, plus the parents it has through them. */
 export const tagsOf = (s: Skill) => withParents.get(s.id) ?? s.agentReview.tags;
 
-/** The order facets appear in, wherever they're listed. */
+/**
+ * The order facets appear in, where they're listed: a row's tags, a skill's page and the Tags
+ * page. Not in the skills list's sidebar, which has Flags before Topics and Stack: see facetsHtml
+ * in list.ts.
+ */
 export const FACET_ORDER = ["category", "type", "effect", "needs", "by", "topic", "stack", "flag"];
 /** Tags that call for a look before installing. */
 export const CAUTION = ["flag:republished"];

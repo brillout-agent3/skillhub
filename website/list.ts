@@ -240,6 +240,9 @@ const AGE_WORDS: Record<Age, string> = { 365: "1 year", 90: "90 days", 30: "30 d
 
 // A bundle's numbers are its most popular skill's.
 const most = (e: Entry) => (isBundle(e) ? "The most of any of its skills: " : "");
+// Downloads is the site's word, in what it names and compares: Total Downloads, "more downloads
+// than". Installs is skills.sh's, and on purpose the word where a number's source is told: its
+// tooltip here, the About page's minimums, the agent's prompt.
 export const PROPS: Record<Prop, PropInfo> = {
   // Its age, such as "3 days", counted from the day it was published, which its tooltip gives: the
   // values are those dates, so the newest is the highest, and "published" names it in the URL.
@@ -1186,6 +1189,11 @@ function bundleRow(b: Bundle, st: State, outside = false): string {
     </li>`;
 }
 
+/**
+ * A facet of the sidebar. One with no tag to list says None and keeps its place, rather than go:
+ * its heading stays where it is while a search is typed. On purpose also when the search finds
+ * nothing, and every facet says None.
+ */
 function section(title: string, question: string | null, chips: string): string {
   return `<section class="facet"><h2${question ? ` title="${esc(question)}"` : ""}>${esc(title)}</h2><div class="chips">${chips || `<span class="muted">None</span>`}</div></section>`;
 }
@@ -1223,6 +1231,9 @@ function tagSection(st: State, facetId: string, listed: Set<string>): string {
 export function facetsHtml(st: State, stackExpanded: boolean): string {
   const sections: string[] = [];
   const listed = new Set<string>();
+  // Flags before Topics and Stack, unlike FACET_ORDER, and on purpose: those two are the long
+  // ones, and under them the few flags, which say what to check before installing, would be out
+  // of sight.
   for (const f of ["category", "type", "effect", "needs", "by", "flag"])
     sections.push(tagSection(st, f, listed));
   // Topics, by group.
