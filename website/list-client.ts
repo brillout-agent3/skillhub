@@ -177,12 +177,32 @@ function openRange(p: Prop | null) {
   open = p;
   for (const range of app.querySelectorAll<HTMLElement>("[data-range-section]")) {
     const on = range.dataset.rangeSection === p;
-    const pop = range.querySelector(".range-pop");
+    const pop = range.querySelector<HTMLElement>(".range-pop");
     pop?.toggleAttribute("hidden", !on);
     range.querySelector(".range-pill")?.setAttribute("aria-expanded", String(on));
-    if (on) intoView(pop);
+    if (on && pop) {
+      fit(pop);
+      intoView(pop);
+    }
   }
 }
+
+/**
+ * Keeps a popover inside the window: it opens from its pill's left edge, and the last pill's stuck
+ * out of the window's right one wherever Show is on a line of its own and the pills are long with
+ * their ranges, around 1,100px, which scrolled the page sideways. It's moved left by as much as it
+ * would stick out: see --shift in style.css.
+ */
+function fit(pop: HTMLElement) {
+  pop.style.removeProperty("--shift");
+  const over = pop.getBoundingClientRect().right - (document.documentElement.clientWidth - 12);
+  if (over > 0) pop.style.setProperty("--shift", `${Math.ceil(over)}px`);
+}
+// Again when the window's width changes under an open one, as when a tablet is turned.
+addEventListener("resize", () => {
+  const pop = open && app.querySelector<HTMLElement>(`[data-range-section="${open}"] .range-pop`);
+  if (pop) fit(pop);
+});
 
 /**
  * Brings what just opened under its button into view, when the window's bottom cuts it off: on a
@@ -201,6 +221,14 @@ document.addEventListener("keydown", (event) => {
   const inside = range?.contains(document.activeElement);
   openRange(null);
   if (inside) range?.querySelector<HTMLElement>(".range-pill")?.focus();
+});
+// And so does the keyboard on its way out, as Tab closes the Sort by menu: left open, the popover
+// stayed over the list while the focus moved on to the next filter. Only when the focus goes to
+// something else: a click on the popover's own histogram takes it from the handle to nothing.
+app.addEventListener("focusout", (event) => {
+  const range = open && app.querySelector(`[data-range-section="${open}"]`);
+  const to = event.relatedTarget as Node | null;
+  if (range && range.contains(event.target as Node) && to && !range.contains(to)) openRange(null);
 });
 
 /**
@@ -457,6 +485,35 @@ app.addEventListener("input", (event) => {
   const range: Range =
     el.dataset.end === "0" ? [Math.min(v, hi - 1), hi] : [lo, Math.max(v, lo + 1)];
   go({ ranges: { ...state.ranges, [p]: range } });
+});
+
+/**
+ * A click on a slider's track moves the nearer handle there, as on any slider: only the handles
+ * take the pointer (see .slider in style.css), so a click beside them did nothing. Only a click
+ * that also began on the track: a handle dragged against the other and let go further on ends in
+ * a click on the track too, which would move the other handle.
+ */
+let pressedTrack: EventTarget | null = null;
+app.addEventListener("pointerdown", (event) => {
+  pressedTrack = (event.target as Element).matches("[data-slider]") ? event.target : null;
+});
+app.addEventListener("click", (event) => {
+  const slider = event.target as HTMLElement;
+  const p = slider.dataset.slider as Prop | undefined;
+  if (!p || pressedTrack !== slider) return;
+  const last = PROPS[p].stops.length - 1;
+  // The track is inset by half a handle at either end: see --thumb in style.css.
+  const thumb = Number.parseFloat(getComputedStyle(slider).getPropertyValue("--thumb")) || 0;
+  const box = slider.getBoundingClientRect();
+  const at = (event.clientX - box.left - thumb / 2) / (box.width - thumb);
+  const stop = Math.max(0, Math.min(last, Math.round(at * last)));
+  const [lo, hi] = state.ranges[p];
+  const end = stop <= lo ? 0 : stop >= hi ? 1 : stop - lo <= hi - stop ? 0 : 1;
+  // As when a handle is dragged: the range keeps at least one step.
+  const range: Range = end === 0 ? [Math.min(stop, hi - 1), hi] : [lo, Math.max(stop, lo + 1)];
+  if (range[0] !== lo || range[1] !== hi) go({ ranges: { ...state.ranges, [p]: range } });
+  // The arrow keys go on from there.
+  slider.querySelector<HTMLElement>(`input[data-end="${end}"]`)?.focus();
 });
 
 app.addEventListener("click", (event) => {

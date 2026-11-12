@@ -261,6 +261,17 @@ test("a number filter narrows the list from its popover", async ({ page }) => {
   await expect(pop).toBeVisible();
   await page.locator("h1").click();
   await expect(pop).toBeHidden();
+  // And so does the keyboard on its way out: past its two handles, to the next filter.
+  await pill.focus();
+  await page.keyboard.press("Enter");
+  await expect(pop).toBeVisible();
+  await page.keyboard.press("Tab");
+  await page.keyboard.press("Tab");
+  await expect(pop.locator('input[data-end="1"]')).toBeFocused();
+  await expect(pop).toBeVisible();
+  await page.keyboard.press("Tab");
+  await expect(page.locator('.range-pill[data-value="downloads"]')).toBeFocused();
+  await expect(pop).toBeHidden();
 
   await scope.locator('[data-remove="range"]').click();
   await settled(page);
@@ -281,6 +292,69 @@ test("a number filter's slider stays where it is while it narrows the list", asy
   await expect(pill).toContainText("≥");
   await expect(page.locator('[data-preset="rising"]')).toHaveAttribute("aria-pressed", "false");
   expect(await left()).toBe(before);
+});
+
+test("a click on a number filter's track moves the nearer handle there", async ({ page }) => {
+  await open(page, "/?show=bundles");
+  await page.locator('.range-pill[data-value="stars"]').click();
+  const pop = page.locator("#range-pop-stars");
+  const track = (await page.locator('[data-slider="stars"]').boundingBox()) as {
+    x: number;
+    y: number;
+    width: number;
+    height: number;
+  };
+  const click = (along: number) =>
+    page.mouse.click(track.x + track.width * along, track.y + track.height / 2);
+
+  // A third of the way along is nearer the low handle, at the track's start.
+  await click(1 / 3);
+  await settled(page);
+  await expect(page).toHaveURL(/\/\?stars=\d+\.\.&show=bundles$/);
+  await expect(pop.locator('input[data-end="0"]')).toBeFocused();
+  // Most of the way along is nearer the high one, at its end.
+  await click(5 / 6);
+  await settled(page);
+  await expect(page).toHaveURL(/\/\?stars=\d+\.\.\d+&show=bundles$/);
+  await expect(pop.locator('input[data-end="1"]')).toBeFocused();
+  await expect(pop).toBeVisible();
+
+  // A handle dragged against the other, and let go beyond it, leaves the other where it is.
+  const [low, high] = await pop
+    .locator("input")
+    .evaluateAll((handles) => handles.map((handle) => Number((handle as HTMLInputElement).value)));
+  const last = Number(await pop.locator('input[data-end="1"]').getAttribute("max"));
+  // A stop's place on the track, which is inset by half a handle, 8px, at either end.
+  const at = (stop: number) => track.x + 8 + (stop / last) * (track.width - 16);
+  await page.mouse.move(at(low), track.y + track.height / 2);
+  await page.mouse.down();
+  await page.mouse.move(at(last), track.y + track.height / 2, { steps: 10 });
+  await page.mouse.up();
+  await settled(page);
+  await expect(pop.locator('input[data-end="0"]')).toHaveValue(String(high - 1));
+  await expect(pop.locator('input[data-end="1"]')).toHaveValue(String(high));
+});
+
+test.describe("in a window 1,100px wide, where Show is on a line of its own", () => {
+  test.use({ viewport: { width: 1100, height: 800 } });
+
+  test("the last filter's popover stays inside the window", async ({ page }) => {
+    // Every filter narrowed: its pill is longer with its range, and the last one further right.
+    await open(
+      page,
+      "/?show=bundles&published=90d..&stars=1000..50000&downloads=1000..100000&week=100..5000",
+    );
+    await page.locator('.range-pill[data-value="week"]').click();
+    const pop = page.locator("#range-pop-week");
+    await expect(pop).toBeInViewport({ ratio: 1 });
+    // Sticking out of the window's right edge, it scrolled the page sideways.
+    expect(
+      await page.evaluate(() => [
+        document.documentElement.scrollWidth - document.documentElement.clientWidth,
+        scrollX,
+      ]),
+    ).toEqual([0, 0]);
+  });
 });
 
 test("the Sort by button fits each sort's name, at one width", async ({ page }) => {
