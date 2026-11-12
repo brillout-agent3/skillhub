@@ -74540,10 +74540,32 @@
       "skillMd": {
         "version": "398127736bd4ba42d767b1419fee1a927508370b",
         "updated": "2026-11-12",
-        "skew": 156
+        "skew": 0
       },
       "agentReview": {
         "description": "Extracts clean Markdown from any HTML page.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "You want a web page's main content as clean Markdown, without its menus, ads and other clutter"
+            },
+            {
+              "label": "It does",
+              "text": "Runs `defuddle parse <url> --md`, adding `-o` to save a file such as content.md, or `-p` to pull one field such as the title"
+            },
+            {
+              "label": "Needs",
+              "text": "The Defuddle CLI; if it's missing, the agent explains and offers to install it with `npm install -g defuddle`"
+            },
+            {
+              "label": "Unlike baoyu-url-to-markdown",
+              "text": "That one loads pages in Chrome, logins included, with adapters for X, YouTube and Hacker News; this one only runs the Defuddle CLI on a URL"
+            }
+          ],
+          "text": "Defuddle is a command-line tool that keeps a web page's main content and drops navigation, ads and other clutter. This short skill has the agent call it with `--md` for Markdown, add `-o` to save the result to a file, or use `-p` to pull a single metadata field: the title, description or domain. `--json` returns both the HTML and the Markdown, and no flag returns HTML. The agent first checks that the tool is installed with `defuddle --help`, and doesn't claim an extraction worked when the tool is missing or returns an error.",
+          "permalink": "https://github.com/obsidianmd/obsidian-skills/tree/398127736bd4ba42d767b1419fee1a927508370b/plugins/obsidian/skills/defuddle"
+        },
         "tags": [
           "category:browser",
           "type:tool",
@@ -74569,10 +74591,40 @@
       "skillMd": {
         "version": "4061b67b8d976a186aca118594f54b638c5f718a",
         "updated": "2026-11-12",
-        "skew": 1339
+        "skew": 0
       },
       "agentReview": {
         "description": "Builds drag, swipe and sheet interactions that follow the finger exactly while held and finish with a spring carrying the release velocity.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "You're building or fixing something people drag, swipe, fling or hold, such as a drawer, bottom sheet, swipe-to-dismiss card or pull-to-refresh"
+            },
+            {
+              "label": "It does",
+              "text": "Splits every gesture in two: while the finger is down, the element follows it exactly; on release, a spring carries on at the finger's speed"
+            },
+            {
+              "label": "Prefers",
+              "text": "Vaul, a drawer library, for any bottom sheet or drawer; it builds a gesture by hand only when no library covers it"
+            },
+            {
+              "label": "Covers",
+              "text": "Dismissing on distance or a fast flick, resistance at edges, catching an element mid-animation, and overlays that fade with the drag"
+            },
+            {
+              "label": "Unlike apple-design",
+              "text": "That one brings Apple's fluid-interface talks to the web, plus glass, type and design principles; this one covers only gestures, with Motion code and lessons from Vaul and Sonner"
+            },
+            {
+              "label": "Checklist",
+              "text": "For every gesture: test on a real phone, keep hit targets at least 44px, set touch-action on the drag axis, and limit hover effects to mouse and trackpad"
+            }
+          ],
+          "text": "Its rule: while the finger is down, the interface is the finger; once it lifts, physics takes over. While tracking, position comes straight from the pointer, written as a transform on the dragged element, with no easing, no spring and no React re-render per move. On release, a spring starts at the gesture's velocity, so a flick lands differently from a slow drag. An element dismisses past about 40–50% of its travel or on a fast flick, bounces slightly only after a drag, never after a button press, and snaps back fast when it doesn't pass. Nothing a gesture can touch uses CSS keyframes, which restart from zero and can't be caught mid-flight, and overlays or scaled backgrounds follow the drag's position instead of animating separately. It also covers Motion's drag props, Vaul's iOS-style sheet curve, dismissing along the axis an element entered on, as the toast library Sonner does, linear timing for hold-to-delete, and reduced motion. For stutter it points to the animation-performance skill, and to pick-ui-library when unsure whether to build at all.",
+          "permalink": "https://github.com/emilkowalski/skills/tree/4061b67b8d976a186aca118594f54b638c5f718a/skills/gestures"
+        },
         "tags": [
           "category:design",
           "type:guidelines",
@@ -74603,10 +74655,44 @@
       "skillMd": {
         "version": "1f837447b20bb6f0e72d87b80ece1c221c362c7d",
         "updated": "2026-11-12",
-        "skew": 3910
+        "skew": 0
       },
       "agentReview": {
         "description": "Works out how a competitor grew, as a dated log of its moves against its traffic from public evidence, compares it with your numbers and ends with plays to run.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "You want to know how a competitor or another company grew, and which of its moves are worth copying"
+            },
+            {
+              "label": "It does",
+              "text": "Logs the company's dated moves, such as ad launches, pricing changes, new sections of its site and hires, against its monthly traffic, then measures which came before growth"
+            },
+            {
+              "label": "You get",
+              "text": "playbook.md in teardowns/<company>/: a timeline, funnel findings, a gap table against your numbers, its weak spots, and ranked plays with paste-ready prompts"
+            },
+            {
+              "label": "Unlike competitor-profiling",
+              "text": "That one describes what a company is today; this one reconstructs how it got there, in date order"
+            },
+            {
+              "label": "Needs",
+              "text": "Node for its bundled script, which covers the free sources; traffic, keyword and social-post data come from paid tools you connect, within a $5 cap by default"
+            },
+            {
+              "label": "Goes inside",
+              "text": "Signs up, books a demo or buys from the company only with your approval for each step, under your real name"
+            },
+            {
+              "label": "Modes",
+              "text": "Full teardown, content only, a quick look, a funnel hack that buys through to map upsells, several competitors at once, or a monthly watch for new moves"
+            }
+          ],
+          "text": "A teardown here is a history, not a profile. The agent asks for the company's domain, a window (24 months by default), your company, stage and channels, and which of your own data and paid tools are connected. It builds a monthly traffic curve from one source and a log of every dated move it finds. Its Node script supplies the free evidence: when ad pixels and price changes first appear in the Wayback Machine, sitemap growth, DNS records, subdomains, job posts and App Store reviews. One of 31 industry packs adds that industry's signals. The agent also reads the company's funnel, mines founders' interviews, and works out what the best posts on each social channel share. Moves within six weeks form a cluster; the script measures each cluster's lift in growth, and the skill treats timing as a lead, not proof. Every finding is labelled Observed, Inferred or Not found. Then it compares the company with your numbers, mines bad reviews for weak spots, and ranks plays, each routed to another skill of the repo, plus plays to skip and one to start this week. It pauses after every stage to report and quote costs.",
+          "permalink": "https://github.com/coreyhaines31/marketingskills/tree/1f837447b20bb6f0e72d87b80ece1c221c362c7d/skills/reverse-engineer-marketing"
+        },
         "tags": [
           "category:marketing",
           "type:workflow",
@@ -74639,10 +74725,44 @@
       "skillMd": {
         "version": "456d9e0d3e2d84c748bb143c6ca3d90c45e16213",
         "updated": "2026-11-12",
-        "skew": 3742
+        "skew": 0
       },
       "agentReview": {
         "description": "Plans, writes and styles landing pages around one offer, audience and action, with conversion copy, SEO and a strict visual system for type, spacing, radius and motion.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "You're building or restyling a landing page or marketing site and want both its copy and its look held to fixed rules"
+            },
+            {
+              "label": "It does",
+              "text": "Asks what it's missing about the offer, audience, proof and constraints, plans the page around one primary action, then builds it section by section"
+            },
+            {
+              "label": "You get",
+              "text": "An outline, hero copy, benefits, three steps, an FAQ, an SEO recommendation and a layout pick before any code, then the page"
+            },
+            {
+              "label": "Visual rules",
+              "text": "Geist, Manrope or Poppins only, Tailwind's type scale, a fixed spacing scale, flat backgrounds, Phosphor, Solar or Iconamoon icons, and one easing curve"
+            },
+            {
+              "label": "Always adds",
+              "text": "A large tagline section further down the page whose words brighten one by one as you scroll"
+            },
+            {
+              "label": "Applies to",
+              "text": "Any web UI work by its own description, dashboards and components included; your explicit prompt overrides its rules"
+            },
+            {
+              "label": "Unlike taste-skill",
+              "text": "That one picks a different design direction for each brief; this one applies the same fixed visual system to every page"
+            }
+          ],
+          "text": "Part A decides what the page says. The agent asks, in one batch, for the one action you want, the offer, the audience and their objections, the traffic source, proof and brand voice, and states an assumption for anything you can't answer. The page follows a fixed order: a hero with an outcome headline, one call to action and a proof signal, then problem and solution, benefits, three steps, testimonials, an FAQ, a risk reversal such as a free trial, and the same call to action again. Copy is specific and benefit-first, without filler such as \"supercharge\". Prices, statistics and testimonials it can't source become marked placeholders such as {{price}}. Part B is the visual system: named text styles on Tailwind's scale, spacing and radius tokens, a gradient only on the hero heading, no italics, no hyphens in copy, and motion only on transform and opacity. Every element gets hover, focus, loading, empty and error states, and a ship list covers a 404 page, legal links, meta tags, alt text and a check at 390px wide. For an existing site it points to the author's separate redesign skill.",
+          "permalink": "https://github.com/elayadesign/ai-design-skills/tree/456d9e0d3e2d84c748bb143c6ca3d90c45e16213/skills/landing-page-design"
+        },
         "tags": [
           "category:design",
           "category:marketing",
@@ -74674,10 +74794,44 @@
       "skillMd": {
         "version": "a867e1604b365d48ea03cbd109da1066ba0c84bc",
         "updated": "2026-11-12",
-        "skew": 233
+        "skew": 0
       },
       "agentReview": {
         "description": "Turns the agent into Sofia, BMad's product owner, who distills PRDs and other inputs into requirements, slices them into epics and stories, and keeps the ticket board.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "You have a PRD, brief, transcript or rough idea and want it turned into requirements, epics and stories a coding agent can build from"
+            },
+            {
+              "label": "It does",
+              "text": "Distills the input into numbered requirements, proposes how to split the work and in what order, writes the tickets and tracks their status"
+            },
+            {
+              "label": "You get",
+              "text": "Markdown tickets in your repo: a folder per initiative with its epics and stories, and tickets.toml files listing them in build order"
+            },
+            {
+              "label": "Persona",
+              "text": "Sofia, a product owner who says no early, asks only what's unsettled with her own pick, and stays on until dismissed"
+            },
+            {
+              "label": "Trackers",
+              "text": "Tickets stay in the repo by default; she publishes them to GitHub, Jira, Linear, Notion or Trello once you connect one and ask"
+            },
+            {
+              "label": "Unlike bmad-agent-pm",
+              "text": "That one, John, coaches product documents such as a PRD out of you; Sofia turns such documents into tickets"
+            },
+            {
+              "label": "Needs",
+              "text": "uv and BMad set up in the project: run the bmad skill's setup first; bmad-build or bmad-build-auto then builds each story"
+            }
+          ],
+          "text": "Sofia starts where a document ends. She reads a PRD, brief, transcript, notes or idea and writes it into a ticket as numbered requirements and constraints, each citing its source; gaps become open questions, never guesses. She sizes the work as one bug or story, an epic of stories, an initiative of several epics, or a parent over several initiatives, then proposes the split and build order in one message, with her pick on each question that changes it. You decide, and each choice is recorded with its date. An epic opens with a tracer bullet, the thinnest path through every layer it touches, and, past three stories, ends with a cleanup story by default. A bundled script reports what's ready, blocked or in progress. She refines stories before they start, has fresh subagents check a breakdown for missing prerequisites, and when something changes mid-flight, replans without rewriting built work. Your yes commits on the current branch; she never pushes, and publishing to a tracker is a separate yes.",
+          "permalink": "https://github.com/bmad-code-org/bmad-method/tree/a867e1604b365d48ea03cbd109da1066ba0c84bc/skills/bmad-agent-po"
+        },
         "tags": [
           "category:planning",
           "type:mode",
@@ -74705,10 +74859,40 @@
       "skillMd": {
         "version": "d2ef2680594f9a17526a6e1a2e18b3d242c5d17b",
         "updated": "2026-11-12",
-        "skew": 744
+        "skew": 0
       },
       "agentReview": {
         "description": "Runs a squad of agents like a team: work items with an owner and scope, a Kanban of their states, a branch or worktree each, and merge gates.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "Several agents work in parallel across branches or worktrees, and their output isn't coming together into one product"
+            },
+            {
+              "label": "It does",
+              "text": "Gives each agent a card like a teammate's: an owner, a file scope, a state, evidence of the work and a merge gate, the exact condition for merging it"
+            },
+            {
+              "label": "Board",
+              "text": "An agent Kanban of seven columns, from backlog through running and review to merged or archived, each with exit criteria"
+            },
+            {
+              "label": "You get",
+              "text": "After each pass, a summary of board changes, merged or pending branches, test evidence, blockers with owners, and patterns worth making into skills"
+            },
+            {
+              "label": "Unlike parallel-execution-optimizer",
+              "text": "That one speeds up one task by running independent lanes at once; this one runs agents as a team across sessions, with owners and merge gates"
+            },
+            {
+              "label": "Keep in mind",
+              "text": "A one-page operating model with no scripts or board tool; it says what a control pane, a status view of every agent, should show but builds none"
+            }
+          ],
+          "text": "The skill treats a squad of agents like a team. Work starts as a board: fuzzy goals become cards, each with one owner, a file scope, acceptance criteria, a branch or worktree and a merge gate, in a small JSON format. Then you pick how to run them, from a single agent to tmux, worktree fan-out or an external orchestrator, and no two agents write the same files without an integrator. Agents leave evidence and handoff notes, not just code. Review goes in order: tests, the diff, security, then polish, and one integrator merges. It names the failure modes to watch: agent soup (many agents, no owner or gate), board theater (cards without acceptance criteria), work that lives only in a chat transcript, overlapping writes, and a process that ships no product. A card pattern that repeats gets promoted into a skill, and a card that needs its own harness follows dynamic-workflow-mode's rules.",
+          "permalink": "https://github.com/affaan-m/ecc/tree/d2ef2680594f9a17526a6e1a2e18b3d242c5d17b/skills/team-agent-orchestration"
+        },
         "tags": [
           "category:agents",
           "category:engineering",
@@ -74736,10 +74920,40 @@
       "skillMd": {
         "version": "d2ef2680594f9a17526a6e1a2e18b3d242c5d17b",
         "updated": "2026-11-12",
-        "skew": 1235
+        "skew": 0
       },
       "agentReview": {
         "description": "Decides when a task deserves its own throwaway harness, gives it an objective, inputs, an eval gate and a handoff, and promotes repeated harnesses to shared skills.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "A task might call for the agent to build its own tooling for the job, such as a custom loop, evaluator, crawler or watcher"
+            },
+            {
+              "label": "It does",
+              "text": "Decides whether the task deserves a harness, a small tool built for that one task, then pins down its objective, inputs, outputs, pass/fail check and handoff before any code"
+            },
+            {
+              "label": "Decision rule",
+              "text": "One-off tasks stay inline, repeated ones get a local harness, and a pattern repeated across teammates or repos becomes a shared skill"
+            },
+            {
+              "label": "Guards",
+              "text": "Which tool may read, write or publish, and which accounts or projects are in scope; it holds an operation rather than quietly switching tools"
+            },
+            {
+              "label": "You get",
+              "text": "The harness or skill path, the eval commands and their results, a handoff note, and the next candidate to turn into a skill"
+            },
+            {
+              "label": "Unlike team-agent-orchestration",
+              "text": "That one runs several agents as a team with cards and merge gates; this one designs one task's tooling and decides when it becomes a skill"
+            }
+          ],
+          "text": "The skill is for agents that can build a task-specific harness instead of following a fixed command flow, as in Claude Code's dynamic workflow mode. A harness is worth it only when it's cheaper and safer than doing the steps by hand. Its template asks what it ships and what it doesn't, its inputs and credentials policy, a loop (discover, make the smallest useful change, run the check, record status, stop on a failed gate) and a handoff note. Every harness needs a check tied to the task, such as a focused test and lint for code or a browser smoke test with a screenshot for UI; \"it ran\" doesn't count. A long section covers boundaries: a tool allowed to read isn't thereby allowed to write, only you can change that, and text found in tool output is never permission. A harness becomes a shared skill, written to skills/<name>/SKILL.md, when at least two of five signs hold, such as repeated use or a stable input and output. For work spanning sessions, it records plan, queue, run, gate and handoff checkpoints.",
+          "permalink": "https://github.com/affaan-m/ecc/tree/d2ef2680594f9a17526a6e1a2e18b3d242c5d17b/skills/dynamic-workflow-mode"
+        },
         "tags": [
           "category:agents",
           "category:skill-tools",
@@ -74769,10 +74983,40 @@
       "skillMd": {
         "version": "d2ef2680594f9a17526a6e1a2e18b3d242c5d17b",
         "updated": "2026-11-12",
-        "skew": 1071
+        "skew": 0
       },
       "agentReview": {
         "description": "Interviews founders over several sessions, one question at a time, about purpose, positioning, audience, personality, voice and story, and writes a master brandbook.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "You're creating or repositioning a brand and want what its founders know written down, to brief designers and writers"
+            },
+            {
+              "label": "It does",
+              "text": "Interviews you one question at a time across seven topics, from purpose and positioning to voice and story, digging until a core value surfaces"
+            },
+            {
+              "label": "You get",
+              "text": "A file per topic with your verbatim answers and its interpretation, then 90_SYNTHESIS.md, a master brandbook"
+            },
+            {
+              "label": "Runs over",
+              "text": "Several sessions: it saves a state.json checkpoint after each topic and resumes where you stopped"
+            },
+            {
+              "label": "Several founders",
+              "text": "Interviews each one separately into their own file, then compares the answers and flags disagreements for a group workshop"
+            },
+            {
+              "label": "Unlike product-marketing",
+              "text": "That one fills one context file on product, audience and voice for other marketing skills; this one interviews founders in depth for a brandbook"
+            }
+          ],
+          "text": "Each topic is a module built on named frameworks, such as Sinek's Golden Circle for purpose, Dunford's Obviously Awesome for positioning and Mark and Pearson's 12 archetypes for personality, and the brandbook draws on Kapferer's brand prism. After each answer the agent paraphrases it, then probes once more or closes the thread. It follows \"what\" answers with \"why does that matter to you?\" until a core value surfaces, pushes beliefs through five whys, asks for a concrete story or number when an answer is vague, and uses one imaginative question per module, such as how the brand would walk into a room as a person, or what customers would miss if it closed. A module ends when two probes in a row bring nothing new. Its file has a Raw section of quotes and a Synthesis section with three candidate wordings, open questions and contradictions. Every session starts by reading the saved state and telling you where you are. Its related skills are competitive-platform-analysis, for the competitor set, and brand-voice, for a writing-style profile.",
+          "permalink": "https://github.com/affaan-m/ecc/tree/d2ef2680594f9a17526a6e1a2e18b3d242c5d17b/skills/brand-discovery"
+        },
         "tags": [
           "category:business",
           "category:marketing",
@@ -74800,10 +75044,40 @@
       "skillMd": {
         "version": "d2ef2680594f9a17526a6e1a2e18b3d242c5d17b",
         "updated": "2026-11-12",
-        "skew": 1178
+        "skew": 0
       },
       "agentReview": {
         "description": "Has the agent score its finished work from 1 to 5 on accuracy, completeness, clarity, actionability and conciseness, with evidence for each score, and fix the quick gaps.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "The agent has just finished non-trivial work, such as a multi-file change, a long debugging session or a design document, or you ask it to rate itself"
+            },
+            {
+              "label": "It does",
+              "text": "Scores the output 1 to 5 on accuracy, completeness, clarity, actionability and conciseness, citing evidence, such as test results, for every score below 5"
+            },
+            {
+              "label": "You get",
+              "text": "A scorecard with an overall average, one to three improvements ranked by impact, and a check on whether you'd agree with it"
+            },
+            {
+              "label": "Then",
+              "text": "Fixes gaps that take under 30 seconds, such as a missing link, and flags bigger ones with what a rerun would change"
+            },
+            {
+              "label": "Unlike santa-method",
+              "text": "That one has two independent reviewer subagents hold the output until both pass; here the agent grades its own work, as reflection rather than a gate"
+            },
+            {
+              "label": "Optional",
+              "text": "A Stop hook, described in its reference files, that reminds the agent to self-evaluate when a session ends"
+            }
+          ],
+          "text": "This is a reflection step, not a pass/fail gate. The agent reads back your request, its final output, tool results such as tests and lint, and any corrections you made, then scores each of the five axes on its own rather than settling on an overall number first. Accuracy catches wrong facts or API names, completeness missed requirements, clarity confusing explanations, actionability vague steps, and conciseness filler. Any score below 5 has to show the gap, not just say \"could be better\". It judges only against what you asked for, not work you didn't request, doesn't re-argue design choices already made, and doesn't count personal taste as evidence. If every axis comes out at 5, it's told to look harder.",
+          "permalink": "https://github.com/affaan-m/ecc/tree/d2ef2680594f9a17526a6e1a2e18b3d242c5d17b/skills/agent-self-evaluation"
+        },
         "tags": [
           "category:debugging",
           "type:workflow",
@@ -74829,10 +75103,44 @@
       "skillMd": {
         "version": "d2ef2680594f9a17526a6e1a2e18b3d242c5d17b",
         "updated": "2026-11-12",
-        "skew": 2481
+        "skew": 0
       },
       "agentReview": {
         "description": "Turns an ambiguous or risky change into scoped, testable acceptance criteria, asking only what the repository can't answer.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "A change is ambiguous or risky, such as auth, data migrations or external APIs, and you want \"done\" defined before or while it's built"
+            },
+            {
+              "label": "It does",
+              "text": "Reads the repo first, asks only what it can't find there, then writes numbered acceptance criteria: scenario, trigger, expected result, what must not happen, how to verify"
+            },
+            {
+              "label": "Two depths",
+              "text": "A Quick Capture of 3–7 criteria for moderate risk, or a Full Acceptance Brief with a risk review, blocking decisions and a verification plan"
+            },
+            {
+              "label": "Doesn't block",
+              "text": "Clear changes go ahead with criteria noted; it waits for you only on decisions risking security, data loss, irreversible migrations, broken contracts or real cost"
+            },
+            {
+              "label": "Keeps apart",
+              "text": "Technical facts found in the code, and business rules such as pricing or retention policy, which stay assumptions until you confirm them"
+            },
+            {
+              "label": "You get",
+              "text": "The brief or criteria in chat; it saves a file, branches or commits only when you ask or your repo's workflow requires it"
+            },
+            {
+              "label": "Unlike spec-driven-development",
+              "text": "That one writes a spec file and waits for your approval before any code; this one writes nothing by default and pauses only for risky decisions"
+            }
+          ],
+          "text": "The skill turns a vague or high-stakes request into acceptance criteria two people would agree on, and stays out of trivial edits, debugging and code review. Each criterion, AC-001 onward, has a starting condition, one action, an observable result, a side effect that must not happen, a verification method, such as an automated test, a manual accessibility check or a security review, and a priority. Words like \"correctly\", \"securely\" or \"fast\" need observable evidence or a note that a person must judge them. It covers only the boundaries that apply, from validation and authorization to migrations, concurrency and performance. Given a PRD or plan, it reviews it for missing scope, contradictions and untestable requirements instead of starting over. If a criterion proves impossible mid-build, it marks it [revised], states the constraint and shows you only what changed. It keeps secrets and production data out of criteria, and runs nothing destructive or paid without your authorization. The brief then goes to whatever planning or build workflow you use.",
+          "permalink": "https://github.com/affaan-m/ecc/tree/d2ef2680594f9a17526a6e1a2e18b3d242c5d17b/skills/intent-driven-development"
+        },
         "tags": [
           "category:planning",
           "type:workflow",
@@ -74860,10 +75168,44 @@
       "skillMd": {
         "version": "d2ef2680594f9a17526a6e1a2e18b3d242c5d17b",
         "updated": "2026-11-12",
-        "skew": 1000
+        "skew": 0
       },
       "agentReview": {
         "description": "Checks CodeScene's Code Health score of a file before and after each edit, and before commits and pull requests, so the agent never leaves code less maintainable than it found it.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "You want agent edits, especially large AI-written diffs or changes to legacy files, never to leave code harder to maintain"
+            },
+            {
+              "label": "It does",
+              "text": "Gets a file's Code Health score, 1 to 10, and its code smells from CodeScene before editing, rechecks after every change, and fixes any drop first"
+            },
+            {
+              "label": "Gates",
+              "text": "A pre-commit check that blocks commits lowering Code Health, and a check of the whole branch against main before a pull request"
+            },
+            {
+              "label": "Scales edits",
+              "text": "Low-scoring files get only minimal diffs; higher-scoring ones can be refactored, still rechecked after each edit"
+            },
+            {
+              "label": "Needs",
+              "text": "CodeScene's Code Health MCP server, run with npx, and a personal access token you set; its free standalone mode is enough"
+            },
+            {
+              "label": "If it's down",
+              "text": "The agent says the check was skipped rather than inventing scores, and goes on only with your approval"
+            },
+            {
+              "label": "Unlike coding-standards",
+              "text": "That one sets naming and readability conventions; this one measures structure and complexity with a score and blocks regressions"
+            }
+          ],
+          "text": "Code Health is CodeScene's 1–10 score of how maintainable a file's design is: 9 and up is healthy, below 4 is severe debt. The skill shows how to add CodeScene's MCP server to Claude Code or to one project, then limits the agent to the four tools that need no paid CodeScene account: a full review before touching a file, a quick score after each change, a pre-commit safeguard and a branch analysis before a PR. The agent records the baseline score and smells, plans the smallest change, and never calls a task done while the score is lower than when it started, even if tests pass. It includes a block to paste into AGENTS.md or CLAUDE.md that makes this loop the rule in every session, and it adds to ECC's verification-loop and tdd-workflow skills rather than replacing tests or lint. Its example takes a Flask module from 4.82 to 9.1. The tools analyze files and git state in your local repository.",
+          "permalink": "https://github.com/affaan-m/ecc/tree/d2ef2680594f9a17526a6e1a2e18b3d242c5d17b/skills/codehealth-mcp"
+        },
         "tags": [
           "category:debugging",
           "type:workflow",
@@ -74893,10 +75235,44 @@
       "skillMd": {
         "version": "d2ef2680594f9a17526a6e1a2e18b3d242c5d17b",
         "updated": "2026-11-12",
-        "skew": 1244
+        "skew": 0
       },
       "agentReview": {
         "description": "Scans a legacy codebase for its unwritten conventions, settles conflicts with you one question at a time, and writes them to .ai-style-rules.md for the agent to follow.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "You're bringing an AI agent onto an older, hand-written codebase and don't want its code to drift from the project's existing style"
+            },
+            {
+              "label": "It does",
+              "text": "Reads the code, sampled by project size, for four things: file layout, naming of state and flags, where shared utilities live, and error handling"
+            },
+            {
+              "label": "Asks you",
+              "text": "Only about real splits, one question at a time, with a file from each side and four choices; lopsided splits go to the majority on their own"
+            },
+            {
+              "label": "You get",
+              "text": ".ai-style-rules.md at the project root: exemplar \"golden files\", naming rules and a list of DONTs, stamped with the commit it was built from"
+            },
+            {
+              "label": "Enforcement",
+              "text": "Your choice of a reference in CLAUDE.md, that plus a hook before every edit, or neither; with it, each coding task opens by naming the exemplar it follows"
+            },
+            {
+              "label": "On later runs",
+              "text": "It checks only recent git changes against the rules, and appends a dated evolution log instead of rewriting them"
+            },
+            {
+              "label": "Unlike codebase-onboarding",
+              "text": "That one writes a CLAUDE.md about the stack, architecture and where to look; this one codifies only the coding conventions new code must match"
+            }
+          ],
+          "text": "The skill aligns how code is organized, not which tech it uses or how good it is. It first counts source files to decide how much to read: every file in a small project, infrastructure plus samples in a medium one, git summaries and targeted reads in a large one. A tiny minority pattern, under 5% and fewer than 10 cases, is resolved for the majority and goes into the DONTs; a near-even split, or one as narrow as 3 to 2 in a small project, is put to you with each side's file and four options: follow one, follow the other, treat it as evolution and update the rules, or give a new rule. Golden files are copied for their structure, not their bugs. A CLAUDE.md reference is the recommended enforcement; the settings.json hook is for when you want it enforced mechanically, and it never picks that without asking. It works with any language, and git helps but isn't required.",
+          "permalink": "https://github.com/affaan-m/ecc/tree/d2ef2680594f9a17526a6e1a2e18b3d242c5d17b/skills/inherit-legacy-style"
+        },
         "tags": [
           "category:engineering",
           "type:workflow",
@@ -74923,10 +75299,40 @@
       "skillMd": {
         "version": "d2ef2680594f9a17526a6e1a2e18b3d242c5d17b",
         "updated": "2026-11-12",
-        "skew": 286
+        "skew": 0
       },
       "agentReview": {
         "description": "Builds a new feature through ECC's gated pipeline: research, a plan you approve, test-first implementation, review, and a commit you confirm.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "You want ECC's agents to build a capability that doesn't exist yet, not fix a bug or change existing behavior"
+            },
+            {
+              "label": "It does",
+              "text": "Researches existing libraries and code, has a planner agent write a task list, then builds each task test-first and has it reviewed"
+            },
+            {
+              "label": "Stops twice",
+              "text": "After the plan, until you approve it, and before the commit, until you confirm the diff and messages"
+            },
+            {
+              "label": "Right-sizes",
+              "text": "Trivial or small features skip research and planning and go straight to tests, review and commit"
+            },
+            {
+              "label": "Unlike /feature-dev",
+              "text": "That ECC command runs the same flow on its own; this one shares orch-pipeline's size check and two stops with the other orch skills"
+            },
+            {
+              "label": "Needs",
+              "text": "ECC installed, and orch-pipeline, which defines the phases and hands each to an ECC agent such as planner, tdd-guide or code-reviewer"
+            }
+          ],
+          "text": "A thin wrapper over orch-pipeline, the shared engine of ECC's orch skills. It sets the engine for net-new work: a default size of standard, which runs research and planning, no scaffold step, which only orch-build-mvp uses, and implementation that starts by writing failing tests for the new behavior, then making them pass. The engine sizes the request first, so a trivial feature goes straight to tests, review and commit. Between the two stops the run continues without asking. ECC's security-reviewer agent joins when the feature touches a sensitive area such as authentication. For a bug or a change to existing behavior, ECC has orch-fix-defect and orch-change-feature, which SkillHub doesn't list.",
+          "permalink": "https://github.com/affaan-m/ecc/tree/d2ef2680594f9a17526a6e1a2e18b3d242c5d17b/skills/orch-add-feature"
+        },
         "tags": [
           "category:engineering",
           "category:agents",
@@ -74958,10 +75364,44 @@
       "skillMd": {
         "version": "d2ef2680594f9a17526a6e1a2e18b3d242c5d17b",
         "updated": "2026-11-12",
-        "skew": 348
+        "skew": 0
       },
       "agentReview": {
         "description": "Turns a design or spec document into a running MVP, one thin vertical slice at a time, through ECC's generator and evaluator build loop, with a plan you approve and commits you confirm.",
+        "tldr": {
+          "glance": [
+            {
+              "label": "Use it when",
+              "text": "You have a design or spec document, such as a PRD, and want a running MVP built from it"
+            },
+            {
+              "label": "It does",
+              "text": "Reads the document, orders its features into thin vertical slices with one end-to-end path first, and scaffolds that first slice"
+            },
+            {
+              "label": "Builds with",
+              "text": "ECC's /gan-build loop: a generator agent writes the code and an evaluator scores it against the spec, until it passes or stops improving"
+            },
+            {
+              "label": "Stops twice",
+              "text": "After the slice plan, until you approve it, and before each commit, until you confirm it; the scaffold and each slice get their own feat: commit"
+            },
+            {
+              "label": "You get",
+              "text": "A gan-harness/ folder with the spec, a scoring rubric and each round's feedback, and the MVP committed slice by slice"
+            },
+            {
+              "label": "Unlike gan-style-harness",
+              "text": "That one builds a whole app from a one-line brief with its own planner; this one starts from your spec, skips the planner and gates each slice"
+            },
+            {
+              "label": "Needs",
+              "text": "ECC installed, for orch-pipeline's phases and gates and for the /gan-build command and its agents"
+            }
+          ],
+          "text": "A thin wrapper over orch-pipeline, the shared engine of ECC's orch skills, set to its largest size so every phase runs. You pass the path to a design or spec document. The agent extracts its scope, locked decisions and feature list, and orders the work so one path runs end to end before anything is broadened, rather than all models first and then all views. After you approve the slice plan, it scaffolds the first slice, translates the document into gan-harness/spec.md and a scoring rubric, then runs /gan-build with its planner skipped: up to 15 rounds, passing at 7 out of 10, with the app tested in a browser through Playwright, or the code alone for slices without a UI. Every slice is reviewed, with ECC's security-reviewer agent for authentication, input handling and other sensitive areas, and becomes its own commit once you confirm it.",
+          "permalink": "https://github.com/affaan-m/ecc/tree/d2ef2680594f9a17526a6e1a2e18b3d242c5d17b/skills/orch-build-mvp"
+        },
         "tags": [
           "category:engineering",
           "category:planning",
