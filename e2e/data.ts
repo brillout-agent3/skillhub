@@ -133,6 +133,15 @@ export const bundle = data.bundles.toSorted(
 )[0];
 export const bundleUrl = `/${bundlePage(bundle)}/`;
 
+/** How many flags a bundle's install commands set to something, such as a `--skill` per skill. */
+const flagsSet = (b: (typeof data.bundles)[number]) =>
+  b.agentReview.install.reduce(
+    (n, { command }) => n + (command.match(/(?:^| )-\S* (?!-|&&|\|)\S/g)?.length ?? 0),
+    0,
+  );
+/** The page of the bundle whose install commands set the most flags: the ones with the most to wrap. */
+export const flagsBundleUrl = `/${bundlePage(data.bundles.toSorted((a, b) => flagsSet(b) - flagsSet(a))[0])}/`;
+
 /** What a repo's page lists: its bundles, then every skill of the repo. */
 const listing = (repo: string) => ({
   repo,

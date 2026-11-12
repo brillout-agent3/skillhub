@@ -4,18 +4,29 @@ export const esc = (s: string) => s.replace(/[&<>"']/g, (c) => `&#${c.charCodeAt
 
 /**
  * A shell command, escaped, that wraps only between its words, or after a slash in a URL: a browser
- * would otherwise break a line after a hyphen, such as inside --skill.
+ * would otherwise break a line after a hyphen, such as inside --skill. A flag stays with what it's
+ * set to, `--skill grill-me`, where a line has room for both (see .pair in style.css): a bundle's
+ * command names a skill per flag, and its lines ended on a flag, with the skill on the next.
  */
-export const commandHtml = (command: string) =>
-  command
-    .split(" ")
-    .map((word) =>
-      word
-        .split(/(?<=\/)/)
-        .map((part) => `<span class="word">${esc(part)}</span>`)
-        .join("<wbr>"),
-    )
-    .join(" ");
+export function commandHtml(command: string): string {
+  const html = (word: string) =>
+    word
+      .split(/(?<=\/)/)
+      .map((part) => `<span class="word">${esc(part)}</span>`)
+      .join("<wbr>");
+  const words = command.split(" ");
+  const out: string[] = [];
+  for (let i = 0; i < words.length; i++) {
+    const next = words[i + 1];
+    // What a flag is set to: not the next flag, what joins two commands, or a URL, which is long
+    // enough to need the lines of its own.
+    const set =
+      words[i].startsWith("-") && next && !/^(-|&&$|\|\|?$|;$)/.test(next) && !next.includes("://");
+    out.push(set ? `<span class="pair">${html(words[i])} ${html(next)}</span>` : html(words[i]));
+    if (set) i++;
+  }
+  return out.join(" ");
+}
 
 /** 3.5M, 907K, 54.5K, 812 */
 export function compact(n: number): string {

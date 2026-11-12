@@ -2523,6 +2523,12 @@ input[type="search"]::-webkit-search-cancel-button:hover {
   white-space: nowrap;
 }
 
+/* A flag and what it's set to, `--skill grill-me`, go to the next line together: they only part
+   where a line is too short for both, as on a phone. See commandHtml in format.ts. */
+.install code .pair {
+  display: inline-block;
+}
+
 /* Copy and Copied share one cell, so the button keeps its width when it says it copied. */
 .copy {
   display: inline-grid;

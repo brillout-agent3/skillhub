@@ -5,6 +5,7 @@ import {
   bundle,
   bundleUrl,
   data,
+  flagsBundleUrl,
   owner,
   repo,
   skill,
@@ -101,6 +102,32 @@ test("a bundle's page: its skills in order, and how to install them", async ({ p
   // Its trend reads out each week with the keyboard, as a skill's does.
   await page.locator(".spark").focus();
   await expect(page.locator(".spark-tip")).toBeVisible();
+});
+
+test("where an install command wraps, a flag stays with what it's set to", async ({ page }) => {
+  await open(page, flagsBundleUrl);
+  const pairs = page.locator(".install code .pair");
+  await expect(pairs).not.toHaveCount(0);
+  // Each on one line, unless it's wider than a line by itself: the command is in a font whose
+  // letters are all as wide, so a pair is as wide as its letters.
+  const parted = await pairs.evaluateAll(
+    (all) =>
+      all.filter((pair) => {
+        const code = pair.closest("code") as HTMLElement;
+        const style = getComputedStyle(code);
+        const room =
+          code.clientWidth -
+          Number.parseFloat(style.paddingLeft) -
+          Number.parseFloat(style.paddingRight);
+        const words = [...pair.querySelectorAll(".word")].map((word) =>
+          word.getBoundingClientRect(),
+        );
+        const letter = words[0].width / (pair.querySelector(".word")?.textContent ?? " ").length;
+        const lines = new Set(words.map((word) => Math.round(word.top))).size;
+        return lines > 1 && (pair.textContent ?? "").length * letter <= room;
+      }).length,
+  );
+  expect(parted).toBe(0);
 });
 
 test("a bundle's page says which of its skills work alone: all, some or none", async ({ page }) => {
