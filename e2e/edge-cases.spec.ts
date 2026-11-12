@@ -108,6 +108,11 @@ test("a search that finds one skill says so in the singular", async ({ page }) =
   await settled(page);
   await expect(list(page).count).toHaveText("1 skill");
   await expect(page.locator("#ask-label")).toContainText("the 1 skill below.");
+  // As does the prompt the agent gets, of its catalog.
+  await page.locator(".ask-button").click();
+  await expect(page.locator("#ask-label")).toContainText("copied to your clipboard");
+  const prompt = await page.evaluate(() => navigator.clipboard.readText());
+  expect(prompt).toContain("# Catalog (1 entry)\n");
 });
 
 test("the numbers line up down the list, whatever a row has of them", async ({ page }) => {

@@ -1175,7 +1175,7 @@ Using only this catalog, pick the skills that best fit my need, best first, at m
 
 Each entry's link is its path in parentheses, after ${base}
 
-# Catalog (${list.length} entries)
+# Catalog (${list.length} ${list.length === 1 ? "entry" : "entries"})
 
 ${list.map(entry).join("\n\n")}
 
