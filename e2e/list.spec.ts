@@ -917,8 +917,10 @@ test("Find with your agent copies a prompt with the list and the need", async ({
   await page.locator("#need").fill("review my pull requests");
   await page.locator(".ask-button").click();
   // Its size in short, the number highlighted as in the line before the click, and without a ~.
+  // Said as that line says it, "a prompt of 2.1K tokens": in brackets, the highlight's own
+  // padding stood between the bracket and the number, "( 2.1K tokens)".
   await expect(page.locator("#ask-label")).toHaveText(
-    /^Prompt \([\d.]+[KM]? tokens\) copied to your clipboard, ready to use with any AI\.$/,
+    /^Prompt of [\d.]+[KM]? tokens copied to your clipboard, ready to use with any AI\.$/,
   );
   await expect(page.locator("#ask-label .badge")).toHaveText(/^[\d.]+[KM]?$/);
   const prompt = await page.evaluate(() => navigator.clipboard.readText());

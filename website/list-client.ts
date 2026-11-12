@@ -519,7 +519,7 @@ function ask() {
     .then(
       () =>
         flash(
-          `Prompt (${tokensHtml(tokensOf(prompt))}) copied to your clipboard, ready to use with any AI.`,
+          `Prompt of ${tokensHtml(tokensOf(prompt))} copied to your clipboard, ready to use with any AI.`,
         ),
       refused,
     );
